@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as Global from '../shared/globalComponentsStyle'
 import * as Styles from './calendarStyle'
-import { SelectChangeEvent } from '@mui/material/Select'
 import { StepIconProps } from '@mui/material/StepIcon'
 import { WarningIcon } from '../shared/icons'
 
@@ -59,16 +58,17 @@ interface calendarProps {
   joinEventClick?: () => void
 }
 
+/**
+ * @param {calendarProps} props
+ */
 export default function CalendarCard(props: calendarProps) {
-
-  // const router = useRouter() should create action props
 
   const [module, setModule] = useState('')
   const [moduleEvents, setModuleEvents] = useState([])
   const [moduleSelector, setModuleSelector] = useState(false)
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setModule(event.target.value as string)
+  const handleChange = (event: any) => {
+    setModule(event.target?.value as string)
     setModuleEvents(props.calendarEvents[event.target.value])
   }
 
@@ -111,7 +111,7 @@ export default function CalendarCard(props: calendarProps) {
 
               {moduleEvents && moduleEvents.length > 0 &&
                 <Styles.BoxLabelTimeMentoring>
-                  <Styles.LabelTimeMentoring>events.card.mentoringSchedule {`globals.weekdays.${moduleEvents[0].weekday}`} @ {moduleEvents[0].hour}</Styles.LabelTimeMentoring>
+                  <Styles.LabelTimeMentoring>events.card.mentoringSchedule {`globals.weekdays.weekday}`} @ event.hour</Styles.LabelTimeMentoring>
                 </Styles.BoxLabelTimeMentoring>
               }
               <Styles.ActionContainer>

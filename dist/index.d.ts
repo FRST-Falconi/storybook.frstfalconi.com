@@ -1,2 +1,2 @@
-import Calendar from "./calendar/calendar"
-export { Calendar }
+export { default as CalendarCard } from "./src/calendar";
+//# sourceMappingURL=index.d.ts.map
