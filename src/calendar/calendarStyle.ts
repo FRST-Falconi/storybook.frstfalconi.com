@@ -108,7 +108,7 @@ export const CustomStep = styled(Step)`
 
 export const BoxStepper = styled(Box)`
   width: 100% !important;
-  margin-top: 20px !important;
+  padding-top: 20px !important;
   text-align: center !important;
   overflow: hidden !important;
   height: 110px !important;
