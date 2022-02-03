@@ -18,6 +18,5 @@
       "@shared/*": ["src/shared/*"],
       "@images/*": ["public/images/*"]
     }
-  },
-  "exclude": ["dist"]
+  }
 }
