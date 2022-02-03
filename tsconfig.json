@@ -1,4 +1,6 @@
 {
+  // Mude isso para corresponder ao seu projeto
+  "include": ["./**/*"],
   "compilerOptions": {
     "outDir": "./dist",
     "target": "es6",
@@ -8,11 +10,14 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
+    "strict": false,
+    // Gerar arquivos d.ts
+    "declaration": true,
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["src/shared/*"],
       "@images/*": ["public/images/*"]
-    },
+    }
   },
   "exclude": ["dist"]
 }
