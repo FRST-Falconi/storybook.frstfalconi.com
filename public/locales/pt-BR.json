@@ -1,0 +1,20 @@
+{
+  "globals.clickHere": "Clique aqui",
+
+  "calendar.weekdays": [
+    "domingo",
+    "segunda-feira",
+    "terça-feira",
+    "quarta-feira",
+    "quinta-feira",
+    "sexta-feira",
+    "sabado"
+  ],
+  "calendar.monthsInitials": ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+  "calendar.title": "Eventos",
+  "calendar.subtitle": "Programe-se abaixo e não perca nenhum evento.",
+  "calendar.card.description": "Selecione abaixo o módulo que deseja ver os eventos.",
+  "calendar.card.mentoringSchedule": "Horario das mentorias: próxima",
+  "calendar.card.fullSchedule": "para ver sua agenda de eventos completa",
+  "calendar.card.joinEvent": "Entrar no evento"
+}
