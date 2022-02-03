@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
-import * as Global from '../shared/globalComponentsStyle';
-import * as Styles from './calendarStyle';
-import { WarningIcon } from '../shared/icons';
-import { Tooltip, MenuItem, CardContent, StepLabel } from '@mui/material';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const react_1 = require("react");
+const Global = require("../shared/globalComponentsStyle");
+const Styles = require("./calendarStyle");
+const icons_1 = require("../shared/icons");
+const material_1 = require("@mui/material");
 function getStepIcon(props) {
     const { active, completed } = props;
     return (<Styles.ColorlibStepIconRoot ownerState={{ completed, active }}>
@@ -21,27 +23,27 @@ function StepsComponent(props) {
         {events && events.length > 0 && (events === null || events === void 0 ? void 0 : events.map((event) => (<Styles.CustomStep key={event.id} completed={event.completed} active={event.today}>
             <Styles.LabelDateStepper>{event.day} {`Jan`}</Styles.LabelDateStepper>
             <Styles.ContainerStepper>
-              <Tooltip title={event.title}>
-                <StepLabel StepIconComponent={event.completed && !event.present ? getMissedStepIcon : getStepIcon}>
+              <material_1.Tooltip title={event.title}>
+                <material_1.StepLabel StepIconComponent={event.completed && !event.present ? getMissedStepIcon : getStepIcon}>
                   <Styles.LabelTitleStepper>{event.title}</Styles.LabelTitleStepper>
-                </StepLabel>
-              </Tooltip>
+                </material_1.StepLabel>
+              </material_1.Tooltip>
             </Styles.ContainerStepper>
           </Styles.CustomStep>)))}
       </Styles.CustomStepper>
     </Styles.BoxStepper>);
 }
-export default function CalendarCard(props) {
+function CalendarCard(props) {
     // const router = useRouter() should create action props
     var _a;
-    const [module, setModule] = useState('');
-    const [moduleEvents, setModuleEvents] = useState([]);
-    const [moduleSelector, setModuleSelector] = useState(false);
+    const [module, setModule] = (0, react_1.useState)('');
+    const [moduleEvents, setModuleEvents] = (0, react_1.useState)([]);
+    const [moduleSelector, setModuleSelector] = (0, react_1.useState)(false);
     const handleChange = (event) => {
         setModule(event.target.value);
         setModuleEvents(props.calendarEvents[event.target.value]);
     };
-    useEffect(() => {
+    (0, react_1.useEffect)(() => {
         if (props.trails[0] && props.calendarEvents) {
             setModule(props.trails[0].module_id);
             setModuleEvents(props.calendarEvents[props.trails[0].module_id]);
@@ -55,14 +57,14 @@ export default function CalendarCard(props) {
             :
                 <Styles.Container>
 
-            <CardContent style={{ padding: '0px' }}>
+            <material_1.CardContent style={{ padding: '0px' }}>
               <Styles.Title>events.title</Styles.Title>
               <Styles.ContainerDescription hidden={!moduleSelector}>
                 <Styles.TextDescription>events.card.description</Styles.TextDescription>
                 <Styles.FormControlSelect fullWidth>
                   <Styles.DropDownList id="module-id" value={module} onChange={handleChange}>
                     {(_a = props.trails) === null || _a === void 0 ? void 0 : _a.map((item, index) => {
-                        return <MenuItem key={index} value={item.module_id}>{item.name} - {item.module_id}</MenuItem>;
+                        return <material_1.MenuItem key={index} value={item.module_id}>{item.name} - {item.module_id}</material_1.MenuItem>;
                     })}
                   </Styles.DropDownList>
                 </Styles.FormControlSelect>
@@ -70,7 +72,7 @@ export default function CalendarCard(props) {
 
               {(moduleEvents === null || moduleEvents === void 0 ? void 0 : moduleEvents.length) === 0 &&
                         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }}>
-                  <WarningIcon /><span style={{ paddingLeft: '8px' }}>Em breve você poderá visualizar sua agenda de eventos aqui.</span>
+                  <icons_1.WarningIcon /><span style={{ paddingLeft: '8px' }}>Em breve você poderá visualizar sua agenda de eventos aqui.</span>
                 </div>}
 
               {moduleEvents && <StepsComponent events={moduleEvents} short={props.short}/>}
@@ -93,8 +95,9 @@ export default function CalendarCard(props) {
                     events.card.joinEvent
                   </Global.FRSTButton>}
               </Styles.ActionContainer>
-            </CardContent>
+            </material_1.CardContent>
 
           </Styles.Container>}
     </div>);
 }
+exports.default = CalendarCard;

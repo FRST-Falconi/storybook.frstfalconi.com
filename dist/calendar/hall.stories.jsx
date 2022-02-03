@@ -1,36 +1,39 @@
-import React from 'react';
-import Calendar from './calendar';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ActiveMultipleTrail = exports.ActiveSingleTrail = exports.Empty = exports.Loading = void 0;
+const react_1 = require("react");
+const calendar_1 = require("./calendar");
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+exports.default = {
     title: 'Hall/Calendar',
-    component: Calendar,
+    component: calendar_1.default,
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
     // argTypes: {
     //     backgroundColor: { control: 'color' },
     // },
 };
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Calendar {...args}/>;
-export const Loading = Template.bind({});
+const Template = (args) => <calendar_1.default {...args}/>;
+exports.Loading = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Loading.args = {
+exports.Loading.args = {
     loading: true,
     short: false,
     trails: [],
     calendarEvents: [],
     activeEvent: null
 };
-export const Empty = Template.bind({});
-Empty.args = {
+exports.Empty = Template.bind({});
+exports.Empty.args = {
     loading: false,
     short: false,
     trails: [],
     calendarEvents: [],
     activeEvent: null
 };
-export const ActiveSingleTrail = Template.bind({});
+exports.ActiveSingleTrail = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ActiveSingleTrail.args = {
+exports.ActiveSingleTrail.args = {
     loading: false,
     short: false,
     trails: [{
@@ -49,9 +52,9 @@ ActiveSingleTrail.args = {
     },
     activeEvent: "https://google.com.br"
 };
-export const ActiveMultipleTrail = Template.bind({});
+exports.ActiveMultipleTrail = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ActiveMultipleTrail.args = {
+exports.ActiveMultipleTrail.args = {
     loading: false,
     short: true,
     trails: [{

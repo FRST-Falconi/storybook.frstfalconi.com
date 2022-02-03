@@ -1,8 +1,11 @@
-import styled from 'styled-components';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-export const SpanLink = styled.span `
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.OrangeDropdownItem = exports.OrangeDropdown = exports.FRSTButton = exports.OrangeLabelSmall = exports.OrangeLabelSlim = exports.OrangeLabel = exports.ContentTabs = exports.SpanLink = void 0;
+const styled_components_1 = require("styled-components");
+const Button_1 = require("@mui/material/Button");
+const Menu_1 = require("@mui/material/Menu");
+const MenuItem_1 = require("@mui/material/MenuItem");
+exports.SpanLink = styled_components_1.default.span `
   color: #0645AD !important;
   font-size: 16px !important;
   font-weight: bolder !important;
@@ -11,7 +14,7 @@ export const SpanLink = styled.span `
     color: #7C7C7C !important;
   }
 `;
-export const ContentTabs = styled.div `
+exports.ContentTabs = styled_components_1.default.div `
   .Mui-selected {
     color: #FF4D0D !important; 
   }
@@ -24,20 +27,20 @@ export const ContentTabs = styled.div `
     background-color: #FF4D0D !important;
   }
 `;
-export const OrangeLabel = styled.label `
+exports.OrangeLabel = styled_components_1.default.label `
   font-size: 20px;
   color: #ff4d0d;
   font-weight: bolder;
 `;
-export const OrangeLabelSlim = styled.label `
+exports.OrangeLabelSlim = styled_components_1.default.label `
   font-size: 20px;
   color: #ff4d0d;
 `;
-export const OrangeLabelSmall = styled.label `
+exports.OrangeLabelSmall = styled_components_1.default.label `
   font-size: 16px;
   color: #ff4d0d;
 `;
-export const FRSTButton = styled(Button) `
+exports.FRSTButton = (0, styled_components_1.default)(Button_1.default) `
   color: #fff !important;
   font-weight: bold !important;
   background-color: #FF4D0D !important;
@@ -61,7 +64,7 @@ export const FRSTButton = styled(Button) `
     background-color: #7C7C7C !important;
   }
 `;
-export const OrangeDropdown = styled(Menu) `
+exports.OrangeDropdown = (0, styled_components_1.default)(Menu_1.default) `
   & .MuiPaper-root{
     border-radius: 0px;
     box-shadow: none !important;
@@ -71,7 +74,7 @@ export const OrangeDropdown = styled(Menu) `
     padding-bottom: 0px;
   }
 `;
-export const OrangeDropdownItem = styled(MenuItem) `
+exports.OrangeDropdownItem = (0, styled_components_1.default)(MenuItem_1.default) `
   color: white !important;
   background-color: #FF4D0D !important;
   &:hover {

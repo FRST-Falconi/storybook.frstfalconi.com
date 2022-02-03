@@ -5,7 +5,7 @@
     "outDir": "./dist",
     "target": "es6",
     "lib": ["es6", "dom"],
-    "module": "ES6",
+    "module": "commonjs",
     "jsx": "preserve",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,

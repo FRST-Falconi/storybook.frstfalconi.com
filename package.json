@@ -2,7 +2,8 @@
   "name": "learnstorybook-design-system-template",
   "version": "0.1.0",
   "private": true,
-  "main": "./src/index.ts",
+  "main": "./src/index.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
