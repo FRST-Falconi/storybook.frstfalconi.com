@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import * as Global from '@styles/globalComponentsStyle'
+import * as Global from '../shared/globalComponentsStyle'
 import * as Styles from './calendarStyle'
 import { SelectChangeEvent } from '@mui/material/Select'
 import { StepIconProps } from '@mui/material/StepIcon'
@@ -27,15 +27,15 @@ function getMissedStepIcon() {
   )
 }
 
-function StepsComponent(props) {
+function StepsComponent(props: any) {
   let { events } = props
 
   return (
     <Styles.BoxStepper>
       <Styles.CustomStepper alternativeLabel connector={<Styles.ColorlibConnector />}>
-        {events && events.length > 0 && events.map((event, index) => (
+        {events && events.length > 0 && events?.map((event) => (
           <Styles.CustomStep key={event.id} completed={event.completed} active={event.today}>
-            <Styles.LabelDateStepper>{event.day} {`globals.monthsInitials.${event.month}`}</Styles.LabelDateStepper>
+            <Styles.LabelDateStepper>{event.day} {`Jan`}</Styles.LabelDateStepper>
             <Styles.ContainerStepper>
               <Tooltip title={event.title}>
                 <StepLabel StepIconComponent={event.completed && !event.present ? getMissedStepIcon : getStepIcon}>
@@ -51,52 +51,50 @@ function StepsComponent(props) {
 }
 
 interface calendarProps {
+  loading: boolean,
   short: boolean,
-  mentors: boolean
+  trails: Array<any>,
+  calendarEvents: Array<any>,
+  activeEvent?: string,
+  joinEventClick?: () => void
 }
 
 export default function CalendarCard(props: calendarProps) {
 
   // const router = useRouter() should create action props
 
-  const isTablet = false
-  const trails = []
-  const calendarEvents = []
-  const activeEvent = []
-  const loading = true
-
   const [module, setModule] = useState('')
-  const [moduleEvents, setModuleEvents] = useState(null)
+  const [moduleEvents, setModuleEvents] = useState([])
   const [moduleSelector, setModuleSelector] = useState(false)
 
   const handleChange = (event: SelectChangeEvent) => {
     setModule(event.target.value as string)
-    setModuleEvents(calendarEvents[event.target.value])
+    setModuleEvents(props.calendarEvents[event.target.value])
   }
 
   useEffect(() => {
-    if (trails[0] && calendarEvents) {
-      setModule(trails[0].module_id)
-      setModuleEvents(calendarEvents[trails[0].module_id])
-      if (Object.values(calendarEvents).length > 1) setModuleSelector(true)
+    if (props.trails[0] && props.calendarEvents) {
+      setModule(props.trails[0].module_id)
+      setModuleEvents(props.calendarEvents[props.trails[0].module_id])
+      if (Object.values(props.calendarEvents).length > 1) setModuleSelector(true)
     }
-  }, [calendarEvents, trails])
+  }, [props.calendarEvents, props.trails])
 
   return (
     <div>
       {
-        loading ?
-          <Styles.Container className='shimmer' $isMobile={isTablet}></Styles.Container>
+        props.loading ?
+          <Styles.Container className='shimmer'></Styles.Container>
           :
-          <Styles.Container $isMobile={isTablet}>
+          <Styles.Container>
 
-            <CardContent>
+            <CardContent style={{ padding: '0px' }} >
               <Styles.Title>events.title</Styles.Title>
               <Styles.ContainerDescription hidden={!moduleSelector}>
                 <Styles.TextDescription>events.card.description</Styles.TextDescription>
                 <Styles.FormControlSelect fullWidth>
-                  <Styles.DropDownList id="module-id" value={module} onChange={handleChange}                  >
-                    {trails.map((item, index) => {
+                  <Styles.DropDownList id="module-id" value={module} onChange={handleChange}>
+                    {props.trails?.map((item, index) => {
                       return <MenuItem key={index} value={item.module_id}>{item.name} - {item.module_id}</MenuItem>
                     })}
                   </Styles.DropDownList>
@@ -116,25 +114,24 @@ export default function CalendarCard(props: calendarProps) {
                   <Styles.LabelTimeMentoring>events.card.mentoringSchedule {`globals.weekdays.${moduleEvents[0].weekday}`} @ {moduleEvents[0].hour}</Styles.LabelTimeMentoring>
                 </Styles.BoxLabelTimeMentoring>
               }
+              <Styles.ActionContainer>
+                {props.short &&
+                  <Styles.LabelSchedule>
+                    {/* router.push(`/student/calendar`) */}
+                    <Styles.LabelScheduleClick onClick={() => alert('Clicked Label')}>
+                      globals.clickHere
+                    </Styles.LabelScheduleClick>{' '}
+                    events.card.fullSchedule
+                  </Styles.LabelSchedule>
+                }
+                {
+                  props.activeEvent &&
+                  <Global.FRSTButton style={{ marginLeft: 'auto' }} variant="contained" onClick={() => alert('Clicked Join Button')} disabled={!props.activeEvent}>
+                    events.card.joinEvent
+                  </Global.FRSTButton>
+                }
+              </Styles.ActionContainer>
             </CardContent>
-
-            <Styles.ActionContainer>
-              {props.short &&
-                <Styles.LabelSchedule>
-                  {/* router.push(`/student/calendar`) */}
-                  <Styles.LabelScheduleClick onClick={() => alert('Clicked Label')}>
-                    globals.clickHere
-                  </Styles.LabelScheduleClick>{' '}
-                  events.card.fullSchedule
-                </Styles.LabelSchedule>
-              }
-              {
-                activeEvent &&
-                <Global.FRSTButton style={{ marginLeft: 'auto' }} variant="contained" onClick={() => alert('Clicked Join Button')} disabled={!activeEvent}>
-                  events.card.joinEvent
-                </Global.FRSTButton>
-              }
-            </Styles.ActionContainer>
 
           </Styles.Container>
       }

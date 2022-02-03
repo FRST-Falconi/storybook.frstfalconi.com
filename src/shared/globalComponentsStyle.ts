@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 import Button from '@mui/material/Button'
-import { Visibility } from '@material-ui/icons'
-import Menu from '../shared/material/Menu'
-import MenuItem from '../shared/material/MenuItem'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
 
 export const SpanLink = styled.span`
   color: #0645AD !important;
@@ -42,10 +41,6 @@ export const OrangeLabelSlim = styled.label`
 export const OrangeLabelSmall = styled.label`
   font-size: 16px;
   color: #ff4d0d;
-`
-
-export const FRSTEye = styled(Visibility)`
-  fill: #FF4D0D !important;
 `
 
 export const FRSTButton = styled(Button)`

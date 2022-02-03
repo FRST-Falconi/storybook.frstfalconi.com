@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { MobileValidateProps } from '../../../core/interface/mobileValidateProps'
 import Card from '@mui/material/Card'
 import Stepper from '@mui/material/Stepper'
 import FormControl from '@mui/material/FormControl'
@@ -16,8 +15,8 @@ export interface LabelStepperProps {
   $active: boolean
 }
 
-export const Container = styled(Card) <MobileValidateProps>`
-  height: 381px !important;
+export const Container = styled(Card)`
+  height: 420px !important;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
   box-sizing: border-box !important;
@@ -79,6 +78,7 @@ export const DropDownList = styled(Select)`
 
 export const LabelDateStepper = styled.label`
   font-size: 14px !important;
+  line-height: 14px !important;
 `
 
 export const LabelTitleStepper = styled.label`
@@ -95,6 +95,7 @@ export const ContainerStepper = styled.div`
 export const CustomStepper = styled(Stepper)`
   height: 100px !important;
   overflow-x: auto !important;
+  overflow-y: hidden !important;
   box-sizing: content-box !important;
   scroll-behavior: smooth !important;
   padding-bottom: 30px !important;
@@ -110,7 +111,7 @@ export const BoxStepper = styled(Box)`
   margin-top: 20px !important;
   text-align: center !important;
   overflow: hidden !important;
-  height: 100px !important;
+  height: 110px !important;
 `
 
 export const LabelTimeMentoring = styled.label`
@@ -136,7 +137,7 @@ export const LabelScheduleClick = styled.span`
 `
 
 export const ActionContainer = styled(CardActions)`
-  padding-bottom: 20px !important;
+  padding-bottom: 0px !important;
 `
 
 export const ColorlibConnector = muiStyled(StepConnector)(({ theme }) => ({

@@ -1,5 +1,5 @@
-import { createGlobalStyle, css } from 'styled-components';
-import { color, typography } from './styles';
+import { createGlobalStyle, css } from 'styled-components'
+import { color, typography } from './styles'
 
 export const bodyStyles = css`
   font-family: ${typography.type.primary};
@@ -109,10 +109,35 @@ export const bodyStyles = css`
       opacity: 0;
     }
   }
-`;
+
+  .shimmer {
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    color: transparent;
+
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+  }
+
+  @keyframes placeholderShimmer {
+    0% {
+      background-position: -468px 0;
+    }
+
+    100% {
+      background-position: 468px 0;
+    }
+  }
+`
 
 export const GlobalStyle = createGlobalStyle`
  body {
    ${bodyStyles}
  }
-`;
+`
