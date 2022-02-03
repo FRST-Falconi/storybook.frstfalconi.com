@@ -102,7 +102,7 @@ export default function CalendarCard(props: calendarProps) {
               </Styles.ContainerDescription>
 
               {moduleEvents?.length === 0 &&
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '56px', paddingBottom: '32px' }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }}>
                   <WarningIcon /><span style={{ paddingLeft: '8px' }}>Em breve você poderá visualizar sua agenda de eventos aqui.</span>
                 </div>
               }

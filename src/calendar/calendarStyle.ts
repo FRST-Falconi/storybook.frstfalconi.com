@@ -137,7 +137,7 @@ export const LabelScheduleClick = styled.span`
 `
 
 export const ActionContainer = styled(CardActions)`
-  padding-bottom: 0px !important;
+  padding: 0px !important;
 `
 
 export const ColorlibConnector = muiStyled(StepConnector)(({ theme }) => ({
