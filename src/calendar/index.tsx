@@ -87,7 +87,6 @@ export default function CalendarCard(props: calendarProps) {
           <Styles.Container className='shimmer'></Styles.Container>
           :
           <Styles.Container>
-
             <CardContent style={{ padding: '0px' }} >
               <Styles.Title>events.title</Styles.Title>
               <Styles.ContainerDescription hidden={!moduleSelector}>
