@@ -111,7 +111,7 @@ export const BoxStepper = styled(Box)`
   padding-top: 20px !important;
   text-align: center !important;
   overflow: hidden !important;
-  height: 110px !important;
+  height: 120px !important;
 `
 
 export const LabelTimeMentoring = styled.label`
