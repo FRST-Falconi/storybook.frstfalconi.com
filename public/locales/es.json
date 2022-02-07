@@ -9,5 +9,7 @@
   "calendar.card.mentoringSchedule": "Horario de tutoría: próximo",
   "calendar.card.noMoreSchedule": "Horario de tutoría: próximo",
   "calendar.card.fullSchedule": "para ver su programa completo de eventos",
-  "calendar.card.joinEvent": "Ingresa al evento"
+  "calendar.card.joinEvent": "Ingresa al evento",
+  "calendar.notAvailable": "Pronto podrás ver el calendario de eventos aquí.",
+  "calendar.noMoreEvents": "Eventos cerrados."
 }

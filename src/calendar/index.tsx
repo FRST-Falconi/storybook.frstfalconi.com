@@ -8,6 +8,22 @@ import { useTranslation } from 'react-i18next'
 
 import { Tooltip, MenuItem, CardContent, StepLabel } from '@mui/material'
 
+interface Trail {
+  id: string,
+  moduleID: string,
+  name: string,
+  events: Array<any>
+  nextEvent?: any,
+  joinEventAction?: () => void,
+}
+
+interface CalendarProps {
+  loading: boolean,
+  short: boolean,
+  trails: Array<Trail>,
+  showFullPageAction?: () => void
+}
+
 function getStepIcon(props: StepIconProps) {
   const { active, completed } = props
 
@@ -52,37 +68,28 @@ function StepsComponent(props: any) {
   )
 }
 
-interface calendarProps {
-  loading: boolean,
-  short: boolean,
-  trails: Array<any>,
-  calendarEvents: Array<any>,
-  activeEvent?: string,
-  joinEventClick?: () => void
-}
-
 /**
- * @param {calendarProps} props
+ * @param {CalendarProps} props
  */
-export default function CalendarCard(props: calendarProps) {
+export default function CalendarCard(props: CalendarProps) {
   const { t } = useTranslation('common')
 
-  const [module, setModule] = useState('')
+  const [module, setModule] = useState(null)
   const [moduleEvents, setModuleEvents] = useState([])
   const [moduleSelector, setModuleSelector] = useState(false)
 
   const handleChange = (event: any) => {
-    setModule(event.target?.value as string)
-    setModuleEvents(props.calendarEvents[event.target.value])
+    setModule(event.target?.value)
+    setModuleEvents(props.trails[event.target.value].events)
   }
 
   useEffect(() => {
-    if (props.trails[0] && props.calendarEvents) {
-      setModule(props.trails[0].module_id)
-      setModuleEvents(props.calendarEvents[props.trails[0].module_id])
-      if (Object.values(props.calendarEvents).length > 1) setModuleSelector(true)
+    if (props.trails[0]) {
+      setModule(0)
+      setModuleEvents(props.trails[0].events)
+      if (props.trails.length > 1) setModuleSelector(true)
     }
-  }, [props.calendarEvents, props.trails])
+  }, [props.trails])
 
   return (
     <div>
@@ -98,7 +105,7 @@ export default function CalendarCard(props: calendarProps) {
                 <Styles.FormControlSelect fullWidth>
                   <Styles.DropDownList id="module-id" value={module} onChange={handleChange}>
                     {props.trails?.map((item, index) => {
-                      return <MenuItem key={index} value={item.module_id}>{item.name} - {item.module_id}</MenuItem>
+                      return <MenuItem key={index} value={index}>{item.name} - {item.moduleID}</MenuItem>
                     })}
                   </Styles.DropDownList>
                 </Styles.FormControlSelect>
@@ -106,7 +113,7 @@ export default function CalendarCard(props: calendarProps) {
 
               {moduleEvents?.length === 0 &&
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }}>
-                  <WarningIcon /><span style={{ paddingLeft: '8px' }}>Em breve você poderá visualizar sua agenda de eventos aqui.</span>
+                  <WarningIcon /><span style={{ paddingLeft: '8px' }}>{t('calendar.notAvailable')}</span>
                 </div>
               }
 
@@ -114,22 +121,26 @@ export default function CalendarCard(props: calendarProps) {
 
               {moduleEvents && moduleEvents.length > 0 &&
                 <Styles.BoxLabelTimeMentoring>
-                  <Styles.LabelTimeMentoring>{t('calendar.card.mentoringSchedule')} {t(`calendar.weekdays.${moduleEvents[0].weekday}`)} @ {moduleEvents[0].hour}</Styles.LabelTimeMentoring>
+                  {props.trails[module]?.nextEvent ?
+                    <Styles.LabelTimeMentoring>{t('calendar.card.mentoringSchedule')} {t(`calendar.weekdays.${props.trails[module].nextEvent.weekday}`)} @ {props.trails[module]?.nextEvent.hour}</Styles.LabelTimeMentoring>
+                    :
+                    <Styles.LabelTimeMentoring>{t(`calendar.noMoreEvents`)}</Styles.LabelTimeMentoring>
+                  }
+
                 </Styles.BoxLabelTimeMentoring>
               }
               <Styles.ActionContainer>
                 {props.short &&
                   <Styles.LabelSchedule>
-                    {/* router.push(`/student/calendar`) */}
-                    <Styles.LabelScheduleClick onClick={() => alert('Clicked Label')}>
+                    <Styles.LabelScheduleClick onClick={props.showFullPageAction}>
                       {t('globals.clickHere')}
                     </Styles.LabelScheduleClick>{' '}
                     {t('calendar.card.fullSchedule')}
                   </Styles.LabelSchedule>
                 }
                 {
-                  props.activeEvent &&
-                  <Global.FRSTButton style={{ marginLeft: 'auto' }} variant="contained" onClick={() => alert('Clicked Join Button')} disabled={!props.activeEvent}>
+                  props.trails[module]?.joinEventAction &&
+                  <Global.FRSTButton style={{ marginLeft: 'auto' }} variant="contained" onClick={props.trails[module]?.joinEventAction}>
                     {t('calendar.card.joinEvent')}
                   </Global.FRSTButton>
                 }
@@ -138,6 +149,6 @@ export default function CalendarCard(props: calendarProps) {
 
           </Styles.Container>
       }
-    </div>
+    </div >
   )
 }

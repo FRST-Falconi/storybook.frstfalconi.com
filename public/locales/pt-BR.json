@@ -16,5 +16,7 @@
   "calendar.card.description": "Selecione abaixo o módulo que deseja ver os eventos.",
   "calendar.card.mentoringSchedule": "Horario das mentorias: próxima",
   "calendar.card.fullSchedule": "para ver sua agenda de eventos completa",
-  "calendar.card.joinEvent": "Entrar no evento"
+  "calendar.card.joinEvent": "Entrar no evento",
+  "calendar.notAvailable": "Em breve você poderá visualizar sua agenda de eventos aqui.",
+  "calendar.noMoreEvents": "Eventos encerrados."
 }
