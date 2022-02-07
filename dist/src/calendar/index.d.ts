@@ -1,15 +1,22 @@
 /// <reference types="react" />
-interface calendarProps {
+import '../shared/global.css';
+interface Trail {
+    id: string;
+    moduleID: string;
+    name: string;
+    events: Array<any>;
+    nextEvent?: any;
+    joinEventAction?: () => void;
+}
+interface CalendarProps {
     loading: boolean;
     short: boolean;
-    trails: Array<any>;
-    calendarEvents: Array<any>;
-    activeEvent?: string;
-    joinEventClick?: () => void;
+    trails: Array<Trail>;
+    showFullPageAction?: () => void;
 }
 /**
- * @param {calendarProps} props
+ * @param {CalendarProps} props
  */
-export default function CalendarCard(props: calendarProps): JSX.Element;
+export default function CalendarCard(props: CalendarProps): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

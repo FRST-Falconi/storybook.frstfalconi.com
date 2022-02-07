@@ -19,6 +19,7 @@ var Step = require('@mui/material/Step');
 var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
+var reactI18next = require('react-i18next');
 var material = require('@mui/material');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -37,6 +38,36 @@ var Box__default = /*#__PURE__*/_interopDefaultLegacy(Box);
 var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+styleInject(css_248z);
 
 styled__default["default"].span `
   color: #0645AD !important;
@@ -195,10 +226,10 @@ const CustomStep = styled__default["default"](Step__default["default"]) `
 `;
 const BoxStepper = styled__default["default"](Box__default["default"]) `
   width: 100% !important;
-  margin-top: 20px !important;
+  padding-top: 20px !important;
   text-align: center !important;
   overflow: hidden !important;
-  height: 110px !important;
+  height: 120px !important;
 `;
 const LabelTimeMentoring = styled__default["default"].label `
   font-size: 16px !important;
@@ -298,38 +329,46 @@ function getMissedStepIcon() {
     return (jsxRuntime.jsx(ColorlibStepIconRoot, { ownerState: { completed: true, active: true }, children: jsxRuntime.jsx("div", {}, void 0) }, void 0));
 }
 function StepsComponent(props) {
+    const { t } = reactI18next.useTranslation('common');
     let { events } = props;
-    return (jsxRuntime.jsx(BoxStepper, { children: jsxRuntime.jsx(CustomStepper, { alternativeLabel: true, connector: jsxRuntime.jsx(ColorlibConnector, {}, void 0), children: events && events.length > 0 && events?.map((event) => (jsxRuntime.jsxs(CustomStep, { completed: event.completed, active: event.today, children: [jsxRuntime.jsxs(LabelDateStepper, { children: [event.day, " ", `Jan`] }, void 0), jsxRuntime.jsx(ContainerStepper, { children: jsxRuntime.jsx(material.Tooltip, { title: event.title, children: jsxRuntime.jsx(material.StepLabel, { StepIconComponent: event.completed && !event.present ? getMissedStepIcon : getStepIcon, children: jsxRuntime.jsx(LabelTitleStepper, { children: event.title }, void 0) }, void 0) }, void 0) }, void 0)] }, event.id))) }, void 0) }, void 0));
+    return (jsxRuntime.jsx(BoxStepper, { children: jsxRuntime.jsx(CustomStepper, { alternativeLabel: true, connector: jsxRuntime.jsx(ColorlibConnector, {}, void 0), children: events && events.length > 0 && events?.map((event) => (jsxRuntime.jsxs(CustomStep, { completed: event.completed, active: event.today, children: [jsxRuntime.jsxs(LabelDateStepper, { children: [event.day, " ", t(`calendar.monthsInitials.${event.month}`)] }, void 0), jsxRuntime.jsx(ContainerStepper, { children: jsxRuntime.jsx(material.Tooltip, { title: event.title, children: jsxRuntime.jsx(material.StepLabel, { StepIconComponent: event.completed && !event.present ? getMissedStepIcon : getStepIcon, children: jsxRuntime.jsx(LabelTitleStepper, { children: event.title }, void 0) }, void 0) }, void 0) }, void 0)] }, event.id))) }, void 0) }, void 0));
 }
 /**
- * @param {calendarProps} props
+ * @param {CalendarProps} props
  */
 function CalendarCard(props) {
-    const [module, setModule] = react.useState('');
+    const { t } = reactI18next.useTranslation('common');
+    const [module, setModule] = react.useState(null);
     const [moduleEvents, setModuleEvents] = react.useState([]);
     const [moduleSelector, setModuleSelector] = react.useState(false);
     const handleChange = (event) => {
-        setModule(event.target?.value);
-        setModuleEvents(props.calendarEvents[event.target.value]);
+        let val = event.target?.value;
+        setModule(val);
+        if (props.trails[val].events)
+            setModuleEvents(props.trails[val].events);
     };
     react.useEffect(() => {
-        if (props.trails[0] && props.calendarEvents) {
-            setModule(props.trails[0].module_id);
-            setModuleEvents(props.calendarEvents[props.trails[0].module_id]);
-            if (Object.values(props.calendarEvents).length > 1)
+        if (props.trails[0]) {
+            setModule(0);
+            if (props.trails[0].events)
+                setModuleEvents(props.trails[0].events);
+            if (props.trails.length > 1)
                 setModuleSelector(true);
         }
-    }, [props.calendarEvents, props.trails]);
+    }, [props.trails]);
     return (jsxRuntime.jsx("div", { children: props.loading ?
             jsxRuntime.jsx(Container, { className: 'shimmer' }, void 0)
             :
-                jsxRuntime.jsx(Container, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title, { children: "events.title" }, void 0), jsxRuntime.jsxs(ContainerDescription, { hidden: !moduleSelector, children: [jsxRuntime.jsx(TextDescription, { children: "events.card.description" }, void 0), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
-                                                return jsxRuntime.jsxs(material.MenuItem, { value: item.module_id, children: [item.name, " - ", item.module_id] }, index);
+                jsxRuntime.jsx(Container, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title, { children: t('calendar.title') }, void 0), jsxRuntime.jsxs(ContainerDescription, { hidden: !moduleSelector, children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }, void 0), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
+                                                return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                             }) }, void 0) }, void 0)] }, void 0), moduleEvents?.length === 0 &&
-                                jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon, {}, void 0), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: "Em breve voc\u00EA poder\u00E1 visualizar sua agenda de eventos aqui." }, void 0)] }, void 0), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }, void 0), moduleEvents && moduleEvents.length > 0 &&
-                                jsxRuntime.jsx(BoxLabelTimeMentoring, { children: jsxRuntime.jsxs(LabelTimeMentoring, { children: ["events.card.mentoringSchedule ", `globals.weekdays.weekday}`, " @ event.hour"] }, void 0) }, void 0), jsxRuntime.jsxs(ActionContainer, { children: [props.short &&
-                                        jsxRuntime.jsxs(LabelSchedule, { children: [jsxRuntime.jsx(LabelScheduleClick, { onClick: () => alert('Clicked Label'), children: "globals.clickHere" }, void 0), ' ', "events.card.fullSchedule"] }, void 0), props.activeEvent &&
-                                        jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: () => alert('Clicked Join Button'), disabled: !props.activeEvent, children: "events.card.joinEvent" }, void 0)] }, void 0)] }, void 0) }, void 0) }, void 0));
+                                jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon, {}, void 0), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') }, void 0)] }, void 0), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }, void 0), moduleEvents && moduleEvents.length > 0 &&
+                                jsxRuntime.jsx(BoxLabelTimeMentoring, { children: props.trails[module]?.nextEvent ?
+                                        jsxRuntime.jsxs(LabelTimeMentoring, { children: [t('calendar.card.mentoringSchedule'), " ", t(`calendar.weekdays.${props.trails[module].nextEvent.weekday}`), " @ ", props.trails[module]?.nextEvent.hour] }, void 0)
+                                        :
+                                            jsxRuntime.jsx(LabelTimeMentoring, { children: t(`calendar.noMoreEvents`) }, void 0) }, void 0), jsxRuntime.jsxs(ActionContainer, { children: [props.short &&
+                                        jsxRuntime.jsxs(LabelSchedule, { children: [jsxRuntime.jsx(LabelScheduleClick, { onClick: props.showFullPageAction, children: t('globals.clickHere') }, void 0), ' ', t('calendar.card.fullSchedule')] }, void 0), props.trails[module]?.joinEventAction &&
+                                        jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') }, void 0)] }, void 0)] }, void 0) }, void 0) }, void 0));
 }
 
 exports.CalendarCard = CalendarCard;

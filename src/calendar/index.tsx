@@ -79,14 +79,15 @@ export default function CalendarCard(props: CalendarProps) {
   const [moduleSelector, setModuleSelector] = useState(false)
 
   const handleChange = (event: any) => {
-    setModule(event.target?.value)
-    setModuleEvents(props.trails[event.target.value].events)
+    let val = event.target?.value
+    setModule(val)
+    if (props.trails[val].events) setModuleEvents(props.trails[val].events)
   }
 
   useEffect(() => {
     if (props.trails[0]) {
       setModule(0)
-      setModuleEvents(props.trails[0].events)
+      if (props.trails[0].events) setModuleEvents(props.trails[0].events)
       if (props.trails.length > 1) setModuleSelector(true)
     }
   }, [props.trails])
