@@ -11,19 +11,21 @@
 # IMPORTANT
 
 - A pasta ./dist está comitada porque é a biblioteca de componentes (gerada por `npm run build`), idealmente nós fariamos um CI/CD e publicariamos essa pasta junto com o package.json via NPM ou similar
-- Para usar os componentes em outros projetos: `npm i --save git+git@github.com:FRST-Falconi/storybook.frstfalconi.com.git#master` (pode pedir para autorizar)
+- Para usar os componentes em outros projetos: (pode pedir para autorizar)
+```
+npm i --save git+git@github.com:FRST-Falconi/storybook.frstfalconi.com.git#master
+```
 
 ## How to run
 
-```
+```sh 
 npm install
 npm run sb
 ```
 
 ## How gen new version (./dist)
-
-```
-npm install
+Update `package.json` version number
+```sh 
 npm run build
 ```
 
