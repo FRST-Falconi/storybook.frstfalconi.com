@@ -147,7 +147,6 @@ styled__default["default"](MenuItem__default["default"]) `
 `;
 
 const Container = styled__default["default"](Card__default["default"]) `
-  height: 420px !important;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
   box-sizing: border-box !important;
