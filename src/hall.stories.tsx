@@ -16,7 +16,6 @@ export default {
 const Template = (args) => <Calendar {...args} />
 
 export const Loading = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Loading.args = {
     loading: true,
     short: false,

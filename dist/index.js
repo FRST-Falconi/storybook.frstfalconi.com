@@ -276,7 +276,7 @@ const ColorlibConnector = styles.styled(StepConnector__default["default"])(({ th
     [`& .${StepConnector.stepConnectorClasses.line}`]: {
         height: 1,
         border: 0,
-        backgroundColor: '#000',
+        backgroundColor: '#ff4d0d',
         borderRadius: 1
     }
 }));
@@ -329,7 +329,7 @@ function getMissedStepIcon() {
     return (jsxRuntime.jsx(ColorlibStepIconRoot, { ownerState: { completed: true, active: true }, children: jsxRuntime.jsx("div", {}, void 0) }, void 0));
 }
 function StepsComponent(props) {
-    const { t } = reactI18next.useTranslation('common');
+    const { t } = reactI18next.useTranslation();
     let { events } = props;
     return (jsxRuntime.jsx(BoxStepper, { children: jsxRuntime.jsx(CustomStepper, { alternativeLabel: true, connector: jsxRuntime.jsx(ColorlibConnector, {}, void 0), children: events && events.length > 0 && events?.map((event) => (jsxRuntime.jsxs(CustomStep, { completed: event.completed, active: event.today, children: [jsxRuntime.jsxs(LabelDateStepper, { children: [event.day, " ", t(`calendar.monthsInitials.${event.month}`)] }, void 0), jsxRuntime.jsx(ContainerStepper, { children: jsxRuntime.jsx(material.Tooltip, { title: event.title, children: jsxRuntime.jsx(material.StepLabel, { StepIconComponent: event.completed && !event.present ? getMissedStepIcon : getStepIcon, children: jsxRuntime.jsx(LabelTitleStepper, { children: event.title }, void 0) }, void 0) }, void 0) }, void 0)] }, event.id))) }, void 0) }, void 0));
 }

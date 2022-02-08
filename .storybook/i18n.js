@@ -2,7 +2,7 @@ import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 
-const supportedLngs = ['en-US', 'pt-BR', 'es']
+const supportedLngs = ['pt-BR', 'en-US', 'es']
 const ns = ['common']
 
 i18n
@@ -19,8 +19,8 @@ i18n
     supportedLngs
   })
 
-i18n.addResourceBundle('en-US', 'common', require('../public/locales/en-US.json'))
 i18n.addResourceBundle('pt-BR', 'common', require('../public/locales/pt-BR.json'))
+i18n.addResourceBundle('en-US', 'common', require('../public/locales/en-US.json'))
 i18n.addResourceBundle('es', 'common', require('../public/locales/es.json'))
 
 export { i18n }
