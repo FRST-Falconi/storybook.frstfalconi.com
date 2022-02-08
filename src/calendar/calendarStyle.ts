@@ -164,7 +164,7 @@ export const ColorlibConnector = muiStyled(StepConnector)(({ theme }) => ({
   [`& .${stepConnectorClasses.line}`]: {
     height: 1,
     border: 0,
-    backgroundColor: '#000',
+    backgroundColor: '#ff4d0d',
     borderRadius: 1
   }
 }))

@@ -45,7 +45,7 @@ function getMissedStepIcon() {
 }
 
 function StepsComponent(props: any) {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation()
   let { events } = props
 
   return (
