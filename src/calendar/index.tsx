@@ -93,7 +93,7 @@ export default function CalendarCard(props: CalendarProps) {
   }, [props.trails])
 
   return (
-    <div>
+    <div style={{ height: '100%' }}>
       {
         props.loading ?
           <Styles.Container className='shimmer'></Styles.Container>

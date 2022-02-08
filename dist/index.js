@@ -147,6 +147,7 @@ styled__default["default"](MenuItem__default["default"]) `
 `;
 
 const Container = styled__default["default"](Card__default["default"]) `
+  height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
   box-sizing: border-box !important;
@@ -355,7 +356,7 @@ function CalendarCard(props) {
                 setModuleSelector(true);
         }
     }, [props.trails]);
-    return (jsxRuntime.jsx("div", { children: props.loading ?
+    return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
             jsxRuntime.jsx(Container, { className: 'shimmer' }, void 0)
             :
                 jsxRuntime.jsx(Container, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title, { children: t('calendar.title') }, void 0), jsxRuntime.jsxs(ContainerDescription, { hidden: !moduleSelector, children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }, void 0), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {

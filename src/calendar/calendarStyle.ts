@@ -16,6 +16,7 @@ export interface LabelStepperProps {
 }
 
 export const Container = styled(Card)`
+  height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
   box-sizing: border-box !important;
