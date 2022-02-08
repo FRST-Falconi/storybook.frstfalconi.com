@@ -72,7 +72,7 @@ function StepsComponent(props: any) {
  * @param {CalendarProps} props
  */
 export default function CalendarCard(props: CalendarProps) {
-  const { t } = useTranslation('common')
+  const { t } = useTranslation()
 
   const [module, setModule] = useState(null)
   const [moduleEvents, setModuleEvents] = useState([])

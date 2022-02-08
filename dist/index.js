@@ -337,7 +337,7 @@ function StepsComponent(props) {
  * @param {CalendarProps} props
  */
 function CalendarCard(props) {
-    const { t } = reactI18next.useTranslation('common');
+    const { t } = reactI18next.useTranslation();
     const [module, setModule] = react.useState(null);
     const [moduleEvents, setModuleEvents] = react.useState([]);
     const [moduleSelector, setModuleSelector] = react.useState(false);
