@@ -1,11 +1,10 @@
 {
   "name": "frst-components",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "private": true,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
     "build": "rimraf dist && mkdirp dist && rollup --config rollup.config.js",
     "sb": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -15,15 +14,11 @@
     "@mui/material": "^5.4.0",
     "i18next": "^21.6.10",
     "i18next-browser-languagedetector": "^6.1.3",
-    "npm-force-resolutions": "^0.0.10",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-i18next": "^11.15.3",
     "react-scripts": "^5.0.0",
     "styled-components": "^5.3.3"
-  },
-  "resolutions": {
-    "trim": "^1.0.0"
   },
   "devDependencies": {
     "@emotion/react": "^11.7.1",
