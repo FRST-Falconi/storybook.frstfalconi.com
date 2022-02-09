@@ -13,6 +13,16 @@ body {
   box-sizing: border-box;
 }
 
+.cardContent {
+  height: 100%;
+  box-shadow: none !important;
+  border: 1px solid #c4c4c4 !important;
+  background-color: #fff !important;
+  box-sizing: border-box !important;
+  border-radius: 4px !important;
+  padding: 24px !important;
+}
+
 .shimmer {
   background: #f6f7f8;
   background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);
