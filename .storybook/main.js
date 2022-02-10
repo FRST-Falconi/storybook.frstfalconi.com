@@ -20,9 +20,9 @@ module.exports = {
   webpackFinal: async (config, { configType }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@shared/': path.resolve(__dirname, '../src/shared/'),
-      '@public/': path.resolve(__dirname, '../public/'),
-      '@components/': path.resolve(__dirname, '../src/components/')
+      '@shared': path.resolve(__dirname, '../src/shared'),
+      '@public': path.resolve(__dirname, '../public'),
+      '@components': path.resolve(__dirname, '../src/components')
     }
     return config
   }

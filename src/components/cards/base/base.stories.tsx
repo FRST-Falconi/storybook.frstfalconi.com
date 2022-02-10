@@ -4,7 +4,7 @@ import BaseCard from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Cards/Base',
+    title: 'Base/Card',
     component: BaseCard,
 }
 
