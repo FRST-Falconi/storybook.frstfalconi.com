@@ -9,6 +9,11 @@ body {
   font-weight: 500 !important;
 }
 
+br {
+  display: block;
+  margin: 8px 0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -26,10 +31,16 @@ body {
   text-align: center;
   font-size: 14px;
   line-height: 16px;
+  display: inline-block;
 }
 
 .content {
   padding: 24px !important;
+  border-radius: inherit;
+}
+
+.innerContent {
+  padding: 0px 24px 0px 24px !important;
   border-radius: inherit;
 }
 

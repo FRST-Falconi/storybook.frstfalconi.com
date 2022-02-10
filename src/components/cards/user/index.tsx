@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@mui/material'
 import { EditIcon, CheckboxChecked, CheckboxEmpty } from '@shared/icons'
+import Tag from '@components/tag'
 
 interface UserCardProps {
     loading: boolean
@@ -49,10 +50,36 @@ export default function CalendarCard(props: UserCardProps) {
     }, [props.selected])
 
     return (
-        <div style={{ height: '100%' }}>
+        <div style={{ height: '100%', maxWidth: '381px' }}>
             {
                 props.loading ?
-                    <div className='shimmer'></div>
+                    <div className='cardContentNoMargin' >
+                        <div className='shimmer cardTopRightConner' style={{ color: statusColor, background: statusColor, padding: '4px' }}>
+                            Status
+                        </div>
+
+                        <div className='content' >
+                            <div className='centeredVertically'>
+                                {selected ? <CheckboxChecked /> : <CheckboxEmpty />}
+                                <div style={{ marginLeft: '16px', marginRight: '16px' }} className="avatar shimmer" />
+                                <div style={{ display: 'inline-grid' }}>
+                                    <div className="shimmer">Name: Shimmer Name</div>
+                                    <br />
+                                    <div className="shimmer">Email: Shimmer@Email</div>
+                                </div>
+                            </div>
+                            <div className='content' style={{ paddingBottom: '0px !important' }}>
+                                <div className="shimmer">Area: </div>
+                                <br />
+                                <div className="shimmer">Cargo:</div>
+                                <br />
+                                <Tag title='Product Tag' color='#000' loading={true} />
+                                <Tag title='Product Tag' color='#000' loading={true} />
+                            </div>
+                        </div>
+                        <Button className='shimmer frstButton blue' fullWidth>
+                        </Button>
+                    </div>
                     :
                     <div onClick={setClass} className='cardContentNoMargin' style={{ color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }}>
                         <div className='cardTopRightConner' style={{ color: '#fff', background: statusColor, padding: '4px' }}>
@@ -68,10 +95,15 @@ export default function CalendarCard(props: UserCardProps) {
                                     <div>Email: <span>{props.userEmail}</span></div>
                                 </div>
                             </div>
-                            <div className='content'>
+                            <div className='innerContent'>
                                 <div>Area: <span>{props.userArea}</span></div>
                                 <div>Cargo: <span>{props.userPosition}</span></div>
-                                <div>Tags Tags Tags</div>
+                                {
+                                    props.licenses.length > 0 ?
+                                        <Tag title='Product Tag' color='#000' />
+                                        :
+                                        <Tag title='Product Tag' color='#000' />
+                                }
                             </div>
 
                         </div>

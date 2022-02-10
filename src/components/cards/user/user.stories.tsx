@@ -19,7 +19,7 @@ loading.args = {
     userID: "bla-blu-fla",
     userName: "Name",
     userEmail: "email@dominio.com",
-    userStatus: "complete",
+    userStatus: "normal",
     userArea: "Area",
     userPosition: "Cargo",
     licenses: [],
