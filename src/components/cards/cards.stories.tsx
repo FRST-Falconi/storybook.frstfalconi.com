@@ -1,6 +1,6 @@
 import React from 'react'
 
-import UserCard from './cards/user/index'
+import UserCard from './user/index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

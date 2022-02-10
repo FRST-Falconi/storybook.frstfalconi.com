@@ -1,4 +1,4 @@
-import '../../shared/global.css'
+import '@shared/global.css'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 

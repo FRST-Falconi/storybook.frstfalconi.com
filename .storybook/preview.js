@@ -2,11 +2,15 @@ import { i18n } from './i18n.js'
 
 export const parameters = {
   i18n,
-  locale: 'en-US',
+  locale: 'pt-BR',
   locales: {
-    'en-US': 'English',
     'pt-BR': 'Portuguese (BR)',
+    'en-US': 'English',
     es: 'Spanish'
+  },
+
+  backgrounds: {
+    default: 'dark'
   },
 
   actions: { argTypesRegex: '^on[A-Z].*' },

@@ -1,9 +1,9 @@
-import '../shared/global.css'
+import '@shared/global.css'
 import { useState, useEffect } from 'react'
-import * as Global from '../shared/globalComponentsStyle'
+import * as Global from '@shared/globalComponentsStyle'
 import * as Styles from './calendarStyle'
 import { StepIconProps } from '@mui/material/StepIcon'
-import { WarningIcon } from '../shared/icons'
+import { WarningIcon } from '@shared/icons'
 import { useTranslation } from 'react-i18next'
 
 import { Tooltip, MenuItem, CardContent, StepLabel } from '@mui/material'

@@ -6,8 +6,15 @@
     "module": "ES2015" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', 'es2020', or 'ESNext'. */,
     "lib": ["dom", "dom.iterable"],
     "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["src/shared/*"],
+      "@components/*": ["src/components/*"],
+      "@public/*": ["public/*"]
+    },
     "declaration": true,
     "declarationMap": true /* Generates a sourcemap for each corresponding '.d.ts' file. */,
+    "skipLibCheck": true,
     "strict": true,
     "esModuleInterop": true /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */,
     "declarationDir": "./dist",
@@ -17,6 +24,6 @@
     "noImplicitAny": false,
     "strictNullChecks": false
     // Gerar arquivos d.ts
-  }
-  // "exclude": ["node_modules"]
+  },
+  "exclude": ["node_modules"]
 }
