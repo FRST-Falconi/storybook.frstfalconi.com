@@ -20,7 +20,7 @@ export const Container = styled(Card)`
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
   box-sizing: border-box !important;
-  border-radius: 4px !important;
+  border-radius: 8px !important;
   padding: 24px !important;
 `
 
