@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rimraf dist && mkdirp dist && rollup --config rollup.config.js",
     "sb": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-sb": "build-storybook -s public"
   },
   "dependencies": {
     "@mui/icons-material": "^5.1.0",
