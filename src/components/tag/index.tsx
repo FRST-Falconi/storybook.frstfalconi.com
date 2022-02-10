@@ -4,8 +4,8 @@ interface TagProps {
     title: string
     color: string
     loading?: boolean
-    selected?: boolean
-    inverted?: boolean
+    selected: boolean
+    inverted: boolean
 }
 
 export default function Tag(props: TagProps) {

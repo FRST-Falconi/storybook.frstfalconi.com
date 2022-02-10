@@ -11,5 +11,12 @@
   "calendar.card.fullSchedule": "para ver su programa completo de eventos",
   "calendar.card.joinEvent": "Ingresa al evento",
   "calendar.notAvailable": "Pronto podrás ver el calendario de eventos aquí.",
-  "calendar.noMoreEvents": "Eventos cerrados."
+  "calendar.noMoreEvents": "Eventos cerrados.",
+
+  "user.card.noProduct": "Sem produto definido",
+  "user.card.status.complete": "Completo",
+  "user.card.status.incomplete": "Incompleto",
+  "user.card.status.enrolled": "Matriculdado",
+  "user.card.status.defined": "Trilha Definida",
+  "user.card.status.error": "Erro no envio"
 }
