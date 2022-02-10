@@ -101,6 +101,24 @@ export function WhiteFilter() {
   )
 }
 
+export function CheckboxChecked() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="#F35F24" stroke="#F35F24" />
+      <path d="M13 4L6.125 11L3 7.81818" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function CheckboxEmpty() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="1.4" fill="white" stroke="#A6A6A6" strokeWidth="1.2" />
+    </svg>
+
+  )
+}
+
 export function BlueTrash() {
   return (
     <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">

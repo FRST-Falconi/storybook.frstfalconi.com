@@ -2,7 +2,8 @@ import '@shared/global.css'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@mui/material'
-import { EditIcon } from '@shared/icons'
+import { EditIcon, CheckboxChecked, CheckboxEmpty } from '@shared/icons'
+
 interface UserCardProps {
     loading: boolean
     selected: boolean
@@ -43,22 +44,26 @@ export default function CalendarCard(props: UserCardProps) {
         }
     }, [props.userStatus])
 
+    useEffect(() => {
+        setSelected(props.selected)
+    }, [props.selected])
+
     return (
         <div style={{ height: '100%' }}>
             {
                 props.loading ?
                     <div className='shimmer'></div>
                     :
-                    <div onClick={setClass} className='cardContentNoMargin' style={{ border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }}>
-                        <div className='cardTopRightConner' style={{ background: statusColor, padding: '4px' }}>
+                    <div onClick={setClass} className='cardContentNoMargin' style={{ color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }}>
+                        <div className='cardTopRightConner' style={{ color: '#fff', background: statusColor, padding: '4px' }}>
                             {props.userStatus}
                         </div>
 
                         <div className='content' >
                             <div className='centeredVertically'>
-                                <input type='checkbox' checked={selected}></input>
-                                <img src={props.userAvatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"} alt="Avatar" className="avatar" />
-                                <div style={{ display: 'inline-grid', paddingLeft: '4px' }}>
+                                {selected ? <CheckboxChecked /> : <CheckboxEmpty />}
+                                <img style={{ marginLeft: '16px', marginRight: '16px' }} src={props.userAvatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"} alt="Avatar" className="avatar" />
+                                <div style={{ display: 'inline-grid' }}>
                                     <div>Name: <span>{props.userName}</span></div>
                                     <div>Email: <span>{props.userEmail}</span></div>
                                 </div>

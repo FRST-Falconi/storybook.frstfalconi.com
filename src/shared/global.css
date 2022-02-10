@@ -100,3 +100,8 @@ body {
     background-position: 468px 0;
   }
 }
+
+/* MUI */
+.Mui-checked {
+  color: #F35F24 !important;
+}

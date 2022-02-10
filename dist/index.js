@@ -122,7 +122,7 @@ const Container = styled__default["default"](Card__default["default"]) `
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
   box-sizing: border-box !important;
-  border-radius: 4px !important;
+  border-radius: 8px !important;
   padding: 24px !important;
 `;
 const Title = styled__default["default"].span `
