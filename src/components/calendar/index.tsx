@@ -1,4 +1,4 @@
-require('@shared/global.css')
+import '../../shared/global.css'
 import { useState, useEffect } from 'react'
 import * as Global from '@shared/globalComponentsStyle'
 import * as Styles from './calendarStyle'

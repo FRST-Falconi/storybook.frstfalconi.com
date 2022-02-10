@@ -1,4 +1,4 @@
-require('@shared/global.css')
+import '../../shared/global.css'
 
 interface TagProps {
     title: string
