@@ -13,14 +13,52 @@ body {
   box-sizing: border-box;
 }
 
-.cardContent {
+.cardContentNoMargin {
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
   background-color: #fff !important;
   box-sizing: border-box !important;
   border-radius: 4px !important;
+}
+
+.cardContent {
+  height: 100%;
+  box-shadow: none !important;
+  border: 1px solid #c4c4c4 !important;
+  background-color: #fff !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
   padding: 24px !important;
+}
+
+.content {
+  padding: 24px !important;
+}
+
+.frstButton {
+  color: #fff !important;
+  font-weight: bold !important;
+  background-color: #ff4d0d !important;
+  border-color: #ff4d0d !important;
+  height: 48px !important;
+  font-size: 16px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  text-transform: none !important;
+  border-radius: 5px 5px 5px 5px !important;
+  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;
+}
+.frstButton:focus,
+.frstButton:hover {
+  color: #fff !important;
+  background-color: #e94e1b !important;
+  border-color: #fff !important;
+}
+.frstButton:disabled {
+  background-color: #7c7c7c !important;
 }
 
 .shimmer {

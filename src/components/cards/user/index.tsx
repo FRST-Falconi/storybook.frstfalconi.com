@@ -1,9 +1,18 @@
 import '@shared/global.css'
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import Button from '@mui/material/Button'
 
 interface UserCardProps {
     loading: boolean
+    selected: boolean
+    userImage: string
+    userName: string
+    userEmail: string
+    userArea: string
+    userPosition: string
+    licenses: string[]
+    editAction?: () => void,
 }
 
 
@@ -19,9 +28,17 @@ export default function CalendarCard(props: UserCardProps) {
         <div style={{ height: '100%' }}>
             {
                 props.loading ?
-                    <div className='shimmer' style={{ minHeight: '100px' }}></div>
+                    <div className='shimmer'></div>
                     :
-                    <div className='cardContent'>NotLoading</div>
+                    <div className='cardContentNoMargin'>
+                        <div className='content'>
+                            User Data
+                            <div className='content'></div>
+                        </div>
+                        <Button className='frstButton' fullWidth>
+                            <p>EDITAR</p>
+                        </Button>
+                    </div>
             }
         </div >
     )
