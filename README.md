@@ -34,7 +34,7 @@ import { default as NewComponent } from './src/components/NewComponent'
 
 ## How gen new version (./dist)
 
-Update `package.json` version number
+Update `package.json` version number, then
 
 ```sh
 npm run build

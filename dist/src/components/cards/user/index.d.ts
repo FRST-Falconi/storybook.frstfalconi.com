@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import '@shared/global.css';
 interface UserCardProps {
     loading: boolean;
     selected: boolean;

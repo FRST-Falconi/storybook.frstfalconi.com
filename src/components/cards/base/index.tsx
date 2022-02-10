@@ -1,4 +1,4 @@
-import '@shared/global.css'
+require('@shared/global.css')
 
 export default function EmptyCard(props) {
 

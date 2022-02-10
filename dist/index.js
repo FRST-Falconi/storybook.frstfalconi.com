@@ -3,7 +3,6 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var jsxRuntime = require('react/jsx-runtime');
-require('@shared/global.css');
 var react = require('react');
 var reactI18next = require('react-i18next');
 var material = require('@mui/material');
@@ -40,6 +39,7 @@ var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
 
+require('@shared/global.css');
 function Tag(props) {
     function getBG() {
         return props.selected === props.inverted ? props.color : '#fff';
@@ -53,6 +53,7 @@ function Tag(props) {
                 (jsxRuntime.jsx("div", { className: 'tag', style: { border: `1px solid ${getColor()} `, background: getBG(), color: getColor() }, children: jsxRuntime.jsx("span", { style: { verticalAlign: 'middle', margin: '8px' }, children: props.title }, void 0) }, void 0)) }, void 0));
 }
 
+require('@shared/global.css');
 function EmptyCard(props) {
     return (jsxRuntime.jsx("div", { className: 'cardContent', style: { height: '100%' }, children: props.children }, void 0));
 }
@@ -70,6 +71,7 @@ function CheckboxEmpty() {
     return (jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "1.4", fill: "white", stroke: "#A6A6A6", strokeWidth: "1.2" }, void 0) }, void 0));
 }
 
+require('@shared/global.css');
 /**
  * @param {UserCardProps} props
  */
@@ -363,6 +365,7 @@ const ColorlibStepIconRoot = styles.styled('div')(({ ownerState }) => ({
     })
 }));
 
+require('@shared/global.css');
 function getStepIcon(props) {
     const { active, completed } = props;
     return (jsxRuntime.jsx(ColorlibStepIconRoot, { ownerState: { completed, active }, children: completed ? jsxRuntime.jsx(CheckIconCustom, {}, void 0) : active ? jsxRuntime.jsx(LoginIconCustom, {}, void 0) : jsxRuntime.jsx("div", {}, void 0) }, void 0));

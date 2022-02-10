@@ -1,4 +1,4 @@
-import '@shared/global.css'
+require('@shared/global.css')
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Button, Tooltip } from '@mui/material'

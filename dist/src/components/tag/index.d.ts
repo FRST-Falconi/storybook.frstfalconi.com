@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import '@shared/global.css';
 interface TagProps {
     title: string;
     color: string;

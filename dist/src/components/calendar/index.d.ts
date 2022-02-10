@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import '@shared/global.css';
 interface Trail {
     id: string;
     moduleID: string;
