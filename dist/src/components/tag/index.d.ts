@@ -1,9 +1,11 @@
 /// <reference types="react" />
 import '@shared/global.css';
 interface TagProps {
-    selected: boolean;
     title: string;
     color: string;
+    loading?: boolean;
+    selected: boolean;
+    inverted: boolean;
 }
 export default function Tag(props: TagProps): JSX.Element;
 export {};
