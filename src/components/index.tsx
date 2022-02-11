@@ -6,7 +6,7 @@ import UserCard from '@components/cards/user'
 export default function PageSandbox() {
 
     return (
-        <div style={{ width: '100%', height: '300px' }}>
+        <div style={{ width: '100%', height: '100%' }}>
             <UserCard loading={false}
                 selected={false}
                 handleSelect={(id) => { alert(`Select (or not) ${id}`) }}

@@ -51,7 +51,7 @@ export default function CalendarCard(props: UserCardProps) {
     }, [props.selected])
 
     return (
-        <div className='cardContentNoMargin' style={{ color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }}>
+        <>
             {
                 props.loading ?
                     <div className='cardContentNoMargin' >
@@ -79,45 +79,49 @@ export default function CalendarCard(props: UserCardProps) {
                         </Button>
                     </div>
                     :
-                    <div onClick={setClass}>
+                    <div onClick={setClass} className='cardContentNoMargin' style={{ color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }}>
+
+                        {/* Status */}
                         <div className='cardTopRightConner' style={{ color: '#fff', background: statusColor, padding: '4px' }}>
                             {t(`user.card.status.${props.userStatus}`)}
                         </div>
 
-                        <div className='content' >
+                        <div className='content' style={{ marginBottom: '46px' }} >
+                            {/* Fist Row of data */}
                             <div className='centeredVertically' style={{ paddingBottom: '16px' }}>
                                 <div style={{ paddingRight: '8px' }}> {selected ? <CheckboxChecked /> : <CheckboxEmpty />}</div>
                                 <img src={props.userAvatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"} alt="Avatar" className="avatar" />
+                                {/* Name + Email */}
                                 <div style={{ paddingLeft: '8px', display: 'grid' }}>
                                     <p style={{ fontSize: '24px', fontWeight: '700', paddingBottom: '8px' }}>{props.userName}</p>
                                     <Tooltip title={[props.userEmail]}>
                                         <p style={{ fontSize: '16px', fontWeight: '700', color: selected ? "#F3D224" : '#AEB0B3' }} className='ellipsis'>{props.userEmail}</p>
                                     </Tooltip>
-
                                 </div>
                             </div>
+
+                            {/* Area, Position and tags */}
                             <div className='innerContent'>
                                 <div style={{ display: 'block' }}>
                                     {props.userArea && <p style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t('user.card.area')}: {props.userArea}</p>}
                                     {props.userPosition && <p style={{ fontSize: '16px', fontWeight: '400', paddingBottom: '8px' }}>{t('user.card.position')}: {props.userPosition}</p>}
+                                    {
+                                        props.licenses.length > 0 ?
+                                            props.licenses.map((p) => {
+                                                return <Tag title={p} color='#000' selected={selected} inverted={false} />
+                                            })
+                                            :
+                                            <Tag title={t('user.card.noProduct')} color='#FF0000' selected={selected} inverted />
+                                    }
                                 </div>
-
-                                {
-                                    props.licenses.length > 0 ?
-                                        props.licenses.map((p) => {
-                                            return <Tag title={p} color='#000' selected={selected} inverted={false} />
-                                        })
-                                        :
-                                        <Tag title={t('user.card.noProduct')} color='#FF0000' selected={selected} inverted />
-                                }
                             </div>
-
                         </div>
+                        {/* Button */}
+                        <Button onClick={props.editAction} className='frstButton blue fixedBottom' fullWidth>
+                            <EditIcon /><span style={{ paddingLeft: '8px' }}>Editar</span>
+                        </Button>
                     </div>
             }
-            <Button onClick={props.editAction} className='frstButton blue fixedBottom' fullWidth>
-                <EditIcon /><span style={{ paddingLeft: '8px' }}>Editar</span>
-            </Button>
-        </div >
+        </>
     )
 }
