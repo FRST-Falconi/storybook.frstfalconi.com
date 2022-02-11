@@ -51,7 +51,7 @@ export default function CalendarCard(props: UserCardProps) {
     }, [props.selected])
 
     return (
-        <div style={{ height: '100%', maxWidth: '381px' }}>
+        <div style={{ maxWidth: '381px', minHeight: '280px' }}>
             {
                 props.loading ?
                     <div className='cardContentNoMargin' >
@@ -88,7 +88,7 @@ export default function CalendarCard(props: UserCardProps) {
                             <div className='centeredVertically' style={{ paddingBottom: '16px' }}>
                                 <div style={{ paddingRight: '8px' }}> {selected ? <CheckboxChecked /> : <CheckboxEmpty />}</div>
                                 <img src={props.userAvatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"} alt="Avatar" className="avatar" />
-                                <div style={{ paddingLeft: '8px' }}>
+                                <div style={{ paddingLeft: '8px', display: 'grid' }}>
                                     <p style={{ fontSize: '24px', fontWeight: '700', paddingBottom: '8px' }}>{props.userName}</p>
                                     <Tooltip title={[props.userEmail]}>
                                         <p style={{ fontSize: '16px', fontWeight: '700', color: selected ? "#F3D224" : '#AEB0B3' }} className='ellipsis'>{props.userEmail}</p>

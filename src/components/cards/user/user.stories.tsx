@@ -115,3 +115,18 @@ error.args = {
     licenses: [],
     editAction: () => { alert('Edit') },
 }
+
+export const bigEmail = Template.bind({})
+bigEmail.args = {
+    loading: false,
+    selected: false,
+    handleSelect: (id) => { alert(`Select (or not) ${id}`) },
+    userID: "bla-blu-fla",
+    userName: "Nome Sobrenome Só que muito grande ",
+    userEmail: "superdupermegauberhugeemail@frst.com",
+    userStatus: "complete",
+    userArea: "Desenvolvimento",
+    userPosition: "FullFull Strack",
+    licenses: [],
+    editAction: () => { alert('Edit') },
+}
