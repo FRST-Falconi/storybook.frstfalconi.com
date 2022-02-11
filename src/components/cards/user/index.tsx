@@ -51,7 +51,7 @@ export default function CalendarCard(props: UserCardProps) {
     }, [props.selected])
 
     return (
-        <div style={{ maxWidth: '381px', minHeight: '280px' }}>
+        <div className='cardContentNoMargin' style={{ color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }}>
             {
                 props.loading ?
                     <div className='cardContentNoMargin' >
@@ -79,7 +79,7 @@ export default function CalendarCard(props: UserCardProps) {
                         </Button>
                     </div>
                     :
-                    <div onClick={setClass} className='cardContentNoMargin' style={{ color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }}>
+                    <div onClick={setClass}>
                         <div className='cardTopRightConner' style={{ color: '#fff', background: statusColor, padding: '4px' }}>
                             {t(`user.card.status.${props.userStatus}`)}
                         </div>
@@ -113,11 +113,11 @@ export default function CalendarCard(props: UserCardProps) {
                             </div>
 
                         </div>
-                        <Button onClick={props.editAction} className='frstButton blue' fullWidth>
-                            <EditIcon /><span style={{ paddingLeft: '8px' }}>Editar</span>
-                        </Button>
                     </div>
             }
+            <Button onClick={props.editAction} className='frstButton blue fixedBottom' fullWidth>
+                <EditIcon /><span style={{ paddingLeft: '8px' }}>Editar</span>
+            </Button>
         </div >
     )
 }
