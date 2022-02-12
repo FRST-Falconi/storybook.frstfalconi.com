@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://frstfalconi.com/">
+  <a href="https://frst-falconi.github.io/storybook.frstfalconi.com">
     <img alt="Chromatic" src="https://frstfalconi.com/wp-content/themes/frst-theme/img/logo-frst-completo2x.png" width="320" />
   </a>
 </p>
