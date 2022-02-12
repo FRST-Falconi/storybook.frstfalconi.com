@@ -1,12 +1,15 @@
 import UserCard from '@components/cards/user'
 
-/**
- * @param {UserCardProps} props
- */
-export default function PageSandbox() {
+
+export interface PageProps {
+    pageHeight: string,
+    pageWidth: string,
+}
+
+export default function PageSandbox(props: PageProps) {
 
     return (
-        <div style={{ width: '100%', height: '100%' }}>
+        <div style={{ width: props.pageWidth, height: props.pageHeight }}>
             <UserCard loading={false}
                 selected={false}
                 handleSelect={(id) => { alert(`Select (or not) ${id}`) }}

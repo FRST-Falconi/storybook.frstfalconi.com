@@ -12,3 +12,7 @@ export default {
 const Template = (args) => <PageSandbox {...args} />
 
 export const sandboxPage = Template.bind({})
+sandboxPage.args = {
+    pageHeight: '340px',
+    pageWidth: '500px'
+}
