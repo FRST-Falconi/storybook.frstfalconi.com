@@ -409,7 +409,7 @@ function StepsComponent(props) {
  */
 function CalendarCard(props) {
     const { t } = reactI18next.useTranslation();
-    const [module, setModule] = react.useState(null);
+    const [module, setModule] = react.useState(0);
     const [moduleEvents, setModuleEvents] = react.useState([]);
     const [moduleSelector, setModuleSelector] = react.useState(false);
     const handleChange = (event) => {
@@ -420,7 +420,6 @@ function CalendarCard(props) {
     };
     react.useEffect(() => {
         if (props.trails[0]) {
-            setModule(0);
             if (props.trails[0].events)
                 setModuleEvents(props.trails[0].events);
             if (props.trails.length > 1)
@@ -430,9 +429,10 @@ function CalendarCard(props) {
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
             jsxRuntime.jsx(Container, { className: 'shimmer' }, void 0)
             :
-                jsxRuntime.jsx(Container, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title, { children: t('calendar.title') }, void 0), jsxRuntime.jsxs(ContainerDescription, { hidden: !moduleSelector, children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }, void 0), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
-                                                return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
-                                            }) }, void 0) }, void 0)] }, void 0), moduleEvents?.length === 0 &&
+                jsxRuntime.jsx(Container, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title, { children: t('calendar.title') }, void 0), moduleSelector &&
+                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }, void 0), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
+                                                    return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
+                                                }) }, void 0) }, void 0)] }, void 0), moduleEvents?.length === 0 &&
                                 jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon, {}, void 0), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') }, void 0)] }, void 0), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }, void 0), moduleEvents && moduleEvents.length > 0 &&
                                 jsxRuntime.jsx(BoxLabelTimeMentoring, { children: props.trails[module]?.nextEvent ?
                                         jsxRuntime.jsxs(LabelTimeMentoring, { children: [t('calendar.card.mentoringSchedule'), " ", t(`calendar.weekdays.${props.trails[module].nextEvent.weekday}`), " @ ", props.trails[module]?.nextEvent.hour] }, void 0)

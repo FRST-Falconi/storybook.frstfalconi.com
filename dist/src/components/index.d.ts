@@ -1,6 +1,7 @@
 /// <reference types="react" />
-/**
- * @param {UserCardProps} props
- */
-export default function PageSandbox(): JSX.Element;
+export interface PageProps {
+    pageHeight: string;
+    pageWidth: string;
+}
+export default function PageSandbox(props: PageProps): JSX.Element;
 //# sourceMappingURL=index.d.ts.map

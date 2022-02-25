@@ -74,7 +74,7 @@ function StepsComponent(props: any) {
 export default function CalendarCard(props: CalendarProps) {
   const { t } = useTranslation()
 
-  const [module, setModule] = useState(null)
+  const [module, setModule] = useState(0)
   const [moduleEvents, setModuleEvents] = useState([])
   const [moduleSelector, setModuleSelector] = useState(false)
 
@@ -86,7 +86,6 @@ export default function CalendarCard(props: CalendarProps) {
 
   useEffect(() => {
     if (props.trails[0]) {
-      setModule(0)
       if (props.trails[0].events) setModuleEvents(props.trails[0].events)
       if (props.trails.length > 1) setModuleSelector(true)
     }
@@ -101,16 +100,19 @@ export default function CalendarCard(props: CalendarProps) {
           <Styles.Container>
             <CardContent style={{ padding: '0px' }} >
               <Styles.Title>{t('calendar.title')}</Styles.Title>
-              <Styles.ContainerDescription hidden={!moduleSelector}>
-                <Styles.TextDescription>{t('calendar.card.description')}</Styles.TextDescription>
-                <Styles.FormControlSelect fullWidth>
-                  <Styles.DropDownList id="module-id" value={module} onChange={handleChange}>
-                    {props.trails?.map((item, index) => {
-                      return <MenuItem key={index} value={index}>{item.name} - {item.moduleID}</MenuItem>
-                    })}
-                  </Styles.DropDownList>
-                </Styles.FormControlSelect>
-              </Styles.ContainerDescription>
+              {
+                moduleSelector &&
+                <Styles.ContainerDescription>
+                  <Styles.TextDescription>{t('calendar.card.description')}</Styles.TextDescription>
+                  <Styles.FormControlSelect fullWidth>
+                    <Styles.DropDownList id="module-id" value={module} onChange={handleChange}>
+                      {props.trails?.map((item, index) => {
+                        return <MenuItem key={index} value={index}>{item.name} - {item.moduleID}</MenuItem>
+                      })}
+                    </Styles.DropDownList>
+                  </Styles.FormControlSelect>
+                </Styles.ContainerDescription>
+              }
 
               {moduleEvents?.length === 0 &&
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }}>
