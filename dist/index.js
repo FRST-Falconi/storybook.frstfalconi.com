@@ -7,7 +7,7 @@ var react = require('react');
 var reactI18next = require('react-i18next');
 var material = require('@mui/material');
 var styled = require('styled-components');
-var Button = require('@mui/material/Button');
+var Button$2 = require('@mui/material/Button');
 var Menu = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
 var Card = require('@mui/material/Card');
@@ -25,7 +25,7 @@ var styles = require('@mui/material/styles');
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
-var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button);
+var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$2);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var Card__default = /*#__PURE__*/_interopDefaultLegacy(Card);
@@ -66,7 +66,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+var css_248z = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
 styleInject(css_248z);
 
 function Tag(props) {
@@ -442,7 +442,142 @@ function CalendarCard(props) {
                                         jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') }, void 0)] }, void 0)] }, void 0) }, void 0) }, void 0));
 }
 
+const TextButton = styled__default["default"].a `
+    border: none;
+    text-decoration: none;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: #0645AD;
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    &:hover { 
+        color: #0B0080;
+    }
+
+    &:active { 
+        color: #663366;
+    }
+
+    &:focus { 
+        color: #0645AD;
+    }
+
+    & > svg {
+        margin-right: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ disabled }) => disabled && styled.css `
+        pointer-events: none;
+        color: #757575;
+
+        & > path {
+            fill: #757575;
+        }
+    `}
+`;
+const variantStyles = (variant = 'contained') => ({
+    contained: styled.css `
+        background-color: #FF4D0D;
+        color: #fff;
+
+        &:hover {
+            background-color: #EE4C15;
+        }
+
+        &:active {
+            background-color: #D14211;
+        }
+
+        &:focus {
+            background-color: #FF4D0D;
+            border: 2px solid rgba(255, 77, 13, 0.3);
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            background: #757575;
+            cursor: not-allowed;
+        }
+    `,
+    outlined: styled.css `
+        background-color: transparent;
+        color: #FF4D0D;
+        border: 1px solid #FF4D0D;
+
+        &:hover {
+            color: #EE4C15;
+            border: 1px solid #EE4C15;
+        }
+
+        &:active {
+            color: #D14211;
+            border: 1px solid #D14211;
+        }
+
+        &:focus {
+            color: #FF4D0D;
+            border: 2px solid rgba(255, 77, 13, 0.3);
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            color: #757575;
+            border: 1px solid #757575;
+            cursor: not-allowed;
+        }
+    `
+}[variant]);
+const Button$1 = styled__default["default"].button `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    box-shadow: none;
+
+    & > svg {
+        margin-right: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ variant }) => variantStyles(variant)}
+`;
+
+function Button({ variant, label, disabled, startIcon, handleClick }) {
+    return ((variant === 'text') ?
+        jsxRuntime.jsxs(TextButton, { disabled: disabled, onClick: handleClick, children: [startIcon, label] }, void 0)
+        :
+            jsxRuntime.jsxs(Button$1, { variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] }, void 0));
+}
+
 exports.BaseCard = EmptyCard;
+exports.Button = Button;
 exports.CalendarCard = CalendarCard;
 exports.Tag = Tag;
 exports.UserCard = CalendarCard$1;
