@@ -20,6 +20,7 @@ br {
 
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 .avatar {

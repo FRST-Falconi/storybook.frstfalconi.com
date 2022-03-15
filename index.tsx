@@ -8,3 +8,6 @@ export { default as BaseCard } from "./src/components/cards/base"
 // CARDS
 export { default as UserCard } from "./src/components/cards/user"
 export { default as CalendarCard } from "./src/components/calendar"
+
+// Buttons
+export { default as Button } from "./src/components/buttons"
