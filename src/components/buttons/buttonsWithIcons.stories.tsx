@@ -5,7 +5,7 @@ import * as Icons from '../../shared/icons'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Base/Buttons',
+    title: 'Buttons/With Icons',
     component: Button,
 }
 
@@ -15,7 +15,7 @@ const Template = (args) => <Button {...args} />
 export const contained = Template.bind({})
 contained.args = {
     variant: 'contained',
-    label: 'Texto button',
+    label: 'Button text',
     disabled: false,
     startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') },
@@ -24,7 +24,7 @@ contained.args = {
 export const outlined = Template.bind({})
 outlined.args = {
     variant: 'outlined',
-    label: 'Texto button',
+    label: 'Button text',
     disabled: false,
     startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') }
@@ -33,8 +33,7 @@ outlined.args = {
 export const text = Template.bind({})
 text.args = {
     variant: 'text',
-    label: 'Texto button',
+    label: 'Button text',
     disabled: false,
-    startIcon: <Icons.ChangeAccount />,
-    handleClick: () => { alert('Click') }
+    startIcon: <Icons.ChangeAccount />
 }
