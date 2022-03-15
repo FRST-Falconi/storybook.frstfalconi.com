@@ -21,8 +21,8 @@ contained.args = {
     handleClick: () => { alert('Click') },
 }
 
-export const outline = Template.bind({})
-outline.args = {
+export const outlined = Template.bind({})
+outlined.args = {
     variant: 'outlined',
     label: 'Texto button',
     disabled: false,
