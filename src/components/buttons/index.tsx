@@ -12,10 +12,10 @@ interface buttonProps {
 export default function Button({ variant, label, disabled, startIcon, handleClick }: buttonProps) {
     return (
         (variant === 'text') ?
-            <Styles.textButton disabled={disabled} onClick={handleClick}>
+            <Styles.TextButton disabled={disabled} onClick={handleClick}>
                 {startIcon}
                 {label}
-            </Styles.textButton>
+            </Styles.TextButton>
         :
             <Styles.Button variant={variant} disabled={disabled} onClick={handleClick}>
                 {startIcon}
