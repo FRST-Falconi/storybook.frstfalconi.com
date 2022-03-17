@@ -37,10 +37,10 @@ export const TextButton = styled.a<{ disabled: boolean }>`
 
     ${({ disabled }) => disabled && css`
         pointer-events: none;
-        color: #757575;
+        color: ${({ theme }) => theme.colors.neutral.grey2};
 
         & > path {
-            fill: #757575;
+            fill: ${({ theme }) => theme.colors.neutral.grey2};
         }
     `}
 `
@@ -48,54 +48,52 @@ export const TextButton = styled.a<{ disabled: boolean }>`
 const variantStyles = (variant = 'contained') =>
   ({
     contained: css`
-        background-color: #FF4D0D;
+        background-color: ${({ theme }) => theme.colors.primary.primary1};
         color: #fff;
 
         &:hover {
-            background-color: #EE4C15;
+            background-color: ${({ theme }) => theme.colors.primary.primary2};
         }
 
         &:active {
-            background-color: #D14211;
+            background-color: ${({ theme }) => theme.colors.primary.primary3};
         }
 
         &:focus {
-            background-color: #FF4D0D;
-            border: 2px solid rgba(255, 77, 13, 0.3);
+            border: 2px solid ${({ theme }) => theme.colors.primary.primary1}4D;
             -webkit-background-clip: padding-box;
             background-clip: padding-box;
         }
 
         &:disabled {
-            background: #757575;
+            background: ${({ theme }) => theme.colors.neutral.grey2};
             cursor: not-allowed;
         }
     `,
     outlined: css`
         background-color: transparent;
-        color: #FF4D0D;
-        border: 1px solid #FF4D0D;
+        color: ${({ theme }) => theme.colors.primary.primary1};
+        border: 1px solid ${({ theme }) => theme.colors.primary.primary1};
 
         &:hover {
-            color: #EE4C15;
-            border: 1px solid #EE4C15;
+            color: ${({ theme }) => theme.colors.primary.primary2};
+            border: 1px solid ${({ theme }) => theme.colors.primary.primary2};
         }
 
         &:active {
-            color: #D14211;
-            border: 1px solid #D14211;
+            color: ${({ theme }) => theme.colors.primary.primary3};
+            border: 1px solid ${({ theme }) => theme.colors.primary.primary3};
         }
 
         &:focus {
-            color: #FF4D0D;
-            border: 2px solid rgba(255, 77, 13, 0.3);
+            border: 2px solid ${({ theme }) => theme.colors.primary.primary1}4D;
             -webkit-background-clip: padding-box;
             background-clip: padding-box;
         }
 
         &:disabled {
-            color: #757575;
-            border: 1px solid #757575;
+            color: ${({ theme }) => theme.colors.neutral.grey2};
+            border: 1px solid ${({ theme }) => theme.colors.neutral.grey2};
             cursor: not-allowed;
         }
     `
