@@ -3,12 +3,16 @@ import '../../../shared/global.css'
 import * as Styles from './textFieldStyle'
 import {  ThemeProvider } from 'styled-components'
 
-interface TextFieldProps {
+type enumType = 'text' | 'password' | 'email'
+
+export interface TextFieldProps {
     label?: string,
     placeholder?: string,
     helperText?: string,
     endIcon?: any,
-    type?: string,
+    type?: enumType,
+    width?: string,
+    height?: string,
     value?: any,
     error?: boolean,
     disabled?: boolean,
@@ -26,7 +30,8 @@ export default function TextField(props: TextFieldProps) {
     const [ hover, setHover ] = useState(false)
 
     return (
-        <ThemeProvider theme={{ focused: focus, disabled: props.disabled, hovered: hover, error: props.error }}>
+        <ThemeProvider theme={{ focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }}>
+
             <div style={props.style} className={props.className}>
                 <Styles.Label htmlFor={props.id} >{props.label}</Styles.Label>
 
@@ -48,10 +53,13 @@ export default function TextField(props: TextFieldProps) {
                         name={props.name}
                         required={props.required}
                     />
-                    <span>{props.endIcon}</span>
+                    {
+                        props.endIcon && !props.multiline && <span>{props.endIcon}</span>
+                    }
                 </Styles.TextFieldContainer>
-
-                <Styles.HelperText>{props.helperText}</Styles.HelperText>
+                {
+                    props.helperText && <Styles.HelperText>{props.helperText}</Styles.HelperText>
+                }
             </div>
         </ThemeProvider>
     );

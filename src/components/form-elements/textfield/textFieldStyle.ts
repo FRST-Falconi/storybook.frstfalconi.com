@@ -1,13 +1,30 @@
 import styled, { css } from 'styled-components'
 
 interface TextFieldProps {
-    focused?: boolean,
     type?: string,
     as?: string,
 }
 
-export const TextFieldContainer = styled.div`
-    width: 212px;
+const placeholderStyle = (color: string) => css`
+    ::-webkit-input-placeholder {
+        color: ${color};
+    }
+
+    ::-moz-placeholder {
+        color: ${color};
+    }
+
+    :-ms-input-placeholder
+        color: ${color};
+    }
+
+    :-moz-placeholder
+        color: ${color};
+    }
+`
+
+export const TextFieldContainer = styled.div<TextFieldProps>`
+    width: ${props => props.theme.width || '100%'};
     height: 48px;
     background: #EBEBEB;
     border: 1px solid #E0E0E0;
@@ -19,6 +36,16 @@ export const TextFieldContainer = styled.div`
     margin: 8px 0;
     display: flex;
     align-items: center;
+
+    ${ props => props.theme.multiline && css`
+        width: ${props => props.theme.width || '100%'};
+        height: ${props => props.theme.height || '100%'};
+        min-height: 142px;
+        display: block;
+        padding: 0;
+        overflow: hidden;
+    `}
+
 
     ${ props => props.theme.hovered && css`
         border: 1px solid #0645AD;
@@ -44,7 +71,7 @@ export const TextFieldContainer = styled.div`
 export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     type: type || 'text',
     as: as || 'input'
-}))`
+}))<{ as: string }>`
     width: 100%;
     height: 100%;
     padding: 15px 16px;
@@ -57,17 +84,20 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     font-size: 14px;
     line-height: 18px;
     color: #222222;
-    
-    &:placeholder {
-        color: #9C9C9C;
-    }
 
+    ${placeholderStyle('#9C9C9C')}
+
+
+    ${({ as }) => as === 'textarea' && css`]
+        height: ${props => props.theme.height || '100%'};
+        resize: none;
+        overflow: auto;
+        min-height: 142px;
+    `}
+    
     ${ props => props.theme.disabled && css`
         color: #BDBDBD;
-        
-        &:placeholder {
-            color: #BDBDBD;
-        }
+        ${placeholderStyle('#BDBDBD')}
     `}
 
 `

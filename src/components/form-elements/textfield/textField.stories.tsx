@@ -19,14 +19,12 @@ NormalWithHelpertext.args = {
     helperText: 'Helper text',
     required: false,
     type: 'text',
-    value: null,
     error: false,
     disabled: false,
     id: 'MyTextField',
     name: '',
     className: '',
-    multiline: false,
-    onChange: () => { console.log('changed!') },
+    onChange: (e : any) => { console.log(e.target.value) },
 }
 
 export const NormalWithoutHelpertext = Template.bind({})
@@ -35,14 +33,12 @@ NormalWithoutHelpertext.args = {
     placeholder: 'Enter text here...',
     required: false,
     type: 'text',
-    value: null,
     error: false,
     disabled: false,
     id: 'MyTextField',
     name: '',
     className: '',
-    multiline: false,
-    onChange: () => { console.log('changed!') },
+    onChange: (e : any) => { console.log(e.target.value) },
 }
 
 export const WithIconAndHelpertext = Template.bind({})
@@ -53,14 +49,12 @@ WithIconAndHelpertext.args = {
     required: false,
     endIcon: <Icons.EditIcon />,
     type: 'text',
-    value: null,
     error: false,
     disabled: false,
     id: 'MyTextField',
     name: '',
     className: '',
-    multiline: false,
-    onChange: () => { console.log('changed!') },
+    onChange: (e : any) => { console.log(e.target.value) },
 }
 
 export const WithoutIconAndHelpertext = Template.bind({})
@@ -70,12 +64,10 @@ WithoutIconAndHelpertext.args = {
     required: false,
     endIcon: <Icons.EditIcon />,
     type: 'text',
-    value: null,
     error: false,
     disabled: false,
     id: 'MyTextField',
     name: '',
     className: '',
-    multiline: false,
-    onChange: () => { console.log('changed!') },
+    onChange: (e : any) => { console.log(e.target.value) },
 }
