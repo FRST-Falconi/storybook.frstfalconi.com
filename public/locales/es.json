@@ -1,5 +1,6 @@
 {
   "globals.clickHere": "Haga clic aquí",
+  "globals.typeHere": "Escriba aquí",
 
   "calendar.weekdays": ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
   "calendar.monthsInitials": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"],

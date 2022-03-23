@@ -66,6 +66,12 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
         border: 1px solid #FF0000;
         color: #9C9C9C;
     `}
+
+    span { 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
@@ -138,4 +144,25 @@ export const HelperText = styled.span`
     ${ props => props.theme.error && css`
         color: #FF0000;
     `}
+`
+
+export const InputIconButton = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    margin-right: -10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    transition: all 0.1s linear;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
 `
