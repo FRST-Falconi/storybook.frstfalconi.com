@@ -1,5 +1,6 @@
 {
   "globals.clickHere": "Click here",
+  "globals.typeHere": "Type aqui",
 
   "calendar.weekdays": ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
   "calendar.monthsInitials": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
