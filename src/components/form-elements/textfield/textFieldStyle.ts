@@ -52,7 +52,7 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     `}
 
     ${ props => props.theme.focused && css`
-        box-shadow: 0px 0px 2px 2px rgba(6, 69, 173, 0.4);
+        box-shadow: 0px 0px 0px 1px rgba(6, 69, 173, 0.4);
         border: 1px solid #0645AD;
     `}
 
@@ -161,8 +161,4 @@ export const InputIconButton = styled.button`
     outline: none;
     transition: all 0.1s linear;
     cursor: pointer;
-
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.1);
-    }
 `

@@ -71,3 +71,18 @@ WithoutIconAndHelpertext.args = {
     className: '',
     onChange: (e : any) => { console.log(e.target.value) },
 }
+
+export const PasswordWithIconAndHelperText = Template.bind({})
+PasswordWithIconAndHelperText.args = {
+    label: 'Label',
+    placeholder: 'Enter text here...',
+    required: false,
+    endIcon: <Icons.EditIcon />,
+    type: 'password',
+    error: false,
+    disabled: false,
+    id: 'MyTextField',
+    name: '',
+    className: '',
+    onChange: (e : any) => { console.log(e.target.value) },
+}
