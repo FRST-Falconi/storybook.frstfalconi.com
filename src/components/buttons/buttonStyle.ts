@@ -1,14 +1,10 @@
 import styled, { css } from 'styled-components'
 
-export const TextButton = styled.a<{ disabled: boolean }>`
+export const LinkButton = styled.a<{ disabled: boolean }>`
     border: none;
     text-decoration: none;
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 21px;
-    color: #0645AD;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
+    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -17,15 +13,15 @@ export const TextButton = styled.a<{ disabled: boolean }>`
     align-items: center;
 
     &:hover { 
-        color: #0B0080;
+        color: ${({ theme }) => theme.colors.linkHover};
     }
 
     &:active { 
-        color: #663366;
+        color: ${({ theme }) => theme.colors.linkPressed};
     }
 
     &:focus { 
-        color: #0645AD;
+        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
     }
 
     & > svg {
@@ -37,64 +33,62 @@ export const TextButton = styled.a<{ disabled: boolean }>`
 
     ${({ disabled }) => disabled && css`
         pointer-events: none;
-        color: ${({ theme }) => theme.colors.neutral.grey2};
-
-        & > path {
-            fill: ${({ theme }) => theme.colors.neutral.grey2};
-        }
+        color: ${({ theme }) => theme.colors.neutralsGrey2};
     `}
 `
 
 const variantStyles = (variant = 'contained') =>
   ({
-    contained: css`
-        background-color: ${({ theme }) => theme.colors.primary.primary1};
-        color: #fff;
+    primary: css`
+        background-color: ${({ theme }) => theme.colors.primary1};
+        color: ${({ theme }) => theme.colors.shadeWhite};
 
         &:hover {
-            background-color: ${({ theme }) => theme.colors.primary.primary2};
+            background-color: ${({ theme }) => theme.colors.primary2};
         }
 
         &:active {
-            background-color: ${({ theme }) => theme.colors.primary.primary3};
+            background-color: ${({ theme }) => theme.colorsprimary3};
         }
 
         &:focus {
-            border: 2px solid ${({ theme }) => theme.colors.primary.primary1}4D;
+            border: 2px solid ${({ theme }) => theme.colors.primary1}4D;
             -webkit-background-clip: padding-box;
             background-clip: padding-box;
         }
 
         &:disabled {
-            background: ${({ theme }) => theme.colors.neutral.grey2};
+            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
             cursor: not-allowed;
+            pointer-events: none;
         }
     `,
-    outlined: css`
+    secondary: css`
         background-color: transparent;
-        color: ${({ theme }) => theme.colors.primary.primary1};
-        border: 1px solid ${({ theme }) => theme.colors.primary.primary1};
+        color: ${({ theme }) => theme.colors.primary1};
+        border: 1px solid ${({ theme }) => theme.colors.primary1};
 
         &:hover {
-            color: ${({ theme }) => theme.colors.primary.primary2};
-            border: 1px solid ${({ theme }) => theme.colors.primary.primary2};
+            color: ${({ theme }) => theme.colors.primary2};
+            border: 1px solid ${({ theme }) => theme.colors.primary2};
         }
 
         &:active {
-            color: ${({ theme }) => theme.colors.primary.primary3};
-            border: 1px solid ${({ theme }) => theme.colors.primary.primary3};
+            color: ${({ theme }) => theme.colors.primary3};
+            border: 1px solid ${({ theme }) => theme.colors.primary3};
         }
 
         &:focus {
-            border: 2px solid ${({ theme }) => theme.colors.primary.primary1}4D;
+            border: 2px solid ${({ theme }) => theme.colors.primary1}4D;
             -webkit-background-clip: padding-box;
             background-clip: padding-box;
         }
 
         &:disabled {
-            color: ${({ theme }) => theme.colors.neutral.grey2};
-            border: 1px solid ${({ theme }) => theme.colors.neutral.grey2};
+            color: ${({ theme }) => theme.colors.neutralsGrey2};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
             cursor: not-allowed;
+            pointer-events: none;
         }
     `
   }[variant]);
