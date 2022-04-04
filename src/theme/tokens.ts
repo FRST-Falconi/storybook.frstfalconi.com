@@ -9,6 +9,7 @@ export const DesignTokens = {
         "linkDefaultOnfocus": "#0645ad",
         "linkDisabled": "#bdbdbd",
         "linkHover": "#0b0080",
+        "linkOnfocus": "#0645ad",
         "linkPressed": "#663366",
         "messageAlert1": "#ffc200",
         "messageAlert2": "#fef0d4",
@@ -29,6 +30,7 @@ export const DesignTokens = {
         "primary3": "#d14211",
         "secondary1": "#6a3f86",
         "secondary2": "#ffd600",
+        "secondary5": "#a50000",
         "shadeWhite": "#ffffff",
         "shadeBlack": "#000000",
       },
@@ -50,7 +52,7 @@ export const DesignTokens = {
           "fontWeight": 700,
           "color": "black"
         },
-        "textMessageComponentsBodBold": {
+        "textMessageComponentsBodyBold": {
           "fontFamily": "'PT Sans', 'PTSans-Bold'",
           "fontSize": "16px",
           "letterSpacing": "0px",
@@ -182,7 +184,7 @@ export const DesignTokens = {
           "value": "24px",
           "type": "other"
         },
-        "card_padding_larg": {
+        "card_padding_large": {
           "value": "32px",
           "type": "other"
         }
