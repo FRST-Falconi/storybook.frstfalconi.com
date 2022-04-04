@@ -1,8 +1,11 @@
 import '../../shared/global.css'
+import { ThemeProvider } from 'styled-components'
+import { FRSTTheme } from '../../theme'
 import * as Styles from './buttonStyle'
 
+type enumVariant = 'primary' | 'secondary' | 'link'
 interface buttonProps {
-    variant?: string;
+    variant?: enumVariant;
     label?: string,
     disabled?: boolean,
     startIcon?: any,
@@ -11,15 +14,19 @@ interface buttonProps {
 
 export default function Button({ variant, label, disabled, startIcon, handleClick }: buttonProps) {
     return (
-        (variant === 'text') ?
-            <Styles.TextButton disabled={disabled} onClick={handleClick}>
-                {startIcon}
-                {label}
-            </Styles.TextButton>
-        :
-            <Styles.Button variant={variant} disabled={disabled} onClick={handleClick}>
-                {startIcon}
-                {label}
-            </Styles.Button>
+        <ThemeProvider theme={FRSTTheme}>
+            {
+                (variant === 'link') ?
+                    <Styles.LinkButton disabled={disabled} onClick={handleClick}>
+                        {startIcon}
+                        {label}
+                    </Styles.LinkButton>
+                :
+                    <Styles.Button variant={variant} disabled={disabled} onClick={handleClick}>
+                        {startIcon}
+                        {label}
+                    </Styles.Button>
+            }
+        </ThemeProvider>
     );
 }

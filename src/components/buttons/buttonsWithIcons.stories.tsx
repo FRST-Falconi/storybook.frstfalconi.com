@@ -12,27 +12,27 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <Button {...args} />
 
-export const contained = Template.bind({})
-contained.args = {
-    variant: 'contained',
+export const primary = Template.bind({})
+primary.args = {
+    variant: 'primary',
     label: 'Button text',
     disabled: false,
     startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') },
 }
 
-export const outlined = Template.bind({})
-outlined.args = {
-    variant: 'outlined',
+export const secondary = Template.bind({})
+secondary.args = {
+    variant: 'secondary',
     label: 'Button text',
     disabled: false,
     startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') }
 }
 
-export const text = Template.bind({})
-text.args = {
-    variant: 'text',
+export const link = Template.bind({})
+link.args = {
+    variant: 'link',
     label: 'Button text',
     disabled: false,
     startIcon: <Icons.ChangeAccount />
