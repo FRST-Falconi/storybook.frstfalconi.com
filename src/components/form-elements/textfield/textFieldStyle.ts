@@ -7,27 +7,27 @@ interface TextFieldProps {
 
 const placeholderStyle = (color: string) => css`
     ::-webkit-input-placeholder {
-        color: ${color};
+        color: ${({ theme }) => theme.colors[color]};
     }
 
     ::-moz-placeholder {
-        color: ${color};
+        color: ${({ theme }) => theme.colors[color]};
     }
 
     :-ms-input-placeholder
-        color: ${color};
+        color: ${({ theme }) => theme.colors[color]};
     }
 
     :-moz-placeholder
-        color: ${color};
+        color: ${({ theme }) => theme.colors[color]};
     }
 `
 
 export const TextFieldContainer = styled.div<TextFieldProps>`
     width: ${props => props.theme.width || '100%'};
     height: 48px;
-    background: #EBEBEB;
-    border: 1px solid #E0E0E0;
+    background: ${({ theme }) => theme.colors.neutralsGrey6};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     box-sizing: border-box;
     border-radius: 8px;
     outline: none;
@@ -48,23 +48,23 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
 
 
     ${ props => props.theme.hovered && css`
-        border: 1px solid #0645AD;
+        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
     `}
 
     ${ props => props.theme.focused && css`
         box-shadow: 0px 0px 0px 1px rgba(6, 69, 173, 0.4);
-        border: 1px solid #0645AD;
+        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
     `}
 
     ${ props => props.theme.disabled && css`
-        background: #F5F5F5;
-        border: 1px solid #E0E0E0;
+        background: ${({ theme }) => theme.colors.neutralsGrey7};
+        border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     `}
 
     ${ props => props.theme.error && css`
         box-shadow: none;
-        border: 1px solid #FF0000;
-        color: #9C9C9C;
+        border: 1px solid ${({ theme }) => theme.colors.messageError1};
+        color: ${({ theme }) => theme.colors.neutralsGrey3};
     `}
 
     span { 
@@ -89,9 +89,9 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    color: #222222;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-    ${placeholderStyle('#9C9C9C')}
+    ${placeholderStyle('neutralsGrey3')}
 
 
     ${({ as }) => as === 'textarea' && css`]
@@ -102,8 +102,8 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     `}
     
     ${ props => props.theme.disabled && css`
-        color: #BDBDBD;
-        ${placeholderStyle('#BDBDBD')}
+        color: ${({ theme }) => theme.colors.neutralsGrey4};
+        ${placeholderStyle('neutralsGrey4')}
     `}
 
 `
@@ -114,22 +114,22 @@ export const Label = styled.label`
     font-weight: 400;
     font-size: 16px;
     line-height: 21px;
-    color: #222222;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
 
     ${ props => props.theme.hovered && css`
-        color: #0645AD;
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
     ${ props => props.theme.focused && css`
-        color: #0645AD;
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
     ${ props => props.theme.disabled && css`
-        color: #9C9C9C;
+        color: ${({ theme }) => theme.colors.neutralsGrey3};
     `}
 
     ${ props => props.theme.error && css`
-        color: #FF0000;
+        color: ${({ theme }) => theme.colors.messageError1};
     `}
 `
 
@@ -139,10 +139,10 @@ export const HelperText = styled.span`
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    color: #9C9C9C;
+    color: ${({ theme }) => theme.colors.neutralsGrey3};
 
     ${ props => props.theme.error && css`
-        color: #FF0000;
+        color: ${({ theme }) => theme.colors.messageError1};
     `}
 `
 

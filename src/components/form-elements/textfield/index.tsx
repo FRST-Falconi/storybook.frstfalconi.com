@@ -3,6 +3,7 @@ import '../../../shared/global.css'
 import * as Styles from './textFieldStyle'
 import {  ThemeProvider } from 'styled-components'
 import { useTranslation } from 'react-i18next'
+import { FRSTTheme } from '../../../theme'
 
 type enumType = 'text' | 'password' | 'email'
 
@@ -38,7 +39,7 @@ export default function TextField(props: TextFieldProps) {
     }
 
     return (
-        <ThemeProvider theme={{ focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }}>
+        <ThemeProvider theme={{ ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }}>
 
             <div style={props.style} className={props.className}>
                 <Styles.Label htmlFor={props.id} >{props.label}</Styles.Label>
