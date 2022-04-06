@@ -86,3 +86,34 @@ PasswordWithIconAndHelperText.args = {
     className: '',
     onChange: (e : any) => { console.log(e.target.value) },
 }
+
+export const WithStartIcon = Template.bind({})
+WithStartIcon.args = {
+    label: 'Label',
+    placeholder: 'Enter text here...',
+    required: false,
+    startIcon: <Icons.EditIcon />,
+    type: 'text',
+    error: false,
+    disabled: false,
+    id: 'MyTextField',
+    name: '',
+    className: '',
+    onChange: (e : any) => { console.log(e.target.value) },
+}
+
+export const WithStartIconAndHelpertext = Template.bind({})
+WithStartIconAndHelpertext.args = {
+    label: 'Label',
+    placeholder: 'Enter text here...',
+    helperText: 'Helper text',
+    required: false,
+    startIcon: <Icons.EditIcon />,
+    type: 'text',
+    error: false,
+    disabled: false,
+    id: 'MyTextField',
+    name: '',
+    className: '',
+    onChange: (e : any) => { console.log(e.target.value) },
+}

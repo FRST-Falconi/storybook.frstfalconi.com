@@ -162,3 +162,7 @@ export const InputIconButton = styled.button`
     transition: all 0.1s linear;
     cursor: pointer;
 `
+
+export const StartIcon = styled.span`
+    margin-left: 16px;
+`

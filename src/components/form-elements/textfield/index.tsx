@@ -12,6 +12,7 @@ export interface TextFieldProps {
     placeholder?: string,
     helperText?: string,
     endIcon?: any,
+    startIcon?: any,
     type?: enumType,
     width?: string,
     height?: string,
@@ -48,6 +49,11 @@ export default function TextField(props: TextFieldProps) {
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}
                 >
+                    {
+                        props.startIcon && !props.multiline && (
+                            <Styles.StartIcon>{props.startIcon}</Styles.StartIcon>
+                        )
+                    }
                     <Styles.TextField
                         onFocus={() => setFocus(true)}
                         onBlur={() => setFocus(false)}
