@@ -1,7 +1,8 @@
 /// <reference types="react" />
 import '../../shared/global.css';
+declare type enumVariant = 'primary' | 'secondary' | 'link';
 interface buttonProps {
-    variant?: string;
+    variant?: enumVariant;
     label?: string;
     disabled?: boolean;
     startIcon?: any;
