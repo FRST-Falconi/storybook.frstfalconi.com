@@ -4,5 +4,5 @@ export { default as UserCard } from "./src/components/cards/user";
 export { default as CalendarCard } from "./src/components/calendar";
 export { default as Button } from "./src/components/buttons";
 export { default as TextField } from './src/components/form-elements/textfield';
-export { AlertCicle as AlertCicleIcon } from './src/shared/icons';
+export { default as AlertCicle } from './src/shared/icons';
 //# sourceMappingURL=index.d.ts.map
