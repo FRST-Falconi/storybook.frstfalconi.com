@@ -140,3 +140,5 @@ export function AlertCicle({ fill }: IconsProps) {
     </svg>
   )
 }
+
+export default { AlertCicle }

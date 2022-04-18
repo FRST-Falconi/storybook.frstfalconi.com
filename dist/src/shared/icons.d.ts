@@ -17,5 +17,8 @@ export declare function CheckboxChecked(): JSX.Element;
 export declare function CheckboxEmpty(): JSX.Element;
 export declare function BlueTrash(): JSX.Element;
 export declare function AlertCicle({ fill }: IconsProps): JSX.Element;
-export {};
+declare const _default: {
+    AlertCicle: typeof AlertCicle;
+};
+export default _default;
 //# sourceMappingURL=icons.d.ts.map
