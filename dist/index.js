@@ -98,6 +98,9 @@ function CheckboxChecked() {
 function CheckboxEmpty() {
     return (jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "1.4", fill: "white", stroke: "#A6A6A6", strokeWidth: "1.2" }, void 0) }, void 0));
 }
+function AlertCicle({ fill }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: fill ?? "#FF0000", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }, void 0), jsxRuntime.jsx("path", { d: "M12 8V12", stroke: fill ?? "#FF0000", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }, void 0), jsxRuntime.jsx("path", { d: "M12 16H12.01", stroke: fill ?? "#FF0000", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }, void 0)] }, void 0));
+}
 
 /**
  * @param {UserCardProps} props
@@ -936,6 +939,7 @@ function TextField(props) {
 exports.BaseCard = EmptyCard;
 exports.Button = Button;
 exports.CalendarCard = CalendarCard;
+exports.Icons = AlertCicle;
 exports.Tag = Tag;
 exports.TextField = TextField;
 exports.UserCard = CalendarCard$1;
