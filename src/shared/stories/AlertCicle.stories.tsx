@@ -1,6 +1,6 @@
 import React from 'react'
 
-import AlertCicle from '../icons'
+import { AlertCicle } from '../icons'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
