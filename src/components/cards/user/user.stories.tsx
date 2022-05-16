@@ -23,6 +23,7 @@ loading.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: [],
+    assessment: 'not-started',
     editAction: () => { alert('Edit') },
 }
 
@@ -38,6 +39,7 @@ incomplete.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: [],
+    assessment: 'started',
     editAction: () => { alert('Edit') },
 }
 
@@ -53,6 +55,7 @@ complete.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: [],
+    assessment: 'started',
     editAction: () => { alert('Edit') },
 }
 
@@ -68,6 +71,7 @@ enrolled.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: ['Produto 01'],
+    assessment: 'finished',
     editAction: () => { alert('Edit') },
 }
 
@@ -83,6 +87,7 @@ enrolledMany.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: ['Produto 01', 'Produto 03'],
+    assessment: 'finished',
     editAction: () => { alert('Edit') },
 }
 
@@ -98,6 +103,7 @@ defined.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: ['Produto 03'],
+    assessment: 'finished',
     editAction: () => { alert('Edit') },
 }
 
@@ -113,6 +119,7 @@ error.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: [],
+    assessment: 'finished',
     editAction: () => { alert('Edit') },
 }
 
@@ -128,5 +135,6 @@ bigEmail.args = {
     userArea: "Desenvolvimento",
     userPosition: "FullFull Strack",
     licenses: [],
+    assessment: 'finished',
     editAction: () => { alert('Edit') },
 }
