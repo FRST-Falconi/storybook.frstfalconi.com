@@ -1,4 +1,7 @@
 import '../../shared/global.css'
+import { DoubleCheck, AlertCicle } from '@shared/icons'
+
+type iconStatus = 'warning' | 'checked'
 
 interface TagProps {
     title: string
@@ -6,6 +9,7 @@ interface TagProps {
     loading?: boolean
     selected: boolean
     inverted: boolean
+    iconType?: iconStatus
 }
 
 export default function Tag(props: TagProps) {
@@ -30,10 +34,15 @@ export default function Tag(props: TagProps) {
                     :
                     (
                         <div className='tag' style={{ border: `1px solid ${getColor()} `, background: getBG(), color: getColor() }}>
-                            <span style={{ verticalAlign: 'middle', margin: '8px' }}>{props.title}</span>
+                            <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '24px', margin: '0 8px', gap: '8px' }}>
+                                {props.title}
+                                {props.iconType === 'warning' && <AlertCicle fill={getColor()} />}
+                                {props.iconType === 'checked' && <DoubleCheck fill={getColor()} />}
+                            </span>
                         </div >
                     )
             }
         </>
     )
 }
+

@@ -133,10 +133,20 @@ export function BlueTrash() {
 
 export function AlertCicle({ fill }: IconsProps) {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={ fill ?? "#FF0000"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 8V12" stroke={ fill ?? "#FF0000"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M12 16H12.01" stroke={ fill ?? "#FF0000"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={fill ?? "#FF0000"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12 8V12" stroke={fill ?? "#FF0000"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 16H12.01" stroke={fill ?? "#FF0000"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function DoubleCheck({ fill }: IconsProps) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1.33301 8L4.83301 11.3333L6.58301 9.33333" stroke={fill ?? "#FFF"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5.33301 8.00033L8.83301 11.3337L14.6663 4.66699" stroke={fill ?? "#FFF"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10.6663 4.66699L8.33301 7.33366" stroke={fill ?? "#FFF"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
