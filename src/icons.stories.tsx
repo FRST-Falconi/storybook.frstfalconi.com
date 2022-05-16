@@ -61,3 +61,5 @@ WarningIcon.args = Icons.WarningIcon()
 export const WhiteFilter = Template.bind({})
 WhiteFilter.args = Icons.WhiteFilter()
 
+export const AlertCicle = Template.bind({})
+AlertCicle.args = Icons.AlertCicle({})

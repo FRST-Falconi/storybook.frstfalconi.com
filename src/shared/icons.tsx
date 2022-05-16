@@ -1,3 +1,7 @@
+interface IconsProps {
+  fill?: string
+}
+
 export function EditIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,6 +127,26 @@ export function BlueTrash() {
   return (
     <svg width="14" height="16" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path fillRule="evenodd" clipRule="evenodd" d="M5.43064 2.09763C5.49315 2.03512 5.57794 2 5.66634 2H8.33301C8.42141 2 8.5062 2.03512 8.56871 2.09763C8.63122 2.16014 8.66634 2.24493 8.66634 2.33333V2.66667H5.33301V2.33333C5.33301 2.24493 5.36813 2.16014 5.43064 2.09763ZM10.6663 2.33333V2.66667H11.6663C11.6674 2.66667 11.6685 2.66667 11.6695 2.66667H13C13.5523 2.66667 14 3.11439 14 3.66667C14 4.21896 13.5523 4.66667 13 4.66667H12.6663V13C12.6663 13.6188 12.4205 14.2123 11.9829 14.6499C11.5453 15.0875 10.9518 15.3333 10.333 15.3333H3.66634C3.0475 15.3333 2.45401 15.0875 2.01643 14.6499C1.57884 14.2123 1.33301 13.6188 1.33301 13V4.66667H1C0.447715 4.66667 0 4.21896 0 3.66667C0 3.11439 0.447715 2.66667 1 2.66667H2.32981C2.33087 2.66667 2.33194 2.66667 2.33301 2.66667H3.33301V2.33333C3.33301 1.71449 3.57884 1.121 4.01643 0.683417C4.45401 0.245833 5.0475 0 5.66634 0H8.33301C8.95185 0 9.54534 0.245833 9.98292 0.683417C10.4205 1.121 10.6663 1.71449 10.6663 2.33333ZM3.33301 4.66667V13C3.33301 13.0884 3.36813 13.1732 3.43064 13.2357C3.49315 13.2982 3.57794 13.3333 3.66634 13.3333H10.333C10.4214 13.3333 10.5062 13.2982 10.5687 13.2357C10.6312 13.1732 10.6663 13.0884 10.6663 13V4.66667L3.33301 4.66667Z" fill="#0645AD" />
+    </svg>
+  )
+}
+
+export function AlertCicle({ fill }: IconsProps) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={fill ?? "#FF0000"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12 8V12" stroke={fill ?? "#FF0000"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 16H12.01" stroke={fill ?? "#FF0000"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function DoubleCheck({ fill }: IconsProps) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1.33301 8L4.83301 11.3333L6.58301 9.33333" stroke={fill ?? "#FFF"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5.33301 8.00033L8.83301 11.3337L14.6663 4.66699" stroke={fill ?? "#FFF"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M10.6663 4.66699L8.33301 7.33366" stroke={fill ?? "#FFF"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
