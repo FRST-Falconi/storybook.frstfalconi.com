@@ -123,7 +123,7 @@ export default function CalendarCard(props: UserCardProps) {
                         </div>
                         {/* Button */}
                         <Button onClick={props.editAction} className='frstButton blue fixedBottom' fullWidth>
-                            <EditIcon /><span style={{ paddingLeft: '8px' }}>Editar</span>
+                            <EditIcon /><span style={{ paddingLeft: '8px' }}>{t('globals.edit')}</span>
                         </Button>
                     </div>
             }
