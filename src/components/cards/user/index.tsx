@@ -5,6 +5,8 @@ import { Button, Tooltip } from '@mui/material'
 import { EditIcon, CheckboxChecked, CheckboxEmpty } from '@shared/icons'
 import Tag from '@components/tag'
 
+type statusAssessment = 'not-started' | 'started' | 'finished'
+
 interface UserCardProps {
     loading: boolean
     selected: boolean
@@ -17,6 +19,7 @@ interface UserCardProps {
     userArea?: string
     userPosition?: string
     licenses: string[]
+    assessment?: statusAssessment
     editAction?: () => void
 }
 
@@ -113,6 +116,8 @@ export default function CalendarCard(props: UserCardProps) {
                                             :
                                             <Tag title={t('user.card.noProduct')} color='#FF0000' selected={selected} inverted />
                                     }
+                                    {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                                    {props.assessment === 'finished' && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="checked" />}
                                 </div>
                             </div>
                         </div>

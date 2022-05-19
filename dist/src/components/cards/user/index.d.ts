@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import '../../../shared/global.css';
+declare type statusAssessment = 'not-started' | 'started' | 'finished';
 interface UserCardProps {
     loading: boolean;
     selected: boolean;
@@ -12,6 +13,7 @@ interface UserCardProps {
     userArea?: string;
     userPosition?: string;
     licenses: string[];
+    assessment?: statusAssessment;
     editAction?: () => void;
 }
 /**
