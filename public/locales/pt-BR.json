@@ -1,6 +1,7 @@
 {
   "globals.clickHere": "Clique aqui",
   "globals.typeHere": "Escreva aqui",
+  "globals.edit": "Editar",
 
   "calendar.weekdays": [
     "domingo",
@@ -24,7 +25,7 @@
   "user.card.noProduct": "Sem produto definido",
   "user.card.status.complete": "Completo",
   "user.card.status.incomplete": "Incompleto",
-  "user.card.status.enrolled": "Matriculdado",
+  "user.card.status.enrolled": "Matriculado",
   "user.card.status.defined": "Trilha Definida",
   "user.card.status.error": "Erro no envio",
   "user.card.area": "Área",

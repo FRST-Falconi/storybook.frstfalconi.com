@@ -1,6 +1,7 @@
 {
   "globals.clickHere": "Haga clic aquí",
   "globals.typeHere": "Escriba aquí",
+  "globals.edit": "Editar",
 
   "calendar.weekdays": ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
   "calendar.monthsInitials": ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dec"],
@@ -14,10 +15,12 @@
   "calendar.notAvailable": "Pronto podrás ver el calendario de eventos aquí.",
   "calendar.noMoreEvents": "Eventos cerrados.",
 
-  "user.card.noProduct": "Sem produto definido",
+  "user.card.noProduct": "Ningún producto definido",
   "user.card.status.complete": "Completo",
   "user.card.status.incomplete": "Incompleto",
-  "user.card.status.enrolled": "Matriculdado",
-  "user.card.status.defined": "Trilha Definida",
-  "user.card.status.error": "Erro no envio"
+  "user.card.status.enrolled": "Registrado",
+  "user.card.status.defined": "Camino definido",
+  "user.card.status.error": "error en el envio",
+  "user.card.area": "Área",
+  "user.card.position": "Cargo"
 }
