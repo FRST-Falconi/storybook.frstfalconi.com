@@ -40,7 +40,7 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     ${ props => props.theme.multiline && css`
         width: ${props => props.theme.width || '100%'};
         height: ${props => props.theme.height || '100%'};
-        min-height: 142px;
+        min-height: ${props => props.theme.height || '100%'};
         display: block;
         padding: 0;
         overflow: hidden;
@@ -98,7 +98,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
         height: ${props => props.theme.height || '100%'};
         resize: none;
         overflow: auto;
-        min-height: 142px;
+        min-height: 100%;
     `}
     
     ${ props => props.theme.disabled && css`
