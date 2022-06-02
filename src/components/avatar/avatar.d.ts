@@ -1,6 +1,4 @@
 import React from "react"
-declare module '*.png'
-
 export interface IAvatar {
     size?: string,
     src?: any,
