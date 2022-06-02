@@ -939,11 +939,37 @@ function TextField(props) {
                             : jsxRuntime.jsx("span", { children: props.endIcon }, void 0))] }, void 0), props.helperText && jsxRuntime.jsx(HelperText, { children: props.helperText }, void 0)] }, void 0) }, void 0));
 }
 
+function Textarea(props) {
+    return jsxRuntime.jsx(TextField, { ...props, multiline: true }, void 0);
+}
+
+const AvatarImg = styled__default["default"].img `
+    width: ${props => props.size || '120px'};
+    height: ${props => props.size || '120px'};
+    border-radius: 50%;
+    object-fit: cover;
+
+    ${({ disabled }) => disabled === true && `
+        filter: grayscale(100%);
+    `}
+`;
+const AvatarWrapper = styled__default["default"].div `
+    width: ${props => props.size || '120px'};
+    height: ${props => props.size || '120px'};
+`;
+
+function Avatar({ size, src, alt, className, disabled }) {
+    const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, children: jsxRuntime.jsx(AvatarImg, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }, void 0) }, void 0) }, void 0));
+}
+
 exports.AlertCicle = AlertCicle;
+exports.Avatar = Avatar;
 exports.BaseCard = EmptyCard;
 exports.Button = Button;
 exports.CalendarCard = CalendarCard;
 exports.DoubleCheck = DoubleCheck;
 exports.Tag = Tag;
+exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.UserCard = CalendarCard$1;
