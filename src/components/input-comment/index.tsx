@@ -9,13 +9,13 @@ import { SmileOutlined } from '@shared/icons'
 
 import { randID } from './inputComment.utils'
 
-export default function Avatar({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDIpnut }: IInputComment) {
+export default function Avatar({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput }: IInputComment) {
     const [ focus, setFocus ] = useState(false)
     const [ heightTextArea, setHeightTextArea ] = useState('')
     const [ forceResetHeightTextArea, setForceResetHeightTextArea] = useState(0)
 
     const [ iDInputComment , setIDInputComment ] = 
-            useState(IDIpnut ? IDIpnut : `InputComment-${randID()}`);
+            useState(IDInput ? IDInput : `InputComment-${randID()}`);
 
     useEffect(() => {
         let tx = document.getElementById(iDInputComment)

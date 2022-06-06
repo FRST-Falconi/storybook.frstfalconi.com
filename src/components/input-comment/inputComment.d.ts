@@ -9,5 +9,5 @@ export interface IInputComment {
     className: string,
     hasEmoji: boolean,
     showCharacterCounter: boolean,
-    IDIpnut: string,
+    IDInput: string,
 }

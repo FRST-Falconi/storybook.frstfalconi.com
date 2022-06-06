@@ -17,6 +17,7 @@ interface TextArea {
 
 export const InputWrapper = styled.div<Wrapper>`
     display: flex;
+    align-items:flex-end;
     width: 100%;
     min-height: 48px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
