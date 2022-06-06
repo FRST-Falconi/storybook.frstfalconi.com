@@ -9,7 +9,7 @@ import { SmileOutlined } from '@shared/icons'
 
 import { randID } from './inputComment.utils'
 
-export default function Avatar({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput }: IInputComment) {
+export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles }: IInputComment) {
     const [ focus, setFocus ] = useState(false)
     const [ heightTextArea, setHeightTextArea ] = useState('')
     const [ forceResetHeightTextArea, setForceResetHeightTextArea] = useState(0)
@@ -30,6 +30,7 @@ export default function Avatar({ placeholder, value, onChange, remain, limit, ha
     
     return (
         <ThemeProvider theme={FRSTTheme}>
+        <div style={{...styles}}>
             <Styles.InputWrapper focus={focus}>
                 <Styles.InputText
                     id={iDInputComment}
@@ -48,9 +49,10 @@ export default function Avatar({ placeholder, value, onChange, remain, limit, ha
             </Styles.InputWrapper>
             { showCharacterCounter &&
                 <Styles.HelperText>
-                    {remain}/{limit}
+                    {limit - remain}/{limit}
                 </Styles.HelperText>
             }
+        </div>
         </ThemeProvider>
     )
 }

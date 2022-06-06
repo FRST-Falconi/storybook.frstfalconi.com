@@ -13,19 +13,13 @@ const Template = (args) => <InputComment {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    placeholder: 'Enter text here...    ',
+    placeholder: 'Enter text here...',
     disabled: false,
     remain: 20,
     limit: 1000,
     onChange: (e : any) => { console.log(e) },
     className: null,
     hasEmoji: true,
-    showCharacterCounter: true
+    showCharacterCounter: true,
+    styles: { margin: '0 0 0 0'},
 }
-
-// placeholder  ={}
-// value={feedback}
-// onChange={(e) => handleFeedback(e)}
-// remain={limitCharacters - usedCharacters}
-// limit={limitCharacters}
-// margin={'0 0 0 28px'}

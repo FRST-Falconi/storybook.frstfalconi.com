@@ -10,4 +10,5 @@ export interface IInputComment {
     hasEmoji: boolean,
     showCharacterCounter: boolean,
     IDInput: string,
+    styles: any,
 }

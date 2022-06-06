@@ -79,6 +79,7 @@ export const SmileIcon = styled.span`
 
 export const HelperText = styled.span`
     display: flex;
+    position: absolute;
     align-items: center;
 
     font-family: 'Work Sans';
