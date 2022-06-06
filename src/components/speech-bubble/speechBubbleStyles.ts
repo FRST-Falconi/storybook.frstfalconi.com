@@ -26,7 +26,6 @@ export const SpeechBubble = styled.div<ISpeechBubble>`
 `
 
 const getStyleValuesBorder = (props: any) => {
-    console.log(props)
     switch (props.flap) {
         case 'left-top':
             return '0 4px 4px 4px;'
@@ -53,7 +52,6 @@ export const Flap = styled.div<ISpeechBubble>`
 `
 
 const getStylePositionFlap = (props: any) => {
-    console.log(props)
     switch (props.flap) {
         case 'left-top':
             return StyleFlapLeftTop(props)
@@ -67,7 +65,6 @@ const getStylePositionFlap = (props: any) => {
 }
 
 const StyleFlapLeftTop = (props: any) => {
-    console.log(props.flap)
     let fill = props.theme.colors.shadeWhite
     let border = props.highlight ? props.theme.colors.primary1 :  props.theme.colors.neutralsGrey4
 
