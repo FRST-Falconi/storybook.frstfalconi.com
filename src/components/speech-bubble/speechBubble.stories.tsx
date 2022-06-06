@@ -4,7 +4,7 @@ import SpeechBubble from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Issues Feed/Speech Bubble',
+    title: 'Learning Tech/Speech Bubble',
     component: SpeechBubble,
 }
 

@@ -18,3 +18,7 @@ export { default as TextArea } from './src/components/form-elements/textarea'
 export { AlertCicle, DoubleCheck, MoreDotsHorizontal } from './src/shared/icons'
 
 export { default as Avatar } from './src/components/avatar'
+
+export { default as InputComment } from './src/components/input-comment'
+
+export { default as CommentaryBox } from './src/components/commentary-box'

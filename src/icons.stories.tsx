@@ -63,3 +63,6 @@ WhiteFilter.args = Icons.WhiteFilter()
 
 export const AlertCicle = Template.bind({})
 AlertCicle.args = Icons.AlertCicle({})
+
+export const SmileOutlined = Template.bind({})
+SmileOutlined.args = Icons.SmileOutlined({})
