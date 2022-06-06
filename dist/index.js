@@ -87,6 +87,9 @@ function AlertCicle({ fill }) {
 function DoubleCheck({ fill }) {
     return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M1.33301 8L4.83301 11.3333L6.58301 9.33333", stroke: fill ?? "#FFF", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M5.33301 8.00033L8.83301 11.3337L14.6663 4.66699", stroke: fill ?? "#FFF", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10.6663 4.66699L8.33301 7.33366", stroke: fill ?? "#FFF", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function SmileOutlined({ fill }) {
+    return (jsxRuntime.jsx("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M5.75 8.86719C5.75 9.16556 5.86853 9.4517 6.0795 9.66268C6.29048 9.87366 6.57663 9.99219 6.875 9.99219C7.17337 9.99219 7.45952 9.87366 7.6705 9.66268C7.88147 9.4517 8 9.16556 8 8.86719C8 8.56882 7.88147 8.28267 7.6705 8.07169C7.45952 7.86071 7.17337 7.74219 6.875 7.74219C6.57663 7.74219 6.29048 7.86071 6.0795 8.07169C5.86853 8.28267 5.75 8.56882 5.75 8.86719ZM14 8.86719C14 9.16556 14.1185 9.4517 14.3295 9.66268C14.5405 9.87366 14.8266 9.99219 15.125 9.99219C15.4234 9.99219 15.7095 9.87366 15.9205 9.66268C16.1315 9.4517 16.25 9.16556 16.25 8.86719C16.25 8.56882 16.1315 8.28267 15.9205 8.07169C15.7095 7.86071 15.4234 7.74219 15.125 7.74219C14.8266 7.74219 14.5405 7.86071 14.3295 8.07169C14.1185 8.28267 14 8.56882 14 8.86719ZM11 0.5C5.20156 0.5 0.5 5.20156 0.5 11C0.5 16.7984 5.20156 21.5 11 21.5C16.7984 21.5 21.5 16.7984 21.5 11C21.5 5.20156 16.7984 0.5 11 0.5ZM17.1641 17.1641C16.3625 17.9656 15.4297 18.5938 14.3914 19.0344C13.3203 19.4891 12.1789 19.7188 11 19.7188C9.82109 19.7188 8.67969 19.4891 7.60625 19.0344C6.56954 18.5965 5.62785 17.9613 4.83359 17.1641C4.03203 16.3625 3.40391 15.4297 2.96328 14.3914C2.51094 13.3203 2.28125 12.1789 2.28125 11C2.28125 9.82109 2.51094 8.67969 2.96562 7.60625C3.40346 6.56954 4.03868 5.62785 4.83594 4.83359C5.6375 4.03203 6.57031 3.40391 7.60859 2.96328C8.67969 2.51094 9.82109 2.28125 11 2.28125C12.1789 2.28125 13.3203 2.51094 14.3937 2.96562C15.4305 3.40346 16.3721 4.03868 17.1664 4.83594C17.968 5.6375 18.5961 6.57031 19.0367 7.60859C19.4891 8.67969 19.7188 9.82109 19.7188 11C19.7188 12.1789 19.4891 13.3203 19.0344 14.3937C18.5971 15.4301 17.9618 16.3711 17.1641 17.1641ZM14.5625 11.4922H13.4352C13.3367 11.4922 13.2523 11.5672 13.2453 11.6656C13.1562 12.8258 12.1836 13.7422 11 13.7422C9.81641 13.7422 8.84141 12.8258 8.75469 11.6656C8.74766 11.5672 8.66328 11.4922 8.56484 11.4922H7.4375C7.41207 11.4922 7.3869 11.4973 7.36351 11.5073C7.34013 11.5173 7.31903 11.532 7.30149 11.5504C7.28395 11.5688 7.27034 11.5906 7.26149 11.6144C7.25264 11.6383 7.24873 11.6637 7.25 11.6891C7.35313 13.6648 8.99609 15.2422 11 15.2422C13.0039 15.2422 14.6469 13.6648 14.75 11.6891C14.7513 11.6637 14.7474 11.6383 14.7385 11.6144C14.7297 11.5906 14.716 11.5688 14.6985 11.5504C14.681 11.532 14.6599 11.5173 14.6365 11.5073C14.6131 11.4973 14.5879 11.4922 14.5625 11.4922Z", fill: fill ?? "#FFF" }) }));
+}
 
 function Tag(props) {
     function getBG() {
@@ -892,7 +895,7 @@ const Label = styled__default["default"].label `
         color: ${({ theme }) => theme.colors.messageError1};
     `}
 `;
-const HelperText = styled__default["default"].span `
+const HelperText$1 = styled__default["default"].span `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 400;
@@ -936,7 +939,7 @@ function TextField(props) {
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label, { htmlFor: props.id, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required }), props.endIcon && !props.multiline && ((props.type === 'password')
                             ? jsxRuntime.jsx(InputIconButton, { onClick: handleTogglePasswordVisibility, children: props.endIcon })
-                            : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText, { children: props.helperText })] }) }));
+                            : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText$1, { children: props.helperText })] }) }));
 }
 
 function Textarea(props) {
@@ -963,12 +966,115 @@ function Avatar({ size, src, alt, className, disabled }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, children: jsxRuntime.jsx(AvatarImg, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
 }
 
+const InputWrapper = styled__default["default"].div `
+    display: flex;
+    align-items:flex-end;
+    width: 100%;
+    min-height: 48px;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-radius: 24px;
+
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        border: 1px solid ${({ theme }) => theme.colors.shadeBlack};
+    }
+
+    ${({ focus, theme }) => focus &&
+    `border: 1px solid` + theme.colors.primary1 + " !important;"}
+`;
+const InputText = styled__default["default"].textarea `
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    height: ${({ height }) => height || '20px'};
+    outline: 0;
+    
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    
+    overflow: hidden;
+    resize: none;
+
+    padding: 0;
+    margin: 14px;
+    border: none;
+`;
+const SmileIcon = styled__default["default"].span `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+    
+    min-width: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    margin: 4px;
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+    }
+    cursor: pointer;
+`;
+const HelperText = styled__default["default"].span `
+    display: flex;
+    position: absolute;
+    align-items: center;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+
+    letter-spacing: -0.02em;
+
+    color: ${({ theme }) => theme.colors.neutralsGrey2};
+
+    margin-top: 8px;
+    margin-left: 13px;
+`;
+
+function randID() {
+    return Math.random()
+        .toString(36)
+        .substr(2, 9);
+}
+
+function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles }) {
+    const [focus, setFocus] = react.useState(false);
+    const [heightTextArea, setHeightTextArea] = react.useState('');
+    const [forceResetHeightTextArea, setForceResetHeightTextArea] = react.useState(0);
+    const [iDInputComment, setIDInputComment] = react.useState(IDInput ? IDInput : `InputComment-${randID()}`);
+    react.useEffect(() => {
+        let tx = document.getElementById(iDInputComment);
+        setHeightTextArea(tx.scrollHeight + 'px');
+    }, [forceResetHeightTextArea]);
+    function inputInChanging(e) {
+        setHeightTextArea('20px');
+        setForceResetHeightTextArea(Math.random());
+        onChange(e);
+    }
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, children: [jsxRuntime.jsxs(InputWrapper, { focus: focus, children: [jsxRuntime.jsx(InputText, { id: iDInputComment, height: heightTextArea, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: value, placeholder: placeholder }), hasEmoji &&
+                            jsxRuntime.jsx(SmileIcon, { children: jsxRuntime.jsx(SmileOutlined, { fill: '#757575' }) })] }), showCharacterCounter &&
+                    jsxRuntime.jsxs(HelperText, { children: [limit - remain, "/", limit] })] }) }));
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BaseCard = EmptyCard;
 exports.Button = Button;
 exports.CalendarCard = CalendarCard;
 exports.DoubleCheck = DoubleCheck;
+exports.InputComment = InputComment;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;
