@@ -103,6 +103,12 @@ export const ButtonMore = styled.div`
     cursor: pointer;
     height: 14px;
     align-items: center;
+    z-index: 10;
+`
+
+export const Dropdown = styled.div`
+    width: auto;
+    height: auto;
 `
 
 export const DropdownWrapper = styled.div<ICommentaryBox>`
@@ -113,7 +119,7 @@ export const DropdownWrapper = styled.div<ICommentaryBox>`
     position: absolute;
     width: 210px;
     background-color: gray;   
-    margin-top:  ${({ isMe }) => isMe ? '160px': '118px'};
+    margin-top: 5px;
     margin-left: -185px;
     transition:visibility 0.3s ease-in-out,opacity 0.3s ease-in-out;
 
@@ -144,6 +150,7 @@ export const ItemDrop = styled.div<ICommentaryBox>`
     &:active { 
         background-color: ${({ theme }) => theme.colors.primary1 +'19'};
     }
+    cursor: pointer;
 `
 
 export const CommentaryContent = styled.div`

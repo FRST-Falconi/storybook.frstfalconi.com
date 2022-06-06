@@ -9,8 +9,10 @@ interface ICommentaryBox{
     date: string
     detectLinks?: boolean
     isMe: boolean
+    isAuthor: boolean
     isPrivate: boolean
     like: () => void
+    hasAnswer: boolean
     answer: () => void
     deleteComment: () => void
     editComment: () => void
@@ -19,4 +21,5 @@ interface ICommentaryBox{
     onChange: any
     idTextComment?: string
     wasEdited: boolean
+    hasDropdown: false
 }

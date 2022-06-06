@@ -4,7 +4,7 @@ import CommentaryBox from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Issues Feed/Commentary Box',
+    title: 'Learning Tech/Commentary Box',
     component: CommentaryBox,
 }
 
@@ -20,9 +20,13 @@ normal.args = {
     value: "Olá, pessoal! Tudo bem? \n\nEstou iniciando a trilha Digital Business Mindest essa semana e pensei nesse problema para resolver! Por favor, quem tiver algum feedback ou algum insight que possa me ajudar, estou 100% aberto! Obrigado! https://google.com ",
     date: "1 dia atrás",
     isMe: true,
+    isAuthor: true,
     isPrivate: true,
     detectLinks: true,
     like:(e : any) => { alert("Curtir") },
+    hasAnswer: true,
+    wasEdited: true,    
+    hasDropdown: true,
     answer: (e : any) => { alert("Responder") },
     deleteComment:(e : any) => { alert("deleteComment") },
     editComment:(e : any) => { alert("editComment") },
@@ -30,21 +34,4 @@ normal.args = {
     updateValue:(e : any) => { alert("updateValue->" + e) },
     onChange:(e : any) => { alert("onChange") },
     idTextComment: null,
-    wasEdited: true,
 }
-
-// name={item.name}
-// className={null}
-// position={item.position}
-// value={item.value}
-// date={item.date}
-// like={() => handleLike(item)}
-// answer={() => handleAnswer(item)}
-// margin={'0 0 0 28px'}
-// style={{ marginLeft: '28px' }}
-// isMe={item.isMe}
-// deleteComment={() => deleteComment(item)}
-// editComment={() => editComment(item)}
-// makePrivate={() => makePrivate(item)}
-// updateValue={() => updateValue(item)}
-// onChange={(e) => handleComment(e, item)}
