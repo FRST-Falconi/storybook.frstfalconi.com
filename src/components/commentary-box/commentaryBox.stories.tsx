@@ -33,5 +33,5 @@ normal.args = {
     makePrivate:(e : any) => { alert("makePrivate") },
     updateValue:(e : any) => { alert("updateValue->" + e) },
     onChange:(e : any) => { alert("onChange") },
-    idTextComment: null,
+    idTextComment: '',
 }

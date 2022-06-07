@@ -8,18 +8,18 @@ interface ICommentaryBox{
     value: string
     date: string
     detectLinks?: boolean
-    isMe: boolean
-    isAuthor: boolean
-    isPrivate: boolean
+    isMe?: boolean
+    isAuthor?: boolean
+    isPrivate?: boolean
     like: () => void
-    hasAnswer: boolean
-    answer: () => void
-    deleteComment: () => void
-    editComment: () => void
-    makePrivate: () => void
-    updateValue: (e:string) => void
+    hasAnswer?: boolean
+    answer?: () => void
+    deleteComment?: () => void
+    editComment?: () => void
+    makePrivate?: () => void
+    updateValue?: (e:string) => void
     onChange: any
     idTextComment?: string
-    wasEdited: boolean
-    hasDropdown: false
+    wasEdited?: boolean
+    hasDropdown?: false
 }
