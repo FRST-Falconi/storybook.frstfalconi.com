@@ -198,3 +198,13 @@ export function CheckInCicle({ fill, stroke, variant }: IconsProps) {
     </svg>
   );
 }
+
+export function CloseInCicle({ fill, stroke, variant }: IconsProps) {
+  return (
+    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 10C20 15.5176 15.7517 20 10.5001 20C5.24835 20 1 15.5176 1 10C1 4.48239 5.24835 0 10.5001 0C15.7517 0 20 4.48239 20 10Z" fill={variant ?? "#222"}/>
+      <path d="M20.2997 10C20.2997 15.2417 16.0038 19.5 10.6933 19.5C5.38284 19.5 1.08691 15.2417 1.08691 10C1.08691 4.75827 5.38284 0.5 10.6933 0.5C16.0038 0.5 20.2997 4.75827 20.2997 10Z" stroke={stroke ?? "#F00"} />
+      <path d="M15.9 6.41L12.36 9.95L15.9 13.49L14.49 14.9L10.95 11.37L7.42 14.9L6 13.48L9.53 9.95L6 6.42L7.42 5L10.95 8.53L14.49 5L15.9 6.41Z" fill={fill ?? "#F00"}/>
+    </svg>
+  )
+}
