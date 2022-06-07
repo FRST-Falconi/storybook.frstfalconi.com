@@ -22,3 +22,5 @@ export { default as Avatar } from './src/components/avatar'
 export { default as InputComment } from './src/components/input-comment'
 
 export { default as CommentaryBox } from './src/components/commentary-box'
+
+export { default as Checkmark } from './src/components/checkmark'
