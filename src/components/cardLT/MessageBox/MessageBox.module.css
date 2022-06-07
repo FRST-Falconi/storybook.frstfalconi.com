@@ -1,0 +1,13 @@
+.container {
+  min-width: 400px;
+  padding: 8px;
+  min-height: 30px;
+  font-size: 14px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  margin-left: 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
