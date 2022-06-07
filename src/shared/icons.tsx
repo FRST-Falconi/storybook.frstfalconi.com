@@ -1,5 +1,7 @@
 interface IconsProps {
   fill?: string
+  stroke?: string
+  variant?: string
 }
 
 export function EditIcon() {
@@ -185,4 +187,32 @@ export function SmileOutlined({ fill }: IconsProps) {
 
     </svg>
   )
+}
+
+export function CheckInCircleOutlined({ fill, stroke }: IconsProps) {
+  return (
+    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.7557 10C19.7557 15.2417 15.4598 19.5 10.1494 19.5C4.83889 19.5 0.542969 15.2417 0.542969 10C0.542969 4.75827 4.83889 0.5 10.1494 0.5C15.4598 0.5 19.7557 4.75827 19.7557 10Z" stroke={stroke ?? "#222"}/>
+    <path d="M14.05 5L15.39 5.94L9.58 14.32H8.24L5 9.78L6.34 8.53L8.91 10.93L14.05 5Z" fill={fill ?? "#FFF"}/>
+    </svg>
+  )
+}
+
+export function CheckInCircleFilled({ fill, stroke }: IconsProps) {
+  return (
+    <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.2127 10.5C20.2127 15.7417 15.9168 20 10.6064 20C5.29592 20 1 15.7417 1 10.5C1 5.25827 5.29592 1 10.6064 1C15.9168 1 20.2127 5.25827 20.2127 10.5Z" fill={fill ?? "#FFF"} stroke={fill ?? "#FFF"}/>
+    <path d="M14.507 5.5L15.847 6.44L10.037 14.82H8.69703L5.45703 10.28L6.79703 9.03L9.36703 11.43L14.507 5.5Z" fill={stroke ?? "#000"}/>
+    </svg>
+  )
+}
+
+export function CheckInCicle({ fill, stroke, variant }: IconsProps) {
+  return (
+    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 10C20 15.5176 15.5281 20 10.0001 20C4.47195 20 0 15.5176 0 10C0 4.48239 4.47195 0 10.0001 0C15.5281 0 20 4.48239 20 10Z" fill={variant ?? "#222"}/>
+      <path d="M19.7557 10C19.7557 15.2417 15.4598 19.5 10.1494 19.5C4.83889 19.5 0.542969 15.2417 0.542969 10C0.542969 4.75827 4.83889 0.5 10.1494 0.5C15.4598 0.5 19.7557 4.75827 19.7557 10Z" stroke={stroke ?? "#FFF"}/>
+      <path d="M14.05 5L15.39 5.94L9.58 14.32H8.24L5 9.78L6.34 8.53L8.91 10.93L14.05 5Z" fill={fill ?? "#FFF"}/>
+    </svg>
+  );
 }

@@ -66,3 +66,6 @@ AlertCicle.args = Icons.AlertCicle({})
 
 export const SmileOutlined = Template.bind({})
 SmileOutlined.args = Icons.SmileOutlined({})
+
+export const CheckInCicle = Template.bind({})
+CheckInCicle.args = Icons.CheckInCicle({})
