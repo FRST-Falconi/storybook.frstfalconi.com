@@ -40,7 +40,7 @@ export default function RocketButton(props: RocketButtonParams) {
   return (
 
     <>    
-      <div style={{...props.style }}>
+      <div>
         <RocketButtonIcon
           colorPrimaria = {MapColorPrimaria[props.tipoBotao-1]}
           colorSecundaria= {MapColorSecundaria[props.tipoBotao-1]}

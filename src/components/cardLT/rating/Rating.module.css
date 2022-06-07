@@ -16,32 +16,32 @@
 }
 
 .titulo{
-  display: 'flex';
-  justify-content: 'flex-start';
-  align-items: 'center';
-  font-size: 16;
-  font-weight: 600;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600px;
 }
 
 .content{
-  display: 'flex';
-  width: '100%';
-  justify-content: 'flex-start';
-  align-items: 'flex-start';
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
   
 }
 
 .star{
-  display: 'inline-flex';
-  width: 35; 
-  height: 35; 
-  position: 'relative'; 
-  justify-content: 'center'; 
-  align-items: 'center';
+  display: inline-flex;
+  width: 35px; 
+  height: 35px; 
+  position: relative; 
+  justify-content: center; 
+  align-items: center;
 }
 
 .avaliacao{
-  display: 'inline-flex';
-  width: 100;
+  display: inline-flex;
+  width: 100px;
   margin-left: 8px;
 }
