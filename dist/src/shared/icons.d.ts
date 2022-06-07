@@ -18,6 +18,9 @@ export declare function CheckboxEmpty(): JSX.Element;
 export declare function BlueTrash(): JSX.Element;
 export declare function AlertCicle({ fill }: IconsProps): JSX.Element;
 export declare function DoubleCheck({ fill }: IconsProps): JSX.Element;
+export declare function MoreDotsHorizontal({ fill }: IconsProps): JSX.Element;
+export declare function Dot({ fill }: IconsProps): JSX.Element;
+export declare function EyeOff({ fill }: IconsProps): JSX.Element;
 export declare function SmileOutlined({ fill }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
