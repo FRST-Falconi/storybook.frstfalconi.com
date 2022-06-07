@@ -40,6 +40,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                     onChange={inputInChanging}
                     value={value}
                     placeholder={placeholder}
+                    maxLength={limit}
                 />
                 { hasEmoji && 
                     <Styles.SmileIcon>
