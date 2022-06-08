@@ -22,6 +22,8 @@ normal.args = {
     isMe: true,
     isAuthor: true,
     isPrivate: true,
+    isPrivateAuthor: false,
+    isPrivateMe: false,
     detectLinks: true,
     isLiked: true,
     totalLikes: 5,

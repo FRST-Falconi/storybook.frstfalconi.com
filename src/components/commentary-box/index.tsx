@@ -16,7 +16,7 @@ export default function CommentaryBox({
     isPrivate, deleteComment, editComment, makePrivate, updateValue,
     detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes,
     textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
-    textMakePublic, textEditComment, textDeleteComment }: ICommentaryBox) {
+    textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }: ICommentaryBox) {
     
     const [ isOpenDrop, setIsOpenDrop ] = useState(false)
     const [ onEditing, setOnEditing ] = useState(false)
@@ -103,7 +103,7 @@ export default function CommentaryBox({
                                 <Styles.IsMe> {textYou} </Styles.IsMe>  
                             </>
                         }
-                        { isPrivate &&
+                        { (isPrivate || isPrivateAuthor || isPrivateMe) &&
                             <>
                                 <Styles.DividerDot>
                                     <Dot fill={ '#757575' }/>
@@ -135,14 +135,15 @@ export default function CommentaryBox({
                         <Styles.DropdownWrapper isVisible={isOpenDrop} isMe={isMe}>
                             {isMe && 
                                 <>
-                                    <Styles.ItemDrop onClick={ makePrivate }> {!isPrivate ? textMakePrivate : textMakePublic}  </Styles.ItemDrop>
+                                    { !isPrivateAuthor &&
+                                        <Styles.ItemDrop onClick={ makePrivate }> {!isPrivate ? textMakePrivate : textMakePublic}  </Styles.ItemDrop> }
                                     <Styles.ItemDrop onClick={ () => editingComment() } > {textEditComment} </Styles.ItemDrop>
                                     <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> {textDeleteComment} </Styles.ItemDrop>
                                 </> 
                             } 
                             {isAuthor && !isMe  &&
                                 <>
-                                    <Styles.ItemDrop onClick={ makePrivate } > Tornar Privado </Styles.ItemDrop>
+                                    <Styles.ItemDrop onClick={ makePrivate } > {!isPrivate ? textMakePrivate : textMakePublic} </Styles.ItemDrop>
                                     <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> {textDeleteComment} </Styles.ItemDrop>
                                 </>
                             }

@@ -34,4 +34,6 @@ interface ICommentaryBox{
     textMakePublic?: string
     textEditComment?: string
     textDeleteComment?: string
+    isPrivateMe?: boolean
+    isPrivateAuthor?: boolean
 }
