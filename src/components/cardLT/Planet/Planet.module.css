@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');
+
+.container {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: 'center';
+  align-items: 'center';
+  position: relative;
+  margin-left: 16px;
+
+  text-align: center;
+  font-size: 30px;
+  font-family: 'VT323', monospace;
+  color: white;
+  -webkit-text-stroke: 0.5px black;
+  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;
+}
+
+.label {
+  position: absolute;
+  padding: 8px;
+  border: 2px dashed white;
+  bottom: 0;
+  left: 8px;
+  right: 8px;
+  width: calc(100% -16px);
+}
+
+.block {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 8px;
+  
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: calc(100% -16px);
+  
+}
+
+.block img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.imgAtive {
+  filter: grayscale(0);
+  opacity: 1;
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: contain;
+  margin-left: 8px;
+}
+
+.imgAtive:hover {
+  cursor: pointer
+}
+
+.imgInative {
+  filter: grayscale(1);
+  opacity: 1;
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: contain;
+  margin-left: 8px;
+}
+
+.imgInative:hover {
+  cursor: pointer;
+}
+
+.imgBlocked {
+  filter: grayscale(1);
+  opacity: 0.5;
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: contain;
+  margin-left: 8px;
+}
+
+.imgBlockedL:hover {
+  cursor: not-allowed;
+}

@@ -14,6 +14,6 @@ interface MessageBoxParams {
  *
  * @componente
  */
-export default function MessageBox(props: MessageBoxParams): JSX.Element;
+export default function MessageBox(props: MessageBoxParams): any;
 export {};
 //# sourceMappingURL=index.d.ts.map
