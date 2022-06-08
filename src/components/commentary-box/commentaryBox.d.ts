@@ -24,4 +24,14 @@ interface ICommentaryBox{
     idTextComment?: string
     wasEdited?: boolean
     hasDropdown?: false
+    textYou?: string
+    textPrivateComment?: string
+    textEdited?: string
+    textLiked?: string
+    textUnliked?: string
+    textAnswer?: string
+    textMakePrivate?: string
+    textMakePublic?: string
+    textEditComment?: string
+    textDeleteComment?: string
 }

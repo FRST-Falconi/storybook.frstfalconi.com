@@ -14,7 +14,9 @@ import { buildStringWithLinkHTML, randID } from './commentaryBox.utils'
 export default function CommentaryBox({
     name, className, styles, position, value, date, like, answer, isMe, isAuthor,
     isPrivate, deleteComment, editComment, makePrivate, updateValue,
-    detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes }: ICommentaryBox) {
+    detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes,
+    textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
+    textMakePublic, textEditComment, textDeleteComment }: ICommentaryBox) {
     
     const [ isOpenDrop, setIsOpenDrop ] = useState(false)
     const [ onEditing, setOnEditing ] = useState(false)
@@ -86,7 +88,7 @@ export default function CommentaryBox({
     }
 
     return (
-        <div style={{width: '100%', ...styles}} onClick={() => verifyClick()}>
+        <div style={{width: 'auto', ...styles}} onClick={() => verifyClick()}>
         <SpeechBubble className={className} highlight={onEditing} >
 
             <Styles.HeaderWrapper>
@@ -98,7 +100,7 @@ export default function CommentaryBox({
                                 <Styles.DividerDot>
                                     <Dot fill={ '#757575' }/>
                                 </Styles.DividerDot>
-                                <Styles.IsMe> Você </Styles.IsMe>  
+                                <Styles.IsMe> {textYou} </Styles.IsMe>  
                             </>
                         }
                         { isPrivate &&
@@ -110,7 +112,7 @@ export default function CommentaryBox({
                                     <EyeOff fill={  '#757575' }/>
                                 </Styles.EyeOffIcon>
                                 <Styles.CommentPrivate> 
-                                    Comentário privado 
+                                    {textPrivateComment} 
                                 </Styles.CommentPrivate>
                             </>
                         } 
@@ -119,7 +121,7 @@ export default function CommentaryBox({
                 </Styles.IdentificationWrapper>
                 
                 <Styles.OptionsWrapper>
-                    <Styles.Date> { date } {wasEdited && "(editado)"} </Styles.Date>
+                    <Styles.Date> { date } {wasEdited && `(${textEdited})`} </Styles.Date>
                     { hasDropdown && (isAuthor || isMe) &&
                     <Styles.Dropdown>
                         <Styles.ButtonMore 
@@ -133,15 +135,15 @@ export default function CommentaryBox({
                         <Styles.DropdownWrapper isVisible={isOpenDrop} isMe={isMe}>
                             {isMe && 
                                 <>
-                                    <Styles.ItemDrop onClick={ makePrivate }> Tornar Privado </Styles.ItemDrop>
-                                    <Styles.ItemDrop onClick={ () => editingComment() } > Editar Comentário </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> Excluir Comentário </Styles.ItemDrop>
+                                    <Styles.ItemDrop onClick={ makePrivate }> {!isPrivate ? textMakePrivate : textMakePublic}  </Styles.ItemDrop>
+                                    <Styles.ItemDrop onClick={ () => editingComment() } > {textEditComment} </Styles.ItemDrop>
+                                    <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> {textDeleteComment} </Styles.ItemDrop>
                                 </> 
                             } 
                             {isAuthor && !isMe  &&
                                 <>
                                     <Styles.ItemDrop onClick={ makePrivate } > Tornar Privado </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> Excluir Comentário </Styles.ItemDrop>
+                                    <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> {textDeleteComment} </Styles.ItemDrop>
                                 </>
                             }
                          </Styles.DropdownWrapper>
@@ -176,10 +178,10 @@ export default function CommentaryBox({
                         </Styles.LikesStatistics>
                         <Styles.IterationsButtonsWrapper>
                             { isLiked ? 
-                            <Styles.LinkButton onClick={ like }> Descurtir </Styles.LinkButton>:
-                            <Styles.LinkButton onClick={ like }> Curtir </Styles.LinkButton>}    
+                            <Styles.LinkButton onClick={ like }> {textUnliked} </Styles.LinkButton>:
+                            <Styles.LinkButton onClick={ like }> {textLiked} </Styles.LinkButton>}    
                             { hasAnswer &&
-                            <Styles.LinkButton onClick={ answer }>  Responder  </Styles.LinkButton> }
+                            <Styles.LinkButton onClick={ answer }>  {textAnswer}  </Styles.LinkButton> }
                         </Styles.IterationsButtonsWrapper>
                     </Styles.IterationsWrapper>
                 </> 

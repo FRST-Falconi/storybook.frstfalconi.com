@@ -18,6 +18,7 @@ export const HeaderWrapper = styled.div`
 
     min-height: 40px;
     flex-direction: row;
+    max-width: 100%;
 `
 
 export const IdentificationWrapper = styled.div`
