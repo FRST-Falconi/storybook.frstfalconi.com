@@ -7,23 +7,22 @@ import { ICheckmark } from './checkmark'
 import { CheckInCicle, CloseInCicle } from '@shared/icons'
 
 export default function Checkmark({ type, subtitle, active, handleClick, className, disabled, styles }: ICheckmark) {
-    const [ actionArea, setActionArea ] = useState(false)
-    const [ colorsIcon, setColorsIcon ] = useState({fill:'#000', stroke:'#0f0', variant:'#00f'});
+    const [ colorsIcon, setColorsIcon ] = useState({fill:'#fff', stroke:'#2CA92A', variant:'#2CA92A'});
 
     useEffect(() => {
         (type == 'checked') ?
-        (actionArea || active ?
+        (active ?
             setColorsIcon({fill:'#fff', stroke:'#2CA92A', variant:'#2CA92A'}) :
             setColorsIcon({fill:'#2CA92A', stroke:'#2CA92A', variant:''}))
         :
-        (actionArea || active ?
+        ( active ?
             setColorsIcon({fill:'#FFF', stroke:'#FF0000', variant:'#FF0000'}) :
             setColorsIcon({fill:'#FF0000', stroke:'#FF0000', variant:''}))
         
         {disabled &&
             setColorsIcon({fill:'#BDBDBD', stroke:'#BDBDBD', variant:''})
         }
-    }, [actionArea, active, type, disabled]);
+    }, [active, type, disabled]);
 
 
 
@@ -34,8 +33,6 @@ export default function Checkmark({ type, subtitle, active, handleClick, classNa
                     <>
                         <Styles.ButtonCheckmark
                                 onClick={ handleClick } 
-                                onMouseOver={() => setActionArea(true)}
-                                onMouseOut={() => setActionArea(false)}
                         >
                                 <CheckInCicle {...colorsIcon} />
                                 <Styles.Subtitle disabled={disabled}>
@@ -49,11 +46,9 @@ export default function Checkmark({ type, subtitle, active, handleClick, classNa
                             type == 'unchecked' &&
                             <Styles.ButtonCheckmark
                                     onClick={ handleClick } 
-                                    onMouseOver={() => setActionArea(true)}
-                                    onMouseOut={() => setActionArea(false)}
                             >
                                 <CloseInCicle {...colorsIcon}/>
-                                <Styles.Subtitle>
+                                <Styles.Subtitle disabled={disabled}>
                                     { subtitle }
                                 </Styles.Subtitle>
                             </Styles.ButtonCheckmark>
