@@ -14,7 +14,7 @@ import { buildStringWithLinkHTML, randID } from './commentaryBox.utils'
 export default function CommentaryBox({
     name, className, styles, position, value, date, like, answer, isMe, isAuthor,
     isPrivate, deleteComment, editComment, makePrivate, updateValue,
-    detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown }: ICommentaryBox) {
+    detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes }: ICommentaryBox) {
     
     const [ isOpenDrop, setIsOpenDrop ] = useState(false)
     const [ onEditing, setOnEditing ] = useState(false)
@@ -170,9 +170,17 @@ export default function CommentaryBox({
                 <>
                     <Styles.CommentaryContent id={iDCommentPosted}></Styles.CommentaryContent>
                     <Styles.IterationsWrapper>
-                        <Styles.LinkButton onClick={ like }> Curtir </Styles.LinkButton>
-                        { hasAnswer &&
-                        <Styles.LinkButton onClick={ answer }>  Responder  </Styles.LinkButton> }
+                        <Styles.LikesStatistics>
+                            <Styles.Rocket isLiked={isLiked}/>
+                            <Styles.TextTotalLikes>{ totalLikes }</Styles.TextTotalLikes>
+                        </Styles.LikesStatistics>
+                        <Styles.IterationsButtonsWrapper>
+                            { isLiked ? 
+                            <Styles.LinkButton onClick={ like }> Descurtir </Styles.LinkButton>:
+                            <Styles.LinkButton onClick={ like }> Curtir </Styles.LinkButton>}    
+                            { hasAnswer &&
+                            <Styles.LinkButton onClick={ answer }>  Responder  </Styles.LinkButton> }
+                        </Styles.IterationsButtonsWrapper>
                     </Styles.IterationsWrapper>
                 </> 
             }

@@ -23,6 +23,8 @@ normal.args = {
     isAuthor: true,
     isPrivate: true,
     detectLinks: true,
+    isLiked: true,
+    totalLikes: 5,
     like:(e : any) => { alert("Curtir") },
     hasAnswer: true,
     wasEdited: true,    

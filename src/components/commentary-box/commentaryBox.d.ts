@@ -12,6 +12,8 @@ interface ICommentaryBox{
     isAuthor?: boolean
     isPrivate?: boolean
     like: () => void
+    isLiked?: boolean
+    totalLikes?: number
     hasAnswer?: boolean
     answer?: () => void
     deleteComment?: () => void
