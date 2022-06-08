@@ -6,6 +6,7 @@ export interface IInputComment {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
     remain?: number,
     limit?: number,
+    disabled?: boolean,
     className: string,
     hasEmoji: boolean,
     showCharacterCounter: boolean,

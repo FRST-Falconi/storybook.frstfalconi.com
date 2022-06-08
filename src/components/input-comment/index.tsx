@@ -9,7 +9,7 @@ import { SmileOutlined } from '@shared/icons'
 
 import { randID } from './inputComment.utils'
 
-export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles }: IInputComment) {
+export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled }: IInputComment) {
     const [ focus, setFocus ] = useState(false)
     const [ heightTextArea, setHeightTextArea ] = useState('')
     const [ forceResetHeightTextArea, setForceResetHeightTextArea] = useState(0)
@@ -41,6 +41,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                     value={value}
                     placeholder={placeholder}
                     maxLength={limit}
+                    disabled={disabled}
                 />
                 { hasEmoji && 
                     <Styles.SmileIcon>
