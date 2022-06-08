@@ -86,7 +86,7 @@ export default function CommentaryBox({
     }
 
     return (
-        <div style={{...styles}} onClick={() => verifyClick()}>
+        <div style={{width: '100%', ...styles}} onClick={() => verifyClick()}>
         <SpeechBubble className={className} highlight={onEditing} >
 
             <Styles.HeaderWrapper>
@@ -168,7 +168,7 @@ export default function CommentaryBox({
                 </>
                 :  
                 <>
-                    <Styles.CommentaryContent id={iDCommentPosted}></Styles.CommentaryContent>
+                    <Styles.CommentaryContent id={iDCommentPosted}>{ value }</Styles.CommentaryContent>
                     <Styles.IterationsWrapper>
                         <Styles.LikesStatistics>
                             <Styles.Rocket isLiked={isLiked}/>

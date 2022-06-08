@@ -9,7 +9,7 @@ interface ISpeechBubble {
 }
 
 export const SpeechBubbleWrapper = styled.div<ISpeechBubble>`
-    width: ${props => props.width ? props.width  : "auto"};
+    width: ${props => props.width ? props.width  : "100%"};
     height: ${props => props.height ? props.height  : "auto"};
     min-height: 20px
 `
