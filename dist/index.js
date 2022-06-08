@@ -1091,6 +1091,7 @@ const HeaderWrapper = styled__default["default"].div `
 
     min-height: 40px;
     flex-direction: row;
+    max-width: 100%;
 `;
 const IdentificationWrapper = styled__default["default"].div `
     flex: 4;
@@ -1248,10 +1249,35 @@ const CommentaryEditingContent = styled__default["default"].div `
 `;
 const IterationsWrapper = styled__default["default"].div `
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
     padding-top: 14px;
     padding-bottom: 14px;
+    padding-left: 14px;
+`;
+const IterationsButtonsWrapper = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+`;
+const LikesStatistics = styled__default["default"].div `
+    display:flex;
+    flex-direction: row;
+`;
+const TextTotalLikes = styled__default["default"].span `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+
+    margin-left: 6px;
+`;
+const Rocket = styled__default["default"].div `
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: ${({ theme, isLiked }) => isLiked ? theme.colors.primary1 : theme.colors.neutralsGrey5};
 `;
 const FooterEditingWrapper = styled__default["default"].div `
     display: flex;
@@ -1301,7 +1327,7 @@ const OptionsWrapper = styled__default["default"].div `
 /*border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};*/
 
 const SpeechBubbleWrapper = styled__default["default"].div `
-    width: ${props => props.width ? props.width : "auto"};
+    width: ${props => props.width ? props.width : "100%"};
     height: ${props => props.height ? props.height : "auto"};
     min-height: 20px
 `;
@@ -1403,9 +1429,9 @@ function SpeechBubble(props) {
 
 function buildStringWithLinkHTML({ value }) {
     let text = value;
-    var urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=   ~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    var urlRegex = /(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?\/=~_|!:,.;]*)[-A-Z0-9+&@#\/%=~_|])/ig;
     return text = text.replace(urlRegex, function (url) {
-        return `<a href="${url}" target="_blank">${url}</a>`;
+        return `<a href="${url}" target="_blank" style="color: #00f; text-decoration: underline">${url}</a>`;
     });
 }
 function randID() {
@@ -1414,7 +1440,7 @@ function randID() {
         .substr(2, 9);
 }
 
-function CommentaryBox({ name, className, styles, position, value, date, like, answer, isMe, isAuthor, isPrivate, deleteComment, editComment, makePrivate, updateValue, detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown }) {
+function CommentaryBox({ name, className, styles, position, value, date, like, answer, isMe, isAuthor, isPrivate, deleteComment, editComment, makePrivate, updateValue, detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }) {
     const [isOpenDrop, setIsOpenDrop] = react.useState(false);
     const [onEditing, setOnEditing] = react.useState(false);
     const [enableSaveEdit, setEnableSaveEdit] = react.useState(false);
@@ -1468,16 +1494,20 @@ function CommentaryBox({ name, className, styles, position, value, date, like, a
         (isOpenDrop) && (finalColor = '#ff4d0d'); // Selected
         return finalColor;
     };
-    return (jsxRuntime.jsx("div", { style: { ...styles }, onClick: () => verifyClick(), children: jsxRuntime.jsxs(SpeechBubble, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name, { children: [" ", name, " "] }, void 0), isMe &&
-                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsx(IsMe, { children: " Voc\u00EA " }, void 0)] }, void 0), isPrivate &&
-                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsx(CommentPrivate, { children: "Coment\u00E1rio privado" }, void 0)] }, void 0)] }, void 0), jsxRuntime.jsxs(Position, { children: [" ", position, " "] }, void 0)] }, void 0), jsxRuntime.jsxs(OptionsWrapper, { children: [jsxRuntime.jsxs(Date, { children: [" ", date, " ", wasEdited && "(editado)", " "] }, void 0), hasDropdown && (isAuthor || isMe) &&
-                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore, { onClick: () => setIsOpenDrop(!isOpenDrop), id: "actionDrop", onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }, void 0) }, void 0), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe &&
-                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ItemDrop, { onClick: makePrivate, children: " Tornar Privado " }, void 0), jsxRuntime.jsx(ItemDrop, { onClick: () => editingComment(), children: " Editar Coment\u00E1rio " }, void 0), jsxRuntime.jsx(ItemDrop, { isLastItem: true, onClick: deleteComment, children: " Excluir Coment\u00E1rio " }, void 0)] }, void 0), isAuthor && !isMe &&
-                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ItemDrop, { onClick: makePrivate, children: " Tornar Privado " }, void 0), jsxRuntime.jsx(ItemDrop, { isLastItem: true, onClick: deleteComment, children: " Excluir Coment\u00E1rio " }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0), onEditing ?
+    return (jsxRuntime.jsx("div", { style: { width: 'auto', ...styles }, onClick: () => verifyClick(), children: jsxRuntime.jsxs(SpeechBubble, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name, { children: [" ", name, " "] }, void 0), isMe &&
+                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsxs(IsMe, { children: [" ", textYou, " "] }, void 0)] }, void 0), (isPrivateAuthor || isPrivateMe) &&
+                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment }, void 0)] }, void 0)] }, void 0), jsxRuntime.jsxs(Position, { children: [" ", position, " "] }, void 0)] }, void 0), jsxRuntime.jsxs(OptionsWrapper, { children: [jsxRuntime.jsxs(Date, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }, void 0), hasDropdown && (isAuthor || isMe) &&
+                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore, { onClick: () => setIsOpenDrop(!isOpenDrop), id: "actionDrop", onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }, void 0) }, void 0), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: makePrivate, children: [" ", !isPrivateAuthor ? textMakePrivate : textMakePublic, "  "] }, void 0), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: deleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0), isMe && !isAuthor &&
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(!isPrivateAuthor) &&
+                                                                    jsxRuntime.jsxs(ItemDrop, { onClick: makePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }, void 0), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: deleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0), isAuthor && !isMe &&
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: makePrivate, children: [" ", (!isPrivateAuthor || !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: deleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0), onEditing ?
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }, void 0), jsxRuntime.jsxs(FooterEditingWrapper, { children: [jsxRuntime.jsx(Button, { handleClick: () => { saveEditComment(); }, label: "Salvar Altera\u00E7\u00F5es", disabled: !enableSaveEdit, variant: "primary" }, void 0), jsxRuntime.jsx(Button, { handleClick: () => { cancelEditComment(); }, label: "Cancelar", variant: "secondary" }, void 0)] }, void 0)] }, void 0)
                     :
-                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted }, void 0), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsx(LinkButton, { onClick: like, children: " Curtir " }, void 0), hasAnswer &&
-                                            jsxRuntime.jsx(LinkButton, { onClick: answer, children: "  Responder  " }, void 0)] }, void 0)] }, void 0)] }, void 0) }, void 0));
+                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }, void 0), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsxs(LikesStatistics, { children: [jsxRuntime.jsx(Rocket, { isLiked: isLiked }, void 0), jsxRuntime.jsx(TextTotalLikes, { children: totalLikes }, void 0)] }, void 0), jsxRuntime.jsxs(IterationsButtonsWrapper, { children: [isLiked ?
+                                                    jsxRuntime.jsxs(LinkButton, { onClick: like, children: [" ", textUnliked, " "] }, void 0) :
+                                                    jsxRuntime.jsxs(LinkButton, { onClick: like, children: [" ", textLiked, " "] }, void 0), hasAnswer &&
+                                                    jsxRuntime.jsxs(LinkButton, { onClick: answer, children: ["  ", textAnswer, "  "] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0) }, void 0));
 }
 
 const ButtonCheckmark = styled__default["default"].div `

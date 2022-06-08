@@ -18,6 +18,7 @@ export const HeaderWrapper = styled.div`
 
     min-height: 40px;
     flex-direction: row;
+    max-width: 100%;
 `
 
 export const IdentificationWrapper = styled.div`
@@ -191,11 +192,41 @@ export const CommentaryEditingContent = styled.div`
 
 export const IterationsWrapper = styled.div`
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     width: 100%;
     padding-top: 14px;
     padding-bottom: 14px;
+    padding-left: 14px;
 `
+
+export const IterationsButtonsWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+`
+
+export const LikesStatistics = styled.div`
+    display:flex;
+    flex-direction: row;
+`
+
+export const TextTotalLikes = styled.span`
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+
+    margin-left: 6px;
+`
+
+export const Rocket = styled.div<{isLiked:boolean}>`
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: ${({ theme, isLiked }) => isLiked ? theme.colors.primary1 : theme.colors.neutralsGrey5 };
+`
+
 
 export const FooterEditingWrapper = styled.div`
     display: flex;

@@ -6,9 +6,9 @@ interface IUtilsConvertStringLink {
 
 export function buildStringWithLinkHTML({value}: IUtilsConvertStringLink) {
     let text = value
-    var urlRegex =/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=   ~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
+    var urlRegex = /(\b(https?|ftp|file):\/\/([-A-Z0-9+&@#%?=~_|!:,.;]*)([-A-Z0-9+&@#%?\/=~_|!:,.;]*)[-A-Z0-9+&@#\/%=~_|])/ig
     return text = text.replace(urlRegex, function(url) {
-        return `<a href="${url}" target="_blank">${url}</a>`
+        return `<a href="${url}" target="_blank" style="color: #00f; text-decoration: underline">${url}</a>`
     })
 }
 

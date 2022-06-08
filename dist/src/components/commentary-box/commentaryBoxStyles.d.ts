@@ -23,6 +23,12 @@ export declare const ItemDrop: import("styled-components").StyledComponent<"div"
 export declare const CommentaryContent: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const CommentaryEditingContent: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const IterationsWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const IterationsButtonsWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const LikesStatistics: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const TextTotalLikes: import("styled-components").StyledComponent<"span", any, {}, never>;
+export declare const Rocket: import("styled-components").StyledComponent<"div", any, {
+    isLiked: boolean;
+}, never>;
 export declare const FooterEditingWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const LinkButton: import("styled-components").StyledComponent<"a", any, {}, never>;
 export declare const OptionsWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
