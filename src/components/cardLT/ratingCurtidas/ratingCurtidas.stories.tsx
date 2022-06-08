@@ -1,6 +1,6 @@
 import React from 'react'
 
-import RatingCurtidas from '../ratingCurtidas/index'
+import RatingCurtidas from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
