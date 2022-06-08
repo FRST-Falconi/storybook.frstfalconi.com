@@ -1,7 +1,7 @@
 
 
 import style from './RatingCurtidas.module.css'
-import RocketButton from '../RocketButton/index'
+import RocketButton from '../rocketButton/index'
 
 
 ///-----------------------------------------

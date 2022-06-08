@@ -18,3 +18,8 @@ export { default as TextArea } from './src/components/form-elements/textarea'
 export { AlertCicle, DoubleCheck } from './src/shared/icons'
 
 export { default as Avatar } from './src/components/avatar'
+
+export { default as MessageBox } from './src/components/cardLT/messageBox'
+export { default as Rating } from './src/components/cardLT/rating'
+export { default as RatingCurtidas } from './src/components/cardLT/ratingCurtidas'
+export { default as RocketButton } from './src/components/cardLT/rocketButton'
