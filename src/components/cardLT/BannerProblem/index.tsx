@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 
 import TextIcon from '../TextIcon/index'
 import MessageBox from '../MessageBox/index'
-import Rating from '../rating/index'
-import RatingCurtidas from '../ratingCurtidas/index'
+import Rating from '../Rating/index'
+import RatingCurtidas from '../RatingCurtidas/index'
 
 import StepsMission from '../StepsMission/index'
 import { Brain, Mail, WithoutTrail } from '../../../shared/icons'

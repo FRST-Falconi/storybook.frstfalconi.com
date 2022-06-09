@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');
 
 .container {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   display: flex;
   justify-content: 'center';
   align-items: 'center';
@@ -10,7 +10,7 @@
   margin-left: 16px;
 
   text-align: center;
-  font-size: 30px;
+  font-size: 26px;
   font-family: 'VT323', monospace;
   color: white;
   -webkit-text-stroke: 0.5px black;
@@ -19,7 +19,7 @@
 
 .label {
   position: absolute;
-  padding: 8px;
+  padding: 2px;
   border: 2px dashed white;
   bottom: 0;
   left: 8px;
@@ -32,7 +32,7 @@
   justify-content: center;
   align-items: center;
   display: flex;
-  padding: 8px;
+  padding: 4px;
   
   bottom: 16px;
   left: 0;
@@ -55,7 +55,7 @@
   height: 100% !important;
   width: 100% !important;
   object-fit: contain;
-  margin-left: 4px;
+  margin-left: 2px;
 }
 
 .imgAtive:hover {
@@ -68,7 +68,7 @@
   height: 100% !important;
   width: 100% !important;
   object-fit: contain;
-  margin-left: 4px;
+  margin-left: 2px;
 }
 
 .imgInative:hover {
@@ -81,7 +81,7 @@
   height: 100% !important;
   width: 100% !important;
   object-fit: contain;
-  margin-left: 4px;;
+  margin-left: 2px;;
 }
 
 .imgBlockedL:hover {
