@@ -43,9 +43,10 @@
 }
 
 .block img {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
+  margin-top: 0;
 }
 
 .imgAtive {
@@ -54,7 +55,7 @@
   height: 100% !important;
   width: 100% !important;
   object-fit: contain;
-  margin-left: 8px;
+  margin-left: 4px;
 }
 
 .imgAtive:hover {
@@ -67,7 +68,7 @@
   height: 100% !important;
   width: 100% !important;
   object-fit: contain;
-  margin-left: 8px;
+  margin-left: 4px;
 }
 
 .imgInative:hover {
@@ -80,7 +81,7 @@
   height: 100% !important;
   width: 100% !important;
   object-fit: contain;
-  margin-left: 8px;
+  margin-left: 4px;;
 }
 
 .imgBlockedL:hover {

@@ -2,16 +2,16 @@
 import React, { useEffect, useState } from 'react'
 
 import style from './Planet.module.css'
-import jupter from '../Planet/planets/jupter.png'
-import marte from '../Planet/planets/marte.png'
-import saturno from '../Planet/planets/saturno.png'
-import netuno from '../Planet/planets/netuno.png'
-import urano from '../Planet/planets/urano.png'
-import lock from '../Planet/planets/lock.png'
+import jupter from './planets/jupter.png'
+import marte from './planets/marte.png'
+import saturno from './planets/saturno.png'
+import netuno from './planets/netuno.png'
+import urano from './planets/urano.png'
+import lock from './planets/lock.png'
 
 ///-----------------------------------------
 /// Interface do Componente
-interface PlanetParams {
+interface StepParams {
   /**
    * @prop {number} step: Step (Marte, Júpter, Saturno, Urano, Netuno)
    */
@@ -39,7 +39,7 @@ interface PlanetParams {
  * 
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
-export default function Planet(props: PlanetParams) {
+export default function StepMission(props: StepParams) {
 
   const TypeStep = [
     marte,

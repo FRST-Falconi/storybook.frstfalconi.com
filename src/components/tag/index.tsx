@@ -10,6 +10,10 @@ interface TagProps {
     selected: boolean
     inverted: boolean
     iconType?: iconStatus
+      /**
+   * @prop {React.CSSProperties} style: Styles de CSS adicional
+   */  
+   style?: React.CSSProperties;
 }
 
 export default function Tag(props: TagProps) {
@@ -27,13 +31,13 @@ export default function Tag(props: TagProps) {
             {
                 props.loading ?
                     (
-                        <div className='shimmer tag'>
+                        <div className='shimmer tag' style={props.style}>
                             <span style={{ verticalAlign: 'middle', margin: '8px' }}>Shimmer Text</span>
                         </div >
                     )
                     :
                     (
-                        <div className='tag' style={{ border: `1px solid ${getColor()} `, background: getBG(), color: getColor() }}>
+                        <div className='tag' style={{ border: `1px solid ${getColor()} `, background: getBG(), color: getColor(), ...props.style }}>
                             <span style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '24px', margin: '0 8px', gap: '8px' }}>
                                 {props.title}
                                 {props.iconType === 'warning' && <AlertCicle fill={getColor()} />}

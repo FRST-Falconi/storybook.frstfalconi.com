@@ -1,10 +1,8 @@
 .container {
-  padding: 8px;
   display: flex;
   justify-content: 'flex-start';
   align-items: 'center';
   position: relative;
-  margin-left: 16px;
   flex-direction: row;
   flex-wrap: wrap;
 }

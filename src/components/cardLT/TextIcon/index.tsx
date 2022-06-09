@@ -17,10 +17,6 @@ interface TextIconParams {
    * @prop {<React.SVGProps<SVGSVGElement>>} linkImage: Link de imagens em PNG, JPEG...
    */  
   linkImage?: React.SVGProps<SVGSVGElement>;
-  /**
-   * @prop {number} tipoVisualizacao: Selecionado ou não selecionado
-   */  
-  tipoVisualizacao: number;  
    /**
     * @prop {React.CSSProperties} style: Styles de CSS adicional
     */  
@@ -48,7 +44,7 @@ export default function TextIcon(props: TextIconParams) {
     <>    
       <div className={style.container} style={{...props.style }}>
     
-        <div style={{display: 'flex',  width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start'}}>          
+        <div style={{display: 'flex',  width: '100%', justifyContent: 'flex-start', alignItems: 'center'}}>          
           <div style={{display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center'}}>            
             {props.svg}
           </div>

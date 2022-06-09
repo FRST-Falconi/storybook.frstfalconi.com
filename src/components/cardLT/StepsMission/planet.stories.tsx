@@ -1,15 +1,15 @@
 
 
-import Planet from '../Planet/index'
+import Steps from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'Card LT/Missão',
-    component: Planet,
+    component: Steps,
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Planet {...args} />
+const Template = (args) => <Steps {...args} />
 
 export const Step1 = Template.bind({})
 Step1.args = {
