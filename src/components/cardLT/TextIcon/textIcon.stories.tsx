@@ -2,7 +2,7 @@ import React from 'react'
 import StarIcon from './starIcon'
 import RocketButton from '../RocketButton/index'
 
-import TextIcon from '../TextIcon/index'
+import TextIcon from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

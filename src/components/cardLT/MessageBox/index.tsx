@@ -1,5 +1,5 @@
 import { relative } from 'path';
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './MessageBox.module.css'
 
 import SuccessIcon from './icons/successIcon'
@@ -10,15 +10,21 @@ import { SocialDistanceOutlined } from '@mui/icons-material';
 ///-----------------------------------------
 /// Interface do Componente
 interface MessageBoxParams {
-   texto: string;
+  texto: string;
   /**
    * @prop {number} tipoVisualizacao: Estilo de card (1- Mensagem sucesso, 2- Mensagem alerta, 3- Mensagem erro)
    */  
-   tipoVisualizacao: number;  
+  tipoVisualizacao: number;  
    /**
     * @prop {React.CSSProperties} style: Styles de CSS adicional
     */  
   style?: React.CSSProperties;
+
+  /**
+ * @prop {() => void} onClick: Função que será executada quando houver o click do botão
+ */
+  onClick?: () => void
+
 }
 
 ///-----------------------------------------
@@ -28,7 +34,7 @@ interface MessageBoxParams {
  * 
  * @componente 
  */
-export default function MessageBox(props: MessageBoxParams) {
+export default function MessageBox(props: MessageBoxParams): any {
 
   const MapBorderColor = [
     '#2CA92A',
@@ -53,28 +59,25 @@ export default function MessageBox(props: MessageBoxParams) {
 
 
     <>    
-      <div className={style.container} 
+      <div 
+        className={
+          `${props.tipoVisualizacao === 1 ? style.success 
+            : props.tipoVisualizacao === 2 ? style.warning
+            : props.tipoVisualizacao === 3 ? style.error 
+            : '' } ${style.container}`
+        } 
         style={{
-          borderWidth: 1, 
-          borderColor: MapBorderColor[props.tipoVisualizacao-1], 
-          borderStyle: 'solid',
-          background: MapBackgroundColor[props.tipoVisualizacao-1],  
-          display: 'flex',
-          justifyContent: 'flex-start', 
-          alignItems: 'center',
-          flexDirection: 'row',
-          ...props.style 
+          cursor: props.onClick ? 'pointer' : 'default',
+          ...props.style
         }}
+        onClick={
+          props.onClick
+        }
       >
         <div 
+          className={style.square}
           style={{
-            height: 20, 
-            width: 20, 
-            display: 'inline-flex', 
-            justifyContent: 'center', 
-            alignItems: 'center',
             backgroundColor: MapBorderColor[props.tipoVisualizacao-1],
-            marginRight: 8
           }}
         >
           {MapIconList[props.tipoVisualizacao-1]}    
