@@ -1,5 +1,6 @@
 import React from 'react'
-import RocketButton from '../TextIcon/index'
+import StarIcon from './starIcon'
+import RocketButton from '../RocketButton/index'
 
 import TextIcon from '../TextIcon/index'
 
@@ -14,6 +15,7 @@ const Template = (args) => <TextIcon {...args} />
 
 export const PrimaryButton = Template.bind({})
 PrimaryButton.args = {
-    description: "Teste"
+    description: "Tecnologia da Informação",
+    svg: <RocketButton tipoBotao={2}/>
 }
 
