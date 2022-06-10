@@ -11,6 +11,10 @@ interface Wrapper {
     focus?: boolean
 }
 
+interface IEmojiWindow {
+    visible?: boolean
+    heightTextArea?: any
+}
 interface TextArea {
     height?: string
 }
@@ -59,7 +63,7 @@ export const InputText = styled.textarea<TextArea>`
     border: none;
 `
 
-export const SmileIcon = styled.span`
+export const SmileIcon = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,3 +99,14 @@ export const HelperText = styled.span`
     margin-top: 8px;
     margin-left: 13px;
 `
+
+export const EmojiWindow = styled.div<IEmojiWindow>`
+    display:${({ visible }) => visible ? 'flex' : 'none'};
+    width: 275px;
+    height: 250px;
+    top: ${({ heightTextArea }) => heightTextArea};
+    right: 25px;
+    background-color:  ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
+    position: absolute;
+`;

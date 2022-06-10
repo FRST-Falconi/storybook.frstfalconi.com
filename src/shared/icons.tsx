@@ -1,7 +1,10 @@
 interface IconsProps {
   fill?: string
   stroke?: string
-  variant?: string
+  customColor_1?: string
+  customColor_2?: string
+  width?: string
+  height?: string
 }
 
 export function EditIcon() {
@@ -136,7 +139,7 @@ export function BlueTrash() {
 export function AlertCicle({ fill }: IconsProps) {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={fill ?? "#FF0000"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke={fill ?? "#FF0000"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M12 8V12" stroke={fill ?? "#FF0000"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M12 16H12.01" stroke={fill ?? "#FF0000"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
@@ -189,20 +192,20 @@ export function SmileOutlined({ fill }: IconsProps) {
   )
 }
 
-export function CheckInCicle({ fill, stroke, variant }: IconsProps) {
+export function CheckInCicle({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
-    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 10C20 15.5176 15.5281 20 10.0001 20C4.47195 20 0 15.5176 0 10C0 4.48239 4.47195 0 10.0001 0C15.5281 0 20 4.48239 20 10Z" fill={variant ?? "#222"}/>
+    <svg width={width ?? "21"} height={height ?? "20"} viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 10C20 15.5176 15.5281 20 10.0001 20C4.47195 20 0 15.5176 0 10C0 4.48239 4.47195 0 10.0001 0C15.5281 0 20 4.48239 20 10Z" fill={customColor_1 ?? "#222"}/>
       <path d="M19.7557 10C19.7557 15.2417 15.4598 19.5 10.1494 19.5C4.83889 19.5 0.542969 15.2417 0.542969 10C0.542969 4.75827 4.83889 0.5 10.1494 0.5C15.4598 0.5 19.7557 4.75827 19.7557 10Z" stroke={stroke ?? "#FFF"}/>
       <path d="M14.05 5L15.39 5.94L9.58 14.32H8.24L5 9.78L6.34 8.53L8.91 10.93L14.05 5Z" fill={fill ?? "#FFF"}/>
     </svg>
   );
 }
 
-export function CloseInCicle({ fill, stroke, variant }: IconsProps) {
+export function CloseInCicle({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
-    <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20 10C20 15.5176 15.7517 20 10.5001 20C5.24835 20 1 15.5176 1 10C1 4.48239 5.24835 0 10.5001 0C15.7517 0 20 4.48239 20 10Z" fill={variant ?? "#222"}/>
+    <svg width={width ?? "21"} height={height ?? "20"} viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 10C20 15.5176 15.7517 20 10.5001 20C5.24835 20 1 15.5176 1 10C1 4.48239 5.24835 0 10.5001 0C15.7517 0 20 4.48239 20 10Z" fill={customColor_1 ?? "#222"}/>
       <path d="M20.2997 10C20.2997 15.2417 16.0038 19.5 10.6933 19.5C5.38284 19.5 1.08691 15.2417 1.08691 10C1.08691 4.75827 5.38284 0.5 10.6933 0.5C16.0038 0.5 20.2997 4.75827 20.2997 10Z" stroke={stroke ?? "#F00"} />
       <path d="M15.9 6.41L12.36 9.95L15.9 13.49L14.49 14.9L10.95 11.37L7.42 14.9L6 13.48L9.53 9.95L6 6.42L7.42 5L10.95 8.53L14.49 5L15.9 6.41Z" fill={fill ?? "#F00"}/>
     </svg>

@@ -15,5 +15,5 @@ export const CloseInCicleIcon = TemplateAlert.bind({})
 CloseInCicleIcon.args = {
   fill: '#fff',
   stroke: '#0f0',
-  variant: '#222',
+  customColor_1: '#222',
 }

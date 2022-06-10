@@ -15,5 +15,5 @@ export const CheckInCicleIcon = TemplateAlert.bind({})
 CheckInCicleIcon.args = {
   fill: '#fff',
   stroke: '#fff',
-  variant: '#222',
+  customColor_1: '#222',
 }
