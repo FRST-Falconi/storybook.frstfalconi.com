@@ -21,8 +21,36 @@ var Step = require('@mui/material/Step');
 var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
+var data = require('@emoji-mart/data');
+var emojiMart = require('emoji-mart');
+var de = require('@emoji-mart/data/i18n/de.json');
+var en = require('@emoji-mart/data/i18n/en.json');
+var fr = require('@emoji-mart/data/i18n/fr.json');
+var it = require('@emoji-mart/data/i18n/it.json');
+var pl = require('@emoji-mart/data/i18n/pl.json');
+var pt = require('@emoji-mart/data/i18n/pt.json');
+var ru = require('@emoji-mart/data/i18n/ru.json');
+var zh = require('@emoji-mart/data/i18n/zh.json');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n["default"] = e;
+  return Object.freeze(n);
+}
 
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$2);
@@ -38,6 +66,15 @@ var Box__default = /*#__PURE__*/_interopDefaultLegacy(Box);
 var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
+var data__default = /*#__PURE__*/_interopDefaultLegacy(data);
+var de__namespace = /*#__PURE__*/_interopNamespace(de);
+var en__namespace = /*#__PURE__*/_interopNamespace(en);
+var fr__namespace = /*#__PURE__*/_interopNamespace(fr);
+var it__namespace = /*#__PURE__*/_interopNamespace(it);
+var pl__namespace = /*#__PURE__*/_interopNamespace(pl);
+var pt__namespace = /*#__PURE__*/_interopNamespace(pt);
+var ru__namespace = /*#__PURE__*/_interopNamespace(ru);
+var zh__namespace = /*#__PURE__*/_interopNamespace(zh);
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -82,7 +119,7 @@ function CheckboxEmpty() {
     return (jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "1.4", fill: "white", stroke: "#A6A6A6", strokeWidth: "1.2" }, void 0) }, void 0));
 }
 function AlertCicle({ fill }) {
-    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: fill ?? "#FF0000", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }, void 0), jsxRuntime.jsx("path", { d: "M12 8V12", stroke: fill ?? "#FF0000", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0), jsxRuntime.jsx("path", { d: "M12 16H12.01", stroke: fill ?? "#FF0000", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0)] }, void 0));
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: fill ?? "#FF0000", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0), jsxRuntime.jsx("path", { d: "M12 8V12", stroke: fill ?? "#FF0000", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0), jsxRuntime.jsx("path", { d: "M12 16H12.01", stroke: fill ?? "#FF0000", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0)] }, void 0));
 }
 function DoubleCheck({ fill }) {
     return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M1.33301 8L4.83301 11.3333L6.58301 9.33333", stroke: fill ?? "#FFF", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0), jsxRuntime.jsx("path", { d: "M5.33301 8.00033L8.83301 11.3337L14.6663 4.66699", stroke: fill ?? "#FFF", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0), jsxRuntime.jsx("path", { d: "M10.6663 4.66699L8.33301 7.33366", stroke: fill ?? "#FFF", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }, void 0)] }, void 0));
@@ -99,11 +136,14 @@ function EyeOff({ fill }) {
 function SmileOutlined({ fill }) {
     return (jsxRuntime.jsx("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M5.75 8.86719C5.75 9.16556 5.86853 9.4517 6.0795 9.66268C6.29048 9.87366 6.57663 9.99219 6.875 9.99219C7.17337 9.99219 7.45952 9.87366 7.6705 9.66268C7.88147 9.4517 8 9.16556 8 8.86719C8 8.56882 7.88147 8.28267 7.6705 8.07169C7.45952 7.86071 7.17337 7.74219 6.875 7.74219C6.57663 7.74219 6.29048 7.86071 6.0795 8.07169C5.86853 8.28267 5.75 8.56882 5.75 8.86719ZM14 8.86719C14 9.16556 14.1185 9.4517 14.3295 9.66268C14.5405 9.87366 14.8266 9.99219 15.125 9.99219C15.4234 9.99219 15.7095 9.87366 15.9205 9.66268C16.1315 9.4517 16.25 9.16556 16.25 8.86719C16.25 8.56882 16.1315 8.28267 15.9205 8.07169C15.7095 7.86071 15.4234 7.74219 15.125 7.74219C14.8266 7.74219 14.5405 7.86071 14.3295 8.07169C14.1185 8.28267 14 8.56882 14 8.86719ZM11 0.5C5.20156 0.5 0.5 5.20156 0.5 11C0.5 16.7984 5.20156 21.5 11 21.5C16.7984 21.5 21.5 16.7984 21.5 11C21.5 5.20156 16.7984 0.5 11 0.5ZM17.1641 17.1641C16.3625 17.9656 15.4297 18.5938 14.3914 19.0344C13.3203 19.4891 12.1789 19.7188 11 19.7188C9.82109 19.7188 8.67969 19.4891 7.60625 19.0344C6.56954 18.5965 5.62785 17.9613 4.83359 17.1641C4.03203 16.3625 3.40391 15.4297 2.96328 14.3914C2.51094 13.3203 2.28125 12.1789 2.28125 11C2.28125 9.82109 2.51094 8.67969 2.96562 7.60625C3.40346 6.56954 4.03868 5.62785 4.83594 4.83359C5.6375 4.03203 6.57031 3.40391 7.60859 2.96328C8.67969 2.51094 9.82109 2.28125 11 2.28125C12.1789 2.28125 13.3203 2.51094 14.3937 2.96562C15.4305 3.40346 16.3721 4.03868 17.1664 4.83594C17.968 5.6375 18.5961 6.57031 19.0367 7.60859C19.4891 8.67969 19.7188 9.82109 19.7188 11C19.7188 12.1789 19.4891 13.3203 19.0344 14.3937C18.5971 15.4301 17.9618 16.3711 17.1641 17.1641ZM14.5625 11.4922H13.4352C13.3367 11.4922 13.2523 11.5672 13.2453 11.6656C13.1562 12.8258 12.1836 13.7422 11 13.7422C9.81641 13.7422 8.84141 12.8258 8.75469 11.6656C8.74766 11.5672 8.66328 11.4922 8.56484 11.4922H7.4375C7.41207 11.4922 7.3869 11.4973 7.36351 11.5073C7.34013 11.5173 7.31903 11.532 7.30149 11.5504C7.28395 11.5688 7.27034 11.5906 7.26149 11.6144C7.25264 11.6383 7.24873 11.6637 7.25 11.6891C7.35313 13.6648 8.99609 15.2422 11 15.2422C13.0039 15.2422 14.6469 13.6648 14.75 11.6891C14.7513 11.6637 14.7474 11.6383 14.7385 11.6144C14.7297 11.5906 14.716 11.5688 14.6985 11.5504C14.681 11.532 14.6599 11.5173 14.6365 11.5073C14.6131 11.4973 14.5879 11.4922 14.5625 11.4922Z", fill: fill ?? "#FFF" }, void 0) }, void 0));
 }
-function CheckInCicle({ fill, stroke, variant }) {
-    return (jsxRuntime.jsxs("svg", { width: "21", height: "20", viewBox: "0 0 21 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M20 10C20 15.5176 15.5281 20 10.0001 20C4.47195 20 0 15.5176 0 10C0 4.48239 4.47195 0 10.0001 0C15.5281 0 20 4.48239 20 10Z", fill: variant ?? "#222" }, void 0), jsxRuntime.jsx("path", { d: "M19.7557 10C19.7557 15.2417 15.4598 19.5 10.1494 19.5C4.83889 19.5 0.542969 15.2417 0.542969 10C0.542969 4.75827 4.83889 0.5 10.1494 0.5C15.4598 0.5 19.7557 4.75827 19.7557 10Z", stroke: stroke ?? "#FFF" }, void 0), jsxRuntime.jsx("path", { d: "M14.05 5L15.39 5.94L9.58 14.32H8.24L5 9.78L6.34 8.53L8.91 10.93L14.05 5Z", fill: fill ?? "#FFF" }, void 0)] }, void 0));
+function CheckInCicle({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ?? "21", height: height ?? "20", viewBox: "0 0 21 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M20 10C20 15.5176 15.5281 20 10.0001 20C4.47195 20 0 15.5176 0 10C0 4.48239 4.47195 0 10.0001 0C15.5281 0 20 4.48239 20 10Z", fill: customColor_1 ?? "#222" }, void 0), jsxRuntime.jsx("path", { d: "M19.7557 10C19.7557 15.2417 15.4598 19.5 10.1494 19.5C4.83889 19.5 0.542969 15.2417 0.542969 10C0.542969 4.75827 4.83889 0.5 10.1494 0.5C15.4598 0.5 19.7557 4.75827 19.7557 10Z", stroke: stroke ?? "#FFF" }, void 0), jsxRuntime.jsx("path", { d: "M14.05 5L15.39 5.94L9.58 14.32H8.24L5 9.78L6.34 8.53L8.91 10.93L14.05 5Z", fill: fill ?? "#FFF" }, void 0)] }, void 0));
 }
-function CloseInCicle({ fill, stroke, variant }) {
-    return (jsxRuntime.jsxs("svg", { width: "21", height: "20", viewBox: "0 0 21 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M20 10C20 15.5176 15.7517 20 10.5001 20C5.24835 20 1 15.5176 1 10C1 4.48239 5.24835 0 10.5001 0C15.7517 0 20 4.48239 20 10Z", fill: variant ?? "#222" }, void 0), jsxRuntime.jsx("path", { d: "M20.2997 10C20.2997 15.2417 16.0038 19.5 10.6933 19.5C5.38284 19.5 1.08691 15.2417 1.08691 10C1.08691 4.75827 5.38284 0.5 10.6933 0.5C16.0038 0.5 20.2997 4.75827 20.2997 10Z", stroke: stroke ?? "#F00" }, void 0), jsxRuntime.jsx("path", { d: "M15.9 6.41L12.36 9.95L15.9 13.49L14.49 14.9L10.95 11.37L7.42 14.9L6 13.48L9.53 9.95L6 6.42L7.42 5L10.95 8.53L14.49 5L15.9 6.41Z", fill: fill ?? "#F00" }, void 0)] }, void 0));
+function CloseInCicle({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ?? "21", height: height ?? "20", viewBox: "0 0 21 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M20 10C20 15.5176 15.7517 20 10.5001 20C5.24835 20 1 15.5176 1 10C1 4.48239 5.24835 0 10.5001 0C15.7517 0 20 4.48239 20 10Z", fill: customColor_1 ?? "#222" }, void 0), jsxRuntime.jsx("path", { d: "M20.2997 10C20.2997 15.2417 16.0038 19.5 10.6933 19.5C5.38284 19.5 1.08691 15.2417 1.08691 10C1.08691 4.75827 5.38284 0.5 10.6933 0.5C16.0038 0.5 20.2997 4.75827 20.2997 10Z", stroke: stroke ?? "#F00" }, void 0), jsxRuntime.jsx("path", { d: "M15.9 6.41L12.36 9.95L15.9 13.49L14.49 14.9L10.95 11.37L7.42 14.9L6 13.48L9.53 9.95L6 6.42L7.42 5L10.95 8.53L14.49 5L15.9 6.41Z", fill: fill ?? "#F00" }, void 0)] }, void 0));
+}
+function RocketIconCommentaryBox({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ?? "32", height: height ?? "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: fill ?? "#FF4D0D" }, void 0), jsxRuntime.jsx("path", { d: "M9.15576 18.991C8.89873 19.3902 8.69092 19.8195 8.54053 20.2652H10.8593V17.2766C10.1812 17.7195 9.60147 18.302 9.15576 18.991V18.991ZM21.1405 17.2766V20.2652H23.4593C23.3089 19.8195 23.1011 19.3902 22.844 18.991C22.4032 18.306 21.8227 17.7218 21.1405 17.2766V17.2766ZM19.3905 10.7168L15.9999 6.69727L12.6093 10.7168V20.2652H19.3905V10.7168V10.7168ZM15.9999 14.2496C15.6564 14.2426 15.3294 14.1012 15.089 13.8559C14.8486 13.6105 14.7139 13.2806 14.7139 12.9371C14.7139 12.5936 14.8486 12.2637 15.089 12.0184C15.3294 11.773 15.6564 11.6316 15.9999 11.6246C16.3434 11.6316 16.6704 11.773 16.9108 12.0184C17.1512 12.2637 17.2859 12.5936 17.2859 12.9371C17.2859 13.2806 17.1512 13.6105 16.9108 13.8559C16.6704 14.1012 16.3434 14.2426 15.9999 14.2496Z", fill: "white", "fill-opacity": "0.35" }, void 0), jsxRuntime.jsx("path", { d: "M25.625 22.125C25.625 19.0734 23.8367 16.4375 21.25 15.2098V10.6762C21.25 10.2633 21.1051 9.86406 20.8371 9.54961L16.6699 4.60859C16.4949 4.40078 16.2461 4.29688 16 4.29688C15.7539 4.29688 15.5051 4.40078 15.3301 4.60859L11.1629 9.54961C10.8967 9.86471 10.7505 10.2637 10.75 10.6762V15.2098C8.16328 16.4375 6.375 19.0734 6.375 22.125H10.6543C10.5914 22.3219 10.5586 22.5352 10.5586 22.7758C10.5586 23.3801 10.7664 23.9707 11.1437 24.4383C11.4518 24.8207 11.8597 25.1103 12.3223 25.275C12.9539 26.7516 14.3895 27.7031 16 27.7031C16.7957 27.7031 17.5668 27.468 18.2258 27.025C18.8711 26.593 19.3715 25.9887 19.675 25.275C20.1374 25.1113 20.5454 24.8226 20.8535 24.441C21.2314 23.9692 21.4377 23.383 21.4387 22.7785C21.4387 22.5488 21.4086 22.3301 21.3539 22.1277L25.625 22.125ZM10.8594 20.2656H8.54062C8.69102 19.8199 8.89883 19.3906 9.15586 18.9914C9.60156 18.3023 10.1813 17.7199 10.8594 17.277V20.2656ZM12.6094 15.2098V10.7172L16 6.69766L19.3906 10.7172V20.2656H12.6094V15.2098ZM19.1746 23.443C19.0324 23.525 18.8684 23.5578 18.707 23.5359L18.1738 23.4703L18.0973 24.0008C17.9496 25.0371 17.0473 25.8191 16 25.8191C14.9527 25.8191 14.0504 25.0371 13.9027 24.0008L13.8262 23.4676L13.293 23.5359C13.1309 23.5553 12.9669 23.5217 12.8254 23.4402C12.5875 23.3035 12.4398 23.0492 12.4398 22.773C12.4398 22.4832 12.6012 22.2426 12.8391 22.1223H19.1637C19.4043 22.2453 19.5629 22.4859 19.5629 22.773C19.5602 23.052 19.4125 23.309 19.1746 23.443ZM21.1406 20.2656V17.277C21.8228 17.7221 22.4033 18.3064 22.8441 18.9914C23.1012 19.3906 23.309 19.8199 23.4594 20.2656H21.1406V20.2656Z", fill: "white" }, void 0), jsxRuntime.jsx("path", { d: "M14.6875 12.9375C14.6875 13.2856 14.8258 13.6194 15.0719 13.8656C15.3181 14.1117 15.6519 14.25 16 14.25C16.3481 14.25 16.6819 14.1117 16.9281 13.8656C17.1742 13.6194 17.3125 13.2856 17.3125 12.9375C17.3125 12.5894 17.1742 12.2556 16.9281 12.0094C16.6819 11.7633 16.3481 11.625 16 11.625C15.6519 11.625 15.3181 11.7633 15.0719 12.0094C14.8258 12.2556 14.6875 12.5894 14.6875 12.9375V12.9375Z", fill: "white" }, void 0)] }, void 0));
 }
 
 function Tag(props) {
@@ -1010,7 +1050,7 @@ const InputText = styled__default["default"].textarea `
     
     font-family: 'Work Sans';
     font-style: normal;
-    font-weight: 400;
+    font-weight: normal;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.02em;
@@ -1021,8 +1061,9 @@ const InputText = styled__default["default"].textarea `
     padding: 0;
     margin: 14px;
     border: none;
+    wrap: off;
 `;
-const SmileIcon = styled__default["default"].span `
+const SmileIcon = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1038,6 +1079,7 @@ const SmileIcon = styled__default["default"].span `
         background-color: ${({ theme }) => theme.colors.neutralsGrey6};
     }
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
 `;
 const HelperText = styled__default["default"].span `
     display: flex;
@@ -1057,6 +1099,55 @@ const HelperText = styled__default["default"].span `
     margin-top: 8px;
     margin-left: 13px;
 `;
+const EmojiWindow = styled__default["default"].div `
+    width: 310px;
+    height: 432px;
+    overflow: hidden;
+    display:${({ visible }) => visible ? 'flex' : 'none'};
+    justify-content: center;
+    top: ${({ positionEmojiWindow }) => positionEmojiWindow};
+    right: 25px;
+    background-color:  ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
+    position: absolute;
+`;
+// transform: scale(0.845);
+
+function EmojiPicker(props) {
+    const ref = react.useRef();
+    react.useEffect(() => {
+        let title = 'FRST FALCONI';
+        let emojiSize = props.emojiSize;
+        let perLine = props.emojiPerLine;
+        let SheetSize = props.sheetSize;
+        let i18n = choseLanguage(props.language);
+        // let filteredEmoji = excludeEmojiCode();
+        new emojiMart.Picker({ ...props, title, data: data__default["default"], ref, i18n, emojiSize, perLine, SheetSize });
+    }, [props.language]);
+    return jsxRuntime.jsx("div", { ref: ref }, void 0);
+}
+function choseLanguage(props) {
+    switch (props) {
+        case 'de':
+            return de__namespace;
+        case 'en':
+            return en__namespace;
+        case 'fr':
+            return fr__namespace;
+        case 'it':
+            return it__namespace;
+        case 'pl':
+            return pl__namespace;
+        case 'pt':
+            return pt__namespace;
+        case 'ru':
+            return ru__namespace;
+        case 'zh':
+            return zh__namespace;
+        default:
+            return en__namespace;
+    }
+}
 
 function randID$1() {
     return Math.random()
@@ -1064,23 +1155,102 @@ function randID$1() {
         .substr(2, 9);
 }
 
-function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled }) {
+function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage }) {
     const [focus, setFocus] = react.useState(false);
-    const [heightTextArea, setHeightTextArea] = react.useState('');
-    const [forceResetHeightTextArea, setForceResetHeightTextArea] = react.useState(0);
+    // Emoji Window States
+    const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = react.useState(false);
+    const [actionAreaEmojiButton, setActionAreaEmojiButton] = react.useState(false);
+    const [colorEmojiButton, setColorEmojiButton] = react.useState('');
+    const [heightPositionWindowEmoji, setHeightPositionWindowEmoji] = react.useState('');
+    const [newEmojiIncluded, setNewEmojiIncluded] = react.useState(false);
+    const [lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea] = react.useState({});
+    const [lenghtLastEmoji, setLenghtLastEmoji] = react.useState();
+    // TextArea states
+    const [stringValueTextArea, setStringValueTextArea] = react.useState(value);
+    // IDs
     const [iDInputComment, setIDInputComment] = react.useState(IDInput ? IDInput : `InputComment-${randID$1()}`);
+    const [iDEmojiButton, setIDEmojiButton] = react.useState(IDInput ? IDInput : `IDEmojiButton-${randID$1()}`);
+    // Emoji window actions
     react.useEffect(() => {
-        let tx = document.getElementById(iDInputComment);
-        setHeightTextArea(tx.scrollHeight + 'px');
-    }, [forceResetHeightTextArea]);
+        (isVisibleEmojiWindow) ? configsWhenOpenWindowEmoji() : configsWhenCloseWindowEmoji();
+    }, [isVisibleEmojiWindow]);
+    react.useEffect(() => {
+        {
+            newEmojiIncluded && repositionCursorAfterNewEmojiInTextArea();
+        }
+        resizeTextArea();
+    }, [stringValueTextArea]);
     function inputInChanging(e) {
-        setHeightTextArea('20px');
-        setForceResetHeightTextArea(Math.random());
+        setStringValueTextArea(e.target.value);
         onChange(e);
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, children: [jsxRuntime.jsxs(InputWrapper, { focus: focus, children: [jsxRuntime.jsx(InputText, { id: iDInputComment, height: heightTextArea, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: value, placeholder: placeholder, maxLength: limit, disabled: disabled }, void 0), hasEmoji &&
-                            jsxRuntime.jsx(SmileIcon, { children: jsxRuntime.jsx(SmileOutlined, { fill: '#757575' }, void 0) }, void 0)] }, void 0), showCharacterCounter &&
+    const onEmojiClick = (emojiObject) => {
+        let textAreaRef = document.getElementById(iDInputComment);
+        // @ts-ignore
+        if (textAreaRef.innerHTML.length < limit || textAreaRef.selectionStart != textAreaRef.selectionEnd) {
+            let currentPositonCursorTextArea = getAndSavePositionsInTextArea(textAreaRef, emojiObject.native);
+            let newStringWithEmoji = handleStringToIncluedEmoji(currentPositonCursorTextArea, emojiObject.native, textAreaRef.innerHTML);
+            setNewEmojiIncluded(true);
+            setStringValueTextArea(newStringWithEmoji);
+        }
+    };
+    const verifyClick = () => {
+        if (!actionAreaEmojiButton)
+            setIsVisibleEmojiWindow(false);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsxs(InputWrapper, { focus: focus, children: [jsxRuntime.jsx(InputText, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }, void 0), hasEmoji &&
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(EmojiWindow, { visible: isVisibleEmojiWindow, positionEmojiWindow: heightPositionWindowEmoji, onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), children: jsxRuntime.jsx(EmojiPicker, { language: emojiWindowlanguage, onEmojiSelect: onEmojiClick, emojiPerLine: 8, sheetSize: 8 }, void 0) }, void 0), jsxRuntime.jsx(SmileIcon, { id: iDEmojiButton, onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), onClick: () => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), children: jsxRuntime.jsx(SmileOutlined, { fill: colorEmojiButton }, void 0) }, void 0)] }, void 0)] }, void 0), showCharacterCounter &&
                     jsxRuntime.jsxs(HelperText, { children: [limit - remain, "/", limit] }, void 0)] }, void 0) }, void 0));
+    function resizeTextArea() {
+        let tx = document.getElementById(iDInputComment);
+        tx.style.height = '20px';
+        tx.style.height = tx.scrollHeight + 'px';
+        setHeightPositionWindowEmoji(tx.scrollHeight - 440 + 'px');
+    }
+    function configsWhenOpenWindowEmoji() {
+        setColorEmojiButton(FRSTTheme['colors'].primary1);
+        // document.body.addEventListener("click", (e: any) => verifyClick(), true);
+        // document.getElementById(iDEmojiButton).removeEventListener("click", (e: any) => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), false);
+    }
+    function configsWhenCloseWindowEmoji() {
+        setColorEmojiButton(FRSTTheme['colors'].neutralsGrey2);
+        // document.body.removeEventListener("click", (e: any) => verifyClick(), true);
+        // document.getElementById(iDEmojiButton).addEventListener("click", (e: any) => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), false);
+    }
+    function getAndSavePositionsInTextArea(textAreaRef, emoji) {
+        let positionsCursorText = [textAreaRef.selectionStart, textAreaRef.selectionEnd];
+        setLenghtLastEmoji(emoji.length);
+        setLastPositionCursorTextTextArea(positionsCursorText);
+        return positionsCursorText;
+    }
+    function handleStringToIncluedEmoji(pos, emojiObject, stringValueTextArea) {
+        if (stringValueTextArea) {
+            if (pos[0] == pos[1]) {
+                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1]);
+            }
+            else if (pos[0] < pos[1]) {
+                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length);
+            }
+            else {
+                return stringValueTextArea + emojiObject;
+            }
+        }
+        else {
+            return emojiObject;
+        }
+    }
+    function repositionCursorAfterNewEmojiInTextArea() {
+        let tx = document.getElementById(iDInputComment);
+        if (lastPositionCursorTextTextArea[1] != lastPositionCursorTextTextArea[0]) { // Cursor in multiple chars selected
+            // @ts-ignore
+            tx.selectionEnd = lastPositionCursorTextTextArea[0] + lenghtLastEmoji;
+        }
+        else { // Cursor text in specific point
+            // @ts-ignore
+            tx.selectionEnd = lastPositionCursorTextTextArea[1] + lenghtLastEmoji;
+        }
+        setNewEmojiIncluded(false);
+    }
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -1273,12 +1443,6 @@ const TextTotalLikes = styled__default["default"].span `
 
     margin-left: 6px;
 `;
-const Rocket = styled__default["default"].div `
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: ${({ theme, isLiked }) => isLiked ? theme.colors.primary1 : theme.colors.neutralsGrey5};
-`;
 const FooterEditingWrapper = styled__default["default"].div `
     display: flex;
     align-self: flex-end;
@@ -1440,7 +1604,7 @@ function randID() {
         .substr(2, 9);
 }
 
-function CommentaryBox({ name, className, styles, position, value, date, like, answer, isMe, isAuthor, isPrivate, deleteComment, editComment, makePrivate, updateValue, detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }) {
+function CommentaryBox({ name, className, styles, position, value, date, actionLike, actionAnswer, isMe, isAuthor, actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue, detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }) {
     const [isOpenDrop, setIsOpenDrop] = react.useState(false);
     const [onEditing, setOnEditing] = react.useState(false);
     const [enableSaveEdit, setEnableSaveEdit] = react.useState(false);
@@ -1469,7 +1633,7 @@ function CommentaryBox({ name, className, styles, position, value, date, like, a
     }, [onEditing]);
     function editingComment() {
         setOnEditing(true);
-        editComment();
+        actionEditComment();
     }
     function cancelEditComment() {
         setOnEditing(false);
@@ -1481,7 +1645,7 @@ function CommentaryBox({ name, className, styles, position, value, date, like, a
             (finalText = document.getElementById(iDCommentInEditing).innerText);
         setOnEditing(false);
         setEnableSaveEdit(false);
-        updateValue(finalText);
+        actionUpdateValue(finalText);
     }
     const verifyClick = () => {
         if (!actionArea) {
@@ -1497,17 +1661,20 @@ function CommentaryBox({ name, className, styles, position, value, date, like, a
     return (jsxRuntime.jsx("div", { style: { width: 'auto', ...styles }, onClick: () => verifyClick(), children: jsxRuntime.jsxs(SpeechBubble, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name, { children: [" ", name, " "] }, void 0), isMe &&
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsxs(IsMe, { children: [" ", textYou, " "] }, void 0)] }, void 0), (isPrivateAuthor || isPrivateMe) &&
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }, void 0) }, void 0), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment }, void 0)] }, void 0)] }, void 0), jsxRuntime.jsxs(Position, { children: [" ", position, " "] }, void 0)] }, void 0), jsxRuntime.jsxs(OptionsWrapper, { children: [jsxRuntime.jsxs(Date, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }, void 0), hasDropdown && (isAuthor || isMe) &&
-                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore, { onClick: () => setIsOpenDrop(!isOpenDrop), id: "actionDrop", onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }, void 0) }, void 0), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
-                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: makePrivate, children: [" ", !isPrivateAuthor ? textMakePrivate : textMakePublic, "  "] }, void 0), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: deleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0), isMe && !isAuthor &&
+                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }, void 0) }, void 0), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }, void 0), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0), isMe && !isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(!isPrivateAuthor) &&
-                                                                    jsxRuntime.jsxs(ItemDrop, { onClick: makePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }, void 0), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: deleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0), isAuthor && !isMe &&
-                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: makePrivate, children: [" ", (!isPrivateAuthor || !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: deleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0), onEditing ?
+                                                                    jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }, void 0), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0), isAuthor && !isMe &&
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }, void 0), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0), onEditing ?
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }, void 0), jsxRuntime.jsxs(FooterEditingWrapper, { children: [jsxRuntime.jsx(Button, { handleClick: () => { saveEditComment(); }, label: "Salvar Altera\u00E7\u00F5es", disabled: !enableSaveEdit, variant: "primary" }, void 0), jsxRuntime.jsx(Button, { handleClick: () => { cancelEditComment(); }, label: "Cancelar", variant: "secondary" }, void 0)] }, void 0)] }, void 0)
                     :
-                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }, void 0), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsxs(LikesStatistics, { children: [jsxRuntime.jsx(Rocket, { isLiked: isLiked }, void 0), jsxRuntime.jsx(TextTotalLikes, { children: totalLikes }, void 0)] }, void 0), jsxRuntime.jsxs(IterationsButtonsWrapper, { children: [isLiked ?
-                                                    jsxRuntime.jsxs(LinkButton, { onClick: like, children: [" ", textUnliked, " "] }, void 0) :
-                                                    jsxRuntime.jsxs(LinkButton, { onClick: like, children: [" ", textLiked, " "] }, void 0), hasAnswer &&
-                                                    jsxRuntime.jsxs(LinkButton, { onClick: answer, children: ["  ", textAnswer, "  "] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0) }, void 0));
+                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }, void 0), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsxs(LikesStatistics, { children: [isLiked ?
+                                                    jsxRuntime.jsx(RocketIconCommentaryBox, { width: '16px', height: '16px' }, void 0)
+                                                    :
+                                                        jsxRuntime.jsx(RocketIconCommentaryBox, { width: '16px', height: '16px', fill: "#CCCCCC" }, void 0), jsxRuntime.jsx(TextTotalLikes, { children: totalLikes }, void 0)] }, void 0), jsxRuntime.jsxs(IterationsButtonsWrapper, { children: [isLiked ?
+                                                    jsxRuntime.jsxs(LinkButton, { onClick: actionLike, children: [" ", textUnliked, " "] }, void 0) :
+                                                    jsxRuntime.jsxs(LinkButton, { onClick: actionLike, children: [" ", textLiked, " "] }, void 0), hasAnswer &&
+                                                    jsxRuntime.jsxs(LinkButton, { onClick: actionAnswer, children: ["  ", textAnswer, "  "] }, void 0)] }, void 0)] }, void 0)] }, void 0)] }, void 0) }, void 0));
 }
 
 const ButtonCheckmark = styled__default["default"].div `
@@ -1532,19 +1699,19 @@ const Subtitle = styled__default["default"].span `
 `;
 
 function Checkmark({ type, subtitle, active, handleClick, className, disabled, styles }) {
-    const [colorsIcon, setColorsIcon] = react.useState({ fill: '#fff', stroke: '#2CA92A', variant: '#2CA92A' });
+    const [colorsIcon, setColorsIcon] = react.useState({ fill: '#fff', stroke: '#2CA92A', customColor_1: '#2CA92A' });
     react.useEffect(() => {
         (type == 'checked') ?
             (active ?
-                setColorsIcon({ fill: '#fff', stroke: '#2CA92A', variant: '#2CA92A' }) :
-                setColorsIcon({ fill: '#2CA92A', stroke: '#2CA92A', variant: '' }))
+                setColorsIcon({ fill: '#fff', stroke: '#2CA92A', customColor_1: '#2CA92A' }) :
+                setColorsIcon({ fill: '#2CA92A', stroke: '#2CA92A', customColor_1: '' }))
             :
                 (active ?
-                    setColorsIcon({ fill: '#FFF', stroke: '#FF0000', variant: '#FF0000' }) :
-                    setColorsIcon({ fill: '#FF0000', stroke: '#FF0000', variant: '' }));
+                    setColorsIcon({ fill: '#FFF', stroke: '#FF0000', customColor_1: '#FF0000' }) :
+                    setColorsIcon({ fill: '#FF0000', stroke: '#FF0000', customColor_1: '' }));
         {
             disabled &&
-                setColorsIcon({ fill: '#BDBDBD', stroke: '#BDBDBD', variant: '' });
+                setColorsIcon({ fill: '#BDBDBD', stroke: '#BDBDBD', customColor_1: '' });
         }
     }, [active, type, disabled]);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { ...styles }, className: className, children: type == 'checked' ?
