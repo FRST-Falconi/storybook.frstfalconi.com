@@ -220,14 +220,6 @@ export const TextTotalLikes = styled.span`
     margin-left: 6px;
 `
 
-export const Rocket = styled.div<{isLiked:boolean}>`
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background-color: ${({ theme, isLiked }) => isLiked ? theme.colors.primary1 : theme.colors.neutralsGrey5 };
-`
-
-
 export const FooterEditingWrapper = styled.div`
     display: flex;
     align-self: flex-end;

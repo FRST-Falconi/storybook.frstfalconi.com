@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import * as Styles from './commentaryBoxStyles'
 import { ICommentaryBox } from './commentaryBox'
-import { MoreDotsHorizontal, Dot, EyeOff } from '@shared/icons'
+import { MoreDotsHorizontal, Dot, EyeOff, RocketIconCommentaryBox } from '@shared/icons'
 
 import SpeechBubble from '@components/speech-bubble'
 import Button from '@components/buttons'
@@ -12,8 +12,8 @@ import Button from '@components/buttons'
 import { buildStringWithLinkHTML, randID } from './commentaryBox.utils'
 
 export default function CommentaryBox({
-    name, className, styles, position, value, date, like, answer, isMe, isAuthor,
-    isPrivate, deleteComment, editComment, makePrivate, updateValue,
+    name, className, styles, position, value, date, actionLike, actionAnswer, isMe, isAuthor,
+    actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue,
     detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes,
     textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
     textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }: ICommentaryBox) {
@@ -56,7 +56,7 @@ export default function CommentaryBox({
 
     function editingComment() {
         setOnEditing(true)
-        editComment()
+        actionEditComment()
     }
 
     function cancelEditComment() {
@@ -71,7 +71,7 @@ export default function CommentaryBox({
 
         setOnEditing(false)
         setEnableSaveEdit(false)
-        updateValue(finalText)
+        actionUpdateValue(finalText)
     }
 
     const verifyClick = () => {
@@ -88,8 +88,8 @@ export default function CommentaryBox({
     }
 
     return (
-        <div style={{width: 'auto', ...styles}} onClick={() => verifyClick()}>
-        <SpeechBubble className={className} highlight={onEditing} >
+        <div style={{width: 'auto', ...styles}} onClick={ () => verifyClick() }>
+        <SpeechBubble className={ className } highlight={ onEditing } >
 
             <Styles.HeaderWrapper>
                 <Styles.IdentificationWrapper>
@@ -100,7 +100,7 @@ export default function CommentaryBox({
                                 <Styles.DividerDot>
                                     <Dot fill={ '#757575' }/>
                                 </Styles.DividerDot>
-                                <Styles.IsMe> {textYou} </Styles.IsMe>  
+                                <Styles.IsMe> { textYou } </Styles.IsMe>  
                             </>
                         }
                         { ( isPrivateAuthor || isPrivateMe) &&
@@ -126,7 +126,6 @@ export default function CommentaryBox({
                     <Styles.Dropdown>
                         <Styles.ButtonMore 
                             onClick={ () => setIsOpenDrop(!isOpenDrop) } 
-                            id="actionDrop" 
                             onMouseOver={() => setActionArea(true)}
                             onMouseOut={() => setActionArea(false)}
                         >
@@ -135,23 +134,23 @@ export default function CommentaryBox({
                         <Styles.DropdownWrapper isVisible={isOpenDrop} isMe={isMe}>
                             {isMe && isAuthor && 
                                 <>
-                                    <Styles.ItemDrop onClick={ makePrivate }> {!isPrivateAuthor ? textMakePrivate : textMakePublic}  </Styles.ItemDrop>
-                                    <Styles.ItemDrop onClick={ () => editingComment() } > {textEditComment} </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> {textDeleteComment} </Styles.ItemDrop>
+                                    <Styles.ItemDrop onClick={ actionMakePrivate }> { (!isPrivateAuthor && !isPrivateMe)  ? textMakePrivate : textMakePublic }  </Styles.ItemDrop>
+                                    <Styles.ItemDrop onClick={ () => editingComment() } > { textEditComment } </Styles.ItemDrop>
+                                    <Styles.ItemDrop isLastItem={true} onClick={ actionDeleteComment }> { textDeleteComment } </Styles.ItemDrop>
                                 </> 
                             } 
                             {isMe && !isAuthor &&
                                 <>
                                     { (!isPrivateAuthor) &&
-                                        <Styles.ItemDrop onClick={ makePrivate }> {!isPrivateMe ? textMakePrivate : textMakePublic}  </Styles.ItemDrop> }
+                                        <Styles.ItemDrop onClick={ actionMakePrivate }> {!isPrivateMe ? textMakePrivate : textMakePublic}  </Styles.ItemDrop> }
                                     <Styles.ItemDrop onClick={ () => editingComment() } > {textEditComment} </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> {textDeleteComment} </Styles.ItemDrop>
+                                    <Styles.ItemDrop isLastItem={true} onClick={ actionDeleteComment }> {textDeleteComment} </Styles.ItemDrop>
                                 </> 
                             } 
                             {isAuthor && !isMe  &&
                                 <>
-                                    <Styles.ItemDrop onClick={ makePrivate } > {(!isPrivateAuthor || !isPrivateMe) ? textMakePrivate : textMakePublic} </Styles.ItemDrop>
-                                    <Styles.ItemDrop isLastItem={true} onClick={ deleteComment }> {textDeleteComment} </Styles.ItemDrop>
+                                    <Styles.ItemDrop onClick={ actionMakePrivate } > {(!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic} </Styles.ItemDrop>
+                                    <Styles.ItemDrop isLastItem={true} onClick={ actionDeleteComment }> {textDeleteComment} </Styles.ItemDrop>
                                 </>
                             }
                          </Styles.DropdownWrapper>
@@ -181,15 +180,19 @@ export default function CommentaryBox({
                     <Styles.CommentaryContent id={iDCommentPosted}>{ value }</Styles.CommentaryContent>
                     <Styles.IterationsWrapper>
                         <Styles.LikesStatistics>
-                            <Styles.Rocket isLiked={isLiked}/>
+                            {isLiked ? 
+                                <RocketIconCommentaryBox width='16px' height='16px'/> 
+                                : 
+                                <RocketIconCommentaryBox width='16px' height='16px' fill="#CCCCCC"/>
+                            }
                             <Styles.TextTotalLikes>{ totalLikes }</Styles.TextTotalLikes>
                         </Styles.LikesStatistics>
                         <Styles.IterationsButtonsWrapper>
                             { isLiked ? 
-                            <Styles.LinkButton onClick={ like }> {textUnliked} </Styles.LinkButton>:
-                            <Styles.LinkButton onClick={ like }> {textLiked} </Styles.LinkButton>}    
+                            <Styles.LinkButton onClick={ actionLike }> { textUnliked } </Styles.LinkButton>:
+                            <Styles.LinkButton onClick={ actionLike }> { textLiked } </Styles.LinkButton>}    
                             { hasAnswer &&
-                            <Styles.LinkButton onClick={ answer }>  {textAnswer}  </Styles.LinkButton> }
+                            <Styles.LinkButton onClick={ actionAnswer }>  { textAnswer }  </Styles.LinkButton> }
                         </Styles.IterationsButtonsWrapper>
                     </Styles.IterationsWrapper>
                 </> 

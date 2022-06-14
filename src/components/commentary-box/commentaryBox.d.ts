@@ -10,16 +10,15 @@ interface ICommentaryBox{
     detectLinks?: boolean
     isMe?: boolean
     isAuthor?: boolean
-    isPrivate?: boolean
-    like: () => void
+    actionLike: () => void
     isLiked?: boolean
     totalLikes?: number
     hasAnswer?: boolean
-    answer?: () => void
-    deleteComment?: () => void
-    editComment?: () => void
-    makePrivate?: () => void
-    updateValue?: (e:string) => void
+    actionAnswer?: () => void
+    actionDeleteComment?: () => void
+    actionEditComment?: () => void
+    actionMakePrivate?: () => void
+    actionUpdateValue?: (e:string) => void
     onChange: any
     idTextComment?: string
     wasEdited?: boolean

@@ -2,7 +2,10 @@
 interface IconsProps {
     fill?: string;
     stroke?: string;
-    variant?: string;
+    customColor_1?: string;
+    customColor_2?: string;
+    width?: string;
+    height?: string;
 }
 export declare function EditIcon(): JSX.Element;
 export declare function WarningIcon(): JSX.Element;
@@ -24,7 +27,8 @@ export declare function MoreDotsHorizontal({ fill }: IconsProps): JSX.Element;
 export declare function Dot({ fill }: IconsProps): JSX.Element;
 export declare function EyeOff({ fill }: IconsProps): JSX.Element;
 export declare function SmileOutlined({ fill }: IconsProps): JSX.Element;
-export declare function CheckInCicle({ fill, stroke, variant }: IconsProps): JSX.Element;
-export declare function CloseInCicle({ fill, stroke, variant }: IconsProps): JSX.Element;
+export declare function CheckInCicle({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function CloseInCicle({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function RocketIconCommentaryBox({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

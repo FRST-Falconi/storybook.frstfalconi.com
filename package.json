@@ -1,7 +1,7 @@
 {
   "name": "frst-components",
   "homepage": "http://FRST-Falconi.github.io/storybook.frstfalconi.com",
-  "version": "0.2.20",
+  "version": "0.2.21",
   "private": true,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -12,8 +12,11 @@
     "deploy-sb": "gh-pages -d storybook-static"
   },
   "dependencies": {
+    "@emoji-mart/data": "^1.0.2",
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.3",
+    "@types/emoji-mart": "^3.0.9",
+    "emoji-mart": "^5.1.0",
     "i18next": "^21.6.12",
     "i18next-browser-languagedetector": "^6.1.3",
     "path": "^0.12.7",
