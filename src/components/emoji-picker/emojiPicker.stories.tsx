@@ -13,5 +13,8 @@ const Template = (args) => <EmojiPicker {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    language: ''
+    language: '',
+    emojiSize: '24',
+    emojiPerLine: 8,
+    sheetSize: 16,
 }

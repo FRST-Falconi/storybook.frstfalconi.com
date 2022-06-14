@@ -86,7 +86,12 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                             onMouseOver={() => setActionAreaEmojiButton(true)}
                             onMouseOut={() => setActionAreaEmojiButton(false)}
                         >                            
-                            <EmojiPicker language={emojiWindowlanguage} onEmojiSelect={onEmojiClick} />
+                            <EmojiPicker 
+                                language={emojiWindowlanguage} 
+                                onEmojiSelect={onEmojiClick}
+                                emojiPerLine={8}
+                                sheetSize={8}
+                            />
                         </Styles.EmojiWindow>
                         <Styles.SmileIcon 
                             id={iDEmojiButton}
@@ -112,7 +117,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         let tx = document.getElementById(iDInputComment)
         tx.style.height = '20px';
         tx.style.height = tx.scrollHeight + 'px';
-        setHeightPositionWindowEmoji(tx.scrollHeight - 405 + 'px')
+        setHeightPositionWindowEmoji(tx.scrollHeight - 440 + 'px')
     }
 
     function configsWhenOpenWindowEmoji() {

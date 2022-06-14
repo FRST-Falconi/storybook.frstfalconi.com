@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import * as Styles from './commentaryBoxStyles'
 import { ICommentaryBox } from './commentaryBox'
-import { MoreDotsHorizontal, Dot, EyeOff } from '@shared/icons'
+import { MoreDotsHorizontal, Dot, EyeOff, RocketIconCommentaryBox } from '@shared/icons'
 
 import SpeechBubble from '@components/speech-bubble'
 import Button from '@components/buttons'
@@ -180,7 +180,11 @@ export default function CommentaryBox({
                     <Styles.CommentaryContent id={iDCommentPosted}>{ value }</Styles.CommentaryContent>
                     <Styles.IterationsWrapper>
                         <Styles.LikesStatistics>
-                            <Styles.Rocket isLiked={ isLiked }/>
+                            {isLiked ? 
+                                <RocketIconCommentaryBox width='16px' height='16px'/> 
+                                : 
+                                <RocketIconCommentaryBox width='16px' height='16px' fill="#CCCCCC"/>
+                            }
                             <Styles.TextTotalLikes>{ totalLikes }</Styles.TextTotalLikes>
                         </Styles.LikesStatistics>
                         <Styles.IterationsButtonsWrapper>

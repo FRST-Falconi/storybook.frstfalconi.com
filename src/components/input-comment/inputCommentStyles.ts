@@ -103,15 +103,15 @@ export const HelperText = styled.span`
 `
 
 export const EmojiWindow = styled.div<IEmojiWindow>`
-    width: 349px;
+    width: 310px;
     height: 432px;
     overflow: hidden;
     display:${({ visible }) => visible ? 'flex' : 'none'};
     justify-content: center;
     top: ${({ positionEmojiWindow }) => positionEmojiWindow};
-    right: 0px;
+    right: 25px;
     background-color:  ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
     position: absolute;
-    transform: scale(0.845);
 `;
+// transform: scale(0.845);
