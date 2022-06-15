@@ -1,0 +1,83 @@
+.container {
+  padding: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-left: 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: white;
+  font-family: 'Work Sans';
+  font-style: normal;
+}
+
+.titleProblem{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.created{
+  font-size: 12px;
+  padding-top: 20px;
+}
+
+.description{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  text-align: left;
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+  color: #FF4D0D;
+}
+
+.missaoTitle{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  
+  color: #0645AD;
+}
+
+h2{
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 16;
+  margin-bottom: 0;
+}
+
+h3{
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  margin: 0;
+}
+
+.contentInput {
+  background-color: #F2F2F2; 
+  border-width: 1px; 
+  border-radius: 4px;
+  padding: 24px 16px 24px 16px;
+  border: 1px solid #BDBDBD;
+}
+
+.contentInput input {
+  width: 100% !important;
+  margin: 4px;
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid #BDBDBD;
+  background-color: white;
+}

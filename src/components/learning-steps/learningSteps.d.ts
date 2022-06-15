@@ -3,8 +3,6 @@ import React from "react"
 
 export interface ILearningSteps {
     title?: string,
-    src?: any,
-    alt?: string,
-    className?: string,
+    objectCards?: any,
     onSelected?: (n: number) => void,
 }
