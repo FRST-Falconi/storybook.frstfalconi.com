@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../../src/components/modal/statusProblema/index.tsx"],"names":[],"mappings":";AAWA,UAAU,wBAAwB;IAC9B,IAAI,EAAE,OAAO,CAAC;IACd,KAAK,CAAC,EAAE,MAAM,CAAC;IACf,WAAW,CAAC,EAAE,MAAM,CAAC;IACrB,QAAQ,EAAE,GAAG,EAAE,CAAC;IAEhB,WAAW,EAAE,MAAM,IAAI,CAAC;CAE3B;AAiCD,MAAM,CAAC,OAAO,UAAU,mBAAmB,CAAC,KAAK,EAAE,wBAAwB,eAoC1E"}
