@@ -1,3 +1,4 @@
+import React,{ useState } from 'react'
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
@@ -9,7 +10,6 @@ import { TrashIcon } from '@shared/icons'
 
 import StepCard from '@components/step-card'
 import ScrollContainer from '@components/scroll-container'
-import { useState } from 'react'
 
 export default function LearningSteps({ title, onSelected, objectCards }: ILearningSteps) {
     const [ itemSelected, setItemSelected ] = useState(-1);

@@ -4,12 +4,11 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import * as Styles from './scrollContainerStyles'
 
-
 import { ArrowScrollLeft, ArrowScrollRight } from '@shared/icons'
 import { IScrollContainer } from './scrollContainer'
 import { randID } from './scrollContainer.utils'
 
-import { WrapperHorizontal, WrapperContent, ButtonControll, Card } from './scrollContainerStyles'
+import { WrapperHorizontal, WrapperContent, ButtonControll, CardTest } from './scrollContainerStyles'
 
 export default function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove,  className, styles }: IScrollContainer) {
     const [ actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)

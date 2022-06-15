@@ -7,10 +7,13 @@ interface AvatarI {
 }
 
 export const HeaderWrapper = styled.div`
-    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+
+    margin-bottom: 5px;
 `
 
 export const ClearComponent = styled.div`
@@ -19,7 +22,6 @@ export const ClearComponent = styled.div`
     align-items: center;
     color: #0645AD;
     cursor: pointer;
-    margin-right: 80px;
 `
 
 export const TitleComponent = styled.div`
@@ -29,9 +31,6 @@ export const TitleComponent = styled.div`
     font-size: 20px;
     line-height: 23px;
     letter-spacing: -0.02em;
-    margin-left: 80px;
-
-    margin-bottom: 5px;
 `
 
 export const TextClear =  styled.div`

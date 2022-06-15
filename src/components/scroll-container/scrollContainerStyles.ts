@@ -61,7 +61,7 @@ export const ButtonControll = styled.div<IButtonContoll>`
 // ${({ isLeftButton }) => isLeftButton ? 'margin-right: -28px' : 'margin-left: -28px'};
 
 
-export const Card = styled.div`
+export const CardTest = styled.div`
     min-width: 350px;
     min-height: 300px;
     margin: 10px;
