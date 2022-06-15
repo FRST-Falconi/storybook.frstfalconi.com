@@ -20,8 +20,10 @@
     "moduleResolution": "node",
     "allowJs": true,
     "noImplicitAny": false,
-    "strictNullChecks": false
+    "strictNullChecks": false,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }],
+    "typeRoots" : ["node_modules/@types", "src/types"]
   },
-  "include": ["./index.tsx", "./**/index.tsx", "./**/*.css", "./**/index.ts", "./**/**/*.png"],
+  "include": ["./index.tsx", "./**/index.tsx", "./**/*.css", "declarations.d.ts", "images.d.ts", "./**/index.ts", "./**/**/*.png"],
   "exclude": ["node_modules", "./src/**/*.stories.@(js|jsx|ts|tsx)"]
 }

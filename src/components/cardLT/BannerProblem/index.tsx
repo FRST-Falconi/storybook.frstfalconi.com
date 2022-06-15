@@ -90,9 +90,9 @@ export default function BannerProblem(props: BannerProblemParams) {
                   </>
                   :
                   <>
-                    <Tag title='Customer Success' color={"#222"} style={{marginRight: 8, marginTop: 8}}/>
-                    <Tag title='Experiência do usuário' color={"#222"} style={{marginRight: 8, marginTop: 8}}/>
-                    <Tag title='CSAT' color={"#222"} style={{marginRight: 8, marginTop: 8}}/>
+                    <Tag title='Customer Success' color={"#222"} style={{marginRight: 8, marginTop: 8}} selected={false} inverted={false}/>
+                    <Tag title='Experiência do usuário' color={"#222"} style={{marginRight: 8, marginTop: 8}}  selected={false} inverted={false}/>
+                    <Tag title='CSAT' color={"#222"} style={{marginRight: 8, marginTop: 8}} selected={false} inverted={false}/>
                   </>
                 }
 

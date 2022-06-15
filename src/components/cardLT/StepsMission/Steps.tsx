@@ -2,12 +2,12 @@
 import React, { useEffect, useState } from 'react'
 
 import style from './Planet.module.css'
-import jupter from './planets/jupter.png'
-import marte from './planets/marte.png'
-import saturno from './planets/saturno.png'
-import netuno from './planets/netuno.png'
-import urano from './planets/urano.png'
-import lock from './planets/lock.png'
+const jupter = require('./planets/jupter.png');
+const marte = require('./planets/marte.png');
+const netuno = require('./planets/netuno.png');
+const urano = require('./planets/urano.png');
+const lock = require('./planets/lock.png');
+const saturno = require('./planets/saturno.png');
 
 ///-----------------------------------------
 /// Interface do Componente
