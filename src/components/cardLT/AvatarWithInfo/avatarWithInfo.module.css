@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');
+
+.container {
+  height: 48px;
+  padding: 4px 16px 4px 4px;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  border: 1px solid #BDBDBD;
+  border-radius: 25px;
+  background-color: #FFF;
+  font-size: 16px;
+  
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-family: 'Work Sans';
+  
+}
+

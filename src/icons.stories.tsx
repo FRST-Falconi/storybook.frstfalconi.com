@@ -64,8 +64,18 @@ WhiteFilter.args = Icons.WhiteFilter()
 export const AlertCicle = Template.bind({})
 AlertCicle.args = Icons.AlertCicle({})
 
+export const WithoutTrail = Template.bind({})
+WithoutTrail.args = Icons.WithoutTrail({})
+
+export const Mail = Template.bind({})
+Mail.args = Icons.Mail({})
+
+export const Brain = Template.bind({})
+Brain.args = Icons.Brain({})
+
 export const SmileOutlined = Template.bind({})
 SmileOutlined.args = Icons.SmileOutlined({})
 
 export const CheckInCicle = Template.bind({})
 CheckInCicle.args = Icons.CheckInCicle({})
+
