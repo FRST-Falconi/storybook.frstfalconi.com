@@ -72,3 +72,10 @@ Mail.args = Icons.Mail({})
 
 export const Brain = Template.bind({})
 Brain.args = Icons.Brain({})
+
+export const SmileOutlined = Template.bind({})
+SmileOutlined.args = Icons.SmileOutlined({})
+
+export const CheckInCicle = Template.bind({})
+CheckInCicle.args = Icons.CheckInCicle({})
+
