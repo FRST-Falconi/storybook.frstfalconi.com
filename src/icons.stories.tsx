@@ -79,3 +79,8 @@ SmileOutlined.args = Icons.SmileOutlined({})
 export const CheckInCicle = Template.bind({})
 CheckInCicle.args = Icons.CheckInCicle({})
 
+export const ArrowScrollLeft = Template.bind({})
+ArrowScrollLeft.args = Icons.ArrowScrollLeft({})
+
+export const ArrowScrollRight = Template.bind({})
+ArrowScrollRight.args = Icons.ArrowScrollRight({})
