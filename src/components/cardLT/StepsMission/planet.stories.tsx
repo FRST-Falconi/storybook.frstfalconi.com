@@ -1,6 +1,7 @@
 
 
-import Steps from './index'
+import Steps from './Steps'
+import StepMission from './StepMission'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -10,7 +11,32 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <Steps {...args} />
+const Template2 = (args) => <StepMission {...args} />
 
+export const MissionStepsMars= Template2.bind({})
+MissionStepsMars.args = {
+    stepProblem: 1,
+    stepActive: 1,  
+    onSelected: (step: number)=> {
+        alert(`Step Selecionado ${step}`)
+    }
+}
+export const MissionStepsSaturno = Template2.bind({})
+MissionStepsSaturno.args = {
+    stepProblem: 3,
+    stepActive: 3,  
+    onSelected: (step: number)=> {
+        alert(`Step Selecionado ${step}`)
+    }
+}
+export const MissionStepsNetuno = Template2.bind({})
+MissionStepsNetuno.args = {
+    stepProblem: 5,
+    stepActive: 5,  
+    onSelected: (step: number)=> {
+        alert(`Step Selecionado ${step}`)
+    }
+}
 export const Step1 = Template.bind({})
 Step1.args = {
     step: 1,

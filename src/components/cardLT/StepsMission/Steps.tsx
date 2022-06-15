@@ -39,7 +39,7 @@ interface StepParams {
  * 
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
-export default function StepMission(props: StepParams) {
+export default function Steps(props: StepParams) {
 
   const TypeStep = [
     marte,

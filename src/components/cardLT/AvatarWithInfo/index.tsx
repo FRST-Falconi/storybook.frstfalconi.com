@@ -1,13 +1,13 @@
 
 import React, { useEffect, useState } from 'react'
-import style from './userCard.module.css'
+import style from './avatarWithInfo.module.css'
 import Avatar from '../../avatar'
 import Vector from './vector'
 
 
 ///-----------------------------------------
 /// Interface do Componente
-interface UserCardParams {
+interface AvatarWithInfoParams {
   /**
    * @prop {string} fotoAvatar: Foto do perfil do usuario
    */
@@ -36,7 +36,7 @@ interface UserCardParams {
  * 
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
-export default function UserCard(props: UserCardParams) {
+export default function AvatarWithInfo(props: AvatarWithInfoParams) {
 
 
   return (
@@ -44,8 +44,8 @@ export default function UserCard(props: UserCardParams) {
     <>    
       <div className={style.container} style={{...props.style }}>
 
-        <Avatar size='40px'/>
-        <span style={{fontWeight:600}}>{props.nomeCompleto}</span> <Vector /> <span style={{fontWeight:400}}>{props.cargo}</span>
+        <Avatar size='40px' src={props.fotoAvatar}/>
+        <span style={{fontWeight:600, marginRight: 8, marginLeft: 12}}>{props.nomeCompleto}</span> <Vector /> <span style={{fontWeight:400, marginRight: 8, marginLeft: 8}}>{props.cargo}</span>
                
       </div>
     </>

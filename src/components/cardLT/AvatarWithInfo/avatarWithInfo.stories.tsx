@@ -1,15 +1,15 @@
 import React from 'react'
 
-import UserCard from './index'
+import AvatarWithInfo from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Card LT/Usercard',
-    component: UserCard,
+    title: 'Card LT/Avatar With Info',
+    component: AvatarWithInfo,
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <UserCard {...args} />
+const Template = (args) => <AvatarWithInfo {...args} />
 
 export const Teste1 = Template.bind({})
 Teste1.args = {
