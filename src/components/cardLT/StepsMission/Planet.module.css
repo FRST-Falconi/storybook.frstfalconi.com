@@ -87,3 +87,13 @@
 .imgBlockedL:hover {
   cursor: not-allowed;
 }
+
+.missaoTitle{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  
+  color: #0645AD;
+}
