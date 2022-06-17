@@ -47,7 +47,7 @@ export default function Rating(props: RatingParams) {
   const MapColorNumberStar = [
       '#FFFFFF',
       '#FFFFFF',
-      '#FFC200',
+      '#FF4D0D',
   ]
 
   return (
@@ -70,7 +70,7 @@ export default function Rating(props: RatingParams) {
           <div className={style.avaliacao}>
             <div style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap',width: 100 }}>
               <span style={{fontSize: 14, fontWeight: 600}}>{props.descricaoAvaliacao}</span>
-              <span style={{fontSize: 12, fontWeight: 400}}>{`${props.qtdeAvaliacao} avaliações`}</span>
+              <span style={{fontSize: 12, fontWeight: 400}}>{`${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? 'avaliações' : 'avaliação'}`}</span>
             </div>
             
           </div>
