@@ -1,7 +1,14 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import style from './Planet.module.css'
+
+import jupter from './planets/jupter.png'
+import marte from './planets/marte.png'
+import netuno from './planets/netuno.png'
+import urano from './planets/urano.png'
+import lock from './planets/lock.png'
+import saturno from './planets/saturno.png'
 
 ///-----------------------------------------
 /// Interface do Componente
@@ -36,11 +43,11 @@ interface StepParams {
 export default function Steps(props: StepParams) {
 
   const TypeStep = [
-    '/planets/marte.png',
-    './planets/jupter.png',
-    './planets/saturno.png',
-    './planets/urano.png',
-    './planets/netuno.png',
+    marte,
+    jupter,
+    saturno,
+    urano,
+    netuno,
   ]
 
   const TypeStepName = [
@@ -70,7 +77,7 @@ export default function Steps(props: StepParams) {
         {
           props.status === 'B' &&        
           <div className={style.block}>
-            <img src={'./planets/lock.png'}/>
+            <img src={lock}/>
           </div>
         }        
       </div>
@@ -78,5 +85,9 @@ export default function Steps(props: StepParams) {
   )
 
 
+}
+
+function dynamic(arg0: () => Promise<any>, arg1: { ssr: boolean; }) {
+  throw new Error('Function not implemented.');
 }
 
