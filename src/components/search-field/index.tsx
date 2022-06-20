@@ -6,7 +6,7 @@ import { Container, ContainerIcon, LabelField, InputSearchWrapper, InputText, Bu
 import { ISearchField } from './searchField'
 import { SearchIcon } from '@shared/icons'
 
-export default function searchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }: ISearchField) {
+export default function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }: ISearchField) {
     const [ actionAreaInput, setActionAreaInput ] = useState(false);
     const [ inputOnFocus, setInputOnFocus ] = useState(false);
 

@@ -26,3 +26,6 @@ export { default as ScrollContainer } from './src/components/scroll-container'
 export { default as LearningSteps } from './src/components/learning-steps'
 export { default as TotalizerCard } from './src/components/totalizer-card'
 
+
+export { default as SearchField } from './src/components/search-field'
+

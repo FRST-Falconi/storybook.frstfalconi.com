@@ -12,7 +12,7 @@ export default function Checkbox({label, isChecked, handleCheck}) {
     return (
         <ThemeProvider theme={FRSTTheme}>
             <CheckBoxWrapper
-                onClick={() => handleCheck(!isChecked) }
+                onClick={handleCheck}
                 onMouseOver={() => setActionAreaCheckIcon(true)}
                 onMouseOut={() => setActionAreaCheckIcon(false)}
                 >   

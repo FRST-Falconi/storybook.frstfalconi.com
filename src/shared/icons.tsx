@@ -77,6 +77,15 @@ export function DropdownIconWhite() {
   )
 }
 
+export function DropdownIcon({ fill }: IconsProps) {
+  return (
+    <svg width="16" height="16">
+      <path d="M2 8l6 6 6-6z" fill={fill ?? "white"} />
+    </svg>
+  )
+}
+
+
 export function DropdownSideIconWhite() {
   return (
     <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -282,7 +291,7 @@ export function Bullseye({ fill, stroke, customColor_1, width, height }: IconsPr
 
 export function TrashIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return(
-    <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width ?? "14"} height={height ?? "20"} viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M3.66602 5.00002V3.33335C3.66602 2.89133 3.84161 2.4674 4.15417 2.15484C4.46673 1.84228 4.89066 1.66669 5.33268 1.66669H8.66602C9.10804 1.66669 9.53197 1.84228 9.84453 2.15484C10.1571 2.4674 10.3327 2.89133 10.3327 3.33335V5.00002M12.8327 5.00002V16.6667C12.8327 17.1087 12.6571 17.5326 12.3445 17.8452C12.032 18.1578 11.608 18.3334 11.166 18.3334H2.83268C2.39065 18.3334 1.96673 18.1578 1.65417 17.8452C1.34161 17.5326 1.16602 17.1087 1.16602 16.6667V5.00002H12.8327Z" stroke="#0645AD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
