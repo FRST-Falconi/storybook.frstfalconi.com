@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-interface AvatarI {
-    size?: string,
-    src?: any,
-    disabled?: boolean,
-}
-
 
 export const WrapperHeaderTabs = styled.div`
     display: flex;
@@ -91,7 +85,6 @@ export const TextTitleTab  = styled.div`
 export const WrapperContent  = styled.div<({status: boolean})>`
 
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.linkDisabled};
     padding-top: 30px;
     padding-bottom: 25px;
     
@@ -100,6 +93,7 @@ export const WrapperContent  = styled.div<({status: boolean})>`
     ${({status}) => status ? 'height: auto; padding-top: 30px; padding-bottom: 25px;': 'max-height: 0px; padding-top: 0px; padding-bottom: 0px;'};
     overflow: hidden;
 `
+// border: 1px solid ${({ theme }) => theme.colors.linkDisabled};
 
 export const DropIcon = styled.div<({status: boolean})>`
     margin-left: 2px;
@@ -108,23 +102,6 @@ export const DropIcon = styled.div<({status: boolean})>`
     transition: all 0.2s ease-in-out;
 `
 
-
-
-export const AvatarImg = styled.img<AvatarI>`
-    width: ${props => props.size || '120px'};
-    height: ${props => props.size || '120px'};
-    border-radius: 50%;
-    object-fit: cover;
-
-    ${({ disabled }) => disabled === true && `
-        filter: grayscale(100%);
-    `}
-`
-
-export const AvatarWrapper = styled.div<AvatarI>`
-    width: ${props => props.size || '120px'};
-    height: ${props => props.size || '120px'};
-`
 
 export const TitleCurrentTabOpened = styled.p`
     font-family: Work Sans;

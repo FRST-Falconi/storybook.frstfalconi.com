@@ -37,7 +37,8 @@ export default function AccordionTabs({
         let TabComponent = 
             <TitleTabWrapper typeButton={typeButtonTab} status={isOpened}  onClick={() => handleActiveTab(item.id)} key={item.id}>
                 <TextTitleTab> { item.title } </TextTitleTab>
-                { hasCounterTab && <TextTotalTab> ({item.totalCounter}) </TextTotalTab>}
+                { hasCounterTab && item.totalCounter > 0 &&
+                 <TextTotalTab> ({item.totalCounter}) </TextTotalTab> }
                 <DropIcon status={isOpened}>
                     <DropdownIcon fill={FRSTTheme['colors'].linkOnfocus}/> 
                 </DropIcon>
