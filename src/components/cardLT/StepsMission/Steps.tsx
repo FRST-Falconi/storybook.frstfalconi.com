@@ -1,13 +1,7 @@
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import style from './Planet.module.css'
-const jupter = require('./planets/jupter.png');
-const marte = require('./planets/marte.png');
-const netuno = require('./planets/netuno.png');
-const urano = require('./planets/urano.png');
-const lock = require('./planets/lock.png');
-const saturno = require('./planets/saturno.png');
 
 ///-----------------------------------------
 /// Interface do Componente
@@ -42,11 +36,11 @@ interface StepParams {
 export default function Steps(props: StepParams) {
 
   const TypeStep = [
-    marte,
-    jupter,
-    saturno,
-    urano,
-    netuno,
+    'https://api-motor.s3.amazonaws.com/marte.png',
+    'https://api-motor.s3.amazonaws.com/jupter.png',
+    'https://api-motor.s3.amazonaws.com/saturno.png',
+    'https://api-motor.s3.amazonaws.com/urano.png',
+    'https://api-motor.s3.amazonaws.com/netuno.png',
   ]
 
   const TypeStepName = [
@@ -76,7 +70,7 @@ export default function Steps(props: StepParams) {
         {
           props.status === 'B' &&        
           <div className={style.block}>
-            <img src={lock}/>
+            <img src={'https://api-motor.s3.amazonaws.com/lock.png'}/>
           </div>
         }        
       </div>
@@ -84,5 +78,9 @@ export default function Steps(props: StepParams) {
   )
 
 
+}
+
+function dynamic(arg0: () => Promise<any>, arg1: { ssr: boolean; }) {
+  throw new Error('Function not implemented.');
 }
 

@@ -6,7 +6,7 @@ import * as Styles from './inputCommentStyles'
 import { IInputComment } from './inputComment'
 
 import { SmileOutlined } from '@shared/icons'
-import EmojiPicker from '@components/emoji-picker'
+// import EmojiPicker from '@components/emoji-picker'
 
 import { randID } from './inputComment.utils'
 
@@ -78,7 +78,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                     maxLength={limit}
                     disabled={disabled}
                 />
-                { hasEmoji && 
+                {/* { hasEmoji && 
                     <>
                         <Styles.EmojiWindow 
                             visible={isVisibleEmojiWindow} 
@@ -102,7 +102,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                             <SmileOutlined fill={colorEmojiButton}/>
                         </Styles.SmileIcon>
                     </>
-                }
+                } */}
             </Styles.InputWrapper>
             { showCharacterCounter &&
                 <Styles.HelperText>
