@@ -3,13 +3,6 @@ import React, { useEffect, useState } from 'react'
 
 import style from './Planet.module.css'
 
-import jupter from './planets/jupter.png'
-import marte from './planets/marte.png'
-import netuno from './planets/netuno.png'
-import urano from './planets/urano.png'
-import lock from './planets/lock.png'
-import saturno from './planets/saturno.png'
-
 ///-----------------------------------------
 /// Interface do Componente
 interface StepParams {
@@ -43,11 +36,11 @@ interface StepParams {
 export default function Steps(props: StepParams) {
 
   const TypeStep = [
-    marte,
-    jupter,
-    saturno,
-    urano,
-    netuno,
+    'https://api-motor.s3.amazonaws.com/marte.png',
+    'https://api-motor.s3.amazonaws.com/jupter.png',
+    'https://api-motor.s3.amazonaws.com/saturno.png',
+    'https://api-motor.s3.amazonaws.com/urano.png',
+    'https://api-motor.s3.amazonaws.com/netuno.png',
   ]
 
   const TypeStepName = [
@@ -77,7 +70,7 @@ export default function Steps(props: StepParams) {
         {
           props.status === 'B' &&        
           <div className={style.block}>
-            <img src={lock}/>
+            <img src={'https://api-motor.s3.amazonaws.com/lock.png'}/>
           </div>
         }        
       </div>
