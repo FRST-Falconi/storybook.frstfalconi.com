@@ -5,7 +5,7 @@ import Button from '../../buttons/index'
 import Avatar from '../../avatar/index'
 import problemaFRST from './problemaFRST.png'
 import FecharIcon from './fecharIcon'
-import {AlertCicle} from '../../../shared/icons'
+import { CorrectInCicleIcon, WarningInCicleIcon, ErrorInCicleIcon} from '../../../shared/icons'
 
 type enumStatus = 'aprovar' | 'revisar' | 'aguardar'
 
@@ -37,10 +37,10 @@ function ApprovesItem(props: ApprovesItemProps){
                 </div>
                 {
                     props.statusApprove === 'aprovar' ?
-                    <div style={{width: 50, height: 50, borderRadius: 25, backgroundColor: 'green' }}></div>
+                    <CorrectInCicleIcon/>
                     : props.statusApprove === 'revisar' ?
-                    <div style={{width: 50, height: 50, borderRadius: 25, backgroundColor: 'red' }}></div>
-                    : <div style={{width: 50, height: 50, borderRadius: 25, backgroundColor: 'yellow' }}></div>
+                    <WarningInCicleIcon/>
+                    : <ErrorInCicleIcon/>
                 } 
                 
                 <img src={problemaFRST} />
