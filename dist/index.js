@@ -690,12 +690,6 @@ var css_248z$2 = "@import url('https://fonts.googleapis.com/css2?family=Inter:wg
 var style$2 = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
 styleInject(css_248z$2);
 
-const jupter = require('./planets/jupter.png');
-const marte = require('./planets/marte.png');
-const netuno = require('./planets/netuno.png');
-const urano = require('./planets/urano.png');
-const lock = require('./planets/lock.png');
-const saturno = require('./planets/saturno.png');
 ///-----------------------------------------
 /// Componente
 /**
@@ -704,11 +698,11 @@ const saturno = require('./planets/saturno.png');
  */
 function Steps(props) {
     const TypeStep = [
-        marte,
-        jupter,
-        saturno,
-        urano,
-        netuno,
+        '/planets/marte.png',
+        './planets/jupter.png',
+        './planets/saturno.png',
+        './planets/urano.png',
+        './planets/netuno.png',
     ];
     const TypeStepName = [
         'Marte',
@@ -726,7 +720,7 @@ function Steps(props) {
                         : props.status === "I" ?
                             style$2.imgInative
                             : style$2.imgBlocked }, void 0), jsxRuntime.jsx("div", { className: style$2.label, children: TypeStepName[props.step - 1] }, void 0), props.status === 'B' &&
-                    jsxRuntime.jsx("div", { className: style$2.block, children: jsxRuntime.jsx("img", { src: lock }, void 0) }, void 0)] }, void 0) }, void 0));
+                    jsxRuntime.jsx("div", { className: style$2.block, children: jsxRuntime.jsx("img", { src: './planets/lock.png' }, void 0) }, void 0)] }, void 0) }, void 0));
 }
 
 ///-----------------------------------------

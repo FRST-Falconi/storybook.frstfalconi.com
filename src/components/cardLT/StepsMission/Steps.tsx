@@ -1,13 +1,7 @@
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import style from './Planet.module.css'
-const jupter = require('./planets/jupter.png');
-const marte = require('./planets/marte.png');
-const netuno = require('./planets/netuno.png');
-const urano = require('./planets/urano.png');
-const lock = require('./planets/lock.png');
-const saturno = require('./planets/saturno.png');
 
 ///-----------------------------------------
 /// Interface do Componente
@@ -42,11 +36,11 @@ interface StepParams {
 export default function Steps(props: StepParams) {
 
   const TypeStep = [
-    marte,
-    jupter,
-    saturno,
-    urano,
-    netuno,
+    '/planets/marte.png',
+    './planets/jupter.png',
+    './planets/saturno.png',
+    './planets/urano.png',
+    './planets/netuno.png',
   ]
 
   const TypeStepName = [
@@ -76,7 +70,7 @@ export default function Steps(props: StepParams) {
         {
           props.status === 'B' &&        
           <div className={style.block}>
-            <img src={lock}/>
+            <img src={'./planets/lock.png'}/>
           </div>
         }        
       </div>
