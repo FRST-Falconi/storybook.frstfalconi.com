@@ -112,7 +112,6 @@ export default function FilterAccordionCheckbox({ generalTitle, object, onSelect
     function buildReturnSelecteds(copyObjectTab) {
       let resultSelected = []
 
-      console.log(copyObjectTab);
       let counter = 0;
       copyObjectTab.forEach(tab => {
           resultSelected[counter] = {

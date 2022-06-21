@@ -19,13 +19,11 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
         objDiv.scrollLeft = objDiv.scrollLeft - stepMove;    
-        console.log( objDiv.clientWidth)    
     }
 
     const scrollToRight = () => {
         var objDiv = document.getElementById(iDScroll);
         objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
-        console.log( objDiv.clientWidth)    
     }
 
     return (
