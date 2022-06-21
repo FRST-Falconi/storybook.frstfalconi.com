@@ -1,5 +1,5 @@
 .container {
-  min-width: 400px;
+  min-width: 300px;
   padding: 8px;
   min-height: 30px;
   margin-top: 8px;
@@ -14,7 +14,7 @@
 }
 
 .success{
-
+  
   border-Width: 2;
   border-color: #2CA92A;
   background-color: #D1F6D1;

@@ -73,6 +73,12 @@ Mail.args = Icons.Mail({})
 export const Brain = Template.bind({})
 Brain.args = Icons.Brain({})
 
+export const WithTrail = Template.bind({})
+WithTrail.args = Icons.WithTrail({})
+
+export const RocketIcon = Template.bind({})
+RocketIcon.args = Icons.RocketIcon({})
+
 export const SmileOutlined = Template.bind({})
 SmileOutlined.args = Icons.SmileOutlined({})
 
@@ -84,3 +90,6 @@ ArrowScrollLeft.args = Icons.ArrowScrollLeft({})
 
 export const ArrowScrollRight = Template.bind({})
 ArrowScrollRight.args = Icons.ArrowScrollRight({})
+
+export const CloseIcon = Template.bind({})
+CloseIcon.args = Icons.CloseIcon({})

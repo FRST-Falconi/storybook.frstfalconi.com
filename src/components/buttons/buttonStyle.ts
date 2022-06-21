@@ -90,6 +90,30 @@ const variantStyles = (variant = 'contained') =>
             cursor: not-allowed;
             pointer-events: none;
         }
+    `,
+    third: css`
+        background-color: ${({ theme }) => theme.colors.primary4};
+        color: ${({ theme }) => theme.colors.shadeWhite};
+
+        &:hover {
+            background-color: ${({ theme }) => theme.colors.primary4};
+        }
+
+        &:active {
+            background-color: ${({ theme }) => theme.colors.primary4};
+        }
+
+        &:focus {
+            border: 2px solid ${({ theme }) => theme.colors.primary4}4D;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            cursor: not-allowed;
+            pointer-events: none;
+        }
     `
   }[variant]);
 

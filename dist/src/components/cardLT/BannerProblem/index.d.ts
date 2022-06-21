@@ -4,6 +4,7 @@ interface BannerProblemParams {
      * @prop {React.CSSProperties} style: Styles de CSS adicional
      */
     style?: React.CSSProperties;
+<<<<<<< HEAD
     problema: string;
     cargo: string;
     nome: string;
@@ -25,6 +26,8 @@ interface BannerProblemParams {
     onSelectedStep: (step: number) => void;
     isEditable?: boolean;
     children: React.ReactNode;
+=======
+>>>>>>> origin/modalLT
 }
 /**
  *
