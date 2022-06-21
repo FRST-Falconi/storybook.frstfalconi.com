@@ -1,0 +1,92 @@
+.container {
+    width: 100%;
+    border-radius: 8px;
+    padding: 30px;
+
+    
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    position: relative;
+}
+
+.tagStatusProblem {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px;
+
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+
+}
+
+.checkBox {
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+    padding-top: 20px;
+    padding-left: 12px;
+    
+
+    position: absolute;
+    left: 0;
+
+}
+
+.contentCard {
+    
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.avatarInfoUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.infoUser {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-left: 4px;
+}
+
+.tituloCard {
+    
+    margin-top: 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.tagsContainer {
+    
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.avaliacao {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   
+}

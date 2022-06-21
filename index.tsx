@@ -14,14 +14,17 @@ export { default as BannerProblem } from "./src/components/cardLT/BannerProblem"
 export { default as Button } from "./src/components/buttons"
 export { default as TextField } from './src/components/form-elements/textfield'
 export { default as TextArea } from './src/components/form-elements/textarea'
-
 export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle } from './src/shared/icons'
+<<<<<<< HEAD
 
 // Learning Tech Components
+=======
+>>>>>>> origin/modalLT
 export { default as Avatar } from './src/components/avatar'
 export { default as InputComment } from './src/components/input-comment'
 export { default as CommentaryBox } from './src/components/commentary-box'
 export { default as Checkmark } from './src/components/checkmark'
+<<<<<<< HEAD
 export { default as ScrollContainer } from './src/components/scroll-container'
 export { default as LearningSteps } from './src/components/learning-steps'
 export { default as TotalizerCard } from './src/components/totalizer-card'
@@ -29,3 +32,5 @@ export { default as TotalizerCard } from './src/components/totalizer-card'
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
 
+=======
+>>>>>>> origin/modalLT

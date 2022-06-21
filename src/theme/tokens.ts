@@ -28,6 +28,7 @@ export const DesignTokens = {
         "primary1": "#ff4d0d",
         "primary2": "#ee4c15",
         "primary3": "#d14211",
+        "primary4": "#EA0000",
         "secondary1": "#6a3f86",
         "secondary2": "#ffd600",
         "secondary5": "#a50000",

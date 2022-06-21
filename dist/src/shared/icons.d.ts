@@ -24,6 +24,12 @@ export declare function BlueTrash(): JSX.Element;
 export declare function AlertCicle({ fill }: IconsProps): JSX.Element;
 export declare function DoubleCheck({ fill }: IconsProps): JSX.Element;
 export declare function WithoutTrail({ fill }: IconsProps): JSX.Element;
+<<<<<<< HEAD
+=======
+export declare function Mail({ fill }: IconsProps): JSX.Element;
+export declare function Brain({ fill }: IconsProps): JSX.Element;
+export declare function SaveIcon({ fill }: IconsProps): JSX.Element;
+>>>>>>> origin/modalLT
 export declare function MoreDotsHorizontal({ fill }: IconsProps): JSX.Element;
 export declare function Mail({ fill }: IconsProps): JSX.Element;
 export declare function Dot({ fill }: IconsProps): JSX.Element;

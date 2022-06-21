@@ -28,13 +28,15 @@ export default function RocketButton(props: RocketButtonParams) {
   const MapColorPrimaria = [
     '#FF4D0D',
     '#FFFFFF',
-    '#FFFFFF'
+    '#FFFFFF',
+    '#222222'
   ]
 
   const MapColorSecundaria = [
     '#FFFFFF',
     '#FF4D0D',
-    '#CCCCCC'
+    '#CCCCCC',
+    '#FFFFFF'
   ]
 
   return (
