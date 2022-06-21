@@ -45,7 +45,7 @@ export default function Steps(props: StepParams) {
 
   const TypeStepName = [
     'Marte',
-    'Júpter',
+    'Júpiter',
     'Saturno',
     'Urano',
     'Netuno',
@@ -77,10 +77,5 @@ export default function Steps(props: StepParams) {
     </>
   )
 
-
-}
-
-function dynamic(arg0: () => Promise<any>, arg1: { ssr: boolean; }) {
-  throw new Error('Function not implemented.');
 }
 

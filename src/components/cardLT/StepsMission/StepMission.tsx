@@ -56,7 +56,7 @@ export default function MissionSteps(props: MissionStepsParams) {
                 
         {
           stepActive < stepLiberado &&
-            <span onClick={() => {setStep(stepActive+1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, right: 20, cursor: 'pointer'}}>{`${"Próxima Missão >"}`}</span>   
+            <span onClick={() => {setStep(stepActive+1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, right: 20, cursor: 'pointer'}}>{`${"Próxima missão >"}`}</span>   
         }
     
         <div style={{display:"inline-flex", marginTop: 40, justifyContent: 'center'}}>
