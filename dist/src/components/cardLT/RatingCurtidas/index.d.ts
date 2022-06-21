@@ -1,7 +1,7 @@
 /// <reference types="react" />
 interface RatingCurtidasParams {
     /**
-     * @prop {number} tipoBotao: Tipos de botão (1- Fundo Branco, rocket laranja. 2- Fundo Laranja, rocket branco. 3- Fundo cinza, rocket branco)
+     * @prop {number} tipoBotao: Tipos de botão (1- Fundo Branco, rocket laranja. 2- Fundo Laranja, rocket branco. 3- Fundo cinza, rocket branco, 4- Fundo Branco, rocket preto)
     */
     tipoBotao: number;
     titulo: string;
