@@ -4,6 +4,27 @@ interface BannerProblemParams {
      * @prop {React.CSSProperties} style: Styles de CSS adicional
      */
     style?: React.CSSProperties;
+    problema: string;
+    cargo: string;
+    nome: string;
+    avatar: string;
+    area: string;
+    email: string;
+    trilha: string;
+    tags?: string[];
+    typeMessagem: number;
+    message: string;
+    dataCriacao: string;
+    qtdeAvaliacao: number;
+    notaAvaliacao: number;
+    qtdeRelevancia: number;
+    notaRelevancia: number;
+    curtidas: number;
+    stepProblem: number;
+    stepActive: number;
+    onSelectedStep: (step: number) => void;
+    isEditable?: boolean;
+    children: React.ReactNode;
 }
 /**
  *

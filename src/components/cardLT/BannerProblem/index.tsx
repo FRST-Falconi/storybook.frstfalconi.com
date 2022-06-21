@@ -1,5 +1,5 @@
 import { relative } from 'path';
-import { useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 
 import TextIcon from '../TextIcon/index'
 import MessageBox from '../MessageBox/index'
@@ -21,7 +21,28 @@ interface BannerProblemParams {
   /**
    * @prop {React.CSSProperties} style: Styles de CSS adicional
    */  
-   style?: React.CSSProperties;
+  style?: React.CSSProperties
+  problema: string
+  cargo: string
+  nome: string
+  avatar: string
+  area: string
+  email: string
+  trilha: string
+  tags?: string[]
+  typeMessagem: number
+  message: string
+  dataCriacao: string
+  qtdeAvaliacao: number
+  notaAvaliacao: number
+  qtdeRelevancia: number
+  notaRelevancia: number
+  curtidas: number
+  stepProblem: number
+  stepActive: number
+  onSelectedStep: (step: number) => void
+  isEditable?: boolean
+  children: React.ReactNode;
 }
 
 ///-----------------------------------------
@@ -43,21 +64,24 @@ export default function BannerProblem(props: BannerProblemParams) {
     <>    
       <div className={style.container} style={{...props.style }}>
         <span className={style.titleProblem}>Problema</span>
-        <Button 
-          label={Edit ? "Salvar Alterações" : "Editar"}
-          variant='link' 
-          handleClick={() => {
-            setEdit(!Edit)
-          }}
-          startIcon={<EditIcon />}
-        />
-        <h1 className={style.description}>Aumentar o engajamento dos alunos na plataforma</h1>
+        {
+          props.isEditable &&
+          <Button 
+            label={Edit ? "Salvar Alterações" : "Editar"}
+            variant='link' 
+            handleClick={() => {
+              setEdit(!Edit)
+            }}
+            startIcon={<EditIcon />}
+          />
+        }
+        <h1 className={style.description}>{props.problema}</h1>
         <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32}}>
           <div style={{display: 'inline-flex', width: '80%'}}>
             <div>
-              <AvatarWithInfo cargo='Estudante/Universitário' nomeCompleto='Avatar' fotoAvatar='https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/neytiri_in_avatar_2-wide-do-we-really-need-avatar-2.jpeg' />
-              <TextIcon description='Tecnologia da Informação' svg={<Brain />}/>
-              <TextIcon description='robertolima@empresa.com.br' svg={<Mail />}/>
+              <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} />
+              <TextIcon description={props.area} svg={<Brain />}/>
+              <TextIcon description={props.email} svg={<Mail />}/>
               {
                 Edit ? 
                 <>
@@ -73,7 +97,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                 </>
                 :
                 <>
-                  <TextIcon description='Ainda não está vinculado a uma trilha' svg={<WithoutTrail />}/>
+                  <TextIcon description={props.trilha} svg={<WithoutTrail />}/>
                 </>
               }
               
@@ -90,77 +114,53 @@ export default function BannerProblem(props: BannerProblemParams) {
                   </>
                   :
                   <>
-                    <Tag title='Customer Success' color={"#222"} style={{marginRight: 8, marginTop: 8}} selected={false} inverted={false}/>
-                    <Tag title='Experiência do usuário' color={"#222"} style={{marginRight: 8, marginTop: 8}}  selected={false} inverted={false}/>
-                    <Tag title='CSAT' color={"#222"} style={{marginRight: 8, marginTop: 8}} selected={false} inverted={false}/>
+                      {
+                        props.tags?.map((item, key) => (
+                           <Tag title={item} color={"#222"} style={{marginRight: 8, marginTop: 8}} selected={false} inverted={false} key={key}/>  
+                        ))
+                      }
                   </>
                 }
 
               </div>
 
-              <MessageBox texto='Problema aprovado - 30 de Abr. 2022' tipoVisualizacao={1} style={{marginBottom: 16}}/>
+              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} style={{marginBottom: 16}}/>
 
-              <span className={style.created}>Criado em 20 de abr. 2022 - Atualizado em 04 de mai. 2022</span>
+              <span className={style.created}>{props.dataCriacao}</span>
             </div>
             <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
               <Rating 
                 titulo='Impacto'
                 descricaoAvaliacao='Ótimo'
-                qtdeAvaliacao={19}
-                nota={4.6}
+                qtdeAvaliacao={props.qtdeAvaliacao}
+                nota={props.notaAvaliacao}
                 tipoVisualizacao={1}
               />
               <Rating 
                 titulo='Relevância'
                 descricaoAvaliacao='Bom'
-                qtdeAvaliacao={21}
-                nota={4.8}
+                qtdeAvaliacao={props.qtdeRelevancia}
+                nota={props.notaRelevancia}
                 tipoVisualizacao={1}
               />            
               <RatingCurtidas 
                 titulo='Curtidas'
-                qtdeCurtidas={19}
+                qtdeCurtidas={props.curtidas}
                 tipoBotao={2}
               />
             </div>        
           </div>
         </div>
         <StepMission 
-          stepProblem={3}
-          stepActive={1}
+          stepProblem={props.stepProblem}
+          stepActive={props.stepActive}
           onSelected={(step: number)=>{
-            alert(`Step Selecionado ${step}`)
+            props.onSelectedStep(step)
           }}
                 
         />
         <div style={{marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32}}>
-          <div style={{float: 'right', marginBottom: 30}}>
-            <Button 
-              label={EditMission ? "Salvar Alterações" : "Editar"}
-              variant='link' 
-              handleClick={() => {
-                setEditMission(!EditMission)
-              }}
-              startIcon={<EditIcon />}
-            />
-          </div>
-          <h2 style={{fontSize: 24}}>Missão 1: Marte - Definição do Problema</h2>
-
-          <h2>Indicador:</h2>
-          <h3>Tempo de uso da plataforma</h3>
-
-          <h2>Situação atual do indicador:</h2>
-          <h3>No último quarter (Q1 - 2022) os alunos usaram a plataforma em média 8 horas.</h3>
-
-          <h2>Qual é a sua meta e o prazo final para alcançá-la?</h2>
-          <h3>No próximo quarter (Q2 - 2022) os alunos usarão a plataforma em média 12 horas.</h3>
-
-          <h2>CERTEZAS: O que eu já sei sobre esse problema?</h2>
-          <h3>A presença, comprometimento e engajamento dos alunos na plataforma é algo fundamental para que os mesmos tenham um bom aproveitamento da trilha e assim, incrementando suas skills.</h3>
-          
-          <h2>DÚVIDAS: O que eu preciso descobrir sobre esse problema?</h2>
-          <h3>O tempo ideal de engajamento é de 12 horas. É necessário investigar quais fatores influenciaram negativamente essa questão e como podemos reverter e alcançar um melhor resultado.</h3>
-
+          {props.children}
         </div>        
 
       </div>
