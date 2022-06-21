@@ -79,7 +79,7 @@ export default function BannerProblem(props: BannerProblemParams) {
         <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32}}>
           <div style={{display: 'inline-flex', width: '80%'}}>
             <div>
-              <AvatarWithInfo cargo={props.cargo} nomeCompleto='Avatar' fotoAvatar={props.avatar} />
+              <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} />
               <TextIcon description={props.area} svg={<Brain />}/>
               <TextIcon description={props.email} svg={<Mail />}/>
               {
