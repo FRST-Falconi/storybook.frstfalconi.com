@@ -4,8 +4,7 @@ import style from './statusProblema.module.css'
 import Button from '../../buttons/index'
 import Avatar from '../../avatar/index'
 import problemaFRST from './problemaFRST.png'
-import FecharIcon from './fecharIcon'
-import {AlertCicle} from '../../../shared/icons'
+import {AlertCicle, CloseIcon} from '../../../shared/icons'
 
 type enumStatus = 'aprovar' | 'revisar' | 'aguardar'
 
@@ -58,7 +57,7 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
             
             <Box className={style.modalBox}>
                 <div className={style.fechar} onClick={props.handleClose}>
-                    Fechar  <FecharIcon />
+                <span style= {{marginRight: 10}} > Fechar </span> <CloseIcon />
                 </div>
                 <div className={style.titulo}>
                     {props.title}

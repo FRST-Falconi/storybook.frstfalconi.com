@@ -73,17 +73,17 @@ Mail.args = Icons.Mail({})
 export const Brain = Template.bind({})
 Brain.args = Icons.Brain({})
 
-<<<<<<< HEAD
 export const WithTrail = Template.bind({})
 WithTrail.args = Icons.WithTrail({})
 
 export const RocketIcon = Template.bind({})
 RocketIcon.args = Icons.RocketIcon({})
-=======
+
 export const SmileOutlined = Template.bind({})
 SmileOutlined.args = Icons.SmileOutlined({})
 
 export const CheckInCicle = Template.bind({})
 CheckInCicle.args = Icons.CheckInCicle({})
 
->>>>>>> a26618775af55a52b99c7290b6678c22018885bd
+export const CloseIcon = Template.bind({})
+CloseIcon.args = Icons.CloseIcon({})
