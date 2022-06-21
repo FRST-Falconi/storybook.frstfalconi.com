@@ -49,7 +49,7 @@ export default function AccordionTabs({
     
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <div style={{ paddingRight:'110px', paddingLeft:'110px', width:'100%', ...style}}>
+            <div style={{ width:'100%', ...style}}>
                 { titleAccordion && <TitleAccordion> { titleAccordion } </TitleAccordion> }
                 
                 { typeAccordion == 'horizontal' ? (
@@ -67,7 +67,7 @@ export default function AccordionTabs({
                 ) : null }
             </div> 
             <WrapperContent status={activeTabID != '-1'}>
-                <div style={{ paddingRight:'110px', paddingLeft:'110px', width:'100%', ...style}}>
+                <div style={{ width:'100%', ...style}}>
                     { getCurrentTabOpened() && <TitleCurrentTabOpened> { getCurrentTabOpened() } </TitleCurrentTabOpened>}
                     { children }
                 </div>

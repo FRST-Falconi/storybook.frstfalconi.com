@@ -84,7 +84,7 @@ export const TextTitleTab  = styled.div`
 
 export const WrapperContent  = styled.div<({status: boolean})>`
 
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    background-color: transparent;
     padding-top: 30px;
     padding-bottom: 25px;
     
