@@ -2040,12 +2040,10 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, c
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
         objDiv.scrollLeft = objDiv.scrollLeft - stepMove;
-        console.log(objDiv.clientWidth);
     };
     const scrollToRight = () => {
         var objDiv = document.getElementById(iDScroll);
         objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
-        console.log(objDiv.clientWidth);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: type == 'vertical' ? (null) :
             jsxRuntime.jsx("div", { style: { ...styles }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons &&
@@ -2057,8 +2055,6 @@ const HeaderWrapper = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 100px;
-    margin-right: 100px;
 
     margin-bottom: 5px;
 `;
@@ -2444,7 +2440,7 @@ const TextTitleTab = styled__default["default"].div `
 `;
 const WrapperContent = styled__default["default"].div `
 
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    background-color: transparent;
     padding-top: 30px;
     padding-bottom: 25px;
     
@@ -2491,8 +2487,8 @@ function AccordionTabs({ titleAccordion, typeAccordion, typeButtonTab, titleTabs
                     jsxRuntime.jsxs(TextTotalTab, { children: [" (", item.totalCounter, ") "] }, void 0), jsxRuntime.jsx(DropIcon, { status: isOpened, children: jsxRuntime.jsx(DropdownIcon, { fill: FRSTTheme['colors'].linkOnfocus }, void 0) }, void 0)] }, item.id);
         return TabComponent;
     };
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs("div", { style: { paddingRight: '110px', paddingLeft: '110px', width: '100%', ...style }, children: [titleAccordion && jsxRuntime.jsxs(TitleAccordion, { children: [" ", titleAccordion, " "] }, void 0), typeAccordion == 'horizontal' ? (jsxRuntime.jsxs(WrapperHeaderTabs, { children: [jsxRuntime.jsx(ContainerTitleTabs, { id: "scrollTabsAccordion", children: titleTabs.map(renderTitles) }, void 0), hasCleanButton &&
-                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }, void 0), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] }, void 0)] }, void 0)] }, void 0)) : null] }, void 0), jsxRuntime.jsx(WrapperContent, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { paddingRight: '110px', paddingLeft: '110px', width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }, void 0), children] }, void 0) }, void 0)] }, void 0));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [titleAccordion && jsxRuntime.jsxs(TitleAccordion, { children: [" ", titleAccordion, " "] }, void 0), typeAccordion == 'horizontal' ? (jsxRuntime.jsxs(WrapperHeaderTabs, { children: [jsxRuntime.jsx(ContainerTitleTabs, { id: "scrollTabsAccordion", children: titleTabs.map(renderTitles) }, void 0), hasCleanButton &&
+                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }, void 0), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] }, void 0)] }, void 0)] }, void 0)) : null] }, void 0), jsxRuntime.jsx(WrapperContent, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }, void 0), children] }, void 0) }, void 0)] }, void 0));
 }
 
 const CheckBoxWrapper = styled__default["default"].div `
@@ -2595,7 +2591,6 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
     function buildReturnSelecteds(copyObjectTab) {
         let resultSelected = [];
-        console.log(copyObjectTab);
         let counter = 0;
         copyObjectTab.forEach(tab => {
             resultSelected[counter] = {
