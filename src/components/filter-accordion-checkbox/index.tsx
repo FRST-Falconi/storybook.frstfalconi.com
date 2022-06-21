@@ -23,7 +23,7 @@ export default function FilterAccordionCheckbox({ generalTitle, object, onSelect
                             description: element.description,
                             title: element.category,
                             totalCounter: 0,
-                            group: includeStatusCheck(element.group)
+                            group: includeStatusCheck(element.group ? element.group : [] )
                           }
                       },)
       setTabs(tabsForAccordion)
