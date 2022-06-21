@@ -8,7 +8,7 @@ import RatingCurtidas from '../RatingCurtidas/index'
 import Select from 'react-select'
 
 import StepMission from '../StepsMission/StepMission'
-import { Brain, Mail, WithoutTrail, EditIcon, SaveIcon } from '../../../shared/icons'
+import { Brain, Mail, WithoutTrail, WithTrail, EditIcon, SaveIcon } from '../../../shared/icons'
 import Tag from '../../tag/index'
 import AvatarWithInfo from '../AvatarWithInfo/index'
 import Button from '@components/buttons'
@@ -97,7 +97,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                 </>
                 :
                 <>
-                  <TextIcon description={props.trilha} svg={<WithoutTrail />}/>
+                  <TextIcon description={props.trilha} svg={<WithTrail />}/>
                 </>
               }
               
