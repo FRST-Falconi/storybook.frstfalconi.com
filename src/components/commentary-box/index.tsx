@@ -53,6 +53,11 @@ export default function CommentaryBox({
         }
     }, [onEditing])
 
+    useEffect(() => {
+        if(isOpenDrop) {
+            (document.body.addEventListener("click",  checksAnyClickOnScreen, false));
+        }
+    }, [isOpenDrop]);
 
     function editingComment() {
         setOnEditing(true)
@@ -74,6 +79,13 @@ export default function CommentaryBox({
         actionUpdateValue(finalText)
     }
 
+    const checksAnyClickOnScreen = () => {
+        if(isOpenDrop) {
+            document.body.removeEventListener("click",  checksAnyClickOnScreen, false);
+            setIsOpenDrop(false);
+        }
+    }
+
     const verifyClick = () => {
         if(!actionArea) {
             setIsOpenDrop(false);
@@ -88,7 +100,7 @@ export default function CommentaryBox({
     }
 
     return (
-        <div style={{width: 'auto', ...styles}} onClick={ () => verifyClick() }>
+        <div style={{width: 'auto', ...styles}} >
         <SpeechBubble className={ className } highlight={ onEditing } >
 
             <Styles.HeaderWrapper>

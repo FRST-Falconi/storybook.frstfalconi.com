@@ -77,6 +77,15 @@ export function DropdownIconWhite() {
   )
 }
 
+export function DropdownIcon({ fill }: IconsProps) {
+  return (
+    <svg width="16" height="16">
+      <path d="M2 8l6 6 6-6z" fill={fill ?? "white"} />
+    </svg>
+  )
+}
+
+
 export function DropdownSideIconWhite() {
   return (
     <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,7 +121,7 @@ export function WhiteFilter() {
   )
 }
 
-export function CheckboxChecked() {
+export function CheckboxChecked({fill}: IconsProps) {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="#F35F24" stroke="#F35F24" />
@@ -121,10 +130,10 @@ export function CheckboxChecked() {
   )
 }
 
-export function CheckboxEmpty() {
+export function CheckboxEmpty({fill, stroke}: IconsProps) {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="1.4" fill="white" stroke="#A6A6A6" strokeWidth="1.2" />
+      <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="1.4" fill={fill ?? "white"} stroke={stroke ?? "#A6A6A6"} strokeWidth="1.2" />
     </svg>
 
   )
@@ -282,8 +291,45 @@ export function Bullseye({ fill, stroke, customColor_1, width, height }: IconsPr
 
 export function TrashIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return(
-    <svg width="14" height="20" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width ?? "14"} height={height ?? "20"} viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M3.66602 5.00002V3.33335C3.66602 2.89133 3.84161 2.4674 4.15417 2.15484C4.46673 1.84228 4.89066 1.66669 5.33268 1.66669H8.66602C9.10804 1.66669 9.53197 1.84228 9.84453 2.15484C10.1571 2.4674 10.3327 2.89133 10.3327 3.33335V5.00002M12.8327 5.00002V16.6667C12.8327 17.1087 12.6571 17.5326 12.3445 17.8452C12.032 18.1578 11.608 18.3334 11.166 18.3334H2.83268C2.39065 18.3334 1.96673 18.1578 1.65417 17.8452C1.34161 17.5326 1.16602 17.1087 1.16602 16.6667V5.00002H12.8327Z" stroke="#0645AD" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+export function SearchIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fillRule="evenodd" clipRule="evenodd" d="M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z" fill={fill ?? "black"}/>
+    </svg>
+  )
+}
+
+export function ErrorInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#FF0000"/>
+      <path d="M36 12L12 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 12L36 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+export function WarningInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#FFC200"/>
+      <path d="M24 12V28.5" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M24 34.5L24 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+export function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#2CA92A"/>
+      <path d="M36 15.75L19.5 32.25L12 24.75" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }

@@ -29,10 +29,10 @@ export const ChangeAccount = Template.bind({})
 ChangeAccount.args = Icons.ChangeAccount()
 
 export const CheckboxChecked = Template.bind({})
-CheckboxChecked.args = Icons.CheckboxChecked()
+CheckboxChecked.args = Icons.CheckboxChecked({})
 
 export const CheckboxEmpty = Template.bind({})
-CheckboxEmpty.args = Icons.CheckboxEmpty()
+CheckboxEmpty.args = Icons.CheckboxEmpty({})
 
 export const DownloadIcon = Template.bind({})
 DownloadIcon.args = Icons.DownloadIcon()
