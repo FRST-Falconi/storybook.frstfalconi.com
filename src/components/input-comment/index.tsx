@@ -114,10 +114,15 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
     )
 
     function resizeTextArea() {
-        let tx = document.getElementById(iDInputComment)
-        tx.style.height = '20px';
-        tx.style.height = tx.scrollHeight + 'px';
-        setHeightPositionWindowEmoji(tx.scrollHeight - 440 + 'px')
+        let tx = document.getElementById(iDInputComment);
+        
+        const txResize = (tx) => {   
+            tx.style.height = '20px';
+            tx.style.height = tx.scrollHeight + 'px';
+            setHeightPositionWindowEmoji(tx.scrollHeight - 440 + 'px')
+        }  
+
+        { tx && tx.style && txResize(tx) }
     }
 
     function configsWhenOpenWindowEmoji() {
