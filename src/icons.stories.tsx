@@ -87,3 +87,6 @@ CheckInCicle.args = Icons.CheckInCicle({})
 
 export const CloseIcon = Template.bind({})
 CloseIcon.args = Icons.CloseIcon({})
+
+export const AddIcon = Template.bind({})
+AddIcon.args = Icons.AddIcon({})

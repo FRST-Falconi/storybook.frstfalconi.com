@@ -282,3 +282,12 @@ export function CloseIcon({ fill }: IconsProps) {
     </svg>
   )
 }
+
+export function AddIcon({ fill }: IconsProps) {
+  return (
+    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.16992 1V15" stroke={fill ? fill : "#0645AD"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1.16992 8H15.1699" stroke={fill ? fill : "#0645AD"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
