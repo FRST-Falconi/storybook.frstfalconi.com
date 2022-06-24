@@ -20,4 +20,5 @@ export { default as ModalStatusProblema } from './src/components/modal/statusPro
 export { default as ModalLearningTech } from './src/components/modal/modalLearningTech';
 export { default as CardProblemGestor } from './src/components/cards/cardProblemGestor';
 export { default as CardProblem } from './src/components/cards/cardProblem';
+export { default as CardDefinicaoProblema } from './src/components/cards/cardDefinicaoProblema';
 //# sourceMappingURL=index.d.ts.map
