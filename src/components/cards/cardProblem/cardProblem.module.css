@@ -90,3 +90,16 @@
     align-items: center;
    
 }
+
+.buttonVerMais {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    margin-bottom: 30px;
+    margin-right: 30px;
+}

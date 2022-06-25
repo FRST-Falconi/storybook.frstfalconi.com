@@ -1,7 +1,6 @@
 import '../../../shared/global.css'
 import { useState, useEffect } from 'react'
 import { AddIcon, EditIcon } from '@shared/icons'
-// import BgImg from './img/backgroundIMG.png'
 import style from './cardDefinicaoProblema.module.css'
 import Button from '@components/buttons'
 

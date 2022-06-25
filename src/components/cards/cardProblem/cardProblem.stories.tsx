@@ -36,7 +36,9 @@ hipoteseLevantada.args = {
     },
     statusProblema: 'aguardando',
     trilhaVinculada: 'Digital Business Mindset',
-    lastUpdated: 'Atualizado 30 de Abr. 2022'
+    lastUpdated: 'Atualizado 30 de Abr. 2022',
+    isButtonVerMais: true,
+    onClick: (problemID) => { alert(problemID)}
 }
 
 export const finalizado = Template.bind({})
