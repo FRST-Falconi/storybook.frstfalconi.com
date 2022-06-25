@@ -12,6 +12,7 @@ interface CardProblemGestorProps {
     ratingRelevancia?: any;
     ratingCurtidas?: number;
     lastUpdated?: string;
+    onClick: (problemID: string) => void;
 }
 /**
  * @param {CardProblemGestorProps} props
