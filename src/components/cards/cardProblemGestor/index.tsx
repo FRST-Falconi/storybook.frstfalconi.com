@@ -9,12 +9,7 @@ import Rating from '@components/cardLT/Rating'
 import RatingCurtidas from '@components/cardLT/RatingCurtidas'
 
 
-
-
-
 interface CardProblemGestorProps {
-    
-    
     problemID: string
     userName: string
     userCargo: string
@@ -28,6 +23,8 @@ interface CardProblemGestorProps {
     ratingCurtidas?: number
 
     lastUpdated?: string
+
+    onClick: (problemID: string) => void
 }
 
 
@@ -56,7 +53,7 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
 
     return (
         
-        <div className={style.container} style={{border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }}>
+        <div className={style.container} style={{border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }} onClick={() => props.onClick(props.problemID)} >
             <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipóteses Levantadas" ? '#222222' : '#FFF'}}>
                 {statusName}
             </div>

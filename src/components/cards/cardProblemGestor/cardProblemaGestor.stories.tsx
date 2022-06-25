@@ -9,10 +9,8 @@ export default {
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <> 
-    <CardProblemGestor {...args} /> 
-    <CardProblemGestor {...args} />
-</>
+const Template = (args) =>  <CardProblemGestor {...args} /> 
+    
 
 
 export const problemaDefinido = Template.bind({}) 
@@ -38,7 +36,7 @@ problemaDefinido.args = {
     },
     ratingCurtidas: 24,
         
-    
+    onClick: (problemID) => { alert(problemID)},
     lastUpdated: 'Atualizado a 2 dias'
 }
 
@@ -52,7 +50,7 @@ hipoteseLevantada.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    
+    onClick: (problemID) => { alert(problemID)},
     lastUpdated: 'Atualizado a 2 dias'
 }
 
@@ -67,6 +65,6 @@ resultadosAprendizados.args = {
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
     tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],        
-    
+    onClick: (problemID) => { alert(problemID)},
     lastUpdated: 'Atualizado a 2 dias'
 }
