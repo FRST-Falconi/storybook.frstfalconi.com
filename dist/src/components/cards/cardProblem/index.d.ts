@@ -2,7 +2,9 @@
 import '../../../shared/global.css';
 interface CardProblemProps {
     selected: boolean;
+    isButtonVerMais: boolean;
     handleSelect?: (id: string) => void;
+    onClick?: (problemID: string) => void;
     problemID: string;
     userName: string;
     userCargo: string;
