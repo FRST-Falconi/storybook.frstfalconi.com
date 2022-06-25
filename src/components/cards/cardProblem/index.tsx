@@ -9,13 +9,16 @@ import Rating from '@components/cardLT/Rating'
 import MessageBox from '@components/cardLT/MessageBox'
 import { borderColor } from '@mui/system'
 import TextIcon from '@components/cardLT/TextIcon'
+import Button from '@components/buttons'
 
 
 
 interface CardProblemProps {
     
     selected: boolean
+    isButtonVerMais: boolean
     handleSelect?: (id: string) => void
+    onClick?: (problemID: string) => void
     problemID: string
     userName: string
     userCargo: string
@@ -152,6 +155,13 @@ export default function CardProblem(props: CardProblemProps) {
                 {
                     props.lastUpdated &&
                         <div style={{color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop:8}}>{props.lastUpdated} </div>
+                }
+                {
+                    props.isButtonVerMais &&
+                        <div className={style.buttonVerMais} >
+                            <Button variant='link' label='Ver mais' handleClick={() => props.onClick(props.problemID)} />
+
+                        </div>
                 }
             </div>
             
