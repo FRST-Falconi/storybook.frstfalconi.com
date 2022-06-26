@@ -70,7 +70,7 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
 
                     {
                         props.approves.map((item, index) => (                 
-                            <ApprovesItem nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} avatarFoto={item.avatarFoto} key={index}  />
+                            <ApprovesItem nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} avatar={item.avatarFoto} key={index}  />
                         ))
                     }
 
