@@ -13,7 +13,7 @@ interface CardProblemGestorProps {
     problemID: string
     userName: string
     userCargo: string
-    userStatus: string
+    problemStatus: string
     userAvatar?: string
     
     tags?: string[]
@@ -38,17 +38,17 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
     const [statusColor, setStatusColor] = useState('#757575')
 
     useEffect(() => {
-        switch (props.userStatus) {
+        switch (props.problemStatus) {
             case 'finalizado': setStatusColor("#158214"), setStatusName("Finalizado"); break
-            case 'proxPassos': setStatusColor("#222222"), setStatusName("Próximos Passos"); break
+            case 'proxPassos': setStatusColor("#222222"), setStatusName("Próximos passos"); break
             case 'resultadosAprendizados': setStatusColor("#AD005C"), setStatusName("Resultados e aprendizados"); break
-            case 'testesRealizados': setStatusColor("#663366"), setStatusName("Testes Realizados"); break
-            case 'hipoteseLevantada': setStatusColor("#F8B911"), setStatusName("Hipóteses Levantadas"); break
+            case 'testesRealizados': setStatusColor("#663366"), setStatusName("Testes realizados"); break
+            case 'hipoteseLevantada': setStatusColor("#F8B911"), setStatusName("Hipóteses levantadas"); break
             case 'problemaDefinido': setStatusColor("#252BB1"), setStatusName("Problema definido"); break
-            case 'naoIniciou':
-            default: setStatusColor("#757575"), setStatusName("Não iniciou"); break
+            case 'problemaCriado':
+            default: setStatusColor("#757575"), setStatusName("Problema criado"); break
         }
-    }, [props.userStatus])
+    }, [props.problemStatus])
 
 
     return (

@@ -11,6 +11,10 @@
     position: relative;
 }
 
+.container:hover {
+    cursor: pointer;
+}
+
 .tagStatusProblem {
     position: absolute;
     top: 0;

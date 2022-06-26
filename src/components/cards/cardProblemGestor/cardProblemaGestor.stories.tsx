@@ -19,7 +19,7 @@ problemaDefinido.args = {
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
     
-    userStatus: "problemaDefinido",
+    problemStatus: "problemaDefinido",
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
@@ -46,7 +46,7 @@ hipoteseLevantada.args = {
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
     
-    userStatus: "hipoteseLevantada",
+    problemStatus: "hipoteseLevantada",
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
@@ -60,7 +60,7 @@ resultadosAprendizados.args = {
     problemID: "bla-blu-fla",
     userName: "Roberto Lima Ribeiro da Silva Santos",
     
-    userStatus: "resultadosAprendizados",
+    problemStatus: "resultadosAprendizados",
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",

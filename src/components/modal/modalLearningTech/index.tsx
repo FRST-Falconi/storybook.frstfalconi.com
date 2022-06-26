@@ -30,9 +30,9 @@ export default function ModalLearningTech(props: ModalLearningTechProps) {
     
     
     return (
-        <Modal open={props.open} onClose={props.handleClose}>
+        <Modal open={props.open} onClose={props.handleClose} style={{}}>
             
-            <Box className={style.modalBox} style={{...props.style}}>
+            <Box className={style.modalBox} style={{top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style}}>
                 <div className={style.fechar} onClick={props.handleClose}>
                     <span style= {{marginRight: 10}} > Fechar </span> <CloseIcon />
                 </div>
