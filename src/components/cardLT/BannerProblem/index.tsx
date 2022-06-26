@@ -43,6 +43,7 @@ interface BannerProblemParams {
   onSelectedStep: (step: number) => void
   isEditable?: boolean
   children: React.ReactNode;
+  onClickMessage: () => void
 }
 
 ///-----------------------------------------
@@ -124,7 +125,7 @@ export default function BannerProblem(props: BannerProblemParams) {
 
               </div>
 
-              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} style={{marginBottom: 16}}/>
+              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} onClick={props.onClickMessage} style={{marginBottom: 16}}/>
 
               <span className={style.created}>{props.dataCriacao}</span>
             </div>
