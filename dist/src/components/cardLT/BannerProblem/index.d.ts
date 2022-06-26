@@ -25,6 +25,7 @@ interface BannerProblemParams {
     onSelectedStep: (step: number) => void;
     isEditable?: boolean;
     children: React.ReactNode;
+    onClickMessage: () => void;
 }
 /**
  *
