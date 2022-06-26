@@ -4,7 +4,7 @@ interface CardProblemGestorProps {
     problemID: string;
     userName: string;
     userCargo: string;
-    userStatus: string;
+    problemStatus: string;
     userAvatar?: string;
     tags?: string[];
     cardTitle?: string;
