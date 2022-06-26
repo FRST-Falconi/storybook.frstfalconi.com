@@ -35,13 +35,13 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps)
     useEffect(() => {
         switch (props.problemStatus) {
             case 'finalizado': setStatusColor("#158214"), setStatusName("Finalizado"); break
-            case 'proxPassos': setStatusColor("#222222"), setStatusName("Próximos Passos"); break
+            case 'proxPassos': setStatusColor("#222222"), setStatusName("Próximos passos"); break
             case 'resultadosAprendizados': setStatusColor("#AD005C"), setStatusName("Resultados e aprendizados"); break
-            case 'testesRealizados': setStatusColor("#663366"), setStatusName("Testes Realizados"); break
-            case 'hipoteseLevantada': setStatusColor("#F8B911"), setStatusName("Hipóteses Levantadas"); break
+            case 'testesRealizados': setStatusColor("#663366"), setStatusName("Testes realizados"); break
+            case 'hipoteseLevantada': setStatusColor("#F8B911"), setStatusName("Hipóteses levantadas"); break
             case 'problemaDefinido': setStatusColor("#252BB1"), setStatusName("Problema definido"); break
-            case 'naoIniciou':
-            default: setStatusColor("#757575"), setStatusName("Não iniciou"); break
+            case 'problemaCriado':
+            default: setStatusColor("#757575"), setStatusName("Problema criado"); break
         }
     }, [props.problemStatus])
 
@@ -49,9 +49,12 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps)
     return (
         
         <div className={style.container} >
-            <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipóteses Levantadas" ? '#222222' : '#FFF'}}>
-                {statusName}
-            </div>
+            {
+                props.typeButton !== 1 &&
+                    <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipóteses Levantadas" ? '#222222' : '#FFF'}}>
+                        {statusName}
+                    </div>
+            }
             
             <div className={style.headerContainer}>
                 <img src={'https://api-motor.s3.amazonaws.com/background-prezi.png'} />

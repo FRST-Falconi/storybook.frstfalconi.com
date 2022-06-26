@@ -17,11 +17,12 @@ interface ModalStatusProblemaProps {
     approves: any[],
 
     handleClose: () => void,
+    style: React.CSSProperties
     
 }
 
 interface ApprovesItemProps{
-    avatarFoto?: string,
+    avatar?: string,
     nomeAvatar: string,
     dataAvatar: string,
     statusApprove: enumStatus
@@ -32,7 +33,7 @@ function ApprovesItem(props: ApprovesItemProps){
         return (
             <div className={style.containerItem} >
                 <div className={style.avatar}>
-                    <Avatar size='120'/>
+                    <Avatar src={props.avatar} size='120px' />
                     <span style={{ marginTop: 4, color: '#FF4D0D', fontWeight: 600 }}>{props.nomeAvatar}</span>
                     <span style={{ fontSize: 14, color: '#222222', fontWeight: 400 }}>{props.dataAvatar}</span>
                 </div>
@@ -43,8 +44,9 @@ function ApprovesItem(props: ApprovesItemProps){
                     <WarningInCicleIcon/>
                     : <ErrorInCicleIcon/>
                 } 
-                
-                <img src={problemaFRST} />
+                <div style={{marginBottom: 30}}>
+                    <Avatar src={problemaFRST} size='120px'  />
+                </div>
             </div>
         )
     
@@ -55,9 +57,9 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
     
     
     return (
-        <Modal open={props.open} onClose={props.handleClose}>
+        <Modal open={props.open} onClose={props.handleClose} >
             
-            <Box className={style.modalBox}>
+            <Box className={style.modalBox} style={{top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style}}>
                 <div className={style.fechar} onClick={props.handleClose}>
                 <span style= {{marginRight: 10}} > Fechar </span> <CloseIcon />
                 </div>
@@ -68,7 +70,7 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
 
                     {
                         props.approves.map((item, index) => (                 
-                            <ApprovesItem nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} key={index}  />
+                            <ApprovesItem nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} avatarFoto={item.avatarFoto} key={index}  />
                         ))
                     }
 
