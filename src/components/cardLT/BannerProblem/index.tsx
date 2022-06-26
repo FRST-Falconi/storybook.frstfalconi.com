@@ -28,7 +28,6 @@ interface BannerProblemParams {
   avatar: string
   area: string
   email: string
-  trilha: string
   tags?: string[]
   typeMessagem: number
   message: string
@@ -41,8 +40,24 @@ interface BannerProblemParams {
   stepProblem: number
   stepActive: number
   onSelectedStep: (step: number) => void
+  /**
+   * @prop {object} trilhaData: A listagem de Trilhas no Select [{label: 'trilha1', value: 'id1'}]
+   */  
+  trilhaData?: any
+  /**
+   * @prop {string} trilha: Descrição da Trilha Selecionada
+   */  
+  trilha: string
+  /**
+   * @prop {string} trilhaId: Id da Trilha Selecionada, que será usado para selecionar o select quando for editar
+   */    
+  trilhaId?: any
   isEditable?: boolean
-  children: React.ReactNode;
+  /**
+   * @prop {object} tagData: A listagem de Tags no Select [{label: 'TAG1', value: 'id1'}]
+   */    
+  tagData?: any
+  children: React.ReactNode
   onClickMessage: () => void
 }
 
@@ -57,8 +72,42 @@ interface BannerProblemParams {
  */
 export default function BannerProblem(props: BannerProblemParams) {
 
-  const [Edit, setEdit] = useState(false);
-  const [EditMission, setEditMission] = useState(false);
+  const [Edit, setEdit] = useState(false)
+  /// States para controle de Edição
+  const [TrilhaId, setTrilhaId] = useState(props.trilhaId ? props.trilhaId : null)
+  const [TrilhaDescricaoSelecionada, setTrilhaDescricaoSelecionada] = useState(props.trilha ? props.trilha : '')
+  const [Tag1, setTag1] = useState(props.tags && props.tags.length >=1 ? props.tags[0] : '')
+  const [Tag2, setTag2] = useState(props.tags && props.tags.length >=2 ? props.tags[1] : '')
+  const [Tag3, setTag3] = useState(props.tags && props.tags.length >=3 ? props.tags[2] : '')
+  
+  /// States para controle de elementos do Banner
+  const [TrilhaBanner, setTrilhaBanner] = useState(props.trilha ? props.trilha : '')
+  const [Tags, setTags] = useState(props.tags ? props.tags : [])
+
+  const customStyles = {
+    option: (styles, {isFocused, isSelected}) => ({
+      ...styles,
+      background: isFocused
+          ? '	#FFC6B7'            
+          : isSelected
+              ? '#FF4D0D'
+              : undefined,
+      color: isFocused
+          ? '#000'
+          : isSelected
+              ? '#fff'
+              : undefined,
+      zIndex: 1
+    }),
+    menu: base => ({
+        ...base,
+        zIndex: 100
+    }),
+    control: (styles) => ({
+      ...styles,
+      marginTop: 12
+    }),   
+  }
 
   return (
 
@@ -90,15 +139,25 @@ export default function BannerProblem(props: BannerProblemParams) {
                     <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Deseja vincular este novo problema a uma Trilha de Aprendizagem?</h3>
                     <Select 
                       id={"select"}
-                      options={[]} 
+                      styles={customStyles}
+                      options={props.trilhaData ? props.trilhaData : []} 
+                      value={props.trilhaData.filter(function(temp) {return temp.value === TrilhaId})} 
                       placeholder={'Selecione uma trilha'}    
-                      onChange={() => {}}               
+                      onChange={e => {
+                        setTrilhaId(e.value)
+                        setTrilhaDescricaoSelecionada(e.label)
+                      }}               
                     /> 
                   </div>
                 </>
                 :
                 <>
-                  <TextIcon description={props.trilha} svg={<WithTrail />}/>
+                {
+                  TrilhaBanner === '' ?
+                    <TextIcon description={'Ainda não está vinculado a uma trilha'} svg={<WithoutTrail />}/> 
+                  :
+                    <TextIcon description={TrilhaBanner} svg={<WithTrail />}/>   
+                }
                 </>
               }
               
@@ -108,15 +167,43 @@ export default function BannerProblem(props: BannerProblemParams) {
                   <>
                     <div className={style.contentInput}>
                       <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Busque e selecione até três palavras-chave:</h3>
-                      <input placeholder='Ex.: Customer Success'/>
-                      <input placeholder='Ex.: Experiência do usuário'/>
-                      <input placeholder='Ex.: CSAT'/>
+                      
+                      <Select 
+                        id={"select"}
+                        styles={customStyles}
+                        options={props.tagData ? props.tagData : []} 
+                        value={props.tagData.filter(function(temp) {return temp.value === Tag1})} 
+                        placeholder={'Selecione uma Tag'}    
+                        onChange={e => {
+                          setTag1(e.value)
+                        }}               
+                      /> 
+                      <Select 
+                        id={"select"}
+                        styles={customStyles}
+                        options={props.tagData ? props.tagData : []} 
+                        value={props.tagData.filter(function(temp) {return temp.value === Tag2})} 
+                        placeholder={'Selecione uma Tag'}    
+                        onChange={e => {
+                          setTag2(e.value)
+                        }}               
+                      />                       
+                      <Select 
+                        id={"select"}
+                        styles={customStyles}
+                        options={props.tagData ? props.tagData : []} 
+                        value={props.tagData.filter(function(temp) {return temp.value === Tag3})} 
+                        placeholder={'Selecione uma Tag'}    
+                        onChange={e => {
+                          setTag3(e.value)
+                        }}               
+                      />                       
                     </div>
                   </>
                   :
                   <>
                       {
-                        props.tags?.map((item, key) => (
+                        Tags?.map((item, key) => (
                            <Tag title={item} color={"#222"} style={{marginRight: 8, marginTop: 8}} selected={false} inverted={false} key={key}/>  
                         ))
                       }

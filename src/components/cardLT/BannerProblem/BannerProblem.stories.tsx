@@ -37,6 +37,18 @@ ShowData.args = {
     curtidas: 19,
     stepProblem: 5,
     stepActive: 1,
+    isEditable: true,
+    trilhaData: [
+        {label: 'trilha1', value: '1'},
+        {label: 'trilha2', value: '2'},
+        {label: 'trilha3', value: '3'},
+    ],
+    tagData: [
+        {label: 'Customer Success', value: 'Customer Success'},
+        {label: 'Experiência do usuário', value: 'Experiência do usuário'},
+        {label: 'CSAT', value: 'CSAT'},
+        {label: 'Visão Sistêmica', value: 'Visão Sistêmica'},
+    ],    
     children: 
         <>
             <h2 style={{fontSize: 24}}>Missão 1: Marte - Definição do Problema</h2>
