@@ -10,7 +10,6 @@ interface BannerProblemParams {
     avatar: string;
     area: string;
     email: string;
-    trilha: string;
     tags?: string[];
     typeMessagem: number;
     message: string;
@@ -23,7 +22,23 @@ interface BannerProblemParams {
     stepProblem: number;
     stepActive: number;
     onSelectedStep: (step: number) => void;
+    /**
+     * @prop {object} trilhaData: A listagem de Trilhas no Select [{label: 'trilha1', value: 'id1'}]
+     */
+    trilhaData?: any;
+    /**
+     * @prop {string} trilha: Descrição da Trilha Selecionada
+     */
+    trilha: string;
+    /**
+     * @prop {string} trilhaId: Id da Trilha Selecionada, que será usado para selecionar o select quando for editar
+     */
+    trilhaId?: any;
     isEditable?: boolean;
+    /**
+     * @prop {object} tagData: A listagem de Tags no Select [{label: 'TAG1', value: 'id1'}]
+     */
+    tagData?: any;
     children: React.ReactNode;
     onClickMessage: () => void;
 }

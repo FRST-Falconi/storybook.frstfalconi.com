@@ -47,5 +47,6 @@ export declare function WarningInCicleIcon({ fill, stroke, customColor_1, width,
 export declare function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function CloseIcon({ fill }: IconsProps): JSX.Element;
 export declare function AddIcon({ fill }: IconsProps): JSX.Element;
+export declare function OpenedEye({ fill }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

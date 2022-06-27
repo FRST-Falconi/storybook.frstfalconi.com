@@ -193,7 +193,7 @@ export function Mail({ fill }: IconsProps) {
     </svg>
   )
 }
-      
+
 export function Dot({ fill }: IconsProps) {
   return (
     <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -366,6 +366,15 @@ export function AddIcon({ fill }: IconsProps) {
     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M8.16992 1V15" stroke={fill ? fill : "#0645AD"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       <path d="M1.16992 8H15.1699" stroke={fill ? fill : "#0645AD"} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+
+export function OpenedEye({ fill }: IconsProps) {
+  return (
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M5.33337 16C5.33337 16 9.21216 8 16 8C22.7879 8 26.6667 16 26.6667 16C26.6667 16 22.7879 24 16 24C9.21216 24 5.33337 16 5.33337 16Z" stroke={fill ? fill : "#0645AD"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16 18.6663C17.4728 18.6663 18.6667 17.4724 18.6667 15.9997C18.6667 14.5269 17.4728 13.333 16 13.333C14.5273 13.333 13.3334 14.5269 13.3334 15.9997C13.3334 17.4724 14.5273 18.6663 16 18.6663Z" stroke={fill ? fill : "#0645AD"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
