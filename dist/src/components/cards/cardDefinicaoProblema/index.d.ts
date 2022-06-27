@@ -11,6 +11,10 @@ interface CardDefinicaoProblemaProps {
     */
     typeButton: number;
     handleClick: (problemId: string) => void;
+    /**
+     * @prop {event} event: Evento de click do visualizar problema
+    */
+    handleToView: () => void;
 }
 /**
  * @param {CardDefinicaoProblemaProps} props
