@@ -61,20 +61,27 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
             
             <Box className={style.modalBox} style={{top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style}}>
                 <div className={style.fechar} onClick={props.handleClose}>
-                <span style= {{marginRight: 10}} > Fechar </span> <CloseIcon />
+                    <span style= {{marginRight: 10}} > Fechar </span> <CloseIcon />
                 </div>
                 <div className={style.titulo}>
                     {props.title}
                 </div>
-                <div className={style.container} style={{height: props.approves.length >= 3 ? 555 : 185 * props.approves.length}} >
+                {   
+                    props.approves.length === 0 ? (
+                        <div className={style.emptyState}>
+                            <span>Você ainda não convidou ninguém para aprovar o seu problema</span>
+                        </div>
+                    ) : (
+                            <div className={style.container} style={{height: props.approves.length >= 3 ? 555 : 185 * props.approves.length}} >
+                                {
+                                    props.approves.map((item, index) => (                 
+                                        <ApprovesItem nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} avatar={item.avatarFoto} key={index}  />
+                                    ))
+                                }
+                            </div>
+                        )
 
-                    {
-                        props.approves.map((item, index) => (                 
-                            <ApprovesItem nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} avatar={item.avatarFoto} key={index}  />
-                        ))
-                    }
-
-                </div>
+                }
                 <div className={style.descricao}>
                     {props.description}
                 </div>

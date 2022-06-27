@@ -1,7 +1,7 @@
 .modalBox{
     background-color: #FFF;
     width: 800px;
-    min-height: 400px;
+    min-height: 300px;
     padding-top: 20px;
     padding-bottom: 20px;
 
@@ -30,9 +30,8 @@
     top: 0;
     right: 0;
 
+    border-top-right-radius: 10px;
     margin-top: 0px;
-
-    
 }
 
 .titulo{
@@ -53,7 +52,6 @@
     overflow: auto;
     width: 100%;
     
-    
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -66,6 +64,18 @@
     border: 1px solid #BDBDBD;
     border-left: 0px;
     
+}
+
+.emptyState {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    height: fit-content;
     
 }
 

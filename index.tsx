@@ -14,7 +14,6 @@ export { default as BannerProblem } from "./src/components/cardLT/BannerProblem"
 export { default as Button } from "./src/components/buttons"
 export { default as TextField } from './src/components/form-elements/textfield'
 export { default as TextArea } from './src/components/form-elements/textarea'
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle } from './src/shared/icons'
 export { default as Avatar } from './src/components/avatar'
 export { default as InputComment } from './src/components/input-comment'
 export { default as CommentaryBox } from './src/components/commentary-box'
@@ -33,4 +32,9 @@ export { default as CardProblemGestor } from './src/components/cards/cardProblem
 export { default as CardProblem } from './src/components/cards/cardProblem'
 export { default as CardDefinicaoProblema } from './src/components/cards/cardDefinicaoProblema'
 
+// Icons
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, EditIcon, WarningIcon, FRSTLogo, FRSTLogoBig} from './src/shared/icons'
+export { ChangeAccount, DownloadIcon, DropdownIconWhite, ExitArrow, BackArrow, WhiteFilter, CheckboxChecked, CheckboxEmpty} from './src/shared/icons'
+export { BlueTrash, WithoutTrail, WithTrail, Mail, Dot, Brain, EyeOff, SmileOutlined, SaveIcon, RocketIcon, CloseInCicle} from './src/shared/icons'
+export { RocketIconCommentaryBox, ArrowScrollRight, Bullseye, TrashIcon, SearchIcon, ErrorInCicleIcon, WarningInCicleIcon, CorrectInCicleIcon, CloseIcon, AddIcon} from './src/shared/icons'
 

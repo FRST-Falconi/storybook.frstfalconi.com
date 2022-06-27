@@ -11,8 +11,8 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <ModalStatusProblema {...args} />
 
-export const Teste1 = Template.bind({})
-Teste1.args = {
+export const Normal = Template.bind({})
+Normal.args = {
   open: true,
   title: 'Parabéns, o seu problema foi aprovado!',
   description: 'Você pode ter mais de uma pessoa aprovando ou não o seu problema e todos os resultados aparecerão aqui.',
@@ -22,7 +22,11 @@ Teste1.args = {
     { nome: 'Marlon Pereira', data: '28 abr. de 2022',   approve: 'aguardar'  },
    
   ]
+}
 
-
+export const EmptyState = Template.bind({})
+EmptyState.args = {
+  open: true,
+  approves:[]
 }
 

@@ -14,6 +14,7 @@ import AvatarWithInfo from '../AvatarWithInfo/index'
 import Button from '@components/buttons'
 
 import style from './BannerProblem.module.css'
+import { SystemSecurityUpdate } from '@mui/icons-material';
 
 ///-----------------------------------------
 /// Interface do Componente
@@ -160,7 +161,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                 :
                 <>
                 {
-                  TrilhaBanner === '' ?
+                  TrilhaBanner === '' ? 
                     <TextIcon description={'Ainda não está vinculado a uma trilha'} svg={<WithoutTrail />}/> 
                   :
                     <TextIcon description={TrilhaBanner} svg={<WithTrail />}/>   

@@ -22,7 +22,7 @@ ShowData.args = {
     cargo: "Estudante/Universitário",
     area: "Tecnologia da Informação",
     email: "robertolima@empresa.com.br",
-    trilha: "Ainda não está vinculado a uma trilha",
+    // trilha: "Ainda não está vinculado a uma trilha",
     tags: [
         "Customer Success",
         "Experiência do usuário",
