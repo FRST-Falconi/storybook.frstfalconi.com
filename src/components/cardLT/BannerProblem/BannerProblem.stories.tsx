@@ -15,6 +15,7 @@ export const ShowData = Template.bind({
 })
 ShowData.args = {
     onClickMessage: () => { alert('Opa!')},
+    onClickSave: () => { alert('Salvado!')},
     problema: "Aumentar o engajamento dos alunos na plataforma",
     nome: "Avatar",
     avatar: "https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/neytiri_in_avatar_2-wide-do-we-really-need-avatar-2.jpeg",

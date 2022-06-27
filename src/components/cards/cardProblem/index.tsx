@@ -144,7 +144,7 @@ export default function CardProblem(props: CardProblemProps) {
                 }
                 
                 {
-                    statusName !== 'Não iniciou' ?
+                    statusName !== 'Problema criado' ?
                         props.trilhaVinculada ?
                             <TextIcon description={`vinculado a trilha ${props.trilhaVinculada}`} svg={<WithTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
                         :

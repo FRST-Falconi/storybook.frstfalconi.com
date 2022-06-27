@@ -59,6 +59,7 @@ interface BannerProblemParams {
   tagData?: any
   children: React.ReactNode
   onClickMessage: () => void
+  onClickSave:() => void
 }
 
 ///-----------------------------------------
@@ -120,6 +121,12 @@ export default function BannerProblem(props: BannerProblemParams) {
             label={Edit ? "Salvar Alterações" : "Editar"}
             variant='link' 
             handleClick={() => {
+              {
+                Edit && 
+                  props.onClickSave
+                  setTrilhaBanner(TrilhaDescricaoSelecionada)
+                  setTags([Tag1, Tag2, Tag3])
+              }
               setEdit(!Edit)
             }}
             startIcon={<EditIcon />}
