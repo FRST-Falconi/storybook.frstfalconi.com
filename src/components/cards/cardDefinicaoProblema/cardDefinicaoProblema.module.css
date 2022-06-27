@@ -23,7 +23,7 @@
 
     border-bottom-left-radius: 10px;
     border-top-right-radius: 10px;
-    
+
 
 }
 
@@ -35,7 +35,7 @@
     align-items: center;
 
     height: 200px;
-    
+
 }
 
 .headerContainer img {
@@ -44,7 +44,7 @@
 }
 
 .descriptionContainer {
-    
+
     padding: 20px;
     height: 197px;
 
@@ -53,7 +53,7 @@
     align-items: flex-start;
     flex-direction: column;
     flex-wrap: wrap;
-    
+
 }
 
 .footerContainer {
@@ -67,5 +67,22 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     padding: 15px;
-    
+    gap: 32px;
+}
+
+.footerContainerType2 {
+    position: relative;
+}
+
+.footerContainerType2::after {
+    content: "";
+    position: absolute;
+    background-color: #E8E8E8;
+    width: 1px;
+    height: 100%;
+    left: 50%;
+}
+
+.footerContainer svg {
+    max-height: 100% !important;
 }

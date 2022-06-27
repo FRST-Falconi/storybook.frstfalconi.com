@@ -1,11 +1,11 @@
 import '../../../shared/global.css'
 import { useState, useEffect } from 'react'
-import { AddIcon, EditIcon } from '@shared/icons'
+import { AddIcon, EditIcon, OpenedEye } from '@shared/icons'
 import style from './cardDefinicaoProblema.module.css'
 import Button from '@components/buttons'
 
 interface CardDefinicaoProblemaProps {
-    
+
     problemId: string
     problemStatus: string
     backgroundImage?: string
@@ -18,8 +18,12 @@ interface CardDefinicaoProblemaProps {
     */
     typeButton: number
 
-    handleClick: (problemId: string) => void 
-    
+    handleClick: (problemId: string) => void
+    /**
+     * @prop {event} event: Evento de click do visualizar problema
+    */
+    handleToView: () => void
+
 }
 
 
@@ -27,7 +31,7 @@ interface CardDefinicaoProblemaProps {
  * @param {CardDefinicaoProblemaProps} props
  */
 export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps) {
-    
+
     const [statusName, setStatusName] = useState('Não iniciou')
 
     const [statusColor, setStatusColor] = useState('#757575')
@@ -47,7 +51,7 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps)
 
 
     return (
-        
+
         <div className={style.container} >
             {
                 props.typeButton !== 1 &&
@@ -55,7 +59,7 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps)
                         {statusName}
                     </div>
             }
-            
+
             <div className={style.headerContainer}>
                 <img src={'https://api-motor.s3.amazonaws.com/background-prezi.png'} />
             </div>
@@ -64,10 +68,11 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps)
                 <span style={{fontSize: 16, fontWeight: 400, marginTop: 16}}> {props.cardDescription}</span>
 
             </div>
-            <div className={style.footerContainer}>
-                <Button variant='link' label={props.typeButton === 1 ? 'Definir novo problema' : 'Editar problema'} startIcon={props.typeButton === 1 ? <AddIcon /> : <EditIcon/>} handleClick={() => props.handleClick(props.problemId)} />
+            <div className={`${style.footerContainer} ${props.typeButton === 2 && style.footerContainerType2}`}>
+                {props.typeButton === 2 && <Button variant='link' label="Visualizar" startIcon={<OpenedEye />} handleClick={() => props.handleToView()} /> }
+                <Button variant='link' label={props.typeButton === 1 ? 'Definir novo problema' : 'Continuar'} startIcon={props.typeButton === 1 ? <AddIcon /> : <EditIcon/>} handleClick={() => props.handleClick(props.problemId)} />
             </div>
-            
+
         </div>
     )
 }
