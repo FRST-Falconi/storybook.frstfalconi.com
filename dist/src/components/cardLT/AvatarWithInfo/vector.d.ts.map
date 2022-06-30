@@ -1,1 +1,1 @@
-{"version":3,"file":"vector.d.ts","sourceRoot":"","sources":["../../../../src/components/cardLT/AvatarWithInfo/vector.tsx"],"names":[],"mappings":";AAGA,UAAU,eAAe;IACrB,KAAK,CAAC,EAAE,MAAM,CAAC;CAChB;AAKD;;;GAGG;AACH,MAAM,CAAC,OAAO,UAAU,MAAM,CAAC,KAAK,EAAE,eAAe,eAUpD"}
+{"version":3,"file":"vector.d.ts","sourceRoot":"","sources":["../../../../../src/components/cardLT/AvatarWithInfo/vector.tsx"],"names":[],"mappings":";AAGA,UAAU,eAAe;IACrB,KAAK,CAAC,EAAE,MAAM,CAAC;CAChB;AAKD;;;GAGG;AACH,MAAM,CAAC,OAAO,UAAU,MAAM,CAAC,KAAK,EAAE,eAAe,eAUpD"}

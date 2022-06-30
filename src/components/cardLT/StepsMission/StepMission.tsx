@@ -44,6 +44,10 @@ export default function MissionSteps(props: MissionStepsParams) {
     props.onSelected(step)
   }
 
+  useEffect(() =>{
+    setstepLiberado(props.stepProblem)
+  },[props.stepProblem]);
+  
   return (
 
     <>    
