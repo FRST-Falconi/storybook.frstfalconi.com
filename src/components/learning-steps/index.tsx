@@ -21,7 +21,8 @@ export default function LearningSteps({ title, onSelected, objectCards }: ILearn
 
     function renderCard(item) {
         return (
-            <StepCard 
+            <StepCard
+                key={item.id}
                 title={item.title}
                 onClick={() => onItemSelect(item.id)}
                 numberPeople={item.numberPeople}
