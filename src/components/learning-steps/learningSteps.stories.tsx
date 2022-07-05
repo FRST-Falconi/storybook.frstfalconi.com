@@ -75,5 +75,46 @@ normal.args = {
                             'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg', 
                             'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg']
                     },
-                ]
+                ],
+    marginLeftTitle: '0px',
+    marginRightClear: '0px',
+    marginsArrowButton: 50,
+    sizeArrowButton: 80,
+    widthCard: '343px',
+}
+
+
+export const minimo = Template.bind({})
+minimo.args = {
+    onSelected: (e : any) => { alert("Item Selecionado: " + e)},
+    objectCards: [
+            {
+                id: 0,
+                title: '0. Não iniciou',
+            },
+            {
+                id: 1,
+                title: '1. Problema definido',
+            },
+            {
+                id: 2,
+                title: '2. Hipóteses levantadas',
+            },
+            {
+                id: 3,
+                title: '3. Testes realizados',
+            },
+            {
+                id: 4,
+                title: '4. Resultados e aprendizados',
+            },
+            {
+                id: 5,
+                title: '5. Próximos passos',
+            },
+            {
+                id: 6,
+                title: '6. Finalizado',
+            },
+        ],
 }

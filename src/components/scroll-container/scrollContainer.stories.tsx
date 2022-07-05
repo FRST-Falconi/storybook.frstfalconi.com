@@ -18,5 +18,7 @@ normal.args = {
     isVisibleControlsButtons: true,
     handleClick: (e : any) => { alert(e) }, 
     className: null,
-    styles: {marginLeft:'0'}
+    styles: {marginLeft:'0'},
+    sizeArrowButton: 150,
+    marginsArrowButton: 50,
 }

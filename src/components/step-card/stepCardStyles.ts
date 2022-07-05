@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 interface ICardWrapper {
     active?: boolean,
+    width?: string
 }
 
 
@@ -14,9 +15,9 @@ interface IAvatarInternal {
 }
 
 export const CardWrapper = styled.div<ICardWrapper>`
-    min-width: 343px;
+    min-width: ${({width}) => width ? width : '343px'};
     min-height: 136px;
-    max-width: 343px;
+    max-width: ${({width}) => width ? width : '343px'};;
     max-height: 136px;
     border-radius: 8px;
 
