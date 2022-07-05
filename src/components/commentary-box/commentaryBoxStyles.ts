@@ -220,11 +220,11 @@ export const TextTotalLikes = styled.span`
     margin-left: 6px;
 `
 
-export const FooterEditingWrapper = styled.div`
+export const FooterEditingWrapper = styled.div<{width?:number}>`
     display: flex;
     align-self: flex-end;
     margin: 14px;
-    width: 296px;
+    width: ${({width})=> width > 550 ? '296px' : '200px'};
     justify-content: space-between;
 `
 
