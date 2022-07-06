@@ -1,5 +1,6 @@
 interface ICardWrapper {
     active?: boolean;
+    width?: string;
 }
 interface IAvatarInternal {
     size?: string;

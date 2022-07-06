@@ -1,5 +1,8 @@
 interface IButtonContoll {
     isLeftButton?: boolean;
+    sizeButton?: number;
+    visibility?: string;
+    marginsArrowButton?: string;
 }
 export declare const WrapperHorizontal: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const WrapperContent: import("styled-components").StyledComponent<"div", any, {}, never>;
