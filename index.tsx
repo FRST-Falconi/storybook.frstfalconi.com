@@ -9,6 +9,7 @@ export { default as BaseCard } from "./src/components/cards/base"
 export { default as UserCard } from "./src/components/cards/user"
 export { default as CalendarCard } from "./src/components/calendar"
 export { default as BannerProblem } from "./src/components/cardLT/BannerProblem"
+export { default as MessageBox } from "./src/components/cardLT/MessageBox"
 
 // Buttons
 export { default as Button } from "./src/components/buttons"
