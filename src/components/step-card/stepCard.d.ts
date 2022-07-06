@@ -7,5 +7,6 @@ export interface IStepCard {
     className?: string,
     textButtonMore?: string,
     active?: boolean,
-    src?: any
+    src?: any,
+    width?: string,
 }

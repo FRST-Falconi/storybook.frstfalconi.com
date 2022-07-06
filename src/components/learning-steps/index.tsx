@@ -11,7 +11,8 @@ import { TrashIcon } from '@shared/icons'
 import StepCard from '@components/step-card'
 import ScrollContainer from '@components/scroll-container'
 
-export default function LearningSteps({ title, onSelected, objectCards }: ILearningSteps) {
+export default function LearningSteps({ title, onSelected, objectCards, widthCard,
+    marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton }: ILearningSteps) {
     const [ itemSelected, setItemSelected ] = useState(-1);
 
     const onItemSelect = (n: number) => {
@@ -21,7 +22,8 @@ export default function LearningSteps({ title, onSelected, objectCards }: ILearn
 
     function renderCard(item) {
         return (
-            <StepCard 
+            <StepCard
+                key={item.id}
                 title={item.title}
                 onClick={() => onItemSelect(item.id)}
                 numberPeople={item.numberPeople}
@@ -29,13 +31,19 @@ export default function LearningSteps({ title, onSelected, objectCards }: ILearn
                 textButtonMore={'Ver mais'}
                 active={itemSelected == item.id}
                 src={item.photos}
+                width={widthCard}
             />
         )
     }
 
+
+
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <HeaderWrapper>
+            <HeaderWrapper 
+            marginLeft={marginLeftTitle ? marginLeftTitle : '0px'}
+            marginRight={marginRightClear ? marginRightClear : '0px'}
+            >
                 <TitleComponent>
                     {title}
                 </TitleComponent>
@@ -44,7 +52,7 @@ export default function LearningSteps({ title, onSelected, objectCards }: ILearn
                      <TextClear>Excluir Filtro</TextClear>
                 </ClearComponent>
             </HeaderWrapper>
-            <ScrollContainer stepMove={380} isVisibleControlsButtons>
+            <ScrollContainer stepMove={380} isVisibleControlsButtons sizeArrowButton={sizeArrowButton} marginsArrowButton={marginsArrowButton}>
                 {objectCards.map(renderCard)}
             </ScrollContainer>
         </ThemeProvider>

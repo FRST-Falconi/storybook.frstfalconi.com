@@ -9,7 +9,11 @@ import { MoreDotsHorizontal, Dot, EyeOff, RocketIconCommentaryBox } from '@share
 import SpeechBubble from '@components/speech-bubble'
 import Button from '@components/buttons'
 
-import { buildStringWithLinkHTML, randID } from './commentaryBox.utils'
+import { buildStringWithLinkHTML, randID, buildShortName } from './commentaryBox.utils'
+
+
+const WIDTH_MOBILE = 550;
+
 
 export default function CommentaryBox({
     name, className, styles, position, value, date, actionLike, actionAnswer, isMe, isAuthor,
@@ -18,6 +22,18 @@ export default function CommentaryBox({
     textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
     textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }: ICommentaryBox) {
     
+
+    // Identify Screen Resizing
+    const [size, setSize] = useState([0, 0])
+    useLayoutEffect(() => {
+        function updateSize() {
+        setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+
     const [ isOpenDrop, setIsOpenDrop ] = useState(false)
     const [ onEditing, setOnEditing ] = useState(false)
     const [ enableSaveEdit, setEnableSaveEdit ] = useState(false)
@@ -106,7 +122,7 @@ export default function CommentaryBox({
             <Styles.HeaderWrapper>
                 <Styles.IdentificationWrapper>
                     <Styles.NameWrapper>
-                        <Styles.Name> { name } </Styles.Name>
+                        <Styles.Name> { size[0] > WIDTH_MOBILE ? name : buildShortName(name)} </Styles.Name>
                         { isMe && 
                             <>  
                                 <Styles.DividerDot>
@@ -115,7 +131,9 @@ export default function CommentaryBox({
                                 <Styles.IsMe> { textYou } </Styles.IsMe>  
                             </>
                         }
-                        { ( isPrivateAuthor || isPrivateMe) &&
+                        {size[0] > WIDTH_MOBILE ? 
+                        (
+                            ( isPrivateAuthor || isPrivateMe) &&
                             <>
                                 <Styles.DividerDot>
                                     <Dot fill={ '#757575' }/>
@@ -127,13 +145,15 @@ export default function CommentaryBox({
                                     {textPrivateComment} 
                                 </Styles.CommentPrivate>
                             </>
-                        } 
+                        ): null
+                        }
                     </Styles.NameWrapper>
                     <Styles.Position> { position } </Styles.Position>
                 </Styles.IdentificationWrapper>
                 
                 <Styles.OptionsWrapper>
-                    <Styles.Date> { date } {wasEdited && `(${textEdited})`} </Styles.Date>
+                    {size[0] > WIDTH_MOBILE &&
+                    <Styles.Date> { date } {wasEdited && `(${textEdited})`} </Styles.Date>}
                     { hasDropdown && (isAuthor || isMe) &&
                     <Styles.Dropdown>
                         <Styles.ButtonMore 
@@ -170,6 +190,18 @@ export default function CommentaryBox({
                 </Styles.OptionsWrapper>
             </Styles.HeaderWrapper>
 
+            {size[0] <= WIDTH_MOBILE &&
+            <div style={{display:'flex', marginLeft:'14px', marginTop: '5px', alignItems: 'center'}}>
+                { (isPrivateAuthor || isPrivateMe) &&
+                    <div style={{marginRight: '10px'}}>
+                        <Styles.EyeOffIcon>                                     
+                            <EyeOff fill={  '#757575' }/>
+                        </Styles.EyeOffIcon>
+                    </div>
+                }
+                <Styles.Date> { date } {wasEdited && `(${textEdited})`} </Styles.Date>
+            </div>}
+
             {onEditing ?
                 <>
                     <Styles.CommentaryEditingContent
@@ -182,9 +214,18 @@ export default function CommentaryBox({
                     >
                         { value }
                     </Styles.CommentaryEditingContent>
-                    <Styles.FooterEditingWrapper>
-                        <Button handleClick={() => { saveEditComment() }} label="Salvar Alterações" disabled={!enableSaveEdit} variant="primary" />
-                        <Button handleClick={() => { cancelEditComment() }} label="Cancelar"  variant="secondary" />
+                    <Styles.FooterEditingWrapper width={size[0]}>
+                        <Button 
+                            handleClick={() => { saveEditComment() }} 
+                            label={size[0] > WIDTH_MOBILE ? "Salvar Alterações": "Salvar" } 
+                            disabled={!enableSaveEdit} 
+                            variant="primary" 
+                        />
+                        <Button 
+                            handleClick={() => { cancelEditComment() }} 
+                            label="Cancelar"  
+                            variant="secondary"
+                        />
                     </Styles.FooterEditingWrapper>
                 </>
                 :  

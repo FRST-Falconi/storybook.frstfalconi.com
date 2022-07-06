@@ -8,10 +8,10 @@ import { Bullseye } from '@shared/icons'
 
 import Avatar from '@components/avatar'
 
-export default function StepCard({ title, onClick, numberPeople, textButtonMore, active, src }: IStepCard) {
+export default function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, width }: IStepCard) {
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <CardWrapper active={active} onClick={onClick}>
+            <CardWrapper active={active} onClick={onClick} width={width}>
                 <WrapperHeader>
                     <Bullseye/>
                     <TitleCard>{title}</TitleCard>

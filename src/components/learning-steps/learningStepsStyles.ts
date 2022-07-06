@@ -6,10 +6,13 @@ interface AvatarI {
     disabled?: boolean,
 }
 
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.div<{marginLeft?:string, marginRight?:string}>`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    margin-left: ${({marginLeft})=> marginLeft};
+    margin-right: ${({marginRight})=> marginRight};
 
     margin-bottom: 5px;
 `

@@ -8,4 +8,6 @@ export interface IScrollContainer {
     handleClick?:() => void, 
     className?: string,
     styles?: any,
+    sizeArrowButton?: number,
+    marginsArrowButton?: number
 }

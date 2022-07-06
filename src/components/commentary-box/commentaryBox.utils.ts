@@ -17,3 +17,15 @@ export function randID() {
         .toString(36)
         .substr(2, 9);
 };
+
+export function buildShortName(name) {
+    const nome = name.replace(/\s+/gi, ' ').trim();    
+
+    var array_nome = nome.split(' ');
+
+    if(array_nome.length > 2){
+        return `${array_nome[0]} ${array_nome[array_nome.length-1]}`;
+    }else{
+        return name;
+    }
+}
