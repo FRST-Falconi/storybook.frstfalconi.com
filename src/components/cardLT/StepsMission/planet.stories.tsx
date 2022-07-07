@@ -1,5 +1,3 @@
-
-
 import Steps from './Steps'
 import StepMission from './StepMission'
 
@@ -40,7 +38,7 @@ MissionStepsNetuno.args = {
 export const Step1 = Template.bind({})
 Step1.args = {
     step: 1,
-    status: "A",  
+    status: "A", 
 }
 export const Step2 = Template.bind({})
 Step2.args = {

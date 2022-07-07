@@ -1,5 +1,5 @@
 import { relative } from 'path';
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode, useEffect, useState, useLayoutEffect } from 'react'
 
 import TextIcon from '../TextIcon/index'
 import MessageBox from '../MessageBox/index'
@@ -34,8 +34,10 @@ interface BannerProblemParams {
   dataCriacao: string
   qtdeAvaliacao: number
   notaAvaliacao: number
+  descriptionImpacto: string
   qtdeRelevancia: number
   notaRelevancia: number
+  descriptionRelevancia: string
   curtidas: number
   stepProblem: number
   stepActive: number
@@ -108,6 +110,19 @@ export default function BannerProblem(props: BannerProblemParams) {
       marginTop: 12
     }),   
   }
+
+  // Função para pegar o width da tela
+  const [size, setSize] = useState([0, 0])
+    useLayoutEffect(() => {
+        function updateSize() {
+        setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+
+    const MOBILEWIDTH = 650;
 
   return (
 
@@ -211,32 +226,63 @@ export default function BannerProblem(props: BannerProblemParams) {
                 }
 
               </div>
+              { size[0] <= MOBILEWIDTH ? 
+                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%'}}>
+                    <Rating 
+                      titulo='Impacto'
+                      descricaoAvaliacao={props.descriptionImpacto}
+                      qtdeAvaliacao={props.qtdeAvaliacao}
+                      nota={props.notaAvaliacao}
+                      tipoVisualizacao={1}
+                      style={{marginLeft: 0}}
+                    />
+                    <Rating 
+                      titulo='Relevância'
+                      descricaoAvaliacao={props.descriptionRelevancia}
+                      qtdeAvaliacao={props.qtdeRelevancia}
+                      nota={props.notaRelevancia}
+                      tipoVisualizacao={1}
+                      style={{marginLeft: 0}}
+                    />            
+                    <RatingCurtidas 
+                      titulo='Curtidas'
+                      qtdeCurtidas={props.curtidas}
+                      tipoBotao={2}
+                      style={{marginLeft: 0}}
+                    />
+                  </div>
+                : null
+              }
 
-              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} onClick={props.onClickMessage} style={{marginBottom: 16}}/>
+              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} onClick={props.onClickMessage} hasHover={true} style={{marginBottom: 16, width: 400}}/>
 
               <span className={style.created}>{props.dataCriacao}</span>
             </div>
-            <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
-              <Rating 
-                titulo='Impacto'
-                descricaoAvaliacao='Ótimo'
-                qtdeAvaliacao={props.qtdeAvaliacao}
-                nota={props.notaAvaliacao}
-                tipoVisualizacao={1}
-              />
-              <Rating 
-                titulo='Relevância'
-                descricaoAvaliacao='Bom'
-                qtdeAvaliacao={props.qtdeRelevancia}
-                nota={props.notaRelevancia}
-                tipoVisualizacao={1}
-              />            
-              <RatingCurtidas 
-                titulo='Curtidas'
-                qtdeCurtidas={props.curtidas}
-                tipoBotao={2}
-              />
-            </div>        
+
+            { size[0] > MOBILEWIDTH ?
+              <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
+                <Rating 
+                  titulo='Impacto'
+                  descricaoAvaliacao={props.descriptionImpacto}
+                  qtdeAvaliacao={props.qtdeAvaliacao}
+                  nota={props.notaAvaliacao}
+                  tipoVisualizacao={1}
+                />
+                <Rating 
+                  titulo='Relevância'
+                  descricaoAvaliacao={props.descriptionRelevancia}
+                  qtdeAvaliacao={props.qtdeRelevancia}
+                  nota={props.notaRelevancia}
+                  tipoVisualizacao={1}
+                />            
+                <RatingCurtidas 
+                  titulo='Curtidas'
+                  qtdeCurtidas={props.curtidas}
+                  tipoBotao={2}
+                />
+              </div> 
+              : null
+            }       
           </div>
         </div>
         <StepMission 

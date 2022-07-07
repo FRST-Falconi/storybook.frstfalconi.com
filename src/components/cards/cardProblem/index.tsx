@@ -1,5 +1,5 @@
 import '../../../shared/global.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail } from '@shared/icons'
 import Tag from '@components/tag'
 import style from './cardProblem.module.css'
@@ -69,11 +69,23 @@ export default function CardProblem(props: CardProblemProps) {
         setSelected(props.selected)
     }, [props.selected])
 
+    // Função para pegar o width da tela
+    const [size, setSize] = useState([0, 0])
+    useLayoutEffect(() => {
+        function updateSize() {
+        setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    
+    const BREAKWIDTH = 400;
     
     return (
         
         <div className={style.container} style={{border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }}>
-            <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipótese Levantada" ? '#222222' : '#FFF'}}>
+            <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipóteses levantadas" ? '#222222' : '#FFF'}}>
                 {statusName}
             </div>
             
@@ -86,7 +98,7 @@ export default function CardProblem(props: CardProblemProps) {
                 { selected ? <CheckboxChecked /> : <CheckboxEmpty />}
                 
             </div>
-            <div className={style.contentCard}>
+            <div className={style.contentCard}  onClick={()=> {props.onClick(props.problemID) }} >
                 
                 <div className={style.avatarInfoUser}>
                     <div> <Avatar size='40px' src={props.userAvatar} /> </div>
@@ -100,14 +112,6 @@ export default function CardProblem(props: CardProblemProps) {
                     props.cardTitle &&
                         <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#FF4D0D' , width: '100%'}}> 
                             <span >{props.cardTitle}</span>
-                            <div style={{marginLeft: 16}}> 
-                                {
-                                    selected ? 
-                                        <RocketButton tipoBotao={1}  /> 
-                                    : 
-                                        <RocketButton tipoBotao={2} />
-                                }   
-                            </div>
                         </div>
                 }
                 {
@@ -122,7 +126,7 @@ export default function CardProblem(props: CardProblemProps) {
                             }
                         </div>
                 }
-                {
+                { size[0] > BREAKWIDTH &&
                     props.ratingImpacto &&
                         <div className={style.avaliacao}>
                             <Rating nota={props.ratingImpacto.nota} qtdeAvaliacao={props.ratingImpacto.qtdeAvaliacao} descricaoAvaliacao={props.ratingImpacto.description} titulo='Impacto' tipoVisualizacao={selected ? 3 : 2} />
@@ -133,20 +137,20 @@ export default function CardProblem(props: CardProblemProps) {
                 {
                     props.statusProblema ?
                         props.statusProblema === 'aprovado' ?
-                            <MessageBox tipoVisualizacao={1} texto='Problema aprovado' style={{maxWidth:400}} />
+                            <MessageBox tipoVisualizacao={1} texto='Problema aprovado' style={{minWidth:200, width:'90%'}} />
                         : 
                         props.statusProblema === 'revisar' ?
-                            <MessageBox tipoVisualizacao={3} texto='Revisar problema proposto' style={{maxWidth:400}} />
+                            <MessageBox tipoVisualizacao={3} texto='Revisar problema proposto' style={{minWidth:200, width:'90%'}} />
                         :
-                        <MessageBox tipoVisualizacao={2} texto='Aguardando aprovação' style={{maxWidth:400}} />
+                        <MessageBox tipoVisualizacao={2} texto='Aguardando aprovação' style={{minWidth:200, width:'90%'}} />
                     :
                     <></>
                 }
                 
                 {
-                    statusName !== 'Não iniciou' ?
+                    statusName !== 'Problema criado' ?
                         props.trilhaVinculada ?
-                            <TextIcon description={`vinculado a trilha ${props.trilhaVinculada}`} svg={<WithTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
+                            <TextIcon description={`Vinculado à trilha ${props.trilhaVinculada}`} svg={<WithTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
                         :
                         <TextIcon description='Ainda não está vinculado a uma trilha' svg={<WithoutTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
                     :
@@ -156,13 +160,7 @@ export default function CardProblem(props: CardProblemProps) {
                     props.lastUpdated &&
                         <div style={{color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop:8}}>{props.lastUpdated} </div>
                 }
-                {
-                    props.isButtonVerMais &&
-                        <div className={style.buttonVerMais} >
-                            <Button variant='link' label='Ver mais' handleClick={() => props.onClick(props.problemID)} />
-
-                        </div>
-                }
+                
             </div>
             
         </div>

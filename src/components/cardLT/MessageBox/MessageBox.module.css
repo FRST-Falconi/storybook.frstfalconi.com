@@ -1,5 +1,5 @@
 .container {
-  min-width: 300px;
+  min-width: 200px;
   padding: 8px;
   min-height: 30px;
   margin-top: 8px;
@@ -13,14 +13,6 @@
   
 }
 
-.success{
-  
-  border-Width: 2;
-  border-color: #2CA92A;
-  background-color: #D1F6D1;
-  color: #222;
-}
-
 .square{
   height: 20px;
   width: 20px;
@@ -30,9 +22,25 @@
   margin-right: 8px;
 }
 
+.success{
+  
+  border-Width: 2;
+  border-color: #2CA92A;
+  background-color: #D1F6D1;
+  color: #222;
+}
+
 .success:hover{
   background-color: #2CA92A !important;
   color: white;
+}
+
+.successNoHover{
+  
+  border-Width: 2;
+  border-color: #2CA92A;
+  background-color: #D1F6D1;
+  color: #222;
 }
 
 .warning{
@@ -47,6 +55,13 @@
   color: white;
 }
 
+.warningNoHover{
+  border-Width: 2;
+  border-color: #FFC200;
+  background-color: #FEF0D4;
+  color: #222;
+}
+
 .error{
   border-Width: 2;
   border-color: #EA0000;
@@ -59,7 +74,9 @@
   color: white;
 }
 
-
-
-
-
+.errorNoHover{
+  border-Width: 2;
+  border-color: #EA0000;
+  background-color: #FFE5E5;
+  color: #222;
+}

@@ -54,7 +54,7 @@ export default function Steps(props: StepParams) {
   return (
 
     <>    
-      <div className={style.container} style={{...props.style }} onClick={() => {
+      <div className={style.container} style={{...props.style}} onClick={() => {
         if (props.status !== 'B') {
           props.onClick()
         }
@@ -70,7 +70,7 @@ export default function Steps(props: StepParams) {
         {
           props.status === 'B' &&        
           <div className={style.block}>
-            <img src={'https://api-motor.s3.amazonaws.com/lock.png'}/>
+            <img src={'https://api-motor.s3.amazonaws.com/lock.png'}  />
           </div>
         }        
       </div>
