@@ -16,8 +16,10 @@ interface BannerProblemParams {
     dataCriacao: string;
     qtdeAvaliacao: number;
     notaAvaliacao: number;
+    descriptionImpacto: string;
     qtdeRelevancia: number;
     notaRelevancia: number;
+    descriptionRelevancia: string;
     curtidas: number;
     stepProblem: number;
     stepActive: number;

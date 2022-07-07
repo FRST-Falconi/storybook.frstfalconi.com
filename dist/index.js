@@ -530,8 +530,8 @@ function TextIcon(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$b.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8 }, children: props.description })] }) }) }));
 }
 
-var css_248z$a = ".MessageBox-module_container__6oBFw {\r\n  min-width: 300px;\r\n  padding: 8px;\r\n  min-height: 30px;\r\n  margin-top: 8px;\r\n  font-size: 14px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: center;\r\n  position: relative;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  \r\n}\r\n\r\n.MessageBox-module_success__OT-qh{\r\n  \r\n  border-Width: 2;\r\n  border-color: #2CA92A;\r\n  background-color: #D1F6D1;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_square__bUGB6{\r\n  height: 20px;\r\n  width: 20px;\r\n  display: inline-flex; \r\n  justify-content: center; \r\n  align-items: center;\r\n  margin-right: 8px;\r\n}\r\n\r\n.MessageBox-module_success__OT-qh:hover{\r\n  background-color: #2CA92A !important;\r\n  color: white;\r\n}\r\n\r\n.MessageBox-module_warning__WFHrV{\r\n  border-Width: 2;\r\n  border-color: #FFC200;\r\n  background-color: #FEF0D4;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_warning__WFHrV:hover{\r\n  background-color: #FFC200 !important;\r\n  color: white;\r\n}\r\n\r\n.MessageBox-module_error__PzfdG{\r\n  border-Width: 2;\r\n  border-color: #EA0000;\r\n  background-color: #FFE5E5;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_error__PzfdG:hover{\r\n  background-color: #EA0000 !important;\r\n  color: white;\r\n}\r\n\r\n\r\n\r\n\r\n\r\n";
-var style$a = {"container":"MessageBox-module_container__6oBFw","success":"MessageBox-module_success__OT-qh","square":"MessageBox-module_square__bUGB6","warning":"MessageBox-module_warning__WFHrV","error":"MessageBox-module_error__PzfdG"};
+var css_248z$a = ".MessageBox-module_container__6oBFw {\r\n  min-width: 200px;\r\n  padding: 8px;\r\n  min-height: 30px;\r\n  margin-top: 8px;\r\n  font-size: 14px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: center;\r\n  position: relative;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  \r\n}\r\n\r\n.MessageBox-module_square__bUGB6{\r\n  height: 20px;\r\n  width: 20px;\r\n  display: inline-flex; \r\n  justify-content: center; \r\n  align-items: center;\r\n  margin-right: 8px;\r\n}\r\n\r\n.MessageBox-module_success__OT-qh{\r\n  \r\n  border-Width: 2;\r\n  border-color: #2CA92A;\r\n  background-color: #D1F6D1;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_success__OT-qh:hover{\r\n  background-color: #2CA92A !important;\r\n  color: white;\r\n}\r\n\r\n.MessageBox-module_successNoHover__0-hv8{\r\n  \r\n  border-Width: 2;\r\n  border-color: #2CA92A;\r\n  background-color: #D1F6D1;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_warning__WFHrV{\r\n  border-Width: 2;\r\n  border-color: #FFC200;\r\n  background-color: #FEF0D4;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_warning__WFHrV:hover{\r\n  background-color: #FFC200 !important;\r\n  color: white;\r\n}\r\n\r\n.MessageBox-module_warningNoHover__9REga{\r\n  border-Width: 2;\r\n  border-color: #FFC200;\r\n  background-color: #FEF0D4;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_error__PzfdG{\r\n  border-Width: 2;\r\n  border-color: #EA0000;\r\n  background-color: #FFE5E5;\r\n  color: #222;\r\n}\r\n\r\n.MessageBox-module_error__PzfdG:hover{\r\n  background-color: #EA0000 !important;\r\n  color: white;\r\n}\r\n\r\n.MessageBox-module_errorNoHover__wBfkm{\r\n  border-Width: 2;\r\n  border-color: #EA0000;\r\n  background-color: #FFE5E5;\r\n  color: #222;\r\n}";
+var style$a = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm"};
 styleInject(css_248z$a);
 
 ///-----------------------------------------
@@ -581,10 +581,16 @@ function MessageBox(props) {
         jsxRuntime.jsx(WarningIcon, {}),
         jsxRuntime.jsx(ErrorIcon, {}),
     ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: `${props.tipoVisualizacao === 1 ? style$a.success
-                : props.tipoVisualizacao === 2 ? style$a.warning
-                    : props.tipoVisualizacao === 3 ? style$a.error
-                        : ''} ${style$a.container}`, style: {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: props.hasHover ?
+                `${props.tipoVisualizacao === 1 ? style$a.success
+                    : props.tipoVisualizacao === 2 ? style$a.warning
+                        : props.tipoVisualizacao === 3 ? style$a.error
+                            : ''} ${style$a.container}`
+                :
+                    `${props.tipoVisualizacao === 1 ? style$a.successNoHover
+                        : props.tipoVisualizacao === 2 ? style$a.warningNoHover
+                            : props.tipoVisualizacao === 3 ? style$a.errorNoHover
+                                : ''} ${style$a.container}`, style: {
                 cursor: props.onClick ? 'pointer' : 'default',
                 ...props.style
             }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$a.square, style: {
@@ -1178,6 +1184,17 @@ function BannerProblem(props) {
             marginTop: 12
         }),
     };
+    // Função para pegar o width da tela
+    const [size, setSize] = react.useState([0, 0]);
+    react.useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    const MOBILEWIDTH = 650;
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style }, children: [jsxRuntime.jsx("span", { className: style$5.titleProblem, children: "Problema" }), props.isEditable &&
                     jsxRuntime.jsx(Button, { label: Edit ? "Salvar Alterações" : "Editar", variant: 'link', handleClick: () => {
                             setEdit(!Edit);
@@ -1199,7 +1216,11 @@ function BannerProblem(props) {
                                                                 setTag3(e.value);
                                                             } })] }) })
                                             :
-                                                jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, style: { marginBottom: 16 } }), jsxRuntime.jsx("span", { className: style$5.created, children: props.dataCriacao })] }), jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: '\u00D3timo', qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: 'Bom', qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2 })] })] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
+                                                jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH ?
+                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { marginLeft: 0 } }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { marginLeft: 0 } }), jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { marginLeft: 0 } })] })
+                                        : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, width: 400 } }), jsxRuntime.jsx("span", { className: style$5.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH ?
+                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2 })] })
+                                : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                         props.onSelectedStep(step);
                     } }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
 }
@@ -1737,21 +1758,12 @@ const TextTotalLikes = styled__default["default"].span `
 
     margin-left: 6px;
 `;
-<<<<<<< HEAD
 const FooterEditingWrapper = styled__default["default"].div `
     display: flex;
     align-self: flex-end;
     margin: 14px;
     width: ${({ width }) => width > 550 ? '296px' : '200px'};
     justify-content: space-between;
-=======
-const FooterEditingWrapper = styled__default["default"].div `
-    display: flex;
-    align-self: flex-end;
-    margin: 14px;
-    width: 296px;
-    justify-content: space-between;
->>>>>>> Fix-LayoutResponsivo
 `;
 const LinkButton = styled__default["default"].a `
     border: none;
@@ -2084,7 +2096,6 @@ const WrapperContent$1 = styled__default["default"].div `
     padding-left: 150px;
     padding-right: 150px;
 `;
-<<<<<<< HEAD
 const ButtonControll = styled__default["default"].div `
     display: flex;
     visibility: ${({ visibility }) => visibility};
@@ -2142,47 +2153,6 @@ styled__default["default"].div `
     background-color: #0f0;
     z-index: 1;
     border-radius: 20px
-=======
-const ButtonControll = styled__default["default"].div `
-    display: flex;  
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    
-    width: 80px;
-    height: 80px;
-
-    min-width: 80px;
-    min-height: 80px;
-
-    background: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid #E8E8E8;
-
-    border-radius: 50%;
-    ${({ isLeftButton }) => isLeftButton ? 'padding-right: 6px' : 'padding-left: 6px'};
-    ${({ isLeftButton }) => isLeftButton ? 'margin-right: -138px' : 'margin-left: -138px'};
-
-    &:hover { 
-        background: ${({ theme }) => theme.colors.secondary2};
-        border: 0px solid #E8E8E8;
-    }
-
-    box-shadow: 8px 21px 8px 0 rgb(34 34 34 / 30%) !important;
-    z-index: 9;
-    transition: all 0.2s ease-in-out;
-`;
-// ${({ isLeftButton }) => isLeftButton ? 'margin-right: -28px' : 'margin-left: -28px'};
-styled__default["default"].div `
-    min-width: 350px;
-    min-height: 300px;
-    margin: 10px;
-    margin-left: 40px;
-    margin-right: 40px;
-    background-color: #0f0;
-    z-index: 1;
-    border-radius: 20px
->>>>>>> Fix-LayoutResponsivo
 `;
 
 function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, className, styles, sizeArrowButton, marginsArrowButton }) {
@@ -2215,7 +2185,6 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, c
                                         '-138px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }) }) }));
 }
 
-<<<<<<< HEAD
 const HeaderWrapper = styled__default["default"].div `
     display: flex;
     flex-direction: row;
@@ -2225,14 +2194,6 @@ const HeaderWrapper = styled__default["default"].div `
     margin-right: ${({ marginRight }) => marginRight};
 
     margin-bottom: 5px;
-=======
-const HeaderWrapper = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    margin-bottom: 5px;
->>>>>>> Fix-LayoutResponsivo
 `;
 const ClearComponent = styled__default["default"].div `
     display: flex;
@@ -2260,7 +2221,6 @@ const TextClear = styled__default["default"].div `
     margin-left: 18px;
 `;
 
-<<<<<<< HEAD
 const CardWrapper$1 = styled__default["default"].div `
     min-width: ${({ width }) => width ? width : '343px'};
     min-height: 136px;
@@ -2279,26 +2239,6 @@ const CardWrapper$1 = styled__default["default"].div `
     padding: 24px;
     margin: 15px;   
     cursor: pointer;
-=======
-const CardWrapper$1 = styled__default["default"].div `
-    min-width: 343px;
-    min-height: 136px;
-    max-width: 343px;
-    max-height: 136px;
-    border-radius: 8px;
-
-
-    background-color: ${({ theme }) => theme.colors.neutralsGrey8};
-    border: 1px solid #E8E8E8;
-
-    ${({ active }) => active === true && `
-        background-color: #FDBC91;
-        border: 1px solid #FF4D0D;
-    `}
-    padding: 24px;
-    margin: 15px;   
-    cursor: pointer;
->>>>>>> Fix-LayoutResponsivo
 `;
 const WrapperHeader = styled__default["default"].div `
     display: flex;
@@ -2920,8 +2860,8 @@ function CardProblemGestor(props) {
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
-var css_248z$1 = ".cardProblem-module_container__eYX3j {\r\n    width: 100%;\r\n    border-radius: 10px;\r\n    padding: 30px;\r\n\r\n    \r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: row;\r\n    position: relative;\r\n}\r\n\r\n.cardProblem-module_tagStatusProblem__11NQe {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 8px;\r\n    border-top-right-radius: 5px;\r\n\r\n}\r\n\r\n.cardProblem-module_checkBox__hhdF6 {\r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    height: 100%;\r\n    padding-top: 20px;\r\n    padding-left: 12px;\r\n    \r\n\r\n    position: absolute;\r\n    left: 0;\r\n\r\n}\r\n\r\n.cardProblem-module_contentCard__oBqoN {\r\n    \r\n    margin-left: 8px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n}\r\n\r\n.cardProblem-module_avatarInfoUser__0ppVK {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: row;\r\n}\r\n\r\n.cardProblem-module_infoUser__Zx6rx {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    margin-left: 4px;\r\n}\r\n\r\n.cardProblem-module_tituloCard__JD95u {\r\n    \r\n    margin-top: 4px;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n\r\n    font-weight: 600;\r\n    font-size: 18px;\r\n}\r\n\r\n.cardProblem-module_tagsContainer__IwGeV {\r\n    \r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.cardProblem-module_avaliacao__kyzgs {\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n   \r\n}\r\n\r\n.cardProblem-module_buttonVerMais__qgmLA {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    bottom: 0;\r\n    right: 0;\r\n\r\n    margin-bottom: 30px;\r\n    margin-right: 30px;\r\n}";
-var style$1 = {"container":"cardProblem-module_container__eYX3j","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","contentCard":"cardProblem-module_contentCard__oBqoN","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
+var css_248z$1 = ".cardProblem-module_container__eYX3j {\r\n    width: 100%;\r\n    border-radius: 10px;\r\n    padding-right: 48px;\r\n    padding-left: 48px;\r\n    padding-top: 30px;\r\n    padding-bottom: 30px;\r\n\r\n    \r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: row;\r\n    position: relative;\r\n}\r\n\r\n.cardProblem-module_contentCard__oBqoN:hover {\r\n    cursor: pointer;\r\n}\r\n\r\n.cardProblem-module_tagStatusProblem__11NQe {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 8px;\r\n    border-top-right-radius: 5px;\r\n\r\n}\r\n\r\n.cardProblem-module_checkBox__hhdF6 {\r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    height: 100%;\r\n    padding-top: 20px;\r\n    padding-left: 30px;\r\n    \r\n\r\n    position: absolute;\r\n    left: 0;\r\n\r\n}\r\n\r\n.cardProblem-module_contentCard__oBqoN {\r\n    \r\n    margin-left: 8px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n}\r\n\r\n.cardProblem-module_avatarInfoUser__0ppVK {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: row;\r\n}\r\n\r\n.cardProblem-module_infoUser__Zx6rx {\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    margin-left: 4px;\r\n}\r\n\r\n.cardProblem-module_tituloCard__JD95u {\r\n    \r\n    margin-top: 4px;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n\r\n    font-weight: 600;\r\n    font-size: 18px;\r\n}\r\n\r\n.cardProblem-module_tagsContainer__IwGeV {\r\n    \r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n.cardProblem-module_avaliacao__kyzgs {\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n   \r\n}\r\n\r\n.cardProblem-module_buttonVerMais__qgmLA {\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n\r\n    position: absolute;\r\n    bottom: 0;\r\n    right: 0;\r\n\r\n    margin-bottom: 30px;\r\n    margin-right: 30px;\r\n}";
+var style$1 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
 styleInject(css_248z$1);
 
 /**
@@ -2960,33 +2900,41 @@ function CardProblem(props) {
     react.useEffect(() => {
         setSelected(props.selected);
     }, [props.selected]);
-    return (jsxRuntime.jsxs("div", { className: style$1.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$1.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipótese Levantada" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$1.checkBox, onClick: () => {
+    // Função para pegar o width da tela
+    const [size, setSize] = react.useState([0, 0]);
+    react.useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    const BREAKWIDTH = 400;
+    return (jsxRuntime.jsxs("div", { className: style$1.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$1.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$1.checkBox, onClick: () => {
                     setSelected(!selected);
                     props.handleSelect(props.problemID);
-                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$1.contentCard, children: [jsxRuntime.jsxs("div", { className: style$1.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$1.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
-                        jsxRuntime.jsxs("div", { className: style$1.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: [jsxRuntime.jsx("span", { children: props.cardTitle }), jsxRuntime.jsx("div", { style: { marginLeft: 16 }, children: selected ?
-                                        jsxRuntime.jsx(RocketButton, { tipoBotao: 1 })
-                                        :
-                                            jsxRuntime.jsx(RocketButton, { tipoBotao: 2 }) })] }), props.tags &&
-                        jsxRuntime.jsx("div", { className: style$1.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
+                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$1.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$1.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$1.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
+                        jsxRuntime.jsx("div", { className: style$1.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
+                        jsxRuntime.jsx("div", { className: style$1.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
+                        props.ratingImpacto &&
                         jsxRuntime.jsxs("div", { className: style$1.avaliacao, children: [jsxRuntime.jsx(Rating, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
                         props.statusProblema === 'aprovado' ?
-                            jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: 'Problema aprovado', style: { maxWidth: 400 } })
+                            jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: 'Problema aprovado', style: { minWidth: 200, width: '90%' } })
                             :
                                 props.statusProblema === 'revisar' ?
-                                    jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 3, texto: 'Revisar problema proposto', style: { maxWidth: 400 } })
+                                    jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 3, texto: 'Revisar problema proposto', style: { minWidth: 200, width: '90%' } })
                                     :
-                                        jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 2, texto: 'Aguardando aprova\u00E7\u00E3o', style: { maxWidth: 400 } })
+                                        jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 2, texto: 'Aguardando aprova\u00E7\u00E3o', style: { minWidth: 200, width: '90%' } })
                         :
-                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), statusName !== 'Não iniciou' ?
+                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), statusName !== 'Problema criado' ?
                         props.trilhaVinculada ?
-                            jsxRuntime.jsx(TextIcon, { description: `vinculado a trilha ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
+                            jsxRuntime.jsx(TextIcon, { description: `Vinculado à trilha ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                             :
                                 jsxRuntime.jsx(TextIcon, { description: 'Ainda n\u00E3o est\u00E1 vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}), props.lastUpdated &&
-                        jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }), props.isButtonVerMais &&
-                        jsxRuntime.jsx("div", { className: style$1.buttonVerMais, children: jsxRuntime.jsx(Button, { variant: 'link', label: 'Ver mais', handleClick: () => props.onClick(props.problemID) }) })] })] }));
+                        jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
 var css_248z = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";

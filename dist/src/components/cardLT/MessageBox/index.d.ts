@@ -1,6 +1,7 @@
 import React from 'react';
 interface MessageBoxParams {
     texto: string;
+    hasHover?: boolean;
     /**
      * @prop {number} tipoVisualizacao: Estilo de card (1- Mensagem sucesso, 2- Mensagem alerta, 3- Mensagem erro)
      */
