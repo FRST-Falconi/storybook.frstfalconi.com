@@ -39,10 +39,15 @@ function ApprovesItem(props: ApprovesItemProps){
                 </div>
                 {
                     props.statusApprove === 'aprovar' ?
+                    <div style={{minWidth: '48px'}}>
                     <CorrectInCicleIcon/>
+                    </div>
                     : props.statusApprove === 'revisar' ?
+                    <div style={{minWidth: '48px'}}>
                     <ErrorInCicleIcon/>
-                    : <WarningInCicleIcon/>
+                    </div>
+                    : 
+                    <div style={{minWidth: '48px'}}><WarningInCicleIcon/></div>
                 } 
                 <div style={{marginBottom: 30}}>
                     <Avatar src={problemaFRST} size='120px'  />
