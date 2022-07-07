@@ -14,6 +14,7 @@ import AvatarWithInfo from '../AvatarWithInfo/index'
 import Button from '@components/buttons'
 
 import style from './BannerProblem.module.css'
+import TextField from '@components/form-elements/textfield'
 
 ///-----------------------------------------
 /// Interface do Componente
@@ -42,6 +43,7 @@ interface BannerProblemParams {
   stepProblem: number
   stepActive: number
   onSelectedStep: (step: number) => void
+  onClickSave:([]) => void 
   /**
    * @prop {object} trilhaData: A listagem de Trilhas no Select [{label: 'trilha1', value: 'id1'}]
    */  
@@ -81,10 +83,11 @@ export default function BannerProblem(props: BannerProblemParams) {
   const [Tag1, setTag1] = useState(props.tags && props.tags.length >=1 ? props.tags[0] : '')
   const [Tag2, setTag2] = useState(props.tags && props.tags.length >=2 ? props.tags[1] : '')
   const [Tag3, setTag3] = useState(props.tags && props.tags.length >=3 ? props.tags[2] : '')
-  
+  const [TituloProblema, setTituloProblema] = useState(props.problema ? props.problema : '')
   /// States para controle de elementos do Banner
   const [TrilhaBanner, setTrilhaBanner] = useState(props.trilha ? props.trilha : '')
   const [Tags, setTags] = useState(props.tags ? props.tags : [])
+  const [problema, setProblema] = useState(props.problema ? props.problema : '')
 
   const customStyles = {
     option: (styles, {isFocused, isSelected}) => ({
@@ -128,19 +131,44 @@ export default function BannerProblem(props: BannerProblemParams) {
 
     <>    
       <div className={style.container} style={{...props.style }}>
-        <span className={style.titleProblem}>Problema</span>
+        <div style={{width: '100%', display: 'flex', justifyContent:'space-between', flexDirection: 'row', alignItems:'center'}}>
+          <span className={style.titleProblem}>Problema</span>
+          {
+            props.isEditable &&
+            <Button 
+              label={Edit ? "Salvar Alterações" : "Editar"}
+              variant='link' 
+              handleClick={() => {
+                {
+                  Edit && 
+                    setProblema(TituloProblema)
+                    setTrilhaBanner(TrilhaDescricaoSelecionada)
+                    setTags([Tag1, Tag2, Tag3])
+                    props.onClickSave([TituloProblema, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]]) 
+                }
+                setEdit(!Edit)
+              }}
+              startIcon={<EditIcon />}
+            />
+          }
+        </div>
         {
-          props.isEditable &&
-          <Button 
-            label={Edit ? "Salvar Alterações" : "Editar"}
-            variant='link' 
-            handleClick={() => {
-              setEdit(!Edit)
-            }}
-            startIcon={<EditIcon />}
-          />
+          Edit ?
+            <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginTop: 8}}>
+              <TextField
+                width='300px'
+                type = 'text'
+                multiline = {true}
+                value = {TituloProblema}
+                onChange = {e => {
+                  setTituloProblema(e.target.value)
+                }}
+              />
+            </div>
+          :
+            <h1 className={style.description}>{problema}</h1>
+
         }
-        <h1 className={style.description}>{props.problema}</h1>
         <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32}}>
           <div style={{display: 'inline-flex', width: '100%'}}>
             <div style={{width:'100%', maxWidth: 600}}>
@@ -226,7 +254,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                 }
 
               </div>
-              { size[0] <= MOBILEWIDTH ? 
+              { size[0] <= MOBILEWIDTH || Edit ? 
                   <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}}>
                     <Rating 
                       titulo='Impacto'
@@ -259,7 +287,7 @@ export default function BannerProblem(props: BannerProblemParams) {
               <span className={style.created}>{props.dataCriacao}</span>
             </div>
 
-            { size[0] > MOBILEWIDTH ?
+            { size[0] > MOBILEWIDTH && Edit === false ?
               <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
                 <Rating 
                   titulo='Impacto'
