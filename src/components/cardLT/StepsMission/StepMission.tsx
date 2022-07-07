@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useLayoutEffect } from 'react'
 
 import style from './Planet.module.css'
 import Steps from './Steps'
@@ -47,6 +47,18 @@ export default function MissionSteps(props: MissionStepsParams) {
   useEffect(() =>{
     setstepLiberado(props.stepProblem)
   },[props.stepProblem]);
+
+  // Função para pegar o width da tela
+  const [size, setSize] = useState([0, 0])
+  useLayoutEffect(() => {
+      function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+      }
+      window.addEventListener('resize', updateSize);
+      updateSize();
+      return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  const BREAKWIDTH = 475
   
   return (
 
@@ -54,22 +66,31 @@ export default function MissionSteps(props: MissionStepsParams) {
       <div style={{display:"flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white'}}>
         
         {
-          stepActive > 1 &&
-          <span onClick={() => {setStep(stepActive-1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, left: 20, cursor: 'pointer'}}>{`${"< Missão anterior"}`}</span> 
+          stepActive > 1 ?
+            size[0] >= BREAKWIDTH ?
+              <span onClick={() => {setStep(stepActive-1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, left: 20, cursor: 'pointer'}}>{`${"< Missão anterior"}`}</span> 
+            :
+              <span onClick={() => {setStep(stepActive-1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, left: 20, cursor: 'pointer'}}>{`${"< Ant."}`}</span> 
+          : null
         }
                 
         {
-          stepActive < stepLiberado &&
-            <span onClick={() => {setStep(stepActive+1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, right: 20, cursor: 'pointer'}}>{`${"Próxima missão >"}`}</span>   
+          stepActive < stepLiberado ?
+            size[0] >= BREAKWIDTH ?
+              <span onClick={() => {setStep(stepActive+1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, right: 20, cursor: 'pointer'}}>{`${"Próxima missão >"}`}</span>   
+            :
+              <span onClick={() => {setStep(stepActive+1)}} className={style.missaoTitle} style={{position: 'absolute', top: 20, right: 20, cursor: 'pointer'}}>{`${"Próx. >"}`}</span>   
+          : null
         }
     
-        <div style={{display:"inline-flex", marginTop: 40, justifyContent: 'center'}}>
+        <div style={{display:"inline-flex", marginTop: 40, justifyContent: 'center', width: '100%'}}>
           <Steps
             step={1}
             status={ stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B"  } 
             onClick={() => {
               setStep(1)
             }}
+            
           />
           <Steps
             step={2}
@@ -77,6 +98,7 @@ export default function MissionSteps(props: MissionStepsParams) {
             onClick={() => {
               setStep(2)
             }}
+            
           />
           <Steps
             step={3}
@@ -84,6 +106,7 @@ export default function MissionSteps(props: MissionStepsParams) {
             onClick={() => {
               setStep(3)
             }}
+            
           />
           <Steps
             step={4}
@@ -91,6 +114,7 @@ export default function MissionSteps(props: MissionStepsParams) {
             onClick={() => {
               setStep(4)
             }}
+           
           />
           <Steps
             step={5}
@@ -98,6 +122,7 @@ export default function MissionSteps(props: MissionStepsParams) {
             onClick={() => {
               setStep(5)
             }}
+            
           />
         </div>
       </div>

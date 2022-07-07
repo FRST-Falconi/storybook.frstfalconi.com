@@ -14,6 +14,6 @@ const Template = (args) => <AvatarWithInfo {...args} />
 export const Teste1 = Template.bind({})
 Teste1.args = {
   nomeCompleto: 'Roberto Lima',
-  cargo: 'Estudante/Universitário(a)'
+  cargo: 'Estudante / Universitário(a)'
 }
 

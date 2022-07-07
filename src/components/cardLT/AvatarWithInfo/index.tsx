@@ -45,7 +45,7 @@ export default function AvatarWithInfo(props: AvatarWithInfoParams) {
       <div className={style.container} style={{...props.style }}>
 
         <Avatar size='40px' src={props.fotoAvatar}/>
-        <span style={{fontWeight:600, marginRight: 8, marginLeft: 12}}>{props.nomeCompleto}</span> <Vector /> <span style={{fontWeight:400, marginRight: 8, marginLeft: 8}}>{props.cargo}</span>
+        <span style={{fontWeight:600, marginLeft: 8, marginRight: 4}}>{props.nomeCompleto}</span> <Vector /> <span style={{fontWeight:400, marginLeft: 4, marginRight: 8, textAlign: 'center'}}>{props.cargo}</span>
                
       </div>
     </>

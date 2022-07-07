@@ -18,6 +18,9 @@
 }
 
 .label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   padding: 2px;
   border: 2px dashed white;
@@ -25,6 +28,29 @@
   left: 8px;
   right: 8px;
   width: calc(100% -16px);
+}
+@media (max-width: 600px) {
+  .label {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 540px) {
+  .label {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 470px) {
+  .label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .label {
+    font-size: 12px;
+  }
 }
 
 .block {
@@ -43,8 +69,8 @@
 }
 
 .block img {
-  width: 32px;
-  height: 32px;
+  width: 50%;
+  height: 50%;
   object-fit: contain;
   margin-top: 0;
 }

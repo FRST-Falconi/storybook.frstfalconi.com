@@ -142,8 +142,8 @@ export default function BannerProblem(props: BannerProblemParams) {
         }
         <h1 className={style.description}>{props.problema}</h1>
         <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32}}>
-          <div style={{display: 'inline-flex', width: '80%'}}>
-            <div>
+          <div style={{display: 'inline-flex', width: '100%'}}>
+            <div style={{width:'100%', maxWidth: 600}}>
               <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} />
               <TextIcon description={props.area} svg={<Brain />}/>
               <TextIcon description={props.email} svg={<Mail />}/>
@@ -227,14 +227,14 @@ export default function BannerProblem(props: BannerProblemParams) {
 
               </div>
               { size[0] <= MOBILEWIDTH ? 
-                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%'}}>
+                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}}>
                     <Rating 
                       titulo='Impacto'
                       descricaoAvaliacao={props.descriptionImpacto}
                       qtdeAvaliacao={props.qtdeAvaliacao}
                       nota={props.notaAvaliacao}
                       tipoVisualizacao={1}
-                      style={{marginLeft: 0}}
+                      style={{margin: 0}}
                     />
                     <Rating 
                       titulo='Relevância'
@@ -242,19 +242,19 @@ export default function BannerProblem(props: BannerProblemParams) {
                       qtdeAvaliacao={props.qtdeRelevancia}
                       nota={props.notaRelevancia}
                       tipoVisualizacao={1}
-                      style={{marginLeft: 0}}
+                      style={{margin: 0}}
                     />            
                     <RatingCurtidas 
                       titulo='Curtidas'
                       qtdeCurtidas={props.curtidas}
                       tipoBotao={2}
-                      style={{marginLeft: 0}}
+                      style={{margin:0}}
                     />
                   </div>
                 : null
               }
 
-              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} onClick={props.onClickMessage} hasHover={true} style={{marginBottom: 16, width: 400}}/>
+              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} onClick={props.onClickMessage} hasHover={true} style={{marginBottom: 16, maxWidth:400}}/>
 
               <span className={style.created}>{props.dataCriacao}</span>
             </div>
