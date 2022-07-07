@@ -24,6 +24,7 @@ interface BannerProblemParams {
     stepProblem: number;
     stepActive: number;
     onSelectedStep: (step: number) => void;
+    onClickSave: ([]: Iterable<any>) => void;
     /**
      * @prop {object} trilhaData: A listagem de Trilhas no Select [{label: 'trilha1', value: 'id1'}]
      */
