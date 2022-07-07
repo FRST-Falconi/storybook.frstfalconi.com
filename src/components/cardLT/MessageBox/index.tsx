@@ -11,6 +11,8 @@ import { SocialDistanceOutlined } from '@mui/icons-material';
 /// Interface do Componente
 interface MessageBoxParams {
   texto: string;
+
+  hasHover?: boolean;
   /**
    * @prop {number} tipoVisualizacao: Estilo de card (1- Mensagem sucesso, 2- Mensagem alerta, 3- Mensagem erro)
    */  
@@ -61,10 +63,16 @@ export default function MessageBox(props: MessageBoxParams): any {
     <>    
       <div 
         className={
-          `${props.tipoVisualizacao === 1 ? style.success 
-            : props.tipoVisualizacao === 2 ? style.warning
-            : props.tipoVisualizacao === 3 ? style.error 
-            : '' } ${style.container}`
+          props.hasHover ?
+            `${props.tipoVisualizacao === 1 ? style.success 
+              : props.tipoVisualizacao === 2 ? style.warning
+              : props.tipoVisualizacao === 3 ? style.error 
+              : '' } ${style.container}`
+          :
+            `${props.tipoVisualizacao === 1 ? style.successNoHover 
+              : props.tipoVisualizacao === 2 ? style.warningNoHover
+              : props.tipoVisualizacao === 3 ? style.errorNoHover
+              : '' } ${style.container}`
         } 
         style={{
           cursor: props.onClick ? 'pointer' : 'default',
