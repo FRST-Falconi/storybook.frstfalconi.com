@@ -114,6 +114,29 @@ export default function BannerProblem(props: BannerProblemParams) {
     }),   
   }
 
+  useEffect(()=>{
+    setTrilhaId(props.trilhaId ? props.trilhaId : null)
+    setTrilhaDescricaoSelecionada(props.trilha ? props.trilha : '')
+    setTag1(props.tags && props.tags.length >=1 ? props.tags[0] : '')
+    setTag2(props.tags && props.tags.length >=2 ? props.tags[1] : '')
+    setTag3(props.tags && props.tags.length >=3 ? props.tags[2] : '')
+    setTituloProblema(props.problema ? props.problema : '')
+    /// States para controle de elementos do Banner
+    setTrilhaBanner(props.trilha ? props.trilha : '')
+    setTags(props.tags ? props.tags : [])
+    setProblema(props.problema ? props.problema : '')
+  }, [props]);
+
+  const handleEdit = () => {
+    if(Edit === true) {
+      setProblema(TituloProblema)
+      setTrilhaBanner(TrilhaDescricaoSelecionada)
+      setTags([Tag1, Tag2, Tag3])
+      props.onClickSave([TituloProblema, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]])
+    }
+    setEdit(!Edit)
+  };
+
   // Função para pegar o width da tela
   const [size, setSize] = useState([0, 0])
     useLayoutEffect(() => {
@@ -138,31 +161,41 @@ export default function BannerProblem(props: BannerProblemParams) {
             <Button 
               label={Edit ? "Salvar Alterações" : "Editar"}
               variant='link' 
-              handleClick={() => {
-                {
-                  Edit && 
-                    setProblema(TituloProblema)
-                    setTrilhaBanner(TrilhaDescricaoSelecionada)
-                    setTags([Tag1, Tag2, Tag3])
-                    props.onClickSave([TituloProblema, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]]) 
-                }
-                setEdit(!Edit)
-              }}
+              handleClick={() => handleEdit()}
               startIcon={<EditIcon />}
             />
           }
         </div>
         {
           Edit ?
-            <div style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginTop: 8}}>
-              <TextField
-                width='300px'
-                type = 'text'
-                multiline = {true}
+            <div
+            style={{
+              marginTop: '8px',
+              marginBottom: '8px',
+              backgroundColor: 'rgb(242, 242, 242)',
+              border: '1px solid rgb(189, 189, 189)',
+              borderRadius: '4px',
+              padding: '24px 16px',
+              maxWidth: '600px',
+              width: '100%'
+            }}>
+              <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Edite o título do problema:</h3>
+              <input 
+                type='text' 
+                onChange={ (e) => setTituloProblema(e.target.value)}
                 value = {TituloProblema}
-                onChange = {e => {
-                  setTituloProblema(e.target.value)
-                }}
+                style={{              fontStyle: 'normal',
+                fontWeight: '600',
+                fontSize: '16px',
+                textAlign: 'left',
+                display: 'flex',
+                width: '100%',
+                color: '#FF4D0D',
+                border: '1px solid hsl(0, 0%, 80%)',
+                borderRadius: '4px',
+                minHeight: '38px',
+                paddingLeft: '10px'
+              }}
               />
             </div>
           :
@@ -283,7 +316,6 @@ export default function BannerProblem(props: BannerProblemParams) {
               }
 
               <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} onClick={props.onClickMessage} hasHover={true} style={{marginBottom: 16, maxWidth:400}}/>
-
               <span className={style.created}>{props.dataCriacao}</span>
             </div>
 
