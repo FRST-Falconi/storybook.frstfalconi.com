@@ -355,8 +355,8 @@ export function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height 
 export function CloseIcon({ fill }: IconsProps) {
   return (
     <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M11.8346 0.630371L1.16797 9.43511" stroke="#222222" stroke-width="1.2" stroke-linecap="round" strokeLinejoin="round"/>
-      <path d="M1.16797 0.630371L11.8346 9.43511" stroke="#222222" stroke-width="1.2" stroke-linecap="round" strokeLinejoin="round"/>
+      <path d="M11.8346 0.630371L1.16797 9.43511" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1.16797 0.630371L11.8346 9.43511" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -364,8 +364,8 @@ export function CloseIcon({ fill }: IconsProps) {
 export function AddIcon({ fill }: IconsProps) {
   return (
     <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8.16992 1V15" stroke={fill ? fill : "#0645AD"} stroke-width="2" stroke-linecap="round" strokeLinejoin="round"/>
-      <path d="M1.16992 8H15.1699" stroke={fill ? fill : "#0645AD"} stroke-width="2" stroke-linecap="round" strokeLinejoin="round"/>
+      <path d="M8.16992 1V15" stroke={fill ? fill : "#0645AD"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1.16992 8H15.1699" stroke={fill ? fill : "#0645AD"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }

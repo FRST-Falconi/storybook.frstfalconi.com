@@ -53,7 +53,8 @@
 
 .container {
     overflow: auto;
-    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
     
     
     display: flex;
@@ -67,8 +68,6 @@
 
     border: 1px solid #BDBDBD;
     border-left: 0px;
-    
-    
 }
 
 .containerItem {
@@ -80,6 +79,13 @@
     justify-content: space-between;
     align-items: center;
     
+}
+
+@media (max-width: 500px) {    
+    .containerItem {
+        width: 250px;
+        
+    }
 }
 
 .avatar{

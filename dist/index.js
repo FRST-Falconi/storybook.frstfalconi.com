@@ -147,10 +147,10 @@ function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "48", height: height ? height : "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#2CA92A" }), jsxRuntime.jsx("path", { d: "M36 15.75L19.5 32.25L12 24.75", stroke: "white", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function CloseIcon({ fill }) {
-    return (jsxRuntime.jsxs("svg", { width: "13", height: "11", viewBox: "0 0 13 11", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.8346 0.630371L1.16797 9.43511", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16797 0.630371L11.8346 9.43511", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "13", height: "11", viewBox: "0 0 13 11", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.8346 0.630371L1.16797 9.43511", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16797 0.630371L11.8346 9.43511", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function AddIcon({ fill }) {
-    return (jsxRuntime.jsxs("svg", { width: "17", height: "16", viewBox: "0 0 17 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.16992 1V15", stroke: fill ? fill : "#0645AD", "stroke-width": "2", "stroke-linecap": "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16992 8H15.1699", stroke: fill ? fill : "#0645AD", "stroke-width": "2", "stroke-linecap": "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "17", height: "16", viewBox: "0 0 17 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.16992 1V15", stroke: fill ? fill : "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16992 8H15.1699", stroke: fill ? fill : "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function OpenedEye({ fill }) {
     return (jsxRuntime.jsxs("svg", { width: "32", height: "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M5.33337 16C5.33337 16 9.21216 8 16 8C22.7879 8 26.6667 16 26.6667 16C26.6667 16 22.7879 24 16 24C9.21216 24 5.33337 16 5.33337 16Z", stroke: fill ? fill : "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 18.6663C17.4728 18.6663 18.6667 17.4724 18.6667 15.9997C18.6667 14.5269 17.4728 13.333 16 13.333C14.5273 13.333 13.3334 14.5269 13.3334 15.9997C13.3334 17.4724 14.5273 18.6663 16 18.6663Z", stroke: fill ? fill : "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -1162,6 +1162,133 @@ var css_248z$5 = ".BannerProblem-module_container__iitVU {\r\n  padding: 50px;\r
 var style$5 = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
 styleInject(css_248z$5);
 
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function BannerProblem(props) {
+    const [Edit, setEdit] = react.useState(false);
+    /// States para controle de Edição
+    const [TrilhaId, setTrilhaId] = react.useState(props.trilhaId ? props.trilhaId : null);
+    const [TrilhaDescricaoSelecionada, setTrilhaDescricaoSelecionada] = react.useState(props.trilha ? props.trilha : '');
+    const [Tag1, setTag1] = react.useState(props.tags && props.tags.length >= 1 ? props.tags[0] : '');
+    const [Tag2, setTag2] = react.useState(props.tags && props.tags.length >= 2 ? props.tags[1] : '');
+    const [Tag3, setTag3] = react.useState(props.tags && props.tags.length >= 3 ? props.tags[2] : '');
+    const [TituloProblema, setTituloProblema] = react.useState(props.problema ? props.problema : '');
+    /// States para controle de elementos do Banner
+    const [TrilhaBanner, setTrilhaBanner] = react.useState(props.trilha ? props.trilha : '');
+    const [Tags, setTags] = react.useState(props.tags ? props.tags : []);
+    const [problema, setProblema] = react.useState(props.problema ? props.problema : '');
+    const customStyles = {
+        option: (styles, { isFocused, isSelected }) => ({
+            ...styles,
+            background: isFocused
+                ? '	#FFC6B7'
+                : isSelected
+                    ? '#FF4D0D'
+                    : undefined,
+            color: isFocused
+                ? '#000'
+                : isSelected
+                    ? '#fff'
+                    : undefined,
+            zIndex: 1
+        }),
+        menu: base => ({
+            ...base,
+            zIndex: 100
+        }),
+        control: (styles) => ({
+            ...styles,
+            marginTop: 12
+        }),
+    };
+    react.useEffect(() => {
+        setTrilhaId(props.trilhaId ? props.trilhaId : null);
+        setTrilhaDescricaoSelecionada(props.trilha ? props.trilha : '');
+        setTag1(props.tags && props.tags.length >= 1 ? props.tags[0] : '');
+        setTag2(props.tags && props.tags.length >= 2 ? props.tags[1] : '');
+        setTag3(props.tags && props.tags.length >= 3 ? props.tags[2] : '');
+        setTituloProblema(props.problema ? props.problema : '');
+        /// States para controle de elementos do Banner
+        setTrilhaBanner(props.trilha ? props.trilha : '');
+        setTags(props.tags ? props.tags : []);
+        setProblema(props.problema ? props.problema : '');
+    }, [props]);
+    const handleEdit = () => {
+        if (Edit === true) {
+            setProblema(TituloProblema);
+            setTrilhaBanner(TrilhaDescricaoSelecionada);
+            setTags([Tag1, Tag2, Tag3]);
+            props.onClickSave([TituloProblema, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]]);
+        }
+        setEdit(!Edit);
+    };
+    // Função para pegar o width da tela
+    const [size, setSize] = react.useState([0, 0]);
+    react.useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    const MOBILEWIDTH = 650;
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$5.titleProblem, children: "Problema" }), props.isEditable &&
+                            jsxRuntime.jsx(Button, { label: Edit ? "Salvar Alterações" : "Editar", variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
+                    jsxRuntime.jsxs("div", { style: {
+                            marginTop: '8px',
+                            marginBottom: '8px',
+                            backgroundColor: 'rgb(242, 242, 242)',
+                            border: '1px solid rgb(189, 189, 189)',
+                            borderRadius: '4px',
+                            padding: '24px 16px',
+                            maxWidth: '600px',
+                            width: '100%'
+                        }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Edite o t\u00EDtulo do problema:" }), jsxRuntime.jsx("input", { type: 'text', onChange: (e) => setTituloProblema(e.target.value), value: TituloProblema, style: { fontStyle: 'normal',
+                                    fontWeight: '600',
+                                    fontSize: '16px',
+                                    textAlign: 'left',
+                                    display: 'flex',
+                                    width: '100%',
+                                    color: '#FF4D0D',
+                                    backgroundColor: '#FFF',
+                                    border: '1px solid hsl(0, 0%, 80%)',
+                                    borderRadius: '4px',
+                                    minHeight: '38px',
+                                    paddingLeft: '10px'
+                                } })] })
+                    :
+                        jsxRuntime.jsx("h1", { className: style$5.description, children: problema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: props.email, svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTagTrail ?
+                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Deseja vincular este novo problema a uma Trilha de Aprendizagem?" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: 'Selecione uma trilha', onChange: e => {
+                                                            setTrilhaId(e.value);
+                                                            setTrilhaDescricaoSelecionada(e.label);
+                                                        } })] }) })
+                                        :
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: TrilhaBanner === '' ?
+                                                    jsxRuntime.jsx(TextIcon, { description: 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
+                                                    :
+                                                        jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16 }, children: Edit && props.isVisibleEditTagTrail ?
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                                setTag1(e.value);
+                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                                setTag2(e.value);
+                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                                setTag3(e.value);
+                                                            } })] }) })
+                                            :
+                                                jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
+                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 } })] })
+                                        : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$5.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
+                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2 })] })
+                                : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
+                        props.onSelectedStep(step);
+                    } }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
+}
+
 const placeholderStyle = (color) => styled.css `
     ::-webkit-input-placeholder {
         color: ${({ theme }) => theme.colors[color]};
@@ -1331,102 +1458,6 @@ function TextField(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required }), props.endIcon && !props.multiline && ((props.type === 'password')
                             ? jsxRuntime.jsx(InputIconButton, { onClick: handleTogglePasswordVisibility, children: props.endIcon })
                             : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText$1, { children: props.helperText })] }) }));
-}
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function BannerProblem(props) {
-    const [Edit, setEdit] = react.useState(false);
-    /// States para controle de Edição
-    const [TrilhaId, setTrilhaId] = react.useState(props.trilhaId ? props.trilhaId : null);
-    const [TrilhaDescricaoSelecionada, setTrilhaDescricaoSelecionada] = react.useState(props.trilha ? props.trilha : '');
-    const [Tag1, setTag1] = react.useState(props.tags && props.tags.length >= 1 ? props.tags[0] : '');
-    const [Tag2, setTag2] = react.useState(props.tags && props.tags.length >= 2 ? props.tags[1] : '');
-    const [Tag3, setTag3] = react.useState(props.tags && props.tags.length >= 3 ? props.tags[2] : '');
-    const [TituloProblema, setTituloProblema] = react.useState(props.problema ? props.problema : '');
-    /// States para controle de elementos do Banner
-    const [TrilhaBanner, setTrilhaBanner] = react.useState(props.trilha ? props.trilha : '');
-    const [Tags, setTags] = react.useState(props.tags ? props.tags : []);
-    const [problema, setProblema] = react.useState(props.problema ? props.problema : '');
-    const customStyles = {
-        option: (styles, { isFocused, isSelected }) => ({
-            ...styles,
-            background: isFocused
-                ? '	#FFC6B7'
-                : isSelected
-                    ? '#FF4D0D'
-                    : undefined,
-            color: isFocused
-                ? '#000'
-                : isSelected
-                    ? '#fff'
-                    : undefined,
-            zIndex: 1
-        }),
-        menu: base => ({
-            ...base,
-            zIndex: 100
-        }),
-        control: (styles) => ({
-            ...styles,
-            marginTop: 12
-        }),
-    };
-    // Função para pegar o width da tela
-    const [size, setSize] = react.useState([0, 0]);
-    react.useLayoutEffect(() => {
-        function updateSize() {
-            setSize([window.innerWidth, window.innerHeight]);
-        }
-        window.addEventListener('resize', updateSize);
-        updateSize();
-        return () => window.removeEventListener('resize', updateSize);
-    }, []);
-    const MOBILEWIDTH = 650;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$5.titleProblem, children: "Problema" }), props.isEditable &&
-                            jsxRuntime.jsx(Button, { label: Edit ? "Salvar Alterações" : "Editar", variant: 'link', handleClick: () => {
-                                    {
-                                        Edit &&
-                                            setProblema(TituloProblema);
-                                        setTrilhaBanner(TrilhaDescricaoSelecionada);
-                                        setTags([Tag1, Tag2, Tag3]);
-                                        props.onClickSave([TituloProblema, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]]);
-                                    }
-                                    setEdit(!Edit);
-                                }, startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
-                    jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', marginTop: 8 }, children: jsxRuntime.jsx(TextField, { width: '300px', type: 'text', multiline: true, value: TituloProblema, onChange: e => {
-                                setTituloProblema(e.target.value);
-                            } }) })
-                    :
-                        jsxRuntime.jsx("h1", { className: style$5.description, children: problema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: props.email, svg: jsxRuntime.jsx(Mail, {}) }), Edit ?
-                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Deseja vincular este novo problema a uma Trilha de Aprendizagem?" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: 'Selecione uma trilha', onChange: e => {
-                                                            setTrilhaId(e.value);
-                                                            setTrilhaDescricaoSelecionada(e.label);
-                                                        } })] }) })
-                                        :
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: TrilhaBanner === '' ?
-                                                    jsxRuntime.jsx(TextIcon, { description: 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
-                                                    :
-                                                        jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16 }, children: Edit ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                setTag1(e.value);
-                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                setTag2(e.value);
-                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                setTag3(e.value);
-                                                            } })] }) })
-                                            :
-                                                jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
-                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 } })] })
-                                        : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$5.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
-                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2 })] })
-                                : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
-                        props.onSelectedStep(step);
-                    } }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
 }
 
 function Textarea(props) {
@@ -2819,7 +2850,7 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-var css_248z$4 = ".statusProblema-module_modalBox__SJtEw{\r\n    background-color: #FFF;\r\n    width: 800px;\r\n    min-height: 400px;\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n\r\n    border-radius: 10px;\r\n\r\n    font-family: 'Work Sans';\r\n\r\n}\r\n\r\n.statusProblema-module_fechar__6ESi1{\r\n    font-size: 12px;\r\n    color: #222222;\r\n    padding: 8px;\r\n    background-color: #E0E0E080;\r\n    border-top-right-radius: 10px;\r\n\r\n    display: flex;\r\n    justify-content: right;\r\n    align-items: center;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    margin-top: 0px;\r\n    cursor: default;\r\n\r\n    \r\n}\r\n\r\n.statusProblema-module_titulo__6REcF{\r\n    \r\n    width: 100%;\r\n\r\n    margin-top: 10px;\r\n    \r\n    font-size: 24px;\r\n    font-weight: 700;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.statusProblema-module_container__KLG2- {\r\n    overflow: auto;\r\n    width: 100%;\r\n    \r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    flex-wrap: noWrap;\r\n\r\n    margin-top: 20px;\r\n    margin-left: 0px;\r\n\r\n    border: 1px solid #BDBDBD;\r\n    border-left: 0px;\r\n    \r\n    \r\n}\r\n\r\n.statusProblema-module_containerItem__-Ui-d {\r\n    \r\n    width: 360px;\r\n    margin-top: 16px;\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    \r\n}\r\n\r\n.statusProblema-module_avatar__4mtlc{\r\n\r\n    font-size: 14px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.statusProblema-module_descricao__OJJt7{    \r\n\r\n    margin-left: 50px;\r\n    margin-right: 50px;\r\n    margin-top: 20px;\r\n\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    text-align: center;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.statusProblema-module_conclusao__OCWBZ{\r\n    margin-top: 30px;\r\n}\r\n\r\n";
+var css_248z$4 = ".statusProblema-module_modalBox__SJtEw{\r\n    background-color: #FFF;\r\n    width: 800px;\r\n    min-height: 400px;\r\n    padding-top: 20px;\r\n    padding-bottom: 20px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n\r\n    border-radius: 10px;\r\n\r\n    font-family: 'Work Sans';\r\n\r\n}\r\n\r\n.statusProblema-module_fechar__6ESi1{\r\n    font-size: 12px;\r\n    color: #222222;\r\n    padding: 8px;\r\n    background-color: #E0E0E080;\r\n    border-top-right-radius: 10px;\r\n\r\n    display: flex;\r\n    justify-content: right;\r\n    align-items: center;\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    margin-top: 0px;\r\n    cursor: default;\r\n\r\n    \r\n}\r\n\r\n.statusProblema-module_titulo__6REcF{\r\n    \r\n    width: 100%;\r\n\r\n    margin-top: 10px;\r\n    \r\n    font-size: 24px;\r\n    font-weight: 700;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.statusProblema-module_container__KLG2- {\r\n    overflow: auto;\r\n    min-width: 100%;\r\n    max-width: 100%;\r\n    \r\n    \r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    flex-wrap: noWrap;\r\n\r\n    margin-top: 20px;\r\n    margin-left: 0px;\r\n\r\n    border: 1px solid #BDBDBD;\r\n    border-left: 0px;\r\n}\r\n\r\n.statusProblema-module_containerItem__-Ui-d {\r\n    \r\n    width: 360px;\r\n    margin-top: 16px;\r\n\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: center;\r\n    \r\n}\r\n\r\n@media (max-width: 500px) {    \r\n    .statusProblema-module_containerItem__-Ui-d {\r\n        width: 250px;\r\n        \r\n    }\r\n}\r\n\r\n.statusProblema-module_avatar__4mtlc{\r\n\r\n    font-size: 14px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.statusProblema-module_descricao__OJJt7{    \r\n\r\n    margin-left: 50px;\r\n    margin-right: 50px;\r\n    margin-top: 20px;\r\n\r\n    font-size: 16px;\r\n    font-weight: 600;\r\n    text-align: center;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.statusProblema-module_conclusao__OCWBZ{\r\n    margin-top: 30px;\r\n}\r\n\r\n";
 var style$4 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","conclusao":"statusProblema-module_conclusao__OCWBZ"};
 styleInject(css_248z$4);
 
@@ -2827,10 +2858,11 @@ var problemaFRST = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAA
 
 function ApprovesItem(props) {
     return (jsxRuntime.jsxs("div", { className: style$4.containerItem, children: [jsxRuntime.jsxs("div", { className: style$4.avatar, children: [jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.size }), jsxRuntime.jsx("span", { style: { marginTop: 4, color: '#FF4D0D', fontWeight: 600 }, children: props.nomeAvatar }), jsxRuntime.jsx("span", { style: { fontSize: 14, color: '#222222', fontWeight: 400 }, children: props.dataAvatar })] }), props.statusApprove === 'aprovar' ?
-                jsxRuntime.jsx(CorrectInCicleIcon, { width: '30', height: '30' })
+                jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(CorrectInCicleIcon, {}) })
                 : props.statusApprove === 'revisar' ?
-                    jsxRuntime.jsx(ErrorInCicleIcon, { width: '30', height: '30' })
-                    : jsxRuntime.jsx(WarningInCicleIcon, { width: '30', height: '30' }), jsxRuntime.jsx("div", { style: { marginBottom: 30 }, children: jsxRuntime.jsx(Avatar, { src: problemaFRST, size: props.size }) })] }));
+                    jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(ErrorInCicleIcon, {}) })
+                    :
+                        jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(WarningInCicleIcon, {}) }), jsxRuntime.jsx("div", { style: { marginBottom: 30 }, children: jsxRuntime.jsx(Avatar, { src: problemaFRST, size: props.size }) })] }));
 }
 function ModalStatusProblema(props) {
     // Função para pegar o width da tela
