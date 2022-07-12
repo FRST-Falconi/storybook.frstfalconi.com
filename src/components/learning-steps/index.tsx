@@ -12,7 +12,7 @@ import StepCard from '@components/step-card'
 import ScrollContainer from '@components/scroll-container'
 
 export default function LearningSteps({ title, onSelected, objectCards, widthCard,
-    marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton }: ILearningSteps) {
+    marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }: ILearningSteps) {
     const [ itemSelected, setItemSelected ] = useState(-1);
 
     const onItemSelect = (n: number) => {
@@ -52,7 +52,13 @@ export default function LearningSteps({ title, onSelected, objectCards, widthCar
                      <TextClear>Excluir Filtro</TextClear>
                 </ClearComponent>
             </HeaderWrapper>
-            <ScrollContainer stepMove={380} isVisibleControlsButtons sizeArrowButton={sizeArrowButton} marginsArrowButton={marginsArrowButton}>
+            <ScrollContainer 
+                stepMove={380} 
+                isVisibleControlsButtons 
+                sizeArrowButton={sizeArrowButton} 
+                marginsArrowButton={marginsArrowButton}
+                horizontalMarginInternScroll={horizontalMarginInternScroll}
+            >
                 {objectCards.map(renderCard)}
             </ScrollContainer>
         </ThemeProvider>

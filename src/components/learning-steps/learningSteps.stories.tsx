@@ -81,6 +81,7 @@ normal.args = {
     marginsArrowButton: 50,
     sizeArrowButton: 80,
     widthCard: '343px',
+    horizontalMarginInternScroll: '100px',
 }
 
 

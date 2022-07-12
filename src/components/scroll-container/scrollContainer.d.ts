@@ -9,5 +9,6 @@ export interface IScrollContainer {
     className?: string,
     styles?: any,
     sizeArrowButton?: number,
-    marginsArrowButton?: number
+    marginsArrowButton?: number,
+    horizontalMarginInternScroll?: string,
 }

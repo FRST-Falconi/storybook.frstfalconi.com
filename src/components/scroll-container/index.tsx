@@ -11,7 +11,7 @@ import { randID } from './scrollContainer.utils'
 import { WrapperHorizontal, WrapperContent, ButtonControll, CardTest } from './scrollContainerStyles'
 
 export default function ScrollContainer({ children, type, isVisibleControlsButtons, 
-    stepMove, className, styles, sizeArrowButton, marginsArrowButton }: IScrollContainer) {
+    stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }: IScrollContainer) {
     const [ actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
     const [ actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
     
@@ -60,7 +60,7 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                                 height={sizeArrowButton ? ((sizeArrowButton/2.3).toFixed(0)).toString() : '34'}
                                 width={sizeArrowButton ? ((sizeArrowButton/4.3).toFixed(0)).toString() : '18'}/>
                         </ButtonControll>}
-                        <WrapperContent id={iDScroll}>
+                        <WrapperContent id={iDScroll} paddingIntern={horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px'} >
                             { children }
                         </WrapperContent>
                         { isVisibleControlsButtons &&

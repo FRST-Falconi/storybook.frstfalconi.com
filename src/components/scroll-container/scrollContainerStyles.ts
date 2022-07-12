@@ -16,7 +16,7 @@ export const WrapperHorizontal = styled.div`
     height: auto;
 `
 
-export const WrapperContent = styled.div`
+export const WrapperContent = styled.div<{paddingIntern?: string}>`
     display: flex;
     flex-direction: row;
     max-width: 100%;
@@ -28,8 +28,8 @@ export const WrapperContent = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: ${({paddingIntern}) => paddingIntern ? paddingIntern : '150px'};
+    padding-right: ${({paddingIntern}) => paddingIntern ? paddingIntern : '150px'};
 `
 
 export const ButtonControll = styled.div<IButtonContoll>`

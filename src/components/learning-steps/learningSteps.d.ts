@@ -10,4 +10,5 @@ export interface ILearningSteps {
     marginsArrowButton?: number,
     sizeArrowButton?: number,
     widthCard?: string,
+    horizontalMarginInternScroll?: string,
 }
