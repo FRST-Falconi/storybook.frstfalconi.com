@@ -32,24 +32,36 @@
 @media (max-width: 600px) {
   .label {
     font-size: 22px;
+    text-shadow: none;
+    -webkit-text-stroke: 0%;
+    color: black;
   }
 }
 
 @media (max-width: 540px) {
   .label {
     font-size: 18px;
+    text-shadow: none;
+    -webkit-text-stroke: 0%;
+    color: black;
   }
 }
 
 @media (max-width: 470px) {
   .label {
-    font-size: 14px;
+    font-size: 16px;
+    text-shadow: none;
+    -webkit-text-stroke: 0%;
+    color: black;
   }
 }
 
 @media (max-width: 400px) {
   .label {
-    font-size: 12px;
+    font-size: 14px;
+    text-shadow: none;
+    -webkit-text-stroke: 0%;
+    color: black;
   }
 }
 

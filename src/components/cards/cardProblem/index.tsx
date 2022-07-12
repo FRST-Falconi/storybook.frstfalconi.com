@@ -80,7 +80,7 @@ export default function CardProblem(props: CardProblemProps) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     
-    const BREAKWIDTH = 400;
+    const BREAKWIDTH = 450;
     
     return (
         
@@ -159,6 +159,14 @@ export default function CardProblem(props: CardProblemProps) {
                 {
                     props.lastUpdated &&
                         <div style={{color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop:8}}>{props.lastUpdated} </div>
+                }
+
+                {
+                    props.isButtonVerMais &&
+                        <div className={style.buttonVerMais} >
+                            <Button variant='link' label='Ver mais' handleClick={() => props.onClick(props.problemID)} />
+
+                        </div>
                 }
                 
             </div>
