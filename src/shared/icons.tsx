@@ -325,7 +325,7 @@ export function SearchIcon({ fill, stroke, customColor_1, width, height }: Icons
 
 export function ErrorInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width ? width : "48"} height={height ? height : "48"} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="24" r="24" fill="#FF0000"/>
       <path d="M36 12L12 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M12 12L36 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -335,7 +335,7 @@ export function ErrorInCicleIcon({ fill, stroke, customColor_1, width, height }:
 
 export function WarningInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width ? width : "48"} height={height ? height : "48"} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="24" r="24" fill="#FFC200"/>
       <path d="M24 12V28.5" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
       <path d="M24 34.5L24 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
@@ -345,7 +345,7 @@ export function WarningInCicleIcon({ fill, stroke, customColor_1, width, height 
 
 export function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width ? width : "48"} height={height ? height : "48"} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="24" cy="24" r="24" fill="#2CA92A"/>
       <path d="M36 15.75L19.5 32.25L12 24.75" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>

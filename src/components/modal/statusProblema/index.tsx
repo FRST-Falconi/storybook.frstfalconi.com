@@ -1,4 +1,4 @@
-
+import { useState, useLayoutEffect } from 'react'
 import { Grid, Box, Modal } from '@mui/material'
 import style from './statusProblema.module.css'
 import Button from '../../buttons/index'
@@ -25,7 +25,8 @@ interface ApprovesItemProps{
     avatar?: string,
     nomeAvatar: string,
     dataAvatar: string,
-    statusApprove: enumStatus
+    statusApprove: enumStatus,
+    size: string
 }
 
 function ApprovesItem(props: ApprovesItemProps){
@@ -33,28 +34,39 @@ function ApprovesItem(props: ApprovesItemProps){
         return (
             <div className={style.containerItem} >
                 <div className={style.avatar}>
-                    <Avatar src={props.avatar} size='120px' />
+                    <Avatar src={props.avatar} size={props.size} />
                     <span style={{ marginTop: 4, color: '#FF4D0D', fontWeight: 600 }}>{props.nomeAvatar}</span>
                     <span style={{ fontSize: 14, color: '#222222', fontWeight: 400 }}>{props.dataAvatar}</span>
                 </div>
                 {
                     props.statusApprove === 'aprovar' ?
-                    <CorrectInCicleIcon/>
+                    <CorrectInCicleIcon width='30' height='30'/>
                     : props.statusApprove === 'revisar' ?
-                    <ErrorInCicleIcon/>
-                    : <WarningInCicleIcon/>
+                    <ErrorInCicleIcon width='30' height='30'/>
+                    : <WarningInCicleIcon width='30' height='30'/>
                 } 
                 <div style={{marginBottom: 30}}>
-                    <Avatar src={problemaFRST} size='120px'  />
+                    <Avatar src={problemaFRST} size={props.size}  />
                 </div>
             </div>
         )
     
-
 }
 
 export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
     
+    // Função para pegar o width da tela
+    const [size, setSize] = useState([0, 0])
+    useLayoutEffect(() => {
+        function updateSize() {
+        setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    
+    const BREAKWIDTH = 500;
     
     return (
         <Modal open={props.open} onClose={props.handleClose} >
@@ -70,8 +82,9 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
 
                     {
                         props.approves.map((item, index) => (                 
-                            <ApprovesItem nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} avatar={item.avatarFoto} key={index}  />
+                            <ApprovesItem size={(size[0] >= BREAKWIDTH) ? '120px' : '80px'} nomeAvatar={item.nome} dataAvatar={item.data} statusApprove={item.approve} avatar={item.avatarFoto} key={index}  />
                         ))
+                            
                     }
 
                 </div>

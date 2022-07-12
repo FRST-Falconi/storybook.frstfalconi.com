@@ -15,6 +15,7 @@ import Button from '@components/buttons'
 
 import style from './BannerProblem.module.css'
 import TextField from '@components/form-elements/textfield'
+import { PropaneSharp } from '@mui/icons-material';
 
 ///-----------------------------------------
 /// Interface do Componente
@@ -219,6 +220,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
                           setTag1(e.value)
+                          
                         }}               
                       /> 
                       <Select 
@@ -229,7 +231,9 @@ export default function BannerProblem(props: BannerProblemParams) {
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
                           setTag2(e.value)
-                        }}               
+                          
+                        }}     
+                                  
                       />                       
                       <Select 
                         id={"select"}
