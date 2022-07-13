@@ -33,7 +33,7 @@ function ApprovesItem(props: ApprovesItemProps){
 
         return (
             <div className={style.containerItem} >
-                <div className={style.avatar}>
+                <div className={style.avatar} style={{width: props.size}}>
                     <Avatar src={props.avatar} size={props.size} />
                     <span style={{ marginTop: 4, color: '#FF4D0D', fontWeight: 600 }}>{props.nomeAvatar}</span>
                     <span style={{ fontSize: 14, color: '#222222', fontWeight: 400 }}>{props.dataAvatar}</span>
@@ -50,7 +50,7 @@ function ApprovesItem(props: ApprovesItemProps){
                     : 
                     <div style={{minWidth: '48px'}}><WarningInCicleIcon/></div>
                 } 
-                <div style={{marginBottom: 30}}>
+                <div style={{marginBottom: 30, width: props.size}}>
                     <Avatar src={problemaFRST} size={props.size}  />
                 </div>
             </div>

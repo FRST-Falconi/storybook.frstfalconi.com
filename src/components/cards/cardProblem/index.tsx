@@ -120,6 +120,7 @@ export default function CardProblem(props: CardProblemProps) {
                                 
                             {
                                 props.tags.map((item, index) =>(
+                                    item &&
                                     <Tag  title={item} color={'#050505'} selected={false} inverted={true} key={index} style={{fontWeight: 500, fontSize:14, marginRight: 8, marginTop: 8}} /> 
                                 ))
 
