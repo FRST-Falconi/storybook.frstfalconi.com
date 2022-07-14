@@ -17,7 +17,7 @@ primary.args = {
     variant: 'primary',
     label: 'Button text',
     disabled: false,
-    startIcon: <Icons.ChangeAccount />,
+    endIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') },
 }
 

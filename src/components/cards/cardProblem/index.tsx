@@ -7,7 +7,6 @@ import Avatar from '../../avatar/index'
 import RocketButton from '@components/cardLT/RocketButton'
 import Rating from '@components/cardLT/Rating'
 import MessageBox from '@components/cardLT/MessageBox'
-import { borderColor } from '@mui/system'
 import TextIcon from '@components/cardLT/TextIcon'
 import Button from '@components/buttons'
 
@@ -23,7 +22,7 @@ interface CardProblemProps {
     userName: string
     userCargo: string
     /**
-        * @prop {string} problemStatus: Qual o status do problema: (finalizado, proxPassos, resultadosAprendizados, testesRealizados, hipoteseLevantada, problemaDefinido, naoIniciou)
+        * @prop {string} problemStatus: Qual o status do problema: (finalizado, proxPassos, resultadosAprendizados, testesRealizados, hipoteseLevantada, problemaDefinido, problemaCriado)
     */
     problemStatus: string
     userAvatar?: string
