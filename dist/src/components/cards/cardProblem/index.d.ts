@@ -9,7 +9,7 @@ interface CardProblemProps {
     userName: string;
     userCargo: string;
     /**
-        * @prop {string} problemStatus: Qual o status do problema: (finalizado, proxPassos, resultadosAprendizados, testesRealizados, hipoteseLevantada, problemaDefinido, naoIniciou)
+        * @prop {string} problemStatus: Qual o status do problema: (finalizado, proxPassos, resultadosAprendizados, testesRealizados, hipoteseLevantada, problemaDefinido, problemaCriado)
     */
     problemStatus: string;
     userAvatar?: string;

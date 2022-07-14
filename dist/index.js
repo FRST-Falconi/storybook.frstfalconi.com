@@ -1044,6 +1044,78 @@ const LinkButton$1 = styled__default["default"].a `
         color: ${({ theme }) => theme.colors.neutralsGrey2};
     `}
 `;
+const LinkButtonStartIcon = styled__default["default"].a `
+    border: none;
+    text-decoration: none;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
+    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    &:hover { 
+        color: ${({ theme }) => theme.colors.linkHover};
+    }
+
+    &:active { 
+        color: ${({ theme }) => theme.colors.linkPressed};
+    }
+
+    &:focus { 
+        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    }
+
+    & > svg {
+        margin-right: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ disabled }) => disabled && styled.css `
+        pointer-events: none;
+        color: ${({ theme }) => theme.colors.neutralsGrey2};
+    `}
+`;
+const LinkButtonEndIcon = styled__default["default"].a `
+    border: none;
+    text-decoration: none;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
+    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    &:hover { 
+        color: ${({ theme }) => theme.colors.linkHover};
+    }
+
+    &:active { 
+        color: ${({ theme }) => theme.colors.linkPressed};
+    }
+
+    &:focus { 
+        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    }
+
+    & > svg {
+        margin-left: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ disabled }) => disabled && styled.css `
+        pointer-events: none;
+        color: ${({ theme }) => theme.colors.neutralsGrey2};
+    `}
+`;
 const variantStyles = (variant = 'contained') => ({
     primary: styled.css `
         background-color: ${({ theme }) => theme.colors.primary1};
@@ -1141,6 +1213,27 @@ const Button$1 = styled__default["default"].button `
     line-height: 19px;
     box-shadow: none;
 
+    ${({ variant }) => variantStyles(variant)}
+`;
+const ButtonStartIcon = styled__default["default"].button `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    box-shadow: none;
+
     & > svg {
         margin-right: 12px;
         max-height: 16px;
@@ -1150,12 +1243,51 @@ const Button$1 = styled__default["default"].button `
 
     ${({ variant }) => variantStyles(variant)}
 `;
+const ButtonEndIcon = styled__default["default"].button `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    box-shadow: none;
 
-function Button({ variant, label, disabled, startIcon, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: (variant === 'link') ?
-            jsxRuntime.jsxs(LinkButton$1, { disabled: disabled, onClick: handleClick, children: [startIcon, label] })
-            :
-                jsxRuntime.jsxs(Button$1, { variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] }) }));
+    & > svg {
+        margin-left: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ variant }) => variantStyles(variant)}
+`;
+
+function Button({ variant, label, disabled, startIcon, endIcon, handleClick }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: startIcon ?
+            (variant === 'link') ?
+                jsxRuntime.jsxs(LinkButtonStartIcon, { disabled: disabled, onClick: handleClick, children: [startIcon, label] })
+                :
+                    jsxRuntime.jsxs(ButtonStartIcon, { variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] })
+            : endIcon ?
+                (variant === 'link') ?
+                    jsxRuntime.jsxs(LinkButtonEndIcon, { disabled: disabled, onClick: handleClick, children: [label, endIcon] })
+                    :
+                        jsxRuntime.jsxs(ButtonEndIcon, { variant: variant, disabled: disabled, onClick: handleClick, children: [label, endIcon] })
+                :
+                    (variant === 'link') ?
+                        jsxRuntime.jsx(LinkButton$1, { disabled: disabled, onClick: handleClick, children: label })
+                        :
+                            jsxRuntime.jsx(Button$1, { variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
 var css_248z$5 = ".BannerProblem-module_container__iitVU {\r\n  padding: 50px;\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: center;\r\n  position: relative;\r\n  flex-direction: row;\r\n  flex-wrap: wrap;\r\n  background-color: white;\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n\r\n}\r\n\r\n.BannerProblem-module_titleProblem__BeJIN{\r\n  font-weight: 700;\r\n  font-size: 18px;\r\n}\r\n\r\n.BannerProblem-module_created__OrSsa{\r\n  font-size: 12px;\r\n  padding-top: 20px;\r\n}\r\n\r\n.BannerProblem-module_description__olZ05{\r\n  font-style: normal;\r\n  font-weight: 600;\r\n  font-size: 32px;\r\n  text-align: left;\r\n  display: flex;\r\n  margin-top: 8px;\r\n  width: 100%;\r\n  color: #FF4D0D;\r\n}\r\n\r\n.BannerProblem-module_missaoTitle__300kZ{\r\n  font-style: normal;\r\n  font-weight: 600;\r\n  font-size: 16px;\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  \r\n  color: #0645AD;\r\n}\r\n\r\nh2{\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 16px;\r\n  display: flex;\r\n  align-items: center;\r\n  width: 100%;\r\n  margin-top: 16;\r\n  margin-bottom: 0;\r\n}\r\n\r\nh3{\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 400;\r\n  font-size: 14px;\r\n  line-height: 21px;\r\n  margin: 0;\r\n}\r\n\r\n.BannerProblem-module_contentInput__YXpxk {\r\n  background-color: #F2F2F2; \r\n  border-width: 1px; \r\n  border-radius: 4px;\r\n  padding: 24px 16px 24px 16px;\r\n  border: 1px solid #BDBDBD;\r\n}\r\n\r\n.BannerProblem-module_contentInput__YXpxk input {\r\n  width: 100% !important;\r\n  margin: 4px;\r\n  padding: 16px;\r\n  border-radius: 8px;\r\n  border: 1px solid #BDBDBD;\r\n  background-color: white;\r\n}";
