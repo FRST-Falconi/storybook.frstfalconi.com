@@ -2,6 +2,7 @@
     background-color: #FFF;
     width: 800px;
     min-height: 400px;
+    max-height: 80%;
     padding-top: 20px;
     padding-bottom: 20px;
 
@@ -68,6 +69,7 @@
 
     border: 1px solid #BDBDBD;
     border-left: 0px;
+    padding-bottom: 16px;
 }
 
 .containerItem {

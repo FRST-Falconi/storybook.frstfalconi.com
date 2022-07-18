@@ -16,4 +16,3 @@ Teste1.args = {
   nomeCompleto: 'Roberto Lima',
   cargo: 'Estudante / Universitário(a)'
 }
-

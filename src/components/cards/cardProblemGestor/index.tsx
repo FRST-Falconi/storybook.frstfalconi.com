@@ -54,7 +54,7 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
     return (
         
         <div className={style.container} style={{border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }} onClick={() => props.onClick(props.problemID)} >
-            <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipóteses Levantadas" ? '#222222' : '#FFF'}}>
+            <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipóteses levantadas" ? '#222222' : '#FFF'}}>
                 {statusName}
             </div>
             
