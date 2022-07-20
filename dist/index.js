@@ -1170,6 +1170,7 @@ styleInject(css_248z$5);
  */
 function BannerProblem(props) {
     const [Edit, setEdit] = react.useState(false);
+    const [tagListShow, setTagListShow] = react.useState(props.tagData ? props.tagData : []);
     /// States para controle de Edição
     const [TrilhaId, setTrilhaId] = react.useState(props.trilhaId ? props.trilhaId : null);
     const [TrilhaDescricaoSelecionada, setTrilhaDescricaoSelecionada] = react.useState(props.trilha ? props.trilha : '');
@@ -1181,6 +1182,12 @@ function BannerProblem(props) {
     const [TrilhaBanner, setTrilhaBanner] = react.useState(props.trilha ? props.trilha : '');
     const [Tags, setTags] = react.useState(props.tags ? props.tags : []);
     const [problema, setProblema] = react.useState(props.problema ? props.problema : '');
+    // const [selectedTags, setSelectedTags] = useState([{label: '', value:''},{label: '', value:''},{label: '', value:''}]);
+    const [selectedTags, setSelectedTags] = react.useState([
+        props.tags && props.tags.length >= 1 ? props.tags[0] : '',
+        props.tags && props.tags.length >= 2 ? props.tags[1] : '',
+        props.tags && props.tags.length >= 3 ? props.tags[2] : ''
+    ]);
     const customStyles = {
         option: (styles, { isFocused, isSelected }) => ({
             ...styles,
@@ -1219,13 +1226,19 @@ function BannerProblem(props) {
     }, [props]);
     const handleEdit = () => {
         if (Edit === true) {
-            setProblema(TituloProblema);
+            let titleInEditing = TituloProblema;
+            (document.getElementById("idEdit-fieldTitleProblem")) &&
+                (titleInEditing = document.getElementById("idEdit-fieldTitleProblem").innerText);
+            setProblema(titleInEditing);
             setTrilhaBanner(TrilhaDescricaoSelecionada);
             setTags([Tag1, Tag2, Tag3]);
-            props.onClickSave([TituloProblema, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]]);
+            props.onClickSave([titleInEditing, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]]);
         }
         setEdit(!Edit);
     };
+    react.useEffect(() => {
+        setTagListShow(props.tagData ? props.tagData : []);
+    }, [Tag1, Tag2, Tag3]);
     // Função para pegar o width da tela
     const [size, setSize] = react.useState([0, 0]);
     react.useLayoutEffect(() => {
@@ -1239,28 +1252,25 @@ function BannerProblem(props) {
     const MOBILEWIDTH = 650;
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$5.titleProblem, children: "Problema" }), props.isEditable &&
                             jsxRuntime.jsx(Button, { label: Edit ? "Salvar Alterações" : "Editar", variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
-                    jsxRuntime.jsxs("div", { style: {
+                    jsxRuntime.jsx("div", { style: {
                             marginTop: '8px',
                             marginBottom: '8px',
                             backgroundColor: 'rgb(242, 242, 242)',
                             border: '1px solid rgb(189, 189, 189)',
-                            borderRadius: '4px',
+                            borderRadius: '8px',
                             padding: '24px 16px',
-                            maxWidth: '600px',
                             width: '100%'
-                        }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Edite o t\u00EDtulo do problema:" }), jsxRuntime.jsx("input", { type: 'text', onChange: (e) => setTituloProblema(e.target.value), value: TituloProblema, style: { fontStyle: 'normal',
-                                    fontWeight: '600',
-                                    fontSize: '16px',
-                                    textAlign: 'left',
-                                    display: 'flex',
-                                    width: '100%',
-                                    color: '#FF4D0D',
-                                    backgroundColor: '#FFF',
-                                    border: '1px solid hsl(0, 0%, 80%)',
-                                    borderRadius: '4px',
-                                    minHeight: '38px',
-                                    paddingLeft: '10px'
-                                } })] })
+                        }, children: jsxRuntime.jsx("div", { id: "idEdit-fieldTitleProblem", "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, style: {
+                                fontStyle: 'normal',
+                                fontWeight: '600',
+                                fontSize: '32px',
+                                textAlign: 'left',
+                                display: 'flex',
+                                width: '100%',
+                                color: '#FF4D0D',
+                                backgroundColor: 'rgb(242, 242, 242)',
+                                border: 'none',
+                            }, children: TituloProblema }) })
                     :
                         jsxRuntime.jsx("h1", { className: style$5.description, children: problema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: props.email, svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTagTrail ?
                                         jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Deseja vincular este novo problema a uma Trilha de Aprendizagem?" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: 'Selecione uma trilha', onChange: e => {
@@ -1272,11 +1282,20 @@ function BannerProblem(props) {
                                                     jsxRuntime.jsx(TextIcon, { description: 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
                                                     :
                                                         jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16 }, children: Edit && props.isVisibleEditTagTrail ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                                let tempTagsSeected = selectedTags;
+                                                                tempTagsSeected[0] = e.value;
+                                                                setSelectedTags(tempTagsSeected);
                                                                 setTag1(e.value);
-                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                                let tempTagsSeected = selectedTags;
+                                                                tempTagsSeected[1] = e.value;
+                                                                setSelectedTags(tempTagsSeected);
                                                                 setTag2(e.value);
-                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.tagData ? props.tagData : [], value: props.tagData.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => {
+                                                                let tempTagsSeected = selectedTags;
+                                                                tempTagsSeected[2] = e.value;
+                                                                setSelectedTags(tempTagsSeected);
                                                                 setTag3(e.value);
                                                             } })] }) })
                                             :
@@ -1287,6 +1306,17 @@ function BannerProblem(props) {
                                 : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                         props.onSelectedStep(step);
                     } }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
+    function filterTagsSelected(dataOrigin, selectedsTags) {
+        let optFiltered = dataOrigin.filter((item) => {
+            let resultado = true;
+            for (let selecionado of selectedsTags) {
+                if (item.value == selecionado)
+                    resultado = false;
+            }
+            return resultado;
+        });
+        return optFiltered;
+    }
 }
 
 const placeholderStyle = (color) => styled.css `

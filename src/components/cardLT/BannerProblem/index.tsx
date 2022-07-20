@@ -78,6 +78,7 @@ interface BannerProblemParams {
 export default function BannerProblem(props: BannerProblemParams) {
 
   const [Edit, setEdit] = useState(false)
+  const [ tagListShow, setTagListShow ] = useState(props.tagData ? props.tagData : [])
   /// States para controle de Edição
   const [TrilhaId, setTrilhaId] = useState(props.trilhaId ? props.trilhaId : null)
   const [TrilhaDescricaoSelecionada, setTrilhaDescricaoSelecionada] = useState(props.trilha ? props.trilha : '')
@@ -89,6 +90,13 @@ export default function BannerProblem(props: BannerProblemParams) {
   const [TrilhaBanner, setTrilhaBanner] = useState(props.trilha ? props.trilha : '')
   const [Tags, setTags] = useState(props.tags ? props.tags : [])
   const [problema, setProblema] = useState(props.problema ? props.problema : '')
+
+  // const [selectedTags, setSelectedTags] = useState([{label: '', value:''},{label: '', value:''},{label: '', value:''}]);
+  const [selectedTags, setSelectedTags] = useState([
+    props.tags && props.tags.length >=1 ? props.tags[0] : '',
+    props.tags && props.tags.length >=2 ? props.tags[1] : '',
+    props.tags && props.tags.length >=3 ? props.tags[2] : ''
+  ]);
 
   const customStyles = {
     option: (styles, {isFocused, isSelected}) => ({
@@ -121,6 +129,11 @@ export default function BannerProblem(props: BannerProblemParams) {
     setTag1(props.tags && props.tags.length >=1 ? props.tags[0] : '')
     setTag2(props.tags && props.tags.length >=2 ? props.tags[1] : '')
     setTag3(props.tags && props.tags.length >=3 ? props.tags[2] : '')
+
+
+
+
+
     setTituloProblema(props.problema ? props.problema : '')
     /// States para controle de elementos do Banner
     setTrilhaBanner(props.trilha ? props.trilha : '')
@@ -130,13 +143,23 @@ export default function BannerProblem(props: BannerProblemParams) {
 
   const handleEdit = () => {
     if(Edit === true) {
-      setProblema(TituloProblema)
+      let titleInEditing = TituloProblema;
+
+      (document.getElementById("idEdit-fieldTitleProblem")) && 
+      (titleInEditing = document.getElementById("idEdit-fieldTitleProblem").innerText);
+
+
+      setProblema(titleInEditing)
       setTrilhaBanner(TrilhaDescricaoSelecionada)
       setTags([Tag1, Tag2, Tag3])
-      props.onClickSave([TituloProblema, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]])
+      props.onClickSave([titleInEditing, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]])
     }
     setEdit(!Edit)
   };
+
+  useEffect(() => {
+    setTagListShow(props.tagData ? props.tagData : [])
+  },[Tag1, Tag2, Tag3])
 
   // Função para pegar o width da tela
   const [size, setSize] = useState([0, 0])
@@ -175,30 +198,31 @@ export default function BannerProblem(props: BannerProblemParams) {
               marginBottom: '8px',
               backgroundColor: 'rgb(242, 242, 242)',
               border: '1px solid rgb(189, 189, 189)',
-              borderRadius: '4px',
+              borderRadius: '8px',
               padding: '24px 16px',
-              maxWidth: '600px',
               width: '100%'
             }}>
-              <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Edite o título do problema:</h3>
-              <input 
-                type='text' 
-                onChange={ (e) => setTituloProblema(e.target.value)}
-                value = {TituloProblema}
-                style={{              fontStyle: 'normal',
-                fontWeight: '600',
-                fontSize: '16px',
-                textAlign: 'left',
-                display: 'flex',
-                width: '100%',
-                color: '#FF4D0D',
-                backgroundColor: '#FFF',
-                border: '1px solid hsl(0, 0%, 80%)',
-                borderRadius: '4px',
-                minHeight: '38px',
-                paddingLeft: '10px'
-              }}
-              />
+              <div
+                id={"idEdit-fieldTitleProblem"}
+                data-gramm="false" 
+                contentEditable="true" 
+                role="textbox" 
+                aria-multiline="true"
+                suppressContentEditableWarning={true}
+                style={{              
+                  fontStyle: 'normal',
+                  fontWeight: '600',
+                  fontSize: '32px',
+                  textAlign: 'left',
+                  display: 'flex',
+                  width: '100%',
+                  color: '#FF4D0D',
+                  backgroundColor: 'rgb(242, 242, 242)',
+                  border: 'none',
+                }}
+                >
+                  {TituloProblema}
+              </div>
             </div>
           :
             <h1 className={style.description}>{problema}</h1>
@@ -249,32 +273,41 @@ export default function BannerProblem(props: BannerProblemParams) {
                       <Select 
                         id={"select"}
                         styles={customStyles}
-                        options={props.tagData ? props.tagData : []} 
+                        options={tagListShow ? filterTagsSelected(props.tagData, selectedTags) : []} 
                         value={props.tagData.filter(function(temp) {return temp.value === Tag1})} 
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
+                          let tempTagsSeected = selectedTags;
+                          tempTagsSeected[0] = e.value;
+                          setSelectedTags(tempTagsSeected);
                           setTag1(e.value)
-                        }}               
+                        }}
                       /> 
                       <Select 
                         id={"select"}
                         styles={customStyles}
-                        options={props.tagData ? props.tagData : []} 
+                        options={tagListShow ? filterTagsSelected(props.tagData, selectedTags): []} 
                         value={props.tagData.filter(function(temp) {return temp.value === Tag2})} 
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
+                          let tempTagsSeected = selectedTags;
+                          tempTagsSeected[1] = e.value;
+                          setSelectedTags(tempTagsSeected);
                           setTag2(e.value)
                         }}               
                       />                       
                       <Select 
                         id={"select"}
                         styles={customStyles}
-                        options={props.tagData ? props.tagData : []} 
+                        options={tagListShow? filterTagsSelected(props.tagData, selectedTags) : []} 
                         value={props.tagData.filter(function(temp) {return temp.value === Tag3})} 
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
+                          let tempTagsSeected = selectedTags;
+                          tempTagsSeected[2] = e.value;
+                          setSelectedTags(tempTagsSeected);
                           setTag3(e.value)
-                        }}               
+                        }}
                       />                       
                     </div>
                   </>
@@ -362,7 +395,22 @@ export default function BannerProblem(props: BannerProblemParams) {
       </div>
     </>
   )
+  
+  function filterTagsSelected(dataOrigin, selectedsTags) {
+    let optFiltered = dataOrigin.filter((item) => {
+      
+      let resultado = true;
 
+      for(let selecionado of selectedsTags) {
+        if(item.value == selecionado)
+          resultado = false;
+      }
+
+      return resultado;
+    })
+
+    return optFiltered;
+  }
 
 }
 
