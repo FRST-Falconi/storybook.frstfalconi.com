@@ -57,7 +57,8 @@ interface BannerProblemParams {
    */    
   trilhaId?: any
   isEditable?: boolean
-  isVisibleEditTagTrail?: boolean
+  isVisibleEditTrail?: boolean
+  isVisibleEditTags?: boolean
   /**
    * @prop {object} tagData: A listagem de Tags no Select [{label: 'TAG1', value: 'id1'}]
    */    
@@ -233,9 +234,9 @@ export default function BannerProblem(props: BannerProblemParams) {
             <div style={{width:'100%', maxWidth: 600}}>
               <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} />
               <TextIcon description={props.area} svg={<Brain />}/>
-              <TextIcon description={props.email} svg={<Mail />}/>
+              <TextIcon description={adapterEmail(props.email, size[0])} svg={<Mail />}/>
               {
-                Edit && props.isVisibleEditTagTrail ? 
+                Edit && props.isVisibleEditTrail ? 
                 <>
                   <div style={{marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD'}}>
                     <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Deseja vincular este novo problema a uma Trilha de Aprendizagem?</h3>
@@ -263,9 +264,9 @@ export default function BannerProblem(props: BannerProblemParams) {
                 </>
               }
               
-              <div style={{ marginTop: 16, marginBottom: 16}}>
+              <div style={{ marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px': '100%'}}>
                 {
-                  Edit && props.isVisibleEditTagTrail ? 
+                  Edit && props.isVisibleEditTags ? 
                   <>
                     <div className={style.contentInput}>
                       <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Busque e selecione até três palavras-chave:</h3>
@@ -397,6 +398,16 @@ export default function BannerProblem(props: BannerProblemParams) {
     </>
   )
   
+  function adapterEmail(email, widthScreen) {
+    let newEmail = email;
+    if(widthScreen < 450) {
+      let indexBreak = email.indexOf("@");
+      newEmail = `${email.slice(0, indexBreak-1)} 
+${email.slice(indexBreak)}`
+    }
+    return newEmail;
+  }
+
   function filterTagsSelected(dataOrigin, selectedsTags) {
     let optFiltered = dataOrigin.filter((item) => {
       

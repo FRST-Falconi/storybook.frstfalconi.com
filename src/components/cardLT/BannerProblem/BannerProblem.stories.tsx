@@ -41,7 +41,8 @@ ShowData.args = {
     stepProblem: 5,
     stepActive: 1,
     isEditable: true,
-    isVisibleEditTagTrail: true,
+    isVisibleEditTrail: true,
+    isVisibleEditTags: true,
     trilhaData: [
         {label: 'trilha1', value: '1'},
         {label: 'trilha2', value: '2'},

@@ -38,7 +38,8 @@ interface BannerProblemParams {
      */
     trilhaId?: any;
     isEditable?: boolean;
-    isVisibleEditTagTrail?: boolean;
+    isVisibleEditTrail?: boolean;
+    isVisibleEditTags?: boolean;
     /**
      * @prop {object} tagData: A listagem de Tags no Select [{label: 'TAG1', value: 'id1'}]
      */

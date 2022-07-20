@@ -48,7 +48,7 @@ export default function TextIcon(props: TextIconParams) {
           <div style={{display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center'}}>            
             {props.svg}
           </div>
-          <div style={{display: 'inline-flex', marginLeft: 8}}>
+          <div style={{display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap'}}>
             {props.description}           
           </div>          
         </div>
