@@ -49,11 +49,21 @@ ShowData.args = {
         {label: 'trilha3', value: '3'},
     ],
     tagData: [
+        {label: 'Financeiro', value: 'Financeiro'},
+        {label: 'Otimização de processos', value: 'Otimização de processos'},
+        {label: 'Automação de processos', value: 'Automação de processos'},
+        {label: 'Vendas', value: 'Vendas'},
+        {label: 'Marketing', value: 'Marketing'},
+        {label: 'Cultura', value: 'Cultura'},
+        {label: 'Liderança', value: 'Liderança'},
+        {label: 'Recrutamento', value: 'Recrutamento'},
+        {label: 'Produto digital', value: 'Produto digital'},
+        {label: 'Comunicação', value: 'Comunicação'},
+        {label: 'Cliente', value: 'Cliente'},
         {label: 'Customer Success', value: 'Customer Success'},
         {label: 'Experiência do usuário', value: 'Experiência do usuário'},
         {label: 'CSAT', value: 'CSAT'},
-        {label: 'Visão Sistêmica', value: 'Visão Sistêmica'},
-    ],    
+      ],    
     children: 
         <>
             <h2 style={{fontSize: 24}}>Missão 1: Marte - Definição do Problema</h2>

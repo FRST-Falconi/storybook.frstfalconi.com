@@ -1321,18 +1321,17 @@ function BannerProblem(props) {
         props.tags && props.tags.length >= 3 ? props.tags[2] : ''
     ]);
     const customStyles = {
-        option: (styles, { isFocused, isSelected }) => ({
+        option: (styles, { isFocused, isSelected, isDisabled }) => ({
             ...styles,
             background: isFocused
                 ? '	#FFC6B7'
                 : isSelected
                     ? '#FF4D0D'
                     : undefined,
-            color: isFocused
-                ? '#000'
-                : isSelected
-                    ? '#fff'
-                    : undefined,
+            color: isFocused ? '#000'
+                : isSelected ? '#fff'
+                    : isDisabled ? '#ccc'
+                        : undefined,
             zIndex: 1
         }),
         menu: base => ({
@@ -1415,19 +1414,19 @@ function BannerProblem(props) {
                                                     :
                                                         jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
                                             jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                let tempTagsSeected = selectedTags;
-                                                                tempTagsSeected[0] = e.value;
-                                                                setSelectedTags(tempTagsSeected);
+                                                                let tempTagsSelected = selectedTags;
+                                                                tempTagsSelected[0] = e.value;
+                                                                setSelectedTags(tempTagsSelected);
                                                                 setTag1(e.value);
                                                             } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                let tempTagsSeected = selectedTags;
-                                                                tempTagsSeected[1] = e.value;
-                                                                setSelectedTags(tempTagsSeected);
+                                                                let tempTagsSelected = selectedTags;
+                                                                tempTagsSelected[1] = e.value;
+                                                                setSelectedTags(tempTagsSelected);
                                                                 setTag2(e.value);
                                                             } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                let tempTagsSeected = selectedTags;
-                                                                tempTagsSeected[2] = e.value;
-                                                                setSelectedTags(tempTagsSeected);
+                                                                let tempTagsSelected = selectedTags;
+                                                                tempTagsSelected[2] = e.value;
+                                                                setSelectedTags(tempTagsSelected);
                                                                 setTag3(e.value);
                                                             } })] }) })
                                             :
@@ -1449,13 +1448,14 @@ ${email.slice(indexBreak)}`;
         return newEmail;
     }
     function filterTagsSelected(dataOrigin, selectedsTags) {
-        let optFiltered = dataOrigin.filter((item) => {
-            let resultado = true;
-            for (let selecionado of selectedsTags) {
-                if (item.value == selecionado)
-                    resultado = false;
+        let optFiltered = dataOrigin.map((item) => {
+            if (selectedsTags.includes(item.label)) {
+                item.isDisabled = true;
             }
-            return resultado;
+            else {
+                item.isDisabled = false;
+            }
+            return item;
         });
         return optFiltered;
     }
