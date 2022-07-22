@@ -100,18 +100,17 @@ export default function BannerProblem(props: BannerProblemParams) {
   ]);
 
   const customStyles = {
-    option: (styles, {isFocused, isSelected}) => ({
+    option: (styles, {isFocused, isSelected, isDisabled}) => ({
       ...styles,
       background: isFocused
           ? '	#FFC6B7'            
           : isSelected
               ? '#FF4D0D'
               : undefined,
-      color: isFocused
-          ? '#000'
-          : isSelected
-              ? '#fff'
-              : undefined,
+      color: isFocused  ? '#000' 
+           : isSelected ? '#fff'
+           : isDisabled ? '#ccc' 
+           : undefined,
       zIndex: 1
     }),
     menu: base => ({
@@ -121,7 +120,7 @@ export default function BannerProblem(props: BannerProblemParams) {
     control: (styles) => ({
       ...styles,
       marginTop: 12
-    }),   
+    }), 
   }
 
   useEffect(()=>{
@@ -278,9 +277,9 @@ export default function BannerProblem(props: BannerProblemParams) {
                         value={props.tagData.filter(function(temp) {return temp.value === Tag1})} 
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
-                          let tempTagsSeected = selectedTags;
-                          tempTagsSeected[0] = e.value;
-                          setSelectedTags(tempTagsSeected);
+                          let tempTagsSelected = selectedTags;
+                          tempTagsSelected[0] = e.value;
+                          setSelectedTags(tempTagsSelected);
                           setTag1(e.value)
                         }}
                       /> 
@@ -291,22 +290,22 @@ export default function BannerProblem(props: BannerProblemParams) {
                         value={props.tagData.filter(function(temp) {return temp.value === Tag2})} 
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
-                          let tempTagsSeected = selectedTags;
-                          tempTagsSeected[1] = e.value;
-                          setSelectedTags(tempTagsSeected);
+                          let tempTagsSelected = selectedTags;
+                          tempTagsSelected[1] = e.value;
+                          setSelectedTags(tempTagsSelected);
                           setTag2(e.value)
                         }}               
-                      />                       
+                      />       
                       <Select 
                         id={"select"}
                         styles={customStyles}
-                        options={tagListShow? filterTagsSelected(props.tagData, selectedTags) : []} 
+                        options={tagListShow ? filterTagsSelected(props.tagData, selectedTags): []} 
                         value={props.tagData.filter(function(temp) {return temp.value === Tag3})} 
                         placeholder={'Selecione uma Tag'}    
                         onChange={e => {
-                          let tempTagsSeected = selectedTags;
-                          tempTagsSeected[2] = e.value;
-                          setSelectedTags(tempTagsSeected);
+                          let tempTagsSelected = selectedTags;
+                          tempTagsSelected[2] = e.value;
+                          setSelectedTags(tempTagsSelected);
                           setTag3(e.value)
                         }}
                       />                       
@@ -407,20 +406,18 @@ ${email.slice(indexBreak)}`
     }
     return newEmail;
   }
-
+  
   function filterTagsSelected(dataOrigin, selectedsTags) {
-    let optFiltered = dataOrigin.filter((item) => {
+    let optFiltered = dataOrigin.map((item) => {
       
-      let resultado = true;
-
-      for(let selecionado of selectedsTags) {
-        if(item.value == selecionado)
-          resultado = false;
+      if(selectedsTags.includes(item.label)) {
+        item.isDisabled = true;
+      } else {
+        item.isDisabled = false;
       }
-
-      return resultado;
-    })
-
+      return item;
+    });
+    
     return optFiltered;
   }
 
