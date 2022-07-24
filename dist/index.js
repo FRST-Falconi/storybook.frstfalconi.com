@@ -1315,7 +1315,7 @@ function BannerProblem(props) {
     const [Tags, setTags] = react.useState(props.tags ? props.tags : []);
     const [problema, setProblema] = react.useState(props.problema ? props.problema : '');
     // const [selectedTags, setSelectedTags] = useState([{label: '', value:''},{label: '', value:''},{label: '', value:''}]);
-    const [selectedTags, setSelectedTags] = react.useState([
+    react.useState([
         props.tags && props.tags.length >= 1 ? props.tags[0] : '',
         props.tags && props.tags.length >= 2 ? props.tags[1] : '',
         props.tags && props.tags.length >= 3 ? props.tags[2] : ''
@@ -1368,7 +1368,7 @@ function BannerProblem(props) {
         setEdit(!Edit);
     };
     react.useEffect(() => {
-        setTagListShow(props.tagData ? props.tagData : []);
+        setTagListShow(props.tagData ? filterTagsSelected(props.tagData, [Tag1, Tag2, Tag3]) : []);
     }, [Tag1, Tag2, Tag3]);
     // Função para pegar o width da tela
     const [size, setSize] = react.useState([0, 0]);
@@ -1413,22 +1413,7 @@ function BannerProblem(props) {
                                                     jsxRuntime.jsx(TextIcon, { description: 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
                                                     :
                                                         jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                let tempTagsSelected = selectedTags;
-                                                                tempTagsSelected[0] = e.value;
-                                                                setSelectedTags(tempTagsSelected);
-                                                                setTag1(e.value);
-                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                let tempTagsSelected = selectedTags;
-                                                                tempTagsSelected[1] = e.value;
-                                                                setSelectedTags(tempTagsSelected);
-                                                                setTag2(e.value);
-                                                            } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow ? filterTagsSelected(props.tagData, selectedTags) : [], value: props.tagData.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => {
-                                                                let tempTagsSelected = selectedTags;
-                                                                tempTagsSelected[2] = e.value;
-                                                                setSelectedTags(tempTagsSelected);
-                                                                setTag3(e.value);
-                                                            } })] }) })
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$5.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
