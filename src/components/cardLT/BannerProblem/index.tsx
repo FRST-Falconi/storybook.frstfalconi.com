@@ -130,10 +130,6 @@ export default function BannerProblem(props: BannerProblemParams) {
     setTag2(props.tags && props.tags.length >=2 ? props.tags[1] : '')
     setTag3(props.tags && props.tags.length >=3 ? props.tags[2] : '')
 
-
-
-
-
     setTituloProblema(props.problema ? props.problema : '')
     /// States para controle de elementos do Banner
     setTrilhaBanner(props.trilha ? props.trilha : '')
@@ -158,7 +154,7 @@ export default function BannerProblem(props: BannerProblemParams) {
   };
 
   useEffect(() => {
-    setTagListShow(props.tagData ? props.tagData : [])
+    setTagListShow(props.tagData ? filterTagsSelected(props.tagData, [Tag1, Tag2, Tag3]) : [])
   },[Tag1, Tag2, Tag3])
 
   // Função para pegar o width da tela
@@ -273,41 +269,26 @@ export default function BannerProblem(props: BannerProblemParams) {
                       <Select 
                         id={"select"}
                         styles={customStyles}
-                        options={tagListShow ? filterTagsSelected(props.tagData, selectedTags) : []} 
-                        value={props.tagData.filter(function(temp) {return temp.value === Tag1})} 
+                        options={tagListShow}
+                        value={tagListShow.filter(function(temp) {return temp.value === Tag1})} 
                         placeholder={'Selecione uma Tag'}    
-                        onChange={e => {
-                          let tempTagsSelected = selectedTags;
-                          tempTagsSelected[0] = e.value;
-                          setSelectedTags(tempTagsSelected);
-                          setTag1(e.value)
-                        }}
+                        onChange={e => {setTag1(e.value) }}
                       /> 
                       <Select 
                         id={"select"}
                         styles={customStyles}
-                        options={tagListShow ? filterTagsSelected(props.tagData, selectedTags): []} 
-                        value={props.tagData.filter(function(temp) {return temp.value === Tag2})} 
+                        options={tagListShow}
+                        value={tagListShow.filter(function(temp) {return temp.value === Tag2})} 
                         placeholder={'Selecione uma Tag'}    
-                        onChange={e => {
-                          let tempTagsSelected = selectedTags;
-                          tempTagsSelected[1] = e.value;
-                          setSelectedTags(tempTagsSelected);
-                          setTag2(e.value)
-                        }}               
+                        onChange={e => {setTag2(e.value)}}               
                       />       
                       <Select 
                         id={"select"}
                         styles={customStyles}
-                        options={tagListShow ? filterTagsSelected(props.tagData, selectedTags): []} 
-                        value={props.tagData.filter(function(temp) {return temp.value === Tag3})} 
+                        options={tagListShow}
+                        value={tagListShow.filter(function(temp) {return temp.value === Tag3})} 
                         placeholder={'Selecione uma Tag'}    
-                        onChange={e => {
-                          let tempTagsSelected = selectedTags;
-                          tempTagsSelected[2] = e.value;
-                          setSelectedTags(tempTagsSelected);
-                          setTag3(e.value)
-                        }}
+                        onChange={e => {setTag3(e.value)}}
                       />                       
                     </div>
                   </>
