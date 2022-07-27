@@ -1,5 +1,4 @@
-
-
+import React from 'react'
 import MessageBox from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -29,5 +28,24 @@ export const ErrorMessage = Template.bind({})
 ErrorMessage.args = {
     texto: 'Revisar problema proposto',
     tipoVisualizacao: 3,
+    
+}
+
+export const NotificacaoArquivo = Template.bind({})
+NotificacaoArquivo.args = {
+    texto: 'Budget_Final_Q1.xlxs',
+    descricao: '(570K)',
+    tipoVisualizacao: 4,
+    onClickExit: () =>{alert('Fechado!')},
+    onClick: () =>{alert('clicado!')}
+    
+}
+
+export const NotificacaoErroArquivo = Template.bind({})
+NotificacaoErroArquivo.args = {
+    texto: 'Tipo de arquivo não permitido! (.psd)',
+    tipoVisualizacao: 5,
+    onClickExit: () =>{alert('Fechado!')},
+    onClick: () =>{alert('clicado!')}
     
 }

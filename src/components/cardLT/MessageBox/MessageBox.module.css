@@ -25,6 +25,7 @@
 .success{
   
   border-Width: 2;
+  border: 1px solid;
   border-color: #2CA92A;
   background-color: #D1F6D1;
   color: #222;
@@ -38,6 +39,7 @@
 .successNoHover{
   
   border-Width: 2;
+  border: 1px solid;
   border-color: #2CA92A;
   background-color: #D1F6D1;
   color: #222;
@@ -45,6 +47,7 @@
 
 .warning{
   border-Width: 2;
+  border: 1px solid;
   border-color: #FFC200;
   background-color: #FEF0D4;
   color: #222;
@@ -57,6 +60,7 @@
 
 .warningNoHover{
   border-Width: 2;
+  border: 1px solid;
   border-color: #FFC200;
   background-color: #FEF0D4;
   color: #222;
@@ -64,6 +68,7 @@
 
 .error{
   border-Width: 2;
+  border: 1px solid;
   border-color: #EA0000;
   background-color: #FFE5E5;
   color: #222;
@@ -76,7 +81,62 @@
 
 .errorNoHover{
   border-Width: 2;
+  border: 1px solid;
   border-color: #EA0000;
+  background-color: #FFE5E5;
+  color: #222;
+}
+
+.notificacao{
+  border-Width: 2;
+  border: 1px solid;
+  border-color: #757575;
+  background-color: #F2F2F2;
+  color: #0645AD;
+  font-weight: 700;
+}
+
+.notificacao:hover{
+  background-color: #F2F2F2 !important;
+  
+}
+
+.notificacao span {
+  color: #757575 !important;
+  font-weight: 400;
+}
+
+.notificacaoNoHover{
+  border-Width: 2;
+  border: 1px solid;
+  border-color: #757575;
+  background-color: #F2F2F2;
+  color: #0645AD;
+  font-weight: 700;
+}
+
+.notificacaoNoHover span {
+  color: #757575 !important;
+  font-weight: 400;
+}
+
+.notificacaoErro{
+  border-Width: 2;
+  border: 1px solid;
+  border-color: #EA0000 ;
+  background-color: #FFE5E5;
+  color: #222;
+}
+
+.notificacaoErro:hover{
+  background-color: #EA0000 !important;
+  color: white;
+}
+
+.notificacaoErroNoHover{
+  border-Width: 2;
+  border: 1px solid;
+  border-color: #EA0000 ;
   background-color: #FFE5E5;
   color: #222;
 }

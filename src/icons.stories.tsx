@@ -93,3 +93,6 @@ ArrowScrollRight.args = Icons.ArrowScrollRight({})
 
 export const CloseIcon = Template.bind({})
 CloseIcon.args = Icons.CloseIcon({})
+
+export const SaveIcon = Template.bind({})
+SaveIcon.args = Icons.SaveIcon({})
