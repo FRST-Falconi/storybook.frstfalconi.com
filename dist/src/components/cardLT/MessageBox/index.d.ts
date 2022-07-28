@@ -2,6 +2,7 @@
 interface MessageBoxParams {
     texto: string;
     descricao?: string;
+    hasClickExit?: boolean;
     hasHover?: boolean;
     /**
      * @prop {number} tipoVisualizacao: Estilo de card (1- Mensagem sucesso, 2- Mensagem alerta, 3- Mensagem erro, 4- Notificação arquivo, 5- Erro Notificação arquivo)
