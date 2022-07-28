@@ -12,6 +12,7 @@ interface MessageBoxParams {
   texto: string;
   descricao?: string;
 
+  hasClickExit ?: boolean;
   hasHover?: boolean;
   /**
    * @prop {number} tipoVisualizacao: Estilo de card (1- Mensagem sucesso, 2- Mensagem alerta, 3- Mensagem erro, 4- Notificação arquivo, 5- Erro Notificação arquivo)
@@ -69,9 +70,7 @@ export default function MessageBox(props: MessageBoxParams): any {
 
 
   return (
-
-
-    <>
+    <div style={{position: 'relative'}}>
       <div
         className={
           props.hasHover ?
@@ -106,10 +105,10 @@ export default function MessageBox(props: MessageBoxParams): any {
           <span> &nbsp;{props.descricao ? props.descricao : ''}</span>
         </div>
       </div>
-      {(props.tipoVisualizacao === 4 || props.tipoVisualizacao === 5) &&
-        <div style={{ display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 36, marginTop: 36, cursor: 'pointer' }} onClick={props.onClickExit}> <CloseIcon /> </div>
+      {props.hasClickExit &&
+        <div style={{ display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 32, marginTop: 16, cursor: 'pointer' }} onClick={props.onClickExit}> <CloseIcon /> </div>
       }
-    </>
+    </div>
   )
 
 

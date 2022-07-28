@@ -36,6 +36,7 @@ NotificacaoArquivo.args = {
     texto: 'Budget_Final_Q1.xlxs',
     descricao: '(570K)',
     tipoVisualizacao: 4,
+    hasClickExit: true,
     onClickExit: () =>{alert('Fechado!')},
     onClick: () =>{alert('clicado!')}
     
@@ -45,6 +46,7 @@ export const NotificacaoErroArquivo = Template.bind({})
 NotificacaoErroArquivo.args = {
     texto: 'Tipo de arquivo não permitido! (.psd)',
     tipoVisualizacao: 5,
+    hasClickExit: true,
     onClickExit: () =>{alert('Fechado!')},
     onClick: () =>{alert('clicado!')}
     
