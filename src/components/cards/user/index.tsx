@@ -64,27 +64,33 @@ export default function CalendarCard(props: UserCardProps) {
         const hasPrevius = hasPreviusData()
         return (
             <div>
-                {hasCurrent && 
+                {hasCurrent.length > 0 && 
                     <>
                         <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t(`user.card.new_format.current`)}</div>
-                        {hasAssignedLicense && <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
-                            {t(`user.card.new_format.assignedLicense`)}: {' '}
-                            {hasAssignedLicense.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
-                            {!hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
-                        </div>}
-                        {hasDefinedTrail && <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
-                            {t(`user.card.new_format.definedTrail`)}: {' '}
-                            {hasDefinedTrail.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
-                            {!hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
-                        </div>}
-                        {hasEnrollments && <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
-                            {t(`user.card.new_format.enrollments`)}: {' '}
-                            {hasEnrollments.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
-                            {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
-                        </div>}
+                        {hasAssignedLicense.length > 0 && 
+                            <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
+                                {t(`user.card.new_format.assignedLicense`)}: {' '}
+                                {hasAssignedLicense.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                                {!hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                            </div>
+                        }
+                        {hasDefinedTrail.length > 0 && 
+                            <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
+                                {t(`user.card.new_format.definedTrail`)}: {' '}
+                                {hasDefinedTrail.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                                {!hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                            </div>
+                        }
+                        {hasEnrollments.length > 0 && 
+                            <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
+                                {t(`user.card.new_format.enrollments`)}: {' '}
+                                {hasEnrollments.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                                {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                            </div>
+                        }
                     </>
                 }
-                {hasPrevius &&
+                {hasPrevius.length > 0 &&
                     <>
                         <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t(`user.card.new_format.previus`)}</div>
                         <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
