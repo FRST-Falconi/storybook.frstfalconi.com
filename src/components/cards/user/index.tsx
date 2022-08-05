@@ -21,6 +21,8 @@ interface UserCardProps {
     licenses: string[]
     assessment?: statusAssessment
     editAction?: () => void
+    newFormat: boolean
+    newLicenses: any[]
 }
 
 
@@ -37,6 +39,63 @@ export default function CalendarCard(props: UserCardProps) {
         props.handleSelect(props.userID)
     }
     const [statusColor, setStatusColor] = useState('#A6A6A6')
+
+    const hasCurrentData = () => {
+        return props.newLicenses.filter(el => el.isCurrent)
+    }
+    const hasAssignedLicenseData = () => {
+        return props.newLicenses.filter(el => el.isCurrent && el.hasLicense && !el.hasTrail && !el.hasEnrollment)
+    }
+    const hasDefinedTrailData = () => {
+        return props.newLicenses.filter(el => el.isCurrent && el.hasTrail && !el.hasEnrollment)
+    }
+    const hasEnrollmentsData = () => {
+        return props.newLicenses.filter(el => el.isCurrent && el.hasEnrollment)
+    }
+    const hasPreviusData = () => {
+        return props.newLicenses.filter(el => !el.isCurrent)
+    }
+
+    const newFormatHtml = () => {
+        const hasCurrent = hasCurrentData()
+        const hasAssignedLicense = hasAssignedLicenseData()
+        const hasDefinedTrail = hasDefinedTrailData()
+        const hasEnrollments = hasEnrollmentsData()
+        const hasPrevius = hasPreviusData()
+        return (
+            <div>
+                {hasCurrent && 
+                    <>
+                        <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t(`user.card.new_format.current`)}</div>
+                        {hasAssignedLicense && <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
+                            {t(`user.card.new_format.assignedLicense`)}: {' '}
+                            {hasAssignedLicense.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                            {!hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                        </div>}
+                        {hasDefinedTrail && <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
+                            {t(`user.card.new_format.definedTrail`)}: {' '}
+                            {hasDefinedTrail.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                            {!hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                        </div>}
+                        {hasEnrollments && <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
+                            {t(`user.card.new_format.enrollments`)}: {' '}
+                            {hasEnrollments.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
+                            {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                        </div>}
+                    </>
+                }
+                {hasPrevius &&
+                    <>
+                        <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t(`user.card.new_format.previus`)}</div>
+                        <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
+                            {hasPrevius.map(p => <Tag title={p.name} color='#BDBDBD' selected={selected} inverted={false} />)}
+                            {props.assessment === 'finished' && <Tag title={'Assessment'} color='#BDBDBD' selected={selected} inverted={false} iconType="checked" />}
+                        </div>
+                    </>
+                }
+            </div>
+        )
+    }
 
     useEffect(() => {
         switch (props.userStatus) {
@@ -108,16 +167,22 @@ export default function CalendarCard(props: UserCardProps) {
                                 <div style={{ display: 'block' }}>
                                     {props.userArea && <p style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t('user.card.area')}: {props.userArea}</p>}
                                     {props.userPosition && <p style={{ fontSize: '16px', fontWeight: '400', paddingBottom: '8px' }}>{t('user.card.position')}: {props.userPosition}</p>}
-                                    {
-                                        props.licenses.length > 0 ?
-                                            props.licenses.map((p) => {
-                                                return <Tag title={p} color='#000' selected={selected} inverted={false} />
-                                            })
-                                            :
-                                            <Tag title={t('user.card.noProduct')} color='#FF0000' selected={selected} inverted />
+                                    {props.newFormat ? 
+                                        <div>{newFormatHtml()}</div>
+                                    :
+                                        <div>
+                                            {
+                                                props.licenses.length > 0 ?
+                                                    props.licenses.map((p) => {
+                                                        return <Tag title={p} color='#000' selected={selected} inverted={false} />
+                                                    })
+                                                    :
+                                                    <Tag title={t('user.card.noProduct')} color='#FF0000' selected={selected} inverted />
+                                            }
+                                            {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
+                                            {props.assessment === 'finished' && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="checked" />}
+                                        </div>
                                     }
-                                    {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
-                                    {props.assessment === 'finished' && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="checked" />}
                                 </div>
                             </div>
                         </div>
