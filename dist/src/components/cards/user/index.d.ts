@@ -15,6 +15,8 @@ interface UserCardProps {
     licenses: string[];
     assessment?: statusAssessment;
     editAction?: () => void;
+    newFormat: boolean;
+    newLicenses: any[];
 }
 /**
  * @param {UserCardProps} props
