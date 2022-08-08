@@ -32,6 +32,13 @@ export default function PageSandbox(props: PageProps) {
                     {hasLicense: true, hasTrail: true, hasEnrollment: true, isCurrent: false, name: 'Produto 7'},
                     {hasLicense: true, hasTrail: true, hasEnrollment: true, isCurrent: false, name: 'Produto 8'},
                 ]}
+                newTexts={{ 
+                    current: 'Atual',
+                    assignedLicense: 'Licença atribuida',
+                    definedTrail: 'Trilha definida',
+                    enrollments: 'Matriculado',
+                    previus: 'Anteriores',
+                }}
                 />
 
         </div >

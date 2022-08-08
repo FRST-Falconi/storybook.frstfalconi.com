@@ -25,8 +25,8 @@ loading.args = {
     licenses: [],
     assessment: 'not-started',
     editAction: () => { alert('Edit') },
-    newFormat: true,
-    newLicenses: [],
+    // newFormat: true,
+    // newLicenses: [],
 }
 
 export const incomplete = Template.bind({})
@@ -43,8 +43,8 @@ incomplete.args = {
     licenses: [],
     assessment: 'started',
     editAction: () => { alert('Edit') },
-    newFormat: true,
-    newLicenses: [],
+    // newFormat: true,
+    // newLicenses: [],
 }
 
 export const complete = Template.bind({})
@@ -61,8 +61,8 @@ complete.args = {
     licenses: [],
     assessment: 'started',
     editAction: () => { alert('Edit') },
-    newFormat: true,
-    newLicenses: [],
+    // newFormat: true,
+    // newLicenses: [],
 }
 
 export const enrolled = Template.bind({})
@@ -79,8 +79,8 @@ enrolled.args = {
     licenses: ['Produto 01'],
     assessment: 'finished',
     editAction: () => { alert('Edit') },
-    newFormat: true,
-    newLicenses: [{}],
+    // newFormat: true,
+    // newLicenses: [{}],
 }
 
 export const enrolledMany = Template.bind({})
@@ -108,6 +108,13 @@ enrolledMany.args = {
         {hasLicense: true, hasTrail: true, hasEnrollment: true, isCurrent: false, name: 'Produto 7'},
         {hasLicense: true, hasTrail: true, hasEnrollment: true, isCurrent: false, name: 'Produto 8'},
     ],
+    newTexts: { 
+        current: 'Atual',
+        assignedLicense: 'Licença atribuida',
+        definedTrail: 'Trilha definida',
+        enrollments: 'Matriculado',
+        previus: 'Anteriores',
+    }
 }
 
 export const defined = Template.bind({})
@@ -124,8 +131,8 @@ defined.args = {
     licenses: ['Produto 03'],
     assessment: 'finished',
     editAction: () => { alert('Edit') },
-    newFormat: true,
-    newLicenses: [],
+    // newFormat: true,
+    // newLicenses: [],
 }
 
 export const error = Template.bind({})
@@ -142,8 +149,8 @@ error.args = {
     licenses: [],
     assessment: 'finished',
     editAction: () => { alert('Edit') },
-    newFormat: true,
-    newLicenses: [],
+    // newFormat: true,
+    // newLicenses: [],
 }
 
 export const bigEmail = Template.bind({})
@@ -160,6 +167,6 @@ bigEmail.args = {
     licenses: [],
     assessment: 'finished',
     editAction: () => { alert('Edit') },
-    newFormat: true,
-    newLicenses: [],
+    // newFormat: true,
+    // newLicenses: [],
 }

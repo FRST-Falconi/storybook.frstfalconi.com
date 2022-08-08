@@ -21,8 +21,9 @@ interface UserCardProps {
     licenses: string[]
     assessment?: statusAssessment
     editAction?: () => void
-    newFormat: boolean
-    newLicenses: any[]
+    newFormat?: boolean
+    newLicenses?: any[]
+    newTexts?: any
 }
 
 
@@ -66,24 +67,24 @@ export default function CalendarCard(props: UserCardProps) {
             <div>
                 {hasCurrent.length > 0 && 
                     <>
-                        <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t(`user.card.newRormatcurrent`)}</div>
+                        <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{props.newTexts.current}</div>
                         {hasAssignedLicense.length > 0 && 
                             <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
-                                {t(`user.card.newRormatassignedLicense`)}: {' '}
+                                {props.newTexts.assignedLicense}: {' '}
                                 {hasAssignedLicense.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
                                 {!hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
                             </div>
                         }
                         {hasDefinedTrail.length > 0 && 
                             <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
-                                {t(`user.card.newRormatdefinedTrail`)}: {' '}
+                                {props.newTexts.definedTrail}: {' '}
                                 {hasDefinedTrail.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
                                 {!hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
                             </div>
                         }
                         {hasEnrollments.length > 0 && 
                             <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
-                                {t(`user.card.newRormatenrollments`)}: {' '}
+                                {props.newTexts.enrollments}: {' '}
                                 {hasEnrollments.map(p => <Tag title={p.name} color='#000' selected={selected} inverted={false} />)}
                                 {(props.assessment === 'not-started' || props.assessment === 'started') && <Tag title={'Assessment'} color='#000' selected={selected} inverted={false} iconType="warning" />}
                             </div>
@@ -92,7 +93,7 @@ export default function CalendarCard(props: UserCardProps) {
                 }
                 {hasPrevius.length > 0 &&
                     <>
-                        <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{t(`user.card.newRormatprevius`)}</div>
+                        <div style={{ fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }}>{props.newTexts.previus}</div>
                         <div style={{ fontSize: '16px', paddingBottom: '8px' }}>
                             {hasPrevius.map(p => <Tag title={p.name} color='#BDBDBD' selected={selected} inverted={false} />)}
                             {props.assessment === 'finished' && <Tag title={'Assessment'} color='#BDBDBD' selected={selected} inverted={false} iconType="checked" />}

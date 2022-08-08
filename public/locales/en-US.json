@@ -22,9 +22,9 @@
   "user.card.status.error": "Error on sending",
   "user.card.area": "Area",
   "user.card.position": "Position",
-  "user.card.newRormatcurrent": "Current",
-  "user.card.newRormatprevius": "Previus",
-  "user.card.newRormatassignedLicense": "License assigned",
-  "user.card.newRormatdefinedTrail": "Trail defined",
-  "user.card.newRormatenrollments": "Registered"
+  "user.card.current": "Current",
+  "user.card.previus": "Previus",
+  "user.card.assignedLicense": "License assigned",
+  "user.card.definedTrail": "Trail defined",
+  "user.card.enrollments": "Registered"
 }
