@@ -30,9 +30,9 @@
   "user.card.status.error": "Erro no envio",
   "user.card.area": "Área",
   "user.card.position": "Cargo",
-  "user.card.new_format.current": "Atual",
-  "user.card.new_format.previus": "Anterior",
-  "user.card.new_format.assignedLicense": "Licença atribuida",
-  "user.card.new_format.definedTrail": "Trilha definida",
-  "user.card.new_format.enrollments": "Matriculado"
+  "user.card.newRormatcurrent": "Atual",
+  "user.card.newRormatprevius": "Anterior",
+  "user.card.newRormatassignedLicense": "Licença atribuida",
+  "user.card.newRormatdefinedTrail": "Trilha definida",
+  "user.card.newRormatenrollments": "Matriculado"
 }
