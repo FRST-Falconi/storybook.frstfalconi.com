@@ -34,4 +34,6 @@ export { default as CardProblemGestor } from './src/components/cards/cardProblem
 export { default as CardProblem } from './src/components/cards/cardProblem'
 export { default as CardDefinicaoProblema } from './src/components/cards/cardDefinicaoProblema'
 
+export { default as ExclusiveClassCard } from './src/components/exclusive-class'
+
 
