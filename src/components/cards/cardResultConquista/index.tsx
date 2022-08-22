@@ -21,6 +21,8 @@ interface CardResultConquistaProps {
     problemId: string
 
     onClick?: (problemId: string) => void
+
+    style?: React.CSSProperties
 }
 
 
@@ -30,9 +32,8 @@ interface CardResultConquistaProps {
 export default function CardResultConquista(props: CardResultConquistaProps) {
     
     const [isPressed, setIsPressed] = useState(false)
-    const descricao = props.description
     return (
-        <div className={style.container} style={{cursor:'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF'}} onClick={() => 
+        <div className={style.container} style={{ ...props.style, cursor:'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF'}} onClick={() => 
             {
                 props.onClick(props.problemId)
                 setIsPressed(true)
@@ -57,7 +58,7 @@ export default function CardResultConquista(props: CardResultConquistaProps) {
             <span style={{color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4}}>{props.userArea}</span>
            
             <div className={style.description} style={{color: isPressed ? '#FFD600' : '#FF4D0D',fontWeight: 500, fontSize: 16, textAlign:'center', marginTop: 12}}>
-                {descricao}
+                {props.description}
             </div>
             <div className={style.verMais}>Mais detalhes</div>
         </div>
