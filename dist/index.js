@@ -2422,7 +2422,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, c
     const [actionAreaButtonRight, setActionAreaButtonRight] = react.useState(false);
     const [iDScroll, setIDScroll] = react.useState(`iDScroll-${randID$1()}`);
     const [isVisibleArrowButtonLeft, setIsVisibleArrowButtonLeft] = react.useState(false);
-    const [isVisibleArrowButtonRight, setIsVisibleArrowButtonRight] = react.useState(true);
+    const [isVisibleArrowButtonRight, setIsVisibleArrowButtonRight] = react.useState(false);
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
         (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
@@ -2435,6 +2435,13 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, c
         ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
         objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
     };
+    react.useEffect(() => {
+        var objDiv = document.getElementById(iDScroll);
+        if (objDiv.clientWidth < objDiv.scrollWidth)
+            setIsVisibleArrowButtonRight(true);
+        else
+            setIsVisibleArrowButtonRight(false);
+    }, []);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: type == 'vertical' ? (null) :
             jsxRuntime.jsx("div", { style: { ...styles }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons &&
                             jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
