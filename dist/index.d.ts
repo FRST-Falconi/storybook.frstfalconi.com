@@ -22,5 +22,7 @@ export { default as ModalLearningTech } from './src/components/modal/modalLearni
 export { default as CardProblemGestor } from './src/components/cards/cardProblemGestor';
 export { default as CardProblem } from './src/components/cards/cardProblem';
 export { default as CardDefinicaoProblema } from './src/components/cards/cardDefinicaoProblema';
+export { default as CardResultConquista } from './src/components/cards/cardResultConquista';
 export { default as ExclusiveClassCard } from './src/components/exclusive-class';
+export { default as ConquistaCarrossel } from './src/components/conquistaCarrossel';
 //# sourceMappingURL=index.d.ts.map
