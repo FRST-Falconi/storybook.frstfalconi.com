@@ -11,14 +11,14 @@ import { randID } from './scrollContainer.utils'
 import { WrapperHorizontal, WrapperContent, ButtonControll, CardTest } from './scrollContainerStyles'
 
 export default function ScrollContainer({ children, type, isVisibleControlsButtons, 
-    stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }: IScrollContainer) {
+    stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }: IScrollContainer) {    
     const [ actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
     const [ actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
     
     const [ iDScroll , setIDScroll ] =  useState(`iDScroll-${randID()}`);
     
     const [ isVisibleArrowButtonLeft, setIsVisibleArrowButtonLeft ] = useState(false);
-    const [ isVisibleArrowButtonRight, setIsVisibleArrowButtonRight ] = useState(true); 
+    const [ isVisibleArrowButtonRight, setIsVisibleArrowButtonRight ] = useState(false); 
 
 
     const scrollToLeft = () => {
@@ -34,6 +34,14 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
         ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
         objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
     }
+
+    useEffect(()=>{
+        var objDiv = document.getElementById(iDScroll);
+        if(objDiv.clientWidth < objDiv.scrollWidth) 
+            setIsVisibleArrowButtonRight(true)
+        else
+            setIsVisibleArrowButtonRight(false)
+    },[]);
 
     return (
         <ThemeProvider theme={FRSTTheme}>
