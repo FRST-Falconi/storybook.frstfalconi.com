@@ -15,7 +15,7 @@ normal.args = {
     onSelected: (e : any) => { alert("Item Selecionado: " + e)},
     objectCards: [
                     {
-                        description: 'Aumentei o tempo médio de uso da plataforma de 8 horas/semana para 12 horas/semana ao final do ciclo ágil',
+                        description: 'Aumentei o tempo médio de uso da plataforma de 8 horas/semana para 12 horas/semana ao final do ciclo ágil, um teste para ver se o funcionamento do texto de descrição está certo.',
                         problemId: '123',
                         statusCard: 1,
                         userArea: 'Customer Experience',
@@ -55,7 +55,7 @@ normal.args = {
                         
                     },
                     {
-                        description: 'Aumentei o tempo médio de uso da plataforma de 8 horas/semana para 12 horas/semana ao final do ciclo ágil',
+                        description: 'Aumentei o tempo médio de uso da plataforma de 8 horas/semana para 12 horas/semana ao final do ciclo ágil, com mais texto para ver o comportamento do card.',
                         problemId: '1234',
                         statusCard: 2,
                         userArea: 'Customer Experience',
@@ -79,10 +79,7 @@ normal.args = {
                         
                     },
                 ],
-    marginLeftTitle: '0px',
-    marginRightClear: '0px',
     marginsArrowButton: 50,
     sizeArrowButton: 80,
-    widthCard: '343px',
-    horizontalMarginInternScroll: '100px',
+    horizontalMarginInternScroll: '50px',
 }

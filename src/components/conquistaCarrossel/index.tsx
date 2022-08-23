@@ -7,8 +7,7 @@ import {IConquistaCarrossel} from './conquistaCarrossel'
 import ScrollContainer from '@components/scroll-container'
 import CardResultConquista from '@components/cards/cardResultConquista'
 
-export default function ConquistaCarrossel({ onSelected, objectCards, widthCard,
-    marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }: IConquistaCarrossel ) {
+export default function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }: IConquistaCarrossel ) {
     const [ itemSelected, setItemSelected ] = useState(-1);
 
     const onItemSelect = (n: number) => {
@@ -27,7 +26,7 @@ export default function ConquistaCarrossel({ onSelected, objectCards, widthCard,
                 userName={item.userName}
                 userAvatar={item.userAvatar}
                 onClick={() => onItemSelect(item.problemId)}
-                style={{marginRight: '24px'}}
+                style={{marginRight: '24px', whiteSpace:'pre-wrap'}}
             />
         )
     }
