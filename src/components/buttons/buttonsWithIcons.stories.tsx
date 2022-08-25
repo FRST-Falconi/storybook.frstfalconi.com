@@ -37,3 +37,21 @@ link.args = {
     disabled: false,
     startIcon: <Icons.ChangeAccount />
 }
+
+export const expandedPrimary = Template.bind({})
+expandedPrimary.args = { 
+    variant: 'expandedPrimary',
+    label: 'Button text',
+    disabled: false,
+    endIcon: <Icons.ChangeAccount />,
+    handleClick: () => { alert('Click') },
+}
+
+export const expandedSecondary = Template.bind({})
+expandedSecondary.args = {
+    variant: 'expandedSecondary',
+    label: 'Button text',
+    disabled: false,
+    endIcon: <Icons.ChangeAccount />,
+    handleClick: () => { alert('Click') },
+}
