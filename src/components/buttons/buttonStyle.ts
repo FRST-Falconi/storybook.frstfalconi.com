@@ -186,7 +186,62 @@ const variantStyles = (variant = 'contained') =>
             cursor: not-allowed;
             pointer-events: none;
         }
-    `
+    `,
+    expandedPrimary: css`
+        background-color: ${({ theme }) => theme.colors.primary1};
+        color: ${({ theme }) => theme.colors.shadeWhite};
+        width: 100%;
+        &:hover {
+            background-color: ${({ theme }) => theme.colors.primary2};
+        }
+
+        &:active {
+            background-color: ${({ theme }) => theme.colorsprimary3};
+        }
+
+        &:focus {
+            border: 2px solid ${({ theme }) => theme.colors.primary1}4D;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    `,
+    expandedSecondary: css`
+        background-color: transparent;
+        color: ${({ theme }) => theme.colors.primary1};
+        border: 1px solid ${({ theme }) => theme.colors.primary1};
+        width: 100%;
+
+        &:hover {
+            color: ${({ theme }) => theme.colors.primary2};
+            border: 1px solid ${({ theme }) => theme.colors.primary2};
+        }
+
+        &:active {
+            color: ${({ theme }) => theme.colors.primary3};
+            border: 1px solid ${({ theme }) => theme.colors.primary3};
+        }
+
+        &:focus {
+            border: 2px solid ${({ theme }) => theme.colors.primary1}4D;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            color: ${({ theme }) => theme.colors.neutralsGrey2};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    `,
+    
+
   }[variant]);
 
 export const Button = styled.button<{ variant: string }>`
