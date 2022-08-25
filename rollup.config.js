@@ -11,5 +11,5 @@ export default {
     format: 'cjs'
   },
   external: [...Object.keys(pkg.dependencies || {}), ...Object.keys(pkg.peerDependencies || {})],
-  plugins: [typescript(), postcss({ plugins: [] }), image({ limit: 10000 })]
+  plugins: [typescript(), postcss({ plugins: [] }), image({ limit: 1000000 })]
 }

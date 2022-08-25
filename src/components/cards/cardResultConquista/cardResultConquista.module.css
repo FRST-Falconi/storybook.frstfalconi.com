@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+    width: 343px;
+    height: 265px;
+    padding: 24px;
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+    font-family: 'work sans';
+}
+
+.container:hover {
+    box-shadow: 0px 0px 20px -7px #BDBDBD;
+}
+
+.container:active {
+    box-shadow: 0px 0px 20px -7px #BDBDBD;
+    background-color: #FF4D0D;
+    color: #FFF;
+}
+
+.cardAvatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.description {
+    max-height: 100px !important;
+    width: 300px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
+    -webkit-box-orient: vertical;
+}
+
+.verMais {
+    position:absolute;
+    color: #0645AD;
+    font-weight: 700;
+    right: 0;
+    bottom: 0;
+    margin-right: 20px;
+    margin-bottom: 12px;
+}

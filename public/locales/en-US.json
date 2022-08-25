@@ -21,5 +21,10 @@
   "user.card.status.defined": "Defined trail",
   "user.card.status.error": "Error on sending",
   "user.card.area": "Area",
-  "user.card.position": "Position"
+  "user.card.position": "Position",
+  "user.card.current": "Current",
+  "user.card.previus": "Previus",
+  "user.card.assignedLicense": "License assigned",
+  "user.card.definedTrail": "Trail defined",
+  "user.card.enrollments": "Registered"
 }

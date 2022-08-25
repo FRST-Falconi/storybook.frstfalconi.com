@@ -36,6 +36,78 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
         color: ${({ theme }) => theme.colors.neutralsGrey2};
     `}
 `
+export const LinkButtonStartIcon = styled.a<{ disabled: boolean }>`
+    border: none;
+    text-decoration: none;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
+    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    &:hover { 
+        color: ${({ theme }) => theme.colors.linkHover};
+    }
+
+    &:active { 
+        color: ${({ theme }) => theme.colors.linkPressed};
+    }
+
+    &:focus { 
+        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    }
+
+    & > svg {
+        margin-right: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ disabled }) => disabled && css`
+        pointer-events: none;
+        color: ${({ theme }) => theme.colors.neutralsGrey2};
+    `}
+`
+export const LinkButtonEndIcon = styled.a<{ disabled: boolean }>`
+    border: none;
+    text-decoration: none;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
+    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    cursor: pointer;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+
+    &:hover { 
+        color: ${({ theme }) => theme.colors.linkHover};
+    }
+
+    &:active { 
+        color: ${({ theme }) => theme.colors.linkPressed};
+    }
+
+    &:focus { 
+        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    }
+
+    & > svg {
+        margin-left: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ disabled }) => disabled && css`
+        pointer-events: none;
+        color: ${({ theme }) => theme.colors.neutralsGrey2};
+    `}
+`
 
 const variantStyles = (variant = 'contained') =>
   ({
@@ -90,6 +162,30 @@ const variantStyles = (variant = 'contained') =>
             cursor: not-allowed;
             pointer-events: none;
         }
+    `,
+    third: css`
+        background-color: ${({ theme }) => theme.colors.primary4};
+        color: ${({ theme }) => theme.colors.shadeWhite};
+
+        &:hover {
+            background-color: ${({ theme }) => theme.colors.primary4};
+        }
+
+        &:active {
+            background-color: ${({ theme }) => theme.colors.primary4};
+        }
+
+        &:focus {
+            border: 2px solid ${({ theme }) => theme.colors.primary4}4D;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            cursor: not-allowed;
+            pointer-events: none;
+        }
     `
   }[variant]);
 
@@ -112,8 +208,57 @@ export const Button = styled.button<{ variant: string }>`
     line-height: 19px;
     box-shadow: none;
 
+    ${({ variant }) => variantStyles(variant)}
+`;
+export const ButtonStartIcon = styled.button<{ variant: string }>`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    box-shadow: none;
+
     & > svg {
         margin-right: 12px;
+        max-height: 16px;
+        height: 100%;
+        width: auto;
+    }
+
+    ${({ variant }) => variantStyles(variant)}
+`;
+export const ButtonEndIcon = styled.button<{ variant: string }>`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    height: 48px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    box-shadow: none;
+
+    & > svg {
+        margin-left: 12px;
         max-height: 16px;
         height: 100%;
         width: auto;

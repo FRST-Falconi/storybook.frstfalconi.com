@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');
+
+.container {
+  width: 150px;
+  padding: 8px;
+  height: 80px;
+  display: flex;
+  justify-content: 'flex-start';
+  align-items: 'center';
+  position: relative;
+  margin-left: 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: 'Work Sans';
+  
+}
+
+.titulo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600px;
+}
+
+.content{
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
+}
+
+.star{
+  display: inline-flex;
+  width: 35px; 
+  height: 35px; 
+  position: relative; 
+  justify-content: center; 
+  align-items: center;
+}
+
+.avaliacao{
+  display: inline-flex;
+  width: 100px;
+  margin-left: 4px;
+}

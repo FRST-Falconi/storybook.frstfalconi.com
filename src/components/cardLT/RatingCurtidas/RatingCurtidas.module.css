@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');
+
+.container {
+  width: 150px;
+  padding: 8px;
+  height: 80px;
+  display: flex;
+  justify-content: 'flex-start';
+  align-items: 'center';
+  position: relative;
+  margin-left: 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-family: 'Work Sans';
+  
+}
