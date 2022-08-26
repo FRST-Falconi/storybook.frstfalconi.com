@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-const variantStyles = (variant = 'contained') =>
+const variantStyles = (variant = 'content') =>
   ({
     content: css`
        //background-color: transparent;
