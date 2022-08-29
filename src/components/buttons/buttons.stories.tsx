@@ -42,3 +42,19 @@ link.args = {
     label: 'Button text',
     disabled: false
 }
+
+export const expandedPrimary = Template.bind({})
+expandedPrimary.args = { 
+    variant: 'expandedPrimary',
+    label: 'Button text',
+    disabled: false,
+    handleClick: () => { alert('Click') },
+}
+
+export const expandedSecondary = Template.bind({})
+expandedSecondary.args = {
+    variant: 'expandedSecondary',
+    label: 'Button text',
+    disabled: false,
+    handleClick: () => { alert('Click') },
+}

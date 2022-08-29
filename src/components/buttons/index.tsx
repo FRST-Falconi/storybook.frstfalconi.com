@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import * as Styles from './buttonStyle'
 
-type enumVariant = 'primary' | 'secondary' | 'link' | 'third'
+type enumVariant = 'primary' | 'secondary' | 'link' | 'third' | 'expandedPrimary' | 'expandedSecondary' 
 interface buttonProps {
     variant?: enumVariant;
     label?: string,
@@ -47,6 +47,7 @@ export default function Button({ variant, label, disabled, startIcon, endIcon, h
                     <Styles.Button variant={variant} disabled={disabled} onClick={handleClick}>
                         {label}
                     </Styles.Button>
+                    
             }
 
         </ThemeProvider>
