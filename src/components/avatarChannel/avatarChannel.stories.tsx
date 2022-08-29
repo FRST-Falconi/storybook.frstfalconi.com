@@ -1,0 +1,21 @@
+import React from 'react'
+
+import AvatarChannel from './index'
+
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export default {
+    title: 'Base/AvatarChannel',
+    component: AvatarChannel,
+}
+
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+const Template = (args) => <AvatarChannel {...args} />
+
+export const normal = Template.bind({})
+normal.args = {
+    size: '80px',
+    src: '',
+    alt: 'Alt example',
+    disabled: false,    
+    onChange: ()=> {alert('click')}
+}
