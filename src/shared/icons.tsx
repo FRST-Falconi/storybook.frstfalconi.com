@@ -51,7 +51,7 @@ export function FRSTLogoBig({ fill, width, height }: IconsProps) {
   )
 }
 
-export function ChangeAccount({fill, width, height}: IconsProps) {
+export function ChangeAccount({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "18"} height={height ? height : "16"} viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M1 1.74841V6.2496H5.36364" stroke={fill ?? "white"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -94,7 +94,7 @@ export function DropdownSideIconWhite({ fill, width, height }: IconsProps) {
   )
 }
 
-export function ExitArrow({ fill, width, height}: IconsProps) {
+export function ExitArrow({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "17"} height={height ? height : "18"} viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M6.33333 17H2.77778C2.30628 17 1.8541 16.8127 1.5207 16.4793C1.1873 16.1459 1 15.6937 1 15.2222V2.77778C1 2.30628 1.1873 1.8541 1.5207 1.5207C1.8541 1.1873 2.30628 1 2.77778 1H6.33333" stroke={fill ? fill : "white"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -113,7 +113,7 @@ export function BackArrow({ fill, width, height }: IconsProps) {
   )
 }
 
-export function WhiteFilter({ fill, width, height}: IconsProps) {
+export function WhiteFilter({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "22"} height={height ? height : "20"} viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M21 1H1L9 10.46V17L13 19V10.46L21 1Z" stroke={fill ? fill : "white"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -130,7 +130,7 @@ export function CheckboxChecked({ fill, width, height }: IconsProps) {
   )
 }
 
-export function CheckboxEmpty({ fill, stroke, width, height}: IconsProps) {
+export function CheckboxEmpty({ fill, stroke, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "16"} height={height ? height : "16"} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="1.4" fill={fill ?? "white"} stroke={stroke ?? "#A6A6A6"} strokeWidth="1.2" />
@@ -587,4 +587,3 @@ export function MoreHorizontal({ fill, width, height }: IconsProps) {
     </svg>
   );
 }
-

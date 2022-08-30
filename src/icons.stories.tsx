@@ -153,3 +153,4 @@ MoreVertical.args = Icons.MoreVertical({})
 
 export const MoreHorizontal = Template.bind({})
 MoreHorizontal.args = Icons.MoreHorizontal({})
+
