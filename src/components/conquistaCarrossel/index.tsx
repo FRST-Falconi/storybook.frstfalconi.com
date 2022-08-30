@@ -25,7 +25,7 @@ export default function ConquistaCarrossel({ onSelected, objectCards, marginsArr
                 userArea={item.userArea}
                 userName={item.userName}
                 userAvatar={item.userAvatar}
-                onClick={() => onItemSelect(item.problemId)}
+                onClick={() => onSelected(item.problemId)}
                 style={{marginRight: '24px', whiteSpace:'pre-wrap'}}
             />
         )
