@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import '../../../shared/global.css';
-declare type enumType = 'text' | 'password' | 'email';
+declare type enumType = 'text' | 'password' | 'email' | 'number';
 export interface TextFieldProps {
     label?: string;
     placeholder?: string;
@@ -19,7 +19,9 @@ export interface TextFieldProps {
     required?: boolean;
     className?: string;
     multiline?: boolean;
+    defaultValue?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    maxLength?: number;
 }
 export default function TextField(props: TextFieldProps): JSX.Element;
 export {};
