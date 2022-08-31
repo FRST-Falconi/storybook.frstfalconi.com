@@ -22,5 +22,10 @@
   "user.card.status.defined": "Camino definido",
   "user.card.status.error": "error en el envio",
   "user.card.area": "Área",
-  "user.card.position": "Cargo"
+  "user.card.position": "Cargo",
+  "user.card.current": "Actual",
+  "user.card.previus": "Anterior",
+  "user.card.assignedLicense": "Licencia asignada",
+  "user.card.definedTrail": "Módulo definido",
+  "user.card.enrollments": "Registrado"
 }
