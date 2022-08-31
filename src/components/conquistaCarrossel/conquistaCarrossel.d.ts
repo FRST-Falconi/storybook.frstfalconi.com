@@ -3,7 +3,7 @@ import React from "react"
 
 export interface IConquistaCarrossel {
     objectCards?: any,
-    onSelected?: (n: number) => void,
+    onSelected?: (n: any) => void,
     marginsArrowButton?: number,
     sizeArrowButton?: number,
     horizontalMarginInternScroll?: string

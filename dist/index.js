@@ -1233,7 +1233,60 @@ const variantStyles = (variant = 'contained') => ({
             cursor: not-allowed;
             pointer-events: none;
         }
-    `
+    `,
+    expandedPrimary: styled.css `
+        background-color: ${({ theme }) => theme.colors.primary1};
+        color: ${({ theme }) => theme.colors.shadeWhite};
+        width: 100%;
+        &:hover {
+            background-color: ${({ theme }) => theme.colors.primary2};
+        }
+
+        &:active {
+            background-color: ${({ theme }) => theme.colorsprimary3};
+        }
+
+        &:focus {
+            border: 2px solid ${({ theme }) => theme.colors.primary1}4D;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    `,
+    expandedSecondary: styled.css `
+        background-color: transparent;
+        color: ${({ theme }) => theme.colors.primary1};
+        border: 1px solid ${({ theme }) => theme.colors.primary1};
+        width: 100%;
+
+        &:hover {
+            color: ${({ theme }) => theme.colors.primary2};
+            border: 1px solid ${({ theme }) => theme.colors.primary2};
+        }
+
+        &:active {
+            color: ${({ theme }) => theme.colors.primary3};
+            border: 1px solid ${({ theme }) => theme.colors.primary3};
+        }
+
+        &:focus {
+            border: 2px solid ${({ theme }) => theme.colors.primary1}4D;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+        }
+
+        &:disabled {
+            color: ${({ theme }) => theme.colors.neutralsGrey2};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    `,
 }[variant]);
 const Button$1 = styled__default["default"].button `
     display: flex;
@@ -1653,7 +1706,7 @@ function TextField(props) {
             return setInputType('text');
         setInputType('password');
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required }), props.endIcon && !props.multiline && ((props.type === 'password')
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && ((props.type === 'password')
                             ? jsxRuntime.jsx(InputIconButton, { onClick: handleTogglePasswordVisibility, children: props.endIcon })
                             : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText$1, { children: props.helperText })] }) }));
 }
@@ -3326,13 +3379,9 @@ function ExclusiveClassCard({ titleClass, labelButton, className, handleClick })
 }
 
 function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }) {
-    const [itemSelected, setItemSelected] = react.useState(-1);
-    const onItemSelect = (n) => {
-        setItemSelected(n);
-        onSelected(n);
-    };
+    react.useState(-1);
     function renderCard(item, index) {
-        return (jsxRuntime.jsx(CardResultConquista, { description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onItemSelect(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
+        return (jsxRuntime.jsx(CardResultConquista, { description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) }) }));
 }
