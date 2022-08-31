@@ -5,7 +5,7 @@ import {  ThemeProvider } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { FRSTTheme } from '../../../theme'
 
-type enumType = 'text' | 'password' | 'email'
+type enumType = 'text' | 'password' | 'email' | 'number'
 
 export interface TextFieldProps {
     label?: string,
@@ -25,7 +25,9 @@ export interface TextFieldProps {
     required?: boolean,
     className?: string,
     multiline?: boolean,
+    defaultValue?: string,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    maxLength?: number
 }
 
 export default function TextField(props: TextFieldProps) {
@@ -67,6 +69,8 @@ export default function TextField(props: TextFieldProps) {
                         onChange={props.onChange}
                         name={props.name}
                         required={props.required}
+                        defaultValue={props.defaultValue}
+                        maxLength={props.maxLength}
                     />
                     {
                         props.endIcon && !props.multiline && (

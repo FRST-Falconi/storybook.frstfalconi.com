@@ -6,7 +6,7 @@ import { IAvatar } from './avatarChannel'
 import * as Icons from '../../shared/icons'
 
 export default function AvatarChannel({ size, src, alt, className, disabled, onChange }: IAvatar) {
-    //const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png'
+    const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png'
     
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -17,7 +17,7 @@ export default function AvatarChannel({ size, src, alt, className, disabled, onC
             disabled={disabled}
             >
                 <Styles.AvatarImg
-                    src={src || null}                    
+                    src={src || defaultImg}                    
                     size={size}
                     disabled={disabled}
                     onClick={onChange}                    

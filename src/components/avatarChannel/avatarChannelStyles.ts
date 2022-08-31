@@ -10,14 +10,14 @@ export const AvatarChannel = styled.div<AvatarI>`
     width: ${props => props.size || '80px'};
     height: ${props => props.size || '80px'};
     border-radius: 50%;
-    background-color: ${({ theme }) => theme.colors.secondary1};  
-    position: absolute;
+    //background-color: ${({ theme }) => theme.colors.secondary1};  
+    position: relative;
     margin: 0% 0% 0% 0%;
     cursor: pointer;
-    opacity: 0.5;
+    opacity: 1;
     
     &:hover {
-            opacity: 1.0;            
+            opacity: 0.75;            
     }
 
     &:hover .hide{
@@ -50,6 +50,7 @@ export const AvatarImg = styled.img<AvatarI>`
     height: ${props => props.size || '80px'};
     border-radius: 50%;
     object-fit: cover;
+    
     
     ${({ disabled }) => disabled === true && `
         filter: grayscale(100%);
