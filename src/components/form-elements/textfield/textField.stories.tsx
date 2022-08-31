@@ -25,6 +25,8 @@ NormalWithHelpertext.args = {
     name: '',
     className: '',
     onChange: (e : any) => { console.log(e.target.value) },
+    defaultValue: null,
+    maxLength: 255
 }
 
 export const NormalWithoutHelpertext = Template.bind({})
