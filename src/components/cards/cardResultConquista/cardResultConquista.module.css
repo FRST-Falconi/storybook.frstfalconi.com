@@ -38,6 +38,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
     -webkit-box-orient: vertical;
+    word-break: break-all;
 }
 
 .verMais {
