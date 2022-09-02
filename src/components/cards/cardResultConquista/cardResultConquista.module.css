@@ -11,6 +11,7 @@
     border: 1px solid #BDBDBD;
     border-radius: 8px;
     font-family: 'work sans';
+    word-break: break-all;
 }
 
 .container:hover {
@@ -20,7 +21,6 @@
 .container:active {
     box-shadow: 0px 0px 20px -7px #BDBDBD;
     background-color: #FF4D0D;
-    color: #FFF;
 }
 
 .cardAvatar {
@@ -38,6 +38,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
     -webkit-box-orient: vertical;
+    word-break: break-all;
 }
 
 .verMais {
