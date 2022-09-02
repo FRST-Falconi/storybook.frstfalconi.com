@@ -20,7 +20,7 @@ interface BannerProblemParams {
     qtdeRelevancia: number;
     notaRelevancia: number;
     descriptionRelevancia: string;
-    curtidas: number;
+    curtidas?: number;
     stepProblem: number;
     stepActive: number;
     onSelectedStep: (step: number) => void;
