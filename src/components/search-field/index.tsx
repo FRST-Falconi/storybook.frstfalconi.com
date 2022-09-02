@@ -31,5 +31,4 @@ export default function SearchField({ label, hasSearchIcon, placeholder, value, 
             </Container>
         </ThemeProvider>
     )
-
 }
