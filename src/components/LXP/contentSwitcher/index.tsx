@@ -1,4 +1,3 @@
-import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './contentSwitcherStyle'
