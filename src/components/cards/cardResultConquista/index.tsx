@@ -7,7 +7,7 @@ import ConquistaPressed from './Icons/ConquistaPressed.png'
 import Aprendizado from './Icons/Aprendizado.png'
 import AprendizadoPressed from './Icons/AprendizadoPressed.png'
 import { ApiRounded } from '@mui/icons-material'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface CardResultConquistaProps {
     userAvatar ?: string
@@ -30,14 +30,17 @@ interface CardResultConquistaProps {
  * @param {CardResultConquistaProps} props
  */
 export default function CardResultConquista(props: CardResultConquistaProps) {
-    
     const [isPressed, setIsPressed] = useState(false)
+    useEffect(() => {
+        const timer = setTimeout(() => setIsPressed(false), 1000);
+        return () => clearTimeout(timer);
+    },[isPressed])
     return (
         <div className={style.container} style={{ ...props.style, cursor:'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF'}} onClick={() => 
             {
                 props.onClick(props.problemId)
                 setIsPressed(true)
-            }}>
+            }}> 
             <div className={style.cardAvatar}>
                 <Avatar size='50px' src={props.userAvatar} />
                 <span>&nbsp;&nbsp;</span>

@@ -1,5 +1,8 @@
 
 ///-----------------------------------------
+
+import React from "react";
+
 /// Interface do Componente
 interface StarIconParam {
   color: string;  

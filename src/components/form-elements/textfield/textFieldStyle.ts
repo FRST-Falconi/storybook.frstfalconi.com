@@ -94,7 +94,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     ${placeholderStyle('neutralsGrey3')}
 
 
-    ${({ as }) => as === 'textarea' && css`]
+    ${({ as }) => as === 'textarea' && css`
         height: ${props => props.theme.height || '100%'};
         resize: none;
         overflow: auto;

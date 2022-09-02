@@ -24,7 +24,7 @@ export const LabelField = styled.label<ISearchField>`
 
     color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
     
-    color: ${({ isOnFocus }) => isOnFocus &&  '#663366' }}    
+    color: ${({ isOnFocus }) => isOnFocus &&  '#663366' }    
 `
 
 export const ContainerIcon = styled.div`
@@ -47,7 +47,7 @@ export const InputSearchWrapper = styled.div<ISearchField>`
 
     border: 1px solid ${({isHover, theme}) => isHover ? theme.colors.linkOnfocus : '#E0E0E0'};
 
-    ${({ isOnFocus }) => isOnFocus &&  'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;' }}    
+    ${({ isOnFocus }) => isOnFocus &&  'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;' }    
 `
 
 export const InputText = styled.input`
