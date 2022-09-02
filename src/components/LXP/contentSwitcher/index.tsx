@@ -1,6 +1,6 @@
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
-import { FRSTTheme } from '../../theme'
+import { FRSTTheme } from '../../../theme'
 import * as Styles from './contentSwitcherStyle'
 import { IcontentSwitcher } from './contentSwitcher'
 import { useState } from 'react'
