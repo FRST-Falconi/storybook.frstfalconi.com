@@ -60,8 +60,7 @@ export const InputText = styled.textarea<TextArea>`
 
     padding: 0;
     margin: 14px;
-    border: none;
-    wrap: off;
+    border: none;    
 `
 
 export const SmileIcon = styled.div`

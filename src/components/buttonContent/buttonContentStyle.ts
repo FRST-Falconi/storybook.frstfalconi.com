@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 const variantStyles = (variant = 'contained') =>
   ({
     content: css`
-       //background-color: transparent;
         background-color: #FFFFFF;
 
         color: ${({ theme }) => theme.colors.neutralsGrey4};

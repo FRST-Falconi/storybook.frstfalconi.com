@@ -20,7 +20,6 @@
 .container:active {
     box-shadow: 0px 0px 20px -7px #BDBDBD;
     background-color: #FF4D0D;
-    color: #FFF;
 }
 
 .cardAvatar {

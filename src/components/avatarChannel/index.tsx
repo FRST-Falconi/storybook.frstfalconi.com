@@ -5,7 +5,7 @@ import * as Styles from './avatarChannelStyles'
 import { IAvatar } from './avatarChannel'
 import * as Icons from '../../shared/icons'
 
-export default function AvatarChannel({ size, src, alt, className, disabled, onChange }: IAvatar) {
+export default function AvatarChannel({ size, src, alt, className, disabled, style, onChange }: IAvatar) {
     const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png'
     
     return (
@@ -15,6 +15,7 @@ export default function AvatarChannel({ size, src, alt, className, disabled, onC
             onClick={onChange} 
             className={className}
             disabled={disabled}
+            style={{...style}}
             >
                 <Styles.AvatarImg
                     src={src || defaultImg}                    

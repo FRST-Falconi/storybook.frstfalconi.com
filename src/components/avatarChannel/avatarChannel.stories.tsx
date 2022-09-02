@@ -4,7 +4,7 @@ import AvatarChannel from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Base/AvatarChannel',
+    title: 'LXP/AvatarChannel',
     component: AvatarChannel,
 }
 
