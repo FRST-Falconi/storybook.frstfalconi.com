@@ -90,7 +90,6 @@ export default function CardProblem(props: CardProblemProps) {
             
             <div className={style.checkBox} onClick={()=>
                 {
-                    setSelected(!selected); 
                     props.handleSelect(props.problemID)
                 }}>
 
