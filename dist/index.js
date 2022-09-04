@@ -1757,7 +1757,7 @@ const InputText$1 = styled__default["default"].textarea `
     padding: 0;
     margin: 14px;
     border: none;
-    wrap: off;
+    //wrap: off;
 `;
 styled__default["default"].div `
     display: flex;
@@ -2745,7 +2745,7 @@ const LabelField = styled__default["default"].label `
 
     color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
     
-    color: ${({ isOnFocus }) => isOnFocus && '#663366'}}    
+    color: ${({ isOnFocus }) => isOnFocus && '#663366'}    
 `;
 const ContainerIcon = styled__default["default"].div `
     min-height: 20px;
@@ -2766,7 +2766,7 @@ const InputSearchWrapper = styled__default["default"].div `
 
     border: 1px solid ${({ isHover, theme }) => isHover ? theme.colors.linkOnfocus : '#E0E0E0'};
 
-    ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}}    
+    ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}    
 `;
 const InputText = styled__default["default"].input `
     margin-left:10px;
@@ -3248,7 +3248,6 @@ function CardProblem(props) {
     }, []);
     const BREAKWIDTH = 450;
     return (jsxRuntime.jsxs("div", { className: style$2.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$2.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$2.checkBox, onClick: () => {
-                    setSelected(!selected);
                     props.handleSelect(props.problemID);
                 }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$2.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$2.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$2.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
                         jsxRuntime.jsx("div", { className: style$2.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
