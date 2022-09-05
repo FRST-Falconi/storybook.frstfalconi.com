@@ -1,7 +1,7 @@
 {
   "name": "frst-components",
   "homepage": "http://FRST-Falconi.github.io/storybook.frstfalconi.com",
-  "version": "0.2.72",
+  "version": "0.2.73",
   "private": true,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@emoji-mart/data": "^1.0.2",
+    "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.3",
     "@types/emoji-mart": "^3.0.9",

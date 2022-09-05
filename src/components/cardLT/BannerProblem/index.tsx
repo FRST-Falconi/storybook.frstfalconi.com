@@ -39,7 +39,7 @@ interface BannerProblemParams {
   qtdeRelevancia: number
   notaRelevancia: number
   descriptionRelevancia: string
-  curtidas: number
+  curtidas?: number
   stepProblem: number
   stepActive: number
   onSelectedStep: (step: number) => void
@@ -322,12 +322,14 @@ export default function BannerProblem(props: BannerProblemParams) {
                       tipoVisualizacao={1}
                       style={{margin: 0}}
                     />            
-                    <RatingCurtidas 
-                      titulo='Curtidas'
-                      qtdeCurtidas={props.curtidas}
-                      tipoBotao={2}
-                      style={{margin:0}}
-                    />
+                    {props.curtidas &&
+                      <RatingCurtidas 
+                        titulo='Curtidas'
+                        qtdeCurtidas={props.curtidas}
+                        tipoBotao={2}
+                        style={{margin:0}}
+                      />
+                    }
                   </div>
                 : null
               }
@@ -352,11 +354,13 @@ export default function BannerProblem(props: BannerProblemParams) {
                   nota={props.notaRelevancia}
                   tipoVisualizacao={1}
                 />            
-                <RatingCurtidas 
-                  titulo='Curtidas'
-                  qtdeCurtidas={props.curtidas}
-                  tipoBotao={2}
-                />
+                {props.curtidas &&
+                  <RatingCurtidas 
+                    titulo='Curtidas'
+                    qtdeCurtidas={props.curtidas}
+                    tipoBotao={2}
+                  />
+                }
               </div> 
               : null
             }       
