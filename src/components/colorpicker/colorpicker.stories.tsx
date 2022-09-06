@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React from "react";
 import Colorpicker from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

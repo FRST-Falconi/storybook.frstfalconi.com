@@ -1,9 +1,6 @@
 import React from "react"
 export interface IColorpicker {
-    width?: number,
-    height?: number,
-    className?: string,
-    disabled?: boolean,
-    setColor?: () => void
+    width?: string,
+    height?: string,
     color?: string
 }
