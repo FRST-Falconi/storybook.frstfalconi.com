@@ -38,8 +38,7 @@ export default function PopOver({ variant, children }: IPopOver) {
                     <Styles.PopOverLeftRight>
                         <Styles.RectangleRight variant={variant = 'sideRight'} />
                         {children}
-                    </Styles.PopOverLeftRight>
-
+                    </Styles.PopOverLeftRight>              
                 : null
             }
 
