@@ -20,7 +20,6 @@ export const AvatarChannel = styled.div<AvatarI>`
     position: relative;
     margin: 0% 0% 0% 0%;
     cursor: pointer;
-    margin-top: 12px;
    
     &:hover .hide{
         display: block;
@@ -56,7 +55,7 @@ export const AvatarCircle = styled.div<AvatarI>`
     position: relative;
     margin: 26.25% 25% 26.25% 25%;    
     box-shadow: 0px 18px 40px -15px #d3d3d3;
-    top: 19px;
+    top: 18px;
     display: none;    
 `
 export const AvatarCam = styled.div<AvatarI>`
@@ -72,5 +71,5 @@ export const ContainerPopOver = styled.div`
     width: 120px;
     position: absolute;
     top: 0;
-    margin-bottom: 18px;    
+    margin-top: 12px;    
 `
