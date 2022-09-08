@@ -1734,6 +1734,7 @@ const InputWrapper = styled__default["default"].div `
     }
 
     ${({ focus, theme }) => focus &&
+
     `border: 1px solid` + theme.colors.primary1 + " !important;"}
 `;
 const InputText$1 = styled__default["default"].textarea `
@@ -1756,8 +1757,7 @@ const InputText$1 = styled__default["default"].textarea `
 
     padding: 0;
     margin: 14px;
-    border: none;
-    //wrap: off;
+    border: none;    
 `;
 styled__default["default"].div `
     display: flex;

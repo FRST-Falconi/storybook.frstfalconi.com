@@ -7,5 +7,6 @@ export interface IButtonContent {
     label?: string,
     disabled?: boolean,
     startIcon?: any,
+    style?: React.CSSProperties,
     handleClick?: () => void,
 }

@@ -5,7 +5,7 @@ import * as Icons from '../../shared/icons'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Buttons/ButtonContent',
+    title: 'LXP/ButtonContent',
     component: ButtonContent,
 }
 
