@@ -1,0 +1,24 @@
+import styled from 'styled-components'
+
+
+export const WrapperStars = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: auto;
+`
+
+export const Raiting  = styled.p`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Work Sans;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 500;
+    line-height: 28px;
+    color: #222;
+    padding-top: 3px;
+    margin-left: 16.5px;
+`
