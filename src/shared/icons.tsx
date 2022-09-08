@@ -587,3 +587,11 @@ export function MoreHorizontal({ fill, width, height }: IconsProps) {
     </svg>
   );
 }
+
+export function Noun({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width : "64"} height={height ? height : "64"}viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path fillRule="evenodd" clipRule="evenodd" d="M32.1611 31.9998L51.3327 12.8283V51.1714L32.1611 31.9998ZM29.3327 31.9998L12.666 48.6665V15.3332L29.3327 31.9998ZM30.7469 30.5856L12.8278 12.6665H48.666L30.7469 30.5856ZM10.666 13.3332V50.6665V51.3332V53.3332H12.666L50.666 53.3332L51.3327 53.3332H53.3327V51.3332V12.6665V10.6665H51.3327H50.666H12.666H10.666V12.6665V13.3332ZM48.666 51.3332H12.8278L30.7469 33.4141L48.666 51.3332Z" fill={fill? fill:"#222222"}/>
+    </svg>
+  );
+}
