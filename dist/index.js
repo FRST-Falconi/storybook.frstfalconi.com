@@ -1756,8 +1756,7 @@ const InputText$1 = styled__default["default"].textarea `
 
     padding: 0;
     margin: 14px;
-    border: none;
-    //wrap: off;
+    border: none;    
 `;
 styled__default["default"].div `
     display: flex;
