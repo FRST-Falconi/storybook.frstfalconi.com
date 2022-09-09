@@ -13,6 +13,7 @@ const Template = (args) => <ProgressBar {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {
-    value: 50
+    value: 50,
+    label: 'XP Investimentos'
 }
 
