@@ -26,6 +26,11 @@ export interface IRating {
    sizeStars: number;
 
   /**
+   * @prop {string} marginStars: Margin das estrelas
+   */  
+      marginStars: string;
+
+  /**
    * @prop {enumOrientation} orientation: Disposição das estrelas: horizontal ou vertical
    */  
    orientation: enumOrientation;

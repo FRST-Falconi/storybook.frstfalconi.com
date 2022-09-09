@@ -6,7 +6,7 @@ import { IRating } from './rating'
 /**
  * @componente 
  */
-export default function Rating({ rating, isVisibleNumberRating, qtdStars, handleRating, sizeStars, orientation, disabled }: IRating) {
+export default function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }: IRating) {
   const [ tempRating, setTempRating ] = useState(rating+1)
   const [ hoverRaiting, setHoverRaiting ] = useState(-1)
 
@@ -34,6 +34,7 @@ export default function Rating({ rating, isVisibleNumberRating, qtdStars, handle
           setOnHover={setHoverRaiting} 
           handleClick={handleClick} 
           sizeStars={sizeStars}
+          marginStars={marginStars}
           disabled={disabled}
         />);
       temRating--;
@@ -49,7 +50,7 @@ export default function Rating({ rating, isVisibleNumberRating, qtdStars, handle
   )
 }
 
-function StarRatingComponent({id, active, handleClick, sizeStars, setOnHover, disabled}) {
+function StarRatingComponent({id, active, handleClick, sizeStars, marginStars, setOnHover, disabled}) {
   const [ actionArea, setActionArea ] = useState(false);
 
   const getSizeStar = () => {
@@ -81,7 +82,8 @@ function StarRatingComponent({id, active, handleClick, sizeStars, setOnHover, di
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: '3.5px' }}
+        padding: marginStars ? marginStars : '3.5px' 
+      }}
     >
       <StarRating 
         width={sizeStars ? sizeStars : 30}
