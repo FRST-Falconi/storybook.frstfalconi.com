@@ -29,4 +29,9 @@ export interface IRating {
    * @prop {enumOrientation} orientation: Disposição das estrelas: horizontal ou vertical
    */  
    orientation: enumOrientation;
+
+  /**
+   * @prop {boolean} disabled: Boolean para desabilitar edição
+   */  
+   disabled: boolean;
 }

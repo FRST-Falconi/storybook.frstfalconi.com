@@ -6,7 +6,7 @@ import { IRating } from './rating'
 /**
  * @componente 
  */
-export default function Rating({ rating, isVisibleNumberRating, qtdStars, handleRating, sizeStars, orientation }: IRating) {
+export default function Rating({ rating, isVisibleNumberRating, qtdStars, handleRating, sizeStars, orientation, disabled }: IRating) {
   const [ tempRating, setTempRating ] = useState(rating+1)
   const [ hoverRaiting, setHoverRaiting ] = useState(-1)
 
@@ -15,6 +15,10 @@ export default function Rating({ rating, isVisibleNumberRating, qtdStars, handle
   const rederStars = () => {
     var groupStars = [];
     let temRating = tempRating;
+
+    const handleClick = (e) => {
+      if(!disabled) handleRating(e)
+    }
 
     const getStatusActive = (id) => {
       if(id < hoverRaiting) return true; 
@@ -28,8 +32,9 @@ export default function Rating({ rating, isVisibleNumberRating, qtdStars, handle
           id={i+1}
           active={getStatusActive(i)} 
           setOnHover={setHoverRaiting} 
-          handleClick={handleRating} 
+          handleClick={handleClick} 
           sizeStars={sizeStars}
+          disabled={disabled}
         />);
       temRating--;
     }
@@ -44,8 +49,19 @@ export default function Rating({ rating, isVisibleNumberRating, qtdStars, handle
   )
 }
 
-function StarRatingComponent({id, active, handleClick, sizeStars, setOnHover}) {
+function StarRatingComponent({id, active, handleClick, sizeStars, setOnHover, disabled}) {
   const [ actionArea, setActionArea ] = useState(false);
+
+  const getSizeStar = () => {
+
+  }
+
+  const getColorStar = () => {
+    if(active)
+      return '#FFC200'
+    else 
+      return '#757575'
+  }
 
   useEffect(()=> {
     setTimeout(() => {
@@ -58,8 +74,8 @@ function StarRatingComponent({id, active, handleClick, sizeStars, setOnHover}) {
 
   return <>
     <div 
-      onMouseOver={() => setActionArea(true)}
-      onMouseOut={() => setActionArea(false)}
+      onMouseOver={() => setActionArea(true && !disabled)}
+      onMouseOut={() => setActionArea(false && !disabled)}
       onClick={() => handleClick(id)}
       style={{
         display: 'flex',
@@ -68,9 +84,10 @@ function StarRatingComponent({id, active, handleClick, sizeStars, setOnHover}) {
         padding: '3.5px' }}
     >
       <StarRating 
-        width={sizeStars ? sizeStars : null}
-        height={sizeStars ? sizeStars : null}
-        fill={active ? '#FFC200': '#757575'}
+        width={sizeStars ? sizeStars : 30}
+        height={sizeStars ? sizeStars : 29}
+        fill={getColorStar()}
+        fillOpacity={disabled ? '0.6' : '1'}
       />
     </div>
   </>
