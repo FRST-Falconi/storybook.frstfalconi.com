@@ -48,10 +48,12 @@ function StarRatingComponent({id, active, handleClick, sizeStars, setOnHover}) {
   const [ actionArea, setActionArea ] = useState(false);
 
   useEffect(()=> {
+    setTimeout(() => {
     if(actionArea)
       setOnHover(id)
     else
       setOnHover(-1)
+  }, 150)
   }, [actionArea]);
 
   return <>
