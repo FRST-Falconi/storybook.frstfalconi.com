@@ -52,7 +52,7 @@ export const ButtonStartIcon = styled.button<{ variant: string }>`
     font-weight: 700;
     font-size: 16px;
     line-height: 19px;
-    box-shadow: none;
+    box-shadow: none;    
 
     & > svg {        
         height: 40px;
