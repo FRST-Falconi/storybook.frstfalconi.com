@@ -1,13 +1,11 @@
 import React from 'react'
-import {
-  ProgressStepsItem,
-  ProgressSteps
-} from './index'
+import Stepper from './stepper'
+import StepperItem from './stepperItem'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'EBR/Nexts Steps - Progress Steps',
-    component: ProgressSteps,
+    title: 'EBR/Nexts Steps - Progress Stepper',
+    component: Stepper,
 }
 
 const ProgressStepsData = [
@@ -29,12 +27,12 @@ const ProgressStepsData = [
 ]
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <ProgressSteps {...args} />
+const Template = (args) => <Stepper {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
   children: ProgressStepsData.map((item, index) => 
-    <ProgressStepsItem
+    <StepperItem
       key={index}
       title={item.title}
       subtitle={item.subtitle}
