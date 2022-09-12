@@ -1,14 +1,13 @@
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
-import { CardWrapper, TitleCard, AreaCounter, TotalText, TotalNumber, TitleCardLoading, TotalLoading } from './totalizerCardStyles'
+import { CardWrapper, TitleCard, AreaCounter, TotalText, TotalNumber, PartialNumber, TitleCardLoading, TotalLoading } from './totalizerCardStyles'
 import { ITotalizerCard } from './totalizerCard'
 
-export default function TotalizerCard({ titleCard, textTotal, numberTotal, loading, className, styles }: ITotalizerCard) {
+export default function TotalizerCard({ titleCard, textTotal, numberTotal, numberPartial, loading, className, hasShadow, styles }: ITotalizerCard) {
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <div  style={{width: '180px', ...styles}} className={className}>
-                <CardWrapper>
+                <CardWrapper hasShadow={hasShadow} style={{...styles}}>
                     { loading ?                         
                         <TitleCardLoading className='shimmer'/>
                         :                    
@@ -18,11 +17,13 @@ export default function TotalizerCard({ titleCard, textTotal, numberTotal, loadi
                     <TotalLoading className='shimmer'/> :
                     <AreaCounter>
                     <TotalText> { textTotal } </TotalText>
-                            <TotalNumber> { numberTotal } </TotalNumber>
+                    <div style={{display: 'flex', flexDirection:'row', alignItems: 'baseline', marginBottom: '16px'}}>
+                        <TotalNumber> { numberTotal } </TotalNumber>
+                        { numberPartial && <PartialNumber>/{ numberPartial } </PartialNumber>}
+                    </div>
                     </AreaCounter>
                     }
                 </CardWrapper>
-            </div>
         </ThemeProvider>
     )
 }
