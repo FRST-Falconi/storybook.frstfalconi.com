@@ -2662,12 +2662,13 @@ styled__default["default"].img `
 `;
 const CardWrapper = styled__default["default"].div `
     width: auto;
-    height: 172px;
+    min-height: auto;
 
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid #E8E8E8;
     border-radius: 4px;
     padding: 20px;
+    ${({ hasShadow }) => hasShadow && 'box-shadow: 0px 18px 40px -15px #D3D3D3'};
 `;
 const TitleCard$1 = styled__default["default"].p `
     font-family: 'Work Sans';
@@ -2710,8 +2711,8 @@ const TotalLoading = styled__default["default"].div `
     width: 100px;
     border-radius: 10px;
 `;
-const TotalNumber = styled__default["default"].span `
-    font-family: 'Work Sans';
+const TotalNumber = styled__default["default"].p `
+    font-family: 'Work Sans' ;
     font-style: normal;
     font-weight: 300;
     font-size: 48px;
@@ -2720,14 +2721,23 @@ const TotalNumber = styled__default["default"].span `
     color: #222222;
     margin-top: -13px;
 `;
+const PartialNumber = styled__default["default"].p `
+    font-family: 'Work Sans' ;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 56px;
 
-function TotalizerCard({ titleCard, textTotal, numberTotal, loading, className, styles }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { width: '180px', ...styles }, className: className, children: jsxRuntime.jsxs(CardWrapper, { children: [loading ?
-                        jsxRuntime.jsx(TitleCardLoading, { className: 'shimmer' })
-                        :
-                            jsxRuntime.jsxs(TitleCard$1, { children: [" ", titleCard, " "] }), loading ?
-                        jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
-                        jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] })] })] }) }) }));
+    color: #222222;
+`;
+
+function TotalizerCard({ titleCard, textTotal, numberTotal, numberPartial, loading, className, hasShadow, styles }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper, { hasShadow: hasShadow, style: { ...styles }, children: [loading ?
+                    jsxRuntime.jsx(TitleCardLoading, { className: 'shimmer' })
+                    :
+                        jsxRuntime.jsxs(TitleCard$1, { children: [" ", titleCard, " "] }), loading ?
+                    jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
+                    jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginBottom: '16px' }, children: [jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] }), numberPartial && jsxRuntime.jsxs(PartialNumber, { children: ["/", numberPartial, " "] })] })] })] }) }));
 }
 
 const Container = styled__default["default"].div `

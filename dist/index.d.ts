@@ -25,6 +25,6 @@ export { default as CardDefinicaoProblema } from './src/components/cards/cardDef
 export { default as CardResultConquista } from './src/components/cards/cardResultConquista';
 export { default as ExclusiveClassCard } from './src/components/exclusive-class';
 export { default as ConquistaCarrossel } from './src/components/conquistaCarrossel';
-export { default as RatingMui } from './src/components/ebr-components/Rating';
-export { default as Rating } from './src/components/ebr-components/RatingFilled';
+export { default as RatingMui } from './src/components/EBR/Rating';
+export { default as Rating } from './src/components/EBR/RatingFilled';
 //# sourceMappingURL=index.d.ts.map
