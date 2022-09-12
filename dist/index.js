@@ -22,6 +22,7 @@ var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
 var Select$1 = require('react-select');
+var Rating$2 = require('@mui/material/Rating');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -40,6 +41,7 @@ var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
 var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$1);
+var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -160,6 +162,9 @@ function OpenedEye({ fill, width, height }) {
 }
 function PeopleIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "28", height: height ? height : "28", viewBox: "0 0 28 28", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.5367 18.3986C15.3803 18.5237 15.2967 18.7186 15.3137 18.9181C15.3307 19.1176 15.4461 19.2955 15.6214 19.3923L21.2219 22.4851L21.285 22.5272C21.3293 22.5568 21.3775 22.5803 21.4281 22.5972C21.428 22.5971 21.4306 22.598 21.436 22.6002C21.4414 22.6024 21.4488 22.6056 21.4585 22.6101C21.478 22.6193 21.5037 22.6323 21.5362 22.6503C21.6154 22.6944 21.7095 22.7481 21.819 22.8119C21.8988 22.8585 21.9835 22.9179 22.0728 22.9924C22.1661 23.0701 22.2427 23.1437 22.3047 23.2125C22.3458 23.2582 22.3833 23.3142 22.4157 23.3843C22.4422 23.4417 22.4444 23.4726 22.4444 23.4825V25.7482C22.4444 26.0206 22.3569 26.2222 22.1793 26.3942C21.9913 26.5763 21.7861 26.6587 21.5339 26.6587H2.17724C1.92499 26.6587 1.71979 26.5763 1.53178 26.3942C1.35426 26.2222 1.26675 26.0206 1.26675 25.7482V23.4825C1.26675 23.4815 1.2688 23.3777 1.49572 23.1659C1.76764 22.9121 1.94776 22.7765 2.04904 22.7203C2.21282 22.6293 2.34438 22.5592 2.44557 22.5087C2.45135 22.5058 2.45708 22.5028 2.46276 22.4997L8.25297 19.3668C8.42969 19.2712 8.54681 19.0935 8.56499 18.8934C8.58317 18.6933 8.49998 18.4974 8.34338 18.3715C7.49188 17.687 6.84229 16.7418 6.40751 15.507C5.9566 14.2264 5.74227 13.1114 5.74227 12.1538V8.3776C5.74227 7.99893 5.84022 7.58426 6.06035 7.12769C6.27957 6.67302 6.58672 6.24878 6.98862 5.85525C7.40443 5.4481 7.87447 5.07769 8.40036 4.74463C8.91181 4.42071 9.47775 4.16277 10.1008 3.97238C10.7213 3.78278 11.3149 3.69088 11.8835 3.69088C12.8628 3.69088 13.833 3.9306 14.8002 4.42282C15.7763 4.91959 16.5485 5.54257 17.1316 6.28628C17.7149 7.03019 17.9688 7.72406 17.9688 8.3776V12.1538C17.9688 13.2371 17.7723 14.3955 17.369 15.6321C16.9807 16.8229 16.3659 17.7352 15.5367 18.3986Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14 1.70204C14.4984 1.38217 15.0467 1.12965 15.6449 0.944465C16.243 0.75928 16.8245 0.666687 17.3894 0.666687C18.3531 0.666687 19.3001 0.906586 20.2305 1.38638C21.161 1.86618 21.9128 2.47645 22.486 3.21719C23.0592 3.95793 23.3458 4.69867 23.3458 5.43941V8.8485C23.3458 9.89227 23.1589 10.995 22.785 12.1566C22.4112 13.3182 21.8089 14.2357 20.9782 14.9091L25.9875 17.7121L26.0623 17.7626C26.1122 17.7795 26.1745 17.8089 26.2492 17.851C26.324 17.8931 26.4112 17.9436 26.5109 18.0025C26.6106 18.0615 26.7103 18.133 26.81 18.2172C26.9097 18.3014 26.9969 18.3855 27.0717 18.4697C27.1464 18.5539 27.2087 18.6507 27.2586 18.7601C27.3084 18.8695 27.3333 18.9748 27.3333 19.0758V21.1212C27.3333 21.5084 27.2004 21.8325 26.9346 22.0934C26.6687 22.3544 26.3531 22.4849 25.9875 22.4849", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function StarRating({ fill, width, height, fillOpacity }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "30", height: height ? height : "29", viewBox: "0 0 30 29", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.1058 0.785773C14.4745 0.0494095 15.5255 0.0494113 15.8942 0.785775L19.7099 8.40633C19.8566 8.69918 20.1373 8.90167 20.4615 8.94838L28.9722 10.1747C29.7966 10.2935 30.123 11.309 29.5222 11.8858L23.3838 17.7797C23.1439 18.0101 23.0342 18.3448 23.0912 18.6725L24.5422 27.0121C24.684 27.8272 23.8312 28.4521 23.0967 28.0713L15.4603 24.1124C15.1717 23.9628 14.8283 23.9628 14.5397 24.1124L6.9033 28.0713C6.16884 28.4521 5.31605 27.8272 5.45785 27.0122L6.9088 18.6725C6.96581 18.3448 6.85614 18.0101 6.61619 17.7797L0.477778 11.8858C-0.122994 11.309 0.203398 10.2935 1.02776 10.1747L9.53853 8.94838C9.86269 8.90167 10.1434 8.69918 10.2901 8.40633L14.1058 0.785773Z", fill: fill ? fill : "#FFC200", fillOpacity: fillOpacity ? fillOpacity : "1" }) }));
 }
 
 function Tag(props) {
@@ -662,7 +667,7 @@ function StarIcon(props) {
  *
  * @componente
  */
-function Rating(props) {
+function Rating$1(props) {
     const MapColorStar = [
         '#FFC200',
         '#000000',
@@ -821,30 +826,28 @@ const DesignTokens = {
         "borderSecondary2": "#ffd600",
         "borderSecondary3": "#6a3f86",
         "borderSecondary4": "#222222",
-        "borderSecondary5": "A50000",
-        "linkDefaultOnfocus": "#0645ad",
         "linkDisabled": "#bdbdbd",
         "linkHover": "#0b0080",
         "linkOnfocus": "#0645ad",
         "linkPressed": "#663366",
         "messageAlert1": "#ffc200",
         "messageAlert2": "#fef0d4",
-        "messageError1": "#ff0000",
+        "messageError1": "#ea0000",
         "messageError2": "#ffe5e5",
         "messageSuccess1": "#2ca92a",
         "messageSuccess2": "#d1f6d1",
         "neutralsGrey1": "#222222",
-        "neutralsGrey2": "#757575",
-        "neutralsGrey3": "#9c9c9c",
-        "neutralsGrey4": "#bdbdbd",
-        "neutralsGrey5": "#e0e0e0",
-        "neutralsGrey6": "#ebebeb",
-        "neutralsGrey7": "#f5f5f5",
-        "neutralsGrey8": "#fafafa",
+        "neutralsGrey2": "#444444",
+        "neutralsGrey3": "#757575",
+        "neutralsGrey4": "#9c9c9c",
+        "neutralsGrey5": "#bdbdbd",
+        "neutralsGrey6": "#e0e0e0",
+        "neutralsGrey7": "#ebebeb",
+        "neutralsGrey8": "#ebeded",
+        "neutralsGrey9": "#f2f2f2",
         "primary1": "#ff4d0d",
         "primary2": "#ee4c15",
         "primary3": "#d14211",
-        "primary4": "#EA0000",
         "secondary1": "#6a3f86",
         "secondary2": "#ffd600",
         "secondary5": "#a50000",
@@ -1511,10 +1514,10 @@ function BannerProblem(props) {
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
-                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 } }), props.curtidas &&
+                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(Rating$1, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 } }), props.curtidas &&
                                                     jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 } })] })
                                         : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$6.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
-                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), props.curtidas &&
+                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating$1, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2 })] })
                                 : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                         props.onSelectedStep(step);
@@ -1756,8 +1759,7 @@ const InputText$1 = styled__default["default"].textarea `
 
     padding: 0;
     margin: 14px;
-    border: none;
-    //wrap: off;
+    border: none;    
 `;
 styled__default["default"].div `
     display: flex;
@@ -3192,7 +3194,7 @@ function CardProblemGestor(props) {
     return (jsxRuntime.jsxs("div", { className: style$3.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$3.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsxs("div", { className: style$3.contentCard, children: [jsxRuntime.jsxs("div", { className: style$3.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$3.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
                         jsxRuntime.jsx("div", { className: style$3.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
                         jsxRuntime.jsx("div", { className: style$3.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$3.avaliacao, children: [jsxRuntime.jsx(Rating, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(Rating, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: 'Curtidas', tipoBotao: 4, style: { margin: 0, width: 90 } })] }), props.lastUpdated &&
+                        jsxRuntime.jsxs("div", { className: style$3.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: 'Curtidas', tipoBotao: 4, style: { margin: 0, width: 90 } })] }), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
@@ -3254,7 +3256,7 @@ function CardProblem(props) {
                         jsxRuntime.jsx("div", { className: style$2.tagsContainer, children: props.tags.map((item, index) => (item &&
                                 jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
                         props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$2.avaliacao, children: [jsxRuntime.jsx(Rating, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
+                        jsxRuntime.jsxs("div", { className: style$2.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
                         props.statusProblema === 'aprovado' ?
                             jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: 'Problema aprovado', style: { minWidth: 200, width: '90%' } })
                             :
@@ -3391,6 +3393,111 @@ function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeA
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) }) }));
 }
 
+const WrapperStars$1 = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: auto;
+`;
+const Raiting$1 = styled__default["default"].p `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Work Sans;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 500;
+    line-height: 28px;
+    color: #222;
+    padding-top: 3px;
+    margin-left: 16.5px;
+`;
+
+/**
+ * @componente
+ */
+function RatingFrst({ rating, isVisibleNumberRating, handleRating, size }) {
+    const [valueRating, setValueRating] = react.useState(rating);
+    react.useEffect(() => {
+        setValueRating(rating);
+    }, [rating]);
+    return (jsxRuntime.jsxs(WrapperStars$1, { children: [jsxRuntime.jsx(Rating__default["default"], { name: "simple-controlled", value: valueRating, onChange: (event, newValue) => { handleRating(newValue); }, size: size ? size : "medium" }), isVisibleNumberRating && jsxRuntime.jsx(Raiting$1, { children: (rating).toFixed(1) })] }));
+}
+
+const WrapperStars = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: ${({ orientation }) => orientation == 'vertical' ? 'column' : 'row'};
+    width: auto;
+`;
+const Raiting = styled__default["default"].p `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Work Sans;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 500;
+    line-height: 28px;
+    color: #222;
+    padding-top: 3px;
+    margin-left: 16.5px;
+`;
+
+/**
+ * @componente
+ */
+function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
+    react.useState(rating + 1);
+    const [hoverRaiting, setHoverRaiting] = react.useState(-1);
+    const rederStars = () => {
+        var groupStars = [];
+        const handleClick = (e) => {
+            if (!disabled)
+                handleRating(e);
+        };
+        const getStatusActive = (id) => {
+            if (id < hoverRaiting)
+                return true;
+            else if (hoverRaiting != -1)
+                return false;
+            else if (id < rating)
+                return true;
+        };
+        for (var i = 0; i < qtdStars; i++) {
+            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled }));
+        }
+        return groupStars;
+    };
+    return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [rederStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: (rating).toFixed(1) })] }));
+}
+function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
+    const [actionArea, setActionArea] = react.useState(false);
+    const getColorStar = () => {
+        if (active)
+            return '#FFC200';
+        else
+            return '#757575';
+    };
+    react.useEffect(() => {
+        setTimeout(() => {
+            if (actionArea)
+                setOnHover(id);
+            else
+                setOnHover(-1);
+        }, 150);
+    }, [actionArea]);
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { onMouseOver: () => setActionArea(!disabled), onMouseOut: () => setActionArea(false ), onClick: () => handleClick(id), style: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: marginStars ? marginStars : '3.5px'
+            }, children: jsxRuntime.jsx(StarRating, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 29, fill: getColorStar(), fillOpacity: disabled ? '0.6' : '1' }) }) });
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
@@ -3414,6 +3521,8 @@ exports.MessageBox = MessageBox;
 exports.ModalLearningTech = ModalLearningTech;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
+exports.Rating = Rating;
+exports.RatingMui = RatingFrst;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchField = SearchField;
 exports.Tag = Tag;
