@@ -14,8 +14,9 @@ const Template = (args) => <AvatarChannel {...args} />
 export const normal = Template.bind({})
 normal.args = {
     size: '80px',
-    src: '',
+    channel: 'XP',
     alt: 'Alt example',
-    disabled: false,    
+    disabled: false,
+    color: '#6a3f86',    
     onChange: ()=> {alert('click')}
 }
