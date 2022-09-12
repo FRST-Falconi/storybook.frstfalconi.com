@@ -4,7 +4,7 @@ import StarMetric from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Base/StarMetric',
+    title: 'LXP/StarMetric',
     component: StarMetric,
 }
 
@@ -13,6 +13,6 @@ const Template = (args) => <StarMetric {...args} />
 
 export const Normal = Template.bind({})
 Normal.args = {    
-    disabled: true,
+    disabled: false,
     onChange: ()=> {alert('selecionado')}
 }
