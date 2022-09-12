@@ -15,7 +15,19 @@ export const normal = Template.bind({})
 normal.args = {    
     titleCard: 'Alunos',
     textTotal: 'Total',
-    numberTotal: 245,
+    numberTotal: 410,
+    loading: false,
+    className: 'opa',
+    styles: { width: '180px'},
+}
+
+export const  withPartialNumberAndShade= Template.bind({})
+withPartialNumberAndShade.args = {    
+    titleCard: 'Licenças operadas',
+    textTotal: 'Total',
+    numberTotal: 410,
+    numberPartial: 420,
+    hasShadow: true,
     loading: false,
     className: 'opa',
     styles: { width: '180px'},

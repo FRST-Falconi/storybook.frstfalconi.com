@@ -17,14 +17,15 @@ export const AvatarImg = styled.img<AvatarI>`
     `}
 `
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.div<{hasShadow}>`
     width: auto;
-    height: 172px;
+    min-height: auto;
 
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid #E8E8E8;
     border-radius: 4px;
     padding: 20px;
+    ${({hasShadow}) => hasShadow && 'box-shadow: 0px 18px 40px -15px #D3D3D3'};
 `
 
 export const TitleCard = styled.p`
@@ -74,8 +75,8 @@ export const TotalLoading = styled.div`
     border-radius: 10px;
 `
 
-export const TotalNumber = styled.span`
-    font-family: 'Work Sans';
+export const TotalNumber = styled.p`
+    font-family: 'Work Sans' ;
     font-style: normal;
     font-weight: 300;
     font-size: 48px;
@@ -83,4 +84,14 @@ export const TotalNumber = styled.span`
 
     color: #222222;
     margin-top: -13px;
+`
+
+export const PartialNumber = styled.p`
+    font-family: 'Work Sans' ;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 56px;
+
+    color: #222222;
 `
