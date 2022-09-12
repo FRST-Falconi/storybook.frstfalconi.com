@@ -1,4 +1,4 @@
-export interface IProgressStepsItem {
+export interface IStepperItem {
   /**
     * @prop {string} title: Texto em destaque no passo
   */
@@ -21,9 +21,9 @@ export interface IProgressStepsItem {
   onClick?: (e: React.MouseEvent) => void
 }
 
-export interface IProgressSteps {
+export interface IStepper {
   /**
-    *  @prop {JSX.Element} children: Elementos filhos do componente(Devem ser do tipo ProgressStepsItem)
+    *  @prop {JSX.Element} children: Elementos filhos do componente(Devem ser do tipo ProgressStepperItem)
   */
   children?: any
 }

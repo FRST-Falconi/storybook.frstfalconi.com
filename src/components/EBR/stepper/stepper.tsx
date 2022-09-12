@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  IProgressSteps
+  IStepper
 } from './index.d'
 import {
   ProgressContainer,
@@ -8,9 +8,9 @@ import {
 } from './styles'
 
 
-export default function ProgressSteps({
+export default function Stepper({
   children,
-}: IProgressSteps ) {
+}: IStepper ) {
   return (
     <>
       <ProgressContainer>

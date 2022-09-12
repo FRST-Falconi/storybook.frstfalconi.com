@@ -11,7 +11,7 @@ var Button$2 = require('@mui/material/Button');
 var Menu = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
 var Card = require('@mui/material/Card');
-var Stepper = require('@mui/material/Stepper');
+var Stepper$1 = require('@mui/material/Stepper');
 var FormControl = require('@mui/material/FormControl');
 var Select = require('@mui/material/Select');
 var CheckIcon = require('@mui/icons-material/Check');
@@ -31,7 +31,7 @@ var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$2);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var Card__default = /*#__PURE__*/_interopDefaultLegacy(Card);
-var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper);
+var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper$1);
 var FormControl__default = /*#__PURE__*/_interopDefaultLegacy(FormControl);
 var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select);
 var CheckIcon__default = /*#__PURE__*/_interopDefaultLegacy(CheckIcon);
@@ -3508,6 +3508,150 @@ function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, 
             }, children: jsxRuntime.jsx(StarRating, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 29, fill: getColorStar(), fillOpacity: disabled ? '0.6' : '1' }) }) });
 }
 
+styled__default["default"].div `
+  width: 100%;
+  width: 1280px;
+  height: 587px;
+  background: #F2F2F2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+const ProgressContainer = styled__default["default"].div `
+  position: relative;
+  padding-left: 75px;
+`;
+const Progress = styled__default["default"].ul `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  align-items: flex-start;
+`;
+const ProgressItem = styled__default["default"].li `
+  width: 100%;
+  min-height: 78px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  counter-increment: list;
+
+  ${({ active }) => active === true && `
+    padding-bottom: 70px;
+
+    @media (max-width: 768px) {
+      padding-bottom: 50px;
+    }
+  `}
+
+  &:first-child {
+    &::before {
+      top: 10px;
+    }
+  }
+
+  &:last-child {
+    &::before {
+      top: -30px;
+      display: none;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -79px;
+    top: 2px;
+    height: 100%;
+    background-color: #6A3F86;
+    width: 14px;
+    z-index: 0;
+  }
+
+  &:after {
+    content: counter(list);
+    position: absolute;
+    z-index: 1;
+    left: -100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    border: 3.5px solid #9C9C9C;
+    background-color: #757575;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+
+    ${({ active }) => active === true && `
+      background-color: #FF4D0D;
+      border-color: #FF4D0D;
+      -webkit-box-shadow: 0px 0px 0px 15px rgba(255,77,13,0.5); 
+      box-shadow: 0px 0px 0px 15px rgba(255,77,13,0.5);
+    `}
+  }
+`;
+const ProgressItemTitle = styled__default["default"].p `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #757575;
+
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ active }) => active === true && `
+    color: #222222;
+    height: auto;
+    margin: 15px 0 8px 0;
+    font-weight: 600;
+  `}
+`;
+const ProgressItemSubtitle = styled__default["default"].p `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #222222;
+
+  ${({ active }) => active === true && `
+    margin-bottom: 24px;
+  `}
+`;
+
+function Stepper({ children, }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer, { children: jsxRuntime.jsx(Progress, { children: children && children }) }) }));
+}
+
+function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
+    return (jsxRuntime.jsx(ProgressItem, { active: active, children: active
+            ?
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button, { handleClick: () => onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
+            :
+                jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
@@ -3535,6 +3679,8 @@ exports.Rating = Rating;
 exports.RatingMui = RatingFrst;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchField = SearchField;
+exports.Stepper = Stepper;
+exports.StepperItem = StepperItem;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;

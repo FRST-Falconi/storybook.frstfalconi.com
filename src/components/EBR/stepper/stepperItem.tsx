@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  IProgressStepsItem
+  IStepperItem
 } from './index.d'
 import {
   ProgressItem,
@@ -10,13 +10,13 @@ import {
 
 import Button from '../../buttons'
 
-export default function ProgressStepsItem({
+export default function StepperItem({
   title,
   subtitle,
   buttonText,
   active = false,
   onClick
-}: IProgressStepsItem ) {
+}: IStepperItem ) {
   return (
     <ProgressItem active={active}>
       {active
