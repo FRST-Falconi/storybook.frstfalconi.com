@@ -37,3 +37,4 @@ export { default as CardResultConquista} from './src/components/cards/cardResult
 
 export { default as ExclusiveClassCard } from './src/components/exclusive-class'
 export { default as ConquistaCarrossel} from './src/components/conquistaCarrossel'
+export { default as searchResults} from './src/components/searchResults' 
