@@ -29,4 +29,5 @@ export { default as RatingMui } from './src/components/EBR/Rating';
 export { default as Rating } from './src/components/EBR/RatingFilled';
 export { default as Stepper } from './src/components/EBR/stepper/stepper';
 export { default as StepperItem } from './src/components/EBR/stepper/stepperItem';
+export { default as searchResults } from './src/components/searchResults';
 //# sourceMappingURL=index.d.ts.map
