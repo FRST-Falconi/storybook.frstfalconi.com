@@ -22,7 +22,7 @@ export const AvatarChannel = styled.div<AvatarI>`
     cursor: pointer;
    
     &:hover .hide{
-        display: block;
+       display: block;
     }
    
     img{
@@ -52,10 +52,9 @@ export const AvatarCircle = styled.div<AvatarI>`
     height: 40px;
     border-radius: 50px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-    position: relative;
+    position: absolute;
     margin: 26.25% 25% 26.25% 25%;    
     box-shadow: 0px 18px 40px -15px #d3d3d3;
-    top: 18px;
     display: none;    
 `
 export const AvatarCam = styled.div<AvatarI>`
@@ -71,5 +70,7 @@ export const ContainerPopOver = styled.div`
     width: 120px;
     position: absolute;
     top: 0;
-    margin-top: 12px;    
+    margin-top: -5px;
+    font-family: 'PT Sans';
+    font-weight: 700;    
 `
