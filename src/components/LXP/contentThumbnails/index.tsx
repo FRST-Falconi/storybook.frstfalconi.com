@@ -1,13 +1,13 @@
-import '../../shared/global.css'
+import '../../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
-import { FRSTTheme } from '../../theme'
+import { FRSTTheme } from '../../../theme'
 import * as Styles from './contentThumbnailsStyle'
 import { IContentThumbnails } from './contentThumbnails'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import VectorEllipse from './vectorEllipse'
 import { useState } from 'react'
-import * as Icons from '../../shared/icons'
+import * as Icons from '../../../shared/icons'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 export enum typeContent {
@@ -82,7 +82,7 @@ export default function ContentThumbnails({ label, contentList, variant, src, di
                                                     <VectorEllipse />
                                                     <VectorEllipse />
                                                 </Styles.Thumbnails>
-                                                <Styles.Thumbnails>
+                                                <Styles.Thumbnails ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                                     <VectorEllipse />
                                                     <VectorEllipse />
                                                     <VectorEllipse />
@@ -96,7 +96,7 @@ export default function ContentThumbnails({ label, contentList, variant, src, di
                                                     <VectorEllipse />
                                                     <VectorEllipse />
                                                 </Styles.Thumbnails>
-                                                <Styles.Thumbnails>
+                                                <Styles.Thumbnails ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                                     <VectorEllipse />
                                                     <VectorEllipse />
                                                     <VectorEllipse />
@@ -111,7 +111,7 @@ export default function ContentThumbnails({ label, contentList, variant, src, di
                                                     <VectorEllipse />
                                                 </Styles.Thumbnails>
                                                 {iconList[item.type]}
-                                                <Styles.Title>
+                                                <Styles.Title onClick={handleClick}>
                                                     {item.title}
                                                 </Styles.Title>
                                                 <Styles.IconTrash className='trash' onClick={() => removeContentList(item.title)}>

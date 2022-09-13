@@ -5,6 +5,7 @@ interface IconsProps {
   stroke?: string
   customColor_1?: string
   customColor_2?: string
+  fillOpacity?: string
   width?: string
   height?: string
 }
@@ -593,6 +594,22 @@ export function Video({ fill, width, height }: IconsProps) {
     <svg width={width ? width : "30"} height={height ? height : "30"} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15.2865 28.3334C22.6503 28.3334 28.6198 22.3639 28.6198 15.0001C28.6198 7.63628 22.6503 1.66675 15.2865 1.66675C7.92266 1.66675 1.95312 7.63628 1.95312 15.0001C1.95312 22.3639 7.92266 28.3334 15.2865 28.3334Z" stroke={fill ? fill : "#FF4D0D"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M11.9531 10L20.2865 15L11.9531 20V10Z" stroke={fill ? fill : "#FF4D0D"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function StarRating({ fill, width, height, fillOpacity }: IconsProps) {
+  return (
+  <svg width={width ? width : "30"} height={height ? height : "29"} viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M14.1058 0.785773C14.4745 0.0494095 15.5255 0.0494113 15.8942 0.785775L19.7099 8.40633C19.8566 8.69918 20.1373 8.90167 20.4615 8.94838L28.9722 10.1747C29.7966 10.2935 30.123 11.309 29.5222 11.8858L23.3838 17.7797C23.1439 18.0101 23.0342 18.3448 23.0912 18.6725L24.5422 27.0121C24.684 27.8272 23.8312 28.4521 23.0967 28.0713L15.4603 24.1124C15.1717 23.9628 14.8283 23.9628 14.5397 24.1124L6.9033 28.0713C6.16884 28.4521 5.31605 27.8272 5.45785 27.0122L6.9088 18.6725C6.96581 18.3448 6.85614 18.0101 6.61619 17.7797L0.477778 11.8858C-0.122994 11.309 0.203398 10.2935 1.02776 10.1747L9.53853 8.94838C9.86269 8.90167 10.1434 8.69918 10.2901 8.40633L14.1058 0.785773Z" fill={fill ? fill : "#FFC200"} fillOpacity={fillOpacity ? fillOpacity : "1"}/>
+  </svg>
+  );
+}
+
+export function Noun({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width : "64"} height={height ? height : "64"}viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+     <path fillRule="evenodd" clipRule="evenodd" d="M32.1611 31.9998L51.3327 12.8283V51.1714L32.1611 31.9998ZM29.3327 31.9998L12.666 48.6665V15.3332L29.3327 31.9998ZM30.7469 30.5856L12.8278 12.6665H48.666L30.7469 30.5856ZM10.666 13.3332V50.6665V51.3332V53.3332H12.666L50.666 53.3332L51.3327 53.3332H53.3327V51.3332V12.6665V10.6665H51.3327H50.666H12.666H10.666V12.6665V13.3332ZM48.666 51.3332H12.8278L30.7469 33.4141L48.666 51.3332Z" fill={fill? fill:"#222222"}/>
     </svg>
   );
 }

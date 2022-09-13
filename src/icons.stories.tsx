@@ -156,4 +156,9 @@ MoreHorizontal.args = Icons.MoreHorizontal({})
 
 export const Video = Template.bind({})
 Video.args = Icons.Video({})
+export const Noun = Template.bind({})
+Noun.args = Icons.Noun({})
+
+export const EyeOff = Template.bind({})
+EyeOff.args = Icons.EyeOff({})
 

@@ -5,8 +5,6 @@ export declare const DesignTokens: {
         borderSecondary2: string;
         borderSecondary3: string;
         borderSecondary4: string;
-        borderSecondary5: string;
-        linkDefaultOnfocus: string;
         linkDisabled: string;
         linkHover: string;
         linkOnfocus: string;
@@ -25,10 +23,10 @@ export declare const DesignTokens: {
         neutralsGrey6: string;
         neutralsGrey7: string;
         neutralsGrey8: string;
+        neutralsGrey9: string;
         primary1: string;
         primary2: string;
         primary3: string;
-        primary4: string;
         secondary1: string;
         secondary2: string;
         secondary5: string;

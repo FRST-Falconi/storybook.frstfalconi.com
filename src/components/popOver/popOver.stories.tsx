@@ -4,7 +4,7 @@ import PopOver from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Base/PopOver',
+    title: 'LXP/PopOver',
     component: PopOver,
 }
 
@@ -101,4 +101,3 @@ sideRight.args = {
     variant: 'sideRight',
     children: <> <span>Teste de children </span> </>,    
 }
-

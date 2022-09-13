@@ -21,13 +21,16 @@ const BorderLinearProgress = withStyles((theme) => ({
     },
   }))(LinearProgress);  
 
-export default function ProgressBar({ value }: IProgressBar) {
+export default function ProgressBar({ value, label }: IProgressBar) {
    
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <>
-            <BorderLinearProgress variant="determinate" value={value}/>
-            </>
+            <div style={{display: 'flex', flexDirection: 'column', color: '#FFF'}}>
+              <span>{label}</span>
+              <div style={{display: 'inline-flex'}}>
+                <BorderLinearProgress variant="determinate" value={value}/> &nbsp;{value+'%'}
+              </div>
+            </div>
         </ThemeProvider>
     );
 }

@@ -80,6 +80,7 @@ export const Thumbnails = styled.div`
 `
 export const Title = styled.div`
     margin: 10px;
+    cursor: default;
 ` 
 export const IconTrash = styled.div`
     cursor: pointer;
