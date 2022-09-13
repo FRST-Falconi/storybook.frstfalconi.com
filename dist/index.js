@@ -337,7 +337,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$1 = styled__default["default"](Card__default["default"]) `
+const Container$2 = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -345,7 +345,7 @@ const Container$1 = styled__default["default"](Card__default["default"]) `
   border-radius: 8px !important;
   padding: 24px !important;
 `;
-const Title = styled__default["default"].span `
+const Title$1 = styled__default["default"].span `
   font-size: 20px !important;
   color: #ff4d0d !important;
 `;
@@ -543,9 +543,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$1, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$2, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$1, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$2, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$1, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -2740,7 +2740,7 @@ function TotalizerCard({ titleCard, textTotal, numberTotal, numberPartial, loadi
                     jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginBottom: '16px' }, children: [jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] }), numberPartial && jsxRuntime.jsxs(PartialNumber, { children: ["/", numberPartial, " "] })] })] })] }) }));
 }
 
-const Container = styled__default["default"].div `
+const Container$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -2831,7 +2831,7 @@ const ButtonAction = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
     const [actionAreaInput, setActionAreaInput] = react.useState(false);
     const [inputOnFocus, setInputOnFocus] = react.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
                             jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
 }
@@ -3652,6 +3652,50 @@ function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
                 jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
 }
 
+const Container = styled__default["default"].div `
+  display: flex;
+  width: 100%;
+  height: 120px;
+  position: relative;
+`;
+const TextContainer = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+const Image = styled__default["default"].img `
+  width: 88px;
+  height: 120px;
+  border-radius: 8px;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+`;
+const Title = styled__default["default"].text `
+  width: 650px;
+  margin-left: 102px;
+  margin-bottom: 12px;
+  color: ${({ theme }) => theme.colors.linkOnfocus};
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+`;
+const Description = styled__default["default"].text `
+  width: 650px;
+  margin-left: 102px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #757575;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
+
+function SearchResults({ src, title, description, onClick }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container, { children: [jsxRuntime.jsx(Image, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
@@ -3686,3 +3730,4 @@ exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.TotalizerCard = TotalizerCard;
 exports.UserCard = CalendarCard$1;
+exports.searchResults = SearchResults;
