@@ -36,7 +36,7 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
         color: ${({ theme }) => theme.colors.neutralsGrey2};
     `}
 `
-export const LinkButtonStartIcon = styled.a<{ disabled: boolean }>`
+export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
     border: none;
     text-decoration: none;
     ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
@@ -62,7 +62,7 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean }>`
 
     & > svg {
         margin-right: 12px;
-        max-height: 16px;
+        max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon: '16px'};
         height: 100%;
         width: auto;
     }
@@ -72,7 +72,7 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean }>`
         color: ${({ theme }) => theme.colors.neutralsGrey2};
     `}
 `
-export const LinkButtonEndIcon = styled.a<{ disabled: boolean }>`
+export const LinkButtonEndIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
     border: none;
     text-decoration: none;
     ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
@@ -98,7 +98,7 @@ export const LinkButtonEndIcon = styled.a<{ disabled: boolean }>`
 
     & > svg {
         margin-left: 12px;
-        max-height: 16px;
+        max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon: '16px'};
         height: 100%;
         width: auto;
     }
@@ -265,7 +265,7 @@ export const Button = styled.button<{ variant: string }>`
 
     ${({ variant }) => variantStyles(variant)}
 `;
-export const ButtonStartIcon = styled.button<{ variant: string }>`
+export const ButtonStartIcon = styled.button<{ variant: string, sizeIcon: string }>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -286,14 +286,14 @@ export const ButtonStartIcon = styled.button<{ variant: string }>`
 
     & > svg {
         margin-right: 12px;
-        max-height: 16px;
+        max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon: '16px'};
         height: 100%;
         width: auto;
     }
 
     ${({ variant }) => variantStyles(variant)}
 `;
-export const ButtonEndIcon = styled.button<{ variant: string }>`
+export const ButtonEndIcon = styled.button<{ variant: string, sizeIcon: string }>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -314,7 +314,7 @@ export const ButtonEndIcon = styled.button<{ variant: string }>`
 
     & > svg {
         margin-left: 12px;
-        max-height: 16px;
+        max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon: '16px'};
         height: 100%;
         width: auto;
     }

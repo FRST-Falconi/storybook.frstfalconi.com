@@ -4,7 +4,7 @@ import Rating from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'EBR/Rating FIlled',
+    title: 'EBR/Rating',
     component: Rating,
 }
 
