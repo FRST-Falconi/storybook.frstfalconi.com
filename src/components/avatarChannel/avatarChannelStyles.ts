@@ -52,7 +52,7 @@ export const AvatarCircle = styled.div<AvatarI>`
     height: 40px;
     border-radius: 50px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-    position: absolute;
+    position: relative;
     margin: 26.25% 25% 26.25% 25%;    
     box-shadow: 0px 18px 40px -15px #d3d3d3;
     display: none;    
