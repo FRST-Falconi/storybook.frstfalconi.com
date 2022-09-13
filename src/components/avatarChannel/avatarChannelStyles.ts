@@ -72,5 +72,5 @@ export const ContainerPopOver = styled.div`
     top: 0;
     margin-top: -5px;
     font-family: 'PT Sans';
-    font-weight: 700;    
+    font-weight: 400;    
 `
