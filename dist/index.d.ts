@@ -25,9 +25,10 @@ export { default as CardDefinicaoProblema } from './src/components/cards/cardDef
 export { default as CardResultConquista } from './src/components/cards/cardResultConquista';
 export { default as ExclusiveClassCard } from './src/components/exclusive-class';
 export { default as ConquistaCarrossel } from './src/components/conquistaCarrossel';
-export { default as RatingMui } from './src/components/EBR/Rating';
-export { default as Rating } from './src/components/EBR/RatingFilled';
+export { default as Rating } from './src/components/EBR/rating';
 export { default as Stepper } from './src/components/EBR/stepper/stepper';
 export { default as StepperItem } from './src/components/EBR/stepper/stepperItem';
+export { default as ObjectiveStep } from './src/components/EBR/objective-step';
+export { default as SpecialistContact } from './src/components/EBR/specialist-contact';
 export { default as searchResults } from './src/components/searchResults';
 //# sourceMappingURL=index.d.ts.map

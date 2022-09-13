@@ -72,5 +72,7 @@ export declare function MoreHorizontal({ fill, width, height }: IconsProps): JSX
 export declare function Video({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StarRating({ fill, width, height, fillOpacity }: IconsProps): JSX.Element;
 export declare function Noun({ fill, width, height }: IconsProps): JSX.Element;
+export declare function WhatAppBordered({ fill, width, height }: IconsProps): JSX.Element;
+export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
