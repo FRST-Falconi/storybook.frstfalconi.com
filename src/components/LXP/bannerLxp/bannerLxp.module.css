@@ -12,8 +12,21 @@
     border-radius: 4px;
 }
 
+.bannerContainer:hover .configButton {
+    display: block;
+}
+
 .configButton {
     position: absolute;
     right: 0;
     margin-right: 83px;
+    display: none;
+}
+
+.configContainer {
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid red;
+
 }

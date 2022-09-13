@@ -14,7 +14,7 @@ const Template = (args) => <BannerLxp {...args} />
 export const Normal = Template.bind({})
 Normal.args = {
     title: 'Nome do seu KnowHub',
-    bgColor: '#5e5e5e',
+    // bgColor: '#5e5e5e',
     isDisabledText: true
 }
 
