@@ -65,7 +65,6 @@ export const ContainerCard = styled.div`
     }
     
     &:hover .trash {
-        //display: block;
         right: 15px;       
     }
 `
@@ -84,7 +83,6 @@ export const Title = styled.div`
 ` 
 export const IconTrash = styled.div`
     cursor: pointer;
-    //display: none;
     right: -15px;
     position: absolute;
     transition: all .2s linear;
