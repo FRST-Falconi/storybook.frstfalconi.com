@@ -4,6 +4,7 @@ interface IconsProps {
     stroke?: string;
     customColor_1?: string;
     customColor_2?: string;
+    fillOpacity?: string;
     width?: string;
     height?: string;
 }
@@ -21,7 +22,7 @@ export declare function BackArrow({ fill, width, height }: IconsProps): JSX.Elem
 export declare function WhiteFilter({ fill, width, height }: IconsProps): JSX.Element;
 export declare function CheckboxChecked({ fill, width, height }: IconsProps): JSX.Element;
 export declare function CheckboxEmpty({ fill, stroke, width, height }: IconsProps): JSX.Element;
-export declare function BlueTrash({ fill, width, height }: IconsProps): JSX.Element;
+export declare function Trash({ fill, width, height }: IconsProps): JSX.Element;
 export declare function AlertCicle({ fill, width, height }: IconsProps): JSX.Element;
 export declare function DoubleCheck({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WithoutTrail({ fill, width, height }: IconsProps): JSX.Element;
@@ -68,5 +69,10 @@ export declare function Course({ fill, width, height }: IconsProps): JSX.Element
 export declare function Palette({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MoreVertical({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MoreHorizontal({ fill, width, height }: IconsProps): JSX.Element;
+export declare function Video({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StarRating({ fill, width, height, fillOpacity }: IconsProps): JSX.Element;
+export declare function Noun({ fill, width, height }: IconsProps): JSX.Element;
+export declare function WhatAppBordered({ fill, width, height }: IconsProps): JSX.Element;
+export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

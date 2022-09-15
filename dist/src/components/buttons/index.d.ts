@@ -7,8 +7,9 @@ interface buttonProps {
     disabled?: boolean;
     startIcon?: any;
     endIcon?: any;
+    sizeIcon?: string;
     handleClick?: () => void;
 }
-export default function Button({ variant, label, disabled, startIcon, endIcon, handleClick }: buttonProps): JSX.Element;
+export default function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick }: buttonProps): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

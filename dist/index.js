@@ -11,7 +11,7 @@ var Button$2 = require('@mui/material/Button');
 var Menu = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
 var Card = require('@mui/material/Card');
-var Stepper = require('@mui/material/Stepper');
+var Stepper$1 = require('@mui/material/Stepper');
 var FormControl = require('@mui/material/FormControl');
 var Select = require('@mui/material/Select');
 var CheckIcon = require('@mui/icons-material/Check');
@@ -30,7 +30,7 @@ var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$2);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var Card__default = /*#__PURE__*/_interopDefaultLegacy(Card);
-var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper);
+var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper$1);
 var FormControl__default = /*#__PURE__*/_interopDefaultLegacy(FormControl);
 var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select);
 var CheckIcon__default = /*#__PURE__*/_interopDefaultLegacy(CheckIcon);
@@ -68,7 +68,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$d = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+var css_248z$d = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
 styleInject(css_248z$d);
 
 function EditIcon({ fill, width, height }) {
@@ -135,7 +135,7 @@ function Bullseye({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "26", height: height ? height : "26", viewBox: "0 0 26 26", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M25.1656 9.03042C26.0559 11.7655 25.9989 14.7207 25.0038 17.4194C24.0087 20.1181 22.1336 22.4029 19.6809 23.9054C17.2282 25.4078 14.3409 26.0402 11.4847 25.7007C8.62851 25.3611 5.96997 24.0693 3.9379 22.0336C1.90584 19.998 0.618717 17.3372 0.284157 14.4804C-0.0504026 11.6236 0.587103 8.73744 2.09384 6.28736C3.60059 3.83729 5.88871 1.96619 8.58916 0.975872C11.2896 -0.0144479 14.2449 -0.0662496 16.9784 0.828824L15.3016 2.50402C15.2088 2.59522 15.1256 2.69602 15.0488 2.80002C12.8601 2.35827 10.5874 2.63262 8.56675 3.5825C6.54609 4.53239 4.88477 6.10737 3.8285 8.07451C2.77224 10.0417 2.3771 12.2965 2.70154 14.5056C3.02598 16.7147 4.05276 18.7608 5.63004 20.3411C7.20731 21.9215 9.25132 22.9523 11.4598 23.2811C13.6682 23.6098 15.9239 23.2191 17.8931 22.1667C19.8623 21.1143 21.4405 19.4561 22.3944 17.4373C23.3482 15.4185 23.6271 13.1463 23.1896 10.9568C23.2991 10.8792 23.4018 10.7925 23.4968 10.6976L25.164 9.03042H25.1656ZM20.8376 11.4C21.1811 13.0851 20.9725 14.836 20.2427 16.3931C19.5128 17.9503 18.3006 19.2308 16.7858 20.0449C15.271 20.8589 13.5342 21.1632 11.8328 20.9126C10.1315 20.6619 8.55622 19.8697 7.34051 18.6534C6.12481 17.4371 5.33341 15.8614 5.08365 14.1599C4.83388 12.4584 5.13904 10.7218 5.95388 9.20736C6.76872 7.69296 8.04988 6.48144 9.60741 5.75241C11.1649 5.02338 12.9159 4.81566 14.6008 5.16002V7.63362C13.4067 7.27714 12.1277 7.32917 10.9665 7.78147C9.80522 8.23377 8.82803 9.0605 8.18959 10.1308C7.55116 11.201 7.28796 12.4537 7.44168 13.6904C7.59541 14.9271 8.15726 16.0772 9.03828 16.9586C9.9193 17.84 11.0692 18.4023 12.3058 18.5566C13.5424 18.7108 14.7952 18.4482 15.8657 17.8102C16.9363 17.1722 17.7634 16.1953 18.2162 15.0343C18.669 13.8732 18.7216 12.5943 18.3656 11.4H20.8376ZM12.9976 15.4C13.3657 15.4002 13.7288 15.3157 14.059 15.1532C14.3893 14.9906 14.6776 14.7542 14.9019 14.4624C15.1262 14.1705 15.2803 13.831 15.3524 13.47C15.4245 13.1091 15.4126 12.7364 15.3176 12.3808L17.8488 9.84802L17.8968 9.80002H21.8008C21.9059 9.80021 22.0101 9.77968 22.1073 9.73959C22.2044 9.69951 22.2928 9.64067 22.3672 9.56642L25.5672 6.36642C25.6794 6.25454 25.7558 6.11186 25.7868 5.95649C25.8178 5.80112 25.8019 5.64004 25.7413 5.49368C25.6806 5.34732 25.5778 5.22228 25.446 5.13439C25.3142 5.0465 25.1592 4.99974 25.0008 5.00002H21.0008V1.00002C21.0008 0.84192 20.9539 0.687371 20.8661 0.555891C20.7783 0.424412 20.6535 0.321899 20.5074 0.261296C20.3614 0.200694 20.2007 0.18472 20.0456 0.21539C19.8905 0.246061 19.748 0.322002 19.636 0.433624L16.436 3.63362C16.3615 3.70792 16.3023 3.7962 16.262 3.89339C16.2216 3.99058 16.2008 4.09478 16.2008 4.20002V8.10402C16.1844 8.11958 16.1684 8.13558 16.1528 8.15202L13.6216 10.68C13.2657 10.5845 12.8926 10.5722 12.5312 10.644C12.1698 10.7158 11.8297 10.8698 11.5374 11.0941C11.245 11.3184 11.0082 11.607 10.8452 11.9375C10.6823 12.268 10.5975 12.6315 10.5976 13C10.5976 13.6365 10.8505 14.247 11.3005 14.6971C11.7506 15.1472 12.3611 15.4 12.9976 15.4Z", fill: "#222222" }) }));
 }
 function TrashIcon({ fill, stroke, customColor_1, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ?? "14", height: height ?? "20", viewBox: "0 0 14 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M3.66602 5.00002V3.33335C3.66602 2.89133 3.84161 2.4674 4.15417 2.15484C4.46673 1.84228 4.89066 1.66669 5.33268 1.66669H8.66602C9.10804 1.66669 9.53197 1.84228 9.84453 2.15484C10.1571 2.4674 10.3327 2.89133 10.3327 3.33335V5.00002M12.8327 5.00002V16.6667C12.8327 17.1087 12.6571 17.5326 12.3445 17.8452C12.032 18.1578 11.608 18.3334 11.166 18.3334H2.83268C2.39065 18.3334 1.96673 18.1578 1.65417 17.8452C1.34161 17.5326 1.16602 17.1087 1.16602 16.6667V5.00002H12.8327Z", stroke: "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+    return (jsxRuntime.jsx("svg", { width: width ?? "14", height: height ?? "20", viewBox: "0 0 14 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M3.66602 5.00002V3.33335C3.66602 2.89133 3.84161 2.4674 4.15417 2.15484C4.46673 1.84228 4.89066 1.66669 5.33268 1.66669H8.66602C9.10804 1.66669 9.53197 1.84228 9.84453 2.15484C10.1571 2.4674 10.3327 2.89133 10.3327 3.33335V5.00002M12.8327 5.00002V16.6667C12.8327 17.1087 12.6571 17.5326 12.3445 17.8452C12.032 18.1578 11.608 18.3334 11.166 18.3334H2.83268C2.39065 18.3334 1.96673 18.1578 1.65417 17.8452C1.34161 17.5326 1.16602 17.1087 1.16602 16.6667V5.00002H12.8327Z", stroke: fill ? fill : "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
 }
 function SearchIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "28", height: height ? height : "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z", fill: fill ?? "black" }) }));
@@ -160,6 +160,15 @@ function OpenedEye({ fill, width, height }) {
 }
 function PeopleIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "28", height: height ? height : "28", viewBox: "0 0 28 28", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.5367 18.3986C15.3803 18.5237 15.2967 18.7186 15.3137 18.9181C15.3307 19.1176 15.4461 19.2955 15.6214 19.3923L21.2219 22.4851L21.285 22.5272C21.3293 22.5568 21.3775 22.5803 21.4281 22.5972C21.428 22.5971 21.4306 22.598 21.436 22.6002C21.4414 22.6024 21.4488 22.6056 21.4585 22.6101C21.478 22.6193 21.5037 22.6323 21.5362 22.6503C21.6154 22.6944 21.7095 22.7481 21.819 22.8119C21.8988 22.8585 21.9835 22.9179 22.0728 22.9924C22.1661 23.0701 22.2427 23.1437 22.3047 23.2125C22.3458 23.2582 22.3833 23.3142 22.4157 23.3843C22.4422 23.4417 22.4444 23.4726 22.4444 23.4825V25.7482C22.4444 26.0206 22.3569 26.2222 22.1793 26.3942C21.9913 26.5763 21.7861 26.6587 21.5339 26.6587H2.17724C1.92499 26.6587 1.71979 26.5763 1.53178 26.3942C1.35426 26.2222 1.26675 26.0206 1.26675 25.7482V23.4825C1.26675 23.4815 1.2688 23.3777 1.49572 23.1659C1.76764 22.9121 1.94776 22.7765 2.04904 22.7203C2.21282 22.6293 2.34438 22.5592 2.44557 22.5087C2.45135 22.5058 2.45708 22.5028 2.46276 22.4997L8.25297 19.3668C8.42969 19.2712 8.54681 19.0935 8.56499 18.8934C8.58317 18.6933 8.49998 18.4974 8.34338 18.3715C7.49188 17.687 6.84229 16.7418 6.40751 15.507C5.9566 14.2264 5.74227 13.1114 5.74227 12.1538V8.3776C5.74227 7.99893 5.84022 7.58426 6.06035 7.12769C6.27957 6.67302 6.58672 6.24878 6.98862 5.85525C7.40443 5.4481 7.87447 5.07769 8.40036 4.74463C8.91181 4.42071 9.47775 4.16277 10.1008 3.97238C10.7213 3.78278 11.3149 3.69088 11.8835 3.69088C12.8628 3.69088 13.833 3.9306 14.8002 4.42282C15.7763 4.91959 16.5485 5.54257 17.1316 6.28628C17.7149 7.03019 17.9688 7.72406 17.9688 8.3776V12.1538C17.9688 13.2371 17.7723 14.3955 17.369 15.6321C16.9807 16.8229 16.3659 17.7352 15.5367 18.3986Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14 1.70204C14.4984 1.38217 15.0467 1.12965 15.6449 0.944465C16.243 0.75928 16.8245 0.666687 17.3894 0.666687C18.3531 0.666687 19.3001 0.906586 20.2305 1.38638C21.161 1.86618 21.9128 2.47645 22.486 3.21719C23.0592 3.95793 23.3458 4.69867 23.3458 5.43941V8.8485C23.3458 9.89227 23.1589 10.995 22.785 12.1566C22.4112 13.3182 21.8089 14.2357 20.9782 14.9091L25.9875 17.7121L26.0623 17.7626C26.1122 17.7795 26.1745 17.8089 26.2492 17.851C26.324 17.8931 26.4112 17.9436 26.5109 18.0025C26.6106 18.0615 26.7103 18.133 26.81 18.2172C26.9097 18.3014 26.9969 18.3855 27.0717 18.4697C27.1464 18.5539 27.2087 18.6507 27.2586 18.7601C27.3084 18.8695 27.3333 18.9748 27.3333 19.0758V21.1212C27.3333 21.5084 27.2004 21.8325 26.9346 22.0934C26.6687 22.3544 26.3531 22.4849 25.9875 22.4849", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function StarRating({ fill, width, height, fillOpacity }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "30", height: height ? height : "29", viewBox: "0 0 30 29", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.1058 0.785773C14.4745 0.0494095 15.5255 0.0494113 15.8942 0.785775L19.7099 8.40633C19.8566 8.69918 20.1373 8.90167 20.4615 8.94838L28.9722 10.1747C29.7966 10.2935 30.123 11.309 29.5222 11.8858L23.3838 17.7797C23.1439 18.0101 23.0342 18.3448 23.0912 18.6725L24.5422 27.0121C24.684 27.8272 23.8312 28.4521 23.0967 28.0713L15.4603 24.1124C15.1717 23.9628 14.8283 23.9628 14.5397 24.1124L6.9033 28.0713C6.16884 28.4521 5.31605 27.8272 5.45785 27.0122L6.9088 18.6725C6.96581 18.3448 6.85614 18.0101 6.61619 17.7797L0.477778 11.8858C-0.122994 11.309 0.203398 10.2935 1.02776 10.1747L9.53853 8.94838C9.86269 8.90167 10.1434 8.69918 10.2901 8.40633L14.1058 0.785773Z", fill: fill ? fill : "#FFC200", fillOpacity: fillOpacity ? fillOpacity : "1" }) }));
+}
+function WhatAppBordered({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("g", { "clip-path": "url(#clip0_891_1728)", children: jsxRuntime.jsx("path", { d: "M12.0011 2C10.2643 1.99987 8.55742 2.45205 7.0485 3.31201C5.53959 4.17198 4.28067 5.41008 3.39568 6.90443C2.51069 8.39877 2.03015 10.0978 2.00137 11.8343C1.9726 13.5708 2.39658 15.2848 3.23157 16.8077L2.41423 19.6923C2.33799 19.9552 2.3337 20.2337 2.40182 20.4987C2.46995 20.7638 2.60798 21.0057 2.80151 21.1993C2.99505 21.3928 3.23698 21.5308 3.50207 21.5989C3.76715 21.6671 4.04566 21.6628 4.30852 21.5865L7.19323 20.7692C8.53008 21.5019 10.0168 21.9193 11.5396 21.9894C13.0625 22.0595 14.5812 21.7806 15.9798 21.1739C17.3783 20.5671 18.6196 19.6487 19.6088 18.4888C20.5981 17.3289 21.309 15.9581 21.6872 14.4814C22.0655 13.0046 22.1012 11.4609 21.7914 9.96827C21.4817 8.47563 20.8348 7.07356 19.9002 5.86922C18.9655 4.66488 17.7679 3.69016 16.3989 3.01955C15.0298 2.34895 13.5256 2.00021 12.0011 2ZM12.0011 20.4615C10.4821 20.4601 8.99125 20.0517 7.68363 19.2788C7.56296 19.2116 7.42752 19.1752 7.28939 19.1731C7.2179 19.1732 7.14675 19.1829 7.07784 19.2019L3.88543 20.1154L4.79892 16.9231C4.82702 16.8221 4.8347 16.7165 4.82149 16.6124C4.80828 16.5084 4.77446 16.4081 4.722 16.3173C3.76943 14.7117 3.37461 12.8361 3.59905 10.9828C3.82349 9.12943 4.65458 7.40232 5.96287 6.07048C7.27116 4.73865 8.98319 3.87685 10.8323 3.61934C12.6814 3.36183 14.5638 3.72306 16.1862 4.64676C17.8086 5.57046 19.08 7.00477 19.8023 8.72629C20.5246 10.4478 20.6573 12.3599 20.1797 14.1646C19.7021 15.9694 18.641 17.5656 17.1617 18.7045C15.6825 19.8434 13.868 20.4612 12.0011 20.4615ZM17.0493 13.4519L15.0781 12.3269C14.842 12.1911 14.5738 12.1212 14.3014 12.1245C14.029 12.1279 13.7626 12.2045 13.53 12.3462L12.3857 13.0288C11.802 12.6856 11.3155 12.1991 10.9722 11.6154L11.6549 10.4712C11.7966 10.2385 11.8731 9.9721 11.8765 9.69975C11.8799 9.4274 11.81 9.15915 11.6741 8.92308L10.5491 6.95192C10.424 6.73328 10.2435 6.5515 10.0257 6.42489C9.8079 6.29827 9.56059 6.23132 9.30868 6.23077C8.39226 6.23077 7.51323 6.59414 6.86432 7.24123C6.21541 7.88831 5.84958 8.7663 5.84703 9.68269C5.84703 11.9277 6.73823 14.0809 8.32485 15.6693C9.91147 17.2577 12.0637 18.1513 14.3088 18.1538H14.3185C15.2349 18.1513 16.1129 17.7855 16.76 17.1366C17.4071 16.4877 17.7705 15.6087 17.7705 14.6923C17.7699 14.4404 17.703 14.1931 17.5764 13.9753C17.4497 13.7576 17.268 13.577 17.0493 13.4519ZM14.3185 16.6154C13.4077 16.6166 12.5056 16.4382 11.6638 16.0902C10.8221 15.7423 10.0574 15.2317 9.41332 14.5877C8.76929 13.9437 8.25866 13.1789 7.9107 12.3372C7.56274 11.4955 7.38428 10.5935 7.38554 9.68269C7.38539 9.18343 7.58038 8.70388 7.9289 8.34639C8.27742 7.9889 8.75187 7.78177 9.25099 7.76923L10.3376 9.68269L9.43368 11.1827C9.37112 11.2897 9.33499 11.41 9.3283 11.5338C9.32161 11.6576 9.34456 11.7811 9.39522 11.8942C9.93114 13.1033 10.8977 14.0699 12.1068 14.6058C12.22 14.6564 12.3435 14.6794 12.4673 14.6727C12.591 14.666 12.7114 14.6299 12.8184 14.5673L14.3185 13.6635L16.232 14.75C16.2194 15.2491 16.0123 15.7235 15.6548 16.072C15.2973 16.4206 14.8177 16.6155 14.3185 16.6154Z", fill: "white" }) }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_891_1728", children: jsxRuntime.jsx("rect", { width: "24", height: "24", fill: "white" }) }) })] }));
+}
+function MailBordered({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z", stroke: "white", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M22 6L12 13L2 6", stroke: "white", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
 
 function Tag(props) {
@@ -332,7 +341,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$1 = styled__default["default"](Card__default["default"]) `
+const Container$2 = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -340,7 +349,7 @@ const Container$1 = styled__default["default"](Card__default["default"]) `
   border-radius: 8px !important;
   padding: 24px !important;
 `;
-const Title = styled__default["default"].span `
+const Title$2 = styled__default["default"].span `
   font-size: 20px !important;
   color: #ff4d0d !important;
 `;
@@ -538,9 +547,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$1, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$2, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$1, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$2, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$2, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -662,7 +671,7 @@ function StarIcon(props) {
  *
  * @componente
  */
-function Rating(props) {
+function Rating$1(props) {
     const MapColorStar = [
         '#FFC200',
         '#000000',
@@ -821,30 +830,28 @@ const DesignTokens = {
         "borderSecondary2": "#ffd600",
         "borderSecondary3": "#6a3f86",
         "borderSecondary4": "#222222",
-        "borderSecondary5": "A50000",
-        "linkDefaultOnfocus": "#0645ad",
         "linkDisabled": "#bdbdbd",
         "linkHover": "#0b0080",
         "linkOnfocus": "#0645ad",
         "linkPressed": "#663366",
         "messageAlert1": "#ffc200",
         "messageAlert2": "#fef0d4",
-        "messageError1": "#ff0000",
+        "messageError1": "#ea0000",
         "messageError2": "#ffe5e5",
         "messageSuccess1": "#2ca92a",
         "messageSuccess2": "#d1f6d1",
         "neutralsGrey1": "#222222",
-        "neutralsGrey2": "#757575",
-        "neutralsGrey3": "#9c9c9c",
-        "neutralsGrey4": "#bdbdbd",
-        "neutralsGrey5": "#e0e0e0",
-        "neutralsGrey6": "#ebebeb",
-        "neutralsGrey7": "#f5f5f5",
-        "neutralsGrey8": "#fafafa",
+        "neutralsGrey2": "#444444",
+        "neutralsGrey3": "#757575",
+        "neutralsGrey4": "#9c9c9c",
+        "neutralsGrey5": "#bdbdbd",
+        "neutralsGrey6": "#e0e0e0",
+        "neutralsGrey7": "#ebebeb",
+        "neutralsGrey8": "#ebeded",
+        "neutralsGrey9": "#f2f2f2",
         "primary1": "#ff4d0d",
         "primary2": "#ee4c15",
         "primary3": "#d14211",
-        "primary4": "#EA0000",
         "secondary1": "#6a3f86",
         "secondary2": "#ffd600",
         "secondary5": "#a50000",
@@ -1009,7 +1016,7 @@ const FRSTTheme = {
     ...DesignTokens,
 };
 
-const AvatarImg = styled__default["default"].img `
+const AvatarImg$1 = styled__default["default"].img `
     width: ${props => props.size || '120px'};
     height: ${props => props.size || '120px'};
     border-radius: 50%;
@@ -1026,7 +1033,7 @@ const AvatarWrapper = styled__default["default"].div `
 
 function Avatar({ size, src, alt, className, disabled }) {
     const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, children: jsxRuntime.jsx(AvatarImg, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
 }
 
 ///-----------------------------------------
@@ -1111,7 +1118,7 @@ const LinkButtonStartIcon = styled__default["default"].a `
 
     & > svg {
         margin-right: 12px;
-        max-height: 16px;
+        max-height: ${({ sizeIcon }) => sizeIcon ? sizeIcon : '16px'};
         height: 100%;
         width: auto;
     }
@@ -1147,7 +1154,7 @@ const LinkButtonEndIcon = styled__default["default"].a `
 
     & > svg {
         margin-left: 12px;
-        max-height: 16px;
+        max-height: ${({ sizeIcon }) => sizeIcon ? sizeIcon : '16px'};
         height: 100%;
         width: auto;
     }
@@ -1330,7 +1337,7 @@ const ButtonStartIcon = styled__default["default"].button `
 
     & > svg {
         margin-right: 12px;
-        max-height: 16px;
+        max-height: ${({ sizeIcon }) => sizeIcon ? sizeIcon : '16px'};
         height: 100%;
         width: auto;
     }
@@ -1358,7 +1365,7 @@ const ButtonEndIcon = styled__default["default"].button `
 
     & > svg {
         margin-left: 12px;
-        max-height: 16px;
+        max-height: ${({ sizeIcon }) => sizeIcon ? sizeIcon : '16px'};
         height: 100%;
         width: auto;
     }
@@ -1366,17 +1373,17 @@ const ButtonEndIcon = styled__default["default"].button `
     ${({ variant }) => variantStyles(variant)}
 `;
 
-function Button({ variant, label, disabled, startIcon, endIcon, handleClick }) {
+function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: startIcon ?
             (variant === 'link') ?
-                jsxRuntime.jsxs(LinkButtonStartIcon, { disabled: disabled, onClick: handleClick, children: [startIcon, label] })
+                jsxRuntime.jsxs(LinkButtonStartIcon, { disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
                 :
-                    jsxRuntime.jsxs(ButtonStartIcon, { variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] })
+                    jsxRuntime.jsxs(ButtonStartIcon, { variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
             : endIcon ?
                 (variant === 'link') ?
-                    jsxRuntime.jsxs(LinkButtonEndIcon, { disabled: disabled, onClick: handleClick, children: [label, endIcon] })
+                    jsxRuntime.jsxs(LinkButtonEndIcon, { disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [label, endIcon] })
                     :
-                        jsxRuntime.jsxs(ButtonEndIcon, { variant: variant, disabled: disabled, onClick: handleClick, children: [label, endIcon] })
+                        jsxRuntime.jsxs(ButtonEndIcon, { variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [label, endIcon] })
                 :
                     (variant === 'link') ?
                         jsxRuntime.jsx(LinkButton$1, { disabled: disabled, onClick: handleClick, children: label })
@@ -1511,10 +1518,10 @@ function BannerProblem(props) {
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
-                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 } }), props.curtidas &&
+                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(Rating$1, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 } }), props.curtidas &&
                                                     jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 } })] })
                                         : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$6.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
-                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), props.curtidas &&
+                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating$1, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2 })] })
                                 : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                         props.onSelectedStep(step);
@@ -1756,8 +1763,7 @@ const InputText$1 = styled__default["default"].textarea `
 
     padding: 0;
     margin: 14px;
-    border: none;
-    //wrap: off;
+    border: none;    
 `;
 styled__default["default"].div `
     display: flex;
@@ -1904,7 +1910,7 @@ const NameWrapper = styled__default["default"].div `
     justify-content: flex-start;
     align-items:center
 `;
-const Name = styled__default["default"].div `
+const Name$1 = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
@@ -2317,7 +2323,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
         (isOpenDrop) && (finalColor = '#ff4d0d'); // Selected
         return finalColor;
     };
-    return (jsxRuntime.jsx("div", { style: { width: 'auto', ...styles }, children: jsxRuntime.jsxs(SpeechBubble, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper$1, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name, { children: [" ", size[0] > WIDTH_MOBILE ? name : buildShortName(name), " "] }), isMe &&
+    return (jsxRuntime.jsx("div", { style: { width: 'auto', ...styles }, children: jsxRuntime.jsxs(SpeechBubble, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper$1, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name$1, { children: [" ", size[0] > WIDTH_MOBILE ? name : buildShortName(name), " "] }), isMe &&
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsxs(IsMe, { children: [" ", textYou, " "] })] }), size[0] > WIDTH_MOBILE ?
                                             ((isPrivateAuthor || isPrivateMe) &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
@@ -2660,12 +2666,13 @@ styled__default["default"].img `
 `;
 const CardWrapper = styled__default["default"].div `
     width: auto;
-    height: 172px;
+    min-height: auto;
 
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid #E8E8E8;
     border-radius: 4px;
     padding: 20px;
+    ${({ hasShadow }) => hasShadow && 'box-shadow: 0px 18px 40px -15px #D3D3D3'};
 `;
 const TitleCard$1 = styled__default["default"].p `
     font-family: 'Work Sans';
@@ -2708,8 +2715,8 @@ const TotalLoading = styled__default["default"].div `
     width: 100px;
     border-radius: 10px;
 `;
-const TotalNumber = styled__default["default"].span `
-    font-family: 'Work Sans';
+const TotalNumber = styled__default["default"].p `
+    font-family: 'Work Sans' ;
     font-style: normal;
     font-weight: 300;
     font-size: 48px;
@@ -2718,17 +2725,26 @@ const TotalNumber = styled__default["default"].span `
     color: #222222;
     margin-top: -13px;
 `;
+const PartialNumber = styled__default["default"].p `
+    font-family: 'Work Sans' ;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 56px;
 
-function TotalizerCard({ titleCard, textTotal, numberTotal, loading, className, styles }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { width: '180px', ...styles }, className: className, children: jsxRuntime.jsxs(CardWrapper, { children: [loading ?
-                        jsxRuntime.jsx(TitleCardLoading, { className: 'shimmer' })
-                        :
-                            jsxRuntime.jsxs(TitleCard$1, { children: [" ", titleCard, " "] }), loading ?
-                        jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
-                        jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] })] })] }) }) }));
+    color: #222222;
+`;
+
+function TotalizerCard({ titleCard, textTotal, numberTotal, numberPartial, loading, className, hasShadow, styles }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper, { hasShadow: hasShadow, style: { ...styles }, children: [loading ?
+                    jsxRuntime.jsx(TitleCardLoading, { className: 'shimmer' })
+                    :
+                        jsxRuntime.jsxs(TitleCard$1, { children: [" ", titleCard, " "] }), loading ?
+                    jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
+                    jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginBottom: '16px' }, children: [jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] }), numberPartial && jsxRuntime.jsxs(PartialNumber, { children: ["/", numberPartial, " "] })] })] })] }) }));
 }
 
-const Container = styled__default["default"].div `
+const Container$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -2819,7 +2835,7 @@ const ButtonAction = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
     const [actionAreaInput, setActionAreaInput] = react.useState(false);
     const [inputOnFocus, setInputOnFocus] = react.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
                             jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
 }
@@ -3192,7 +3208,7 @@ function CardProblemGestor(props) {
     return (jsxRuntime.jsxs("div", { className: style$3.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$3.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsxs("div", { className: style$3.contentCard, children: [jsxRuntime.jsxs("div", { className: style$3.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$3.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
                         jsxRuntime.jsx("div", { className: style$3.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
                         jsxRuntime.jsx("div", { className: style$3.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$3.avaliacao, children: [jsxRuntime.jsx(Rating, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(Rating, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: 'Curtidas', tipoBotao: 4, style: { margin: 0, width: 90 } })] }), props.lastUpdated &&
+                        jsxRuntime.jsxs("div", { className: style$3.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: 'Curtidas', tipoBotao: 4, style: { margin: 0, width: 90 } })] }), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
@@ -3254,7 +3270,7 @@ function CardProblem(props) {
                         jsxRuntime.jsx("div", { className: style$2.tagsContainer, children: props.tags.map((item, index) => (item &&
                                 jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
                         props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$2.avaliacao, children: [jsxRuntime.jsx(Rating, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
+                        jsxRuntime.jsxs("div", { className: style$2.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
                         props.statusProblema === 'aprovado' ?
                             jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: 'Problema aprovado', style: { minWidth: 200, width: '90%' } })
                             :
@@ -3350,7 +3366,7 @@ function CardResultConquista(props) {
                                     jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style.verMais, children: "Mais detalhes" })] }));
 }
 
-const WrapperCard = styled__default["default"].div `
+const WrapperCard$1 = styled__default["default"].div `
     width: 343px;
     min-height: 136px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey4};
@@ -3380,7 +3396,7 @@ const WrapperButton = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
 function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }) {
@@ -3389,6 +3405,396 @@ function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeA
         return (jsxRuntime.jsx(CardResultConquista, { description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) }) }));
+}
+
+const WrapperStars = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: ${({ orientation }) => orientation == 'vertical' ? 'column' : 'row'};
+    width: auto;
+`;
+const Raiting = styled__default["default"].p `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Work Sans;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 500;
+    line-height: 28px;
+    color: #222;
+    padding-top: 3px;
+    margin-left: 16.5px;
+`;
+
+/**
+ * @componente
+ */
+function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
+    react.useState(rating + 1);
+    const [hoverRaiting, setHoverRaiting] = react.useState(-1);
+    const rederStars = () => {
+        var groupStars = [];
+        const handleClick = (e) => {
+            if (!disabled)
+                handleRating(e);
+        };
+        const getStatusActive = (id) => {
+            if (id < hoverRaiting)
+                return true;
+            else if (hoverRaiting != -1)
+                return false;
+            else if (id < rating)
+                return true;
+        };
+        for (var i = 0; i < qtdStars; i++) {
+            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled }));
+        }
+        return groupStars;
+    };
+    return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [rederStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: (rating).toFixed(1) })] }));
+}
+function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
+    const [actionArea, setActionArea] = react.useState(false);
+    const getColorStar = () => {
+        if (active)
+            return '#FFC200';
+        else
+            return '#757575';
+    };
+    react.useEffect(() => {
+        setTimeout(() => {
+            if (actionArea)
+                setOnHover(id);
+            else
+                setOnHover(-1);
+        }, 150);
+    }, [actionArea]);
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { onMouseOver: () => setActionArea(!disabled), onMouseOut: () => setActionArea(false ), onClick: () => handleClick(id), style: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: marginStars ? marginStars : '3.5px'
+            }, children: jsxRuntime.jsx(StarRating, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 29, fill: getColorStar(), fillOpacity: disabled ? '0.6' : '1' }) }) });
+}
+
+styled__default["default"].div `
+  width: 100%;
+  width: 1280px;
+  height: 587px;
+  background: #F2F2F2;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+const ProgressContainer = styled__default["default"].div `
+  position: relative;
+  padding-left: 75px;
+`;
+const Progress = styled__default["default"].ul `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  align-items: flex-start;
+`;
+const ProgressItem = styled__default["default"].li `
+  width: 100%;
+  min-height: 78px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  counter-increment: list;
+
+  ${({ active }) => active === true && `
+    padding-bottom: 70px;
+
+    @media (max-width: 768px) {
+      padding-bottom: 50px;
+    }
+  `}
+
+  &:first-child {
+    &::before {
+      top: 10px;
+    }
+  }
+
+  &:last-child {
+    &::before {
+      top: -30px;
+      display: none;
+    }
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    left: -79px;
+    top: 2px;
+    height: 100%;
+    background-color: #6A3F86;
+    width: 14px;
+    z-index: 0;
+  }
+
+  &:after {
+    content: counter(list);
+    position: absolute;
+    z-index: 1;
+    left: -100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    border: 3.5px solid #9C9C9C;
+    background-color: #757575;
+    top: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+
+    ${({ active }) => active === true && `
+      background-color: #FF4D0D;
+      border-color: #FF4D0D;
+      -webkit-box-shadow: 0px 0px 0px 15px rgba(255,77,13,0.5); 
+      box-shadow: 0px 0px 0px 15px rgba(255,77,13,0.5);
+    `}
+  }
+`;
+const ProgressItemTitle = styled__default["default"].p `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #757575;
+
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ active }) => active === true && `
+    color: #222222;
+    height: auto;
+    margin: 15px 0 8px 0;
+    font-weight: 600;
+  `}
+`;
+const ProgressItemSubtitle = styled__default["default"].p `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #222222;
+
+  ${({ active }) => active === true && `
+    margin-bottom: 24px;
+  `}
+`;
+
+function Stepper({ children, }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer, { children: jsxRuntime.jsx(Progress, { children: children && children }) }) }));
+}
+
+function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
+    return (jsxRuntime.jsx(ProgressItem, { active: active, children: active
+            ?
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button, { handleClick: () => onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
+            :
+                jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
+}
+
+const WrapperCard = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    background-color: #FFF;
+    border-radius: 8px;
+    border: 1px solid #BDBDBD;
+    overflow: hidden;
+`;
+const WrapperTopic = styled__default["default"].div `
+    min-width: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #FF4D0D;
+    color: #FFF;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    border-right: 1px solid #BDBDBD;
+
+`;
+const WrapperDescription = styled__default["default"].div `
+    padding: 16px;
+    color: #222222;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+`;
+
+function ObjectiveStep({ description, number }) {
+    return (jsxRuntime.jsxs(WrapperCard, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
+}
+
+const Wrapper = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '375px'};
+`;
+const Title$1 = styled__default["default"].p `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+
+    display: flex;
+    align-items: ${({ mobileVersion }) => mobileVersion ? 'start' : 'center'};
+    letter-spacing: 0.01em;
+    color:  #222;
+`;
+const AvatarImg = styled__default["default"].img `
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+`;
+const WrapperSpecialist = styled__default["default"].div `
+    display: flex;
+    margin-top: ${({ mobileVersion }) => mobileVersion ? '32px' : '48px'};
+    flex-direction:${({ mobileVersion }) => mobileVersion ? 'column' : 'row'};
+    align-items: ${({ mobileVersion }) => mobileVersion ? 'center' : 'start'};
+`;
+const TextSpecialist = styled__default["default"].div `
+    margin-left: ${({ mobileVersion }) => mobileVersion ? '0px' : '24px'};
+`;
+const Phone = styled__default["default"].p `        
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+
+        display: flex;
+        align-items: center;
+        justify-content:${({ mobileVersion }) => mobileVersion ? 'center' : 'start'};
+        text-align: center;
+        letter-spacing: 0.25px;
+
+        color: #222222;
+        margin-bottom: 8px;
+    `;
+const Email = styled__default["default"].p `
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        
+        display: flex;
+        align-items: center;
+        text-align: start;
+        justify-content:${({ mobileVersion }) => mobileVersion ? 'center' : 'start'};
+        
+        letter-spacing: 0.25px;
+
+        color: #222222;
+        margin-bottom: 8px;
+    `;
+const Name = styled__default["default"].p `
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 23px;
+        display: flex;
+        align-items: center;
+        justify-content:${({ mobileVersion }) => mobileVersion ? 'center' : 'start'};
+        text-align: center;
+        letter-spacing: 0.25px;
+        color:  #222;
+        margin-bottom: 8px;
+        margin-top:${({ mobileVersion }) => mobileVersion ? '24px' : '0px'};
+    `;
+const WrapperButtons = styled__default["default"].div `
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 45px;
+`;
+
+function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
+    const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
+    return (jsxRuntime.jsxs(Wrapper, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$1, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+}
+
+const Container = styled__default["default"].div `
+  display: flex;
+  width: 100%;
+  height: 120px;
+  position: relative;
+`;
+const TextContainer = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+const Image = styled__default["default"].img `
+  width: 88px;
+  height: 120px;
+  border-radius: 8px;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+`;
+const Title = styled__default["default"].text `
+  width: 650px;
+  margin-left: 102px;
+  margin-bottom: 12px;
+  color: ${({ theme }) => theme.colors.linkOnfocus};
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+`;
+const Description = styled__default["default"].text `
+  width: 650px;
+  margin-left: 102px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #757575;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+`;
+
+function SearchResults({ src, title, description, onClick }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container, { children: [jsxRuntime.jsx(Image, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
 }
 
 exports.AlertCicle = AlertCicle;
@@ -3414,10 +3820,16 @@ exports.MessageBox = MessageBox;
 exports.ModalLearningTech = ModalLearningTech;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
+exports.ObjectiveStep = ObjectiveStep;
+exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchField = SearchField;
+exports.SpecialistContact = SpecialistContact;
+exports.Stepper = Stepper;
+exports.StepperItem = StepperItem;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.TotalizerCard = TotalizerCard;
 exports.UserCard = CalendarCard$1;
+exports.searchResults = SearchResults;

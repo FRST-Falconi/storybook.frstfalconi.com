@@ -22,8 +22,8 @@ const Template = (args) => <IconsStories >{args} </IconsStories>
 export const BackArrow = Template.bind({})
 BackArrow.args = Icons.BackArrow({})
 
-export const BlueTrash = Template.bind({})
-BlueTrash.args = Icons.BlueTrash({})
+export const Trash = Template.bind({})
+Trash.args = Icons.Trash({})
 
 export const ChangeAccount = Template.bind({})
 ChangeAccount.args = Icons.ChangeAccount({})
@@ -156,4 +156,13 @@ MoreHorizontal.args = Icons.MoreHorizontal({})
 
 export const UploadIcon = Template.bind({})
 UploadIcon.args = Icons.UploadIcon({})
+
+export const Video = Template.bind({})
+Video.args = Icons.Video({})
+
+export const Noun = Template.bind({})
+Noun.args = Icons.Noun({})
+
+export const EyeOff = Template.bind({})
+EyeOff.args = Icons.EyeOff({})
 

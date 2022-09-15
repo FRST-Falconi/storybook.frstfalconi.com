@@ -1,9 +1,10 @@
 import React from "react"
 export interface IAvatar {
     size?: string,
-    src?: any,
+    channel?: string,
     alt?: string,
     className?: string,
-    disabled?: boolean,    
+    disabled?: boolean, 
+    color?: string,   
     onChange: () => void
 }
