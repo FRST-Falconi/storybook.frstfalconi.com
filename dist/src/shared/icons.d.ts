@@ -75,5 +75,6 @@ export declare function StarRating({ fill, width, height, fillOpacity }: IconsPr
 export declare function Noun({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WhatAppBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
+export declare function MessageCheckLine({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

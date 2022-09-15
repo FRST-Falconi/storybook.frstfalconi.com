@@ -29,6 +29,7 @@ export default function Rating({ rating, isVisibleNumberRating, qtdStars, margin
     for (var i = 0; i < qtdStars; i++) {
       groupStars.push(
         <StarRatingComponent 
+          key={i}
           id={i+1}
           active={getStatusActive(i)} 
           setOnHover={setHoverRaiting} 

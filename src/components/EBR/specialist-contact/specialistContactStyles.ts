@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div<{mobileVersion: boolean}>`
     display: flex;
     flex-direction: column;
-    width:  ${({mobileVersion})=> mobileVersion ? '343px': '375px'};
+    max-width:  ${({mobileVersion})=> mobileVersion ? '343px': '375px'};
 `
 
 export const Title = styled.p<{mobileVersion: boolean}>`
