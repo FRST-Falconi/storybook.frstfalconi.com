@@ -30,5 +30,16 @@ export { default as Stepper } from './src/components/EBR/stepper/stepper';
 export { default as StepperItem } from './src/components/EBR/stepper/stepperItem';
 export { default as ObjectiveStep } from './src/components/EBR/objective-step';
 export { default as SpecialistContact } from './src/components/EBR/specialist-contact';
-export { default as searchResults } from './src/components/searchResults';
+export { default as avatarChannel } from './src/components/LXP/avatarChannel';
+export { default as bannerLxp } from './src/components/LXP/bannerLxp';
+export { default as buttonContent } from './src/components/LXP/buttonContent';
+export { default as colorPicker } from './src/components/LXP/colorpicker';
+export { default as contentSwitcher } from './src/components/LXP/contentSwitcher';
+export { default as contentThumbnails } from './src/components/LXP/contentThumbnails';
+export { default as fileUpload } from './src/components/LXP/fileUpload';
+export { default as headerContent } from './src/components/LXP/headerContent';
+export { default as popOver } from './src/components/LXP/popOver';
+export { default as progressBar } from './src/components/LXP/progressBar';
+export { default as searchResults } from './src/components/LXP/searchResults';
+export { default as starMetric } from './src/components/LXP/star-metric';
 //# sourceMappingURL=index.d.ts.map

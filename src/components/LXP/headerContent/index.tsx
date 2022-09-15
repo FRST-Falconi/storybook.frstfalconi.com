@@ -1,5 +1,5 @@
 import Button from "@components/buttons"
-import ProgressBar from "@components/progressBar"
+import ProgressBar from "@components/LXP/progressBar"
 import style from "./headerContent.module.css"
 import CountCircle from './countCircle'
 import SelectedCountCircle from './selectedCountCircle'
