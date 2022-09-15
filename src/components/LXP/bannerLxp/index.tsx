@@ -5,8 +5,7 @@ import { UploadIcon } from '@shared/icons'
 import React, { useRef, useState } from 'react'
 import style from './bannerLxp.module.css'
 import { ChromePicker } from 'react-color'
-import PopOver from '@components/popOver'
-import { FRSTTheme } from 'src/theme'
+import PopOver from '@components/LXP/popOver'
 interface BannerLxpParams{
     title: string
     titleColor?: string
