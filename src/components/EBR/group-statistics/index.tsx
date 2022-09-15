@@ -45,6 +45,7 @@ export default function TotalizerCard({ objectStatistics, loading, hasShadow, st
 
     return (
         <ThemeProvider theme={FRSTTheme}>
+            { loading ? <CardWrapper  hasShadow={hasShadow} className='shimmer' style={{...styles}}/> :
             <CardWrapper hasShadow={hasShadow} style={{...styles}}>
                 { (objectStatistics && objectStatistics.length > 0 && objectStatistics.length <= 5) ?
                     <div style={{ 
@@ -78,23 +79,7 @@ export default function TotalizerCard({ objectStatistics, loading, hasShadow, st
                         {renderObjectStatistics(false)}
                     </div>
                 }
-            {/* <FeaturedNumber></FeaturedNumber> */}
-                {/* { loading ?                         
-                    <TitleCardLoading className='shimmer'/>
-                    :                    
-                    <TitleCard> { titleCard } </TitleCard>
-                }
-                { loading ? 
-                <TotalLoading className='shimmer'/> :
-                <AreaCounter>
-                <TotalText> { textTotal } </TotalText>
-                <div style={{display: 'flex', flexDirection:'row', alignItems: 'baseline', marginBottom: '16px'}}>
-                    <TotalNumber> { numberPartial ? numberPartial : numberTotal} </TotalNumber>
-                    { numberPartial && numberTotal && <PartialNumber>/{ numberTotal } </PartialNumber>}
-                </div>
-                </AreaCounter>
-                } */}
-            </CardWrapper>
+            </CardWrapper> }
         </ThemeProvider>
     )
 }
