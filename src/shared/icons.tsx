@@ -589,13 +589,24 @@ export function MoreHorizontal({ fill, width, height }: IconsProps) {
   );
 }
 
+export function UploadIcon({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width :"24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.0834 13.9824V17.1121C19.0834 17.5271 18.9185 17.9251 18.625 18.2186C18.3316 18.512 17.9336 18.6769 17.5185 18.6769H6.56482C6.1498 18.6769 5.75178 18.512 5.45832 18.2186C5.16486 17.9251 5 17.5271 5 17.1121V13.9824" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16.4062 8L11.9063 4L7.40625 8" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M11.9063 4L11.9062 15" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+
+  );
+}
+
 export function Video({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "30"} height={height ? height : "30"} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15.2865 28.3334C22.6503 28.3334 28.6198 22.3639 28.6198 15.0001C28.6198 7.63628 22.6503 1.66675 15.2865 1.66675C7.92266 1.66675 1.95312 7.63628 1.95312 15.0001C1.95312 22.3639 7.92266 28.3334 15.2865 28.3334Z" stroke={fill ? fill : "#FF4D0D"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M11.9531 10L20.2865 15L11.9531 20V10Z" stroke={fill ? fill : "#FF4D0D"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
-  )
+  );
 }
 
 export function StarRating({ fill, width, height, fillOpacity }: IconsProps) {
@@ -628,7 +639,7 @@ export function WhatAppBordered({ fill, width, height }: IconsProps) {
       </clipPath>
       </defs>
     </svg>
-  )  
+  );
 }
 
 export function MailBordered({ fill, width, height }: IconsProps) {
@@ -645,5 +656,5 @@ export function MessageCheckLine({ fill, width, height }: IconsProps) {
   <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M17 1L6 12L1 7" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
-  )
+  );
 }
