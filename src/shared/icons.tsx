@@ -587,3 +587,14 @@ export function MoreHorizontal({ fill, width, height }: IconsProps) {
     </svg>
   );
 }
+
+export function UploadIcon({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width :"24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.0834 13.9824V17.1121C19.0834 17.5271 18.9185 17.9251 18.625 18.2186C18.3316 18.512 17.9336 18.6769 17.5185 18.6769H6.56482C6.1498 18.6769 5.75178 18.512 5.45832 18.2186C5.16486 17.9251 5 17.5271 5 17.1121V13.9824" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16.4062 8L11.9063 4L7.40625 8" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M11.9063 4L11.9062 15" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+
+  );
+}
