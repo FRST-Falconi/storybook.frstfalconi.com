@@ -24,7 +24,8 @@ export { default as ScrollContainer } from './src/components/scroll-container'
 export { default as LearningSteps } from './src/components/learning-steps'
 export { default as TotalizerCard } from './src/components/totalizer-card'
 
-export { default as Select } from "./src/components/select"
+export { default as Select } from "./src/components/DS/select"
+
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
 
