@@ -19,6 +19,7 @@ export const Container= styled.div<{sizeIcon}>`
     font-size: 20px;
     line-height: 23px;
     box-shadow: none;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     & > svg {        
         max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon:'64px'};
@@ -49,6 +50,7 @@ export const ContentSwitcher= styled.button<{}>`
     font-size: 20px;
     line-height: 23px;
     box-shadow: none;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     & > svg {        
         height: 64px;
