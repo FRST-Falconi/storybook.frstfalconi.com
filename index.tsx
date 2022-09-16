@@ -24,6 +24,8 @@ export { default as ScrollContainer } from './src/components/scroll-container'
 export { default as LearningSteps } from './src/components/learning-steps'
 export { default as TotalizerCard } from './src/components/totalizer-card'
 
+export { default as Select } from "./src/components/DS/select"
+
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
 
@@ -45,6 +47,8 @@ export { default as StepperItem } from './src/components/EBR/stepper/stepperItem
 
 export { default as ObjectiveStep } from './src/components/EBR/objective-step'
 export { default as SpecialistContact } from './src/components/EBR/specialist-contact'
+export { default as GroupStatistics } from './src/components/EBR/group-statistics'
+export { default as TrailList } from './src/components/EBR/trail-list'
 
 // LXP
 export { default as avatarChannel} from './src/components/LXP/avatarChannel'
