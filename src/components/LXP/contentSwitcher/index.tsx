@@ -3,7 +3,7 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './contentSwitcherStyle'
 import { IcontentSwitcher } from './contentSwitcher'
 import { useState } from 'react'
-import * as Icons from '../../../shared/icons'
+import * as Icons from '@shared/icons'
 
 export default function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon}: IcontentSwitcher) {
     const [isClicked, setIsClicked] = useState(false)
