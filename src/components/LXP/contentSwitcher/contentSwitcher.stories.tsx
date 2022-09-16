@@ -1,5 +1,6 @@
 import React from 'react'
 import ContentSwitcher from './index'
+import * as Icons from '../../../shared/icons'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -13,6 +14,7 @@ const Template = (args) => <ContentSwitcher {...args} />
 export const primary = Template.bind({})
 primary.args = {
     label: 'Name item',
+    startIcon: <Icons.Noun />,
     handleClick: () => { alert('Click') }
 }
 
