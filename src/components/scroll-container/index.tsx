@@ -10,7 +10,7 @@ import { randID } from './scrollContainer.utils'
 
 import { WrapperHorizontal, WrapperContent, ButtonControll, CardTest } from './scrollContainerStyles'
 
-export default function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, 
+export default function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton,
     stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }: IScrollContainer) {    
     const [ actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
     const [ actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
@@ -93,8 +93,8 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                         </ButtonControll>}
                     </WrapperHorizontal>
                         <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>                        
-                            {positionArrowButton == 'bottom' &&
-                            <>
+                            {isVisibleControlsButtons && positionArrowButton == 'bottom' &&
+                            <div style={{display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'}}>
                                 <ButtonControll 
                                     isLeftButton={true} 
                                     onClick={ scrollToLeft }
@@ -123,7 +123,7 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                                         height={sizeArrowButton ? ((sizeArrowButton/2.3).toFixed(0)).toString() : '34'}
                                         width={sizeArrowButton ? ((sizeArrowButton/4.3).toFixed(0)).toString() : '18'}/>
                                 </ButtonControll>
-                            </>
+                            </div>
                             }
                         </div>
                 </div>

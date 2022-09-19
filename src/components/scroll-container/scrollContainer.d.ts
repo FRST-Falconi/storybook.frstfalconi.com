@@ -12,4 +12,5 @@ export interface IScrollContainer {
     marginsArrowButton?: number,
     horizontalMarginInternScroll?: string,
     positionArrowButton?: string,
+    marginTopArrrowButton?: string,
 }
