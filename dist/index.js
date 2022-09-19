@@ -2518,7 +2518,7 @@ styled__default["default"].div `
     border-radius: 20px
 `;
 
-function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }) {
+function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }) {
     const [actionAreaButtonLeft, setActionAreaButtonLeft] = React.useState(false);
     const [actionAreaButtonRight, setActionAreaButtonRight] = React.useState(false);
     const [iDScroll, setIDScroll] = React.useState(`iDScroll-${randID$1()}`);
@@ -2544,15 +2544,16 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, c
             setIsVisibleArrowButtonRight(false);
     }, []);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: type == 'vertical' ? (null) :
-            jsxRuntime.jsx("div", { style: { ...styles }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons &&
-                            jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                    ((marginsArrowButton + 50) * -1) + 'px'
-                                    :
-                                        '-138px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons &&
-                            jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                    ((marginsArrowButton + 50) * -1) + 'px'
-                                    :
-                                        '-138px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }) }) }));
+            jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                                jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
+                                        ((marginsArrowButton + 50) * -1) + 'px'
+                                        :
+                                            '-138px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                                jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
+                                        ((marginsArrowButton + 50) * -1) + 'px'
+                                        :
+                                            '-138px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: positionArrowButton == 'bottom' &&
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }) })] }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -4112,6 +4113,7 @@ const IconList = styled__default["default"].span `
 `;
 
 function TrailList({ title, trails, style }) {
+    const [trailsList, setTrailsList] = React.useState(trails);
     const [windowSize, setWindowSize] = React.useState([0, 0]);
     React.useEffect(() => {
         function updateSize() {
@@ -4122,24 +4124,27 @@ function TrailList({ title, trails, style }) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const renderTrails = () => {
-        return (trails.map((item, index) => {
+        return (trailsList.map((item, index) => {
             return jsxRuntime.jsxs(ItemList, { isMobile: windowSize[0] < 400, children: [jsxRuntime.jsxs(IconList, { children: [" ", jsxRuntime.jsx(MessageCheckLine, {}), " "] }), jsxRuntime.jsxs(TextList, { children: [" ", item, " "] })] }, index);
         }));
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { style: { ...style }, children: [jsxRuntime.jsx(Title$2, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trails && trails.length > 0 && trails.length <= 2) ?
+    React.useEffect(() => {
+        setTrailsList(trails);
+    }, [trails]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { style: { ...style }, children: [jsxRuntime.jsx(Title$2, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
                         jsxRuntime.jsx("div", { style: {
                                 display: 'flex',
                                 flexDirection: 'column'
                             }, children: renderTrails() })
                         :
-                            (trails && trails.length > 0 && trails.length <= 3) ?
+                            (trailsList && trailsList.length > 0 && trailsList.length <= 3) ?
                                 jsxRuntime.jsx("div", { style: {
                                         display: 'grid',
                                         columnGap: '80px',
                                         gridTemplateColumns: windowSize[0] > 900 ? '1fr 1fr' : '1fr'
                                     }, children: renderTrails() })
                                 :
-                                    (trails && trails.length > 0 && trails.length <= 5) ?
+                                    (trailsList && trailsList.length > 0 && trailsList.length <= 5) ?
                                         jsxRuntime.jsx("div", { style: {
                                                 display: 'grid',
                                                 columnGap: '80px',
@@ -4147,7 +4152,7 @@ function TrailList({ title, trails, style }) {
                                                     windowSize[0] > 900 ? '1fr 1fr' : '1fr'
                                             }, children: renderTrails() })
                                         :
-                                            (trails && trails.length > 0 && trails.length > 5) &&
+                                            (trailsList && trailsList.length > 0 && trailsList.length > 5) &&
                                                 jsxRuntime.jsx("div", { style: {
                                                         display: 'grid',
                                                         columnGap: '80px',
