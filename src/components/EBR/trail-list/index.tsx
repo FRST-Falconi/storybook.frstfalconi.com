@@ -7,7 +7,7 @@ import { ITrailList } from './trailList'
 import { MessageCheckLine } from '@shared/icons'
 
 export default function TrailList({ title, trails, style }: ITrailList) {
-
+    const [ trailsList, setTrailsList ] = useState(trails);
     const [ windowSize, setWindowSize ] = useState([0,0 ])
     useEffect(() => {
       function updateSize() {
@@ -19,7 +19,7 @@ export default function TrailList({ title, trails, style }: ITrailList) {
      }, []);
 
      const renderTrails = () => {
-        return (trails.map((item, index) => {
+        return (trailsList.map((item, index) => {
             return <Styles.ItemList key={index} isMobile={windowSize[0] < 400}> 
                     <Styles.IconList> <MessageCheckLine/> </Styles.IconList> 
                     <Styles.TextList> {item} </Styles.TextList>
@@ -28,12 +28,16 @@ export default function TrailList({ title, trails, style }: ITrailList) {
         }))
      }
 
+     useEffect(() => {
+        setTrailsList(trails)
+     }, [trails])
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.Wrapper style={{...style}}>
                 <Styles.Title>{title}</Styles.Title>
                 <Styles.WrapperList>
-                {( trails && trails.length > 0 && trails.length <= 2) ? 
+                {( trailsList && trailsList.length > 0 && trailsList.length <= 2) ? 
                     <div style={{
                             display: 'flex', 
                             flexDirection: 'column'
@@ -41,7 +45,7 @@ export default function TrailList({ title, trails, style }: ITrailList) {
                         { renderTrails() }
                     </div>
                     :
-                    (trails && trails.length > 0 && trails.length <= 3) ? 
+                    (trailsList && trailsList.length > 0 && trailsList.length <= 3) ? 
                     <div style={{
                             display: 'grid', 
                             columnGap: '80px', 
@@ -50,7 +54,7 @@ export default function TrailList({ title, trails, style }: ITrailList) {
                         { renderTrails() }
                     </div>
                     :
-                    (trails && trails.length > 0 && trails.length <= 5) ?
+                    (trailsList && trailsList.length > 0 && trailsList.length <= 5) ?
                     <div style={{
                             display: 'grid', 
                             columnGap: '80px', 
@@ -60,7 +64,7 @@ export default function TrailList({ title, trails, style }: ITrailList) {
                         { renderTrails() }
                     </div>                    
                     :
-                    (trails && trails.length > 0 && trails.length > 5) && 
+                    (trailsList && trailsList.length > 0 && trailsList.length > 5) && 
                     <div style={{
                             display: 'grid', 
                             columnGap: '80px', 
