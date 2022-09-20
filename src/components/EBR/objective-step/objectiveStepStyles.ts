@@ -10,7 +10,7 @@ interface AvatarI {
 export const WrapperCard = styled.div`
     display: flex;
     flex-direction: row;
-    width: auto;
+    width: 100%;
     background-color: #FFF;
     border-radius: 8px;
     border: 1px solid #BDBDBD;

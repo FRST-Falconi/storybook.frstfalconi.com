@@ -10,7 +10,7 @@ import { randID } from './scrollContainer.utils'
 
 import { WrapperHorizontal, WrapperContent, ButtonControll, CardTest } from './scrollContainerStyles'
 
-export default function ScrollContainer({ children, type, isVisibleControlsButtons, 
+export default function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton,
     stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }: IScrollContainer) {    
     const [ actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
     const [ actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
@@ -48,7 +48,7 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
             {type == 'vertical' ? (null) :
                 <div style={{...styles}} className={className} >
                     <WrapperHorizontal>
-                        { isVisibleControlsButtons && 
+                        { isVisibleControlsButtons && positionArrowButton != 'bottom' &&
                         <ButtonControll 
                             isLeftButton={true} 
                             onClick={ scrollToLeft }
@@ -71,7 +71,7 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                         <WrapperContent id={iDScroll} paddingIntern={horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px'} >
                             { children }
                         </WrapperContent>
-                        { isVisibleControlsButtons &&
+                        { isVisibleControlsButtons && positionArrowButton != 'bottom' &&
                         <ButtonControll 
                             isLeftButton={false} 
                             onClick={ scrollToRight }
@@ -91,8 +91,41 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                                 height={sizeArrowButton ? ((sizeArrowButton/2.3).toFixed(0)).toString() : '34'}
                                 width={sizeArrowButton ? ((sizeArrowButton/4.3).toFixed(0)).toString() : '18'}/>
                         </ButtonControll>}
-
                     </WrapperHorizontal>
+                        <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>                        
+                            {isVisibleControlsButtons && positionArrowButton == 'bottom' &&
+                            <div style={{display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'}}>
+                                <ButtonControll 
+                                    isLeftButton={true} 
+                                    onClick={ scrollToLeft }
+                                    onMouseOver={() => setActionAreaButtonLeft(true)}
+                                    onMouseOut={() => setActionAreaButtonLeft(false)}
+                                    sizeButton={sizeArrowButton ? sizeArrowButton : 80}
+                                    visibility={isVisibleArrowButtonLeft ? 'visible': 'hidden'}
+                                    marginsArrowButton = { marginsArrowButton ? marginsArrowButton + 'px': '10px'}
+                                >
+                                    <ArrowScrollLeft 
+                                        fill={actionAreaButtonLeft ? '#fff' : '#000'}                            
+                                        height={sizeArrowButton ? ((sizeArrowButton/2.3).toFixed(0)).toString() : '34'}
+                                        width={sizeArrowButton ? ((sizeArrowButton/4.3).toFixed(0)).toString() : '18'}/>
+                                </ButtonControll>
+                                <ButtonControll 
+                                    isLeftButton={false} 
+                                    onClick={ scrollToRight }
+                                    onMouseOver={() => setActionAreaButtonRight(true)}
+                                    onMouseOut={() => setActionAreaButtonRight(false)}
+                                    sizeButton={sizeArrowButton ? sizeArrowButton : 80}
+                                    visibility={isVisibleArrowButtonRight ? 'visible': 'hidden'}
+                                    marginsArrowButton = { marginsArrowButton ? marginsArrowButton + 'px': '10px'}
+                                >
+                                    <ArrowScrollRight 
+                                        fill={actionAreaButtonRight ? '#fff' : '#000'} 
+                                        height={sizeArrowButton ? ((sizeArrowButton/2.3).toFixed(0)).toString() : '34'}
+                                        width={sizeArrowButton ? ((sizeArrowButton/4.3).toFixed(0)).toString() : '18'}/>
+                                </ButtonControll>
+                            </div>
+                            }
+                        </div>
                 </div>
             }
         </ThemeProvider>

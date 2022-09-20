@@ -154,8 +154,12 @@ MoreVertical.args = Icons.MoreVertical({})
 export const MoreHorizontal = Template.bind({})
 MoreHorizontal.args = Icons.MoreHorizontal({})
 
+export const UploadIcon = Template.bind({})
+UploadIcon.args = Icons.UploadIcon({})
+
 export const Video = Template.bind({})
 Video.args = Icons.Video({})
+
 export const Noun = Template.bind({})
 Noun.args = Icons.Noun({})
 

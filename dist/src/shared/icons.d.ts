@@ -69,10 +69,12 @@ export declare function Course({ fill, width, height }: IconsProps): JSX.Element
 export declare function Palette({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MoreVertical({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MoreHorizontal({ fill, width, height }: IconsProps): JSX.Element;
+export declare function UploadIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Video({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StarRating({ fill, width, height, fillOpacity }: IconsProps): JSX.Element;
 export declare function Noun({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WhatAppBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
+export declare function MessageCheckLine({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

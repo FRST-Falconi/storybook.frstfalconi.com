@@ -404,7 +404,7 @@ export function CopyPaste({ fill, width, height }: IconsProps) {
 export function Channel({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M20.6982 6.27148H3.99915C3.30167 6.27148 2.73642 6.8363 2.73642 7.29402V17.7693C2.73642 18.3342 3.30184 18.7919 3.99915 18.7919H20.6982C21.3957 18.7919 21.9609 18.2271 21.9609 17.7693V7.29402C21.9609 6.72921 21.3955 6.27148 20.6982 6.27148V6.27148Z" stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M20.6982 6.27148H3.99915C3.30167 6.27148 2.73642 6.8363 2.73642 7.29402V17.7693C2.73642 18.3342 3.30184 18.7919 3.99915 18.7919H20.6982C21.3957 18.7919 21.9609 18.2271 21.9609 17.7693V7.29402C21.9609 6.72921 21.3955 6.27148 20.6982 6.27148V6.27148Z" stroke="black" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M16.7383 20.7246H7.96194" stroke={fill ? fill : "black"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M13.3498 6.23889L17.9463 2.51465" stroke={fill ? fill : "black"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M12.0947 6.23864L6.66223 1.5" stroke={fill ? fill : "black"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -500,7 +500,7 @@ export function PodCast({ fill, width, height }: IconsProps) {
 export function WhitePaper({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M14 2V8H20" stroke={fill ? fill : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M16 13H8" stroke={fill ? fill : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M16 17H8" stroke={fill ? fill : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -544,7 +544,7 @@ export function BarChart({ fill, width, height }: IconsProps) {
 export function Course({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_3049_12002)">
+      <g clipPath="url(#clip0_3049_12002)">
         <path d="M12.4873 2.9843C12.304 2.88251 12.081 2.88371 11.8989 2.98746L1.51408 8.90391C1.32591 9.01112 1.21012 9.2114 1.2111 9.42797C1.21208 9.64453 1.32969 9.84376 1.51883 9.94925L11.7141 15.6357C11.8971 15.7378 12.1202 15.737 12.3025 15.6335L22.7277 9.71708C22.9164 9.61002 23.0326 9.40945 23.0316 9.19253C23.0306 8.97561 22.9126 8.77611 22.723 8.67076L12.4873 2.9843Z" stroke={fill ? fill : "black"} strokeWidth="1.2" strokeLinejoin="round" />
         <line x1="21.9643" y1="10.6449" x2="21.9643" y2="16.2418" stroke={fill ? fill : "black"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M5.61621 12.1689V18.7074C5.61621 20.2446 8.75958 21.0486 11.8643 21.0486C14.9687 21.0486 18.1124 20.2445 18.1124 18.7074V12.1689" stroke={fill ? fill : "black"} strokeWidth="1.2" />
@@ -573,7 +573,7 @@ export function MoreVertical({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z" stroke={fill ? fill : "black"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z" stroke={fill ? fill : "black"} strokeWidth="2" stroke-linecap="round" strokeLinejoin="round" />
+      <path d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z" stroke={fill ? fill : "black"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19Z" stroke={fill ? fill : "black"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
@@ -589,13 +589,24 @@ export function MoreHorizontal({ fill, width, height }: IconsProps) {
   );
 }
 
+export function UploadIcon({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width :"24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19.0834 13.9824V17.1121C19.0834 17.5271 18.9185 17.9251 18.625 18.2186C18.3316 18.512 17.9336 18.6769 17.5185 18.6769H6.56482C6.1498 18.6769 5.75178 18.512 5.45832 18.2186C5.16486 17.9251 5 17.5271 5 17.1121V13.9824" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16.4062 8L11.9063 4L7.40625 8" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M11.9063 4L11.9062 15" stroke={fill ? fill : "#0645AD"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+
+  );
+}
+
 export function Video({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "30"} height={height ? height : "30"} viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M15.2865 28.3334C22.6503 28.3334 28.6198 22.3639 28.6198 15.0001C28.6198 7.63628 22.6503 1.66675 15.2865 1.66675C7.92266 1.66675 1.95312 7.63628 1.95312 15.0001C1.95312 22.3639 7.92266 28.3334 15.2865 28.3334Z" stroke={fill ? fill : "#FF4D0D"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M11.9531 10L20.2865 15L11.9531 20V10Z" stroke={fill ? fill : "#FF4D0D"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
-  )
+  );
 }
 
 export function StarRating({ fill, width, height, fillOpacity }: IconsProps) {
@@ -619,7 +630,7 @@ export function Noun({ fill, width, height }: IconsProps) {
 export function WhatAppBordered({ fill, width, height }: IconsProps) {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g clip-path="url(#clip0_891_1728)">
+      <g clipPath="url(#clip0_891_1728)">
       <path d="M12.0011 2C10.2643 1.99987 8.55742 2.45205 7.0485 3.31201C5.53959 4.17198 4.28067 5.41008 3.39568 6.90443C2.51069 8.39877 2.03015 10.0978 2.00137 11.8343C1.9726 13.5708 2.39658 15.2848 3.23157 16.8077L2.41423 19.6923C2.33799 19.9552 2.3337 20.2337 2.40182 20.4987C2.46995 20.7638 2.60798 21.0057 2.80151 21.1993C2.99505 21.3928 3.23698 21.5308 3.50207 21.5989C3.76715 21.6671 4.04566 21.6628 4.30852 21.5865L7.19323 20.7692C8.53008 21.5019 10.0168 21.9193 11.5396 21.9894C13.0625 22.0595 14.5812 21.7806 15.9798 21.1739C17.3783 20.5671 18.6196 19.6487 19.6088 18.4888C20.5981 17.3289 21.309 15.9581 21.6872 14.4814C22.0655 13.0046 22.1012 11.4609 21.7914 9.96827C21.4817 8.47563 20.8348 7.07356 19.9002 5.86922C18.9655 4.66488 17.7679 3.69016 16.3989 3.01955C15.0298 2.34895 13.5256 2.00021 12.0011 2ZM12.0011 20.4615C10.4821 20.4601 8.99125 20.0517 7.68363 19.2788C7.56296 19.2116 7.42752 19.1752 7.28939 19.1731C7.2179 19.1732 7.14675 19.1829 7.07784 19.2019L3.88543 20.1154L4.79892 16.9231C4.82702 16.8221 4.8347 16.7165 4.82149 16.6124C4.80828 16.5084 4.77446 16.4081 4.722 16.3173C3.76943 14.7117 3.37461 12.8361 3.59905 10.9828C3.82349 9.12943 4.65458 7.40232 5.96287 6.07048C7.27116 4.73865 8.98319 3.87685 10.8323 3.61934C12.6814 3.36183 14.5638 3.72306 16.1862 4.64676C17.8086 5.57046 19.08 7.00477 19.8023 8.72629C20.5246 10.4478 20.6573 12.3599 20.1797 14.1646C19.7021 15.9694 18.641 17.5656 17.1617 18.7045C15.6825 19.8434 13.868 20.4612 12.0011 20.4615ZM17.0493 13.4519L15.0781 12.3269C14.842 12.1911 14.5738 12.1212 14.3014 12.1245C14.029 12.1279 13.7626 12.2045 13.53 12.3462L12.3857 13.0288C11.802 12.6856 11.3155 12.1991 10.9722 11.6154L11.6549 10.4712C11.7966 10.2385 11.8731 9.9721 11.8765 9.69975C11.8799 9.4274 11.81 9.15915 11.6741 8.92308L10.5491 6.95192C10.424 6.73328 10.2435 6.5515 10.0257 6.42489C9.8079 6.29827 9.56059 6.23132 9.30868 6.23077C8.39226 6.23077 7.51323 6.59414 6.86432 7.24123C6.21541 7.88831 5.84958 8.7663 5.84703 9.68269C5.84703 11.9277 6.73823 14.0809 8.32485 15.6693C9.91147 17.2577 12.0637 18.1513 14.3088 18.1538H14.3185C15.2349 18.1513 16.1129 17.7855 16.76 17.1366C17.4071 16.4877 17.7705 15.6087 17.7705 14.6923C17.7699 14.4404 17.703 14.1931 17.5764 13.9753C17.4497 13.7576 17.268 13.577 17.0493 13.4519ZM14.3185 16.6154C13.4077 16.6166 12.5056 16.4382 11.6638 16.0902C10.8221 15.7423 10.0574 15.2317 9.41332 14.5877C8.76929 13.9437 8.25866 13.1789 7.9107 12.3372C7.56274 11.4955 7.38428 10.5935 7.38554 9.68269C7.38539 9.18343 7.58038 8.70388 7.9289 8.34639C8.27742 7.9889 8.75187 7.78177 9.25099 7.76923L10.3376 9.68269L9.43368 11.1827C9.37112 11.2897 9.33499 11.41 9.3283 11.5338C9.32161 11.6576 9.34456 11.7811 9.39522 11.8942C9.93114 13.1033 10.8977 14.0699 12.1068 14.6058C12.22 14.6564 12.3435 14.6794 12.4673 14.6727C12.591 14.666 12.7114 14.6299 12.8184 14.5673L14.3185 13.6635L16.232 14.75C16.2194 15.2491 16.0123 15.7235 15.6548 16.072C15.2973 16.4206 14.8177 16.6155 14.3185 16.6154Z" fill="white"/>
       </g>
       <defs>
@@ -628,14 +639,22 @@ export function WhatAppBordered({ fill, width, height }: IconsProps) {
       </clipPath>
       </defs>
     </svg>
-  )  
+  );
 }
 
 export function MailBordered({ fill, width, height }: IconsProps) {
   return (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M22 6L12 13L2 6" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M22 6L12 13L2 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
   )
+}
+
+export function MessageCheckLine({ fill, width, height }: IconsProps) {
+  return (
+  <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17 1L6 12L1 7" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+  );
 }

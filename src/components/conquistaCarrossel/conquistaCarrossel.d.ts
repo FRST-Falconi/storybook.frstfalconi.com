@@ -6,5 +6,7 @@ export interface IConquistaCarrossel {
     onSelected?: (n: any) => void,
     marginsArrowButton?: number,
     sizeArrowButton?: number,
-    horizontalMarginInternScroll?: string
+    horizontalMarginInternScroll?: string,
+    positionArrowButton?: string,    
+    marginTopArrrowButton?: string,    
 }
