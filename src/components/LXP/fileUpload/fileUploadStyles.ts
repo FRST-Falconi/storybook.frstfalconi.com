@@ -4,7 +4,7 @@ export const LandscapeContainer = styled.button`
     width: 544px;
     height: 240px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +19,7 @@ export const PortraitContainer = styled.button`
     width: 180px;
     height: 240px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,7 +32,7 @@ export const PortraitContainer = styled.button`
 export const UploadCam = styled.div`
     width: 48px;
     height: 47.02px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey3};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey4};
     border-radius: 50px; 
     position: absolute;
     display: flex;
@@ -43,7 +43,9 @@ export const UploadCam = styled.div`
 export const TextFileUpload = styled.div`
     margin-top: 95px;
     font: 'PT Sans';
-    font-size: 16px;    
+    font-weight: 700;
+    font-size: 16px;  
+    line-height: 21px;  
     color: ${({ theme }) => theme.colors.neutralsGrey4};
     display: flex;
     justify-content: center;
@@ -56,6 +58,7 @@ export const ImgLandscape = styled.img`
     border-radius: 8px;    
     position: absolute;
     object-fit: cover; 
+    color: ${({ theme }) => theme.colors.neutralsGrey4};
 
     .oculto {
         visibility: hidden;
@@ -66,7 +69,8 @@ export const ImgPortrait = styled.img`
     height: 240px;
     border-radius: 8px;    
     position: absolute;
-    object-fit: cover;    
+    object-fit: cover; 
+    color: ${({ theme }) => theme.colors.neutralsGrey4};
 
     .oculto {
         visibility: hidden;
