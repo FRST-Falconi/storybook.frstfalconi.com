@@ -1,12 +1,12 @@
 import Button from '@components/buttons'
 import TextField from '@components/form-elements/textfield'
-import { Modal, Box, Switch, Dialog, Popover } from '@mui/material'
+import { Modal, Box, Switch, Popover } from '@mui/material'
 import { UploadIcon } from '@shared/icons'
-import React, { useRef, useState } from 'react'
-import style from './bannerLxp.module.css'
+import React, { useState } from 'react'
+import style from './CoverLxp.module.css'
 import { ChromePicker } from 'react-color'
 import PopOver from '@components/LXP/popOver'
-interface BannerLxpParams{
+interface CoverLxpParams{
     title: string
     titleColor?: string
     bgSrc?: string
@@ -24,7 +24,7 @@ interface BannerLxpParams{
     
 }
 
-export default function BannerLxp ( props : BannerLxpParams) {
+export default function CoverLxp ( props : CoverLxpParams) {
 
     const [openConfig, setOpenConfig] = useState(false)
     const [disableText, setDisableText] = useState (props.isDisabledTitle)

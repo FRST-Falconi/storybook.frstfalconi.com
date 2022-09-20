@@ -52,7 +52,7 @@ export { default as TrailList } from './src/components/EBR/trail-list'
 
 // LXP
 export { default as avatarChannel} from './src/components/LXP/avatarChannel'
-export { default as bannerLxp} from './src/components/LXP/bannerLxp'
+export { default as bannerLxp} from './src/components/LXP/CoverLxp'
 export { default as buttonContent} from './src/components/LXP/buttonContent'
 export { default as colorPicker} from './src/components/LXP/colorpicker'
 export { default as contentSwitcher} from './src/components/LXP/contentSwitcher'
