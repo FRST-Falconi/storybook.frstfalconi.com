@@ -4,6 +4,8 @@ import { FRSTTheme } from '../../theme'
 import * as Styles from './buttonStyle'
 
 type enumVariant = 'primary' | 'secondary' | 'link' | 'third' | 'expandedPrimary' | 'expandedSecondary' 
+type enumType = 'group' | null
+
 interface buttonProps {
     variant?: enumVariant;
     label?: string,
@@ -11,12 +13,30 @@ interface buttonProps {
     startIcon?: any,
     endIcon?: any,
     sizeIcon?: string,
-    handleClick?: () => void,
+    handleClick?: (e: any) => void,
+    type?: enumType,
+    value?: any,
+    active?: boolean
+    style?: React.CSSProperties,
+    length?: number
 }
 
-export default function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick }: buttonProps) {
+export default function Button({
+    variant,
+    label,
+    sizeIcon,
+    disabled,
+    startIcon,
+    endIcon,
+    handleClick,
+    type,
+    active,
+    style,
+    value,
+    length
+}: buttonProps) {
     return (
-        <ThemeProvider theme={FRSTTheme}>
+        <ThemeProvider theme={{...FRSTTheme, type: type }}>
             { startIcon ?
                 (variant === 'link') ?
                     <Styles.LinkButtonStartIcon disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
@@ -45,7 +65,7 @@ export default function Button({ variant, label, sizeIcon, disabled, startIcon, 
                         {label}                       
                     </Styles.LinkButton>
                 :
-                    <Styles.Button variant={variant} disabled={disabled} onClick={handleClick}>
+                    <Styles.Button length={length} active={active} value={value} style={style} variant={variant} disabled={disabled} onClick={handleClick}>
                         {label}
                     </Styles.Button>
                     
