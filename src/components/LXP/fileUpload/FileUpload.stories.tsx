@@ -17,7 +17,7 @@ Landscape.args = {
     variant: 'landscape',    
     disabled: false,
     startIcon: <Icons.Cam fill={'#ffffff'}/>,   
-    handleClick: () => { alert('Click') }
+    handleChange: () => { alert('Click') }
 }
 
 export const Portrait = Template.bind({})
@@ -25,5 +25,5 @@ Portrait.args = {
     variant: 'portrait',    
     disabled: false,
     startIcon: <Icons.Cam fill={'#ffffff'}/>,    
-    handleClick: () => { alert('Click') }
+    handleChange: () => { alert('Click') }
 }

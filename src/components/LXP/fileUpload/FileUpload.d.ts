@@ -9,5 +9,5 @@ export interface IFileUpload {
     disabled?: boolean, 
     startIcon?: any,
     style?: React.CSSProperties, 
-    handleClick?: () => void
+    handleChange?: () => void
 }

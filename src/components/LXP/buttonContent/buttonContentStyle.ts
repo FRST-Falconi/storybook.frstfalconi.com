@@ -3,32 +3,21 @@ import styled, { css } from 'styled-components'
 const variantStyles = (variant = 'contained') =>
   ({
     content: css`
-        background-color: #FFFFFF;
-
-        color: ${({ theme }) => theme.colors.neutralsGrey4};
-        border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-
-        &:hover {
-            color: ${({ theme }) => theme.colors.neutralsGrey2};
-            border: 5px solid ${({ theme }) => theme.colors.neutralsGrey2};
-        }
+        background-color: ${({ theme }) => theme.colors.shadeWhite};
+        color: ${({ theme }) => theme.colors.shadeBlack};
+        border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+        box-shadow: 0px 5px 10px -15px rgba(211, 211, 211, 0.6);
 
         &:active {
             color: ${({ theme }) => theme.colors.neutralsGrey2};
             border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
+            box-shadow: none;
         }
 
         &:focus {
-            border: 5px solid rgba(211,211,211,0.6);
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5} ;
             -webkit-background-clip: padding-box;
             background-clip: padding-box;
-        }
-
-        &:disabled {
-            color: ${({ theme }) => theme.colors.neutralsGrey2};
-            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
-            cursor: not-allowed;
-            pointer-events: none;
         }
     `    
   }[variant]);
@@ -38,7 +27,7 @@ export const ButtonStartIcon = styled.button<{ variant: string }>`
     flex-direction: row;
     align-items: center;
     justify-content: start;
-    padding: 9px 16px;
+    padding: 8px 20px;
     width: 386px;
     height: 64px;
     border: none;
@@ -46,17 +35,17 @@ export const ButtonStartIcon = styled.button<{ variant: string }>`
     border-radius: 8px;
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
-    font-family: 'Work Sans';
+    font-family: 'PT Sans';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 400;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 21px;
     box-shadow: none;    
 
     & > svg {        
         height: 40px;
         width: 40px;
-        margin-right: 21px;        
+        margin-right: 8px;        
     }
 
     ${({ variant }) => variantStyles(variant)}

@@ -16,8 +16,7 @@ export const Contents = Template.bind({})
 Contents.args = {
     variant: 'content',
     label: 'Label',
-    disabled: false,
-    startIcon: <Icons.Content />,
+    startIcon: <Icons.Noun fill= '#FF4D0D'/>,
     handleClick: () => { alert('Click') }
 }
 
