@@ -1355,6 +1355,46 @@ const Button$1 = styled__default["default"].button `
     box-shadow: none;
 
     ${({ variant }) => variantStyles$1(variant)}
+    
+    ${({ theme, length }) => theme.type === 'group' && length === 2 && `
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({ theme, length }) => theme.type === 'group' && length > 2 && `
+        border-radius: 0px;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+    
+        &:focus,
+        &:active {
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({ active }) => active === true && styled.css `
+        background: #D14211;
+    `}
 `;
 const ButtonStartIcon$1 = styled__default["default"].button `
     display: flex;
@@ -1413,8 +1453,8 @@ const ButtonEndIcon = styled__default["default"].button `
     ${({ variant }) => variantStyles$1(variant)}
 `;
 
-function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: startIcon ?
+function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, type: type }, children: startIcon ?
             (variant === 'link') ?
                 jsxRuntime.jsxs(LinkButtonStartIcon, { disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
                 :
@@ -1428,7 +1468,7 @@ function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handle
                     (variant === 'link') ?
                         jsxRuntime.jsx(LinkButton$1, { disabled: disabled, onClick: handleClick, children: label })
                         :
-                            jsxRuntime.jsx(Button$1, { variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
+                            jsxRuntime.jsx(Button$1, { length: length, active: active, value: value, style: style, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
 var css_248z$8 = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
@@ -1587,6 +1627,24 @@ ${email.slice(indexBreak)}`;
         });
         return optFiltered;
     }
+}
+
+const ButtonGroupWrapper = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+function ButtonGroup({ children, active }) {
+    const ButtonGroupProps = {
+        type: 'group',
+        variant: 'primary'
+    };
+    return (jsxRuntime.jsx(ButtonGroupWrapper, { className: "buttons-group", children: React__default["default"].Children.map(children, (child) => React__default["default"].cloneElement(child, {
+            ...ButtonGroupProps,
+            active: child.props.value === active,
+            length: children.length
+        })) }));
 }
 
 const placeholderStyle = (color) => styled.css `
@@ -5090,6 +5148,7 @@ exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
 exports.BaseCard = EmptyCard;
 exports.Button = Button;
+exports.ButtonGroup = ButtonGroup;
 exports.CalendarCard = CalendarCard;
 exports.CardDefinicaoProblema = CardDefinicaoProblema;
 exports.CardProblem = CardProblem;

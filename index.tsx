@@ -13,6 +13,7 @@ export { default as MessageBox } from "./src/components/cardLT/MessageBox"
 
 // Buttons
 export { default as Button } from "./src/components/buttons"
+export { default as ButtonGroup } from "./src/components/EBR/buttons-group"
 export { default as TextField } from './src/components/form-elements/textfield'
 export { default as TextArea } from './src/components/form-elements/textarea'
 export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle } from './src/shared/icons'
