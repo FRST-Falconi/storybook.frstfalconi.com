@@ -22,7 +22,7 @@ export const ContainerButton = styled.div<IImageBackground>`
     bottom: 0;
     right: 0;
     border-radius: 8px;
-    z-index: 99;
+    z-index: 9;
     background-color: #00000090;
     margin:0;
     padding: 0;
@@ -50,7 +50,8 @@ export const GeralThumbnails = styled.div`
 `
 export const ContainerMain = styled.div`
     display: flex;
-    margin-top: 220px;    
+    margin-top: 220px;
+    position: relative;
 `
 export const Typography = styled.p`
     font-family: 'PT Sans';
@@ -59,18 +60,22 @@ export const Typography = styled.p`
     font-size: 16px;
     line-height: 21px;
     color: ${({ theme }) => theme.colors.shadeBlack};
-    margin-left: 12px;    
+    margin-left: 12px; 
+    white-space: wrap;
+    position: absolute;
 `
 export const IconVertical = styled.div`
-    margin-right: 3px;
+    margin-left: 150px;
     margin-top: 10px;
     cursor: pointer;
+    position: absolute;
 `
 export const ContainerAtivar = styled.div`
     display: flex;
     gap: 5px;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 32px;
+    position: absolute;
 `
 export const TypographyAtivar = styled.p<IImageBackground>`
     font-family: 'PT Sans';
