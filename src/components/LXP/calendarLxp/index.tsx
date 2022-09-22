@@ -9,9 +9,7 @@ import { DateRange, DefinedRange } from 'react-date-range'
 import { pt } from 'date-fns/locale'
 
 import 'react-date-range/dist/styles.css'; // main style file
-// import 'react-date-range/dist/theme/default.css'; // theme css file
-import {createStaticRanges, defaultStaticRanges} from './defaultRanges'
-import { addMonths, max, min, setMonth, setYear } from 'date-fns'
+import {defaultStaticRanges} from './defaultRanges'
 
 interface CalendarLxpParams {
     styles ?: React.CSSProperties
@@ -19,19 +17,6 @@ interface CalendarLxpParams {
     onSave ?: ([]) => void
     handleClose ?: () => void
 }
-
-// const changeShownDate = (state, value, mode = 'set') => {
-//     const { focusedDate } = state;
-//     const modeMapper = {
-//       monthOffset: () => addMonths(focusedDate, value),
-//       setMonth: () => setMonth(focusedDate, value),
-//       setYear: () => setYear(focusedDate, value),
-//       set: () => value,
-//     };
-
-//     const newDate = modeMapper[mode];
-// };
-
 
 export default function CalendarLxp(props : CalendarLxpParams) {
     const [newRange, setNewRange] = useState ([
@@ -45,7 +30,7 @@ export default function CalendarLxp(props : CalendarLxpParams) {
     
     return(
         <Modal open={props.open} onClose={props.handleClose} >
-            <Box className={style.containerCalendar} >
+            <Box className={style.containerCalendar} style={{...props.styles}} >
                 <div className={style.fechar} onClick={props.handleClose}>
                     <CloseIcon />
                 </div>
