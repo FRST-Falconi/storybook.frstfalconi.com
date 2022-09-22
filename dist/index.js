@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var jsxRuntime = require('react/jsx-runtime');
-var react = require('react');
+var React = require('react');
 var reactI18next = require('react-i18next');
 var material = require('@mui/material');
 var styled = require('styled-components');
@@ -13,7 +13,7 @@ var MenuItem = require('@mui/material/MenuItem');
 var Card = require('@mui/material/Card');
 var Stepper$1 = require('@mui/material/Stepper');
 var FormControl = require('@mui/material/FormControl');
-var Select$1 = require('@mui/material/Select');
+var Select$2 = require('@mui/material/Select');
 var CheckIcon = require('@mui/icons-material/Check');
 var LoginIcon = require('@mui/icons-material/Login');
 var Box = require('@mui/material/Box');
@@ -21,7 +21,7 @@ var Step = require('@mui/material/Step');
 var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
-var Select$2 = require('react-select');
+var Select$3 = require('react-select');
 var reactColor = require('react-color');
 var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
@@ -31,6 +31,7 @@ var Typography$1 = require('@mui/material/Typography');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$2);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
@@ -38,14 +39,14 @@ var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var Card__default = /*#__PURE__*/_interopDefaultLegacy(Card);
 var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper$1);
 var FormControl__default = /*#__PURE__*/_interopDefaultLegacy(FormControl);
-var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$1);
+var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$2);
 var CheckIcon__default = /*#__PURE__*/_interopDefaultLegacy(CheckIcon);
 var LoginIcon__default = /*#__PURE__*/_interopDefaultLegacy(LoginIcon);
 var Box__default = /*#__PURE__*/_interopDefaultLegacy(Box);
 var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
-var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$2);
+var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$3);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$1);
@@ -206,6 +207,9 @@ function WhatAppBordered({ fill, width, height }) {
 function MailBordered({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M22 6L12 13L2 6", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function MessageCheckLine({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+}
 
 function Tag(props) {
     function getBG() {
@@ -229,12 +233,12 @@ function EmptyCard(props) {
  */
 function CalendarCard$1(props) {
     const { t } = reactI18next.useTranslation();
-    const [selected, setSelected] = react.useState(props.selected);
+    const [selected, setSelected] = React.useState(props.selected);
     const setClass = () => {
         setSelected(!selected);
         props.handleSelect(props.userID);
     };
-    const [statusColor, setStatusColor] = react.useState('#A6A6A6');
+    const [statusColor, setStatusColor] = React.useState('#A6A6A6');
     const hasCurrentData = () => {
         return props.newLicenses.filter(el => el.isCurrent);
     };
@@ -263,7 +267,7 @@ function CalendarCard$1(props) {
                                 jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.enrollments, ": ", ' ', hasEnrollments.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] })] }), hasPrevius.length > 0 &&
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.previus }), jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [hasPrevius.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#BDBDBD', selected: selected, inverted: false })), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#BDBDBD', selected: selected, inverted: false, iconType: "checked" })] })] })] }));
     };
-    react.useEffect(() => {
+    React.useEffect(() => {
         switch (props.userStatus) {
             case 'complete':
                 setStatusColor("#2CA92A");
@@ -283,7 +287,7 @@ function CalendarCard$1(props) {
                 break;
         }
     }, [props.userStatus]);
-    react.useEffect(() => {
+    React.useEffect(() => {
         setSelected(props.selected);
     }, [props.selected]);
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.loading ?
@@ -385,7 +389,7 @@ const Container$5 = styled__default["default"](Card__default["default"]) `
   border-radius: 8px !important;
   padding: 24px !important;
 `;
-const Title$3 = styled__default["default"].span `
+const Title$4 = styled__default["default"].span `
   font-size: 20px !important;
   color: #ff4d0d !important;
 `;
@@ -413,7 +417,7 @@ const FormControlSelect = styled__default["default"](FormControl__default["defau
     margin-top: 5px !important;
   }
 `;
-const DropDownList = styled__default["default"](Select__default["default"]) `
+const DropDownList$1 = styled__default["default"](Select__default["default"]) `
   max-width: 350px !important;
   height: 40px !important;
   & > div {
@@ -565,16 +569,16 @@ function StepsComponent(props) {
  */
 function CalendarCard(props) {
     const { t } = reactI18next.useTranslation();
-    const [module, setModule] = react.useState(0);
-    const [moduleEvents, setModuleEvents] = react.useState([]);
-    const [moduleSelector, setModuleSelector] = react.useState(false);
+    const [module, setModule] = React.useState(0);
+    const [moduleEvents, setModuleEvents] = React.useState([]);
+    const [moduleSelector, setModuleSelector] = React.useState(false);
     const handleChange = (event) => {
         let val = event.target?.value;
         setModule(val);
         if (props.trails[val].events)
             setModuleEvents(props.trails[val].events);
     };
-    react.useEffect(() => {
+    React.useEffect(() => {
         if (props.trails[0]) {
             if (props.trails[0].events)
                 setModuleEvents(props.trails[0].events);
@@ -585,8 +589,8 @@ function CalendarCard(props) {
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
             jsxRuntime.jsx(Container$5, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$5, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$3, { children: t('calendar.title') }), moduleSelector &&
-                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
+                jsxRuntime.jsx(Container$5, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
+                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
                                 jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon$1, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') })] }), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }), moduleEvents && moduleEvents.length > 0 &&
@@ -812,18 +816,18 @@ function Steps(props) {
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
 function MissionSteps(props) {
-    const [stepLiberado, setstepLiberado] = react.useState(props.stepProblem);
-    const [stepActive, setStepActive] = react.useState(props.stepActive);
+    const [stepLiberado, setstepLiberado] = React.useState(props.stepProblem);
+    const [stepActive, setStepActive] = React.useState(props.stepActive);
     const setStep = (step) => {
         setStepActive(step);
         props.onSelected(step);
     };
-    react.useEffect(() => {
+    React.useEffect(() => {
         setstepLiberado(props.stepProblem);
     }, [props.stepProblem]);
     // Função para pegar o width da tela
-    const [size, setSize] = react.useState([0, 0]);
-    react.useLayoutEffect(() => {
+    const [size, setSize] = React.useState([0, 0]);
+    React.useLayoutEffect(() => {
         function updateSize() {
             setSize([window.innerWidth, window.innerHeight]);
         }
@@ -1351,6 +1355,46 @@ const Button$1 = styled__default["default"].button `
     box-shadow: none;
 
     ${({ variant }) => variantStyles$1(variant)}
+    
+    ${({ theme, length }) => theme.type === 'group' && length === 2 && `
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({ theme, length }) => theme.type === 'group' && length > 2 && `
+        border-radius: 0px;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+    
+        &:focus,
+        &:active {
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({ active }) => active === true && styled.css `
+        background: #D14211;
+    `}
 `;
 const ButtonStartIcon$1 = styled__default["default"].button `
     display: flex;
@@ -1409,8 +1453,8 @@ const ButtonEndIcon = styled__default["default"].button `
     ${({ variant }) => variantStyles$1(variant)}
 `;
 
-function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: startIcon ?
+function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, type: type }, children: startIcon ?
             (variant === 'link') ?
                 jsxRuntime.jsxs(LinkButtonStartIcon, { disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
                 :
@@ -1424,7 +1468,7 @@ function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handle
                     (variant === 'link') ?
                         jsxRuntime.jsx(LinkButton$1, { disabled: disabled, onClick: handleClick, children: label })
                         :
-                            jsxRuntime.jsx(Button$1, { variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
+                            jsxRuntime.jsx(Button$1, { length: length, active: active, value: value, style: style, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
 var css_248z$8 = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
@@ -1438,21 +1482,21 @@ styleInject(css_248z$8);
  * @componente
  */
 function BannerProblem(props) {
-    const [Edit, setEdit] = react.useState(false);
-    const [tagListShow, setTagListShow] = react.useState(props.tagData ? props.tagData : []);
+    const [Edit, setEdit] = React.useState(false);
+    const [tagListShow, setTagListShow] = React.useState(props.tagData ? props.tagData : []);
     /// States para controle de Edição
-    const [TrilhaId, setTrilhaId] = react.useState(props.trilhaId ? props.trilhaId : null);
-    const [TrilhaDescricaoSelecionada, setTrilhaDescricaoSelecionada] = react.useState(props.trilha ? props.trilha : '');
-    const [Tag1, setTag1] = react.useState(props.tags && props.tags.length >= 1 ? props.tags[0] : '');
-    const [Tag2, setTag2] = react.useState(props.tags && props.tags.length >= 2 ? props.tags[1] : '');
-    const [Tag3, setTag3] = react.useState(props.tags && props.tags.length >= 3 ? props.tags[2] : '');
-    const [TituloProblema, setTituloProblema] = react.useState(props.problema ? props.problema : '');
+    const [TrilhaId, setTrilhaId] = React.useState(props.trilhaId ? props.trilhaId : null);
+    const [TrilhaDescricaoSelecionada, setTrilhaDescricaoSelecionada] = React.useState(props.trilha ? props.trilha : '');
+    const [Tag1, setTag1] = React.useState(props.tags && props.tags.length >= 1 ? props.tags[0] : '');
+    const [Tag2, setTag2] = React.useState(props.tags && props.tags.length >= 2 ? props.tags[1] : '');
+    const [Tag3, setTag3] = React.useState(props.tags && props.tags.length >= 3 ? props.tags[2] : '');
+    const [TituloProblema, setTituloProblema] = React.useState(props.problema ? props.problema : '');
     /// States para controle de elementos do Banner
-    const [TrilhaBanner, setTrilhaBanner] = react.useState(props.trilha ? props.trilha : '');
-    const [Tags, setTags] = react.useState(props.tags ? props.tags : []);
-    const [problema, setProblema] = react.useState(props.problema ? props.problema : '');
+    const [TrilhaBanner, setTrilhaBanner] = React.useState(props.trilha ? props.trilha : '');
+    const [Tags, setTags] = React.useState(props.tags ? props.tags : []);
+    const [problema, setProblema] = React.useState(props.problema ? props.problema : '');
     // const [selectedTags, setSelectedTags] = useState([{label: '', value:''},{label: '', value:''},{label: '', value:''}]);
-    react.useState([
+    React.useState([
         props.tags && props.tags.length >= 1 ? props.tags[0] : '',
         props.tags && props.tags.length >= 2 ? props.tags[1] : '',
         props.tags && props.tags.length >= 3 ? props.tags[2] : ''
@@ -1480,7 +1524,7 @@ function BannerProblem(props) {
             marginTop: 12
         }),
     };
-    react.useEffect(() => {
+    React.useEffect(() => {
         setTrilhaId(props.trilhaId ? props.trilhaId : null);
         setTrilhaDescricaoSelecionada(props.trilha ? props.trilha : '');
         setTag1(props.tags && props.tags.length >= 1 ? props.tags[0] : '');
@@ -1504,12 +1548,12 @@ function BannerProblem(props) {
         }
         setEdit(!Edit);
     };
-    react.useEffect(() => {
+    React.useEffect(() => {
         setTagListShow(props.tagData ? filterTagsSelected(props.tagData, [Tag1, Tag2, Tag3]) : []);
     }, [Tag1, Tag2, Tag3]);
     // Função para pegar o width da tela
-    const [size, setSize] = react.useState([0, 0]);
-    react.useLayoutEffect(() => {
+    const [size, setSize] = React.useState([0, 0]);
+    React.useLayoutEffect(() => {
         function updateSize() {
             setSize([window.innerWidth, window.innerHeight]);
         }
@@ -1583,6 +1627,24 @@ ${email.slice(indexBreak)}`;
         });
         return optFiltered;
     }
+}
+
+const ButtonGroupWrapper = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+function ButtonGroup({ children, active }) {
+    const ButtonGroupProps = {
+        type: 'group',
+        variant: 'primary'
+    };
+    return (jsxRuntime.jsx(ButtonGroupWrapper, { className: "buttons-group", children: React__default["default"].Children.map(children, (child) => React__default["default"].cloneElement(child, {
+            ...ButtonGroupProps,
+            active: child.props.value === active,
+            length: children.length
+        })) }));
 }
 
 const placeholderStyle = (color) => styled.css `
@@ -1742,9 +1804,9 @@ const StartIcon = styled__default["default"].span `
 `;
 
 function TextField(props) {
-    const [focus, setFocus] = react.useState(false);
-    const [hover, setHover] = react.useState(false);
-    const [inputType, setInputType] = react.useState(props.type);
+    const [focus, setFocus] = React.useState(false);
+    const [hover, setHover] = React.useState(false);
+    const [inputType, setInputType] = React.useState(props.type);
     const { t } = reactI18next.useTranslation();
     const handleTogglePasswordVisibility = () => {
         if (inputType === 'password')
@@ -1858,25 +1920,25 @@ function randID$3() {
 }
 
 function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage }) {
-    const [focus, setFocus] = react.useState(false);
+    const [focus, setFocus] = React.useState(false);
     // Emoji Window States
-    const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = react.useState(false);
-    const [actionAreaEmojiButton, setActionAreaEmojiButton] = react.useState(false);
-    const [colorEmojiButton, setColorEmojiButton] = react.useState('');
-    const [heightPositionWindowEmoji, setHeightPositionWindowEmoji] = react.useState('');
-    const [newEmojiIncluded, setNewEmojiIncluded] = react.useState(false);
-    const [lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea] = react.useState({});
-    const [lenghtLastEmoji, setLenghtLastEmoji] = react.useState();
+    const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = React.useState(false);
+    const [actionAreaEmojiButton, setActionAreaEmojiButton] = React.useState(false);
+    const [colorEmojiButton, setColorEmojiButton] = React.useState('');
+    const [heightPositionWindowEmoji, setHeightPositionWindowEmoji] = React.useState('');
+    const [newEmojiIncluded, setNewEmojiIncluded] = React.useState(false);
+    const [lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea] = React.useState({});
+    const [lenghtLastEmoji, setLenghtLastEmoji] = React.useState();
     // TextArea states
-    const [stringValueTextArea, setStringValueTextArea] = react.useState(value);
+    const [stringValueTextArea, setStringValueTextArea] = React.useState(value);
     // IDs
-    const [iDInputComment, setIDInputComment] = react.useState(IDInput ? IDInput : `InputComment-${randID$3()}`);
-    react.useState(IDInput ? IDInput : `IDEmojiButton-${randID$3()}`);
+    const [iDInputComment, setIDInputComment] = React.useState(IDInput ? IDInput : `InputComment-${randID$3()}`);
+    React.useState(IDInput ? IDInput : `IDEmojiButton-${randID$3()}`);
     // Emoji window actions
-    react.useEffect(() => {
+    React.useEffect(() => {
         (isVisibleEmojiWindow) ? configsWhenOpenWindowEmoji() : configsWhenCloseWindowEmoji();
     }, [isVisibleEmojiWindow]);
-    react.useEffect(() => {
+    React.useEffect(() => {
         {
             newEmojiIncluded && repositionCursorAfterNewEmojiInTextArea();
         }
@@ -2291,8 +2353,8 @@ function buildShortName(name) {
 const WIDTH_MOBILE = 550;
 function CommentaryBox({ name, className, styles, position, value, date, actionLike, actionAnswer, isMe, isAuthor, actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue, detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }) {
     // Identify Screen Resizing
-    const [size, setSize] = react.useState([0, 0]);
-    react.useLayoutEffect(() => {
+    const [size, setSize] = React.useState([0, 0]);
+    React.useLayoutEffect(() => {
         function updateSize() {
             setSize([window.innerWidth, window.innerHeight]);
         }
@@ -2300,21 +2362,21 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    const [isOpenDrop, setIsOpenDrop] = react.useState(false);
-    const [onEditing, setOnEditing] = react.useState(false);
-    const [enableSaveEdit, setEnableSaveEdit] = react.useState(false);
-    const [actionArea, setActionArea] = react.useState(false);
-    const [iDCommentPosted, setIDCommentPosted] = react.useState(idTextComment ? idTextComment : `IDCommentPosted-${randID$2()}`);
-    const [iDCommentInEditing, setIDCommentInEditing] = react.useState(idTextComment ? `idBoxCommentEditing-${idTextComment}` : `idBoxCommentEditing-${randID$2()}`);
-    react.useState(idTextComment ? `iDButtonMore-${idTextComment}` : `iDButtonMore-${randID$2()}`);
-    react.useEffect(() => {
+    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
+    const [onEditing, setOnEditing] = React.useState(false);
+    const [enableSaveEdit, setEnableSaveEdit] = React.useState(false);
+    const [actionArea, setActionArea] = React.useState(false);
+    const [iDCommentPosted, setIDCommentPosted] = React.useState(idTextComment ? idTextComment : `IDCommentPosted-${randID$2()}`);
+    const [iDCommentInEditing, setIDCommentInEditing] = React.useState(idTextComment ? `idBoxCommentEditing-${idTextComment}` : `idBoxCommentEditing-${randID$2()}`);
+    React.useState(idTextComment ? `iDButtonMore-${idTextComment}` : `iDButtonMore-${randID$2()}`);
+    React.useEffect(() => {
         (!onEditing) &&
             (document.getElementById(iDCommentPosted)) &&
             (detectLinks ?
                 document.getElementById(iDCommentPosted).innerHTML = buildStringWithLinkHTML({ value }) :
                 document.getElementById(iDCommentPosted).innerHTML = value);
     }, [detectLinks, onEditing]);
-    react.useEffect(() => {
+    React.useEffect(() => {
         (onEditing) &&
             (document.getElementById(iDCommentInEditing)) &&
             (document.getElementById(iDCommentInEditing).addEventListener("keyup", changedInputComment, false));
@@ -2326,7 +2388,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
             setEnableSaveEdit(textInEditing != value);
         }
     }, [onEditing]);
-    react.useEffect(() => {
+    React.useEffect(() => {
         if (isOpenDrop) {
             (document.body.addEventListener("click", checksAnyClickOnScreen, false));
         }
@@ -2404,8 +2466,8 @@ const Subtitle = styled__default["default"].span `
 `;
 
 function Checkmark({ type, subtitle, active, handleClick, className, disabled, styles }) {
-    const [colorsIcon, setColorsIcon] = react.useState({ fill: '#fff', stroke: '#2CA92A', customColor_1: '#2CA92A' });
-    react.useEffect(() => {
+    const [colorsIcon, setColorsIcon] = React.useState({ fill: '#fff', stroke: '#2CA92A', customColor_1: '#2CA92A' });
+    React.useEffect(() => {
         (type == 'checked') ?
             (active ?
                 setColorsIcon({ fill: '#fff', stroke: '#2CA92A', customColor_1: '#2CA92A' }) :
@@ -2514,12 +2576,12 @@ styled__default["default"].div `
     border-radius: 20px
 `;
 
-function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }) {
-    const [actionAreaButtonLeft, setActionAreaButtonLeft] = react.useState(false);
-    const [actionAreaButtonRight, setActionAreaButtonRight] = react.useState(false);
-    const [iDScroll, setIDScroll] = react.useState(`iDScroll-${randID$1()}`);
-    const [isVisibleArrowButtonLeft, setIsVisibleArrowButtonLeft] = react.useState(false);
-    const [isVisibleArrowButtonRight, setIsVisibleArrowButtonRight] = react.useState(false);
+function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }) {
+    const [actionAreaButtonLeft, setActionAreaButtonLeft] = React.useState(false);
+    const [actionAreaButtonRight, setActionAreaButtonRight] = React.useState(false);
+    const [iDScroll, setIDScroll] = React.useState(`iDScroll-${randID$1()}`);
+    const [isVisibleArrowButtonLeft, setIsVisibleArrowButtonLeft] = React.useState(false);
+    const [isVisibleArrowButtonRight, setIsVisibleArrowButtonRight] = React.useState(false);
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
         (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
@@ -2532,7 +2594,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, c
         ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
         objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
     };
-    react.useEffect(() => {
+    React.useEffect(() => {
         var objDiv = document.getElementById(iDScroll);
         if (objDiv.clientWidth < objDiv.scrollWidth)
             setIsVisibleArrowButtonRight(true);
@@ -2540,15 +2602,16 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, stepMove, c
             setIsVisibleArrowButtonRight(false);
     }, []);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: type == 'vertical' ? (null) :
-            jsxRuntime.jsx("div", { style: { ...styles }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons &&
-                            jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                    ((marginsArrowButton + 50) * -1) + 'px'
-                                    :
-                                        '-138px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons &&
-                            jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                    ((marginsArrowButton + 50) * -1) + 'px'
-                                    :
-                                        '-138px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }) }) }));
+            jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                                jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
+                                        ((marginsArrowButton + 50) * -1) + 'px'
+                                        :
+                                            '-138px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                                jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
+                                        ((marginsArrowButton + 50) * -1) + 'px'
+                                        :
+                                            '-138px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' &&
+                            jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px' }, children: [jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }) })] }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -2587,7 +2650,7 @@ const TextClear = styled__default["default"].div `
     margin-left: 18px;
 `;
 
-const CardWrapper$1 = styled__default["default"].div `
+const CardWrapper$2 = styled__default["default"].div `
     min-width: ${({ width }) => width ? width : '343px'};
     min-height: 136px;
     max-width: ${({ width }) => width ? width : '343px'};;
@@ -2675,11 +2738,11 @@ const ButtonMore = styled__default["default"].div `
 `;
 
 function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, width }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$1, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$2, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$2, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
 }
 
 function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }) {
-    const [itemSelected, setItemSelected] = react.useState(-1);
+    const [itemSelected, setItemSelected] = React.useState(-1);
     const onItemSelect = (n) => {
         setItemSelected(n);
         onSelected(n);
@@ -2700,7 +2763,7 @@ styled__default["default"].img `
         filter: grayscale(100%);
     `}
 `;
-const CardWrapper = styled__default["default"].div `
+const CardWrapper$1 = styled__default["default"].div `
     width: auto;
     min-height: auto;
 
@@ -2771,13 +2834,177 @@ const PartialNumber = styled__default["default"].p `
     color: #222222;
 `;
 
-function TotalizerCard({ titleCard, textTotal, numberTotal, numberPartial, loading, className, hasShadow, styles }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper, { hasShadow: hasShadow, style: { ...styles }, children: [loading ?
+function TotalizerCard$1({ titleCard, textTotal, numberTotal, numberPartial, loading, className, hasShadow, styles }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$1, { hasShadow: hasShadow, style: { ...styles }, children: [loading ?
                     jsxRuntime.jsx(TitleCardLoading, { className: 'shimmer' })
                     :
                         jsxRuntime.jsxs(TitleCard$1, { children: [" ", titleCard, " "] }), loading ?
                     jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
                     jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginBottom: '16px' }, children: [jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] }), numberPartial && jsxRuntime.jsxs(PartialNumber, { children: ["/", numberPartial, " "] })] })] })] }) }));
+}
+
+// Create react context to share data between components
+const SelectContext = React__default["default"].createContext(null);
+
+const DropDownContainer = styled__default["default"]("div") `
+    width: 100%;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+    position: relative;
+`;
+const EventOverlay = styled__default["default"].div `
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 2;
+`;
+const DropDownHeader = styled__default["default"]("div") `
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #3faffa;
+  background: #ffffff;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  border-radius: 4px;
+
+  p {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #A6A6A6;
+  }
+`;
+const DropDownListContainer = styled__default["default"]("div") ``;
+const DropDownList = styled__default["default"]("ul") `
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  box-sizing: border-box;
+  color: #3faffa;
+  font-size: 1.3rem;
+  font-weight: 500;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+
+  &:first-child {
+    padding-top: 0.8em;
+  }
+
+`;
+const DropDownHeaderIcon = styled__default["default"]('div') `
+  position: absolute;
+  right: 16.48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-in-out;
+
+  ${({ open }) => open === true && styled.css `
+    transform: rotate(180deg);
+  `}
+`;
+const SelectedOption = styled__default["default"]('p') `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #222222 !important;
+`;
+function ArrowIcon() {
+    return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
+}
+function Select$1({ placeholder, defaultValue, children, onChange, loading }) {
+    const wrapperRef = React.useRef(null);
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [selectedOption, setSelectedOption] = React.useState(null);
+    const [selectedOptionValue, setSelectedOptionValue] = React.useState();
+    React.useEffect(() => {
+        function handleClickOutside(event) {
+            // @ts-ignore
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target) && isOpen)
+                setIsOpen(false);
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [wrapperRef, isOpen]);
+    React.useEffect(() => {
+        let param = false;
+        children && children.length && children.forEach((child) => {
+            if (child.props.value == defaultValue) {
+                param = true;
+                setSelectedOption(child.props.label);
+                setSelectedOptionValue(child.props.value);
+            }
+        });
+        if (!param) {
+            setSelectedOption(null);
+            setSelectedOptionValue(false);
+        }
+    }, [children, defaultValue]);
+    const toggle = () => setIsOpen(!isOpen);
+    const handleChange = (e) => {
+        onChange(e);
+        toggle();
+    };
+    return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs(DropDownContainer, { ref: wrapperRef, children: [jsxRuntime.jsx(EventOverlay, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader, { children: [loading ?
+                            jsxRuntime.jsx("p", { children: "Carregando dados..." })
+                            :
+                                selectedOption ? jsxRuntime.jsx(SelectedOption, { children: selectedOption }) : jsxRuntime.jsx("p", { children: placeholder }), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+}
+
+const ListItem = styled__default["default"]("li") `
+    list-style: none;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000;
+    height: 38px;
+    margin: 0;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    ${props => props.disabled === true && styled.css `
+        cursor: not-allowed;
+        background-color: #e5e5e5;
+        opacity: 0.3;
+    `}
+
+    ${props => props.selected === true && styled.css `
+        background-color: #e5e5e5;
+        cursor: pointer;
+        opacity: 1;
+    `}
+
+    &:hover {
+        background-color: #e5e5e5;
+    }
+`;
+function SelectItem({ value, label, selected, handleSelect, disabled }) {
+    return (jsxRuntime.jsx(SelectContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
+}
+
+function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems }) {
+    return (jsxRuntime.jsx(Select$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
 const Container$4 = styled__default["default"].div `
@@ -2869,8 +3096,8 @@ const ButtonAction = styled__default["default"].div `
 `;
 
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
-    const [actionAreaInput, setActionAreaInput] = react.useState(false);
-    const [inputOnFocus, setInputOnFocus] = react.useState(false);
+    const [actionAreaInput, setActionAreaInput] = React.useState(false);
+    const [inputOnFocus, setInputOnFocus] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$4, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
                             jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
@@ -2980,7 +3207,7 @@ const TitleCurrentTabOpened = styled__default["default"].p `
 `;
 
 function AccordionTabs({ titleAccordion, typeAccordion, typeButtonTab, titleTabs, handleActiveTab, activeTabID, hasCleanButton, handleActionClean, textCleanButton, hasCounterTab, children, style }) {
-    react.useLayoutEffect(() => {
+    React.useLayoutEffect(() => {
         const scrollContainer = document.getElementById("scrollTabsAccordion");
         scrollContainer.addEventListener("wheel", (evt) => {
             evt.preventDefault();
@@ -3031,18 +3258,18 @@ const Label = styled__default["default"].div `
 `;
 
 function Checkbox({ label, isChecked, handleCheck }) {
-    const [actionAreaCheckIcon, setActionAreaCheckIcon] = react.useState(false);
+    const [actionAreaCheckIcon, setActionAreaCheckIcon] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CheckBoxWrapper, { onClick: handleCheck, onMouseOver: () => setActionAreaCheckIcon(true), onMouseOut: () => setActionAreaCheckIcon(false), children: [jsxRuntime.jsx(CheckButton, { children: isChecked ? (jsxRuntime.jsx(CheckboxChecked, {})) : (actionAreaCheckIcon ?
                         jsxRuntime.jsx(CheckboxEmpty, { stroke: FRSTTheme['colors'].primary1 }) :
                         jsxRuntime.jsx(CheckboxEmpty, { stroke: FRSTTheme['colors'].neutralsGrey4 })) }), jsxRuntime.jsxs(Label, { isChecked: isChecked, children: [" ", label, " "] })] }) }));
 }
 
 function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
-    const [activeTab, setActiveTab] = react.useState('-1');
-    const [contentTabActiveShow, setContentTabActiveShow] = react.useState(jsxRuntime.jsx("div", {}));
-    const [tabs, setTabs] = react.useState([]);
-    react.useState([]);
-    react.useEffect(() => {
+    const [activeTab, setActiveTab] = React.useState('-1');
+    const [contentTabActiveShow, setContentTabActiveShow] = React.useState(jsxRuntime.jsx("div", {}));
+    const [tabs, setTabs] = React.useState([]);
+    React.useState([]);
+    React.useEffect(() => {
         let tabsForAccordion = object.map((element) => {
             return {
                 id: randID(),
@@ -3054,7 +3281,7 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
         });
         setTabs(tabsForAccordion);
     }, []);
-    react.useLayoutEffect(() => {
+    React.useLayoutEffect(() => {
         renderNewContent(tabs);
     }, [activeTab, tabs]);
     const handleActiveTab = (newActive) => {
@@ -3178,8 +3405,8 @@ function ApprovesItem(props) {
 }
 function ModalStatusProblema(props) {
     // Função para pegar o width da tela
-    const [size, setSize] = react.useState([0, 0]);
-    react.useLayoutEffect(() => {
+    const [size, setSize] = React.useState([0, 0]);
+    React.useLayoutEffect(() => {
         function updateSize() {
             setSize([window.innerWidth, window.innerHeight]);
         }
@@ -3213,9 +3440,9 @@ styleInject(css_248z$5);
  * @param {CardProblemGestorProps} props
  */
 function CardProblemGestor(props) {
-    const [statusName, setStatusName] = react.useState('Não iniciou');
-    const [statusColor, setStatusColor] = react.useState('#757575');
-    react.useEffect(() => {
+    const [statusName, setStatusName] = React.useState('Não iniciou');
+    const [statusColor, setStatusColor] = React.useState('#757575');
+    React.useEffect(() => {
         switch (props.problemStatus) {
             case 'finalizado':
                 setStatusColor("#158214"), setStatusName("Finalizado");
@@ -3256,10 +3483,10 @@ styleInject(css_248z$4);
  * @param {CardProblemProps} props
  */
 function CardProblem(props) {
-    const [statusName, setStatusName] = react.useState('Não iniciou');
-    const [selected, setSelected] = react.useState(props.selected);
-    const [statusColor, setStatusColor] = react.useState('#757575');
-    react.useEffect(() => {
+    const [statusName, setStatusName] = React.useState('Não iniciou');
+    const [selected, setSelected] = React.useState(props.selected);
+    const [statusColor, setStatusColor] = React.useState('#757575');
+    React.useEffect(() => {
         switch (props.problemStatus) {
             case 'finalizado':
                 setStatusColor("#158214"), setStatusName("Finalizado");
@@ -3285,12 +3512,12 @@ function CardProblem(props) {
                 break;
         }
     }, [props.problemStatus]);
-    react.useEffect(() => {
+    React.useEffect(() => {
         setSelected(props.selected);
     }, [props.selected]);
     // Função para pegar o width da tela
-    const [size, setSize] = react.useState([0, 0]);
-    react.useLayoutEffect(() => {
+    const [size, setSize] = React.useState([0, 0]);
+    React.useLayoutEffect(() => {
         function updateSize() {
             setSize([window.innerWidth, window.innerHeight]);
         }
@@ -3334,9 +3561,9 @@ styleInject(css_248z$3);
  * @param {CardDefinicaoProblemaProps} props
  */
 function CardDefinicaoProblema(props) {
-    const [statusName, setStatusName] = react.useState('Não iniciou');
-    const [statusColor, setStatusColor] = react.useState('#757575');
-    react.useEffect(() => {
+    const [statusName, setStatusName] = React.useState('Não iniciou');
+    const [statusColor, setStatusColor] = React.useState('#757575');
+    React.useEffect(() => {
         switch (props.problemStatus) {
             case 'finalizado':
                 setStatusColor("#158214"), setStatusName("Finalizado");
@@ -3382,8 +3609,8 @@ var AprendizadoPressed = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAw
  * @param {CardResultConquistaProps} props
  */
 function CardResultConquista(props) {
-    const [isPressed, setIsPressed] = react.useState(false);
-    react.useEffect(() => {
+    const [isPressed, setIsPressed] = React.useState(false);
+    React.useEffect(() => {
         const timer = setTimeout(() => setIsPressed(false), 1000);
         return () => clearTimeout(timer);
     }, [isPressed]);
@@ -3435,12 +3662,12 @@ function ExclusiveClassCard({ titleClass, labelButton, className, handleClick })
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
-function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }) {
-    react.useState(-1);
+function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }) {
+    React.useState(-1);
     function renderCard(item, index) {
         return (jsxRuntime.jsx(CardResultConquista, { description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
 }
 
 const WrapperStars = styled__default["default"].div `
@@ -3469,8 +3696,8 @@ const Raiting = styled__default["default"].p `
  * @componente
  */
 function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
-    react.useState(rating + 1);
-    const [hoverRaiting, setHoverRaiting] = react.useState(-1);
+    React.useState(rating + 1);
+    const [hoverRaiting, setHoverRaiting] = React.useState(-1);
     const rederStars = () => {
         var groupStars = [];
         const handleClick = (e) => {
@@ -3493,14 +3720,14 @@ function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRa
     return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [rederStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: (rating).toFixed(1) })] }));
 }
 function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
-    const [actionArea, setActionArea] = react.useState(false);
+    const [actionArea, setActionArea] = React.useState(false);
     const getColorStar = () => {
         if (active)
             return '#FFC200';
         else
             return '#757575';
     };
-    react.useEffect(() => {
+    React.useEffect(() => {
         setTimeout(() => {
             if (actionArea)
                 setOnHover(id);
@@ -3697,12 +3924,12 @@ function ObjectiveStep({ description, number }) {
     return (jsxRuntime.jsxs(WrapperCard$1, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
-const Wrapper = styled__default["default"].div `
+const Wrapper$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '375px'};
 `;
-const Title$2 = styled__default["default"].p `
+const Title$3 = styled__default["default"].p `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -3786,7 +4013,210 @@ const WrapperButtons = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$2, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$1, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$3, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+}
+
+styled__default["default"].img `
+    width: ${props => props.size || '120px'};
+    height: ${props => props.size || '120px'};
+    border-radius: 50%;
+    object-fit: cover;
+
+    ${({ disabled }) => disabled === true && `
+        filter: grayscale(100%);
+    `}
+`;
+const CardWrapper = styled__default["default"].div `
+    width: 100%;
+    min-height: 154px;
+    padding: 24px;
+
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+    padding: 20px;
+    ${({ hasShadow }) => hasShadow && 'box-shadow: 0px 18px 40px -15px #D3D3D3'};
+`;
+const FeaturedNumber = styled__default["default"].p `
+    font-family: 'Work Sans' ;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 56px;
+    color: #222222;
+`;
+const DescriptionStatistics = styled__default["default"].span `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FF4D0D;
+`;
+const ItemStatistics = styled__default["default"].div `
+
+    grid-area: ${({ index, isNamedGrid }) => isNamedGrid && index} !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-itens: flex-start;
+    min-height: 106px;
+    max-width: 272px;
+    padding: 0px 24px 0px 24px;
+    margin-top: ${({ twoRows }) => twoRows ? '24px' : '0px'};
+    ${({ hasDivider, theme }) => hasDivider ?
+    'border-left: 1px solid ' + theme.colors.borderPrimary :
+    'border-left: 1px solid ' + theme.colors.shadeWhite}
+`;
+
+function TotalizerCard({ objectStatistics, loading, hasShadow, styles }) {
+    const [windowSize, setWindowSize] = React.useState([0, 0]);
+    React.useEffect(() => {
+        function updateSize() {
+            setWindowSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    const renderObjectStatistics = (isNamed) => {
+        const calcHasDivider = (myIndex) => {
+            if (myIndex == 0)
+                return false;
+            switch (objectStatistics.length) {
+                case 6:
+                case 7:
+                case 8:
+                    if (myIndex == 4)
+                        return false;
+            }
+            return true;
+        };
+        return objectStatistics.map((item, index) => {
+            return jsxRuntime.jsxs(ItemStatistics, { hasDivider: calcHasDivider(index), twoRows: objectStatistics.length > 5 && index > 3, isNamedGrid: isNamed, index: 'card-' + (index + 1).toString(), children: [jsxRuntime.jsx(FeaturedNumber, { children: item.featuredNumber }), jsxRuntime.jsx(DescriptionStatistics, { children: item.description })] }, index);
+        });
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: loading ? jsxRuntime.jsx(CardWrapper, { hasShadow: hasShadow, className: 'shimmer', style: { ...styles } }) :
+            jsxRuntime.jsx(CardWrapper, { hasShadow: hasShadow, style: { ...styles }, children: (objectStatistics && objectStatistics.length > 0 && objectStatistics.length <= 5) ?
+                    jsxRuntime.jsx("div", { style: {
+                            display: 'grid',
+                            gridTemplateAreas: objectStatistics.length == 5 ? `'card-1 card-2 card-3 card-4 card-5'` : `'card-1 card-2 card-3 card-4'`
+                        }, children: renderObjectStatistics(true) })
+                    :
+                        (objectStatistics && objectStatistics.length > 0 && objectStatistics.length <= 6) ?
+                            jsxRuntime.jsx("div", { style: {
+                                    display: 'grid',
+                                    gridTemplateAreas: `'card-1 card-2 card-3 card-4''. card-5 card-6 .'`
+                                }, children: renderObjectStatistics(true) })
+                            :
+                                (objectStatistics && objectStatistics.length > 0 && objectStatistics.length <= 7) ?
+                                    jsxRuntime.jsx("div", { style: {
+                                            display: 'grid',
+                                            gridTemplateAreas: `'card-1 card-1 card-2 card-2 card-3 card-3 card-4 card-4''. card-5 card-5 card-6 card-6 card-7 card-7 .'`
+                                        }, children: renderObjectStatistics(true) })
+                                    :
+                                        (objectStatistics && objectStatistics.length > 0 && objectStatistics.length > 7) &&
+                                            jsxRuntime.jsx("div", { style: {
+                                                    display: 'grid',
+                                                    gridTemplateColumns: '1fr 1fr 1fr 1fr',
+                                                }, children: renderObjectStatistics(false) }) }) }));
+}
+
+const Wrapper = styled__default["default"].div `
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+`;
+const Title$2 = styled__default["default"].p ` 
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+    margin-bottom: 30px;
+`;
+const WrapperList = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+`;
+const ItemList = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    
+    min-width: ${({ isMobile }) => isMobile ? '0x' : '374px'};
+    margin-bottom: 16px;
+`;
+const TextList = styled__default["default"].span `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+    margin-left: 12px;
+`;
+const IconList = styled__default["default"].span `
+    margin-top: 2px;
+`;
+
+function TrailList({ title, trails, style }) {
+    const [trailsList, setTrailsList] = React.useState(trails);
+    const [windowSize, setWindowSize] = React.useState([0, 0]);
+    React.useEffect(() => {
+        function updateSize() {
+            setWindowSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    const renderTrails = () => {
+        return (trailsList.map((item, index) => {
+            return jsxRuntime.jsxs(ItemList, { isMobile: windowSize[0] < 400, children: [jsxRuntime.jsxs(IconList, { children: [" ", jsxRuntime.jsx(MessageCheckLine, {}), " "] }), jsxRuntime.jsxs(TextList, { children: [" ", item, " "] })] }, index);
+        }));
+    };
+    React.useEffect(() => {
+        setTrailsList(trails);
+    }, [trails]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { style: { ...style }, children: [jsxRuntime.jsx(Title$2, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
+                        jsxRuntime.jsx("div", { style: {
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }, children: renderTrails() })
+                        :
+                            (trailsList && trailsList.length > 0 && trailsList.length <= 3) ?
+                                jsxRuntime.jsx("div", { style: {
+                                        display: 'grid',
+                                        columnGap: '80px',
+                                        gridTemplateColumns: windowSize[0] > 900 ? '1fr 1fr' : '1fr'
+                                    }, children: renderTrails() })
+                                :
+                                    (trailsList && trailsList.length > 0 && trailsList.length <= 5) ?
+                                        jsxRuntime.jsx("div", { style: {
+                                                display: 'grid',
+                                                columnGap: '80px',
+                                                gridTemplateColumns: windowSize[0] > 1400 ? '1fr 1fr 1fr' :
+                                                    windowSize[0] > 900 ? '1fr 1fr' : '1fr'
+                                            }, children: renderTrails() })
+                                        :
+                                            (trailsList && trailsList.length > 0 && trailsList.length > 5) &&
+                                                jsxRuntime.jsx("div", { style: {
+                                                        display: 'grid',
+                                                        columnGap: '80px',
+                                                        gridTemplateColumns: windowSize[0] > 1400 ? '1fr 1fr 1fr' :
+                                                            windowSize[0] > 900 ? '1fr 1fr' : '1fr'
+                                                    }, children: renderTrails() }) })] }) }));
 }
 
 const ContainerGeral = styled__default["default"].div `
@@ -4002,17 +4432,17 @@ var style$1 = {"bannerContainer":"bannerLxp-module_bannerContainer__vvF-D","conf
 styleInject(css_248z$1);
 
 function BannerLxp(props) {
-    const [openConfig, setOpenConfig] = react.useState(false);
-    const [disableText, setDisableText] = react.useState(props.isDisabledTitle);
-    const [titleText, setTitleText] = react.useState(props.title ? props.title : '');
-    const [colorTitle, setColorTitle] = react.useState(props.titleColor ? props.titleColor : '#FFF');
-    const [backgroundColor, setBackgroundColor] = react.useState(props.bgColor ? props.bgColor : '');
-    const [backgroundImage, setBackgroundImage] = react.useState(props.bgSrc ? props.bgSrc : '');
-    const [fixImage, setFixImage] = react.useState(false);
-    const [selectedFile, setSelectedFile] = react.useState({});
-    const [displayTitleColorPicker, setDisplayTitleColorPicker] = react.useState(false);
-    const [displayBackgroundColorPicker, setDisplayBackgroundColorPicker] = react.useState(false);
-    const [anchor, setAnchor] = react.useState(null);
+    const [openConfig, setOpenConfig] = React.useState(false);
+    const [disableText, setDisableText] = React.useState(props.isDisabledTitle);
+    const [titleText, setTitleText] = React.useState(props.title ? props.title : '');
+    const [colorTitle, setColorTitle] = React.useState(props.titleColor ? props.titleColor : '#FFF');
+    const [backgroundColor, setBackgroundColor] = React.useState(props.bgColor ? props.bgColor : '');
+    const [backgroundImage, setBackgroundImage] = React.useState(props.bgSrc ? props.bgSrc : '');
+    const [fixImage, setFixImage] = React.useState(false);
+    const [selectedFile, setSelectedFile] = React.useState({});
+    const [displayTitleColorPicker, setDisplayTitleColorPicker] = React.useState(false);
+    const [displayBackgroundColorPicker, setDisplayBackgroundColorPicker] = React.useState(false);
+    const [anchor, setAnchor] = React.useState(null);
     const handleOpenConfig = () => setOpenConfig(true);
     const handleCloseConfig = () => {
         setOpenConfig(false);
@@ -4171,7 +4601,7 @@ const ColorPicker = props => {
     return (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
 };
 function Colorpicker({ width, height, color, }) {
-    const [state, updateState] = react.useState(color);
+    const [state, updateState] = React.useState(color);
     const handleInput = e => {
         updateState(e.target.value);
         color = state;
@@ -4276,7 +4706,7 @@ const ContentSwitcherSelected = styled__default["default"].button `
 `;
 
 function ContentSwitcher({ label, handleClick, style }) {
-    const [isClicked, setIsClicked] = react.useState(false);
+    const [isClicked, setIsClicked] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$2, { style: { ...style }, onClick: () => {
                 setIsClicked(true);
             }, children: !isClicked ?
@@ -4478,9 +4908,9 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
         jsxRuntime.jsx(Quiz, { fill: '#FF4D0D' }),
         jsxRuntime.jsx(Certificate, { fill: '#FF4D0D' })
     ];
-    const [contentListData, setContentListData] = react.useState(contentList);
-    const [down, setDown] = react.useState(true);
-    const [up, setUp] = react.useState(false);
+    const [contentListData, setContentListData] = React.useState(contentList);
+    const [down, setDown] = React.useState(true);
+    const [up, setUp] = React.useState(false);
     const reorder = (list, startIndex, endIndex) => {
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
@@ -4641,8 +5071,8 @@ function SelectedCountCircle() {
 }
 
 function HeaderContent(props) {
-    const [selectedContent, setSelectedContent] = react.useState(0);
-    react.useEffect(() => {
+    const [selectedContent, setSelectedContent] = React.useState(0);
+    React.useEffect(() => {
         const timer = setTimeout(() => setSelectedContent(selectedContent < 4 ? selectedContent + 1 : 0), 10000);
         return () => clearTimeout(timer);
     }, [selectedContent]);
@@ -4718,6 +5148,7 @@ exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
 exports.BaseCard = EmptyCard;
 exports.Button = Button;
+exports.ButtonGroup = ButtonGroup;
 exports.CalendarCard = CalendarCard;
 exports.CardDefinicaoProblema = CardDefinicaoProblema;
 exports.CardProblem = CardProblem;
@@ -4730,6 +5161,7 @@ exports.ConquistaCarrossel = ConquistaCarrossel;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
+exports.GroupStatistics = TotalizerCard;
 exports.InputComment = InputComment;
 exports.LearningSteps = LearningSteps;
 exports.MessageBox = MessageBox;
@@ -4740,13 +5172,15 @@ exports.ObjectiveStep = ObjectiveStep;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchField = SearchField;
+exports.Select = SelectFRST;
 exports.SpecialistContact = SpecialistContact;
 exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;
-exports.TotalizerCard = TotalizerCard;
+exports.TotalizerCard = TotalizerCard$1;
+exports.TrailList = TrailList;
 exports.UserCard = CalendarCard$1;
 exports.avatarChannel = AvatarChannel;
 exports.bannerLxp = BannerLxp;

@@ -11,6 +11,8 @@ export declare const LinkButtonEndIcon: import("styled-components").StyledCompon
 }, never>;
 export declare const Button: import("styled-components").StyledComponent<"button", any, {
     variant: string;
+    active: boolean;
+    length: number;
 }, never>;
 export declare const ButtonStartIcon: import("styled-components").StyledComponent<"button", any, {
     variant: string;

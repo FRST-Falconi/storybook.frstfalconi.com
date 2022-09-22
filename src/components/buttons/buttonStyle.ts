@@ -220,7 +220,7 @@ const variantStyles = (variant = 'contained') =>
 
   }[variant]);
 
-export const Button = styled.button<{ variant: string }>`
+export const Button = styled.button<{ variant: string, active: boolean, length: number }>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -240,6 +240,46 @@ export const Button = styled.button<{ variant: string }>`
     box-shadow: none;
 
     ${({ variant }) => variantStyles(variant)}
+    
+    ${({theme, length}) => theme.type === 'group' && length === 2 && `
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({theme, length}) => theme.type === 'group' && length > 2 && `
+        border-radius: 0px;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+    
+        &:focus,
+        &:active {
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({active}) => active === true && css`
+        background: #D14211;
+    `}
 `;
 export const ButtonStartIcon = styled.button<{ variant: string, sizeIcon: string }>`
     display: flex;

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Container= styled.div<{}>`
+export const Container= styled.div<{sizeIcon}>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,7 +8,6 @@ export const Container= styled.div<{}>`
     text-align: center;
     width: 180px;
     height: 176px;
-    radius: 8px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -20,18 +19,18 @@ export const Container= styled.div<{}>`
     font-size: 20px;
     line-height: 23px;
     box-shadow: none;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     & > svg {        
-        height: 64px;
-        width: 64px;        
+        max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon:'64px'};
+        height: 100%;
+        width: auto;
     }
 
     &:hover{
-        box-shadow: 0px 18px 40px -15px
+        box-shadow: 0px 18px 40px -15px;
     }
-
 `
-
 export const ContentSwitcher= styled.button<{}>`
     display: flex;
     flex-direction: column;
@@ -40,7 +39,6 @@ export const ContentSwitcher= styled.button<{}>`
     text-align: center;
     width: 180px;
     height: 176px;
-    radius: 8px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -52,7 +50,7 @@ export const ContentSwitcher= styled.button<{}>`
     font-size: 20px;
     line-height: 23px;
     box-shadow: none;
-
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     & > svg {        
         height: 64px;
@@ -63,8 +61,7 @@ export const ContentSwitcher= styled.button<{}>`
         box-shadow: 0px 18px 40px -15px
     }
 `;
-
-export const ContentSwitcherSelected= styled.button<{}>`
+export const ContentSwitcherSelected= styled.button<{sizeIcon}>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +69,6 @@ export const ContentSwitcherSelected= styled.button<{}>`
     text-align: center;
     width: 180px;
     height: 176px;
-    radius: 8px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -87,14 +83,14 @@ export const ContentSwitcherSelected= styled.button<{}>`
     background-color: ${({ theme }) => theme.colors.primary1};
     color: ${({ theme }) => theme.colors.shadeWhite};
 
-
     & > svg {        
-        height: 64px;
-        width: 64px;      
+        max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon:'64px'};
+        height: 100%;
+        width: auto;
     }
 
     &:hover{
-        box-shadow: 0px 18px 40px -15px
+        box-shadow: 0px 18px 40px -15px ${({ theme }) => theme.colors.primary3} ;
     }
 `;
 
