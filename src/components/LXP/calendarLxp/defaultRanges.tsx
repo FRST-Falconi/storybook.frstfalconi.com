@@ -96,11 +96,4 @@ export const defaultStaticRanges = createStaticRanges([
             endDate: defineds.endOfYear
         }),
     },
-    {
-        label: 'Período customizado',
-        range: () => ({
-            startDate: new Date(),
-            endDate: new Date()
-        }),
-    }
 ]);
