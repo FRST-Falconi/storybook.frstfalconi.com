@@ -8,7 +8,7 @@ import * as Styles from './accordionTrackStyle'
 import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
-import Thumbnails from '../thumbnails'
+import Thumbnails from '../thumbnails/thumbnails'
 import ScrollContainer from '@components/scroll-container'
 
 export default function AccordionTrack({ ObjectsCard, variant, TrailName, handleClickContent, handleClickSelect, handleChangeCheck }: IAccordionTrack) {

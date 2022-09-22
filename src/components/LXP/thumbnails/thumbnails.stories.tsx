@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Thumbnails from './index'
+import Thumbnails from './thumbnails'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -17,6 +17,8 @@ Default.args = {
     label: 'Label',
     src: '',
     title: 'Blockchain e criptomoedas',    
+    id: 0,
+    index: 0,
     handleClickCourse: () => { alert('Indo para o curso') },
     handleClickContent: () => { alert('Click conteúdo') },
     handleChange: (checkedValue) => { console.log(`curso ativado=${checkedValue}`)}

@@ -13,5 +13,8 @@ export interface IThumbnails {
     handleClickContent?: () => void,    
     variant?: enumVariant,
     title?: string   
+    id: string,
+    index: string,
+    isDraggable?: boolean
 }
 
