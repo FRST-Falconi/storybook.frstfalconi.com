@@ -1,0 +1,39 @@
+.containerCalendar {
+    display: flex;
+    position: relative;
+    width: fit-content;
+    min-height: 550px;
+    border-radius: 8px;
+    background-color: #FFF;
+}
+
+.fechar{
+    font-size: 12px;
+    color: #222222;
+
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    margin-right: 24px;
+    margin-top: 24px;
+    cursor: default;
+    
+}
+
+.calendar {
+    padding: 32px;
+    display: inline-flex;
+    
+}
+
+.btnSubmit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}

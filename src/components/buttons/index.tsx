@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import * as Styles from './buttonStyle'
 
-type enumVariant = 'primary' | 'secondary' | 'link' | 'third' | 'expandedPrimary' | 'expandedSecondary' 
+type enumVariant = 'primary' | 'secondary' | 'link' | 'expandedPrimary' | 'expandedSecondary' 
 interface buttonProps {
     variant?: enumVariant;
     label?: string,

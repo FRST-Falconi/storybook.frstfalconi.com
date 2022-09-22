@@ -28,14 +28,6 @@ secondary.args = {
     handleClick: () => { alert('Click') }
 }
 
-export const third = Template.bind({})
-third.args = {
-    variant: 'third',
-    label: 'Button text',
-    disabled: false,
-    handleClick: () => { alert('Click') }
-}
-
 export const link = Template.bind({})
 link.args = {
     variant: 'link',

@@ -63,7 +63,6 @@ export default function ContentThumbnails({ label, contentList, variant, src, di
                     {(provided: any) => (
                         <div ref={provided.innerRef}>
                             {contentListData.map((item, index) => {
-                                console.log(item, index)
                                 return (
                                     <Draggable draggableId={item.title} index={index}>
                                         {(provided: any) => (
@@ -141,7 +140,6 @@ export default function ContentThumbnails({ label, contentList, variant, src, di
 
     const removeContentList = (title: string) => {
 
-        console.log(contentListData)
         const newList = contentListData.filter(key => key.title !== title)
         setContentListData(newList)
         console.log(newList)
