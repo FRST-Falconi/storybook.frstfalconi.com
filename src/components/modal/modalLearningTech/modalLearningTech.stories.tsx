@@ -4,6 +4,7 @@ import ModalLearningTech from './index'
 import ComentaryBox from '../../commentary-box/index'
 import Avatar from '../../avatar/index'
 import { textAlign } from '@mui/system'
+import { ArrowForwardIosOutlined } from '@mui/icons-material'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,7 +23,7 @@ ModalTornarComentarioPrivado.args = {
     confirmationButton: 'Tornar privado',
     children: 'Dessa forma, só o criador do comentário e o autor do problema (você) poderão visualizar e interagir com o comentário.',
     style: {textAlign:'center', padding: 20},
-    typeButtonConfirmation: 'third'
+    typeButtonConfirmation: 'primary'
     
 }
 
@@ -32,7 +33,7 @@ ModalExcluirComentario.args = {
     title: 'Tem certeza de que quer excluir comentário?',
     cancelButton: 'Cancelar',
     confirmationButton: 'Excluir',
-    typeButtonConfirmation: 'third',
+    typeButtonConfirmation: 'primary',
     children: 
     <>
         <div style={{borderTop: '1px solid #BDBDBD', borderBottom: '1px solid #BDBDBD', width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'flexStart', padding: 20}}> 
@@ -48,7 +49,8 @@ ModalExcluirComentario.args = {
                 textLiked='Curtir'
                 textAnswer='Responder'
                 hasAnswer={true}
-                
+                actionLike={() => {}}
+                onChange={() => {}}
             />
         </div>
         <span style={{fontSize: 16, fontWeight: 600, paddingTop: 20}}> Todas as interações com o comentário também serão removidas</span>

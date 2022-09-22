@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components'
 export const LinkButton = styled.a<{ disabled: boolean }>`
     border: none;
     text-decoration: none;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
-    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold}
+    color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -21,7 +21,7 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
     }
 
     &:focus { 
-        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     }
 
     & > svg {
@@ -39,8 +39,8 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
 export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
     border: none;
     text-decoration: none;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
-    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold}
+    color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -57,7 +57,7 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: strin
     }
 
     &:focus { 
-        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     }
 
     & > svg {
@@ -75,8 +75,8 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: strin
 export const LinkButtonEndIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
     border: none;
     text-decoration: none;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
-    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold}
+    color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -93,7 +93,7 @@ export const LinkButtonEndIcon = styled.a<{ disabled: boolean, sizeIcon: string 
     }
 
     &:focus { 
-        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     }
 
     & > svg {
@@ -159,30 +159,6 @@ const variantStyles = (variant = 'contained') =>
         &:disabled {
             color: ${({ theme }) => theme.colors.neutralsGrey2};
             border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-    `,
-    third: css`
-        background-color: ${({ theme }) => theme.colors.primary4};
-        color: ${({ theme }) => theme.colors.shadeWhite};
-
-        &:hover {
-            background-color: ${({ theme }) => theme.colors.primary4};
-        }
-
-        &:active {
-            background-color: ${({ theme }) => theme.colors.primary4};
-        }
-
-        &:focus {
-            border: 2px solid ${({ theme }) => theme.colors.primary4}4D;
-            -webkit-background-clip: padding-box;
-            background-clip: padding-box;
-        }
-
-        &:disabled {
-            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
             cursor: not-allowed;
             pointer-events: none;
         }

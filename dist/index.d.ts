@@ -46,4 +46,5 @@ export { default as popOver } from './src/components/LXP/popOver';
 export { default as progressBar } from './src/components/LXP/progressBar';
 export { default as searchResults } from './src/components/LXP/searchResults';
 export { default as starMetric } from './src/components/LXP/star-metric';
+export { default as CalendarLxp } from './src/components/LXP/calendarLxp';
 //# sourceMappingURL=index.d.ts.map
