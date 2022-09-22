@@ -4,7 +4,7 @@ import Button from '../../buttons/index'
 import { CloseIcon } from '@shared/icons'
 
 
-type enumTypeButton = 'primary' | 'secondary' | 'link' | 'third'
+type enumTypeButton = 'primary' | 'secondary' | 'link'
 interface ModalLearningTechProps {
     open: boolean
     title?: string
@@ -12,7 +12,7 @@ interface ModalLearningTechProps {
     confirmationButton?: string
     cancelButton?: string
     /**
-   * @prop {number} tipeButton: Tipos de botão (primary, secondary, third, link)
+   * @prop {number} tipeButton: Tipos de botão (primary, secondary, link)
     */
     typeButtonConfirmation?: enumTypeButton
 

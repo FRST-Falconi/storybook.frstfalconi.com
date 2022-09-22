@@ -13,6 +13,7 @@ export { default as MessageBox } from "./src/components/cardLT/MessageBox"
 
 // Buttons
 export { default as Button } from "./src/components/buttons"
+export { default as ButtonGroup } from "./src/components/EBR/buttons-group"
 export { default as TextField } from './src/components/form-elements/textfield'
 export { default as TextArea } from './src/components/form-elements/textarea'
 export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle } from './src/shared/icons'
@@ -63,3 +64,4 @@ export { default as popOver} from './src/components/LXP/popOver'
 export { default as progressBar} from './src/components/LXP/progressBar'
 export { default as searchResults} from './src/components/LXP/searchResults'
 export { default as starMetric} from './src/components/LXP/star-metric'
+export { default as CalendarLxp} from './src/components/LXP/calendarLxp'

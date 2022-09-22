@@ -69,7 +69,6 @@ export default function CoverLxp ( props : CoverLxpParams) {
         setSelectedFile(file)
         props.selectedFile([selectedFile])
     }
-    console.log('File: ', selectedFile)
 
     return (
         <div className={style.bannerContainer} style={{...props.style, objectFit: fixImage ? 'fill' : 'none', backgroundImage: backgroundColor === '' ? `url(${backgroundImage})` : '', backgroundColor: backgroundImage === '' ? backgroundColor : '' }} >

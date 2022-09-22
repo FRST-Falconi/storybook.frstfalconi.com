@@ -17,7 +17,7 @@ primary.args = {
     variant: 'primary',
     label: 'Button text',
     disabled: false,
-    endIcon: <Icons.ChangeAccount />,
+    startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') },
 }
 
@@ -43,7 +43,7 @@ expandedPrimary.args = {
     variant: 'expandedPrimary',
     label: 'Button text',
     disabled: false,
-    endIcon: <Icons.ChangeAccount />,
+    startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') },
 }
 
@@ -52,6 +52,6 @@ expandedSecondary.args = {
     variant: 'expandedSecondary',
     label: 'Button text',
     disabled: false,
-    endIcon: <Icons.ChangeAccount />,
+    startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') },
 }

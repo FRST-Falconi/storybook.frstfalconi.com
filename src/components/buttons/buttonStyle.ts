@@ -3,8 +3,8 @@ import styled, { css } from 'styled-components'
 export const LinkButton = styled.a<{ disabled: boolean }>`
     border: none;
     text-decoration: none;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
-    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold}
+    color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -21,7 +21,7 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
     }
 
     &:focus { 
-        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     }
 
     & > svg {
@@ -39,8 +39,8 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
 export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
     border: none;
     text-decoration: none;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
-    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold}
+    color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -57,7 +57,7 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: strin
     }
 
     &:focus { 
-        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     }
 
     & > svg {
@@ -75,8 +75,8 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: strin
 export const LinkButtonEndIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
     border: none;
     text-decoration: none;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodBold}
-    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold}
+    color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -93,7 +93,7 @@ export const LinkButtonEndIcon = styled.a<{ disabled: boolean, sizeIcon: string 
     }
 
     &:focus { 
-        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     }
 
     & > svg {
@@ -163,30 +163,6 @@ const variantStyles = (variant = 'contained') =>
             pointer-events: none;
         }
     `,
-    third: css`
-        background-color: ${({ theme }) => theme.colors.primary4};
-        color: ${({ theme }) => theme.colors.shadeWhite};
-
-        &:hover {
-            background-color: ${({ theme }) => theme.colors.primary4};
-        }
-
-        &:active {
-            background-color: ${({ theme }) => theme.colors.primary4};
-        }
-
-        &:focus {
-            border: 2px solid ${({ theme }) => theme.colors.primary4}4D;
-            -webkit-background-clip: padding-box;
-            background-clip: padding-box;
-        }
-
-        &:disabled {
-            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-    `,
     expandedPrimary: css`
         background-color: ${({ theme }) => theme.colors.primary1};
         color: ${({ theme }) => theme.colors.shadeWhite};
@@ -244,7 +220,7 @@ const variantStyles = (variant = 'contained') =>
 
   }[variant]);
 
-export const Button = styled.button<{ variant: string }>`
+export const Button = styled.button<{ variant: string, active: boolean, length: number }>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -264,6 +240,46 @@ export const Button = styled.button<{ variant: string }>`
     box-shadow: none;
 
     ${({ variant }) => variantStyles(variant)}
+    
+    ${({theme, length}) => theme.type === 'group' && length === 2 && `
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({theme, length}) => theme.type === 'group' && length > 2 && `
+        border-radius: 0px;
+
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
+        border-left: 1px solid rgba(255, 255, 255, 0.5);
+    
+        &:focus,
+        &:active {
+            border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-left: 1px solid rgba(255, 255, 255, 0.5) !important;
+        }
+        
+        &:first-child {
+            border-radius: 4px 0px 0px 4px;
+            border: none !important;
+        }
+
+        &:last-child {
+            border-radius: 0px 4px 4px 0px;
+            border: none !important;
+        }
+    `}
+
+    ${({active}) => active === true && css`
+        background: #D14211;
+    `}
 `;
 export const ButtonStartIcon = styled.button<{ variant: string, sizeIcon: string }>`
     display: flex;

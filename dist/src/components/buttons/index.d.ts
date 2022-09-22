@@ -1,6 +1,7 @@
 /// <reference types="react" />
 import '../../shared/global.css';
-declare type enumVariant = 'primary' | 'secondary' | 'link' | 'third' | 'expandedPrimary' | 'expandedSecondary';
+declare type enumVariant = 'primary' | 'secondary' | 'link' | 'expandedPrimary' | 'expandedSecondary';
+declare type enumType = 'group' | null;
 interface buttonProps {
     variant?: enumVariant;
     label?: string;
@@ -8,8 +9,13 @@ interface buttonProps {
     startIcon?: any;
     endIcon?: any;
     sizeIcon?: string;
-    handleClick?: () => void;
+    handleClick?: (e: any) => void;
+    type?: enumType;
+    value?: any;
+    active?: boolean;
+    style?: React.CSSProperties;
+    length?: number;
 }
-export default function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick }: buttonProps): JSX.Element;
+export default function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length }: buttonProps): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map
