@@ -196,7 +196,7 @@ function QuizSucessError({ fill, width, height }) {
 function UploadIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M19.0834 13.9824V17.1121C19.0834 17.5271 18.9185 17.9251 18.625 18.2186C18.3316 18.512 17.9336 18.6769 17.5185 18.6769H6.56482C6.1498 18.6769 5.75178 18.512 5.45832 18.2186C5.16486 17.9251 5 17.5271 5 17.1121V13.9824", stroke: fill ? fill : "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.4062 8L11.9063 4L7.40625 8", stroke: fill ? fill : "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.9063 4L11.9062 15", stroke: fill ? fill : "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function Video({ fill, width, height }) {
+function Video$1({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "30", height: height ? height : "30", viewBox: "0 0 30 30", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.2865 28.3334C22.6503 28.3334 28.6198 22.3639 28.6198 15.0001C28.6198 7.63628 22.6503 1.66675 15.2865 1.66675C7.92266 1.66675 1.95312 7.63628 1.95312 15.0001C1.95312 22.3639 7.92266 28.3334 15.2865 28.3334Z", stroke: fill ? fill : "#FF4D0D", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.9531 10L20.2865 15L11.9531 20V10Z", stroke: fill ? fill : "#FF4D0D", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function StarRating({ fill, width, height, fillOpacity }) {
@@ -4879,7 +4879,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
     const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg";
     const iconList = [
         jsxRuntime.jsx(Content$1, { fill: '#FF4D0D' }),
-        jsxRuntime.jsx(Video, {}),
+        jsxRuntime.jsx(Video$1, {}),
         jsxRuntime.jsx(PodCast, { fill: '#FF4D0D' }),
         jsxRuntime.jsx(QuizSucessError, { fill: '#FF4D0D' }),
         jsxRuntime.jsx(Quiz, { fill: '#FF4D0D' }),
@@ -5203,13 +5203,6 @@ const defaultStaticRanges = createStaticRanges([
             endDate: defineds.endOfYear
         }),
     },
-    {
-        label: 'Período customizado',
-        range: () => ({
-            startDate: new Date(),
-            endDate: new Date()
-        }),
-    }
 ]);
 
 function CalendarLxp(props) {
@@ -5224,6 +5217,10 @@ function CalendarLxp(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style.btnSubmit, children: jsxRuntime.jsx(Button, { label: 'Aplicar', variant: 'primary', handleClick: () => {
                             props.onSave([newRange[0].startDate, newRange[0].endDate]);
                         } }) })] }) }));
+}
+
+function Video({ videoId, privateHash, width, height, autoplay, quality, timeStart, showSpeedControl, controls, loop, keyboard, style }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { ...style }, children: jsxRuntime.jsx("iframe", { src: `https://player.vimeo.com/video/${videoId}?h=${privateHash ? privateHash : ''}&autoplay=${autoplay ? autoplay : 0}&quality=${quality ? quality : '720p'}&speed=${showSpeedControl ? showSpeedControl : 0}&controls=${controls ? controls : 1}&loop=${loop ? loop : 0}&keyboard=${keyboard ? keyboard : 0}&#t=${timeStart ? timeStart : '0m0s'}`, width: width ? width : 640, height: height ? height : 342, allow: "autoplay; fullscreen; picture-in-picture", frameBorder: "0", allowFullScreen: true }) }) }));
 }
 
 exports.AlertCicle = AlertCicle;
@@ -5266,6 +5263,7 @@ exports.TextField = TextField;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
 exports.UserCard = CalendarCard$1;
+exports.Video = Video;
 exports.avatarChannel = AvatarChannel;
 exports.bannerLxp = BannerLxp;
 exports.buttonContent = ButtonContent;
