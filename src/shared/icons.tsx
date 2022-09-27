@@ -8,6 +8,7 @@ interface IconsProps {
   fillOpacity?: string
   width?: string
   height?: string
+  active?: boolean
 }
 
 export function EditIcon({ fill, width, height }: IconsProps) {
@@ -131,7 +132,7 @@ export function CheckboxChecked({ fill, width, height }: IconsProps) {
   )
 }
 
-export function CheckboxEmpty({ fill, stroke, width, height }: IconsProps) {
+export function CheckboxEmpty({ fill, stroke, width, height, active }: IconsProps) {
   return (
     <svg width={width ? width : "16"} height={height ? height : "16"} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="1.4" fill={fill ?? "white"} stroke={stroke ?? "#A6A6A6"} strokeWidth="1.2" />

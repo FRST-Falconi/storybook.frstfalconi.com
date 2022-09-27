@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 interface TextFieldProps {
     type?: string,
-    as?: string,
+    as?: string,    
 }
 
 const placeholderStyle = (color: string) => css`
