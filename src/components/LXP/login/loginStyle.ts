@@ -34,7 +34,7 @@ export const ContainerTypography = styled.div`
     align-items: center;
     justify-content: center;
     margin-top: 22px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 `
 export const TypographyWelcome = styled.p`
     font-family: Work Sans;
@@ -65,15 +65,10 @@ export const ContainerButtonLink = styled.div`
     position: absolute;
     right: 0;
     margin-right: 44px;
-    margin-top: 25px;
+    margin-top: 23px;
 `
 export const ContainerPassword = styled.div`
-    margin-top: 30px;
-    margin-left: 44px;
-    margin-right: 44px;
-`
-export const ContainerPasswordError = styled.div`
-    margin-top: 30px;
+    margin-top: 28px;
     margin-left: 44px;
     margin-right: 44px;
 `
@@ -82,17 +77,7 @@ export const IconAlert = styled.div`
     right: 0;
     bottom: 0;
     padding-right: 20px;
-    padding-bottom: 124px;
-`
-export const ContainerConnectError = styled.div`
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 44px;
-    margin-left: 44px;
-    margin-top: 12px;    
+    padding-bottom: 140px;
 `
 export const ContainerConnect = styled.div`
     display: flex;
@@ -102,7 +87,8 @@ export const ContainerConnect = styled.div`
     align-items: center;
     margin-right: 44px;
     margin-left: 44px;
-    margin-top: 12px;    
+    margin-top: 32px;
+    margin-bottom: 20px;
 `
 export const ContainerCheckbox = styled.div`
     cursor: pointer;
@@ -175,7 +161,7 @@ export const ContainerButtonRecover = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin: 30px 44px 0 44px;         
+    margin: 30px 44px 20px 44px;         
 `
 
 //#########################NewPassaword#################
