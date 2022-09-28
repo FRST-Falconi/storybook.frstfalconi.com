@@ -5,13 +5,13 @@ import * as Styles from './thumbnailsStyle'
 import { IThumbnails } from './thumbnails'
 import VectorEllipse from './vectorEllipse'
 import VectorCross from './vectorCross'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import * as Icons from '../../../shared/icons'
-import Switch from 'react-switch';
+import Switch from 'react-switch'
 import Button from '@components/buttons'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title }: IThumbnails) {
+export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided }: IThumbnails) {
   const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg"
 
   const [checked, setChecked] = useState(true)
@@ -20,7 +20,6 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
   const [up, setUp] = useState(false)
 
   const handleChangeCheck = (checkedValue) => {
-    console.log(checkedValue)
     setChecked(checkedValue)
     handleChange(checkedValue)
   };
@@ -33,7 +32,6 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
 
   const handleHoverImageOut = () => {
     if (showModules) {
-      console.log("Out")
       setShowModules(false)
     }
   }
@@ -43,11 +41,11 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
       <ThemeProvider theme={FRSTTheme}>
         {variant === 'default' ?
           <>
-            <Styles.ContainerThumbnails className={variant = 'default'} >
+            <Styles.ContainerThumbnails className={variant = 'default'} ref={provided.innerRef} {...provided.draggableProps}>
               <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
                 <Button label='Ir para o curso' variant='primary' handleClick={handleClickCourse} />
               </Styles.ContainerButton>
-              <Styles.GeralThumbnails >
+              <Styles.GeralThumbnails ref={provided.innerRef} {...provided.dragHandleProps}>
                 <Styles.Thumbnails >
                   <VectorEllipse />
                   <VectorEllipse />

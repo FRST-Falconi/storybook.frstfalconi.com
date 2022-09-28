@@ -22,7 +22,7 @@ export const ContainerButton = styled.div<IImageBackground>`
     bottom: 0;
     right: 0;
     border-radius: 8px;
-    z-index: 9;
+    z-index: 1;
     background-color: #00000090;
     margin:0;
     padding: 0;

@@ -7,6 +7,7 @@ interface IImageBackground {
 export const ContainerHeader = styled.div<IImageBackground>`
     width: 100%;
     min-height: 72px;
+    margin-top: 12px;
     left: 0;
     top: 0;
     bottom: 0;
@@ -59,6 +60,8 @@ export const IconVerticalHeader = styled.div`
 export const ContainerAccordion = styled.div<IImageBackground>`
     width: 100%;
     min-height: 415px;
+    display: flex;
+    justify-content: flex-start;
     background-color: ${({ theme }) => theme.colors.neutralsGrey7};
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
     border-radius: 0px 0px 8px 8px;    
@@ -69,7 +72,7 @@ export const ContainerAccordion = styled.div<IImageBackground>`
 export const ContainerCard = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     justify-items: center;
     gap: 20px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey7};
