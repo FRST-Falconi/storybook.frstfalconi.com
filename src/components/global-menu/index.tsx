@@ -85,8 +85,9 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                 />
                         }
                     </Styles.MenuContainer>
+                    { subMenu && subMenu.length > 0 &&
                     <Styles.SubMenuContainer variant={variant} style={{...style}}>
-                        { subMenu && subMenu.length > 0 && subMenu.map((item, index) => {
+                        {subMenu.map((item, index) => {
                                 return <ItemGlobalMenu 
                                         label={item.label}
                                         key={item.id ? item.id : index} 
@@ -96,7 +97,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                         style={{paddingRight: '10px', paddingLeft: '10px'}}
                                     />
                         })}
-                    </Styles.SubMenuContainer>
+                    </Styles.SubMenuContainer>}
                 </div>
                 :
                 <Styles.MenuContainer variant={variant} style={{...style}}>
