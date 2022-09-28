@@ -5,7 +5,7 @@ import {  ThemeProvider } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { FRSTTheme } from '../../../theme'
 
-type enumType = 'text' | 'password' | 'email' | 'number'
+type enumType = 'text' | 'password' | 'email' | 'number' 
 
 export interface TextFieldProps {
     label?: string,
