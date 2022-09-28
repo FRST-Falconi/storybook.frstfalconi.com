@@ -65,7 +65,14 @@ export default function FieldSearch({ variant, value, placeholder, onChange, lis
                                 </ItemResult>
                             })}
                             { hasOptionSeeAll && 
-                                <ItemSeeAll onClick={(e) => seeAll.onClick(e)}>{seeAll.label}</ItemSeeAll>
+                                <ItemSeeAll
+                                    onClick={(e) => { 
+                                        setIsOpenDrop(false)
+                                        return seeAll.onClick(e)
+                                    }}
+                                >
+                                    {seeAll.label}
+                                </ItemSeeAll>
                             }
                         </WrapperResults>
                     }
