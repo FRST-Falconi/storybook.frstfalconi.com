@@ -8,6 +8,7 @@ interface IconsProps {
   fillOpacity?: string
   width?: string
   height?: string
+  active?: boolean
 }
 
 export function EditIcon({ fill, width, height }: IconsProps) {
@@ -131,7 +132,7 @@ export function CheckboxChecked({ fill, width, height }: IconsProps) {
   )
 }
 
-export function CheckboxEmpty({ fill, stroke, width, height }: IconsProps) {
+export function CheckboxEmpty({ fill, stroke, width, height, active }: IconsProps) {
   return (
     <svg width={width ? width : "16"} height={height ? height : "16"} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="1.4" fill={fill ?? "white"} stroke={stroke ?? "#A6A6A6"} strokeWidth="1.2" />
@@ -656,5 +657,17 @@ export function MessageCheckLine({ fill, width, height }: IconsProps) {
   <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M17 1L6 12L1 7" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
+  );
+}
+
+export function Viewer({ fill }: IconsProps) {
+
+  return (
+      <>
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12C4 12 6.90909 6 12 6C17.0909 6 20 12 20 12C20 12 17.0909 18 12 18C6.90909 18 4 12 4 12Z" stroke={ fill ? fill : "#ff0000"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke={ fill ? fill : "#ff0000"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+      </>
   );
 }
