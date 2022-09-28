@@ -166,3 +166,5 @@ Noun.args = Icons.Noun({})
 export const EyeOff = Template.bind({})
 EyeOff.args = Icons.EyeOff({})
 
+export const AddIcon = Template.bind({})
+AddIcon.args = Icons.AddIcon({})
