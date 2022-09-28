@@ -15,15 +15,18 @@ export default function LanguagesDropdown({ variant, languages, selected, onSele
     
     const [ isOpenDrop, setIsOpenDrop ] = useState(false);
     const [ activeArea, setActiveArea ] = useState(false);
+    const [ activeImgFlag, setActiveImgFlag ] = useState(imgBR);
 
-    const getImgToLanguageSelected = () => {
-        switch(selected) {
-            case 'pt': return imgBR;
-            case 'en': return imgEN;
-            case 'es': return imgES;
-        }
-    }
     
+    useEffect(() => {
+        switch(selected) {
+            case 'pt': return setActiveImgFlag(imgBR);
+            case 'en': return setActiveImgFlag(imgEN);
+            case 'es': return setActiveImgFlag(imgES);
+        }
+    }, [selected])
+    
+
     useEffect(() => {
         const checksAnyClickOnScreen = () => {
             if(isOpenDrop) {
@@ -39,6 +42,11 @@ export default function LanguagesDropdown({ variant, languages, selected, onSele
 
     const handleChangeSelect = (value) => {
         onSelect(value)
+        switch(value) {
+            case 'pt': return setActiveImgFlag(imgBR);
+            case 'en': return setActiveImgFlag(imgEN);
+            case 'es': return setActiveImgFlag(imgES);
+        }
         setIsOpenDrop(false)
         setActiveArea(false)
     }
@@ -52,7 +60,7 @@ export default function LanguagesDropdown({ variant, languages, selected, onSele
                 style={{...style}}
             >
                 <Styles.Image 
-                    src={getImgToLanguageSelected()}
+                    src={activeImgFlag}
                     style={{padding: '10px'}}
                 />
 

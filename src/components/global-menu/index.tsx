@@ -104,15 +104,33 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                         <FRSTLogo height='28'/>
                     </Styles.WrapperLogo>
                     <Styles.WrapperMenu>
-
+                        { menu && menu.length > 0 && menu.map((item, index) => {
+                            return <ItemGlobalMenu 
+                                    label={item.label}
+                                    key={item.id ? item.id : index} 
+                                    variant='default' 
+                                    type='menu'
+                                    onClick={() => item.onClick('tes')}
+                                    style={{paddingRight: '10px', paddingLeft: '10px'}}
+                                />
+                        })}
                     </Styles.WrapperMenu>
-                        <Styles.WrapperRightInfo>
-                            <DropdownProfileMenu 
+                    <Styles.WrapperRightInfo>
+                        <DropdownProfileMenu 
+                            variant='default'
+                            user={user}
+                            menuItems={user && user.menuItems}
+                        />
+                    </Styles.WrapperRightInfo>
+                    { languages && languages.length > 0 &&
+                            <LanguagesDropdown
                                 variant='default'
-                                user={user}
-                                menuItems={user && user.menuItems}
+                                languages={[...languages]}
+                                selected={languageSelected}
+                                onSelect={(e) => onChangeLanguage(e)}
+                                distanceBtnDrop={'45px'}
                             />
-                        </Styles.WrapperRightInfo>
+                    }
                 </Styles.MenuContainer>
             }
         </ThemeProvider>
