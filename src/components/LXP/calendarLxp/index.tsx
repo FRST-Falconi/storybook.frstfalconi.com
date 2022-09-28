@@ -10,6 +10,7 @@ import { pt } from 'date-fns/locale'
 
 import 'react-date-range/dist/styles.css'; // main style file
 import {defaultStaticRanges} from './defaultRanges'
+import { BorderAll } from '@mui/icons-material'
 
 interface CalendarLxpParams {
     styles ?: React.CSSProperties
@@ -47,12 +48,13 @@ export default function CalendarLxp(props : CalendarLxpParams) {
                     </div>
                     <div>
                         <DateRange
+                            style={{borderRadius: 50}}
                             locale={pt}
                             ranges={newRange}
                             onChange={ item => setNewRange([item.selection])}
                             months={2}
                             direction='horizontal'
-                            rangeColors={['#FF4D0D']}
+                            rangeColors={['#0dcbff']}
                             showDateDisplay={false}
                             showPreview={false}
                             weekdayDisplayFormat='EEEEE'

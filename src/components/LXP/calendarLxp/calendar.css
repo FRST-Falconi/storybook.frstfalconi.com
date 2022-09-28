@@ -49,8 +49,8 @@
 
 .rdrMonthAndYearPickers select{
     -moz-appearance: none;
-         appearance: none;
-    -webkit-appearance: none;
+        -webkit-appearance: none;
+    appearance: none;
     border: 0;
     background: transparent;
     padding: 10px 30px 10px 10px;
@@ -130,7 +130,7 @@
 .rdrWeekDay {
   font-weight: 400;
   line-height: 2.667em;
-  color: #FF4D0D;
+  color: #0dff1d;
 }
 
 .rdrDay {
@@ -370,6 +370,6 @@
 .rdrMonthName{
   text-align: center;
   font-weight: 700;
-  color: #FF4D0D;
+  color: #ff0dcf;
   padding: 0.833em;
 }
