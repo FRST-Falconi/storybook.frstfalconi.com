@@ -106,9 +106,13 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                     <Styles.WrapperMenu>
 
                     </Styles.WrapperMenu>
-                    <Styles.WrapperRightInfo>
-                        
-                    </Styles.WrapperRightInfo>
+                        <Styles.WrapperRightInfo>
+                            <DropdownProfileMenu 
+                                variant='default'
+                                user={user}
+                                menuItems={user && user.menuItems}
+                            />
+                        </Styles.WrapperRightInfo>
                 </Styles.MenuContainer>
             }
         </ThemeProvider>

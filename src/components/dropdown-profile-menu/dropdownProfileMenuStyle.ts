@@ -103,13 +103,13 @@ export const AvatarCustomUser = styled(Avatar)`
   width: 32px;
 `
 
-export const MenuCustom = styled(Menu)`
+export const MenuCustom = styled(Menu)<{variantStyle: any}>`
   & .MuiPaper-root{
     border-radius: 0px;
-
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    box-shadow: none !important;
+    ${({variantStyle}) => variantStyle == 'LXP' ? `border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      box-shadow: none !important;` : ''
+    }
   }
   ul {
     padding-top: 0px;
@@ -129,22 +129,44 @@ export const LoginMenuCustom = styled(Menu)`
   }
 `
 
-export const MenuItemCustom = styled(MenuItem)`
+export const MenuItemCustom = styled(MenuItem)<{variantStyle: any}>`
   color: white !important;
   border: 0;
-  background-color: #222222 !important;
-  border-top: 0.5px solid #757575 !important;
+
+  ${({variantStyle}) => variantStyle == 'LXP' ?
+    `background-color: #222222 !important;
+     border-top: 0.5px solid #757575 !important;` 
+  :
+    `
+     width: 185px;
+     background-color: #FF4D0D !important;
+     border-top: 0.5px solid #F5792A !important;`
+  }
+
   &:hover {
-    background-color: #444444 !important;
+
+    ${({variantStyle}) => variantStyle == 'LXP' ?
+    `background-color: #444444 !important;`
+    :
+    `background-color: #F5792A !important;` }
+    
   }
 `
 
-export const SubMenuItemCustom = styled(MenuItem)`
+export const SubMenuItemCustom = styled(MenuItem)<{variantStyle}>`
   color: white !important;
-  background-color: #222222 !important;
+
+  ${({variantStyle}) => variantStyle == 'LXP' ?
+    `background-color: #222222 !important;`
+    :
+    `background-color: #FF4D0D !important;`
+  }
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   &:hover {
-    background-color: #444444 !important;
+    ${({variantStyle}) => variantStyle == 'LXP' ?
+    `background-color: #444444 !important;`
+    :
+    `background-color: #F5792A !important;` }
   }
 `

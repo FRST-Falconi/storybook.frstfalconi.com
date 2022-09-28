@@ -54,6 +54,7 @@ export default function DropdownProfileMenu({variant, user, menuItems}: IDropdow
                     anchorEl={anchorEl}
                     open={open}
                     onClose={handleClose}
+                    variantStyle={'LXP'}
                 >
                     <Styles.ProfileInfos>
                         <Styles.AvatarCustomUser alt="User Photo" 
@@ -76,7 +77,7 @@ export default function DropdownProfileMenu({variant, user, menuItems}: IDropdow
                     { menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                         if (item.subItens) {
                             if (item.subItens.length > 1) return (
-                                <Styles.MenuItemCustom key={index} onClick={handleSubitens(item.subItens)}>
+                                <Styles.MenuItemCustom key={index} onClick={handleSubitens(item.subItens)} variantStyle={'LXP'}>
                                     {item.iconBegin && item.iconBegin}
                                     {item.iconBegin && <span>&nbsp;</span>}
                                     <div style={{width: '100%',display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
@@ -86,7 +87,7 @@ export default function DropdownProfileMenu({variant, user, menuItems}: IDropdow
                             )
                         }
                         else return (
-                            <Styles.MenuItemCustom key={index} onClick={item.onClick || handleClose}>
+                            <Styles.MenuItemCustom key={index} onClick={item.onClick || handleClose} variantStyle={'LXP'}>
                                 {item.iconBegin && item.iconBegin}
                                 <div style={{width: '100%',display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
                                     <div style={{marginLeft: item.iconBegin ? '9px': '0px'}}>{item.label}</div>
@@ -102,11 +103,13 @@ export default function DropdownProfileMenu({variant, user, menuItems}: IDropdow
                     anchorEl={anchorSub}
                     open={openSub}
                     onClose={handleClose}
+                    variantStyle={'default'}
                 >
                     {subMenu && subMenu.map((item, index) => {
                         return <Styles.SubMenuItemCustom 
                                 key={item.id} 
                                 onClick={(e) => item.onClick(e)}
+                                variantStyle={'LXP'}
                             >
                                 {item.label}
                             </Styles.SubMenuItemCustom>                        
@@ -114,7 +117,80 @@ export default function DropdownProfileMenu({variant, user, menuItems}: IDropdow
                 </Styles.MenuCustom>
             </>
             :
-            <></>
+            <>
+            <Button
+                id="profile-dropdown"
+                aria-controls="basic-menu"
+                aria-haspopup="true"
+                aria-expanded={open ? 'true' : undefined}
+                style={{ background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }}
+                onClick={handleClick}
+            >
+                <Styles.AvatarCustomUser alt="User Photo" 
+                    src={user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"}
+                />
+                <Styles.UserName> {user.name} </Styles.UserName>
+                <DropdownIcon fill="white" />
+            </Button>
+                <Styles.MenuCustom
+                    id="basic-menu"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'center', }}
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    variantStyle={'default'}
+                >
+                { menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+                    if (item.subItens) {
+                        if (item.subItens.length > 1) return (
+                            <Styles.MenuItemCustom 
+                                key={index} 
+                                onClick={handleSubitens(item.subItens)}
+                                variantStyle={'default'}
+                            >
+                                {item.iconBegin && item.iconBegin}
+                                {item.iconBegin && <span>&nbsp;</span>}
+                                <div style={{width: '100%',display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                                    <div style={{marginLeft: '7px'}}>{item.label}</div><DropdownSideIconWhite />
+                                </div>
+                            </Styles.MenuItemCustom>
+                        )
+                    }
+                    else return (
+                        <Styles.MenuItemCustom 
+                            key={index} onClick={item.onClick || handleClose}
+                            variantStyle={'default'}>
+                            {item.iconBegin && item.iconBegin}
+                            <div style={{width: '100%',display: 'flex', flexDirection:'row', alignItems: 'center', justifyContent: 'space-between'}}>
+                                <div style={{marginLeft: item.iconBegin ? '9px': '0px'}}>{item.label}</div>
+                            </div>
+                        </Styles.MenuItemCustom>
+                    )
+                })}
+            </Styles.MenuCustom>
+
+            <Styles.MenuCustom
+                    id="sub-menu"
+                    anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
+                    transformOrigin={{ vertical: 'top', horizontal: 'right', }}
+                    anchorEl={anchorSub}
+                    open={openSub}
+                    onClose={handleClose}
+                    variantStyle={'default'}
+            >
+                {subMenu && subMenu.map((item, index) => {
+                    return <Styles.SubMenuItemCustom 
+                            key={item.id} 
+                            onClick={(e) => item.onClick(e)}
+                            variantStyle={'default'}
+                        >
+                            {item.label}
+                        </Styles.SubMenuItemCustom>                        
+                })}
+            </Styles.MenuCustom>
+                
+            </>
             }
         </Styles.Container>
     )
