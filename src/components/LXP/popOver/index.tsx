@@ -3,8 +3,10 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './popOverStyle'
 import { IPopOver } from './popOver'
+import { useState } from 'react'
 
-export default function PopOver({ variant, children }: IPopOver) {
+export default function PopOver({ variant, children,}: IPopOver) {
+
     return (
         <ThemeProvider theme={FRSTTheme}>
 
@@ -38,7 +40,13 @@ export default function PopOver({ variant, children }: IPopOver) {
                     <Styles.PopOverLeftRight>
                         <Styles.RectangleRight variant={variant = 'sideRight'} />
                         {children}
-                    </Styles.PopOverLeftRight>              
+                    </Styles.PopOverLeftRight> 
+                : variant === 'list' ?
+                    <Styles.PopOverList >
+                         <Styles.RectangleList className='rectangle'/>
+                            {children}   
+                    </Styles.PopOverList>
+                    
                 : null
             }
 

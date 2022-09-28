@@ -15,15 +15,13 @@ const Template = (args) => <FileUpload {...args} />
 export const Landscape = Template.bind({})
 Landscape.args = {
     variant: 'landscape',    
-    disabled: false,
     startIcon: <Icons.Cam fill={'#ffffff'}/>,   
     handleChange: () => { alert('Click') }
 }
 
 export const Portrait = Template.bind({})
 Portrait.args = {
-    variant: 'portrait',    
-    disabled: false,
+    variant: 'portrait',
     startIcon: <Icons.Cam fill={'#ffffff'}/>,    
     handleChange: () => { alert('Click') }
 }

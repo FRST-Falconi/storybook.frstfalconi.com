@@ -120,4 +120,45 @@ export const PopOverLeftRight = styled.div`
     margin: 0% 0% 0% 0%;
     padding: 8px;    
 `
+export const PopOverList = styled.div`
+    width: 196px;
+    min-height: 41px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    position: relative;
+    padding-left: 16px;
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.neutralsGrey7};
+    }
+
+    &:hover .rectangle{
+        background-color: ${({ theme }) => theme.colors.neutralsGrey7};
+
+    }
+
+`
+
+    export const RectangleList= styled.div`
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    margin: -7px 0 32px 27px;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.neutralsGrey7};
+    }
+
+    `
+ 
 

@@ -1,6 +1,6 @@
 import React from "react"
 
-type enumVariant = 'upLeft' | 'upRight' | 'lowRight' | 'lowLeft' | 'sideLeft' | 'sideRight'
+type enumVariant = 'upLeft' | 'upRight' | 'lowRight' | 'lowLeft' | 'sideLeft' | 'sideRight' | 'list'  
 
 export interface IPopOver {
     /**

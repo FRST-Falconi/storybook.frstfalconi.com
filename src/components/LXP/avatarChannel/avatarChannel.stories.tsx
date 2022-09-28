@@ -20,3 +20,14 @@ normal.args = {
     color: '#6a3f86',    
     onChange: ()=> {alert('click')}
 }
+
+export const withImage= Template.bind({})
+withImage.args = {
+    src:'https://images-ext-1.discordapp.net/external/pNM-Z4rngrAg2cAPEEsZC80MsQz9WQ6LxJsJjUCndeM/https/png.pngtree.com/thumb_back/fh260/background/20200714/pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg',
+    size: '80px',
+    channel: 'XP',
+    alt: 'Alt example',
+    disabled: false,
+    color: '#6a3f86',    
+    onChange: ()=> {alert('click')}
+}

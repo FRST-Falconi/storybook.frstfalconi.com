@@ -4,16 +4,12 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './fileUploadStyles'
 import { IFileUpload } from './FileUpload'
 
-export default function FileUpload({ variant, src, alt, disabled, startIcon, style, handleChange}: IFileUpload) {
+export default function FileUpload({ variant, src, alt, startIcon, style, handleChange}: IFileUpload) {
             
     return (        
         <ThemeProvider theme={FRSTTheme}>
         { variant === 'landscape' ?            
-            <Styles.LandscapeContainer   style={{...style}}  className={variant = 'landscape'} disabled={disabled} onClick={handleChange}>
-                <Styles.ImgLandscape
-                    src={src }
-                    alt={alt }
-                />
+            <Styles.LandscapeContainer   style={{...style}}  className={variant = 'landscape'} onClick={handleChange}>
                 <Styles.UploadCam className='oculto'>{startIcon}</Styles.UploadCam>
                 <Styles.TextFileUpload>
                     <p>Clique para</p>
@@ -21,11 +17,7 @@ export default function FileUpload({ variant, src, alt, disabled, startIcon, sty
                 </Styles.TextFileUpload>
             </Styles.LandscapeContainer>
         : variant === 'portrait' ?
-            <Styles.PortraitContainer style={{...style}} className={variant = 'portrait'} disabled={disabled} onClick={handleChange}>
-                <Styles.ImgPortrait
-                    src={src}
-                    alt={alt}                    
-                />
+            <Styles.PortraitContainer style={{...style}} className={variant = 'portrait'} onClick={handleChange}>
                 <Styles.UploadCam className='oculto'>{startIcon}</Styles.UploadCam>
                 <Styles.TextFileUpload>
                     <p>Clique para</p>

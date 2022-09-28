@@ -31,17 +31,16 @@ export const PortraitContainer = styled.button`
 `
 export const UploadCam = styled.div`
     width: 48px;
-    height: 47.02px;
+    height: 48px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey4};
-    border-radius: 50px; 
-    position: absolute;
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
     visibility: visible;      
 `
 export const TextFileUpload = styled.div`
-    margin-top: 95px;
+    margin-top: 8px;
     font: 'PT Sans';
     font-weight: 700;
     font-size: 16px;  
@@ -51,28 +50,4 @@ export const TextFileUpload = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;   
-`
-export const ImgLandscape = styled.img`
-    width: 544px;
-    height: 240px;
-    border-radius: 8px;    
-    position: absolute;
-    object-fit: cover; 
-    color: ${({ theme }) => theme.colors.neutralsGrey4};
-
-    .oculto {
-        visibility: hidden;
-    }
-`
-export const ImgPortrait = styled.img`
-    width: 180px;
-    height: 240px;
-    border-radius: 8px;    
-    position: absolute;
-    object-fit: cover; 
-    color: ${({ theme }) => theme.colors.neutralsGrey4};
-
-    .oculto {
-        visibility: hidden;
-    }
 `

@@ -6,5 +6,6 @@ export interface IAvatar {
     className?: string,
     disabled?: boolean, 
     color?: string,   
+    src?: string,
     onChange: () => void
 }

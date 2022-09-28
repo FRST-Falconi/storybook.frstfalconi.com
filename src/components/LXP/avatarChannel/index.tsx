@@ -6,7 +6,7 @@ import { IAvatar } from './avatarChannel'
 import * as Icons from '../../../shared/icons'
 import PopOver from '@components/LXP/popOver'
 
-export default function AvatarChannel({ size, channel, className, disabled, color, onChange }: IAvatar) {
+export default function AvatarChannel({ size, channel, className, disabled, color, src, onChange }: IAvatar) {
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -16,10 +16,14 @@ export default function AvatarChannel({ size, channel, className, disabled, colo
                 onClick={onChange}
                 className={className}
                 disabled={disabled}
+                src={src}
                 color={color ? color : '#6a3f86'}
             >
+               {
+                  !src  && 
+                    <Styles.Channel>{channel}</Styles.Channel> 
+               } 
                 
-                <Styles.Channel>{channel}</Styles.Channel> 
                 
                 <Styles.AvatarCircle className='hide'>
                     <Styles.AvatarCam >

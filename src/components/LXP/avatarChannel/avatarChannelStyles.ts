@@ -18,28 +18,26 @@ export const ContainerGeral = styled.div`
 export const AvatarChannel = styled.div<AvatarI>`    
     width: ${props => props.size || '80px'};
     height: ${props => props.size || '80px'};
+    background-color: ${props => props.color || '#6a3f86'}; 
+    background-image:  ${props => props.src? `url(${props.src})`: 'none'};
+    position: relative; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    background-color: ${props => props.color || '#6a3f86'};  
-    position: relative;
-    margin: 0% 0% 0% 0%;
     cursor: pointer;
+    
    
-    img{
-        border-radius: 50%;
-    }
+
 
     ${({ disabled }) => disabled === true && `
         filter: grayscale(100%);
     `}
 `
-export const Channel = styled.span`
-    position: absolute;    
-    display: flex;
-    align-items: center;
-    text-align: center;
+export const Channel = styled.span`   
     letter-spacing: 0.01em;
-    top: 25px;
-    left: 25px;
     font-size: 24px;
     color: #ffffff;
     font-family: 'Work Sans';
