@@ -3,6 +3,7 @@ import styled from 'styled-components'
 interface ISearchField {
     isHover?: boolean,
     isOnFocus?: boolean,
+    isMobile?: boolean,
 }
 
 
@@ -30,8 +31,10 @@ export const LabelField = styled.label<ISearchField>`
 `
 
 export const ContainerIcon = styled.div`
+    z-index: 10;
+    cursor: pointer;
     min-height: 20px;
-    min-width: 20px;
+    min-width: 40px;
     padding-left: 15px;
     padding-right: 10px;
     padding-top: 3px;
@@ -46,8 +49,9 @@ export const InputSearchWrapper = styled.div<ISearchField>`
     cursor: pointer;
     display: flex;
     align-items: center;
-
-    border: 1px solid ${({isHover, theme}) => isHover ? theme.colors.shadeBlack : '#000'};  
+    width: ${({isMobile}) => isMobile ? '0px !important' : 'auto'};
+    border: ${({isMobile}) => !isMobile ? '1px' : '0px'} solid ${({isHover, theme}) => isHover ? theme.colors.shadeBlack : '#000'};  
+    transition: width 1s ease-in-out;
 `
 
 export const InputText = styled.input`
@@ -125,6 +129,7 @@ export const WrapperResults = styled.div<{isVisibleResults}>`
         display: flex;
         justify-content: center;   
         align-item: center;
+        text-align: center;
 
         cursor: pointer;
 

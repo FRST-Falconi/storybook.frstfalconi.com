@@ -24,12 +24,13 @@ export const Wrapper =  styled.button<{variant, typeItem, wrapText}>`
 
     &:hover {
         background-color: ${({variant, theme}) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
-        border-bottom: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid 
-        ${({variant, typeItem, theme}) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1: theme.colors.shadeWhite};
+        border-bottom: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid transparent;
     }
 
     &:focus {
         font-weight: 700;
+        border-bottom: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid 
+        ${({variant, typeItem, theme}) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1: theme.colors.shadeWhite};
     }
 `
 export const WrapperSubItem =  styled.button<{variant, typeItem, wrapText}>`

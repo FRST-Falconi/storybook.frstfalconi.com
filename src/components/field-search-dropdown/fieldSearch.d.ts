@@ -22,4 +22,8 @@ export interface IFieldSearch {
     hasOptionSeeAll?: boolean,
     seeAll?: itemClick,
     style?:  React.CSSProperties,
+    isMobileVersion?: boolean,
+    setFieldSearchIsOpen?: (e) => void,
+    fieldSearchIsOpen?: boolean,
+    enableAnimationField?: boolean
 }

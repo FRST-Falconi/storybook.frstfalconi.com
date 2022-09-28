@@ -11,18 +11,25 @@ export const MenuContainer = styled.div<IMenuContainer>`
 
     background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
 
-    padding-left: 124px;
-    padding-right: 124px;
-
     display: flex;
     align-items: center;
+    & > button {
+        height: 100%;
+    }
 `
 
 
 export const WrapperLogo = styled.div`
     margin-right: 65px;
 `
-
+    export const HamburgerButton = styled.div`
+        cursor: pointer;
+        display: flex;
+        width: 48px;
+        height: auto;
+        margin-bottom: 10px;
+        margin-right: 20px;
+    `
 export const WrapperMenu = styled.div`
     width: 100%;
     height: 100%;

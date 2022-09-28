@@ -26,8 +26,11 @@ normal.args = {
         {id: '3', label: 'List Entry', onClick: (e) => alert(e)},
         {id: '4', label: 'List Entry', onClick: (e) => alert(e)}
 
-    ], 
+    ],
+    isMobileVersion: true,
     hasOptionSeeAll: true, 
+    setFieldSearchIsOpen: (e) => console.log(e), 
+    fieldSearchIsOpen: false,
     seeAll: {id: '9', label: 'Ver todos os resultados', onClick: (e) => alert(e)},
     style: { width: '332px' }
 }

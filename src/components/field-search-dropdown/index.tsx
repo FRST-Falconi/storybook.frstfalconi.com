@@ -1,4 +1,4 @@
-import React,{ useState, useEffect} from 'react'
+import React,{ useState, useEffect, useLayoutEffect} from 'react'
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
@@ -7,11 +7,23 @@ import { Container, ContainerIcon, LabelField, InputSearchWrapper, InputText, Wr
 import { IFieldSearch } from './fieldSearch'
 import { SearchIcon } from '@shared/icons'
 
-export default function FieldSearch({ variant, value, placeholder, onChange, listResults, hasOptionSeeAll, seeAll, style, loading, setLoading, textLoading }: IFieldSearch) {
+export default function FieldSearch({ variant, value, placeholder, onChange, listResults, 
+    hasOptionSeeAll, seeAll, style, loading, setLoading, textLoading, enableAnimationField,
+    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen }: IFieldSearch) {
     const [ actionAreaInput, setActionAreaInput ] = useState(false)
     const [ inputOnFocus, setInputOnFocus ] = useState(false)
+    const [ isMobile, setIsMobile ] = useState(isMobileVersion)
+    const [ openSearchFieldMobile, setOpenSearchFieldMobile ] = useState(isMobileVersion)
+    const [ isOpenDrop, setIsOpenDrop ] = useState(false);
+        
+    useEffect(() => {
+        setFieldSearchIsOpen(isMobileVersion)
+    },[])
 
-    const [ isOpenDrop, setIsOpenDrop ] = useState(true);
+    useEffect(() => {
+        setIsOpenDrop(false)
+        setFieldSearchIsOpen(!openSearchFieldMobile)
+    },[openSearchFieldMobile])
 
     // Handle Open list results
     useEffect(() => {
@@ -27,6 +39,7 @@ export default function FieldSearch({ variant, value, placeholder, onChange, lis
         setIsOpenDrop(actionAreaInput)
         setLoading(false)
     }
+    
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -37,9 +50,15 @@ export default function FieldSearch({ variant, value, placeholder, onChange, lis
                     onFocus={() => handleFocusUp()}
                     onBlur={() => handleFocusDown()}
                 >
-                    <InputSearchWrapper isHover={actionAreaInput} isOnFocus={inputOnFocus} style={{...style}}
+                    <InputSearchWrapper 
+                        isHover={actionAreaInput} 
+                        isOnFocus={inputOnFocus} 
+                        isMobile={openSearchFieldMobile}
+                        style={{...style}}
                     >
-                        <ContainerIcon> <SearchIcon  fill={'#fff'}/> </ContainerIcon>
+                        <ContainerIcon onClick={() => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile)}>
+                            <SearchIcon  fill={'#fff'}/>
+                        </ContainerIcon>
                         <InputText placeholder={placeholder} onChange={(e) => onChange(e)} value={value}/>
                     </InputSearchWrapper>
                     { loading ? 

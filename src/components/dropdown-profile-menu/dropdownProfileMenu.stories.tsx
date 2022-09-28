@@ -81,5 +81,6 @@ lxp.args = {
             iconBegin: <Icons.ExitArrow />,
             onClick: () => alert('Sair')
         },
-    ]
+    ],
+    isMobileVersion: false
 }

@@ -103,12 +103,12 @@ export const AvatarCustomUser = styled(Avatar)`
   width: 32px;
 `
 
-export const MenuCustom = styled(Menu)<{variantStyle: any}>`
+export const MenuCustom = styled(Menu)<{variantstyle: any}>`
   & .MuiPaper-root{
     border-radius: 0px;
-    ${({variantStyle}) => variantStyle == 'LXP' ? `border-bottom-left-radius: 8px;
+    ${({variantstyle}) => variantstyle == 'LXP' &&`border-bottom-left-radius: 8px;
       border-bottom-right-radius: 8px;
-      box-shadow: none !important;` : ''
+      box-shadow: none !important;`
     }
   }
   ul {
@@ -129,11 +129,11 @@ export const LoginMenuCustom = styled(Menu)`
   }
 `
 
-export const MenuItemCustom = styled(MenuItem)<{variantStyle: any}>`
+export const MenuItemCustom = styled(MenuItem)<{variantstyle: any}>`
   color: white !important;
   border: 0;
 
-  ${({variantStyle}) => variantStyle == 'LXP' ?
+  ${({variantstyle}) => variantstyle == 'LXP' ?
     `background-color: #222222 !important;
      border-top: 0.5px solid #757575 !important;` 
   :
@@ -145,7 +145,7 @@ export const MenuItemCustom = styled(MenuItem)<{variantStyle: any}>`
 
   &:hover {
 
-    ${({variantStyle}) => variantStyle == 'LXP' ?
+    ${({variantstyle}) => variantstyle == 'LXP' ?
     `background-color: #444444 !important;`
     :
     `background-color: #F5792A !important;` }
@@ -153,10 +153,10 @@ export const MenuItemCustom = styled(MenuItem)<{variantStyle: any}>`
   }
 `
 
-export const SubMenuItemCustom = styled(MenuItem)<{variantStyle}>`
+export const SubMenuItemCustom = styled(MenuItem)<{variantstyle}>`
   color: white !important;
 
-  ${({variantStyle}) => variantStyle == 'LXP' ?
+  ${({variantstyle}) => variantstyle == 'LXP' ?
     `background-color: #222222 !important;`
     :
     `background-color: #FF4D0D !important;`
@@ -164,7 +164,7 @@ export const SubMenuItemCustom = styled(MenuItem)<{variantStyle}>`
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   &:hover {
-    ${({variantStyle}) => variantStyle == 'LXP' ?
+    ${({variantstyle}) => variantstyle == 'LXP' ?
     `background-color: #444444 !important;`
     :
     `background-color: #F5792A !important;` }
