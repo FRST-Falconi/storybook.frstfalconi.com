@@ -52,7 +52,7 @@ export default function CommentaryBox({
         (detectLinks ? 
             document.getElementById(iDCommentPosted).innerHTML = buildStringWithLinkHTML({ value }) : 
             document.getElementById(iDCommentPosted).innerHTML = value)
-    }, [detectLinks, onEditing])
+    }, [detectLinks, onEditing, value])
 
     useEffect(() =>  {
         (onEditing) &&
