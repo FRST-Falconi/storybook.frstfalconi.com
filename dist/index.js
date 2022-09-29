@@ -97,7 +97,7 @@ function DropdownIcon({ fill, width, height }) {
 function CheckboxChecked({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.5", y: "0.5", width: "15", height: "15", rx: "1.5", fill: "#F35F24", stroke: "#F35F24" }), jsxRuntime.jsx("path", { d: "M13 4L6.125 11L3 7.81818", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function CheckboxEmpty({ fill, stroke, width, height }) {
+function CheckboxEmpty({ fill, stroke, width, height, active }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "1.4", fill: fill ?? "white", stroke: stroke ?? "#A6A6A6", strokeWidth: "1.2" }) }));
 }
 function AlertCicle({ fill, width, height }) {
@@ -2355,7 +2355,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
             (detectLinks ?
                 document.getElementById(iDCommentPosted).innerHTML = buildStringWithLinkHTML({ value }) :
                 document.getElementById(iDCommentPosted).innerHTML = value);
-    }, [detectLinks, onEditing]);
+    }, [detectLinks, onEditing, value]);
     React.useEffect(() => {
         (onEditing) &&
             (document.getElementById(iDCommentInEditing)) &&
