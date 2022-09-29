@@ -10,14 +10,23 @@ import * as Icons from '@shared/icons'
 export default function LateralMenu({ label, onClick, button, beginComponent, selected, subItems, style }: IItemLateralMenu) {
     const [isActive, setIsActive] = useState(selected);
 
+    console.log('selected => ', selected)
+
     useEffect(() => {
         setIsActive(selected)
     }, [selected])
 
+    const getSizeCompound = () => {
+        if(!subItems.length ) return '40px';
+        let size = (subItems.length + 1 ) * 42;
+        
+        return size + 'px';
+    }
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             { subItems && subItems.length > 0 ? 
-                <Styles.WrapperCompound isOpen={isActive} style={{...style}}>
+                <Styles.WrapperCompound isOpen={isActive} style={{...style, maxHeight: isActive ? getSizeCompound(): '40px'}}>
                     <Styles.WrapperItem active={isActive} onClick={(e) => setIsActive(!isActive)}
                     style={{...style, margin: 0, padding: 0, justifyContent: 'space-between'}} >
                         <Styles.WrapperItem style={{background: 'transparent', width: '100%'}}>

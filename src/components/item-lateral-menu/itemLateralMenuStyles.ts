@@ -93,6 +93,7 @@ export const WrapperIconDrop = styled.div<{isOpen}>`
 
 export const WrapperCompound = styled.div<{isOpen}>`
     display: flex;
+    transition: max-height 0.3s ease-in-out;
     flex-direction: column;
 `
 
@@ -111,7 +112,7 @@ export const SubItem = styled.div<IWrapperItem>`
     flex-direction: row;
     align-items: center;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
     padding-left: 16px;
     background: ${({ theme }) =>  theme.colors.neutralsGrey8};
     border-bottom: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};

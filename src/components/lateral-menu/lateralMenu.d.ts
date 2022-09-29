@@ -1,8 +1,16 @@
 import React from "react"
+
+import { IAvatar } from "@components/avatar/avatar"
+import { IItemLateralMenu, typeButton } from "@components/item-lateral-menu/itemLateralMenu"
+
+type enumVariant = 'primary' | 'secondary'
+
 export interface ILateralMenu {
-    size?: string,
-    src?: any,
-    alt?: string,
-    className?: string,
-    disabled?: boolean,
+    variant: enumVariant,
+    avatar?: IAvatar,
+    name: string,
+    channel: string,
+    button: typeButton,
+    listOptions: Array<IItemLateralMenu>,
+    style?: React.CSSProperties
 }
