@@ -58,22 +58,23 @@ export const WrapperComponent = styled.div<IWrapperMainLabel>`
     }
 `
 
-
-
-
-
-export const AvatarImg = styled.img<AvatarI>`
-    width: ${props => props.size || '120px'};
-    height: ${props => props.size || '120px'};
-    border-radius: 50%;
-    object-fit: cover;
-
-    ${({ disabled }) => disabled === true && `
-        filter: grayscale(100%);
-    `}
-`
-
-export const AvatarWrapper = styled.div<AvatarI>`
-    width: ${props => props.size || '120px'};
-    height: ${props => props.size || '120px'};
+export const WrapperButton = styled.div`
+    margin-right: 8px;
+    
+    & > button {
+        display: flex;
+        height: 24px;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 6px 8px;
+        gap: 10px;
+        border-radius: 4px;
+        
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 12px;
+        z-index: 2;
+    }
 `
