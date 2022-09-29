@@ -67,3 +67,5 @@ export { default as starMetric} from './src/components/LXP/star-metric'
 export { default as CalendarLxp} from './src/components/LXP/calendarLxp'
 export { default as Video} from './src/components/LXP/video'
 export { default as GlobalMenu} from './src/components/global-menu'
+export { default as extraContent} from './src/components/LXP/extraContent'
+

@@ -6,6 +6,7 @@ interface IImageBackground {
 
 export const ContainerThumbnails = styled.div`
     width: 180px;
+    min-width: 180px;
     height: 352px;
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
@@ -13,6 +14,8 @@ export const ContainerThumbnails = styled.div`
     box-sizing: border-box;
     position: relative;
     padding-top: 8px;    
+    z-index: 9999px;
+    user-select: none;
 `
 export const ContainerButton = styled.div<IImageBackground>`    
     position: absolute;
@@ -22,7 +25,7 @@ export const ContainerButton = styled.div<IImageBackground>`
     bottom: 0;
     right: 0;
     border-radius: 8px;
-    z-index: 99;
+    z-index: 1;
     background-color: #00000090;
     margin:0;
     padding: 0;
@@ -50,7 +53,8 @@ export const GeralThumbnails = styled.div`
 `
 export const ContainerMain = styled.div`
     display: flex;
-    margin-top: 220px;    
+    margin-top: 220px;
+    position: relative;
 `
 export const Typography = styled.p`
     font-family: 'PT Sans';
@@ -59,18 +63,22 @@ export const Typography = styled.p`
     font-size: 16px;
     line-height: 21px;
     color: ${({ theme }) => theme.colors.shadeBlack};
-    margin-left: 12px;    
+    margin-left: 12px; 
+    white-space: wrap;
+    position: absolute;
 `
 export const IconVertical = styled.div`
-    margin-right: 3px;
+    margin-left: 150px;
     margin-top: 10px;
     cursor: pointer;
+    position: absolute;
 `
 export const ContainerAtivar = styled.div`
     display: flex;
     gap: 5px;
-    margin-top: 20px;
+    margin-top: 60px;
     margin-left: 32px;
+    position: absolute;
 `
 export const TypographyAtivar = styled.p<IImageBackground>`
     font-family: 'PT Sans';
