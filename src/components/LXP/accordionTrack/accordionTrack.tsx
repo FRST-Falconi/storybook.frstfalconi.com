@@ -46,75 +46,76 @@ export default function AccordionTrack(props: IAccordionTrack) {
           state.map((data, key) => {
             return (
               <>
-                <Styles.ContainerHeader className={"opened"} active={checked}>
-                    <Styles.ContentTrailName>
-                        <Styles.TypographyTrailName>{data.TrailName}</Styles.TypographyTrailName>
-                        <Styles.Select onClick={changeSelect} >
-                          {up ? <VectorUp /> : <VectorDown />}
-                        </Styles.Select>
-                    </Styles.ContentTrailName>
-                    <Styles.ContentActiveHeader>
-                        <Styles.TypographyActiveHeader active={checked} style={{ fontWeight: checked ? 700 : 400 }}>
-                            Ativar curso
-                            <Switch
-                              onChange={handleChange}
-                              checked={checked}
-                              height={16}
-                              width={40}
-                              checkedIcon={false}
-                              uncheckedIcon={false}
-                              handleDiameter={24}
-                              onHandleColor='#ffffff'
-                              offHandleColor='#ffffff'
-                              onColor='#FF4D0D'
-                              offColor='#757575'
-                              activeBoxShadow={checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                              boxShadow={checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                            />
-                        </Styles.TypographyActiveHeader>
-                        <Styles.IconVerticalHeader onClick={props.handleClickContent}>
-                          <Icons.MoreVertical fill={checked ? '#000000' : '#bdbdbd'} />
-                        </Styles.IconVerticalHeader>
-                    </Styles.ContentActiveHeader>
+                <Styles.ContainerHeader className={"opened"} active={data.ativo}>
+                  <Styles.ContentTrailName>
+                      <Styles.TypographyTrailName>{data.TrailName}</Styles.TypographyTrailName>
+                      <Styles.Select onClick={changeSelect} >
+                        {data.show ? <VectorUp /> : <VectorDown />}
+                      </Styles.Select>
+                  </Styles.ContentTrailName>
+                  <Styles.ContentActiveHeader>
+                      <Styles.TypographyActiveHeader active={data.ativo} style={{ fontWeight: data.ativo ? 700 : 400 }}>
+                        Ativar curso
+                        <Switch
+                          onChange={handleChange}
+                          checked={data.ativo}
+                          height={16}
+                          width={40}
+                          checkedIcon={false}
+                          uncheckedIcon={false}
+                          handleDiameter={24}
+                          onHandleColor='#ffffff'
+                          offHandleColor='#ffffff'
+                          onColor='#FF4D0D'
+                          offColor='#757575'
+                          activeBoxShadow={data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                          boxShadow={data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                        />
+                      </Styles.TypographyActiveHeader>
+                      <Styles.IconVerticalHeader onClick={props.handleClickContent}>
+                        <Icons.MoreVertical fill={data.ativo ? '#000000' : '#bdbdbd'} />
+                      </Styles.IconVerticalHeader>
+                  </Styles.ContentActiveHeader>
                 </Styles.ContainerHeader>
       
                 {
-                  up &&                               
-                    <Styles.ContainerAccordion active={checked}>
-                        
-                      <ScrollContainer
-                        stepMove={380}
-                        isVisibleControlsButtons
-                        sizeArrowButton={80}
-                        marginsArrowButton={10}
-                        horizontalMarginInternScroll={'20px'}
-                        styles={{ backgroundColor: '#ebebeb', justifyContent: 'start'}}
-                      >
-                        <Droppable droppableId={key.toString()} key={key} direction="horizontal">
-                            {(provided) => {      
-                              return (
-                                  <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                    {
-                                      data.items.map((el, index) => {
-                                        return (
-                                          <ThumbnailsDraggable
-                                            key={index}
-                                            id={el.id}
-                                            index={index}
-                                            title={el.name}
-                                            variant={'default'}
-                                          />
-                                        )} 
-                                      )
-                                    }
-                                    {/* <Thumbnails variant='add' /> */}
-                                    {provided.placeholder}
-                                  </Styles.ContainerCard>                                                
-                              )}
-                            }                                                          
-                        </Droppable>
-                      </ScrollContainer>
-                    </Styles.ContainerAccordion>
+                  data.show &&                               
+                    <Droppable droppableId={key.toString()} key={key} direction="horizontal">
+                      {(provided) => {      
+                        return (
+                          <div style={{height: 415, border: '1px solid black', padding: 16, marginTop: -5, backgroundColor: 'rgb(235, 235, 235)', borderBottomLeftRadius: 16, borderBottomRightRadius: 16, zIndex: 0, width: '100%'}}>
+                            <ScrollContainer
+                              stepMove={380}
+                              isVisibleControlsButtons
+                              sizeArrowButton={80}
+                              marginsArrowButton={10}
+                              horizontalMarginInternScroll={'20px'}
+                              styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%'}}
+                            >
+
+                              <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
+                                {
+                                  data.items.map((el, index) => {
+                                    return (
+                                      <ThumbnailsDraggable
+                                        key={index}
+                                        id={el.id}
+                                        index={index}
+                                        title={el.name}
+                                        variant={'default'}
+                                      />
+                                    )} 
+                                  )
+                                }
+                                {/* <Thumbnails variant='add' /> */}
+                                
+                              </Styles.ContainerCard>                                                
+                            </ScrollContainer>
+                            {provided.placeholder}
+                          </div>
+                        )}
+                      }                                                          
+                    </Droppable>
                 }
               </>
             )

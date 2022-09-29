@@ -25,7 +25,7 @@ export default function ThumbnailsDraggable({ variant, src, handleClickCourse, h
               title={title}
               id={id}
               index={index}    
-              provided={provided}        
+              provided={provided}
             />
           )}
         }

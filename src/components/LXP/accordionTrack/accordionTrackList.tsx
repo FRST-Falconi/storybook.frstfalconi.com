@@ -46,21 +46,24 @@ export default function AccordionTrackList({ ObjectsCard, variant, TrailName, ha
       {  
         id: v4(),
         TrailName: 'Trilha 1',
-        items: [item, item2, item3, item4, item5, item6],
-        ativo: true
+        items: [item, item2, item3, item4, item5, ],
+        ativo: true,
+        show: true,
       },
       {
         id: v4(),
         TrailName: 'Trilha 2',
         items: [],
-        ativo: true
+        ativo: true,
+        show: true,
       },
-      // {
-      //   id: v4(),
-      //   TrailName: 'Trilha 3',
-      //   items: [],
-      //   ativo: false
-      // },   
+      {
+        id: v4(),
+        TrailName: 'Trilha 3',
+        items: [],
+        ativo: false,
+        show: true,
+      },   
     ]
   )  
 

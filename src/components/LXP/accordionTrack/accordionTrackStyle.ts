@@ -21,7 +21,8 @@ export const ContainerHeader = styled.div<IImageBackground>`
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;    
+    align-items: center; 
+    z-index: 99px;   
 `
 export const ContentTrailName = styled.div`
     display: flex;
@@ -74,6 +75,8 @@ export const ContainerCard = styled.div`
     flex-direction: row;
     justify-content: flex-start;
     justify-items: center;
+    width: 100%;
+    min-height: 300px;
     gap: 20px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey7};
 

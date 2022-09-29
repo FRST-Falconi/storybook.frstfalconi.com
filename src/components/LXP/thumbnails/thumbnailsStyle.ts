@@ -6,6 +6,7 @@ interface IImageBackground {
 
 export const ContainerThumbnails = styled.div`
     width: 180px;
+    min-width: 180px;
     height: 352px;
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
@@ -13,6 +14,8 @@ export const ContainerThumbnails = styled.div`
     box-sizing: border-box;
     position: relative;
     padding-top: 8px;    
+    z-index: 9999px;
+    user-select: none;
 `
 export const ContainerButton = styled.div<IImageBackground>`    
     position: absolute;

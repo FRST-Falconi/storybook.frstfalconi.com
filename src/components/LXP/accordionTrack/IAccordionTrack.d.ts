@@ -9,6 +9,7 @@ export interface IAccordionTrack {
     TrailName?: string
     key?: number
     index?: number
+    data?: any,
     handleChangeCheck?: (checkedValue) => void
     handleClickSelect?: () => void,
     handleClickContent?: () => void 

@@ -46,7 +46,7 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
                 <Button label='Ir para o curso' variant='primary' handleClick={handleClickCourse} />
               </Styles.ContainerButton>
               <Styles.GeralThumbnails ref={provided.innerRef} {...provided.dragHandleProps}>
-                <Styles.Thumbnails >
+                <Styles.Thumbnails>
                   <VectorEllipse />
                   <VectorEllipse />
                   <VectorEllipse />
