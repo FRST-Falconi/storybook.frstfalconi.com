@@ -87,25 +87,25 @@ const toggleBlock = (editor, format) => {
   )
   const isList = LIST_TYPES.includes(format)
 
-  Transforms.unwrapNodes(editor, {
-    match: n =>
-      !Editor.isEditor(n) &&
-      SlateElement.isElement(n) &&
-      LIST_TYPES.includes(n.type) &&
-      !TEXT_ALIGN_TYPES.includes(format),
-    split: true,
-  })
-  let newProperties: Partial<SlateElement>
-  if (TEXT_ALIGN_TYPES.includes(format)) {
-    newProperties = {
-      align: isActive ? undefined : format,
-    }
-  } else {
-    newProperties = {
-      type: isActive ? 'paragraph' : isList ? 'list-item' : format,
-    }
-  }
-  Transforms.setNodes<SlateElement>(editor, newProperties)
+  //Transforms.unwrapNodes(editor, {
+  //  match: n =>
+  //    !Editor.isEditor(n) &&
+  //    SlateElement.isElement(n) &&
+  //    LIST_TYPES.includes(n.type) &&
+  //    !TEXT_ALIGN_TYPES.includes(format),
+  //  split: true,
+  //})
+  //let newProperties: Partial<SlateElement>
+  //if (TEXT_ALIGN_TYPES.includes(format)) {
+  //  newProperties = {
+  //    align: isActive ? undefined : format,
+  //  }
+  //} else {
+  //  newProperties = {
+  //    type: isActive ? 'paragraph' : isList ? 'list-item' : format,
+  //  }
+  //}
+  //Transforms.setNodes<SlateElement>(editor, newProperties)
 
   if (!isActive && isList) {
     const block = { type: format, children: [] }
