@@ -1,0 +1,111 @@
+import styled from 'styled-components'
+import { enumVariant } from './globalMenu'
+
+interface IMenuContainer {
+    variant?: enumVariant,
+}
+
+export const MenuContainer = styled.div<IMenuContainer>`
+    width: 100%;
+    height: 64px;
+
+    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+
+    display: flex;
+    align-items: center;
+    & > button {
+        height: 100%;
+    }
+`
+
+
+export const WrapperLogo = styled.div`
+    margin-right: 65px;
+`
+    export const HamburgerButton = styled.div`
+        cursor: pointer;
+        display: flex;
+        width: 48px;
+        height: auto;
+        margin-bottom: 10px;
+        margin-right: 20px;
+    `
+export const WrapperMenu = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+`
+
+export const WrapperRightInfo = styled.div`
+    height: 100%;   
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const WrapperIconNotification = styled.div`
+    height: 100%;
+    width: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+
+export const SubMenuContainer = styled.div<IMenuContainer>`
+    width: 100%;
+    height: 32px;
+
+    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1};
+
+    padding-left: 124px;
+    padding-right: 124px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 1px solid ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : theme.colors.primary1};
+`
+
+
+export const MenuMobile = styled.div<{isVisible}>`
+    display: ${({isVisible}) => isVisible ? 'flex': 'none'};
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 10001;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #222;
+`
+
+export const ItemMenuMobile = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100vw;
+    height: 20px;
+    
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 20px;
+
+    color: #FFFFFF;
+
+    border-bottom: 1px solid #444;
+
+    &:hover {
+        background: #4444;
+    }
+`
