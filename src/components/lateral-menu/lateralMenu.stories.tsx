@@ -20,7 +20,6 @@ normal.args = {
         alt: 'Alt example'
     },
     name: 'Student/Channel name',
-    channel: 'Info channel',
     button: {
         variant: 'primary',
         label: 'Button CTA',
