@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const Wrapper =  styled.button<{variant, typeItem, wrapText}>`
+export const Wrapper =  styled.button<{variant, typeItem, wrapText, pressed}>`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,7 +26,11 @@ export const Wrapper =  styled.button<{variant, typeItem, wrapText}>`
         background-color: ${({variant, theme}) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
         border-bottom: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid transparent;
     }
-
+    ${({pressed, variant, typeItem, theme}) => pressed && `
+        font-weight: 700;
+        border-bottom: ${ typeItem == 'menu'? '4px': '2px'} solid 
+        ${variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1: theme.colors.shadeWhite};
+    `}
     &:focus {
         font-weight: 700;
         border-bottom: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid 

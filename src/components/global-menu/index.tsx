@@ -120,6 +120,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                             key={item.id ? item.id : index} 
                                             variant='LXP' 
                                             type='menu'
+                                            pressed={item.active}
                                             onClick={() => item.onClick('tes')}
                                             style={{paddingRight: '10px', paddingLeft: '10px'}}
                                         />
@@ -196,7 +197,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                 </div>
                 :
                 <div style={{width: '100%', display: 'flex', flexDirection: 'column', ...style}}>
-                <Styles.MenuContainer variant={variant} style={{...style}}>
+                <Styles.MenuContainer variant={variant} style={{...style, display: 'none'}}>
                     <Styles.WrapperLogo>
                         <FRSTLogo height='28'/>
                     </Styles.WrapperLogo>

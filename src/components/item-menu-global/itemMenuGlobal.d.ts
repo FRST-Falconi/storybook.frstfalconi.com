@@ -11,4 +11,5 @@ export interface IItemMenuGlobal {
     onClick?: (e) => void,
     style?: React.CSSProperties,
     wrapText?: boolean,
+    pressed?: boolean,
 }

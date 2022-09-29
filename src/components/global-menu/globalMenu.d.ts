@@ -7,7 +7,8 @@ export type enumLanguages = 'pt' | 'es' | 'en';
 export type itemClick = {
     id: string,
     label: string, 
-    onClick: (e) => void
+    onClick: (e) => void,
+    active?: boolean,
 }
 
 export type options = {

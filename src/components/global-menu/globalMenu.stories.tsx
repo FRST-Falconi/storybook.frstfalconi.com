@@ -81,8 +81,8 @@ export const LXP = Template.bind({})
 LXP.args = {
     variant: 'LXP',
     menu: [
-        { id:'1', label: 'Início',          onClick: (e) => alert('Início') },
-        { id:'2', label: 'Comunidade',      onClick: (e) => alert('Comunidade') },
+        { id:'1', label: 'Início',          onClick: (e) => alert('Início')},
+        { id:'2', label: 'Comunidade',      onClick: (e) => alert('Comunidade'),  active: true },
         { id:'3', label: 'Conteúdo',        onClick: (e) => alert('Conteúdo') },
         { id:'4', label: 'Criar conteúdo',  onClick: (e) => alert('Criar conteúdo') }
     ],
@@ -142,24 +142,3 @@ LXP.args = {
     onChangeLanguage: (e) => alert(e),
     style: { display: 'flex' }
 }
-
-
-
-// variant?: enumVariant,
-
-// menu?: Array<{label: string, handleClick: () => void}>,
-// subMenu?: Array<{label: string, handleClick: () => void}>,
-// user?: Array<{avatar: string, name: string, company: string, handleClickProfile: () => void}>,
-
-// search?: Array<{
-//     label: string, 
-//     onChange: () => void, 
-//     seeAll: Array<{label: string, onClick: () => void}>,
-//     listEntry: Array<{label: string, onClick: () => void}>
-// }>
-
-// notification?: any,
-// handleNotification?: () => void,
-
-// languages: Array<enumLanguages>,
-// onChangeLanguage?: () => void,
