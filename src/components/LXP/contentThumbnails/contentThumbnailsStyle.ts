@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { ContainerTypography } from '../login/loginStyle'
 
 export const Container = styled.div`
     width: 270px;
@@ -143,4 +144,66 @@ export const ContentChoice = styled.div`
 `
 export const OptionChoice = styled.option`
     color: #9c9c9c;
+`
+
+//#############StudentContent##########################
+
+export const ContainerStudent = styled.div`
+    width: 100%;
+    max-width: 380px;
+    height: 121px;
+    box-sizing: border-box;
+    position: relatrive;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border-top: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    display: flex;
+    flex-direction: row;
+    `
+export const ContainerVideo = styled.video`
+    width: 160px;
+    height: 120px;
+    border: 1px solid red;
+    position: absolute;
+`
+export const ContainerImage = styled.div`
+    width: 160px;
+    height: 120px;
+    position: absolute;
+    background-color: ${({ theme }) => theme.colors.primary1}; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > svg {
+        width: 48px;
+        height: 48px;
+    }
+`
+export const ContainerTypographyVideo = styled.div`
+   margin-top: 15px;
+   margin-left: 175px;
+   margin-right: 20px;
+   margin-bottom: 16px;
+   display: flex;
+   flex-direction: column;  
+   gap: 4px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+`
+export const TypographyLabel = styled.p`
+    font-family: PT Sans;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 21px;        
+    color: ${({ theme }) => theme.colors.primary1};        
+`
+export const TypographyContent = styled.p`
+    font-family: PT Sans;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: ${({ theme }) => theme.colors.shadeBlack};    
 `

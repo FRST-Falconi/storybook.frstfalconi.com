@@ -92,3 +92,12 @@ Trilha.args = {
     handleClick: () => { alert('Click') }
 }
 
+export const StudentContent = Template.bind({})
+StudentContent.args = {
+    variant: 'studentContent',
+    label: 'Label',
+    src: '',
+    disabled: false,
+    title: 'Nome do curso',    
+    handleClick: () => { alert('Click') }
+}

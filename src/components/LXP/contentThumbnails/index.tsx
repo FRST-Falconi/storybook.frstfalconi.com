@@ -8,7 +8,8 @@ import VectorUp from './vectorUp'
 import VectorEllipse from './vectorEllipse'
 import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import Button from '@components/buttons'
 
 export enum typeContent {
     Content,
@@ -21,6 +22,9 @@ export enum typeContent {
 
 export default function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, title }: IContentThumbnails) {
     const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg"
+
+    const introVideo = 'https://www.youtube.com/watch?v=4QurHZY3jLg'
+    const PlayIcons = <Icons.Video />
 
     const iconList =
         [
@@ -204,7 +208,26 @@ export default function ContentThumbnails({ label, contentList, variant, src, di
                         }
                     </div>
 
-                    : null
+                    : variant === 'studentContent' ?
+
+                        <Styles.ContainerStudent>
+                            <> 
+                                { src ?                                
+                                <Styles.ContainerVideo src={ src } controls />
+                                :
+                                <Styles.ContainerImage>{<Icons.Video  fill='#ffffff' />}</Styles.ContainerImage>
+                                }
+                            </>
+                            <Styles.ContainerTypographyVideo>
+                                <Styles.TypographyLabel>Label</Styles.TypographyLabel>
+                                <Styles.TypographyContent>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo explicabo expedita dignissimos et<Button variant='link' label={'Ver mais.'} style={{fontSize: 12, fontWeight: 400, fontFamily: 'PT Sans'}}/> molestias? Ullam debitis eos temporibus corporis vel quidem error veritatis quod repellat, et corrupti animi libero unde?
+                                </Styles.TypographyContent>
+                                
+                            </Styles.ContainerTypographyVideo>
+                        </Styles.ContainerStudent>
+
+                        : null
 
             }
 

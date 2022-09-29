@@ -2,7 +2,7 @@ import React from "react"
 //import * as Icons from '../../shared/icons'
 import { content } from '../../shared/icons'
 
-type enumVariant =  'individualCourse' | 'trilha'
+type enumVariant =  'individualCourse' | 'trilha' | 'studentContent'
 
 export interface IContentThumbnails {
     label?: string,
