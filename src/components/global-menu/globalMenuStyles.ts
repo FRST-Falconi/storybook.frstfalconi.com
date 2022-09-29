@@ -72,3 +72,40 @@ export const SubMenuContainer = styled.div<IMenuContainer>`
 
     border-top: 1px solid ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : theme.colors.primary1};
 `
+
+
+export const MenuMobile = styled.div<{isVisible}>`
+    display: ${({isVisible}) => isVisible ? 'flex': 'none'};
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 10001;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #222;
+`
+
+export const ItemMenuMobile = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100vw;
+    height: 20px;
+    
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 20px;
+
+    color: #FFFFFF;
+
+    border-bottom: 1px solid #444;
+
+    &:hover {
+        background: #4444;
+    }
+`
