@@ -2375,7 +2375,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
             (detectLinks ?
                 document.getElementById(iDCommentPosted).innerHTML = buildStringWithLinkHTML({ value }) :
                 document.getElementById(iDCommentPosted).innerHTML = value);
-    }, [detectLinks, onEditing]);
+    }, [detectLinks, onEditing, value]);
     React.useEffect(() => {
         (onEditing) &&
             (document.getElementById(iDCommentInEditing)) &&
@@ -4617,7 +4617,6 @@ const Container$2 = styled__default["default"].div `
     text-align: center;
     width: 180px;
     height: 176px;
-    radius: 8px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -4629,16 +4628,17 @@ const Container$2 = styled__default["default"].div `
     font-size: 20px;
     line-height: 23px;
     box-shadow: none;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     & > svg {        
-        height: 64px;
-        width: 64px;        
+        max-height: ${({ sizeIcon }) => sizeIcon ? sizeIcon : '64px'};
+        height: 100%;
+        width: auto;
     }
 
     &:hover{
-        box-shadow: 0px 18px 40px -15px
+        box-shadow: 0px 18px 40px -15px;
     }
-
 `;
 const ContentSwitcher$1 = styled__default["default"].button `
     display: flex;
@@ -4648,7 +4648,6 @@ const ContentSwitcher$1 = styled__default["default"].button `
     text-align: center;
     width: 180px;
     height: 176px;
-    radius: 8px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -4660,7 +4659,7 @@ const ContentSwitcher$1 = styled__default["default"].button `
     font-size: 20px;
     line-height: 23px;
     box-shadow: none;
-
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     & > svg {        
         height: 64px;
@@ -4679,7 +4678,6 @@ const ContentSwitcherSelected = styled__default["default"].button `
     text-align: center;
     width: 180px;
     height: 176px;
-    radius: 8px;
     border: none;
     cursor: pointer;
     border-radius: 8px;
@@ -4694,25 +4692,25 @@ const ContentSwitcherSelected = styled__default["default"].button `
     background-color: ${({ theme }) => theme.colors.primary1};
     color: ${({ theme }) => theme.colors.shadeWhite};
 
-
     & > svg {        
-        height: 64px;
-        width: 64px;      
+        max-height: ${({ sizeIcon }) => sizeIcon ? sizeIcon : '64px'};
+        height: 100%;
+        width: auto;
     }
 
     &:hover{
-        box-shadow: 0px 18px 40px -15px
+        box-shadow: 0px 18px 40px -15px ${({ theme }) => theme.colors.primary3} ;
     }
 `;
 
-function ContentSwitcher({ label, handleClick, style }) {
+function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon }) {
     const [isClicked, setIsClicked] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$2, { style: { ...style }, onClick: () => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$2, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
                 setIsClicked(true);
             }, children: !isClicked ?
-                (jsxRuntime.jsxs(ContentSwitcher$1, { children: [jsxRuntime.jsx(Noun, {}), label] }))
+                (jsxRuntime.jsxs(ContentSwitcher$1, { children: [startIcon, label] }))
                 :
-                    jsxRuntime.jsxs(ContentSwitcherSelected, { children: [jsxRuntime.jsx(Noun, { fill: '#fff' }), label] }) }) }));
+                    jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, children: [jsxRuntime.jsx(Noun, { fill: '#ffffff' }), label] }) }) }));
 }
 
 const Container$1 = styled__default["default"].div `
@@ -4962,7 +4960,7 @@ const LandscapeContainer = styled__default["default"].button `
     width: 544px;
     height: 240px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -4977,7 +4975,7 @@ const PortraitContainer = styled__default["default"].button `
     width: 180px;
     height: 240px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -4990,7 +4988,7 @@ const PortraitContainer = styled__default["default"].button `
 const UploadCam = styled__default["default"].div `
     width: 48px;
     height: 47.02px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey3};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey4};
     border-radius: 50px; 
     position: absolute;
     display: flex;
@@ -5001,7 +4999,9 @@ const UploadCam = styled__default["default"].div `
 const TextFileUpload = styled__default["default"].div `
     margin-top: 95px;
     font: 'PT Sans';
-    font-size: 16px;    
+    font-weight: 700;
+    font-size: 16px;  
+    line-height: 21px;  
     color: ${({ theme }) => theme.colors.neutralsGrey4};
     display: flex;
     justify-content: center;
@@ -5014,6 +5014,7 @@ const ImgLandscape = styled__default["default"].img `
     border-radius: 8px;    
     position: absolute;
     object-fit: cover; 
+    color: ${({ theme }) => theme.colors.neutralsGrey4};
 
     .oculto {
         visibility: hidden;
@@ -5024,7 +5025,8 @@ const ImgPortrait = styled__default["default"].img `
     height: 240px;
     border-radius: 8px;    
     position: absolute;
-    object-fit: cover;    
+    object-fit: cover; 
+    color: ${({ theme }) => theme.colors.neutralsGrey4};
 
     .oculto {
         visibility: hidden;
