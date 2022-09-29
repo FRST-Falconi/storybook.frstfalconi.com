@@ -38,12 +38,13 @@ export const compound = Template.bind({})
 compound.args = {
     label: 'Label',
     onClick: () => alert('label'),
+    selected: false,
     beginComponent: <Icons.Noun/>,
     subItems: [
-        { label: 'List Entry', onClick: (e) => alert('label') },
-        { label: 'List Entry', onClick: (e) => alert('label') },
-        { label: 'List Entry', onClick: (e) => alert('label') },
-        { label: 'List Entry', onClick: (e) => alert('label') }
+        { id: '1', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '2', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '3', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '4', label: 'List Entry', onClick: (e) => alert(e) }
     ],
     style: {
         width: '280px' 
@@ -66,6 +67,28 @@ withButton.args = {
     }
 }
 
+export const buttonCompound = Template.bind({})
+buttonCompound.args = {
+    label: 'Label',
+    onClick: () => alert('label'),
+    selected: false,
+    button: {
+        label: 'Entrar',
+        variant: 'primary',
+        onClick: () => alert('Click')
+    },
+    beginComponent: <Icons.Noun/>,
+    subItems: [
+        { id: '1', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '2', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '3', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '4', label: 'List Entry', onClick: (e) => alert(e) }
+    ],
+    style: {
+        width: '280px' 
+    }
+}
+
 
 export const withAvatar = Template.bind({})
 withAvatar.args = {
@@ -73,6 +96,45 @@ withAvatar.args = {
     onClick: () => alert('label'),
     selected: false,
     beginComponent: <Avatar size={'20px'} src={null}/>,
+    style: {
+        width: '280px' 
+    }
+}
+
+export const avatarCompound = Template.bind({})
+avatarCompound.args = {
+    label: 'Label',
+    onClick: () => alert('label'),
+    selected: false,
+    beginComponent: <Avatar size={'20px'} src={null}/>,
+    subItems: [
+        { id: '1', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '2', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '3', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '4', label: 'List Entry', onClick: (e) => alert(e) }
+    ],
+    style: {
+        width: '280px' 
+    }
+}
+
+export const avatarButtonCompound = Template.bind({})
+avatarButtonCompound.args = {
+    label: 'Label',
+    onClick: () => alert('label'),
+    selected: false,
+    beginComponent: <Avatar size={'20px'} src={null}/>,
+    button: {
+        label: 'Entrar',
+        variant: 'primary',
+        onClick: () => alert('Click')
+    },
+    subItems: [
+        { id: '1', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '2', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '3', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '4', label: 'List Entry', onClick: (e) => alert(e) }
+    ],
     style: {
         width: '280px' 
     }

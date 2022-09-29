@@ -5,6 +5,7 @@ import React from "react"
 type enumVariantButton = 'primary' | 'secondary' | 'link' | 'expandedPrimary' | 'expandedSecondary' 
 
 type typeSubItem = {
+    id?: string,
     label: string,
     beginComponent?: any,
     onClick?: (e) => void

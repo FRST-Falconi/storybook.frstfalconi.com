@@ -87,6 +87,14 @@ export function DropdownIcon({ fill, width, height }: IconsProps) {
   )
 }
 
+export function DropdownIconLine({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width : "18"} height={height ? height: "10"} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 9L9 1L17 9" stroke={fill? fill : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
 
 export function DropdownSideIconWhite({ fill, width, height }: IconsProps) {
   return (

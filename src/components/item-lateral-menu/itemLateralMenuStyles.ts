@@ -78,3 +78,53 @@ export const WrapperButton = styled.div`
         z-index: 2;
     }
 `
+
+export const WrapperIconDrop = styled.div<{isOpen}>`
+    margin-right: 14px;
+    & > svg {
+        transition: all 0.3s ease-out;
+        transform: rotate(${({isOpen}) => isOpen ? '0.5turn' : '0'});
+        & > path {
+            stroke: ${({ theme, isOpen }) => isOpen ? theme.colors.primary1 : theme.colors.neutralsGrey1};
+        }
+    }
+`
+
+
+export const WrapperCompound = styled.div<{isOpen}>`
+    display: flex;
+    flex-direction: column;
+`
+
+export const WrapperSubItems = styled.div<{isOpen}>`
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    transform-origin:top;
+    transform:scaleY(${({isOpen}) => isOpen ?  '1' : '0'});
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+`
+
+export const SubItem = styled.div<IWrapperItem>`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    padding-left: 16px;
+    background: ${({ theme }) =>  theme.colors.neutralsGrey8};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background: ${({ theme }) =>  theme.colors.neutralsGrey6};
+    }
+`
