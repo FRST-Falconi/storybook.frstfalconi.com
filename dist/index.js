@@ -30,7 +30,6 @@ var Rating$2 = require('@mui/material/Rating');
 var Typography$1 = require('@mui/material/Typography');
 var reactDateRange = require('react-date-range');
 var locale = require('date-fns/locale');
-require('react-date-range/dist/styles.css');
 var dateFns = require('date-fns');
 var isHotkey = require('is-hotkey');
 var slateReact = require('slate-react');
