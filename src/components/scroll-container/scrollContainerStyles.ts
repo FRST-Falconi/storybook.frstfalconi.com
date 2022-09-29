@@ -19,7 +19,7 @@ export const WrapperHorizontal = styled.div`
 export const WrapperContent = styled.div<{paddingIntern?: string}>`
     display: flex;
     flex-direction: row;
-    max-width: 100%;
+    width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;

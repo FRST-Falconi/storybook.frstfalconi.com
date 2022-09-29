@@ -62,7 +62,7 @@ Trilha.args = {
     contentList: [
         {
             title: 'Introdução ao curso',
-            type: typeContent.Content
+            type: typeContent.Content,
         },
         {
             title: 'Título do Conteúdo',
