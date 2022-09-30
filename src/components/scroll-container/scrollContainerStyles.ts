@@ -69,8 +69,8 @@ export const ButtonControll = styled.div<IButtonContoll>`
     }}
 
     &:hover { 
-        background: ${({ theme }) => theme.colors.secondary2};
-        border: 0px solid #E8E8E8;
+        background: ${({theme}) => theme.colors.primary1};
+        border: 0px solid ${({theme}) => theme.colors.primary2};
     }
 
     box-shadow: 8px 21px 8px 0 rgb(34 34 34 / 30%) !important;

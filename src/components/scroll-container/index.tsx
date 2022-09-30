@@ -20,6 +20,15 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
     const [ isVisibleArrowButtonLeft, setIsVisibleArrowButtonLeft ] = useState(false);
     const [ isVisibleArrowButtonRight, setIsVisibleArrowButtonRight ] = useState(false); 
 
+    const [isPressedLeftButton, setIsPressedLeftButton] = useState(false); 
+    const [isPressedRightButton, setIsPressedRightButton] = useState(false); 
+    
+    useEffect((() => {
+        if(!actionAreaButtonLeft) 
+            setIsPressedLeftButton(false)
+        if(!actionAreaButtonRight) 
+            setIsPressedRightButton(false)
+    }), [actionAreaButtonLeft, actionAreaButtonRight])
 
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
@@ -43,6 +52,13 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
             setIsVisibleArrowButtonRight(false)
     },[]);
 
+    const getCurrentSizeButtons = (isPressed) => {
+        if(sizeArrowButton)
+            return isPressed ? sizeArrowButton * 0.85 : sizeArrowButton
+        else 
+            return 80
+    }
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             {type == 'vertical' ? (null) :
@@ -50,11 +66,14 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                     <WrapperHorizontal>
                         { isVisibleControlsButtons && positionArrowButton != 'bottom' &&
                         <ButtonControll 
+                            onMouseDown={() => setIsPressedLeftButton(true)}
+                            onMouseUp={() => setIsPressedLeftButton(false)}
+
                             isLeftButton={true} 
                             onClick={ scrollToLeft }
                             onMouseOver={() => setActionAreaButtonLeft(true)}
                             onMouseOut={() => setActionAreaButtonLeft(false)}
-                            sizeButton={sizeArrowButton ? sizeArrowButton : 80}
+                            sizeButton={getCurrentSizeButtons(isPressedLeftButton)}
                             visibility={isVisibleArrowButtonLeft ? 'visible': 'hidden'}
                             marginsArrowButton = {
                                 marginsArrowButton ? 
@@ -73,11 +92,14 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                         </WrapperContent>
                         { isVisibleControlsButtons && positionArrowButton != 'bottom' &&
                         <ButtonControll 
+                            onMouseDown={() => setIsPressedRightButton(true)}
+                            onMouseUp={() => setIsPressedRightButton(false)}
+
                             isLeftButton={false} 
                             onClick={ scrollToRight }
                             onMouseOver={() => setActionAreaButtonRight(true)}
                             onMouseOut={() => setActionAreaButtonRight(false)}
-                            sizeButton={sizeArrowButton ? sizeArrowButton : 80}
+                            sizeButton={getCurrentSizeButtons(isPressedRightButton)}
                             visibility={isVisibleArrowButtonRight ? 'visible': 'hidden'}
                             marginsArrowButton = {
                                 marginsArrowButton ? 
@@ -96,11 +118,14 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                             {isVisibleControlsButtons && positionArrowButton == 'bottom' &&
                             <div style={{display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'}}>
                                 <ButtonControll 
+                                    onMouseDown={() => setIsPressedLeftButton(true)}
+                                    onMouseUp={() => setIsPressedLeftButton(false)}
+
                                     isLeftButton={true} 
                                     onClick={ scrollToLeft }
                                     onMouseOver={() => setActionAreaButtonLeft(true)}
                                     onMouseOut={() => setActionAreaButtonLeft(false)}
-                                    sizeButton={sizeArrowButton ? sizeArrowButton : 80}
+                                    sizeButton={getCurrentSizeButtons(isPressedLeftButton)}
                                     visibility={isVisibleArrowButtonLeft ? 'visible': 'hidden'}
                                     marginsArrowButton = { marginsArrowButton ? marginsArrowButton + 'px': '10px'}
                                 >
@@ -109,12 +134,15 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
                                         height={sizeArrowButton ? ((sizeArrowButton/2.3).toFixed(0)).toString() : '34'}
                                         width={sizeArrowButton ? ((sizeArrowButton/4.3).toFixed(0)).toString() : '18'}/>
                                 </ButtonControll>
-                                <ButtonControll 
+                                <ButtonControll                                     
+                                    onMouseDown={() => setIsPressedRightButton(true)}
+                                    onMouseUp={() => setIsPressedRightButton(false)}
+                                    
                                     isLeftButton={false} 
                                     onClick={ scrollToRight }
                                     onMouseOver={() => setActionAreaButtonRight(true)}
                                     onMouseOut={() => setActionAreaButtonRight(false)}
-                                    sizeButton={sizeArrowButton ? sizeArrowButton : 80}
+                                    sizeButton={getCurrentSizeButtons(isPressedRightButton)}
                                     visibility={isVisibleArrowButtonRight ? 'visible': 'hidden'}
                                     marginsArrowButton = { marginsArrowButton ? marginsArrowButton + 'px': '10px'}
                                 >
