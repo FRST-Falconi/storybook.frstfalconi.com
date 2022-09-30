@@ -2,16 +2,21 @@ import React from "react"
 
 type enumVariant = 'upLeft' | 'upRight' | 'lowRight' | 'lowLeft' | 'sideLeft' | 'sideRight'
 
+type PopoverPosition = 'left' | 'right' | 'top' | 'bottom';
+type PopoverAlign = 'start' | 'end';
+
 export interface IPopOver {
-    /**
-   * @prop {enumVariant} variant: variant do popOver(upLeft, upRight, LowRight, LowLeft, sideLeft, sideRight)
-   */
+    isOpen: boolean,
+    
+    children: JSX.Element,
+    anchorElement: JSX.Element,
+    content: ContentRenderer | JSX.Element,
+    
+    position?: PopoverPosition[],
+    align?: PopoverAlign,
 
-    variant?: enumVariant;
-    /**
-   * @prop {React.ReactNode} children: valor de exibição dentro do componente popOver
-   */
-    children?: React.ReactNode
+    padding?: number,
 
+    onClickOutside?: (e: MouseEvent) => void;
     style?: React.CSSProperties
 }
