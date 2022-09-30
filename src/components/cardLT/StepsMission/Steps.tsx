@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
 import style from './Planet.module.css'
 
@@ -14,6 +14,7 @@ interface StepParams {
    * @prop {string} status: Status Planeta (B- Bloqueado, I- Inativo e A- Ativo)
    */
    status : string
+   idioma? : 'pt-BR' | 'pt-PT' | 'en-US' | 'es'
   /**
    * @prop {React.CSSProperties} style: Styles de CSS adicional
    */  
@@ -43,7 +44,7 @@ export default function Steps(props: StepParams) {
     'https://api-motor.s3.amazonaws.com/netuno.png',
   ]
 
-  const TypeStepName = [
+  const TypeStepNamePTBR = [      
     'Marte',
     'Júpiter',
     'Saturno',
@@ -51,8 +52,43 @@ export default function Steps(props: StepParams) {
     'Netuno',
   ]
 
-  return (
+  const TypeStepNamePT = [      
+    'Marte',
+    'Júpiter',
+    'Saturno',
+    'Urano',
+    'Netuno',
+  ]
 
+  const TypeStepNameEN = [      
+    'Mars',
+    'Jupiter',
+    'Saturn',
+    'Uranus',
+    'Neptuno',
+  ]
+
+  const TypeStepNameES = [      
+    'Marte',
+    'Júpiter',
+    'Saturno',
+    'Urano',
+    'Netuno',
+  ]
+
+  const mapTraducao = new Map()
+  mapTraducao.set("pt-BR", TypeStepNamePTBR)
+  mapTraducao.set("pt-PT", TypeStepNamePT)
+  mapTraducao.set("en-US", TypeStepNameEN)
+  mapTraducao.set("es", TypeStepNameES)
+
+  const [Idioma, setIdioma] = useState(props.idioma ? props.idioma : 'pt-BR');
+
+  useEffect(() => {
+    setIdioma(props.idioma ? props.idioma : 'pt-BR')
+  }, [props.idioma])
+
+  return (
     <>    
       <div className={style.container} style={{...props.style}} onClick={() => {
         if (props.status !== 'B') {
@@ -66,7 +102,7 @@ export default function Steps(props: StepParams) {
               : props.status === "I" ? 
                 style.imgInative 
               : style.imgBlocked} />
-        <div className={style.label}>{TypeStepName[props.step-1]}</div>
+        <div className={style.label}>{mapTraducao.get(Idioma)[props.step-1]}</div>
         {
           props.status === 'B' &&        
           <div className={style.block}>
@@ -76,6 +112,5 @@ export default function Steps(props: StepParams) {
       </div>
     </>
   )
-
 }
 

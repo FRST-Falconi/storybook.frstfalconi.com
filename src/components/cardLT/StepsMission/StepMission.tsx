@@ -14,7 +14,8 @@ interface MissionStepsParams {
   /**
    * @prop {number} stepActive: 
    */
-   stepActive : number;
+   stepActive : number
+   idioma? : 'pt-BR' | 'pt-PT' | 'en-US' | 'es'
   /**
    * @prop {React.CSSProperties} style: Styles de CSS adicional
    */  
@@ -38,11 +39,16 @@ export default function MissionSteps(props: MissionStepsParams) {
 
   const [stepLiberado, setstepLiberado] = useState(props.stepProblem);
   const [stepActive, setStepActive] = useState(props.stepActive);
+  const [Idioma, setIdioma] = useState(props.idioma ? props.idioma : 'pt-BR');
 
   const setStep = (step: number) => {
     setStepActive(step)
     props.onSelected(step)
   }
+
+  useEffect(() => {
+    setIdioma(props.idioma ? props.idioma : 'pt-BR')
+  }, [props.idioma])
 
   useEffect(() =>{
     setstepLiberado(props.stepProblem)
@@ -86,6 +92,7 @@ export default function MissionSteps(props: MissionStepsParams) {
         <div style={{display:"inline-flex", marginTop: 40, justifyContent: 'center', width: '100%'}}>
           <Steps
             step={1}
+            idioma={Idioma}
             status={ stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B"  } 
             onClick={() => {
               setStep(1)
@@ -94,6 +101,7 @@ export default function MissionSteps(props: MissionStepsParams) {
           />
           <Steps
             step={2}
+            idioma={Idioma}
             status={ stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B"  } 
             onClick={() => {
               setStep(2)
@@ -102,6 +110,7 @@ export default function MissionSteps(props: MissionStepsParams) {
           />
           <Steps
             step={3}
+            idioma={Idioma}
             status={ stepLiberado >= 3 ? stepActive === 3 ? "A" : "I" : "B"  } 
             onClick={() => {
               setStep(3)
@@ -110,6 +119,7 @@ export default function MissionSteps(props: MissionStepsParams) {
           />
           <Steps
             step={4}
+            idioma={Idioma}
             status={ stepLiberado >= 4 ? stepActive === 4 ? "A" : "I" : "B"  } 
             onClick={() => {
               setStep(4)
@@ -118,6 +128,7 @@ export default function MissionSteps(props: MissionStepsParams) {
           />
           <Steps
             step={5}
+            idioma={Idioma}
             status={ stepLiberado >= 5 ? stepActive === 5 ? "A" : "I" : "B"  } 
             onClick={() => {
               setStep(5)
