@@ -12,6 +12,7 @@ export const WrapperTabPrimary = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-bottom: 1px solid #BDBDBD;
 `
 
 export const TabItemPrimary = styled.div<{active}>`
@@ -30,7 +31,8 @@ export const TabItemPrimary = styled.div<{active}>`
   color: #222222;
   padding: 10px;
   margin-right: 16px;
-  
+  border-bottom: 2px solid transparent;
+
   ${({active}) => active && `
     color: #FF4D0D;
     font-weight: 700;

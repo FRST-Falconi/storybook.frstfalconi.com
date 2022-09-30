@@ -33,7 +33,8 @@ primary.args = {
         label:"Label",
         disabled: false,
         handleClick:() => alert('Click') 
-    }]
+    }],
+    style: {width: '100%'}
 }
 
 export const secondary = Template.bind({})

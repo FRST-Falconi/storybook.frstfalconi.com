@@ -12,7 +12,8 @@ import Button from '../buttons'
 export default function Tab({
   tabs,
   active,
-  variant
+  variant,
+  style
 }: IButtonGroup) {
   const [ activeItem, setActiveItem ] = useState(active)
 
@@ -37,7 +38,7 @@ export default function Tab({
           })}
         </ButtonGroup> 
         : 
-        <WrapperTabPrimary>
+        <WrapperTabPrimary style={{...style}}>
           { tabs && tabs.length > 0 && tabs.map((tabItem, index) => {
             return <TabItemPrimary 
                     key={index}
