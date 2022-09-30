@@ -30,8 +30,8 @@ export default function Tab({
                   key={index}
                     active={ activeItem}
                     variant='primary'
-                    value={tabItem.value} 
-                    label={tabItem.label} 
+                    value={tabItem?.value} 
+                    label={tabItem?.label} 
                     disabled={tabItem.disabled} 
                     handleClick={ () => tabItem.handleClick(tabItem.value) }
                   />
@@ -42,10 +42,10 @@ export default function Tab({
           { tabs && tabs.length > 0 && tabs.map((tabItem, index) => {
             return <TabItemPrimary 
                     key={index}
-                    active={ tabItem.value == activeItem}
+                    active={ tabItem?.value == activeItem}
                     onClick={ () => tabItem.handleClick(tabItem.value) }
                   >
-                    {tabItem.label}
+                    {tabItem?.label}
                   </TabItemPrimary>
           })}
         </WrapperTabPrimary>
