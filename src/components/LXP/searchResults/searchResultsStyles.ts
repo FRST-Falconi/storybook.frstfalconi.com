@@ -18,6 +18,7 @@ export const Image = styled.img`
   position: absolute;
   left: 0;
   cursor: pointer;
+  object-fit: cover;
 `
 export const Title = styled.text`
   width: 650px;
