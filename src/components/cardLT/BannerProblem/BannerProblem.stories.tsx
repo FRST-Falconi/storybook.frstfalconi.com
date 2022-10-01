@@ -143,22 +143,22 @@ ShowDataTranslate.args = {
       ],    
     children: 
         <>
-            <h2 style={{fontSize: 24}}>Missão 1: Marte - Definição do Problema</h2>
+            <h2 style={{fontSize: 24}}>Mission 1: Mars - Problem definition</h2>
 
-            <h2>Indicador:</h2>
-            <h3>Tempo de uso da plataforma</h3>
+            <h2>Indicator:</h2>
+            <h3>Platform usage time</h3>
 
-            <h2>Situação atual do indicador:</h2>
-            <h3>No último quarter (Q1 - 2022) os alunos usaram a plataforma em média 8 horas.</h3>
+            <h2>Current status of the indicator:</h2>
+            <h3>In the last quarter (Q1 - 2022) students used the platform an average of 8 hours.</h3>
 
-            <h2>Qual é a sua meta e o prazo final para alcançá-la?</h2>
-            <h3>No próximo quarter (Q2 - 2022) os alunos usarão a plataforma em média 12 horas.</h3>
+            <h2>What is your goal and the deadline for achieving it?</h2>
+            <h3>In the next quarter (Q2 - 2022) students will use the platform an average of 12 hours.</h3>
 
-            <h2>CERTEZAS: O que eu já sei sobre esse problema?</h2>
-            <h3>A presença, comprometimento e engajamento dos alunos na plataforma é algo fundamental para que os mesmos tenham um bom aproveitamento da trilha e assim, incrementando suas skills.</h3>
+            <h2>ASSURANCE: What I Already Know About This Problem?</h2>
+            <h3>The presence, commitment and engagement of students on the platform is fundamental for them to have a good use of the trail and thus, increasing their skills.</h3>
 
-            <h2>DÚVIDAS: O que eu preciso descobrir sobre esse problema?</h2>
-            <h3>O tempo ideal de engajamento é de 12 horas. É necessário investigar quais fatores influenciaram negativamente essa questão e como podemos reverter e alcançar um melhor resultado.</h3>
+            <h2>QUESTIONS: What do I need to find out about this problem?</h2>
+            <h3>The ideal engagement time is 12 hours. It is necessary to investigate which factors negatively influenced this issue and how we can reverse and achieve a better result.</h3>
 
         </>,
 
@@ -169,6 +169,11 @@ ShowDataTranslate.args = {
     textIconDescription: 'Not yet linked to a track',
     textContentInput: 'Search and select up to three keywords',
     placeholderSelectTag: 'Select a Tag',
-    
-
+    missionIdioma: 'en-US',
+    ratingTitleImpact: 'Impact',
+    ratingTitleRelevance: 'Relevance',
+    ratingTitleLikes: 'Likes',
+    ratingLikesEvaluation: 'evaluation',
+    ratingLikesDescription: 'people',
+    ratingNavegationAnt: 'Previos'
 }

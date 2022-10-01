@@ -14,7 +14,7 @@ interface StepParams {
    * @prop {string} status: Status Planeta (B- Bloqueado, I- Inativo e A- Ativo)
    */
    status : string
-   idioma? : 'pt-BR' | 'pt-PT' | 'en-US' | 'es'
+   idioma? : 'pt-BR' | 'pt-PT' | 'en-US' | 'es'   
   /**
    * @prop {React.CSSProperties} style: Styles de CSS adicional
    */  

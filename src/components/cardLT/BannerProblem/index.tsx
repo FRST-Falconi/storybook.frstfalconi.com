@@ -19,6 +19,8 @@ import TextField from '@components/form-elements/textfield'
 
 export default function BannerProblem(props: IBannerProgressTranslate) {
 
+  const [Idioma, setIdioma] = useState(props.missionIdioma ? props.missionIdioma : 'pt-BR');
+
   const [Edit, setEdit] = useState(false)
   const [ tagListShow, setTagListShow ] = useState(props.tagData ? props.tagData : [])
   /// States para controle de Edição
@@ -77,6 +79,10 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
     setTags(props.tags ? props.tags : [])
     setProblema(props.problema ? props.problema : '')
   }, [props]);
+
+  useEffect(()=>{
+    setIdioma(props.missionIdioma ? props.missionIdioma : 'pt-BR')
+  },[props.missionIdioma])
 
   const handleEdit = () => {
     if(Edit === true) {
@@ -248,27 +254,30 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
               { size[0] <= MOBILEWIDTH || Edit ? 
                   <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}}>
                     <Rating 
-                      titulo='Impacto'
+                      titulo={props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto'}
                       descricaoAvaliacao={props.descriptionImpacto}
                       qtdeAvaliacao={props.qtdeAvaliacao}
                       nota={props.notaAvaliacao}
                       tipoVisualizacao={1}
                       style={{margin: 0}}
+                      nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                     />
                     <Rating 
-                      titulo='Relevância'
+                      titulo={props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância'}
                       descricaoAvaliacao={props.descriptionRelevancia}
                       qtdeAvaliacao={props.qtdeRelevancia}
                       nota={props.notaRelevancia}
                       tipoVisualizacao={1}
                       style={{margin: 0}}
+                      nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                     />            
                     {props.curtidas &&
                       <RatingCurtidas 
-                        titulo='Curtidas'
+                        titulo={props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas'}
                         qtdeCurtidas={props.curtidas}
                         tipoBotao={2}
                         style={{margin:0}}
+                        descricaoCurtida={props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas'}
                       />
                     }
                   </div>
@@ -282,24 +291,27 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
             { size[0] > MOBILEWIDTH && Edit === false ?
               <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
                 <Rating 
-                  titulo={'Impacto'}
+                  titulo={props.ratingTitleImpact ? props.ratingTitleImpact :'Impacto'}
                   descricaoAvaliacao={props.descriptionImpacto}
                   qtdeAvaliacao={props.qtdeAvaliacao}
                   nota={props.notaAvaliacao}
                   tipoVisualizacao={1}
+                  nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                 />
                 <Rating 
-                  titulo='Relevância'
+                  titulo={props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância'}
                   descricaoAvaliacao={props.descriptionRelevancia}
                   qtdeAvaliacao={props.qtdeRelevancia}
                   nota={props.notaRelevancia}
                   tipoVisualizacao={1}
+                  nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                 />            
                 {props.curtidas &&
                   <RatingCurtidas 
-                    titulo='Curtidas'
+                    titulo={props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas'}
                     qtdeCurtidas={props.curtidas}
                     tipoBotao={2}
+                    descricaoCurtida={props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas'}
                   />
                 }
               </div> 
@@ -307,13 +319,15 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
             }       
           </div>
         </div>
+        
         <StepMission 
           stepProblem={props.stepProblem}
           stepActive={props.stepActive}
           onSelected={(step: number)=>{
             props.onSelectedStep(step)
           }}
-                
+          idioma={Idioma}
+          
         />
         <div style={{marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32}}>
           {props.children}

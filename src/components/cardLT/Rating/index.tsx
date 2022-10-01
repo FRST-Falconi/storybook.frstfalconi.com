@@ -15,6 +15,10 @@ interface RatingParams {
    */  
   descricaoAvaliacao: string;
   /**
+   * @prop {string} nomeAvaliacao: nome da avaliação (avaliação...)
+   */  
+   nomeAvaliacao: string;
+   /**
    * @prop {number} qtdeAvaliacao: Valor a ser exibido como (23 avaliações)
    */  
   qtdeAvaliacao: number;
@@ -71,7 +75,7 @@ export default function Rating(props: RatingParams) {
           <div className={style.avaliacao}>
             <div style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap',width: 100 }}>
               <span style={{fontSize: 14, fontWeight: 600}}>{props.descricaoAvaliacao}</span>
-              <span style={{fontSize: 12, fontWeight: 400}}>{`${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? 'avaliações' : 'avaliação'}`}</span>
+              <span style={{fontSize: 12, fontWeight: 400}}>{`${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}`}</span>
             </div>
             
           </div>

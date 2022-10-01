@@ -1,5 +1,6 @@
 import Steps from './Steps'
 import StepMission from './StepMission'
+import React from 'react'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
