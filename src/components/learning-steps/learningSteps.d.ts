@@ -11,4 +11,6 @@ export interface ILearningSteps {
     sizeArrowButton?: number,
     widthCard?: string,
     horizontalMarginInternScroll?: string,
+    textClearFilter?: string, 
+    textViewMore?: string,
 }

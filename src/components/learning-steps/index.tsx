@@ -12,7 +12,8 @@ import StepCard from '@components/step-card'
 import ScrollContainer from '@components/scroll-container'
 
 export default function LearningSteps({ title, onSelected, objectCards, widthCard,
-    marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }: ILearningSteps) {
+    marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll,
+    textClearFilter, textViewMore }: ILearningSteps) {
     const [ itemSelected, setItemSelected ] = useState(-1);
 
     const onItemSelect = (n: number) => {
@@ -28,7 +29,7 @@ export default function LearningSteps({ title, onSelected, objectCards, widthCar
                 onClick={() => onItemSelect(item.id)}
                 numberPeople={item.numberPeople}
                 className={null}
-                textButtonMore={'Ver mais'}
+                textButtonMore={textViewMore ? textViewMore : 'Ver mais'}
                 active={itemSelected == item.id}
                 src={item.photos}
                 width={widthCard}
@@ -49,7 +50,7 @@ export default function LearningSteps({ title, onSelected, objectCards, widthCar
                 </TitleComponent>
                 <ClearComponent  onClick={() => onItemSelect(-1)}>
                      <TrashIcon/>
-                     <TextClear>Excluir Filtro</TextClear>
+                     <TextClear>{textClearFilter? textClearFilter : 'Excluir Filtro'}</TextClear>
                 </ClearComponent>
             </HeaderWrapper>
             <ScrollContainer 
