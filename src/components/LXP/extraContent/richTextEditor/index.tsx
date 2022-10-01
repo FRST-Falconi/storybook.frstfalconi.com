@@ -91,17 +91,20 @@ const toggleBlock = (editor, format) => {
     match: n =>
       !Editor.isEditor(n) &&
       SlateElement.isElement(n) &&
+      // @ts-ignore
       LIST_TYPES.includes(n.type) &&
       !TEXT_ALIGN_TYPES.includes(format),
-    split: true,
+    split: true, 
   })
   let newProperties: Partial<SlateElement>
   if (TEXT_ALIGN_TYPES.includes(format)) {
     newProperties = {
+      // @ts-ignore
       align: isActive ? undefined : format,
     }
   } else {
     newProperties = {
+      // @ts-ignore
       type: isActive ? 'paragraph' : isList ? 'list-item' : format,
     }
   }
