@@ -2819,16 +2819,16 @@ function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, w
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$2, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
 }
 
-function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }) {
+function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, textClearFilter, textViewMore }) {
     const [itemSelected, setItemSelected] = React.useState(-1);
     const onItemSelect = (n) => {
         setItemSelected(n);
         onSelected(n);
     };
     function renderCard(item) {
-        return (jsxRuntime.jsx(StepCard, { title: item.title, onClick: () => onItemSelect(item.id), numberPeople: item.numberPeople, className: null, textButtonMore: 'Ver mais', active: itemSelected == item.id, src: item.photos, width: widthCard }, item.id));
+        return (jsxRuntime.jsx(StepCard, { title: item.title, onClick: () => onItemSelect(item.id), numberPeople: item.numberPeople, className: null, textButtonMore: textViewMore ? textViewMore : 'Ver mais', active: itemSelected == item.id, src: item.photos, width: widthCard }, item.id));
     }
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(HeaderWrapper, { marginLeft: marginLeftTitle ? marginLeftTitle : '0px', marginRight: marginRightClear ? marginRightClear : '0px', children: [jsxRuntime.jsx(TitleComponent, { children: title }), jsxRuntime.jsxs(ClearComponent, { onClick: () => onItemSelect(-1), children: [jsxRuntime.jsx(TrashIcon, {}), jsxRuntime.jsx(TextClear, { children: "Excluir Filtro" })] })] }), jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) })] }));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(HeaderWrapper, { marginLeft: marginLeftTitle ? marginLeftTitle : '0px', marginRight: marginRightClear ? marginRightClear : '0px', children: [jsxRuntime.jsx(TitleComponent, { children: title }), jsxRuntime.jsxs(ClearComponent, { onClick: () => onItemSelect(-1), children: [jsxRuntime.jsx(TrashIcon, {}), jsxRuntime.jsx(TextClear, { children: textClearFilter ? textClearFilter : 'Excluir Filtro' })] })] }), jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) })] }));
 }
 
 styled__default["default"].img `
@@ -3557,39 +3557,106 @@ var css_248z$7 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    
 var style$6 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
 styleInject(css_248z$7);
 
+const translate = {
+    "pt-BR": {
+        'notStarted': "Não iniciou",
+        'finished': "Finalizado",
+        'nextSteps': "Próximos passos",
+        'resultsAndLearnings': "Resultados e aprendizados",
+        'testsPerformed': "Testes realizados",
+        'hypothesesTaised': "Hipóteses levantadas",
+        'problemDefined': "Problema definido",
+        'problemCreated': "Problema criado",
+        'evaluation': 'avaliação',
+        'impact': 'Impacto',
+        'relevance': 'Relevância',
+        'problemApproved': 'Problema aprovado',
+        'reviewProblem': 'Revisar problema proposto',
+        'waitingApproval': 'Aguardando aprovação',
+        'linkedTrail': 'Vinculado à trilha',
+        'notLinkedTrail': 'Ainda não está vinculado a uma trilha',
+        'viewMore': 'Ver mais',
+    },
+    'en-US': {
+        'notStarted': 'Not started',
+        'finished': "Finished",
+        'nextSteps': "Next steps",
+        'resultsAndLearnings': "Results and learnings",
+        'testsPerformed': "Tests performed",
+        'hypothesesTaised': "Hypotheses raised",
+        'problemDefined': "Problem defined",
+        'problemCreated': "Problem created",
+        'evaluation': 'evaluation(s)',
+        'impact': 'Impact',
+        'relevance': 'Relevance',
+        'problemApproved': 'Problem approved',
+        'reviewProblem': 'Review proposed problem',
+        'waitingApproval': 'Waiting for approval',
+        'linkedTrail': 'Linked to trail',
+        'notLinkedTrail': 'Not yet linked to a trail',
+        'viewMore': 'View more',
+    },
+    "es-ES": {
+        'notStarted': "No empezado",
+        'finished': "Acabado",
+        'nextSteps': "Próximos pasos",
+        'resultsAndLearnings': "Resultados y aprendizajes",
+        'testsPerformed': "Pruebas completadas",
+        'hypothesesTaised': "Hipótesis planteadas",
+        'problemDefined': "Problema definido",
+        'problemCreated': "Problema creado",
+        'evaluation': 'evaluación',
+        'impact': 'Impacto',
+        'relevance': 'Relevancia',
+        'problemApproved': 'Problema aprobado',
+        'reviewProblem': 'Revisar el problema propuesto',
+        'waitingApproval': 'Aguardando aprobación',
+        'linkedTrail': 'Vinculado a sendero',
+        'notLinkedTrail': 'Aún no vinculado a un sendero',
+        'viewMore': 'Ver más',
+    }
+};
+const isValidLanguage = (lang) => {
+    return lang == 'en-US' || lang == 'pt-BR' || lang == "es-ES";
+};
 /**
  * @param {CardProblemProps} props
  */
 function CardProblem(props) {
-    const [statusName, setStatusName] = React.useState('Não iniciou');
+    const [languageSlected, onChangeLanguage] = React.useState(isValidLanguage(props.language) ? props.language : 'pt-BR');
+    React.useEffect(() => {
+        onChangeLanguage(isValidLanguage(props.language) ? props.language : 'pt-BR');
+    }, [props.language]);
+    const [statusName, setStatusName] = React.useState(translate[languageSlected]['notStarted']);
     const [selected, setSelected] = React.useState(props.selected);
+    console.log(translate);
     const [statusColor, setStatusColor] = React.useState('#757575');
     React.useEffect(() => {
         switch (props.problemStatus) {
             case 'finalizado':
-                setStatusColor("#158214"), setStatusName("Finalizado");
+                setStatusColor("#158214"), setStatusName(translate[languageSlected]['finished']);
                 break;
             case 'proxPassos':
-                setStatusColor("#222222"), setStatusName("Próximos passos");
+                setStatusColor("#222222"), setStatusName(translate[languageSlected]['nextSteps']);
                 break;
             case 'resultadosAprendizados':
-                setStatusColor("#AD005C"), setStatusName("Resultados e aprendizados");
+                setStatusColor("#AD005C"), setStatusName(translate[languageSlected]['resultsAndLearnings']);
                 break;
             case 'testesRealizados':
-                setStatusColor("#663366"), setStatusName("Testes realizados");
+                setStatusColor("#663366"), setStatusName(translate[languageSlected]['testsPerformed']);
                 break;
             case 'hipoteseLevantada':
-                setStatusColor("#F8B911"), setStatusName("Hipóteses levantadas");
+                setStatusColor("#F8B911"), setStatusName(translate[languageSlected]['hypothesesTaised']);
                 break;
             case 'problemaDefinido':
-                setStatusColor("#252BB1"), setStatusName("Problema definido");
+                setStatusColor("#252BB1"), setStatusName(translate[languageSlected]['problemDefined']);
                 break;
             case 'problemaCriado':
             default:
-                setStatusColor("#757575"), setStatusName("Problema criado");
+                setStatusColor("#757575"), setStatusName(translate[languageSlected]['problemCreated']);
                 break;
         }
-    }, [props.problemStatus]);
+    }, [props.problemStatus, languageSlected]);
     React.useEffect(() => {
         setSelected(props.selected);
     }, [props.selected]);
@@ -3604,31 +3671,31 @@ function CardProblem(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 450;
-    return (jsxRuntime.jsxs("div", { className: style$6.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$6.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$6.checkBox, onClick: () => {
+    return (jsxRuntime.jsxs("div", { className: style$6.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$6.tagStatusProblem, style: { background: statusColor, color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$6.checkBox, onClick: () => {
                     props.handleSelect(props.problemID);
                 }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$6.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$6.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$6.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
                         jsxRuntime.jsx("div", { className: style$6.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
                         jsxRuntime.jsx("div", { className: style$6.tagsContainer, children: props.tags.map((item, index) => (item &&
                                 jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
                         props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$6.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: 'avalia\u00E7\u00E3o', nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: 'avalia\u00E7\u00E3o', nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
+                        jsxRuntime.jsxs("div", { className: style$6.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: translate[languageSlected]['impact'], tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: translate[languageSlected]['relevance'], tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
                         props.statusProblema === 'aprovado' ?
-                            jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: 'Problema aprovado', style: { minWidth: 200, width: '90%' } })
+                            jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: translate[languageSlected]['problemApproved'], style: { minWidth: 200, width: '90%' } })
                             :
                                 props.statusProblema === 'revisar' ?
-                                    jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 3, texto: 'Revisar problema proposto', style: { minWidth: 200, width: '90%' } })
+                                    jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 3, texto: translate[languageSlected]['reviewProblem'], style: { minWidth: 200, width: '90%' } })
                                     :
-                                        jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 2, texto: 'Aguardando aprova\u00E7\u00E3o', style: { minWidth: 200, width: '90%' } })
+                                        jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 2, texto: translate[languageSlected]['waitingApproval'], style: { minWidth: 200, width: '90%' } })
                         :
-                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), statusName !== 'Problema criado' ?
+                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
-                            jsxRuntime.jsx(TextIcon, { description: `Vinculado à trilha ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
+                            jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                             :
-                                jsxRuntime.jsx(TextIcon, { description: 'Ainda n\u00E3o est\u00E1 vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
+                                jsxRuntime.jsx(TextIcon, { description: translate[languageSlected]['notLinkedTrail'], svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }), props.isButtonVerMais &&
-                        jsxRuntime.jsx("div", { className: style$6.buttonVerMais, children: jsxRuntime.jsx(Button$1, { variant: 'link', label: 'Ver mais', handleClick: () => props.onClick(props.problemID) }) })] })] }));
+                        jsxRuntime.jsx("div", { className: style$6.buttonVerMais, children: jsxRuntime.jsx(Button$1, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
 }
 
 var css_248z$6 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
