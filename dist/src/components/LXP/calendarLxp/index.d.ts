@@ -1,6 +1,5 @@
 import React from 'react';
 import './calendar.css';
-import 'react-date-range/dist/styles.css';
 interface CalendarLxpParams {
     styles?: React.CSSProperties;
     open?: boolean;
