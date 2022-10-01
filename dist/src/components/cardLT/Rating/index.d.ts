@@ -10,8 +10,12 @@ interface RatingParams {
      */
     descricaoAvaliacao: string;
     /**
-     * @prop {number} qtdeAvaliacao: Valor a ser exibido como (23 avaliações)
+     * @prop {string} nomeAvaliacao: nome da avaliação (avaliação...)
      */
+    nomeAvaliacao: string;
+    /**
+    * @prop {number} qtdeAvaliacao: Valor a ser exibido como (23 avaliações)
+    */
     qtdeAvaliacao: number;
     /**
      * @prop {number} tipoVisualizacao: Estilo de card (1- Estrela Amarela, 2- Estrela Negra, 3- Estrela Branca)

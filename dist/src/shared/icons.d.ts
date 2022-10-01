@@ -7,6 +7,7 @@ interface IconsProps {
     fillOpacity?: string;
     width?: string;
     height?: string;
+    active?: boolean;
 }
 export declare function EditIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WarningIcon({ fill, width, height }: IconsProps): JSX.Element;
@@ -21,7 +22,7 @@ export declare function ExitArrow({ fill, width, height }: IconsProps): JSX.Elem
 export declare function BackArrow({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WhiteFilter({ fill, width, height }: IconsProps): JSX.Element;
 export declare function CheckboxChecked({ fill, width, height }: IconsProps): JSX.Element;
-export declare function CheckboxEmpty({ fill, stroke, width, height }: IconsProps): JSX.Element;
+export declare function CheckboxEmpty({ fill, stroke, width, height, active }: IconsProps): JSX.Element;
 export declare function Trash({ fill, width, height }: IconsProps): JSX.Element;
 export declare function AlertCicle({ fill, width, height }: IconsProps): JSX.Element;
 export declare function DoubleCheck({ fill, width, height }: IconsProps): JSX.Element;
@@ -76,5 +77,6 @@ export declare function Noun({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WhatAppBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MessageCheckLine({ fill, width, height }: IconsProps): JSX.Element;
+export declare function Viewer({ fill }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

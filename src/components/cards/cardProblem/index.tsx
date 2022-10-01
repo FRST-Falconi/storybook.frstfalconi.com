@@ -128,8 +128,8 @@ export default function CardProblem(props: CardProblemProps) {
                 { size[0] > BREAKWIDTH &&
                     props.ratingImpacto &&
                         <div className={style.avaliacao}>
-                            <Rating nota={props.ratingImpacto.nota} qtdeAvaliacao={props.ratingImpacto.qtdeAvaliacao} descricaoAvaliacao={props.ratingImpacto.description} titulo='Impacto' tipoVisualizacao={selected ? 3 : 2} />
-                            <Rating nota={props.ratingRelevancia.nota} qtdeAvaliacao={props.ratingRelevancia.qtdeAvaliacao} descricaoAvaliacao={props.ratingRelevancia.description} titulo='Relevância' tipoVisualizacao={selected ? 3 : 2} />
+                            <Rating nomeAvaliacao='avaliação' nota={props.ratingImpacto.nota} qtdeAvaliacao={props.ratingImpacto.qtdeAvaliacao} descricaoAvaliacao={props.ratingImpacto.description} titulo='Impacto' tipoVisualizacao={selected ? 3 : 2} />
+                            <Rating  nomeAvaliacao='avaliação' nota={props.ratingRelevancia.nota} qtdeAvaliacao={props.ratingRelevancia.qtdeAvaliacao} descricaoAvaliacao={props.ratingRelevancia.description} titulo='Relevância' tipoVisualizacao={selected ? 3 : 2} />
 
                         </div>
                 }
