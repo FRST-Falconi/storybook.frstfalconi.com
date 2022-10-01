@@ -25,7 +25,7 @@ interface IBannerProblemParams {
     descriptionRelevancia: string
     curtidas?: number
     stepProblem: number
-    stepActive: number
+    stepActive: number            
     onSelectedStep: (step: number) => void
     onClickSave:([]) => void 
     /**
@@ -70,5 +70,11 @@ export interface IBannerProgressTranslate  extends IBannerProblemParams{
     textIconDescription?: string
     textContentInput?: string
     placeholderSelectTag?: string
-    
+    missionIdioma?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es' 
+    ratingTitleImpact?: string 
+    ratingTitleRelevance?: string 
+    ratingTitleLikes?: string 
+    ratingLikesEvaluation?: string
+    ratingLikesDescription?: string
+    ratingNavegationAnt?: string
 }

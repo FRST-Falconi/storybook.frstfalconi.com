@@ -15,6 +15,7 @@ export const CurtidasRating = Template.bind({})
 CurtidasRating.args = {
     titulo: 'Curtidas',
     qtdeCurtidas: 24,
+    descricaoCurtida: 'pessoas',
     tipoBotao: 2,
     style: {background: '#E5E5E5'}
 }

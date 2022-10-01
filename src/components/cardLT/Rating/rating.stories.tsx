@@ -16,6 +16,7 @@ ImpactoRating.args = {
     titulo: 'Impacto',
     nota: 4.6,
     descricaoAvaliacao: 'Ótimo',
+    nomeAvaliacao: 'avaliação',
     qtdeAvaliacao: 19,
     tipoVisualizacao: 1,
     style: {background: '#E5E5E5'}
@@ -26,6 +27,7 @@ RelevanciaRating.args = {
     titulo: 'Relevância',
     nota: 3.8,
     descricaoAvaliacao: 'Bom',
+    nomeAvaliacao: 'avaliação',
     qtdeAvaliacao: 23,
     tipoVisualizacao: 1,
     style: {background: '#E5E5E5'}
