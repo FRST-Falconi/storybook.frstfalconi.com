@@ -79,6 +79,7 @@ normal.args = {
                         
                     },
                 ],
+    textMoreDetails: 'Mais detalhes',
     marginsArrowButton: 50,
     sizeArrowButton: 80,
     horizontalMarginInternScroll: '50px',
@@ -153,6 +154,7 @@ bottom.args = {
                         
                     },
                 ],
+    textMoreDetails: 'Mais detalhes',
     marginsArrowButton: 10,
     sizeArrowButton: 40,
     horizontalMarginInternScroll: '15px',
