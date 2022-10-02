@@ -1,6 +1,4 @@
 /// <reference types="react" />
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
 import CardActions from '@mui/material/CardActions';
 export interface LabelStepperProps {
     $active: boolean;
@@ -23,8 +21,8 @@ export declare const DropDownList: import("styled-components").StyledComponent<(
 export declare const LabelDateStepper: import("styled-components").StyledComponent<"label", any, {}, never>;
 export declare const LabelTitleStepper: import("styled-components").StyledComponent<"label", any, {}, never>;
 export declare const ContainerStepper: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const CustomStepper: import("styled-components").StyledComponent<typeof Stepper, any, {}, never>;
-export declare const CustomStep: import("styled-components").StyledComponent<typeof Step, any, {}, never>;
+export declare const CustomStepper: import("styled-components").StyledComponent<import("@mui/material/OverridableComponent").OverridableComponent<import("@mui/material/Stepper").StepperTypeMap<{}, "div">>, any, {}, never>;
+export declare const CustomStep: import("styled-components").StyledComponent<import("@mui/material/OverridableComponent").OverridableComponent<import("@mui/material/Step").StepTypeMap<{}, "div">>, any, {}, never>;
 export declare const BoxStepper: import("styled-components").StyledComponent<import("@mui/material/OverridableComponent").OverridableComponent<import("@mui/material/Box").BoxTypeMap<{}, "div">>, any, {}, never>;
 export declare const LabelTimeMentoring: import("styled-components").StyledComponent<"label", any, {}, never>;
 export declare const BoxLabelTimeMentoring: import("styled-components").StyledComponent<"div", any, {}, never>;
