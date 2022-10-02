@@ -22,6 +22,7 @@ interface CardResultConquistaProps {
 
     onClick?: (problemId: string) => void
 
+    textMoreDetails ?: string
     style?: React.CSSProperties
 }
 
@@ -63,7 +64,7 @@ export default function CardResultConquista(props: CardResultConquistaProps) {
             <div className={style.description} style={{color: isPressed ? '#FFD600' : '#FF4D0D',fontWeight: 500, fontSize: 16, textAlign:'center', marginTop: 12}}>
                 {props.description}
             </div>
-            <div className={style.verMais}>Mais detalhes</div>
+            <div className={style.verMais}>{props.textMoreDetails ? props.textMoreDetails : "Mais detalhes"}</div>
         </div>
     )
 }
