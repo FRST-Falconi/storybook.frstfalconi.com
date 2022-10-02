@@ -27,6 +27,7 @@ interface CardDefinicaoProblemaProps {
 }
 
 export interface CardDefinicaoProblemaTranslateProps  extends CardDefinicaoProblemaProps{
+    statusTextNaoIniciou?: string
     textStatusFinalizado?: string
     textStatusProximosPassos?: string
     textStatusResultadosAprendizados?: string
@@ -34,8 +35,10 @@ export interface CardDefinicaoProblemaTranslateProps  extends CardDefinicaoProbl
     textStatusHipotesesLevantadas?: string
     textsStatusProblemaDefinido?: string
     textStatusProblemaCriado?: string
-    textButtomDefinirProblema?: string
-    textButtomContinuar?: string
+    textButtonDefinirProblema?: string
+    textHipotesesLevantadas?: string
+    textButtonVisualizar?: string
+    textButtonContinue?: string
 }
 
 
@@ -44,7 +47,7 @@ export interface CardDefinicaoProblemaTranslateProps  extends CardDefinicaoProbl
  */
 export default function CardDefinicaoProblema(props: CardDefinicaoProblemaTranslateProps) {
 
-    const [statusName, setStatusName] = useState('Não iniciou')
+    const [statusName, setStatusName] = useState((props.statusTextNaoIniciou ? props.statusTextNaoIniciou :'Não iniciou'))
 
     const [statusColor, setStatusColor] = useState('#757575')
 
@@ -67,7 +70,7 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaTransl
         <div className={style.container} >
             {
                 props.typeButton !== 1 &&
-                    <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName==="Hipóteses Levantadas" ? '#222222' : '#FFF'}}>
+                    <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName=== (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF'}}>
                         {statusName}
                     </div>
             }
@@ -81,10 +84,10 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaTransl
 
             </div>
             <div className={`${style.footerContainer} ${props.typeButton === 2 && style.footerContainerType2}`}>
-                {props.typeButton === 2 && <Button variant='link' label="Visualizar" startIcon={<OpenedEye />} handleClick={() => props.handleToView()} /> }
+                {props.typeButton === 2 && <Button variant='link' label= {props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar"} startIcon={<OpenedEye />} handleClick={() => props.handleToView()} /> }
                 <Button 
                     variant='link' 
-                    label={props.typeButton === 1 ? (props.textButtomDefinirProblema ? props.textButtomDefinirProblema : 'Definir novo problema') : (props.textButtomContinuar ? props.textButtomContinuar: 'Continuar')} 
+                    label={props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue: 'Continuar')} 
                     startIcon={props.typeButton === 1 ? <AddIcon /> : <EditIcon/>} 
                     handleClick={() => props.handleClick(props.problemId)} 
                 />

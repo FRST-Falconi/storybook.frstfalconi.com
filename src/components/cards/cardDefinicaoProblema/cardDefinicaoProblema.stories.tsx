@@ -28,6 +28,7 @@ NovoProblema.args = {
 export const NovoProblemaTranslate = Template.bind({})
 NovoProblemaTranslate.args = {
 
+    statusTextNaoIniciou: 'Not started',
     textStatusFinalizado: 'Finished',
     textStatusProximosPassos: 'Next steps',
     textStatusResultadosAprendizados: 'Tests performed',
@@ -36,7 +37,9 @@ NovoProblemaTranslate.args = {
     textsStatusProblemaDefinido: 'Problem Defined',
     textStatusProblemaCriado: 'Problem created',
     textButtomDefinirProblema: 'Define Problem',
-    textButtomContinuar:'Continue',
+    textButtomHipotesesLevantadas: 'Hypotheses raised',
+    textButtonVisualizar: 'To view',
+    textButtonContinue:'Continue',
 
     problemStatus: "naoIniciou",
 
@@ -65,6 +68,19 @@ EditarProblema.args = {
 export const EditarProblemaTranslate = Template.bind({})
 EditarProblemaTranslate.args = {
 
+    statusTextNaoIniciou: 'Not started',
+    textStatusFinalizado: 'Finished',
+    textStatusProximosPassos: 'Next steps',
+    textStatusResultadosAprendizados: 'Tests performed',
+    textStatusTestesRealizados: 'Tests Performed',
+    textStatusHipotesesLevantadas: 'Hypotheses raised',
+    textsStatusProblemaDefinido: 'Problem Defined',
+    textStatusProblemaCriado: 'Problem created',
+    textButtomDefinirProblema: 'Define Problem',
+    textButtomHipotesesLevantadas: 'Hypotheses raised',
+    textButtonVisualizar: 'To view',
+    textButtonContinue:'Continue',
+
     problemStatus: "problemaDefinido",
 
     cardTitle: "Problema",
@@ -73,5 +89,7 @@ EditarProblemaTranslate.args = {
     problemId: '123',
     handleClick: (problemId) => { alert(problemId)},
     handleToView: () => { alert('View')}
+
+    
 
 }
