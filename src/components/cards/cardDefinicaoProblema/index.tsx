@@ -26,11 +26,23 @@ interface CardDefinicaoProblemaProps {
 
 }
 
+export interface CardDefinicaoProblemaTranslateProps  extends CardDefinicaoProblemaProps{
+    textStatusFinalizado?: string
+    textStatusProximosPassos?: string
+    textStatusResultadosAprendizados?: string
+    textStatusTestesRealizados?: string
+    textStatusHipotesesLevantadas?: string
+    textsStatusProblemaDefinido?: string
+    textStatusProblemaCriado?: string
+    textButtomDefinirProblema?: string
+    textButtomContinuar?: string
+}
+
 
 /**
- * @param {CardDefinicaoProblemaProps} props
+ * @param {CardDefinicaoProblemaTranslateProps} props
  */
-export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps) {
+export default function CardDefinicaoProblema(props: CardDefinicaoProblemaTranslateProps) {
 
     const [statusName, setStatusName] = useState('Não iniciou')
 
@@ -38,14 +50,14 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps)
 
     useEffect(() => {
         switch (props.problemStatus) {
-            case 'finalizado': setStatusColor("#158214"), setStatusName("Finalizado"); break
-            case 'proxPassos': setStatusColor("#222222"), setStatusName("Próximos passos"); break
-            case 'resultadosAprendizados': setStatusColor("#AD005C"), setStatusName("Resultados e aprendizados"); break
-            case 'testesRealizados': setStatusColor("#663366"), setStatusName("Testes realizados"); break
-            case 'hipoteseLevantada': setStatusColor("#F8B911"), setStatusName("Hipóteses levantadas"); break
-            case 'problemaDefinido': setStatusColor("#252BB1"), setStatusName("Problema definido"); break
+            case 'finalizado': setStatusColor("#158214"), setStatusName(props.textStatusFinalizado? props.textStatusFinalizado : "Finalizado"); break 
+            case 'proxPassos': setStatusColor("#222222"), setStatusName(props.textStatusProximosPassos? props.textStatusProximosPassos : "Próximos passos"); break
+            case 'resultadosAprendizados': setStatusColor("#AD005C"), setStatusName(props.textStatusResultadosAprendizados? props.textStatusResultadosAprendizados : "Resultados e aprendizados"); break
+            case 'testesRealizados': setStatusColor("#663366"), setStatusName(props.textStatusTestesRealizados? props.textStatusTestesRealizados : "Testes realizados"); break
+            case 'hipoteseLevantada': setStatusColor("#F8B911"), setStatusName(props.textStatusHipotesesLevantadas? props.textStatusHipotesesLevantadas : "Hipóteses levantadas"); break
+            case 'problemaDefinido': setStatusColor("#252BB1"), setStatusName(props.textsStatusProblemaDefinido? props.textsStatusProblemaDefinido : "Problema definido"); break
             case 'problemaCriado':
-            default: setStatusColor("#757575"), setStatusName("Problema criado"); break
+            default: setStatusColor("#757575"), setStatusName(props.textStatusProblemaCriado?  props.textStatusProblemaCriado : "Problema criado"); break
         }
     }, [props.problemStatus])
 
@@ -70,7 +82,12 @@ export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps)
             </div>
             <div className={`${style.footerContainer} ${props.typeButton === 2 && style.footerContainerType2}`}>
                 {props.typeButton === 2 && <Button variant='link' label="Visualizar" startIcon={<OpenedEye />} handleClick={() => props.handleToView()} /> }
-                <Button variant='link' label={props.typeButton === 1 ? 'Definir novo problema' : 'Continuar'} startIcon={props.typeButton === 1 ? <AddIcon /> : <EditIcon/>} handleClick={() => props.handleClick(props.problemId)} />
+                <Button 
+                    variant='link' 
+                    label={props.typeButton === 1 ? (props.textButtomDefinirProblema ? props.textButtomDefinirProblema : 'Definir novo problema') : (props.textButtomContinuar ? props.textButtomContinuar: 'Continuar')} 
+                    startIcon={props.typeButton === 1 ? <AddIcon /> : <EditIcon/>} 
+                    handleClick={() => props.handleClick(props.problemId)} 
+                />
             </div>
 
         </div>
