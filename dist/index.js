@@ -3703,39 +3703,39 @@ var style$5 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagS
 styleInject(css_248z$6);
 
 /**
- * @param {CardDefinicaoProblemaProps} props
+ * @param {CardDefinicaoProblemaTranslateProps} props
  */
 function CardDefinicaoProblema(props) {
-    const [statusName, setStatusName] = React.useState('Não iniciou');
+    const [statusName, setStatusName] = React.useState((props.statusTextNaoIniciou ? props.statusTextNaoIniciou : 'Não iniciou'));
     const [statusColor, setStatusColor] = React.useState('#757575');
     React.useEffect(() => {
         switch (props.problemStatus) {
             case 'finalizado':
-                setStatusColor("#158214"), setStatusName("Finalizado");
+                setStatusColor("#158214"), setStatusName(props.textStatusFinalizado ? props.textStatusFinalizado : "Finalizado");
                 break;
             case 'proxPassos':
-                setStatusColor("#222222"), setStatusName("Próximos passos");
+                setStatusColor("#222222"), setStatusName(props.textStatusProximosPassos ? props.textStatusProximosPassos : "Próximos passos");
                 break;
             case 'resultadosAprendizados':
-                setStatusColor("#AD005C"), setStatusName("Resultados e aprendizados");
+                setStatusColor("#AD005C"), setStatusName(props.textStatusResultadosAprendizados ? props.textStatusResultadosAprendizados : "Resultados e aprendizados");
                 break;
             case 'testesRealizados':
-                setStatusColor("#663366"), setStatusName("Testes realizados");
+                setStatusColor("#663366"), setStatusName(props.textStatusTestesRealizados ? props.textStatusTestesRealizados : "Testes realizados");
                 break;
             case 'hipoteseLevantada':
-                setStatusColor("#F8B911"), setStatusName("Hipóteses levantadas");
+                setStatusColor("#F8B911"), setStatusName(props.textStatusHipotesesLevantadas ? props.textStatusHipotesesLevantadas : "Hipóteses levantadas");
                 break;
             case 'problemaDefinido':
-                setStatusColor("#252BB1"), setStatusName("Problema definido");
+                setStatusColor("#252BB1"), setStatusName(props.textsStatusProblemaDefinido ? props.textsStatusProblemaDefinido : "Problema definido");
                 break;
             case 'problemaCriado':
             default:
-                setStatusColor("#757575"), setStatusName("Problema criado");
+                setStatusColor("#757575"), setStatusName(props.textStatusProblemaCriado ? props.textStatusProblemaCriado : "Problema criado");
                 break;
         }
     }, [props.problemStatus]);
     return (jsxRuntime.jsxs("div", { className: style$5.container, children: [props.typeButton !== 1 &&
-                jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses Levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$5.footerContainer} ${props.typeButton === 2 && style$5.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$1, { variant: 'link', label: "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$1, { variant: 'link', label: props.typeButton === 1 ? 'Definir novo problema' : 'Continuar', startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
+                jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$5.footerContainer} ${props.typeButton === 2 && style$5.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$1, { variant: 'link', label: props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$1, { variant: 'link', label: props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue : 'Continuar'), startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
 }
 
 var css_248z$5 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-break: break-all;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-break: break-all;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
@@ -3759,6 +3759,10 @@ function CardResultConquista(props) {
         const timer = setTimeout(() => setIsPressed(false), 1000);
         return () => clearTimeout(timer);
     }, [isPressed]);
+    const [btnViewMore, setBtnViewMore] = React.useState('');
+    React.useEffect(() => {
+        setBtnViewMore(props.textMoreDetails);
+    }, [props.textMoreDetails]);
     return (jsxRuntime.jsxs("div", { className: style$4.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
             props.onClick(props.problemId);
             setIsPressed(true);
@@ -3771,7 +3775,7 @@ function CardResultConquista(props) {
                             isPressed ?
                                 jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })
                                 :
-                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$4.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$4.verMais, children: "Mais detalhes" })] }));
+                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$4.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$4.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
 }
 
 const WrapperCard$2 = styled__default["default"].div `
@@ -3807,10 +3811,14 @@ function ExclusiveClassCard({ titleClass, labelButton, className, handleClick })
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
-function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }) {
+function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
     React.useState(-1);
+    const [btnViewMore, setBtnViewMore] = React.useState('');
+    React.useEffect(() => {
+        setBtnViewMore(textMoreDetails);
+    }, [textMoreDetails]);
     function renderCard(item, index) {
-        return (jsxRuntime.jsx(CardResultConquista, { description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
+        return (jsxRuntime.jsx(CardResultConquista, { textMoreDetails: btnViewMore ? btnViewMore : 'Mais detalhes', description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
 }

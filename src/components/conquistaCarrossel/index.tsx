@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
@@ -15,12 +15,17 @@ export default function ConquistaCarrossel({ onSelected, objectCards, marginsArr
         setItemSelected(n)
         onSelected(n)
     }
+    const [btnViewMore, setBtnViewMore] = useState('')
 
+    useEffect(() => {
+        setBtnViewMore(textMoreDetails)
+    }, [textMoreDetails]);
+    
     function renderCard(item, index) {
         return (
             <CardResultConquista 
                 key={index}
-                textMoreDetails={textMoreDetails ? textMoreDetails : 'Mais detalhes'}
+                textMoreDetails={btnViewMore ? btnViewMore : 'Mais detalhes'}
                 description={item.description}
                 problemId={item.problemId}
                 statusCard={item.statusCard}

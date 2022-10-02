@@ -16,9 +16,23 @@ interface CardDefinicaoProblemaProps {
     */
     handleToView: () => void;
 }
+export interface CardDefinicaoProblemaTranslateProps extends CardDefinicaoProblemaProps {
+    statusTextNaoIniciou?: string;
+    textStatusFinalizado?: string;
+    textStatusProximosPassos?: string;
+    textStatusResultadosAprendizados?: string;
+    textStatusTestesRealizados?: string;
+    textStatusHipotesesLevantadas?: string;
+    textsStatusProblemaDefinido?: string;
+    textStatusProblemaCriado?: string;
+    textButtonDefinirProblema?: string;
+    textHipotesesLevantadas?: string;
+    textButtonVisualizar?: string;
+    textButtonContinue?: string;
+}
 /**
- * @param {CardDefinicaoProblemaProps} props
+ * @param {CardDefinicaoProblemaTranslateProps} props
  */
-export default function CardDefinicaoProblema(props: CardDefinicaoProblemaProps): JSX.Element;
+export default function CardDefinicaoProblema(props: CardDefinicaoProblemaTranslateProps): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map
