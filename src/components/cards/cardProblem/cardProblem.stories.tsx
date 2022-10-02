@@ -6,6 +6,12 @@ import CardProblem from './index'
 export default {
     title: 'Cards/CardProblem',
     component: CardProblem,
+    argTypes: {
+        language: {
+            control: 'select',
+            options: ['pt-BR', 'en-US', 'es-ES']
+        }
+    }
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -15,6 +21,7 @@ export const hipoteseLevantada = Template.bind({})
 hipoteseLevantada.args = {
     
     selected: false,
+    language: 'pt-BR',
     
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
@@ -45,7 +52,7 @@ export const finalizado = Template.bind({})
 finalizado.args = {
     
     selected: false,
-    
+    language: 'pt-BR',
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
     problemStatus: "finalizado",
@@ -72,6 +79,7 @@ export const proxPassos = Template.bind({})
 proxPassos.args = {
     
     selected: false,
+    language: 'pt-BR',
     
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
@@ -100,6 +108,7 @@ export const resultadosAprendizados = Template.bind({})
 resultadosAprendizados.args = {
     
     selected: false,
+    language: 'pt-BR',
     
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
@@ -128,6 +137,7 @@ export const testesRealizados = Template.bind({})
 testesRealizados.args = {
     
     selected: false,
+    language: 'pt-BR',
     
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
@@ -156,6 +166,7 @@ export const problemaDefinido = Template.bind({})
 problemaDefinido.args = {
     
     selected: false,
+    language: 'pt-BR',
     
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",
@@ -184,6 +195,7 @@ export const naoIniciou = Template.bind({})
 naoIniciou.args = {
     
     selected: false,
+    language: 'pt-BR',
     
     problemID: "bla-blu-fla",
     userName: "Roberto Lima",

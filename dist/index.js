@@ -7,8 +7,8 @@ var React = require('react');
 var reactI18next = require('react-i18next');
 var material = require('@mui/material');
 var styled = require('styled-components');
-var Button$2 = require('@mui/material/Button');
-var Menu = require('@mui/material/Menu');
+var Button$3 = require('@mui/material/Button');
+var Menu$1 = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
 var Card = require('@mui/material/Card');
 var Stepper$1 = require('@mui/material/Stepper');
@@ -30,15 +30,41 @@ var Rating$2 = require('@mui/material/Rating');
 var Typography$1 = require('@mui/material/Typography');
 var reactDateRange = require('react-date-range');
 var locale = require('date-fns/locale');
-require('react-date-range/dist/styles.css');
 var dateFns = require('date-fns');
+var Avatar$1 = require('@mui/material/Avatar');
+var isHotkey = require('is-hotkey');
+var slateReact = require('slate-react');
+var slate = require('slate');
+var slateHistory = require('slate-history');
+require('react-dom');
+var css = require('@emotion/css');
+var iconsMaterial = require('@mui/icons-material');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
+function _interopNamespace(e) {
+  if (e && e.__esModule) return e;
+  var n = Object.create(null);
+  if (e) {
+    Object.keys(e).forEach(function (k) {
+      if (k !== 'default') {
+        var d = Object.getOwnPropertyDescriptor(e, k);
+        Object.defineProperty(n, k, d.get ? d : {
+          enumerable: true,
+          get: function () { return e[k]; }
+        });
+      }
+    });
+  }
+  n["default"] = e;
+  return Object.freeze(n);
+}
+
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
-var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$2);
-var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
+var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$3);
+var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu$1);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var Card__default = /*#__PURE__*/_interopDefaultLegacy(Card);
 var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper$1);
@@ -54,6 +80,8 @@ var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$3);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$1);
+var Avatar__default = /*#__PURE__*/_interopDefaultLegacy(Avatar$1);
+var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -82,8 +110,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$h = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$h);
+var css_248z$i = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+styleInject(css_248z$i);
 
 function EditIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "20", height: height ? height : "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M16.1788 1.92286C16.3858 1.71638 16.667 1.6 16.9607 1.6C17.2544 1.6 17.5356 1.71638 17.7426 1.92286C17.9496 2.12928 18.0654 2.4088 18.0654 2.69981C18.0654 2.99083 17.9496 3.27034 17.7426 3.47676L9.5855 11.6127C9.4439 11.7539 9.26546 11.8543 9.07141 11.9027C8.26586 12.1036 7.52969 11.3753 7.73154 10.57C7.78007 10.3765 7.88036 10.1997 8.02166 10.0588L16.1788 1.92286ZM16.9607 0C16.244 0 15.5563 0.283939 15.0489 0.790021L6.5187 9.29803C6.41591 9.40055 6.34296 9.52912 6.30766 9.66994L5.40975 13.2523C5.34143 13.5248 5.42113 13.8133 5.61971 14.0121C5.81829 14.2109 6.10663 14.291 6.3793 14.223L9.97094 13.3274C10.1114 13.2924 10.2398 13.2199 10.3423 13.1176L18.8725 4.6096C19.38 4.10345 19.6654 3.41652 19.6654 2.69981C19.6654 1.9831 19.38 1.29617 18.8725 0.790021C18.3651 0.283939 17.6774 0 16.9607 0ZM2.59582 1.89842C1.90804 1.89842 1.24801 2.17091 0.761035 2.65662C0.273994 3.1424 0 3.80169 0 4.48958V17.0277C0 17.7156 0.273995 18.3749 0.761035 18.8607C1.24801 19.3464 1.90804 19.6188 2.59582 19.6188H15.1666C15.8544 19.6188 16.5144 19.3464 17.0014 18.8607C17.4884 18.3749 17.7624 17.7156 17.7624 17.0277V10.7586C17.7624 10.3168 17.4042 9.95864 16.9624 9.95864C16.5206 9.95864 16.1624 10.3168 16.1624 10.7586V17.0277C16.1624 17.2899 16.058 17.5418 15.8715 17.7278C15.6849 17.9139 15.4314 18.0189 15.1666 18.0189H2.59582C2.33104 18.0189 2.07753 17.9139 1.89093 17.7278C1.70441 17.5418 1.6 17.2899 1.6 17.0277V4.48958C1.6 4.22738 1.70441 3.9755 1.89093 3.78946C2.07753 3.60335 2.33104 3.49842 2.59582 3.49842H8.8812C9.32303 3.49842 9.6812 3.14025 9.6812 2.69842C9.6812 2.25659 9.32303 1.89842 8.8812 1.89842H2.59582Z", fill: fill ?? "#0645AD" }) }));
@@ -91,13 +119,22 @@ function EditIcon({ fill, width, height }) {
 function WarningIcon$1({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "24", height: height ? height : "20", viewBox: "0 0 24 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M22.9209 17.2636L12.8305 0.814496C12.1589 -0.281702 11.0604 -0.266316 10.3889 0.829881L0.298445 17.2567C-0.37312 18.3537 0.128439 19.2006 1.41311 19.2006H21.8055C23.0909 19.2006 23.5925 18.359 22.9209 17.2636ZM11.6012 4.45541C12.2474 4.45541 12.7474 5.16929 12.7143 6.04163L12.5097 11.2988C12.4766 12.1703 12.0666 12.8842 11.5989 12.8842C11.1312 12.8842 10.7204 12.1703 10.6873 11.2988L10.485 6.04163C10.4519 5.16929 10.9535 4.45541 11.6012 4.45541ZM11.6012 16.8444C10.7858 16.8444 10.2265 16.2482 10.2435 15.4335C10.2435 14.6012 10.8043 14.0227 11.6012 14.0227C12.432 14.0227 12.9574 14.6012 12.9751 15.4335C12.9751 16.2482 12.432 16.8444 11.6012 16.8444Z", fill: fill ?? "#F3D224" }) }));
 }
+function FRSTLogo({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "92", height: height ? height : "29", viewBox: "0 0 92 29", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M5.65283 5.79883H23.0488V0.000112057H5.65283V5.79883Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M76.6865 29H82.4851V7.24833H76.6865V29Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M67.9883 0.0423484V5.84106H91.183V0.0423484H67.9883Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M60.1725 12.0406C55.6756 10.9699 54.9673 10.9269 54.9673 8.18607C54.9673 6.08764 55.6097 5.79865 58.4791 5.79865C59.2456 5.79865 60.0151 5.79865 60.6958 5.94355L60.7304 0.154449C60.1601 -6.48499e-05 59.6993 -6.48499e-05 58.9732 -6.48499e-05C51.136 -6.48499e-05 49.123 2.31875 49.123 8.01472C49.123 14.1818 50.1509 15.5522 57.046 17.0513C61.7142 18.079 62.1896 18.2339 62.1896 20.8034C62.1896 23.2017 60.8484 23.1946 57.5507 23.1946C56.5639 23.1946 55.811 23.1946 54.9413 23.0496V28.8483C55.811 28.9932 56.6036 28.9932 57.527 28.9932C66.5386 28.9932 67.9768 26.4993 67.9768 20.8462C67.9768 15.236 67.8813 13.8819 60.1725 12.0406Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M20.1496 13.0452H5.65303L0 15.8787L1.57347 21.3824L5.65303 19.2136V28.9915H11.4517V18.8438H20.1496V13.0452Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M43.3443 11.5735V7.27213C43.3443 3.25592 40.0886 -6.48499e-05 36.0722 -6.48499e-05H28.8477V5.79865H34.8031C36.318 5.79865 37.5457 7.02658 37.5457 8.54109V10.3045C37.5457 11.819 36.318 13.047 34.8031 13.047H28.8477V18.8455H30.9999L38.4154 28.9932L43.3443 25.0793L38.5443 18.3814C38.9133 18.2948 39.1938 18.192 39.339 18.0701C41.714 16.8734 43.3443 14.4145 43.3443 11.5735Z", fill: fill ?? "white" })] }));
+}
+function DownloadIcon({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M12.8 1C12.8 0.447715 12.3523 0 11.8 0C11.2477 0 10.8 0.447715 10.8 1V12.9858L6.50711 8.69289C6.11658 8.30237 5.48342 8.30237 5.09289 8.69289C4.70237 9.08342 4.70237 9.71658 5.09289 10.1071L11.0929 16.1071C11.2858 16.3 11.5379 16.3976 11.7908 16.4C11.7938 16.4 11.7969 16.4 11.8 16.4M12.8 1V12.9858V1ZM11.8092 16.4C12.0621 16.3976 12.3142 16.3 12.5071 16.1071L18.5071 10.1071C18.8976 9.71658 18.8976 9.08342 18.5071 8.69289C18.1166 8.30237 17.4834 8.30237 17.0929 8.69289L12.8 12.9858M1 14.4C1.55228 14.4 2 14.8477 2 15.4V20.2C2 20.5713 2.1475 20.9274 2.41005 21.1899C2.6726 21.4525 3.0287 21.6 3.4 21.6H20.2C20.5713 21.6 20.9274 21.4525 21.1899 21.1899C21.4525 20.9274 21.6 20.5713 21.6 20.2V15.4C21.6 14.8477 22.0477 14.4 22.6 14.4C23.1523 14.4 23.6 14.8477 23.6 15.4V20.2C23.6 21.1017 23.2418 21.9665 22.6042 22.6042C21.9665 23.2418 21.1017 23.6 20.2 23.6H3.4C2.49826 23.6 1.63346 23.2418 0.995837 22.6042C0.358213 21.9665 0 21.1017 0 20.2V15.4C0 14.8477 0.447715 14.4 1 14.4Z", fill: fill ?? "#FF4D0D" }) }));
+}
 function DropdownIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "16", height: height ? height : "16", children: jsxRuntime.jsx("path", { d: "M2 8l6 6 6-6z", fill: fill ?? "white" }) }));
+}
+function DropdownSideIconWhite({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "7", height: height ? height : "12", viewBox: "0 0 7 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.31359 6.34315L0.656738 0.686292V12L6.31359 6.34315Z", fill: fill ?? "white" }) }));
 }
 function CheckboxChecked({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.5", y: "0.5", width: "15", height: "15", rx: "1.5", fill: "#F35F24", stroke: "#F35F24" }), jsxRuntime.jsx("path", { d: "M13 4L6.125 11L3 7.81818", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function CheckboxEmpty({ fill, stroke, width, height }) {
+function CheckboxEmpty({ fill, stroke, width, height, active }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "1.4", fill: fill ?? "white", stroke: stroke ?? "#A6A6A6", strokeWidth: "1.2" }) }));
 }
 function AlertCicle({ fill, width, height }) {
@@ -385,7 +422,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$5 = styled__default["default"](Card__default["default"]) `
+const Container$7 = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -591,9 +628,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$5, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$7, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$5, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$7, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -606,9 +643,9 @@ function CalendarCard(props) {
                                         jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
 }
 
-var css_248z$g = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
-var style$f = {"container":"TextIcon-module_container__c5xjY"};
-styleInject(css_248z$g);
+var css_248z$h = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
+var style$g = {"container":"TextIcon-module_container__c5xjY"};
+styleInject(css_248z$h);
 
 ///-----------------------------------------
 /// Componente
@@ -617,12 +654,12 @@ styleInject(css_248z$g);
  * @componente
  */
 function TextIcon(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$f.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$g.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
 }
 
-var css_248z$f = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
-var style$e = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
-styleInject(css_248z$f);
+var css_248z$g = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
+var style$f = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
+styleInject(css_248z$g);
 
 ///-----------------------------------------
 /// Componente
@@ -676,28 +713,28 @@ function MessageBox(props) {
         jsxRuntime.jsx(SaveIcon, { fill: 'red' })
     ];
     return (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsxs("div", { className: props.hasHover ?
-                    `${props.tipoVisualizacao === 1 ? style$e.success
-                        : props.tipoVisualizacao === 2 ? style$e.warning
-                            : props.tipoVisualizacao === 3 ? style$e.error
-                                : props.tipoVisualizacao === 4 ? style$e.notificacao
-                                    : props.tipoVisualizacao === 5 ? style$e.notificacaoErro
-                                        : ''} ${style$e.container}`
+                    `${props.tipoVisualizacao === 1 ? style$f.success
+                        : props.tipoVisualizacao === 2 ? style$f.warning
+                            : props.tipoVisualizacao === 3 ? style$f.error
+                                : props.tipoVisualizacao === 4 ? style$f.notificacao
+                                    : props.tipoVisualizacao === 5 ? style$f.notificacaoErro
+                                        : ''} ${style$f.container}`
                     :
-                        `${props.tipoVisualizacao === 1 ? style$e.successNoHover
-                            : props.tipoVisualizacao === 2 ? style$e.warningNoHover
-                                : props.tipoVisualizacao === 3 ? style$e.errorNoHover
-                                    : props.tipoVisualizacao === 4 ? style$e.notificacaoNoHover
-                                        : props.tipoVisualizacao === 5 ? style$e.notificacaoErroNoHover
-                                            : ''} ${style$e.container}`, style: {
+                        `${props.tipoVisualizacao === 1 ? style$f.successNoHover
+                            : props.tipoVisualizacao === 2 ? style$f.warningNoHover
+                                : props.tipoVisualizacao === 3 ? style$f.errorNoHover
+                                    : props.tipoVisualizacao === 4 ? style$f.notificacaoNoHover
+                                        : props.tipoVisualizacao === 5 ? style$f.notificacaoErroNoHover
+                                            : ''} ${style$f.container}`, style: {
                     cursor: props.onClick ? 'pointer' : 'default',
                     ...props.style
-                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$e.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
+                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$f.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
                 jsxRuntime.jsxs("div", { style: { display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 32, marginTop: 16, cursor: 'pointer' }, onClick: props.onClickExit, children: [" ", jsxRuntime.jsx(CloseIcon, {}), " "] })] }));
 }
 
-var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: inline-flex;\n  width: 100px;\n  margin-left: 4px;\n}\n";
-var style$d = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
-styleInject(css_248z$e);
+var css_248z$f = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: inline-flex;\n  width: 100px;\n  margin-left: 4px;\n}\n";
+var style$e = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
+styleInject(css_248z$f);
 
 ///-----------------------------------------
 /// Componente
@@ -727,12 +764,12 @@ function Rating$1(props) {
         '#FFC200',
         '#FF4D0D',
     ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$d.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$d.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$d.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsx("div", { className: style$d.avaliacao, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? 'avaliações' : 'avaliação'}` })] }) })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$e.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$e.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$e.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsx("div", { className: style$e.avaliacao, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] }) })] })] }) }));
 }
 
-var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
-var style$c = {"container":"RatingCurtidas-module_container__Ns11t"};
-styleInject(css_248z$d);
+var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
+var style$d = {"container":"RatingCurtidas-module_container__Ns11t"};
+styleInject(css_248z$e);
 
 ///-----------------------------------------
 /// Componente
@@ -773,12 +810,12 @@ function RocketButton(props) {
  * @componente
  */
 function RatingCurtidas(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.qtdeCurtidas > 1 ? `pessoas` : props.qtdeCurtidas === 1 ? `pessoa` : `curtidas` })] }) })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.qtdeCurtidas > 1 ? props.descricaoCurtida : props.qtdeCurtidas === 1 ? `pessoa` : `curtidas` })] }) })] })] }) }));
 }
 
-var css_248z$c = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
-var style$b = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
-styleInject(css_248z$c);
+var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
+var style$c = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
+styleInject(css_248z$d);
 
 ///-----------------------------------------
 /// Componente
@@ -794,23 +831,53 @@ function Steps(props) {
         'https://api-motor.s3.amazonaws.com/urano.png',
         'https://api-motor.s3.amazonaws.com/netuno.png',
     ];
-    const TypeStepName = [
+    const TypeStepNamePTBR = [
         'Marte',
         'Júpiter',
         'Saturno',
         'Urano',
         'Netuno',
     ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, onClick: () => {
+    const TypeStepNamePT = [
+        'Marte',
+        'Júpiter',
+        'Saturno',
+        'Urano',
+        'Netuno',
+    ];
+    const TypeStepNameEN = [
+        'Mars',
+        'Jupiter',
+        'Saturn',
+        'Uranus',
+        'Neptuno',
+    ];
+    const TypeStepNameES = [
+        'Marte',
+        'Júpiter',
+        'Saturno',
+        'Urano',
+        'Netuno',
+    ];
+    const mapTraducao = new Map();
+    mapTraducao.set("pt-BR", TypeStepNamePTBR);
+    mapTraducao.set("pt-PT", TypeStepNamePT);
+    mapTraducao.set("en-US", TypeStepNameEN);
+    mapTraducao.set("es", TypeStepNameES);
+    const [Idioma, setIdioma] = React.useState(props.idioma ? props.idioma : 'pt-BR');
+    React.useEffect(() => {
+        setIdioma(props.idioma ? props.idioma : 'pt-BR');
+    }, [props.idioma]);
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, onClick: () => {
                 if (props.status !== 'B') {
                     props.onClick();
                 }
             }, children: [jsxRuntime.jsx("img", { src: TypeStep[props.step - 1], className: props.status === "A" ?
-                        style$b.imgAtive
+                        style$c.imgAtive
                         : props.status === "I" ?
-                            style$b.imgInative
-                            : style$b.imgBlocked }), jsxRuntime.jsx("div", { className: style$b.label, children: TypeStepName[props.step - 1] }), props.status === 'B' &&
-                    jsxRuntime.jsx("div", { className: style$b.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
+                            style$c.imgInative
+                            : style$c.imgBlocked }), jsxRuntime.jsx("div", { className: style$c.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
+                    jsxRuntime.jsx("div", { className: style$c.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
 }
 
 ///-----------------------------------------
@@ -820,12 +887,45 @@ function Steps(props) {
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
 function MissionSteps(props) {
+    const traducaoPTBR = {
+        next: "Próxima missão >",
+        nextShort: "Próx. >",
+        previous: "< Missão anterior",
+        previousShort: "< Ant.",
+    };
+    const traducaoES = {
+        next: "Próxima misión >",
+        nextShort: "Próx. >",
+        previous: "< Misión anterior",
+        previousShort: "< Ant.",
+    };
+    const traducaoENUS = {
+        next: "Next mission >",
+        nextShort: "Next >",
+        previous: "< Previous mission",
+        previousShort: "< Previous",
+    };
+    const traducaoPT = {
+        next: "Próxima missão >",
+        nextShort: "Próx. >",
+        previous: "< Missão anterior",
+        previousShort: "< Ant.",
+    };
+    const mapTraducao = new Map();
+    mapTraducao.set("pt-BR", traducaoPTBR);
+    mapTraducao.set("es", traducaoES);
+    mapTraducao.set("en-US", traducaoENUS);
+    mapTraducao.set("pt-PT", traducaoPT);
     const [stepLiberado, setstepLiberado] = React.useState(props.stepProblem);
     const [stepActive, setStepActive] = React.useState(props.stepActive);
+    const [Idioma, setIdioma] = React.useState(props.idioma ? props.idioma : 'pt-BR');
     const setStep = (step) => {
         setStepActive(step);
         props.onSelected(step);
     };
+    React.useEffect(() => {
+        setIdioma(props.idioma ? props.idioma : 'pt-BR');
+    }, [props.idioma]);
     React.useEffect(() => {
         setstepLiberado(props.stepProblem);
     }, [props.stepProblem]);
@@ -842,30 +942,30 @@ function MissionSteps(props) {
     const BREAKWIDTH = 475;
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white' }, children: [stepActive > 1 ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$b.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${"< Missão anterior"}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previous}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$b.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${"< Ant."}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previousShort}` })
                     : null, stepActive < stepLiberado ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$b.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${"Próxima missão >"}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).next}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$b.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${"Próx. >"}` })
-                    : null, jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).nextShort}` })
+                    : null, jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
                                 setStep(1);
-                            } }), jsxRuntime.jsx(Steps, { step: 2, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
+                            } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
                                 setStep(2);
-                            } }), jsxRuntime.jsx(Steps, { step: 3, status: stepLiberado >= 3 ? stepActive === 3 ? "A" : "I" : "B", onClick: () => {
+                            } }), jsxRuntime.jsx(Steps, { step: 3, idioma: Idioma, status: stepLiberado >= 3 ? stepActive === 3 ? "A" : "I" : "B", onClick: () => {
                                 setStep(3);
-                            } }), jsxRuntime.jsx(Steps, { step: 4, status: stepLiberado >= 4 ? stepActive === 4 ? "A" : "I" : "B", onClick: () => {
+                            } }), jsxRuntime.jsx(Steps, { step: 4, idioma: Idioma, status: stepLiberado >= 4 ? stepActive === 4 ? "A" : "I" : "B", onClick: () => {
                                 setStep(4);
-                            } }), jsxRuntime.jsx(Steps, { step: 5, status: stepLiberado >= 5 ? stepActive === 5 ? "A" : "I" : "B", onClick: () => {
+                            } }), jsxRuntime.jsx(Steps, { step: 5, idioma: Idioma, status: stepLiberado >= 5 ? stepActive === 5 ? "A" : "I" : "B", onClick: () => {
                                 setStep(5);
                             } })] })] }) }));
 }
 
-var css_248z$b = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
-var style$a = {"container":"avatarWithInfo-module_container__Y-yUf"};
-styleInject(css_248z$b);
+var css_248z$c = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
+var style$b = {"container":"avatarWithInfo-module_container__Y-yUf"};
+styleInject(css_248z$c);
 
 const DesignTokens = {
     "colors": {
@@ -1097,7 +1197,7 @@ function Vector(props) {
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
 function AvatarWithInfo(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
 }
 
 const LinkButton$1 = styled__default["default"].a `
@@ -1315,7 +1415,7 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
     `,
 }[variant]);
-const Button$1 = styled__default["default"].button `
+const Button$2 = styled__default["default"].button `
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1433,7 +1533,7 @@ const ButtonEndIcon = styled__default["default"].button `
     ${({ variant }) => variantStyles$1(variant)}
 `;
 
-function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length }) {
+function Button$1({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, type: type }, children: startIcon ?
             (variant === 'link') ?
                 jsxRuntime.jsxs(LinkButtonStartIcon, { disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
@@ -1448,20 +1548,15 @@ function Button({ variant, label, sizeIcon, disabled, startIcon, endIcon, handle
                     (variant === 'link') ?
                         jsxRuntime.jsx(LinkButton$1, { disabled: disabled, onClick: handleClick, children: label })
                         :
-                            jsxRuntime.jsx(Button$1, { length: length, active: active, value: value, style: style, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
+                            jsxRuntime.jsx(Button$2, { length: length, active: active, value: value, style: style, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
-var css_248z$a = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
-var style$9 = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
-styleInject(css_248z$a);
+var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
+var style$a = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
+styleInject(css_248z$b);
 
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
 function BannerProblem(props) {
+    const [Idioma, setIdioma] = React.useState(props.missionIdioma ? props.missionIdioma : 'pt-BR');
     const [Edit, setEdit] = React.useState(false);
     const [tagListShow, setTagListShow] = React.useState(props.tagData ? props.tagData : []);
     /// States para controle de Edição
@@ -1516,6 +1611,9 @@ function BannerProblem(props) {
         setTags(props.tags ? props.tags : []);
         setProblema(props.problema ? props.problema : '');
     }, [props]);
+    React.useEffect(() => {
+        setIdioma(props.missionIdioma ? props.missionIdioma : 'pt-BR');
+    }, [props.missionIdioma]);
     const handleEdit = () => {
         if (Edit === true) {
             let titleInEditing = TituloProblema;
@@ -1542,8 +1640,8 @@ function BannerProblem(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const MOBILEWIDTH = 650;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$9.container, style: { ...props.style }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$9.titleProblem, children: "Problema" }), props.isEditable &&
-                            jsxRuntime.jsx(Button, { label: Edit ? "Salvar Alterações" : "Editar", variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.container, style: { ...props.style }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$a.titleProblem, children: props.textTitleProblem ? props.textTitleProblem : 'Problema' }), props.isEditable &&
+                            jsxRuntime.jsx(Button$1, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
                             marginTop: '8px',
                             marginBottom: '8px',
@@ -1564,28 +1662,28 @@ function BannerProblem(props) {
                                 border: 'none',
                             }, children: TituloProblema }) })
                     :
-                        jsxRuntime.jsx("h1", { className: style$9.description, children: problema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
-                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Deseja vincular este novo problema a uma Trilha de Aprendizagem?" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: 'Selecione uma trilha', onChange: e => {
+                        jsxRuntime.jsx("h1", { className: style$a.description, children: problema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
+                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Deseja vincular este novo problema a uma Trilha de Aprendizagem?" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha', onChange: e => {
                                                             setTrilhaId(e.value);
                                                             setTrilhaDescricaoSelecionada(e.label);
                                                         } })] }) })
                                         :
                                             jsxRuntime.jsx(jsxRuntime.Fragment, { children: TrilhaBanner === '' ?
-                                                    jsxRuntime.jsx(TextIcon, { description: 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
+                                                    jsxRuntime.jsx(TextIcon, { description: props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
                                                     :
                                                         jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$9.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: "Busque e selecione at\u00E9 tr\u00EAs palavras-chave:" }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
-                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 } }), jsxRuntime.jsx(Rating$1, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 } }), props.curtidas &&
-                                                    jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 } })] })
-                                        : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$9.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
-                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1 }), jsxRuntime.jsx(Rating$1, { titulo: 'Relev\u00E2ncia', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1 }), props.curtidas &&
-                                            jsxRuntime.jsx(RatingCurtidas, { titulo: 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2 })] })
+                                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
+                                                    jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 }, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
+                                        : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$a.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
+                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
+                                            jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
                                 : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                         props.onSelectedStep(step);
-                    } }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
+                    }, idioma: Idioma }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
     function adapterEmail(email, widthScreen) {
         let newEmail = email;
         if (widthScreen < 450) {
@@ -1821,7 +1919,7 @@ const InputWrapper = styled__default["default"].div `
     ${({ focus, theme }) => focus &&
     `border: 1px solid` + theme.colors.primary1 + " !important;"}
 `;
-const InputText$1 = styled__default["default"].textarea `
+const InputText$2 = styled__default["default"].textarea `
     display: flex;
     align-items: center;
 
@@ -1932,7 +2030,7 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         if (!actionAreaEmojiButton)
             setIsVisibleEmojiWindow(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsx(InputWrapper, { focus: focus, children: jsxRuntime.jsx(InputText$1, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }) }), showCharacterCounter &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsx(InputWrapper, { focus: focus, children: jsxRuntime.jsx(InputText$2, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }) }), showCharacterCounter &&
                     jsxRuntime.jsxs(HelperText, { children: [limit - remain, "/", limit] })] }) }));
     function resizeTextArea() {
         let tx = document.getElementById(iDInputComment);
@@ -2413,7 +2511,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] })] })] })] })] }), size[0] <= WIDTH_MOBILE &&
                     jsxRuntime.jsxs("div", { style: { display: 'flex', marginLeft: '14px', marginTop: '5px', alignItems: 'center' }, children: [(isPrivateAuthor || isPrivateMe) &&
                                 jsxRuntime.jsx("div", { style: { marginRight: '10px' }, children: jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }) }), jsxRuntime.jsxs(Date$1, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] })] }), onEditing ?
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? "Salvar Alterações" : "Salvar", disabled: !enableSaveEdit, variant: "primary" }), jsxRuntime.jsx(Button, { handleClick: () => { cancelEditComment(); }, label: "Cancelar", variant: "secondary" })] })] })
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button$1, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? "Salvar Alterações" : "Salvar", disabled: !enableSaveEdit, variant: "primary" }), jsxRuntime.jsx(Button$1, { handleClick: () => { cancelEditComment(); }, label: "Cancelar", variant: "secondary" })] })] })
                     :
                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsxs(LikesStatistics, { children: [isLiked ?
                                                     jsxRuntime.jsx(RocketIconCommentaryBox, { width: '16px', height: '16px' })
@@ -2485,7 +2583,7 @@ const WrapperHorizontal = styled__default["default"].div `
 const WrapperContent$1 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
-    max-width: 100%;
+    width: 100%;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
@@ -2721,16 +2819,16 @@ function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, w
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$2, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
 }
 
-function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll }) {
+function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, textClearFilter, textViewMore }) {
     const [itemSelected, setItemSelected] = React.useState(-1);
     const onItemSelect = (n) => {
         setItemSelected(n);
         onSelected(n);
     };
     function renderCard(item) {
-        return (jsxRuntime.jsx(StepCard, { title: item.title, onClick: () => onItemSelect(item.id), numberPeople: item.numberPeople, className: null, textButtonMore: 'Ver mais', active: itemSelected == item.id, src: item.photos, width: widthCard }, item.id));
+        return (jsxRuntime.jsx(StepCard, { title: item.title, onClick: () => onItemSelect(item.id), numberPeople: item.numberPeople, className: null, textButtonMore: textViewMore ? textViewMore : 'Ver mais', active: itemSelected == item.id, src: item.photos, width: widthCard }, item.id));
     }
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(HeaderWrapper, { marginLeft: marginLeftTitle ? marginLeftTitle : '0px', marginRight: marginRightClear ? marginRightClear : '0px', children: [jsxRuntime.jsx(TitleComponent, { children: title }), jsxRuntime.jsxs(ClearComponent, { onClick: () => onItemSelect(-1), children: [jsxRuntime.jsx(TrashIcon, {}), jsxRuntime.jsx(TextClear, { children: "Excluir Filtro" })] })] }), jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) })] }));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(HeaderWrapper, { marginLeft: marginLeftTitle ? marginLeftTitle : '0px', marginRight: marginRightClear ? marginRightClear : '0px', children: [jsxRuntime.jsx(TitleComponent, { children: title }), jsxRuntime.jsxs(ClearComponent, { onClick: () => onItemSelect(-1), children: [jsxRuntime.jsx(TrashIcon, {}), jsxRuntime.jsx(TextClear, { children: textClearFilter ? textClearFilter : 'Excluir Filtro' })] })] }), jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) })] }));
 }
 
 styled__default["default"].img `
@@ -2987,7 +3085,7 @@ function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems }) 
     return (jsxRuntime.jsx(Select$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
-const Container$4 = styled__default["default"].div `
+const Container$6 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -3006,14 +3104,14 @@ const LabelField = styled__default["default"].label `
     
     color: ${({ isOnFocus }) => isOnFocus && '#663366'}    
 `;
-const ContainerIcon = styled__default["default"].div `
+const ContainerIcon$1 = styled__default["default"].div `
     min-height: 20px;
     min-width: 20px;
     padding-left: 15px;
     padding-right: 10px;
     padding-top: 3px;
 `;
-const InputSearchWrapper = styled__default["default"].div `
+const InputSearchWrapper$1 = styled__default["default"].div `
     height: 48px;
     background-color: #E8E8E8;
 
@@ -3027,7 +3125,7 @@ const InputSearchWrapper = styled__default["default"].div `
 
     ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}    
 `;
-const InputText = styled__default["default"].input `
+const InputText$1 = styled__default["default"].input `
     margin-left:10px;
     display: flex;
     align-items: center;
@@ -3078,9 +3176,9 @@ const ButtonAction = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$4, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
-                    jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
-                            jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$6, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
+                    jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
+                            jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText$1, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
 }
 
 function randID() {
@@ -3369,14 +3467,14 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-var css_248z$9 = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n\n    \n}\n\n.statusProblema-module_titulo__6REcF{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    \n    width: 360px;\n    margin-top: 16px;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    \n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 250px;\n        \n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n\n    margin-left: 50px;\n    margin-right: 50px;\n    margin-top: 20px;\n\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_conclusao__OCWBZ{\n    margin-top: 30px;\n}\n\n";
-var style$8 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","conclusao":"statusProblema-module_conclusao__OCWBZ"};
-styleInject(css_248z$9);
+var css_248z$a = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n\n    \n}\n\n.statusProblema-module_titulo__6REcF{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    \n    width: 360px;\n    margin-top: 16px;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    \n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 250px;\n        \n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n\n    margin-left: 50px;\n    margin-right: 50px;\n    margin-top: 20px;\n\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_conclusao__OCWBZ{\n    margin-top: 30px;\n}\n\n";
+var style$9 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","conclusao":"statusProblema-module_conclusao__OCWBZ"};
+styleInject(css_248z$a);
 
 var problemaFRST = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAwmSURBVHgB7Z1BbNzGFYbf0OuigCRne2luzbpnu5ZPLVAXXSG3RrLlW90eLAEOEPci99TUPlg+uG1OlQ6tAzSA5UPjoxRb8S21gqRAc4pc+Zys05Nz6dqSiiLS7mR+kk874pK75C7JHVLzAWutVySXmp/vzeObN0NBJUDOVqu0vz9JbVEjR06SEK+oj2v+C1T9V5AGSdEkIZvqfZOkfKL2/686zhOqVDbFWrNJBUdQAZHT43UlxBmSTl39d5I6QqZNQ702SbQ3ILpY39mgglEIgV0Lbe9dVoLOkidolUYDLHpDtdoaOXsfi7X/N8hwjBU4IGqdzARir5gstnECu+6XxJw6sws0OksdhBXVh98zzY0bI7ArrBA3yVxrjYcUmyo+WBIPtu+RAYxcYF/Yu5RdoDQqGqp1F0ct9MgELo3F9kfdisn5Ubnu3AVWwVONWi1YbJ2OFit0bO9W3sGYQzkiz59YUOJ+TkdPXDBHreOfqza4STmSiwUfYauNoqGseSoPa87cgo+41UZRc6155sQ1ypjMLNhLVLRvqgAj8z+i2Igl8fDlbykjMhHYdcn77VWVxJ8kSxwyc9mpCyxnxyap5axS+e5rsyYTkVPtg+X0xKwS9zFZcQfB65fRhimSmgXL8xNqYEDd61mGR9BcWhmwVAS24mZASiIPLbAVN0NSEHkogd3+QtAqWbJD0kWxvr1GAzKwwH52CgmMIo3ZFpEmtdpT4tHuJg3AQFG0Ly6iZStu9lTpmLMqZ79bowEY7DbJE7dGlrxQiaPvrMp6NbFBJRZY5Zb/TFbc/EFWcKKdeCQqkcDuwIHNLY8QeS3pAEXsIMsGVcbQVCnNs3FTmvEt2AZVplBVKc27cTeOJbCcdqsQamQxhXpcV93XRVvXbCyxXHV/C95vLZIV10RiueqeFuyXtj4mi7lIOdWrJLe3BXsF6RaT8WrLI4kUWM5MzJENrIpA3ZvPFU4vC861ftcyBD08bajA1noLRy3KisMtWMoFshSLiL64S2A/crblrsUjtC8OsWAxR5ZiIsTlro/0//hZqy/JUlSatH3spNjorA502IJbrTpZikyVxvbm9A8OCyzpMhWR7/+A6NLvic7/pvd2P37D2w4/y4rjXND/W+E3vnuuU9qgMX/4o+7Pv/g30WcfUiqwwF9/RfTgr9Hb/WSa6PVfE3309/S+2zzqKO1hN30gcGbumRs1DIh8Q10Auy/IkiKem17CW81FywuUJf9aJ7pyimjhp0TLb3miwrKj3CqscuyV7s/w6gf2i7Nd2D5x9gs7t37fGffYaaC56Y4Fk6hTlkBQuFDw5RbRSV9c/qP/9pToVfX++i/URfCu9/7+H70XtoML5kbFceBm8bsg+ra9ttPh/ls//u1L3nlGnRvgYy/cITr9s86+2I7/VnivK386fEGgG3nvbcqQgzyGa8H+DXK+Y74sbNASbtwnGj9BtPWJ99IbCA2DBpUyPKjCNpfe9hoeL+6bT52LPg8cG9vsNr1j835/eBR+bl8/87wRwLkt/9PbDvs9f+btC8H5b8R7/dxxoeO8o7qtdKhy0sOzYHeidsbLdZw87TUkv0ffDD5bP7wdGnrhXKdffvMd7yeueA6gIDwEwPHQsAwaEl0AWx5AQ+L19FPqAtvzRXL9jY7V4XOOHfSgDcIuX/Xe48LAvjhfjiNwIeG82Jrd8/4duW3Lx+HvRPCpn3vaSHfy/YbvosXPKWvQ3+rRtGsxqpE+ev/wdg/uHA66cDEABGQMC4jG0q0M++niQlSIpDe4Dh8b3Nai6vFq9+/5ePp3gedfdd7zBcK4Uf0d7ziv/8rrlvjCDnqHtHGcuvp3iQXOPvcMq+O+kPvjsOg5TkStbxOnoXYiln3+34vO8cIs/OknNBQ4t+vvexcYLugvtrxzySfYOoN/Ku5iKa1WjbIGgoY1Yj9wYaCB8OL9OVHBFst9LBoU73k7/jxoWQxbH/bDxcfbnTrX7Q0GAdaK89ZvB9Enh+UF0qeG++GKu1K6MHjZaPRdaCT0t7jy0UgcoASTGrCSa+96fSW2ZXeoew7Ax+NgDH0i+k68h9g4Pn4ikh4mIcLe5dXXOsfkc0Ikrl+MWTC+P+kYvxIOGhj3zYhQ0UhuUCS9oCt4+7P1aUcwNCQEx3ZsiXqky7dSfJyxE1pk7h9/2GwXvg8eCN/jBmVXvaDLPYfXOkFnVghZEyqcXuxXuGUM3HdFuVyGgy9YbFifzp4g+Lu4x08Kn49+3KhzSBMpl4WcGV9VUqe6sovFGFYcksIWtZcWWVOZLGkFLi1CCSysBZcZ5KJrZCkr1VwXBLfkjhW47FiBS44VuORA4MI/YdMSDYYLIfDobpWQsnvvafztke5DbVe//ZECxCiOnosOgwcXkPjHuC0GBsK+p9d3DXru2dOoUFmBcBg1QkkN13YFgWC3H3VqrMqGFE2VqnSfkVtuouqy8HlZxQWi3UQf/IyOAmFFbjw2W1rEC+Wi8XjzEQ74o186f4IGJmx/rmbUa7GCdVnBei6AclcegA8rBRr2XPNGyk2H2mKgdYiNBkJw9WMUQQGDJUVJxmlxQT142XkNE4iliZTKRTuyQZbsqxxHgRDKgiuV8lkwGO8jWNBC3ZrqO92lskVmp7LpiDV3FlqDygTE+mWg3ilYOguBnwdKc3imwv3/eOWu+tSa4tHADEP/PlhuYnCY8ga3LrhViSpM14lKEsRNPoQlOx7+RR3zne7PufoRLxTLccIkywrI9HmCf/xctPyY8gTCYiZBcJpHloQlOjDrgKsce4E6ZpxrrzlOptFub+CHJ7DMOZLGDL28hAV6UXsQiPzmaa8GGnXWWz1mM/RbQcAkhKep66KxmKWcmcgvJ40JZ3k0FmYCLl2N51pRA8110HDRCLYQdHFuGuQzIyENmrxAaWe4UFJ+VszTL1GYHpydwMmE4CsqSc/bI0kRBMXlg9Qd81ylG4Vdy+Ogy+0ILNofUF4g4IHbvHK695oaSYAgYcfCnN4y3uP2QnsaXUfgY8dXKC9gITwZOk0Q6Qb7UJ6mkhQeRtTZKcjQubN3YMEHw4W4H5bTExtK/ToVGaQoedY9g/4ewveaaxTndqsQi8XIDX2Z/8MlO3m66axAn7z0VvfnaQRI/8hwRn5aCLGi//ewwJ6bLn4JDyxV74/DZiImBR4guBqBiWjuGRyq6PDd9AfKTRdzxTsdCIpbnX4lO1Egwt/xo2lMAy1GFmsl+BSWroFg+yCOAhPygI7QkX5lxY8LH2wdNVQ2Uqy/PBv8OKIuWt4iS7Fw5FLYx5G1Oip1iXWja2QpAg3xcPtk2C+iZzZIOU+WYiBoMfpXPbB9cSGItF7QZ26S7YuNp4+n7SmwG3JL2iCLqaz0em4h6D+7sHIMV4idoGYeeLxsXw/bV2CV3WoQta2rNg0hl+M85j32lAYbcBlFz8BKJ/4EcOuqTQGueSruxrEFtq7aENrtW3FcM5NoCQfxcHcJ6x+SZTRg7ckPd5eS7JJ8jY5KZZFLMi250nDbPiGJBXanujjORSrbdBezaaDf9acZJWLgicFydmySWg7Gje1SiNmCoOpskn5XZ+BllMTa7qbKctkBiaxRbTyouGCodbLE+vaa+mFFzo55v40HJpW1G9TY8Zz6cZcsaTKvkhkrNCSpLc5hRU6VVMQFqa6+otKZs+qIENkGXoPRdPvcId2yTurL6/jPIUZ0XSNLEtStUPuiG7ymSCbrJ1mRE4L52ZVvLg4TLUeRyWqzyFu7ox02rdkftFHFmcpCXJD5CmhyZuyauo7wXCbbLx+m6Q4cJMwtJyWXJe6syw4g5QZV9uezslqdXNcw9J+ytkBH15pzsVqd3BepdK15v7VYigluScjRanVGtgqpP8kN98w1KjMQluhWv+rHrBjhMrMefgYMQViNykUDNcujEpYZucCMK7SUC8qqzX7cbT9GbLFBjBGYcV03ibmC9dEYiF9T4t4zRVjGOIEZ/9aqrhrtsrLqOpkIrNWRa+QcvzdItUUeGCuwzoHYJC+oU1Y/R3ab1cQq6qaLqlMIgYO4btyRZ1QOt67+BPTZNcqGhrsSr1CW2hZPTHO/cSikwEGUhVdpf3/SFb0tvqf+KiW+a+VV//G5tZDdmsSF/FI21HaIel+4jzjAKviVymYRLLQf3wLhTtzjIIDUjgAAAABJRU5ErkJggg==";
 
 function ApprovesItem(props) {
-    return (jsxRuntime.jsxs("div", { className: style$8.containerItem, children: [jsxRuntime.jsxs("div", { className: style$8.avatar, style: { width: props.size }, children: [jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.size }), jsxRuntime.jsx("span", { style: { marginTop: 4, color: '#FF4D0D', fontWeight: 600 }, children: props.nomeAvatar }), jsxRuntime.jsx("span", { style: { fontSize: 14, color: '#222222', fontWeight: 400 }, children: props.dataAvatar })] }), props.statusApprove === 'aprovar' ?
+    return (jsxRuntime.jsxs("div", { className: style$9.containerItem, children: [jsxRuntime.jsxs("div", { className: style$9.avatar, style: { width: props.size }, children: [jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.size }), jsxRuntime.jsx("span", { style: { marginTop: 4, color: '#FF4D0D', fontWeight: 600 }, children: props.nomeAvatar }), jsxRuntime.jsx("span", { style: { fontSize: 14, color: '#222222', fontWeight: 400 }, children: props.dataAvatar })] }), props.statusApprove === 'aprovar' ?
                 jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(CorrectInCicleIcon, {}) })
                 : props.statusApprove === 'revisar' ?
                     jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(ErrorInCicleIcon, {}) })
@@ -3395,26 +3493,26 @@ function ModalStatusProblema(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 500;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$8.fechar, onClick: props.handleClose, children: [jsxRuntime.jsx("span", { style: { marginRight: 10 }, children: " Fechar " }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { size: (size[0] >= BREAKWIDTH) ? '120px' : '80px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsx("div", { className: style$8.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: jsxRuntime.jsx(Button, { variant: 'primary', label: 'Ok, fechar', handleClick: props.handleClose }) })] }) }));
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$9.fechar, onClick: props.handleClose, children: [jsxRuntime.jsx("span", { style: { marginRight: 10 }, children: " Fechar " }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { size: (size[0] >= BREAKWIDTH) ? '120px' : '80px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsx("div", { className: style$9.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: jsxRuntime.jsx(Button$1, { variant: 'primary', label: 'Ok, fechar', handleClick: props.handleClose }) })] }) }));
 }
 
-var css_248z$8 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n    \n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
-var style$7 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
-styleInject(css_248z$8);
+var css_248z$9 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n    \n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
+var style$8 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
+styleInject(css_248z$9);
 
 function ModalLearningTech(props) {
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$7.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$7.fechar, onClick: props.handleClose, children: [jsxRuntime.jsx("span", { style: { marginRight: 10 }, children: " Fechar " }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$7.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$7.container, children: props.children }), jsxRuntime.jsx("div", { className: style$7.conclusao, children: props.confirmationButton ?
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$8.fechar, onClick: props.handleClose, children: [jsxRuntime.jsx("span", { style: { marginRight: 10 }, children: " Fechar " }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, children: props.children }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: props.confirmationButton ?
                         props.cancelButton ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: "ou" }), jsxRuntime.jsx(Button, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$1, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: "ou" }), jsxRuntime.jsx(Button$1, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
                             :
-                                jsxRuntime.jsx(Button, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })
+                                jsxRuntime.jsx(Button$1, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
 }
 
-var css_248z$7 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
-var style$6 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
-styleInject(css_248z$7);
+var css_248z$8 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
+var style$7 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
+styleInject(css_248z$8);
 
 /**
  * @param {CardProblemGestorProps} props
@@ -3448,50 +3546,117 @@ function CardProblemGestor(props) {
                 break;
         }
     }, [props.problemStatus]);
-    return (jsxRuntime.jsxs("div", { className: style$6.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$6.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsxs("div", { className: style$6.contentCard, children: [jsxRuntime.jsxs("div", { className: style$6.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$6.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
-                        jsxRuntime.jsx("div", { className: style$6.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
-                        jsxRuntime.jsx("div", { className: style$6.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$6.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: 2, style: { margin: 0, width: 120 } }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: 'Curtidas', tipoBotao: 4, style: { margin: 0, width: 90 } })] }), props.lastUpdated &&
+    return (jsxRuntime.jsxs("div", { className: style$7.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$7.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsxs("div", { className: style$7.contentCard, children: [jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
+                        jsxRuntime.jsx("div", { className: style$7.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
+                        jsxRuntime.jsx("div", { className: style$7.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
+                        jsxRuntime.jsxs("div", { className: style$7.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: 'avalia\u00E7\u00E3o' }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: 'avalia\u00E7\u00E3o' }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: 'Curtidas', tipoBotao: 4, style: { margin: 0, width: 90 } })] }), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
-var css_248z$6 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
-var style$5 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
-styleInject(css_248z$6);
+var css_248z$7 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
+var style$6 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
+styleInject(css_248z$7);
 
+const translate = {
+    "pt-BR": {
+        'notStarted': "Não iniciou",
+        'finished': "Finalizado",
+        'nextSteps': "Próximos passos",
+        'resultsAndLearnings': "Resultados e aprendizados",
+        'testsPerformed': "Testes realizados",
+        'hypothesesTaised': "Hipóteses levantadas",
+        'problemDefined': "Problema definido",
+        'problemCreated': "Problema criado",
+        'evaluation': 'avaliação',
+        'impact': 'Impacto',
+        'relevance': 'Relevância',
+        'problemApproved': 'Problema aprovado',
+        'reviewProblem': 'Revisar problema proposto',
+        'waitingApproval': 'Aguardando aprovação',
+        'linkedTrail': 'Vinculado à trilha',
+        'notLinkedTrail': 'Ainda não está vinculado a uma trilha',
+        'viewMore': 'Ver mais',
+    },
+    'en-US': {
+        'notStarted': 'Not started',
+        'finished': "Finished",
+        'nextSteps': "Next steps",
+        'resultsAndLearnings': "Results and learnings",
+        'testsPerformed': "Tests performed",
+        'hypothesesTaised': "Hypotheses raised",
+        'problemDefined': "Problem defined",
+        'problemCreated': "Problem created",
+        'evaluation': 'evaluation(s)',
+        'impact': 'Impact',
+        'relevance': 'Relevance',
+        'problemApproved': 'Problem approved',
+        'reviewProblem': 'Review proposed problem',
+        'waitingApproval': 'Waiting for approval',
+        'linkedTrail': 'Linked to trail',
+        'notLinkedTrail': 'Not yet linked to a trail',
+        'viewMore': 'View more',
+    },
+    "es-ES": {
+        'notStarted': "No empezado",
+        'finished': "Acabado",
+        'nextSteps': "Próximos pasos",
+        'resultsAndLearnings': "Resultados y aprendizajes",
+        'testsPerformed': "Pruebas completadas",
+        'hypothesesTaised': "Hipótesis planteadas",
+        'problemDefined': "Problema definido",
+        'problemCreated': "Problema creado",
+        'evaluation': 'evaluación',
+        'impact': 'Impacto',
+        'relevance': 'Relevancia',
+        'problemApproved': 'Problema aprobado',
+        'reviewProblem': 'Revisar el problema propuesto',
+        'waitingApproval': 'Aguardando aprobación',
+        'linkedTrail': 'Vinculado a sendero',
+        'notLinkedTrail': 'Aún no vinculado a un sendero',
+        'viewMore': 'Ver más',
+    }
+};
+const isValidLanguage = (lang) => {
+    return lang == 'en-US' || lang == 'pt-BR' || lang == "es-ES";
+};
 /**
  * @param {CardProblemProps} props
  */
 function CardProblem(props) {
-    const [statusName, setStatusName] = React.useState('Não iniciou');
+    const [languageSlected, onChangeLanguage] = React.useState(isValidLanguage(props.language) ? props.language : 'pt-BR');
+    React.useEffect(() => {
+        onChangeLanguage(isValidLanguage(props.language) ? props.language : 'pt-BR');
+    }, [props.language]);
+    const [statusName, setStatusName] = React.useState(translate[languageSlected]['notStarted']);
     const [selected, setSelected] = React.useState(props.selected);
+    console.log(translate);
     const [statusColor, setStatusColor] = React.useState('#757575');
     React.useEffect(() => {
         switch (props.problemStatus) {
             case 'finalizado':
-                setStatusColor("#158214"), setStatusName("Finalizado");
+                setStatusColor("#158214"), setStatusName(translate[languageSlected]['finished']);
                 break;
             case 'proxPassos':
-                setStatusColor("#222222"), setStatusName("Próximos passos");
+                setStatusColor("#222222"), setStatusName(translate[languageSlected]['nextSteps']);
                 break;
             case 'resultadosAprendizados':
-                setStatusColor("#AD005C"), setStatusName("Resultados e aprendizados");
+                setStatusColor("#AD005C"), setStatusName(translate[languageSlected]['resultsAndLearnings']);
                 break;
             case 'testesRealizados':
-                setStatusColor("#663366"), setStatusName("Testes realizados");
+                setStatusColor("#663366"), setStatusName(translate[languageSlected]['testsPerformed']);
                 break;
             case 'hipoteseLevantada':
-                setStatusColor("#F8B911"), setStatusName("Hipóteses levantadas");
+                setStatusColor("#F8B911"), setStatusName(translate[languageSlected]['hypothesesTaised']);
                 break;
             case 'problemaDefinido':
-                setStatusColor("#252BB1"), setStatusName("Problema definido");
+                setStatusColor("#252BB1"), setStatusName(translate[languageSlected]['problemDefined']);
                 break;
             case 'problemaCriado':
             default:
-                setStatusColor("#757575"), setStatusName("Problema criado");
+                setStatusColor("#757575"), setStatusName(translate[languageSlected]['problemCreated']);
                 break;
         }
-    }, [props.problemStatus]);
+    }, [props.problemStatus, languageSlected]);
     React.useEffect(() => {
         setSelected(props.selected);
     }, [props.selected]);
@@ -3506,36 +3671,36 @@ function CardProblem(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 450;
-    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.checkBox, onClick: () => {
+    return (jsxRuntime.jsxs("div", { className: style$6.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$6.tagStatusProblem, style: { background: statusColor, color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$6.checkBox, onClick: () => {
                     props.handleSelect(props.problemID);
-                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$5.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$5.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$5.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
-                        jsxRuntime.jsx("div", { className: style$5.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
-                        jsxRuntime.jsx("div", { className: style$5.tagsContainer, children: props.tags.map((item, index) => (item &&
+                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$6.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$6.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$6.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
+                        jsxRuntime.jsx("div", { className: style$6.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
+                        jsxRuntime.jsx("div", { className: style$6.tagsContainer, children: props.tags.map((item, index) => (item &&
                                 jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
                         props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$5.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
+                        jsxRuntime.jsxs("div", { className: style$6.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: translate[languageSlected]['impact'], tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: translate[languageSlected]['relevance'], tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
                         props.statusProblema === 'aprovado' ?
-                            jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: 'Problema aprovado', style: { minWidth: 200, width: '90%' } })
+                            jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: translate[languageSlected]['problemApproved'], style: { minWidth: 200, width: '90%' } })
                             :
                                 props.statusProblema === 'revisar' ?
-                                    jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 3, texto: 'Revisar problema proposto', style: { minWidth: 200, width: '90%' } })
+                                    jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 3, texto: translate[languageSlected]['reviewProblem'], style: { minWidth: 200, width: '90%' } })
                                     :
-                                        jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 2, texto: 'Aguardando aprova\u00E7\u00E3o', style: { minWidth: 200, width: '90%' } })
+                                        jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 2, texto: translate[languageSlected]['waitingApproval'], style: { minWidth: 200, width: '90%' } })
                         :
-                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), statusName !== 'Problema criado' ?
+                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
-                            jsxRuntime.jsx(TextIcon, { description: `Vinculado à trilha ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
+                            jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                             :
-                                jsxRuntime.jsx(TextIcon, { description: 'Ainda n\u00E3o est\u00E1 vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
+                                jsxRuntime.jsx(TextIcon, { description: translate[languageSlected]['notLinkedTrail'], svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }), props.isButtonVerMais &&
-                        jsxRuntime.jsx("div", { className: style$5.buttonVerMais, children: jsxRuntime.jsx(Button, { variant: 'link', label: 'Ver mais', handleClick: () => props.onClick(props.problemID) }) })] })] }));
+                        jsxRuntime.jsx("div", { className: style$6.buttonVerMais, children: jsxRuntime.jsx(Button$1, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
 }
 
-var css_248z$5 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
-var style$4 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagStatusProblem":"cardDefinicaoProblema-module_tagStatusProblem__FoQ12","headerContainer":"cardDefinicaoProblema-module_headerContainer__UXFIi","descriptionContainer":"cardDefinicaoProblema-module_descriptionContainer__Z7yo8","footerContainer":"cardDefinicaoProblema-module_footerContainer__6EjXg","footerContainerType2":"cardDefinicaoProblema-module_footerContainerType2__v2sGa"};
-styleInject(css_248z$5);
+var css_248z$6 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
+var style$5 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagStatusProblem":"cardDefinicaoProblema-module_tagStatusProblem__FoQ12","headerContainer":"cardDefinicaoProblema-module_headerContainer__UXFIi","descriptionContainer":"cardDefinicaoProblema-module_descriptionContainer__Z7yo8","footerContainer":"cardDefinicaoProblema-module_footerContainer__6EjXg","footerContainerType2":"cardDefinicaoProblema-module_footerContainerType2__v2sGa"};
+styleInject(css_248z$6);
 
 /**
  * @param {CardDefinicaoProblemaProps} props
@@ -3569,13 +3734,13 @@ function CardDefinicaoProblema(props) {
                 break;
         }
     }, [props.problemStatus]);
-    return (jsxRuntime.jsxs("div", { className: style$4.container, children: [props.typeButton !== 1 &&
-                jsxRuntime.jsx("div", { className: style$4.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses Levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$4.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$4.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$4.footerContainer} ${props.typeButton === 2 && style$4.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button, { variant: 'link', label: "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button, { variant: 'link', label: props.typeButton === 1 ? 'Definir novo problema' : 'Continuar', startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
+    return (jsxRuntime.jsxs("div", { className: style$5.container, children: [props.typeButton !== 1 &&
+                jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses Levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$5.footerContainer} ${props.typeButton === 2 && style$5.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$1, { variant: 'link', label: "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$1, { variant: 'link', label: props.typeButton === 1 ? 'Definir novo problema' : 'Continuar', startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
 }
 
-var css_248z$4 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-break: break-all;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-break: break-all;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
-var style$3 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
-styleInject(css_248z$4);
+var css_248z$5 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-break: break-all;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-break: break-all;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
+var style$4 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
+styleInject(css_248z$5);
 
 var Conquista = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAxCAYAAACYq/ofAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAdKSURBVHgB7VrNThtXFD7njm0idRHnCTI8QZxdF00YngDyBMCiFaBKgWWgEUYJidRNiNQCUheYJwh5AgzpojvME9Q8QSaLSomx7+137p1x7MnYzGCMqNRPgvF47s859/yfMVNGLD/e2jbMD+imoent7oe1w8uGKcoIYYKJKmyIb+yPKGAy5Sz0FSgjsOgk2DncOVlfoBvASlAtt0zpo8nISGaJ3DS269VQrsycTSJLU6+ORIR0W8G8sTz1amPoGEPHBXelJhtzMHAc89RNM+tUy9JWB23HAwcyz8mlgJHnsCpfa11XnrefOpYok3ivE59poqxAnDgYEOunjblg86RoaEaTCZPG7pMx7zE9TE4CszMQzSRdAaK+u8dr03nmKNJle4SQRpIexXQfkgomSJXBhA9DPy7AvTUxYY4KhSYmiSwP4bdryYURRw7BzX3KieVgax5rBouPtub3PqzXss7TbV2GhpBSavu3+rN677OlR69mWVHwhXRYJOsMQoWRTeqegPCR7u6iU8mvYoatobLijTzTmD27lxCb8tiXf15Ms+EGpKIb9qbD8jDkAfroJEepzwbBSkPmsNmEkvg/PXq5knUuImJFrt/RRTPlmQ+KQ2q7e8/jsFDCwBaV7EScegOMTKWuLJKD6i1+X/X3/qo2BxEg3uZz26vgRCsQ41NxjTvH61XYyVQBUoFaYJlO406h04hjxQBUhNi0MTbLMHQGtQvkvkBfGioa2LAu1pgzWUCI+XZdJzkulippxItBw99/lGgM3T6CDr/Bo7JWrXm3eWdT5Crfy3MZJ+OXp7ZSPSXouYt/Z2l7uVBgLM1Cu/DgIjs8A1SnYhTX5bbVKc4mFyh1Raz95DNZqM1mFR/t6RlNq5p5cud47d5e3Ulvr/68LvfEhYdQNZvmwLWEmi82KQUxscnvW+RoE1rtmCjGWEa00sguYf0dS2QTg+bSiMXlHKcQpG38R329AeLFxTZZmY1OZIhJaOqE4gAkCBtuTceM9mLxhxeBJda4g+2D4ac2gEdOCep12GVETksiKL6diQwzWApezH67iDmED0+3IbvOs6ZjhkMEqqPFoOr3Phe1UMYcGUtPOhMCa18yxmv1SSRyHhWjzWZ8GLFrVl8nmwNhoN0xZZcWqP0kIe6EuLwYuBMbxAxU662M61CxTyqRVMuwxfeDmCBH1Qz+N3rHLAav/Zh45dmvfMtQd0qEnfp6TRgQzxIZZsim1HeqE16rThJ8tJqlIYjdo7jOxcdbSPq2TiUgRo+beogbF4LlQI3W3dzvx2Cr8lWSnYUoNjV6A2xfGg/9X7CexXj7GhNYBpjiaez/5USxWAND5mgIxD1KAIVnOlXMVazISvE+PNvfdtMhlSYCc2DX8NpW95ewd9FwlwkF2uSz5taT/nk9ELVAIjbNVvyOGajT+4JSb4QIMcJIWkPVy1aSNm+jcxA9/fvxWkWu7B6L/vvpLp5cJoDYQ23PtyUG9sb9GbziE2ECI8ryOama3xRW4n0iZiAN9c4YUxd3ae8lPhjPpRzRNYmYQK3Nws7JWhAbo1zhficj19v8h4p+cu7XTIAe2L3AtKxjjD6MpSK0CY3JuakVYuxKJdKLSkAqG1oMyzHkW0agx4OkUuLW5KAEUWxRGEpLPeK8zALeU1QJOdpcLBXxdGlMRPQMh8te7Qa+9f1gCC5YagTrzye49fCSVCMTxBaEYGRB24gRn+JiLt7zssz5UkaohyE2vIKF+wxVNt49WVulESCeSrwSOWm7LBt2oo2pZU39MzMSYzn4FQGpvcIuMPryHXR4fvfklwO6AqJuySnFTKDklmidrEEuQ25GevFz8DrAqUlyWLkqMy5p5HkN+9urZy+8khiJEUF0oqIWFTBV3TtZ38w674spvbOJHwwbTqBKI2BkRrpE6dI2u0DZ0J3O6t6fz+uDxkcORCSJwGZWR5FEjGthJEbSw+HaiGocQRme6H7UVnLGjFplaM6VA9fKSAzLkOZ5SsmU4eUOPMW1vMZ8GcbCSAxUgOhlmLcanRCl9TZizwMb3ceAm+j9hpLDkVW1bA3pq+Amm9ghEf/3GIGduCoPPSe3k+ufSReGxoCxMRL1yWzPSa5aSmnZsFgMaAwYn2oxzUqVGHunyE7CtMbGdWBsjES5WP+7P3gwiSMDi6oRMBZG4gJJserLvUrqYluuLV3M3DrNimuJI0uPX86hKhcic5/0sP5WHozMiPS/UPa+s3U2oSzOTYHYjCmj4/hwFGYyv9UdSIfx3siporgK6ApAUVVThk6VU7crq1xuiUgnBYXPLGbeRU0vDeXZqEfboCtD2rA26jvngO6LVhe1PBLKJRHXKGOpPSQ2fIpO4RyE3MN1mkYCf+qugVdraA6Km86cl+VipKhJJEG2qz5GLAev0R8w+5e9i+nFrf3BQF78z8htQy4bQSYbyk925CdPFL2dGgfQppXmHN25k32PXIzgtUINTQa86OSnNEawJJesV/N0MP8F5hSqQY4bC0cAAAAASUVORK5CYII=";
 
@@ -3594,10 +3759,10 @@ function CardResultConquista(props) {
         const timer = setTimeout(() => setIsPressed(false), 1000);
         return () => clearTimeout(timer);
     }, [isPressed]);
-    return (jsxRuntime.jsxs("div", { className: style$3.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
+    return (jsxRuntime.jsxs("div", { className: style$4.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
             props.onClick(props.problemId);
             setIsPressed(true);
-        }, children: [jsxRuntime.jsxs("div", { className: style$3.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
+        }, children: [jsxRuntime.jsxs("div", { className: style$4.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
                         isPressed ?
                             jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })
                             :
@@ -3606,7 +3771,7 @@ function CardResultConquista(props) {
                             isPressed ?
                                 jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })
                                 :
-                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$3.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$3.verMais, children: "Mais detalhes" })] }));
+                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$4.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$4.verMais, children: "Mais detalhes" })] }));
 }
 
 const WrapperCard$2 = styled__default["default"].div `
@@ -3639,7 +3804,7 @@ const WrapperButton = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
 function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }) {
@@ -3862,7 +4027,7 @@ function Stepper({ children, }) {
 function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
     return (jsxRuntime.jsx(ProgressItem, { active: active, children: active
             ?
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button, { handleClick: () => onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button$1, { handleClick: () => onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
             :
                 jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
 }
@@ -3904,7 +4069,7 @@ function ObjectiveStep({ description, number }) {
     return (jsxRuntime.jsxs(WrapperCard$1, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
-const Wrapper$1 = styled__default["default"].div `
+const Wrapper$3 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '375px'};
@@ -3993,7 +4158,7 @@ const WrapperButtons = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$1, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$3, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$3, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$3, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$1, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$1, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -4102,7 +4267,7 @@ function TotalizerCard({ objectStatistics, loading, hasShadow, styles }) {
                                                 }, children: renderObjectStatistics(false) }) }) }));
 }
 
-const Wrapper = styled__default["default"].div `
+const Wrapper$2 = styled__default["default"].div `
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -4169,7 +4334,7 @@ function TrailList({ title, trails, style }) {
     React.useEffect(() => {
         setTrailsList(trails);
     }, [trails]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { style: { ...style }, children: [jsxRuntime.jsx(Title$2, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { style: { ...style }, children: [jsxRuntime.jsx(Title$2, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
                         jsxRuntime.jsx("div", { style: {
                                 display: 'flex',
                                 flexDirection: 'column'
@@ -4407,9 +4572,9 @@ function AvatarChannel({ size, channel, className, disabled, color, onChange }) 
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerGeral, { className: 'geral', children: [jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: 'hide', children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }), jsxRuntime.jsx(ContainerPopOver, { className: 'popOver', children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: 'lowLeft' }) })] }) }));
 }
 
-var css_248z$3 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
-var style$2 = {"bannerContainer":"bannerLxp-module_bannerContainer__vvF-D","configButton":"bannerLxp-module_configButton__hOi0i","configContainer":"bannerLxp-module_configContainer__qtric","enableText":"bannerLxp-module_enableText__1NkRy","inputTextColor":"bannerLxp-module_inputTextColor__rN3R3","inputBgColor":"bannerLxp-module_inputBgColor__eZcAw","bgInput":"bannerLxp-module_bgInput__lCGKb","fixImage":"bannerLxp-module_fixImage__SQ-LI"};
-styleInject(css_248z$3);
+var css_248z$4 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
+var style$3 = {"bannerContainer":"bannerLxp-module_bannerContainer__vvF-D","configButton":"bannerLxp-module_configButton__hOi0i","configContainer":"bannerLxp-module_configContainer__qtric","enableText":"bannerLxp-module_enableText__1NkRy","inputTextColor":"bannerLxp-module_inputTextColor__rN3R3","inputBgColor":"bannerLxp-module_inputBgColor__eZcAw","bgInput":"bannerLxp-module_bgInput__lCGKb","fixImage":"bannerLxp-module_fixImage__SQ-LI"};
+styleInject(css_248z$4);
 
 function BannerLxp(props) {
     const [openConfig, setOpenConfig] = React.useState(false);
@@ -4451,9 +4616,9 @@ function BannerLxp(props) {
         setSelectedFile(file);
         props.selectedFile([selectedFile]);
     };
-    return (jsxRuntime.jsxs("div", { className: style$2.bannerContainer, style: { ...props.style, objectFit: fixImage ? 'fill' : 'none', backgroundImage: backgroundColor === '' ? `url(${backgroundImage})` : '', backgroundColor: backgroundImage === '' ? backgroundColor : '' }, children: [!disableText ?
+    return (jsxRuntime.jsxs("div", { className: style$3.bannerContainer, style: { ...props.style, objectFit: fixImage ? 'fill' : 'none', backgroundImage: backgroundColor === '' ? `url(${backgroundImage})` : '', backgroundColor: backgroundImage === '' ? backgroundColor : '' }, children: [!disableText ?
                 jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText })
-                : '', jsxRuntime.jsx("div", { className: style$2.configButton, children: jsxRuntime.jsx(Button, { variant: 'primary', label: 'Configura\u00E7\u00E3o de capa', handleClick: handleOpenConfig }) }), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: handleCloseConfig, children: jsxRuntime.jsxs(material.Box, { className: style$2.configContainer, style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: 'Alterar t\u00EDtulo do KnowHub', placeholder: 'Digite seu t\u00EDtulo aqui', style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs("div", { className: style$2.enableText, children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
+                : '', jsxRuntime.jsx("div", { className: style$3.configButton, children: jsxRuntime.jsx(Button$1, { variant: 'primary', label: 'Configura\u00E7\u00E3o de capa', handleClick: handleOpenConfig }) }), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: handleCloseConfig, children: jsxRuntime.jsxs(material.Box, { className: style$3.configContainer, style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: 'Alterar t\u00EDtulo do KnowHub', placeholder: 'Digite seu t\u00EDtulo aqui', style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs("div", { className: style$3.enableText, children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF',
                                         },
@@ -4461,7 +4626,7 @@ function BannerLxp(props) {
                                             backgroundColor: '#FF4D0D !important',
                                             opacity: 1,
                                         },
-                                    } })] }), jsxRuntime.jsxs("div", { className: style$2.inputTextColor, children: [jsxRuntime.jsx("span", { children: "Cor do t\u00EDtulo" }), jsxRuntime.jsx("button", { "aria-describedby": idTitle, style: { cursor: 'pointer', width: 23, height: 23, borderRadius: 8, border: '1px solid #BDBDBD', backgroundColor: colorTitle }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOver, { variant: 'upRight', children: jsxRuntime.jsx(reactColor.ChromePicker, { color: colorTitle, disableAlpha: true, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs("div", { className: style$2.inputBgColor, children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: { cursor: 'pointer', width: 23, height: 23, borderRadius: 8, border: '1px solid #BDBDBD', backgroundColor: backgroundColor }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOver, { variant: 'upRight', children: jsxRuntime.jsx(reactColor.ChromePicker, { color: backgroundColor, disableAlpha: true, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs("div", { className: style$2.bgInput, children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: 'backgroundSelector', children: [" ", jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar "] }), jsxRuntime.jsx("input", { type: "file", id: 'backgroundSelector', accept: '.jpg, .jpeg, .png', onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs("div", { className: style$2.fixImage, children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
+                                    } })] }), jsxRuntime.jsxs("div", { className: style$3.inputTextColor, children: [jsxRuntime.jsx("span", { children: "Cor do t\u00EDtulo" }), jsxRuntime.jsx("button", { "aria-describedby": idTitle, style: { cursor: 'pointer', width: 23, height: 23, borderRadius: 8, border: '1px solid #BDBDBD', backgroundColor: colorTitle }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOver, { variant: 'upRight', children: jsxRuntime.jsx(reactColor.ChromePicker, { color: colorTitle, disableAlpha: true, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs("div", { className: style$3.inputBgColor, children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: { cursor: 'pointer', width: 23, height: 23, borderRadius: 8, border: '1px solid #BDBDBD', backgroundColor: backgroundColor }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOver, { variant: 'upRight', children: jsxRuntime.jsx(reactColor.ChromePicker, { color: backgroundColor, disableAlpha: true, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs("div", { className: style$3.bgInput, children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: 'backgroundSelector', children: [" ", jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar "] }), jsxRuntime.jsx("input", { type: "file", id: 'backgroundSelector', accept: '.jpg, .jpeg, .png', onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs("div", { className: style$3.fixImage, children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF',
                                         },
@@ -4536,7 +4701,7 @@ function ButtonContent({ variant, label, disabled, startIcon, style, handleClick
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ButtonStartIcon, { style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] }) }));
 }
 
-const Container$3 = styled__default["default"].span `
+const Container$5 = styled__default["default"].span `
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -4577,7 +4742,7 @@ const Container$3 = styled__default["default"].span `
 `;
 
 const ColorPicker = props => {
-    return (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
+    return (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
 };
 function Colorpicker({ width, height, color, }) {
     const [state, updateState] = React.useState(color);
@@ -4588,7 +4753,7 @@ function Colorpicker({ width, height, color, }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ColorPicker, { onChange: handleInput, value: state, width: width, height: height }) }));
 }
 
-const Container$2 = styled__default["default"].div `
+const Container$4 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4684,7 +4849,7 @@ const ContentSwitcherSelected = styled__default["default"].button `
 
 function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon }) {
     const [isClicked, setIsClicked] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$2, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$4, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
                 setIsClicked(true);
             }, children: !isClicked ?
                 (jsxRuntime.jsxs(ContentSwitcher$1, { children: [startIcon, label] }))
@@ -4692,7 +4857,7 @@ function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon }) {
                     jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, children: [jsxRuntime.jsx(Noun, { fill: '#ffffff' }), label] }) }) }));
 }
 
-const Container$1 = styled__default["default"].div `
+const Container$3 = styled__default["default"].div `
     width: 270px;
     height: 409px;
     background-color: ${({ theme }) => theme.colors.primary2};
@@ -4702,7 +4867,7 @@ const Container$1 = styled__default["default"].div `
     align-items: center; 
     position: relative;
 `;
-const Image$1 = styled__default["default"].img `
+const Image$2 = styled__default["default"].img `
     width: 232px;
     height: 310px;
     margin-bottom: 45px;
@@ -4921,7 +5086,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
         console.log(newList);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ?
-            jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$1, { className: variant = 'individualCourse', children: [jsxRuntime.jsx(Image$1, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
+            jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$3, { className: variant = 'individualCourse', children: [jsxRuntime.jsx(Image$2, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
                         jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })
                         :
                             null] })
@@ -5037,9 +5202,9 @@ function ProgressBar({ value, label }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', color: '#FFF' }, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex' }, children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
-var css_248z$2 = ".headerContent-module_container__uftDb {\n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: column;\n    position: relative;\n\n    width: 100%;\n    height: 480px;\n    \n    color: #FFF;\n    \n}\n\n.headerContent-module_content__50-5Q {\n    width: 100%;\n    height: 100%;\n    padding: 64px;\n    background: linear-gradient(360deg, #111111 0%, rgba(17, 17, 17, 0) 100%);\n}\n\n.headerContent-module_title__FllxA {\n    font-size: 40px;\n    font-weight: 700;\n    max-width: 650px;\n}\n\n.headerContent-module_description__X-VXE {\n    font-size: 16px;\n    font-weight: 400;\n    margin-top: 32px;\n    max-width: 650px;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n}\n\n.headerContent-module_contadorConteudo__8BnJu {\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    margin-bottom: 82px;\n    cursor: pointer;\n}";
-var style$1 = {"container":"headerContent-module_container__uftDb","content":"headerContent-module_content__50-5Q","title":"headerContent-module_title__FllxA","description":"headerContent-module_description__X-VXE","contadorConteudo":"headerContent-module_contadorConteudo__8BnJu"};
-styleInject(css_248z$2);
+var css_248z$3 = ".headerContent-module_container__uftDb {\n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: column;\n    position: relative;\n\n    width: 100%;\n    height: 480px;\n    \n    color: #FFF;\n    \n}\n\n.headerContent-module_content__50-5Q {\n    width: 100%;\n    height: 100%;\n    padding: 64px;\n    background: linear-gradient(360deg, #111111 0%, rgba(17, 17, 17, 0) 100%);\n}\n\n.headerContent-module_title__FllxA {\n    font-size: 40px;\n    font-weight: 700;\n    max-width: 650px;\n}\n\n.headerContent-module_description__X-VXE {\n    font-size: 16px;\n    font-weight: 400;\n    margin-top: 32px;\n    max-width: 650px;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n}\n\n.headerContent-module_contadorConteudo__8BnJu {\n    display: inline-flex;\n    justify-content: center;\n    align-items: center;\n    position: absolute;\n    bottom: 0;\n    left: 50%;\n    margin-bottom: 82px;\n    cursor: pointer;\n}";
+var style$2 = {"container":"headerContent-module_container__uftDb","content":"headerContent-module_content__50-5Q","title":"headerContent-module_title__FllxA","description":"headerContent-module_description__X-VXE","contadorConteudo":"headerContent-module_contadorConteudo__8BnJu"};
+styleInject(css_248z$3);
 
 function CountCircle() {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("circle", { cx: "8", cy: "8", r: "8", fill: "#E0E0E0" }) }) }));
@@ -5056,15 +5221,15 @@ function HeaderContent(props) {
         return () => clearTimeout(timer);
     }, [selectedContent]);
     function RecomendationHeader(item) {
-        return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { className: style$1.title, children: item.title }), jsxRuntime.jsx("div", { className: style$1.description, children: item.description }), jsxRuntime.jsx("div", { style: { marginTop: 48 }, onClick: props.onClick, children: jsxRuntime.jsx(Button, { label: "Come\u00E7ar curso", variant: "primary" }) })] }));
+        return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { className: style$2.title, children: item.title }), jsxRuntime.jsx("div", { className: style$2.description, children: item.description }), jsxRuntime.jsx("div", { style: { marginTop: 48 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Come\u00E7ar curso", variant: "primary" }) })] }));
     }
-    return (jsxRuntime.jsx("div", { className: style$1.container, style: { backgroundImage: `url(${props.typeOfHeader === 'inProgress' ? props.bgImg : props.listaRecomendacao[selectedContent].bg})` }, children: props.typeOfHeader === 'inProgress' ?
-            jsxRuntime.jsxs("div", { className: style$1.content, children: [jsxRuntime.jsx("div", { className: style$1.title, children: props.title }), jsxRuntime.jsx("div", { className: style$1.description, children: props.description }), jsxRuntime.jsxs("div", { style: { marginTop: 68, display: 'flex' }, children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ProgressBar, { value: props.progresso, label: props.channel }) }), jsxRuntime.jsx("div", { style: { marginLeft: 24 }, onClick: props.onClick, children: jsxRuntime.jsx(Button, { label: "Continuar curso", variant: "primary" }) })] })] })
+    return (jsxRuntime.jsx("div", { className: style$2.container, style: { backgroundImage: `url(${props.typeOfHeader === 'inProgress' ? props.bgImg : props.listaRecomendacao[selectedContent].bg})` }, children: props.typeOfHeader === 'inProgress' ?
+            jsxRuntime.jsxs("div", { className: style$2.content, children: [jsxRuntime.jsx("div", { className: style$2.title, children: props.title }), jsxRuntime.jsx("div", { className: style$2.description, children: props.description }), jsxRuntime.jsxs("div", { style: { marginTop: 68, display: 'flex' }, children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ProgressBar, { value: props.progresso, label: props.channel }) }), jsxRuntime.jsx("div", { style: { marginLeft: 24 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Continuar curso", variant: "primary" }) })] })] })
             :
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: style$1.content, children: RecomendationHeader(props.listaRecomendacao[selectedContent]) }), jsxRuntime.jsxs("div", { className: style$1.contadorConteudo, children: [jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(0); }, children: selectedContent === 0 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(1); }, children: selectedContent === 1 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(2); }, children: selectedContent === 2 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(3); }, children: selectedContent === 3 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(4); }, children: selectedContent === 4 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) })] })] }) }));
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: style$2.content, children: RecomendationHeader(props.listaRecomendacao[selectedContent]) }), jsxRuntime.jsxs("div", { className: style$2.contadorConteudo, children: [jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(0); }, children: selectedContent === 0 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(1); }, children: selectedContent === 1 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(2); }, children: selectedContent === 2 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(3); }, children: selectedContent === 3 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(4); }, children: selectedContent === 4 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) })] })] }) }));
 }
 
-const Container = styled__default["default"].div `
+const Container$2 = styled__default["default"].div `
   display: flex;
   width: 100%;
   height: 120px;
@@ -5075,7 +5240,7 @@ const TextContainer = styled__default["default"].div `
   flex-direction: column;
   width: 100%;
 `;
-const Image = styled__default["default"].img `
+const Image$1 = styled__default["default"].img `
   width: 88px;
   height: 120px;
   border-radius: 8px;
@@ -5105,7 +5270,7 @@ const Description = styled__default["default"].text `
 `;
 
 function SearchResults({ src, title, description, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container, { children: [jsxRuntime.jsx(Image, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { children: [jsxRuntime.jsx(Image$1, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
 }
 
 const WrapperCard = styled__default["default"].div `
@@ -5122,12 +5287,12 @@ function StarMetric({ disabled, onChange }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
 }
 
-var css_248z$1 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
-var style = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
-styleInject(css_248z$1);
+var css_248z$2 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
+var style$1 = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
+styleInject(css_248z$2);
 
-var css_248z = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
-styleInject(css_248z);
+var css_248z$1 = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
+styleInject(css_248z$1);
 
 const defineds = {
     startOfWeek: dateFns.startOfWeek(new Date()),
@@ -5214,7 +5379,7 @@ function CalendarLxp(props) {
         }
     ]);
     locale.pt.options.weekStartsOn = 0;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style.btnSubmit, children: jsxRuntime.jsx(Button, { label: 'Aplicar', variant: 'primary', handleClick: () => {
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$1.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$1.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$1.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$1.btnSubmit, children: jsxRuntime.jsx(Button$1, { label: 'Aplicar', variant: 'primary', handleClick: () => {
                             props.onSave([newRange[0].startDate, newRange[0].endDate]);
                         } }) })] }) }));
 }
@@ -5223,11 +5388,1036 @@ function Video({ videoId, privateHash, width, height, autoplay, quality, timeSta
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { ...style }, children: jsxRuntime.jsx("iframe", { src: `https://player.vimeo.com/video/${videoId}?h=${privateHash ? privateHash : ''}&autoplay=${autoplay ? autoplay : 0}&quality=${quality ? quality : '720p'}&speed=${showSpeedControl ? showSpeedControl : 0}&controls=${controls ? controls : 1}&loop=${loop ? loop : 0}&keyboard=${keyboard ? keyboard : 0}&#t=${timeStart ? timeStart : '0m0s'}`, width: width ? width : 640, height: height ? height : 342, allow: "autoplay; fullscreen; picture-in-picture", frameBorder: "0", allowFullScreen: true }) }) }));
 }
 
+const MenuContainer = styled__default["default"].div `
+    width: 100%;
+    height: 64px;
+
+    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+
+    display: flex;
+    align-items: center;
+    & > button {
+        height: 100%;
+    }
+`;
+const WrapperLogo = styled__default["default"].div `
+    margin-right: 65px;
+`;
+const HamburgerButton = styled__default["default"].div `
+        cursor: pointer;
+        display: flex;
+        width: 48px;
+        height: auto;
+        margin-bottom: 10px;
+        margin-right: 20px;
+    `;
+const WrapperMenu = styled__default["default"].div `
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+`;
+const WrapperRightInfo = styled__default["default"].div `
+    height: 100%;   
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+const WrapperIconNotification = styled__default["default"].div `
+    height: 100%;
+    width: 24px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+const SubMenuContainer = styled__default["default"].div `
+    width: 100%;
+    height: 32px;
+
+    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1};
+
+    padding-left: 124px;
+    padding-right: 124px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 1px solid ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : theme.colors.primary1};
+`;
+const MenuMobile$1 = styled__default["default"].div `
+    display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 10001;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #222;
+`;
+const ItemMenuMobile = styled__default["default"].div `
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100vw;
+    height: 20px;
+    
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 20px;
+
+    color: #FFFFFF;
+
+    border-bottom: 1px solid #444;
+
+    &:hover {
+        background: #4444;
+    }
+`;
+
+const Container$1 = styled__default["default"].div `
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+`;
+styled__default["default"].label `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    margin-bottom: 16px;
+
+    color: ${({ theme }) => theme.colors.shadeBlack};
+
+    color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
+    
+    color: ${({ isOnFocus }) => isOnFocus && '#663366'}    
+`;
+const ContainerIcon = styled__default["default"].div `
+    z-index: 10;
+    cursor: pointer;
+    min-height: 20px;
+    min-width: 40px;
+    padding-left: 15px;
+    padding-right: 10px;
+    padding-top: 3px;
+`;
+const InputSearchWrapper = styled__default["default"].div `
+    height: 48px;
+    background-color: ${({ isOnFocus }) => isOnFocus ? '#757575' : '#444'};
+
+    border-radius: 8px;
+    
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: ${({ isMobile }) => isMobile ? '0px !important' : 'auto'};
+    border: ${({ isMobile }) => !isMobile ? '1px' : '0px'} solid ${({ isHover, theme }) => isHover ? theme.colors.shadeBlack : '#000'};  
+    transition: width 1s ease-in-out;
+`;
+const InputText = styled__default["default"].input `
+    margin-left:10px;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    width: 100%;
+    border: none;
+    background: transparent;
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: ${({ theme }) => theme.colors.shadeWhite};
+
+    &::placeholder {
+        font-family: 'PT Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        backgorund-color: #FFF;
+        color: ${({ theme }) => theme.colors.shadeWhite};
+    }
+`;
+const WrapperResults = styled__default["default"].div `
+    position: absolute;
+    margin-top: 269px;
+    display: ${({ isVisibleResults }) => isVisibleResults ? 'flex' : 'none'};
+    height: auto;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    background: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid #BDBDBD;
+    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
+    z-index: 10000;
+    overflow: hidden;
+`;
+const ItemResult = styled__default["default"].div `
+        width: 100%;
+        cursor: pointer;
+        &:hover {
+            background: ${({ theme }) => theme.colors.neutralsGrey9};
+        }
+    `;
+const TextItem = styled__default["default"].span `
+        font-family: 'PT Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+
+        display: flex;
+        align-items: center;
+        
+        color: #000000;    
+
+        height: 42px;
+
+        padding-left: 16px;
+        margin-left: 5px;
+        margin-right: 5px;
+        border-bottom: 1px solid ${({ isLastItem, theme }) => isLastItem ? 'transparent' : theme.colors.neutralsGrey7};
+
+    `;
+const ItemSeeAll = styled__default["default"].div `
+        width: 100%;
+        display: flex;
+        justify-content: center;   
+        align-item: center;
+        text-align: center;
+
+        cursor: pointer;
+
+        font-family: 'PT Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 21px;
+
+        padding: 16px;
+        color: ${({ theme }) => theme.colors.linkOnfocus};
+        &:hover {
+            background: ${({ theme }) => theme.colors.neutralsGrey9};
+        }
+    `;
+
+function FieldSearch({ variant, value, placeholder, onChange, listResults, hasOptionSeeAll, seeAll, style, loading, setLoading, textLoading, enableAnimationField, isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen }) {
+    const [actionAreaInput, setActionAreaInput] = React.useState(false);
+    const [inputOnFocus, setInputOnFocus] = React.useState(false);
+    const [isMobile, setIsMobile] = React.useState(isMobileVersion);
+    const [openSearchFieldMobile, setOpenSearchFieldMobile] = React.useState(isMobileVersion);
+    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
+    React.useEffect(() => {
+        setFieldSearchIsOpen(isMobileVersion);
+    }, []);
+    React.useEffect(() => {
+        setIsOpenDrop(false);
+        setFieldSearchIsOpen(!openSearchFieldMobile);
+    }, [openSearchFieldMobile]);
+    // Handle Open list results
+    React.useEffect(() => {
+        setIsOpenDrop(value && value.length > 0 && listResults && listResults.length > 0);
+    }, [value, listResults]);
+    const handleFocusUp = () => {
+        setInputOnFocus(true);
+        setIsOpenDrop(value && value.length > 0 && listResults && listResults.length > 0);
+    };
+    const handleFocusDown = () => {
+        setInputOnFocus(false);
+        setIsOpenDrop(actionAreaInput);
+        setLoading(false);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
+            jsxRuntime.jsxs(Container$1, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon, { onClick: () => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => onChange(e), value: value })] }), loading ?
+                        jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: '95px' }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
+                        :
+                            jsxRuntime.jsxs(WrapperResults, { style: { ...style }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.map((item, index) => {
+                                        return jsxRuntime.jsx(ItemResult, { onClick: () => {
+                                                setIsOpenDrop(false);
+                                                return item.onClick(item.id);
+                                            }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id);
+                                    }), hasOptionSeeAll &&
+                                        jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
+                                                setIsOpenDrop(false);
+                                                return seeAll.onClick(e);
+                                            }, children: seeAll.label })] })] })
+            :
+                jsxRuntime.jsx(Container$1, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }));
+}
+
+const Wrapper$1 = styled__default["default"].button `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0;
+    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    border-top: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+
+    background-color: ${({ variant, theme, typeItem }) => typeItem == 'submenu' ? 'transparent' : variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+
+    white-space: ${({ wrapText }) => wrapText ? 'wrap' : 'nowrap'};
+
+    &:hover {
+        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
+        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    }
+    ${({ pressed, variant, typeItem, theme }) => pressed && `
+        font-weight: 700;
+        border-bottom: ${typeItem == 'menu' ? '4px' : '2px'} solid 
+        ${variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+    `}
+    &:focus {
+        font-weight: 700;
+        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
+        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+    }
+`;
+styled__default["default"].button `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0;
+    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    border-top: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+
+    background-color: transparent;
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+
+    white-space: ${({ wrapText }) => wrapText ? 'wrap' : 'nowrap'};
+
+    &:hover {
+        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
+        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
+        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+    }
+
+    &:focus {
+        font-weight: 700;
+    }
+`;
+
+function ItemGlobalMenu({ variant, type, label, onClick, wrapText, pressed, style }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Wrapper$1, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: (e) => onClick(e), children: label }) }));
+}
+
+styled__default["default"].button `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0;
+    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    border-top: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+
+    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+
+
+    &:hover {
+        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
+        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
+        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+    }
+
+    &:focus {
+        font-weight: 700;
+    }
+`;
+const Wrapper = styled__default["default"].div `
+    width: 50px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    background: transparent;
+    border: 0;
+`;
+const Image = styled__default["default"].img `
+    width: 50px;
+    user-select: none;
+    cursor: pointer;
+    object-fit: contain;
+`;
+const WrapperDrop = styled__default["default"].div `
+    user-select: none;
+    width: 50px;
+
+    position: absolute;
+    margin-top: 45px;
+    z-index: 10000;
+
+    border: 0;
+    display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
+    flex-direction: column;
+    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : '#F5792A'};
+`;
+
+function LanguagesDropdown({ variant, languages, selected, onSelect, style, distanceBtnDrop }) {
+    const imgES = 'https://i.gyazo.com/1cfa904ea1d492ace9dc67c2a37a10e4.png';
+    const imgBR = 'https://i.gyazo.com/ee7e65d12345200b8c3dd12670f85881.png';
+    const imgEN = 'https://i.gyazo.com/06a0ea969c48c12589d5d5565cf834df.png';
+    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
+    const [activeArea, setActiveArea] = React.useState(false);
+    const [activeImgFlag, setActiveImgFlag] = React.useState(imgBR);
+    React.useEffect(() => {
+        switch (selected) {
+            case 'pt': return setActiveImgFlag(imgBR);
+            case 'en': return setActiveImgFlag(imgEN);
+            case 'es': return setActiveImgFlag(imgES);
+        }
+    }, [selected]);
+    React.useEffect(() => {
+        const checksAnyClickOnScreen = () => {
+            if (isOpenDrop) {
+                document.body.removeEventListener("click", checksAnyClickOnScreen, false);
+                setIsOpenDrop(false);
+            }
+        };
+        if (isOpenDrop) {
+            (document.body.addEventListener("click", checksAnyClickOnScreen, false));
+        }
+    }, [isOpenDrop]);
+    const handleChangeSelect = (value) => {
+        onSelect(value);
+        switch (value) {
+            case 'pt': return setActiveImgFlag(imgBR);
+            case 'en': return setActiveImgFlag(imgEN);
+            case 'es': return setActiveImgFlag(imgES);
+        }
+        setIsOpenDrop(false);
+        setActiveArea(false);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
+                        return (jsxRuntime.jsx("div", { children: item == 'pt' ?
+                                jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                : item == 'es' ?
+                                    jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('en'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                    : item == 'en' &&
+                                        jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
+                    }) })] }) }));
+}
+
+const Container = styled__default["default"].div `
+  width: auto;
+  height: auto;
+`;
+const ProfileInfos = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  width: 290px;
+  background-color: #222;
+  padding: 12px;
+`;
+const WrapperRightProfileInfo = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+  `;
+const ProfileNameInfo = styled__default["default"].span `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    
+    display: flex;
+    align-items: center;
+    
+    color: #FFFFFF;
+  `;
+const ProfileCompanyInfo = styled__default["default"].span `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    /* identical to box height */
+    
+    display: flex;
+    align-items: center;
+    
+    color: #FFFFFF;
+  `;
+const WrapperButtonFrst = styled__default["default"].div `
+    & > button {
+      margin-top: 16px;
+      
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      /* identical to box height */
+
+      display: flex;
+      align-items: center;
+
+      color: #FFF; 
+      border: 1px solid #FFF;
+      width: 106px;
+      height: 48px;
+      border-radius: 8px;
+      white-space: nowrap;
+
+      &:hover {
+        color: #FFF; 
+        border: 1.8px solid #FFF;        
+      }
+      &:focus {
+        color: #FFF; 
+        border: 2px solid #FFF;        
+      }
+    }
+  `;
+const UserName = styled__default["default"].span `
+  color: white;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  text-transform: none;
+
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+
+  display: flex;
+  align-items: center;
+  text-align: right;
+
+  color: #FFFFFF;
+`;
+const AvatarCustomUser = styled__default["default"](Avatar__default["default"]) `
+  height: 32px;
+  width: 32px;
+`;
+const MenuCustom = styled__default["default"](Menu__default["default"]) `
+  & .MuiPaper-root{
+    border-radius: 0px;
+    ${({ variantstyle }) => variantstyle == 'LXP' && `border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      box-shadow: none !important;`}
+  }
+  ul {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+`;
+styled__default["default"](Menu__default["default"]) `
+  & .MuiPaper-root{
+    border-radius: 0px;
+    box-shadow: none !important;
+    background: linear-gradient(359.72deg, rgba(166, 166, 166, 0.4) 69.54%, rgba(0, 0, 0, 0.4) 88.63%), #000000 !important;
+  }
+  ul {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+`;
+const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+  border: 0;
+
+  ${({ variantstyle }) => variantstyle == 'LXP' ?
+    `background-color: #222222 !important;
+     border-top: 0.5px solid #757575 !important;`
+    :
+        `
+     width: 185px;
+     background-color: #FF4D0D !important;
+     border-top: 0.5px solid #F5792A !important;`}
+
+  &:hover {
+
+    ${({ variantstyle }) => variantstyle == 'LXP' ?
+    `background-color: #444444 !important;`
+    :
+        `background-color: #F5792A !important;`}
+    
+  }
+`;
+const SubMenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+
+  ${({ variantstyle }) => variantstyle == 'LXP' ?
+    `background-color: #222222 !important;`
+    :
+        `background-color: #FF4D0D !important;`}
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  &:hover {
+    ${({ variantstyle }) => variantstyle == 'LXP' ?
+    `background-color: #444444 !important;`
+    :
+        `background-color: #F5792A !important;`}
+  }
+`;
+
+function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style }) {
+    const [anchorEl, setAnchorEl] = React__namespace.useState(null);
+    const [anchorSub, setAnchorSub] = React__namespace.useState(null);
+    const [subMenu, setSubMenu] = React__namespace.useState(null);
+    const [isMobile, setIsMobile] = React__namespace.useState(isMobileVersion);
+    const open = Boolean(anchorEl);
+    const openSub = Boolean(anchorSub);
+    React__namespace.useEffect(() => {
+        setIsMobile(isMobileVersion);
+    }, [isMobileVersion]);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+        setAnchorSub(null);
+    };
+    const handleSubitens = (subItens) => (event) => {
+        setAnchorSub(event.currentTarget);
+        setSubMenu(subItens);
+    };
+    return (jsxRuntime.jsx(Container, { style: { ...style }, children: variant == 'LXP' ?
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$1, { variant: 'secondary', label: 'Ver Perfil', handleClick: () => { alert('Click'); } }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+                                if (item.subItens) {
+                                    if (item.subItens.length > 1)
+                                        return (jsxRuntime.jsxs(MenuItemCustom, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
+                                }
+                                else
+                                    return (jsxRuntime.jsxs(MenuItemCustom, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
+                            })] }), jsxRuntime.jsx(MenuCustom, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
+                            return jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'LXP', children: item.label }, item.id);
+                        }) })] })
+            :
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), jsxRuntime.jsxs(UserName, { children: [" ", user.name, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+                                if (item.subItens) {
+                                    if (item.subItens.length > 1)
+                                        return (jsxRuntime.jsxs(MenuItemCustom, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
+                                }
+                                else
+                                    return (jsxRuntime.jsxs(MenuItemCustom, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
+                            }) }), jsxRuntime.jsx(MenuCustom, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
+                                return jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'default', children: item.label }, item.id);
+                            }) })] }) }));
+}
+
+function GlobalMenu({ variant, menu, subMenu, user, search, notification, handleNotification, languages, languageSelected, onChangeLanguage, style }) {
+    const [valueSearch, setValueSearch] = React.useState(search.value);
+    const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
+    const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
+    const [controlExpandedSearchMobile, setControlExpandedSearchMobile] = React.useState(true);
+    const [showLogo, setShowLogo] = React.useState(false);
+    const [isVisibleMenuMobile, setIsVisibleMenuMobile] = React.useState(false);
+    const [windowSize, setWindowSize] = React.useState([0, 0]);
+    const [isMobileVersion, setIsMobileVersion] = React.useState(false);
+    React.useEffect(() => {
+        function updateSize() {
+            setWindowSize([window.innerWidth, window.innerHeight]);
+            setIsMobileVersion(window.innerWidth < 1200);
+            setShowLogo(false);
+            setIsVisibleMenuMobile(false);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    React.useEffect(() => {
+        setValueSearch(search.value);
+        setValueListSearch(search.listEntry);
+        setLoadingSearch(search.loading);
+    }, [search]);
+    React.useEffect(() => {
+        setShowLogo(isMobileVersion);
+    }, []);
+    React.useEffect(() => {
+        if (!controlExpandedSearchMobile)
+            setTimeout(() => {
+                setShowLogo(!controlExpandedSearchMobile && isMobileVersion);
+            }, 1500);
+        else
+            setShowLogo(!controlExpandedSearchMobile && isMobileVersion);
+    }, [controlExpandedSearchMobile]);
+    const handleChangeValueSearch = (value) => {
+        setValueSearch(value);
+        search.onChange(value);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e) }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                                    paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
+                                    paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
+                                    ...style
+                                }, children: [isMobileVersion &&
+                                        jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
+                                        jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
+                                        jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                                    width: isMobileVersion ? '190px' : '332px',
+                                                } }), jsxRuntime.jsx(MenuContainer, { variant: variant, style: {
+                                                    height: '100%',
+                                                    paddingLeft: (windowSize[0] * 0.03) + 'px',
+                                                    paddingRight: (windowSize[0] * 0.03) + 'px',
+                                                    justifyContent: 'center'
+                                                }, children: !isMobileVersion && menu && menu.length > 0 && menu.map((item, index) => {
+                                                    return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'menu', pressed: item.active, onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
+                                                }) })] }), isMobileVersion &&
+                                        jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                                width: isMobileVersion ? '180px' : '332px',
+                                                marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
+                                            } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: '150px' }, children: [!isMobileVersion && notification &&
+                                                jsxRuntime.jsx(WrapperIconNotification, { children: jsxRuntime.jsx(IconNotification, {}) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                                    marginLeft: isMobileVersion ? '0px' : '5px',
+                                                    marginRight: isMobileVersion ? '0px' : '5px'
+                                                } }), !isMobileVersion && languages && languages.length > 0 &&
+                                                jsxRuntime.jsx(LanguagesDropdown, { variant: 'LXP', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' })] })] }), subMenu && subMenu.length > 0 &&
+                                jsxRuntime.jsx(SubMenuContainer, { variant: variant, style: {
+                                        paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
+                                        paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
+                                        ...style
+                                    }, children: subMenu.map((item, index) => {
+                                        return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'submenu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
+                                    }) })] })] })
+            :
+                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28' }) }), jsxRuntime.jsx(WrapperMenu, { children: menu && menu.length > 0 && menu.map((item, index) => {
+                                    return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'default', type: 'menu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
+                                }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: 'default', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion }) }), languages && languages.length > 0 &&
+                                jsxRuntime.jsx(LanguagesDropdown, { variant: 'default', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' })] }) }) }));
+}
+function MenuMobile({ items, isVisible, setVisible }) {
+    return (jsxRuntime.jsxs(MenuMobile$1, { isVisible: isVisible, children: [jsxRuntime.jsx("div", { children: items && items.length > 0 && items.map((item, index) => {
+                    if (item.label == 'Criar conteúdo')
+                        return;
+                    return jsxRuntime.jsx(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: item.label }, index);
+                }) }), jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), style: { borderTop: '1px solid #444' }, children: "Voltar" })] }));
+}
+function IconNotification() {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M18.2843 18.389H5.71573C5.09953 18.389 4.6 17.8895 4.6 17.2733C4.6 17.0869 4.6467 16.9034 4.73583 16.7397L4.20888 16.4528L4.73583 16.7397L5.28347 15.7339C5.49118 15.3524 5.6 14.925 5.6 14.4906V10.9998C5.6 7.4652 8.46538 4.59982 12 4.59982C15.5346 4.59982 18.4 7.4652 18.4 10.9998V14.4906C18.4 14.925 18.5088 15.3524 18.7165 15.7339L19.2642 16.7397C19.3533 16.9034 19.4 17.0869 19.4 17.2733C19.4 17.8895 18.9005 18.389 18.2843 18.389Z", stroke: "#FFD600", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M10 4.99982L10 3.99982C10 2.89526 10.8954 1.99982 12 1.99982V1.99982C13.1046 1.99982 14 2.89526 14 3.99982V4.99982", stroke: "#FFD600", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M9 18.9998V18.9998C9 20.6567 10.3431 21.9998 12 21.9998V21.9998C13.6569 21.9998 15 20.6567 15 18.9998V18.9998", stroke: "#FFD600", strokeWidth: "1.2" })] }));
+}
+function IconHamburgerMenu() {
+    return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs("svg", { width: "27", height: "33", viewBox: "0 0 27 33", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.46 2.4H6.23L4.79 6.42L4.28 8.06H4.26L3.76 6.41L2.31 2.4H1.08V9H1.84V4.85L1.75 3.11H1.76L3.93 9H4.61L6.78 3.11H6.79L6.7 4.85V9H7.46V2.4ZM13.6673 6.24C13.6673 4.95 12.8773 3.9 11.4273 3.9C9.91727 3.9 9.06727 4.88 9.06727 6.5C9.06727 8.12 9.97727 9.1 11.4873 9.1C12.5673 9.1 13.1873 8.69 13.5673 8.01L12.8973 7.66C12.7173 8.14 12.2173 8.4 11.4873 8.4C10.5673 8.4 9.95727 7.81 9.85727 6.8H13.6273C13.6473 6.66 13.6673 6.47 13.6673 6.24ZM11.4273 4.6C12.2773 4.6 12.7873 5.17 12.8973 6.09H9.86727C9.98727 5.15 10.5373 4.6 11.4273 4.6ZM17.6178 3.9C16.9278 3.9 16.2878 4.15 15.9378 4.78L15.8878 4H15.1878V9H15.9878V6.34C15.9878 5.06 16.8078 4.6 17.5378 4.6C18.2278 4.6 18.7678 4.97 18.7678 6.08V9H19.5678V5.8C19.5678 4.51 18.6878 3.9 17.6178 3.9ZM24.9092 4V6.72C24.9092 7.9 24.1592 8.4 23.3092 8.4C22.5892 8.4 22.1292 8.09 22.1292 7.06V4H21.3292V7.27C21.3292 8.59 22.1792 9.1 23.1692 9.1C23.9692 9.1 24.6092 8.84 24.9592 8.24L25.0092 9H25.7092V4H24.9092Z", fill: "white" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M0 15.5854C0 15.0332 0.447715 14.5854 1 14.5854H24.7843C25.3366 14.5854 25.7843 15.0332 25.7843 15.5854C25.7843 16.1377 25.3366 16.5854 24.7843 16.5854H1C0.447715 16.5854 0 16.1377 0 15.5854ZM0 23.6736C0 23.1213 0.447715 22.6736 1 22.6736H24.7843C25.3366 22.6736 25.7843 23.1213 25.7843 23.6736C25.7843 24.2259 25.3366 24.6736 24.7843 24.6736H1C0.447715 24.6736 0 24.2259 0 23.6736ZM1 30.7617C0.447715 30.7617 0 31.2094 0 31.7617C0 32.314 0.447715 32.7617 1 32.7617H24.7843C25.3366 32.7617 25.7843 32.314 25.7843 31.7617C25.7843 31.2094 25.3366 30.7617 24.7843 30.7617H1Z", fill: "white" })] }) }));
+}
+
+var css_248z = ".extraContent-module_container__tV2ud {\n    background-color: #E0E0E0;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    font-family: 'PT Sans';\n    padding: 20px;\n}\n\n.extraContent-module_contentInfo__TGKPS {\n    padding: 32px 20px;\n}\n\n.extraContent-module_notes__I6JnG {\n    display: flex;\n    flex-direction: column;\n}\n\n.extraContent-module_saveNotes__DHETt {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    margin-top: 24px;\n}";
+var style = {"container":"extraContent-module_container__tV2ud","contentInfo":"extraContent-module_contentInfo__TGKPS","notes":"extraContent-module_notes__I6JnG","saveNotes":"extraContent-module_saveNotes__DHETt"};
+styleInject(css_248z);
+
+function AdminExtraContent(props) {
+    const [valueTabs, setValueTabs] = React.useState(0);
+    const [transcriptionText, setTranscriptionText] = React.useState('');
+    const handleChangeTabs = (e, newTab) => {
+        setValueTabs(newTab);
+    };
+    React.useState([]);
+    function BooksInfo(books) {
+        let bookInfo;
+        return (jsxRuntime.jsxs("div", { style: { marginTop: 16 }, children: [jsxRuntime.jsx(TextField, { label: "Nome do livro", onChange: (e) => bookInfo.name = e.target.value }), jsxRuntime.jsx(TextField, { label: "Nome do autor", onChange: (e) => bookInfo.autor = e.target.value }), jsxRuntime.jsx(TextField, { label: "Link para compra", onChange: (e) => bookInfo.link = e.target.value }), jsxRuntime.jsx("div", { style: { marginBottom: 8 }, children: jsxRuntime.jsx("span", { children: " Fa\u00E7a upload da capa do livro abaixo" }) }), jsxRuntime.jsx(FileUpload, { variant: "landscape" })] }));
+    }
+    return (jsxRuntime.jsxs("div", { className: style.container, children: [jsxRuntime.jsx("span", { style: { fontSize: 18, fontWeight: 700 }, children: "Material extra" }), jsxRuntime.jsx("div", { className: style.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
+                        '& .Mui-selected ': {
+                            color: '#FF4D0D !important',
+                            fontWeight: '700 !important'
+                        },
+                        '& .MuiTab-root': {
+                            fontFamily: 'PT Sans !important',
+                            textTransform: 'none !important',
+                            fontWeight: '400 !important',
+                        },
+                        '& .MuiTabs-indicator': {
+                            backgroundColor: '#FF5427 !important',
+                        }
+                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Livros', value: 2 })] }) }), jsxRuntime.jsxs("div", { className: style.contentInfo, children: [valueTabs === 0 &&
+                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Para ajudar as pessoas com algum problema auditivo ou que somente desejam revisar de forma r\u00E1pida o conte\u00FAdo, transcreva abaixo o que foi dito durante o v\u00EDdeo." }) }), jsxRuntime.jsx(Textarea, { label: "Transcri\u00E7\u00E3o", style: { marginTop: 24 }, height: '150px', onChange: (e) => {
+                                        setTranscriptionText(e.target.value);
+                                    } })] }), valueTabs === 1 &&
+                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Adicone materiais extras como PDFs e PPTs que ajudem seus alunos a se desenvolverem neste assunto." }) }), jsxRuntime.jsx("div", { style: { marginTop: 24, marginBottom: 8 }, children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Fa\u00E7a o upload dos arquivos abaixo" }) }), jsxRuntime.jsx(FileUpload, { variant: "landscape" })] }), valueTabs === 2 &&
+                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Adicione abaixo links de compra dos livros que podem ajudar seus alunos a se desenvolverem nesta \u00E1rea." }), BooksInfo(), jsxRuntime.jsx("div", { style: { marginTop: 24 }, children: jsxRuntime.jsx(Button$1, { variant: "expandedSecondary", label: "Adicionar", startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FF4D0D" }), handleClick: () => { } }) })] })] })] }));
+}
+
+const Button = React__default["default"].forwardRef(({ className, active, reversed, ...props }, ref) => (jsxRuntime.jsx("span", { ...props, ref: ref, className: css.cx(className, css.css `
+          cursor: pointer;
+          color: ${reversed
+        ? active
+            ? 'white'
+            : '#aaa'
+        : active
+            ? 'black'
+            : '#ccc'};
+        `) })));
+React__default["default"].forwardRef(({ className, value, ...props }, ref) => {
+    const textLines = value.document.nodes
+        .map(node => node.text)
+        .toArray()
+        .join('\n');
+    return (jsxRuntime.jsxs("div", { ref: ref, ...props, className: css.cx(className, css.css `
+            margin: 30px -20px 0;
+          `), children: [jsxRuntime.jsx("div", { className: css.css `
+            font-size: 14px;
+            padding: 5px 20px;
+            color: #404040;
+            border-top: 2px solid #eeeeee;
+            background: #f8f8f8;
+          `, children: "Slate's value as text" }), jsxRuntime.jsx("div", { className: css.css `
+            color: #404040;
+            font: 12px monospace;
+            white-space: pre-wrap;
+            padding: 10px 20px;
+            div {
+              margin: 0 0 0.5em;
+            }
+          `, children: textLines })] }));
+});
+React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("span", { ...props, ref: ref, className: css.cx('material-icons', className, css.css `
+          font-size: 18px;
+          vertical-align: text-bottom;
+        `) })));
+React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ...props, ref: ref, className: css.cx(className, css.css `
+          white-space: pre-wrap;
+          margin: 0 -20px 10px;
+          padding: 10px 20px;
+          font-size: 14px;
+          background: #f8f8e8;
+        `) })));
+const Menu = React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ...props, ref: ref, className: css.cx(className, css.css `
+          & > * {
+            display: inline-block;
+          }
+
+          & > * + * {
+            margin-left: 15px;
+          }
+        `) })));
+const Toolbar = React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx(Menu, { ...props, ref: ref, className: css.cx(className, css.css `
+          position: relative;
+          padding: 16px 16px 16px;
+          border-bottom: 2px solid #eee;
+          background-color: #FFF
+        `) })));
+
+const HOTKEYS = {
+    'mod+b': 'bold',
+    'mod+i': 'italic',
+    'mod+u': 'underline',
+    'mod+`': 'code',
+};
+const LIST_TYPES = ['numbered-list', 'bulleted-list'];
+const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify'];
+const RichTextExample = () => {
+    const renderElement = React.useCallback(props => jsxRuntime.jsx(Element, { ...props }), []);
+    const renderLeaf = React.useCallback(props => jsxRuntime.jsx(Leaf, { ...props }), []);
+    const editor = React.useMemo(() => slateHistory.withHistory(slateReact.withReact(slate.createEditor())), []);
+    return (jsxRuntime.jsxs(slateReact.Slate, { editor: editor, value: initialValue, children: [jsxRuntime.jsxs(Toolbar, { children: [jsxRuntime.jsx(MarkButton, { format: "bold", icon: jsxRuntime.jsx(iconsMaterial.FormatBold, {}) }), jsxRuntime.jsx(MarkButton, { format: "italic", icon: jsxRuntime.jsx(iconsMaterial.FormatItalic, {}) }), jsxRuntime.jsx(MarkButton, { format: "underline", icon: jsxRuntime.jsx(iconsMaterial.FormatUnderlined, {}) }), jsxRuntime.jsx(MarkButton, { format: "code", icon: jsxRuntime.jsx(iconsMaterial.Code, {}) }), jsxRuntime.jsx(BlockButton, { format: "heading-one", icon: jsxRuntime.jsx(iconsMaterial.LooksOne, {}) }), jsxRuntime.jsx(BlockButton, { format: "heading-two", icon: jsxRuntime.jsx(iconsMaterial.LooksTwo, {}) }), jsxRuntime.jsx(BlockButton, { format: "block-quote", icon: jsxRuntime.jsx(iconsMaterial.FormatQuote, {}) }), jsxRuntime.jsx(BlockButton, { format: "numbered-list", icon: jsxRuntime.jsx(iconsMaterial.FormatListNumbered, {}) }), jsxRuntime.jsx(BlockButton, { format: "bulleted-list", icon: jsxRuntime.jsx(iconsMaterial.FormatListBulleted, {}) }), jsxRuntime.jsx(BlockButton, { format: "left", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignLeft, {}) }), jsxRuntime.jsx(BlockButton, { format: "center", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignCenter, {}) }), jsxRuntime.jsx(BlockButton, { format: "right", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignRight, {}) }), jsxRuntime.jsx(BlockButton, { format: "justify", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignJustify, {}) })] }), jsxRuntime.jsx(slateReact.Editable, { renderElement: renderElement, renderLeaf: renderLeaf, placeholder: "Digite seu texto aqui", spellCheck: true, autoFocus: true, style: { height: 275, width: '100%', backgroundColor: '#EBEBEB', border: '1px solid #E0E0E0', overflow: 'auto' }, onKeyDown: event => {
+                    for (const hotkey in HOTKEYS) {
+                        if (isHotkey__default["default"](hotkey, event)) {
+                            event.preventDefault();
+                            const mark = HOTKEYS[hotkey];
+                            toggleMark(editor, mark);
+                        }
+                    }
+                } })] }));
+};
+const toggleBlock = (editor, format) => {
+    const isActive = isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type');
+    const isList = LIST_TYPES.includes(format);
+    slate.Transforms.unwrapNodes(editor, {
+        match: n => !slate.Editor.isEditor(n) &&
+            slate.Element.isElement(n) &&
+            // @ts-ignore
+            LIST_TYPES.includes(n.type) &&
+            !TEXT_ALIGN_TYPES.includes(format),
+        split: true,
+    });
+    let newProperties;
+    if (TEXT_ALIGN_TYPES.includes(format)) {
+        newProperties = {
+            // @ts-ignore
+            align: isActive ? undefined : format,
+        };
+    }
+    else {
+        newProperties = {
+            // @ts-ignore
+            type: isActive ? 'paragraph' : isList ? 'list-item' : format,
+        };
+    }
+    slate.Transforms.setNodes(editor, newProperties);
+    if (!isActive && isList) {
+        const block = { type: format, children: [] };
+        slate.Transforms.wrapNodes(editor, block);
+    }
+};
+const toggleMark = (editor, format) => {
+    const isActive = isMarkActive(editor, format);
+    if (isActive) {
+        slate.Editor.removeMark(editor, format);
+    }
+    else {
+        slate.Editor.addMark(editor, format, true);
+    }
+};
+const isBlockActive = (editor, format, blockType = 'type') => {
+    const { selection } = editor;
+    if (!selection)
+        return false;
+    const [match] = Array.from(slate.Editor.nodes(editor, {
+        at: slate.Editor.unhangRange(editor, selection),
+        match: n => !slate.Editor.isEditor(n) &&
+            slate.Element.isElement(n) &&
+            n[blockType] === format,
+    }));
+    return !!match;
+};
+const isMarkActive = (editor, format) => {
+    const marks = slate.Editor.marks(editor);
+    return marks ? marks[format] === true : false;
+};
+const Element = ({ attributes, children, element }) => {
+    const style = { textAlign: element.align };
+    switch (element.type) {
+        case 'block-quote':
+            return (jsxRuntime.jsx("blockquote", { style: style, ...attributes, children: children }));
+        case 'bulleted-list':
+            return (jsxRuntime.jsx("ul", { style: style, ...attributes, children: children }));
+        case 'heading-one':
+            return (jsxRuntime.jsx("h1", { style: style, ...attributes, children: children }));
+        case 'heading-two':
+            return (jsxRuntime.jsx("h2", { style: style, ...attributes, children: children }));
+        case 'list-item':
+            return (jsxRuntime.jsx("li", { style: style, ...attributes, children: children }));
+        case 'numbered-list':
+            return (jsxRuntime.jsx("ol", { style: style, ...attributes, children: children }));
+        default:
+            return (jsxRuntime.jsx("p", { style: style, ...attributes, children: children }));
+    }
+};
+const Leaf = ({ attributes, children, leaf }) => {
+    if (leaf.bold) {
+        children = jsxRuntime.jsx("strong", { children: children });
+    }
+    if (leaf.code) {
+        children = jsxRuntime.jsx("code", { children: children });
+    }
+    if (leaf.italic) {
+        children = jsxRuntime.jsx("em", { children: children });
+    }
+    if (leaf.underline) {
+        children = jsxRuntime.jsx("u", { children: children });
+    }
+    return jsxRuntime.jsx("span", { ...attributes, children: children });
+};
+const BlockButton = ({ format, icon }) => {
+    const editor = slateReact.useSlate();
+    return (jsxRuntime.jsx(Button, { active: isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type'), onMouseDown: event => {
+            event.preventDefault();
+            toggleBlock(editor, format);
+        }, children: icon }));
+};
+const MarkButton = ({ format, icon }) => {
+    const editor = slateReact.useSlate();
+    return (jsxRuntime.jsx(Button, { active: isMarkActive(editor, format), onMouseDown: event => {
+            event.preventDefault();
+            toggleMark(editor, format);
+        }, children: icon }));
+};
+const initialValue = [
+    {
+        type: 'paragraph',
+        children: [
+            { text: '' }
+        ],
+    },
+];
+
+function StudentExtraContent(props) {
+    const [valueTabs, setValueTabs] = React.useState(0);
+    const [comments, setComments] = React.useState('');
+    React.useState('');
+    const handleChangeTabs = (e, newTab) => {
+        setValueTabs(newTab);
+    };
+    const handleComments = (e) => {
+        setComments(e.target.value);
+    };
+    return (jsxRuntime.jsxs("div", { className: style.container, children: [jsxRuntime.jsx("div", { className: style.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
+                        '& .Mui-selected ': {
+                            color: '#FF4D0D !important',
+                            fontWeight: '700 !important'
+                        },
+                        '& .MuiTab-root': {
+                            fontFamily: 'PT Sans !important',
+                            textTransform: 'none !important',
+                            fontWeight: '400 !important',
+                        },
+                        '& .MuiTabs-indicator': {
+                            backgroundColor: '#FF5427 !important',
+                        }
+                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Anota\u00E7\u00F5es', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Livros recomendados', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 2 }), jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 3 }), jsxRuntime.jsx(material.Tab, { label: 'Coment\u00E1rios', value: 4 })] }) }), jsxRuntime.jsxs("div", { className: style.contentInfo, children: [valueTabs === 0 &&
+                        jsxRuntime.jsxs("div", { className: style.notes, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000' }, children: " Escreva e fa\u00E7a suas anota\u00E7\u00F5es aqui para rever depois, este espa\u00E7o \u00E9 seu." }), jsxRuntime.jsx("div", { style: { marginTop: 12 }, children: jsxRuntime.jsx(RichTextExample, {}) }), jsxRuntime.jsx("div", { className: style.saveNotes, children: jsxRuntime.jsx(Button$1, { label: "Salvar", variant: "primary", handleClick: () => { } }) })] }), valueTabs === 1 &&
+                        jsxRuntime.jsx(material.Grid, { container: true, spacing: 0, children: props.bookList?.map((item, index) => {
+                                return (jsxRuntime.jsxs(material.Grid, { item: true, style: { position: 'relative', width: 200, height: 310, backgroundColor: '#FFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '16px 32px 8px 32px', border: '1px solid #BDBDBD', cursor: 'pointer' }, onClick: () => { props.onClickBook(item.id); }, children: [jsxRuntime.jsx("img", { src: item.img, width: 130, height: 185 }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, color: '#000', marginTop: 12 }, children: [" ", item.title, " "] }), jsxRuntime.jsxs("span", { style: { fontSize: 12, fontWeight: 400, color: '#000', position: 'absolute', bottom: 0, marginBottom: 8 }, children: [" ", item.autor, " "] })] }, index));
+                            }) }), valueTabs === 2 &&
+                        jsxRuntime.jsx(material.Grid, { container: true, spacing: 0, children: props.suportMaterial?.map((item, index) => {
+                                return (jsxRuntime.jsxs(material.Grid, { item: true, style: { width: 200, height: 240, backgroundColor: '#FFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '16px 32px 8px 32px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("img", { src: item.img, width: 65, height: 70 }), jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000', marginTop: 12 }, children: item.description }), jsxRuntime.jsxs("label", { htmlFor: "downloadBtn", onClick: () => { props.onClickSuportMaterial(item.id); }, style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, children: [" ", jsxRuntime.jsx(DownloadIcon, { fill: "#0645AD" }), " \u00A0 Download"] })] }, index));
+                            }) }), valueTabs === 3 &&
+                        jsxRuntime.jsx("div", { style: { fontSize: 16, fontWeight: 400, textAlign: 'justify' }, children: jsxRuntime.jsx("span", { children: props.transcription }) }), valueTabs === 4 &&
+                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row' }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment, { className: '', showCharacterCounter: false, IDInput: '1', emojiWindowlanguage: 'pt', placeholder: 'Comente aqui sobre o seu problema', value: comments, onChange: (e) => handleComments(e), remain: 1000 - comments.length, limit: 1000, hasEmoji: true, styles: { marginLeft: '8px', width: '80%' } })] }), jsxRuntime.jsx("div", { children: props.commentList?.map((item, index) => {
+                                        return (jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: 20 }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: item?.userAvatar }), jsxRuntime.jsx(CommentaryBox, { className: '', name: item.userName, position: item.userPosition, value: item.comments, date: item.date, onChange: () => { }, styles: { marginRight: 8, width: '80%' }, textLiked: 'Curtir', actionLike: () => { item.isLiked = true; }, isLiked: item?.isLiked })] }, index));
+                                    }) })] })] })] }));
+}
+
+// import RichTextEditor from './richTextEditor'
+function ExtraContent(props) {
+    return (jsxRuntime.jsx("div", { children: props.typeExhibition === 1 ?
+            AdminExtraContent()
+            :
+                StudentExtraContent(props) }));
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
 exports.BaseCard = EmptyCard;
-exports.Button = Button;
+exports.Button = Button$1;
 exports.ButtonGroup = ButtonGroup;
 exports.CalendarCard = CalendarCard;
 exports.CalendarLxp = CalendarLxp;
@@ -5242,6 +6432,7 @@ exports.ConquistaCarrossel = ConquistaCarrossel;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
+exports.GlobalMenu = GlobalMenu;
 exports.GroupStatistics = TotalizerCard;
 exports.InputComment = InputComment;
 exports.LearningSteps = LearningSteps;
@@ -5270,6 +6461,7 @@ exports.buttonContent = ButtonContent;
 exports.colorPicker = Colorpicker;
 exports.contentSwitcher = ContentSwitcher;
 exports.contentThumbnails = ContentThumbnails;
+exports.extraContent = ExtraContent;
 exports.fileUpload = FileUpload;
 exports.headerContent = HeaderContent;
 exports.popOver = PopOver;
