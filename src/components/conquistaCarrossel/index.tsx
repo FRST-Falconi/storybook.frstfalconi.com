@@ -8,7 +8,7 @@ import ScrollContainer from '@components/scroll-container'
 import CardResultConquista from '@components/cards/cardResultConquista'
 
 export default function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, 
-    sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }: IConquistaCarrossel ) {
+    sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }: IConquistaCarrossel ) {
     const [ itemSelected, setItemSelected ] = useState(-1);
 
     const onItemSelect = (n: number) => {
@@ -20,6 +20,7 @@ export default function ConquistaCarrossel({ onSelected, objectCards, marginsArr
         return (
             <CardResultConquista 
                 key={index}
+                textMoreDetails={textMoreDetails ? textMoreDetails : 'Mais detalhes'}
                 description={item.description}
                 problemId={item.problemId}
                 statusCard={item.statusCard}
