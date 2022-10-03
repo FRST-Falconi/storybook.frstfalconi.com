@@ -11,7 +11,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-export default function PopOver({position, isOpen, align, clickOutside, padding, contentPopOver, children }) {
+export default function PopOver({position, isOpen, align, clickOutside, padding, contentPopOver, style, children }) {
     const[isPopoverOpen, setIsPopoverOpen] = useState(isOpen)
 
     const anchorElement = children;
@@ -21,6 +21,7 @@ export default function PopOver({position, isOpen, align, clickOutside, padding,
     }, [isOpen])
 
     return (
+        <div>
         <Styles.Wrapper>
             <ThemeProvider theme={FRSTTheme}>
                     <Styles.MyBasicPopOver
@@ -31,7 +32,7 @@ export default function PopOver({position, isOpen, align, clickOutside, padding,
                         reposition={false}
                         onClickOutside={() => clickOutside()}
                         content={({ position, nudgedLeft, nudgedTop }) => (
-                            <Styles.PopOver>
+                            <Styles.PopOver style={{...style}}>
                                 <Styles.Tab position={position} align={align}/>
                                 {contentPopOver}
                             </Styles.PopOver>
@@ -41,5 +42,6 @@ export default function PopOver({position, isOpen, align, clickOutside, padding,
                     </Styles.MyBasicPopOver>
             </ThemeProvider>
         </Styles.Wrapper>
+        </div>
     )
 }

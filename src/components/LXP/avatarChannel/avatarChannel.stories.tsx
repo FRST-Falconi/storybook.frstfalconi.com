@@ -18,5 +18,5 @@ normal.args = {
     alt: 'Alt example',
     disabled: false,
     color: '#6a3f86',    
-    onChange: ()=> {alert('click')}
+    onChange: () => alert('click')
 }

@@ -5,6 +5,7 @@ export interface IAvatar {
     alt?: string,
     className?: string,
     disabled?: boolean, 
-    color?: string,   
+    color?: string,
+    contentPopOver?: any,
     onChange: () => void
 }
