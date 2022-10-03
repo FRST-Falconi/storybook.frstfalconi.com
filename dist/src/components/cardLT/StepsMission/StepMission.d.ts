@@ -8,6 +8,7 @@ interface MissionStepsParams {
      * @prop {number} stepActive:
      */
     stepActive: number;
+    idioma?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es';
     /**
      * @prop {React.CSSProperties} style: Styles de CSS adicional
      */

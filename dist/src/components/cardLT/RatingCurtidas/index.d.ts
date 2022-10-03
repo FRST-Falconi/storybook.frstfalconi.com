@@ -6,6 +6,7 @@ interface RatingCurtidasParams {
     tipoBotao: number;
     titulo: string;
     qtdeCurtidas: number;
+    descricaoCurtida?: string;
     style?: React.CSSProperties;
 }
 /**

@@ -27,6 +27,8 @@ export { default as CardDefinicaoProblema } from './src/components/cards/cardDef
 export { default as CardResultConquista } from './src/components/cards/cardResultConquista';
 export { default as ExclusiveClassCard } from './src/components/exclusive-class';
 export { default as ConquistaCarrossel } from './src/components/conquistaCarrossel';
+export { default as Steps } from './src/components/cardLT/StepsMission/Steps';
+export { default as StepsMission } from './src/components/cardLT/StepsMission/StepMission';
 export { default as Rating } from './src/components/EBR/rating';
 export { default as Stepper } from './src/components/EBR/stepper/stepper';
 export { default as StepperItem } from './src/components/EBR/stepper/stepperItem';
@@ -48,4 +50,6 @@ export { default as searchResults } from './src/components/LXP/searchResults';
 export { default as starMetric } from './src/components/LXP/star-metric';
 export { default as CalendarLxp } from './src/components/LXP/calendarLxp';
 export { default as Video } from './src/components/LXP/video';
+export { default as GlobalMenu } from './src/components/global-menu';
+export { default as extraContent } from './src/components/LXP/extraContent';
 //# sourceMappingURL=index.d.ts.map

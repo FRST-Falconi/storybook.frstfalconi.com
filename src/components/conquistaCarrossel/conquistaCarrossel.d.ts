@@ -9,4 +9,5 @@ export interface IConquistaCarrossel {
     horizontalMarginInternScroll?: string,
     positionArrowButton?: string,    
     marginTopArrrowButton?: string,    
+    textMoreDetails?: string,    
 }

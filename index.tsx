@@ -40,6 +40,9 @@ export { default as CardResultConquista} from './src/components/cards/cardResult
 
 export { default as ExclusiveClassCard } from './src/components/exclusive-class'
 export { default as ConquistaCarrossel} from './src/components/conquistaCarrossel'
+export { default as Steps} from './src/components/cardLT/StepsMission/Steps'
+export { default as StepsMission} from './src/components/cardLT/StepsMission/StepMission'
+
 
 export { default as Rating } from './src/components/EBR/rating'
 

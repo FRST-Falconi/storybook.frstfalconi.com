@@ -15,6 +15,8 @@ export const normal = Template.bind({})
 normal.args = {
     title: "Etapas do ciclo de aprendizagem",
     onSelected: (e : any) => { alert("Item Selecionado: " + e)},
+    textViewMore: 'Ver mais',
+    textClearFilter: 'Excluir Filtro',
     objectCards: [
                     {
                         id: 0,

@@ -96,7 +96,8 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
                                 descricaoAvaliacao={props.ratingImpacto.description} 
                                 titulo='Impacto' 
                                 tipoVisualizacao={2} 
-                                style={{margin: 0, width:120}} 
+                                style={{margin: 0, width:120}}
+                                nomeAvaliacao='avaliação' 
                             />
                             <Rating 
                                 nota={props.ratingRelevancia.nota} 
@@ -105,6 +106,7 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
                                 titulo='Relevância' 
                                 tipoVisualizacao={2} 
                                 style={{margin: 0, width:120}} 
+                                nomeAvaliacao='avaliação'
                             />
                             <RatingCurtidas 
                                 qtdeCurtidas={props.ratingCurtidas} 

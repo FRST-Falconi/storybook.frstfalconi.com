@@ -12,71 +12,14 @@ import { Brain, Mail, WithoutTrail, WithTrail, EditIcon } from '../../../shared/
 import Tag from '../../tag/index'
 import AvatarWithInfo from '../AvatarWithInfo/index'
 import Button from '@components/buttons'
-
+import { IBannerProgressTranslate } from './BannerProblem'
 import style from './BannerProblem.module.css'
 import TextField from '@components/form-elements/textfield'
 
-///-----------------------------------------
-/// Interface do Componente
-interface BannerProblemParams {
-  /**
-   * @prop {React.CSSProperties} style: Styles de CSS adicional
-   */  
-  style?: React.CSSProperties
-  problema: string
-  cargo: string
-  nome: string
-  avatar: string
-  area: string
-  email: string
-  tags?: string[]
-  typeMessagem: number
-  message: string
-  dataCriacao: string
-  qtdeAvaliacao: number
-  notaAvaliacao: number
-  descriptionImpacto: string
-  qtdeRelevancia: number
-  notaRelevancia: number
-  descriptionRelevancia: string
-  curtidas?: number
-  stepProblem: number
-  stepActive: number
-  onSelectedStep: (step: number) => void
-  onClickSave:([]) => void 
-  /**
-   * @prop {object} trilhaData: A listagem de Trilhas no Select [{label: 'trilha1', value: 'id1'}]
-   */  
-  trilhaData?: any
-  /**
-   * @prop {string} trilha: Descrição da Trilha Selecionada
-   */  
-  trilha: string
-  /**
-   * @prop {string} trilhaId: Id da Trilha Selecionada, que será usado para selecionar o select quando for editar
-   */    
-  trilhaId?: any
-  isEditable?: boolean
-  isVisibleEditTrail?: boolean
-  isVisibleEditTags?: boolean
-  /**
-   * @prop {object} tagData: A listagem de Tags no Select [{label: 'TAG1', value: 'id1'}]
-   */    
-  tagData?: any
-  children: React.ReactNode
-  onClickMessage: () => void
-}
 
-///-----------------------------------------
-/// Componente
+export default function BannerProblem(props: IBannerProgressTranslate) {
 
-
-
-/**
- * 
- * @componente 
- */
-export default function BannerProblem(props: BannerProblemParams) {
+  const [Idioma, setIdioma] = useState(props.missionIdioma ? props.missionIdioma : 'pt-BR');
 
   const [Edit, setEdit] = useState(false)
   const [ tagListShow, setTagListShow ] = useState(props.tagData ? props.tagData : [])
@@ -137,6 +80,10 @@ export default function BannerProblem(props: BannerProblemParams) {
     setProblema(props.problema ? props.problema : '')
   }, [props]);
 
+  useEffect(()=>{
+    setIdioma(props.missionIdioma ? props.missionIdioma : 'pt-BR')
+  },[props.missionIdioma])
+
   const handleEdit = () => {
     if(Edit === true) {
       let titleInEditing = TituloProblema;
@@ -175,11 +122,11 @@ export default function BannerProblem(props: BannerProblemParams) {
     <>    
       <div className={style.container} style={{...props.style }}>
         <div style={{width: '100%', display: 'flex', justifyContent:'space-between', flexDirection: 'row', alignItems:'center'}}>
-          <span className={style.titleProblem}>Problema</span>
+          <span className={style.titleProblem}>{props.textTitleProblem ? props.textTitleProblem : 'Problema'}</span>
           {
             props.isEditable &&
             <Button 
-              label={Edit ? "Salvar Alterações" : "Editar"}
+              label={Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações"): (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar")}
               variant='link' 
               handleClick={() => handleEdit()}
               startIcon={<EditIcon />}
@@ -240,7 +187,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                       styles={customStyles}
                       options={props.trilhaData ? props.trilhaData : []} 
                       value={props.trilhaData.filter(function(temp) {return temp.value === TrilhaId})} 
-                      placeholder={'Selecione uma trilha'}    
+                      placeholder={props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha'}    
                       onChange={e => {
                         setTrilhaId(e.value)
                         setTrilhaDescricaoSelecionada(e.label)
@@ -252,7 +199,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                 <>
                 {
                   TrilhaBanner === '' ?
-                    <TextIcon description={'Ainda não está vinculado a uma trilha'} svg={<WithoutTrail />}/> 
+                    <TextIcon description={props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha'} svg={<WithoutTrail />}/> 
                   :
                     <TextIcon description={TrilhaBanner} svg={<WithTrail />}/>   
                 }
@@ -264,14 +211,14 @@ export default function BannerProblem(props: BannerProblemParams) {
                   Edit && props.isVisibleEditTags ? 
                   <>
                     <div className={style.contentInput}>
-                      <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Busque e selecione até três palavras-chave:</h3>
+                      <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>{props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:'}</h3>
                       
                       <Select 
                         id={"select"}
                         styles={customStyles}
                         options={tagListShow}
                         value={tagListShow.filter(function(temp) {return temp.value === Tag1})} 
-                        placeholder={'Selecione uma Tag'}    
+                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}    
                         onChange={e => {setTag1(e.value) }}
                       /> 
                       <Select 
@@ -279,7 +226,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                         styles={customStyles}
                         options={tagListShow}
                         value={tagListShow.filter(function(temp) {return temp.value === Tag2})} 
-                        placeholder={'Selecione uma Tag'}    
+                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}    
                         onChange={e => {setTag2(e.value)}}               
                       />       
                       <Select 
@@ -287,7 +234,7 @@ export default function BannerProblem(props: BannerProblemParams) {
                         styles={customStyles}
                         options={tagListShow}
                         value={tagListShow.filter(function(temp) {return temp.value === Tag3})} 
-                        placeholder={'Selecione uma Tag'}    
+                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}    
                         onChange={e => {setTag3(e.value)}}
                       />                       
                     </div>
@@ -307,27 +254,30 @@ export default function BannerProblem(props: BannerProblemParams) {
               { size[0] <= MOBILEWIDTH || Edit ? 
                   <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}}>
                     <Rating 
-                      titulo='Impacto'
+                      titulo={props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto'}
                       descricaoAvaliacao={props.descriptionImpacto}
                       qtdeAvaliacao={props.qtdeAvaliacao}
                       nota={props.notaAvaliacao}
                       tipoVisualizacao={1}
                       style={{margin: 0}}
+                      nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                     />
                     <Rating 
-                      titulo='Relevância'
+                      titulo={props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância'}
                       descricaoAvaliacao={props.descriptionRelevancia}
                       qtdeAvaliacao={props.qtdeRelevancia}
                       nota={props.notaRelevancia}
                       tipoVisualizacao={1}
                       style={{margin: 0}}
+                      nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                     />            
                     {props.curtidas &&
                       <RatingCurtidas 
-                        titulo='Curtidas'
+                        titulo={props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas'}
                         qtdeCurtidas={props.curtidas}
                         tipoBotao={2}
                         style={{margin:0}}
+                        descricaoCurtida={props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas'}
                       />
                     }
                   </div>
@@ -341,24 +291,27 @@ export default function BannerProblem(props: BannerProblemParams) {
             { size[0] > MOBILEWIDTH && Edit === false ?
               <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
                 <Rating 
-                  titulo='Impacto'
+                  titulo={props.ratingTitleImpact ? props.ratingTitleImpact :'Impacto'}
                   descricaoAvaliacao={props.descriptionImpacto}
                   qtdeAvaliacao={props.qtdeAvaliacao}
                   nota={props.notaAvaliacao}
                   tipoVisualizacao={1}
+                  nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                 />
                 <Rating 
-                  titulo='Relevância'
+                  titulo={props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância'}
                   descricaoAvaliacao={props.descriptionRelevancia}
                   qtdeAvaliacao={props.qtdeRelevancia}
                   nota={props.notaRelevancia}
                   tipoVisualizacao={1}
+                  nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                 />            
                 {props.curtidas &&
                   <RatingCurtidas 
-                    titulo='Curtidas'
+                    titulo={props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas'}
                     qtdeCurtidas={props.curtidas}
                     tipoBotao={2}
+                    descricaoCurtida={props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas'}
                   />
                 }
               </div> 
@@ -366,13 +319,15 @@ export default function BannerProblem(props: BannerProblemParams) {
             }       
           </div>
         </div>
+        
         <StepMission 
           stepProblem={props.stepProblem}
           stepActive={props.stepActive}
           onSelected={(step: number)=>{
             props.onSelectedStep(step)
           }}
-                
+          idioma={Idioma}
+          
         />
         <div style={{marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32}}>
           {props.children}
