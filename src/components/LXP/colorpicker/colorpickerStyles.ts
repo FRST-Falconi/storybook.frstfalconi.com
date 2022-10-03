@@ -30,13 +30,21 @@ export const Container = styled.span<Colorpicker>`
       height: 23px;
     }
     &::-webkit-color-swatch {
-      border: 1px solid #E0E0E0;
+      border: 0px solid #E0E0E0;
       border-radius: 4px;
       padding: 0;
     }
   }
 
   input[type="text"] {
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #9C9C9C;
+
     border: none;
     width: 60px;
     height: 18px;

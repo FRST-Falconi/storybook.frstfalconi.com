@@ -5,8 +5,6 @@ import * as Styles from './colorpickerStyles'
 import { IColorpicker } from './colorpicker'
 import React, { useState } from 'react'
 
-
-
 const ColorPicker = props => {
   return (
     <Styles.Container>
@@ -15,12 +13,14 @@ const ColorPicker = props => {
     </Styles.Container>
   );
 };
-export default function Colorpicker({ width, height, color, }: IColorpicker) {
+
+export default function Colorpicker({ width, height, color, onChangeColor}: IColorpicker) {
   const [state, updateState] = useState(color);
 
   const handleInput = e => {
-    updateState(e.target.value);
-    color= state
+    updateState(e.target.value)
+    onChangeColor(e.target.value)
+    color = state
   };
   return(
     <ThemeProvider theme={FRSTTheme}>

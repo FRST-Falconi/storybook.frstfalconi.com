@@ -3,4 +3,5 @@ export interface IColorpicker {
     width?: string,
     height?: string,
     color?: string
+    onChangeColor?: (e) => void
 }
