@@ -9,6 +9,7 @@ interface ModalLearningTechProps {
    * @prop {number} tipeButton: Tipos de botão (primary, secondary, link)
     */
     typeButtonConfirmation?: enumTypeButton;
+    language?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es';
     children: React.ReactNode;
     handleClose: () => void;
     handleConfirmation: () => void;
