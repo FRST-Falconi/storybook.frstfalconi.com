@@ -1,6 +1,4 @@
 import '../../../shared/global.css'
-import { useState, useEffect } from 'react'
-import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail } from '@shared/icons'
 import Tag from '@components/tag'
 import style from './cardProblemaGestor.module.css'
 import Avatar from '../../avatar/index'
@@ -74,25 +72,26 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
                             nota={props.ratingImpacto.nota}
                             qtdeAvaliacao={props.ratingImpacto.qtdeAvaliacao} 
                             descricaoAvaliacao={props.ratingImpacto.description} 
-                            titulo={props.locales.impacto}
+                            titulo={props.locales?.impact}
                             tipoVisualizacao={2} 
                             style={{margin: 0, width:120}}
-                            nomeAvaliacao='avaliação' 
+                            nomeAvaliacao={props.locales?.evaluation}
                         />
                         <Rating 
                             nota={props.ratingRelevancia.nota} 
                             qtdeAvaliacao={props.ratingRelevancia.qtdeAvaliacao} 
                             descricaoAvaliacao={props.ratingRelevancia.description} 
-                            titulo={props.locales.relevancia} 
+                            titulo={props.locales?.relevance} 
                             tipoVisualizacao={2} 
                             style={{margin: 0, width:120}} 
-                            nomeAvaliacao='avaliação'
+                            nomeAvaliacao={props.locales?.evaluation}
                         />
                         <RatingCurtidas 
-                            qtdeCurtidas={props.ratingCurtidas} 
-                            titulo={props.locales.curtidas}
+                            qtdeCurtidas={props.ratingCurtidas}
+                            titulo={props.locales?.likes}
                             tipoBotao={4} 
-                            style={{margin: 0, width:90}} 
+                            style={{margin: 0, width:90}}
+                            descricaoCurtida={props.locales?.likesDescription}
                         />
                     </div>
                 }
