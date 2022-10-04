@@ -48,6 +48,9 @@ normal.args = {
     textMakePublic: 'Tornar Público',
     textEditComment: 'Editar Comentário',
     textDeleteComment: 'Excluir Comentário',
+    textSaveButton: 'Save changes',
+    textSaveButtonMobile: 'Save',
+    textCancelButton: 'Cancel',
 
     className: null,
     idTextComment: '',
