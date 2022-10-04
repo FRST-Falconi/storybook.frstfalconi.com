@@ -16,6 +16,8 @@ interface ModalLearningTechProps {
     */
     typeButtonConfirmation?: enumTypeButton
 
+    language?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es' 
+
     children: React.ReactNode
 
     handleClose: () => void
@@ -34,7 +36,7 @@ export default function ModalLearningTech(props: ModalLearningTechProps) {
             
             <Box className={style.modalBox} style={{top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style}}>
                 <div className={style.fechar} onClick={props.handleClose}>
-                    <span style= {{marginRight: 10}} > Fechar </span> <CloseIcon />
+                    <span style= {{marginRight: 10}} > {props.language === 'en-US' ? 'Close' : 'Fechar'} </span> <CloseIcon />
                 </div>
                 <div className={style.titulo}>
                     {props.title}
@@ -48,7 +50,7 @@ export default function ModalLearningTech(props: ModalLearningTechProps) {
                             props.cancelButton ?
                                 <>
                                     <Button variant='link' label={props.cancelButton} handleClick={props.handleClose} />
-                                    <span style={{marginRight: 8, marginLeft: 8}}>ou</span>
+                                    <span style={{marginRight: 8, marginLeft: 8}}>{props.language === 'en-US' ? 'or' : 'ou'}</span>
                                     <Button variant={props.typeButtonConfirmation} label={props.confirmationButton} handleClick={props.handleConfirmation} />
                                 </>
                             :

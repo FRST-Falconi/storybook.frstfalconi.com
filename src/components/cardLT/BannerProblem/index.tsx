@@ -181,7 +181,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                 Edit && props.isVisibleEditTrail ? 
                 <>
                   <div style={{marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD'}}>
-                    <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>Deseja vincular este novo problema a uma Trilha de Aprendizagem?</h3>
+                    <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>{props.textTrailLabel ? props.textTrailLabel : 'Deseja vincular este novo problema a uma Trilha de Aprendizagem?'}</h3>
                     <Select 
                       id={"select"}
                       styles={customStyles}

@@ -21,8 +21,8 @@ Teste1.args = {
     { nome: 'Marlon Pereira', data: '28 abr. de 2022',   approve: 'revisar', avatar:''  },
     { nome: 'Marlon Pereira', data: '28 abr. de 2022',   approve: 'aguardar'  },
    
-  ]
-
+  ],
+  language: 'en-US'
 
 }
 

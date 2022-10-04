@@ -4,6 +4,7 @@ interface ModalStatusProblemaProps {
     title?: string;
     description?: string;
     approves: any[];
+    language?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es';
     handleClose: () => void;
     style: React.CSSProperties;
 }
