@@ -62,7 +62,7 @@ interface IBannerProblemParams {
    */
 
 export interface IBannerProgressTranslate  extends IBannerProblemParams{
-
+    textTrailLabel ?: string
     textTitleProblem?: string
     textButtonLinkEdit?: string 
     textButtonLinkEditSave?: string

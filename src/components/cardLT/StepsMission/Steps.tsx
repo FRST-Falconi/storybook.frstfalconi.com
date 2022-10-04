@@ -65,7 +65,7 @@ export default function Steps(props: StepParams) {
     'Jupiter',
     'Saturn',
     'Uranus',
-    'Neptuno',
+    'Neptune',
   ]
 
   const TypeStepNameES = [      
