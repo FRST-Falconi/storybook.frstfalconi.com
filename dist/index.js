@@ -3518,38 +3518,12 @@ styleInject(css_248z$8);
  * @param {CardProblemGestorProps} props
  */
 function CardProblemGestor(props) {
-    const [statusName, setStatusName] = React.useState('Não iniciou');
-    const [statusColor, setStatusColor] = React.useState('#757575');
-    React.useEffect(() => {
-        switch (props.problemStatus) {
-            case 'finalizado':
-                setStatusColor("#158214"), setStatusName("Finalizado");
-                break;
-            case 'proxPassos':
-                setStatusColor("#222222"), setStatusName("Próximos passos");
-                break;
-            case 'resultadosAprendizados':
-                setStatusColor("#AD005C"), setStatusName("Resultados e aprendizados");
-                break;
-            case 'testesRealizados':
-                setStatusColor("#663366"), setStatusName("Testes realizados");
-                break;
-            case 'hipoteseLevantada':
-                setStatusColor("#F8B911"), setStatusName("Hipóteses levantadas");
-                break;
-            case 'problemaDefinido':
-                setStatusColor("#252BB1"), setStatusName("Problema definido");
-                break;
-            case 'problemaCriado':
-            default:
-                setStatusColor("#757575"), setStatusName("Problema criado");
-                break;
-        }
-    }, [props.problemStatus]);
-    return (jsxRuntime.jsxs("div", { className: style$7.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$7.tagStatusProblem, style: { background: statusColor, color: statusName === "Hipóteses levantadas" ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsxs("div", { className: style$7.contentCard, children: [jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
+    const statusBg = props.statusBackgroundColor || '#757575';
+    const statusColor = props.statusColor || '#FFFFFF';
+    return (jsxRuntime.jsxs("div", { className: style$7.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$7.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName }), jsxRuntime.jsxs("div", { className: style$7.contentCard, children: [jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
                         jsxRuntime.jsx("div", { className: style$7.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
                         jsxRuntime.jsx("div", { className: style$7.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$7.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: 'Impacto', tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: 'avalia\u00E7\u00E3o' }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: 'Relev\u00E2ncia', tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: 'avalia\u00E7\u00E3o' }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: 'Curtidas', tipoBotao: 4, style: { margin: 0, width: 90 } })] }), props.lastUpdated &&
+                        jsxRuntime.jsxs("div", { className: style$7.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] }), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
