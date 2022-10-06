@@ -4,7 +4,7 @@ import { FRSTTheme } from '../../theme'
 import '../../shared/global.css'
 
 import { IChallengeCard } from './challengeCard'
-import { MoreDotsVertical, EditIcon, TrashIcon } from '@shared/icons'
+import { MoreDotsVertical, EditIcon, TrashIcon, CheckInCicle, Plus } from '@shared/icons'
 import PopOver from '@components/LXP/popOver'
 
 import * as Styles from './challengeCardStyles'
@@ -26,8 +26,10 @@ export default function ChallengeCard({ variant, description, language,
         setLabel(utilAssign(labels[valuesTranslate], labels['ptBR']))
     }, [language])
 
-    const handleClickView = () => {
-        onClickView();
+    const handleClick = () => {
+        if(variant == 'srg') onClickNewProject()
+        else onClickView();
+
         setActiveClick(true)
         setTimeout(() => {
             setActiveClick(false)
@@ -36,57 +38,57 @@ export default function ChallengeCard({ variant, description, language,
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            { variant == 'srg' &&
-                <Styles.WrapperCard active={activeClick}>
-                    <Styles.BannerCard src={BannersSRC['srg']} />
-                    <Styles.WrapperHeader>
-                        <Styles.TitleProject>
-                            {label.project}
-                        </Styles.TitleProject>
-                        <Styles.Dots>
-                            <MoreDotsVertical/>
-                        </Styles.Dots>
-                    </Styles.WrapperHeader>
-                </Styles.WrapperCard>
-            }
-            
-            { variant == 'mars' &&
-                <Styles.WrapperCard active={activeClick}>
-                    
-                    <Styles.TagStep onClick={() => handleClickView()}>
-                        <Styles.TagText>{label.tagStep[variant]}</Styles.TagText>
-                    </Styles.TagStep>
-                    
-                    <Styles.WrapperBanner onClick={() => handleClickView()}>
-                        <Styles.BannerCard src={BannersSRC[variant]} />
-                        <Styles.StepName>{label.nameStep[variant]}</Styles.StepName>
-                    </Styles.WrapperBanner>
+            <Styles.WrapperCard active={activeClick}>                
+                <Styles.TagStep onClick={() => handleClick()} variant={variant}>
+                    <Styles.TagText>
+                        {label.tagStep[variant]}
+                    </Styles.TagText>
+                    { variant == 'completed' &&
+                        <span style={{marginLeft: '10px', height: '100%'}}>
+                            <CheckInCicle customColor_1="transparent" height='16' width='16'/>
+                        </span>
+                    }
+                </Styles.TagStep>                    
+                <Styles.WrapperBanner onClick={() => handleClick()}>
+                    <Styles.BannerCard src={BannersSRC[variant]} />
+                    <Styles.StepName variant={variant}>{label.nameStep[variant]}</Styles.StepName>
+                </Styles.WrapperBanner>
 
-                    <Styles.ContentCard>
-                        <Styles.WrapperHeader>
-                            <Styles.TitleProject onClick={() => handleClickView()}>
-                                {label.project}
-                            </Styles.TitleProject>
+                <Styles.ContentCard>
+                    <Styles.WrapperHeader>
+                        <Styles.TitleProject onClick={() => handleClick()}>
+                        {variant == 'srg' ? 'Space Race Game': label.project}
+                        </Styles.TitleProject>
+                        { variant != 'srg' &&
                             <Styles.Dots>
                                 <MoreVerticalMenu 
                                     textContinue={label.continue}
                                     textDelete={label.delete}
                                     handleContinue={() => onClickContinue()}
                                     handleDelete={() => onClickDelete()}
+                                    variant={variant}
                                 />
-                            </Styles.Dots>
-                        </Styles.WrapperHeader>
+                            </Styles.Dots> }
+                    </Styles.WrapperHeader>
 
-                        <Styles.DescriptionProject onClick={() => handleClickView()}>
-                            {description}
-                        </Styles.DescriptionProject>
-                        <Styles.ButtonAction onClick={() => handleClickView()}>
-                            {label.view}
-                        </Styles.ButtonAction>
-                    </Styles.ContentCard>
+                    <Styles.DescriptionProject onClick={() => handleClick()}>
+                        {description}
+                    </Styles.DescriptionProject>
+                    <Styles.ButtonAction onClick={() => handleClick()}>
+                        {variant == 'srg' ? 
+                        <>
+                            <Plus/>
+                            <span style={{marginLeft: '12px'}}>
+                                {label.newProject}
+                            </span>
+                        </>
+                        : 
+                        label.view
+                        }
+                    </Styles.ButtonAction>
+                </Styles.ContentCard>
 
-                </Styles.WrapperCard>
-            }
+            </Styles.WrapperCard>
         </ThemeProvider>
     )
 }
@@ -97,7 +99,12 @@ const utilAssign = (value, optional) => {
 
 const BannersSRC = {
     srg:'https://i.gyazo.com/d1822786ff653def884886807ec2cd65.png',
-    mars:'https://i.gyazo.com/4589ee022181b3d121075480a64e7f70.png'
+    mars:'https://i.gyazo.com/4589ee022181b3d121075480a64e7f70.png',
+    jupiter: 'https://i.gyazo.com/7ff54ec9a81904b30812e1f9a5c6726c.png',
+    saturn: 'https://i.gyazo.com/04c2c6633c8461fc29dc991435116f9b.png',
+    uranus: 'https://i.gyazo.com/7160ba6dac10303a5f02345cccc36780.png',
+    neptune: 'https://i.gyazo.com/fe7ca40994dff191e9208e0804aa9936.png',
+    completed: 'https://i.gyazo.com/9745c730328d6111846565485929dd6a.png'
 }
 
 const labels = {
@@ -120,7 +127,7 @@ const labels = {
             jupiter: 'Júpiter',
             saturn: 'Saturno',
             uranus: 'Urano',
-            neptune: 'Netuno',
+            neptune: 'Netuno'
         }
     },
     enUS: {
@@ -142,13 +149,36 @@ const labels = {
             jupiter: 'Jupiter',
             saturn: 'Saturn',
             uranus: 'Uranus',
-            neptune: 'Neptune',
+            neptune: 'Neptune'
+        }
+    },
+
+    es: {
+        project: 'Proyecto',
+        delete: 'Elimina',
+        continue: 'Continúa',
+        view: 'Para ver',
+        newProject: 'Crear un nuevo proyecto',
+        tagStep: {
+            mars: 'Problema definido',
+            jupiter: 'Hipótesis definidas',
+            saturn: 'Pruebas realizadas',
+            uranus: 'Resultados y aprendizajes',
+            neptune: 'Próximos pasos',
+            completed: 'Terminada'
+        },
+        nameStep: {
+            mars: 'Marte',
+            jupiter: 'Júpiter',
+            saturn: 'Saturno',
+            uranus: 'Urano',
+            neptune: 'Neptuno'
         }
     },
 }
 
 
-export function MoreVerticalMenu({textContinue, textDelete, handleContinue, handleDelete}) {
+export function MoreVerticalMenu({textContinue, textDelete, handleContinue, handleDelete, variant}) {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const [activeClick, setActiveClick] = useState([false, false])
     const open = Boolean(anchorEl)
@@ -190,14 +220,17 @@ export function MoreVerticalMenu({textContinue, textDelete, handleContinue, hand
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-        >
-            <StylesDrop.MenuItemCustom 
-                onClick={() => handleSelect([true, false])} 
-                style={{color: activeClick[1] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB'}}
-            >                
-                <EditIcon width='16' height='16'/>
-                <StylesDrop.TextOption>{textContinue}</StylesDrop.TextOption>
-            </StylesDrop.MenuItemCustom>
+          variant={variant}
+        >   
+            { variant != 'completed' &&
+                <StylesDrop.MenuItemCustom 
+                    onClick={() => handleSelect([true, false])} 
+                    style={{color: activeClick[1] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB'}}
+                >                
+                    <EditIcon width='16' height='16'/>
+                    <StylesDrop.TextOption>{textContinue}</StylesDrop.TextOption>
+                </StylesDrop.MenuItemCustom>
+            }
             <StylesDrop.MenuItemCustom 
                 onClick={() => handleSelect([false, true])} 
                 style={{color: activeClick[1] ? '#A50000' : '#FF0000' }}
@@ -208,5 +241,5 @@ export function MoreVerticalMenu({textContinue, textDelete, handleContinue, hand
         </StylesDrop.MenuCustom>
       </div>
     )
-  }
+}
   

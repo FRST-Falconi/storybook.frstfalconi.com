@@ -8,8 +8,8 @@ export const UserName = styled.p`
   font-size: 16px;
 `
 
-export const MenuCustom = styled(Menu)`
-  margin-left: -90px;
+export const MenuCustom = styled(Menu)<{variant}>`
+  margin-left: ${({variant}) => variant == 'completed' ? '-68px' : '-90px'} ;
   margin-top: 10px;
 
   & .MuiPaper-root {

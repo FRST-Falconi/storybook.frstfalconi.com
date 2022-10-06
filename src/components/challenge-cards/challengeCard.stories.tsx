@@ -13,7 +13,7 @@ export default {
         },
         variant: {
             control: 'select',
-            options: ['srg', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'complete']
+            options: ['srg', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'completed']
         }
     }
 }

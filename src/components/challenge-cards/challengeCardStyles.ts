@@ -46,8 +46,9 @@ export const WrapperBanner = styled.div`
 
     height: 200px;
     max-height: 200px;
-`
-    export const TagStep = styled.div`
+`   
+
+    export const TagStep = styled.div<{variant}>`
         display: flex;
         align-items: center;
         justify-content: center;
@@ -55,10 +56,9 @@ export const WrapperBanner = styled.div`
         padding: 4px 15px;
         border-radius: 0px 8px;
         
-        width: 124px;
         height: 24px;
         z-index: 2 ;
-        background: ${({theme}) => theme.colors.linkHover};
+        ${({variant, theme}) => getVariantTagStyle(variant, theme)};
     `
     export const BannerCard = styled.img`
         margin-top: -24px;
@@ -66,7 +66,7 @@ export const WrapperBanner = styled.div`
         margin-bottom: 0px;
         height: fit-content;
     `
-    export const StepName = styled.div`
+    export const StepName = styled.div<{variant}>`
         font-family: 'VT323', monospace;
         font-size: 40px;
         color: white;
@@ -78,8 +78,10 @@ export const WrapperBanner = styled.div`
         border: 2px dashed #FFF;
 
         z-index: 2;
-        margin-top: -60px;
-        margin-bottom: 16px;
+        ${({variant}) => variant != 'completed' && variant != 'srg' &&
+            `margin-top: -60px;
+            margin-bottom: 16px;`
+        }
         padding: 0px 12px 0px 12px;
     `
 
@@ -161,3 +163,52 @@ export const MyPopOver = styled.div`
     margin-left: -100px;
 
 `
+
+
+
+function getVariantTagStyle(variant, theme) {
+    switch(variant) {
+        case 'mars':
+            return `
+                background: ${theme.colors.linkHover};
+                & > span {
+                    color: #FFF !important;
+                }
+            `
+        case 'jupiter': 
+            return `
+                background: #F8B911;
+                & > span {
+                    color: #222222!important;
+                }
+            `
+        case 'saturn': 
+        return `
+            background: #663366;
+            & > span {
+                color: #FFF !important;
+            }
+        `
+        case 'uranus': 
+        return `
+            background: #AD005C;
+            & > span {
+                color: #FFF !important;
+            }
+        `
+        case 'neptune':
+            return `
+                background: #222222;
+                & > span {
+                    color: #FFF !important;
+                }
+            `
+        case 'completed': 
+            return `
+                background: #158214;
+                & > span {
+                    color: #FFF !important;
+                }
+            `
+    }
+}

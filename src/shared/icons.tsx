@@ -681,3 +681,12 @@ export function Viewer({ fill }: IconsProps) {
       </>
   );
 }
+
+export function Plus({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.15381 1.15384V17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1.15381 9.15385H17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
