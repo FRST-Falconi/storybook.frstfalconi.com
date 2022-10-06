@@ -51,6 +51,24 @@ compound.args = {
     }
 }
 
+export const compoundHiddenArrow = Template.bind({})
+compoundHiddenArrow.args = {
+    label: 'Label',
+    hiddenIconDropArrow: true,
+    onClick: () => alert('label'),
+    selected: false,
+    beginComponent: <Icons.Noun/>,
+    subItems: [
+        { id: '1', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '2', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '3', label: 'List Entry', onClick: (e) => alert(e) },
+        { id: '4', label: 'List Entry', onClick: (e) => alert(e) }
+    ],
+    style: {
+        width: '280px' 
+    }
+}
+
 export const withButton = Template.bind({})
 withButton.args = {
     label: 'Label',

@@ -7,10 +7,8 @@ import { IItemLateralMenu } from './itemLateralMenu'
 import Button from '@components/buttons'
 import * as Icons from '@shared/icons'
 
-export default function LateralMenu({ label, onClick, button, beginComponent, selected, subItems, style }: IItemLateralMenu) {
+export default function LateralMenu({ label, onClick, button, beginComponent, activeBeginIcon, selected, subItems, hiddenIconDropArrow, style }: IItemLateralMenu) {
     const [isActive, setIsActive] = useState(selected);
-
-    console.log('selected => ', selected)
 
     useEffect(() => {
         setIsActive(selected)
@@ -32,7 +30,7 @@ export default function LateralMenu({ label, onClick, button, beginComponent, se
                         <Styles.WrapperItem style={{background: 'transparent', width: '100%'}}>
                             { beginComponent && 
                                 <Styles.WrapperComponent active={isActive}>
-                                    {beginComponent}
+                                    {isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent}
                                 </Styles.WrapperComponent>
                             }
                             <Styles.WrapperMainLabel active={isActive} style={{marginLeft: beginComponent ? '8px': '0px'}}>
@@ -48,9 +46,10 @@ export default function LateralMenu({ label, onClick, button, beginComponent, se
                                 />
                             </Styles.WrapperButton>
                         }
+                        { !hiddenIconDropArrow &&
                         <Styles.WrapperIconDrop isOpen={isActive}>
                             <Icons.DropdownIconLine fill={'#000'}/>
-                        </Styles.WrapperIconDrop>
+                        </Styles.WrapperIconDrop> }
                     </Styles.WrapperItem>
                     <Styles.WrapperSubItems isOpen={isActive}>
                         {subItems.map((item, index) => {
@@ -65,7 +64,7 @@ export default function LateralMenu({ label, onClick, button, beginComponent, se
                     <Styles.WrapperItem style={{background: 'transparent', width: '100%'}} onClick={(e) => onClick(e)}>
                         { beginComponent && 
                             <Styles.WrapperComponent active={isActive}>
-                                {beginComponent}
+                                {isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent}
                             </Styles.WrapperComponent>
                         }
                         <Styles.WrapperMainLabel active={isActive} style={{marginLeft: beginComponent ? '8px': '0px'}}>

@@ -4,7 +4,7 @@ export const WrapperCard = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px 1px 12px;
+    padding: 24px 0px 12px;
 
     position: relative;
     width: 282px;

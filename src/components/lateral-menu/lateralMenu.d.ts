@@ -12,5 +12,6 @@ export interface ILateralMenu {
     channel: string,
     button: typeButton,
     listOptions: Array<IItemLateralMenu>,
+    hiddenButtonHeader?: boolean,
     style?: React.CSSProperties
 }

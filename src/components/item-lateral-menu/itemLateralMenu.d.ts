@@ -21,8 +21,10 @@ export interface IItemLateralMenu {
     label: string,
     onClick?: (e) => void,
     beginComponent?: any,
+    activeBeginIcon?: any,
     button?: typeButton,
     selected?: boolean,
     subItems?: Array<typeSubItem>,
+    hiddenIconDropArrow?: boolean,
     style?: React.CSSProperties
 }

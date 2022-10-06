@@ -52,11 +52,11 @@ export const WrapperComponent = styled.div<IWrapperMainLabel>`
     & > svg {
         width: 24px;
         height: 24px;
-        & > path {
-            fill: ${({ theme, active }) => active ? theme.colors.primary1 : theme.colors.neutralsGrey1};
-        }
     }
 `
+// & > path {
+//     fill: ${({ theme, active }) => active ? theme.colors.primary1 : theme.colors.neutralsGrey1};
+// }
 
 export const WrapperButton = styled.div`
     margin-right: 8px;

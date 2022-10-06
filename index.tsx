@@ -1,5 +1,10 @@
 // EXPORT COMPONENTS HERE
 
+// Icons
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, 
+        HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon,
+        LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon } from './src/shared/icons'
+
 // Base
 export { default as Tag } from "./src/components/tag"
 export { default as BaseCard } from "./src/components/cards/base"
@@ -16,7 +21,6 @@ export { default as Button } from "./src/components/buttons"
 export { default as ButtonGroup } from "./src/components/EBR/buttons-group"
 export { default as TextField } from './src/components/form-elements/textfield'
 export { default as TextArea } from './src/components/form-elements/textarea'
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle } from './src/shared/icons'
 export { default as Avatar } from './src/components/avatar'
 export { default as InputComment } from './src/components/input-comment'
 export { default as CommentaryBox } from './src/components/commentary-box'

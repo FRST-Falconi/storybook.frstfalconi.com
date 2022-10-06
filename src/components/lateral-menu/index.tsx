@@ -8,7 +8,7 @@ import IItemLateralMenu from '@components/item-lateral-menu'
 import Avatar from '@components/avatar'
 import Button from '@components/buttons'
 
-export default function LateralMenu({ variant, avatar, name, channel, button, listOptions, style }: ILateralMenu) {
+export default function LateralMenu({ variant, hiddenButtonHeader, avatar, name, channel, button, listOptions, style }: ILateralMenu) {
     return (
         <ThemeProvider theme={FRSTTheme}>
                 <Styles.WrapperCard style={{...style}}>
@@ -27,17 +27,20 @@ export default function LateralMenu({ variant, avatar, name, channel, button, li
                             </Styles.Channel>
                         }
                         <Styles.WrapperButton>
-                            { channel ?
-                                <Button 
-                                    variant='primary'
-                                    label={button.label}
-                                    handleClick={(e) => button.onClick(e)}
-                                /> :
-                                <Button 
-                                    variant='link'
-                                    label={button.label}
-                                    handleClick={(e) => button.onClick(e)}
-                                />
+                            { !hiddenButtonHeader && (
+                                channel ?
+                                    <Button 
+                                        variant='primary'
+                                        label={button.label}
+                                        handleClick={(e) => button.onClick(e)}
+                                    /> 
+                                    :
+                                    <Button 
+                                        variant='link'
+                                        label={button.label}
+                                        handleClick={(e) => button.onClick(e)}
+                                    />
+                                )
                             }
                         </Styles.WrapperButton>
 
@@ -48,7 +51,10 @@ export default function LateralMenu({ variant, avatar, name, channel, button, li
                         return (
                         <IItemLateralMenu 
                             label={item.label}
+                            button={item.button}
                             beginComponent={item.beginComponent}
+                            activeBeginIcon={item.activeBeginIcon}
+                            hiddenIconDropArrow={item.hiddenIconDropArrow}
                             onClick={(e) => item.onClick(e)}
                             selected={item.selected}
                             subItems={item.subItems}
