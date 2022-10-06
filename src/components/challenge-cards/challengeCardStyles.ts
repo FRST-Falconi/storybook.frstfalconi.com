@@ -1,0 +1,163 @@
+import styled from 'styled-components'
+
+interface AvatarI {
+    size?: string,
+    src?: any,
+    disabled?: boolean,
+}
+
+export const WrapperCard = styled.div<{active}>`
+    display: flex;
+    flex-direction: column;
+    width: 282px;
+    height: 445px;
+    background: ${({theme, active}) => active ? theme.colors.neutralsGrey9 : theme.colors.shadeWhite};
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    &:hover{
+        // background: ${({theme}) => theme.colors.neutralsGrey9};
+        // border: 1px solid ${({theme}) => theme.colors.neutralsGrey5};
+
+        box-shadow: 0px 10px 20px 7px rgb(255 255 255 / 20%);
+        cursor: pointer;
+    }
+`
+
+export const TagText = styled.span`
+    border-radius: 0px 8px;
+    margin-bottom: -24px
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    color: #FFFFFF;
+`
+
+export const WrapperBanner = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 200px;
+    max-height: 200px;
+`
+    export const TagStep = styled.div`
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+        padding: 4px 15px;
+        border-radius: 0px 8px;
+        
+        width: 124px;
+        height: 24px;
+        z-index: 2 ;
+        background: ${({theme}) => theme.colors.linkHover};
+    `
+    export const BannerCard = styled.img`
+        margin-top: -24px;
+
+        margin-bottom: 0px;
+        height: fit-content;
+    `
+    export const StepName = styled.div`
+        font-family: 'VT323', monospace;
+        font-size: 40px;
+        color: white;
+        -webkit-text-stroke: 0.5px black;
+        text-shadow: 2px 0 0 black, 0 2px 0 black,-2px 0 0 black,0 -2px 0 black;
+        
+        display: flex;
+        justify-content: center;
+        border: 2px dashed #FFF;
+
+        z-index: 2;
+        margin-top: -60px;
+        margin-bottom: 16px;
+        padding: 0px 12px 0px 12px;
+    `
+
+export const ContentCard = styled.div`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 282px;
+    border-radius: 8px;
+    border: 1px solid ${({theme}) => theme.colors.neutralsGrey5};
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: 0px;
+`
+
+export const WrapperHeader = styled.div`
+    width: 100%;   
+    display: flex;
+    flex-direction: row;
+    padding-right: 24px;
+`
+
+export const TitleProject = styled.p`
+    flex: 1;
+    padding: 24px;
+    padding-bottom: 0px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+`
+
+export const Dots = styled.div`
+    margin-top: 24px;
+
+    height: fit-content;
+`
+
+export const DescriptionProject = styled.span`
+    flex: 1;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    
+    color: ${({theme}) => theme.colors.primary1};
+    padding: 24px;
+    padding-top: 16px;
+`
+
+export const ButtonAction = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 47px;
+    padding: 12px;
+
+    border-top: 1px solid ${({theme}) => theme.colors.neutralsGrey5};
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: ${({theme}) => theme.colors.linkOnfocus};
+`
+
+export const MyPopOver = styled.div`
+    position: absolute;
+    width: 130px;
+    background: ${({theme}) => theme.colors.shadeWhite};
+
+    border: 1px solid ${({theme}) => theme.colors.neutralsGrey5};
+    border-radius: 4px;
+
+    margin-left: -100px;
+
+`
