@@ -64,7 +64,7 @@ export default function RatingCurtidas(props: RatingCurtidasParams) {
           <div style={{display: 'inline-flex', width: 90, marginLeft: 4}}>
             <div style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap',width: 100 }}>
               <span style={{fontSize: 14, fontWeight: 600}}>{props.qtdeCurtidas ? props.qtdeCurtidas : 0}</span>
-              <span style={{fontSize: 12, fontWeight: 400}}>{props.qtdeCurtidas > 1 ? props.descricaoCurtida : props.qtdeCurtidas === 1 ? `pessoa` : `curtidas`}</span>
+              <span style={{fontSize: 12, fontWeight: 400}}>{props.descricaoCurtida }</span>
             </div>
             
           </div>
