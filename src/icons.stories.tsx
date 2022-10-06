@@ -168,3 +168,6 @@ EyeOff.args = Icons.EyeOff({})
 
 export const AddIcon = Template.bind({})
 AddIcon.args = Icons.AddIcon({})
+
+export const IconNotification = Template.bind({})
+IconNotification.args = Icons.IconNotification({})

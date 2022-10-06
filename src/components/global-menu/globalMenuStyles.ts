@@ -9,7 +9,7 @@ export const MenuContainer = styled.div<IMenuContainer>`
     width: 100%;
     height: 64px;
 
-    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+    background: ${({ theme }) => theme.colors.neutralsGrey1 };
 
     display: flex;
     align-items: center;

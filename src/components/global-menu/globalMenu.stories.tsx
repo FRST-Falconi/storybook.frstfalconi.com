@@ -24,17 +24,13 @@ const Template = (args) => <GlobalMenu {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    menu: [
-        { id:'1', label: 'Hall FRST',               onClick: (e) => alert('Hall FRST') },
-        { id:'2', label: 'Cadastrar alunos',        onClick: (e) => alert('Cadastrar alunos') },
-        { id:'3', label: 'Dashboard de resultados', onClick: (e) => alert('Dashboard de resultados') },
-        { id:'4', label: 'Definir trilhas',         onClick: (e) => alert('Definir trilhas') },
-        { id:'5', label: 'Progresso do aluno',      onClick: (e) => alert('Progresso do aluno') },
-    ],
+    variant: 'default',
+    
     user: {
         name: 'Student name',
         avatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
         company: 'Company name',
+        textIsMe: 'Eu',
         handleClickProfile: () => alert('Click Profile'),
         menuItems: [
             {
@@ -72,6 +68,7 @@ normal.args = {
             { id: '4', label: 'List Entry',  onClick: (e) => alert('List Entry 4') },
         ]
     },
+    notification: true,
     languages: ['pt', 'es', 'en'],
     onChangeLanguage: (e) => alert(e),
     style: { display: 'flex' }
