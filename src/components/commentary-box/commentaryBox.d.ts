@@ -23,6 +23,9 @@ interface ICommentaryBox{
     idTextComment?: string
     wasEdited?: boolean
     hasDropdown?: false
+    textSaveButton ?: string
+    textSaveButtonMobile ?: string
+    textCancelButton ?: string
     textYou?: string
     textPrivateComment?: string
     textEdited?: string

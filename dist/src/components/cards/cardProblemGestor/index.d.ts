@@ -13,6 +13,10 @@ interface CardProblemGestorProps {
     ratingCurtidas?: number;
     lastUpdated?: string;
     onClick: (problemID: string) => void;
+    statusName?: string;
+    statusColor?: string;
+    statusBackgroundColor?: string;
+    locales?: any;
 }
 /**
  * @param {CardProblemGestorProps} props

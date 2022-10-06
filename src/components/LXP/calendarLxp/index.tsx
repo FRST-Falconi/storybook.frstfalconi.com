@@ -8,7 +8,7 @@ import { Box, Modal } from '@mui/material'
 import { DateRange, DefinedRange } from 'react-date-range'
 import { pt } from 'date-fns/locale'
 
-import 'react-date-range/dist/styles.css'; // main style file
+//import 'react-date-range/dist/styles.css'; // main style file
 import {defaultStaticRanges} from './defaultRanges'
 
 interface CalendarLxpParams {

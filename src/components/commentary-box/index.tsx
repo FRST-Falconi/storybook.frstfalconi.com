@@ -18,8 +18,8 @@ const WIDTH_MOBILE = 550;
 export default function CommentaryBox({
     name, className, styles, position, value, date, actionLike, actionAnswer, isMe, isAuthor,
     actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue,
-    detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes,
-    textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
+    detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textSaveButton, textSaveButtonMobile,
+    textCancelButton, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
     textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }: ICommentaryBox) {
     
 
@@ -217,13 +217,13 @@ export default function CommentaryBox({
                     <Styles.FooterEditingWrapper width={size[0]}>
                         <Button 
                             handleClick={() => { saveEditComment() }} 
-                            label={size[0] > WIDTH_MOBILE ? "Salvar Alterações": "Salvar" } 
+                            label={size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile } 
                             disabled={!enableSaveEdit} 
                             variant="primary" 
                         />
                         <Button 
                             handleClick={() => { cancelEditComment() }} 
-                            label="Cancelar"  
+                            label={textCancelButton}  
                             variant="secondary"
                         />
                     </Styles.FooterEditingWrapper>

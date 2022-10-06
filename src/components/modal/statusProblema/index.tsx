@@ -15,7 +15,7 @@ interface ModalStatusProblemaProps {
     title?: string,
     description?: string,
     approves: any[],
-
+    language?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es' 
     handleClose: () => void,
     style: React.CSSProperties
     
@@ -78,7 +78,7 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
             
             <Box className={style.modalBox} style={{top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style}}>
                 <div className={style.fechar} onClick={props.handleClose}>
-                <span style= {{marginRight: 10}} > Fechar </span> <CloseIcon />
+                <span style= {{marginRight: 10}} > {props.language === 'en-US' ? 'Close' : 'Fechar' } </span> <CloseIcon />
                 </div>
                 <div className={style.titulo}>
                     {props.title}
@@ -99,7 +99,7 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
                 <div className={style.conclusao}>
                     <Button 
                         variant='primary'
-                        label='Ok, fechar'
+                        label={props.language === 'en-US' ? 'ok, close' : 'Ok, fechar'}
                         handleClick={props.handleClose}
                     />
                 </div>

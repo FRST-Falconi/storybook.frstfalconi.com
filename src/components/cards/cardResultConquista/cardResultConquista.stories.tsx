@@ -18,6 +18,7 @@ Conquista.args = {
     userName: 'Érica Heim',
     userArea: 'Customer Experience',
     problemId: 'Abc',
+    textMoreDetails: 'Mais detalhes',    
     description: 'Aumentei o tempo médio de uso da plataforma de 8 horas/semana para 12 horas/semana ao final do ciclo ágil, mandando um texto para testar o tamanho do acccaradasdasd',
     onClick: (problemID) => { alert(problemID)}
 }
@@ -28,6 +29,7 @@ Aprendizado.args = {
     userName: 'Érica Heim',
     userArea: 'Customer Experience',
     problemId: 'Abc',
+    textMoreDetails: 'Mais detalhes', 
     description: 'Descobri fatores que estão contribuindo negativamente para que os alunos não engajem na plataforma',
     onClick: (problemID) => { alert(problemID)}
 }

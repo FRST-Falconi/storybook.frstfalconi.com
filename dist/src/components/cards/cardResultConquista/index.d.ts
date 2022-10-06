@@ -11,6 +11,7 @@ interface CardResultConquistaProps {
     description: string;
     problemId: string;
     onClick?: (problemId: string) => void;
+    textMoreDetails?: string;
     style?: React.CSSProperties;
 }
 /**

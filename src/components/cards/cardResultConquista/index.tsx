@@ -22,6 +22,7 @@ interface CardResultConquistaProps {
 
     onClick?: (problemId: string) => void
 
+    textMoreDetails ?: string
     style?: React.CSSProperties
 }
 
@@ -35,6 +36,12 @@ export default function CardResultConquista(props: CardResultConquistaProps) {
         const timer = setTimeout(() => setIsPressed(false), 1000);
         return () => clearTimeout(timer);
     },[isPressed])
+
+    const [btnViewMore, setBtnViewMore] = useState('')
+    useEffect(() => {
+        setBtnViewMore(props.textMoreDetails)
+    }, [props.textMoreDetails]);
+
     return (
         <div className={style.container} style={{ ...props.style, cursor:'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF'}} onClick={() => 
             {
@@ -63,7 +70,7 @@ export default function CardResultConquista(props: CardResultConquistaProps) {
             <div className={style.description} style={{color: isPressed ? '#FFD600' : '#FF4D0D',fontWeight: 500, fontSize: 16, textAlign:'center', marginTop: 12}}>
                 {props.description}
             </div>
-            <div className={style.verMais}>Mais detalhes</div>
+            <div className={style.verMais}>{btnViewMore ? btnViewMore : "Mais detalhes"}</div>
         </div>
     )
 }

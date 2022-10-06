@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+import React,{ useState, useEffect } from 'react'
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
@@ -8,18 +8,24 @@ import ScrollContainer from '@components/scroll-container'
 import CardResultConquista from '@components/cards/cardResultConquista'
 
 export default function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, 
-    sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }: IConquistaCarrossel ) {
+    sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }: IConquistaCarrossel ) {
     const [ itemSelected, setItemSelected ] = useState(-1);
 
     const onItemSelect = (n: number) => {
         setItemSelected(n)
         onSelected(n)
     }
+    const [btnViewMore, setBtnViewMore] = useState('')
 
+    useEffect(() => {
+        setBtnViewMore(textMoreDetails)
+    }, [textMoreDetails]);
+    
     function renderCard(item, index) {
         return (
             <CardResultConquista 
                 key={index}
+                textMoreDetails={btnViewMore ? btnViewMore : 'Mais detalhes'}
                 description={item.description}
                 problemId={item.problemId}
                 statusCard={item.statusCard}

@@ -23,7 +23,8 @@ ModalTornarComentarioPrivado.args = {
     confirmationButton: 'Tornar privado',
     children: 'Dessa forma, só o criador do comentário e o autor do problema (você) poderão visualizar e interagir com o comentário.',
     style: {textAlign:'center', padding: 20},
-    typeButtonConfirmation: 'primary'
+    typeButtonConfirmation: 'primary',
+    language: 'en-US'
     
 }
 
