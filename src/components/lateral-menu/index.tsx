@@ -26,23 +26,23 @@ export default function LateralMenu({ variant, hiddenButtonHeader, avatar, name,
                                 {channel}
                             </Styles.Channel>
                         }
-                        <Styles.WrapperButton>
-                            { !hiddenButtonHeader && (
-                                channel ?
-                                    <Button 
-                                        variant='primary'
-                                        label={button.label}
-                                        handleClick={(e) => button.onClick(e)}
-                                    /> 
-                                    :
-                                    <Button 
-                                        variant='link'
-                                        label={button.label}
-                                        handleClick={(e) => button.onClick(e)}
-                                    />
-                                )
-                            }
-                        </Styles.WrapperButton>
+                        { !hiddenButtonHeader && 
+                            <Styles.WrapperButton>
+                                    { !channel ?
+                                        <Button 
+                                            variant='primary'
+                                            label={button.label}
+                                            handleClick={(e) => button.onClick(e)}
+                                        /> 
+                                        :
+                                        <Button 
+                                            variant='link'
+                                            label={button.label}
+                                            handleClick={(e) => button.onClick(e)}
+                                        />
+                                    }
+                            </Styles.WrapperButton>
+                        }
 
                         <Styles.HR/>
 

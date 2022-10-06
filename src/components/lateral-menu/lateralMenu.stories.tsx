@@ -19,6 +19,7 @@ normal.args = {
         src: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
         alt: 'Alt example'
     },
+    hiddenButtonHeader: false,
     name: 'Student/Channel name',
     button: {
         variant: 'primary',
@@ -91,6 +92,7 @@ normalWithItemActive.args = {
         alt: 'Alt example'
     },
     name: 'Student/Channel name',
+    hiddenButtonHeader: false,
     button: {
         variant: 'primary',
         label: 'Button CTA',
@@ -157,7 +159,8 @@ normalWithItemActive.args = {
 
 export const channel = Template.bind({})
 channel.args = {
-    variant: 'primary',
+    variant: 'primary',    
+    channel: 'Info channel',
     avatar: {
         src: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
         alt: 'Alt example'

@@ -17,6 +17,9 @@ export const WrapperCard = styled.div`
 `
 
 export const WrapperHeader = styled.div`
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
