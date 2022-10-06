@@ -134,6 +134,24 @@ export const DescriptionProject = styled.span`
     padding-top: 16px;
 `
 
+export const DescriptionSRG = styled.span`
+    flex: 1;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    
+    /* neutrals/grey_1 */
+    
+    color: #222222;
+    
+    color: ${({theme}) => theme.colors.neutralsGrey1};
+    padding: 24px;
+    padding-right: 25px;
+    padding-top: 16px;
+`
+
 export const ButtonAction = styled.div`
     display: flex;
     justify-content: center;

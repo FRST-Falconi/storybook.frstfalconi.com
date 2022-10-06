@@ -70,10 +70,15 @@ export default function ChallengeCard({ variant, description, language,
                                 />
                             </Styles.Dots> }
                     </Styles.WrapperHeader>
-
+                    { variant != 'srg'  ?
                     <Styles.DescriptionProject onClick={() => handleClick()}>
                         {description}
                     </Styles.DescriptionProject>
+                    :
+                    <Styles.DescriptionSRG onClick={() => handleClick()}>
+                    {label.srgDecription}
+                    </Styles.DescriptionSRG>
+                    }
                     <Styles.ButtonAction onClick={() => handleClick()}>
                         {variant == 'srg' ? 
                         <>
@@ -109,6 +114,7 @@ const BannersSRC = {
 
 const labels = {
     ptBR: {
+        srgDecription: 'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
         project: 'Projeto',
         delete: 'Excluir',
         continue: 'Continuar',
@@ -131,6 +137,7 @@ const labels = {
         }
     },
     enUS: {
+        srgDecription: 'Our problem-solving tool guides you through agile cycles of learning, collaboration, and experimentation.',
         project: 'Project',
         delete: 'Delete',
         continue: 'Continue',
@@ -154,6 +161,7 @@ const labels = {
     },
 
     es: {
+        srgDecription: 'Nuestra herramienta de resolución de problemas lo guía a través de ciclos ágiles de aprendizaje, colaboración y experimentación.',
         project: 'Proyecto',
         delete: 'Elimina',
         continue: 'Continúa',
