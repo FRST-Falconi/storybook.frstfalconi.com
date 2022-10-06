@@ -98,13 +98,13 @@ const utilAssign = (value, optional) => {
 }
 
 const BannersSRC = {
-    srg:'https://i.gyazo.com/d1822786ff653def884886807ec2cd65.png',
-    mars:'https://i.gyazo.com/4589ee022181b3d121075480a64e7f70.png',
-    jupiter: 'https://i.gyazo.com/7ff54ec9a81904b30812e1f9a5c6726c.png',
-    saturn: 'https://i.gyazo.com/04c2c6633c8461fc29dc991435116f9b.png',
-    uranus: 'https://i.gyazo.com/7160ba6dac10303a5f02345cccc36780.png',
-    neptune: 'https://i.gyazo.com/fe7ca40994dff191e9208e0804aa9936.png',
-    completed: 'https://i.gyazo.com/9745c730328d6111846565485929dd6a.png'
+    srg:'https://api-deimos.s3.amazonaws.com/srg.png',
+    mars:'https://api-deimos.s3.amazonaws.com/step1Mars.png',
+    jupiter: 'https://api-deimos.s3.amazonaws.com/step2Jupiter.png',
+    saturn: 'https://api-deimos.s3.amazonaws.com/step3Saturn.png',
+    uranus: 'https://api-deimos.s3.amazonaws.com/step4Uranus.png',
+    neptune: 'https://api-deimos.s3.amazonaws.com/step4Neptune.png',
+    completed: 'https://api-deimos.s3.amazonaws.com/completed.png'
 }
 
 const labels = {
