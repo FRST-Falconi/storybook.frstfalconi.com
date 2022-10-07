@@ -17,6 +17,7 @@ export declare function ChangeAccount({ fill, width, height }: IconsProps): JSX.
 export declare function DownloadIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function DropdownIconWhite({ fill, width, height }: IconsProps): JSX.Element;
 export declare function DropdownIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function DropdownIconLine({ fill, width, height }: IconsProps): JSX.Element;
 export declare function DropdownSideIconWhite({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ExitArrow({ fill, width, height }: IconsProps): JSX.Element;
 export declare function BackArrow({ fill, width, height }: IconsProps): JSX.Element;
@@ -78,5 +79,17 @@ export declare function WhatAppBordered({ fill, width, height }: IconsProps): JS
 export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MessageCheckLine({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Viewer({ fill }: IconsProps): JSX.Element;
+export declare function HomeLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function HomeFilledIcon({ fill }: IconsProps): JSX.Element;
+export declare function CalendarLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function CalendarFilledIcon({ fill }: IconsProps): JSX.Element;
+export declare function PencilLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function PencilFilledIcon({ fill }: IconsProps): JSX.Element;
+export declare function LampLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function LampFilledIcon({ fill }: IconsProps): JSX.Element;
+export declare function MedalLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function MedalFilledIcon({ fill }: IconsProps): JSX.Element;
+export declare function PlayLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function PlayFilledIcon({ fill }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
