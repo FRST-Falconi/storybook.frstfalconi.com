@@ -224,7 +224,7 @@ export const FooterEditingWrapper = styled.div<{width?:number}>`
     display: flex;
     align-self: flex-end;
     margin: 14px;
-    width: ${({width})=> width > 550 ? '296px' : '200px'};
+    width: fit-content;
     justify-content: space-between;
 `
 
