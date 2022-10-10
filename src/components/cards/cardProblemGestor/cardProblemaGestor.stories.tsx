@@ -37,7 +37,15 @@ problemaDefinido.args = {
     ratingCurtidas: 24,
         
     onClick: (problemID) => { alert(problemID)},
-    lastUpdated: 'Atualizado a 2 dias'
+    lastUpdated: 'Atualizado a 2 dias',
+
+    locales: {
+        impact: 'Impacto',
+        relevance: 'Relevância',
+        likes: 'Curtidas',
+        evaluation: 'Avaliação',
+        likesDescription: 'Pessoas',
+    }
 }
 
 export const hipoteseLevantada = Template.bind({})
