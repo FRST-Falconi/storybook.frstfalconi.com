@@ -76,3 +76,5 @@ export { default as Video} from './src/components/LXP/video'
 export { default as GlobalMenu} from './src/components/global-menu'
 export { default as extraContent} from './src/components/LXP/extraContent'
 
+
+export { default as ChallengeCard } from './src/components/challenge-cards'
