@@ -28,6 +28,7 @@ export declare function Trash({ fill, width, height }: IconsProps): JSX.Element;
 export declare function AlertCicle({ fill, width, height }: IconsProps): JSX.Element;
 export declare function DoubleCheck({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WithoutTrail({ fill, width, height }: IconsProps): JSX.Element;
+export declare function MoreDotsVertical({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MoreDotsHorizontal({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Mail({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Dot({ fill, width, height }: IconsProps): JSX.Element;
@@ -79,6 +80,7 @@ export declare function WhatAppBordered({ fill, width, height }: IconsProps): JS
 export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MessageCheckLine({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Viewer({ fill }: IconsProps): JSX.Element;
+export declare function Plus({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function HomeLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function HomeFilledIcon({ fill }: IconsProps): JSX.Element;
 export declare function CalendarLineIcon({ fill }: IconsProps): JSX.Element;
