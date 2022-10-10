@@ -5,7 +5,7 @@ export const Container = styled.div`
     max-width: 343px;
     min-height: 127px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid #bdbdbd;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     border-radius: 8px;
 `
 export const Typography = styled.div`
