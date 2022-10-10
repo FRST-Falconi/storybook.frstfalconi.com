@@ -1,21 +1,22 @@
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
-import { IProjectLibrary } from './projectLibrary'
-import * as Styles from './projectLibraryStyles'
+import { ISearchBox } from './searchBox'
+import * as Styles from './SearchBoxStyles'
 import SearchField from '@components/search-field'
 
-export default function ProjectLibrary(props: IProjectLibrary) {      
+export default function SearchBox(props: ISearchBox) {      
 
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.Container >
-                <Styles.Typography>{props.textTitle ? props.textTitle : props.title}</Styles.Typography>
+                <Styles.Typography>{props.textTitle ? props.textTitle : props.textTitle}</Styles.Typography>
                 <Styles.ContainerSearch >
                     <SearchField 
                     hasSearchIcon={true} 
-                    textButton={props.textButton ? props.textButton : 'Pesquisar'} 
-                    placeholder={props.textPlacerolder ? props.textPlacerolder : 'Busque aqui.'} 
+                    textButton={props.textButton ? props.textButton : ''} 
+                    placeholder={props.textPlaceholder ? props.textPlaceholder : ''} 
                     handleClickButton={props.handleClickSearchButton}
+                    onChange={props.onChange}
                     />
                 </Styles.ContainerSearch>
             </Styles.Container>            

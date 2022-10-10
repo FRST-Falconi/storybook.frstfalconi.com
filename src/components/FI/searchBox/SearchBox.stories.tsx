@@ -1,30 +1,32 @@
 import React from 'react'
 
-import ProjectLibrary from './index'
+import SearchBox from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'LI/ProjectLibrary',
-    component: ProjectLibrary,
+    title: 'FI/SearchBox',
+    component: SearchBox,
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <ProjectLibrary {...args} />
+const Template = (args) => <SearchBox {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-    title: 'Biblioteca de projetos',
+    textTitle: 'Biblioteca de projetos',
+    textPlaceholder: 'Busque aqui.',
+    textButton: 'Pesquisar',
     handleClickSearchButton: () => alert('busque aqui'),
+    onChange: (e) => console.log(e.target.value)
 }
 
 export const DefaultTranslate = Template.bind({})
 DefaultTranslate.args = {
-    title: 'Biblioteca de projetos',
-    language: 'en-US',
     textTitle: 'Project library',
-    textPlacerolder: 'Search here.',
+    textPlaceholder: 'Search here.',
     textButton: 'Search',
     handleClickSearchButton: () => alert('search here'),
+    onChange: (e) => console.log(e.target.value)
 }
 
 
