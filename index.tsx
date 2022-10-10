@@ -79,4 +79,4 @@ export { default as extraContent} from './src/components/LXP/extraContent'
 // FI
  
 export { default as CardTrail} from './src/components/card-trail'
-export { default as cardsTrailsCarousel} from './src/components/card-trail-carousel'
+export { default as CardsTrailsCarousel} from './src/components/card-trail-carousel'
