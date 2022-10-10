@@ -185,6 +185,16 @@ export function WithoutTrail({ fill, width, height }: IconsProps) {
   )
 }
 
+export function MoreDotsVertical({ fill, width, height }: IconsProps) {
+  return (
+  <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <path d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <path d="M13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19Z" stroke={fill ? fill : "black"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+  )
+}
+
 export function MoreDotsHorizontal({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "20"} height={height ? height : "4"} viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -677,6 +687,15 @@ export function Viewer({ fill }: IconsProps) {
               <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" stroke={ fill ? fill : "#ff0000"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
       </>
+  );
+}
+
+export function Plus({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.15381 1.15384V17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1.15381 9.15385H17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
   );
 }
 
