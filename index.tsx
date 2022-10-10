@@ -76,3 +76,7 @@ export { default as Video} from './src/components/LXP/video'
 export { default as GlobalMenu} from './src/components/global-menu'
 export { default as extraContent} from './src/components/LXP/extraContent'
 
+// FI
+ 
+export { default as CardTrail} from './src/components/card-trail'
+export { default as cardsTrailsCarousel} from './src/components/card-trail-carousel'
