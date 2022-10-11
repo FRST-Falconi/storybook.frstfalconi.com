@@ -122,12 +122,12 @@ const labels = {
         view: 'Visualizar',
         newProject: 'Criar novo projeto',
         tagStep: {
-            incompleteMars: 'Problema Criado',
-            mars: 'Problema Definido',
+            incompleteMars: 'Problema criado',
+            mars: 'Problema definido',
             jupiter: 'Hipóteses levantadas',
             saturn: 'Testes realizados',
             uranus: 'Resultados e aprendizados',
-            neptune: 'Próximos Passos',
+            neptune: 'Próximos passos',
             completed: 'Finalizado'
         },
         nameStep: {
