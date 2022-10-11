@@ -7,7 +7,7 @@ import {default as ButtonFrst} from '@components/buttons'
 import { IDropdownProfileMenu } from './dropdownProfileMenu'
 
 
-export default function DropdownProfileMenu({variant, user, menuItems, isMobileVersion, style, language}: IDropdownProfileMenu) {
+export default function DropdownProfileMenu({variant, user, menuItems, isMobileVersion, style}: IDropdownProfileMenu) {
     const [ anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const [ anchorSub, setAnchorSub] = React.useState<null | HTMLElement>(null)
     const [ subMenu, setSubMenu] = React.useState(null)
@@ -49,7 +49,7 @@ export default function DropdownProfileMenu({variant, user, menuItems, isMobileV
                         src={user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"}
                     />
                     { !isMobileVersion && <>
-                        <Styles.UserName> {language === 'en' ? 'Me' : 'Eu' } </Styles.UserName>
+                        <Styles.UserName> {user.textIsMe} </Styles.UserName>
                         <DropdownIcon fill="white" /> 
                     </>}
                 </Button>
@@ -135,7 +135,7 @@ export default function DropdownProfileMenu({variant, user, menuItems, isMobileV
                 <Styles.AvatarCustomUser alt="User Photo" 
                     src={user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"}
                 />
-                <Styles.UserName> {language === 'en' ? 'Me' : 'Eu' } </Styles.UserName>
+                <Styles.UserName> {user.textIsMe} </Styles.UserName>
                 <DropdownIcon fill="white" />
             </Button>
                 <Styles.MenuCustom

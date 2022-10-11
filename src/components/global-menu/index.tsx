@@ -240,7 +240,6 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                         </Styles.WrapperIconNotification>
                                     }
                                     <DropdownProfileMenu
-                                        language={languageSelected}
                                         variant='LXP'
                                         user={user}
                                         menuItems={user && user.menuItems}
