@@ -185,6 +185,16 @@ export function WithoutTrail({ fill, width, height }: IconsProps) {
   )
 }
 
+export function MoreDotsVertical({ fill, width, height }: IconsProps) {
+  return (
+  <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <path d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <path d="M13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19Z" stroke={fill ? fill : "black"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+  )
+}
+
 export function MoreDotsHorizontal({ fill, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "20"} height={height ? height : "4"} viewBox="0 0 20 4" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -686,6 +696,24 @@ export function IconNotification({ fill, width, height } : IconsProps) {
       <path d="M18.2843 18.389H5.71573C5.09953 18.389 4.6 17.8895 4.6 17.2733C4.6 17.0869 4.6467 16.9034 4.73583 16.7397L4.20888 16.4528L4.73583 16.7397L5.28347 15.7339C5.49118 15.3524 5.6 14.925 5.6 14.4906V10.9998C5.6 7.4652 8.46538 4.59982 12 4.59982C15.5346 4.59982 18.4 7.4652 18.4 10.9998V14.4906C18.4 14.925 18.5088 15.3524 18.7165 15.7339L19.2642 16.7397C19.3533 16.9034 19.4 17.0869 19.4 17.2733C19.4 17.8895 18.9005 18.389 18.2843 18.389Z" stroke={fill ? fill : "#FFD600"} strokeWidth="1.2" />
       <path d="M10 4.99982L10 3.99982C10 2.89526 10.8954 1.99982 12 1.99982V1.99982C13.1046 1.99982 14 2.89526 14 3.99982V4.99982" stroke={fill ? fill : "#FFD600"} strokeWidth="1.2" />
       <path d="M9 18.9998V18.9998C9 20.6567 10.3431 21.9998 12 21.9998V21.9998C13.6569 21.9998 15 20.6567 15 18.9998V18.9998" stroke={fill ? fill : "#FFD600"} strokeWidth="1.2" />
+    </svg>
+  );
+}
+
+export function LinkedinIconMentor() {
+  return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="16" height="16" rx="2" fill="#0274B3"/>
+  <path d="M10.6673 6C11.5514 6 12.3992 6.35659 13.0243 6.99133C13.6495 7.62607 14.0007 8.48696 14.0007 9.38462V13.3333H11.7784V9.38462C11.7784 9.0854 11.6614 8.79843 11.453 8.58685C11.2446 8.37527 10.962 8.25641 10.6673 8.25641C10.3726 8.25641 10.09 8.37527 9.88164 8.58685C9.67327 8.79843 9.55621 9.0854 9.55621 9.38462V13.3333H7.33398V9.38462C7.33398 8.48696 7.68517 7.62607 8.3103 6.99133C8.93542 6.35659 9.78326 6 10.6673 6Z" fill="white"/>
+  <path d="M5.33268 6.66699H2.66602V13.3337H5.33268V6.66699Z" fill="white"/>
+  <path d="M3.99935 5.33366C4.73573 5.33366 5.33268 4.73671 5.33268 4.00033C5.33268 3.26395 4.73573 2.66699 3.99935 2.66699C3.26297 2.66699 2.66602 3.26395 2.66602 4.00033C2.66602 4.73671 3.26297 5.33366 3.99935 5.33366Z" fill="white"/>
+  </svg>
+}
+
+export function Plus({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.15381 1.15384V17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1.15381 9.15385H17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   );
 }
