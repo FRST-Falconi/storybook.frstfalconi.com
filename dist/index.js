@@ -39,6 +39,7 @@ var slateHistory = require('slate-history');
 require('react-dom');
 var css = require('@emotion/css');
 var iconsMaterial = require('@mui/icons-material');
+var _ = require('@mui/material/');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -223,6 +224,9 @@ function MailBordered({ fill, width, height }) {
 }
 function MessageCheckLine({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+}
+function LinkedinIconMentor() {
+    return jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "16", height: "16", rx: "2", fill: "#0274B3" }), jsxRuntime.jsx("path", { d: "M10.6673 6C11.5514 6 12.3992 6.35659 13.0243 6.99133C13.6495 7.62607 14.0007 8.48696 14.0007 9.38462V13.3333H11.7784V9.38462C11.7784 9.0854 11.6614 8.79843 11.453 8.58685C11.2446 8.37527 10.962 8.25641 10.6673 8.25641C10.3726 8.25641 10.09 8.37527 9.88164 8.58685C9.67327 8.79843 9.55621 9.0854 9.55621 9.38462V13.3333H7.33398V9.38462C7.33398 8.48696 7.68517 7.62607 8.3103 6.99133C8.93542 6.35659 9.78326 6 10.6673 6Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M5.33268 6.66699H2.66602V13.3337H5.33268V6.66699Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M3.99935 5.33366C4.73573 5.33366 5.33268 4.73671 5.33268 4.00033C5.33268 3.26395 4.73573 2.66699 3.99935 2.66699C3.26297 2.66699 2.66602 3.26395 2.66602 4.00033C2.66602 4.73671 3.26297 5.33366 3.99935 5.33366Z", fill: "white" })] });
 }
 function Plus({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "18", height: "18", viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.15381 1.15384V17.1538", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.15381 9.15385H17.1538", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -476,7 +480,7 @@ const Title$4 = styled__default["default"].span `
   font-size: 20px !important;
   color: #ff4d0d !important;
 `;
-const TextDescription = styled__default["default"].span `
+const TextDescription$1 = styled__default["default"].span `
   font-size: 14px !important;
   color: #222222 !important;
 `;
@@ -673,7 +677,7 @@ function CalendarCard(props) {
             jsxRuntime.jsx(Container$7, { className: 'shimmer' })
             :
                 jsxRuntime.jsx(Container$7, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
-                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
+                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
                                 jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon$1, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') })] }), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }), moduleEvents && moduleEvents.length > 0 &&
@@ -2721,17 +2725,23 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
         else
             setIsVisibleArrowButtonRight(false);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: type == 'vertical' ? (null) :
-            jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
-                                jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                        ((marginsArrowButton + 50) * -1) + 'px'
-                                        :
-                                            '-138px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
-                                jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                        ((marginsArrowButton + 50) * -1) + 'px'
-                                        :
-                                            '-138px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' &&
-                            jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px' }, children: [jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }) })] }) }));
+    React.useEffect(() => {
+        function updateSize() {
+            var objDiv = document.getElementById(iDScroll);
+            ((objDiv.offsetWidth + objDiv.scrollLeft) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
+            (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollRight })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' &&
+                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px' }, children: [jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollRight })] }) })] }) }));
+}
+function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButton, isVisible, margin, ArrowScroll }) {
+    return (jsxRuntime.jsx(ButtonControll, { isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton ? sizeButton : 80, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? ((sizeButton / 2.3).toFixed(0)).toString() : '34', width: sizeButton ? ((sizeButton / 4.3).toFixed(0)).toString() : '18' }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -2794,7 +2804,7 @@ const WrapperHeader$1 = styled__default["default"].div `
     flex-diretion: row;
     padding-left: 3.2px;
 `;
-const TitleCard$2 = styled__default["default"].div `
+const TitleCard$3 = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -2858,7 +2868,7 @@ const ButtonMore = styled__default["default"].div `
 `;
 
 function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, width }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$2, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$3, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
 }
 
 function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, textClearFilter, textViewMore }) {
@@ -2893,7 +2903,7 @@ const CardWrapper$1 = styled__default["default"].div `
     padding: 20px;
     ${({ hasShadow }) => hasShadow && 'box-shadow: 0px 18px 40px -15px #D3D3D3'};
 `;
-const TitleCard$1 = styled__default["default"].p `
+const TitleCard$2 = styled__default["default"].p `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
@@ -2958,7 +2968,7 @@ function TotalizerCard$1({ titleCard, textTotal, numberTotal, numberPartial, loa
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$1, { hasShadow: hasShadow, style: { ...styles }, children: [loading ?
                     jsxRuntime.jsx(TitleCardLoading, { className: 'shimmer' })
                     :
-                        jsxRuntime.jsxs(TitleCard$1, { children: [" ", titleCard, " "] }), loading ?
+                        jsxRuntime.jsxs(TitleCard$2, { children: [" ", titleCard, " "] }), loading ?
                     jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
                     jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginBottom: '16px' }, children: [jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] }), numberPartial && jsxRuntime.jsxs(PartialNumber, { children: ["/", numberPartial, " "] })] })] })] }) }));
 }
@@ -3811,7 +3821,7 @@ const WrapperTitle = styled__default["default"].div `
     display: flex;
     align-items: center;
 `;
-const TitleCard = styled__default["default"].p `
+const TitleCard$1 = styled__default["default"].p `
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
 `;
 const WrapperButton = styled__default["default"].div `
@@ -3824,10 +3834,10 @@ const WrapperButton = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$3, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$3, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
-function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
+function ConquistaCarrossel$1({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
     React.useState(-1);
     const [btnViewMore, setBtnViewMore] = React.useState('');
     React.useEffect(() => {
@@ -5222,7 +5232,7 @@ const BorderLinearProgress = styles$1.withStyles((theme) => ({
         backgroundColor: '#ff4d0d',
     },
 }))(LinearProgress__default["default"]);
-function ProgressBar({ value, label }) {
+function ProgressBar$1({ value, label }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', color: '#FFF' }, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex' }, children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
@@ -5248,7 +5258,7 @@ function HeaderContent(props) {
         return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { className: style$2.title, children: item.title }), jsxRuntime.jsx("div", { className: style$2.description, children: item.description }), jsxRuntime.jsx("div", { style: { marginTop: 48 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Come\u00E7ar curso", variant: "primary" }) })] }));
     }
     return (jsxRuntime.jsx("div", { className: style$2.container, style: { backgroundImage: `url(${props.typeOfHeader === 'inProgress' ? props.bgImg : props.listaRecomendacao[selectedContent].bg})` }, children: props.typeOfHeader === 'inProgress' ?
-            jsxRuntime.jsxs("div", { className: style$2.content, children: [jsxRuntime.jsx("div", { className: style$2.title, children: props.title }), jsxRuntime.jsx("div", { className: style$2.description, children: props.description }), jsxRuntime.jsxs("div", { style: { marginTop: 68, display: 'flex' }, children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ProgressBar, { value: props.progresso, label: props.channel }) }), jsxRuntime.jsx("div", { style: { marginLeft: 24 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Continuar curso", variant: "primary" }) })] })] })
+            jsxRuntime.jsxs("div", { className: style$2.content, children: [jsxRuntime.jsx("div", { className: style$2.title, children: props.title }), jsxRuntime.jsx("div", { className: style$2.description, children: props.description }), jsxRuntime.jsxs("div", { style: { marginTop: 68, display: 'flex' }, children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ProgressBar$1, { value: props.progresso, label: props.channel }) }), jsxRuntime.jsx("div", { style: { marginLeft: 24 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Continuar curso", variant: "primary" }) })] })] })
             :
                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: style$2.content, children: RecomendationHeader(props.listaRecomendacao[selectedContent]) }), jsxRuntime.jsxs("div", { className: style$2.contadorConteudo, children: [jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(0); }, children: selectedContent === 0 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(1); }, children: selectedContent === 1 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(2); }, children: selectedContent === 2 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(3); }, children: selectedContent === 3 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(4); }, children: selectedContent === 4 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) })] })] }) }));
 }
@@ -6437,6 +6447,153 @@ function ExtraContent(props) {
                 StudentExtraContent(props) }));
 }
 
+const ProgressBox = styled__default["default"](_.Box) `
+  z-index: 1 !important;
+  float: right !important;
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+  margin-top: 160px !important;
+  position: relative !important;
+`;
+const ProgressBar = styled__default["default"](_.LinearProgress) `
+  width: 128px !important;
+  height: 13px !important;
+  border-radius: 100px !important;
+  background-color: rgba(245, 94, 14, 0.5) !important;
+  & .MuiLinearProgress-bar{
+    padding-left: 10px !important;
+    background-color: ${({ theme }) => theme.colors.primary1} !important;
+  }
+`;
+const ProgressLabel = styled__default["default"].label `
+  display: inline-block !important;
+  width: 32px !important;
+  height: 16px !important;
+  font-size: 16px !important;
+  color: white !important;
+`;
+const GridNameMentoring = styled__default["default"](_.Grid) `
+  padding: 0 !important;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+styled__default["default"](_.Grid) `
+  padding: 0 !important;
+`;
+const GridFooter = styled__default["default"](_.Grid) `
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin: 0;
+  gap: 5px;
+`;
+const NameMentoring = styled__default["default"].span `
+  font-size: 14px !important;
+`;
+const TitleMentoring = styled__default["default"].span `
+  display: block !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+`;
+const TextDescription = styled__default["default"](_.Typography) `
+  margin-top: 12px !important;
+  white-space: normal !important;
+  height: 90px !important;
+  overflow: hidden !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+`;
+const TitleCard = styled__default["default"].div `
+  height: 32px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  white-space: normal !important;
+`;
+const CardContainer = styled__default["default"](_.Card) `
+  max-width: 345px !important;
+  height: 445px !important;
+  width: 282px !important;
+  box-shadow: none !important;
+  border: 1px solid #c4c4c4;
+
+  background: #FBFBFB;
+  border: 1px solid #E8E8E8;
+  box-sizing: border-box !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  margin-right: 24px !important;
+  margin-bottom: 24px !important;
+
+  &:hover {
+    border: 1px solid ${({ theme }) => theme.colors.secondary2} !important;
+  }
+`;
+
+const HeaderImage = styled__default["default"](_.Box) `
+    width: 320px;
+    height: 200px;
+    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('${({ image }) => image}');
+    filter: grayscale(${({ notStarted }) => notStarted ? '1' : '0'});
+    background-size: contain;
+`;
+const MyBox = styled__default["default"](_.Box) `
+    padding: 0px;
+    height: 245px;
+    padding-top: 12px;
+`;
+const MyCardContent = styled__default["default"](_.CardContent) `
+    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`;
+const WrapperDate = styled__default["default"].div `
+    visibility: ${({ notStarted }) => notStarted ? 'visible' : 'hidden'};
+    margin-bottom: 14px;
+`;
+
+function CardTrail(props) {
+    const redirectToD2L = async () => {
+        if (props.notStarted)
+            return;
+        let URL = await props.action();
+        return window.open(URL);
+    };
+    const getResumeDescription = (description, isResume) => {
+        if (isResume && description.length > 50)
+            return `${description.substring(0, 50)}...`;
+        else
+            return description;
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props.notStarted && props.variant == 'primary' &&
+                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props.notStarted, children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: getResumeDescription(props.description, props.notStarted) }), props.variant == 'primary' ?
+                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: props.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ": "] }), props.start] }), jsxRuntime.jsx(TitleMentoring, { style: { background: '#fff' }, onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notStarted: props.notStarted })] })
+                                :
+                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ": "] }), props.start] }) })] }) })] }) }));
+}
+function MentorComponent(props) {
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(GridFooter, { container: true, spacing: 2, onClick: () => {
+                window.open(`${props.mentor.linkedin}`, '_blank');
+            }, style: { margin: '0px', cursor: 'pointer' }, children: [jsxRuntime.jsx(Avatar, { size: "32px", alt: "Mentoring", src: props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", disabled: props.notStarted }), jsxRuntime.jsx(GridNameMentoring, { item: true, children: jsxRuntime.jsx(NameMentoring, { children: props.mentor?.name }) }), jsxRuntime.jsx(LinkedinIconMentor, {})] }) });
+}
+function PercentageProgress({ progress }) {
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: progress && (jsxRuntime.jsx(ProgressBox, { children: jsxRuntime.jsx(_.Grid, { container: true, spacing: 0, alignItems: "center", children: progress > 0 &&
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(_.Grid, { item: true, xs: 10, children: jsxRuntime.jsx(ProgressBar, { variant: "determinate", value: progress }) }), jsxRuntime.jsx(_.Grid, { item: true, xs: 2, children: jsxRuntime.jsxs(ProgressLabel, { children: [progress, "%"] }) })] }) }) })) });
+}
+
+function ConquistaCarrossel({ objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }) {
+    function renderCard(item, index) {
+        return jsxRuntime.jsx(CardTrail, { variant: item.variant, name: item.name, progress: item.progress, start: item.start, description: item.description, mentor: item.mentor, action: item.action, notStarted: item.notStarted, bannerImage: item.bannerImage, labels: item.labels });
+    }
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
+}
+
 const WrapperCard = styled__default["default"].div `
     display: flex;
     flex-direction: column;
@@ -6602,6 +6759,13 @@ styled__default["default"].div `
 `;
 function getVariantTagStyle(variant, theme) {
     switch (variant) {
+        case 'incompleteMars':
+            return `
+                background: rgb(117, 117, 117);
+                & > span {
+                    color: #FFF !important;
+                }
+            `;
         case 'mars':
             return `
                 background: ${theme.colors.linkHover};
@@ -6653,7 +6817,7 @@ styled__default["default"].p `
   font-size: 16px;
 `;
 const MenuCustom = styled__default["default"](Menu__default["default"]) `
-  margin-left: ${({ variant }) => variant == 'completed' ? '-68px' : '-90px'} ;
+  margin-left: ${({ step }) => step == 'completed' ? '-64px' : '-84px'} ;
   margin-top: 10px;
 
   & .MuiPaper-root {
@@ -6751,6 +6915,7 @@ const utilAssign = (value, optional) => {
 };
 const BannersSRC = {
     srg: 'https://api-deimos.s3.amazonaws.com/srg.png',
+    incompleteMars: 'https://api-deimos.s3.amazonaws.com/step1Mars.png',
     mars: 'https://api-deimos.s3.amazonaws.com/step1Mars.png',
     jupiter: 'https://api-deimos.s3.amazonaws.com/step2Jupiter.png',
     saturn: 'https://api-deimos.s3.amazonaws.com/step3Saturn.png',
@@ -6767,6 +6932,7 @@ const labels = {
         view: 'Visualizar',
         newProject: 'Criar novo projeto',
         tagStep: {
+            incompleteMars: 'Problema Criado',
             mars: 'Problema Definido',
             jupiter: 'Hipóteses levantadas',
             saturn: 'Testes realizados',
@@ -6775,6 +6941,7 @@ const labels = {
             completed: 'Finalizado'
         },
         nameStep: {
+            incompleteMars: 'Marte',
             mars: 'Marte',
             jupiter: 'Júpiter',
             saturn: 'Saturno',
@@ -6790,6 +6957,7 @@ const labels = {
         view: 'View',
         newProject: 'Create a new project',
         tagStep: {
+            incompleteMars: 'Created problem',
             mars: 'Defined problem',
             jupiter: 'Defined hypotheses',
             saturn: 'Performed tests',
@@ -6798,6 +6966,7 @@ const labels = {
             completed: 'Completed'
         },
         nameStep: {
+            incompleteMars: 'Mars',
             mars: 'Mars',
             jupiter: 'Jupiter',
             saturn: 'Saturn',
@@ -6813,6 +6982,7 @@ const labels = {
         view: 'Para ver',
         newProject: 'Crear un nuevo proyecto',
         tagStep: {
+            incompleteMars: 'Problema creado',
             mars: 'Problema definido',
             jupiter: 'Hipótesis definidas',
             saturn: 'Pruebas realizadas',
@@ -6821,6 +6991,7 @@ const labels = {
             completed: 'Terminada'
         },
         nameStep: {
+            incompleteMars: 'Marte',
             mars: 'Marte',
             jupiter: 'Júpiter',
             saturn: 'Saturno',
@@ -6850,7 +7021,7 @@ function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDele
             setAnchorEl(null);
         }, 600);
     };
-    return (jsxRuntime.jsxs("div", { style: { width: '27px', height: '24px', overflow: 'hidden' }, children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { margin: 0, padding: 0, display: 'flex', justifyContent: 'flex-start' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, variant: variant, children: [variant != 'completed' &&
+    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant != 'completed' &&
                         jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false]), style: { color: activeClick[1] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true]), style: { color: activeClick[1] ? '#A50000' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#A50000' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
 }
 
@@ -6868,11 +7039,13 @@ exports.CardDefinicaoProblema = CardDefinicaoProblema;
 exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
+exports.CardTrail = CardTrail;
+exports.CardsTrailsCarousel = ConquistaCarrossel;
 exports.ChallengeCard = ChallengeCard;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.CommentaryBox = CommentaryBox;
-exports.ConquistaCarrossel = ConquistaCarrossel;
+exports.ConquistaCarrossel = ConquistaCarrossel$1;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
@@ -6909,6 +7082,7 @@ exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
+exports.TrashIcon = TrashIcon;
 exports.UserCard = CalendarCard$1;
 exports.Video = Video;
 exports.avatarChannel = AvatarChannel;
@@ -6921,6 +7095,6 @@ exports.extraContent = ExtraContent;
 exports.fileUpload = FileUpload;
 exports.headerContent = HeaderContent;
 exports.popOver = PopOver;
-exports.progressBar = ProgressBar;
+exports.progressBar = ProgressBar$1;
 exports.searchResults = SearchResults;
 exports.starMetric = StarMetric;
