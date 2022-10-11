@@ -104,6 +104,7 @@ const utilAssign = (value, optional) => {
 
 const BannersSRC = {
     srg:'https://api-deimos.s3.amazonaws.com/srg.png',
+    incompleteMars:'https://api-deimos.s3.amazonaws.com/step1Mars.png',
     mars:'https://api-deimos.s3.amazonaws.com/step1Mars.png',
     jupiter: 'https://api-deimos.s3.amazonaws.com/step2Jupiter.png',
     saturn: 'https://api-deimos.s3.amazonaws.com/step3Saturn.png',
@@ -121,6 +122,7 @@ const labels = {
         view: 'Visualizar',
         newProject: 'Criar novo projeto',
         tagStep: {
+            incompleteMars: 'Problema Criado',
             mars: 'Problema Definido',
             jupiter: 'Hipóteses levantadas',
             saturn: 'Testes realizados',
@@ -129,6 +131,7 @@ const labels = {
             completed: 'Finalizado'
         },
         nameStep: {
+            incompleteMars: 'Marte',
             mars: 'Marte',
             jupiter: 'Júpiter',
             saturn: 'Saturno',
@@ -144,6 +147,7 @@ const labels = {
         view: 'View',
         newProject: 'Create a new project',
         tagStep: {
+            incompleteMars: 'Created problem',
             mars: 'Defined problem',
             jupiter: 'Defined hypotheses',
             saturn: 'Performed tests',
@@ -152,6 +156,7 @@ const labels = {
             completed: 'Completed'
         },
         nameStep: {
+            incompleteMars: 'Mars',
             mars: 'Mars',
             jupiter: 'Jupiter',
             saturn: 'Saturn',
@@ -168,6 +173,7 @@ const labels = {
         view: 'Para ver',
         newProject: 'Crear un nuevo proyecto',
         tagStep: {
+            incompleteMars: 'Problema creado',
             mars: 'Problema definido',
             jupiter: 'Hipótesis definidas',
             saturn: 'Pruebas realizadas',
@@ -176,6 +182,7 @@ const labels = {
             completed: 'Terminada'
         },
         nameStep: {
+            incompleteMars: 'Marte',
             mars: 'Marte',
             jupiter: 'Júpiter',
             saturn: 'Saturno',
@@ -209,14 +216,14 @@ export function MoreVerticalMenu({textContinue, textDelete, handleContinue, hand
     }
     
     return (
-      <div style={{width: '27px', height: '24px', overflow: 'hidden'}}>
+      <div>
         <Button
           id="basic-button"
           aria-controls="basic-menu"
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          style={{margin: 0, padding: 0, display: 'flex', justifyContent: 'flex-start'}}
+          style={{maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center'}}
         >
             <MoreDotsVertical/>
         </Button>
@@ -228,7 +235,7 @@ export function MoreVerticalMenu({textContinue, textDelete, handleContinue, hand
           anchorEl={anchorEl}
           open={open}
           onClose={handleClose}
-          variant={variant}
+          step={variant}
         >   
             { variant != 'completed' &&
                 <StylesDrop.MenuItemCustom 
