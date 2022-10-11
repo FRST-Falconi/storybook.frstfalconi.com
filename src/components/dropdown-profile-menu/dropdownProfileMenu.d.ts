@@ -20,6 +20,7 @@ export type typeMenuItens = {
 export interface IDropdownProfileMenu {
     variant?: enumVariant,
     user?: typeUser,
+    language?: string,
     isMobileVersion: boolean,
     menuItems?: Array<typeMenuItens>,
     style?: React.CSSProperties

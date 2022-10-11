@@ -7,6 +7,7 @@ export type enumLanguages = 'pt' | 'es' | 'en';
 export type itemClick = {
     id: string,
     label: string, 
+    iconBegin ?: any,
     onClick: (e) => void,
     active?: boolean,
 }
@@ -49,11 +50,23 @@ export interface IGlobalMenu {
     search?: typeSearch,
 
     notification?: any,
+    haveNotification ?: boolean,
     handleNotification?: () => void,
 
     languages: Array<enumLanguages>,
     languageSelected: enumLanguages,
     onChangeLanguage?: (e) => void,
+    
+    onClickHome ?: () => void,
+
+    onClickSite ?: () => void,
+    onClickLinkedin ?: () => void,
+    onClickInstagram ?: () => void,
+    onClickYoutube ?: () => void,
+    onClickSpotify ?: () => void,
+    onClickPodCast ?: () => void,
+
+    textNotification ?: string,
 
     style:  React.CSSProperties,
 }
