@@ -80,6 +80,7 @@ export declare function WhatAppBordered({ fill, width, height }: IconsProps): JS
 export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MessageCheckLine({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Viewer({ fill }: IconsProps): JSX.Element;
+export declare function LinkedinIconMentor(): JSX.Element;
 export declare function Plus({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function HomeLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function HomeFilledIcon({ fill }: IconsProps): JSX.Element;

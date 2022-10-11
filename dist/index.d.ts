@@ -1,4 +1,4 @@
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon } from './src/shared/icons';
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon } from './src/shared/icons';
 export { default as Tag } from "./src/components/tag";
 export { default as BaseCard } from "./src/components/cards/base";
 export { default as UserCard } from "./src/components/cards/user";
@@ -52,5 +52,7 @@ export { default as CalendarLxp } from './src/components/LXP/calendarLxp';
 export { default as Video } from './src/components/LXP/video';
 export { default as GlobalMenu } from './src/components/global-menu';
 export { default as extraContent } from './src/components/LXP/extraContent';
+export { default as CardTrail } from './src/components/card-trail';
+export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';
 //# sourceMappingURL=index.d.ts.map

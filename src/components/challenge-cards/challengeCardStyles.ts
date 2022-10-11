@@ -186,6 +186,13 @@ export const MyPopOver = styled.div`
 
 function getVariantTagStyle(variant, theme) {
     switch(variant) {
+        case 'incompleteMars':
+            return `
+                background: rgb(117, 117, 117);
+                & > span {
+                    color: #FFF !important;
+                }
+            `
         case 'mars':
             return `
                 background: ${theme.colors.linkHover};

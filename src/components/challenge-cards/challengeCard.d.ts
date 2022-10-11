@@ -1,7 +1,7 @@
 
 import React from "react"
 
-type enumStep = 'srg' | 'mars' | 'jupiter' | 'saturn' | 'uranus' | 'neptune' | 'completed';
+type enumStep = 'srg' | 'incompleteMars' | 'mars' | 'jupiter' | 'saturn' | 'uranus' | 'neptune' | 'completed';
 type enumLang = 'pt-BR' | 'pt-PT' | 'en-US' | 'es';
 
 export interface IChallengeCard {
