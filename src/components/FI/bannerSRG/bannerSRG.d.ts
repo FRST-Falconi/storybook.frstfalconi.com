@@ -1,18 +1,28 @@
 import React from "react"
 
-type enumVariant = 'banner'
-
-export interface IBannerSRG {
-    variant?: enumVariant;
-    style?: React.CSSProperties,    
-    handleClickNewProject?: () => void,
-    handleClickAcessHere?: () => void,
+type labelsBanner = {
+    textTitle?: string,
+    textDescription?: string,
+    textHelperDescription?: string,
 }
 
-export interface IBannerTranslate extends IBannerSRG {
-    textTypographyText?: string
-    buttonCreateNewProject?: string
-    textTypographyPovOver?: string
-    buttonLinkAccessHere?: string
-    idioma?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es'
+type bannerSRC = {
+    normal?: string,
+    responsive?: string
+}
+
+export interface IBannerSRG {
+    style?: React.CSSProperties,
+    bannerSRG?: bannerSRC,
+    logoSRG?: string,
+    avatarSRG?: string,
+    labels?: labelsBanner,
+    newProject?: {
+        label?: string, 
+        action?: () => void
+    }
+    acessHere?: {
+        label?: string, 
+        action?: () => void
+    }
 }
