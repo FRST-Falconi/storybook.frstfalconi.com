@@ -17,7 +17,7 @@ import {
 export default function BannerSRG(props: IBannerSRG) {
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <ContainerBanner bannerNormal={props?.bannerSRG?.normal} bannerResponsive={props?.bannerSRG?.responsive}>
+            <ContainerBanner bannerNormal={props?.bannerSRG?.normal} bannerResponsive={props?.bannerSRG?.responsive} style={{...props.style}}>
                 <WrapperContent>
                     &nbsp;
                 </WrapperContent>
@@ -34,7 +34,6 @@ export default function BannerSRG(props: IBannerSRG) {
                         label={props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto'} 
                         handleClick={() => props.newProject.action()} 
                         startIcon={<Icons.AddIcon fill='#FFFFFF' />}
-                        style={{whiteSpace: 'nowrap'}}
                     />
                 </WrapperContentMain>           
                 
