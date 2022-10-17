@@ -39,6 +39,7 @@ var slateHistory = require('slate-history');
 require('react-dom');
 var css = require('@emotion/css');
 var iconsMaterial = require('@mui/icons-material');
+var _ = require('@mui/material/');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -83,36 +84,6 @@ var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$1);
 var Avatar__default = /*#__PURE__*/_interopDefaultLegacy(Avatar$1);
 var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 
-function styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
-var css_248z$i = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$i);
-
 function EditIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "20", height: height ? height : "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M16.1788 1.92286C16.3858 1.71638 16.667 1.6 16.9607 1.6C17.2544 1.6 17.5356 1.71638 17.7426 1.92286C17.9496 2.12928 18.0654 2.4088 18.0654 2.69981C18.0654 2.99083 17.9496 3.27034 17.7426 3.47676L9.5855 11.6127C9.4439 11.7539 9.26546 11.8543 9.07141 11.9027C8.26586 12.1036 7.52969 11.3753 7.73154 10.57C7.78007 10.3765 7.88036 10.1997 8.02166 10.0588L16.1788 1.92286ZM16.9607 0C16.244 0 15.5563 0.283939 15.0489 0.790021L6.5187 9.29803C6.41591 9.40055 6.34296 9.52912 6.30766 9.66994L5.40975 13.2523C5.34143 13.5248 5.42113 13.8133 5.61971 14.0121C5.81829 14.2109 6.10663 14.291 6.3793 14.223L9.97094 13.3274C10.1114 13.2924 10.2398 13.2199 10.3423 13.1176L18.8725 4.6096C19.38 4.10345 19.6654 3.41652 19.6654 2.69981C19.6654 1.9831 19.38 1.29617 18.8725 0.790021C18.3651 0.283939 17.6774 0 16.9607 0ZM2.59582 1.89842C1.90804 1.89842 1.24801 2.17091 0.761035 2.65662C0.273994 3.1424 0 3.80169 0 4.48958V17.0277C0 17.7156 0.273995 18.3749 0.761035 18.8607C1.24801 19.3464 1.90804 19.6188 2.59582 19.6188H15.1666C15.8544 19.6188 16.5144 19.3464 17.0014 18.8607C17.4884 18.3749 17.7624 17.7156 17.7624 17.0277V10.7586C17.7624 10.3168 17.4042 9.95864 16.9624 9.95864C16.5206 9.95864 16.1624 10.3168 16.1624 10.7586V17.0277C16.1624 17.2899 16.058 17.5418 15.8715 17.7278C15.6849 17.9139 15.4314 18.0189 15.1666 18.0189H2.59582C2.33104 18.0189 2.07753 17.9139 1.89093 17.7278C1.70441 17.5418 1.6 17.2899 1.6 17.0277V4.48958C1.6 4.22738 1.70441 3.9755 1.89093 3.78946C2.07753 3.60335 2.33104 3.49842 2.59582 3.49842H8.8812C9.32303 3.49842 9.6812 3.14025 9.6812 2.69842C9.6812 2.25659 9.32303 1.89842 8.8812 1.89842H2.59582Z", fill: fill ?? "#0645AD" }) }));
 }
@@ -145,6 +116,9 @@ function DoubleCheck({ fill, width, height }) {
 }
 function WithoutTrail({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.2607 1.73828C12.6084 0.0859375 9.93457 0.0859375 8.28418 1.73828L6.3916 3.63086L7.3877 4.62695L9.28027 2.73438C10.3311 1.68359 12.1045 1.57227 13.2646 2.73438C14.4268 3.89648 14.3154 5.66797 13.2646 6.71875L11.3721 8.61133L12.3701 9.60938L14.2627 7.7168C15.9111 6.06445 15.9111 3.39062 14.2607 1.73828ZM6.71973 13.2656C5.66895 14.3164 3.89551 14.4277 2.73535 13.2656C1.57324 12.1035 1.68457 10.332 2.73535 9.28125L4.62793 7.38867L3.62988 6.39063L1.7373 8.2832C0.0849609 9.93555 0.0849609 12.6094 1.7373 14.2598C3.38965 15.9102 6.06348 15.9121 7.71387 14.2598L9.60645 12.3672L8.61035 11.3711L6.71973 13.2656ZM3.08301 2.08984C3.05364 2.06077 3.01398 2.04445 2.97266 2.04445C2.93133 2.04445 2.89167 2.06077 2.8623 2.08984L2.08887 2.86328C2.05979 2.89265 2.04348 2.93231 2.04348 2.97363C2.04348 3.01496 2.05979 3.05462 2.08887 3.08398L12.917 13.9121C12.9775 13.9727 13.0771 13.9727 13.1377 13.9121L13.9111 13.1387C13.9717 13.0781 13.9717 12.9785 13.9111 12.918L3.08301 2.08984Z", fill: fill ? fill : '#222222' }) }));
+}
+function MoreDotsVertical({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z", stroke: "black", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z", stroke: "black", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19Z", stroke: fill ? fill : "black", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function MoreDotsHorizontal({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "20", height: height ? height : "4", viewBox: "0 0 20 4", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M2 3C2.55228 3 3 2.55228 3 2C3 1.44772 2.55228 1 2 1C1.44772 1 1 1.44772 1 2C1 2.55228 1.44772 3 2 3Z", stroke: fill ?? "#FFF", strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M10 3C10.5523 3 11 2.55228 11 2C11 1.44772 10.5523 1 10 1C9.44772 1 9 1.44772 9 2C9 2.55228 9.44772 3 10 3Z", stroke: fill ?? "#FFF", strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M18 3C18.5523 3 19 2.55228 19 2C19 1.44772 18.5523 1 18 1C17.4477 1 17 1.44772 17 2C17 2.55228 17.4477 3 18 3Z", stroke: fill ?? "#FFF", strokeWidth: "2" })] }));
@@ -251,6 +225,78 @@ function MailBordered({ fill, width, height }) {
 function MessageCheckLine({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
 }
+function LinkedinIconMentor() {
+    return jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "16", height: "16", rx: "2", fill: "#0274B3" }), jsxRuntime.jsx("path", { d: "M10.6673 6C11.5514 6 12.3992 6.35659 13.0243 6.99133C13.6495 7.62607 14.0007 8.48696 14.0007 9.38462V13.3333H11.7784V9.38462C11.7784 9.0854 11.6614 8.79843 11.453 8.58685C11.2446 8.37527 10.962 8.25641 10.6673 8.25641C10.3726 8.25641 10.09 8.37527 9.88164 8.58685C9.67327 8.79843 9.55621 9.0854 9.55621 9.38462V13.3333H7.33398V9.38462C7.33398 8.48696 7.68517 7.62607 8.3103 6.99133C8.93542 6.35659 9.78326 6 10.6673 6Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M5.33268 6.66699H2.66602V13.3337H5.33268V6.66699Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M3.99935 5.33366C4.73573 5.33366 5.33268 4.73671 5.33268 4.00033C5.33268 3.26395 4.73573 2.66699 3.99935 2.66699C3.26297 2.66699 2.66602 3.26395 2.66602 4.00033C2.66602 4.73671 3.26297 5.33366 3.99935 5.33366Z", fill: "white" })] });
+}
+function Plus({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "18", height: "18", viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.15381 1.15384V17.1538", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.15381 9.15385H17.1538", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function HomeLineIcon({ fill }) {
+    return (jsxRuntime.jsx("svg", { width: "20", height: "22", viewBox: "0 0 20 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 8.67412V20C1 20.5523 1.44772 21 2 21H7.1875V13.2222H12.8125V21H18C18.5523 21 19 20.5523 19 20V8.67412C19 8.04041 18.6997 7.4442 18.1905 7.067L10.5952 1.44091C10.2416 1.17899 9.75837 1.17899 9.40477 1.44091L1.80954 7.067C1.30033 7.4442 1 8.04041 1 8.67412Z", stroke: "#222222", strokeWidth: "1.2", strokeLinejoin: "round" }) }));
+}
+function HomeFilledIcon({ fill }) {
+    return (jsxRuntime.jsx("svg", { width: "20", height: "22", viewBox: "0 0 20 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 8.67412V20C1 20.5523 1.44772 21 2 21H7.1875V13.2222H12.8125V21H18C18.5523 21 19 20.5523 19 20V8.67412C19 8.04041 18.6997 7.4442 18.1905 7.067L10.5952 1.44091C10.2416 1.17899 9.75837 1.17899 9.40477 1.44091L1.80954 7.067C1.30033 7.4442 1 8.04041 1 8.67412Z", fill: "#FF4D0D", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinejoin: "round" }) }));
+}
+function CalendarLineIcon({ fill }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M18.2222 5H5.77778C4.79594 5 4 5.79594 4 6.77778V19.2222C4 20.2041 4.79594 21 5.77778 21H18.2222C19.2041 21 20 20.2041 20 19.2222V6.77778C20 5.79594 19.2041 5 18.2222 5Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 3V7", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8 3V7", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4 10H20", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }));
+}
+function CalendarFilledIcon({ fill }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M18.2222 5H5.77778C4.79594 5 4 5.79594 4 6.77778V19.2222C4 20.2041 4.79594 21 5.77778 21H18.2222C19.2041 21 20 20.2041 20 19.2222V6.77778C20 5.79594 19.2041 5 18.2222 5Z", fill: "#FF4D0D", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinejoin: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 3V7", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinejoin: "round", strokeLinejoin: 'round' }), jsxRuntime.jsx("path", { d: "M8 3V7", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinejoin: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4 10H20", stroke: "white", strokeWidth: "1.2", strokeLinejoin: "round", strokeLinejoin: "round" })] }) }));
+}
+function PencilLineIcon({ fill }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "20", height: "22", viewBox: "0 0 20 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.7998 20.5668L11.6861 20.4865C11.6711 20.4759 10.181 19.4335 8.5095 19.4335C7.96257 19.4335 7.45172 19.5465 6.99139 19.769C6.23548 20.1354 5.33797 20.321 4.32348 20.321C2.6875 20.321 1.29206 19.8378 1.13842 19.7826L0.999805 19.733", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14.9092 1.96308C15.1318 1.75291 15.3959 1.5862 15.6867 1.47245C15.9774 1.35871 16.2891 1.30017 16.6038 1.30017C16.9185 1.30017 17.2301 1.35871 17.5208 1.47245C17.8116 1.5862 18.0758 1.75291 18.2983 1.96308C18.5208 2.17324 18.6973 2.42275 18.8178 2.69734C18.9382 2.97194 19.0002 3.26625 19.0002 3.56347C19.0002 3.86069 18.9382 4.155 18.8178 4.4296C18.6973 4.7042 18.5208 4.9537 18.2983 5.16387L6.86017 15.9665L2.2002 17.1668L3.4711 12.7657L14.9092 1.96308Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }));
+}
+function PencilFilledIcon({ fill }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "20", height: "22", viewBox: "0 0 20 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.7998 20.5668L11.6861 20.4865C11.6711 20.4759 10.181 19.4335 8.5095 19.4335C7.96257 19.4335 7.45172 19.5465 6.99139 19.769C6.23548 20.1354 5.33797 20.321 4.32348 20.321C2.6875 20.321 1.29206 19.8378 1.13842 19.7826L0.999805 19.733", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14.9092 1.96308C15.1318 1.75291 15.3959 1.5862 15.6867 1.47245C15.9774 1.35871 16.2891 1.30017 16.6038 1.30017C16.9185 1.30017 17.2301 1.35871 17.5208 1.47245C17.8116 1.5862 18.0758 1.75291 18.2983 1.96308C18.5208 2.17324 18.6973 2.42275 18.8178 2.69734C18.9382 2.97194 19.0002 3.26625 19.0002 3.56347C19.0002 3.86069 18.9382 4.155 18.8178 4.4296C18.6973 4.7042 18.5208 4.9537 18.2983 5.16387L6.86017 15.9665L2.2002 17.1668L3.4711 12.7657L14.9092 1.96308Z", fill: "#FF4D0D", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }) }));
+}
+function LampLineIcon({ fill }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.46825 16.4167H13.5307M11 1.25V2.875M17.8943 4.10567L16.6875 5.3125M20.75 11H19.125M2.875 11H1.25M5.3125 5.3125L4.10567 4.10567M7.16933 14.8307C6.41194 14.0731 5.8962 13.1079 5.68731 12.0572C5.47842 11.0065 5.58577 9.9175 5.99579 8.92781C6.40581 7.93813 7.10008 7.09225 7.99081 6.49712C8.88155 5.90199 9.92875 5.58434 11 5.58434C12.0713 5.58434 13.1185 5.90199 14.0092 6.49712C14.8999 7.09225 15.5942 7.93813 16.0042 8.92781C16.4142 9.9175 16.5216 11.0065 16.3127 12.0572C16.1038 13.1079 15.5881 14.0731 14.8307 14.8307L14.237 15.4233C13.8976 15.7627 13.6284 16.1657 13.4447 16.6092C13.2611 17.0527 13.1666 17.5281 13.1667 18.0081V18.5833C13.1667 19.158 12.9384 19.7091 12.5321 20.1154C12.1257 20.5217 11.5746 20.75 11 20.75C10.4254 20.75 9.87426 20.5217 9.46794 20.1154C9.06161 19.7091 8.83333 19.158 8.83333 18.5833V18.0081C8.83333 17.0385 8.44767 16.1079 7.763 15.4233L7.16933 14.8307Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }));
+}
+function LampFilledIcon({ fill }) {
+    return (jsxRuntime.jsxs("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.16933 14.8307C6.41194 14.0731 5.8962 13.1079 5.68731 12.0572C5.47842 11.0065 5.58577 9.91749 5.99579 8.92781C6.40581 7.93813 7.10008 7.09225 7.99081 6.49712C8.88155 5.90199 9.92875 5.58434 11 5.58434C12.0713 5.58434 13.1185 5.90199 14.0092 6.49712C14.8999 7.09225 15.5942 7.93813 16.0042 8.92781C16.4142 9.91749 16.5216 11.0065 16.3127 12.0572C16.1038 13.1079 15.5881 14.0731 14.8307 14.8307L14.237 15.4233C13.8976 15.7627 13.6284 16.1657 13.4447 16.6092C13.2611 17.0527 13.1666 17.5281 13.1667 18.0081V18.5833C13.1667 19.158 12.9384 19.7091 12.5321 20.1154C12.1257 20.5217 11.5746 20.75 11 20.75C10.4254 20.75 9.87426 20.5217 9.46794 20.1154C9.06161 19.7091 8.83333 19.158 8.83333 18.5833V18.0081C8.83333 17.0385 8.44767 16.1079 7.763 15.4233L7.16933 14.8307Z", fill: "#FF4D0D" }), jsxRuntime.jsx("path", { d: "M8.46825 16.4167H13.5307M11 1.25V2.875M17.8943 4.10567L16.6875 5.3125M20.75 11H19.125M2.875 11H1.25M5.3125 5.3125L4.10567 4.10567M7.16933 14.8307C6.41194 14.0731 5.8962 13.1079 5.68731 12.0572C5.47842 11.0065 5.58577 9.91749 5.99579 8.92781C6.40581 7.93813 7.10008 7.09225 7.99081 6.49712C8.88155 5.90199 9.92875 5.58434 11 5.58434C12.0713 5.58434 13.1185 5.90199 14.0092 6.49712C14.8999 7.09225 15.5942 7.93813 16.0042 8.92781C16.4142 9.91749 16.5216 11.0065 16.3127 12.0572C16.1038 13.1079 15.5881 14.0731 14.8307 14.8307L14.237 15.4233C13.8976 15.7627 13.6284 16.1657 13.4447 16.6092C13.2611 17.0527 13.1666 17.5281 13.1667 18.0081V18.5833C13.1667 19.158 12.9384 19.7091 12.5321 20.1154C12.1257 20.5217 11.5746 20.75 11 20.75C10.4254 20.75 9.87426 20.5217 9.46794 20.1154C9.06161 19.7091 8.83333 19.158 8.83333 18.5833V18.0081C8.83333 17.0385 8.44767 16.1079 7.763 15.4233L7.16933 14.8307Z", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function MedalLineIcon({ fill }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function MedalFilledIcon({ fill }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15", fill: "#FF4D0D" }), jsxRuntime.jsx("path", { d: "M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function PlayLineIcon({ fill }) {
+    return (jsxRuntime.jsxs("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.75 6.625L13.375 10L7.75 13.375V6.625Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function PlayFilledIcon({ fill }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z", fill: "#FF4D0D", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10 9L15 12L10 15V9Z", fill: "white", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+
+function styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
+var css_248z$i = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+styleInject(css_248z$i);
 
 function Tag(props) {
     function getBG() {
@@ -434,7 +480,7 @@ const Title$4 = styled__default["default"].span `
   font-size: 20px !important;
   color: #ff4d0d !important;
 `;
-const TextDescription = styled__default["default"].span `
+const TextDescription$1 = styled__default["default"].span `
   font-size: 14px !important;
   color: #222222 !important;
 `;
@@ -631,7 +677,7 @@ function CalendarCard(props) {
             jsxRuntime.jsx(Container$7, { className: 'shimmer' })
             :
                 jsxRuntime.jsx(Container$7, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
-                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
+                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
                                 jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon$1, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') })] }), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }), moduleEvents && moduleEvents.length > 0 &&
@@ -810,7 +856,7 @@ function RocketButton(props) {
  * @componente
  */
 function RatingCurtidas(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.qtdeCurtidas > 1 ? props.descricaoCurtida : props.qtdeCurtidas === 1 ? `pessoa` : `curtidas` })] }) })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
 }
 
 var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
@@ -2261,7 +2307,7 @@ const FooterEditingWrapper = styled__default["default"].div `
     display: flex;
     align-self: flex-end;
     margin: 14px;
-    width: ${({ width }) => width > 550 ? '296px' : '200px'};
+    width: fit-content;
     justify-content: space-between;
 `;
 const LinkButton = styled__default["default"].a `
@@ -2511,7 +2557,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] })] })] })] })] }), size[0] <= WIDTH_MOBILE &&
                     jsxRuntime.jsxs("div", { style: { display: 'flex', marginLeft: '14px', marginTop: '5px', alignItems: 'center' }, children: [(isPrivateAuthor || isPrivateMe) &&
                                 jsxRuntime.jsx("div", { style: { marginRight: '10px' }, children: jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }) }), jsxRuntime.jsxs(Date$1, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] })] }), onEditing ?
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button$1, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile, disabled: !enableSaveEdit, variant: "primary" }), jsxRuntime.jsx(Button$1, { handleClick: () => { cancelEditComment(); }, label: textCancelButton, variant: "secondary" })] })] })
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button$1, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile, disabled: !enableSaveEdit, variant: "primary", style: { marginRight: '20px' } }), jsxRuntime.jsx(Button$1, { handleClick: () => { cancelEditComment(); }, label: textCancelButton, variant: "secondary" })] })] })
                     :
                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsxs(LikesStatistics, { children: [isLiked ?
                                                     jsxRuntime.jsx(RocketIconCommentaryBox, { width: '16px', height: '16px' })
@@ -2679,17 +2725,23 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
         else
             setIsVisibleArrowButtonRight(false);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: type == 'vertical' ? (null) :
-            jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
-                                jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                        ((marginsArrowButton + 50) * -1) + 'px'
-                                        :
-                                            '-138px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
-                                jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ?
-                                        ((marginsArrowButton + 50) * -1) + 'px'
-                                        :
-                                            '-138px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' &&
-                            jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px' }, children: [jsxRuntime.jsx(ButtonControll, { isLeftButton: true, onClick: scrollToLeft, onMouseOver: () => setActionAreaButtonLeft(true), onMouseOut: () => setActionAreaButtonLeft(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonLeft ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollLeft, { fill: actionAreaButtonLeft ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) }), jsxRuntime.jsx(ButtonControll, { isLeftButton: false, onClick: scrollToRight, onMouseOver: () => setActionAreaButtonRight(true), onMouseOut: () => setActionAreaButtonRight(false), sizeButton: sizeArrowButton ? sizeArrowButton : 80, visibility: isVisibleArrowButtonRight ? 'visible' : 'hidden', marginsArrowButton: marginsArrowButton ? marginsArrowButton + 'px' : '10px', children: jsxRuntime.jsx(ArrowScrollRight, { fill: actionAreaButtonRight ? '#fff' : '#000', height: sizeArrowButton ? ((sizeArrowButton / 2.3).toFixed(0)).toString() : '34', width: sizeArrowButton ? ((sizeArrowButton / 4.3).toFixed(0)).toString() : '18' }) })] }) })] }) }));
+    React.useEffect(() => {
+        function updateSize() {
+            var objDiv = document.getElementById(iDScroll);
+            ((objDiv.offsetWidth + objDiv.scrollLeft) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
+            (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollRight })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' &&
+                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px' }, children: [jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollRight })] }) })] }) }));
+}
+function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButton, isVisible, margin, ArrowScroll }) {
+    return (jsxRuntime.jsx(ButtonControll, { isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton ? sizeButton : 80, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? ((sizeButton / 2.3).toFixed(0)).toString() : '34', width: sizeButton ? ((sizeButton / 4.3).toFixed(0)).toString() : '18' }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -2747,12 +2799,12 @@ const CardWrapper$2 = styled__default["default"].div `
     margin: 15px;   
     cursor: pointer;
 `;
-const WrapperHeader = styled__default["default"].div `
+const WrapperHeader$1 = styled__default["default"].div `
     display: flex;
     flex-diretion: row;
     padding-left: 3.2px;
 `;
-const TitleCard$2 = styled__default["default"].div `
+const TitleCard$3 = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -2816,7 +2868,7 @@ const ButtonMore = styled__default["default"].div `
 `;
 
 function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, width }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$2, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$3, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
 }
 
 function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, textClearFilter, textViewMore }) {
@@ -2851,7 +2903,7 @@ const CardWrapper$1 = styled__default["default"].div `
     padding: 20px;
     ${({ hasShadow }) => hasShadow && 'box-shadow: 0px 18px 40px -15px #D3D3D3'};
 `;
-const TitleCard$1 = styled__default["default"].p `
+const TitleCard$2 = styled__default["default"].p `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 600;
@@ -2916,7 +2968,7 @@ function TotalizerCard$1({ titleCard, textTotal, numberTotal, numberPartial, loa
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$1, { hasShadow: hasShadow, style: { ...styles }, children: [loading ?
                     jsxRuntime.jsx(TitleCardLoading, { className: 'shimmer' })
                     :
-                        jsxRuntime.jsxs(TitleCard$1, { children: [" ", titleCard, " "] }), loading ?
+                        jsxRuntime.jsxs(TitleCard$2, { children: [" ", titleCard, " "] }), loading ?
                     jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
                     jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginBottom: '16px' }, children: [jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] }), numberPartial && jsxRuntime.jsxs(PartialNumber, { children: ["/", numberPartial, " "] })] })] })] }) }));
 }
@@ -3151,7 +3203,7 @@ const InputText$1 = styled__default["default"].input `
         color: ${({ theme }) => theme.colors.neutralsGrey3};
     }
 `;
-const ButtonAction = styled__default["default"].div `
+const ButtonAction$1 = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3178,7 +3230,7 @@ function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textB
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$6, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
-                            jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText$1, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
+                            jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText$1, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction$1, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
 }
 
 function randID() {
@@ -3752,7 +3804,7 @@ function CardResultConquista(props) {
                                     jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$4.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$4.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
 }
 
-const WrapperCard$2 = styled__default["default"].div `
+const WrapperCard$3 = styled__default["default"].div `
     width: 343px;
     min-height: 136px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey4};
@@ -3769,7 +3821,7 @@ const WrapperTitle = styled__default["default"].div `
     display: flex;
     align-items: center;
 `;
-const TitleCard = styled__default["default"].p `
+const TitleCard$1 = styled__default["default"].p `
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
 `;
 const WrapperButton = styled__default["default"].div `
@@ -3782,10 +3834,10 @@ const WrapperButton = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$3, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
-function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
+function ConquistaCarrossel$1({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
     React.useState(-1);
     const [btnViewMore, setBtnViewMore] = React.useState('');
     React.useEffect(() => {
@@ -4014,7 +4066,7 @@ function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
                 jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
 }
 
-const WrapperCard$1 = styled__default["default"].div `
+const WrapperCard$2 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -4048,7 +4100,7 @@ const WrapperDescription = styled__default["default"].div `
 `;
 
 function ObjectiveStep({ description, number }) {
-    return (jsxRuntime.jsxs(WrapperCard$1, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
+    return (jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
 const Wrapper$3 = styled__default["default"].div `
@@ -5180,7 +5232,7 @@ const BorderLinearProgress = styles$1.withStyles((theme) => ({
         backgroundColor: '#ff4d0d',
     },
 }))(LinearProgress__default["default"]);
-function ProgressBar({ value, label }) {
+function ProgressBar$1({ value, label }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', color: '#FFF' }, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex' }, children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
@@ -5206,7 +5258,7 @@ function HeaderContent(props) {
         return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { className: style$2.title, children: item.title }), jsxRuntime.jsx("div", { className: style$2.description, children: item.description }), jsxRuntime.jsx("div", { style: { marginTop: 48 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Come\u00E7ar curso", variant: "primary" }) })] }));
     }
     return (jsxRuntime.jsx("div", { className: style$2.container, style: { backgroundImage: `url(${props.typeOfHeader === 'inProgress' ? props.bgImg : props.listaRecomendacao[selectedContent].bg})` }, children: props.typeOfHeader === 'inProgress' ?
-            jsxRuntime.jsxs("div", { className: style$2.content, children: [jsxRuntime.jsx("div", { className: style$2.title, children: props.title }), jsxRuntime.jsx("div", { className: style$2.description, children: props.description }), jsxRuntime.jsxs("div", { style: { marginTop: 68, display: 'flex' }, children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ProgressBar, { value: props.progresso, label: props.channel }) }), jsxRuntime.jsx("div", { style: { marginLeft: 24 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Continuar curso", variant: "primary" }) })] })] })
+            jsxRuntime.jsxs("div", { className: style$2.content, children: [jsxRuntime.jsx("div", { className: style$2.title, children: props.title }), jsxRuntime.jsx("div", { className: style$2.description, children: props.description }), jsxRuntime.jsxs("div", { style: { marginTop: 68, display: 'flex' }, children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ProgressBar$1, { value: props.progresso, label: props.channel }) }), jsxRuntime.jsx("div", { style: { marginLeft: 24 }, onClick: props.onClick, children: jsxRuntime.jsx(Button$1, { label: "Continuar curso", variant: "primary" }) })] })] })
             :
                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: style$2.content, children: RecomendationHeader(props.listaRecomendacao[selectedContent]) }), jsxRuntime.jsxs("div", { className: style$2.contadorConteudo, children: [jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(0); }, children: selectedContent === 0 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(1); }, children: selectedContent === 1 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(2); }, children: selectedContent === 2 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(3); }, children: selectedContent === 3 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(4); }, children: selectedContent === 4 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) })] })] }) }));
 }
@@ -5255,7 +5307,7 @@ function SearchResults({ src, title, description, onClick }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { children: [jsxRuntime.jsx(Image$1, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
 }
 
-const WrapperCard = styled__default["default"].div `
+const WrapperCard$1 = styled__default["default"].div `
     width: 244px;
     min-height: 31px;
     display: flex;
@@ -5266,7 +5318,7 @@ const WrapperCard = styled__default["default"].div `
 `;
 
 function StarMetric({ disabled, onChange }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard$1, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
 }
 
 var css_248z$2 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
@@ -5919,7 +5971,7 @@ const AvatarCustomUser = styled__default["default"](Avatar__default["default"]) 
   height: 32px;
   width: 32px;
 `;
-const MenuCustom = styled__default["default"](Menu__default["default"]) `
+const MenuCustom$1 = styled__default["default"](Menu__default["default"]) `
   & .MuiPaper-root{
     border-radius: 0px;
     ${({ variantstyle }) => variantstyle == 'LXP' && `border-bottom-left-radius: 8px;
@@ -5942,7 +5994,7 @@ styled__default["default"](Menu__default["default"]) `
     padding-bottom: 0px;
   }
 `;
-const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
+const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]) `
   color: white !important;
   border: 0;
 
@@ -6003,25 +6055,25 @@ function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style 
         setSubMenu(subItens);
     };
     return (jsxRuntime.jsx(Container, { style: { ...style }, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$1, { variant: 'secondary', label: 'Ver Perfil', handleClick: () => { alert('Click'); } }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$1, { variant: 'secondary', label: 'Ver Perfil', handleClick: () => { alert('Click'); } }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
-                                        return (jsxRuntime.jsxs(MenuItemCustom, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
+                                        return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                                 }
                                 else
-                                    return (jsxRuntime.jsxs(MenuItemCustom, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                            })] }), jsxRuntime.jsx(MenuCustom, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
+                            })] }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
                             return jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'LXP', children: item.label }, item.id);
                         }) })] })
             :
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), jsxRuntime.jsxs(UserName, { children: [" ", user.name, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), jsxRuntime.jsxs(UserName, { children: [" ", user.name, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
-                                        return (jsxRuntime.jsxs(MenuItemCustom, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
+                                        return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                                 }
                                 else
-                                    return (jsxRuntime.jsxs(MenuItemCustom, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                            }) }), jsxRuntime.jsx(MenuCustom, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
+                            }) }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
                                 return jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'default', children: item.label }, item.id);
                             }) })] }) }));
 }
@@ -6395,6 +6447,584 @@ function ExtraContent(props) {
                 StudentExtraContent(props) }));
 }
 
+const ProgressBox = styled__default["default"](_.Box) `
+  z-index: 1 !important;
+  float: right !important;
+  padding-left: 10% !important;
+  padding-right: 10% !important;
+  margin-top: 160px !important;
+  position: relative !important;
+`;
+const ProgressBar = styled__default["default"](_.LinearProgress) `
+  width: 128px !important;
+  height: 13px !important;
+  border-radius: 100px !important;
+  background-color: rgba(245, 94, 14, 0.5) !important;
+  & .MuiLinearProgress-bar{
+    padding-left: 10px !important;
+    background-color: ${({ theme }) => theme.colors.primary1} !important;
+  }
+`;
+const ProgressLabel = styled__default["default"].label `
+  display: inline-block !important;
+  width: 32px !important;
+  height: 16px !important;
+  font-size: 16px !important;
+  color: white !important;
+`;
+const GridNameMentoring = styled__default["default"](_.Grid) `
+  padding: 0 !important;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+styled__default["default"](_.Grid) `
+  padding: 0 !important;
+`;
+const GridFooter = styled__default["default"](_.Grid) `
+  display: flex;
+  align-items: center;
+  height: 50px;
+  margin: 0;
+  gap: 5px;
+`;
+const NameMentoring = styled__default["default"].span `
+  font-size: 14px !important;
+`;
+const TitleMentoring = styled__default["default"].span `
+  display: block !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+`;
+const TextDescription = styled__default["default"](_.Typography) `
+  margin-top: 12px !important;
+  white-space: normal !important;
+  height: 90px !important;
+  overflow: hidden !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 6; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+`;
+const TitleCard = styled__default["default"].div `
+  height: 32px !important;
+  font-size: 16px !important;
+  font-weight: bold !important;
+  white-space: normal !important;
+`;
+const CardContainer = styled__default["default"](_.Card) `
+  max-width: 345px !important;
+  height: 445px !important;
+  width: 282px !important;
+  box-shadow: none !important;
+  border: 1px solid #c4c4c4;
+
+  background: #FBFBFB;
+  border: 1px solid #E8E8E8;
+  box-sizing: border-box !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
+  margin-right: 24px !important;
+  margin-bottom: 24px !important;
+
+  &:hover {
+    border: 1px solid ${({ theme }) => theme.colors.secondary2} !important;
+  }
+`;
+
+const HeaderImage = styled__default["default"](_.Box) `
+    width: 320px;
+    height: 200px;
+    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('${({ image }) => image}');
+    filter: grayscale(${({ notStarted }) => notStarted ? '1' : '0'});
+    background-size: contain;
+`;
+const MyBox = styled__default["default"](_.Box) `
+    padding: 0px;
+    height: 245px;
+    padding-top: 12px;
+`;
+const MyCardContent = styled__default["default"](_.CardContent) `
+    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+`;
+const WrapperDate = styled__default["default"].div `
+    visibility: ${({ notStarted }) => notStarted ? 'visible' : 'hidden'};
+    margin-bottom: 14px;
+`;
+
+function CardTrail(props) {
+    const redirectToD2L = async () => {
+        if (props.notStarted)
+            return;
+        let URL = await props.action();
+        return window.open(URL);
+    };
+    const getResumeDescription = (description, isResume) => {
+        if (isResume && description.length > 50)
+            return `${description.substring(0, 50)}...`;
+        else
+            return description;
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props.notStarted && props.variant == 'primary' &&
+                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props.notStarted, children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: getResumeDescription(props.description, props.notStarted) }), props.variant == 'primary' ?
+                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: props.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ": "] }), props.start] }), jsxRuntime.jsx(TitleMentoring, { style: { background: '#fff' }, onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notStarted: props.notStarted })] })
+                                :
+                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ": "] }), props.start] }) })] }) })] }) }));
+}
+function MentorComponent(props) {
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(GridFooter, { container: true, spacing: 2, onClick: () => {
+                window.open(`${props.mentor.linkedin}`, '_blank');
+            }, style: { margin: '0px', cursor: 'pointer' }, children: [jsxRuntime.jsx(Avatar, { size: "32px", alt: "Mentoring", src: props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", disabled: props.notStarted }), jsxRuntime.jsx(GridNameMentoring, { item: true, children: jsxRuntime.jsx(NameMentoring, { children: props.mentor?.name }) }), jsxRuntime.jsx(LinkedinIconMentor, {})] }) });
+}
+function PercentageProgress({ progress }) {
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: progress && (jsxRuntime.jsx(ProgressBox, { children: jsxRuntime.jsx(_.Grid, { container: true, spacing: 0, alignItems: "center", children: progress > 0 &&
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(_.Grid, { item: true, xs: 10, children: jsxRuntime.jsx(ProgressBar, { variant: "determinate", value: progress }) }), jsxRuntime.jsx(_.Grid, { item: true, xs: 2, children: jsxRuntime.jsxs(ProgressLabel, { children: [progress, "%"] }) })] }) }) })) });
+}
+
+function ConquistaCarrossel({ objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }) {
+    function renderCard(item, index) {
+        return jsxRuntime.jsx(CardTrail, { variant: item.variant, name: item.name, progress: item.progress, start: item.start, description: item.description, mentor: item.mentor, action: item.action, notStarted: item.notStarted, bannerImage: item.bannerImage, labels: item.labels });
+    }
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
+}
+
+const WrapperCard = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    width: 282px;
+    height: 445px;
+    background: ${({ theme, active }) => active ? theme.colors.neutralsGrey9 : theme.colors.shadeWhite};
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    &:hover{
+        // background: ${({ theme }) => theme.colors.neutralsGrey9};
+        // border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+
+        box-shadow: 0px 10px 20px 7px rgb(255 255 255 / 20%);
+        cursor: pointer;
+    }
+`;
+const TagText = styled__default["default"].span `
+    border-radius: 0px 8px;
+    margin-bottom: -24px
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    color: #FFFFFF;
+`;
+const WrapperBanner = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 200px;
+    max-height: 200px;
+`;
+const TagStep = styled__default["default"].div `
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+        padding: 4px 15px;
+        border-radius: 0px 8px;
+        
+        height: 24px;
+        z-index: 2 ;
+        ${({ variant, theme }) => getVariantTagStyle(variant, theme)};
+    `;
+const BannerCard = styled__default["default"].img `
+        margin-top: -24px;
+
+        margin-bottom: 0px;
+        height: fit-content;
+    `;
+const StepName = styled__default["default"].div `
+        font-family: 'VT323', monospace;
+        font-size: 40px;
+        color: white;
+        -webkit-text-stroke: 0.5px black;
+        text-shadow: 2px 0 0 black, 0 2px 0 black,-2px 0 0 black,0 -2px 0 black;
+        
+        display: flex;
+        justify-content: center;
+        border: 2px dashed #FFF;
+
+        z-index: 2;
+        ${({ variant }) => variant != 'completed' && variant != 'srg' &&
+    `margin-top: -60px;
+            margin-bottom: 16px;`}
+        padding: 0px 12px 0px 12px;
+    `;
+const ContentCard = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 282px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: 0px;
+`;
+const WrapperHeader = styled__default["default"].div `
+    width: 100%;   
+    display: flex;
+    flex-direction: row;
+    padding-right: 24px;
+`;
+const TitleProject = styled__default["default"].p `
+    flex: 1;
+    padding: 24px;
+    padding-bottom: 0px;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+`;
+const Dots = styled__default["default"].div `
+    margin-top: 24px;
+
+    height: fit-content;
+`;
+const DescriptionProject = styled__default["default"].span `
+    flex: 1;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    
+    color: ${({ theme }) => theme.colors.primary1};
+    padding: 24px;
+    padding-top: 16px;
+`;
+const DescriptionSRG = styled__default["default"].span `
+    flex: 1;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    
+    /* neutrals/grey_1 */
+    
+    color: #222222;
+    
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    padding: 24px;
+    padding-right: 25px;
+    padding-top: 16px;
+`;
+const ButtonAction = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 47px;
+    padding: 12px;
+
+    border-top: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: ${({ theme }) => theme.colors.linkOnfocus};
+`;
+styled__default["default"].div `
+    position: absolute;
+    width: 130px;
+    background: ${({ theme }) => theme.colors.shadeWhite};
+
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    border-radius: 4px;
+
+    margin-left: -100px;
+
+`;
+function getVariantTagStyle(variant, theme) {
+    switch (variant) {
+        case 'incompleteMars':
+            return `
+                background: rgb(117, 117, 117);
+                & > span {
+                    color: #FFF !important;
+                }
+            `;
+        case 'mars':
+            return `
+                background: ${theme.colors.linkHover};
+                & > span {
+                    color: #FFF !important;
+                }
+            `;
+        case 'jupiter':
+            return `
+                background: #F8B911;
+                & > span {
+                    color: #222222!important;
+                }
+            `;
+        case 'saturn':
+            return `
+            background: #663366;
+            & > span {
+                color: #FFF !important;
+            }
+        `;
+        case 'uranus':
+            return `
+            background: #AD005C;
+            & > span {
+                color: #FFF !important;
+            }
+        `;
+        case 'neptune':
+            return `
+                background: #222222;
+                & > span {
+                    color: #FFF !important;
+                }
+            `;
+        case 'completed':
+            return `
+                background: #158214;
+                & > span {
+                    color: #FFF !important;
+                }
+            `;
+    }
+}
+
+styled__default["default"].p `
+  color: white;
+  padding-left: 5px;
+  font-size: 16px;
+`;
+const MenuCustom = styled__default["default"](Menu__default["default"]) `
+  margin-left: ${({ step }) => step == 'completed' ? '-64px' : '-84px'} ;
+  margin-top: 10px;
+
+  & .MuiPaper-root {
+    border-radius: 0px;
+    box-shadow: none !important;
+    overflow: visible;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: -17px;
+      right: 19.5px;
+      border-top: 7px solid transparent;
+      border-bottom: 10px solid #BDBDBD;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+    }
+  
+    &:after {
+        content: "";
+        position: absolute;
+        top: -16px;
+        right: 19.5px;
+        border-top: 7px solid transparent;
+        border-bottom: 10px solid #FFF;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+    }
+  }
+  ul {
+    box-shadow: -3px 16px 12px -12px #BDBDBD;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px solid #BDBDBD !important;
+    border-radius: 4px !important;
+    overflow: hidden;
+  }
+`;
+const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
+  background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
+  margin: 1px !important;
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.neutralsGrey7} !important;
+  }
+`;
+styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+  background-color: #F5792A !important;
+
+  displey: flex;
+  flex-direction: row;
+  &:hover {
+    background-color: #FD9350 !important;
+  }
+`;
+const TextOption = styled__default["default"].div `
+  margin-left: 10px;
+  padding-top: 1px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+`;
+
+function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete }) {
+    const [label, setLabel] = React.useState(labels['ptBR']);
+    const [activeClick, setActiveClick] = React.useState(false);
+    React.useEffect(() => {
+        let valuesTranslate = language?.replace(/\-/g, "");
+        setLabel(utilAssign(labels[valuesTranslate], labels['ptBR']));
+    }, [language]);
+    const handleClick = () => {
+        if (variant == 'srg')
+            onClickNewProject();
+        else
+            onClickView();
+        setActiveClick(true);
+        setTimeout(() => {
+            setActiveClick(false);
+        }, 700);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
+                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
+                                    jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
+                            jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: description })
+                            :
+                                jsxRuntime.jsx(DescriptionSRG, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), children: variant == 'srg' ?
+                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
+                                :
+                                    label.view })] })] }) }));
+}
+const utilAssign = (value, optional) => {
+    return value ? value : optional;
+};
+const BannersSRC = {
+    srg: 'https://api-deimos.s3.amazonaws.com/srg.png',
+    incompleteMars: 'https://api-deimos.s3.amazonaws.com/step1Mars.png',
+    mars: 'https://api-deimos.s3.amazonaws.com/step1Mars.png',
+    jupiter: 'https://api-deimos.s3.amazonaws.com/step2Jupiter.png',
+    saturn: 'https://api-deimos.s3.amazonaws.com/step3Saturn.png',
+    uranus: 'https://api-deimos.s3.amazonaws.com/step4Uranus.png',
+    neptune: 'https://api-deimos.s3.amazonaws.com/step4Neptune.png',
+    completed: 'https://api-deimos.s3.amazonaws.com/completed.png'
+};
+const labels = {
+    ptBR: {
+        srgDecription: 'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
+        project: 'Projeto',
+        delete: 'Excluir',
+        continue: 'Continuar',
+        view: 'Visualizar',
+        newProject: 'Criar novo projeto',
+        tagStep: {
+            incompleteMars: 'Problema criado',
+            mars: 'Problema definido',
+            jupiter: 'Hipóteses levantadas',
+            saturn: 'Testes realizados',
+            uranus: 'Resultados e aprendizados',
+            neptune: 'Próximos passos',
+            completed: 'Finalizado'
+        },
+        nameStep: {
+            incompleteMars: 'Marte',
+            mars: 'Marte',
+            jupiter: 'Júpiter',
+            saturn: 'Saturno',
+            uranus: 'Urano',
+            neptune: 'Netuno'
+        }
+    },
+    enUS: {
+        srgDecription: 'Our problem-solving tool guides you through agile cycles of learning, collaboration, and experimentation.',
+        project: 'Project',
+        delete: 'Delete',
+        continue: 'Continue',
+        view: 'View',
+        newProject: 'Create a new project',
+        tagStep: {
+            incompleteMars: 'Created problem',
+            mars: 'Defined problem',
+            jupiter: 'Defined hypotheses',
+            saturn: 'Performed tests',
+            uranus: 'Results and learnings',
+            neptune: 'Next steps',
+            completed: 'Completed'
+        },
+        nameStep: {
+            incompleteMars: 'Mars',
+            mars: 'Mars',
+            jupiter: 'Jupiter',
+            saturn: 'Saturn',
+            uranus: 'Uranus',
+            neptune: 'Neptune'
+        }
+    },
+    es: {
+        srgDecription: 'Nuestra herramienta de resolución de problemas lo guía a través de ciclos ágiles de aprendizaje, colaboración y experimentación.',
+        project: 'Proyecto',
+        delete: 'Elimina',
+        continue: 'Continúa',
+        view: 'Para ver',
+        newProject: 'Crear un nuevo proyecto',
+        tagStep: {
+            incompleteMars: 'Problema creado',
+            mars: 'Problema definido',
+            jupiter: 'Hipótesis definidas',
+            saturn: 'Pruebas realizadas',
+            uranus: 'Resultados y aprendizajes',
+            neptune: 'Próximos pasos',
+            completed: 'Terminada'
+        },
+        nameStep: {
+            incompleteMars: 'Marte',
+            mars: 'Marte',
+            jupiter: 'Júpiter',
+            saturn: 'Saturno',
+            uranus: 'Urano',
+            neptune: 'Neptuno'
+        }
+    },
+};
+function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDelete, variant }) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [activeClick, setActiveClick] = React.useState([false, false]);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const handleSelect = (value) => {
+        setActiveClick(value);
+        setTimeout(() => {
+            if (value[0])
+                handleContinue();
+            if (value[1])
+                handleDelete();
+            setActiveClick([false, false]);
+            setAnchorEl(null);
+        }, 600);
+    };
+    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant != 'completed' &&
+                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true]), style: { color: activeClick[1] ? '#A50000' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#A50000' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
@@ -6402,27 +7032,42 @@ exports.BaseCard = EmptyCard;
 exports.Button = Button$1;
 exports.ButtonGroup = ButtonGroup;
 exports.CalendarCard = CalendarCard;
+exports.CalendarFilledIcon = CalendarFilledIcon;
+exports.CalendarLineIcon = CalendarLineIcon;
 exports.CalendarLxp = CalendarLxp;
 exports.CardDefinicaoProblema = CardDefinicaoProblema;
 exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
+exports.CardTrail = CardTrail;
+exports.CardsTrailsCarousel = ConquistaCarrossel;
+exports.ChallengeCard = ChallengeCard;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.CommentaryBox = CommentaryBox;
-exports.ConquistaCarrossel = ConquistaCarrossel;
+exports.ConquistaCarrossel = ConquistaCarrossel$1;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
 exports.GlobalMenu = GlobalMenu;
 exports.GroupStatistics = TotalizerCard;
+exports.HomeFilledIcon = HomeFilledIcon;
+exports.HomeLineIcon = HomeLineIcon;
 exports.InputComment = InputComment;
+exports.LampFilledIcon = LampFilledIcon;
+exports.LampLineIcon = LampLineIcon;
 exports.LearningSteps = LearningSteps;
+exports.MedalFilledIcon = MedalFilledIcon;
+exports.MedalLineIcon = MedalLineIcon;
 exports.MessageBox = MessageBox;
 exports.ModalLearningTech = ModalLearningTech;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
 exports.ObjectiveStep = ObjectiveStep;
+exports.PencilFilledIcon = PencilFilledIcon;
+exports.PencilLineIcon = PencilLineIcon;
+exports.PlayFilledIcon = PlayFilledIcon;
+exports.PlayLineIcon = PlayLineIcon;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchField = SearchField;
@@ -6437,6 +7082,7 @@ exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
+exports.TrashIcon = TrashIcon;
 exports.UserCard = CalendarCard$1;
 exports.Video = Video;
 exports.avatarChannel = AvatarChannel;
@@ -6449,6 +7095,6 @@ exports.extraContent = ExtraContent;
 exports.fileUpload = FileUpload;
 exports.headerContent = HeaderContent;
 exports.popOver = PopOver;
-exports.progressBar = ProgressBar;
+exports.progressBar = ProgressBar$1;
 exports.searchResults = SearchResults;
 exports.starMetric = StarMetric;

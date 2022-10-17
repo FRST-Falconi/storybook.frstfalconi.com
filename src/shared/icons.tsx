@@ -87,6 +87,14 @@ export function DropdownIcon({ fill, width, height }: IconsProps) {
   )
 }
 
+export function DropdownIconLine({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width : "18"} height={height ? height: "10"} viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 9L9 1L17 9" stroke={fill? fill : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
 
 export function DropdownSideIconWhite({ fill, width, height }: IconsProps) {
   return (
@@ -174,6 +182,16 @@ export function WithoutTrail({ fill, width, height }: IconsProps) {
     <svg width={width ? width : "16"} height={height ? height : "16"} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M14.2607 1.73828C12.6084 0.0859375 9.93457 0.0859375 8.28418 1.73828L6.3916 3.63086L7.3877 4.62695L9.28027 2.73438C10.3311 1.68359 12.1045 1.57227 13.2646 2.73438C14.4268 3.89648 14.3154 5.66797 13.2646 6.71875L11.3721 8.61133L12.3701 9.60938L14.2627 7.7168C15.9111 6.06445 15.9111 3.39062 14.2607 1.73828ZM6.71973 13.2656C5.66895 14.3164 3.89551 14.4277 2.73535 13.2656C1.57324 12.1035 1.68457 10.332 2.73535 9.28125L4.62793 7.38867L3.62988 6.39063L1.7373 8.2832C0.0849609 9.93555 0.0849609 12.6094 1.7373 14.2598C3.38965 15.9102 6.06348 15.9121 7.71387 14.2598L9.60645 12.3672L8.61035 11.3711L6.71973 13.2656ZM3.08301 2.08984C3.05364 2.06077 3.01398 2.04445 2.97266 2.04445C2.93133 2.04445 2.89167 2.06077 2.8623 2.08984L2.08887 2.86328C2.05979 2.89265 2.04348 2.93231 2.04348 2.97363C2.04348 3.01496 2.05979 3.05462 2.08887 3.08398L12.917 13.9121C12.9775 13.9727 13.0771 13.9727 13.1377 13.9121L13.9111 13.1387C13.9717 13.0781 13.9717 12.9785 13.9111 12.918L3.08301 2.08984Z" fill={fill ? fill : '#222222'} />
     </svg>
+  )
+}
+
+export function MoreDotsVertical({ fill, width, height }: IconsProps) {
+  return (
+  <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <path d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  <path d="M13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19Z" stroke={fill ? fill : "black"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
   )
 }
 
@@ -670,4 +688,147 @@ export function Viewer({ fill }: IconsProps) {
           </svg>
       </>
   );
+}
+
+export function LinkedinIconMentor() {
+  return <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="16" height="16" rx="2" fill="#0274B3"/>
+  <path d="M10.6673 6C11.5514 6 12.3992 6.35659 13.0243 6.99133C13.6495 7.62607 14.0007 8.48696 14.0007 9.38462V13.3333H11.7784V9.38462C11.7784 9.0854 11.6614 8.79843 11.453 8.58685C11.2446 8.37527 10.962 8.25641 10.6673 8.25641C10.3726 8.25641 10.09 8.37527 9.88164 8.58685C9.67327 8.79843 9.55621 9.0854 9.55621 9.38462V13.3333H7.33398V9.38462C7.33398 8.48696 7.68517 7.62607 8.3103 6.99133C8.93542 6.35659 9.78326 6 10.6673 6Z" fill="white"/>
+  <path d="M5.33268 6.66699H2.66602V13.3337H5.33268V6.66699Z" fill="white"/>
+  <path d="M3.99935 5.33366C4.73573 5.33366 5.33268 4.73671 5.33268 4.00033C5.33268 3.26395 4.73573 2.66699 3.99935 2.66699C3.26297 2.66699 2.66602 3.26395 2.66602 4.00033C2.66602 4.73671 3.26297 5.33366 3.99935 5.33366Z" fill="white"/>
+  </svg>
+}
+
+export function Plus({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.15381 1.15384V17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M1.15381 9.15385H17.1538" stroke="#0645AD" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+export function HomeLineIcon({ fill }: IconsProps) {
+  return (
+    <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 8.67412V20C1 20.5523 1.44772 21 2 21H7.1875V13.2222H12.8125V21H18C18.5523 21 19 20.5523 19 20V8.67412C19 8.04041 18.6997 7.4442 18.1905 7.067L10.5952 1.44091C10.2416 1.17899 9.75837 1.17899 9.40477 1.44091L1.80954 7.067C1.30033 7.4442 1 8.04041 1 8.67412Z" stroke="#222222" strokeWidth="1.2" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+export function HomeFilledIcon({ fill }: IconsProps) {
+  return (
+    <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M1 8.67412V20C1 20.5523 1.44772 21 2 21H7.1875V13.2222H12.8125V21H18C18.5523 21 19 20.5523 19 20V8.67412C19 8.04041 18.6997 7.4442 18.1905 7.067L10.5952 1.44091C10.2416 1.17899 9.75837 1.17899 9.40477 1.44091L1.80954 7.067C1.30033 7.4442 1 8.04041 1 8.67412Z" fill="#FF4D0D" stroke="#FF4D0D" strokeWidth="1.2" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+export function CalendarLineIcon({ fill }: IconsProps) {
+  return (
+      <>
+         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18.2222 5H5.77778C4.79594 5 4 5.79594 4 6.77778V19.2222C4 20.2041 4.79594 21 5.77778 21H18.2222C19.2041 21 20 20.2041 20 19.2222V6.77778C20 5.79594 19.2041 5 18.2222 5Z" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M16 3V7" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M8 3V7" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M4 10H20" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+
+      </>
+  );
+}
+
+export function CalendarFilledIcon({ fill }: IconsProps) {
+  return (
+    <>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* @ts-ignore */}
+      <path d="M18.2222 5H5.77778C4.79594 5 4 5.79594 4 6.77778V19.2222C4 20.2041 4.79594 21 5.77778 21H18.2222C19.2041 21 20 20.2041 20 19.2222V6.77778C20 5.79594 19.2041 5 18.2222 5Z" fill="#FF4D0D" stroke="#FF4D0D" strokeWidth="1.2" strokeLinejoin="round" strokeLinejoin="round"/>
+      {/* @ts-ignore */}
+      <path d="M16 3V7" stroke="#FF4D0D" strokeWidth="1.2" strokeLinejoin="round" strokeLinejoin='round'/>
+      {/* @ts-ignore */}
+      <path d="M8 3V7" stroke="#FF4D0D" strokeWidth="1.2" strokeLinejoin="round" strokeLinejoin="round"/>
+      {/* @ts-ignore */}
+      <path d="M4 10H20" stroke="white" strokeWidth="1.2" strokeLinejoin="round" strokeLinejoin="round"/>
+      </svg>
+      </>
+  );
+}
+
+export function PencilLineIcon({ fill }: IconsProps) {
+  return (
+      <>
+        <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.7998 20.5668L11.6861 20.4865C11.6711 20.4759 10.181 19.4335 8.5095 19.4335C7.96257 19.4335 7.45172 19.5465 6.99139 19.769C6.23548 20.1354 5.33797 20.321 4.32348 20.321C2.6875 20.321 1.29206 19.8378 1.13842 19.7826L0.999805 19.733" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M14.9092 1.96308C15.1318 1.75291 15.3959 1.5862 15.6867 1.47245C15.9774 1.35871 16.2891 1.30017 16.6038 1.30017C16.9185 1.30017 17.2301 1.35871 17.5208 1.47245C17.8116 1.5862 18.0758 1.75291 18.2983 1.96308C18.5208 2.17324 18.6973 2.42275 18.8178 2.69734C18.9382 2.97194 19.0002 3.26625 19.0002 3.56347C19.0002 3.86069 18.9382 4.155 18.8178 4.4296C18.6973 4.7042 18.5208 4.9537 18.2983 5.16387L6.86017 15.9665L2.2002 17.1668L3.4711 12.7657L14.9092 1.96308Z" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </>
+  );
+}
+
+export function PencilFilledIcon({ fill }: IconsProps) {
+  return (
+      <>
+      <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11.7998 20.5668L11.6861 20.4865C11.6711 20.4759 10.181 19.4335 8.5095 19.4335C7.96257 19.4335 7.45172 19.5465 6.99139 19.769C6.23548 20.1354 5.33797 20.321 4.32348 20.321C2.6875 20.321 1.29206 19.8378 1.13842 19.7826L0.999805 19.733" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M14.9092 1.96308C15.1318 1.75291 15.3959 1.5862 15.6867 1.47245C15.9774 1.35871 16.2891 1.30017 16.6038 1.30017C16.9185 1.30017 17.2301 1.35871 17.5208 1.47245C17.8116 1.5862 18.0758 1.75291 18.2983 1.96308C18.5208 2.17324 18.6973 2.42275 18.8178 2.69734C18.9382 2.97194 19.0002 3.26625 19.0002 3.56347C19.0002 3.86069 18.9382 4.155 18.8178 4.4296C18.6973 4.7042 18.5208 4.9537 18.2983 5.16387L6.86017 15.9665L2.2002 17.1668L3.4711 12.7657L14.9092 1.96308Z" fill="#FF4D0D" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+      </>
+  );
+}
+
+export function LampLineIcon({ fill }: IconsProps) {
+  return (
+      <>
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.46825 16.4167H13.5307M11 1.25V2.875M17.8943 4.10567L16.6875 5.3125M20.75 11H19.125M2.875 11H1.25M5.3125 5.3125L4.10567 4.10567M7.16933 14.8307C6.41194 14.0731 5.8962 13.1079 5.68731 12.0572C5.47842 11.0065 5.58577 9.9175 5.99579 8.92781C6.40581 7.93813 7.10008 7.09225 7.99081 6.49712C8.88155 5.90199 9.92875 5.58434 11 5.58434C12.0713 5.58434 13.1185 5.90199 14.0092 6.49712C14.8999 7.09225 15.5942 7.93813 16.0042 8.92781C16.4142 9.9175 16.5216 11.0065 16.3127 12.0572C16.1038 13.1079 15.5881 14.0731 14.8307 14.8307L14.237 15.4233C13.8976 15.7627 13.6284 16.1657 13.4447 16.6092C13.2611 17.0527 13.1666 17.5281 13.1667 18.0081V18.5833C13.1667 19.158 12.9384 19.7091 12.5321 20.1154C12.1257 20.5217 11.5746 20.75 11 20.75C10.4254 20.75 9.87426 20.5217 9.46794 20.1154C9.06161 19.7091 8.83333 19.158 8.83333 18.5833V18.0081C8.83333 17.0385 8.44767 16.1079 7.763 15.4233L7.16933 14.8307Z" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </>
+  );
+}
+
+export function LampFilledIcon({ fill }: IconsProps) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.16933 14.8307C6.41194 14.0731 5.8962 13.1079 5.68731 12.0572C5.47842 11.0065 5.58577 9.91749 5.99579 8.92781C6.40581 7.93813 7.10008 7.09225 7.99081 6.49712C8.88155 5.90199 9.92875 5.58434 11 5.58434C12.0713 5.58434 13.1185 5.90199 14.0092 6.49712C14.8999 7.09225 15.5942 7.93813 16.0042 8.92781C16.4142 9.91749 16.5216 11.0065 16.3127 12.0572C16.1038 13.1079 15.5881 14.0731 14.8307 14.8307L14.237 15.4233C13.8976 15.7627 13.6284 16.1657 13.4447 16.6092C13.2611 17.0527 13.1666 17.5281 13.1667 18.0081V18.5833C13.1667 19.158 12.9384 19.7091 12.5321 20.1154C12.1257 20.5217 11.5746 20.75 11 20.75C10.4254 20.75 9.87426 20.5217 9.46794 20.1154C9.06161 19.7091 8.83333 19.158 8.83333 18.5833V18.0081C8.83333 17.0385 8.44767 16.1079 7.763 15.4233L7.16933 14.8307Z" fill="#FF4D0D"/>
+    <path d="M8.46825 16.4167H13.5307M11 1.25V2.875M17.8943 4.10567L16.6875 5.3125M20.75 11H19.125M2.875 11H1.25M5.3125 5.3125L4.10567 4.10567M7.16933 14.8307C6.41194 14.0731 5.8962 13.1079 5.68731 12.0572C5.47842 11.0065 5.58577 9.91749 5.99579 8.92781C6.40581 7.93813 7.10008 7.09225 7.99081 6.49712C8.88155 5.90199 9.92875 5.58434 11 5.58434C12.0713 5.58434 13.1185 5.90199 14.0092 6.49712C14.8999 7.09225 15.5942 7.93813 16.0042 8.92781C16.4142 9.91749 16.5216 11.0065 16.3127 12.0572C16.1038 13.1079 15.5881 14.0731 14.8307 14.8307L14.237 15.4233C13.8976 15.7627 13.6284 16.1657 13.4447 16.6092C13.2611 17.0527 13.1666 17.5281 13.1667 18.0081V18.5833C13.1667 19.158 12.9384 19.7091 12.5321 20.1154C12.1257 20.5217 11.5746 20.75 11 20.75C10.4254 20.75 9.87426 20.5217 9.46794 20.1154C9.06161 19.7091 8.83333 19.158 8.83333 18.5833V18.0081C8.83333 17.0385 8.44767 16.1079 7.763 15.4233L7.16933 14.8307Z" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+export function MedalLineIcon({ fill }: IconsProps) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+export function MedalFilledIcon({ fill }: IconsProps) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15" fill="#FF4D0D"/>
+      <path d="M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  );
+}
+
+export function PlayLineIcon({ fill }: IconsProps) {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19Z" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M7.75 6.625L13.375 10L7.75 13.375V6.625Z" stroke="#222222" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+export function PlayFilledIcon({ fill }: IconsProps) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z" fill="#FF4D0D" stroke="#FF4D0D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M10 9L15 12L10 15V9Z" fill="white" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
 }

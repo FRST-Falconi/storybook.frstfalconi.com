@@ -1,3 +1,4 @@
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon } from './src/shared/icons';
 export { default as Tag } from "./src/components/tag";
 export { default as BaseCard } from "./src/components/cards/base";
 export { default as UserCard } from "./src/components/cards/user";
@@ -8,7 +9,6 @@ export { default as Button } from "./src/components/buttons";
 export { default as ButtonGroup } from "./src/components/EBR/buttons-group";
 export { default as TextField } from './src/components/form-elements/textfield';
 export { default as TextArea } from './src/components/form-elements/textarea';
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle } from './src/shared/icons';
 export { default as Avatar } from './src/components/avatar';
 export { default as InputComment } from './src/components/input-comment';
 export { default as CommentaryBox } from './src/components/commentary-box';
@@ -52,4 +52,7 @@ export { default as CalendarLxp } from './src/components/LXP/calendarLxp';
 export { default as Video } from './src/components/LXP/video';
 export { default as GlobalMenu } from './src/components/global-menu';
 export { default as extraContent } from './src/components/LXP/extraContent';
+export { default as CardTrail } from './src/components/card-trail';
+export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
+export { default as ChallengeCard } from './src/components/challenge-cards';
 //# sourceMappingURL=index.d.ts.map

@@ -214,12 +214,13 @@ export default function CommentaryBox({
                     >
                         { value }
                     </Styles.CommentaryEditingContent>
-                    <Styles.FooterEditingWrapper width={size[0]}>
+                    <Styles.FooterEditingWrapper width={size[0]} >
                         <Button 
                             handleClick={() => { saveEditComment() }} 
                             label={size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile } 
                             disabled={!enableSaveEdit} 
                             variant="primary" 
+                            style={{marginRight: '20px' }}
                         />
                         <Button 
                             handleClick={() => { cancelEditComment() }} 
