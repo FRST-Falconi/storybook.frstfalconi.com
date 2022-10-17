@@ -9,10 +9,11 @@ export const MenuContainer = styled.div<IMenuContainer>`
     width: 100%;
     height: 64px;
 
-    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+    background: ${({ theme }) => theme.colors.neutralsGrey1 };
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
     & > button {
         height: 100%;
     }
@@ -47,7 +48,6 @@ export const WrapperRightInfo = styled.div`
 
 export const WrapperIconNotification = styled.div`
     height: 100%;
-    width: 24px;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
@@ -108,4 +108,32 @@ export const ItemMenuMobile = styled.div`
     &:hover {
         background: #4444;
     }
+`
+
+export const footerMenuMobile = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-itens: center;
+    text-align: center;
+    ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
+    color: ${({theme}) => theme.colors.shadeWhite};
+    border-color: ${({theme}) => theme.colors.neutralsGrey3};
+    margin-top: 0px;
+    
+`
+
+export const frstSocials = styled.div`
+    display:flex;
+    justify-content: center;
+    align-center: center;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 32px;
+`
+
+export const itemFrstSocials = styled.button`
+    border: none;
+    background: none;
+    cursor: pointer;
 `
