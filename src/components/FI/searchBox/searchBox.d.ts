@@ -5,6 +5,7 @@ export interface ISearchBox{
     textPlaceholder?: string 
     textButton?: string
     handleClickSearchButton?: () => void 
-    onChange?: () => void 
+    onChange?: () => void,
+    style: React.CSSProperties
 }
 

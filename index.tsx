@@ -80,4 +80,4 @@ export { default as extraContent} from './src/components/LXP/extraContent'
 export { default as CardTrail} from './src/components/card-trail'
 export { default as CardsTrailsCarousel} from './src/components/card-trail-carousel'
 export { default as ChallengeCard } from './src/components/challenge-cards'
-
+export { default as SearchBox } from './src/components/FI/searchBox'

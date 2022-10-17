@@ -17,7 +17,8 @@ Default.args = {
     textPlaceholder: 'Busque aqui.',
     textButton: 'Pesquisar',
     handleClickSearchButton: () => alert('busque aqui'),
-    onChange: (e) => console.log(e.target.value)
+    onChange: (e) => console.log(e.target.value),
+    style: {width:'800px'}
 }
 
 export const DefaultTranslate = Template.bind({})

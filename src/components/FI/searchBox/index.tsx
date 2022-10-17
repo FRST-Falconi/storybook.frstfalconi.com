@@ -8,7 +8,7 @@ export default function SearchBox(props: ISearchBox) {
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.Container >
+            <Styles.Container style={{...props.style}}>
                 <Styles.Typography>{props.textTitle ? props.textTitle : props.textTitle}</Styles.Typography>
                 <Styles.ContainerSearch >
                     <SearchField 

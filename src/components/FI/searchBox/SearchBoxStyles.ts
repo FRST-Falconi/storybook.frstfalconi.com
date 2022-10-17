@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 100%;
-    max-width: 343px;
     min-height: 127px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
