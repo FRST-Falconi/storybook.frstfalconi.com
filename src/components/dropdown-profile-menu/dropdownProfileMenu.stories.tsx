@@ -15,6 +15,7 @@ const Template = (args) => <DropdownProfileMenu {...args} />
 export const normal = Template.bind({})
 normal.args = {
     variant: 'default',
+    language: 'en',
     user: {
         name: 'Student name',
         textIsMe: 'Eu',

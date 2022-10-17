@@ -168,3 +168,33 @@ EyeOff.args = Icons.EyeOff({})
 
 export const AddIcon = Template.bind({})
 AddIcon.args = Icons.AddIcon({})
+
+export const IconNotification = Template.bind({})
+IconNotification.args = Icons.IconNotification({})
+
+export const SiteIcon = Template.bind({})
+SiteIcon.args = Icons.SiteIcon({})
+
+export const LinkedinIcon = Template.bind({})
+LinkedinIcon.args = Icons.LinkedinIcon({})
+
+export const InstagramIcon = Template.bind({})
+InstagramIcon.args = Icons.InstagramIcon({})
+
+export const YoutubeIcon = Template.bind({})
+YoutubeIcon.args = Icons.YoutubeIcon({})
+
+export const SpotifyIcon = Template.bind({})
+SpotifyIcon.args = Icons.SpotifyIcon({})
+
+export const PodCastIcon = Template.bind({})
+PodCastIcon.args = Icons.PodCastIcon({})
+
+export const CalendarIcon = Template.bind({})
+CalendarIcon.args = Icons.CalendarIcon({})
+
+export const WriteIcon = Template.bind({})
+WriteIcon.args = Icons.WriteIcon({})
+
+export const HomeIcon = Template.bind({})
+HomeIcon.args = Icons.HomeIcon({})

@@ -135,7 +135,7 @@ export default function DropdownProfileMenu({variant, user, menuItems, isMobileV
                 <Styles.AvatarCustomUser alt="User Photo" 
                     src={user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"}
                 />
-                <Styles.UserName> {user.name} </Styles.UserName>
+                <Styles.UserName> {user.textIsMe} </Styles.UserName>
                 <DropdownIcon fill="white" />
             </Button>
                 <Styles.MenuCustom
