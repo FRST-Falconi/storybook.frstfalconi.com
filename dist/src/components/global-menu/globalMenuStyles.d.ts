@@ -13,5 +13,8 @@ export declare const MenuMobile: import("styled-components").StyledComponent<"di
     isVisible: any;
 }, never>;
 export declare const ItemMenuMobile: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const footerMenuMobile: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const frstSocials: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const itemFrstSocials: import("styled-components").StyledComponent<"button", any, {}, never>;
 export {};
 //# sourceMappingURL=globalMenuStyles.d.ts.map

@@ -80,6 +80,7 @@ export declare function WhatAppBordered({ fill, width, height }: IconsProps): JS
 export declare function MailBordered({ fill, width, height }: IconsProps): JSX.Element;
 export declare function MessageCheckLine({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Viewer({ fill }: IconsProps): JSX.Element;
+export declare function IconNotification({ fill, width, height }: IconsProps): JSX.Element;
 export declare function LinkedinIconMentor(): JSX.Element;
 export declare function Plus({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function HomeLineIcon({ fill }: IconsProps): JSX.Element;
@@ -94,5 +95,14 @@ export declare function MedalLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function MedalFilledIcon({ fill }: IconsProps): JSX.Element;
 export declare function PlayLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function PlayFilledIcon({ fill }: IconsProps): JSX.Element;
+export declare function SiteIcon({ fill }: IconsProps): JSX.Element;
+export declare function LinkedinIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function InstagramIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function YoutubeIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function SpotifyIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function PodCastIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function CalendarIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function WriteIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function HomeIcon({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
