@@ -12,6 +12,7 @@ export default function LanguagesDropdown({ variant, languages, selected, onSele
     const imgES = 'https://i.gyazo.com/1cfa904ea1d492ace9dc67c2a37a10e4.png'
     const imgBR = 'https://i.gyazo.com/ee7e65d12345200b8c3dd12670f85881.png'
     const imgEN = 'https://i.gyazo.com/06a0ea969c48c12589d5d5565cf834df.png'
+    const imgPT = 'https://i.gyazo.com/cb567fc306928d02d31bc876df58be40.png'
     
     const [ isOpenDrop, setIsOpenDrop ] = useState(false);
     const [ activeArea, setActiveArea ] = useState(false);
@@ -20,9 +21,10 @@ export default function LanguagesDropdown({ variant, languages, selected, onSele
     
     useEffect(() => {
         switch(selected) {
-            case 'pt': return setActiveImgFlag(imgBR);
-            case 'en': return setActiveImgFlag(imgEN);
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
             case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
         }
     }, [selected])
     
@@ -43,9 +45,10 @@ export default function LanguagesDropdown({ variant, languages, selected, onSele
     const handleChangeSelect = (value) => {
         onSelect(value)
         switch(value) {
-            case 'pt': return setActiveImgFlag(imgBR);
-            case 'en': return setActiveImgFlag(imgEN);
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
             case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
         }
         setIsOpenDrop(false)
         setActiveArea(false)
@@ -71,15 +74,19 @@ export default function LanguagesDropdown({ variant, languages, selected, onSele
             >
                 {isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
                     return( <div key={index}>
-                        { item == 'pt' ?
-                            <Styles.Image key={index} onClick={() => handleChangeSelect('pt')} src={imgBR} 
+                        { item == 'pt-BR' ?
+                            <Styles.Image key={index} onClick={() => handleChangeSelect('pt-BR')} src={imgBR} 
                                 style={{padding: '9px', paddingTop: '6px', paddingBottom: '6px'}}
                             />
-                        : item == 'es' ?
-                            <Styles.Image key={index} onClick={() => handleChangeSelect('en')} src={imgEN} 
+                        : item == 'en-US' ?
+                            <Styles.Image key={index} onClick={() => handleChangeSelect('en-US')} src={imgEN} 
                                 style={{padding: '9px', paddingTop: '6px', paddingBottom: '6px'}}
                             />
-                        : item == 'en' &&
+                        : item == 'pt-PT' ?
+                            <Styles.Image key={index} onClick={() => handleChangeSelect('pt-PT')} src={imgPT} 
+                                style={{padding: '9px', paddingTop: '6px', paddingBottom: '6px'}}
+                            />
+                        : item == 'es' &&
                             <Styles.Image key={index} onClick={() => handleChangeSelect('es')} src={imgES} 
                                 style={{padding: '9px', paddingTop: '6px', paddingBottom: '6px'}}
                             />

@@ -14,7 +14,7 @@ import DropdownProfileMenu from '@components/dropdown-profile-menu'
 import { PropaneSharp } from '@mui/icons-material'
 
 
-export default function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }: IGlobalMenu) {
+export default function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, profileMenuText }: IGlobalMenu) {
     const [valueSearch, setValueSearch] = useState(search.value)
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
     const [loadingSearch, setLoadingSearch] = useState(search.loading)
@@ -164,6 +164,8 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                 <DropdownProfileMenu
                                     variant='LXP'
                                     user={user}
+                                    profileMenuText={profileMenuText}
+                                    handleProfileMenuClick={onClickProfileMenuText}
                                     menuItems={user && user.menuItems}
                                     isMobileVersion={isMobileVersion}
                                     style={{
@@ -242,6 +244,8 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     <DropdownProfileMenu
                                         variant='LXP'
                                         user={user}
+                                        profileMenuText={profileMenuText}
+                                        handleProfileMenuClick={onClickProfileMenuText}
                                         menuItems={user && user.menuItems}
                                         isMobileVersion={isMobileVersion}
                                         style={{
@@ -306,6 +310,8 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     user={user}
                                     menuItems={user && user.menuItems}
                                     isMobileVersion={isMobileVersion}
+                                    profileMenuText={profileMenuText}
+                                    handleProfileMenuClick={onClickProfileMenuText}
                                 />
                             </Styles.WrapperRightInfo>
                             {languages && languages.length > 0 &&

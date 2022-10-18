@@ -26,6 +26,8 @@ export const normal = Template.bind({})
 normal.args = {
     variant: 'default',
     textNotification: 'Notificações',
+    onClickProfileMenuText: () => alert('Clicked Profile'),
+    profileMenuText: 'Ver Perfil',
     
     user: {
         name: 'Student name',
@@ -77,8 +79,8 @@ normal.args = {
     ],
     notification: true,
     haveNotification: true,
-    languages: ['pt', 'es', 'en'],
-    languageSelected: 'pt',
+    languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
+    languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),
     onClickHome: () => alert("Click Home"),
 
@@ -152,8 +154,10 @@ LXP.args = {
         ]
     },
     notification: true,
-    languages: ['pt', 'es', 'en'],
-    languageSelected: 'pt',
+    languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
+    languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),
+    onClickProfileMenuText: () => alert('Clicked Profile'),
+    profileMenuText: 'Ver Perfil',
     style: { display: 'flex' }
 }
