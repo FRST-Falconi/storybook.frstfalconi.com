@@ -14,6 +14,8 @@ const Template = (args) => <DropdownProfileMenu {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
+    profileMenuText: 'Ver Perfil',
+    handleProfileMenuClick: () => alert('Clicado Perfil') ,
     variant: 'default',
     language: 'en',
     user: {
@@ -51,6 +53,8 @@ normal.args = {
 
 export const lxp = Template.bind({})
 lxp.args = {
+    profileMenuText: 'Ver Perfil',
+    handleProfileMenuClick: () => alert('Clicado Perfil') ,
     variant: 'LXP',
     user: {
         name: 'Student name',

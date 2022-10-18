@@ -2,7 +2,7 @@ import React from "react"
 
 
 export type enumVariant = 'default' | 'LXP';
-export type enumLanguages = 'pt' | 'es' | 'en';
+export type enumLanguages = 'pt-BR' | 'es' | 'en-US' | 'pt-PT';
 
 export type itemClick = {
     id: string,
@@ -46,26 +46,27 @@ export interface IGlobalMenu {
     menu?: Array<itemClick>,
     subMenu?: Array<itemClick>,
     user?: typeUser,
-
     search?: typeSearch,
-
+    
     notification?: any,
     haveNotification ?: boolean,
     handleNotification?: () => void,
-
+    
     languages: Array<enumLanguages>,
     languageSelected: enumLanguages,
     onChangeLanguage?: (e) => void,
     
     onClickHome ?: () => void,
-
+    
     onClickSite ?: () => void,
     onClickLinkedin ?: () => void,
     onClickInstagram ?: () => void,
     onClickYoutube ?: () => void,
     onClickSpotify ?: () => void,
     onClickPodCast ?: () => void,
-
+    onClickProfileMenuText ?: () => void
+    
+    profileMenuText?: string,
     textNotification ?: string,
 
     style:  React.CSSProperties,

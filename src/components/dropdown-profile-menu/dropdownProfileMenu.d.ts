@@ -21,6 +21,8 @@ export interface IDropdownProfileMenu {
     variant?: enumVariant,
     user?: typeUser,
     isMobileVersion: boolean,
+    profileMenuText: string,
+    handleProfileMenuClick ?: () => void,
     menuItems?: Array<typeMenuItens>,
     style?: React.CSSProperties
 }

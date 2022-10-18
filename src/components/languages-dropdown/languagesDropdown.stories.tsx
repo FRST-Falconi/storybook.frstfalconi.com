@@ -24,15 +24,15 @@ const Template = (args) => <ItemGlobalMenu {...args} />
 export const normal = Template.bind({})
 normal.args = {
     variant: 'default',
-    languages: ['pt', 'es', 'en'],
-    selected: 'pt',
+    languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
+    selected: 'pt-BR',
     onSelect: (e) => alert(e)
 }
 
 export const LXP = Template.bind({})
 LXP.args = {
     variant: 'LXP',
-    languages: ['pt', 'es', 'en'],
-    selected: 'pt',
+    languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
+    selected: 'pt-PT',
     onSelect: (e) => alert(e)
 }
