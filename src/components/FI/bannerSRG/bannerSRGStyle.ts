@@ -18,15 +18,17 @@ export const ContainerBanner = styled.div<{bannerNormal, bannerResponsive}>`
     & > div:nth-child(5) {
         display: none;
     }
+    @media (max-width: 1500px) {
+        padding: 20px !important;
+    }
 
-    @media (max-width: 990px) {
-        padding: 20px;
+    @media (max-width: 1200px) {
         & > div:nth-child(1) {
-            display: none;
+            display: none !important;
         }
     }
 
-    @media (max-width: 781px) {
+    @media (max-width: 870px) {
         background-image: url("${({bannerResponsive}) => bannerResponsive}");
         height: 745px;
 
@@ -45,9 +47,11 @@ export const ContainerBanner = styled.div<{bannerNormal, bannerResponsive}>`
             }
         }
         & > div:nth-child(4) {
-            min-width: 360px;
-            max-width: 360px;
-            
+            min-width: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+
             & > div:nth-child(1) {
                 width: 270px;
                 margin-left: 0px;
@@ -178,4 +182,27 @@ export const HelperText = styled.div`
 
     color: ${({theme}) => theme.colors.neutralsGrey1};
     margin-bottom: 8px;
+`
+
+
+export const FrstSocials = styled.div`
+    display:flex;
+    justify-content: center;
+    align-center: center;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 32px;
+    position: absolute;
+    right: 120px;
+    top: 60px;
+    @media (max-width: 1500px) {
+        right: 40px;
+    }
+`
+
+export const ItemFrstSocials = styled.button`
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 11px;
 `

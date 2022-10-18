@@ -33,5 +33,71 @@ normal.args = {
     acessHere: {
         label: 'Acesse aqui', 
         action: () => alert('Acesse aqui')
+    },
+    social: {
+        onClickSite: () => alert('Site'),
+        onClickLinkedin: () => alert('Linkedin'),
+        onClickInstagram: () => alert('Instagram'),
+        onClickYoutube: () => alert('Youtube'),
+        onClickSpotify: () => alert('Spotify'),
+        onClickPodCast: () => alert('PodCast'),
+    },
+    lateralMenu: {     
+        variant: 'primary',
+        hiddenButtonHeader: true,
+        avatar: {
+            src: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            alt: 'Alt example'
+        },
+        name: 'Student Name',
+        button: {
+            variant: 'primary',
+            label: 'Button CTA',
+            onClick: () => alert('Click')
+        },
+        listOptions: [
+            {    
+                label: 'Início',
+                selected: true,
+                onClick: () => alert('Início'),
+                beginComponent: <Icons.HomeLineIcon/>,
+                activeBeginIcon: <Icons.HomeFilledIcon/>,
+                style: {
+                    width: '280px' 
+                },
+            },
+            {    
+                label: 'Assessment',
+                onClick: () => alert('Assessment'),
+                selected: false,
+                beginComponent: <Icons.PencilLineIcon/>,
+                activeBeginIcon: <Icons.PencilFilledIcon/>,
+                style: {
+                    width: '280px' 
+                }
+            },
+            {    
+                label: 'Eventos',
+                hiddenIconDropArrow: true,
+                onClick: () => alert('Eventos'),
+                selected: false,
+                beginComponent: <Icons.CalendarLineIcon/>,
+                activeBeginIcon: <Icons.CalendarFilledIcon/>,
+                style: {
+                    width: '280px' 
+                }
+            },
+            {    
+                label: 'Hall de projetos',
+                hiddenIconDropArrow: false,
+                onClick: () => alert('Hall de projetos'),
+                selected: false,
+                beginComponent: <Icons.MedalLineIcon/>,
+                activeBeginIcon: <Icons.MedalFilledIcon/>,
+                style: {
+                    width: '280px' 
+                }
+            },
+        ]
     }
 }

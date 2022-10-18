@@ -3,6 +3,7 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import { IBannerSRG } from './bannerSRG'
 import Button from '@components/buttons'
+import LateralMenu from '@components/lateral-menu'
 import * as Icons from '@shared/icons'
 import { 
     ContainerBanner, 
@@ -12,14 +13,33 @@ import {
     TitleSRG, 
     DescriptionSRG,
     SpeechBubble,
-    HelperText } from './bannerSRGStyle'
+    HelperText,
+    FrstSocials,
+    ItemFrstSocials } from './bannerSRGStyle'
 
 export default function BannerSRG(props: IBannerSRG) {
     return (
         <ThemeProvider theme={FRSTTheme}>
             <ContainerBanner bannerNormal={props?.bannerSRG?.normal} bannerResponsive={props?.bannerSRG?.responsive} style={{...props.style}}>
-                <WrapperContent>
-                    &nbsp;
+                <WrapperContent style={{maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px'}}>
+                    { props &&  props.social &&
+                    <FrstSocials>
+                        {props.social.onClickSite &&      <ItemFrstSocials onClick={() => props.social.onClickSite()} > <Icons.SiteIcon /> </ItemFrstSocials>}
+                        {props.social.onClickLinkedin &&  <ItemFrstSocials onClick={() => props.social.onClickLinkedin()} > <Icons.LinkedinIcon /> </ItemFrstSocials>}
+                        {props.social.onClickInstagram && <ItemFrstSocials onClick={() => props.social.onClickInstagram()} > <Icons.InstagramIcon /> </ItemFrstSocials>}
+                        {props.social.onClickYoutube &&   <ItemFrstSocials onClick={() => props.social.onClickYoutube()} > <Icons.YoutubeIcon /> </ItemFrstSocials>}
+                        {props.social.onClickSpotify &&   <ItemFrstSocials onClick={() => props.social.onClickSpotify()} > <Icons.SpotifyIcon /> </ItemFrstSocials>}
+                        {props.social.onClickPodCast &&   <ItemFrstSocials onClick={() => props.social.onClickPodCast()} > <Icons.PodCastIcon /> </ItemFrstSocials>}
+                    </FrstSocials> }
+                    <LateralMenu
+                        variant={'primary'}
+                        channel={''}
+                        name={props.lateralMenu.name}
+                        hiddenButtonHeader={true}
+                        avatar={props.lateralMenu.avatar}
+                        button={props.lateralMenu.button}
+                        listOptions={props.lateralMenu.listOptions}
+                    />
                 </WrapperContent>
                 
                 <WrapperContent>
