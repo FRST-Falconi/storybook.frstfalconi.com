@@ -22,13 +22,48 @@ export const ButtonSessionFilters = styled.button`
 
     
 
-   &:active { 
+    &:active { 
         color: ${({ theme }) => theme.colors.shadeWhite};
         background-color: ${({ theme }) => theme.colors.primary1};
 
-        & > svg {
-            fill: ${({ theme }) => theme.colors.shadeWhite};
-        }
     }
 `
 
+export const ContainerFilter = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    width: fit-content;
+
+    
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
+    
+    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
+`
+
+export const ButtonList = styled.div`
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    margin-top: 8px;
+    margin-bottom: 24px;
+`
+
+export const SelectedItens = styled.div`
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+
+    width: 100%;
+
+
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
+
+    margin-top: 8px;
+    margin-bottom: 24px;
+`
