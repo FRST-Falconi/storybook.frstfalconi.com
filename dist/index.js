@@ -5887,14 +5887,16 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
     const imgES = 'https://i.gyazo.com/1cfa904ea1d492ace9dc67c2a37a10e4.png';
     const imgBR = 'https://i.gyazo.com/ee7e65d12345200b8c3dd12670f85881.png';
     const imgEN = 'https://i.gyazo.com/06a0ea969c48c12589d5d5565cf834df.png';
+    const imgPT = 'https://i.gyazo.com/cb567fc306928d02d31bc876df58be40.png';
     const [isOpenDrop, setIsOpenDrop] = React.useState(false);
     const [activeArea, setActiveArea] = React.useState(false);
     const [activeImgFlag, setActiveImgFlag] = React.useState(imgBR);
     React.useEffect(() => {
         switch (selected) {
-            case 'pt': return setActiveImgFlag(imgBR);
-            case 'en': return setActiveImgFlag(imgEN);
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
             case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
         }
     }, [selected]);
     React.useEffect(() => {
@@ -5911,20 +5913,23 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
     const handleChangeSelect = (value) => {
         onSelect(value);
         switch (value) {
-            case 'pt': return setActiveImgFlag(imgBR);
-            case 'en': return setActiveImgFlag(imgEN);
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
             case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
         }
         setIsOpenDrop(false);
         setActiveArea(false);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
-                        return (jsxRuntime.jsx("div", { children: item == 'pt' ?
-                                jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                : item == 'es' ?
-                                    jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('en'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                    : item == 'en' &&
-                                        jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
+                        return (jsxRuntime.jsx("div", { children: item == 'pt-BR' ?
+                                jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                : item == 'en-US' ?
+                                    jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('en-US'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                    : item == 'pt-PT' ?
+                                        jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-PT'), src: imgPT, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                        : item == 'es' &&
+                                            jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
                     }) })] }) }));
 }
 
@@ -6085,7 +6090,7 @@ const SubMenuItemCustom = styled__default["default"](MenuItem__default["default"
   }
 `;
 
-function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style }) {
+function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobileVersion, handleProfileMenuClick, style }) {
     const [anchorEl, setAnchorEl] = React__namespace.useState(null);
     const [anchorSub, setAnchorSub] = React__namespace.useState(null);
     const [subMenu, setSubMenu] = React__namespace.useState(null);
@@ -6107,7 +6112,7 @@ function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style 
         setSubMenu(subItens);
     };
     return (jsxRuntime.jsx(Container$1, { style: { ...style }, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$1, { variant: 'secondary', label: 'Ver Perfil', handleClick: () => { alert('Click'); } }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$1, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
                                         return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
@@ -6130,7 +6135,7 @@ function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style 
                             }) })] }) }));
 }
 
-function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, profileMenuText }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -6192,7 +6197,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                                 width: isMobileVersion ? '180px' : '332px',
                                                 marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                             } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: '150px' }, children: [!isMobileVersion && notification &&
-                                                jsxRuntime.jsx(WrapperIconNotification, { children: jsxRuntime.jsx(IconNotification, {}) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                                jsxRuntime.jsx(WrapperIconNotification, { children: jsxRuntime.jsx(IconNotification, {}) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
                                                     marginLeft: isMobileVersion ? '0px' : '5px',
                                                     marginRight: isMobileVersion ? '0px' : '5px'
                                                 } }), !isMobileVersion && languages && languages.length > 0 &&
@@ -6213,7 +6218,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                             jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                             jsxRuntime.jsx(WrapperLogo, { style: { cursor: 'pointer' }, onClick: onClickHome, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), isMobileVersion &&
                                             jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: 'fit-content', justifyContent: 'flex-end' }, children: [!isMobileVersion && notification &&
-                                                    jsxRuntime.jsx(WrapperIconNotification, { onClick: handleNotification, children: jsxRuntime.jsxs("span", { style: { display: 'inline-flex', color: '#FFF' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", haveNotification && jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }), " \u00A0 ", textNotification, " "] }) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                                    jsxRuntime.jsx(WrapperIconNotification, { onClick: handleNotification, children: jsxRuntime.jsxs("span", { style: { display: 'inline-flex', color: '#FFF' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", haveNotification && jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }), " \u00A0 ", textNotification, " "] }) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
                                                         marginLeft: isMobileVersion ? '0px' : '5px',
                                                         marginRight: isMobileVersion ? '0px' : '5px'
                                                     } }), !isMobileVersion && languages && languages.length > 0 &&
@@ -6228,7 +6233,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                 :
                     jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28' }) }), jsxRuntime.jsx(WrapperMenu, { children: menu && menu.length > 0 && menu.map((item, index) => {
                                         return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'default', type: 'menu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
-                                    }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: 'default', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion }) }), languages && languages.length > 0 &&
+                                    }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: 'default', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText }) }), languages && languages.length > 0 &&
                                     jsxRuntime.jsx(LanguagesDropdown, { variant: 'default', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' })] }) }) }));
 }
 function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
