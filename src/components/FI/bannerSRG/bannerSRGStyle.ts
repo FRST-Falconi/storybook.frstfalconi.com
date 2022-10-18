@@ -28,7 +28,7 @@ export const ContainerBanner = styled.div<{bannerNormal, bannerResponsive}>`
         }
     }
 
-    @media (max-width: 749px) {
+    @media (max-width: 870px) {
         background-image: url("${({bannerResponsive}) => bannerResponsive}");
         height: 745px;
 
@@ -47,9 +47,11 @@ export const ContainerBanner = styled.div<{bannerNormal, bannerResponsive}>`
             }
         }
         & > div:nth-child(4) {
-            min-width: 360px;
-            max-width: 360px;
-            
+            min-width: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+
             & > div:nth-child(1) {
                 width: 270px;
                 margin-left: 0px;
