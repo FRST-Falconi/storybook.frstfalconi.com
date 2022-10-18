@@ -9,4 +9,6 @@ export declare const TitleSRG: import("styled-components").StyledComponent<"div"
 export declare const DescriptionSRG: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const SpeechBubble: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const HelperText: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const FrstSocials: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const ItemFrstSocials: import("styled-components").StyledComponent<"button", any, {}, never>;
 //# sourceMappingURL=bannerSRGStyle.d.ts.map

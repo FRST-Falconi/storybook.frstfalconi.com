@@ -24,5 +24,7 @@ export interface IBannerSRG {
     acessHere?: {
         label?: string, 
         action?: () => void
-    }
+    },
+    lateralMenu: any,
+    social: any
 }

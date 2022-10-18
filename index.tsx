@@ -82,3 +82,4 @@ export { default as CardsTrailsCarousel} from './src/components/card-trail-carou
 export { default as ChallengeCard } from './src/components/challenge-cards'
 export { default as SearchBox } from './src/components/FI/searchBox'
 export { default as BannerSRG } from './src/components/FI/bannerSRG'
+export { default as LateralMenu } from './src/components/lateral-menu'
