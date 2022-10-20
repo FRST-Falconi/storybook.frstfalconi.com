@@ -57,6 +57,7 @@ export interface IGlobalMenu {
     onChangeLanguage?: (e) => void,
     
     onClickHome ?: () => void,
+    onClickExit ?: () => void,
     
     onClickSite ?: () => void,
     onClickLinkedin ?: () => void,
