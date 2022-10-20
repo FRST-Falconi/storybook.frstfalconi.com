@@ -1,7 +1,7 @@
 import React from "react"
 
 export type enumVariant = 'default' | 'LXP';
-export type enumLanguages = 'pt' | 'es' | 'en';
+export type enumLanguages = 'pt-BR' | 'es' | 'en-US' | 'pt-PT';
 
 export interface ILanguagesDropdown {
     variant?: enumVariant,

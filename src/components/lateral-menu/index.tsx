@@ -50,6 +50,7 @@ export default function LateralMenu({ variant, hiddenButtonHeader, avatar, name,
                     { listOptions && listOptions.length > 0 && listOptions.map((item, index) => {
                         return (
                         <IItemLateralMenu 
+                            key={index}
                             label={item.label}
                             button={item.button}
                             beginComponent={item.beginComponent}

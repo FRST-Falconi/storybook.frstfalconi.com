@@ -122,12 +122,12 @@ const labels = {
         view: 'Visualizar',
         newProject: 'Criar novo projeto',
         tagStep: {
-            incompleteMars: 'Problema Criado',
-            mars: 'Problema Definido',
+            incompleteMars: 'Problema criado',
+            mars: 'Problema definido',
             jupiter: 'Hipóteses levantadas',
             saturn: 'Testes realizados',
             uranus: 'Resultados e aprendizados',
-            neptune: 'Próximos Passos',
+            neptune: 'Próximos passos',
             completed: 'Finalizado'
         },
         nameStep: {
@@ -240,9 +240,9 @@ export function MoreVerticalMenu({textContinue, textDelete, handleContinue, hand
             { variant != 'completed' &&
                 <StylesDrop.MenuItemCustom 
                     onClick={() => handleSelect([true, false])} 
-                    style={{color: activeClick[1] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB'}}
+                    style={{color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB'}}
                 >                
-                    <EditIcon width='16' height='16'/>
+                    <EditIcon width='16' height='16' fill={activeClick[0] ? '#663366' : '#0645AD'}/>
                     <StylesDrop.TextOption>{textContinue}</StylesDrop.TextOption>
                 </StylesDrop.MenuItemCustom>
             }

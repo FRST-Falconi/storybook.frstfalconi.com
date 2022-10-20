@@ -27,7 +27,7 @@ var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
 var styles$1 = require('@material-ui/core/styles');
 var Rating$2 = require('@mui/material/Rating');
-var Typography$1 = require('@mui/material/Typography');
+var Typography$2 = require('@mui/material/Typography');
 var reactDateRange = require('react-date-range');
 var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
@@ -80,7 +80,7 @@ var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
 var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$3);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
-var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$1);
+var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$2);
 var Avatar__default = /*#__PURE__*/_interopDefaultLegacy(Avatar$1);
 var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 
@@ -99,8 +99,17 @@ function DownloadIcon({ fill, width, height }) {
 function DropdownIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "16", height: height ? height : "16", children: jsxRuntime.jsx("path", { d: "M2 8l6 6 6-6z", fill: fill ?? "white" }) }));
 }
+function DropdownIconLine({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "18", height: height ? height : "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 9L9 1L17 9", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+}
 function DropdownSideIconWhite({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "7", height: height ? height : "12", viewBox: "0 0 7 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.31359 6.34315L0.656738 0.686292V12L6.31359 6.34315Z", fill: fill ?? "white" }) }));
+}
+function ExitArrow({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "17", height: height ? height : "18", viewBox: "0 0 17 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M6.33333 17H2.77778C2.30628 17 1.8541 16.8127 1.5207 16.4793C1.1873 16.1459 1 15.6937 1 15.2222V2.77778C1 2.30628 1.1873 1.8541 1.5207 1.5207C1.8541 1.1873 2.30628 1 2.77778 1H6.33333", stroke: fill ? fill : "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.5557 13.4444L16.0001 8.99999L11.5557 4.55554", stroke: fill ? fill : "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 9L6 9", stroke: fill ? fill : "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function BackArrow({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "17", height: height ? height : "14", viewBox: "0 0 17 14", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M15.332 8C15.8843 8 16.332 7.55228 16.332 7C16.332 6.44772 15.8843 6 15.332 6L3.40622 6L7.68046 1.70543C8.07006 1.31398 8.06856 0.680815 7.67711 0.291218C7.28566 -0.098379 6.65249 -0.0968769 6.2629 0.294573L0.291298 6.29457C0.175179 6.41124 0.0937843 6.54942 0.0471172 6.69624C0.0298405 6.75049 0.017067 6.80676 0.00923729 6.86459C-0.00297165 6.95442 -0.00297165 7.04558 0.00923729 7.13541C0.0170536 7.19315 0.0298004 7.24933 0.0470371 7.30351C0.0936909 7.45042 0.175112 7.58869 0.291298 7.70543L6.2629 13.7054C6.65249 14.0969 7.28566 14.0984 7.67711 13.7088C8.06856 13.3192 8.07006 12.686 7.68046 12.2946L3.40622 8H15.332Z", fill: fill ?? "#0645AD" }) }));
 }
 function CheckboxChecked({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.5", y: "0.5", width: "15", height: "15", rx: "1.5", fill: "#F35F24", stroke: "#F35F24" }), jsxRuntime.jsx("path", { d: "M13 4L6.125 11L3 7.81818", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -225,6 +234,9 @@ function MailBordered({ fill, width, height }) {
 function MessageCheckLine({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
 }
+function IconNotification({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M18.2843 18.389H5.71573C5.09953 18.389 4.6 17.8895 4.6 17.2733C4.6 17.0869 4.6467 16.9034 4.73583 16.7397L4.20888 16.4528L4.73583 16.7397L5.28347 15.7339C5.49118 15.3524 5.6 14.925 5.6 14.4906V10.9998C5.6 7.4652 8.46538 4.59982 12 4.59982C15.5346 4.59982 18.4 7.4652 18.4 10.9998V14.4906C18.4 14.925 18.5088 15.3524 18.7165 15.7339L19.2642 16.7397C19.3533 16.9034 19.4 17.0869 19.4 17.2733C19.4 17.8895 18.9005 18.389 18.2843 18.389Z", stroke: fill ? fill : "#FFD600", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M10 4.99982L10 3.99982C10 2.89526 10.8954 1.99982 12 1.99982V1.99982C13.1046 1.99982 14 2.89526 14 3.99982V4.99982", stroke: fill ? fill : "#FFD600", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M9 18.9998V18.9998C9 20.6567 10.3431 21.9998 12 21.9998V21.9998C13.6569 21.9998 15 20.6567 15 18.9998V18.9998", stroke: fill ? fill : "#FFD600", strokeWidth: "1.2" })] }));
+}
 function LinkedinIconMentor() {
     return jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "16", height: "16", rx: "2", fill: "#0274B3" }), jsxRuntime.jsx("path", { d: "M10.6673 6C11.5514 6 12.3992 6.35659 13.0243 6.99133C13.6495 7.62607 14.0007 8.48696 14.0007 9.38462V13.3333H11.7784V9.38462C11.7784 9.0854 11.6614 8.79843 11.453 8.58685C11.2446 8.37527 10.962 8.25641 10.6673 8.25641C10.3726 8.25641 10.09 8.37527 9.88164 8.58685C9.67327 8.79843 9.55621 9.0854 9.55621 9.38462V13.3333H7.33398V9.38462C7.33398 8.48696 7.68517 7.62607 8.3103 6.99133C8.93542 6.35659 9.78326 6 10.6673 6Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M5.33268 6.66699H2.66602V13.3337H5.33268V6.66699Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M3.99935 5.33366C4.73573 5.33366 5.33268 4.73671 5.33268 4.00033C5.33268 3.26395 4.73573 2.66699 3.99935 2.66699C3.26297 2.66699 2.66602 3.26395 2.66602 4.00033C2.66602 4.73671 3.26297 5.33366 3.99935 5.33366Z", fill: "white" })] });
 }
@@ -266,6 +278,24 @@ function PlayLineIcon({ fill }) {
 }
 function PlayFilledIcon({ fill }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z", fill: "#FF4D0D", stroke: "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10 9L15 12L10 15V9Z", fill: "white", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function SiteIcon({ fill }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("g", { clipPath: "url(#clip0_1957_36176)", children: jsxRuntime.jsx("path", { d: "M11.9958 0C8.81434 0 5.76315 1.26428 3.5135 3.51472C1.26384 5.76516 0 8.8174 0 12C0 15.1826 1.26384 18.2348 3.5135 20.4853C5.76315 22.7357 8.81434 24 11.9958 24C15.1773 24 18.2285 22.7357 20.4782 20.4853C22.7278 18.2348 23.9917 15.1826 23.9917 12C23.9917 8.8174 22.7278 5.76516 20.4782 3.51472C18.2285 1.26428 15.1773 0 11.9958 0V0ZM1.47949 12.9067H4.82499C4.87831 14.12 5.04758 15.3253 5.33148 16.5067H2.45248C1.91561 15.3745 1.58606 14.1552 1.47949 12.9067ZM12.9022 5.70667V1.58667C14.1867 2.07497 15.2421 3.02616 15.8612 4.25333C16.1344 4.716 16.3756 5.19733 16.5809 5.69333L12.9022 5.70667ZM17.194 7.50667C17.5033 8.684 17.6872 9.89067 17.7405 11.1067H12.9022V7.50667H17.194ZM11.0895 1.58667V5.70667H7.41076C7.61637 5.21026 7.85689 4.72906 8.13051 4.26667C8.74692 3.03447 9.80272 2.07821 11.0895 1.58667ZM11.0895 7.50667V11.1067H6.26449C6.31781 9.89067 6.50174 8.684 6.81097 7.50667H11.0895ZM4.82499 11.0933H1.47949C1.58606 9.84479 1.91561 8.62549 2.45248 7.49333H5.33148C5.04704 8.67419 4.87742 9.87981 4.82499 11.0933ZM6.26449 12.9067H11.0895V16.5067H6.81097C6.50179 15.3294 6.3186 14.1226 6.26449 12.9067ZM11.1028 18.24V22.36C9.81835 21.8717 8.76288 20.9205 8.14384 19.6933C7.87022 19.2309 7.6297 18.7497 7.42409 18.2533L11.1028 18.24ZM12.9022 22.36V18.3067H16.5809C16.3753 18.8031 16.1348 19.2843 15.8612 19.7467C15.2421 20.9738 14.1867 21.925 12.9022 22.4133V22.36ZM12.9022 16.44V12.84H17.7272C17.6731 14.056 17.4899 15.2628 17.1807 16.44H12.9022ZM19.18 12.84H22.5255C22.4189 14.0885 22.0894 15.3078 21.5525 16.44H18.6602C18.9401 15.28 19.1094 14.0973 19.1667 12.9067L19.18 12.84ZM19.18 11.04C19.119 9.84841 18.9449 8.66532 18.6602 7.50667H21.5392C22.0763 8.64 22.4056 9.85867 22.5122 11.1067L19.18 11.04ZM20.5129 5.70667H18.127C17.6954 4.49373 17.0696 3.35897 16.2743 2.34667C17.9329 3.09144 19.3736 4.24807 20.4596 5.70667H20.5129ZM7.71732 2.34667C6.92202 3.35897 6.29632 4.49373 5.86463 5.70667H3.53211C4.61803 4.24807 6.05872 3.09144 7.71732 2.34667ZM3.51878 18.3467H5.86463C6.29632 19.5596 6.92202 20.6944 7.71732 21.7067C6.05413 20.9507 4.61299 19.7799 3.53211 18.3067L3.51878 18.3467ZM16.261 21.7067C17.0563 20.6944 17.682 19.5596 18.1137 18.3467H20.4596C19.367 19.7857 17.9269 20.9235 16.2743 21.6533L16.261 21.7067Z", fill: fill ? fill : "white" }) }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_1957_36176", children: jsxRuntime.jsx("rect", { width: "23.9917", height: "24", fill: fill ? fill : "white" }) }) })] }));
+}
+function LinkedinIcon({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "25", height: height ? height : "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M24.0164 0H1.94404C1.41323 0 0.984375 0.429 0.984375 0.96V23.04C0.984375 23.571 1.41323 24 1.94404 24H24.0164C24.5472 24 24.976 23.571 24.976 23.04V0.96C24.976 0.429 24.5472 0 24.0164 0ZM8.1009 20.451H4.54114V8.997H8.1009V20.451ZM6.32252 7.431C5.91444 7.431 5.51553 7.30995 5.17622 7.08315C4.83692 6.85636 4.57246 6.534 4.4163 6.15686C4.26013 5.77971 4.21927 5.36471 4.29888 4.96433C4.3785 4.56396 4.575 4.19619 4.86356 3.90753C5.15211 3.61888 5.51976 3.4223 5.91999 3.34266C6.32023 3.26302 6.73509 3.30389 7.11211 3.46011C7.48912 3.61633 7.81136 3.88088 8.03808 4.2203C8.2648 4.55973 8.3858 4.95878 8.3858 5.367C8.38281 6.507 7.45913 7.431 6.32252 7.431ZM21.4283 20.451H17.8715V14.88C17.8715 13.551 17.8475 11.844 16.0212 11.844C14.1708 11.844 13.8859 13.29 13.8859 14.784V20.451H10.3321V8.997H13.7449V10.563H13.7929C14.2668 9.663 15.4274 8.712 17.1608 8.712C20.7655 8.712 21.4283 11.085 21.4283 14.169V20.451Z", fill: fill ? fill : "white" }) }));
+}
+function InstagramIcon({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "25", height: height ? height : "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M12.9594 5.84273C9.55335 5.84273 6.8045 8.59254 6.8045 11.9998C6.8045 15.407 9.55335 18.1568 12.9594 18.1568C16.3655 18.1568 19.1143 15.407 19.1143 11.9998C19.1143 8.59254 16.3655 5.84273 12.9594 5.84273ZM12.9594 16.0014C10.7567 16.0014 8.95917 14.2032 8.95917 11.9998C8.95917 9.79633 10.7567 7.99815 12.9594 7.99815C15.1621 7.99815 16.9596 9.79633 16.9596 11.9998C16.9596 14.2032 15.1621 16.0014 12.9594 16.0014ZM19.3664 4.15562C18.5711 4.15562 17.9289 4.79804 17.9289 5.59357C17.9289 6.38909 18.5711 7.03151 19.3664 7.03151C20.1616 7.03151 20.8038 6.39209 20.8038 5.59357C20.8041 5.40467 20.7671 5.21758 20.6949 5.04301C20.6227 4.86844 20.5169 4.70983 20.3833 4.57626C20.2498 4.44269 20.0913 4.33678 19.9168 4.2646C19.7423 4.19242 19.5552 4.15539 19.3664 4.15562ZM24.9571 11.9998C24.9571 10.3427 24.9721 8.70061 24.8791 7.04652C24.7861 5.12526 24.3479 3.42014 22.9435 2.01522C21.5361 0.607291 19.8345 0.172005 17.9139 0.0789442C16.2574 -0.014117 14.6159 0.000892919 12.9624 0.000892919C11.3059 0.000892919 9.66439 -0.014117 8.01087 0.0789442C6.09028 0.172005 4.38575 0.610293 2.98131 2.01522C1.57388 3.42314 1.13874 5.12526 1.04571 7.04652C0.952685 8.70361 0.967689 10.3457 0.967689 11.9998C0.967689 13.6539 0.952685 15.2989 1.04571 16.953C1.13874 18.8743 1.57688 20.5794 2.98131 21.9843C4.38875 23.3923 6.09028 23.8275 8.01087 23.9206C9.66739 24.0137 11.3089 23.9987 12.9624 23.9987C14.6189 23.9987 16.2604 24.0137 17.9139 23.9206C19.8345 23.8275 21.5391 23.3893 22.9435 21.9843C24.3509 20.5764 24.7861 18.8743 24.8791 16.953C24.9751 15.2989 24.9571 13.6569 24.9571 11.9998ZM22.3163 19.0784C22.0972 19.6248 21.8332 20.0331 21.41 20.4533C20.9869 20.8766 20.5818 21.1408 20.0356 21.3599C18.4571 21.9873 14.7089 21.8462 12.9594 21.8462C11.2099 21.8462 7.4587 21.9873 5.88021 21.3629C5.33404 21.1438 4.92592 20.8796 4.50579 20.4563C4.08266 20.0331 3.81857 19.6278 3.59951 19.0814C2.97531 17.4994 3.11636 13.7499 3.11636 11.9998C3.11636 10.2496 2.97531 6.49716 3.59951 4.91812C3.81857 4.37176 4.08266 3.9635 4.50579 3.54322C4.92892 3.12294 5.33404 2.85577 5.88021 2.63662C7.4587 2.01221 11.2099 2.15331 12.9594 2.15331C14.7089 2.15331 18.4601 2.01221 20.0386 2.63662C20.5848 2.85577 20.9929 3.11994 21.413 3.54322C21.8362 3.9665 22.1002 4.37176 22.3193 4.91812C22.9435 6.49716 22.8025 10.2496 22.8025 11.9998C22.8025 13.7499 22.9435 17.4994 22.3163 19.0784Z", fill: fill ? fill : "white" }) }));
+}
+function YoutubeIcon({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "25", height: height ? height : "17", viewBox: "0 0 25 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M24.4411 2.62768C24.3046 2.11885 24.0368 1.65483 23.6646 1.28206C23.2924 0.909287 22.8289 0.640836 22.3205 0.503572C20.4488 1.02179e-07 12.946 0 12.946 0C12.946 0 5.44328 -1.02179e-07 3.57161 0.500893C3.06291 0.637712 2.59915 0.906014 2.22691 1.27886C1.85467 1.6517 1.58704 2.11595 1.45091 2.625C0.950195 4.5 0.950195 8.41071 0.950195 8.41071C0.950195 8.41071 0.950195 12.3214 1.45091 14.1938C1.72671 15.2277 2.54071 16.042 3.57161 16.3179C5.44328 16.8214 12.946 16.8214 12.946 16.8214C12.946 16.8214 20.4488 16.8214 22.3205 16.3179C23.354 16.042 24.1653 15.2277 24.4411 14.1938C24.9419 12.3214 24.9419 8.41071 24.9419 8.41071C24.9419 8.41071 24.9419 4.5 24.4411 2.62768ZM10.5629 12V4.82143L16.7751 8.38393L10.5629 12Z", fill: fill ? fill : "white" }) }));
+}
+function SpotifyIcon({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "25", height: height ? height : "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M20.007 10.68C16.1683 8.4 9.75053 8.16 6.0918 9.3C5.49201 9.48 4.89222 9.12 4.71228 8.58C4.53234 7.98 4.89222 7.38 5.43203 7.2C9.69055 5.94 16.7081 6.18 21.1466 8.82C21.6864 9.12 21.8663 9.84 21.5664 10.38C21.2665 10.8 20.5468 10.98 20.007 10.68ZM19.887 14.04C19.5871 14.46 19.0473 14.64 18.6274 14.34C15.3886 12.36 10.4703 11.76 6.69159 12.96C6.21176 13.08 5.67195 12.84 5.55199 12.36C5.43203 11.88 5.67195 11.34 6.15178 11.22C10.5303 9.9 15.9284 10.56 19.6471 12.84C20.007 13.02 20.1869 13.62 19.887 14.04ZM18.4475 17.34C18.2076 17.7 17.7877 17.82 17.4279 17.58C14.6088 15.84 11.0701 15.48 6.87153 16.44C6.45168 16.56 6.0918 16.26 5.97184 15.9C5.85189 15.48 6.15178 15.12 6.51166 15C11.0701 13.98 15.0287 14.4 18.1476 16.32C18.5675 16.5 18.6274 16.98 18.4475 17.34ZM12.9294 0C11.3541 0 9.79422 0.310389 8.33882 0.913446C6.88342 1.5165 5.56101 2.40042 4.44709 3.51472C2.19744 5.76516 0.933594 8.8174 0.933594 12C0.933594 15.1826 2.19744 18.2348 4.44709 20.4853C5.56101 21.5996 6.88342 22.4835 8.33882 23.0866C9.79422 23.6896 11.3541 24 12.9294 24C16.1109 24 19.1621 22.7357 21.4118 20.4853C23.6614 18.2348 24.9253 15.1826 24.9253 12C24.9253 10.4241 24.615 8.86371 24.0121 7.4078C23.4093 5.95189 22.5257 4.62902 21.4118 3.51472C20.2978 2.40042 18.9754 1.5165 17.52 0.913446C16.0646 0.310389 14.5047 0 12.9294 0Z", fill: fill ? fill : "white" }) }));
+}
+function PodCastIcon({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "25", height: height ? height : "23", viewBox: "0 0 25 23", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M18.6251 19.1429V22.8571H7.20053V19.1429C7.20053 17.5657 9.75964 16.2857 12.9128 16.2857C16.066 16.2857 18.6251 17.5657 18.6251 19.1429ZM12.9128 4.57143C14.8823 4.57143 16.7712 5.35408 18.1638 6.74721C19.5564 8.14033 20.3388 10.0298 20.3388 12C20.3388 13.4286 19.939 14.7657 19.2421 15.8971L17.4827 14.3314C17.8483 13.6343 18.0539 12.8343 18.0539 12C18.0539 9.14286 15.769 6.85714 12.9128 6.85714C10.0567 6.85714 7.77176 9.14286 7.77176 12C7.77176 12.8343 7.9774 13.6343 8.34299 14.3314L6.5836 15.8971C5.8867 14.7657 5.48684 13.4286 5.48684 12C5.48684 10.0298 6.26922 8.14033 7.66186 6.74721C9.0545 5.35408 10.9433 4.57143 12.9128 4.57143ZM12.9128 0C16.0943 0 19.1455 1.26428 21.3952 3.51472C23.6448 5.76515 24.9087 8.8174 24.9087 12C24.9087 14.6057 24.0747 17.0171 22.6694 18.9829L20.9557 17.44C22.0068 15.8857 22.6237 14.0114 22.6237 12C22.6237 9.42361 21.6006 6.95274 19.7795 5.13096C17.9583 3.30918 15.4883 2.28571 12.9128 2.28571C10.3373 2.28571 7.86733 3.30918 6.04618 5.13096C4.22503 6.95274 3.20192 9.42361 3.20192 12C3.20192 14.0114 3.81885 15.8857 4.86991 17.44L3.15622 18.9829C1.69784 16.9469 0.914658 14.5047 0.916997 12C0.916997 8.8174 2.18084 5.76515 4.4305 3.51472C6.68015 1.26428 9.73134 0 12.9128 0ZM12.9128 9.14286C13.6703 9.14286 14.3968 9.44388 14.9324 9.97969C15.4681 10.5155 15.769 11.2422 15.769 12C15.769 12.7578 15.4681 13.4845 14.9324 14.0203C14.3968 14.5561 13.6703 14.8571 12.9128 14.8571C12.1553 14.8571 11.4289 14.5561 10.8932 14.0203C10.3576 13.4845 10.0567 12.7578 10.0567 12C10.0567 11.2422 10.3576 10.5155 10.8932 9.97969C11.4289 9.44388 12.1553 9.14286 12.9128 9.14286Z", fill: fill ? fill : "white" }) }));
 }
 
 function styleInject(css, ref) {
@@ -468,7 +498,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$7 = styled__default["default"](Card__default["default"]) `
+const Container$8 = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -674,9 +704,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$7, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$8, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$7, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$8, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -1895,7 +1925,7 @@ const Label$1 = styled__default["default"].label `
         color: ${({ theme }) => theme.colors.messageError1};
     `}
 `;
-const HelperText$1 = styled__default["default"].span `
+const HelperText$2 = styled__default["default"].span `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 400;
@@ -1939,7 +1969,7 @@ function TextField(props) {
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && ((props.type === 'password')
                             ? jsxRuntime.jsx(InputIconButton, { onClick: handleTogglePasswordVisibility, children: props.endIcon })
-                            : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText$1, { children: props.helperText })] }) }));
+                            : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText$2, { children: props.helperText })] }) }));
 }
 
 function Textarea(props) {
@@ -2005,7 +2035,7 @@ styled__default["default"].div `
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 `;
-const HelperText = styled__default["default"].span `
+const HelperText$1 = styled__default["default"].span `
     display: flex;
     position: absolute;
     align-items: center;
@@ -2077,7 +2107,7 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
             setIsVisibleEmojiWindow(false);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsx(InputWrapper, { focus: focus, children: jsxRuntime.jsx(InputText$2, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }) }), showCharacterCounter &&
-                    jsxRuntime.jsxs(HelperText, { children: [limit - remain, "/", limit] })] }) }));
+                    jsxRuntime.jsxs(HelperText$1, { children: [limit - remain, "/", limit] })] }) }));
     function resizeTextArea() {
         let tx = document.getElementById(iDInputComment);
         const txResize = (tx) => {
@@ -2355,7 +2385,7 @@ const SpeechBubbleWrapper = styled__default["default"].div `
     height: ${props => props.height ? props.height : "auto"};
     min-height: 20px
 `;
-const SpeechBubble$1 = styled__default["default"].div `
+const SpeechBubble$2 = styled__default["default"].div `
     width: auto;
     height: inherit;
     min-height: 20px;
@@ -2447,8 +2477,8 @@ const StyleFlapLeftBottom = (props) => {
         }`);
 };
 
-function SpeechBubble(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(SpeechBubbleWrapper, { className: props.className, height: props.height, width: props.width, children: [jsxRuntime.jsx(Flap, { highlight: props.highlight, flap: props.flap }), jsxRuntime.jsx(SpeechBubble$1, { highlight: props.highlight, flap: props.flap, children: props.children })] }) }));
+function SpeechBubble$1(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(SpeechBubbleWrapper, { className: props.className, height: props.height, width: props.width, children: [jsxRuntime.jsx(Flap, { highlight: props.highlight, flap: props.flap }), jsxRuntime.jsx(SpeechBubble$2, { highlight: props.highlight, flap: props.flap, children: props.children })] }) }));
 }
 
 function buildStringWithLinkHTML({ value }) {
@@ -2545,7 +2575,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
         (isOpenDrop) && (finalColor = '#ff4d0d'); // Selected
         return finalColor;
     };
-    return (jsxRuntime.jsx("div", { style: { width: 'auto', ...styles }, children: jsxRuntime.jsxs(SpeechBubble, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper$1, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name$1, { children: [" ", size[0] > WIDTH_MOBILE ? name : buildShortName(name), " "] }), isMe &&
+    return (jsxRuntime.jsx("div", { style: { width: 'auto', ...styles }, children: jsxRuntime.jsxs(SpeechBubble$1, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper$1, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name$1, { children: [" ", size[0] > WIDTH_MOBILE ? name : buildShortName(name), " "] }), isMe &&
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsxs(IsMe, { children: [" ", textYou, " "] })] }), size[0] > WIDTH_MOBILE ?
                                             ((isPrivateAuthor || isPrivateMe) &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
@@ -2626,7 +2656,7 @@ const WrapperHorizontal = styled__default["default"].div `
     width: 100%;
     height: auto;
 `;
-const WrapperContent$1 = styled__default["default"].div `
+const WrapperContent$2 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -2736,7 +2766,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
-                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(WrapperContent$1, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
+                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(WrapperContent$2, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
                             jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollRight })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' &&
                         jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px' }, children: [jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollRight })] }) })] }) }));
 }
@@ -2799,7 +2829,7 @@ const CardWrapper$2 = styled__default["default"].div `
     margin: 15px;   
     cursor: pointer;
 `;
-const WrapperHeader$1 = styled__default["default"].div `
+const WrapperHeader$2 = styled__default["default"].div `
     display: flex;
     flex-diretion: row;
     padding-left: 3.2px;
@@ -2868,7 +2898,7 @@ const ButtonMore = styled__default["default"].div `
 `;
 
 function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, width }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$3, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader$2, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$3, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
 }
 
 function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, textClearFilter, textViewMore }) {
@@ -3137,7 +3167,7 @@ function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems }) 
     return (jsxRuntime.jsx(Select$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
-const Container$6 = styled__default["default"].div `
+const Container$7 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -3228,7 +3258,7 @@ const ButtonAction$1 = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$6, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
                             jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText$1, { placeholder: placeholder, onChange: onChange, value: value }), jsxRuntime.jsxs(ButtonAction$1, { onClick: () => handleClickButton(), children: [" ", textButton, " "] })] })] }) }));
 }
@@ -3308,7 +3338,7 @@ const TextTotalTab = styled__default["default"].div `
 const TextTitleTab = styled__default["default"].div `
     white-space: nowrap;
 `;
-const WrapperContent = styled__default["default"].div `
+const WrapperContent$1 = styled__default["default"].div `
 
     background-color: transparent;
     padding-top: 30px;
@@ -3358,7 +3388,7 @@ function AccordionTabs({ titleAccordion, typeAccordion, typeButtonTab, titleTabs
         return TabComponent;
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [titleAccordion && jsxRuntime.jsxs(TitleAccordion, { children: [" ", titleAccordion, " "] }), typeAccordion == 'horizontal' ? (jsxRuntime.jsxs(WrapperHeaderTabs, { children: [jsxRuntime.jsx(ContainerTitleTabs, { id: "scrollTabsAccordion", children: titleTabs.map(renderTitles) }), hasCleanButton &&
-                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
+                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$1, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
 }
 
 const CheckBoxWrapper = styled__default["default"].div `
@@ -3804,7 +3834,7 @@ function CardResultConquista(props) {
                                     jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$4.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$4.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
 }
 
-const WrapperCard$3 = styled__default["default"].div `
+const WrapperCard$4 = styled__default["default"].div `
     width: 343px;
     min-height: 136px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey4};
@@ -3824,7 +3854,7 @@ const WrapperTitle = styled__default["default"].div `
 const TitleCard$1 = styled__default["default"].p `
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
 `;
-const WrapperButton = styled__default["default"].div `
+const WrapperButton$2 = styled__default["default"].div `
     margin-top: 26px;
     margin-left: 26px;
     display: flex;
@@ -3834,7 +3864,7 @@ const WrapperButton = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$3, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$4, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$2, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
 function ConquistaCarrossel$1({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
@@ -4066,7 +4096,7 @@ function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
                 jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
 }
 
-const WrapperCard$2 = styled__default["default"].div `
+const WrapperCard$3 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -4100,7 +4130,7 @@ const WrapperDescription = styled__default["default"].div `
 `;
 
 function ObjectiveStep({ description, number }) {
-    return (jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
+    return (jsxRuntime.jsxs(WrapperCard$3, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
 const Wrapper$3 = styled__default["default"].div `
@@ -4423,7 +4453,7 @@ const AvatarChannel$1 = styled__default["default"].div `
         filter: grayscale(100%);
     `}
 `;
-const Channel = styled__default["default"].span `
+const Channel$1 = styled__default["default"].span `
     position: absolute;    
     display: flex;
     align-items: center;
@@ -4603,7 +4633,7 @@ function PopOver({ variant, children }) {
 }
 
 function AvatarChannel({ size, channel, className, disabled, color, onChange }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerGeral, { className: 'geral', children: [jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: 'hide', children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }), jsxRuntime.jsx(ContainerPopOver, { className: 'popOver', children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: 'lowLeft' }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerGeral, { className: 'geral', children: [jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: 'hide', children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }), jsxRuntime.jsx(ContainerPopOver, { className: 'popOver', children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: 'lowLeft' }) })] }) }));
 }
 
 var css_248z$4 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
@@ -4735,7 +4765,7 @@ function ButtonContent({ variant, label, disabled, startIcon, style, handleClick
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ButtonStartIcon, { style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] }) }));
 }
 
-const Container$5 = styled__default["default"].span `
+const Container$6 = styled__default["default"].span `
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -4776,7 +4806,7 @@ const Container$5 = styled__default["default"].span `
 `;
 
 const ColorPicker = props => {
-    return (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
+    return (jsxRuntime.jsxs(Container$6, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
 };
 function Colorpicker({ width, height, color, }) {
     const [state, updateState] = React.useState(color);
@@ -4787,7 +4817,7 @@ function Colorpicker({ width, height, color, }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ColorPicker, { onChange: handleInput, value: state, width: width, height: height }) }));
 }
 
-const Container$4 = styled__default["default"].div `
+const Container$5 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4883,7 +4913,7 @@ const ContentSwitcherSelected = styled__default["default"].button `
 
 function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon }) {
     const [isClicked, setIsClicked] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$4, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$5, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
                 setIsClicked(true);
             }, children: !isClicked ?
                 (jsxRuntime.jsxs(ContentSwitcher$1, { children: [startIcon, label] }))
@@ -4891,7 +4921,7 @@ function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon }) {
                     jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, children: [jsxRuntime.jsx(Noun, { fill: '#ffffff' }), label] }) }) }));
 }
 
-const Container$3 = styled__default["default"].div `
+const Container$4 = styled__default["default"].div `
     width: 270px;
     height: 409px;
     background-color: ${({ theme }) => theme.colors.primary2};
@@ -4915,7 +4945,7 @@ const Content = styled__default["default"].div `
     position: absolute ;
     margin-top: 340px;
 `;
-const Typography = styled__default["default"].p `
+const Typography$1 = styled__default["default"].p `
     width: 140px;
     height: 46px;    
     font-family: 'Work Sans';
@@ -5120,12 +5150,12 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
         console.log(newList);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ?
-            jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$3, { className: variant = 'individualCourse', children: [jsxRuntime.jsx(Image$2, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
+            jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$4, { className: variant = 'individualCourse', children: [jsxRuntime.jsx(Image$2, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography$1, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
                         jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })
                         :
                             null] })
             : variant === 'trilha' ?
-                jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: variant = 'trilha', children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
+                jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: variant = 'trilha', children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$1, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
                             jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })
                             :
                                 null] })
@@ -5263,7 +5293,7 @@ function HeaderContent(props) {
                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: style$2.content, children: RecomendationHeader(props.listaRecomendacao[selectedContent]) }), jsxRuntime.jsxs("div", { className: style$2.contadorConteudo, children: [jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(0); }, children: selectedContent === 0 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(1); }, children: selectedContent === 1 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(2); }, children: selectedContent === 2 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(3); }, children: selectedContent === 3 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(4); }, children: selectedContent === 4 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) })] })] }) }));
 }
 
-const Container$2 = styled__default["default"].div `
+const Container$3 = styled__default["default"].div `
   display: flex;
   width: 100%;
   height: 120px;
@@ -5304,10 +5334,10 @@ const Description = styled__default["default"].text `
 `;
 
 function SearchResults({ src, title, description, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { children: [jsxRuntime.jsx(Image$1, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(Image$1, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
 }
 
-const WrapperCard$1 = styled__default["default"].div `
+const WrapperCard$2 = styled__default["default"].div `
     width: 244px;
     min-height: 31px;
     display: flex;
@@ -5318,7 +5348,7 @@ const WrapperCard$1 = styled__default["default"].div `
 `;
 
 function StarMetric({ disabled, onChange }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard$1, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard$2, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
 }
 
 var css_248z$2 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
@@ -5426,10 +5456,11 @@ const MenuContainer = styled__default["default"].div `
     width: 100%;
     height: 64px;
 
-    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+    background: ${({ theme }) => theme.colors.neutralsGrey1};
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
     & > button {
         height: 100%;
     }
@@ -5460,7 +5491,6 @@ const WrapperRightInfo = styled__default["default"].div `
 `;
 const WrapperIconNotification = styled__default["default"].div `
     height: 100%;
-    width: 24px;
     margin-left: 10px;
     margin-right: 10px;
     cursor: pointer;
@@ -5517,8 +5547,33 @@ const ItemMenuMobile = styled__default["default"].div `
         background: #4444;
     }
 `;
+const footerMenuMobile = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-itens: center;
+    text-align: center;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
+    color: ${({ theme }) => theme.colors.shadeWhite};
+    border-color: ${({ theme }) => theme.colors.neutralsGrey3};
+    margin-top: 0px;
+    
+`;
+const frstSocials = styled__default["default"].div `
+    display:flex;
+    justify-content: center;
+    align-center: center;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 32px;
+`;
+const itemFrstSocials = styled__default["default"].button `
+    border: none;
+    background: none;
+    cursor: pointer;
+`;
 
-const Container$1 = styled__default["default"].div `
+const Container$2 = styled__default["default"].div `
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -5678,7 +5733,7 @@ function FieldSearch({ variant, value, placeholder, onChange, listResults, hasOp
         setLoading(false);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(Container$1, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon, { onClick: () => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => onChange(e), value: value })] }), loading ?
+            jsxRuntime.jsxs(Container$2, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon, { onClick: () => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => onChange(e), value: value })] }), loading ?
                         jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: '95px' }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
                         :
                             jsxRuntime.jsxs(WrapperResults, { style: { ...style }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.map((item, index) => {
@@ -5692,7 +5747,7 @@ function FieldSearch({ variant, value, placeholder, onChange, listResults, hasOp
                                                 return seeAll.onClick(e);
                                             }, children: seeAll.label })] })] })
             :
-                jsxRuntime.jsx(Container$1, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }));
+                jsxRuntime.jsx(Container$2, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }));
 }
 
 const Wrapper$1 = styled__default["default"].button `
@@ -5835,14 +5890,16 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
     const imgES = 'https://i.gyazo.com/1cfa904ea1d492ace9dc67c2a37a10e4.png';
     const imgBR = 'https://i.gyazo.com/ee7e65d12345200b8c3dd12670f85881.png';
     const imgEN = 'https://i.gyazo.com/06a0ea969c48c12589d5d5565cf834df.png';
+    const imgPT = 'https://i.gyazo.com/cb567fc306928d02d31bc876df58be40.png';
     const [isOpenDrop, setIsOpenDrop] = React.useState(false);
     const [activeArea, setActiveArea] = React.useState(false);
     const [activeImgFlag, setActiveImgFlag] = React.useState(imgBR);
     React.useEffect(() => {
         switch (selected) {
-            case 'pt': return setActiveImgFlag(imgBR);
-            case 'en': return setActiveImgFlag(imgEN);
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
             case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
         }
     }, [selected]);
     React.useEffect(() => {
@@ -5859,24 +5916,27 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
     const handleChangeSelect = (value) => {
         onSelect(value);
         switch (value) {
-            case 'pt': return setActiveImgFlag(imgBR);
-            case 'en': return setActiveImgFlag(imgEN);
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
             case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
         }
         setIsOpenDrop(false);
         setActiveArea(false);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
-                        return (jsxRuntime.jsx("div", { children: item == 'pt' ?
-                                jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                : item == 'es' ?
-                                    jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('en'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                    : item == 'en' &&
-                                        jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
+                        return (jsxRuntime.jsx("div", { children: item == 'pt-BR' ?
+                                jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                : item == 'en-US' ?
+                                    jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('en-US'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                    : item == 'pt-PT' ?
+                                        jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-PT'), src: imgPT, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                        : item == 'es' &&
+                                            jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
                     }) })] }) }));
 }
 
-const Container = styled__default["default"].div `
+const Container$1 = styled__default["default"].div `
   width: auto;
   height: auto;
 `;
@@ -6033,7 +6093,7 @@ const SubMenuItemCustom = styled__default["default"](MenuItem__default["default"
   }
 `;
 
-function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style }) {
+function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobileVersion, handleProfileMenuClick, style }) {
     const [anchorEl, setAnchorEl] = React__namespace.useState(null);
     const [anchorSub, setAnchorSub] = React__namespace.useState(null);
     const [subMenu, setSubMenu] = React__namespace.useState(null);
@@ -6054,8 +6114,8 @@ function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style 
         setAnchorSub(event.currentTarget);
         setSubMenu(subItens);
     };
-    return (jsxRuntime.jsx(Container, { style: { ...style }, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$1, { variant: 'secondary', label: 'Ver Perfil', handleClick: () => { alert('Click'); } }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+    return (jsxRuntime.jsx(Container$1, { style: { ...style }, children: variant == 'LXP' ?
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$1, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
                                         return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
@@ -6066,7 +6126,7 @@ function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style 
                             return jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'LXP', children: item.label }, item.id);
                         }) })] })
             :
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), jsxRuntime.jsxs(UserName, { children: [" ", user.name, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
                                         return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
@@ -6078,7 +6138,7 @@ function DropdownProfileMenu({ variant, user, menuItems, isMobileVersion, style 
                             }) })] }) }));
 }
 
-function GlobalMenu({ variant, menu, subMenu, user, search, notification, handleNotification, languages, languageSelected, onChangeLanguage, style }) {
+function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, profileMenuText }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -6119,7 +6179,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, handle
         search.onChange(value);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e) }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                                     paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
                                     paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
                                     ...style
@@ -6140,7 +6200,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, handle
                                                 width: isMobileVersion ? '180px' : '332px',
                                                 marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                             } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: '150px' }, children: [!isMobileVersion && notification &&
-                                                jsxRuntime.jsx(WrapperIconNotification, { children: jsxRuntime.jsx(IconNotification, {}) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                                jsxRuntime.jsx(WrapperIconNotification, { children: jsxRuntime.jsx(IconNotification, {}) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
                                                     marginLeft: isMobileVersion ? '0px' : '5px',
                                                     marginRight: isMobileVersion ? '0px' : '5px'
                                                 } }), !isMobileVersion && languages && languages.length > 0 &&
@@ -6152,24 +6212,52 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, handle
                                     }, children: subMenu.map((item, index) => {
                                         return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'submenu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
                                     }) })] })] })
+            : variant === 'default' ?
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                                        paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
+                                        paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
+                                        ...style
+                                    }, children: [isMobileVersion &&
+                                            jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
+                                            jsxRuntime.jsx(WrapperLogo, { style: { cursor: 'pointer' }, onClick: onClickHome, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), isMobileVersion &&
+                                            jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: 'fit-content', justifyContent: 'flex-end' }, children: [!isMobileVersion && notification &&
+                                                    jsxRuntime.jsx(WrapperIconNotification, { onClick: handleNotification, children: jsxRuntime.jsxs("span", { style: { display: 'inline-flex', color: '#FFF' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", haveNotification && jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }), " \u00A0 ", textNotification, " "] }) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                                        marginLeft: isMobileVersion ? '0px' : '5px',
+                                                        marginRight: isMobileVersion ? '0px' : '5px'
+                                                    } }), !isMobileVersion && languages && languages.length > 0 &&
+                                                    jsxRuntime.jsx(LanguagesDropdown, { variant: 'LXP', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' })] })] }), subMenu && subMenu.length > 0 &&
+                                    jsxRuntime.jsx(SubMenuContainer, { variant: variant, style: {
+                                            paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
+                                            paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
+                                            ...style
+                                        }, children: subMenu.map((item, index) => {
+                                            return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'submenu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
+                                        }) })] })] })
+                :
+                    jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28' }) }), jsxRuntime.jsx(WrapperMenu, { children: menu && menu.length > 0 && menu.map((item, index) => {
+                                        return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'default', type: 'menu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
+                                    }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: 'default', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText }) }), languages && languages.length > 0 &&
+                                    jsxRuntime.jsx(LanguagesDropdown, { variant: 'default', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' })] }) }) }));
+}
+function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+    return (jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' ?
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: items && items.length > 0 && items.map((item, index) => {
+                            if (item.label == 'Criar conteúdo')
+                                return;
+                            return jsxRuntime.jsx(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: item.label }, index);
+                        }) }), jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), style: { borderTop: '1px solid #444' }, children: languageSelected === 'en' ? 'Back' : 'Voltar' })] })
             :
-                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28' }) }), jsxRuntime.jsx(WrapperMenu, { children: menu && menu.length > 0 && menu.map((item, index) => {
-                                    return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'default', type: 'menu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
-                                }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: 'default', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion }) }), languages && languages.length > 0 &&
-                                jsxRuntime.jsx(LanguagesDropdown, { variant: 'default', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' })] }) }) }));
-}
-function MenuMobile({ items, isVisible, setVisible }) {
-    return (jsxRuntime.jsxs(MenuMobile$1, { isVisible: isVisible, children: [jsxRuntime.jsx("div", { children: items && items.length > 0 && items.map((item, index) => {
-                    if (item.label == 'Criar conteúdo')
-                        return;
-                    return jsxRuntime.jsx(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: item.label }, index);
-                }) }), jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), style: { borderTop: '1px solid #444' }, children: "Voltar" })] }));
-}
-function IconNotification() {
-    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M18.2843 18.389H5.71573C5.09953 18.389 4.6 17.8895 4.6 17.2733C4.6 17.0869 4.6467 16.9034 4.73583 16.7397L4.20888 16.4528L4.73583 16.7397L5.28347 15.7339C5.49118 15.3524 5.6 14.925 5.6 14.4906V10.9998C5.6 7.4652 8.46538 4.59982 12 4.59982C15.5346 4.59982 18.4 7.4652 18.4 10.9998V14.4906C18.4 14.925 18.5088 15.3524 18.7165 15.7339L19.2642 16.7397C19.3533 16.9034 19.4 17.0869 19.4 17.2733C19.4 17.8895 18.9005 18.389 18.2843 18.389Z", stroke: "#FFD600", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M10 4.99982L10 3.99982C10 2.89526 10.8954 1.99982 12 1.99982V1.99982C13.1046 1.99982 14 2.89526 14 3.99982V4.99982", stroke: "#FFD600", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M9 18.9998V18.9998C9 20.6567 10.3431 21.9998 12 21.9998V21.9998C13.6569 21.9998 15 20.6567 15 18.9998V18.9998", stroke: "#FFD600", strokeWidth: "1.2" })] }));
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Back' : 'Voltar'] }) }), items && items.length > 0 && items.map((item, index) => {
+                                    if (item.label == 'Criar conteúdo')
+                                        return;
+                                    return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
+                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Leave' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) }));
 }
 function IconHamburgerMenu() {
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs("svg", { width: "27", height: "33", viewBox: "0 0 27 33", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.46 2.4H6.23L4.79 6.42L4.28 8.06H4.26L3.76 6.41L2.31 2.4H1.08V9H1.84V4.85L1.75 3.11H1.76L3.93 9H4.61L6.78 3.11H6.79L6.7 4.85V9H7.46V2.4ZM13.6673 6.24C13.6673 4.95 12.8773 3.9 11.4273 3.9C9.91727 3.9 9.06727 4.88 9.06727 6.5C9.06727 8.12 9.97727 9.1 11.4873 9.1C12.5673 9.1 13.1873 8.69 13.5673 8.01L12.8973 7.66C12.7173 8.14 12.2173 8.4 11.4873 8.4C10.5673 8.4 9.95727 7.81 9.85727 6.8H13.6273C13.6473 6.66 13.6673 6.47 13.6673 6.24ZM11.4273 4.6C12.2773 4.6 12.7873 5.17 12.8973 6.09H9.86727C9.98727 5.15 10.5373 4.6 11.4273 4.6ZM17.6178 3.9C16.9278 3.9 16.2878 4.15 15.9378 4.78L15.8878 4H15.1878V9H15.9878V6.34C15.9878 5.06 16.8078 4.6 17.5378 4.6C18.2278 4.6 18.7678 4.97 18.7678 6.08V9H19.5678V5.8C19.5678 4.51 18.6878 3.9 17.6178 3.9ZM24.9092 4V6.72C24.9092 7.9 24.1592 8.4 23.3092 8.4C22.5892 8.4 22.1292 8.09 22.1292 7.06V4H21.3292V7.27C21.3292 8.59 22.1792 9.1 23.1692 9.1C23.9692 9.1 24.6092 8.84 24.9592 8.24L25.0092 9H25.7092V4H24.9092Z", fill: "white" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M0 15.5854C0 15.0332 0.447715 14.5854 1 14.5854H24.7843C25.3366 14.5854 25.7843 15.0332 25.7843 15.5854C25.7843 16.1377 25.3366 16.5854 24.7843 16.5854H1C0.447715 16.5854 0 16.1377 0 15.5854ZM0 23.6736C0 23.1213 0.447715 22.6736 1 22.6736H24.7843C25.3366 22.6736 25.7843 23.1213 25.7843 23.6736C25.7843 24.2259 25.3366 24.6736 24.7843 24.6736H1C0.447715 24.6736 0 24.2259 0 23.6736ZM1 30.7617C0.447715 30.7617 0 31.2094 0 31.7617C0 32.314 0.447715 32.7617 1 32.7617H24.7843C25.3366 32.7617 25.7843 32.314 25.7843 31.7617C25.7843 31.2094 25.3366 30.7617 24.7843 30.7617H1Z", fill: "white" })] }) }));
+}
+function HasNotificationIcon() {
+    return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { width: "10", height: "10", rx: "5", fill: "#FF4D0D" }) }) }));
 }
 
 var css_248z = ".extraContent-module_container__tV2ud {\n    background-color: #E0E0E0;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    font-family: 'PT Sans';\n    padding: 20px;\n}\n\n.extraContent-module_contentInfo__TGKPS {\n    padding: 32px 20px;\n}\n\n.extraContent-module_notes__I6JnG {\n    display: flex;\n    flex-direction: column;\n}\n\n.extraContent-module_saveNotes__DHETt {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    margin-top: 24px;\n}";
@@ -6594,7 +6682,7 @@ function ConquistaCarrossel({ objectCards, marginsArrowButton, sizeArrowButton, 
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
 }
 
-const WrapperCard = styled__default["default"].div `
+const WrapperCard$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     width: 282px;
@@ -6679,7 +6767,7 @@ const ContentCard = styled__default["default"].div `
     border-top-right-radius: 0px;
     border-top: 0px;
 `;
-const WrapperHeader = styled__default["default"].div `
+const WrapperHeader$1 = styled__default["default"].div `
     width: 100%;   
     display: flex;
     flex-direction: row;
@@ -6712,7 +6800,7 @@ const DescriptionProject = styled__default["default"].span `
     padding: 24px;
     padding-top: 16px;
 `;
-const DescriptionSRG = styled__default["default"].span `
+const DescriptionSRG$1 = styled__default["default"].span `
     flex: 1;
     font-family: 'PT Sans';
     font-style: normal;
@@ -6900,12 +6988,12 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
             setActiveClick(false);
         }, 700);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
-                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
+                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: description })
                             :
-                                jsxRuntime.jsx(DescriptionSRG, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), children: variant == 'srg' ?
+                                jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), children: variant == 'srg' ?
                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
                                 :
                                     label.view })] })] }) }));
@@ -6932,12 +7020,12 @@ const labels = {
         view: 'Visualizar',
         newProject: 'Criar novo projeto',
         tagStep: {
-            incompleteMars: 'Problema Criado',
-            mars: 'Problema Definido',
+            incompleteMars: 'Problema criado',
+            mars: 'Problema definido',
             jupiter: 'Hipóteses levantadas',
             saturn: 'Testes realizados',
             uranus: 'Resultados e aprendizados',
-            neptune: 'Próximos Passos',
+            neptune: 'Próximos passos',
             completed: 'Finalizado'
         },
         nameStep: {
@@ -7022,12 +7110,444 @@ function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDele
         }, 600);
     };
     return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant != 'completed' &&
-                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false]), style: { color: activeClick[1] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true]), style: { color: activeClick[1] ? '#A50000' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#A50000' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
+                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true]), style: { color: activeClick[1] ? '#A50000' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#A50000' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
+}
+
+const Container = styled__default["default"].div `
+    width: 100%;
+    min-height: 127px;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    border-radius: 8px;
+`;
+const Typography = styled__default["default"].div `
+    font-family: Work Sans;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    color: ${({ theme }) => theme.colors.primary1};
+    margin-top: 16px;
+    margin-left: 16px;
+`;
+const ContainerSearch = styled__default["default"].div `
+    margin: 24px 16px 16px 16px;
+`;
+
+function SearchBox(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container, { style: { ...props.style }, children: [jsxRuntime.jsx(Typography, { children: props.textTitle ? props.textTitle : props.textTitle }), jsxRuntime.jsx(ContainerSearch, { children: jsxRuntime.jsx(SearchField, { hasSearchIcon: true, textButton: props.textButton ? props.textButton : '', placeholder: props.textPlaceholder ? props.textPlaceholder : '', handleClickButton: props.handleClickSearchButton, onChange: props.onChange }) })] }) }));
+}
+
+const WrapperCard = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 0px 12px;
+
+    position: relative;
+    width: 282px;
+    height: auto;
+
+    background: ${({ theme }) => theme.colors.shadeWhite};
+
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+`;
+const WrapperHeader = styled__default["default"].div `
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`;
+const NameProfile = styled__default["default"].span `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+    margin-top: 16px;
+`;
+const Channel = styled__default["default"].span `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+    margin-top: 4px;
+`;
+const WrapperButton$1 = styled__default["default"].div `
+margin-top: 10px;
+
+`;
+const HR = styled__default["default"].hr `
+    border-top: 1px solid #BDBDBD;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+`;
+
+const WrapperItem = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+    background: ${({ theme }) => theme.colors.shadeWhite};
+    border-left: 4px solid ${({ active, theme }) => active ? theme.colors.primary1 : 'transparent'};
+
+    &:hover {
+        background: ${({ theme }) => theme.colors.neutralsGrey8};
+    }
+`;
+const WrapperMainLabel = styled__default["default"].span `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: ${({ active }) => active ? '700' : '400'};
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 8px;
+
+    color: ${({ theme, active }) => active ? theme.colors.primary1 : theme.colors.neutralsGrey1};
+`;
+const WrapperComponent = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    & > svg {
+        width: 24px;
+        height: 24px;
+    }
+`;
+// & > path {
+//     fill: ${({ theme, active }) => active ? theme.colors.primary1 : theme.colors.neutralsGrey1};
+// }
+const WrapperButton = styled__default["default"].div `
+    margin-right: 8px;
+    
+    & > button {
+        display: flex;
+        height: 24px;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 6px 8px;
+        gap: 10px;
+        border-radius: 4px;
+        
+        font-family: 'Work Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 12px;
+        z-index: 2;
+    }
+`;
+const WrapperIconDrop = styled__default["default"].div `
+    margin-right: 14px;
+    & > svg {
+        transition: all 0.3s ease-out;
+        transform: rotate(${({ isOpen }) => isOpen ? '0.5turn' : '0'});
+        & > path {
+            stroke: ${({ theme, isOpen }) => isOpen ? theme.colors.primary1 : theme.colors.neutralsGrey1};
+        }
+    }
+`;
+const WrapperCompound = styled__default["default"].div `
+    display: flex;
+    transition: max-height 0.3s ease-in-out;
+    flex-direction: column;
+`;
+const WrapperSubItems = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    transform-origin:top;
+    transform:scaleY(${({ isOpen }) => isOpen ? '1' : '0'});
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+`;
+const SubItem = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    padding-left: 16px;
+    background: ${({ theme }) => theme.colors.neutralsGrey8};
+    border-bottom: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background: ${({ theme }) => theme.colors.neutralsGrey6};
+    }
+`;
+
+function LateralMenu$1({ label, onClick, button, beginComponent, activeBeginIcon, selected, subItems, hiddenIconDropArrow, style }) {
+    const [isActive, setIsActive] = React.useState(selected);
+    React.useEffect(() => {
+        setIsActive(selected);
+    }, [selected]);
+    const getSizeCompound = () => {
+        if (!subItems.length)
+            return '40px';
+        let size = (subItems.length + 1) * 42;
+        return size + 'px';
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: subItems && subItems.length > 0 ?
+            jsxRuntime.jsxs(WrapperCompound, { isOpen: isActive, style: { ...style, maxHeight: isActive ? getSizeCompound() : '40px' }, children: [jsxRuntime.jsxs(WrapperItem, { active: isActive, onClick: (e) => setIsActive(!isActive), style: { ...style, margin: 0, padding: 0, justifyContent: 'space-between' }, children: [jsxRuntime.jsxs(WrapperItem, { style: { background: 'transparent', width: '100%' }, children: [beginComponent &&
+                                        jsxRuntime.jsx(WrapperComponent, { active: isActive, children: isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent }), jsxRuntime.jsx(WrapperMainLabel, { active: isActive, style: { marginLeft: beginComponent ? '8px' : '0px' }, children: label })] }), button && button?.label &&
+                                jsxRuntime.jsx(WrapperButton, { children: jsxRuntime.jsx(Button$1, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) }), !hiddenIconDropArrow &&
+                                jsxRuntime.jsx(WrapperIconDrop, { isOpen: isActive, children: jsxRuntime.jsx(DropdownIconLine, { fill: '#000' }) })] }), jsxRuntime.jsx(WrapperSubItems, { isOpen: isActive, children: subItems.map((item, index) => {
+                            return jsxRuntime.jsx(SubItem, { onClick: () => item.onClick(item.id), children: item.label }, index);
+                        }) })] })
+            :
+                jsxRuntime.jsxs(WrapperItem, { active: isActive, style: { ...style, margin: 0, padding: 0, justifyContent: 'space-between' }, children: [jsxRuntime.jsxs(WrapperItem, { style: { background: 'transparent', width: '100%' }, onClick: (e) => onClick(e), children: [beginComponent &&
+                                    jsxRuntime.jsx(WrapperComponent, { active: isActive, children: isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent }), jsxRuntime.jsx(WrapperMainLabel, { active: isActive, style: { marginLeft: beginComponent ? '8px' : '0px' }, children: label })] }), button && button?.label &&
+                            jsxRuntime.jsx(WrapperButton, { children: jsxRuntime.jsx(Button$1, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) })] }) }));
+}
+
+function LateralMenu({ variant, hiddenButtonHeader, avatar, name, channel, button, listOptions, style }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { style: { ...style }, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Avatar, { src: avatar.src, alt: avatar.alt ? avatar.alt : 'Image profile avatar', size: avatar.size ? avatar.size : '80px' }), jsxRuntime.jsx(NameProfile, { children: name }), channel &&
+                            jsxRuntime.jsx(Channel, { children: channel }), !hiddenButtonHeader &&
+                            jsxRuntime.jsx(WrapperButton$1, { children: !channel ?
+                                    jsxRuntime.jsx(Button$1, { variant: 'primary', label: button.label, handleClick: (e) => button.onClick(e) })
+                                    :
+                                        jsxRuntime.jsx(Button$1, { variant: 'link', label: button.label, handleClick: (e) => button.onClick(e) }) }), jsxRuntime.jsx(HR, {})] }), listOptions && listOptions.length > 0 && listOptions.map((item, index) => {
+                    return (jsxRuntime.jsx(LateralMenu$1, { label: item.label, button: item.button, beginComponent: item.beginComponent, activeBeginIcon: item.activeBeginIcon, hiddenIconDropArrow: item.hiddenIconDropArrow, onClick: (e) => item.onClick(e), selected: item.selected, subItems: item.subItems, style: { width: '100%' } }, index));
+                })] }) }));
+}
+
+const ContainerBanner = styled__default["default"].div `
+    width: 100%;
+    height: 508px;
+    background-image: url("${({ bannerNormal }) => bannerNormal}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 120px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    & > div:nth-child(5) {
+        display: none;
+    }
+    @media (max-width: 1500px) {
+        padding: 20px !important;
+    }
+
+    @media (max-width: 1200px) {
+        & > div:nth-child(1) {
+            display: none !important;
+        }
+    }
+
+    @media (max-width: 870px) {
+        background-image: url("${({ bannerResponsive }) => bannerResponsive}");
+        height: 745px;
+
+        & > div:nth-child(2) {
+            min-width: 100%;
+        }
+        & > div:nth-child(3) {
+            min-width: 360px;
+            max-width: 360px;
+
+            & > div:nth-child(2) {
+                margin-bottom: 0px;
+            }
+            & > button {
+                display: none;
+            }
+        }
+        & > div:nth-child(4) {
+            min-width: 100%;
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+
+            & > div:nth-child(1) {
+                width: 270px;
+                margin-left: 0px;
+
+                & > div:nth-child(1) {
+
+                }
+            }
+        }
+        & > div:nth-child(5) {
+            min-width: 100%;
+            min-width: 360px;
+            display: flex;
+            align-self: flex-end;
+            margin-bottom: 40px;
+            & > button {
+                width: 360px;
+                max-width: 100%;
+            }
+        }
+    }
+`;
+const WrapperContent = styled__default["default"].div `
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+const WrapperContentMain = styled__default["default"].div `
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    & button {
+        width: 207px;
+        white-space:  nowrap;
+    }
+`;
+const WrapperContentHelper = styled__default["default"].div `
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: row;
+`;
+const TitleSRG = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    white-space:  nowrap;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+
+    color: ${({ theme }) => theme.colors.shadeWhite};
+    margin-bottom: 24px;
+    
+`;
+const DescriptionSRG = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    display: flex;
+    align-items: center;
+
+    color: ${({ theme }) => theme.colors.shadeWhite};
+    margin-bottom: 24px;
+`;
+const SpeechBubble = styled__default["default"].div `
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    background: ${({ theme }) => theme.colors.messageAlert2};
+    border: 1.5px solid ${({ theme }) => theme.colors.borderSecondary2};
+    border-radius: 8px;
+    padding: 16px;
+    
+    width: 160px;
+    margin-right: 22px;
+    margin-left: 50px;
+
+    &:before {
+        content: "";
+        position: absolute;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 20px solid ${({ theme }) => theme.colors.borderSecondary2}; 
+        border-right: 10px solid transparent;
+        margin-right: -46px;
+        margin-bottom: 0px;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 20px solid ${({ theme }) => theme.colors.messageAlert2}; 
+        border-right: 10px solid transparent;
+        margin-right: -44px;
+        margin-bottom: 0px;
+    }
+
+    & a {
+        align-self: flex-start;
+    }
+`;
+const HelperText = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    margin-bottom: 8px;
+`;
+const FrstSocials = styled__default["default"].div `
+    display:flex;
+    justify-content: center;
+    align-center: center;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 32px;
+    position: absolute;
+    right: 120px;
+    top: 60px;
+    @media (max-width: 1500px) {
+        right: 40px;
+    }
+`;
+const ItemFrstSocials = styled__default["default"].button `
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 11px;
+`;
+
+function BannerSRG(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerBanner, { bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(WrapperContent, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
+                            jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$1, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$1, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent, { children: jsxRuntime.jsx(Button$1, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }) }));
 }
 
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
+exports.BannerSRG = BannerSRG;
 exports.BaseCard = EmptyCard;
 exports.Button = Button$1;
 exports.ButtonGroup = ButtonGroup;
@@ -7056,6 +7576,7 @@ exports.HomeLineIcon = HomeLineIcon;
 exports.InputComment = InputComment;
 exports.LampFilledIcon = LampFilledIcon;
 exports.LampLineIcon = LampLineIcon;
+exports.LateralMenu = LateralMenu;
 exports.LearningSteps = LearningSteps;
 exports.MedalFilledIcon = MedalFilledIcon;
 exports.MedalLineIcon = MedalLineIcon;
@@ -7070,6 +7591,7 @@ exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
+exports.SearchBox = SearchBox;
 exports.SearchField = SearchField;
 exports.Select = SelectFRST;
 exports.SpecialistContact = SpecialistContact;

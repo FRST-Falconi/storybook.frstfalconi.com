@@ -24,17 +24,16 @@ const Template = (args) => <GlobalMenu {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    menu: [
-        { id:'1', label: 'Hall FRST',               onClick: (e) => alert('Hall FRST') },
-        { id:'2', label: 'Cadastrar alunos',        onClick: (e) => alert('Cadastrar alunos') },
-        { id:'3', label: 'Dashboard de resultados', onClick: (e) => alert('Dashboard de resultados') },
-        { id:'4', label: 'Definir trilhas',         onClick: (e) => alert('Definir trilhas') },
-        { id:'5', label: 'Progresso do aluno',      onClick: (e) => alert('Progresso do aluno') },
-    ],
+    variant: 'default',
+    textNotification: 'Notificações',
+    onClickProfileMenuText: () => alert('Clicked Profile'),
+    profileMenuText: 'Ver Perfil',
+    
     user: {
         name: 'Student name',
         avatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
         company: 'Company name',
+        textIsMe: 'Eu',
         handleClickProfile: () => alert('Click Profile'),
         menuItems: [
             {
@@ -72,8 +71,26 @@ normal.args = {
             { id: '4', label: 'List Entry',  onClick: (e) => alert('List Entry 4') },
         ]
     },
-    languages: ['pt', 'es', 'en'],
+    menu: [
+        { id:'1', label: 'Início', iconBegin: <Icons.HomeIcon /> , onClick: (e) => alert('Início')},
+        { id:'2', label: 'Assessment', iconBegin: <Icons.WriteIcon /> , onClick: (e) => alert('Assessment')},
+        { id:'3', label: 'Eventos', iconBegin: <Icons.CalendarIcon />, onClick: (e) => alert('Eventos') },
+        { id:'4', label: 'Hall de projetos', iconBegin:<Icons.Certificate fill='white' /> , onClick: (e) => alert('Hall de projetos') }
+    ],
+    notification: true,
+    haveNotification: true,
+    languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
+    languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),
+    onClickHome: () => alert("Click Home"),
+
+    onClickSite: () => alert('Click Site'),
+    onClickLinkedin: () => alert('Click Linkedin'),
+    onClickInstagram: () => alert('Click Instagram'),
+    onClickYoutube: () => alert('Click Youtube'),
+    onClickSpotify: () => alert('Click Spotify'),
+    onClickPodCast: () => alert('Click Podcast'),
+
     style: { display: 'flex' }
 }
 
@@ -137,8 +154,10 @@ LXP.args = {
         ]
     },
     notification: true,
-    languages: ['pt', 'es', 'en'],
-    languageSelected: 'pt',
+    languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
+    languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),
+    onClickProfileMenuText: () => alert('Clicked Profile'),
+    profileMenuText: 'Ver Perfil',
     style: { display: 'flex' }
 }

@@ -7,7 +7,7 @@ import {default as ButtonFrst} from '@components/buttons'
 import { IDropdownProfileMenu } from './dropdownProfileMenu'
 
 
-export default function DropdownProfileMenu({variant, user, menuItems, isMobileVersion, style}: IDropdownProfileMenu) {
+export default function DropdownProfileMenu({variant, user, menuItems, profileMenuText, isMobileVersion, handleProfileMenuClick, style}: IDropdownProfileMenu) {
     const [ anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
     const [ anchorSub, setAnchorSub] = React.useState<null | HTMLElement>(null)
     const [ subMenu, setSubMenu] = React.useState(null)
@@ -73,8 +73,8 @@ export default function DropdownProfileMenu({variant, user, menuItems, isMobileV
                             <Styles.WrapperButtonFrst>
                                 <ButtonFrst
                                     variant={'secondary'}
-                                    label={'Ver Perfil'}
-                                    handleClick={() => { alert('Click') }}
+                                    label={profileMenuText}
+                                    handleClick={handleProfileMenuClick }
                                 />
                             </Styles.WrapperButtonFrst>
                         </Styles.WrapperRightProfileInfo>
@@ -135,7 +135,7 @@ export default function DropdownProfileMenu({variant, user, menuItems, isMobileV
                 <Styles.AvatarCustomUser alt="User Photo" 
                     src={user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"}
                 />
-                <Styles.UserName> {user.name} </Styles.UserName>
+                <Styles.UserName> {user.textIsMe} </Styles.UserName>
                 <DropdownIcon fill="white" />
             </Button>
                 <Styles.MenuCustom
