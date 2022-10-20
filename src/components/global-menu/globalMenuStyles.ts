@@ -82,8 +82,8 @@ export const MenuMobile = styled.div<{isVisible}>`
     z-index: 10001;
     top:0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: #222;
 `
 
@@ -114,7 +114,7 @@ export const footerMenuMobile = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-itens: center;
+    align-items: center;
     text-align: center;
     ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
     color: ${({theme}) => theme.colors.shadeWhite};
@@ -126,7 +126,7 @@ export const footerMenuMobile = styled.div`
 export const frstSocials = styled.div`
     display:flex;
     justify-content: center;
-    align-center: center;
+    align-items: center;
     flex-direction: row;
     margin-top: 24px;
     margin-bottom: 32px;

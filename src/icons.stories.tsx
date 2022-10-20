@@ -207,3 +207,39 @@ WriteIcon.args = Icons.WriteIcon({})
 
 export const HomeIcon = Template.bind({})
 HomeIcon.args = Icons.HomeIcon({})
+
+export const PlayFilledIcon = Template.bind({})
+PlayFilledIcon.args = Icons.PlayFilledIcon({})
+
+export const PlayLineIcon = Template.bind({})
+PlayLineIcon.args = Icons.PlayLineIcon({})
+
+export const MedalFilledIcon = Template.bind({})
+MedalFilledIcon.args = Icons.MedalFilledIcon({})
+
+export const MedalLineIcon = Template.bind({})
+MedalLineIcon.args = Icons.MedalLineIcon({})
+
+export const LampFilledIcon = Template.bind({})
+LampFilledIcon.args = Icons.LampFilledIcon({})
+
+export const LampLineIcon = Template.bind({})
+LampLineIcon.args = Icons.LampLineIcon({})
+
+export const PencilFilledIcon = Template.bind({})
+PencilFilledIcon.args = Icons.PencilFilledIcon({})
+
+export const PencilLineIcon = Template.bind({})
+PencilLineIcon.args = Icons.PencilLineIcon({})
+
+export const CalendarFilledIcon = Template.bind({})
+CalendarFilledIcon.args = Icons.CalendarFilledIcon({})
+
+export const CalendarLineIcon = Template.bind({})
+CalendarLineIcon.args = Icons.CalendarLineIcon({})
+
+export const HomeFilledIcon = Template.bind({})
+HomeFilledIcon.args = Icons.HomeFilledIcon({})
+
+export const HomeLineIcon = Template.bind({})
+HomeLineIcon.args = Icons.HomeLineIcon({})
