@@ -114,7 +114,7 @@ export const footerMenuMobile = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-itens: center;
+    align-items: center;
     text-align: center;
     ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
     color: ${({theme}) => theme.colors.shadeWhite};
@@ -126,7 +126,7 @@ export const footerMenuMobile = styled.div`
 export const frstSocials = styled.div`
     display:flex;
     justify-content: center;
-    align-center: center;
+    align-items: center;
     flex-direction: row;
     margin-top: 24px;
     margin-bottom: 32px;
