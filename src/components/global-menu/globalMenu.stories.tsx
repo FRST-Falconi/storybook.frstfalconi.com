@@ -83,7 +83,93 @@ normal.args = {
     languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),
     onClickHome: () => alert("Click Home"),
+    onClickExit: () => alert("Click Exit"),
 
+    onClickSite: () => alert('Click Site'),
+    onClickLinkedin: () => alert('Click Linkedin'),
+    onClickInstagram: () => alert('Click Instagram'),
+    onClickYoutube: () => alert('Click Youtube'),
+    onClickSpotify: () => alert('Click Spotify'),
+    onClickPodCast: () => alert('Click Podcast'),
+
+    style: { display: 'flex' }
+}
+
+
+export const normalWithSubMenu = Template.bind({})
+normalWithSubMenu.args = {
+    variant: 'default',
+    textNotification: 'Notificações',
+    onClickProfileMenuText: () => alert('Clicked Profile'),
+    profileMenuText: 'Ver Perfil',
+    
+    user: {
+        name: 'Student name',
+        avatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+        company: 'Company name',
+        textIsMe: 'Eu',
+        handleClickProfile: () => alert('Click Profile'),
+        menuItems: [
+            {
+                label:  'Perfil',
+                onClick: (e) => alert('Perfil')
+            },
+            {
+                label:  'Configurações',
+                onClick: (e) => alert('Configurações')
+            },
+            {
+                label:  'Alternar conta',
+                iconBegin: <Icons.ChangeAccount />,
+                subItens: [
+                    { id: '1', label: 'Organizacao 01', onClick: (e) => alert('Organizacao 01')},
+                    { id: '2', label: 'Organizacao 01', onClick: (e) => alert('Organizacao 02')},
+                    { id: '3', label: 'Organizacao 01', onClick: (e) => alert('Organizacao 03')}
+                ]
+            },
+            {
+                label:  'Sair',
+                iconBegin: <Icons.ExitArrow />,
+                onClick: () => alert('Sair')
+            },
+        ],
+    },
+    search: {
+        label: 'O que você busca?', 
+        onChange: (e) => alert(e), 
+        seeAll: { label: 'Ver todos os resultados',      onClick:  () => alert('Ver todos') },
+        listEntry: [
+            { id: '1', label: 'List Entry',  onClick: (e) => alert('List Entry 1') },
+            { id: '2', label: 'List Entry',  onClick: (e) => alert('List Entry 2') },
+            { id: '3', label: 'List Entry',  onClick: (e) => alert('List Entry 3') },
+            { id: '4', label: 'List Entry',  onClick: (e) => alert('List Entry 4') },
+        ]
+    },
+    menu: [
+        { id:'1', label: 'Início', iconBegin: <Icons.HomeIcon /> , onClick: (e) => alert('Início')},
+        {   id:'2', 
+            label: 'Assessment', 
+            iconBegin: <Icons.WriteIcon /> , 
+            onClick: null,
+            subItens: [
+                { id: '1', label: 'Ver resultado', onClick: (e) => alert('Ver resultado')},
+                { id: '2', label: 'Reassessment', onClick: (e) => alert('Reassessment')}
+            ]
+        },
+        { id:'3', label: 'Eventos', iconBegin: <Icons.CalendarIcon />, onClick: null,
+            subItens: [
+            { id: '1', label: 'Crongrama de Eventos', onClick: (e) => alert('Ver crongrama de eventos')},
+            { id: '2', label: 'Entrar', onClick: (e) => alert('Entrar')}
+        ] },
+        { id:'4', label: 'Hall de projetos', iconBegin:<Icons.Certificate fill='white' /> , onClick: (e) => alert('Hall de projetos') }
+    ],
+    notification: true,
+    haveNotification: true,
+    languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
+    languageSelected: 'pt-BR',
+    onChangeLanguage: (e) => alert(e),
+    onClickHome: () => alert("Click Home"),
+    onClickExit: () => alert("Click Exit"),
     onClickSite: () => alert('Click Site'),
     onClickLinkedin: () => alert('Click Linkedin'),
     onClickInstagram: () => alert('Click Instagram'),
@@ -159,5 +245,6 @@ LXP.args = {
     onChangeLanguage: (e) => alert(e),
     onClickProfileMenuText: () => alert('Clicked Profile'),
     profileMenuText: 'Ver Perfil',
+    onClickExit: () => alert("Click Exit"),
     style: { display: 'flex' }
 }

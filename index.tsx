@@ -3,7 +3,8 @@
 // Icons
 export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon,
         HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon,
-        LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon } from './src/shared/icons'
+        LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon,
+        IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon  } from './src/shared/icons'
 
 // Base
 export { default as Tag } from "./src/components/tag"

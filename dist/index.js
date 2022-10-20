@@ -6138,7 +6138,7 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
                             }) })] }) }));
 }
 
-function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, profileMenuText }) {
+function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -6179,7 +6179,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
         search.onChange(value);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                                     paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
                                     paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
                                     ...style
@@ -6213,7 +6213,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                         return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'submenu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
                                     }) })] })] })
             : variant === 'default' ?
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                                         paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
                                         paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
                                         ...style
@@ -6239,19 +6239,48 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                     }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: 'default', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText }) }), languages && languages.length > 0 &&
                                     jsxRuntime.jsx(LanguagesDropdown, { variant: 'default', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' })] }) }) }));
 }
-function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
-    return (jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: items && items.length > 0 && items.map((item, index) => {
+function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+    const [optionsSubMenu, setOptionsSubmenu] = React.useState({});
+    const [subMenuIsVisible, setSubMenuIsVisible] = React.useState(false);
+    const newOptionsSubMenu = (items) => {
+        setOptionsSubmenu(items);
+        console.log(items);
+        setTimeout(() => setSubMenuIsVisible(true), 200);
+    };
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SubMenuMobile, { onClickExit: onClickExit, items: optionsSubMenu, isVisible: subMenuIsVisible, setVisible: setSubMenuIsVisible, variant: variant, languageSelected: languageSelected, onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' ?
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: items && items.length > 0 && items.map((item, index) => {
+                                    if (item.label == 'Criar conteúdo')
+                                        return;
+                                    return jsxRuntime.jsx(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: item.label }, index);
+                                }) }), jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), style: { borderTop: '1px solid #444' }, children: languageSelected === 'en' ? 'Back' : 'Voltar' })] })
+                    :
+                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Back' : 'Voltar'] }) }), items && items.length > 0 && items.map((item, index) => {
+                                            if (item.label == 'Criar conteúdo')
+                                                return;
+                                            if (item.onClick == null)
+                                                return jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: [item.iconBegin, "\u00A0", item.label] }, index);
+                                            return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
+                                        })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Leave' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) })] }));
+}
+function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+    const [options, setOptions] = React.useState(items);
+    React.useEffect(() => {
+        setOptions(items);
+    }, [items]);
+    return (jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, style: { zIndex: '10002' }, children: variant === 'LXP' ?
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: options && options.length > 0 && options.map((item, index) => {
                             if (item.label == 'Criar conteúdo')
                                 return;
                             return jsxRuntime.jsx(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: item.label }, index);
                         }) }), jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), style: { borderTop: '1px solid #444' }, children: languageSelected === 'en' ? 'Back' : 'Voltar' })] })
             :
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Back' : 'Voltar'] }) }), items && items.length > 0 && items.map((item, index) => {
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Back' : 'Voltar'] }) }), options && options.length > 0 && options.map((item, index) => {
                                     if (item.label == 'Criar conteúdo')
                                         return;
+                                    if (item.onClick == null)
+                                        return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
                                     return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Leave' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) }));
+                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en' ? 'Leave' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) }));
 }
 function IconHamburgerMenu() {
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs("svg", { width: "27", height: "33", viewBox: "0 0 27 33", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.46 2.4H6.23L4.79 6.42L4.28 8.06H4.26L3.76 6.41L2.31 2.4H1.08V9H1.84V4.85L1.75 3.11H1.76L3.93 9H4.61L6.78 3.11H6.79L6.7 4.85V9H7.46V2.4ZM13.6673 6.24C13.6673 4.95 12.8773 3.9 11.4273 3.9C9.91727 3.9 9.06727 4.88 9.06727 6.5C9.06727 8.12 9.97727 9.1 11.4873 9.1C12.5673 9.1 13.1873 8.69 13.5673 8.01L12.8973 7.66C12.7173 8.14 12.2173 8.4 11.4873 8.4C10.5673 8.4 9.95727 7.81 9.85727 6.8H13.6273C13.6473 6.66 13.6673 6.47 13.6673 6.24ZM11.4273 4.6C12.2773 4.6 12.7873 5.17 12.8973 6.09H9.86727C9.98727 5.15 10.5373 4.6 11.4273 4.6ZM17.6178 3.9C16.9278 3.9 16.2878 4.15 15.9378 4.78L15.8878 4H15.1878V9H15.9878V6.34C15.9878 5.06 16.8078 4.6 17.5378 4.6C18.2278 4.6 18.7678 4.97 18.7678 6.08V9H19.5678V5.8C19.5678 4.51 18.6878 3.9 17.6178 3.9ZM24.9092 4V6.72C24.9092 7.9 24.1592 8.4 23.3092 8.4C22.5892 8.4 22.1292 8.09 22.1292 7.06V4H21.3292V7.27C21.3292 8.59 22.1792 9.1 23.1692 9.1C23.9692 9.1 24.6092 8.84 24.9592 8.24L25.0092 9H25.7092V4H24.9092Z", fill: "white" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M0 15.5854C0 15.0332 0.447715 14.5854 1 14.5854H24.7843C25.3366 14.5854 25.7843 15.0332 25.7843 15.5854C25.7843 16.1377 25.3366 16.5854 24.7843 16.5854H1C0.447715 16.5854 0 16.1377 0 15.5854ZM0 23.6736C0 23.1213 0.447715 22.6736 1 22.6736H24.7843C25.3366 22.6736 25.7843 23.1213 25.7843 23.6736C25.7843 24.2259 25.3366 24.6736 24.7843 24.6736H1C0.447715 24.6736 0 24.2259 0 23.6736ZM1 30.7617C0.447715 30.7617 0 31.2094 0 31.7617C0 32.314 0.447715 32.7617 1 32.7617H24.7843C25.3366 32.7617 25.7843 32.314 25.7843 31.7617C25.7843 31.2094 25.3366 30.7617 24.7843 30.7617H1Z", fill: "white" })] }) }));
@@ -7573,11 +7602,14 @@ exports.GlobalMenu = GlobalMenu;
 exports.GroupStatistics = TotalizerCard;
 exports.HomeFilledIcon = HomeFilledIcon;
 exports.HomeLineIcon = HomeLineIcon;
+exports.IconNotification = IconNotification;
 exports.InputComment = InputComment;
+exports.InstagramIcon = InstagramIcon;
 exports.LampFilledIcon = LampFilledIcon;
 exports.LampLineIcon = LampLineIcon;
 exports.LateralMenu = LateralMenu;
 exports.LearningSteps = LearningSteps;
+exports.LinkedinIcon = LinkedinIcon;
 exports.MedalFilledIcon = MedalFilledIcon;
 exports.MedalLineIcon = MedalLineIcon;
 exports.MessageBox = MessageBox;
@@ -7589,12 +7621,15 @@ exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
+exports.PodCastIcon = PodCastIcon;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchBox = SearchBox;
 exports.SearchField = SearchField;
 exports.Select = SelectFRST;
+exports.SiteIcon = SiteIcon;
 exports.SpecialistContact = SpecialistContact;
+exports.SpotifyIcon = SpotifyIcon;
 exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Steps = Steps;
@@ -7607,6 +7642,7 @@ exports.TrailList = TrailList;
 exports.TrashIcon = TrashIcon;
 exports.UserCard = CalendarCard$1;
 exports.Video = Video;
+exports.YoutubeIcon = YoutubeIcon;
 exports.avatarChannel = AvatarChannel;
 exports.bannerLxp = BannerLxp;
 exports.buttonContent = ButtonContent;

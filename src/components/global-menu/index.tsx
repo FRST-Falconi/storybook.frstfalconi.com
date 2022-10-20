@@ -14,7 +14,7 @@ import DropdownProfileMenu from '@components/dropdown-profile-menu'
 import { PropaneSharp } from '@mui/icons-material'
 
 
-export default function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, profileMenuText }: IGlobalMenu) {
+export default function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText }: IGlobalMenu) {
     const [valueSearch, setValueSearch] = useState(search.value)
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
     const [loadingSearch, setLoadingSearch] = useState(search.loading)
@@ -66,7 +66,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
         <ThemeProvider theme={FRSTTheme}>
             {variant == 'LXP' ?
                 <>
-                    <MenuMobile languageSelected={languageSelected} variant={'LXP'} items={menu} isVisible={isVisibleMenuMobile} setVisible={(e) => setIsVisibleMenuMobile(e)} onClickSite={onClickSite} onClickLinkedin={onClickLinkedin} onClickInstagram={onClickInstagram} onClickYoutube={onClickYoutube} onClickSpotify={onClickSpotify} onClickPodCast={onClickPodCast} />
+                    <MenuMobile onClickExit={onClickExit} languageSelected={languageSelected} variant={'LXP'} items={menu} isVisible={isVisibleMenuMobile} setVisible={(e) => setIsVisibleMenuMobile(e)} onClickSite={onClickSite} onClickLinkedin={onClickLinkedin} onClickInstagram={onClickInstagram} onClickYoutube={onClickYoutube} onClickSpotify={onClickSpotify} onClickPodCast={onClickPodCast} />
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                         <Styles.MenuContainer
                             variant={variant}
@@ -208,7 +208,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                 </>
                 : variant === 'default' ?
                     <>
-                        <MenuMobile languageSelected={languageSelected} variant={'default'} items={menu} isVisible={isVisibleMenuMobile} setVisible={(e) => setIsVisibleMenuMobile(e)} onClickSite={onClickSite} onClickLinkedin={onClickLinkedin} onClickInstagram={onClickInstagram} onClickYoutube={onClickYoutube} onClickSpotify={onClickSpotify} onClickPodCast={onClickPodCast} />
+                        <MenuMobile onClickExit={onClickExit} languageSelected={languageSelected} variant={'default'} items={menu} isVisible={isVisibleMenuMobile} setVisible={(e) => setIsVisibleMenuMobile(e)} onClickSite={onClickSite} onClickLinkedin={onClickLinkedin} onClickInstagram={onClickInstagram} onClickYoutube={onClickYoutube} onClickSpotify={onClickSpotify} onClickPodCast={onClickPodCast} />
                         <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                             <Styles.MenuContainer
                                 variant={variant}
@@ -331,8 +331,33 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
 }
 
 
-export function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+export function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+    const [ optionsSubMenu, setOptionsSubmenu ] =useState({});
+    const [ subMenuIsVisible, setSubMenuIsVisible ] =useState(false);
+
+    const newOptionsSubMenu = (items) => {
+        setOptionsSubmenu(items);
+        console.log(items)
+        setTimeout(() => setSubMenuIsVisible(true)
+        , 200)
+    }
+
     return (
+    <>
+        <SubMenuMobile 
+            onClickExit={onClickExit}
+            items={optionsSubMenu}
+            isVisible={subMenuIsVisible}
+            setVisible={setSubMenuIsVisible}
+            variant={variant}
+            languageSelected={languageSelected}
+            onClickSite={onClickSite}
+            onClickLinkedin={onClickLinkedin}
+            onClickInstagram={onClickInstagram}
+            onClickYoutube={onClickYoutube}
+            onClickSpotify={onClickSpotify}
+            onClickPodCast={onClickPodCast}
+        />
         <Styles.MenuMobile isVisible={isVisible}>
             {variant === 'LXP' ?
                 <>
@@ -356,6 +381,14 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
                         </Styles.ItemMenuMobile>
                         {items && items.length > 0 && items.map((item, index) => {
                             if (item.label == 'Criar conteúdo') return;
+
+                            if(item.onClick == null)
+                            return <Styles.ItemMenuMobile onClick={() => newOptionsSubMenu(item.subItens)} key={index}>
+                                        {item.iconBegin}
+                                        &nbsp;
+                                        {item.label}
+                                    </Styles.ItemMenuMobile>
+
                             return <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
                                 {item.iconBegin}
                                 &nbsp;
@@ -364,7 +397,74 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
                         })}
                     </div>
                     <Styles.footerMenuMobile>
-                        <Styles.ItemMenuMobile style={{}} onClick={() => setVisible(false)} >
+                        <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
+                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en' ? 'Leave' : 'Sair'}</span>
+                        </Styles.ItemMenuMobile>
+                        <span style={{marginTop: 24}}>{languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
+                        <Styles.frstSocials>
+                            <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickLinkedin} > <LinkedinIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickInstagram} > <InstagramIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickYoutube} > <YoutubeIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickSpotify} > <SpotifyIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickPodCast} > <PodCastIcon /> </Styles.itemFrstSocials>
+                        </Styles.frstSocials>
+                    </Styles.footerMenuMobile>
+                </>
+            }
+        </Styles.MenuMobile>
+    </>
+    )
+}
+
+
+export function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+    const [options, setOptions] = useState(items)
+    useEffect(() => {
+        setOptions(items)
+    }, [items])
+
+    return (
+        <Styles.MenuMobile isVisible={isVisible} style={{zIndex: '10002'}}>
+            {variant === 'LXP' ?
+                <>
+                    <div>
+                        {options && options.length > 0 && options.map((item, index) => {
+                            if (item.label == 'Criar conteúdo') return;
+                            return <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                                {item.label}
+                            </Styles.ItemMenuMobile>
+                        })}
+                    </div>
+                    <Styles.ItemMenuMobile onClick={() => setVisible(false)} style={{ borderTop: '1px solid #444' }}>
+                        {languageSelected === 'en' ? 'Back' : 'Voltar'}
+                    </Styles.ItemMenuMobile>
+                </>
+                : 
+                <>
+                    <div>
+                        <Styles.ItemMenuMobile style={{paddingBottom: 32}} onClick={() => setVisible(false)} >
+                            <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en' ? 'Back' : 'Voltar'}</span>
+                        </Styles.ItemMenuMobile>
+                        {options && options.length > 0 && options.map((item, index) => {
+                            if (item.label == 'Criar conteúdo') return;
+
+                            if(item.onClick == null)
+                            return <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                                        {item.iconBegin}
+                                        &nbsp;
+                                        {item.label}
+                                    </Styles.ItemMenuMobile>
+
+                            return <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                                {item.iconBegin}
+                                &nbsp;
+                                {item.label}
+                            </Styles.ItemMenuMobile>
+                        })}
+                    </div>
+                    <Styles.footerMenuMobile>
+                        <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
                             <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en' ? 'Leave' : 'Sair'}</span>
                         </Styles.ItemMenuMobile>
                         <span style={{marginTop: 24}}>{languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
@@ -382,6 +482,7 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
         </Styles.MenuMobile>
     )
 }
+
 
 export function IconHamburgerMenu() {
     return (
