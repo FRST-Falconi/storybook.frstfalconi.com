@@ -370,14 +370,14 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
                         })}
                     </div>
                     <Styles.ItemMenuMobile onClick={() => setVisible(false)} style={{ borderTop: '1px solid #444' }}>
-                        {languageSelected === 'en' ? 'Back' : 'Voltar'}
+                        {languageSelected === 'en-US' ? 'Back' : 'Voltar'}
                     </Styles.ItemMenuMobile>
                 </>
                 : 
                 <>
                     <div>
                         <Styles.ItemMenuMobile style={{paddingBottom: 32}} onClick={() => setVisible(false)} >
-                            <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en' ? 'Back' : 'Voltar'}</span>
+                            <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Back' : 'Voltar'}</span>
                         </Styles.ItemMenuMobile>
                         {items && items.length > 0 && items.map((item, index) => {
                             if (item.label == 'Criar conteúdo') return;
@@ -398,9 +398,9 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
                     </div>
                     <Styles.footerMenuMobile>
                         <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
-                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en' ? 'Leave' : 'Sair'}</span>
+                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Leave' : 'Sair'}</span>
                         </Styles.ItemMenuMobile>
-                        <span style={{marginTop: 24}}>{languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
+                        <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
                         <Styles.frstSocials>
                             <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
                             <Styles.itemFrstSocials onClick={onClickLinkedin} > <LinkedinIcon /> </Styles.itemFrstSocials>
@@ -437,14 +437,14 @@ export function SubMenuMobile({ items, isVisible, setVisible, variant, languageS
                         })}
                     </div>
                     <Styles.ItemMenuMobile onClick={() => setVisible(false)} style={{ borderTop: '1px solid #444' }}>
-                        {languageSelected === 'en' ? 'Back' : 'Voltar'}
+                        {languageSelected === 'en-US' ? 'Back' : 'Voltar'}
                     </Styles.ItemMenuMobile>
                 </>
                 : 
                 <>
                     <div>
                         <Styles.ItemMenuMobile style={{paddingBottom: 32}} onClick={() => setVisible(false)} >
-                            <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en' ? 'Back' : 'Voltar'}</span>
+                            <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Back' : 'Voltar'}</span>
                         </Styles.ItemMenuMobile>
                         {options && options.length > 0 && options.map((item, index) => {
                             if (item.label == 'Criar conteúdo') return;
@@ -465,9 +465,9 @@ export function SubMenuMobile({ items, isVisible, setVisible, variant, languageS
                     </div>
                     <Styles.footerMenuMobile>
                         <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
-                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en' ? 'Leave' : 'Sair'}</span>
+                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Leave' : 'Sair'}</span>
                         </Styles.ItemMenuMobile>
-                        <span style={{marginTop: 24}}>{languageSelected === 'en' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
+                        <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
                         <Styles.frstSocials>
                             <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
                             <Styles.itemFrstSocials onClick={onClickLinkedin} > <LinkedinIcon /> </Styles.itemFrstSocials>
