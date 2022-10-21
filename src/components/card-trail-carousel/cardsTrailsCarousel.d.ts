@@ -7,4 +7,7 @@ export interface ICardTrailCarolsel {
     horizontalMarginInternScroll?: string,
     positionArrowButton?: string,    
     marginTopArrrowButton?: string,    
+    move?:any,
+    isVisibleButtons?: boolean,
+    label?: any
 }

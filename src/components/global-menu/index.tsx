@@ -465,7 +465,7 @@ export function SubMenuMobile({ items, isVisible, setVisible, variant, languageS
                     </div>
                     <Styles.footerMenuMobile>
                         <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
-                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Leave' : 'Sair'}</span>
+                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Logout' : 'Sair'}</span>
                         </Styles.ItemMenuMobile>
                         <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
                         <Styles.frstSocials>

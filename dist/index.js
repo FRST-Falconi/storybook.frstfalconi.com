@@ -3867,7 +3867,7 @@ function ExclusiveClassCard({ titleClass, labelButton, className, handleClick })
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$4, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$2, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$1, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
-function ConquistaCarrossel$1({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
+function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
     React.useState(-1);
     const [btnViewMore, setBtnViewMore] = React.useState('');
     React.useEffect(() => {
@@ -5993,7 +5993,7 @@ const WrapperButtonFrst = styled__default["default"].div `
 
       color: #FFF; 
       border: 1px solid #FFF;
-      width: 106px;
+      width: fit-content;
       height: 48px;
       border-radius: 8px;
       white-space: nowrap;
@@ -6280,7 +6280,7 @@ function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected
                                     if (item.onClick == null)
                                         return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
                                     return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Leave' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) }));
+                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) }));
 }
 function IconHamburgerMenu() {
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs("svg", { width: "27", height: "33", viewBox: "0 0 27 33", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.46 2.4H6.23L4.79 6.42L4.28 8.06H4.26L3.76 6.41L2.31 2.4H1.08V9H1.84V4.85L1.75 3.11H1.76L3.93 9H4.61L6.78 3.11H6.79L6.7 4.85V9H7.46V2.4ZM13.6673 6.24C13.6673 4.95 12.8773 3.9 11.4273 3.9C9.91727 3.9 9.06727 4.88 9.06727 6.5C9.06727 8.12 9.97727 9.1 11.4873 9.1C12.5673 9.1 13.1873 8.69 13.5673 8.01L12.8973 7.66C12.7173 8.14 12.2173 8.4 11.4873 8.4C10.5673 8.4 9.95727 7.81 9.85727 6.8H13.6273C13.6473 6.66 13.6673 6.47 13.6673 6.24ZM11.4273 4.6C12.2773 4.6 12.7873 5.17 12.8973 6.09H9.86727C9.98727 5.15 10.5373 4.6 11.4273 4.6ZM17.6178 3.9C16.9278 3.9 16.2878 4.15 15.9378 4.78L15.8878 4H15.1878V9H15.9878V6.34C15.9878 5.06 16.8078 4.6 17.5378 4.6C18.2278 4.6 18.7678 4.97 18.7678 6.08V9H19.5678V5.8C19.5678 4.51 18.6878 3.9 17.6178 3.9ZM24.9092 4V6.72C24.9092 7.9 24.1592 8.4 23.3092 8.4C22.5892 8.4 22.1292 8.09 22.1292 7.06V4H21.3292V7.27C21.3292 8.59 22.1792 9.1 23.1692 9.1C23.9692 9.1 24.6092 8.84 24.9592 8.24L25.0092 9H25.7092V4H24.9092Z", fill: "white" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M0 15.5854C0 15.0332 0.447715 14.5854 1 14.5854H24.7843C25.3366 14.5854 25.7843 15.0332 25.7843 15.5854C25.7843 16.1377 25.3366 16.5854 24.7843 16.5854H1C0.447715 16.5854 0 16.1377 0 15.5854ZM0 23.6736C0 23.1213 0.447715 22.6736 1 22.6736H24.7843C25.3366 22.6736 25.7843 23.1213 25.7843 23.6736C25.7843 24.2259 25.3366 24.6736 24.7843 24.6736H1C0.447715 24.6736 0 24.2259 0 23.6736ZM1 30.7617C0.447715 30.7617 0 31.2094 0 31.7617C0 32.314 0.447715 32.7617 1 32.7617H24.7843C25.3366 32.7617 25.7843 32.314 25.7843 31.7617C25.7843 31.2094 25.3366 30.7617 24.7843 30.7617H1Z", fill: "white" })] }) }));
@@ -6615,7 +6615,7 @@ const TitleMentoring = styled__default["default"].span `
   font-weight: 500 !important;
 `;
 const TextDescription = styled__default["default"](_.Typography) `
-  margin-top: 12px !important;
+  margin-top: 10px !important;
   white-space: normal !important;
   height: 90px !important;
   overflow: hidden !important;
@@ -6623,6 +6623,8 @@ const TextDescription = styled__default["default"](_.Typography) `
   -webkit-line-clamp: 6; 
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  font-size: 15px !important;
+  line-height: 1.1 !important;
 `;
 const TitleCard = styled__default["default"].div `
   height: 32px !important;
@@ -6671,44 +6673,38 @@ const MyCardContent = styled__default["default"](_.CardContent) `
     justify-content: space-between;
 `;
 const WrapperDate = styled__default["default"].div `
-    visibility: ${({ notStarted }) => notStarted ? 'visible' : 'hidden'};
-    margin-bottom: 14px;
+    display: ${({ notStarted }) => notStarted ? 'flex' : 'none'};
+    margin-bottom: 7px;
 `;
 
 function CardTrail(props) {
     const redirectToD2L = async () => {
-        if (props.notStarted)
+        if (props?.notStarted)
             return;
         let URL = await props.action();
         return window.open(URL);
     };
-    const getResumeDescription = (description, isResume) => {
-        if (isResume && description.length > 50)
-            return `${description.substring(0, 50)}...`;
-        else
-            return description;
-    };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props.notStarted && props.variant == 'primary' &&
-                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props.notStarted, children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: getResumeDescription(props.description, props.notStarted) }), props.variant == 'primary' ?
-                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: props.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ": "] }), props.start] }), jsxRuntime.jsx(TitleMentoring, { style: { background: '#fff' }, onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notStarted: props.notStarted })] })
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props?.notStarted && props.variant == 'primary' &&
+                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props?.notStarted, children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
+                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ": "] }), props.start] }), jsxRuntime.jsx(TitleMentoring, { onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notStarted: props?.notStarted })] })
                                 :
                                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ": "] }), props.start] }) })] }) })] }) }));
 }
 function MentorComponent(props) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(GridFooter, { container: true, spacing: 2, onClick: () => {
                 window.open(`${props.mentor.linkedin}`, '_blank');
-            }, style: { margin: '0px', cursor: 'pointer' }, children: [jsxRuntime.jsx(Avatar, { size: "32px", alt: "Mentoring", src: props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", disabled: props.notStarted }), jsxRuntime.jsx(GridNameMentoring, { item: true, children: jsxRuntime.jsx(NameMentoring, { children: props.mentor?.name }) }), jsxRuntime.jsx(LinkedinIconMentor, {})] }) });
+            }, style: { margin: '0px', cursor: 'pointer' }, children: [jsxRuntime.jsx(Avatar, { size: "32px", alt: "Mentoring", src: props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", disabled: props?.notStarted }), jsxRuntime.jsx(GridNameMentoring, { item: true, children: jsxRuntime.jsx(NameMentoring, { children: props.mentor?.name }) }), jsxRuntime.jsx(LinkedinIconMentor, {})] }) });
 }
 function PercentageProgress({ progress }) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: progress && (jsxRuntime.jsx(ProgressBox, { children: jsxRuntime.jsx(_.Grid, { container: true, spacing: 0, alignItems: "center", children: progress > 0 &&
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(_.Grid, { item: true, xs: 10, children: jsxRuntime.jsx(ProgressBar, { variant: "determinate", value: progress }) }), jsxRuntime.jsx(_.Grid, { item: true, xs: 2, children: jsxRuntime.jsxs(ProgressLabel, { children: [progress, "%"] }) })] }) }) })) });
 }
 
-function ConquistaCarrossel({ objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }) {
+function CardTrailCarousel({ objectCards, marginsArrowButton, move, isVisibleButtons, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, label }) {
     function renderCard(item, index) {
-        return jsxRuntime.jsx(CardTrail, { variant: item.variant, name: item.name, progress: item.progress, start: item.start, description: item.description, mentor: item.mentor, action: item.action, notStarted: item.notStarted, bannerImage: item.bannerImage, labels: item.labels });
+        return jsxRuntime.jsx(CardTrail, { variant: item.variant, name: item.name, progress: item.progress, start: item.start, description: item.description, mentor: item.mentor, action: item.action, notStarted: item.notStarted, bannerImage: item.bannerImage, labels: label ? label : { mentor: 'Mentor(a)', dateStart: "Data de Início" } }, index);
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: move ? move : 380, isVisibleControlsButtons: isVisibleButtons, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
 }
 
 const WrapperCard$1 = styled__default["default"].div `
@@ -7043,16 +7039,16 @@ const BannersSRC = {
 const labels = {
     ptBR: {
         srgDecription: 'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
-        project: 'Projeto',
+        project: 'Desafio',
         delete: 'Excluir',
         continue: 'Continuar',
         view: 'Visualizar',
-        newProject: 'Criar novo projeto',
+        newProject: 'Criar novo desafio',
         tagStep: {
             incompleteMars: 'Problema criado',
-            mars: 'Problema definido',
-            jupiter: 'Hipóteses levantadas',
-            saturn: 'Testes realizados',
+            mars: 'Definição do desafio',
+            jupiter: 'Definição de hipóteses',
+            saturn: 'Testes e experimentos',
             uranus: 'Resultados e aprendizados',
             neptune: 'Próximos passos',
             completed: 'Finalizado'
@@ -7068,16 +7064,16 @@ const labels = {
     },
     enUS: {
         srgDecription: 'Our problem-solving tool guides you through agile cycles of learning, collaboration, and experimentation.',
-        project: 'Project',
+        project: 'Challenge',
         delete: 'Delete',
         continue: 'Continue',
         view: 'View',
-        newProject: 'Create a new project',
+        newProject: 'Create a new challenge',
         tagStep: {
             incompleteMars: 'Created problem',
-            mars: 'Defined problem',
-            jupiter: 'Defined hypotheses',
-            saturn: 'Performed tests',
+            mars: 'Challenge definition',
+            jupiter: 'Hypotheses definition',
+            saturn: 'Tests and experiment',
             uranus: 'Results and learnings',
             neptune: 'Next steps',
             completed: 'Completed'
@@ -7093,19 +7089,19 @@ const labels = {
     },
     es: {
         srgDecription: 'Nuestra herramienta de resolución de problemas lo guía a través de ciclos ágiles de aprendizaje, colaboración y experimentación.',
-        project: 'Proyecto',
+        project: 'Desafio',
         delete: 'Elimina',
         continue: 'Continúa',
         view: 'Para ver',
-        newProject: 'Crear un nuevo proyecto',
+        newProject: 'Crear un nuevo desafio',
         tagStep: {
             incompleteMars: 'Problema creado',
-            mars: 'Problema definido',
-            jupiter: 'Hipótesis definidas',
-            saturn: 'Pruebas realizadas',
+            mars: 'Definición del desafío',
+            jupiter: 'Definición de hipótesis',
+            saturn: 'Pruebas y Experimentos',
             uranus: 'Resultados y aprendizajes',
             neptune: 'Próximos pasos',
-            completed: 'Terminada'
+            completed: 'Terminado'
         },
         nameStep: {
             incompleteMars: 'Marte',
@@ -7457,7 +7453,7 @@ const WrapperContentMain = styled__default["default"].div `
     align-items: flex-start;
     flex-direction: column;
     & button {
-        width: 207px;
+        width: fit-content;
         white-space:  nowrap;
     }
 `;
@@ -7589,12 +7585,12 @@ exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
 exports.CardTrail = CardTrail;
-exports.CardsTrailsCarousel = ConquistaCarrossel;
+exports.CardsTrailsCarousel = CardTrailCarousel;
 exports.ChallengeCard = ChallengeCard;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.CommentaryBox = CommentaryBox;
-exports.ConquistaCarrossel = ConquistaCarrossel$1;
+exports.ConquistaCarrossel = ConquistaCarrossel;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;

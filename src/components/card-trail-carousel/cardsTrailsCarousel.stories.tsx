@@ -15,7 +15,7 @@ primary.args = {
     marginsArrowButton: 50,
     sizeArrowButton: 80,
     horizontalMarginInternScroll: '50px',
-
+    
     objectCards: [
         {
             variant: 'primary',

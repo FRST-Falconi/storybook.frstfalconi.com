@@ -62,7 +62,7 @@ export const ProfileInfos = styled.div`
 
       color: #FFF; 
       border: 1px solid #FFF;
-      width: 106px;
+      width: fit-content;
       height: 48px;
       border-radius: 8px;
       white-space: nowrap;

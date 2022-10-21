@@ -116,16 +116,16 @@ const BannersSRC = {
 const labels = {
     ptBR: {
         srgDecription: 'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
-        project: 'Projeto',
+        project: 'Desafio',
         delete: 'Excluir',
         continue: 'Continuar',
         view: 'Visualizar',
-        newProject: 'Criar novo projeto',
+        newProject: 'Criar novo desafio',
         tagStep: {
             incompleteMars: 'Problema criado',
-            mars: 'Problema definido',
-            jupiter: 'Hipóteses levantadas',
-            saturn: 'Testes realizados',
+            mars: 'Definição do desafio',
+            jupiter: 'Definição de hipóteses',
+            saturn: 'Testes e experimentos',
             uranus: 'Resultados e aprendizados',
             neptune: 'Próximos passos',
             completed: 'Finalizado'
@@ -141,16 +141,16 @@ const labels = {
     },
     enUS: {
         srgDecription: 'Our problem-solving tool guides you through agile cycles of learning, collaboration, and experimentation.',
-        project: 'Project',
+        project: 'Challenge',
         delete: 'Delete',
         continue: 'Continue',
         view: 'View',
-        newProject: 'Create a new project',
+        newProject: 'Create a new challenge',
         tagStep: {
             incompleteMars: 'Created problem',
-            mars: 'Defined problem',
-            jupiter: 'Defined hypotheses',
-            saturn: 'Performed tests',
+            mars: 'Challenge definition',
+            jupiter: 'Hypotheses definition',
+            saturn: 'Tests and experiment',
             uranus: 'Results and learnings',
             neptune: 'Next steps',
             completed: 'Completed'
@@ -167,19 +167,19 @@ const labels = {
 
     es: {
         srgDecription: 'Nuestra herramienta de resolución de problemas lo guía a través de ciclos ágiles de aprendizaje, colaboración y experimentación.',
-        project: 'Proyecto',
+        project: 'Desafio',
         delete: 'Elimina',
         continue: 'Continúa',
         view: 'Para ver',
-        newProject: 'Crear un nuevo proyecto',
+        newProject: 'Crear un nuevo desafio',
         tagStep: {
             incompleteMars: 'Problema creado',
-            mars: 'Problema definido',
-            jupiter: 'Hipótesis definidas',
-            saturn: 'Pruebas realizadas',
+            mars: 'Definición del desafío',
+            jupiter: 'Definición de hipótesis',
+            saturn: 'Pruebas y Experimentos',
             uranus: 'Resultados y aprendizajes',
             neptune: 'Próximos pasos',
-            completed: 'Terminada'
+            completed: 'Terminado'
         },
         nameStep: {
             incompleteMars: 'Marte',

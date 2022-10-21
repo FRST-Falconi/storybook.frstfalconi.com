@@ -26,6 +26,6 @@ export const MyCardContent = styled(CardContent)<{notStarted}>`
 `
 
 export const WrapperDate = styled.div<{notStarted}>`
-    visibility: ${({notStarted}) => notStarted ? 'visible' : 'hidden'};
-    margin-bottom: 14px;
+    display: ${({notStarted}) => notStarted ? 'flex' : 'none'};
+    margin-bottom: 7px;
 `
