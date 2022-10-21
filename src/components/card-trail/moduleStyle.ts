@@ -58,7 +58,7 @@ export const TitleMentoring = styled.span`
 `
 
 export const TextDescription = styled(Typography)`
-  margin-top: 12px !important;
+  margin-top: 10px !important;
   white-space: normal !important;
   height: 90px !important;
   overflow: hidden !important;
@@ -66,6 +66,8 @@ export const TextDescription = styled(Typography)`
   -webkit-line-clamp: 6; 
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
+  font-size: 15px !important;
+  line-height: 1.1 !important;
 `
 
 export const TitleCard = styled.div`

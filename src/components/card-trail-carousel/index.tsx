@@ -7,12 +7,13 @@ import {ICardTrailCarolsel} from './cardsTrailsCarousel'
 import ScrollContainer from '@components/scroll-container'
 import CardTrail from '@components/card-trail'
 
-export default function ConquistaCarrossel({ objectCards, marginsArrowButton, 
-    sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton }: ICardTrailCarolsel ) {
+export default function CardTrailCarousel({ objectCards, marginsArrowButton, move, isVisibleButtons,
+    sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, label }: ICardTrailCarolsel ) {
     
     function renderCard(item, index) {
 
         return <CardTrail
+                key={index}
                 variant={item.variant}
                 name={item.name}
                 progress={item.progress}
@@ -22,15 +23,15 @@ export default function ConquistaCarrossel({ objectCards, marginsArrowButton,
                 action={item.action}
                 notStarted={item.notStarted}
                 bannerImage={item.bannerImage}
-                labels={item.labels}
+                labels={label ? label : { mentor: 'Mentor(a)', dateStart: "Data de Início"}}
             />
     }
 
     return (
         <ThemeProvider theme={FRSTTheme}>
             <ScrollContainer 
-                stepMove={380} 
-                isVisibleControlsButtons 
+                stepMove={move ? move : 380} 
+                isVisibleControlsButtons={isVisibleButtons} 
                 sizeArrowButton={sizeArrowButton} 
                 marginsArrowButton={marginsArrowButton}
                 horizontalMarginInternScroll={horizontalMarginInternScroll}

@@ -30,7 +30,7 @@ interface ModuleCardProps {
 export default function CardTrail(props: ModuleCardProps) {
 
   const redirectToD2L = async () => {
-    if (props.notStarted) return
+    if (props?.notStarted) return
 
     let URL = await props.action()
     return window.open(URL)
@@ -46,7 +46,7 @@ export default function CardTrail(props: ModuleCardProps) {
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.CardContainer>
-        {!props.notStarted && props.variant == 'primary' &&
+        {!props?.notStarted && props.variant == 'primary' &&
           <PercentageProgress 
             progress={props.progress}
           />
@@ -54,27 +54,27 @@ export default function CardTrail(props: ModuleCardProps) {
         <HeaderImage
           onClick={redirectToD2L}
           image={props.bannerImage}
-          notStarted={props.notStarted}
+          notStarted={props?.notStarted}
         />
 
         <MyBox>
-          <MyCardContent notStarted={props.notStarted} >
+          <MyCardContent notStarted={props?.notStarted} >
             <Styles.TitleCard onClick={redirectToD2L} >{props.name}</Styles.TitleCard>
             <Styles.TextDescription onClick={redirectToD2L} >
-              { getResumeDescription(props.description, props.notStarted) }
+              {props.description}
             </Styles.TextDescription>
             {props.variant == 'primary' ? 
             <>
-              <WrapperDate onClick={redirectToD2L} notStarted={props.notStarted}>
+              <WrapperDate onClick={redirectToD2L} notStarted={props?.notStarted}>
                 <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}: </b>
                 {props.start}
               </WrapperDate>
-              <Styles.TitleMentoring style={{background: '#fff'}} onClick={redirectToD2L}>
+              <Styles.TitleMentoring onClick={redirectToD2L}>
               {props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)'}
               </Styles.TitleMentoring>
               <MentorComponent
                 mentor={props.mentor}
-                notStarted={props.notStarted}
+                notStarted={props?.notStarted}
               />
             </> 
             : 
@@ -107,7 +107,7 @@ function MentorComponent(props) {
               size="32px"
               alt="Mentoring"
               src={props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png"}
-              disabled={props.notStarted}
+              disabled={props?.notStarted}
             />
             <Styles.GridNameMentoring item>
               <Styles.NameMentoring>{props.mentor?.name}</Styles.NameMentoring>

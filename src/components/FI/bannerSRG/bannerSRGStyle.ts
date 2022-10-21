@@ -87,7 +87,7 @@ export const WrapperContentMain = styled.div`
     align-items: flex-start;
     flex-direction: column;
     & button {
-        width: 207px;
+        width: fit-content;
         white-space:  nowrap;
     }
 `
