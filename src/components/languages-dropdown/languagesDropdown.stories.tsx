@@ -13,7 +13,7 @@ export default {
         },
         type: {
             control: 'languages',
-            options: ['pt', 'es', 'en']
+            options: ['pt-BR', 'es', 'en-US', 'pt-PT']
         }
     }
 }
