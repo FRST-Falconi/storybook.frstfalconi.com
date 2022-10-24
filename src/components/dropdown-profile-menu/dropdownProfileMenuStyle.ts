@@ -161,8 +161,7 @@ export const SubMenuItemCustom = styled(MenuItem)<{variantstyle}>`
     :
     `background-color: #FF4D0D !important;`
   }
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+
   &:hover {
     ${({variantstyle}) => variantstyle == 'LXP' ?
     `background-color: #444444 !important;`
