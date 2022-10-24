@@ -66,21 +66,25 @@ export default function CardTrail(props: ModuleCardProps) {
             {props.variant == 'primary' ? 
             <>
               <WrapperDate onClick={redirectToD2L} notStarted={props?.notStarted}>
-                <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}: </b>
+                <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}:&nbsp;</b> 
                 {props.start}
               </WrapperDate>
-              <Styles.TitleMentoring onClick={redirectToD2L}>
-              {props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)'}
-              </Styles.TitleMentoring>
-              <MentorComponent
-                mentor={props.mentor}
-                notStarted={props?.notStarted}
-              />
+              { props.mentor?.name && 
+                <>
+                  <Styles.TitleMentoring onClick={redirectToD2L}>
+                  {props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)'}
+                  </Styles.TitleMentoring>
+                  <MentorComponent
+                    mentor={props.mentor}
+                    notStarted={props?.notStarted}
+                  /> 
+                </>
+                }
             </> 
             : 
             <>
             <WrapperDate onClick={redirectToD2L} notStarted={true} style={{margin: '0px'}}>
-                <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}: </b>
+                <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}:&nbsp;</b> 
                 {props.start}
               </WrapperDate>
             </>
@@ -98,9 +102,7 @@ function MentorComponent(props) {
       <Styles.GridFooter
         container
         spacing={2}
-        onClick={() => {
-          window.open(`${props.mentor.linkedin}`, '_blank')
-        }}
+        onClick={() => { props.mentor.linkedin && window.open(`${props.mentor.linkedin}`, '_blank') }}
         style={{margin: '0px', cursor: 'pointer'}}
       >
             <Avatar
@@ -112,7 +114,7 @@ function MentorComponent(props) {
             <Styles.GridNameMentoring item>
               <Styles.NameMentoring>{props.mentor?.name}</Styles.NameMentoring>
             </Styles.GridNameMentoring>
-            <LinkedinIconMentor/>
+            {props.mentor.linkedin && <LinkedinIconMentor/>}
       </Styles.GridFooter>
   </>
 }
