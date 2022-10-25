@@ -58,8 +58,8 @@ export default function TextField(props: TextFieldProps) {
                     }
                     <Styles.TextField
                         onFocus={() => setFocus(true)}
-                        onBlur={() => setFocus(false)}
-
+                        onBlur={() => setFocus(false)}  
+                        
                         id={props.id}
                         placeholder={props.placeholder || `${ t('globals.typeHere') }...`}
                         as={props.multiline ? 'textarea' : 'input'}

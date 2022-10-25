@@ -48,12 +48,12 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
 
 
     ${ props => props.theme.hovered && css`
-        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
     ${ props => props.theme.focused && css`
         box-shadow: 0px 0px 0px 1px rgba(6, 69, 173, 0.4);
-        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        border: 1px solid ${({ theme }) => theme.colors.linkPressed};
     `}
 
     ${ props => props.theme.disabled && css`
@@ -62,6 +62,7 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     `}
 
     ${ props => props.theme.error && css`
+        background: #FFE0E0;
         box-shadow: none;
         border: 1px solid ${({ theme }) => theme.colors.messageError1};
         color: ${({ theme }) => theme.colors.neutralsGrey3};
