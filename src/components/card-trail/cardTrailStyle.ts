@@ -17,12 +17,12 @@ export const MyBox = styled(Box)`
     padding-top: 12px;
 `
 
-export const MyCardContent = styled(CardContent)<{notStarted}>`
+export const MyCardContent = styled(CardContent)<{notStarted, hasMentor}>`
     cursor: ${({notStarted}) => notStarted ? 'no-drop' : 'pointer'};
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: ${({hasMentor}) => hasMentor ? 'space-between' : 'flex-start'};
 `
 
 export const WrapperDate = styled.div<{notStarted}>`

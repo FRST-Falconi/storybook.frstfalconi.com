@@ -60,7 +60,7 @@ export const TitleMentoring = styled.span`
 export const TextDescription = styled(Typography)`
   margin-top: 10px !important;
   white-space: normal !important;
-  height: 90px !important;
+  height: 102px !important;
   overflow: hidden !important;
   display: -webkit-box;
   -webkit-line-clamp: 6; 
