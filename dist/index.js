@@ -6616,7 +6616,7 @@ const TitleMentoring = styled__default["default"].span `
 const TextDescription = styled__default["default"](_.Typography) `
   margin-top: 10px !important;
   white-space: normal !important;
-  height: 90px !important;
+  height: 102px !important;
   overflow: hidden !important;
   display: -webkit-box;
   -webkit-line-clamp: 6; 
@@ -6669,7 +6669,7 @@ const MyCardContent = styled__default["default"](_.CardContent) `
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: ${({ hasMentor }) => hasMentor ? 'space-between' : 'flex-start'};
 `;
 const WrapperDate = styled__default["default"].div `
     display: ${({ notStarted }) => notStarted ? 'flex' : 'none'};
@@ -6684,7 +6684,7 @@ function CardTrail(props) {
         return window.open(URL);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props?.notStarted && props.variant == 'primary' &&
-                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props?.notStarted, children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
+                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props?.notStarted, hasMentor: props.mentor?.name, children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleMentoring, { onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notStarted: props?.notStarted })] })] })
                                 :
