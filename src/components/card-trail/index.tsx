@@ -58,7 +58,7 @@ export default function CardTrail(props: ModuleCardProps) {
         />
 
         <MyBox>
-          <MyCardContent notStarted={props?.notStarted} hasMentor={props.mentor?.name} >
+          <MyCardContent notStarted={props?.notStarted} hasMentor={ props.mentor?.name || props.variant !== 'primary'} >
             <Styles.TitleCard onClick={redirectToD2L} >{props.name}</Styles.TitleCard>
             <Styles.TextDescription onClick={redirectToD2L} >
               {props.description}
