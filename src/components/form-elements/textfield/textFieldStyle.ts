@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components'
 
 interface TextFieldProps {
     type?: string,
-    as?: string,    
+    as?: string,  
+    isClicked?: boolean,  
 }
 
 const placeholderStyle = (color: string) => css`
@@ -23,7 +24,7 @@ const placeholderStyle = (color: string) => css`
     }
 `
 
-export const TextFieldContainer = styled.div<TextFieldProps>`
+export const TextFieldContainer = styled.div<{isClicked}>`
     width: ${props => props.theme.width || '100%'};
     height: 48px;
     background: ${({ theme }) => theme.colors.neutralsGrey6};
@@ -37,6 +38,11 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     display: flex;
     align-items: center;
 
+    ${({isClicked}) => isClicked && `
+        box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
+        border: 1px solid #663366 !important;`
+    }
+    
     ${ props => props.theme.multiline && css`
         width: ${props => props.theme.width || '100%'};
         height: ${props => props.theme.height || '100%'};
@@ -48,12 +54,12 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
 
 
     ${ props => props.theme.hovered && css`
-        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
     ${ props => props.theme.focused && css`
-        box-shadow: 0px 0px 0px 1px rgba(6, 69, 173, 0.4);
-        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
+        border: 1px solid ${({ theme }) => theme.colors.linkPressed};
     `}
 
     ${ props => props.theme.disabled && css`
@@ -62,6 +68,7 @@ export const TextFieldContainer = styled.div<TextFieldProps>`
     `}
 
     ${ props => props.theme.error && css`
+        background: #FFE0E0;
         box-shadow: none;
         border: 1px solid ${({ theme }) => theme.colors.messageError1};
         color: ${({ theme }) => theme.colors.neutralsGrey3};
@@ -108,7 +115,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
 
 `
 
-export const Label = styled.label`
+export const Label = styled.label<{isClicked}>`
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
@@ -130,6 +137,10 @@ export const Label = styled.label`
 
     ${ props => props.theme.error && css`
         color: ${({ theme }) => theme.colors.messageError1};
+    `}
+
+    ${({isClicked}) => isClicked && `
+        color: #663366 !important;
     `}
 `
 
