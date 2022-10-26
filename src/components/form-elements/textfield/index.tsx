@@ -33,6 +33,7 @@ export interface TextFieldProps {
 export default function TextField(props: TextFieldProps) {
     const [ focus, setFocus ] = useState(false)
     const [ hover, setHover ] = useState(false)
+    const [ click, setClick ] = useState(false)
     const [ inputType, setInputType ] = useState(props.type)
     const { t } = useTranslation()
 
@@ -41,15 +42,24 @@ export default function TextField(props: TextFieldProps) {
         setInputType('password')
     }
 
+    const showBorderAfterClick = () => {
+        setClick(true)
+        setTimeout(() => {
+            setClick(false)
+        }, 1000)
+    }
+
     return (
         <ThemeProvider theme={{ ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }}>
 
             <div style={props.style} className={props.className}>
-                <Styles.Label htmlFor={props.id} >{props.label}</Styles.Label>
+                <Styles.Label htmlFor={props.id} isClicked={click} >{props.label}</Styles.Label>
 
                 <Styles.TextFieldContainer
                     onMouseEnter={() => setHover(true)}
                     onMouseLeave={() => setHover(false)}
+                    onClick={() => showBorderAfterClick()}
+                    isClicked={click}
                 >
                     {
                         props.startIcon && !props.multiline && (
