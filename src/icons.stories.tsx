@@ -170,13 +170,13 @@ export const AddIcon = Template.bind({})
 AddIcon.args = Icons.AddIcon({})
 
 export const Handshake = Template.bind({})
-Handshake.args = Icons.AddIcon({})
+Handshake.args = Icons.Handshake({})
 
 export const Mission = Template.bind({})
-Mission.args = Icons.AddIcon({})
+Mission.args = Icons.Mission({})
 
 export const Lamp = Template.bind({})
-Lamp.args = Icons.AddIcon({})
+Lamp.args = Icons.Lamp({})
 
 export const IconNotification = Template.bind({})
 IconNotification.args = Icons.IconNotification({})
@@ -243,3 +243,21 @@ HomeFilledIcon.args = Icons.HomeFilledIcon({})
 
 export const HomeLineIcon = Template.bind({})
 HomeLineIcon.args = Icons.HomeLineIcon({})
+
+export const RocketButton = Template.bind({})
+RocketButton.args = Icons.RocketButton({})
+
+export const StarRating = Template.bind({})
+StarRating.args = Icons.StarRating({})
+
+export const StarOutlined = Template.bind({})
+StarOutlined.args = Icons.StarOutlined({})
+
+export const TalkIcon = Template.bind({})
+TalkIcon.args = Icons.TalkIcon({})
+
+export const ThumbsUpIcon = Template.bind({})
+ThumbsUpIcon.args = Icons.ThumbsUpIcon({})
+
+export const ThumbsUpCovered = Template.bind({})
+ThumbsUpCovered.args = Icons.ThumbsUpCovered({})
