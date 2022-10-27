@@ -57,18 +57,21 @@ export default function CardTrail(props: ModuleCardProps) {
           notStarted={props?.notStarted}
         />
 
-        <MyBox>
-          <MyCardContent notStarted={props?.notStarted} hasMentor={ props.mentor?.name || props.variant !== 'primary'} >
+        <MyBox>{/* ((props.mentor?.name && props.start) || props.variant !== 'primary') */}
+          <MyCardContent notStarted={props?.notStarted} 
+            hasMentor={ !(props.variant == 'primary' && !props.mentor?.name && !props.start) } >
             <Styles.TitleCard onClick={redirectToD2L} >{props.name}</Styles.TitleCard>
             <Styles.TextDescription onClick={redirectToD2L} >
               {props.description}
             </Styles.TextDescription>
             {props.variant == 'primary' ? 
-            <>
-              <WrapperDate onClick={redirectToD2L} notStarted={props?.notStarted}>
-                <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}:&nbsp;</b> 
-                {props.start}
-              </WrapperDate>
+            <> 
+              { props.start &&
+                <WrapperDate onClick={redirectToD2L} notStarted={props?.notStarted}>
+                  <b>{props.labels?.dateStart ? props.labels?.dateStart : 'Data de início'}:&nbsp;</b> 
+                  {props.start}
+                </WrapperDate>
+              }
               { props.mentor?.name && 
                 <>
                   <Styles.TitleMentoring onClick={redirectToD2L}>
