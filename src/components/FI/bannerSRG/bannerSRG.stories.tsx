@@ -16,9 +16,12 @@ const Template = (args) => <BannerSRG {...args} />
 export const normal = Template.bind({})
 normal.args = {
     bannerSRG: {
-        normal: 'https://i.gyazo.com/481d072fb1f0099585772121b906496f.png',
+        normal: 'https://i.gyazo.com/865239e98e9e1e30976f1c78506093a5.png',
+        large: 'https://i.gyazo.com/5386a2f06adf4507361dd85fb8f48dd1.png',
         responsive: 'https://i.gyazo.com/4c51a9876f08e41507d6f9e7c8515af3.png'
     },
+    isExtendedVersion: false,
+    heightExtended: '500px',
     logoSRG: 'https://i.gyazo.com/566e0a91f926e5f7b24b34d2194bce76.png',
     avatarSRG: 'https://i.gyazo.com/59d6b73b26541b748ca6a5d167645746.png',
     labels: {

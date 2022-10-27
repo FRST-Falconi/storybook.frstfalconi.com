@@ -1,13 +1,32 @@
 import styled, { css } from 'styled-components'
 
-export const ContainerBanner = styled.div<{bannerNormal, bannerResponsive}>`
+export const ContainerTotal = styled.div<{isExtendedVersion, bannerLarge, bannerNormal, bannerResponsive}>`
+    width: 100%;
+    min-height: 508px;
+    background-image: url("${({bannerNormal, bannerLarge, isExtendedVersion}) => isExtendedVersion ? bannerLarge : bannerNormal}");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 870px) {
+        background-image: url("${({bannerResponsive}) => bannerResponsive}");
+        height: 745px;
+    }
+`
+
+export const VersionExtended = styled.div<{isExtendedVersion, heightExtended}>`
+    height: ${({isExtendedVersion, heightExtended}) => isExtendedVersion ? heightExtended ? heightExtended : '508px': '0px'};
+    @media (max-width: 870px) {
+        display: none;
+    }
+`
+
+export const ContainerBanner = styled.div`
     width: 100%;
     height: 508px;
-    background-image: url("${({bannerNormal}) => bannerNormal}");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 120px;
 
     display: flex;
     flex-direction: row;
@@ -29,7 +48,6 @@ export const ContainerBanner = styled.div<{bannerNormal, bannerResponsive}>`
     }
 
     @media (max-width: 870px) {
-        background-image: url("${({bannerResponsive}) => bannerResponsive}");
         height: 745px;
 
         & > div:nth-child(2) {
