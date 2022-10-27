@@ -1,7 +1,14 @@
-export declare const ContainerBanner: import("styled-components").StyledComponent<"div", any, {
+export declare const ContainerTotal: import("styled-components").StyledComponent<"div", any, {
+    isExtendedVersion: any;
+    bannerLarge: any;
     bannerNormal: any;
     bannerResponsive: any;
 }, never>;
+export declare const VersionExtended: import("styled-components").StyledComponent<"div", any, {
+    isExtendedVersion: any;
+    heightExtended: any;
+}, never>;
+export declare const ContainerBanner: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const WrapperContent: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const WrapperContentMain: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const WrapperContentHelper: import("styled-components").StyledComponent<"div", any, {}, never>;

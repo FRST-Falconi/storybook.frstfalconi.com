@@ -8,12 +8,15 @@ type labelsBanner = {
 
 type bannerSRC = {
     normal?: string,
+    large?: string,
     responsive?: string
 }
 
 export interface IBannerSRG {
     style?: React.CSSProperties,
     bannerSRG?: bannerSRC,
+    isExtendedVersion?: boolean,
+    heightExtended?: string,
     logoSRG?: string,
     avatarSRG?: string,
     labels?: labelsBanner,

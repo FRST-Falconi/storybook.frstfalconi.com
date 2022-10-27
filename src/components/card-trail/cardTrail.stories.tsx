@@ -31,8 +31,8 @@ primaryNotStarted.args = {
     }
 }
 
-export const primaryNotStartedWithioutMentor = Template.bind({})
-primaryNotStartedWithioutMentor.args = {
+export const primaryNotStartedWithoutMentor = Template.bind({})
+primaryNotStartedWithoutMentor.args = {
     variant: 'primary',
     name: 'Inovação Customer Centric',
     start: '10/10/2022',
@@ -46,8 +46,8 @@ primaryNotStartedWithioutMentor.args = {
     }
 }
 
-export const primaryNotStartedWithioutMentorDate = Template.bind({})
-primaryNotStartedWithioutMentorDate.args = {
+export const primaryNotStartedWithoutMentorDate = Template.bind({})
+primaryNotStartedWithoutMentorDate.args = {
     variant: 'primary',
     name: 'Inovação Customer Centric',
     description: 'Aprenda como preparar os seus times, processos e mindset para que toda a empresa funcione agindo de acordo com a necessidade do cliente.',
