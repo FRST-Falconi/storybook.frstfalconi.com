@@ -124,7 +124,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Problema criado',
             mars: 'Definição do desafio',
-            jupiter: 'Definição de hipóteses',
+            jupiter: 'Hipóteses e plano de ação',
             saturn: 'Testes e experimentos',
             uranus: 'Resultados e aprendizados',
             neptune: 'Próximos passos',
@@ -149,7 +149,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Created problem',
             mars: 'Challenge definition',
-            jupiter: 'Hypotheses definition',
+            jupiter: 'Hypotheses and action plan',
             saturn: 'Tests and experiment',
             uranus: 'Results and learnings',
             neptune: 'Next steps',
@@ -175,7 +175,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Problema creado',
             mars: 'Definición del desafío',
-            jupiter: 'Definición de hipótesis',
+            jupiter: 'Hipótesis y plan de acción',
             saturn: 'Pruebas y Experimentos',
             uranus: 'Resultados y aprendizajes',
             neptune: 'Próximos pasos',

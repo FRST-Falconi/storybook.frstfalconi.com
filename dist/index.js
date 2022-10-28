@@ -1832,6 +1832,10 @@ const TextFieldContainer = styled__default["default"].div `
     display: flex;
     align-items: center;
 
+    ${({ isClicked }) => isClicked && `
+        box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
+        border: 1px solid #663366 !important;`}
+    
     ${props => props.theme.multiline && styled.css `
         width: ${props => props.theme.width || '100%'};
         height: ${props => props.theme.height || '100%'};
@@ -1843,12 +1847,12 @@ const TextFieldContainer = styled__default["default"].div `
 
 
     ${props => props.theme.hovered && styled.css `
-        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
     ${props => props.theme.focused && styled.css `
-        box-shadow: 0px 0px 0px 1px rgba(6, 69, 173, 0.4);
-        border: 1px solid ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
+        border: 1px solid ${({ theme }) => theme.colors.linkPressed};
     `}
 
     ${props => props.theme.disabled && styled.css `
@@ -1857,6 +1861,7 @@ const TextFieldContainer = styled__default["default"].div `
     `}
 
     ${props => props.theme.error && styled.css `
+        background: #FFE0E0;
         box-shadow: none;
         border: 1px solid ${({ theme }) => theme.colors.messageError1};
         color: ${({ theme }) => theme.colors.neutralsGrey3};
@@ -1924,6 +1929,10 @@ const Label$1 = styled__default["default"].label `
     ${props => props.theme.error && styled.css `
         color: ${({ theme }) => theme.colors.messageError1};
     `}
+
+    ${({ isClicked }) => isClicked && `
+        color: #663366 !important;
+    `}
 `;
 const HelperText$2 = styled__default["default"].span `
     font-family: 'Work Sans';
@@ -1960,6 +1969,7 @@ const StartIcon = styled__default["default"].span `
 function TextField(props) {
     const [focus, setFocus] = React.useState(false);
     const [hover, setHover] = React.useState(false);
+    const [click, setClick] = React.useState(false);
     const [inputType, setInputType] = React.useState(props.type);
     const { t } = reactI18next.useTranslation();
     const handleTogglePasswordVisibility = () => {
@@ -1967,7 +1977,13 @@ function TextField(props) {
             return setInputType('text');
         setInputType('password');
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && ((props.type === 'password')
+    const showBorderAfterClick = () => {
+        setClick(true);
+        setTimeout(() => {
+            setClick(false);
+        }, 1000);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && ((props.type === 'password')
                             ? jsxRuntime.jsx(InputIconButton, { onClick: handleTogglePasswordVisibility, children: props.endIcon })
                             : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText$2, { children: props.helperText })] }) }));
 }
@@ -6616,7 +6632,7 @@ const TitleMentoring = styled__default["default"].span `
 const TextDescription = styled__default["default"](_.Typography) `
   margin-top: 10px !important;
   white-space: normal !important;
-  height: 90px !important;
+  height: 101px !important;
   overflow: hidden !important;
   display: -webkit-box;
   -webkit-line-clamp: 6; 
@@ -6654,9 +6670,9 @@ const CardContainer = styled__default["default"](_.Card) `
 const HeaderImage = styled__default["default"](_.Box) `
     width: 320px;
     height: 200px;
-    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    cursor: ${({ notstarted }) => notstarted ? 'no-drop' : 'pointer'};
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('${({ image }) => image}');
-    filter: grayscale(${({ notStarted }) => notStarted ? '1' : '0'});
+    filter: grayscale(${({ notstarted }) => notstarted ? '1' : '0'});
     background-size: contain;
 `;
 const MyBox = styled__default["default"](_.Box) `
@@ -6665,14 +6681,14 @@ const MyBox = styled__default["default"](_.Box) `
     padding-top: 12px;
 `;
 const MyCardContent = styled__default["default"](_.CardContent) `
-    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    cursor: ${({ notstarted }) => notstarted ? 'no-drop' : 'pointer'};
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: ${({ hasmentor }) => hasmentor ? 'space-between' : 'flex-start'};
 `;
 const WrapperDate = styled__default["default"].div `
-    display: ${({ notStarted }) => notStarted ? 'flex' : 'none'};
+    display: ${({ notstarted }) => notstarted ? 'flex' : 'none'};
     margin-bottom: 7px;
 `;
 
@@ -6683,12 +6699,30 @@ function CardTrail(props) {
         let URL = await props.action();
         return window.open(URL);
     };
+    const getAlign = () => {
+        if (props.variant == 'primary' && props.notStarted) {
+            if (props.start || props.mentor?.name)
+                return +true;
+            if (!props.start || !props.mentor?.name)
+                return +false;
+        }
+        if (props.variant == 'primary' && !props.notStarted) {
+            if (props.start && !props.mentor?.name)
+                return +false;
+            if (!props.start && props.mentor?.name)
+                return +false;
+            if (!props.start && !props.mentor?.name)
+                return +false;
+        }
+        return +true;
+    };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props?.notStarted && props.variant == 'primary' &&
-                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props?.notStarted, children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
-                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
-                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleMentoring, { onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notStarted: props?.notStarted })] })] })
+                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notstarted: +props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notstarted: +props?.notStarted, hasmentor: getAlign(), children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
+                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.start &&
+                                            jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notstarted: +props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
+                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleMentoring, { onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notstarted: +props?.notStarted })] })] })
                                 :
-                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }) })] }) })] }) }));
+                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notstarted: +true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }) })] }) })] }) }));
 }
 function MentorComponent(props) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(GridFooter, { container: true, spacing: 2, onClick: () => { props.mentor.linkedin && window.open(`${props.mentor.linkedin}`, '_blank'); }, style: { margin: '0px', cursor: 'pointer' }, children: [jsxRuntime.jsx(Avatar, { size: "32px", alt: "Mentoring", src: props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", disabled: props?.notStarted }), jsxRuntime.jsx(GridNameMentoring, { item: true, children: jsxRuntime.jsx(NameMentoring, { children: props.mentor?.name }) }), props.mentor.linkedin && jsxRuntime.jsx(LinkedinIconMentor, {})] }) });
@@ -7045,7 +7079,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Problema criado',
             mars: 'Definição do desafio',
-            jupiter: 'Definição de hipóteses',
+            jupiter: 'Hipóteses e plano de ação',
             saturn: 'Testes e experimentos',
             uranus: 'Resultados e aprendizados',
             neptune: 'Próximos passos',
@@ -7070,7 +7104,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Created problem',
             mars: 'Challenge definition',
-            jupiter: 'Hypotheses definition',
+            jupiter: 'Hypotheses and action plan',
             saturn: 'Tests and experiment',
             uranus: 'Results and learnings',
             neptune: 'Next steps',
@@ -7095,7 +7129,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Problema creado',
             mars: 'Definición del desafío',
-            jupiter: 'Definición de hipótesis',
+            jupiter: 'Hipótesis y plan de acción',
             saturn: 'Pruebas y Experimentos',
             uranus: 'Resultados y aprendizajes',
             neptune: 'Próximos pasos',
@@ -7364,14 +7398,31 @@ function LateralMenu({ variant, hiddenButtonHeader, avatar, name, channel, butto
                 })] }) }));
 }
 
+const ContainerTotal = styled__default["default"].div `
+    width: 100%;
+    min-height: 508px;
+    background-image: url("${({ bannerNormal, bannerLarge, isExtendedVersion }) => isExtendedVersion ? bannerLarge : bannerNormal}");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 870px) {
+        background-image: url("${({ bannerResponsive }) => bannerResponsive}");
+        height: 745px;
+    }
+`;
+const VersionExtended = styled__default["default"].div `
+    height: ${({ isExtendedVersion, heightExtended }) => isExtendedVersion ? heightExtended ? heightExtended : '508px' : '0px'};
+    @media (max-width: 870px) {
+        display: none;
+    }
+`;
 const ContainerBanner = styled__default["default"].div `
     width: 100%;
     height: 508px;
-    background-image: url("${({ bannerNormal }) => bannerNormal}");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    padding: 120px;
 
     display: flex;
     flex-direction: row;
@@ -7393,7 +7444,6 @@ const ContainerBanner = styled__default["default"].div `
     }
 
     @media (max-width: 870px) {
-        background-image: url("${({ bannerResponsive }) => bannerResponsive}");
         height: 745px;
 
         & > div:nth-child(2) {
@@ -7563,8 +7613,8 @@ const ItemFrstSocials = styled__default["default"].button `
 `;
 
 function BannerSRG(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerBanner, { bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(WrapperContent, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
-                            jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$1, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$1, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent, { children: jsxRuntime.jsx(Button$1, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
+                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$1, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$1, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent, { children: jsxRuntime.jsx(Button$1, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
 }
 
 exports.AlertCicle = AlertCicle;
