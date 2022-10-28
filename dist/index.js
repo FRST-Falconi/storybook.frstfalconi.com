@@ -6632,7 +6632,7 @@ const TitleMentoring = styled__default["default"].span `
 const TextDescription = styled__default["default"](_.Typography) `
   margin-top: 10px !important;
   white-space: normal !important;
-  height: 102px !important;
+  height: 101px !important;
   overflow: hidden !important;
   display: -webkit-box;
   -webkit-line-clamp: 6; 
@@ -7079,7 +7079,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Problema criado',
             mars: 'Definição do desafio',
-            jupiter: 'Definição de hipóteses',
+            jupiter: 'Hipóteses e plano de ação',
             saturn: 'Testes e experimentos',
             uranus: 'Resultados e aprendizados',
             neptune: 'Próximos passos',
@@ -7104,7 +7104,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Created problem',
             mars: 'Challenge definition',
-            jupiter: 'Hypotheses definition',
+            jupiter: 'Hypotheses and action plan',
             saturn: 'Tests and experiment',
             uranus: 'Results and learnings',
             neptune: 'Next steps',
@@ -7129,7 +7129,7 @@ const labels = {
         tagStep: {
             incompleteMars: 'Problema creado',
             mars: 'Definición del desafío',
-            jupiter: 'Definición de hipótesis',
+            jupiter: 'Hipótesis y plan de acción',
             saturn: 'Pruebas y Experimentos',
             uranus: 'Resultados y aprendizajes',
             neptune: 'Próximos pasos',
