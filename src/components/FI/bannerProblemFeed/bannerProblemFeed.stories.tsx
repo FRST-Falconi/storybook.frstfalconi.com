@@ -54,6 +54,8 @@ Normal.args = {
     testMadeValue: 'O teste, seguido do acompanhamento do vendedor apresentando as características e benefícios do produto, foi fator positivo na conversão de venda, além de proporcionar ao cliente uma diferenciação no atendimento.',
     textSuccessTest: 'Sucesso desse teste ou ação',
     successTestValue: 4,
+    textDownloadFiles: 'Baixar arquivo anexado',
+    handleDownloadFiles: () => alert('Downloading'),
 
     step4Title: 'Missão 4: Urano - Resultados e aprendizados',
     textMainAchievement: 'Principal conquista',

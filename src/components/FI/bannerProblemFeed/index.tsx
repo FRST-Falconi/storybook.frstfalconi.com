@@ -93,6 +93,8 @@ interface stepsInfo{
     testMadeValue ?: string
     textSuccessTest ?: string
     successTestValue ?: number
+    textDownloadFiles ?: string
+    handleDownloadFiles ?: () => void
 /**------------------------------------------------------------
  * Step 4 info
  */
@@ -201,7 +203,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                 <Styles.stepsValueText>{props.testMadeValue}</Styles.stepsValueText>
 
                                 <Styles.stepsLabel>{props.textSuccessTest}:</Styles.stepsLabel>
-                                <div style={{width: '100%'}}>
+                                <div style={{width: '100%', marginBottom: 32, marginTop: 12}}>
                                     <CustomSlider
                                         value={props.successTestValue}
                                         min={1}
@@ -209,6 +211,13 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                         marks={marks}
                                     />
                                 </div>
+
+                                <Button 
+                                    variant="link" 
+                                    startIcon={<Icons.DownloadIcon fill={FRSTTheme['colors'].linkOnfocus} width='24px' height='24' />} 
+                                    label={props.textDownloadFiles}
+                                    handleClick={props.handleDownloadFiles}
+                                />
 
                             </Styles.stepsContainer>
 
