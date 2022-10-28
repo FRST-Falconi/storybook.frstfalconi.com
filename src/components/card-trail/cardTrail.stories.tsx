@@ -46,6 +46,25 @@ primaryNotStartedWithoutMentor.args = {
     }
 }
 
+export const primaryNotStartedWithoutDate = Template.bind({})
+primaryNotStartedWithoutDate.args = {
+    variant: 'primary',
+    name: 'Inovação Customer Centric',
+    description: 'Aprenda como preparar os seus times, processos e mindset para que toda a empresa funcione agindo de acordo com a necessidade do cliente.',
+    mentor: {
+        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000',
+        name: 'Gabriela Duarte',
+        linkedin: 'urlLinkedin'
+    },
+    action: () => alert('opa'),
+    notStarted: true,
+    bannerImage: 'https://www.sydle.com/api/1/blog/com.sydle.site/blogFacade/images/e-business-612541b6b060f57604938af9/e-business.jpg',
+    labels: {
+        mentor: 'Mentor(a)',
+        dateStart: 'Data de Início'
+    }
+}
+
 export const primaryNotStartedWithoutMentorDate = Template.bind({})
 primaryNotStartedWithoutMentorDate.args = {
     variant: 'primary',
@@ -81,6 +100,56 @@ primaryStarted.args = {
     }
 }
 
+export const primaryStartedWithoutMentor = Template.bind({})
+primaryStartedWithoutMentor.args = {
+    variant: 'primary',
+    name: 'Inspiring leadership',
+    start: '10/10/2022',
+    description: 'More than just hitting goals, the inspiring leader.',
+    progress: 80,
+    action: () => alert('redirect'),
+    notStarted: false,
+    bannerImage: 'https://www.sydle.com/api/1/blog/com.sydle.site/blogFacade/images/e-business-612541b6b060f57604938af9/e-business.jpg',
+    labels: {
+        mentor: 'Mentor',
+        dateStart: 'Start date'
+    }
+}
+
+export const primaryStartedWithoutDate = Template.bind({})
+primaryStartedWithoutDate.args = {
+    variant: 'primary',
+    name: 'Inspiring leadership',
+    description: 'More than just hitting goals, the inspiring leader.',
+    progress: 80,
+    mentor: {
+        avatar: 'https://st.depositphotos.com/1743476/2267/i/600/depositphotos_22675279-stock-photo-businesswoman.jpg',
+        name: 'Gabriela Duarte',
+        linkedin: 'urlLinkedin'
+    },
+    action: () => alert('redirect'),
+    notStarted: false,
+    bannerImage: 'https://www.sydle.com/api/1/blog/com.sydle.site/blogFacade/images/e-business-612541b6b060f57604938af9/e-business.jpg',
+    labels: {
+        mentor: 'Mentor',
+        dateStart: 'Start date'
+    }
+}
+
+export const primaryStartedWithoutMentorDate  = Template.bind({})
+primaryStartedWithoutMentorDate.args = {
+    variant: 'primary',
+    name: 'Inspiring leadership',
+    description: 'More than just hitting goals, the inspiring leader.',
+    progress: 80,
+    action: () => alert('redirect'),
+    notStarted: false,
+    bannerImage: 'https://www.sydle.com/api/1/blog/com.sydle.site/blogFacade/images/e-business-612541b6b060f57604938af9/e-business.jpg',
+    labels: {
+        mentor: 'Mentor',
+        dateStart: 'Start date'
+    }
+}
 
 export const secondary = Template.bind({})
 secondary.args = {
