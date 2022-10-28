@@ -6670,9 +6670,9 @@ const CardContainer = styled__default["default"](_.Card) `
 const HeaderImage = styled__default["default"](_.Box) `
     width: 320px;
     height: 200px;
-    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    cursor: ${({ notstarted }) => notstarted ? 'no-drop' : 'pointer'};
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5)), url('${({ image }) => image}');
-    filter: grayscale(${({ notStarted }) => notStarted ? '1' : '0'});
+    filter: grayscale(${({ notstarted }) => notstarted ? '1' : '0'});
     background-size: contain;
 `;
 const MyBox = styled__default["default"](_.Box) `
@@ -6681,14 +6681,14 @@ const MyBox = styled__default["default"](_.Box) `
     padding-top: 12px;
 `;
 const MyCardContent = styled__default["default"](_.CardContent) `
-    cursor: ${({ notStarted }) => notStarted ? 'no-drop' : 'pointer'};
+    cursor: ${({ notstarted }) => notstarted ? 'no-drop' : 'pointer'};
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: ${({ hasMentor }) => hasMentor ? 'space-between' : 'flex-start'};
+    justify-content: ${({ hasmentor }) => hasmentor ? 'space-between' : 'flex-start'};
 `;
 const WrapperDate = styled__default["default"].div `
-    display: ${({ notStarted }) => notStarted ? 'flex' : 'none'};
+    display: ${({ notstarted }) => notstarted ? 'flex' : 'none'};
     margin-bottom: 7px;
 `;
 
@@ -6699,13 +6699,30 @@ function CardTrail(props) {
         let URL = await props.action();
         return window.open(URL);
     };
+    const getAlign = () => {
+        if (props.variant == 'primary' && props.notStarted) {
+            if (props.start || props.mentor?.name)
+                return +true;
+            if (!props.start || !props.mentor?.name)
+                return +false;
+        }
+        if (props.variant == 'primary' && !props.notStarted) {
+            if (props.start && !props.mentor?.name)
+                return +false;
+            if (!props.start && props.mentor?.name)
+                return +false;
+            if (!props.start && !props.mentor?.name)
+                return +false;
+        }
+        return +true;
+    };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer, { children: [!props?.notStarted && props.variant == 'primary' &&
-                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notStarted: props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notStarted: props?.notStarted, hasMentor: !(props.variant == 'primary' && !props.mentor?.name && !props.start), children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
+                    jsxRuntime.jsx(PercentageProgress, { progress: props.progress }), jsxRuntime.jsx(HeaderImage, { onClick: redirectToD2L, image: props.bannerImage, notstarted: +props?.notStarted }), jsxRuntime.jsx(MyBox, { children: jsxRuntime.jsxs(MyCardContent, { notstarted: +props?.notStarted, hasmentor: getAlign(), children: [jsxRuntime.jsx(TitleCard, { onClick: redirectToD2L, children: props.name }), jsxRuntime.jsx(TextDescription, { onClick: redirectToD2L, children: props.description }), props.variant == 'primary' ?
                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.start &&
-                                            jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
-                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleMentoring, { onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notStarted: props?.notStarted })] })] })
+                                            jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notstarted: +props?.notStarted, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }), props.mentor?.name &&
+                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleMentoring, { onClick: redirectToD2L, children: props.labels?.mentor ? props.labels?.mentor : 'Mentor(a)' }), jsxRuntime.jsx(MentorComponent, { mentor: props.mentor, notstarted: +props?.notStarted })] })] })
                                 :
-                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notStarted: true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }) })] }) })] }) }));
+                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperDate, { onClick: redirectToD2L, notstarted: +true, style: { margin: '0px' }, children: [jsxRuntime.jsxs("b", { children: [props.labels?.dateStart ? props.labels?.dateStart : 'Data de início', ":\u00A0"] }), props.start] }) })] }) })] }) }));
 }
 function MentorComponent(props) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(GridFooter, { container: true, spacing: 2, onClick: () => { props.mentor.linkedin && window.open(`${props.mentor.linkedin}`, '_blank'); }, style: { margin: '0px', cursor: 'pointer' }, children: [jsxRuntime.jsx(Avatar, { size: "32px", alt: "Mentoring", src: props.mentor?.avatar ? props.mentor.avatar : "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", disabled: props?.notStarted }), jsxRuntime.jsx(GridNameMentoring, { item: true, children: jsxRuntime.jsx(NameMentoring, { children: props.mentor?.name }) }), props.mentor.linkedin && jsxRuntime.jsx(LinkedinIconMentor, {})] }) });
