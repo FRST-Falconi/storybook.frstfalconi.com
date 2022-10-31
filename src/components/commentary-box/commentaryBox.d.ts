@@ -10,7 +10,7 @@ interface ICommentaryBox{
     detectLinks?: boolean
     isMe?: boolean
     isAuthor?: boolean
-    actionLike: () => void
+    actionLike?: () => void
     isLiked?: boolean
     totalLikes?: number
     hasAnswer?: boolean

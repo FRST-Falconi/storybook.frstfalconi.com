@@ -233,7 +233,7 @@ export const LinkButton = styled.a`
     text-decoration: none;
     ${({ theme }) => theme.fonts.textMessageComponentsBodBold};
     font-size: 12px;
-    color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+    color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
@@ -259,7 +259,7 @@ export const LinkButton = styled.a`
     }
 
     &:focus { 
-        color: ${({ theme }) => theme.colors.linkDefaultOnfocus};
+        color: ${({ theme }) => theme.colors.linkOnfocus};
     }
 `
 
