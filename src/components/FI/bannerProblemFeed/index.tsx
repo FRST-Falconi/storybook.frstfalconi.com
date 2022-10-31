@@ -211,13 +211,15 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                         marks={marks}
                                     />
                                 </div>
-
-                                <Button 
-                                    variant="link" 
-                                    startIcon={<Icons.DownloadIcon fill={FRSTTheme['colors'].linkOnfocus} width='24px' height='24' />} 
-                                    label={props.textDownloadFiles}
-                                    handleClick={props.handleDownloadFiles}
-                                />
+                                {props.textDownloadFiles ?
+                                    <Button 
+                                        variant="link" 
+                                        startIcon={<Icons.DownloadIcon fill={FRSTTheme['colors'].linkOnfocus} width='24px' height='24' />} 
+                                        label={props.textDownloadFiles}
+                                        handleClick={props.handleDownloadFiles}
+                                    />
+                                    : null
+                                }
 
                             </Styles.stepsContainer>
 

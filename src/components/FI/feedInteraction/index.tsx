@@ -7,6 +7,7 @@ import Rating from '@components/EBR/rating'
 import Avatar from '@components/avatar'
 import InputComment from '@components/input-comment'
 import CommentaryBox from '@components/commentary-box'
+import Button from '@components/buttons'
 
 interface IFeedInteraction {
     id: string
@@ -41,28 +42,6 @@ interface IFeedInteraction {
     handlePostReviewChange ?: any
 }
 
-export function RocketFilled() {
-    return (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_2815_4879)">
-          <rect width="24" height="24" fill="white"/>
-          <path d="M7.5 6.3125L12 1.5L16.5 6.3125V18H7.5V6.3125Z" fill="#0645AD" stroke="#0645AD" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M16.5 18H21C20.1 12.8571 18 12 16.5 12V18Z" fill="#0645AD" stroke="#0645AD" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M7.5 18H3C3.9 12.8571 6 12 7.5 12V18Z" fill="#0645AD" stroke="#0645AD" stroke-width="1.5" stroke-linejoin="round"/>
-          <path d="M15.4186 20.0076C15.6225 20.0386 15.8298 19.992 16.0094 19.8756C16.31 19.6853 16.4965 19.3203 16.5 18.9242C16.5 18.5165 16.2996 18.1747 15.9956 18H8.00442C7.70384 18.1709 7.5 18.5126 7.5 18.9242C7.5 19.3164 7.68657 19.6775 7.98714 19.8717C8.16589 19.9873 8.37311 20.035 8.57793 20.0076L9.25163 19.9105L9.34837 20.6677C9.53493 22.1394 10.675 23.25 11.9983 23.25C13.3215 23.25 14.4616 22.1394 14.6482 20.6677L14.7449 19.9144L15.4186 20.0076Z" fill="#0645AD" stroke="#0645AD" stroke-width="1.5" stroke-linejoin="round"/>
-          <rect x="-1395" y="-551" width="11996" height="6456" stroke="#0038FF" stroke-width="50"/>
-          <path d="M11.2929 8.95711C11.1054 8.76957 11 8.51522 11 8.25C11 7.98478 11.1054 7.73043 11.2929 7.54289C11.4804 7.35536 11.7348 7.25 12 7.25C12.2652 7.25 12.5196 7.35536 12.7071 7.54289C12.8946 7.73043 13 7.98478 13 8.25C13 8.51522 12.8946 8.76957 12.7071 8.95711C12.5196 9.14464 12.2652 9.25 12 9.25C11.7348 9.25 11.4804 9.14464 11.2929 8.95711Z" fill="white" stroke="white"/>
-        </g>
-        <defs>
-          <clipPath id="clip0_2815_4879">
-          <rect width="24" height="24" fill="white"/>
-          </clipPath>
-        </defs>
-      </svg>
-  
-    )
-  }
-
 export default function FeedInteraction ( props : IFeedInteraction ) {
     const [isLiked, setIsLiked] = useState(props.isLiked);
     const [openReview, setOpenReview] = useState(false);
@@ -70,10 +49,6 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
     const [showMoreComments, setShowMoreComments] = useState(false);
 
-    const OnLikeClick = () => {
-        setIsLiked(!isLiked)
-        props.handleLikeClick
-    }
 
     const OnReviewClick = () => {
         setOpenReview(!openReview)
@@ -99,12 +74,12 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                 </Styles.infoContent>
                 <Styles.buttonsContent>
                     {isLiked ?
-                        <Styles.buttons onClick={props.handleLikeClick} >
-                            <Icons.ThumbsUpIcon fill={FRSTTheme['colors'].linkOnfocus} /> &nbsp;{props.textDeslike}
+                        <Styles.buttons >
+                            <Button startIcon={<Icons.ThumbsUpIcon fill={'currentColor'} />} label={props.textDeslike} variant='link' handleClick={props.handleLikeClick}  />
                         </Styles.buttons>
                         :
                         <Styles.buttons onClick={props.handleLikeClick}>
-                            <Icons.ThumbsUpIcon fill={FRSTTheme['colors'].linkOnfocus} /> &nbsp;{props.textLikes}
+                            <Button startIcon={<Icons.ThumbsUpIcon fill={'currentColor'} />} label={props.textLikes} variant='link' handleClick={props.handleLikeClick}  />
                         </Styles.buttons>
                     }
                     <Styles.buttons onClick={OnCommentsClick} style={{color:openComments && FRSTTheme['colors'].linkPressed}}>
