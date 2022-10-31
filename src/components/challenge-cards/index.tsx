@@ -115,7 +115,7 @@ const BannersSRC = {
 
 const labels = {
     ptBR: {
-        srgDecription: 'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
+        srgDecription: 'Nossa ferramenta ágil para atingir resultados e garantir aprendizados reais com ciclos de colaboração e experimentação.',
         project: 'Desafio',
         delete: 'Excluir',
         continue: 'Continuar',
@@ -140,7 +140,7 @@ const labels = {
         }
     },
     enUS: {
-        srgDecription: 'Our problem-solving tool guides you through agile cycles of learning, collaboration, and experimentation.',
+        srgDecription: 'Our agile tool to achieve results and ensure real learning with cycles of collaboration and experimentation.',
         project: 'Challenge',
         delete: 'Delete',
         continue: 'Continue',
@@ -166,7 +166,7 @@ const labels = {
     },
 
     es: {
-        srgDecription: 'Nuestra herramienta de resolución de problemas lo guía a través de ciclos ágiles de aprendizaje, colaboración y experimentación.',
+        srgDecription: 'Nuestra herramienta ágil para lograr resultados y asegurar un aprendizaje real con ciclos de colaboración y experimentación.',
         project: 'Desafio',
         delete: 'Elimina',
         continue: 'Continúa',

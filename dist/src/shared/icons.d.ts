@@ -37,7 +37,7 @@ export declare function WithTrail({ fill, width, height }: IconsProps): JSX.Elem
 export declare function EyeOff({ fill, width, height }: IconsProps): JSX.Element;
 export declare function SmileOutlined({ fill, width, height }: IconsProps): JSX.Element;
 export declare function SaveIcon({ fill, width, height }: IconsProps): JSX.Element;
-export declare function RocketIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function RocketIcon({ fill, width, height, fillOpacity }: IconsProps): JSX.Element;
 export declare function CheckInCicle({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function CloseInCicle({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function RocketIconCommentaryBox({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
@@ -107,5 +107,10 @@ export declare function PodCastIcon({ fill, width, height }: IconsProps): JSX.El
 export declare function CalendarIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WriteIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function HomeIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function RocketButton({ customColor_1, customColor_2, width, height }: IconsProps): JSX.Element;
+export declare function StarOutlined({ fill, width, height }: IconsProps): JSX.Element;
+export declare function TalkIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ThumbsUpIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ThumbsUpCovered({ customColor_1, customColor_2, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
