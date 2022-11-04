@@ -63,7 +63,8 @@ export default function FieldSearch({ variant, value, placeholder, onChange, lis
                     </InputSearchWrapper>
                     { loading ? 
                         <WrapperResults style={{...style, marginTop: '95px'}}  isVisibleResults={true}>
-                            <ItemResult >
+                            <ItemResult>
+                                
                                 <TextItem isLastItem={true} style={{color: '#999'}}>{textLoading ? textLoading : 'Carregando...'}</TextItem>
                             </ItemResult>
                         </WrapperResults>
