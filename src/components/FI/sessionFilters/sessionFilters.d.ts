@@ -21,6 +21,7 @@ export interface ISessionFilters {
     labelFilters?: string
     labelSelectItens ?: string
     textDeleteFilter ?: string
+    textSelected ?: string
 
     handleDeleteFilter : () => void
     handleSelectedFilterData : () => void
