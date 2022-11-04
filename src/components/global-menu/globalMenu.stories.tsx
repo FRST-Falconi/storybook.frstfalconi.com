@@ -60,6 +60,7 @@ normal.args = {
             },
         ],
     },
+    showSearchField: false,
     search: {
         label: 'O que você busca?', 
         onChange: (e) => alert(e), 
@@ -134,6 +135,7 @@ normalWithSubMenu.args = {
             },
         ],
     },
+    showSearchField: true,
     search: {
         label: 'O que você busca?', 
         onChange: (e) => alert(e), 
@@ -183,6 +185,7 @@ normalWithSubMenu.args = {
 export const LXP = Template.bind({})
 LXP.args = {
     variant: 'LXP',
+    showSearchField: true,
     menu: [
         { id:'1', label: 'Início',          onClick: (e) => alert('Início')},
         { id:'2', label: 'Comunidade',      onClick: (e) => alert('Comunidade'),  active: true },

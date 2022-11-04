@@ -71,4 +71,5 @@ export interface IGlobalMenu {
     textNotification ?: string,
 
     style:  React.CSSProperties,
+    showSearchField: boolean
 }
