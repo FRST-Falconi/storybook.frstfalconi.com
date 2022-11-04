@@ -5546,6 +5546,7 @@ const WrapperIconNotification = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 150px;
 `;
 const SubMenuContainer = styled__default["default"].div `
     width: 100%;
@@ -6186,7 +6187,7 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
                             }) })] }) }));
 }
 
-function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText }) {
+function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -6234,7 +6235,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                 }, children: [isMobileVersion &&
                                         jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                         jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
-                                        jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                        jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
                                                     width: isMobileVersion ? '190px' : '332px',
                                                 } }), jsxRuntime.jsx(MenuContainer, { variant: variant, style: {
                                                     height: '100%',
@@ -6267,8 +6268,14 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                         ...style
                                     }, children: [isMobileVersion &&
                                             jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
-                                            jsxRuntime.jsx(WrapperLogo, { style: { cursor: 'pointer' }, onClick: onClickHome, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), isMobileVersion &&
-                                            jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: 'fit-content', justifyContent: 'flex-end' }, children: [!isMobileVersion && notification &&
+                                            jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
+                                            jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                                    width: isMobileVersion ? '190px' : '332px',
+                                                } }) }), isMobileVersion &&
+                                            jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                                    width: isMobileVersion ? '180px' : '332px',
+                                                    marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
+                                                } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { justifyContent: 'flex-end', width: 'fit-content' }, children: [!isMobileVersion && notification &&
                                                     jsxRuntime.jsx(WrapperIconNotification, { onClick: handleNotification, children: jsxRuntime.jsxs("span", { style: { display: 'inline-flex', color: '#FFF' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", haveNotification && jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }), " \u00A0 ", textNotification, " "] }) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
                                                         marginLeft: isMobileVersion ? '0px' : '5px',
                                                         marginRight: isMobileVersion ? '0px' : '5px'

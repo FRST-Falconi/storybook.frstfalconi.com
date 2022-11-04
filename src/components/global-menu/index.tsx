@@ -133,7 +133,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     })}
                                 </Styles.MenuContainer>
                             </Styles.WrapperMenu>
-                            {isMobileVersion &&
+                            {isMobileVersion && 
                                 <FieldSearch
                                     variant='LXP'
                                     value={valueSearch}
@@ -225,17 +225,39 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     </Styles.HamburgerButton>
                                 }
                                 {!isMobileVersion &&
-                                    <Styles.WrapperLogo style={{cursor: 'pointer'}} onClick={onClickHome}>
+                                    <Styles.WrapperLogo>
                                         <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                     </Styles.WrapperLogo>
                                 }
-                                {isMobileVersion &&
-                                    <Styles.WrapperLogo >
+                                {showLogo &&
+                                    <Styles.WrapperLogo style={{ marginRight: '0px' }}>
                                         <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                     </Styles.WrapperLogo>
                                 }
+                                <Styles.WrapperMenu style={{ height: '100%' }}>
+                                    {!isMobileVersion && showSearchField && <FieldSearch
+                                        variant='LXP'
+                                        value={valueSearch}
+                                        onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                        placeholder={search.label}
+                                        setLoading={(e) => setLoadingSearch(e)}
+                                        loading={loadingSearch}
 
-                                {!isMobileVersion && showSearchField && <FieldSearch
+                                        setFieldSearchIsOpen={setControlExpandedSearchMobile}
+
+                                        listResults={valueListSearch}
+                                        isMobileVersion={isMobileVersion}
+                                        hasOptionSeeAll
+                                        seeAll={search.seeAll}
+
+                                        style={{
+                                            width: isMobileVersion ? '190px' : '332px',
+                                        }}
+                                    />}
+                                </Styles.WrapperMenu>
+                                
+                                {isMobileVersion && 
+                                <FieldSearch
                                     variant='LXP'
                                     value={valueSearch}
                                     onChange={(e) => handleChangeValueSearch(e.target.value)}
@@ -243,6 +265,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     setLoading={(e) => setLoadingSearch(e)}
                                     loading={loadingSearch}
 
+                                    fieldSearchIsOpen={controlExpandedSearchMobile}
                                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
                                     listResults={valueListSearch}
@@ -251,11 +274,11 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     seeAll={search.seeAll}
 
                                     style={{
-                                        width: isMobileVersion ? '190px' : '332px',
+                                        width: isMobileVersion ? '180px' : '332px',
+                                        marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                     }}
                                 />}
-                                
-                                <Styles.WrapperRightInfo style={{width: 'fit-content', justifyContent:'flex-end'}} >
+                                <Styles.WrapperRightInfo style={{justifyContent:'flex-end', width: 'fit-content'}} >
                                     {!isMobileVersion && notification &&
                                         <Styles.WrapperIconNotification onClick={handleNotification}>
                                             <span style={{display: 'inline-flex', color: '#FFF' }}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {haveNotification && <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div>} &nbsp; {textNotification} </span>
