@@ -14,7 +14,7 @@ import DropdownProfileMenu from '@components/dropdown-profile-menu'
 import { PropaneSharp } from '@mui/icons-material'
 
 
-export default function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText }: IGlobalMenu) {
+export default function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField }: IGlobalMenu) {
     const [valueSearch, setValueSearch] = useState(search.value)
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
     const [loadingSearch, setLoadingSearch] = useState(search.loading)
@@ -93,7 +93,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                 </Styles.WrapperLogo>
                             }
                             <Styles.WrapperMenu style={{ height: '100%' }}>
-                                {!isMobileVersion && <FieldSearch
+                                {!isMobileVersion && showSearchField && <FieldSearch
                                     variant='LXP'
                                     value={valueSearch}
                                     onChange={(e) => handleChangeValueSearch(e.target.value)}
@@ -234,6 +234,26 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                         <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                     </Styles.WrapperLogo>
                                 }
+
+                                {!isMobileVersion && showSearchField && <FieldSearch
+                                    variant='LXP'
+                                    value={valueSearch}
+                                    onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                    placeholder={search.label}
+                                    setLoading={(e) => setLoadingSearch(e)}
+                                    loading={loadingSearch}
+
+                                    setFieldSearchIsOpen={setControlExpandedSearchMobile}
+
+                                    listResults={valueListSearch}
+                                    isMobileVersion={isMobileVersion}
+                                    hasOptionSeeAll
+                                    seeAll={search.seeAll}
+
+                                    style={{
+                                        width: isMobileVersion ? '190px' : '332px',
+                                    }}
+                                />}
                                 
                                 <Styles.WrapperRightInfo style={{width: 'fit-content', justifyContent:'flex-end'}} >
                                     {!isMobileVersion && notification &&
