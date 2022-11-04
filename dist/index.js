@@ -6620,203 +6620,202 @@ function ExtraContent(props) {
 }
 
 const Container$3 = styled__default["default"].div `
-    width: 100%;
-    max-width: 445px;
-    min-height: 509px;
-    border-radius: 8px;
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    box-sizing: border-box;
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  width: 100%;
+  max-width: 445px;
+  min-height: 509px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 `;
 const ContainerLogo = styled__default["default"].div `
-    width: 100%;
-    min-height: 88px;
-    position: absoulte;
-    background-color: ${({ theme }) => theme.colors.primary1};
-    border-radius: 8px 8px 0px 0px;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 82,71%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  min-height: 88px;
+  position: absoulte;
+  background-color: ${({ theme }) => theme.colors.primary1};
+  border-radius: 8px 8px 0px 0px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 82, 71%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const ContainerTypography = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 22px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  margin-bottom: 20px;
 `;
 const TypographyWelcome = styled__default["default"].p `
-    font-family: Work Sans;
-    font-style: normal;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 31px;
-    letter-spacing: 0.01em;
-    color: ${({ theme }) => theme.colors.primary1};
+  font-family: Work Sans;
+  font-style: normal;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0.01em;
+  color: ${({ theme }) => theme.colors.primary1};
 `;
 const TypographyFill = styled__default["default"].p `
-    font-family: PT Sans;
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0em;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
-    margin-left: 44px;
-    margin-right: 44px;
-    margin-bottom: 22px;
+  font-family: PT Sans;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
+  margin-left: 44px;
+  margin-right: 44px;
+  margin-bottom: 22px;
 `;
-const ContainerEmail = styled__default["default"].div `    
-    margin-left: 44px;
-    margin-right: 44px;
+const ContainerEmail = styled__default["default"].div `
+  margin-left: 44px;
+  margin-right: 44px;
 `;
 const ContainerButtonLink = styled__default["default"].div `
-    position: absolute;
-    right: 0;
-    margin-right: 44px;
-    margin-top: 23px;
+  position: absolute;
+  right: 0;
+  margin-right: 44px;
+  margin-top: 23px;
 `;
 const ContainerPassword = styled__default["default"].div `
-    margin-top: 28px;
-    margin-left: 44px;
-    margin-right: 44px;
+  margin-top: 28px;
+  margin-left: 44px;
+  margin-right: 44px;
 `;
 const IconAlert = styled__default["default"].div `
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding-right: 20px;
-    padding-bottom: 140px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding-right: 20px;
+  padding-bottom: 140px;
 `;
 const ContainerConnect = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 44px;
-    margin-left: 44px;
-    margin-top: 32px;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 44px;
+  margin-left: 44px;
+  margin-top: 32px;
+  margin-bottom: 20px;
 `;
 const ContainerCheckbox = styled__default["default"].div `
-    cursor: pointer;
-    display: flex;
-    gap: 8px;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
 `;
 const TypographyConnect = styled__default["default"].p `
-    font-family: PT Sans;
-    font-style: normal;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 21px;
-    letter-spacing: 0em;
-    color: ${({ theme }) => theme.colors.shadeBlack};
+  font-family: PT Sans;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0em;
+  color: ${({ theme }) => theme.colors.shadeBlack};
 `;
 // ######################recover####################
 const ContainerRecover = styled__default["default"].div `
-    width: 100%;
-    max-width: 445px;
-    height: 467px;
-    border-radius: 8px;
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    box-sizing: border-box;
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  width: 100%;
+  max-width: 445px;
+  height: 467px;
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 `;
 const ContainerLogoRecover = styled__default["default"].div `
-    width: 100%;
-    min-height: 88px;
-    position: absoulte;
-    background-color: ${({ theme }) => theme.colors.primary1};
-    border-radius: 8px 8px 0px 0px;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  min-height: 88px;
+  position: absoulte;
+  background-color: ${({ theme }) => theme.colors.primary1};
+  border-radius: 8px 8px 0px 0px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const ContainerTypographyRecover = styled__default["default"].div `
-    position: absolute;    
-    margin: 32px 44px 0 44px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px; 
+  position: absolute;
+  margin: 32px 44px 0 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 const TypographyRecover = styled__default["default"].p `
-    font-family: PT Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 21px;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
 `;
 const ContainerEmailRecover = styled__default["default"].div `
-    margin: 159px 44px 0 44px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  margin: 159px 44px 0 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 const ContainerButtonRecover = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    margin: 30px 44px 20px 44px;         
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 44px 20px 44px;
 `;
 //#########################NewPassaword#################
 const TypographyNewPassword = styled__default["default"].p `
-    font-family: PT Sans;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 21px;
-    color: ${({ theme }) => theme.colors.shadeBlack};
-    position: absolute;
-    margin: 34px 44px 0 44px;
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  color: ${({ theme }) => theme.colors.shadeBlack};
+  position: absolute;
+  margin: 34px 44px 0 44px;
 `;
 const ContainerPasswordNew = styled__default["default"].div `
-    margin-top: 100px;
-    margin-left: 44px;
-    margin-right: 44px;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+  margin-top: 100px;
+  margin-left: 44px;
+  margin-right: 44px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 `;
 //###############SendComfirmation##############
 const ContainerSendComfirmation = styled__default["default"].div `
-    width: 100%;
-    max-width: 445px;
-    min-height: 302px;
-    border-radius: 8px;
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    box-sizing: border-box;
-    position: relative;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  width: 100%;
+  max-width: 445px;
+  min-height: 302px;
+  border-radius: 8px;
+  border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  box-sizing: border-box;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 `;
 const ContainerButtonSendConfirmation = styled__default["default"].div `
-    display: flex;
-    justify-content: end;
-    margin: 126px 44px 0 0;
+  display: flex;
+  justify-content: end;
+  margin: 126px 44px 0 0;
 `;
 
 function Login(props) {
@@ -6868,7 +6867,9 @@ function Login(props) {
             return;
         }
         if (props.isError) {
-            setMsgInput2(props.textEmailErrorPropsIsError ? props.textEmailErrorPropsIsError : 'Erro ao enviar email de recuperação de senha.');
+            setMsgInput2(props.textEmailErrorPropsIsError
+                ? props.textEmailErrorPropsIsError
+                : 'Erro ao enviar email de recuperação de senha.');
             setError(true);
             return;
         }
@@ -6884,8 +6885,14 @@ function Login(props) {
             setError(true);
             return;
         }
-        if (newPassword && (!newPassword.replace(/\D/g, '') || !newPassword.replace(/\d/g, '') || !newPassword.replace(/\w/g, '') || newPassword.length < 8)) {
-            setMsgInput2(props.textNewPasswordErrorSenhaForte ? props.textNewPasswordErrorSenhaForte : 'Sua senha deve ser composta por no mínimo 8 caracteres e incluir ao menos uma letra, um número e um caractere especial.');
+        if (newPassword &&
+            (!newPassword.replace(/\D/g, '') ||
+                !newPassword.replace(/\d/g, '') ||
+                !newPassword.replace(/\w/g, '') ||
+                newPassword.length < 8)) {
+            setMsgInput2(props.textNewPasswordErrorSenhaForte
+                ? props.textNewPasswordErrorSenhaForte
+                : 'Sua senha deve ser composta por no mínimo 8 caracteres e incluir ao menos uma letra, um número e um caractere especial.');
             setError(true);
             return;
         }
@@ -6924,16 +6931,15 @@ function Login(props) {
         setError(props.isError);
         setMsgInput2(props.isError ? 'E-mail ou senhas incorretos.' : '');
     }, [props.isError]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ?
-            jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsx(ContainerEmail, { children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: 'Email', label: 'Email', type: 'email', value: email, onChange: (e) => setEmail(e.target.value) }) }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsx(ContainerPassword, { children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: 'password', value: password, onChange: (e) => setPassword(e.target.value) }) }), error &&
-                        jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })
-            : props.variant === 'login' && step === 2 ?
-                jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro ? props.textEmailCadastro : 'Digite seu e-mail de cadastro abaixo e clique em enviar.' }), jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro2 ? props.textEmailCadastro2 : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsx(ContainerEmailRecover, { children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: 'Email', label: 'Email', type: 'email', value: emailRecover, onChange: (e) => setEmailRecover(e.target.value) }) }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })
-                : props.variant === 'newPassword' ?
-                    jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao ? props.textNewPasswordInformacao : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', label: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', type: 'password', value: newPassword, onChange: (e) => setNewPassword(e.target.value) }), jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', label: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', type: 'password', value: confirmPassword, onChange: (e) => setConfirmPassword(e.target.value) })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textNewPasswordButtonLink ? props.textNewPasswordButtonLink : 'Voltar Login', handleClick: props.handleClickChangePasswordCancel }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textNewPasswordButtonSalvar ? props.textNewPasswordButtonSalvar : 'Salvar', handleClick: onClickSave })] })] })
-                    : props.variant === 'login' && step === 3 ?
-                        jsxRuntime.jsxs(ContainerSendComfirmation, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textConfirmacaoRespostaEmail ? props.textConfirmacaoRespostaEmail : 'Solicitação enviada com sucesso para o seu e-mail.' }), jsxRuntime.jsx(ContainerButtonSendConfirmation, { children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textConfirmacaoButtonRetorna ? props.textConfirmacaoButtonRetorna : 'Retornar', handleClick: props.onClickConfimationBackToLogin }) })] })
-                        : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsx(ContainerEmail, { children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value) }) }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsx(ContainerPassword, { children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value) }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) })), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
+                                ? props.textEmailCadastro
+                                : 'Digite seu e-mail de cadastro abaixo e clique em enviar.' }), jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro2
+                                ? props.textEmailCadastro2
+                                : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsx(ContainerEmailRecover, { children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value) }) }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
+                        ? props.textNewPasswordInformacao
+                        : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', label: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', type: 'password', value: newPassword, onChange: (e) => setNewPassword(e.target.value) }), jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', label: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', type: 'password', value: confirmPassword, onChange: (e) => setConfirmPassword(e.target.value) })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textNewPasswordButtonLink ? props.textNewPasswordButtonLink : 'Voltar Login', handleClick: props.handleClickChangePasswordCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textNewPasswordButtonSalvar ? props.textNewPasswordButtonSalvar : 'Salvar', handleClick: onClickSave })] })] })) : props.variant === 'login' && step === 3 ? (jsxRuntime.jsxs(ContainerSendComfirmation, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textConfirmacaoRespostaEmail
+                        ? props.textConfirmacaoRespostaEmail
+                        : 'Solicitação enviada com sucesso para o seu e-mail.' }), jsxRuntime.jsx(ContainerButtonSendConfirmation, { children: jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textConfirmacaoButtonRetorna ? props.textConfirmacaoButtonRetorna : 'Retornar', handleClick: props.onClickConfimationBackToLogin }) })] })) : null }));
 }
 
 const ProgressBox = styled__default["default"](_.Box) `
