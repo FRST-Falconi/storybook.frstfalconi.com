@@ -8274,11 +8274,9 @@ const ContainerFilter = styled__default["default"].div `
     flex-direction: column;
     width: fit-content;
 
-    
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
     
-    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
 `;
 const ButtonList = styled__default["default"].div `
     display:flex;
@@ -8322,24 +8320,26 @@ function SessionFilters(props) {
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerFilter, { style: { ...props.style }, children: [props.labelFilters, jsxRuntime.jsx(ButtonList, { children: props.filterList.map((item, index) => {
                         return (jsxRuntime.jsx("div", { style: { marginRight: 24 }, children: FilterButton({ variant: item.variant, label: item.label, id: index }) }, index));
-                    }) }), props.labelSelectItens, jsxRuntime.jsxs(SelectedItens, { children: [jsxRuntime.jsx(material.Select, { multiple: true, labelId: 'selectedFilterInfoLabel', id: 'selectedFilterInfo', value: selectFilterContent, renderValue: (selected) => `${selected.length} itens selecionados`, style: { height: 48, width: 384 }, children: props.filterList[selectedFilter].filterContentList.map((item) => (jsxRuntime.jsxs(material.MenuItem, { onClick: item.onChangeChecked, 
-                                // onClick={() => {
-                                //     let index = selectFilterContent.indexOf(item.title)
-                                //     if(index > -1 ){
-                                //         selectFilterContent.splice(index, 1)
-                                //         checkedList[indexMap] = false
-                                //     }
-                                //     else{
-                                //         selectFilterContent.push(item.title)
-                                //         checkedList[indexMap] = true
-                                //     }
-                                // }} 
-                                defaultValue: item.title, children: [jsxRuntime.jsx(material.Checkbox, { checked: item.checked, sx: {
-                                            color: FRSTTheme['colors'].neutralsGrey5,
-                                            '&.Mui-checked': {
-                                                color: FRSTTheme['colors'].primary1,
-                                            },
-                                        } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) }), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer' }, onClick: props.handleDeleteFilter, children: [jsxRuntime.jsx(Trash, { fill: FRSTTheme['colors'].linkOnfocus }), "\u00A0", props.textDeleteFilter] })] })] }) }));
+                    }) }), props.filterList[selectedFilter].filterContentList ?
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.labelSelectItens, jsxRuntime.jsxs(SelectedItens, { children: [jsxRuntime.jsx(material.Select, { multiple: true, labelId: 'selectedFilterInfoLabel', id: 'selectedFilterInfo', value: selectFilterContent, renderValue: (selected) => `${selected.length} ${props.textSelected}`, style: { height: 48, width: 384 }, children: props.filterList[selectedFilter].filterContentList.map((item) => (jsxRuntime.jsxs(material.MenuItem, { onClick: item.onChangeChecked, 
+                                            // onClick={() => {
+                                            //     let index = selectFilterContent.indexOf(item.title)
+                                            //     if(index > -1 ){
+                                            //         selectFilterContent.splice(index, 1)
+                                            //         checkedList[indexMap] = false
+                                            //     }
+                                            //     else{
+                                            //         selectFilterContent.push(item.title)
+                                            //         checkedList[indexMap] = true
+                                            //     }
+                                            // }} 
+                                            defaultValue: item.title, children: [jsxRuntime.jsx(material.Checkbox, { checked: item.checked, sx: {
+                                                        color: FRSTTheme['colors'].neutralsGrey5,
+                                                        '&.Mui-checked': {
+                                                            color: FRSTTheme['colors'].primary1,
+                                                        },
+                                                    } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) }), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer' }, onClick: props.handleDeleteFilter, children: [jsxRuntime.jsx(Trash, { fill: FRSTTheme['colors'].linkOnfocus }), "\u00A0", props.textDeleteFilter] })] })] })
+                    : null] }) }));
 }
 
 const Container = styled__default["default"].div `

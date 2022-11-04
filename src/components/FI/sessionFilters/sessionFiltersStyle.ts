@@ -30,11 +30,9 @@ export const ContainerFilter = styled.div`
     flex-direction: column;
     width: fit-content;
 
-    
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
     
-    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
 `
 
 export const ButtonList = styled.div`

@@ -17,32 +17,15 @@ Filters.args = {
     labelFilters: 'Filtros:',
     labelSelectItens: 'Escolha abaixo:',
     textDeleteFilter: 'Excluir filtro',
+    style: {backgroundColor: '#ebebeb'} ,
+    textSelected: 'itens selecionados',
     filterList: [
         {
             variant: 'myBusiness',
             label: 'Minha empresa',
             id: '1',
             handleClick: () => alert('Minha empresa!'),
-            filterContentList: [
-                {
-                    title: 'Teste',
-                    id: '1',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                },
-                {
-                    title: 'Teste 2',
-                    id: '2',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                },
-                {
-                    title: 'Teste 3',
-                    id: '3',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                }
-            ]
+            
         },
         {
             variant: 'mission',
