@@ -211,10 +211,10 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                         marks={marks}
                                     />
                                 </div>
-                                {props.textDownloadFiles ?
+                                {props.handleDownloadFiles ?
                                     <Button 
                                         variant="link" 
-                                        startIcon={<Icons.DownloadIcon fill={FRSTTheme['colors'].linkOnfocus} width='24px' height='24' />} 
+                                        startIcon={<Icons.DownloadIcon fill={'currentColor'} width='24px' height='24' />} 
                                         label={props.textDownloadFiles}
                                         handleClick={props.handleDownloadFiles}
                                     />
@@ -271,7 +271,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 </Styles.achievementHeader>
                 : null
             }
-            <Styles.bannerContainer>
+            <Styles.bannerContainer style={{borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8}}>
                 <Styles.headerContent>
                     <Avatar size="40px" src={props.userAvatar} />
                     <Styles.userInfo>

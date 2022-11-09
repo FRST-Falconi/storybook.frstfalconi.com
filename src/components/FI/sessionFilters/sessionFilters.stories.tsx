@@ -18,81 +18,53 @@ Filters.args = {
     labelSelectItens: 'Escolha abaixo:',
     textDeleteFilter: 'Excluir filtro',
     style: {backgroundColor: '#ebebeb'} ,
-    textSelected: 'itens selecionados',
+    textMultipleSelected: 'itens selecionados',
+    textSingleSelected: 'item selecionado',
+    selectedFilter: 'missionId',
+    selectedFilterContentList: [
+        {
+            title: 'Missão 1: Marte - Definição do Problema',
+            id: '1',
+        },
+        {
+            title: 'Missão 2: Júpiter - Levantamento das Hipóteses',
+            id: '2',
+        },
+        {
+            title: 'Missão 3: Saturno - Testes Realizados',
+            id: '3',
+        },
+        {
+            title: 'Missão 4: Urano - Resultados e Aprendizados',
+            id: '4',
+        },
+        {
+            title: 'Missão 5: Netuno - Próximos Passos',
+            id: '5',
+        }
+    ],
     filterList: [
         {
             variant: 'myBusiness',
             label: 'Minha empresa',
-            id: '1',
+            id: 'businessId',
             handleClick: () => alert('Minha empresa!'),
             
         },
         {
             variant: 'mission',
             label: 'Missão',
-            id: '2',
+            id: 'missionId',
             handleClick: () => alert('Missão!'),
-            filterContentList: [
-                {
-                    title: 'Missão 1: Marte - Definição do Problema',
-                    id: '1',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                },
-                {
-                    title: 'Missão 2: Júpiter - Levantamento das Hipóteses',
-                    id: '2',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                },
-                {
-                    title: 'Missão 3: Saturno - Testes Realizados',
-                    id: '3',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                },
-                {
-                    title: 'Missão 4: Urano - Resultados e Aprendizados',
-                    id: '4',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                },
-                {
-                    title: 'Missão 5: Netuno - Próximos Passos',
-                    id: '5',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                }
-            ]
         },
         {
             variant: 'trail',
             label: 'Trilha',
-            id: '3',
+            id: 'trailId',
             handleClick: () => alert('Trilha!'),
-            filterContentList: [
-                {
-                    title: 'Teste 11',
-                    id: '1',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-
-                },
-                {
-                    title: 'Teste 12',
-                    id: '2',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                },
-                {
-                    title: 'Teste 13',
-                    id: '3',
-                    checked: false,
-                    onChangeChecked: () => alert('selecionado')
-                }
-            ]
         },
     ],
     handleDeleteFilter: () => alert('delete'),
-    handleSelectedFilterData: () => alert('Selecionado! ')
+    handleSelectedFilterData: (e) => console.log(e),
+    handleSelectedFilter: () => console.log('Filter Seleted')
 }
