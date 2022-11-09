@@ -7,18 +7,20 @@ import { Container, ContainerIcon, LabelField, InputSearchWrapper, InputText, Wr
 import { IFieldSearch } from './fieldSearch'
 import { SearchIcon } from '@shared/icons'
 
-export default function FieldSearch({ variant, value, placeholder, onChange, listResults, 
-    hasOptionSeeAll, seeAll, style, loading, setLoading, textLoading, enableAnimationField,
-    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen }: IFieldSearch) {
-    const [ actionAreaInput, setActionAreaInput ] = useState(false)
-    const [ inputOnFocus, setInputOnFocus ] = useState(false)
-    const [ isMobile, setIsMobile ] = useState(isMobileVersion)
-    const [ openSearchFieldMobile, setOpenSearchFieldMobile ] = useState(isMobileVersion)
-    const [ isOpenDrop, setIsOpenDrop ] = useState(false);
-        
+export default function FieldSearch({ variant, placeholder, onChange, listResults, 
+    hasOptionSeeAll, value, seeAll, style, loading, textLoading, enableAnimationField,
+    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter }: IFieldSearch) {
+    const [actionAreaInput, setActionAreaInput ] = useState(false)
+    const [inputOnFocus, setInputOnFocus ] = useState(false)
+    const [isMobile, setIsMobile ] = useState(isMobileVersion)
+    const [openSearchFieldMobile, setOpenSearchFieldMobile ] = useState(isMobileVersion)
+    const [isOpenDrop, setIsOpenDrop ] = useState(false)
+    const [ValueSearch, setValueSearch] = useState('');    
+    const [Loading, setLoading] = useState(loading);
+
     useEffect(() => {
         setFieldSearchIsOpen(isMobileVersion)
-    },[])
+    },[])    
 
     useEffect(() => {
         setIsOpenDrop(false)
@@ -26,23 +28,31 @@ export default function FieldSearch({ variant, value, placeholder, onChange, lis
     },[openSearchFieldMobile])
 
     // Handle Open list results
-    useEffect(() => {
-        setIsOpenDrop(value && value.length > 0 && listResults && listResults.length > 0)
-    }, [value, listResults])
 
     const handleFocusUp = () => {
+        console.log("Focus On")
         setInputOnFocus(true)
-        setIsOpenDrop(value && value.length > 0 && listResults && listResults.length > 0)
+        setIsOpenDrop(true)
+        setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
     }
     const handleFocusDown = () => {
+        console.log("Focus Off")
         setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput)
-        setLoading(false)
     }
+
+    useEffect(() => {
+        const delayDebounceFn = setTimeout(() => {
+          onFilter(ValueSearch)
+          setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
+        }, 500)
     
+        return () => clearTimeout(delayDebounceFn)
+      }, [ValueSearch])    
 
     return (
         <ThemeProvider theme={FRSTTheme}>
+            <div style={{position: 'relative'}}>
             { variant == 'LXP' ?
                 <Container
                     onMouseOver={() => setActionAreaInput(true)}
@@ -59,17 +69,24 @@ export default function FieldSearch({ variant, value, placeholder, onChange, lis
                         <ContainerIcon onClick={() => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile)}>
                             <SearchIcon  fill={'#fff'}/>
                         </ContainerIcon>
-                        <InputText placeholder={placeholder} onChange={(e) => onChange(e)} value={value}/>
+                        <InputText 
+                            placeholder={placeholder} 
+                            onChange={(e) => {
+                                setIsOpenDrop(false)
+                                setValueSearch(e.target.value)
+                            }}
+                            disabled={loading}
+                            value={ValueSearch} 
+                        />
                     </InputSearchWrapper>
-                    { loading ? 
-                        <WrapperResults style={{...style, marginTop: '95px'}}  isVisibleResults={true}>
-                            <ItemResult>
-                                
+                    { Loading ? 
+                        <WrapperResults style={{...style, marginTop: 8}}  isVisibleResults={true}>
+                            <ItemResult>                                
                                 <TextItem isLastItem={true} style={{color: '#999'}}>{textLoading ? textLoading : 'Carregando...'}</TextItem>
                             </ItemResult>
                         </WrapperResults>
                     :
-                        <WrapperResults style={{...style}} isVisibleResults={isOpenDrop}
+                        <WrapperResults style={{...style, marginTop: 8}} isVisibleResults={isOpenDrop}
                             onMouseOver={() => setActionAreaInput(true)}
                             onMouseOut={() => setActionAreaInput(false)}
                         >
@@ -110,6 +127,7 @@ export default function FieldSearch({ variant, value, placeholder, onChange, lis
                     </InputSearchWrapper>
                 </Container>
             }
+            </div>
         </ThemeProvider>
     )
 }

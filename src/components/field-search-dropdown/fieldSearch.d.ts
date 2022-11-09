@@ -12,11 +12,11 @@ export type itemClick = {
 export interface IFieldSearch {
     variant?: enumVariant,
     loading?: boolean,
-    setLoading?: (e) => void,
     textLoading?: string,
     placeholder?: string,
     value?: string, 
     onChange?: (e) => void,
+    onFilter?: (term) => void,
     hasListResult?: boolean, 
     listResults?: Array<itemClick>,
     hasOptionSeeAll?: boolean,

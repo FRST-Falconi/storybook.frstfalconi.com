@@ -96,16 +96,16 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                 {!isMobileVersion && showSearchField && <FieldSearch
                                     variant='LXP'
                                     value={valueSearch}
-                                    onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                    
                                     placeholder={search.label}
-                                    setLoading={(e) => setLoadingSearch(e)}
+                                    onFilter={search.onFilter}
                                     loading={loadingSearch}
 
                                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
                                     listResults={valueListSearch}
                                     isMobileVersion={isMobileVersion}
-                                    hasOptionSeeAll
+                                    hasOptionSeeAll={search.hasOptionSeeAll}
                                     seeAll={search.seeAll}
 
                                     style={{
@@ -139,7 +139,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     value={valueSearch}
                                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                                     placeholder={search.label}
-                                    setLoading={(e) => setLoadingSearch(e)}
+                                    onFilter={search.onFilter}
                                     loading={loadingSearch}
 
                                     fieldSearchIsOpen={controlExpandedSearchMobile}
@@ -147,7 +147,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
 
                                     listResults={valueListSearch}
                                     isMobileVersion={isMobileVersion}
-                                    hasOptionSeeAll
+                                    hasOptionSeeAll={search.hasOptionSeeAll}
                                     seeAll={search.seeAll}
 
                                     style={{
@@ -238,16 +238,16 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     {!isMobileVersion && showSearchField && <FieldSearch
                                         variant='LXP'
                                         value={valueSearch}
-                                        onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                        onFilter={search.onFilter}
                                         placeholder={search.label}
-                                        setLoading={(e) => setLoadingSearch(e)}
+                                        
                                         loading={loadingSearch}
 
                                         setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
                                         listResults={valueListSearch}
                                         isMobileVersion={isMobileVersion}
-                                        hasOptionSeeAll
+                                        hasOptionSeeAll={search.hasOptionSeeAll}
                                         seeAll={search.seeAll}
 
                                         style={{
@@ -262,7 +262,6 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     value={valueSearch}
                                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                                     placeholder={search.label}
-                                    setLoading={(e) => setLoadingSearch(e)}
                                     loading={loadingSearch}
 
                                     fieldSearchIsOpen={controlExpandedSearchMobile}
@@ -270,7 +269,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
 
                                     listResults={valueListSearch}
                                     isMobileVersion={isMobileVersion}
-                                    hasOptionSeeAll
+                                    hasOptionSeeAll={search.hasOptionSeeAll}
                                     seeAll={search.seeAll}
 
                                     style={{

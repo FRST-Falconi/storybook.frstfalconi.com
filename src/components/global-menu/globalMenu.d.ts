@@ -30,14 +30,14 @@ export type typeUser = {
     menuItems?: any
 }
 
-export type typeSearch = {
-    value: string,
-    label: string, 
-    loading: boolean,
-    onChange: (e) => void, 
-    seeAll: itemClick,
-    listEntry: Array<itemClick>
-}
+// export type typeSearch = {
+//     value: string,
+//     label: string, 
+//     loading: boolean,
+//     onFilter: (e) => void, 
+//     seeAll: itemClick,
+//     listEntry: Array<itemClick>
+// }
 
 
 export interface IGlobalMenu {
@@ -46,7 +46,7 @@ export interface IGlobalMenu {
     menu?: Array<itemClick>,
     subMenu?: Array<itemClick>,
     user?: typeUser,
-    search?: typeSearch,
+    search?: IFieldSearch,
     
     notification?: any,
     haveNotification ?: boolean,
