@@ -23,7 +23,7 @@ interface IFeedInteraction {
     commentList?: any[];
     textLoadMoreComments?: string;
     style?: React.CSSProperties;
-    onCommentChange?: () => void;
+    onCommentChange?: (e: any) => void;
     handleLikeClick?: () => void;
     handleImpactoChange?: any;
     handleRelevanciaChange?: any;
