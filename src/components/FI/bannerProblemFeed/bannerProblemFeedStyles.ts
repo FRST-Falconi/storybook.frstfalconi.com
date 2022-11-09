@@ -8,6 +8,8 @@ export const achievementHeader = styled.div`
     background-color: #4B2961;
     height: 96px;
     padding: 20px 32px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 
     ${({theme}) => theme.fonts.textMessageComponentsBodyBold};
     color: ${({theme}) => theme.colors.shadeWhite};
