@@ -3,8 +3,8 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './sessionFiltersStyle'
 import * as Icons from '../../../shared/icons'
 import { ISessionFilters } from './sessionFilters'
-import { useState } from 'react'
-import { ListItemText, MenuItem, Select, Checkbox } from '@mui/material'
+import { useEffect, useState } from 'react'
+import { ListItemText, MenuItem, Select, Checkbox, autocompleteClasses } from '@mui/material'
 
 type enumVariant = 'myBusiness' | 'mission' |  'trail'
 
@@ -14,36 +14,54 @@ interface IFilterButton{
      */  
     variant: enumVariant
     label: string
-    id: number
+    id: string
     handleClick ?: () => void
 }
 
+const MenuProps = {
+    PaperProps: {
+    style: {
+        overflow: 'auto',
+        maxHeight: 255,
+        borderRadius: 8,
+    },
+    },
+};
+
 
 export default function SessionFilters(props: ISessionFilters) {
-    const [selectedFilter, setSelectedFilter] = useState(0);
-    const selectFilterContent = []
-    const checkedList = []
+    const [selectedFilter, setSelectedFilter] = useState(props.selectedFilter);
+    const [selectFilterContent, setSelectFilterContent] = useState([]);
 
-    function handleClick (id){
-        setSelectedFilter(id)
-        selectFilterContent.splice(0,selectFilterContent.length)
+
+    const selectItem = (item) => {
+        let index = selectFilterContent.indexOf(item.title)
+        let newArray = [].concat(selectFilterContent)
+        if(selectFilterContent.includes(item.title) ){
+            newArray.splice(index, 1)
+            setSelectFilterContent(currentValue => currentValue = newArray )
+        }
+        else{
+            newArray.push(item.title)
+            setSelectFilterContent(currentValue => currentValue = newArray)
+        }
     }
-    
+
     function FilterButton(props: IFilterButton) {
         return (
             <>
                 {props.variant === 'myBusiness' ?
-                    <Styles.ButtonSessionFilters active={selectedFilter === props.id} onClick={ () => handleClick(props.id)}>                    
+                    <Styles.ButtonSessionFilters active={selectedFilter === props.id} onClick={props.handleClick}>                    
                         <Icons.Handshake />                                    
                         {props.label}
                     </Styles.ButtonSessionFilters>  
                 :  props.variant === 'mission' ?
-                    <Styles.ButtonSessionFilters active={selectedFilter === props.id} onClick={ () => handleClick(props.id)}>                    
+                    <Styles.ButtonSessionFilters active={selectedFilter === props.id} onClick={props.handleClick}>                    
                         <Icons.Mission />                                        
                         {props.label}
                     </Styles.ButtonSessionFilters> 
                 : props.variant ===  'trail' ?
-                    <Styles.ButtonSessionFilters active={selectedFilter === props.id} onClick={ () => handleClick(props.id)}>                    
+                    <Styles.ButtonSessionFilters active={selectedFilter === props.id} onClick={props.handleClick}>                    
                         <Icons.Lamp />                                        
                         {props.label}
                     </Styles.ButtonSessionFilters>
@@ -61,12 +79,12 @@ export default function SessionFilters(props: ISessionFilters) {
                     {props.filterList.map((item,index) => {
                         return(
                             <div style={{marginRight: 24}} key={index}>
-                                {FilterButton({variant:item.variant, label: item.label, id: index})}
+                                {FilterButton({variant:item.variant, label: item.label, id: item.id, handleClick: item.handleClick})}
                             </div>
                         )
                     })}
                 </Styles.ButtonList>
-                {props.filterList[selectedFilter].filterContentList ?
+                {props.selectedFilterContentList ?
                 <>
                     {props.labelSelectItens}
                     <Styles.SelectedItens>
@@ -75,30 +93,21 @@ export default function SessionFilters(props: ISessionFilters) {
                             labelId='selectedFilterInfoLabel'
                             id='selectedFilterInfo'
                             value={selectFilterContent} 
-                            renderValue={(selected) => `${selected.length} ${props.textSelected}`}
+                            renderValue={(selected) =>`${selected.length} ${selected.length > 1 ? props.textMultipleSelected : props.textSingleSelected}`}
                             style={{height: 48, width: 384}}
-                            >
+                            MenuProps={MenuProps}
+                            onChange={props.handleSelectedFilterData(selectFilterContent)}
+                        >
                             {
-                                props.filterList[selectedFilter].filterContentList.map((item) => (
+                                props.selectedFilterContentList.map((item) => (
                                     <MenuItem
-                                    onClick={item.onChangeChecked} 
-                                    // onClick={() => {
-                                        //     let index = selectFilterContent.indexOf(item.title)
-                                        //     if(index > -1 ){
-                                            //         selectFilterContent.splice(index, 1)
-                                            //         checkedList[indexMap] = false
-                                            //     }
-                                            //     else{
-                                        //         selectFilterContent.push(item.title)
-                                        //         checkedList[indexMap] = true
-                                        //     }
-                                        // }} 
+                                        onClick={() => selectItem(item)} 
                                         defaultValue={item.title} key={item.id} 
+                                        style={{borderBottom: `1px solid ${FRSTTheme['colors'].neutralsGrey7}`}}
                                     >
                                         
                                         <Checkbox
-                                            checked={item.checked}
-                                            
+                                            checked={selectFilterContent.indexOf(item.title) > -1}
                                             sx={{
                                                 color: FRSTTheme['colors'].neutralsGrey5,
                                                 '&.Mui-checked': {

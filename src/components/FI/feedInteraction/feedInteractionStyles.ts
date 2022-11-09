@@ -5,7 +5,8 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     background-color: ${({theme}) => theme.colors.shadeWhite};
-    
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
 `
 
 export const infoContent = styled.div`
@@ -13,11 +14,12 @@ export const infoContent = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
     font-family: 'Work Sans';
     font-size: 16px;
     font-weight: 400;
-    padding-bottom: 12px;
+    padding: 12px;
 `
 
 export const info = styled.div`
@@ -25,13 +27,17 @@ export const info = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    position: absolute;
+    margin-bottom: 12px;
+    ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
 `
 
 export const buttonsContent = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    padding-top: 16px;
 `
 
 export const buttons = styled.button`
@@ -43,7 +49,7 @@ export const buttons = styled.button`
     background-color: inherit;
     ${({theme}) => theme.fonts.textMessageComponentsBodyBold};
     color: ${({theme}) => theme.colors.linkOnfocus};
-    margin-top: 20px;
+    
     cursor: pointer;
 `
 

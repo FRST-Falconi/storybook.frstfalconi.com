@@ -5,25 +5,27 @@ type enumVariant = 'myBusiness' | 'mission' |  'trail'
 export type typeContentList = {
     title: string
     id: string
-    checked: boolean
-    onChangeChecked: () => void
 }
 
 export type typeFilter = {
     variant: enumVariant
     label: string
-    filterContentList: Array<typeContentList>
+    id: string
     handleClick?: () => void
 }
 
 export interface ISessionFilters {
     filterList : Array<typeFilter>
+    selectedFilter : string
+    selectedFilterContentList : Array<typeContentList>
     labelFilters?: string
     labelSelectItens ?: string
     textDeleteFilter ?: string
-    textSelected ?: string
+    textMultipleSelected ?: string
+    textSingleSelected ?: string
 
+    handleSelectedFilter : () => void
     handleDeleteFilter : () => void
-    handleSelectedFilterData : () => void
+    handleSelectedFilterData : any
     style?: React.CSSProperties
 }

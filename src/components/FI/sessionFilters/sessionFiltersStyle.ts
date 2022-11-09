@@ -5,7 +5,7 @@ interface IFilterButton {
 }
 
 export const ButtonSessionFilters = styled.button<IFilterButton>`
-    width: 180px;
+    max-width: 180px;
     height: 72px;
     display: flex;
     align-items: center;

@@ -22,7 +22,7 @@ interface ICommentaryBox{
     onChange: any
     idTextComment?: string
     wasEdited?: boolean
-    hasDropdown?: false
+    hasDropdown?: boolean
     textSaveButton ?: string
     textSaveButtonMobile ?: string
     textCancelButton ?: string
