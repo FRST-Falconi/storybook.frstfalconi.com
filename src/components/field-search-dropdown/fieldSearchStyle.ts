@@ -79,11 +79,15 @@ export const InputText = styled.input`
         backgorund-color: #FFF;
         color: ${({ theme }) => theme.colors.shadeWhite};
     }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
 `
 
 export const WrapperResults = styled.div<{isVisibleResults}>`
     position: absolute;
-    margin-top: 269px;
+    top: 48px;
     display: ${({isVisibleResults}) => isVisibleResults ? 'flex': 'none'};
     height: auto;
     width: 100%;
