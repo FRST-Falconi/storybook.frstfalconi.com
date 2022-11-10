@@ -22,6 +22,8 @@ interface IFeedInteraction {
     latestComment?: any;
     commentList?: any[];
     textLoadMoreComments?: string;
+    textSaveCommentBtn?: string;
+    handleSaveCommentBtn?: () => void;
     style?: React.CSSProperties;
     onCommentChange?: (e: any) => void;
     handleLikeClick?: () => void;

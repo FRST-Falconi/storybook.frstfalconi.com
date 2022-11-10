@@ -8163,6 +8163,13 @@ const comment = styled__default["default"].div `
     flex-direction: row;
     width: 100%;
     margin-top: 28px;
+
+
+`;
+const submitButton = styled__default["default"].div `
+    border: none;
+    background: none;
+    margin-left: 8px;
 `;
 const commentList = styled__default["default"].div `
     display: flex;
@@ -8179,6 +8186,7 @@ function FeedInteraction(props) {
     const [openComments, setOpenComments] = React.useState(false);
     const [loadCommentsText, setLoadCommentsText] = React.useState(props.commentList?.length < 2 ? false : true);
     const [showMoreComments, setShowMoreComments] = React.useState(false);
+    const [focusComment, setFocusComment] = React.useState(false);
     const OnReviewClick = () => {
         setOpenReview(!openReview);
         setOpenComments(false);
@@ -8205,7 +8213,7 @@ function FeedInteraction(props) {
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingImpacto, handleRating: props?.handleImpactoChange }), jsxRuntime.jsx("span", { children: props.textImpacto })] }), props.isChallengeReview &&
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 24 }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingRelevancia, handleRating: props?.handleRelevanciaChange }), jsxRuntime.jsx("span", { children: props.textRelevancia })] }), props.isPostReview &&
                                         jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingPostReview, handleRating: props?.handlePostReviewChange }) })] })] }), openComments &&
-                    jsxRuntime.jsxs(commentsContainer, { children: [jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment, { styles: { width: '100%' }, IDInput: 'userComment', showCharacterCounter: false, className: 'userComment', hasEmoji: true, emojiWindowlanguage: 'pt', placeholder: props.userCommentPlaceholder ? props.userCommentPlaceholder : '', onChange: props.onCommentChange })] }), props.isChallengeReview ?
+                    jsxRuntime.jsxs(commentsContainer, { children: [jsxRuntime.jsxs(comment, { onFocus: () => setFocusComment(currentValue => true), children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment, { styles: { width: '100%' }, IDInput: 'userComment', showCharacterCounter: false, className: 'userComment', hasEmoji: true, emojiWindowlanguage: 'pt', placeholder: props.userCommentPlaceholder ? props.userCommentPlaceholder : '', onChange: props.onCommentChange }), jsxRuntime.jsx(submitButton, { style: { display: focusComment ? 'block' : 'none' }, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textSaveCommentBtn, handleClick: props.handleSaveCommentBtn }) })] }), props.isChallengeReview ?
                                 props.latestComment ?
                                     jsxRuntime.jsxs(commentList, { children: [props.textLatestComment, jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.latestComment.avatar }), jsxRuntime.jsx(CommentaryBox, { styles: { width: '100%' }, name: props.latestComment.name, date: props.latestComment.date, position: props.latestComment.position, value: props.latestComment.value, className: props.latestComment.className, onChange: props.latestComment.onChange, actionLike: props.latestComment.actionLike, textLiked: props.latestComment.textLike, textUnliked: props.latestComment.textDeslike, isLiked: props.latestComment.isLiked, totalLikes: props.latestComment.totalLikes, hasDropdown: props.latestComment.hasDropdown, isAuthor: props.latestComment.isAuthor, isMe: props.latestComment.isMe, actionDeleteComment: props.latestComment.actionDeleteComment, actionEditComment: props.latestComment.actionEditComment, actionAnswer: props.latestComment.actionAnswer, actionMakePrivate: props.latestComment.actionMakePrivate, actionUpdateValue: props.latestComment.actionUpdateValue, detectLinks: props.latestComment.detectLinks, hasAnswer: props.latestComment.hasAnswer, isPrivateAuthor: props.latestComment.isPrivateAuthor, isPrivateMe: props.latestComment.isPrivateMe, idTextComment: props.latestComment.idTextComment, textAnswer: props.latestComment.textAnswer, textCancelButton: props.latestComment.textCancelButton, textDeleteComment: props.latestComment.textDeleteComment, textEditComment: props.latestComment.textEditComment, textEdited: props.latestComment.textEdited, textMakePrivate: props.latestComment.textMakePrivate, textMakePublic: props.latestComment.textMakePublic, textPrivateComment: props.latestComment.textPrivateComment, textSaveButton: props.latestComment.textSaveButton, textSaveButtonMobile: props.latestComment.textSaveButtonMobile, textYou: props.latestComment.textYou, wasEdited: props.latestComment.wasEdited })] })] })
                                     : null
@@ -8346,6 +8354,9 @@ const MenuProps = {
 function SessionFilters(props) {
     const [selectedFilter, setSelectedFilter] = React.useState(props.selectedFilter);
     const [selectFilterContent, setSelectFilterContent] = React.useState([]);
+    React.useEffect(() => {
+        setSelectedFilter(props.selectedFilter);
+    }, [props.selectedFilter]);
     const selectItem = (item) => {
         let index = selectFilterContent.indexOf(item.title);
         let newArray = [].concat(selectFilterContent);
@@ -8375,7 +8386,9 @@ function SessionFilters(props) {
                                                         '&.Mui-checked': {
                                                             color: FRSTTheme['colors'].primary1,
                                                         },
-                                                    } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) }), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer' }, onClick: props.handleDeleteFilter, children: [jsxRuntime.jsx(Trash, { fill: FRSTTheme['colors'].linkOnfocus }), "\u00A0", props.textDeleteFilter] })] })] })
+                                                    } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) }), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer' }, 
+                                        // onClick={props.handleDeleteFilter}
+                                        onClick: () => setSelectFilterContent(currentValue => []), children: [jsxRuntime.jsx(Trash, { fill: FRSTTheme['colors'].linkOnfocus }), "\u00A0", props.textDeleteFilter] })] })] })
                     : null] }) }));
 }
 
