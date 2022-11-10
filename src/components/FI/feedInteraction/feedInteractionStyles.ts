@@ -84,6 +84,14 @@ export const comment = styled.div`
     flex-direction: row;
     width: 100%;
     margin-top: 28px;
+
+
+`
+
+export const submitButton = styled.div`
+    border: none;
+    background: none;
+    margin-left: 8px;
 `
 
 export const commentList = styled.div`

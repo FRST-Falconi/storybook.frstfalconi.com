@@ -33,6 +33,8 @@ interface IFeedInteraction {
     latestComment ?: any
     commentList ?: any[]
     textLoadMoreComments ?: string
+    textSaveCommentBtn ?: string
+    handleSaveCommentBtn ?: () => void
 
     style ?: React.CSSProperties
     onCommentChange ?: (e) => void
@@ -47,7 +49,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const [openComments, setOpenComments] = useState(false);
     const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
     const [showMoreComments, setShowMoreComments] = useState(false);
-
+    const [focusComment, setFocusComment] = useState(false);
 
     const OnReviewClick = () => {
         setOpenReview(!openReview)
@@ -123,7 +125,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                 }
                 {openComments &&
                     <Styles.commentsContainer>
-                        <Styles.comment>
+                        <Styles.comment onFocus={() => setFocusComment(currentValue => currentValue = true)} >
                             <Avatar size='40px' src={props.userAvatar} />
                             <InputComment styles={{width: '100%'}} 
                                 IDInput='userComment' 
@@ -134,6 +136,9 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                                 placeholder={props.userCommentPlaceholder? props.userCommentPlaceholder : ''} 
                                 onChange={props.onCommentChange}
                             />
+                            <Styles.submitButton style={{display: focusComment ? 'block' : 'none'}} >
+                                <Button variant='primary' label={props.textSaveCommentBtn} handleClick={props.handleSaveCommentBtn}  />
+                            </Styles.submitButton>
                         </Styles.comment>
                         {props.isChallengeReview ?
                             props.latestComment ?
