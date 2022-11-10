@@ -32,6 +32,8 @@ interface IBannerProblemFeed extends stepsInfo {
     userCommentPlaceholder: string;
     textLatestComment: string;
     latestComment: any;
+    textSaveCommentBtn: string;
+    handleSaveCommentBtn?: () => any;
     onCommentChange?: () => void;
     handleLikeClick?: () => void;
     handleImpactoChange?: any;
