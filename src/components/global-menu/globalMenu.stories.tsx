@@ -138,13 +138,15 @@ normalWithSubMenu.args = {
     showSearchField: true,
     search: {
         label: 'O que você busca?', 
-        onChange: (e) => alert(e), 
-        seeAll: { label: 'Ver todos os resultados',      onClick:  () => alert('Ver todos') },
+        loading: false,
+        onFilter: (term) => console.log('Valor Pesquido', term),
+        hasOptionSeeAll: false, 
+        seeAll: { label: 'Ver todos os resultados', onClick: () => alert('Ver todos') },
         listEntry: [
-            { id: '1', label: 'List Entry',  onClick: (e) => alert('List Entry 1') },
-            { id: '2', label: 'List Entry',  onClick: (e) => alert('List Entry 2') },
-            { id: '3', label: 'List Entry',  onClick: (e) => alert('List Entry 3') },
-            { id: '4', label: 'List Entry',  onClick: (e) => alert('List Entry 4') },
+            {id: '1', label: 'List Entry 1', onClick: (e) => alert(e)},
+            {id: '2', label: 'List Entry 2', onClick: (e) => alert(e)},
+            {id: '3', label: 'List Entry 3', onClick: (e) => alert(e)},
+            {id: '4', label: 'List Entry 4', onClick: (e) => alert(e)}
         ]
     },
     menu: [
@@ -234,7 +236,6 @@ LXP.args = {
         label: 'O que você busca?', 
         onChange: (e) => console.log(e),
         loading: false,
-        seeAll: { id: 'seeAll', label: 'Ver todos os resultados',      onClick:  () => alert('Ver todos') },
         listEntry: [
             { id: '1', label: 'List Entry',  onClick: (e) => alert('List Entry 1') },
             { id: '2', label: 'List Entry',  onClick: (e) => alert('List Entry 2') },

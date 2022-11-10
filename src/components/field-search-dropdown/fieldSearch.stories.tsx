@@ -18,19 +18,18 @@ normal.args = {
     textLoading: 'Carregando...',
     placeholder: 'O que você busca?', 
     value: 'Default to show options',
-    onChange: (e) => alert(e.target.value),
     hasListResult: true, 
     listResults: [
-        {id: '1', label: 'List Entry', onClick: (e) => alert(e)},
-        {id: '2', label: 'List Entry', onClick: (e) => alert(e)},
-        {id: '3', label: 'List Entry', onClick: (e) => alert(e)},
-        {id: '4', label: 'List Entry', onClick: (e) => alert(e)}
-
+        {id: '1', label: 'List Entry 1', onClick: (e) => alert(e)},
+        {id: '2', label: 'List Entry 2', onClick: (e) => alert(e)},
+        {id: '3', label: 'List Entry 3', onClick: (e) => alert(e)},
+        {id: '4', label: 'List Entry 4', onClick: (e) => alert(e)}
     ],
     isMobileVersion: true,
-    hasOptionSeeAll: true, 
-    setFieldSearchIsOpen: (e) => console.log(e), 
+    hasOptionSeeAll: false, 
+    setFieldSearchIsOpen: (e) => console.log("setFieldSearchIsOpen", e), 
     fieldSearchIsOpen: false,
     seeAll: {id: '9', label: 'Ver todos os resultados', onClick: (e) => alert(e)},
-    style: { width: '332px' }
+    style: { width: '332px' },
+    onFilter: (term) => console.log('Valor Pesquido', term)
 }

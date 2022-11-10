@@ -5691,10 +5691,14 @@ const InputText = styled__default["default"].input `
         backgorund-color: #FFF;
         color: ${({ theme }) => theme.colors.shadeWhite};
     }
+
+    &[disabled] {
+        cursor: not-allowed;
+    }
 `;
 const WrapperResults = styled__default["default"].div `
     position: absolute;
-    margin-top: 269px;
+    top: 48px;
     display: ${({ isVisibleResults }) => isVisibleResults ? 'flex' : 'none'};
     height: auto;
     width: 100%;
@@ -5756,12 +5760,14 @@ const ItemSeeAll = styled__default["default"].div `
         }
     `;
 
-function FieldSearch({ variant, value, placeholder, onChange, listResults, hasOptionSeeAll, seeAll, style, loading, setLoading, textLoading, enableAnimationField, isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen }) {
+function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSeeAll, value, seeAll, style, loading, textLoading, enableAnimationField, isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
     const [isMobile, setIsMobile] = React.useState(isMobileVersion);
     const [openSearchFieldMobile, setOpenSearchFieldMobile] = React.useState(isMobileVersion);
     const [isOpenDrop, setIsOpenDrop] = React.useState(false);
+    const [ValueSearch, setValueSearch] = React.useState('');
+    const [Loading, setLoading] = React.useState(loading);
     React.useEffect(() => {
         setFieldSearchIsOpen(isMobileVersion);
     }, []);
@@ -5770,34 +5776,43 @@ function FieldSearch({ variant, value, placeholder, onChange, listResults, hasOp
         setFieldSearchIsOpen(!openSearchFieldMobile);
     }, [openSearchFieldMobile]);
     // Handle Open list results
-    React.useEffect(() => {
-        setIsOpenDrop(value && value.length > 0 && listResults && listResults.length > 0);
-    }, [value, listResults]);
     const handleFocusUp = () => {
+        console.log("Focus On");
         setInputOnFocus(true);
-        setIsOpenDrop(value && value.length > 0 && listResults && listResults.length > 0);
+        setIsOpenDrop(true);
+        setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
     };
     const handleFocusDown = () => {
+        console.log("Focus Off");
         setInputOnFocus(false);
         setIsOpenDrop(actionAreaInput);
-        setLoading(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(Container$5, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon, { onClick: () => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => onChange(e), value: value })] }), loading ?
-                        jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: '95px' }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
-                        :
-                            jsxRuntime.jsxs(WrapperResults, { style: { ...style }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.map((item, index) => {
-                                        return jsxRuntime.jsx(ItemResult, { onClick: () => {
-                                                setIsOpenDrop(false);
-                                                return item.onClick(item.id);
-                                            }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id);
-                                    }), hasOptionSeeAll &&
-                                        jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
-                                                setIsOpenDrop(false);
-                                                return seeAll.onClick(e);
-                                            }, children: seeAll.label })] })] })
-            :
-                jsxRuntime.jsx(Container$5, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }));
+    React.useEffect(() => {
+        const delayDebounceFn = setTimeout(() => {
+            onFilter(ValueSearch);
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
+        }, 500);
+        return () => clearTimeout(delayDebounceFn);
+    }, [ValueSearch]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, children: variant == 'LXP' ?
+                jsxRuntime.jsxs(Container$5, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon, { onClick: () => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => {
+                                        setIsOpenDrop(false);
+                                        setValueSearch(e.target.value);
+                                    }, disabled: loading, value: ValueSearch })] }), Loading ?
+                            jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
+                            :
+                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.map((item, index) => {
+                                            return jsxRuntime.jsx(ItemResult, { onClick: () => {
+                                                    setIsOpenDrop(false);
+                                                    return item.onClick(item.id);
+                                                }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id);
+                                        }), hasOptionSeeAll &&
+                                            jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
+                                                    setIsOpenDrop(false);
+                                                    return seeAll.onClick(e);
+                                                }, children: seeAll.label })] })] })
+                :
+                    jsxRuntime.jsx(Container$5, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
 }
 
 const Wrapper$1 = styled__default["default"].button `
@@ -6235,7 +6250,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                 }, children: [isMobileVersion &&
                                         jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                         jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
-                                        jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                        jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                     width: isMobileVersion ? '190px' : '332px',
                                                 } }), jsxRuntime.jsx(MenuContainer, { variant: variant, style: {
                                                     height: '100%',
@@ -6245,7 +6260,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                                 }, children: !isMobileVersion && menu && menu.length > 0 && menu.map((item, index) => {
                                                     return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'menu', pressed: item.active, onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
                                                 }) })] }), isMobileVersion &&
-                                        jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                        jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                 width: isMobileVersion ? '180px' : '332px',
                                                 marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                             } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: '150px' }, children: [!isMobileVersion && notification &&
@@ -6269,10 +6284,10 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                     }, children: [isMobileVersion &&
                                             jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                             jsxRuntime.jsx(WrapperLogo, { children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
-                                            jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                            jsxRuntime.jsx(WrapperLogo, { style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, placeholder: search.label, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                     width: isMobileVersion ? '190px' : '332px',
                                                 } }) }), isMobileVersion &&
-                                            jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, setLoading: (e) => setLoadingSearch(e), loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: true, seeAll: search.seeAll, style: {
+                                            jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                     width: isMobileVersion ? '180px' : '332px',
                                                     marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                                 } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { justifyContent: 'flex-end', width: 'fit-content' }, children: [!isMobileVersion && notification &&
