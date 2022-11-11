@@ -308,7 +308,7 @@ export default function Login(props: ILoginTranslate) {
               <TextField
                 error={error}
                 endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
-                placeholder={props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha'}
+                placeholder={props.textNewPasswordInput ? props.textNewPasswordInput : 'Digite nova senha'}
                 label={props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha'}
                 type={'password'}
                 value={newPassword}
@@ -326,8 +326,8 @@ export default function Login(props: ILoginTranslate) {
               <TextField
                 error={error}
                 endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
-                placeholder={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha'}
-                label={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha'}
+                placeholder={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme senha'}
+                label={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme nova senha'}
                 type={'password'}
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -345,11 +345,9 @@ export default function Login(props: ILoginTranslate) {
                 helperText={MsgInput2}
                 error={error}
                 placeholder={
-                  props.textNewPasswordInputPlaceholderCodigo
-                    ? props.textNewPasswordInputPlaceholderCodigo
-                    : 'Digite o Código'
+                  props.textNewPasswordInputPlaceholderCodigo ? props.textNewPasswordInputPlaceholderCodigo : 'Código'
                 }
-                label={props.textNewPasswordInputCodigo ? props.textNewPasswordInputCodigo : 'Código'}
+                label={props.textNewPasswordInputCodigo ? props.textNewPasswordInputCodigo : 'Digite o Código'}
                 type={'text'}
                 value={codigoNewPassword}
                 onChange={(e) => setCodigoNewPassword(e.target.value)}
