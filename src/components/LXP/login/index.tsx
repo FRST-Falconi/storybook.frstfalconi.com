@@ -76,6 +76,13 @@ export default function Login(props: ILoginTranslate) {
   }
 
   const onClickSave = () => {
+    let emailPrefix = email.split('@')[0].split('.')[0]
+    let emailSufix = email.split('@')[1].split('.')[0]
+
+    const validateEmailPrefix = new RegExp(emailPrefix, 'g')
+    const validateEmailSufix = new RegExp(emailSufix, 'g')
+    const validateUpperCase = new RegExp(/[A-Z]/, 'g')
+
     setMsgInput1('')
     setMsgInput2('')
     setError(false)
@@ -107,6 +114,10 @@ export default function Login(props: ILoginTranslate) {
       (!newPassword.replace(/\D/g, '') ||
         !newPassword.replace(/\d/g, '') ||
         !newPassword.replace(/\w/g, '') ||
+        newPassword.match(/frst|falconi|FRST|FALCONI|Frst|Falconi/g) ||
+        newPassword.match(validateEmailPrefix) ||
+        newPassword.match(validateEmailSufix) ||
+        !newPassword.match(validateUpperCase) ||
         newPassword.length < 8)
     ) {
       setColorError(true)
