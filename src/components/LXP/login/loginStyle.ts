@@ -1,5 +1,13 @@
 import styled, { css } from 'styled-components'
 
+interface Props {
+  isColorError?: boolean
+  isError?: boolean
+  isStep?: number
+}
+const isColorBlack = ({ theme }) => theme.colors.shadeBlack
+const isColorError = ({ theme }) => theme.colors.linkError
+
 export const Container = styled.div`
   width: 100%;
   max-width: 445px;
@@ -56,28 +64,66 @@ export const TypographyFill = styled.p`
   margin-right: 44px;
   margin-bottom: 22px;
 `
-export const ContainerEmail = styled.div`
+export const ContainerEmail = styled.div<Props>`
+  width: 80%;
   margin-left: 44px;
-  margin-right: 44px;
+  @media (max-width: 414px) {
+    margin-right: 44px;
+  }
+
+  ${(props) =>
+    props.isError &&
+    css`
+      @media (max-width: 414px) {
+        margin-right: 5px;
+      }
+    `}
 `
 export const ContainerButtonLink = styled.div`
-  position: absolute;
   right: 0;
   margin-right: 44px;
-  margin-top: 23px;
-`
-export const ContainerPassword = styled.div`
-  margin-top: 28px;
-  margin-left: 44px;
-  margin-right: 44px;
-`
-export const IconAlert = styled.div`
+  margin-top: 7.5rem;
   position: absolute;
+  @media (max-width: 414px) {
+    margin: 7.5rem 44px 0px 0px;
+  }
+`
+export const ContainerPassword = styled.div<Props>`
+  width: 80%;
+  margin-left: 44px;
+  margin-top: 33px;
+  @media (max-width: 414px) {
+    margin-right: 44px;
+  }
+
+  ${(props) =>
+    props.isError &&
+    css`
+      @media (max-width: 414px) {
+        margin-right: 5px;
+      }
+    `}
+`
+export const ContainerInputAndLink = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const IconAlert = styled.div<Props>`
   right: 0;
   bottom: 0;
-  padding-right: 20px;
-  padding-bottom: 140px;
+  padding: 45px 10px 0px 6px;
+  ${(props) =>
+    props.isStep === 2 &&
+    css`
+      margin-top: 36px;
+    `}
 `
+export const ContainerIpuntAndIsIcon = styled.div`
+  display: flex;
+  align-items: flex-start;
+`
+
 export const ContainerConnect = styled.div`
   display: flex;
   flex-direction: row;
@@ -88,6 +134,7 @@ export const ContainerConnect = styled.div`
   margin-left: 44px;
   margin-top: 32px;
   margin-bottom: 20px;
+  padding-bottom: 32px;
 `
 export const ContainerCheckbox = styled.div`
   cursor: pointer;
@@ -109,7 +156,6 @@ export const TypographyConnect = styled.p`
 export const ContainerRecover = styled.div`
   width: 100%;
   max-width: 445px;
-  height: 467px;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
   background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -135,7 +181,6 @@ export const ContainerLogoRecover = styled.div`
   align-items: center;
 `
 export const ContainerTypographyRecover = styled.div`
-  position: absolute;
   margin: 32px 44px 0 44px;
   display: flex;
   flex-direction: column;
@@ -148,12 +193,30 @@ export const TypographyRecover = styled.p`
   line-height: 21px;
   color: ${({ theme }) => theme.colors.neutralsGrey1};
 `
-export const ContainerEmailRecover = styled.div`
-  margin: 159px 44px 0 44px;
+export const ContainerEmailRecover = styled.div<Props>`
+  margin-left: 44px;
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 80%;
+  @media (max-width: 414px) {
+    margin-right: 44px;
+  }
+
+  ${(props) =>
+    props.isError &&
+    css`
+      @media (max-width: 414px) {
+        margin-right: 5px;
+      }
+    `}
 `
+export const ContainerEmailAndTypeRecoverRecover = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const ContainerButtonRecover = styled.div`
   display: flex;
   flex-direction: row;
@@ -161,26 +224,47 @@ export const ContainerButtonRecover = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 30px 44px 20px 44px;
+  padding-bottom: 32px;
+  @media (max-width: 767px) {
+    margin-top: 58px;
+  }
 `
 
 //#########################NewPassaword#################
 
-export const TypographyNewPassword = styled.p`
+export const TypographyNewPassword = styled.p<Props>`
   font-family: PT Sans;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: ${(props) => (props.isColorError ? 600 : 400)};
   line-height: 21px;
-  color: ${({ theme }) => theme.colors.shadeBlack};
+  color: ${(props) => (props.isColorError ? isColorError : isColorBlack)};
   position: absolute;
-  margin: 34px 44px 0 44px;
+  margin: 34px 44px 10px 44px;
 `
-export const ContainerPasswordNew = styled.div`
+export const ContainerTypographyNewPassword = styled.div`
+  width: 100%;
+  height: 6.5rem;
+`
+
+export const ContainerPasswordNew = styled.div<Props>`
   margin-top: 100px;
   margin-left: 44px;
-  margin-right: 44px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+
+  @media (max-width: 414px) {
+    margin-right: 31px;
+  }
+
+  ${(props) =>
+    props.isError &&
+    css`
+      @media (max-width: 414px) {
+        margin-right: 13px;
+      }
+    `}
 `
 
 //###############SendComfirmation##############

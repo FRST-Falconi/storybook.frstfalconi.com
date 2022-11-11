@@ -9,6 +9,7 @@ export declare const DesignTokens: {
         linkHover: string;
         linkOnfocus: string;
         linkPressed: string;
+        linkError: string;
         messageAlert1: string;
         messageAlert2: string;
         messageError1: string;
@@ -152,23 +153,23 @@ export declare const DesignTokens: {
             value: string;
             type: string;
         };
-        "border-width-large": {
+        'border-width-large': {
             value: string;
             type: string;
         };
-        "border-radius-small": {
+        'border-radius-small': {
             value: string;
             type: string;
         };
-        "border-radius-medium": {
+        'border-radius-medium': {
             value: string;
             type: string;
         };
-        "border-radius-large": {
+        'border-radius-large': {
             value: string;
             type: string;
         };
-        "border-radius-xlarge": {
+        'border-radius-xlarge': {
             value: string;
             type: string;
         };
