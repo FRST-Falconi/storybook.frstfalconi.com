@@ -34,7 +34,7 @@ interface IFeedInteraction {
     commentList ?: any[]
     textLoadMoreComments ?: string
     textSaveCommentBtn ?: string
-    handleSaveCommentBtn ?: () => void
+    handleSaveCommentBtn ?: (comment) => void
 
     style ?: React.CSSProperties
     onCommentChange ?: (e) => void
@@ -50,6 +50,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
     const [showMoreComments, setShowMoreComments] = useState(false);
     const [focusComment, setFocusComment] = useState(false);
+    const [commentData, setCommentData] = useState('');
 
     const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
     useEffect(() => {
@@ -69,6 +70,16 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const OnLoadCommentsClick = () => {
         setLoadCommentsText(false)
         setShowMoreComments(true)
+    }
+    const OnChangeComment = (e) => {
+        setCommentData(e.target.value)
+        setFocusComment(true)
+    }
+
+    const HandleSaveComment = () => {
+        props.handleSaveCommentBtn(commentData)
+        setCommentData('')
+        setFocusComment(false)
     }
 
     return (
@@ -130,21 +141,22 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                 }
                 {openComments &&
                     <Styles.commentsContainer>
-                        <Styles.comment onFocus={() => setFocusComment(currentValue => currentValue = true)} >
-                            <Avatar size='40px' src={props.userAvatar} />
-                            <InputComment styles={{width: '100%'}} 
+                        <Styles.inputComment  >
+                            <Avatar size='40px' src={props.userAvatar}  />
+                            <InputComment styles={{width: '100%', marginLeft: 8}} 
                                 IDInput='userComment' 
                                 showCharacterCounter={false} 
-                                className='userComment' 
+                                className='userComment'
                                 hasEmoji={true} 
-                                emojiWindowlanguage='pt' 
+                                emojiWindowlanguage='pt'
                                 placeholder={props.userCommentPlaceholder? props.userCommentPlaceholder : ''} 
-                                onChange={props.onCommentChange}
+                                onChange={OnChangeComment}
+                                value={commentData}
                             />
                             <Styles.submitButton style={{display: focusComment ? 'block' : 'none'}} >
-                                <Button variant='primary' label={props.textSaveCommentBtn} handleClick={props.handleSaveCommentBtn}  />
+                                <Button variant='primary' label={props.textSaveCommentBtn} handleClick={HandleSaveComment} />
                             </Styles.submitButton>
-                        </Styles.comment>
+                        </Styles.inputComment>
                         {props.isChallengeReview ?
                             stateLatestComment ?
                                 <Styles.commentList>
@@ -152,7 +164,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                                     <Styles.comment>
                                         <Avatar size='40px' src={stateLatestComment.avatar} />
                                         
-                                        <CommentaryBox styles={{width: '100%'}}
+                                        <CommentaryBox styles={{width: '100%', marginLeft: 8}}
                                             name={stateLatestComment.name}
                                             date={stateLatestComment.date}
                                             position={stateLatestComment.position}

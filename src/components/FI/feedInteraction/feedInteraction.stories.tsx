@@ -27,6 +27,7 @@ Challenge.args = {
     textImpacto: 'Impacto',
     ratingRelevancia: 4,
     textRelevancia: 'Relevância',
+    userAvatar: 'https://i.gyazo.com/59d6b73b26541b748ca6a5d167645746.png',
 
     userCommentPlaceholder: 'Escreva seu comentário aqui...',
     textLatestComment: 'Comentário mais recente:',
@@ -61,9 +62,9 @@ Muito bom o seu projeto! No momento estou lidando com um problema bem parecido e
         textSaveButtonMobile: 'Save',
         textCancelButton: 'Cancel',
     },
-    textSaveCommentBtn: 'Salvar',
+    textSaveCommentBtn: 'Publicar',
 
-    handleSaveCommentBtn: () => alert('Salvado'),
+    handleSaveCommentBtn: (comment) => alert(comment),
     handleImpactoChange: (e) => alert(e),
     handleRelevanciaChange: (e) => alert(e),
     handleLikeClick: () => alert('Click'),
@@ -149,7 +150,7 @@ Muito bom o seu projeto! No momento estou lidando com um problema bem parecido e
     textLoadMoreComments: 'Carregar mais comentários',
     textSaveCommentBtn: 'Salvar',
 
-    handleSaveCommentBtn: () => alert('Salvado'),
+    handleSaveCommentBtn: (comment) => alert(comment),
     handlePostReviewChange: (e) => alert(e),
     handleLikeClick: () => alert('Click'),
     onCommentChange: (e) => console.log(e.target.value)

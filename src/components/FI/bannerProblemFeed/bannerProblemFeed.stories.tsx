@@ -78,6 +78,7 @@ Normal.args = {
     ratingRelevancia: 0,
     textRelevancia: 'Relevância',
 
+    avatar: "https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=",
     userCommentPlaceholder: 'Escreva seu comentário aqui...',
     textLatestComment: 'Comentário mais recente:',
     latestComment: {
