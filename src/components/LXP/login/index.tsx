@@ -17,6 +17,7 @@ export default function Login(props: ILoginTranslate) {
   const [keepConnected, setKeepConnected] = useState(true)
   const [step, setStep] = useState(1)
   const [error, setError] = useState(props.isError)
+  const [colorError, setColorError] = useState(props.isError)
   const [MsgInput1, setMsgInput1] = useState('')
   const [MsgInput2, setMsgInput2] = useState('')
 
@@ -78,25 +79,11 @@ export default function Login(props: ILoginTranslate) {
     setMsgInput1('')
     setMsgInput2('')
     setError(false)
+    setColorError(false)
 
     if (newPassword.length === 0) {
       setMsgInput2(
         props.textNewPasswordErrorNaoInformada ? props.textNewPasswordErrorNaoInformada : 'Nova senha não informada.'
-      )
-      setError(true)
-      return
-    }
-    if (
-      newPassword &&
-      (!newPassword.replace(/\D/g, '') ||
-        !newPassword.replace(/\d/g, '') ||
-        !newPassword.replace(/\w/g, '') ||
-        newPassword.length < 8)
-    ) {
-      setMsgInput2(
-        props.textNewPasswordErrorSenhaForte
-          ? props.textNewPasswordErrorSenhaForte
-          : 'Sua senha deve ser composta por no mínimo 8 caracteres e incluir ao menos uma letra, um número e um caractere especial.'
       )
       setError(true)
       return
@@ -122,6 +109,30 @@ export default function Login(props: ILoginTranslate) {
       setError(true)
       return
     }
+
+    let emailPrefix = email.split('@')[0].split('.')[0]
+    let emailSufix = email.split('@')[1].split('.')[0]
+
+    const validateEmailPrefix = new RegExp(emailPrefix, 'g')
+    const validateEmailSufix = new RegExp(emailSufix, 'g')
+    const validateUpperCase = new RegExp(/[A-Z]/, 'g')
+
+    if (
+      newPassword &&
+      (!newPassword.replace(/\D/g, '') ||
+        !newPassword.replace(/\d/g, '') ||
+        !newPassword.replace(/\w/g, '') ||
+        newPassword.match(/frst|falconi|FRST|FALCONI|Frst|Falconi/g) ||
+        newPassword.match(validateEmailPrefix) ||
+        newPassword.match(validateEmailSufix) ||
+        !newPassword.match(validateUpperCase) ||
+        newPassword.length < 8)
+    ) {
+      setColorError(true)
+      setError(true)
+      return
+    }
+
     props.handleClickChangePassword(newPassword, confirmPassword)
   }
 
@@ -162,41 +173,54 @@ export default function Login(props: ILoginTranslate) {
           <Styles.TypographyFill>
             {props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:'}
           </Styles.TypographyFill>
-          <Styles.ContainerEmail>
-            <TextField
-              error={error}
-              helperText={MsgInput1}
-              placeholder="Email"
-              label="Email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </Styles.ContainerEmail>
-          <Styles.ContainerButtonLink>
-            <Button
-              variant="link"
-              label={props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?'}
-              handleClick={onClickForgotPassword}
-            />
-          </Styles.ContainerButtonLink>
-          <Styles.ContainerPassword>
-            <TextField
-              helperText={MsgInput2}
-              error={error}
-              endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
-              placeholder={props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha'}
-              label={props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha'}
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </Styles.ContainerPassword>
-          {error && (
-            <Styles.IconAlert>
-              <Icons.AlertCicle />
-            </Styles.IconAlert>
-          )}
+          <Styles.ContainerInputAndLink>
+            <Styles.ContainerIpuntAndIsIcon>
+              <Styles.ContainerEmail isError={error}>
+                <TextField
+                  error={error}
+                  helperText={MsgInput1}
+                  placeholder="Email"
+                  label="Email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{ width: '100%' }}
+                />
+              </Styles.ContainerEmail>
+              {error && (
+                <Styles.IconAlert>
+                  <Icons.AlertCicle />
+                </Styles.IconAlert>
+              )}
+            </Styles.ContainerIpuntAndIsIcon>
+            <Styles.ContainerButtonLink>
+              <Button
+                variant="link"
+                label={props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?'}
+                handleClick={onClickForgotPassword}
+              />
+            </Styles.ContainerButtonLink>
+            <Styles.ContainerIpuntAndIsIcon>
+              <Styles.ContainerPassword isError={error}>
+                <TextField
+                  helperText={MsgInput2}
+                  error={error}
+                  endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
+                  placeholder={props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha'}
+                  label={props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha'}
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={{ width: '100%' }}
+                />
+              </Styles.ContainerPassword>
+              {error && (
+                <Styles.IconAlert style={{ paddingTop: '78px' }}>
+                  <Icons.AlertCicle />
+                </Styles.IconAlert>
+              )}
+            </Styles.ContainerIpuntAndIsIcon>
+          </Styles.ContainerInputAndLink>
           <Styles.ContainerConnect>
             <Styles.ContainerCheckbox onClick={handleClickCheckbox}>
               {keepConnected ? <Icons.CheckboxEmpty fill={'#ebeded'} /> : <Icons.CheckboxChecked />}
@@ -216,29 +240,40 @@ export default function Login(props: ILoginTranslate) {
           <Styles.ContainerLogoRecover>
             <Icons.FRSTLogoBig />
           </Styles.ContainerLogoRecover>
-          <Styles.ContainerTypographyRecover>
-            <Styles.TypographyRecover>
-              {props.textEmailCadastro
-                ? props.textEmailCadastro
-                : 'Digite seu e-mail de cadastro abaixo e clique em enviar.'}
-            </Styles.TypographyRecover>
-            <Styles.TypographyRecover>
-              {props.textEmailCadastro2
-                ? props.textEmailCadastro2
-                : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.'}
-            </Styles.TypographyRecover>
-          </Styles.ContainerTypographyRecover>
-          <Styles.ContainerEmailRecover>
-            <TextField
-              error={error}
-              helperText={MsgInput2}
-              placeholder="Email"
-              label="Email"
-              type="email"
-              value={emailRecover}
-              onChange={(e) => setEmailRecover(e.target.value)}
-            />
-          </Styles.ContainerEmailRecover>
+          <Styles.ContainerEmailAndTypeRecoverRecover>
+            <Styles.ContainerTypographyRecover>
+              <Styles.TypographyRecover>
+                {props.textEmailCadastro
+                  ? props.textEmailCadastro
+                  : 'Digite seu e-mail de cadastro abaixo e clique em enviar.'}
+              </Styles.TypographyRecover>
+              <Styles.TypographyRecover>
+                {props.textEmailCadastro2
+                  ? props.textEmailCadastro2
+                  : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.'}
+              </Styles.TypographyRecover>
+            </Styles.ContainerTypographyRecover>
+            <Styles.ContainerIpuntAndIsIcon>
+              <Styles.ContainerEmailRecover isError={error}>
+                <TextField
+                  error={error}
+                  helperText={MsgInput2}
+                  placeholder="Email"
+                  label="Email"
+                  type="email"
+                  value={emailRecover}
+                  onChange={(e) => setEmailRecover(e.target.value)}
+                  style={{ width: '100%' }}
+                />
+              </Styles.ContainerEmailRecover>
+              {error && (
+                <Styles.IconAlert isStep={step}>
+                  <Icons.AlertCicle />
+                </Styles.IconAlert>
+              )}
+            </Styles.ContainerIpuntAndIsIcon>
+          </Styles.ContainerEmailAndTypeRecoverRecover>
+
           <Styles.ContainerButtonRecover>
             <Button
               variant="link"
@@ -262,27 +297,52 @@ export default function Login(props: ILoginTranslate) {
               ? props.textNewPasswordInformacao
               : 'Para criar uma nova senha, preencha os campos abaixo:'}
           </Styles.TypographyNewPassword>
-          <Styles.ContainerPasswordNew>
-            <TextField
-              error={error}
-              endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
-              placeholder={props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha'}
-              label={props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha'}
-              type={'password'}
-              value={newPassword}
-              onChange={(e) => setNewPassword(e.target.value)}
-            />
-            <TextField
-              helperText={MsgInput2}
-              error={error}
-              endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
-              placeholder={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha'}
-              label={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha'}
-              type={'password'}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
+          <Styles.ContainerPasswordNew isError={error}>
+            <Styles.ContainerIpuntAndIsIcon>
+              <TextField
+                error={error}
+                endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
+                placeholder={props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha'}
+                label={props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha'}
+                type={'password'}
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                style={{ width: '95%' }}
+              />
+              {error && (
+                <Styles.IconAlert>
+                  <Icons.AlertCicle />
+                </Styles.IconAlert>
+              )}
+            </Styles.ContainerIpuntAndIsIcon>
+            <Styles.ContainerIpuntAndIsIcon>
+              <TextField
+                helperText={MsgInput2}
+                error={error}
+                endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
+                placeholder={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha'}
+                label={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha'}
+                type={'password'}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                style={{ width: '95%' }}
+              />
+              {error && (
+                <Styles.IconAlert>
+                  <Icons.AlertCicle />
+                </Styles.IconAlert>
+              )}
+            </Styles.ContainerIpuntAndIsIcon>
           </Styles.ContainerPasswordNew>
+
+          <Styles.ContainerTypographyNewPassword>
+            <Styles.TypographyNewPassword isColorError={colorError} style={{ fontSize: '14px' }}>
+              {props.textNewPasswordErrorSenhaForte
+                ? props.textNewPasswordErrorSenhaForte
+                : 'Use pelo menos 8 caracteres, 1 maiúscula, 1 minúscula, e um número ou caractere especial. Não use parte de seu e-mail (seunome@empresa.com) como senha.'}
+            </Styles.TypographyNewPassword>
+          </Styles.ContainerTypographyNewPassword>
+
           <Styles.ContainerButtonRecover>
             <Button
               variant="link"

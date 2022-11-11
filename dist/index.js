@@ -1077,190 +1077,191 @@ var style$b = {"container":"avatarWithInfo-module_container__Y-yUf"};
 styleInject(css_248z$c);
 
 const DesignTokens = {
-    "colors": {
-        "borderPrimary": "#bdbdbd",
-        "borderSecondary1": "#2ca92a",
-        "borderSecondary2": "#ffd600",
-        "borderSecondary3": "#6a3f86",
-        "borderSecondary4": "#222222",
-        "linkDisabled": "#bdbdbd",
-        "linkHover": "#0b0080",
-        "linkOnfocus": "#0645ad",
-        "linkPressed": "#663366",
-        "messageAlert1": "#ffc200",
-        "messageAlert2": "#fef0d4",
-        "messageError1": "#ea0000",
-        "messageError2": "#ffe5e5",
-        "messageSuccess1": "#2ca92a",
-        "messageSuccess2": "#d1f6d1",
-        "neutralsGrey1": "#222222",
-        "neutralsGrey2": "#444444",
-        "neutralsGrey3": "#757575",
-        "neutralsGrey4": "#9c9c9c",
-        "neutralsGrey5": "#bdbdbd",
-        "neutralsGrey6": "#e0e0e0",
-        "neutralsGrey7": "#ebebeb",
-        "neutralsGrey8": "#ebeded",
-        "neutralsGrey9": "#f2f2f2",
-        "primary1": "#ff4d0d",
-        "primary2": "#ee4c15",
-        "primary3": "#d14211",
-        "secondary1": "#6a3f86",
-        "secondary2": "#ffd600",
-        "secondary5": "#a50000",
-        "shadeWhite": "#ffffff",
-        "shadeBlack": "#000000",
+    colors: {
+        borderPrimary: '#bdbdbd',
+        borderSecondary1: '#2ca92a',
+        borderSecondary2: '#ffd600',
+        borderSecondary3: '#6a3f86',
+        borderSecondary4: '#222222',
+        linkDisabled: '#bdbdbd',
+        linkHover: '#0b0080',
+        linkOnfocus: '#0645ad',
+        linkPressed: '#663366',
+        linkError: '#923534',
+        messageAlert1: '#ffc200',
+        messageAlert2: '#fef0d4',
+        messageError1: '#ea0000',
+        messageError2: '#ffe5e5',
+        messageSuccess1: '#2ca92a',
+        messageSuccess2: '#d1f6d1',
+        neutralsGrey1: '#222222',
+        neutralsGrey2: '#444444',
+        neutralsGrey3: '#757575',
+        neutralsGrey4: '#9c9c9c',
+        neutralsGrey5: '#bdbdbd',
+        neutralsGrey6: '#e0e0e0',
+        neutralsGrey7: '#ebebeb',
+        neutralsGrey8: '#ebeded',
+        neutralsGrey9: '#f2f2f2',
+        primary1: '#ff4d0d',
+        primary2: '#ee4c15',
+        primary3: '#d14211',
+        secondary1: '#6a3f86',
+        secondary2: '#ffd600',
+        secondary5: '#a50000',
+        shadeWhite: '#ffffff',
+        shadeBlack: '#000000'
     },
-    "fonts": {
-        "header1": {
-            "fontFamily": "'Work Sans', 'WorkSans-Bold'",
-            "fontSize": "34px",
-            "letterSpacing": "-0.7px",
-            "lineHeight": "100%",
-            "fontWeight": 700,
-            "color": "black"
+    fonts: {
+        header1: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '34px',
+            letterSpacing: '-0.7px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
         },
-        "header2": {
-            "fontFamily": "'Work Sans', 'WorkSans-Bold'",
-            "fontSize": "20px",
-            "letterSpacing": "-0.4px",
-            "lineHeight": "100%",
-            "fontWeight": 700,
-            "color": "black"
+        header2: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '20px',
+            letterSpacing: '-0.4px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
         },
-        "textMessageComponentsBodyBold": {
-            "fontFamily": "'PT Sans', 'PTSans-Bold'",
-            "fontSize": "16px",
-            "letterSpacing": "0px",
-            "lineHeight": "100%",
-            "fontWeight": 700,
-            "color": "black"
+        textMessageComponentsBodyBold: {
+            fontFamily: "'PT Sans', 'PTSans-Bold'",
+            fontSize: '16px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
         },
-        "textMessageComponentsBodyRegular": {
-            "fontFamily": "'PT Sans', 'PTSans-Regular'",
-            "fontSize": "16px",
-            "letterSpacing": "0px",
-            "lineHeight": "100%",
-            "fontWeight": 400,
-            "color": "black"
+        textMessageComponentsBodyRegular: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '16px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
         },
-        "textMessageComponentsBodySmall": {
-            "fontFamily": "'PT Sans', 'PTSans-Regular'",
-            "fontSize": "12px",
-            "letterSpacing": "0px",
-            "lineHeight": "100%",
-            "fontWeight": 400,
-            "color": "black"
+        textMessageComponentsBodySmall: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '12px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
         },
-        "textMessageComponentsBodyTiny": {
-            "fontFamily": "'PT Sans', 'PTSans-Regular'",
-            "fontSize": "10px",
-            "letterSpacing": "0px",
-            "lineHeight": "100%",
-            "fontWeight": 400,
-            "color": "black"
+        textMessageComponentsBodyTiny: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '10px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
         },
-        "textMessageComponentsCardTitle": {
-            "fontFamily": "'Work Sans', 'WorkSansRoman-Medium'",
-            "fontSize": "20px",
-            "letterSpacing": "0px",
-            "lineHeight": "100%",
-            "fontWeight": 500,
-            "color": "black"
+        textMessageComponentsCardTitle: {
+            fontFamily: "'Work Sans', 'WorkSansRoman-Medium'",
+            fontSize: '20px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 500,
+            color: 'black'
         },
-        "textMessageComponentsHero": {
-            "fontFamily": "'Work Sans', 'WorkSans-Bold'",
-            "fontSize": "40px",
-            "letterSpacing": "0.4px",
-            "lineHeight": "130%",
-            "fontWeight": 700,
-            "color": "black"
+        textMessageComponentsHero: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '40px',
+            letterSpacing: '0.4px',
+            lineHeight: '130%',
+            fontWeight: 700,
+            color: 'black'
         }
     },
-    "global": {
-        "shadowLevel_0": {
-            "value": {
-                "x": "0",
-                "y": "0",
-                "blur": "0",
-                "spread": "0",
-                "color": "#000000",
-                "type": "dropShadow"
+    global: {
+        shadowLevel_0: {
+            value: {
+                x: '0',
+                y: '0',
+                blur: '0',
+                spread: '0',
+                color: '#000000',
+                type: 'dropShadow'
             },
-            "type": "boxShadow"
+            type: 'boxShadow'
         },
-        "shadowLevel_1": {
-            "value": {
-                "x": "0",
-                "y": "18",
-                "blur": "40",
-                "spread": "-15",
-                "color": "D3D3D3",
-                "type": "dropShadow"
+        shadowLevel_1: {
+            value: {
+                x: '0',
+                y: '18',
+                blur: '40',
+                spread: '-15',
+                color: 'D3D3D3',
+                type: 'dropShadow'
             },
-            "type": "boxShadow"
+            type: 'boxShadow'
         },
-        "shadowLevel_2": {
-            "value": {
-                "x": "0",
-                "y": "25",
-                "blur": "30",
-                "spread": "-15",
-                "color": "D3D3D3",
-                "type": "dropShadow"
+        shadowLevel_2: {
+            value: {
+                x: '0',
+                y: '25',
+                blur: '30',
+                spread: '-15',
+                color: 'D3D3D3',
+                type: 'dropShadow'
             },
-            "type": "boxShadow"
+            type: 'boxShadow'
         },
-        "shadowLevel_3": {
-            "value": {
-                "x": "0",
-                "y": "35",
-                "blur": "25",
-                "spread": "15",
-                "color": "#cccccc",
-                "type": "dropShadow"
+        shadowLevel_3: {
+            value: {
+                x: '0',
+                y: '35',
+                blur: '25',
+                spread: '15',
+                color: '#cccccc',
+                type: 'dropShadow'
             },
-            "type": "boxShadow"
+            type: 'boxShadow'
         },
-        "border_width_small": {
-            "value": "1px",
-            "type": "borderWidth"
+        border_width_small: {
+            value: '1px',
+            type: 'borderWidth'
         },
-        "border_width_medium": {
-            "value": "2px",
-            "type": "borderWidth"
+        border_width_medium: {
+            value: '2px',
+            type: 'borderWidth'
         },
-        "border-width-large": {
-            "value": "3",
-            "type": "borderWidth"
+        'border-width-large': {
+            value: '3',
+            type: 'borderWidth'
         },
-        "border-radius-small": {
-            "value": "4px",
-            "type": "borderRadius"
+        'border-radius-small': {
+            value: '4px',
+            type: 'borderRadius'
         },
-        "border-radius-medium": {
-            "value": "8px",
-            "type": "borderRadius"
+        'border-radius-medium': {
+            value: '8px',
+            type: 'borderRadius'
         },
-        "border-radius-large": {
-            "value": "16px",
-            "type": "borderRadius"
+        'border-radius-large': {
+            value: '16px',
+            type: 'borderRadius'
         },
-        "border-radius-xlarge": {
-            "value": "24px",
-            "type": "borderRadius"
+        'border-radius-xlarge': {
+            value: '24px',
+            type: 'borderRadius'
         },
-        "button_padding": {
-            "value": "16px",
-            "type": "other"
+        button_padding: {
+            value: '16px',
+            type: 'other'
         },
-        "card_padding_normal": {
-            "value": "24px",
-            "type": "other"
+        card_padding_normal: {
+            value: '24px',
+            type: 'other'
         },
-        "card_padding_large": {
-            "value": "32px",
-            "type": "other"
+        card_padding_large: {
+            value: '32px',
+            type: 'other'
         }
     }
 };
@@ -1852,151 +1853,167 @@ const placeholderStyle = (color) => styled.css `
     }
 `;
 const TextFieldContainer = styled__default["default"].div `
-    width: ${props => props.theme.width || '100%'};
-    height: 48px;
-    background: ${({ theme }) => theme.colors.neutralsGrey6};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-    box-sizing: border-box;
-    border-radius: 8px;
-    outline: none;
-    transition: all 0.2s linear;
-    padding-right: 16px;
-    margin: 8px 0;
-    display: flex;
-    align-items: center;
+  width: ${(props) => props.theme.width || '100%'};
+  height: 48px;
+  background: ${({ theme }) => theme.colors.neutralsGrey6};
+  border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+  box-sizing: border-box;
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.2s linear;
+  padding-right: 16px;
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
 
-    ${({ isClicked }) => isClicked && `
+  ${({ isClicked }) => isClicked &&
+    `
         box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
         border: 1px solid #663366 !important;`}
-    
-    ${props => props.theme.multiline && styled.css `
-        width: ${props => props.theme.width || '100%'};
-        height: ${props => props.theme.height || '100%'};
-        min-height: ${props => props.theme.height || '100%'};
-        display: block;
-        padding: 0;
-        overflow: hidden;
+
+  ${(props) => props.theme.multiline &&
+    styled.css `
+      width: ${(props) => props.theme.width || '100%'};
+      height: ${(props) => props.theme.height || '100%'};
+      min-height: ${(props) => props.theme.height || '100%'};
+      display: block;
+      padding: 0;
+      overflow: hidden;
     `}
 
 
-    ${props => props.theme.hovered && styled.css `
-        border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
+    ${(props) => props.theme.hovered &&
+    styled.css `
+      border: 1px solid ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
-    ${props => props.theme.focused && styled.css `
-        box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
-        border: 1px solid ${({ theme }) => theme.colors.linkPressed};
+    ${(props) => props.theme.focused &&
+    styled.css `
+      box-shadow: 0px 0px 0px 2px rgba(6, 69, 173, 0.4);
+      border: 1px solid ${({ theme }) => theme.colors.linkPressed};
     `}
 
-    ${props => props.theme.disabled && styled.css `
-        background: ${({ theme }) => theme.colors.neutralsGrey7};
-        border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    ${(props) => props.theme.disabled &&
+    styled.css `
+      background: ${({ theme }) => theme.colors.neutralsGrey7};
+      border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     `}
 
-    ${props => props.theme.error && styled.css `
-        background: #FFE0E0;
-        box-shadow: none;
-        border: 1px solid ${({ theme }) => theme.colors.messageError1};
-        color: ${({ theme }) => theme.colors.neutralsGrey3};
+    ${(props) => props.theme.error &&
+    styled.css `
+      background: #ffe0e0;
+      box-shadow: none;
+      border: 1px solid ${({ theme }) => theme.colors.messageError1};
+      color: ${({ theme }) => theme.colors.neutralsGrey3};
     `}
 
-    span { 
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     type: type || 'text',
     as: as || 'input'
 })) `
-    width: 100%;
-    height: 100%;
-    padding: 15px 16px;
-    border: none;
-    background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 15px 16px;
+  border: none;
+  background-color: transparent;
 
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-    ${placeholderStyle('neutralsGrey3')}
+  ${placeholderStyle('neutralsGrey3')}
 
-
-    ${({ as }) => as === 'textarea' && styled.css `
-        height: ${props => props.theme.height || '100%'};
-        resize: none;
-        overflow: auto;
-        min-height: 100%;
+  ${({ as }) => as === 'textarea' &&
+    styled.css `
+      height: ${(props) => props.theme.height || '100%'};
+      resize: none;
+      overflow: auto;
+      min-height: 100%;
     `}
     
-    ${props => props.theme.disabled && styled.css `
-        color: ${({ theme }) => theme.colors.neutralsGrey4};
-        ${placeholderStyle('neutralsGrey4')}
+    ${(props) => props.theme.disabled &&
+    styled.css `
+      color: ${({ theme }) => theme.colors.neutralsGrey4};
+      ${placeholderStyle('neutralsGrey4')}
     `}
-
+    ${(props) => props.theme.error &&
+    styled.css `
+      ${placeholderStyle('linkError')}
+    `}
 `;
 const Label$1 = styled__default["default"].label `
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-    ${props => props.theme.hovered && styled.css `
-        color: ${({ theme }) => theme.colors.linkOnfocus};
+  ${(props) => props.theme.hovered &&
+    styled.css `
+      color: ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
-    ${props => props.theme.focused && styled.css `
-        color: ${({ theme }) => theme.colors.linkOnfocus};
+  ${(props) => props.theme.focused &&
+    styled.css `
+      color: ${({ theme }) => theme.colors.linkOnfocus};
     `}
 
-    ${props => props.theme.disabled && styled.css `
-        color: ${({ theme }) => theme.colors.neutralsGrey3};
+    ${(props) => props.theme.disabled &&
+    styled.css `
+      color: ${({ theme }) => theme.colors.neutralsGrey3};
     `}
 
-    ${props => props.theme.error && styled.css `
-        color: ${({ theme }) => theme.colors.messageError1};
+    ${(props) => props.theme.error &&
+    styled.css `
+      color: ${({ theme }) => theme.colors.messageError1};
     `}
 
-    ${({ isClicked }) => isClicked && `
+    ${({ isClicked }) => isClicked &&
+    `
         color: #663366 !important;
     `}
 `;
 const HelperText$2 = styled__default["default"].span `
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 14px;
-    color: ${({ theme }) => theme.colors.neutralsGrey3};
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: ${({ theme }) => theme.colors.neutralsGrey3};
 
-    ${props => props.theme.error && styled.css `
-        color: ${({ theme }) => theme.colors.messageError1};
+  ${(props) => props.theme.error &&
+    styled.css `
+      color: ${({ theme }) => theme.colors.messageError1};
     `}
 `;
 const InputIconButton = styled__default["default"].button `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    margin-right: -10px;
-    background-color: transparent;
-    border: none;
-    border-radius: 50%;
-    outline: none;
-    transition: all 0.1s linear;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  margin-right: -10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  transition: all 0.1s linear;
+  cursor: pointer;
 `;
 const StartIcon = styled__default["default"].span `
-    margin-left: 16px;
+  margin-left: 16px;
 `;
 
 function TextField(props) {
@@ -6637,6 +6654,8 @@ function ExtraContent(props) {
                 StudentExtraContent(props) }));
 }
 
+const isColorBlack = ({ theme }) => theme.colors.shadeBlack;
+const isColorError = ({ theme }) => theme.colors.linkError;
 const Container$3 = styled__default["default"].div `
   width: 100%;
   max-width: 445px;
@@ -6694,26 +6713,59 @@ const TypographyFill = styled__default["default"].p `
   margin-bottom: 22px;
 `;
 const ContainerEmail = styled__default["default"].div `
+  width: 80%;
   margin-left: 44px;
-  margin-right: 44px;
+  @media (max-width: 414px) {
+    margin-right: 44px;
+  }
+
+  ${(props) => props.isError &&
+    styled.css `
+      @media (max-width: 414px) {
+        margin-right: 5px;
+      }
+    `}
 `;
 const ContainerButtonLink = styled__default["default"].div `
-  position: absolute;
   right: 0;
   margin-right: 44px;
-  margin-top: 23px;
+  margin-top: 7.5rem;
+  position: absolute;
+  @media (max-width: 414px) {
+    margin: 7.5rem 44px 0px 0px;
+  }
 `;
 const ContainerPassword = styled__default["default"].div `
-  margin-top: 28px;
+  width: 80%;
   margin-left: 44px;
-  margin-right: 44px;
+  margin-top: 33px;
+  @media (max-width: 414px) {
+    margin-right: 44px;
+  }
+
+  ${(props) => props.isError &&
+    styled.css `
+      @media (max-width: 414px) {
+        margin-right: 5px;
+      }
+    `}
+`;
+const ContainerInputAndLink = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
 `;
 const IconAlert = styled__default["default"].div `
-  position: absolute;
   right: 0;
   bottom: 0;
-  padding-right: 20px;
-  padding-bottom: 140px;
+  padding: 45px 10px 0px 6px;
+  ${(props) => props.isStep === 2 &&
+    styled.css `
+      margin-top: 36px;
+    `}
+`;
+const ContainerIpuntAndIsIcon = styled__default["default"].div `
+  display: flex;
+  align-items: flex-start;
 `;
 const ContainerConnect = styled__default["default"].div `
   display: flex;
@@ -6725,6 +6777,7 @@ const ContainerConnect = styled__default["default"].div `
   margin-left: 44px;
   margin-top: 32px;
   margin-bottom: 20px;
+  padding-bottom: 32px;
 `;
 const ContainerCheckbox = styled__default["default"].div `
   cursor: pointer;
@@ -6744,7 +6797,6 @@ const TypographyConnect = styled__default["default"].p `
 const ContainerRecover = styled__default["default"].div `
   width: 100%;
   max-width: 445px;
-  height: 467px;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
   background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -6770,7 +6822,6 @@ const ContainerLogoRecover = styled__default["default"].div `
   align-items: center;
 `;
 const ContainerTypographyRecover = styled__default["default"].div `
-  position: absolute;
   margin: 32px 44px 0 44px;
   display: flex;
   flex-direction: column;
@@ -6784,10 +6835,26 @@ const TypographyRecover = styled__default["default"].p `
   color: ${({ theme }) => theme.colors.neutralsGrey1};
 `;
 const ContainerEmailRecover = styled__default["default"].div `
-  margin: 159px 44px 0 44px;
+  margin-left: 44px;
+  margin-top: 35px;
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 80%;
+  @media (max-width: 414px) {
+    margin-right: 44px;
+  }
+
+  ${(props) => props.isError &&
+    styled.css `
+      @media (max-width: 414px) {
+        margin-right: 5px;
+      }
+    `}
+`;
+const ContainerEmailAndTypeRecoverRecover = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
 `;
 const ContainerButtonRecover = styled__default["default"].div `
   display: flex;
@@ -6796,24 +6863,43 @@ const ContainerButtonRecover = styled__default["default"].div `
   align-items: center;
   justify-content: space-between;
   margin: 30px 44px 20px 44px;
+  padding-bottom: 32px;
+  @media (max-width: 767px) {
+    margin-top: 58px;
+  }
 `;
 //#########################NewPassaword#################
 const TypographyNewPassword = styled__default["default"].p `
   font-family: PT Sans;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: ${(props) => (props.isColorError ? 600 : 400)};
   line-height: 21px;
-  color: ${({ theme }) => theme.colors.shadeBlack};
+  color: ${(props) => (props.isColorError ? isColorError : isColorBlack)};
   position: absolute;
-  margin: 34px 44px 0 44px;
+  margin: 34px 44px 10px 44px;
+`;
+const ContainerTypographyNewPassword = styled__default["default"].div `
+  width: 100%;
+  height: 6.5rem;
 `;
 const ContainerPasswordNew = styled__default["default"].div `
   margin-top: 100px;
   margin-left: 44px;
-  margin-right: 44px;
+  margin-right: 10px;
   display: flex;
   flex-direction: column;
   gap: 25px;
+
+  @media (max-width: 414px) {
+    margin-right: 31px;
+  }
+
+  ${(props) => props.isError &&
+    styled.css `
+      @media (max-width: 414px) {
+        margin-right: 13px;
+      }
+    `}
 `;
 //###############SendComfirmation##############
 const ContainerSendComfirmation = styled__default["default"].div `
@@ -6845,6 +6931,7 @@ function Login(props) {
     const [keepConnected, setKeepConnected] = React.useState(true);
     const [step, setStep] = React.useState(1);
     const [error, setError] = React.useState(props.isError);
+    const [colorError, setColorError] = React.useState(props.isError);
     const [MsgInput1, setMsgInput1] = React.useState('');
     const [MsgInput2, setMsgInput2] = React.useState('');
     const onClikLogin = () => {
@@ -6898,19 +6985,9 @@ function Login(props) {
         setMsgInput1('');
         setMsgInput2('');
         setError(false);
+        setColorError(false);
         if (newPassword.length === 0) {
             setMsgInput2(props.textNewPasswordErrorNaoInformada ? props.textNewPasswordErrorNaoInformada : 'Nova senha não informada.');
-            setError(true);
-            return;
-        }
-        if (newPassword &&
-            (!newPassword.replace(/\D/g, '') ||
-                !newPassword.replace(/\d/g, '') ||
-                !newPassword.replace(/\w/g, '') ||
-                newPassword.length < 8)) {
-            setMsgInput2(props.textNewPasswordErrorSenhaForte
-                ? props.textNewPasswordErrorSenhaForte
-                : 'Sua senha deve ser composta por no mínimo 8 caracteres e incluir ao menos uma letra, um número e um caractere especial.');
             setError(true);
             return;
         }
@@ -6926,6 +7003,24 @@ function Login(props) {
         }
         if (props.isError) {
             setMsgInput2(props.textNewPasswordErrorInforma ? props.textNewPasswordErrorInforma : 'Erro ao informar nova senha.');
+            setError(true);
+            return;
+        }
+        let emailPrefix = email.split('@')[0].split('.')[0];
+        let emailSufix = email.split('@')[1].split('.')[0];
+        const validateEmailPrefix = new RegExp(emailPrefix, 'g');
+        const validateEmailSufix = new RegExp(emailSufix, 'g');
+        const validateUpperCase = new RegExp(/[A-Z]/, 'g');
+        if (newPassword &&
+            (!newPassword.replace(/\D/g, '') ||
+                !newPassword.replace(/\d/g, '') ||
+                !newPassword.replace(/\w/g, '') ||
+                newPassword.match(/frst|falconi|FRST|FALCONI|Frst|Falconi/g) ||
+                newPassword.match(validateEmailPrefix) ||
+                newPassword.match(validateEmailSufix) ||
+                !newPassword.match(validateUpperCase) ||
+                newPassword.length < 8)) {
+            setColorError(true);
             setError(true);
             return;
         }
@@ -6949,13 +7044,15 @@ function Login(props) {
         setError(props.isError);
         setMsgInput2(props.isError ? 'E-mail ou senhas incorretos.' : '');
     }, [props.isError]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsx(ContainerEmail, { children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value) }) }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsx(ContainerPassword, { children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value) }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) })), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
-                                ? props.textEmailCadastro
-                                : 'Digite seu e-mail de cadastro abaixo e clique em enviar.' }), jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro2
-                                ? props.textEmailCadastro2
-                                : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsx(ContainerEmailRecover, { children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value) }) }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerInputAndLink, { children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmail, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerPassword, { isError: error, children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { style: { paddingTop: '78px' }, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerEmailAndTypeRecoverRecover, { children: [jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
+                                        ? props.textEmailCadastro
+                                        : 'Digite seu e-mail de cadastro abaixo e clique em enviar.' }), jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro2
+                                        ? props.textEmailCadastro2
+                                        : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
                         ? props.textNewPasswordInformacao
-                        : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', label: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', type: 'password', value: newPassword, onChange: (e) => setNewPassword(e.target.value) }), jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', label: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', type: 'password', value: confirmPassword, onChange: (e) => setConfirmPassword(e.target.value) })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textNewPasswordButtonLink ? props.textNewPasswordButtonLink : 'Voltar Login', handleClick: props.handleClickChangePasswordCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textNewPasswordButtonSalvar ? props.textNewPasswordButtonSalvar : 'Salvar', handleClick: onClickSave })] })] })) : props.variant === 'login' && step === 3 ? (jsxRuntime.jsxs(ContainerSendComfirmation, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textConfirmacaoRespostaEmail
+                        : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { isError: error, children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', label: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', type: 'password', value: newPassword, onChange: (e) => setNewPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', label: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirma senha', type: 'password', value: confirmPassword, onChange: (e) => setConfirmPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsx(ContainerTypographyNewPassword, { children: jsxRuntime.jsx(TypographyNewPassword, { isColorError: colorError, style: { fontSize: '14px' }, children: props.textNewPasswordErrorSenhaForte
+                            ? props.textNewPasswordErrorSenhaForte
+                            : 'Use pelo menos 8 caracteres, 1 maiúscula, 1 minúscula, e um número ou caractere especial. Não use parte de seu e-mail (seunome@empresa.com) como senha.' }) }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textNewPasswordButtonLink ? props.textNewPasswordButtonLink : 'Voltar Login', handleClick: props.handleClickChangePasswordCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textNewPasswordButtonSalvar ? props.textNewPasswordButtonSalvar : 'Salvar', handleClick: onClickSave })] })] })) : props.variant === 'login' && step === 3 ? (jsxRuntime.jsxs(ContainerSendComfirmation, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textConfirmacaoRespostaEmail
                         ? props.textConfirmacaoRespostaEmail
                         : 'Solicitação enviada com sucesso para o seu e-mail.' }), jsxRuntime.jsx(ContainerButtonSendConfirmation, { children: jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textConfirmacaoButtonRetorna ? props.textConfirmacaoButtonRetorna : 'Retornar', handleClick: props.onClickConfimationBackToLogin }) })] })) : null }));
 }
