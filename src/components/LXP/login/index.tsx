@@ -76,13 +76,6 @@ export default function Login(props: ILoginTranslate) {
   }
 
   const onClickSave = () => {
-    let emailPrefix = email.split('@')[0].split('.')[0]
-    let emailSufix = email.split('@')[1].split('.')[0]
-
-    const validateEmailPrefix = new RegExp(emailPrefix, 'g')
-    const validateEmailSufix = new RegExp(emailSufix, 'g')
-    const validateUpperCase = new RegExp(/[A-Z]/, 'g')
-
     setMsgInput1('')
     setMsgInput2('')
     setError(false)
@@ -109,6 +102,21 @@ export default function Login(props: ILoginTranslate) {
       setError(true)
       return
     }
+    if (props.isError) {
+      setMsgInput2(
+        props.textNewPasswordErrorInforma ? props.textNewPasswordErrorInforma : 'Erro ao informar nova senha.'
+      )
+      setError(true)
+      return
+    }
+
+    let emailPrefix = email.split('@')[0].split('.')[0]
+    let emailSufix = email.split('@')[1].split('.')[0]
+
+    const validateEmailPrefix = new RegExp(emailPrefix, 'g')
+    const validateEmailSufix = new RegExp(emailSufix, 'g')
+    const validateUpperCase = new RegExp(/[A-Z]/, 'g')
+
     if (
       newPassword &&
       (!newPassword.replace(/\D/g, '') ||
@@ -125,13 +133,6 @@ export default function Login(props: ILoginTranslate) {
       return
     }
 
-    if (props.isError) {
-      setMsgInput2(
-        props.textNewPasswordErrorInforma ? props.textNewPasswordErrorInforma : 'Erro ao informar nova senha.'
-      )
-      setError(true)
-      return
-    }
     props.handleClickChangePassword(newPassword, confirmPassword)
   }
 
@@ -338,7 +339,7 @@ export default function Login(props: ILoginTranslate) {
             <Styles.TypographyNewPassword isColorError={colorError} style={{ fontSize: '14px' }}>
               {props.textNewPasswordErrorSenhaForte
                 ? props.textNewPasswordErrorSenhaForte
-                : 'Para criar a nova senha use no mínimo oito caracteres (com distinção entre maiúsculas e minúsculas) com pelo menos um número ou caractere especial.'}
+                : 'Use pelo menos 8 caracteres, 1 maiúscula, 1 minúscula, e um número ou caractere especial. Não use parte de seu e-mail (seunome@empresa.com) como senha.'}
             </Styles.TypographyNewPassword>
           </Styles.ContainerTypographyNewPassword>
 
