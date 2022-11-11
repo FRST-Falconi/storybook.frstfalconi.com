@@ -29,12 +29,13 @@ LoginComponent.args = {
 export const NewPassword = Template.bind({})
 NewPassword.args = {
   variant: 'newPassword',
-  handleClickChangePassword: (newPassword, confirmPassword) => {
-    alert(`Nova Senha: ${newPassword}, Cofirma Senha: ${confirmPassword}`)
+  handleClickChangePassword: (newPassword, confirmPassword, codigoNewPassword) => {
+    alert(`Nova Senha: ${newPassword}, Cofirma Senha: ${confirmPassword}, Confirmar Código: ${codigoNewPassword}`)
   },
   handleClickChangePasswordCancel: () => {
     alert('Voltar Login')
-  }
+  },
+  confirmEmail: 'userLxp@teste.com'
 }
 
 export const LoginTranslate = Template.bind({})
@@ -73,8 +74,8 @@ LoginTranslate.args = {
 export const NewPasswordTranslate = Template.bind({})
 NewPasswordTranslate.args = {
   variant: 'newPassword',
-  handleClickChangePassword: (newPassword, confirmPassword) => {
-    alert(`Nova Senha: ${newPassword}, Cofirma Senha: ${confirmPassword}`)
+  handleClickChangePassword: (newPassword, confirmPassword, codigoNewPassword) => {
+    alert(`Nova Senha: ${newPassword}, Cofirma Senha: ${confirmPassword}, Confirm Code: ${codigoNewPassword}`)
   },
   handleClickChangePasswordCancel: () => {
     alert('Voltar Login')
@@ -89,5 +90,9 @@ NewPasswordTranslate.args = {
     'Use at least 8 characters, 1 uppercase, 1 lowercase, and a number or special character. Do not use part of your email (yourname@company.com) as a password.',
   textNewPasswordErrorCorfirma: 'Password confirmation not provided.',
   textNewPasswordErrorIguais: 'The two passwords must be the same.',
-  textNewPasswordErrorInforma: 'Error entering new password'
+  textNewPasswordErrorInforma: 'Error entering new password',
+  textNewPasswordInputCodigo: 'Code',
+  textNewPasswordInputPlaceholderCodigo: 'Type the code',
+  textNewPasswordErrorCodigo: 'Code not reported.',
+  confirmEmail: 'userLxp@teste.com'
 }
