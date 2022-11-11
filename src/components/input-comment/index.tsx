@@ -41,6 +41,10 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         resizeTextArea()
     }, [stringValueTextArea]);
 
+    useEffect(() => {
+        setStringValueTextArea(value)
+    }, [value]);
+
     function inputInChanging(e: any) {
         setStringValueTextArea(e.target.value)
         onChange(e)

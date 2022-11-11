@@ -35,7 +35,7 @@ interface IBannerProblemFeed extends stepsInfo{
 /** -------------------------------------------------------------------------------- 
 *   Interaction Feed params 
 -----------------------------------------------------------------------------------*/
- 
+    avatar?: string
     qtdLikes: string
     qtdComments: string
     textLikes: string
@@ -346,6 +346,8 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 handleRelevanciaChange={props.handleRelevanciaChange}
                 textSaveCommentBtn={props.textSaveCommentBtn}
                 handleSaveCommentBtn={props.handleSaveCommentBtn}
+                userAvatar={props.avatar}
+                
             />
         </ThemeProvider>
     )
