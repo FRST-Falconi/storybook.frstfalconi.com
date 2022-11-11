@@ -33,6 +33,10 @@ export default function SessionFilters(props: ISessionFilters) {
     const [selectedFilter, setSelectedFilter] = useState(props.selectedFilter);
     const [selectFilterContent, setSelectFilterContent] = useState([]);
 
+   
+    useEffect(() => {
+        setSelectedFilter(props.selectedFilter)
+    }, [props.selectedFilter]);
 
     const selectItem = (item) => {
         let index = selectFilterContent.indexOf(item.title)
@@ -120,7 +124,10 @@ export default function SessionFilters(props: ISessionFilters) {
                                 ))
                             }
                         </Select>
-                        <div style={{color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer'}} onClick={props.handleDeleteFilter} >
+                        <div style={{color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer'}} 
+                            // onClick={props.handleDeleteFilter}
+                            onClick={() => setSelectFilterContent(currentValue => currentValue = [])} 
+                        >
                             <Icons.Trash fill={FRSTTheme['colors'].linkOnfocus} />
                             &nbsp;
                             {props.textDeleteFilter}

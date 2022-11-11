@@ -8163,6 +8163,13 @@ const comment = styled__default["default"].div `
     flex-direction: row;
     width: 100%;
     margin-top: 28px;
+
+
+`;
+const submitButton = styled__default["default"].div `
+    border: none;
+    background: none;
+    margin-left: 8px;
 `;
 const commentList = styled__default["default"].div `
     display: flex;
@@ -8179,6 +8186,11 @@ function FeedInteraction(props) {
     const [openComments, setOpenComments] = React.useState(false);
     const [loadCommentsText, setLoadCommentsText] = React.useState(props.commentList?.length < 2 ? false : true);
     const [showMoreComments, setShowMoreComments] = React.useState(false);
+    const [focusComment, setFocusComment] = React.useState(false);
+    const [stateLatestComment, setStateLatestComment] = React.useState(props.latestComment);
+    React.useEffect(() => {
+        setStateLatestComment(props.latestComment);
+    }, [props.latestComment]);
     const OnReviewClick = () => {
         setOpenReview(!openReview);
         setOpenComments(false);
@@ -8205,9 +8217,9 @@ function FeedInteraction(props) {
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingImpacto, handleRating: props?.handleImpactoChange }), jsxRuntime.jsx("span", { children: props.textImpacto })] }), props.isChallengeReview &&
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 24 }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingRelevancia, handleRating: props?.handleRelevanciaChange }), jsxRuntime.jsx("span", { children: props.textRelevancia })] }), props.isPostReview &&
                                         jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingPostReview, handleRating: props?.handlePostReviewChange }) })] })] }), openComments &&
-                    jsxRuntime.jsxs(commentsContainer, { children: [jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment, { styles: { width: '100%' }, IDInput: 'userComment', showCharacterCounter: false, className: 'userComment', hasEmoji: true, emojiWindowlanguage: 'pt', placeholder: props.userCommentPlaceholder ? props.userCommentPlaceholder : '', onChange: props.onCommentChange })] }), props.isChallengeReview ?
-                                props.latestComment ?
-                                    jsxRuntime.jsxs(commentList, { children: [props.textLatestComment, jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.latestComment.avatar }), jsxRuntime.jsx(CommentaryBox, { styles: { width: '100%' }, name: props.latestComment.name, date: props.latestComment.date, position: props.latestComment.position, value: props.latestComment.value, className: props.latestComment.className, onChange: props.latestComment.onChange, actionLike: props.latestComment.actionLike, textLiked: props.latestComment.textLike, textUnliked: props.latestComment.textDeslike, isLiked: props.latestComment.isLiked, totalLikes: props.latestComment.totalLikes, hasDropdown: props.latestComment.hasDropdown, isAuthor: props.latestComment.isAuthor, isMe: props.latestComment.isMe, actionDeleteComment: props.latestComment.actionDeleteComment, actionEditComment: props.latestComment.actionEditComment, actionAnswer: props.latestComment.actionAnswer, actionMakePrivate: props.latestComment.actionMakePrivate, actionUpdateValue: props.latestComment.actionUpdateValue, detectLinks: props.latestComment.detectLinks, hasAnswer: props.latestComment.hasAnswer, isPrivateAuthor: props.latestComment.isPrivateAuthor, isPrivateMe: props.latestComment.isPrivateMe, idTextComment: props.latestComment.idTextComment, textAnswer: props.latestComment.textAnswer, textCancelButton: props.latestComment.textCancelButton, textDeleteComment: props.latestComment.textDeleteComment, textEditComment: props.latestComment.textEditComment, textEdited: props.latestComment.textEdited, textMakePrivate: props.latestComment.textMakePrivate, textMakePublic: props.latestComment.textMakePublic, textPrivateComment: props.latestComment.textPrivateComment, textSaveButton: props.latestComment.textSaveButton, textSaveButtonMobile: props.latestComment.textSaveButtonMobile, textYou: props.latestComment.textYou, wasEdited: props.latestComment.wasEdited })] })] })
+                    jsxRuntime.jsxs(commentsContainer, { children: [jsxRuntime.jsxs(comment, { onFocus: () => setFocusComment(currentValue => true), children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment, { styles: { width: '100%' }, IDInput: 'userComment', showCharacterCounter: false, className: 'userComment', hasEmoji: true, emojiWindowlanguage: 'pt', placeholder: props.userCommentPlaceholder ? props.userCommentPlaceholder : '', onChange: props.onCommentChange }), jsxRuntime.jsx(submitButton, { style: { display: focusComment ? 'block' : 'none' }, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textSaveCommentBtn, handleClick: props.handleSaveCommentBtn }) })] }), props.isChallengeReview ?
+                                stateLatestComment ?
+                                    jsxRuntime.jsxs(commentList, { children: [props.textLatestComment, jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: stateLatestComment.avatar }), jsxRuntime.jsx(CommentaryBox, { styles: { width: '100%' }, name: stateLatestComment.name, date: stateLatestComment.date, position: stateLatestComment.position, value: stateLatestComment.value, className: stateLatestComment.className, onChange: stateLatestComment.onChange, actionLike: stateLatestComment.actionLike, textLiked: stateLatestComment.textLike, textUnliked: stateLatestComment.textDeslike, isLiked: stateLatestComment.isLiked, totalLikes: stateLatestComment.totalLikes, hasDropdown: stateLatestComment.hasDropdown, isAuthor: stateLatestComment.isAuthor, isMe: stateLatestComment.isMe, actionDeleteComment: stateLatestComment.actionDeleteComment, actionEditComment: stateLatestComment.actionEditComment, actionAnswer: stateLatestComment.actionAnswer, actionMakePrivate: stateLatestComment.actionMakePrivate, actionUpdateValue: stateLatestComment.actionUpdateValue, detectLinks: stateLatestComment.detectLinks, hasAnswer: stateLatestComment.hasAnswer, isPrivateAuthor: stateLatestComment.isPrivateAuthor, isPrivateMe: stateLatestComment.isPrivateMe, idTextComment: stateLatestComment.idTextComment, textAnswer: stateLatestComment.textAnswer, textCancelButton: stateLatestComment.textCancelButton, textDeleteComment: stateLatestComment.textDeleteComment, textEditComment: stateLatestComment.textEditComment, textEdited: stateLatestComment.textEdited, textMakePrivate: stateLatestComment.textMakePrivate, textMakePublic: stateLatestComment.textMakePublic, textPrivateComment: stateLatestComment.textPrivateComment, textSaveButton: stateLatestComment.textSaveButton, textSaveButtonMobile: stateLatestComment.textSaveButtonMobile, textYou: stateLatestComment.textYou, wasEdited: stateLatestComment.wasEdited })] })] })
                                     : null
                                 :
                                     props.commentList ?
@@ -8221,6 +8233,10 @@ function BannerProblemFeed(props) {
     const [selectedStep, setSelectedStep] = React.useState(props.stepActive);
     const learningIcon = 'https://i.gyazo.com/4e0807b581bf9780f07a27516a809a21.png';
     const achievementIcon = 'https://i.gyazo.com/9b192733f4947946a3f47080ae12727f.png';
+    const [stateLatestComment, setStateLatestComment] = React.useState(props.latestComment);
+    React.useEffect(() => {
+        setStateLatestComment(props.latestComment);
+    }, [props.latestComment]);
     const CustomSlider = styles$2.withStyles({
         root: {
             color: "#FF4D0D",
@@ -8278,7 +8294,7 @@ function BannerProblemFeed(props) {
                             jsxRuntime.jsx(Tag, { title: item, color: FRSTTheme['colors'].neutralsGrey1, selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                                 props.onSelectedStep(step);
                                 setSelectedStep(step);
-                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: props.latestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange })] }));
+                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn })] }));
 }
 
 const ButtonSessionFilters = styled__default["default"].button `
@@ -8346,6 +8362,9 @@ const MenuProps = {
 function SessionFilters(props) {
     const [selectedFilter, setSelectedFilter] = React.useState(props.selectedFilter);
     const [selectFilterContent, setSelectFilterContent] = React.useState([]);
+    React.useEffect(() => {
+        setSelectedFilter(props.selectedFilter);
+    }, [props.selectedFilter]);
     const selectItem = (item) => {
         let index = selectFilterContent.indexOf(item.title);
         let newArray = [].concat(selectFilterContent);
@@ -8375,7 +8394,9 @@ function SessionFilters(props) {
                                                         '&.Mui-checked': {
                                                             color: FRSTTheme['colors'].primary1,
                                                         },
-                                                    } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) }), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer' }, onClick: props.handleDeleteFilter, children: [jsxRuntime.jsx(Trash, { fill: FRSTTheme['colors'].linkOnfocus }), "\u00A0", props.textDeleteFilter] })] })] })
+                                                    } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) }), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer' }, 
+                                        // onClick={props.handleDeleteFilter}
+                                        onClick: () => setSelectFilterContent(currentValue => []), children: [jsxRuntime.jsx(Trash, { fill: FRSTTheme['colors'].linkOnfocus }), "\u00A0", props.textDeleteFilter] })] })] })
                     : null] }) }));
 }
 

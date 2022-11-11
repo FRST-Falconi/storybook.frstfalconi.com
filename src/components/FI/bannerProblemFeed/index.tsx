@@ -4,7 +4,7 @@ import * as Styles from './bannerProblemFeedStyles'
 import Avatar from "@components/avatar";
 import Tag from "@components/tag";
 import MissionSteps from "@components/cardLT/StepsMission/StepMission";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Slider from '@mui/material/Slider';
 import { withStyles } from '@material-ui/styles';
 import Button from "@components/buttons";
@@ -51,6 +51,8 @@ interface IBannerProblemFeed extends stepsInfo{
     userCommentPlaceholder: string
     textLatestComment: string
     latestComment: any
+    textSaveCommentBtn: string
+    handleSaveCommentBtn?: () => any
 
     onCommentChange ?: () => void
     handleLikeClick ?: () => void
@@ -117,6 +119,11 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     const [selectedStep, setSelectedStep] = useState(props.stepActive);
     const learningIcon = 'https://i.gyazo.com/4e0807b581bf9780f07a27516a809a21.png'
     const achievementIcon = 'https://i.gyazo.com/9b192733f4947946a3f47080ae12727f.png'
+
+    const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
+    useEffect(() => {
+        setStateLatestComment(props.latestComment)
+    }, [props.latestComment]);
 
     const CustomSlider = withStyles({
         root: {
@@ -326,7 +333,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 textComments={props.textComments}
                 textDeslike={props.textDeslike}
                 textLikes={props.textLikes}
-                latestComment={props.latestComment}
+                latestComment={stateLatestComment}
                 textLatestComment={props.textLatestComment} 
                 textImpacto={props.textImpacto}
                 ratingImpacto={props.ratingImpacto}
@@ -337,6 +344,8 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 handleLikeClick={props.handleLikeClick}
                 handleImpactoChange={props.handleImpactoChange}
                 handleRelevanciaChange={props.handleRelevanciaChange}
+                textSaveCommentBtn={props.textSaveCommentBtn}
+                handleSaveCommentBtn={props.handleSaveCommentBtn}
             />
         </ThemeProvider>
     )
