@@ -2,7 +2,7 @@ import * as Styles from './feedInteractionStyles'
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import * as Icons from '@shared/icons'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Rating from '@components/EBR/rating'
 import Avatar from '@components/avatar'
 import InputComment from '@components/input-comment'
@@ -50,6 +50,11 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
     const [showMoreComments, setShowMoreComments] = useState(false);
     const [focusComment, setFocusComment] = useState(false);
+
+    const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
+    useEffect(() => {
+        setStateLatestComment(props.latestComment)
+    }, [props.latestComment]);
 
     const OnReviewClick = () => {
         setOpenReview(!openReview)
@@ -141,49 +146,49 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                             </Styles.submitButton>
                         </Styles.comment>
                         {props.isChallengeReview ?
-                            props.latestComment ?
+                            stateLatestComment ?
                                 <Styles.commentList>
                                     {props.textLatestComment}
                                     <Styles.comment>
-                                        <Avatar size='40px' src={props.latestComment.avatar} />
+                                        <Avatar size='40px' src={stateLatestComment.avatar} />
                                         
                                         <CommentaryBox styles={{width: '100%'}}
-                                            name={props.latestComment.name}
-                                            date={props.latestComment.date}
-                                            position={props.latestComment.position}
-                                            value={props.latestComment.value}
-                                            className={props.latestComment.className}
-                                            onChange={props.latestComment.onChange}
-                                            actionLike={props.latestComment.actionLike}
-                                            textLiked={props.latestComment.textLike}
-                                            textUnliked={props.latestComment.textDeslike}
-                                            isLiked={props.latestComment.isLiked}
-                                            totalLikes={props.latestComment.totalLikes}
-                                            hasDropdown={props.latestComment.hasDropdown}
-                                            isAuthor={props.latestComment.isAuthor}
-                                            isMe={props.latestComment.isMe}
-                                            actionDeleteComment={props.latestComment.actionDeleteComment}
-                                            actionEditComment={props.latestComment.actionEditComment}
-                                            actionAnswer={props.latestComment.actionAnswer}
-                                            actionMakePrivate={props.latestComment.actionMakePrivate}
-                                            actionUpdateValue={props.latestComment.actionUpdateValue}
-                                            detectLinks={props.latestComment.detectLinks}
-                                            hasAnswer={props.latestComment.hasAnswer}
-                                            isPrivateAuthor={props.latestComment.isPrivateAuthor}
-                                            isPrivateMe={props.latestComment.isPrivateMe}
-                                            idTextComment={props.latestComment.idTextComment}
-                                            textAnswer={props.latestComment.textAnswer}
-                                            textCancelButton={props.latestComment.textCancelButton}
-                                            textDeleteComment={props.latestComment.textDeleteComment}
-                                            textEditComment={props.latestComment.textEditComment}
-                                            textEdited={props.latestComment.textEdited}
-                                            textMakePrivate={props.latestComment.textMakePrivate}
-                                            textMakePublic={props.latestComment.textMakePublic}
-                                            textPrivateComment={props.latestComment.textPrivateComment}
-                                            textSaveButton={props.latestComment.textSaveButton}
-                                            textSaveButtonMobile={props.latestComment.textSaveButtonMobile}
-                                            textYou={props.latestComment.textYou}
-                                            wasEdited={props.latestComment.wasEdited}
+                                            name={stateLatestComment.name}
+                                            date={stateLatestComment.date}
+                                            position={stateLatestComment.position}
+                                            value={stateLatestComment.value}
+                                            className={stateLatestComment.className}
+                                            onChange={stateLatestComment.onChange}
+                                            actionLike={stateLatestComment.actionLike}
+                                            textLiked={stateLatestComment.textLike}
+                                            textUnliked={stateLatestComment.textDeslike}
+                                            isLiked={stateLatestComment.isLiked}
+                                            totalLikes={stateLatestComment.totalLikes}
+                                            hasDropdown={stateLatestComment.hasDropdown}
+                                            isAuthor={stateLatestComment.isAuthor}
+                                            isMe={stateLatestComment.isMe}
+                                            actionDeleteComment={stateLatestComment.actionDeleteComment}
+                                            actionEditComment={stateLatestComment.actionEditComment}
+                                            actionAnswer={stateLatestComment.actionAnswer}
+                                            actionMakePrivate={stateLatestComment.actionMakePrivate}
+                                            actionUpdateValue={stateLatestComment.actionUpdateValue}
+                                            detectLinks={stateLatestComment.detectLinks}
+                                            hasAnswer={stateLatestComment.hasAnswer}
+                                            isPrivateAuthor={stateLatestComment.isPrivateAuthor}
+                                            isPrivateMe={stateLatestComment.isPrivateMe}
+                                            idTextComment={stateLatestComment.idTextComment}
+                                            textAnswer={stateLatestComment.textAnswer}
+                                            textCancelButton={stateLatestComment.textCancelButton}
+                                            textDeleteComment={stateLatestComment.textDeleteComment}
+                                            textEditComment={stateLatestComment.textEditComment}
+                                            textEdited={stateLatestComment.textEdited}
+                                            textMakePrivate={stateLatestComment.textMakePrivate}
+                                            textMakePublic={stateLatestComment.textMakePublic}
+                                            textPrivateComment={stateLatestComment.textPrivateComment}
+                                            textSaveButton={stateLatestComment.textSaveButton}
+                                            textSaveButtonMobile={stateLatestComment.textSaveButtonMobile}
+                                            textYou={stateLatestComment.textYou}
+                                            wasEdited={stateLatestComment.wasEdited}
                                         />
                                     </Styles.comment>
                                 </Styles.commentList>
