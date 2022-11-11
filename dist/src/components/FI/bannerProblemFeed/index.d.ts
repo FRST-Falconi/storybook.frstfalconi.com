@@ -17,6 +17,7 @@ interface IBannerProblemFeed extends stepsInfo {
     /** --------------------------------------------------------------------------------
     *   Interaction Feed params
     -----------------------------------------------------------------------------------*/
+    avatar?: string;
     qtdLikes: string;
     qtdComments: string;
     textLikes: string;

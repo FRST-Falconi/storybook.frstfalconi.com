@@ -23,7 +23,7 @@ interface IFeedInteraction {
     commentList?: any[];
     textLoadMoreComments?: string;
     textSaveCommentBtn?: string;
-    handleSaveCommentBtn?: () => void;
+    handleSaveCommentBtn?: (comment: any) => void;
     style?: React.CSSProperties;
     onCommentChange?: (e: any) => void;
     handleLikeClick?: () => void;

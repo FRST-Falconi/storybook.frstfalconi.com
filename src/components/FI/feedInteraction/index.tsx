@@ -51,7 +51,6 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const [showMoreComments, setShowMoreComments] = useState(false);
     const [focusComment, setFocusComment] = useState(false);
     const [commentData, setCommentData] = useState('');
-    console.log('Comentário: ', commentData)
 
     const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
     useEffect(() => {
