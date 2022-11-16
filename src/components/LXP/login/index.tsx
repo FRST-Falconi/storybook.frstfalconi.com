@@ -10,6 +10,7 @@ import TextField from '@components/form-elements/textfield'
 
 export default function Login(props: ILoginTranslate) {
   const [email, setEmail] = useState('')
+  const [confirmEmail, setConfirmEmail] = useState('')
   const [emailRecover, setEmailRecover] = useState('')
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
@@ -82,6 +83,21 @@ export default function Login(props: ILoginTranslate) {
     setError(false)
     setColorError(false)
 
+    if (confirmEmail.length === 0) {
+      setMsgInput2(
+        props.textNewPasswordErrorEmailNaoInformada
+          ? props.textNewPasswordErrorEmailNaoInformada
+          : 'Email não informado.'
+      )
+      setError(true)
+      return
+    }
+    let regexEmail = /\S+@\S+.\S+/
+    if (!regexEmail.test(confirmEmail)) {
+      setMsgInput2(props.textEmailErrorInvalido ? props.textEmailErrorInvalido : 'E-mail inválido.')
+      setError(true)
+      return
+    }
     if (newPassword.length === 0) {
       setMsgInput2(
         props.textNewPasswordErrorNaoInformada ? props.textNewPasswordErrorNaoInformada : 'Nova senha não informada.'
@@ -116,8 +132,8 @@ export default function Login(props: ILoginTranslate) {
       return
     }
 
-    let emailPrefix = props.confirmEmail.split('@')[0].split('.')[0]
-    let emailSufix = props.confirmEmail.split('@')[1].split('.')[0]
+    let emailPrefix = confirmEmail.split('@')[0].split('.')[0]
+    let emailSufix = confirmEmail.split('@')[1].split('.')[0]
 
     const validateEmailPrefix = new RegExp(emailPrefix, 'g')
     const validateEmailSufix = new RegExp(emailSufix, 'g')
@@ -139,7 +155,7 @@ export default function Login(props: ILoginTranslate) {
       return
     }
 
-    props.handleClickChangePassword(newPassword, confirmPassword, codigoNewPassword)
+    props.handleClickChangePassword(newPassword, confirmPassword, codigoNewPassword, confirmEmail)
   }
 
   const handleClickCheckbox = () => {
@@ -304,6 +320,27 @@ export default function Login(props: ILoginTranslate) {
               : 'Para criar uma nova senha, preencha os campos abaixo:'}
           </Styles.TypographyNewPassword>
           <Styles.ContainerPasswordNew isError={error}>
+            <Styles.ContainerIpuntAndIsIcon>
+              <TextField
+                error={error}
+                endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
+                placeholder={
+                  props.textNewPasswordInputEmailPlaceholder
+                    ? props.textNewPasswordInputEmailPlaceholder
+                    : 'Digite o email'
+                }
+                label={props.textNewPasswordInputEmail ? props.textNewPasswordInputEmail : 'Digite o email'}
+                type={'text'}
+                value={confirmEmail}
+                onChange={(e) => setConfirmEmail(e.target.value)}
+                style={{ width: '95%' }}
+              />
+              {error && (
+                <Styles.IconAlert>
+                  <Icons.AlertCicle />
+                </Styles.IconAlert>
+              )}
+            </Styles.ContainerIpuntAndIsIcon>
             <Styles.ContainerIpuntAndIsIcon>
               <TextField
                 error={error}

@@ -9,7 +9,7 @@ export interface ILogin {
   handleClickLogin?: (email, password, keepConnected) => void
   handleClickForgotPassword?: (email) => void
   onClickConfimationBackToLogin?: () => void
-  handleClickChangePassword?: (newPassword, confirmPassword, codigoNewPassword) => void
+  handleClickChangePassword?: (newPassword, confirmPassword, codigoNewPassword, confirmEmail) => void
   handleClickChangePasswordCancel?: () => void
 }
 
@@ -45,5 +45,7 @@ export interface ILoginTranslate extends ILogin {
   textNewPasswordInputCodigo?: string
   textNewPasswordInputPlaceholderCodigo?: string
   textNewPasswordErrorCodigo?: string
-  confirmEmail?: string
+  textNewPasswordInputEmailPlaceholder?: string
+  textNewPasswordInputEmail?: string
+  textNewPasswordErrorEmailNaoInformada?: string
 }
