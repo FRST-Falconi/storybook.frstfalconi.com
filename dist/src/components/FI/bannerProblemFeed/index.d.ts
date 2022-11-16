@@ -35,6 +35,7 @@ interface IBannerProblemFeed extends stepsInfo {
     latestComment: any;
     textSaveCommentBtn: string;
     handleSaveCommentBtn?: () => any;
+    isDisabledAvaluation?: boolean;
     onCommentChange?: () => void;
     handleLikeClick?: () => void;
     handleImpactoChange?: any;

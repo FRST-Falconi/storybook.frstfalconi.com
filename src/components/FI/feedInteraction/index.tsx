@@ -36,6 +36,8 @@ interface IFeedInteraction {
     textSaveCommentBtn ?: string
     handleSaveCommentBtn ?: (comment) => void
 
+    isDisabledAvaluation ?: boolean,
+
     style ?: React.CSSProperties
     onCommentChange ?: (e) => void
     handleLikeClick ?: () => void
@@ -121,19 +123,19 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                         <Styles.reviewContent>
                             {props.isChallengeReview &&
                                 <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-                                    <Rating isVisibleNumberRating={false} orientation='horizontal' qtdStars={5} sizeStars={20} marginStars={'3.5px'} disabled={false} rating={props.ratingImpacto} handleRating={props?.handleImpactoChange} />
+                                    <Rating isVisibleNumberRating={false} orientation='horizontal' qtdStars={5} sizeStars={20} marginStars={'3.5px'} disabled={props.isDisabledAvaluation} rating={props.ratingImpacto} handleRating={props?.handleImpactoChange} />
                                     <span>{props.textImpacto}</span>
                                 </div>
                             }
                             {props.isChallengeReview &&
                                 <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 24}}>
-                                    <Rating isVisibleNumberRating={false} orientation='horizontal' qtdStars={5} sizeStars={20} marginStars={'3.5px'} disabled={false} rating={props.ratingRelevancia} handleRating={props?.handleRelevanciaChange} />
+                                    <Rating isVisibleNumberRating={false} orientation='horizontal' qtdStars={5} sizeStars={20} marginStars={'3.5px'} disabled={props.isDisabledAvaluation} rating={props.ratingRelevancia} handleRating={props?.handleRelevanciaChange} />
                                     <span>{props.textRelevancia}</span>
                                 </div>
                             }
                             {props.isPostReview &&
                                 <div style={{display:'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'}}>
-                                    <Rating isVisibleNumberRating={false} orientation='horizontal' qtdStars={5} sizeStars={20} marginStars={'3.5px'} disabled={false} rating={props.ratingPostReview} handleRating={props?.handlePostReviewChange} />
+                                    <Rating isVisibleNumberRating={false} orientation='horizontal' qtdStars={5} sizeStars={20} marginStars={'3.5px'} disabled={props.isDisabledAvaluation} rating={props.ratingPostReview} handleRating={props?.handlePostReviewChange} />
                                 </div>
                             }
                         </Styles.reviewContent>

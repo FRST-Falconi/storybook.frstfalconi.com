@@ -8353,9 +8353,9 @@ function FeedInteraction(props) {
                             :
                                 jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textLikes, variant: 'link', handleClick: props.handleLikeClick }) }), jsxRuntime.jsxs(buttons, { onClick: OnCommentsClick, style: { color: openComments && FRSTTheme['colors'].linkPressed }, children: [jsxRuntime.jsx(TalkIcon, { fill: openComments ? FRSTTheme['colors'].linkPressed : FRSTTheme['colors'].linkOnfocus }), " \u00A0", props.textComments] }), jsxRuntime.jsxs(buttons, { onClick: OnReviewClick, style: { color: openReview && FRSTTheme['colors'].linkPressed }, children: [jsxRuntime.jsx(StarOutlined, { fill: openReview ? FRSTTheme['colors'].linkPressed : FRSTTheme['colors'].linkOnfocus }), " \u00A0", props.textAvaluation] })] }), openReview &&
                     jsxRuntime.jsxs(reviewContainer, { children: [props.textAvaluationTitle, jsxRuntime.jsxs(reviewContent, { children: [props.isChallengeReview &&
-                                        jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingImpacto, handleRating: props?.handleImpactoChange }), jsxRuntime.jsx("span", { children: props.textImpacto })] }), props.isChallengeReview &&
-                                        jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 24 }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingRelevancia, handleRating: props?.handleRelevanciaChange }), jsxRuntime.jsx("span", { children: props.textRelevancia })] }), props.isPostReview &&
-                                        jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: false, rating: props.ratingPostReview, handleRating: props?.handlePostReviewChange }) })] })] }), openComments &&
+                                        jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingImpacto, handleRating: props?.handleImpactoChange }), jsxRuntime.jsx("span", { children: props.textImpacto })] }), props.isChallengeReview &&
+                                        jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 24 }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingRelevancia, handleRating: props?.handleRelevanciaChange }), jsxRuntime.jsx("span", { children: props.textRelevancia })] }), props.isPostReview &&
+                                        jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingPostReview, handleRating: props?.handlePostReviewChange }) })] })] }), openComments &&
                     jsxRuntime.jsxs(commentsContainer, { children: [jsxRuntime.jsxs(inputComment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment, { styles: { width: '100%', marginLeft: 8 }, IDInput: 'userComment', showCharacterCounter: false, className: 'userComment', hasEmoji: true, emojiWindowlanguage: 'pt', placeholder: props.userCommentPlaceholder ? props.userCommentPlaceholder : '', onChange: OnChangeComment, value: commentData }), jsxRuntime.jsx(submitButton, { style: { display: focusComment ? 'block' : 'none' }, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textSaveCommentBtn, handleClick: HandleSaveComment }) })] }), props.isChallengeReview ?
                                 stateLatestComment ?
                                     jsxRuntime.jsxs(commentList, { children: [props.textLatestComment, jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: stateLatestComment.avatar }), jsxRuntime.jsx(CommentaryBox, { styles: { width: '100%', marginLeft: 8 }, name: stateLatestComment.name, date: stateLatestComment.date, position: stateLatestComment.position, value: stateLatestComment.value, className: stateLatestComment.className, onChange: stateLatestComment.onChange, actionLike: stateLatestComment.actionLike, textLiked: stateLatestComment.textLike, textUnliked: stateLatestComment.textDeslike, isLiked: stateLatestComment.isLiked, totalLikes: stateLatestComment.totalLikes, hasDropdown: stateLatestComment.hasDropdown, isAuthor: stateLatestComment.isAuthor, isMe: stateLatestComment.isMe, actionDeleteComment: stateLatestComment.actionDeleteComment, actionEditComment: stateLatestComment.actionEditComment, actionAnswer: stateLatestComment.actionAnswer, actionMakePrivate: stateLatestComment.actionMakePrivate, actionUpdateValue: stateLatestComment.actionUpdateValue, detectLinks: stateLatestComment.detectLinks, hasAnswer: stateLatestComment.hasAnswer, isPrivateAuthor: stateLatestComment.isPrivateAuthor, isPrivateMe: stateLatestComment.isPrivateMe, idTextComment: stateLatestComment.idTextComment, textAnswer: stateLatestComment.textAnswer, textCancelButton: stateLatestComment.textCancelButton, textDeleteComment: stateLatestComment.textDeleteComment, textEditComment: stateLatestComment.textEditComment, textEdited: stateLatestComment.textEdited, textMakePrivate: stateLatestComment.textMakePrivate, textMakePublic: stateLatestComment.textMakePublic, textPrivateComment: stateLatestComment.textPrivateComment, textSaveButton: stateLatestComment.textSaveButton, textSaveButtonMobile: stateLatestComment.textSaveButtonMobile, textYou: stateLatestComment.textYou, wasEdited: stateLatestComment.wasEdited })] })] })
@@ -8433,7 +8433,7 @@ function BannerProblemFeed(props) {
                             jsxRuntime.jsx(Tag, { title: item, color: FRSTTheme['colors'].neutralsGrey1, selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                                 props.onSelectedStep(step);
                                 setSelectedStep(step);
-                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar })] }));
+                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar })] }));
 }
 
 const ButtonSessionFilters = styled__default["default"].button `
@@ -8487,6 +8487,30 @@ const SelectedItens = styled__default["default"].div `
 
     margin-top: 8px;
     margin-bottom: 24px;
+
+    & :nth-child(1) {
+      z-index: 1;
+    }
+
+    & :nth-child(3) {
+        z-index: 1;
+      }
+
+    & :nth-child(4) {
+        background: #FFF;
+    }
+`;
+const LabelSelect = styled__default["default"].div `
+    padding-left: 20px;
+    margin-right: -115px;
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #9C9C9C;
+
 `;
 
 const MenuProps = {
@@ -8501,9 +8525,17 @@ const MenuProps = {
 function SessionFilters(props) {
     const [selectedFilter, setSelectedFilter] = React.useState(props.selectedFilter);
     const [selectFilterContent, setSelectFilterContent] = React.useState([]);
+    const [isVisibleSelect, setIsVisibleSelect] = React.useState(false);
+    const [isVisiblePlaceholderSelect, setIsVisiblePlaceholderSelect] = React.useState(true);
     React.useEffect(() => {
         setSelectedFilter(props.selectedFilter);
     }, [props.selectedFilter]);
+    React.useEffect(() => {
+        setIsVisiblePlaceholderSelect(props.isVisiblePlaceholderSelect);
+    }, [props.isVisiblePlaceholderSelect]);
+    React.useEffect(() => {
+        setIsVisibleSelect(props.isVisibleSelect);
+    }, [props.isVisibleSelect]);
     const selectItem = (item) => {
         let index = selectFilterContent.indexOf(item.title);
         let newArray = [].concat(selectFilterContent);
@@ -8528,12 +8560,17 @@ function SessionFilters(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerFilter, { style: { ...props.style }, children: [props.labelFilters, jsxRuntime.jsx(ButtonList, { children: props.filterList.map((item, index) => {
                         return (jsxRuntime.jsx("div", { style: { marginRight: 24 }, children: FilterButton({ variant: item.variant, label: item.label, id: item.id, handleClick: item.handleClick }) }, index));
                     }) }), props.selectedFilterContentList ?
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.labelSelectItens, jsxRuntime.jsxs(SelectedItens, { children: [jsxRuntime.jsx(material.Select, { multiple: true, labelId: 'selectedFilterInfoLabel', id: 'selectedFilterInfo', value: selectFilterContent, renderValue: (selected) => `${selected.length} ${selected.length > 1 ? props.textMultipleSelected : props.textSingleSelected}`, style: { height: 48, width: 384 }, MenuProps: MenuProps, onChange: props.handleSelectedFilterData(selectFilterContent), children: props.selectedFilterContentList.map((item) => (jsxRuntime.jsxs(material.MenuItem, { onClick: () => selectItem(item), defaultValue: item.title, style: { borderBottom: `1px solid ${FRSTTheme['colors'].neutralsGrey7}` }, children: [jsxRuntime.jsx(material.Checkbox, { checked: selectFilterContent.indexOf(item.title) > -1, sx: {
-                                                        color: FRSTTheme['colors'].neutralsGrey5,
-                                                        '&.Mui-checked': {
-                                                            color: FRSTTheme['colors'].primary1,
-                                                        },
-                                                    } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) }), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer' }, 
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [isVisibleSelect && jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.labelSelectItens }), jsxRuntime.jsxs(SelectedItens, { children: [isVisibleSelect ?
+                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [isVisiblePlaceholderSelect && jsxRuntime.jsx(LabelSelect, { isVisible: true, children: props.textLabelSelect }), jsxRuntime.jsx(material.Select, { multiple: true, labelId: 'selectedFilterInfoLabel', id: 'selectedFilterInfo', value: selectFilterContent, 
+                                                    // renderValue={(selected) =>`${selected.length} ${selected.length > 1 ? props.textMultipleSelected : props.textSingleSelected}`}
+                                                    renderValue: () => props.textSelectedItems, style: { height: 48, width: 384 }, MenuProps: MenuProps, onChange: props.handleSelectedFilterData(selectFilterContent), children: props.selectedFilterContentList.map((item) => (jsxRuntime.jsxs(material.MenuItem, { onClick: () => selectItem(item), defaultValue: item.title, style: { borderBottom: `1px solid ${FRSTTheme['colors'].neutralsGrey7}` }, children: [jsxRuntime.jsx(material.Checkbox, { checked: selectFilterContent.indexOf(item.title) > -1, sx: {
+                                                                    color: FRSTTheme['colors'].neutralsGrey5,
+                                                                    '&.Mui-checked': {
+                                                                        color: FRSTTheme['colors'].primary1,
+                                                                    },
+                                                                } }), jsxRuntime.jsx(material.ListItemText, { style: { color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400 }, primary: item.title })] }, item.id))) })] })
+                                        :
+                                            jsxRuntime.jsx("div", {}), jsxRuntime.jsxs("div", { style: { color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer', display: 'flex', justifyContent: 'flex-end' }, 
                                         // onClick={props.handleDeleteFilter}
                                         onClick: () => setSelectFilterContent(currentValue => []), children: [jsxRuntime.jsx(Trash, { fill: FRSTTheme['colors'].linkOnfocus }), "\u00A0", props.textDeleteFilter] })] })] })
                     : null] }) }));

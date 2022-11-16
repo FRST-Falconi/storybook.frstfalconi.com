@@ -54,6 +54,8 @@ interface IBannerProblemFeed extends stepsInfo{
     textSaveCommentBtn: string
     handleSaveCommentBtn?: () => any
 
+    isDisabledAvaluation ?: boolean,
+
     onCommentChange ?: () => void
     handleLikeClick ?: () => void
     handleImpactoChange?: any
@@ -330,6 +332,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 qtdLikes={props.qtdLikes}
                 textAvaluation={props.textAvaluation}
                 textAvaluationTitle={props.textAvaluationTitle}
+                isDisabledAvaluation={props.isDisabledAvaluation}
                 textComments={props.textComments}
                 textDeslike={props.textDeslike}
                 textLikes={props.textLikes}

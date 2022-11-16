@@ -23,6 +23,10 @@ export interface ISessionFilters {
     textDeleteFilter ?: string
     textMultipleSelected ?: string
     textSingleSelected ?: string
+    textSelectedItems ?: string
+    textLabelSelect ?: string
+    isVisibleSelect ?: boolean
+    isVisiblePlaceholderSelect ?: boolean
 
     handleSelectedFilter : () => void
     handleDeleteFilter : () => void

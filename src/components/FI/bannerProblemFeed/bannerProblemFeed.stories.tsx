@@ -112,7 +112,7 @@ Muito bom o seu projeto! No momento estou lidando com um problema bem parecido e
         textCancelButton: 'Cancel',
     },
     textSaveCommentBtn: 'Salvar',
-
+    isDisabledAvaluation: true,
     handleSaveCommentBtn: () => alert('Saved'),
     handleImpactoChange: (e) => alert(e),
     handleRelevanciaChange: (e) => alert(e),
