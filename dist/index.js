@@ -6956,7 +6956,6 @@ function Login(props) {
         if (props.isError) {
             setMsgInput2(props.textErrorLoginPropsIsError ? props.textErrorLoginPropsIsError : 'E-mail ou senhas incorretos.');
             setError(true);
-            return;
         }
         props.handleClickLogin(email, password, keepConnected);
     };
