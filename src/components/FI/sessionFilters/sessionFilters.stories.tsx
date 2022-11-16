@@ -20,7 +20,7 @@ Filters.args = {
     style: {backgroundColor: '#ebebeb'} ,
     textMultipleSelected: 'itens selecionados',
     textSingleSelected: 'item selecionado',
-    selectedFilter: 'missionId',
+    selectedFilter: 'businessId',
     selectedFilterContentList: [
         {
             title: 'Missão 1: Marte - Definição do Problema',
@@ -64,6 +64,10 @@ Filters.args = {
             handleClick: () => alert('Trilha!'),
         },
     ],
+    textSelectedItems: "n itens selecionados",
+    textLabelSelect: 'Selecione:',
+    isVisibleSelect: true,
+    isVisiblePlaceholderSelect: true,
     handleDeleteFilter: () => alert('delete'),
     handleSelectedFilterData: (e) => console.log(e),
     handleSelectedFilter: () => console.log('Filter Seleted')

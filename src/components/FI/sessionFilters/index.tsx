@@ -32,11 +32,20 @@ const MenuProps = {
 export default function SessionFilters(props: ISessionFilters) {
     const [selectedFilter, setSelectedFilter] = useState(props.selectedFilter);
     const [selectFilterContent, setSelectFilterContent] = useState([]);
-
+    const [isVisibleSelect, setIsVisibleSelect] = useState(false)
+    const [isVisiblePlaceholderSelect, setIsVisiblePlaceholderSelect] = useState(true)
    
     useEffect(() => {
         setSelectedFilter(props.selectedFilter)
     }, [props.selectedFilter]);
+
+    useEffect(() => {
+        setIsVisiblePlaceholderSelect(props.isVisiblePlaceholderSelect)
+    }, [props.isVisiblePlaceholderSelect]);
+
+    useEffect(() => {
+        setIsVisibleSelect(props.isVisibleSelect)
+    }, [props.isVisibleSelect]);
 
     const selectItem = (item) => {
         let index = selectFilterContent.indexOf(item.title)
@@ -90,41 +99,50 @@ export default function SessionFilters(props: ISessionFilters) {
                 </Styles.ButtonList>
                 {props.selectedFilterContentList ?
                 <>
-                    {props.labelSelectItens}
+                    { isVisibleSelect &&  <>{props.labelSelectItens}</> }
                     <Styles.SelectedItens>
-                        <Select  
-                            multiple
-                            labelId='selectedFilterInfoLabel'
-                            id='selectedFilterInfo'
-                            value={selectFilterContent} 
-                            renderValue={(selected) =>`${selected.length} ${selected.length > 1 ? props.textMultipleSelected : props.textSingleSelected}`}
-                            style={{height: 48, width: 384}}
-                            MenuProps={MenuProps}
-                            onChange={props.handleSelectedFilterData(selectFilterContent)}
-                        >
-                            {
-                                props.selectedFilterContentList.map((item) => (
-                                    <MenuItem
-                                        onClick={() => selectItem(item)} 
-                                        defaultValue={item.title} key={item.id} 
-                                        style={{borderBottom: `1px solid ${FRSTTheme['colors'].neutralsGrey7}`}}
-                                    >
-                                        
-                                        <Checkbox
-                                            checked={selectFilterContent.indexOf(item.title) > -1}
-                                            sx={{
-                                                color: FRSTTheme['colors'].neutralsGrey5,
-                                                '&.Mui-checked': {
-                                                    color: FRSTTheme['colors'].primary1,
-                                                },
-                                            }}
-                                        />
-                                        <ListItemText style={{color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400}} primary={item.title} />
-                                    </MenuItem>
-                                ))
-                            }
-                        </Select>
-                        <div style={{color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer'}} 
+                    { isVisibleSelect ?
+                        <>
+                            {isVisiblePlaceholderSelect && <Styles.LabelSelect isVisible={true}>{props.textLabelSelect}</Styles.LabelSelect>}
+                            <Select  
+                                multiple
+                                labelId='selectedFilterInfoLabel'
+                                id='selectedFilterInfo'
+                                value={selectFilterContent} 
+                                // renderValue={(selected) =>`${selected.length} ${selected.length > 1 ? props.textMultipleSelected : props.textSingleSelected}`}
+                                renderValue={() => props.textSelectedItems}
+                                style={{height: 48, width: 384}}
+                                MenuProps={MenuProps}
+                                onChange={props.handleSelectedFilterData(selectFilterContent)}
+                            >
+                                {
+                                    props.selectedFilterContentList.map((item) => (
+                                        <MenuItem
+                                            onClick={() => selectItem(item)} 
+                                            defaultValue={item.title} key={item.id} 
+                                            style={{borderBottom: `1px solid ${FRSTTheme['colors'].neutralsGrey7}`}}
+                                        >
+                                            
+                                            <Checkbox
+                                                checked={selectFilterContent.indexOf(item.title) > -1}
+                                                sx={{
+                                                    color: FRSTTheme['colors'].neutralsGrey5,
+                                                    '&.Mui-checked': {
+                                                        color: FRSTTheme['colors'].primary1,
+                                                    },
+                                                }}
+                                            />
+                                            <ListItemText style={{color: FRSTTheme['colors'].neutralsGrey1, fontSize: 16, fontWeight: 400}} primary={item.title} />
+                                        </MenuItem>
+                                    ))
+                                }
+                            </Select>
+                            </>
+                            :
+                            <div></div>
+                        
+                    }
+                            <div style={{color: FRSTTheme['colors'].linkOnfocus, marginRight: 24, cursor: 'pointer', display: 'flex', justifyContent: 'flex-end'}} 
                             // onClick={props.handleDeleteFilter}
                             onClick={() => setSelectFilterContent(currentValue => currentValue = [])} 
                         >

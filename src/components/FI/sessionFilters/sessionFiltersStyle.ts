@@ -58,4 +58,29 @@ export const SelectedItens = styled.div`
 
     margin-top: 8px;
     margin-bottom: 24px;
+
+    & :nth-child(1) {
+      z-index: 1;
+    }
+
+    & :nth-child(3) {
+        z-index: 1;
+      }
+
+    & :nth-child(4) {
+        background: #FFF;
+    }
+`
+
+export const LabelSelect = styled.div<{isVisible: Boolean}>`
+    padding-left: 20px;
+    margin-right: -115px;
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+    color: #9C9C9C;
+
 `
