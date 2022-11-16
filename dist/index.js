@@ -6936,6 +6936,9 @@ function Login(props) {
     const [colorError, setColorError] = React.useState(props.isError);
     const [MsgInput1, setMsgInput1] = React.useState('');
     const [MsgInput2, setMsgInput2] = React.useState('');
+    React.useEffect(() => {
+        setError(props.isError);
+    }, [props.isError]);
     const onClikLogin = () => {
         setMsgInput1('');
         setMsgInput2('');
