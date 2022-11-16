@@ -32,8 +32,6 @@ export default function Login(props: ILoginTranslate) {
     setMsgInput2('')
     setError(false)
 
-    let isError = false
-
     if (email.length === 0) {
       setMsgInput2(props.textErrorEmailNaoInformado ? props.textErrorEmailNaoInformado : 'E-mail não informado.')
       setError(true)
@@ -47,7 +45,6 @@ export default function Login(props: ILoginTranslate) {
     if (props.isError) {
       setMsgInput2(props.textErrorLoginPropsIsError ? props.textErrorLoginPropsIsError : 'E-mail ou senhas incorretos.')
       setError(true)
-      return
     }
 
     props.handleClickLogin(email, password, keepConnected)
