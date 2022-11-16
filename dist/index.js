@@ -6980,7 +6980,6 @@ function Login(props) {
                 ? props.textEmailErrorPropsIsError
                 : 'Erro ao enviar email de recuperação de senha.');
             setError(true);
-            return;
         }
         props.handleClickForgotPassword(emailRecover);
         setStep(3);
@@ -7026,7 +7025,6 @@ function Login(props) {
         if (props.isError) {
             setMsgInput2(props.textNewPasswordErrorInforma ? props.textNewPasswordErrorInforma : 'Erro ao informar nova senha.');
             setError(true);
-            return;
         }
         let emailPrefix = confirmEmail.split('@')[0].split('.')[0];
         let emailSufix = confirmEmail.split('@')[1].split('.')[0];
