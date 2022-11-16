@@ -23,10 +23,16 @@ export default function Login(props: ILoginTranslate) {
   const [MsgInput1, setMsgInput1] = useState('')
   const [MsgInput2, setMsgInput2] = useState('')
 
+  useEffect(() => {
+    setError(props.isError)
+  }, [props.isError])
+
   const onClikLogin = () => {
     setMsgInput1('')
     setMsgInput2('')
     setError(false)
+
+    let isError = false
 
     if (email.length === 0) {
       setMsgInput2(props.textErrorEmailNaoInformado ? props.textErrorEmailNaoInformado : 'E-mail não informado.')
