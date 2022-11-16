@@ -24,6 +24,7 @@ interface IFeedInteraction {
     textLoadMoreComments?: string;
     textSaveCommentBtn?: string;
     handleSaveCommentBtn?: (comment: any) => void;
+    isDisabledAvaluation?: boolean;
     style?: React.CSSProperties;
     onCommentChange?: (e: any) => void;
     handleLikeClick?: () => void;
