@@ -6924,6 +6924,7 @@ const ContainerButtonSendConfirmation = styled__default["default"].div `
 
 function Login(props) {
     const [email, setEmail] = React.useState('');
+    const [confirmEmail, setConfirmEmail] = React.useState('');
     const [emailRecover, setEmailRecover] = React.useState('');
     const [password, setPassword] = React.useState('');
     const [newPassword, setNewPassword] = React.useState('');
@@ -6935,6 +6936,9 @@ function Login(props) {
     const [colorError, setColorError] = React.useState(props.isError);
     const [MsgInput1, setMsgInput1] = React.useState('');
     const [MsgInput2, setMsgInput2] = React.useState('');
+    React.useEffect(() => {
+        setError(props.isError);
+    }, [props.isError]);
     const onClikLogin = () => {
         setMsgInput1('');
         setMsgInput2('');
@@ -6952,7 +6956,6 @@ function Login(props) {
         if (props.isError) {
             setMsgInput2(props.textErrorLoginPropsIsError ? props.textErrorLoginPropsIsError : 'E-mail ou senhas incorretos.');
             setError(true);
-            return;
         }
         props.handleClickLogin(email, password, keepConnected);
     };
@@ -6987,6 +6990,19 @@ function Login(props) {
         setMsgInput2('');
         setError(false);
         setColorError(false);
+        if (confirmEmail.length === 0) {
+            setMsgInput2(props.textNewPasswordErrorEmailNaoInformada
+                ? props.textNewPasswordErrorEmailNaoInformada
+                : 'Email não informado.');
+            setError(true);
+            return;
+        }
+        let regexEmail = /\S+@\S+.\S+/;
+        if (!regexEmail.test(confirmEmail)) {
+            setMsgInput2(props.textEmailErrorInvalido ? props.textEmailErrorInvalido : 'E-mail inválido.');
+            setError(true);
+            return;
+        }
         if (newPassword.length === 0) {
             setMsgInput2(props.textNewPasswordErrorNaoInformada ? props.textNewPasswordErrorNaoInformada : 'Nova senha não informada.');
             setError(true);
@@ -7012,8 +7028,8 @@ function Login(props) {
             setError(true);
             return;
         }
-        let emailPrefix = props.confirmEmail.split('@')[0].split('.')[0];
-        let emailSufix = props.confirmEmail.split('@')[1].split('.')[0];
+        let emailPrefix = confirmEmail.split('@')[0].split('.')[0];
+        let emailSufix = confirmEmail.split('@')[1].split('.')[0];
         const validateEmailPrefix = new RegExp(emailPrefix, 'g');
         const validateEmailSufix = new RegExp(emailSufix, 'g');
         const validateUpperCase = new RegExp(/[A-Z]/, 'g');
@@ -7030,7 +7046,7 @@ function Login(props) {
             setError(true);
             return;
         }
-        props.handleClickChangePassword(newPassword, confirmPassword, codigoNewPassword);
+        props.handleClickChangePassword(newPassword, confirmPassword, codigoNewPassword, confirmEmail);
     };
     const handleClickCheckbox = () => {
         setKeepConnected(!keepConnected);
@@ -7056,7 +7072,9 @@ function Login(props) {
                                         ? props.textEmailCadastro2
                                         : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$3, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
                         ? props.textNewPasswordInformacao
-                        : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { isError: error, children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInput ? props.textNewPasswordInput : 'Digite nova senha', label: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', type: 'password', value: newPassword, onChange: (e) => setNewPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme senha', label: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme nova senha', type: 'password', value: confirmPassword, onChange: (e) => setConfirmPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, placeholder: props.textNewPasswordInputPlaceholderCodigo ? props.textNewPasswordInputPlaceholderCodigo : 'Código', label: props.textNewPasswordInputCodigo ? props.textNewPasswordInputCodigo : 'Digite o Código', type: 'text', value: codigoNewPassword, onChange: (e) => setCodigoNewPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsx(ContainerTypographyNewPassword, { children: jsxRuntime.jsx(TypographyNewPassword, { isColorError: colorError, style: { fontSize: '14px' }, children: props.textNewPasswordErrorSenhaForte
+                        : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { isError: error, children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInputEmailPlaceholder
+                                        ? props.textNewPasswordInputEmailPlaceholder
+                                        : 'Digite o email', label: props.textNewPasswordInputEmail ? props.textNewPasswordInputEmail : 'Digite o email', type: 'text', value: confirmEmail, onChange: (e) => setConfirmEmail(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInput ? props.textNewPasswordInput : 'Digite nova senha', label: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', type: 'password', value: newPassword, onChange: (e) => setNewPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme senha', label: props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme nova senha', type: 'password', value: confirmPassword, onChange: (e) => setConfirmPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, placeholder: props.textNewPasswordInputPlaceholderCodigo ? props.textNewPasswordInputPlaceholderCodigo : 'Código', label: props.textNewPasswordInputCodigo ? props.textNewPasswordInputCodigo : 'Digite o Código', type: 'text', value: codigoNewPassword, onChange: (e) => setCodigoNewPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsx(ContainerTypographyNewPassword, { children: jsxRuntime.jsx(TypographyNewPassword, { isColorError: colorError, style: { fontSize: '14px' }, children: props.textNewPasswordErrorSenhaForte
                             ? props.textNewPasswordErrorSenhaForte
                             : 'Use pelo menos 8 caracteres, 1 maiúscula, 1 minúscula, e um número ou caractere especial. Não use parte de seu e-mail (seunome@empresa.com) como senha.' }) }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textNewPasswordButtonLink ? props.textNewPasswordButtonLink : 'Voltar Login', handleClick: props.handleClickChangePasswordCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textNewPasswordButtonSalvar ? props.textNewPasswordButtonSalvar : 'Salvar', handleClick: onClickSave })] })] })) : props.variant === 'login' && step === 3 ? (jsxRuntime.jsxs(ContainerSendComfirmation, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textConfirmacaoRespostaEmail
                         ? props.textConfirmacaoRespostaEmail

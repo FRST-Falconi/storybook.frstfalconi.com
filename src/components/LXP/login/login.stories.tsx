@@ -34,8 +34,7 @@ NewPassword.args = {
   },
   handleClickChangePasswordCancel: () => {
     alert('Voltar Login')
-  },
-  confirmEmail: 'userLxp@teste.com'
+  }
 }
 
 export const LoginTranslate = Template.bind({})
@@ -94,5 +93,7 @@ NewPasswordTranslate.args = {
   textNewPasswordInputCodigo: 'Code',
   textNewPasswordInputPlaceholderCodigo: 'Type the code',
   textNewPasswordErrorCodigo: 'Code not reported.',
-  confirmEmail: 'userLxp@teste.com'
+  textNewPasswordInputEmailPlaceholder: 'Enter the email',
+  textNewPasswordInputEmail: 'Enter the email',
+  textNewPasswordErrorEmailNaoInformada: 'Invalid email.'
 }
