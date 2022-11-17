@@ -324,7 +324,6 @@ export default function Login(props: ILoginTranslate) {
             <Styles.ContainerIpuntAndIsIcon>
               <TextField
                 error={error}
-                endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
                 placeholder={
                   props.textNewPasswordInputEmailPlaceholder
                     ? props.textNewPasswordInputEmailPlaceholder
