@@ -25,7 +25,9 @@ export {
   PodCastIcon,
   SiteIcon,
   SpotifyIcon,
-  YoutubeIcon
+  YoutubeIcon,
+  ExitArrow,
+  ChangeAccount
 } from './src/shared/icons'
 
 // Base
