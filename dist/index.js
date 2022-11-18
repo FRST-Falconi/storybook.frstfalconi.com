@@ -8609,6 +8609,80 @@ function SmallSRGBanner(props) {
     return (jsxRuntime.jsx(Container, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: 'https://i.gyazo.com/eb084ab35cbd9ad52b24148afba59950.png', alt: 'SRG Logo' }) }), jsxRuntime.jsx(Button, { children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFF' }) }) })] }) }));
 }
 
+const postContainer = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    padding: 24px;
+    
+    &>img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+`;
+const postHeader = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+`;
+const postTitle = styled__default["default"].span `
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.primary1};
+    margin-top: 32px;
+`;
+const postDescription = styled__default["default"].span `
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    margin-top: 32px;
+`;
+const postImage = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 32px;
+    width: 100%;
+    object-fit: cover;
+
+    & img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+`;
+const postVideo = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 32px;
+    width: 100%;
+`;
+
+function PostFeed(props) {
+    const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png';
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { children: [jsxRuntime.jsxs("div", { style: { marginRight: 16 }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1 }, children: " FRST Falconi " })] }), jsxRuntime.jsxs(postTitle, { children: [" ", props.title, " "] }), props.postImage ?
+                        jsxRuntime.jsx(postImage, { children: jsxRuntime.jsx("img", { src: props.postImage }) })
+                        : null, jsxRuntime.jsxs(postDescription, { children: [" ", props.description, " "] }), props.postVideoId ?
+                        jsxRuntime.jsx(postVideo, { children: jsxRuntime.jsx("iframe", { src: `https://www.youtube.com/embed/${props.postVideoId}`, frameBorder: "0", allow: "autoplay; fullscreen; picture-in-picture", width: props.videoWidth ? props.videoWidth : 586, height: props.videoHeight ? props.videoHeight : 330 }) })
+                        : null, props.handlePostButtonClick ?
+                        jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%' }, children: jsxRuntime.jsx(Button$2, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
+                        : null] }), jsxRuntime.jsx(FeedInteraction, { isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, commentList: props.commentList, userCommentPlaceholder: props.userCommentPlaceholder, textLoadMoreComments: props.textLoadMoreComments, textSaveCommentBtn: props.textSaveCommentBtn, ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, handleSaveCommentBtn: props.handleSaveCommentBtn, onCommentChange: props.onCommentChange, isDisabledAvaluation: props.isDisabledAvaluation })] }));
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
@@ -8661,6 +8735,7 @@ exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
 exports.PodCastIcon = PodCastIcon;
+exports.PostFeed = PostFeed;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchBox = SearchBox;
