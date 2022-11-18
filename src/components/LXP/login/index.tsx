@@ -74,7 +74,6 @@ export default function Login(props: ILoginTranslate) {
           : 'Erro ao enviar email de recuperação de senha.'
       )
       setError(true)
-      return
     }
     props.handleClickForgotPassword(emailRecover)
     setStep(3)
@@ -132,7 +131,6 @@ export default function Login(props: ILoginTranslate) {
         props.textNewPasswordErrorInforma ? props.textNewPasswordErrorInforma : 'Erro ao informar nova senha.'
       )
       setError(true)
-      return
     }
 
     let emailPrefix = confirmEmail.split('@')[0].split('.')[0]
@@ -326,7 +324,6 @@ export default function Login(props: ILoginTranslate) {
             <Styles.ContainerIpuntAndIsIcon>
               <TextField
                 error={error}
-                endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
                 placeholder={
                   props.textNewPasswordInputEmailPlaceholder
                     ? props.textNewPasswordInputEmailPlaceholder
