@@ -99,9 +99,6 @@ function FRSTLogo({ fill, width, height }) {
 function FRSTLogoBig({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "142", height: height ? height : "40", viewBox: "0 0 142 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.77222 7.99854H35.7659V0.000332832H8.77222V7.99854Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M118.996 40H127.994V9.99779H118.996V40Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M105.499 0.05795V8.05615H141.491V0.05795H105.499Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M93.3707 16.6074C86.3928 15.1306 85.2937 15.0713 85.2937 11.2909C85.2937 8.39651 86.2906 7.99791 90.743 7.99791C91.9324 7.99791 93.1265 7.99791 94.1828 8.19776L94.2365 0.212822C93.3515 -0.000297546 92.6365 -0.000297546 91.5098 -0.000297546C79.3487 -0.000297546 76.2251 3.19806 76.2251 11.0545C76.2251 19.5609 77.8201 21.451 88.5193 23.5188C95.7631 24.9363 96.5008 25.1499 96.5008 28.694C96.5008 32.002 94.4195 31.9923 89.3025 31.9923C87.7712 31.9923 86.6029 31.9923 85.2534 31.7923V39.7904C86.6029 39.9902 87.8328 39.9902 89.2657 39.9902C103.249 39.9902 105.481 36.5505 105.481 28.753C105.481 21.0149 105.333 19.1472 93.3707 16.6074Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M31.2666 17.9928H8.77192L0 21.9011L2.44158 29.4923L8.77192 26.5009V39.9875H17.7697V25.9908H31.2666V17.9928Z", fill: fill ?? "white" }), jsxRuntime.jsx("path", { d: "M67.2584 15.9632V10.0303C67.2584 4.4907 62.2065 -0.000297546 55.9742 -0.000297546H44.7637V7.99791H54.0049C56.3555 7.99791 58.2606 9.69159 58.2606 11.7806V14.2129C58.2606 16.3019 56.3555 17.9955 54.0049 17.9955H44.7637V25.9935H48.1034L59.6102 39.9902L67.2584 34.5918L59.8101 25.3533C60.3827 25.2339 60.8179 25.0922 61.0433 24.924C64.7287 23.2734 67.2584 19.8818 67.2584 15.9632Z", fill: fill ?? "white" })] }));
 }
-function ChangeAccount({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : "18", height: height ? height : "16", viewBox: "0 0 18 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M1 1.74841V6.2496H5.36364", stroke: fill ?? "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.9999 13.7516V9.25043H12.6362", stroke: fill ?? "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.1745 5.49941C14.8057 4.42421 14.1788 3.46293 13.3524 2.70524C12.526 1.94755 11.5269 1.41816 10.4485 1.16646C9.3701 0.914767 8.24745 0.948968 7.18532 1.26588C6.12318 1.58278 5.15618 2.17207 4.37455 2.97875L1 6.24961M17 9.25039L13.6255 12.5213C12.8438 13.3279 11.8768 13.9172 10.8147 14.2341C9.75255 14.551 8.6299 14.5852 7.55148 14.3335C6.47307 14.0818 5.47404 13.5524 4.64761 12.7948C3.82119 12.0371 3.1943 11.0758 2.82545 10.0006", stroke: fill ?? "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
-}
 function DownloadIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M12.8 1C12.8 0.447715 12.3523 0 11.8 0C11.2477 0 10.8 0.447715 10.8 1V12.9858L6.50711 8.69289C6.11658 8.30237 5.48342 8.30237 5.09289 8.69289C4.70237 9.08342 4.70237 9.71658 5.09289 10.1071L11.0929 16.1071C11.2858 16.3 11.5379 16.3976 11.7908 16.4C11.7938 16.4 11.7969 16.4 11.8 16.4M12.8 1V12.9858V1ZM11.8092 16.4C12.0621 16.3976 12.3142 16.3 12.5071 16.1071L18.5071 10.1071C18.8976 9.71658 18.8976 9.08342 18.5071 8.69289C18.1166 8.30237 17.4834 8.30237 17.0929 8.69289L12.8 12.9858M1 14.4C1.55228 14.4 2 14.8477 2 15.4V20.2C2 20.5713 2.1475 20.9274 2.41005 21.1899C2.6726 21.4525 3.0287 21.6 3.4 21.6H20.2C20.5713 21.6 20.9274 21.4525 21.1899 21.1899C21.4525 20.9274 21.6 20.5713 21.6 20.2V15.4C21.6 14.8477 22.0477 14.4 22.6 14.4C23.1523 14.4 23.6 14.8477 23.6 15.4V20.2C23.6 21.1017 23.2418 21.9665 22.6042 22.6042C21.9665 23.2418 21.1017 23.6 20.2 23.6H3.4C2.49826 23.6 1.63346 23.2418 0.995837 22.6042C0.358213 21.9665 0 21.1017 0 20.2V15.4C0 14.8477 0.447715 14.4 1 14.4Z", fill: fill ?? "#FF4D0D" }) }));
 }
@@ -8612,6 +8609,80 @@ function SmallSRGBanner(props) {
     return (jsxRuntime.jsx(Container, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: 'https://i.gyazo.com/eb084ab35cbd9ad52b24148afba59950.png', alt: 'SRG Logo' }) }), jsxRuntime.jsx(Button, { children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFF' }) }) })] }) }));
 }
 
+const postContainer = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    padding: 24px;
+    
+    &>img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+
+`;
+const postHeader = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+`;
+const postTitle = styled__default["default"].span `
+    font-family: 'Work Sans';
+    font-weight: 600;
+    font-size: 24px;
+    text-align: center;
+    color: ${({ theme }) => theme.colors.primary1};
+    margin-top: 32px;
+`;
+const postDescription = styled__default["default"].span `
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    margin-top: 32px;
+`;
+const postImage = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 32px;
+    width: 100%;
+    object-fit: cover;
+
+    & img{
+        max-width: 100%;
+        max-height: 100%;
+    }
+`;
+const postVideo = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 32px;
+    width: 100%;
+`;
+
+function PostFeed(props) {
+    const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png';
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { children: [jsxRuntime.jsxs("div", { style: { marginRight: 16 }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1 }, children: " FRST Falconi " })] }), jsxRuntime.jsxs(postTitle, { children: [" ", props.title, " "] }), props.postImage ?
+                        jsxRuntime.jsx(postImage, { children: jsxRuntime.jsx("img", { src: props.postImage }) })
+                        : null, jsxRuntime.jsxs(postDescription, { children: [" ", props.description, " "] }), props.postVideoId ?
+                        jsxRuntime.jsx(postVideo, { children: jsxRuntime.jsx("iframe", { src: `https://www.youtube.com/embed/${props.postVideoId}`, frameBorder: "0", allow: "autoplay; fullscreen; picture-in-picture", width: props.videoWidth ? props.videoWidth : 586, height: props.videoHeight ? props.videoHeight : 330 }) })
+                        : null, props.handlePostButtonClick ?
+                        jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%' }, children: jsxRuntime.jsx(Button$2, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
+                        : null] }), jsxRuntime.jsx(FeedInteraction, { isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, commentList: props.commentList, userCommentPlaceholder: props.userCommentPlaceholder, textLoadMoreComments: props.textLoadMoreComments, textSaveCommentBtn: props.textSaveCommentBtn, ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, handleSaveCommentBtn: props.handleSaveCommentBtn, onCommentChange: props.onCommentChange, isDisabledAvaluation: props.isDisabledAvaluation })] }));
+}
+
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
 exports.BannerProblem = BannerProblem;
@@ -8631,14 +8702,12 @@ exports.CardResultConquista = CardResultConquista;
 exports.CardTrail = CardTrail;
 exports.CardsTrailsCarousel = CardTrailCarousel;
 exports.ChallengeCard = ChallengeCard;
-exports.ChangeAccount = ChangeAccount;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.CommentaryBox = CommentaryBox;
 exports.ConquistaCarrossel = ConquistaCarrossel;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
-exports.ExitArrow = ExitArrow;
 exports.FeedInteraction = FeedInteraction;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
 exports.GlobalMenu = GlobalMenu;
@@ -8666,6 +8735,7 @@ exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
 exports.PodCastIcon = PodCastIcon;
+exports.PostFeed = PostFeed;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchBox = SearchBox;

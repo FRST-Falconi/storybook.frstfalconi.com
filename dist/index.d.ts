@@ -1,4 +1,4 @@
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, ExitArrow, ChangeAccount } from './src/shared/icons';
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon } from './src/shared/icons';
 export { default as Tag } from './src/components/tag';
 export { default as BaseCard } from './src/components/cards/base';
 export { default as UserCard } from './src/components/cards/user';
@@ -63,4 +63,5 @@ export { default as BannerProblemFeed } from './src/components/FI/bannerProblemF
 export { default as FeedInteraction } from './src/components/FI/feedInteraction';
 export { default as SessionFilters } from './src/components/FI/sessionFilters';
 export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner';
+export { default as PostFeed } from './src/components/FI/postFeed';
 //# sourceMappingURL=index.d.ts.map
