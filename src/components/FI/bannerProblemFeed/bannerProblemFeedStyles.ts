@@ -5,7 +5,7 @@ export const achievementHeader = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-    background-color: #4B2961;
+    
     height: 96px;
     padding: 20px 32px;
     border-top-left-radius: 8px;
