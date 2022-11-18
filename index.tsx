@@ -109,3 +109,4 @@ export { default as BannerProblemFeed } from './src/components/FI/bannerProblemF
 export { default as FeedInteraction } from './src/components/FI/feedInteraction'
 export { default as SessionFilters } from './src/components/FI/sessionFilters'
 export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner'
+export { default as PostFeed } from './src/components/FI/postFeed'
