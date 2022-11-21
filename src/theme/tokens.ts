@@ -10,6 +10,7 @@ export const DesignTokens = {
     linkOnfocus: '#0645ad',
     linkPressed: '#663366',
     linkError: '#923534',
+    inputError: '#ffe0e0',
     messageAlert1: '#ffc200',
     messageAlert2: '#fef0d4',
     messageError1: '#ea0000',
