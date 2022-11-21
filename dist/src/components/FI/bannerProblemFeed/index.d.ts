@@ -14,6 +14,7 @@ interface IBannerProblemFeed extends stepsInfo {
     onClickButton: () => void;
     onSelectedStep: (step: number) => void;
     language: 'pt-BR' | 'pt-PT' | 'en-US' | 'es';
+    isSuccessCase?: boolean;
     /** --------------------------------------------------------------------------------
     *   Interaction Feed params
     -----------------------------------------------------------------------------------*/

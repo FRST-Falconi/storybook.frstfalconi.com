@@ -32,6 +32,8 @@ interface IBannerProblemFeed extends stepsInfo{
 
     language : 'pt-BR' | 'pt-PT' | 'en-US' | 'es' 
 
+    isSuccessCase ?: boolean
+
 /** -------------------------------------------------------------------------------- 
 *   Interaction Feed params 
 -----------------------------------------------------------------------------------*/
@@ -268,7 +270,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     return(
         <ThemeProvider theme={FRSTTheme}>
             { props.mainAchievementValue || props.mainLearningValue ?
-                <Styles.achievementHeader>
+                <Styles.achievementHeader style={{backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }} >
                     <img
                         src={props.mainAchievementValue ? achievementIcon : learningIcon} 
                         width= '56'
@@ -282,9 +284,19 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
             }
             <Styles.bannerContainer style={{borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8}}>
                 <Styles.headerContent>
-                    <Avatar size="40px" src={props.userAvatar} />
+                    <Avatar size="40px" src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />
                     <Styles.userInfo>
-                        <span style={{fontWeight: 600, fontSize: 20}}>{props.userName}</span>
+                        <span style={{fontWeight: 600, fontSize: 20}}>
+                            {props.isSuccessCase ?   
+                                (props.language === 'pt-BR' ?  'Case de sucesso'
+                                    : props.language === 'en-US' ? 'Success case'
+                                        : props.language === 'es' ? 'Caso de exito'
+                                            : props.language === 'pt-PT' ? 'Case de sucesso'
+                                                : null
+                                )
+                                : props.userName
+                            }
+                        </span>
                         <span style={{fontWeight: 400, fontSize: 16}}>{props.userPosition}</span>
                     </Styles.userInfo>
                 </Styles.headerContent>
