@@ -18,9 +18,18 @@ interface SelectProps {
   defaultValue?: any
   loading?: boolean
   isError?: boolean
+  style?: React.CSSProperties
 }
 
-export default function Select({ placeholder, defaultValue, children, onChange, loading, isError }: SelectProps) {
+export default function Select({
+  placeholder,
+  defaultValue,
+  children,
+  onChange,
+  loading,
+  isError,
+  style
+}: SelectProps) {
   const wrapperRef = useRef(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
   const [selectedOption, setSelectedOption] = useState(null)
@@ -62,7 +71,7 @@ export default function Select({ placeholder, defaultValue, children, onChange, 
   }
 
   return (
-    <div>
+    <div style={style}>
       <StylesSelect.DropDownContainer ref={wrapperRef} error={isError} theme={FRSTTheme}>
         <StylesSelect.EventOverlay onClick={toggle}></StylesSelect.EventOverlay>
         <StylesSelect.DropDownHeader error={isError} theme={FRSTTheme}>
