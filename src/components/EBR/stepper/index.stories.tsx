@@ -37,6 +37,7 @@ Default.args = {
       title={item.title}
       subtitle={item.subtitle}
       active={item.active}
+      onClick={() => console.log('click')}
     />
   )
 }

@@ -4160,7 +4160,7 @@ function Stepper({ children, }) {
 function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
     return (jsxRuntime.jsx(ProgressItem, { active: active, children: active
             ?
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button$2, { handleClick: () => onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button$2, { handleClick: onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
             :
                 jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
 }

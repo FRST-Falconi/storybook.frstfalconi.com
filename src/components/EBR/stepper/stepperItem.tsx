@@ -25,7 +25,7 @@ export default function StepperItem({
           <ProgressItemTitle active={active}>{title}</ProgressItemTitle>
           <ProgressItemSubtitle active={active}>{subtitle}</ProgressItemSubtitle>
           <Button
-            handleClick={() => onClick}
+            handleClick={onClick}
             label={buttonText || 'Agendar reunião'}
             variant="primary"
           />
