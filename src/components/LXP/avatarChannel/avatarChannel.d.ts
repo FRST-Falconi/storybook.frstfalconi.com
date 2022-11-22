@@ -1,10 +1,11 @@
-import React from "react"
+import React from 'react'
 export interface IAvatar {
-    size?: string,
-    channel?: string,
-    alt?: string,
-    className?: string,
-    disabled?: boolean, 
-    color?: string,   
-    onChange: () => void
+  size?: string
+  channel?: string
+  alt?: string
+  className?: string
+  disabled?: boolean
+  color?: string
+  onChange: () => void
+  variantPopOver?: string
 }
