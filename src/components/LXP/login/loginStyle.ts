@@ -223,7 +223,7 @@ export const ContainerButtonRecover = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin: 30px 44px 20px 44px;
+  margin: 30px 30px 20px 44px;
   padding-bottom: 32px;
   @media (max-width: 767px) {
     margin-top: 58px;

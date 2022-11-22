@@ -14,7 +14,6 @@ export default function Login(props: ILoginTranslate) {
   const [emailRecover, setEmailRecover] = useState('')
   const [password, setPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
   const [codigoNewPassword, setCodigoNewPassword] = useState('')
   const [keepConnected, setKeepConnected] = useState(true)
   const [step, setStep] = useState(1)
@@ -107,22 +106,8 @@ export default function Login(props: ILoginTranslate) {
       setError(true)
       return
     }
-    if (confirmPassword.length === 0) {
-      setMsgInput2(
-        props.textNewPasswordErrorCorfirma ? props.textNewPasswordErrorCorfirma : 'Confirmação de senha não informada.'
-      )
-      setError(true)
-      return
-    }
     if (codigoNewPassword.length === 0) {
       setMsgInput2(props.textNewPasswordErrorCodigo ? props.textNewPasswordErrorCodigo : 'Código não informado.')
-      setError(true)
-      return
-    }
-    if (newPassword !== confirmPassword) {
-      setMsgInput2(
-        props.textNewPasswordErrorIguais ? props.textNewPasswordErrorIguais : 'As duas senhas devem ser iguais.'
-      )
       setError(true)
       return
     }
@@ -156,7 +141,7 @@ export default function Login(props: ILoginTranslate) {
       return
     }
 
-    props.handleClickChangePassword(newPassword, confirmPassword, codigoNewPassword, confirmEmail)
+    props.handleClickChangePassword(newPassword, codigoNewPassword, confirmEmail)
   }
 
   const handleClickCheckbox = () => {
@@ -327,7 +312,7 @@ export default function Login(props: ILoginTranslate) {
                 placeholder={
                   props.textNewPasswordInputEmailPlaceholder
                     ? props.textNewPasswordInputEmailPlaceholder
-                    : 'Digite o email'
+                    : 'Por favor, insira seu e-mail aqui'
                 }
                 label={props.textNewPasswordInputEmail ? props.textNewPasswordInputEmail : 'Digite o email'}
                 type={'text'}
@@ -345,29 +330,11 @@ export default function Login(props: ILoginTranslate) {
               <TextField
                 error={error}
                 endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
-                placeholder={props.textNewPasswordInput ? props.textNewPasswordInput : 'Digite nova senha'}
+                placeholder={props.textNewPasswordInput ? props.textNewPasswordInput : 'Insira sua nova senha'}
                 label={props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha'}
                 type={'password'}
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
-                style={{ width: '95%' }}
-              />
-              {error && (
-                <Styles.IconAlert>
-                  <Icons.AlertCicle />
-                </Styles.IconAlert>
-              )}
-            </Styles.ContainerIpuntAndIsIcon>
-
-            <Styles.ContainerIpuntAndIsIcon>
-              <TextField
-                error={error}
-                endIcon={<Icons.Viewer fill={error ? '#ff0000' : '#000000'} />}
-                placeholder={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme senha'}
-                label={props.textNewPasswordInputConfirma ? props.textNewPasswordInputConfirma : 'Confirme nova senha'}
-                type={'password'}
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
                 style={{ width: '95%' }}
               />
               {error && (
