@@ -1,17 +1,17 @@
-import React from "react"
+import React from 'react'
 
-type enumVariant = 'upLeft' | 'upRight' | 'lowRight' | 'lowLeft' | 'sideLeft' | 'sideRight'
+type enumVariant = string
 
 export interface IPopOver {
-    /**
+  /**
    * @prop {enumVariant} variant: variant do popOver(upLeft, upRight, LowRight, LowLeft, sideLeft, sideRight)
    */
 
-    variant?: enumVariant;
-    /**
+  variant?: enumVariant
+  /**
    * @prop {React.ReactNode} children: valor de exibição dentro do componente popOver
    */
-    children?: React.ReactNode
+  children?: React.ReactNode
 
-    style?: React.CSSProperties
+  style?: React.CSSProperties
 }
