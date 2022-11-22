@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 export declare function ArrowIcon(): JSX.Element;
 interface SelectProps {
     placeholder?: string;
@@ -6,7 +6,9 @@ interface SelectProps {
     onChange?: any;
     defaultValue?: any;
     loading?: boolean;
+    isError?: boolean;
+    style?: React.CSSProperties;
 }
-export default function Select({ placeholder, defaultValue, children, onChange, loading }: SelectProps): JSX.Element;
+export default function Select({ placeholder, defaultValue, children, onChange, loading, isError, style }: SelectProps): JSX.Element;
 export {};
 //# sourceMappingURL=Select.d.ts.map

@@ -1091,6 +1091,7 @@ const DesignTokens = {
         linkOnfocus: '#0645ad',
         linkPressed: '#663366',
         linkError: '#923534',
+        inputError: '#ffe0e0',
         messageAlert1: '#ffc200',
         messageAlert2: '#fef0d4',
         messageError1: '#ea0000',
@@ -3078,25 +3079,30 @@ function TotalizerCard$1({ titleCard, textTotal, numberTotal, numberPartial, loa
 // Create react context to share data between components
 const SelectContext = React__default["default"].createContext(null);
 
-const DropDownContainer = styled__default["default"]("div") `
-    width: 100%;
-    height: 48px;
-    background: #FFFFFF;
-    border: 1px solid #E8E8E8;
-    border-radius: 4px;
-    position: relative;
+const DropDownContainer = styled__default["default"].div `
+  width: 100%;
+  height: 48px;
+  background: #ffffff;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  position: relative;
+  ${(props) => props.error &&
+    styled.css `
+      background: ${({ theme }) => theme.colors.inputError};
+      border: 1px solid ${({ theme }) => theme.colors.messageError1};
+    `}
 `;
 const EventOverlay = styled__default["default"].div `
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: transparent;
-    cursor: pointer;
-    z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
 `;
-const DropDownHeader = styled__default["default"]("div") `
+const DropDownHeader = styled__default["default"].div `
   font-weight: 500;
   font-size: 1.3rem;
   color: #3faffa;
@@ -3114,11 +3120,18 @@ const DropDownHeader = styled__default["default"]("div") `
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: #A6A6A6;
+    color: #a6a6a6;
   }
+  ${(props) => props.error &&
+    styled.css `
+      background: ${({ theme }) => theme.colors.inputError};
+      p {
+        color: ${({ theme }) => theme.colors.linkError};
+      }
+    `}
 `;
-const DropDownListContainer = styled__default["default"]("div") ``;
-const DropDownList = styled__default["default"]("ul") `
+const DropDownListContainer = styled__default["default"]('div') ``;
+const DropDownList = styled__default["default"]('ul') `
   padding: 0;
   margin: 0;
   background: #ffffff;
@@ -3134,7 +3147,6 @@ const DropDownList = styled__default["default"]("ul") `
   &:first-child {
     padding-top: 0.8em;
   }
-
 `;
 const DropDownHeaderIcon = styled__default["default"]('div') `
   position: absolute;
@@ -3144,9 +3156,10 @@ const DropDownHeaderIcon = styled__default["default"]('div') `
   justify-content: center;
   transition: transform 0.1s ease-in-out;
 
-  ${({ open }) => open === true && styled.css `
-    transform: rotate(180deg);
-  `}
+  ${({ open }) => open === true &&
+    styled.css `
+      transform: rotate(180deg);
+    `}
 `;
 const SelectedOption = styled__default["default"]('p') `
   font-family: 'Work Sans';
@@ -3156,10 +3169,11 @@ const SelectedOption = styled__default["default"]('p') `
   line-height: 19px;
   color: #222222 !important;
 `;
+
 function ArrowIcon() {
     return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
 }
-function Select$1({ placeholder, defaultValue, children, onChange, loading }) {
+function Select$1({ placeholder, defaultValue, children, onChange, loading, isError, style }) {
     const wrapperRef = React.useRef(null);
     const [isOpen, setIsOpen] = React.useState(false);
     const [selectedOption, setSelectedOption] = React.useState(null);
@@ -3170,20 +3184,22 @@ function Select$1({ placeholder, defaultValue, children, onChange, loading }) {
             if (wrapperRef.current && !wrapperRef.current.contains(event.target) && isOpen)
                 setIsOpen(false);
         }
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [wrapperRef, isOpen]);
     React.useEffect(() => {
         let param = false;
-        children && children.length && children.forEach((child) => {
-            if (child.props.value == defaultValue) {
-                param = true;
-                setSelectedOption(child.props.label);
-                setSelectedOptionValue(child.props.value);
-            }
-        });
+        children &&
+            children.length &&
+            children.forEach((child) => {
+                if (child.props.value == defaultValue) {
+                    param = true;
+                    setSelectedOption(child.props.label);
+                    setSelectedOptionValue(child.props.value);
+                }
+            });
         if (!param) {
             setSelectedOption(null);
             setSelectedOptionValue(false);
@@ -3194,10 +3210,7 @@ function Select$1({ placeholder, defaultValue, children, onChange, loading }) {
         onChange(e);
         toggle();
     };
-    return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs(DropDownContainer, { ref: wrapperRef, children: [jsxRuntime.jsx(EventOverlay, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader, { children: [loading ?
-                            jsxRuntime.jsx("p", { children: "Carregando dados..." })
-                            :
-                                selectedOption ? jsxRuntime.jsx(SelectedOption, { children: selectedOption }) : jsxRuntime.jsx("p", { children: placeholder }), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader, { error: isError, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
 }
 
 const ListItem = styled__default["default"]("li") `
@@ -3235,8 +3248,8 @@ function SelectItem({ value, label, selected, handleSelect, disabled }) {
     return (jsxRuntime.jsx(SelectContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
 }
 
-function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems }) {
-    return (jsxRuntime.jsx(Select$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
+function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style }) {
+    return (jsxRuntime.jsx(Select$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), isError: isError, style: style, children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
 const Container$a = styled__default["default"].div `
