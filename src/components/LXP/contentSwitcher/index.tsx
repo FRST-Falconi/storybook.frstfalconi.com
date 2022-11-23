@@ -5,7 +5,7 @@ import { IcontentSwitcher } from './contentSwitcher'
 import { useState } from 'react'
 import * as Icons from '@shared/icons'
 
-export default function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon}: IcontentSwitcher) {
+export default function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected}: IcontentSwitcher) {
     const [isClicked, setIsClicked] = useState(false)
 
     return (
@@ -21,7 +21,8 @@ export default function ContentSwitcher({ label, handleClick, style, sizeIcon, s
                     </Styles.ContentSwitcher>)
                     :
                     <Styles.ContentSwitcherSelected sizeIcon={sizeIcon}>
-                        <Icons.Noun fill={'#ffffff'} />
+                        {/* <Icons.Noun fill={'#ffffff'} /> */}
+                        {startIconSelected}
                         {label} 
                     </Styles.ContentSwitcherSelected>
                 }

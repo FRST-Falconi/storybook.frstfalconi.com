@@ -8,6 +8,7 @@ export interface IFileUpload {
     alt?: string,
     disabled?: boolean, 
     startIcon?: any,
-    style?: React.CSSProperties, 
+    style?: React.CSSProperties,
+    selectedFile?: ([]) => void, 
     handleClick?: () => void
 }

@@ -87,6 +87,7 @@ export const ContentSwitcherSelected= styled.button<{sizeIcon}>`
         max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon:'64px'};
         height: 100%;
         width: auto;
+        stroke: #FFFFFF;
     }
 
     &:hover{

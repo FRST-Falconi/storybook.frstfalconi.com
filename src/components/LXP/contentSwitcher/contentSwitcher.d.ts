@@ -5,4 +5,5 @@ export interface IcontentSwitcher {
     style?: React.CSSProperties,
     startIcon?: any,
     sizeIcon?: string,
+    startIconSelected?: any,
 }
