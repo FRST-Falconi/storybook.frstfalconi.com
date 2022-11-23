@@ -111,10 +111,10 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                         </Styles.buttons>
                     }
                     <Styles.buttons onClick={OnCommentsClick} style={{color:openComments && FRSTTheme['colors'].linkPressed}}>
-                        <Icons.TalkIcon fill={openComments ? FRSTTheme['colors'].linkPressed : FRSTTheme['colors'].linkOnfocus} /> &nbsp;{props.textComments}
+                        <Icons.TalkIcon fill={'currentColor'} /> {props.textComments}
                     </Styles.buttons>
                     <Styles.buttons onClick={OnReviewClick} style={{color:openReview && FRSTTheme['colors'].linkPressed}} >
-                        <Icons.StarOutlined fill={openReview ? FRSTTheme['colors'].linkPressed : FRSTTheme['colors'].linkOnfocus} /> &nbsp;{props.textAvaluation}
+                        <Icons.StarOutlined fill={'currentColor'} /> {props.textAvaluation}
                     </Styles.buttons>
                 </Styles.buttonsContent>
                 {openReview &&

@@ -55,6 +55,9 @@ export const WrapperIconNotification = styled.div`
     justify-content: center;
     align-items: center;
     min-width: 150px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFF;
 `
 
 

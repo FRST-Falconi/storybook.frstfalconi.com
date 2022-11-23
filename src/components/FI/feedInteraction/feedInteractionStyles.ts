@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    padding: 12px 16px;
+    padding: 12px 24px 0px 24px;
     display: flex;
     flex-direction: column;
     background-color: ${({theme}) => theme.colors.shadeWhite};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
 `
 
 export const infoContent = styled.div`
@@ -37,7 +38,7 @@ export const buttonsContent = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    padding-top: 16px;
+    padding: 16px;
 `
 
 export const buttons = styled.button`
@@ -51,6 +52,12 @@ export const buttons = styled.button`
     color: ${({theme}) => theme.colors.linkOnfocus};
     
     cursor: pointer;
+    gap: 8px;
+
+    &:hover{
+        color: ${({theme}) => theme.colors.linkHover};
+    }
+
 `
 
 export const reviewContainer = styled.div`
@@ -68,6 +75,7 @@ export const reviewContent = styled.div`
     align-items: center;
     flex-direction: row;
     margin-top: 16px;
+    margin-bottom: 32px;
 `
 
 export const commentsContainer = styled.div`
@@ -108,4 +116,5 @@ export const commentList = styled.div`
     flex-direction: column;
     width: 100%;
     margin-top: 16px;
+    margin-bottom: 32px;
 `

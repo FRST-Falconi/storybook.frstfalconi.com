@@ -92,7 +92,7 @@ Muito bom o seu projeto! No momento estou lidando com um problema bem parecido e
         actionLike: () => alert('Liked'),
         textLike: 'Curtir',
         textDeslike: 'Descurtir',
-        isLiked: true,
+        isLiked: false,
         totalLikes: 3,
         isAuthor: true,
         isMe: true,
