@@ -10,6 +10,7 @@ export declare const DesignTokens: {
         linkOnfocus: string;
         linkPressed: string;
         linkError: string;
+        inputError: string;
         messageAlert1: string;
         messageAlert2: string;
         messageError1: string;

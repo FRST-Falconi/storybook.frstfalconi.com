@@ -14,7 +14,8 @@ const Template = (args) => <ContentSwitcher {...args} />
 export const primary = Template.bind({})
 primary.args = {
     label: 'Name item',
-    startIcon: <Icons.Noun />,
+    startIcon: <Icons.Course />,
+    startIconSelected: <Icons.Course fill={'#FFFFFF'}/>,
     handleClick: () => { alert('Click') }
 }
 
