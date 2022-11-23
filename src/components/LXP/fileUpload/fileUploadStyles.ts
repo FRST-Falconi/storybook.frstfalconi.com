@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LandscapeContainer = styled.button`
+export const LandscapeContainer = styled.label`
     width: 544px;
     height: 240px;
     border-radius: 8px;
@@ -13,13 +13,17 @@ export const LandscapeContainer = styled.button`
     box-sizing: border-box;
     position: relative;
     object-fit: cover;
-    border: none;  
+    border: none; 
+    
+    & input{
+        display: none;
+    }
 `
-export const PortraitContainer = styled.button`
+export const PortraitContainer = styled.label`
     width: 180px;
     height: 240px;
     border-radius: 8px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,7 +31,11 @@ export const PortraitContainer = styled.button`
     cursor: pointer;
     box-sizing: border-box;
     object-fit: cover;
-    border: none;   
+    border: none; 
+    
+    & input{
+        display: none;
+    }
 `
 export const UploadCam = styled.div`
     width: 48px;

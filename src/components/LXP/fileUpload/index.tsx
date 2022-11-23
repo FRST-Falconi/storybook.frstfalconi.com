@@ -3,13 +3,23 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './fileUploadStyles'
 import { IFileUpload } from './FileUpload'
+import { useState } from 'react'
 
-export default function FileUpload({ variant, src, alt, disabled, startIcon, style, handleClick }: IFileUpload) {
+export default function FileUpload({ variant, src, alt, disabled, startIcon, style, handleClick, selectedFile}: IFileUpload) {
+    const [uploadFile, setUploadFile] = useState({})
+
+    const handleFileSelected = (file) => {
+        setUploadFile(file)
+        selectedFile([selectedFile])
+    }
     
     return (        
         <ThemeProvider theme={FRSTTheme}>
         { variant === 'landscape' ?            
-            <Styles.LandscapeContainer   style={{...style}}  className={variant = 'landscape'} disabled={disabled} onClick={handleClick}>
+            <Styles.LandscapeContainer   style={{...style}}  className={variant = 'landscape'} htmlFor={'fileSelector'}>
+                 
+                 <input type="file" id='fileSelector' accept='.jpg, .jpeg, .png' onChange={ (e) => handleFileSelected(e.target.files[0])}
+                        />
                 <Styles.ImgLandscape
                     src={src }
                     alt={alt }
@@ -21,7 +31,9 @@ export default function FileUpload({ variant, src, alt, disabled, startIcon, sty
                 </Styles.TextFileUpload>
             </Styles.LandscapeContainer>
         : variant === 'portrait' ?
-            <Styles.PortraitContainer style={{...style}} className={variant = 'portrait'} disabled={disabled} onClick={handleClick}>
+            <Styles.PortraitContainer style={{...style}} className={variant = 'portrait'} htmlFor={'fileSelector'}>
+                <input type="file" id='fileSelector' accept='.jpg, .jpeg, .png' onChange={ (e) => handleFileSelected(e.target.files[0])}
+                        />
                 <Styles.ImgPortrait
                     src={src}
                     alt={alt}                    
