@@ -8,7 +8,7 @@ export interface IThumbnails {
     src?: string,
     disabled?: boolean,    
     handleClickCourse?: () => void,
-    handleChange?: (checkedValue) => void,
+    handleChange?: (checkedValue: boolean) => void,
     handleClickNew?: () => void,
     handleClickContent?: () => void,    
     variant?: enumVariant,

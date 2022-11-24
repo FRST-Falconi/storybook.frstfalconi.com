@@ -1,5 +1,5 @@
 import '../../../shared/global.css'
-import { IThumbnails } from './thumbnails'
+import { IThumbnails } from './thumbnails.d'
 import Thumbnails from './thumbnails'
 import React from 'react'
 import { Draggable } from 'react-beautiful-dnd'
