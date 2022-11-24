@@ -8309,6 +8309,7 @@ const commentsContainer = styled__default["default"].div `
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 32px;
 `;
 const comment = styled__default["default"].div `
     display: flex;
@@ -8338,7 +8339,6 @@ const commentList = styled__default["default"].div `
     flex-direction: column;
     width: 100%;
     margin-top: 16px;
-    margin-bottom: 32px;
 `;
 
 function FeedInteraction(props) {
