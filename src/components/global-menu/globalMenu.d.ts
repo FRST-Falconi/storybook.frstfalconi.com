@@ -56,7 +56,7 @@ export interface IGlobalMenu {
     languageSelected: enumLanguages,
     onChangeLanguage?: (e) => void,
     
-    onClickHome ?: () => void,
+    onClickLogo ?: () => void,
     onClickExit ?: () => void,
     
     onClickSite ?: () => void,
