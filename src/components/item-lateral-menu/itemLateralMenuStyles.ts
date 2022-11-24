@@ -48,7 +48,7 @@ export const WrapperComponent = styled.div<IWrapperMainLabel>`
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    margin-left: 10px;
     & > svg {
         width: 24px;
         height: 24px;
@@ -80,10 +80,10 @@ export const WrapperButton = styled.div`
 `
 
 export const WrapperIconDrop = styled.div<{isOpen}>`
-    margin-right: 14px;
+    margin-right: 24px;
     & > svg {
         transition: all 0.3s ease-out;
-        transform: rotate(${({isOpen}) => isOpen ? '0.5turn' : '0'});
+        transform: rotate(${({isOpen}) => isOpen ? '0' : '0.5turn'});
         & > path {
             stroke: ${({ theme, isOpen }) => isOpen ? theme.colors.primary1 : theme.colors.neutralsGrey1};
         }

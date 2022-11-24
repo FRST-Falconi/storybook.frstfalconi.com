@@ -28,7 +28,8 @@ normal.args = {
     textNotification: 'Notificações',
     onClickProfileMenuText: () => alert('Clicked Profile'),
     profileMenuText: 'Ver Perfil',
-    
+    onClickLogo: () => alert('Redirect to home'),
+
     user: {
         name: 'Student name',
         avatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
@@ -83,7 +84,6 @@ normal.args = {
     languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
     languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),
-    onClickHome: () => alert("Click Home"),
     onClickExit: () => alert("Click Exit"),
 
     onClickSite: () => alert('Click Site'),
@@ -103,6 +103,7 @@ normalWithSubMenu.args = {
     textNotification: 'Notificações',
     onClickProfileMenuText: () => alert('Clicked Profile'),
     profileMenuText: 'Ver Perfil',
+    onClickLogo: () => alert('Redirect to home'),
     
     user: {
         name: 'Student name',
@@ -172,7 +173,6 @@ normalWithSubMenu.args = {
     languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
     languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),
-    onClickHome: () => alert("Click Home"),
     onClickExit: () => alert("Click Exit"),
     onClickSite: () => alert('Click Site'),
     onClickLinkedin: () => alert('Click Linkedin'),
@@ -250,5 +250,6 @@ LXP.args = {
     onClickProfileMenuText: () => alert('Clicked Profile'),
     profileMenuText: 'Ver Perfil',
     onClickExit: () => alert("Click Exit"),
+    onClickLogo: () => alert('Redirect to home'),
     style: { display: 'flex' }
 }

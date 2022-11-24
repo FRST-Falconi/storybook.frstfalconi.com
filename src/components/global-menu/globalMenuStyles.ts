@@ -22,6 +22,7 @@ export const MenuContainer = styled.div<IMenuContainer>`
 
 export const WrapperLogo = styled.div`
     margin-right: 65px;
+    cursor: pointer;
 `
     export const HamburgerButton = styled.div`
         cursor: pointer;

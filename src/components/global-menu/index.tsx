@@ -14,7 +14,32 @@ import DropdownProfileMenu from '@components/dropdown-profile-menu'
 import { PropaneSharp } from '@mui/icons-material'
 
 
-export default function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickHome, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField }: IGlobalMenu) {
+export default function GlobalMenu({
+    variant, 
+    menu, 
+    subMenu, 
+    user, 
+    search, 
+    notification, 
+    haveNotification, 
+    handleNotification, 
+    languages, 
+    languageSelected, 
+    onChangeLanguage, 
+    style, 
+    textNotification, 
+    onClickSite, 
+    onClickLinkedin, 
+    onClickInstagram, 
+    onClickYoutube, 
+    onClickSpotify, 
+    onClickPodCast, 
+    onClickProfileMenuText, 
+    onClickExit, 
+    profileMenuText, 
+    showSearchField, 
+    onClickLogo }: IGlobalMenu) {
+    
     const [valueSearch, setValueSearch] = useState(search.value)
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
     const [loadingSearch, setLoadingSearch] = useState(search.loading)
@@ -83,12 +108,12 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                 </Styles.HamburgerButton>
                             }
                             {!isMobileVersion &&
-                                <Styles.WrapperLogo>
+                                <Styles.WrapperLogo onClick={() => onClickLogo()}>
                                     <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                 </Styles.WrapperLogo>
                             }
                             {showLogo &&
-                                <Styles.WrapperLogo style={{ marginRight: '0px' }}>
+                                <Styles.WrapperLogo onClick={() => onClickLogo()} style={{ marginRight: '0px' }}>
                                     <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                 </Styles.WrapperLogo>
                             }
@@ -225,12 +250,12 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                     </Styles.HamburgerButton>
                                 }
                                 {!isMobileVersion &&
-                                    <Styles.WrapperLogo>
+                                    <Styles.WrapperLogo onClick={() => onClickLogo()}>
                                         <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                     </Styles.WrapperLogo>
                                 }
                                 {showLogo &&
-                                    <Styles.WrapperLogo style={{ marginRight: '0px' }}>
+                                    <Styles.WrapperLogo onClick={() => onClickLogo()} style={{ marginRight: '0px' }}>
                                         <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                     </Styles.WrapperLogo>
                                 }
@@ -331,7 +356,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                     :
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', ...style }}>
                         <Styles.MenuContainer variant={variant} style={{ ...style, display: 'none' }}>
-                            <Styles.WrapperLogo>
+                            <Styles.WrapperLogo onClick={() => onClickLogo()}>
                                 <FRSTLogo height='28' />
                             </Styles.WrapperLogo>
                             <Styles.WrapperMenu>
