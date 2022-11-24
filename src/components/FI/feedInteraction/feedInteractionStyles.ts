@@ -83,6 +83,7 @@ export const commentsContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 32px;
 `
 
 export const comment = styled.div`
@@ -116,5 +117,4 @@ export const commentList = styled.div`
     flex-direction: column;
     width: 100%;
     margin-top: 16px;
-    margin-bottom: 32px;
 `
