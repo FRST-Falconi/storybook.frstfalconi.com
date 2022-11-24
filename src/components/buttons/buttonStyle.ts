@@ -39,7 +39,7 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
 export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
     border: none;
     text-decoration: none;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold}
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
     color: ${({ theme }) => theme.colors.linkOnfocus};
     cursor: pointer;
     outline: none;
@@ -61,7 +61,7 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: strin
     }
 
     & > svg {
-        margin-right: 12px;
+        margin-right: 8px;
         max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon: '16px'};
         height: 100%;
         width: auto;

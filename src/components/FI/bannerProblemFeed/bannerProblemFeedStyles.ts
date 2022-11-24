@@ -10,6 +10,7 @@ export const achievementHeader = styled.div`
     padding: 20px 32px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    word-break: break-all;
 
     ${({theme}) => theme.fonts.textMessageComponentsBodyBold};
     color: ${({theme}) => theme.colors.shadeWhite};
@@ -76,6 +77,7 @@ export const stepsContainer = styled.div`
     flex-direction: column;
     width: 100%;
     border: 1px solid ${({theme}) => theme.colors.borderPrimary}; 
+    border-radius: 8px;
     background-color: ${({theme}) => theme.colors.shadeWhite};
     padding: 24px;
     margin-bottom: 24px;
@@ -92,6 +94,7 @@ export const stepsLabel = styled.span`
     font-weight: 700;
     color: ${({theme}) => theme.colors.neutralsGrey1};
     margin-top: 16px;
+    word-break: break-all;
 `
 
 export const stepsValueText = styled.span`
@@ -100,4 +103,5 @@ export const stepsValueText = styled.span`
     font-weight: 400;
     color: ${({theme}) => theme.colors.neutralsGrey1};
     margin-top: 8px;
+    word-break: break-all;
 `

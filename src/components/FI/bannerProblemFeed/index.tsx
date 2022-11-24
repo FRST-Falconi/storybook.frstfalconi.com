@@ -138,6 +138,9 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
         track: {
             color: "#FF4D0D",
         },
+        disabled: {
+            color: '#FF4D0D',
+        }
     })(Slider);
     const marks = [
         {
@@ -220,9 +223,10 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                         min={1}
                                         max={5}
                                         marks={marks}
+                                        disabled={true}
                                     />
                                 </div>
-                                {props.handleDownloadFiles ?
+                                {/* {props.handleDownloadFiles ?
                                     <Button 
                                         variant="link" 
                                         startIcon={<Icons.DownloadIcon fill={'currentColor'} width='24px' height='24' />} 
@@ -230,7 +234,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                         handleClick={props.handleDownloadFiles}
                                     />
                                     : null
-                                }
+                                } */}
 
                             </Styles.stepsContainer>
 

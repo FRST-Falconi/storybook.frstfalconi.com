@@ -280,7 +280,7 @@ export default function GlobalMenu({ variant, menu, subMenu, user, search, notif
                                 <Styles.WrapperRightInfo style={{justifyContent:'flex-end', width: 'fit-content'}} >
                                     {!isMobileVersion && notification &&
                                         <Styles.WrapperIconNotification onClick={handleNotification}>
-                                            <span style={{display: 'inline-flex', color: '#FFF' }}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {haveNotification && <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div>} &nbsp; {textNotification} </span>
+                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {haveNotification && <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div>} &nbsp; {textNotification} </span>
                                         </Styles.WrapperIconNotification>
                                     }
                                     <DropdownProfileMenu
