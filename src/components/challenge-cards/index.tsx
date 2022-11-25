@@ -15,8 +15,14 @@ import Button from '@mui/material/Button'
 
 
 
-export default function ChallengeCard({ variant, description, language, 
-    onClickView, onClickNewProject, onClickContinue, onClickDelete }: IChallengeCard) {
+export default function ChallengeCard({ 
+    variant, 
+    description, 
+    language, 
+    onClickView, 
+    onClickNewProject, 
+    onClickContinue, 
+    onClickDelete }: IChallengeCard) {
     
     const [ label, setLabel] = useState<any>(labels['ptBR'])
     const [ activeClick, setActiveClick ] = useState(false)
@@ -72,7 +78,7 @@ export default function ChallengeCard({ variant, description, language,
                     </Styles.WrapperHeader>
                     { variant != 'srg'  ?
                     <Styles.DescriptionProject onClick={() => handleClick()}>
-                        {description}
+                        {resumeString(description, 83)}
                     </Styles.DescriptionProject>
                     :
                     <Styles.DescriptionSRG onClick={() => handleClick()}>
@@ -96,6 +102,13 @@ export default function ChallengeCard({ variant, description, language,
             </Styles.WrapperCard>
         </ThemeProvider>
     )
+}
+
+const resumeString = (str, limit) => {
+    if(!str) return str
+    if(str?.length < limit) return str;
+
+    return `${str.substr(0, limit)}...`
 }
 
 const utilAssign = (value, optional) => {

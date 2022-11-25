@@ -7569,13 +7569,20 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
                             jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
-                            jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: description })
+                            jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 83) })
                             :
                                 jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), children: variant == 'srg' ?
                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
                                 :
                                     label.view })] })] }) }));
 }
+const resumeString = (str, limit) => {
+    if (!str)
+        return str;
+    if (str?.length < limit)
+        return str;
+    return `${str.substr(0, limit)}...`;
+};
 const utilAssign = (value, optional) => {
     return value ? value : optional;
 };
