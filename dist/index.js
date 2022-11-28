@@ -4509,7 +4509,8 @@ function TrailList({ title, trails, style }) {
 
 const ContainerGeral = styled__default["default"].div `
   display: flex;
-  flex-direction: ${(props) => props.variant === 'upLeft' || props.variant === 'upRight' ? 'column-reverse' : 'column'};
+  height: 8.5rem;
+  align-content: flex-end;
   &:hover .popOver {
     display: block;
   }
@@ -4523,9 +4524,12 @@ const AvatarChannel$1 = styled__default["default"].div `
   border-radius: 50%;
   background-color: ${(props) => props.color || '#6a3f86'};
   position: relative;
-  margin: 20px 0;
-
+  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '40px' : '0px')};
   cursor: pointer;
+  ${(props) => props.variant === 'sideRight' &&
+    styled.css `
+      margin-left: 8.5rem;
+    `}
 
   img {
     border-radius: 50%;
@@ -4571,11 +4575,26 @@ const ContainerPopOver = styled__default["default"].div `
   font-size: 16px;
   display: none;
   width: 120px;
-  /* position: absolute; */
+  position: absolute;
   top: 0;
-  margin-top: -5px;
+  margin-top: 0;
   font-family: 'PT Sans';
   font-weight: 400;
+  ${(props) => (props.variant === 'upLeft' || props.variant === 'upRight') &&
+    styled.css `
+      margin-top: 7rem;
+    `}
+
+  ${(props) => props.variant === 'sideLeft' &&
+    styled.css `
+      margin-top: 1rem;
+      margin-left: 6rem;
+    `}
+
+    ${(props) => props.variant === 'sideRight' &&
+    styled.css `
+      margin-top: 1rem;
+    `}
 `;
 
 const RectangleUpLeft = styled__default["default"].div `
@@ -4716,7 +4735,7 @@ function PopOver({ variant, children }) {
 }
 
 function AvatarChannel({ size, channel, className, disabled, color, onChange, variantPopOver }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerGeral, { className: "geral", variant: variantPopOver, children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: variantPopOver }) }), jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral, { className: "geral", variant: variantPopOver, children: variantPopOver === 'lowLeft' || variantPopOver === 'lowRight' || variantPopOver === 'sideRight' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: variantPopOver }) }), jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }), jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: variantPopOver }) })] })) }) }));
 }
 
 var css_248z$4 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
@@ -4995,14 +5014,11 @@ const ContentSwitcherSelected = styled__default["default"].button `
     }
 `;
 
-function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected }) {
+function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected, isActive }) {
     const [isClicked, setIsClicked] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$8, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
                 setIsClicked(true);
-            }, children: !isClicked ?
-                (jsxRuntime.jsxs(ContentSwitcher$1, { children: [startIcon, label] }))
-                :
-                    jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, children: [startIconSelected, label] }) }) }));
+            }, children: !isClicked && !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, children: [startIconSelected, label] })) }) }));
 }
 
 const Container$7 = styled__default["default"].div `
