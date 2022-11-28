@@ -21,5 +21,5 @@ normal.args = {
   onChange: () => {
     alert('click')
   },
-  variantPopOver: 'upLeft'
+  variantPopOver: 'lowLeft'
 }
