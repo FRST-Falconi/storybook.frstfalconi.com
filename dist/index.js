@@ -5013,11 +5013,8 @@ const ContentSwitcherSelected = styled__default["default"].button `
     }
 `;
 
-function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected, isActive }) {
-    const [isClicked, setIsClicked] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$8, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
-                !isClicked ? setIsClicked(true) : setIsClicked(false);
-            }, children: !isClicked && !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, children: [startIconSelected, label] })) }) }));
+function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected, isActive, idButtonSwitcher }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$8, { sizeIcon: sizeIcon, style: { ...style }, children: !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, id: idButtonSwitcher, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, id: idButtonSwitcher, children: [startIconSelected, label] })) }) }));
 }
 
 const Container$7 = styled__default["default"].div `
