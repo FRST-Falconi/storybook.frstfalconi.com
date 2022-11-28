@@ -4524,7 +4524,7 @@ const AvatarChannel$1 = styled__default["default"].div `
   border-radius: 50%;
   background-color: ${(props) => props.color || '#6a3f86'};
   position: relative;
-  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '40px' : '0px')};
+  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
   cursor: pointer;
   ${(props) => props.variant === 'sideRight' &&
     styled.css `
@@ -4576,7 +4576,6 @@ const ContainerPopOver = styled__default["default"].div `
   display: none;
   width: 120px;
   position: absolute;
-  top: 0;
   margin-top: 0;
   font-family: 'PT Sans';
   font-weight: 400;
@@ -5017,8 +5016,8 @@ const ContentSwitcherSelected = styled__default["default"].button `
 function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected, isActive }) {
     const [isClicked, setIsClicked] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$8, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
-                setIsClicked(true);
-            }, children: !isClicked && !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, children: [startIconSelected, label] })) }) }));
+                !isClicked ? setIsClicked(true) : setIsClicked(false);
+            }, children: !isClicked && !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, children: [startIconSelected, label] })) }) }));
 }
 
 const Container$7 = styled__default["default"].div `
