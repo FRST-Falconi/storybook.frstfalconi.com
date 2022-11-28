@@ -29,7 +29,7 @@ export const AvatarChannel = styled.div<AvatarI>`
   border-radius: 50%;
   background-color: ${(props) => props.color || '#6a3f86'};
   position: relative;
-  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '40px' : '0px')};
+  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
   cursor: pointer;
   ${(props) =>
     props.variant === 'sideRight' &&
@@ -83,7 +83,6 @@ export const ContainerPopOver = styled.div<PropsPopOver>`
   display: none;
   width: 120px;
   position: absolute;
-  top: 0;
   margin-top: 0;
   font-family: 'PT Sans';
   font-weight: 400;

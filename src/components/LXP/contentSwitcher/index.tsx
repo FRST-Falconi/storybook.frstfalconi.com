@@ -22,17 +22,16 @@ export default function ContentSwitcher({
         sizeIcon={sizeIcon}
         style={{ ...style }}
         onClick={() => {
-          setIsClicked(true)
-          handleClick
+          !isClicked ? setIsClicked(true) : setIsClicked(false)
         }}
       >
         {!isClicked && !isActive ? (
-          <Styles.ContentSwitcher>
+          <Styles.ContentSwitcher onClick={handleClick}>
             {startIcon}
             {label}
           </Styles.ContentSwitcher>
         ) : (
-          <Styles.ContentSwitcherSelected sizeIcon={sizeIcon}>
+          <Styles.ContentSwitcherSelected sizeIcon={sizeIcon} onClick={handleClick}>
             {startIconSelected}
             {label}
           </Styles.ContentSwitcherSelected>
