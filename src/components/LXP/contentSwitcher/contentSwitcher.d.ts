@@ -7,4 +7,5 @@ export interface IcontentSwitcher {
   sizeIcon?: string
   startIconSelected?: any
   isActive?: boolean
+  idButtonSwitcher: string
 }
