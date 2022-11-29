@@ -89,5 +89,6 @@ Opened.args = {
     textTotalDe: "Total of",
     textRegistros: "records",
     textMinhasTrihas: "My tracks",
+    txtAtivarCurso: "Activate course"
 }
 

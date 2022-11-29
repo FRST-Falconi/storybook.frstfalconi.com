@@ -5,8 +5,9 @@ import * as Styles from './accordionTrackStyle'
 import React, { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
+import { IAccordionTranslate } from './IAccordionTrack'
 
-export default function AccordionTrackNormal(data: any) {
+export default function AccordionTrackNormal(data: any, props: IAccordionTranslate) {
 
     const [checked, setChecked] = useState(true)
     const [up, setUp] = useState(true)
@@ -40,7 +41,7 @@ export default function AccordionTrackNormal(data: any) {
           </Styles.ContentTrailName>
           <Styles.ContentActiveHeader>
               <Styles.TypographyActiveHeader active={data.ativo} style={{ fontWeight: data.ativo ? 700 : 400 }}>
-                Ativar curso
+                {props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso'}
                 <Switch
                   onChange={handleChange}
                   checked={data.ativo}

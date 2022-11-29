@@ -29,3 +29,25 @@ Add.args = {
     variant: 'add',
     handleClickNew: () => { alert('Adicionado novo curso') },
 }
+
+export const DefaultTranslate = Template.bind({})
+Default.args = {
+    variant: 'default',
+    label: 'Label',
+    src: '',
+    title: 'Blockchain e criptomoedas',    
+    id: 0,
+    index: 0,
+    handleClickCourse: () => { alert('Indo para o curso') },
+    handleClickContent: () => { alert('Click conteúdo') },
+    handleChange: (checkedValue) => { console.log(`curso ativado=${checkedValue}`)},
+    txtButtonLabel: "Go to course",
+    txtAtivarCurso: "Activate course",    
+}
+
+export const AddTranslate = Template.bind({})
+Add.args = {
+    variant: 'add',
+    handleClickNew: () => { alert('Adicionado novo curso') },
+    txtCriarNovoCurso: "Create new course"
+}

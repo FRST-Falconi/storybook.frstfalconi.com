@@ -24,6 +24,7 @@ export interface IAccordionTranslate extends IAccordionTrack {
     textTotalDe?: string
     textRegistros?: string
     textMinhasTrihas?: string
+    txtAtivarCurso?: string
 
 
 }
