@@ -4,14 +4,16 @@ import React from "react"
 type enumVariant = 'closedDefault' | 'opened' 
 
 export interface IAccordionTrack {
-    ObjectsCard?: any
+    trailsData?: any
     variant?: enumVariant
     TrailName?: string
     key?: number
     index?: number
     data?: any,
-    handleChangeCheck?: (checkedValue) => void
+    handleChange?: (trails: any) => void
     handleClickSelect?: () => void,
     handleClickContent?: () => void 
+    onSetActiveTrail?: (active, id) => void 
+    onSetShowTrail?: (active, id) => void 
 }
 

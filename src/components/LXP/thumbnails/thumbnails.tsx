@@ -5,19 +5,24 @@ import * as Styles from './thumbnailsStyle'
 import { IThumbnails } from './thumbnails.d'
 import VectorEllipse from './vectorEllipse'
 import VectorCross from './vectorCross'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch'
 import Button from '../../buttons'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided }: IThumbnails) {
+export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled }: IThumbnails) {
   const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg"
 
-  const [checked, setChecked] = useState<boolean>(true)
+  const [checked, setChecked] = useState<boolean>(!disabled)
   const [showModules, setShowModules] = useState<boolean>(false)
   const [down, setDown] = useState(true)
   const [up, setUp] = useState(false)
+
+  useEffect (() => {
+    setChecked(!disabled)
+    console.log("Atualizou Ativo: ", !disabled)
+  }, [disabled])
 
   const handleChangeCheck = (checkedValue: boolean) => {
     setChecked(checkedValue)

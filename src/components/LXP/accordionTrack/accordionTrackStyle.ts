@@ -24,6 +24,46 @@ export const ContainerHeader = styled.div<IImageBackground>`
     align-items: center; 
     z-index: 99px;   
 `
+
+export const ContainerHeaderEmpty = styled.div<IImageBackground>`
+    width: 100%;
+    min-height: 72px;
+    margin-top: 12px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 27px;
+    padding-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    z-index: 99px;   
+`
+
+export const ContainerTrailsNormal = styled.div`
+    height: 415px; 
+    border: 1px solid black; 
+    padding: 16px;
+    margin-top: -5px; 
+    background-color: rgb(235, 235, 235);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 0;
+    width: 100%;
+`
+
+export const ContainerTrailsEmpty = styled.div`
+    height: 415px; 
+    padding: 16px;
+    margin-top: -5px; 
+    z-index: 0;
+    width: 100%;
+`
+
+
 export const ContentTrailName = styled.div`
     display: flex;
     flex-direction: row;    
@@ -78,6 +118,5 @@ export const ContainerCard = styled.div`
     width: 100%;
     min-height: 300px;
     gap: 20px;
-    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
 
 `
