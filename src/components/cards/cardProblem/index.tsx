@@ -129,7 +129,7 @@ export default function CardProblem(props: CardProblemProps) {
     const [statusName, setStatusName] = useState(translate[languageSlected]['notStarted'])
     const [selected, setSelected] = useState(props.selected)
 
-    console.log(translate)
+    
 
     const [statusColor, setStatusColor] = useState('#757575')
 

@@ -51,6 +51,7 @@ export const problemTitle = styled.div`
     font-weight: 600;
     text-align: center;
     margin-top: 32px;
+    word-break: break-all;
 `
 
 export const tagContent = styled.div`
