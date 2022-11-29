@@ -10,14 +10,17 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <ContentSwitcher {...args} />
-
+let isActive = false
 export const primary = Template.bind({})
 primary.args = {
   label: 'Name item',
   startIcon: <Icons.Course />,
   startIconSelected: <Icons.Course fill={'#FFFFFF'} />,
   handleClick: () => {
-    alert('Click')
+    isActive = true
+    console.log(isActive)
+    alert(isActive)
   },
-  isActive: false
+  isActive: isActive,
+  idButtonSwitcher: 'idBotao'
 }

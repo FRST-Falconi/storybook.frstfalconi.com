@@ -12,26 +12,19 @@ export default function ContentSwitcher({
   sizeIcon,
   startIcon,
   startIconSelected,
-  isActive
+  isActive,
+  idButtonSwitcher
 }: IcontentSwitcher) {
-  const [isClicked, setIsClicked] = useState(false)
-
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <Styles.Container
-        sizeIcon={sizeIcon}
-        style={{ ...style }}
-        onClick={() => {
-          !isClicked ? setIsClicked(true) : setIsClicked(false)
-        }}
-      >
-        {!isClicked && !isActive ? (
-          <Styles.ContentSwitcher onClick={handleClick}>
+      <Styles.Container sizeIcon={sizeIcon} style={{ ...style }}>
+        {!isActive ? (
+          <Styles.ContentSwitcher onClick={handleClick} id={idButtonSwitcher}>
             {startIcon}
             {label}
           </Styles.ContentSwitcher>
         ) : (
-          <Styles.ContentSwitcherSelected sizeIcon={sizeIcon} onClick={handleClick}>
+          <Styles.ContentSwitcherSelected sizeIcon={sizeIcon} onClick={handleClick} id={idButtonSwitcher}>
             {startIconSelected}
             {label}
           </Styles.ContentSwitcherSelected>
