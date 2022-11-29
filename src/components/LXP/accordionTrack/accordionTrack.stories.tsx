@@ -81,7 +81,7 @@ const trails = [
 
 export const Opened = Template.bind({})
 Opened.args = {
-    handleClickNew: () => {alert('nova trilha')},
+    onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
     handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
     trailsData: trails
 }

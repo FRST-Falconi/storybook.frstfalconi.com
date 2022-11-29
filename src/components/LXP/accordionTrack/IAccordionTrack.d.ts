@@ -15,6 +15,7 @@ export interface IAccordionTrack {
     handleClickContent?: () => void 
     onSetActiveTrail?: (active, id) => void 
     onSetShowTrail?: (active, id) => void 
+    onNewTrail?: (id) => void,
     handleClickNew?: () => void,
 }
 

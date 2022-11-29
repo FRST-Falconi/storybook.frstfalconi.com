@@ -52,7 +52,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 styles={{ justifyContent: 'flex-start', width: '100%' }}
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                  <Thumbnails variant='add' disabled={false} handleClickNew={props.handleClickNew} />
+                                  <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
+                                    <Thumbnails variant='add' disabled={false} />
+                                  </div>
                                   {
                                     (data.ativo || data.ativo!) && data.items.map((el, index) => {
                                       return (
@@ -121,7 +123,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 >
 
                                   <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                    <Thumbnails variant='add' disabled={false} />
+                                    <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
+                                      <Thumbnails variant='add' disabled={false} />
+                                    </div>
                                     {
                                       data.items && data.items.map((el, index) => {
                                         return (

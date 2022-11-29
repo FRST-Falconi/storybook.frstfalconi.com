@@ -6,7 +6,7 @@ import { DragDropContext } from 'react-beautiful-dnd'
 import { IAccordionTrack } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 
-export default function AccordionTrackList({ trailsData, handleChange }: IAccordionTrack) {
+export default function AccordionTrackList({ trailsData, handleChange, onNewTrail }: IAccordionTrack) {
   
   const [trails, setTrails] = useState(trailsData)  
 
@@ -80,7 +80,12 @@ export default function AccordionTrackList({ trailsData, handleChange }: IAccord
               }}
               onSetShowTrail={(active, id) => {
                 setShowTrail(active, id)
-              }}              
+              }}    
+              onNewTrail={(id) => {
+                if (onNewTrail) {
+                  onNewTrail(id)
+                }
+              }}            
             />
           }                
         </>          
