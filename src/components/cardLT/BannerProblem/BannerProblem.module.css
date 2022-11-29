@@ -15,6 +15,7 @@
 .titleProblem{
   font-weight: 700;
   font-size: 18px;
+  word-break: break-all;
 }
 
 .created{
@@ -31,6 +32,7 @@
   margin-top: 8px;
   width: 100%;
   color: #FF4D0D;
+  word-break: break-all;
 }
 
 .missaoTitle{
