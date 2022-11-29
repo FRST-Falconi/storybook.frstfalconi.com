@@ -1,5 +1,5 @@
 import '../../../shared/global.css'
-import { IAccordionTrack } from './IAccordionTrack'
+import { IAccordionTrack, IAccordionTranslate } from './IAccordionTrack'
 import * as Styles from './accordionTrackStyle'
 import React, { useState } from 'react'
 import ThumbnailsDraggable from '../thumbnails/thumbnailsDraggable'
@@ -9,31 +9,38 @@ import { Droppable } from 'react-beautiful-dnd'
 import AccordionTrackNormal from './accordionTrackNormal'
 import AccordionTrackEmpty from './accordionTrackEmpty'
 
-export default function AccordionTrack(props: IAccordionTrack) {
-  
-    const [state, setState] = useState(props.trailsData)
+export default function AccordionTrack(props: IAccordionTranslate) {
 
-    return (
-      <>
-        {
-          state.map((data, key) => {
-            return (
-              <>
-                {
-                  key === 0 ?
-                  <AccordionTrackEmpty 
+  const [state, setState] = useState(props.trailsData)
+
+  return (
+    <>
+      {
+        state.map((data, key) => {
+          return (
+            <>
+              {
+                key === 0 ?
+                  <AccordionTrackEmpty
                     TrailName={data.TrailName}
                   >
                     <div>
-                      <h2>Meus Conteúdos</h2>
-                      <h2>Qtde {data.items.length} registros</h2>
-
+                      <h2
+                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
+                      >
+                        {props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos'}
+                      </h2>
+                      <h2
+                        style={{ fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }}
+                      >
+                        {props.textTotalDe ? props.textTotalDe : 'Total de'} {data.items.length} {props.textRegistros ? props.textRegistros : 'registros'}
+                      </h2>
                     </div>
-                  
-                  {
-                    data.show &&                               
+
+                    {
+                      data.show &&
                       <Droppable droppableId={key.toString()} key={key} direction="horizontal">
-                        {(provided) => {      
+                        {(provided) => {
                           return (
                             <Styles.ContainerTrailsEmpty>
                               <ScrollContainer
@@ -42,10 +49,10 @@ export default function AccordionTrack(props: IAccordionTrack) {
                                 sizeArrowButton={80}
                                 marginsArrowButton={10}
                                 horizontalMarginInternScroll={'20px'}
-                                styles={{ justifyContent: 'flex-start', width: '100%'}}
+                                styles={{ justifyContent: 'flex-start', width: '100%' }}
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                  <Thumbnails variant='add' disabled={false} />
+                                  <Thumbnails variant='add' disabled={false} handleClickNew={props.handleClickNew} />
                                   {
                                     (data.ativo || data.ativo!) && data.items.map((el, index) => {
                                       return (
@@ -56,95 +63,103 @@ export default function AccordionTrack(props: IAccordionTrack) {
                                           index={index}
                                           title={el.name}
                                           variant={'default'}
-                                          handleChange={() => {}}
+                                          handleChange={() => { }}
                                         />
-                                      )} 
+                                      )
+                                    }
                                     )
-                                  }                                
-                                  
-                                </Styles.ContainerCard>                                                
+                                  }
+
+                                </Styles.ContainerCard>
                               </ScrollContainer>
                               {provided.placeholder}
                             </Styles.ContainerTrailsEmpty>
-                          )}
-                        }                                                          
+                          )
+                        }
+                        }
                       </Droppable>
-                  }
+                    }
                   </AccordionTrackEmpty>
 
-                  : 
+                  :
                   <>
-                  {
-                    key === 1 &&
-                    <span>Minhas Trilhas</span>
-                  }
-                  <AccordionTrackNormal 
-                    TrailName={data.TrailName}
-                    ativo={data.ativo}
-                    handleChangeCheck={(bActive: boolean) => {
-                      if (props.onSetActiveTrail) {
-                        props.onSetActiveTrail(bActive, key)                         
-                      }
-                    }}
-                    handleChangeShow={(bShow) => {
-                      if (props.onSetShowTrail) {
-                        props.onSetShowTrail(bShow, key)
-                      }
-                    }}
-                  >
-                  {
-                    data.show &&                               
-                      <Droppable droppableId={key.toString()} key={key} direction="horizontal">
-                        {(provided) => {      
-                          return (
-                            <Styles.ContainerTrailsNormal>
-                              <ScrollContainer
-                                stepMove={380}
-                                isVisibleControlsButtons
-                                sizeArrowButton={80}
-                                marginsArrowButton={10}
-                                horizontalMarginInternScroll={'20px'}
-                                styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%'}}
-                              >
+                    {
+                      key === 1 &&
+                      <span
+                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
+                      >
+                        {props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas'}
+                      </span>
+                    }
+                    <AccordionTrackNormal
+                      TrailName={data.TrailName}
+                      ativo={data.ativo}
+                      handleChangeCheck={(bActive: boolean) => {
+                        if (props.onSetActiveTrail) {
+                          props.onSetActiveTrail(bActive, key)
+                        }
+                      }}
+                      handleChangeShow={(bShow) => {
+                        if (props.onSetShowTrail) {
+                          props.onSetShowTrail(bShow, key)
+                        }
+                      }}
+                    >
+                      {
+                        data.show &&
+                        <Droppable droppableId={key.toString()} key={key} direction="horizontal">
+                          {(provided) => {
+                            return (
+                              <Styles.ContainerTrailsNormal>
+                                <ScrollContainer
+                                  stepMove={380}
+                                  isVisibleControlsButtons
+                                  sizeArrowButton={80}
+                                  marginsArrowButton={10}
+                                  horizontalMarginInternScroll={'20px'}
+                                  styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
+                                >
 
-                                <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                  <Thumbnails variant='add' disabled={false}/>
-                                  {
-                                    data.items && data.items.map((el, index) => {
-                                      return (
-                                        <>
-                                        <ThumbnailsDraggable
-                                          key={index}
-                                          id={el.id}
-                                          disabled={el.disabled}
-                                          index={index}
-                                          title={el.name}
-                                          variant={'default'}
-                                          handleChange={() => {}}
-                                        />
-                                        </>
-                                      )} 
-                                    )
-                                  }                                
-                                  
-                                </Styles.ContainerCard>                                                
-                              </ScrollContainer>
-                              {provided.placeholder}
-                            </Styles.ContainerTrailsNormal>
-                          )}
-                        }                                                          
-                      </Droppable>
-                  }
-                  </AccordionTrackNormal>      
-                  </>            
-                }
-                
-                
-              </>
-            )
-          })
-        }
+                                  <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
+                                    <Thumbnails variant='add' disabled={false} />
+                                    {
+                                      data.items && data.items.map((el, index) => {
+                                        return (
+                                          <>
+                                            <ThumbnailsDraggable
+                                              key={index}
+                                              id={el.id}
+                                              disabled={el.disabled}
+                                              index={index}
+                                              title={el.name}
+                                              variant={'default'}
+                                              handleChange={() => { }}
+                                            />
+                                          </>
+                                        )
+                                      }
+                                      )
+                                    }
 
-      </>
-    )
+                                  </Styles.ContainerCard>
+                                </ScrollContainer>
+                                {provided.placeholder}
+                              </Styles.ContainerTrailsNormal>
+                            )
+                          }
+                          }
+                        </Droppable>
+                      }
+                    </AccordionTrackNormal>
+                  </>
+              }
+
+
+            </>
+          )
+        })
+      }
+
+    </>
+  )
 }

@@ -5,7 +5,11 @@ import AccordionTrackList from './accordionTrackList'
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'LXP/AccordionTrack',
-    component: AccordionTrackList,
+    component: AccordionTrackList,    
+    textMeusConteudos: "Meus Conteúdos",
+    textTotalDe: "Total de",
+    textRegistros: "registros",
+    textMinhasTrihas: "Minhas Trilhas",
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -69,13 +73,15 @@ const trails = [
     items: [],
     ativo: false,
     show: true,
-  },   
+  },  
+  
 ]
 
   
 
 export const Opened = Template.bind({})
 Opened.args = {
+    handleClickNew: () => {alert('nova trilha')},
     handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
     trailsData: trails
 }

@@ -15,5 +15,15 @@ export interface IAccordionTrack {
     handleClickContent?: () => void 
     onSetActiveTrail?: (active, id) => void 
     onSetShowTrail?: (active, id) => void 
+    handleClickNew?: () => void,
+}
+
+export interface IAccordionTranslate extends IAccordionTrack {
+    textMeusConteudos?: string
+    textTotalDe?: string
+    textRegistros?: string
+    textMinhasTrihas?: string
+
+
 }
 
