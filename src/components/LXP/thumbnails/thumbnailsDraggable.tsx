@@ -1,10 +1,10 @@
 import '../../../shared/global.css'
-import { IThumbnails } from './thumbnails.d'
+import { IThumbnailsTranslate } from './thumbnails.d'
 import Thumbnails from './thumbnails'
 import React, { useState, useEffect } from 'react'
 import { Draggable } from 'react-beautiful-dnd'
 
-export default function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, id, index, disabled }: IThumbnails) {
+export default function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, id, index, disabled, txtButtonLabel, txtAtivarCurso, txtCriarNovoCurso }: IThumbnailsTranslate) {
 
   return (
     <>    
@@ -27,6 +27,9 @@ export default function ThumbnailsDraggable({ variant, src, handleClickCourse, h
               id={id}
               index={index}    
               provided={provided}
+              txtButtonLabel={txtButtonLabel}
+              txtAtivarCurso={txtAtivarCurso}
+              txtCriarNovoCurso={txtCriarNovoCurso}
             />
           )}
         }

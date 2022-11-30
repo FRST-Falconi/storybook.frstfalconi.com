@@ -53,7 +53,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                   <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
-                                    <Thumbnails variant='add' disabled={false} />
+                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso}/>
                                   </div>
                                   {
                                     (data.ativo || data.ativo!) && data.items.map((el, index) => {
@@ -65,6 +65,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           index={index}
                                           title={el.name}
                                           variant={'default'}
+                                          txtButtonLabel={props.txtButtonLabel}
+                                          txtAtivarCurso={props.txtAtivarCurso}
+                                          txtCriarNovoCurso={props.txtCriarNovoCurso}
                                           handleChange={() => { }}
                                         />
                                       )
@@ -124,7 +127,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
                                   <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                     <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
-                                      <Thumbnails variant='add' disabled={false} />
+                                      <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso}/>
                                     </div>
                                     {
                                       data.items && data.items.map((el, index) => {
@@ -138,6 +141,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                               title={el.name}
                                               variant={'default'}
                                               handleChange={() => { }}
+                                              txtButtonLabel={props.txtButtonLabel}
+                                              txtAtivarCurso={props.txtAtivarCurso}
+                                              txtCriarNovoCurso={props.txtCriarNovoCurso}
                                             />
                                           </>
                                         )

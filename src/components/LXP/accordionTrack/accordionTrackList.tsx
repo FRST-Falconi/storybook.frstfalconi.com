@@ -3,10 +3,13 @@ import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import { DragDropContext } from 'react-beautiful-dnd'
-import { IAccordionTrack } from './IAccordionTrack'
+import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 
-export default function AccordionTrackList({ trailsData, handleChange, onNewTrail }: IAccordionTrack) {
+export default function AccordionTrackList(
+  { trailsData, handleChange, onNewTrail, 
+  textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso
+}: IAccordionTranslate) {
   
   const [trails, setTrails] = useState(trailsData)  
 
@@ -85,7 +88,14 @@ export default function AccordionTrackList({ trailsData, handleChange, onNewTrai
                 if (onNewTrail) {
                   onNewTrail(id)
                 }
-              }}            
+              }} 
+              textMeusConteudos={textMeusConteudos}  
+              textTotalDe={textTotalDe}      
+              textRegistros={textRegistros}
+              textMinhasTrihas={textMinhasTrihas}
+              txtAtivarCurso={txtAtivarCurso}
+              txtButtonLabel={txtButtonLabel}
+              txtCriarNovoCurso={txtCriarNovoCurso}
             />
           }                
         </>          

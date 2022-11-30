@@ -90,7 +90,7 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
               </Styles.GeralThumbnails>
               <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={checked} />
               <Styles.ContainerMain>
-                <Styles.Typography style={{ color: checked ? '#000000' : '#bdbdbd' }}>{title}</Styles.Typography>
+                <Styles.Typography style={{ color: checked ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
                 <Styles.IconVertical onClick={handleClickContent}>
                   <Icons.MoreVertical fill={checked ? '#000000' : '#bdbdbd'} />
                 </Styles.IconVertical>

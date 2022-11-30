@@ -32,7 +32,7 @@ const item3 = {
 
 const item4 = {
   id: v4(),
-  name: 'Curso de Vendas',
+  name: 'Curso de Vendas Curso de Vendas ',
   disabled: true,
 }
 
@@ -65,7 +65,7 @@ const trails = [
   },
   {
     id: v4(),
-    TrailName: 'Liderança que inspira',
+    TrailName: 'Liderança que inspira ',
     items: [],
     ativo: false,
     show: true,
@@ -89,6 +89,7 @@ Opened.args = {
     textTotalDe: "Total of",
     textRegistros: "records",
     textMinhasTrihas: "My tracks",
-    txtAtivarCurso: "Activate course"
+    txtAtivarCurso: "Activate course",
+    txtCriarNovoCurso: "New Trail"
 }
 
