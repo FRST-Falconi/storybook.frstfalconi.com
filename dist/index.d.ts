@@ -53,6 +53,7 @@ export { default as Video } from './src/components/LXP/video';
 export { default as GlobalMenu } from './src/components/global-menu';
 export { default as ExtraContent } from './src/components/LXP/extraContent';
 export { default as LoginLxp } from './src/components/LXP/login';
+export { default as AccordionTrackList } from './src/components/LXP/accordionTrack/accordionTrackList';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';
