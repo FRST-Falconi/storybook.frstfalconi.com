@@ -77,19 +77,13 @@ export const Opened = Template.bind({})
 Opened.args = {
     onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
     handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
-    trailsData: trails
-}
-
-export const OpenedTranslate = Template.bind({})
-Opened.args = {
-    onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
-    handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
     trailsData: trails,
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",
     textRegistros: "records",
     textMinhasTrihas: "My tracks",
-    txtAtivarCurso: "Activate course",
+    txtAtivarCurso: "Activate trail",
     txtCriarNovoCurso: "New Trail"
 }
+
 
