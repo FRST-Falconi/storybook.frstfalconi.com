@@ -2823,7 +2823,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
     };
     React.useEffect(() => {
         var objDiv = document.getElementById(iDScroll);
-        if (objDiv.clientWidth < objDiv.scrollWidth)
+        if (objDiv && objDiv.clientWidth && objDiv.clientWidth < objDiv.scrollWidth)
             setIsVisibleArrowButtonRight(true);
         else
             setIsVisibleArrowButtonRight(false);
@@ -2833,6 +2833,11 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
             var objDiv = document.getElementById(iDScroll);
             ((objDiv.offsetWidth + objDiv.scrollLeft) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
             (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            var objDiv = document.getElementById(iDScroll);
+            if (objDiv && objDiv.clientWidth && objDiv.clientWidth < objDiv.scrollWidth)
+                setIsVisibleArrowButtonRight(true);
+            else
+                setIsVisibleArrowButtonRight(false);
         }
         window.addEventListener('resize', updateSize);
         updateSize();
