@@ -2,22 +2,27 @@ import '../../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './thumbnailsStyle'
-import { IThumbnails } from './thumbnails.d'
+import { IThumbnails, IThumbnailsTranslate } from './thumbnails.d'
 import VectorEllipse from './vectorEllipse'
 import VectorCross from './vectorCross'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch'
 import Button from '../../buttons'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided }: IThumbnails) {
+export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled, txtButtonLabel, txtCriarNovoCurso, txtAtivarCurso }: IThumbnailsTranslate) {
   const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg"
-
-  const [checked, setChecked] = useState<boolean>(true)
+  //{ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled }:
+  const [checked, setChecked] = useState<boolean>(!disabled)
   const [showModules, setShowModules] = useState<boolean>(false)
   const [down, setDown] = useState(true)
   const [up, setUp] = useState(false)
+
+  useEffect (() => {
+    setChecked(!disabled)
+    console.log("Atualizou Ativo: ", !disabled)
+  }, [disabled])
 
   const handleChangeCheck = (checkedValue: boolean) => {
     setChecked(checkedValue)
@@ -43,7 +48,7 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
           <>
             <Styles.ContainerThumbnails className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
               <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
-                <Button label='Ir para o curso' variant='primary' handleClick={handleClickCourse} />
+                <Button label={txtButtonLabel ? txtButtonLabel : 'Ir para o curso'} variant='primary' handleClick={handleClickCourse} />
               </Styles.ContainerButton>
               <Styles.GeralThumbnails ref={provided ? provided.innerRef : null} {...provided ? provided.dragHandleProps : null}>
                 <Styles.Thumbnails>
@@ -85,14 +90,14 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
               </Styles.GeralThumbnails>
               <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={checked} />
               <Styles.ContainerMain>
-                <Styles.Typography style={{ color: checked ? '#000000' : '#bdbdbd' }}>{title}</Styles.Typography>
+                <Styles.Typography style={{ color: checked ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
                 <Styles.IconVertical onClick={handleClickContent}>
                   <Icons.MoreVertical fill={checked ? '#000000' : '#bdbdbd'} />
                 </Styles.IconVertical>
               </Styles.ContainerMain >
               <Styles.ContainerAtivar>
                 <Styles.TypographyAtivar active={checked} style={{ fontWeight: checked ? 700 : 400 }}>
-                  Ativar curso
+                  {txtAtivarCurso ? txtAtivarCurso : 'Ativar curso'}
                 </Styles.TypographyAtivar>
                 <Switch
                   onChange={handleChangeCheck}
@@ -119,7 +124,7 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
                 <VectorCross />
               </Styles.ContainerEllipse>
               <Styles.TypographyAdd >
-                Criar novo curso
+                {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo curso'}
               </Styles.TypographyAdd>
             </Styles.ContainerThumbnailsAdd>
 

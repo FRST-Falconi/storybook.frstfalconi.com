@@ -1,12 +1,12 @@
 import React from "react"
 //import * as Icons from '../../shared/icons'
-import { content } from '../../shared/icons'
+//mport { content } from '../../shared/icons'
 
 type enumVariant =  'default' | 'add' 
 
 export interface IThumbnails {
     src?: string,
-    disabled?: boolean,    
+    disabled: boolean,    
     handleClickCourse?: () => void,
     handleChange?: (checkedValue: boolean) => void,
     handleClickNew?: () => void,
@@ -15,6 +15,12 @@ export interface IThumbnails {
     title?: string   
     id?: string,
     index?: string,
-    provided?: any
+    provided?: any    
+}
+
+export interface IThumbnailsTranslate extends IThumbnails {
+    txtButtonLabel?: string
+    txtAtivarCurso?: string
+    txtCriarNovoCurso?: string
 }
 

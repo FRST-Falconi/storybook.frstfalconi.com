@@ -53,8 +53,9 @@ export const GeralThumbnails = styled.div`
 `
 export const ContainerMain = styled.div`
     display: flex;
-    margin-top: 220px;
+    margin-top: 235px;
     position: relative;
+    align-items: center;
 `
 export const Typography = styled.p`
     font-family: 'PT Sans';
@@ -76,8 +77,8 @@ export const IconVertical = styled.div`
 export const ContainerAtivar = styled.div`
     display: flex;
     gap: 5px;
-    margin-top: 60px;
-    margin-left: 32px;
+    margin-top: 45px;
+    margin-left: 24px;
     position: absolute;
 `
 export const TypographyAtivar = styled.p<IImageBackground>`

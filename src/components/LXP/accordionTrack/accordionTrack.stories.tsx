@@ -5,50 +5,85 @@ import AccordionTrackList from './accordionTrackList'
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'LXP/AccordionTrack',
-    component: AccordionTrackList,
+    component: AccordionTrackList,    
+    
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <AccordionTrackList {...args} />
 
-export const ClosedDefault = Template.bind({})
-ClosedDefault.args = {
-    variant: 'closedDefault',
-    TrailName: 'Nome da trilha',
-    handleClickSelect: () => { alert('Up ? Up : Down') },
-    handleClickContent: () => { alert('Click conteúdo') },
-    handleChangeCheck: (checkedValue) => { console.log(`curso ativado=${checkedValue}`)}    
-}
-
 const item = {
-  id: `0`,
-  title: 'Curso de Bitcoin',
+  id: v4(),
+  name: 'Curso de Bitcoin',
+  disabled: false,
 }
 
 const item2 = {
-  id: `1`,
-  title: 'Curso de Liderança',
+  id: v4(),
+  name: 'Curso de Liderança',
+  disabled: false,
 }
 
 const item3 = {
-  id: `2`,
-  title: 'Curso de Negociação',
+  id: v4(),
+  name: 'Curso de Negociação',
+  disabled: false,
 }
+
+const item4 = {
+  id: v4(),
+  name: 'Curso de Vendas Curso de Vendas ',
+  disabled: true,
+}
+
+const item5 = {
+  id: v4(),
+  name: 'Curso de Letras',
+  disabled: true,
+}
+  
+const item6 = {
+  id: v4(),
+  name: 'Curso de Teste',
+  disabled: true,
+}
+
+const trails = [
+  {  
+    id: v4(),
+    TrailName: 'Sem Trilhas',
+    items: [ item4, item5, ],
+    ativo: true,
+    show: true,
+  },
+  {
+    id: v4(),
+    TrailName: 'O Lider que bate Metas',
+    items: [item, item2, item3,],
+    ativo: true,
+    show: true,
+  },
+  {
+    id: v4(),
+    TrailName: 'Liderança que inspira ',
+    items: [],
+    ativo: false,
+    show: true,
+  },  
+  
+]  
 
 export const Opened = Template.bind({})
 Opened.args = {
-    variant: 'opened',
-    TrailName: 'Nome da trilha',
-    handleClickSelect: () => { alert('Up ? Up : Down') },
-    handleClickContent: () => { alert('Click conteúdo') },
-    handleChangeCheck: (checkedValue) => { console.log(`curso ativado=${checkedValue}`)},
-    ObjectsCard: [
-        {  
-          id: v4(),
-          title: 'Trilha 1',
-          items: [item, item2, item3],
-          ativo: true
-        },        
-    ]
+    onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
+    handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
+    trailsData: trails,
+    textMeusConteudos: "My Contents",
+    textTotalDe: "Total of",
+    textRegistros: "records",
+    textMinhasTrihas: "My tracks",
+    txtAtivarCurso: "Activate trail",
+    txtCriarNovoCurso: "New Trail"
 }
+
 
