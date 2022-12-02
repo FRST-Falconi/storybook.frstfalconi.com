@@ -48,5 +48,5 @@ colored.args = {
   selected: false,
   color: '#FF0000',
   title: 'Titulo Tag',
-  onClick: () => console.log('Testee')
+  onClick: () => console.log('Clicou na tag')
 }
