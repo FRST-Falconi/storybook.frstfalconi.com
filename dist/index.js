@@ -13,7 +13,7 @@ var MenuItem = require('@mui/material/MenuItem');
 var Card = require('@mui/material/Card');
 var Stepper$1 = require('@mui/material/Stepper');
 var FormControl = require('@mui/material/FormControl');
-var Select$2 = require('@mui/material/Select');
+var Select$3 = require('@mui/material/Select');
 var CheckIcon = require('@mui/icons-material/Check');
 var LoginIcon = require('@mui/icons-material/Login');
 var Box = require('@mui/material/Box');
@@ -21,13 +21,13 @@ var Step = require('@mui/material/Step');
 var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
-var Select$3 = require('react-select');
+var Select$4 = require('react-select');
 var reactColor = require('react-color');
 var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
 var styles$1 = require('@material-ui/core/styles');
 var Rating$2 = require('@mui/material/Rating');
-var Typography$2 = require('@mui/material/Typography');
+var Typography$3 = require('@mui/material/Typography');
 var reactDateRange = require('react-date-range');
 var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
@@ -39,6 +39,7 @@ var slateHistory = require('slate-history');
 require('react-dom');
 var css = require('@emotion/css');
 var iconsMaterial = require('@mui/icons-material');
+var Switch = require('react-switch');
 var _ = require('@mui/material/');
 var Slider = require('@mui/material/Slider');
 var styles$2 = require('@material-ui/styles');
@@ -72,19 +73,20 @@ var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var Card__default = /*#__PURE__*/_interopDefaultLegacy(Card);
 var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper$1);
 var FormControl__default = /*#__PURE__*/_interopDefaultLegacy(FormControl);
-var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$2);
+var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$3);
 var CheckIcon__default = /*#__PURE__*/_interopDefaultLegacy(CheckIcon);
 var LoginIcon__default = /*#__PURE__*/_interopDefaultLegacy(LoginIcon);
 var Box__default = /*#__PURE__*/_interopDefaultLegacy(Box);
 var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
-var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$3);
+var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
-var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$2);
+var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$3);
 var Avatar__default = /*#__PURE__*/_interopDefaultLegacy(Avatar$1);
 var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
+var Switch__default = /*#__PURE__*/_interopDefaultLegacy(Switch);
 var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
 
 function EditIcon({ fill, width, height }) {
@@ -221,6 +223,9 @@ function PodCast({ fill, width, height }) {
 }
 function QuizSucessError({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M17.3846 10.466V3.67407C17.3846 3.16518 17.0002 2.76953 16.5056 2.76953H2.87917C2.38462 2.76953 2 3.16529 2 3.67422V12.7205C2 13.2293 2.38446 13.625 2.87904 13.625H4.85699C5.10151 13.6239 5.31936 13.8692 5.29651 14.1197L4.98055 17.3849L8.50383 13.7594C8.58447 13.6755 8.69822 13.6252 8.81289 13.6252H11.2306", stroke: fill ? fill : "#222222", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M21.3528 10.4879L11.869 10.4619C11.5151 10.4612 11.2305 10.7592 11.2305 11.1695V18.5648C11.2305 18.9751 11.5194 19.2696 11.8774 19.2723L16.8672 19.2983C16.9985 19.297 17.1297 19.3472 17.2284 19.4364L19.152 21.2311L19.026 19.9023C18.9979 19.5965 19.2645 19.2983 19.5636 19.2983H21.3528C21.7081 19.2983 21.9997 19.0009 21.9997 18.5906V11.1869C21.9997 10.7766 21.7096 10.4879 21.3528 10.4879Z", stroke: fill ? fill : "#222222", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M18.5157 13.667L15.4854 16.6973", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.4854 13.667L18.5157 16.6973", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.7691 5.84668L8.53831 10.0774L6.61523 8.15437", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function MoreVertical({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z", stroke: fill ? fill : "black", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z", stroke: fill ? fill : "black", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19Z", stroke: fill ? fill : "black", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function UploadIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M19.0834 13.9824V17.1121C19.0834 17.5271 18.9185 17.9251 18.625 18.2186C18.3316 18.512 17.9336 18.6769 17.5185 18.6769H6.56482C6.1498 18.6769 5.75178 18.512 5.45832 18.2186C5.16486 17.9251 5 17.5271 5 17.1121V13.9824", stroke: fill ? fill : "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.4062 8L11.9063 4L7.40625 8", stroke: fill ? fill : "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.9063 4L11.9062 15", stroke: fill ? fill : "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -365,10 +370,14 @@ function Tag(props) {
     function getColor() {
         return props.selected === props.inverted ? '#fff' : props.color;
     }
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.loading ?
-            (jsxRuntime.jsx("div", { className: 'shimmer tag', style: props.style, children: jsxRuntime.jsx("span", { style: { verticalAlign: 'middle', margin: '8px' }, children: "Shimmer Text" }) }))
-            :
-                (jsxRuntime.jsx("div", { className: 'tag', style: { border: `1px solid ${getColor()} `, background: getBG(), color: getColor(), ...props.style }, children: jsxRuntime.jsxs("span", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '24px', margin: '0 8px', gap: '8px' }, children: [props.title, props.iconType === 'warning' && jsxRuntime.jsx(AlertCicle, { fill: getColor() }), props.iconType === 'checked' && jsxRuntime.jsx(DoubleCheck, { fill: getColor() })] }) })) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.loading ? (jsxRuntime.jsx("div", { className: "shimmer tag", style: props.style, children: jsxRuntime.jsx("span", { style: { verticalAlign: 'middle', margin: '8px' }, children: "Shimmer Text" }) })) : (jsxRuntime.jsx("div", { className: "tag", style: { border: `1px solid ${getColor()} `, background: getBG(), color: getColor(), ...props.style }, children: jsxRuntime.jsxs("span", { style: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '24px',
+                    margin: '0 8px',
+                    gap: '8px'
+                }, onClick: props?.onClick, children: [props.title, props.iconType === 'warning' && jsxRuntime.jsx(AlertCicle, { fill: getColor() }), props.iconType === 'checked' && jsxRuntime.jsx(DoubleCheck, { fill: getColor() })] }) })) }));
 }
 
 function EmptyCard(props) {
@@ -1659,7 +1668,7 @@ function Button$2({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$3, { length: length, active: active, value: value, style: style, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
-var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
+var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-break: break-all;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  word-break: break-all;\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
 var style$a = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
 styleInject(css_248z$b);
 
@@ -1768,6 +1777,7 @@ function BannerProblem(props) {
                                 color: '#FF4D0D',
                                 backgroundColor: 'rgb(242, 242, 242)',
                                 border: 'none',
+                                wordBreak: 'break-all',
                             }, children: TituloProblema }) })
                     :
                         jsxRuntime.jsx("h1", { className: style$a.description, children: problema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
@@ -2817,7 +2827,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
     };
     React.useEffect(() => {
         var objDiv = document.getElementById(iDScroll);
-        if (objDiv.clientWidth < objDiv.scrollWidth)
+        if (objDiv && objDiv.clientWidth && objDiv.clientWidth < objDiv.scrollWidth)
             setIsVisibleArrowButtonRight(true);
         else
             setIsVisibleArrowButtonRight(false);
@@ -2827,6 +2837,11 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
             var objDiv = document.getElementById(iDScroll);
             ((objDiv.offsetWidth + objDiv.scrollLeft) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
             (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            var objDiv = document.getElementById(iDScroll);
+            if (objDiv && objDiv.clientWidth && objDiv.clientWidth < objDiv.scrollWidth)
+                setIsVisibleArrowButtonRight(true);
+            else
+                setIsVisibleArrowButtonRight(false);
         }
         window.addEventListener('resize', updateSize);
         updateSize();
@@ -3167,7 +3182,7 @@ const SelectedOption = styled__default["default"]('p') `
 function ArrowIcon() {
     return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
 }
-function Select$1({ placeholder, defaultValue, children, onChange, loading, isError, style }) {
+function Select$2({ placeholder, defaultValue, children, onChange, loading, isError, style }) {
     const wrapperRef = React.useRef(null);
     const [isOpen, setIsOpen] = React.useState(false);
     const [selectedOption, setSelectedOption] = React.useState(null);
@@ -3243,7 +3258,7 @@ function SelectItem({ value, label, selected, handleSelect, disabled }) {
 }
 
 function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style }) {
-    return (jsxRuntime.jsx(Select$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), isError: isError, style: style, children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
+    return (jsxRuntime.jsx(Select$2, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), isError: isError, style: style, children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
 const Container$a = styled__default["default"].div `
@@ -3671,7 +3686,7 @@ function ModalLearningTech(props) {
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
 }
 
-var css_248z$8 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
+var css_248z$8 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-break: break-all;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
 var style$7 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
 styleInject(css_248z$8);
 
@@ -3688,7 +3703,7 @@ function CardProblemGestor(props) {
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
-var css_248z$7 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
+var css_248z$7 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-break: break-all;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
 var style$6 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
 styleInject(css_248z$7);
 
@@ -3764,7 +3779,6 @@ function CardProblem(props) {
     }, [props.language]);
     const [statusName, setStatusName] = React.useState(translate[languageSlected]['notStarted']);
     const [selected, setSelected] = React.useState(props.selected);
-    console.log(translate);
     const [statusColor, setStatusColor] = React.useState('#757575');
     React.useEffect(() => {
         switch (props.problemStatus) {
@@ -4509,7 +4523,8 @@ function TrailList({ title, trails, style }) {
 
 const ContainerGeral = styled__default["default"].div `
   display: flex;
-  flex-direction: ${(props) => props.variant === 'upLeft' || props.variant === 'upRight' ? 'column-reverse' : 'column'};
+  height: 8.5rem;
+  align-content: flex-end;
   &:hover .popOver {
     display: block;
   }
@@ -4523,9 +4538,12 @@ const AvatarChannel$1 = styled__default["default"].div `
   border-radius: 50%;
   background-color: ${(props) => props.color || '#6a3f86'};
   position: relative;
-  margin: 20px 0;
-
+  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
   cursor: pointer;
+  ${(props) => props.variant === 'sideRight' &&
+    styled.css `
+      margin-left: 8.5rem;
+    `}
 
   img {
     border-radius: 50%;
@@ -4571,11 +4589,25 @@ const ContainerPopOver = styled__default["default"].div `
   font-size: 16px;
   display: none;
   width: 120px;
-  /* position: absolute; */
-  top: 0;
-  margin-top: -5px;
+  position: absolute;
+  margin-top: 0;
   font-family: 'PT Sans';
   font-weight: 400;
+  ${(props) => (props.variant === 'upLeft' || props.variant === 'upRight') &&
+    styled.css `
+      margin-top: 7rem;
+    `}
+
+  ${(props) => props.variant === 'sideLeft' &&
+    styled.css `
+      margin-top: 1rem;
+      margin-left: 6rem;
+    `}
+
+    ${(props) => props.variant === 'sideRight' &&
+    styled.css `
+      margin-top: 1rem;
+    `}
 `;
 
 const RectangleUpLeft = styled__default["default"].div `
@@ -4716,7 +4748,7 @@ function PopOver({ variant, children }) {
 }
 
 function AvatarChannel({ size, channel, className, disabled, color, onChange, variantPopOver }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerGeral, { className: "geral", variant: variantPopOver, children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: variantPopOver }) }), jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral, { className: "geral", variant: variantPopOver, children: variantPopOver === 'lowLeft' || variantPopOver === 'lowRight' || variantPopOver === 'sideRight' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: variantPopOver }) }), jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }), jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOver, { children: 'Alterar avatar', variant: variantPopOver }) })] })) }) }));
 }
 
 var css_248z$4 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
@@ -4995,14 +5027,8 @@ const ContentSwitcherSelected = styled__default["default"].button `
     }
 `;
 
-function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected }) {
-    const [isClicked, setIsClicked] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$8, { sizeIcon: sizeIcon, style: { ...style }, onClick: () => {
-                setIsClicked(true);
-            }, children: !isClicked ?
-                (jsxRuntime.jsxs(ContentSwitcher$1, { children: [startIcon, label] }))
-                :
-                    jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, children: [startIconSelected, label] }) }) }));
+function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected, isActive, idButtonSwitcher }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$8, { sizeIcon: sizeIcon, style: { ...style }, children: !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, id: idButtonSwitcher, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, id: idButtonSwitcher, children: [startIconSelected, label] })) }) }));
 }
 
 const Container$7 = styled__default["default"].div `
@@ -5015,7 +5041,7 @@ const Container$7 = styled__default["default"].div `
     align-items: center; 
     position: relative;
 `;
-const Image$2 = styled__default["default"].img `
+const Image$3 = styled__default["default"].img `
     width: 232px;
     height: 310px;
     margin-bottom: 45px;
@@ -5029,7 +5055,7 @@ const Content = styled__default["default"].div `
     position: absolute ;
     margin-top: 340px;
 `;
-const Typography$1 = styled__default["default"].p `
+const Typography$2 = styled__default["default"].p `
     width: 140px;
     height: 46px;    
     font-family: 'Work Sans';
@@ -5043,7 +5069,7 @@ const Typography$1 = styled__default["default"].p `
     margin: 70px;
     margin-left: 8px;
 `;
-const Select = styled__default["default"].div `
+const Select$1 = styled__default["default"].div `
     background: none;
     width: 20px;
     height: 20px;
@@ -5054,7 +5080,7 @@ const Select = styled__default["default"].div `
         opacity: 0.5;
     }
 `;
-const ContainerCard = styled__default["default"].div `
+const ContainerCard$1 = styled__default["default"].div `
     width: 269px;
     height: 76px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -5073,7 +5099,7 @@ const ContainerCard = styled__default["default"].div `
         right: 15px;       
     }
 `;
-const Thumbnails = styled__default["default"].div `
+const Thumbnails$2 = styled__default["default"].div `
     width: 17.29px;
     height: 51px;    
     margin-left: -11px;       
@@ -5155,7 +5181,7 @@ const OptionChoice = styled__default["default"].option `
  *
  * @componente
  */
-function VectorDown(props) {
+function VectorDown$1(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L9 9L1 0.999999", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }));
 }
 
@@ -5165,7 +5191,7 @@ function VectorDown(props) {
  *
  * @componente
  */
-function VectorUp(props) {
+function VectorUp$1(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 9L9 1L17 9", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }) }));
 }
 
@@ -5175,7 +5201,7 @@ function VectorUp(props) {
  *
  * @componente
  */
-function VectorEllipse(props) {
+function VectorEllipse$1(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "5", height: "5", viewBox: "0 0 5 5", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint0_angular_4285_2572)" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint1_radial_4285_2572)", fillOpacity: "0.6" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", stroke: "#BDBDBD", strokeWidth: "0.1" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("radialGradient", { id: "paint0_angular_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { stopColor: "#757575" }), jsxRuntime.jsx("stop", { offset: "0.526042", stopColor: "#757575", stopOpacity: "0" })] }), jsxRuntime.jsxs("radialGradient", { id: "paint1_radial_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { offset: "0.380208", stopColor: "white" }), jsxRuntime.jsx("stop", { offset: "1", stopColor: "#EBEBEB", stopOpacity: "0" })] })] })] }) }));
 }
 
@@ -5216,7 +5242,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
             setContentListData(reorderedItems);
         };
         return (jsxRuntime.jsx(reactBeautifulDnd.DragDropContext, { onDragEnd: onDragEnd, children: jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: "contentListData", children: (provided) => (jsxRuntime.jsx("div", { ref: provided.innerRef, children: contentListData.map((item, index) => {
-                        return (jsxRuntime.jsx(reactBeautifulDnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), iconList[item.type], jsxRuntime.jsx(Title$1, { onClick: handleClick, children: item.title }), jsxRuntime.jsx(IconTrash, { className: 'trash', onClick: () => removeContentList(item.title), children: jsxRuntime.jsx(TrashIcon, { fill: '#FF4D0D' }) })] })) }));
+                        return (jsxRuntime.jsx(reactBeautifulDnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), iconList[item.type], jsxRuntime.jsx(Title$1, { onClick: handleClick, children: item.title }), jsxRuntime.jsx(IconTrash, { className: 'trash', onClick: () => removeContentList(item.title), children: jsxRuntime.jsx(TrashIcon, { fill: '#FF4D0D' }) })] })) }));
                     }) })) }) }));
     }
     const change = () => {
@@ -5234,12 +5260,12 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
         console.log(newList);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ?
-            jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$7, { className: variant = 'individualCourse', children: [jsxRuntime.jsx(Image$2, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography$1, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
+            jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$7, { className: variant = 'individualCourse', children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ?
                         jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })
                         :
                             null] })
             : variant === 'trilha' ?
-                jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: variant = 'trilha', children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$1, { children: title }), jsxRuntime.jsx(Select, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })] }), up ?
+                jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: variant = 'trilha', children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ?
                             jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })
                             :
                                 null] })
@@ -5401,7 +5427,7 @@ const TextContainer = styled__default["default"].div `
   flex-direction: column;
   width: 100%;
 `;
-const Image$1 = styled__default["default"].img `
+const Image$2 = styled__default["default"].img `
   width: 88px;
   height: 120px;
   border-radius: 8px;
@@ -5431,7 +5457,7 @@ const Description = styled__default["default"].text `
 `;
 
 function SearchResults({ src, title, description, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$6, { children: [jsxRuntime.jsx(Image$1, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$6, { children: [jsxRuntime.jsx(Image$2, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
 }
 
 const WrapperCard$2 = styled__default["default"].div `
@@ -5983,7 +6009,7 @@ const Wrapper = styled__default["default"].div `
     background: transparent;
     border: 0;
 `;
-const Image = styled__default["default"].img `
+const Image$1 = styled__default["default"].img `
     width: 50px;
     user-select: none;
     cursor: pointer;
@@ -6041,15 +6067,15 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
         setIsOpenDrop(false);
         setActiveArea(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image$1, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
                         return (jsxRuntime.jsx("div", { children: item == 'pt-BR' ?
-                                jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
                                 : item == 'en-US' ?
-                                    jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('en-US'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                    jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('en-US'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
                                     : item == 'pt-PT' ?
-                                        jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-PT'), src: imgPT, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                        jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('pt-PT'), src: imgPT, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
                                         : item == 'es' &&
-                                            jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
+                                            jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
                     }) })] }) }));
 }
 
@@ -7100,6 +7126,428 @@ function Login(props) {
                         : 'Solicitação enviada com sucesso para o seu e-mail.' }), jsxRuntime.jsx(ContainerButtonSendConfirmation, { children: jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textConfirmacaoButtonRetorna ? props.textConfirmacaoButtonRetorna : 'Retornar', handleClick: props.onClickConfimationBackToLogin }) })] })) : null }));
 }
 
+const ContainerHeader = styled__default["default"].div `
+    width: 100%;
+    min-height: 72px;
+    margin-top: 12px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 27px;
+    padding-right: 20px;
+    background-color: ${(props) => `${props.active ? '#ffffff' : '#ebebeb'}`};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    z-index: 99px;   
+`;
+styled__default["default"].div `
+    width: 100%;
+    min-height: 72px;
+    margin-top: 12px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 27px;
+    padding-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    z-index: 99px;   
+`;
+const ContainerTrailsNormal = styled__default["default"].div `
+    height: 415px; 
+    border: 1px solid black; 
+    padding: 16px;
+    margin-top: -5px; 
+    background-color: rgb(235, 235, 235);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 0;
+    width: 100%;
+`;
+const ContainerTrailsEmpty = styled__default["default"].div `
+    height: 415px; 
+    padding: 16px;
+    margin-top: -5px; 
+    z-index: 0;
+    width: 100%;
+`;
+const ContentTrailName = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;    
+    gap: 20px;    
+`;
+const TypographyTrailName = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    color: ${({ theme }) => theme.colors.primary1};
+`;
+const Select = styled__default["default"].div `
+    cursor: pointer;    
+`;
+const ContentActiveHeader = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;    
+    gap: 50px;    
+`;
+const TypographyActiveHeader = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: right;
+    color: ${({ theme }) => theme.colors.shadeBlack};    
+    display: flex;
+    gap: 10px;        
+`;
+const IconVerticalHeader = styled__default["default"].div `
+    cursor: pointer;
+`;
+styled__default["default"].div `
+    width: 100%;
+    min-height: 415px;
+    display: flex;
+    justify-content: flex-start;
+    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-radius: 0px 0px 8px 8px;    
+    padding: 30px 0px 30px 0px;
+    filter: ${(props) => `grayscale(${props.active ? '0' : '1'})`};
+    margin-top: -5px;
+`;
+const ContainerCard = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    justify-items: center;
+    width: 100%;
+    min-height: 300px;
+    gap: 20px;
+
+`;
+
+const ContainerThumbnails = styled__default["default"].div `
+    width: 180px;
+    min-width: 180px;
+    height: 352px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 8px;    
+    z-index: 9999px;
+    user-select: none;
+`;
+const ContainerButton = styled__default["default"].div `    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 8px;
+    z-index: 1;
+    background-color: #00000090;
+    margin:0;
+    padding: 0;
+    border: none;
+    display: ${(props) => `${props.active ? 'flex' : 'none'}`};
+    justify-content: center;
+    align-items: center;
+`;
+const Thumbnails$1 = styled__default["default"].div `
+    display: flex;
+    justify-content: center;   
+    `;
+const Image = styled__default["default"].img `
+    width: 155px;
+    height: 205px;
+    border-radius: 4px;
+    position: absolute;
+    object-fit: cover;
+    margin-top: 10px;
+    margin-left: 12px;
+    filter: ${(props) => `grayscale(${props.active ? '0' : '1'})`};   
+    `;
+const GeralThumbnails = styled__default["default"].div `    
+   margin: 0;
+`;
+const ContainerMain = styled__default["default"].div `
+    display: flex;
+    margin-top: 235px;
+    position: relative;
+    align-items: center;
+`;
+const Typography$1 = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    color: ${({ theme }) => theme.colors.shadeBlack};
+    margin-left: 12px; 
+    white-space: wrap;
+    position: absolute;
+`;
+const IconVertical = styled__default["default"].div `
+    margin-left: 150px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: absolute;
+`;
+const ContainerAtivar = styled__default["default"].div `
+    display: flex;
+    gap: 5px;
+    margin-top: 45px;
+    margin-left: 24px;
+    position: absolute;
+`;
+const TypographyAtivar = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: right;
+    color: ${({ theme }) => theme.colors.shadeBlack};        
+`;
+/* ################addNew############################ */
+const ContainerThumbnailsAdd = styled__default["default"].div `
+    width: 177px;
+    height: 352px;
+    border-radius: 8px;
+    border: 1px dashed ${({ theme }) => theme.colors.neutralsGrey5};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+`;
+const ContainerEllipse = styled__default["default"].button `
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background-color: ${({ theme }) => theme.colors.neutralsGrey4};
+    cursor: pointer;
+    padding-top: 5px;
+`;
+const TypographyAdd = styled__default["default"].p `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: ${({ theme }) => theme.colors.neutralsGrey4};
+`;
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function VectorEllipse(props) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "5", height: "5", viewBox: "0 0 5 5", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint0_angular_4285_2572)" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint1_radial_4285_2572)", fillOpacity: "0.6" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", stroke: "#BDBDBD", strokeWidth: "0.1" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("radialGradient", { id: "paint0_angular_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { stopColor: "#757575" }), jsxRuntime.jsx("stop", { offset: "0.526042", stopColor: "#757575", stopOpacity: "0" })] }), jsxRuntime.jsxs("radialGradient", { id: "paint1_radial_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { offset: "0.380208", stopColor: "white" }), jsxRuntime.jsx("stop", { offset: "1", stopColor: "#EBEBEB", stopOpacity: "0" })] })] })] }) }));
+}
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function VectorCross(props) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.2051 1.53845V22.8718", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.53809 12.2051H22.8714", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+
+function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled, txtButtonLabel, txtCriarNovoCurso, txtAtivarCurso }) {
+    const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg";
+    //{ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled }:
+    const [checked, setChecked] = React.useState(!disabled);
+    const [showModules, setShowModules] = React.useState(false);
+    React.useState(true);
+    React.useState(false);
+    React.useEffect(() => {
+        setChecked(!disabled);
+        console.log("Atualizou Ativo: ", !disabled);
+    }, [disabled]);
+    const handleChangeCheck = (checkedValue) => {
+        setChecked(checkedValue);
+        handleChange(checkedValue);
+    };
+    const handleHoverImage = () => {
+        if (!showModules) {
+            setShowModules(true);
+        }
+    };
+    const handleHoverImageOut = () => {
+        if (showModules) {
+            setShowModules(false);
+        }
+    };
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'default' ?
+                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(ContainerThumbnails, { className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsx(ContainerButton, { onMouseOut: handleHoverImageOut, className: 'buttonVisible', active: showModules, children: jsxRuntime.jsx(Button$2, { label: txtButtonLabel ? txtButtonLabel : 'Ir para o curso', variant: 'primary', handleClick: handleClickCourse }) }), jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: checked }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(Typography$1, { style: { color: checked ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }), jsxRuntime.jsx(IconVertical, { onClick: handleClickContent, children: jsxRuntime.jsx(MoreVertical, { fill: checked ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: checked, style: { fontWeight: checked ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar curso' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: checked, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#ebebeb', activeBoxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }) })
+                : variant === 'add' ?
+                    jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo curso' })] })
+                    : null }) }));
+}
+
+function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, id, index, disabled, txtButtonLabel, txtAtivarCurso, txtCriarNovoCurso }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(reactBeautifulDnd.Draggable, { index: index, draggableId: id, children: (provided) => {
+                return (jsxRuntime.jsx(Thumbnails, { src: src, disabled: disabled, handleClickCourse: handleClickCourse, handleChange: handleChange, handleClickNew: handleClickNew, handleClickContent: handleClickContent, variant: variant, title: title, id: id, index: index, provided: provided, txtButtonLabel: txtButtonLabel, txtAtivarCurso: txtAtivarCurso, txtCriarNovoCurso: txtCriarNovoCurso }));
+            } }, id) }));
+}
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function VectorDown(props) {
+    return (jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L9 9L1 0.999999", stroke: "#FF4D0D", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
+}
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function VectorUp(props) {
+    return (jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 9L9 1L17 9", stroke: "#FF4D0D", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
+}
+
+function AccordionTrackNormal(data, props) {
+    const [checked, setChecked] = React.useState(true);
+    const [up, setUp] = React.useState(true);
+    const handleChange = (checkedValue) => {
+        setChecked(checkedValue);
+        data.handleChangeCheck(checkedValue);
+    };
+    const changeSelect = () => {
+        {
+            if (up) {
+                setUp(false);
+                data.handleChangeShow(false);
+            }
+            else {
+                setUp(true);
+                data.handleChangeShow(true);
+            }
+        }
+    };
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: "opened", active: data.ativo, children: [jsxRuntime.jsxs(ContentTrailName, { children: [jsxRuntime.jsx(TypographyTrailName, { children: data.TrailName }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: data.show ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] }), jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: data.ativo, style: { fontWeight: data.ativo ? 700 : 400 }, children: [props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: data.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsx(IconVerticalHeader
+                            // onClick={data.handleClickContent}
+                            , { children: jsxRuntime.jsx(MoreVertical, { fill: data.ativo ? '#000000' : '#bdbdbd' }) })] })] }), data.children] }));
+}
+
+function AccordionTrackEmpty(data) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: data.children }));
+}
+
+function AccordionTrack(props) {
+    const [state, setState] = React.useState(props.trailsData);
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: state.map((data, key) => {
+            return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: key === 0 ?
+                    jsxRuntime.jsxs(AccordionTrackEmpty, { TrailName: data.TrailName, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h2", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", data.items.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), data.show &&
+                                jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
+                                        return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', styles: { justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), (data.ativo || data.ativo) && data.items.map((el, index) => {
+                                                                return (jsxRuntime.jsx(ThumbnailsDraggable, { disabled: el.disabled, id: el.id, index: index, title: el.name, variant: 'default', txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleChange: () => { } }, index));
+                                                            })] }) }), provided.placeholder] }));
+                                    } }, key)] })
+                    :
+                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [key === 1 &&
+                                    jsxRuntime.jsx("span", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), jsxRuntime.jsx(AccordionTrackNormal, { TrailName: data.TrailName, ativo: data.ativo, handleChangeCheck: (bActive) => {
+                                        if (props.onSetActiveTrail) {
+                                            props.onSetActiveTrail(bActive, key);
+                                        }
+                                    }, handleChangeShow: (bShow) => {
+                                        if (props.onSetShowTrail) {
+                                            props.onSetShowTrail(bShow, key);
+                                        }
+                                    }, children: data.show &&
+                                        jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
+                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), data.items && data.items.map((el, index) => {
+                                                                        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: el.id, disabled: el.disabled, index: index, title: el.name, variant: 'default', handleChange: () => { }, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso }, index) }));
+                                                                    })] }) }), provided.placeholder] }));
+                                            } }, key) })] }) }));
+        }) }));
+}
+
+function AccordionTrackList({ trailsData, handleChange, onNewTrail, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso }) {
+    const [trails, setTrails] = React.useState(trailsData);
+    React.useEffect(() => {
+        if (handleChange) {
+            handleChange(trails);
+        }
+    }, [trails]);
+    React.useEffect(() => {
+        setTrails(trailsData);
+    }, [trailsData]);
+    const handleDragEnd = ({ destination, source }) => {
+        if (!destination) {
+            return;
+        }
+        if (destination.index === source.index &&
+            destination.droppableId === source.droppableId) {
+            return;
+        }
+        const itemCopy = { ...trails[source.droppableId].items[source.index] };
+        setTrails((prev) => {
+            prev = { ...prev };
+            prev[source.droppableId].items.splice(source.index, 1);
+            prev[destination.droppableId].items.splice(destination.index, 0, itemCopy);
+            return prev;
+        });
+    };
+    const setActiveTrail = (active, id) => {
+        ({ ...trails[id] });
+        setTrails((prev) => {
+            prev = { ...prev };
+            for (let i = 0; i < prev[id].items.length; i++) {
+                prev[id].items[i].disabled = !active;
+            }
+            prev[id].ativo = active;
+            return prev;
+        });
+    };
+    const setShowTrail = (active, id) => {
+        ({ ...trails[id] });
+        setTrails((prev) => {
+            prev = { ...prev };
+            prev[id].show = active;
+            return prev;
+        });
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(reactBeautifulDnd.DragDropContext, { onDragEnd: handleDragEnd, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: trails &&
+                    jsxRuntime.jsx(AccordionTrack, { trailsData: trails, variant: "opened", onSetActiveTrail: (active, id) => {
+                            setActiveTrail(active, id);
+                        }, onSetShowTrail: (active, id) => {
+                            setShowTrail(active, id);
+                        }, onNewTrail: (id) => {
+                            if (onNewTrail) {
+                                onNewTrail(id);
+                            }
+                        }, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso }) }) }) }));
+}
+
 const ProgressBox = styled__default["default"](_.Box) `
   z-index: 1 !important;
   float: right !important;
@@ -7377,6 +7825,13 @@ const DescriptionProject = styled__default["default"].span `
     color: ${({ theme }) => theme.colors.primary1};
     padding: 24px;
     padding-top: 16px;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
+    -webkit-box-orient: vertical;
+    word-break: break-all;
 `;
 const DescriptionSRG$1 = styled__default["default"].span `
     flex: 1;
@@ -7569,7 +8024,7 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
                             jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
-                            jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 83) })
+                            jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
                                 jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), children: variant == 'srg' ?
                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
@@ -8192,6 +8647,7 @@ const problemTitle = styled__default["default"].div `
     font-weight: 600;
     text-align: center;
     margin-top: 32px;
+    word-break: break-all;
 `;
 const tagContent = styled__default["default"].div `
     display: flex;
@@ -8731,6 +9187,7 @@ function PostFeed(props) {
                         : null] }), jsxRuntime.jsx(FeedInteraction, { isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, commentList: props.commentList, userCommentPlaceholder: props.userCommentPlaceholder, textLoadMoreComments: props.textLoadMoreComments, textSaveCommentBtn: props.textSaveCommentBtn, ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, handleSaveCommentBtn: props.handleSaveCommentBtn, onCommentChange: props.onCommentChange, isDisabledAvaluation: props.isDisabledAvaluation })] }));
 }
 
+exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;

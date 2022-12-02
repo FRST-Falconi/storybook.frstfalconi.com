@@ -78,7 +78,7 @@ export default function ChallengeCard({
                     </Styles.WrapperHeader>
                     { variant != 'srg'  ?
                     <Styles.DescriptionProject onClick={() => handleClick()}>
-                        {resumeString(description, 83)}
+                        {resumeString(description, 73)}
                     </Styles.DescriptionProject>
                     :
                     <Styles.DescriptionSRG onClick={() => handleClick()}>

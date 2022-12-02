@@ -5,28 +5,31 @@ import { IcontentSwitcher } from './contentSwitcher'
 import { useState } from 'react'
 import * as Icons from '@shared/icons'
 
-export default function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected}: IcontentSwitcher) {
-    const [isClicked, setIsClicked] = useState(false)
-
-    return (
-        <ThemeProvider theme={FRSTTheme}>
-            <Styles.Container sizeIcon={sizeIcon} style={{...style}}  onClick={()=>{
-                    setIsClicked(true)
-                    handleClick
-                }}>
-                {!isClicked ? 
-                    (<Styles.ContentSwitcher >
-                        {startIcon}
-                        {label}
-                    </Styles.ContentSwitcher>)
-                    :
-                    <Styles.ContentSwitcherSelected sizeIcon={sizeIcon}>
-                        {/* <Icons.Noun fill={'#ffffff'} /> */}
-                        {startIconSelected}
-                        {label} 
-                    </Styles.ContentSwitcherSelected>
-                }
-            </Styles.Container>
-        </ThemeProvider>
-    );
+export default function ContentSwitcher({
+  label,
+  handleClick,
+  style,
+  sizeIcon,
+  startIcon,
+  startIconSelected,
+  isActive,
+  idButtonSwitcher
+}: IcontentSwitcher) {
+  return (
+    <ThemeProvider theme={FRSTTheme}>
+      <Styles.Container sizeIcon={sizeIcon} style={{ ...style }}>
+        {!isActive ? (
+          <Styles.ContentSwitcher onClick={handleClick} id={idButtonSwitcher}>
+            {startIcon}
+            {label}
+          </Styles.ContentSwitcher>
+        ) : (
+          <Styles.ContentSwitcherSelected sizeIcon={sizeIcon} onClick={handleClick} id={idButtonSwitcher}>
+            {startIconSelected}
+            {label}
+          </Styles.ContentSwitcherSelected>
+        )}
+      </Styles.Container>
+    </ThemeProvider>
+  )
 }

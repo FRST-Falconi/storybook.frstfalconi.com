@@ -132,6 +132,13 @@ export const DescriptionProject = styled.span`
     color: ${({theme}) => theme.colors.primary1};
     padding: 24px;
     padding-top: 16px;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
+    -webkit-box-orient: vertical;
+    word-break: break-all;
 `
 
 export const DescriptionSRG = styled.span`

@@ -1,10 +1,11 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface AvatarI {
   size?: string
   src?: any
   disabled?: boolean
   color?: string
+  variant?: string
 }
 
 interface PropsPopOver {
@@ -13,8 +14,8 @@ interface PropsPopOver {
 
 export const ContainerGeral = styled.div<PropsPopOver>`
   display: flex;
-  flex-direction: ${(props) =>
-    props.variant === 'upLeft' || props.variant === 'upRight' ? 'column-reverse' : 'column'};
+  height: 8.5rem;
+  align-content: flex-end;
   &:hover .popOver {
     display: block;
   }
@@ -28,9 +29,13 @@ export const AvatarChannel = styled.div<AvatarI>`
   border-radius: 50%;
   background-color: ${(props) => props.color || '#6a3f86'};
   position: relative;
-  margin: 20px 0;
-
+  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
   cursor: pointer;
+  ${(props) =>
+    props.variant === 'sideRight' &&
+    css`
+      margin-left: 8.5rem;
+    `}
 
   img {
     border-radius: 50%;
@@ -72,14 +77,31 @@ export const AvatarCam = styled.div<AvatarI>`
   position: absolute;
   margin: 15% 9% 12.5% 18%;
 `
-export const ContainerPopOver = styled.div`
+export const ContainerPopOver = styled.div<PropsPopOver>`
   white-space: nowrap;
   font-size: 16px;
   display: none;
   width: 120px;
-  /* position: absolute; */
-  top: 0;
-  margin-top: -5px;
+  position: absolute;
+  margin-top: 0;
   font-family: 'PT Sans';
   font-weight: 400;
+  ${(props) =>
+    (props.variant === 'upLeft' || props.variant === 'upRight') &&
+    css`
+      margin-top: 7rem;
+    `}
+
+  ${(props) =>
+    props.variant === 'sideLeft' &&
+    css`
+      margin-top: 1rem;
+      margin-left: 6rem;
+    `}
+
+    ${(props) =>
+    props.variant === 'sideRight' &&
+    css`
+      margin-top: 1rem;
+    `}
 `

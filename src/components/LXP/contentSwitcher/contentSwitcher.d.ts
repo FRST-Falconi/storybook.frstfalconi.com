@@ -1,9 +1,11 @@
-import React from "react"
+import React from 'react'
 export interface IcontentSwitcher {
-    label?: string,
-    handleClick: () => void,
-    style?: React.CSSProperties,
-    startIcon?: any,
-    sizeIcon?: string,
-    startIconSelected?: any,
+  label?: string
+  handleClick: () => void
+  style?: React.CSSProperties
+  startIcon?: any
+  sizeIcon?: string
+  startIconSelected?: any
+  isActive?: boolean
+  idButtonSwitcher: string
 }

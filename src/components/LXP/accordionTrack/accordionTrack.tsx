@@ -1,127 +1,175 @@
 import '../../../shared/global.css'
-import { ThemeProvider } from 'styled-components'
-import { FRSTTheme } from '../../../theme'
-import VectorDown from './vectorDown'
-import VectorUp from './vectorUp'
-import { IAccordionTrack } from './IAccordionTrack'
+import { IAccordionTrack, IAccordionTranslate } from './IAccordionTrack'
 import * as Styles from './accordionTrackStyle'
-import React, { useState, useEffect } from 'react'
-import * as Icons from '../../../shared/icons'
-import Switch from 'react-switch';
+import React, { useState } from 'react'
 import ThumbnailsDraggable from '../thumbnails/thumbnailsDraggable'
 import Thumbnails from '../thumbnails/thumbnails'
 import ScrollContainer from '@components/scroll-container'
-import { Droppable, DragDropContext } from 'react-beautiful-dnd'
+import { Droppable } from 'react-beautiful-dnd'
+import AccordionTrackNormal from './accordionTrackNormal'
+import AccordionTrackEmpty from './accordionTrackEmpty'
 
-export default function AccordionTrack(props: IAccordionTrack) {
+export default function AccordionTrack(props: IAccordionTranslate) {
 
-    const [checked, setChecked] = useState(true)
-    const [down, setDown] = useState(true)
-    const [up, setUp] = useState(true)
-    const [state, setState] = useState(props.ObjectsCard)
+  const [state, setState] = useState(props.trailsData)
 
-    const handleChange = (checkedValue) => {
-      setChecked(checkedValue)
-      // props.handleChangeCheck(checkedValue)
-    };
-
-    const changeSelect = () => {
+  return (
+    <>
       {
-        up ?
-          setUp(false)
-          :
-          setUp(true)
-        setDown(false)
+        state.map((data, key) => {
+          return (
+            <>
+              {
+                key === 0 ?
+                  <AccordionTrackEmpty
+                    TrailName={data.TrailName}
+                  >
+                    <div>
+                      <h2
+                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
+                      >
+                        {props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos'}
+                      </h2>
+                      <h2
+                        style={{ fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }}
+                      >
+                        {props.textTotalDe ? props.textTotalDe : 'Total de'} {data.items.length} {props.textRegistros ? props.textRegistros : 'registros'}
+                      </h2>
+                    </div>
+
+                    {
+                      data.show &&
+                      <Droppable droppableId={key.toString()} key={key} direction="horizontal">
+                        {(provided) => {
+                          return (
+                            <Styles.ContainerTrailsEmpty>
+                              <ScrollContainer
+                                stepMove={380}
+                                isVisibleControlsButtons
+                                sizeArrowButton={80}
+                                marginsArrowButton={10}
+                                horizontalMarginInternScroll={'20px'}
+                                styles={{ justifyContent: 'flex-start', width: '100%' }}
+                              >
+                                <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
+                                  <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
+                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso}/>
+                                  </div>
+                                  {
+                                    (data.ativo || data.ativo!) && data.items.map((el, index) => {
+                                      return (
+                                        <ThumbnailsDraggable
+                                          disabled={el.disabled}
+                                          key={index}
+                                          id={el.id}
+                                          index={index}
+                                          title={el.name}
+                                          variant={'default'}
+                                          txtButtonLabel={props.txtButtonLabel}
+                                          txtAtivarCurso={props.txtAtivarCurso}
+                                          txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                          handleChange={() => { }}
+                                        />
+                                      )
+                                    }
+                                    )
+                                  }
+
+                                </Styles.ContainerCard>
+                              </ScrollContainer>
+                              {provided.placeholder}
+                            </Styles.ContainerTrailsEmpty>
+                          )
+                        }
+                        }
+                      </Droppable>
+                    }
+                  </AccordionTrackEmpty>
+
+                  :
+                  <>
+                    {
+                      key === 1 &&
+                      <span
+                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
+                      >
+                        {props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas'}
+                      </span>
+                    }
+                    <AccordionTrackNormal
+                      TrailName={data.TrailName}
+                      ativo={data.ativo}
+                      handleChangeCheck={(bActive: boolean) => {
+                        if (props.onSetActiveTrail) {
+                          props.onSetActiveTrail(bActive, key)
+                        }
+                      }}
+                      handleChangeShow={(bShow) => {
+                        if (props.onSetShowTrail) {
+                          props.onSetShowTrail(bShow, key)
+                        }
+                      }}
+                    >
+                      {
+                        data.show &&
+                        <Droppable droppableId={key.toString()} key={key} direction="horizontal">
+                          {(provided) => {
+                            return (
+                              <Styles.ContainerTrailsNormal>
+                                <ScrollContainer
+                                  stepMove={380}
+                                  isVisibleControlsButtons
+                                  sizeArrowButton={80}
+                                  marginsArrowButton={10}
+                                  horizontalMarginInternScroll={'20px'}
+                                  styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
+                                >
+
+                                  <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
+                                    <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
+                                      <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso}/>
+                                    </div>
+                                    {
+                                      data.items && data.items.map((el, index) => {
+                                        return (
+                                          <>
+                                            <ThumbnailsDraggable
+                                              key={index}
+                                              id={el.id}
+                                              disabled={el.disabled}
+                                              index={index}
+                                              title={el.name}
+                                              variant={'default'}
+                                              handleChange={() => { }}
+                                              txtButtonLabel={props.txtButtonLabel}
+                                              txtAtivarCurso={props.txtAtivarCurso}
+                                              txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                            />
+                                          </>
+                                        )
+                                      }
+                                      )
+                                    }
+
+                                  </Styles.ContainerCard>
+                                </ScrollContainer>
+                                {provided.placeholder}
+                              </Styles.ContainerTrailsNormal>
+                            )
+                          }
+                          }
+                        </Droppable>
+                      }
+                    </AccordionTrackNormal>
+                  </>
+              }
+
+
+            </>
+          )
+        })
       }
-    }
 
-    useEffect(() => {
-      console.log('state', state)    
-    }, [state])
-
-
-    return (
-      <>
-        {
-          state.map((data, key) => {
-            return (
-              <>
-                <Styles.ContainerHeader className={"opened"} active={data.ativo}>
-                  <Styles.ContentTrailName>
-                      <Styles.TypographyTrailName>{data.TrailName}</Styles.TypographyTrailName>
-                      <Styles.Select onClick={changeSelect} >
-                        {data.show ? <VectorUp /> : <VectorDown />}
-                      </Styles.Select>
-                  </Styles.ContentTrailName>
-                  <Styles.ContentActiveHeader>
-                      <Styles.TypographyActiveHeader active={data.ativo} style={{ fontWeight: data.ativo ? 700 : 400 }}>
-                        Ativar curso
-                        <Switch
-                          onChange={handleChange}
-                          checked={data.ativo}
-                          height={16}
-                          width={40}
-                          checkedIcon={false}
-                          uncheckedIcon={false}
-                          handleDiameter={24}
-                          onHandleColor='#ffffff'
-                          offHandleColor='#ffffff'
-                          onColor='#FF4D0D'
-                          offColor='#757575'
-                          activeBoxShadow={data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                          boxShadow={data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                        />
-                      </Styles.TypographyActiveHeader>
-                      <Styles.IconVerticalHeader onClick={props.handleClickContent}>
-                        <Icons.MoreVertical fill={data.ativo ? '#000000' : '#bdbdbd'} />
-                      </Styles.IconVerticalHeader>
-                  </Styles.ContentActiveHeader>
-                </Styles.ContainerHeader>
-      
-                {
-                  data.show &&                               
-                    <Droppable droppableId={key.toString()} key={key} direction="horizontal">
-                      {(provided) => {      
-                        return (
-                          <div style={{height: 415, border: '1px solid black', padding: 16, marginTop: -5, backgroundColor: 'rgb(235, 235, 235)', borderBottomLeftRadius: 16, borderBottomRightRadius: 16, zIndex: 0, width: '100%'}}>
-                            <ScrollContainer
-                              stepMove={380}
-                              isVisibleControlsButtons
-                              sizeArrowButton={80}
-                              marginsArrowButton={10}
-                              horizontalMarginInternScroll={'20px'}
-                              styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%'}}
-                            >
-
-                              <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                {
-                                  data.items.map((el, index) => {
-                                    return (
-                                      <ThumbnailsDraggable
-                                        key={index}
-                                        id={el.id}
-                                        index={index}
-                                        title={el.name}
-                                        variant={'default'}
-                                      />
-                                    )} 
-                                  )
-                                }
-                                {/* <Thumbnails variant='add' /> */}
-                                
-                              </Styles.ContainerCard>                                                
-                            </ScrollContainer>
-                            {provided.placeholder}
-                          </div>
-                        )}
-                      }                                                          
-                    </Droppable>
-                }
-              </>
-            )
-          })
-        }
-
-      </>
-    )
+    </>
+  )
 }
