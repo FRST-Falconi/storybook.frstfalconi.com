@@ -8,9 +8,10 @@ interface TagProps {
     selected: boolean;
     inverted: boolean;
     iconType?: iconStatus;
+    onClick?: () => void;
     /**
- * @prop {React.CSSProperties} style: Styles de CSS adicional
- */
+     * @prop {React.CSSProperties} style: Styles de CSS adicional
+     */
     style?: React.CSSProperties;
 }
 export default function Tag(props: TagProps): JSX.Element;
