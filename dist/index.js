@@ -370,10 +370,14 @@ function Tag(props) {
     function getColor() {
         return props.selected === props.inverted ? '#fff' : props.color;
     }
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.loading ?
-            (jsxRuntime.jsx("div", { className: 'shimmer tag', style: props.style, children: jsxRuntime.jsx("span", { style: { verticalAlign: 'middle', margin: '8px' }, children: "Shimmer Text" }) }))
-            :
-                (jsxRuntime.jsx("div", { className: 'tag', style: { border: `1px solid ${getColor()} `, background: getBG(), color: getColor(), ...props.style }, children: jsxRuntime.jsxs("span", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', height: '24px', margin: '0 8px', gap: '8px' }, children: [props.title, props.iconType === 'warning' && jsxRuntime.jsx(AlertCicle, { fill: getColor() }), props.iconType === 'checked' && jsxRuntime.jsx(DoubleCheck, { fill: getColor() })] }) })) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.loading ? (jsxRuntime.jsx("div", { className: "shimmer tag", style: props.style, children: jsxRuntime.jsx("span", { style: { verticalAlign: 'middle', margin: '8px' }, children: "Shimmer Text" }) })) : (jsxRuntime.jsx("div", { className: "tag", style: { border: `1px solid ${getColor()} `, background: getBG(), color: getColor(), ...props.style }, children: jsxRuntime.jsxs("span", { style: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '24px',
+                    margin: '0 8px',
+                    gap: '8px'
+                }, onClick: props?.onClick, children: [props.title, props.iconType === 'warning' && jsxRuntime.jsx(AlertCicle, { fill: getColor() }), props.iconType === 'checked' && jsxRuntime.jsx(DoubleCheck, { fill: getColor() })] }) })) }));
 }
 
 function EmptyCard(props) {
