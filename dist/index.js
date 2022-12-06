@@ -4102,6 +4102,8 @@ const ProgressItem = styled__default["default"].li `
   }
 
   &:last-child {
+    min-height: 46px;
+
     &::before {
       top: -30px;
       display: none;
@@ -4160,7 +4162,7 @@ const ProgressItemTitle = styled__default["default"].p `
   line-height: 23px;
   color: #757575;
 
-  height: 56px;
+  height: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -4168,7 +4170,7 @@ const ProgressItemTitle = styled__default["default"].p `
   ${({ active }) => active === true && `
     color: #222222;
     height: auto;
-    margin: 15px 0 8px 0;
+    margin: 11px 0 8px 0;
     font-weight: 600;
   `}
 `;
