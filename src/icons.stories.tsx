@@ -261,3 +261,18 @@ ThumbsUpIcon.args = Icons.ThumbsUpIcon({})
 
 export const ThumbsUpCovered = Template.bind({})
 ThumbsUpCovered.args = Icons.ThumbsUpCovered({})
+
+export const StepCicleOne = Template.bind({})
+StepCicleOne.args = Icons.ThumbsUpCovered({})
+
+export const StepCheckInCicle = Template.bind({})
+StepCheckInCicle.args = Icons.ThumbsUpCovered({})
+
+export const StepCicleTwo = Template.bind({})
+StepCicleTwo.args = Icons.ThumbsUpCovered({})
+
+export const StepCicleThree = Template.bind({})
+StepCicleThree.args = Icons.ThumbsUpCovered({})
+
+export const StepCicleFour = Template.bind({})
+StepCicleFour.args = Icons.ThumbsUpCovered({})

@@ -29,7 +29,12 @@ export {
   Content,
   AddIcon,
   Channel,
-  ExitArrow
+  ExitArrow,
+  StepCicleOne,
+  StepCheckInCicle,
+  StepCicleTwo,
+  StepCicleThree,
+  StepCicleFour
 } from './src/shared/icons'
 
 // Base
