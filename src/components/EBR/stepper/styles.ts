@@ -52,6 +52,8 @@ export const ProgressItem = styled.li<{ active: boolean }>`
   }
 
   &:last-child {
+    min-height: 46px;
+
     &::before {
       top: -30px;
       display: none;
@@ -111,7 +113,7 @@ export const ProgressItemTitle = styled.p<{ active?: boolean }>`
   line-height: 23px;
   color: #757575;
 
-  height: 56px;
+  height: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,7 +121,7 @@ export const ProgressItemTitle = styled.p<{ active?: boolean }>`
   ${({ active }) => active === true && `
     color: #222222;
     height: auto;
-    margin: 15px 0 8px 0;
+    margin: 11px 0 8px 0;
     font-weight: 600;
   `}
 `
