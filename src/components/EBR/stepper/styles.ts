@@ -38,7 +38,7 @@ export const ProgressItem = styled.li<{ active: boolean }>`
   counter-increment: list;
 
   ${({ active }) => active === true && `
-    padding-bottom: 70px;
+    padding-bottom: 50px;
 
     @media (max-width: 768px) {
       padding-bottom: 50px;
@@ -73,15 +73,15 @@ export const ProgressItem = styled.li<{ active: boolean }>`
     content: counter(list);
     position: absolute;
     z-index: 1;
-    left: -100px;
-    width: 50px;
-    height: 50px;
+    left: -95px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: transparent;
-    color: #fff;
+    color: ${({ active }) => active === true ? '#FFFFFF' : '#757575'};;
     text-align: center;
     border: 3.5px solid #9C9C9C;
-    background-color: #757575;
+    background-color: #fff;
     top: 0;
 
     display: flex;
