@@ -112,5 +112,10 @@ export declare function StarOutlined({ fill, width, height }: IconsProps): JSX.E
 export declare function TalkIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ThumbsUpIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ThumbsUpCovered({ customColor_1, customColor_2, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleOne({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCheckInCicle({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleTwo({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleThree({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleFour({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
