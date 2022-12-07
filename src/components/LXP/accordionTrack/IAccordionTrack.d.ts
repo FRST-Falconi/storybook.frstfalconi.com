@@ -9,7 +9,8 @@ export interface IAccordionTrack {
     TrailName?: string
     key?: number
     index?: number
-    data?: any,
+    data?: any
+    updateScrollSize?: number
     handleChange?: (trails: any) => void
     handleClickSelect?: () => void,
     handleClickContent?: () => void 

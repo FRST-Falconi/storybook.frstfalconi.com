@@ -12,6 +12,7 @@ import AccordionTrackEmpty from './accordionTrackEmpty'
 export default function AccordionTrack(props: IAccordionTranslate) {
 
   const [state, setState] = useState(props.trailsData)
+  
 
   return (
     <>
@@ -50,6 +51,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 marginsArrowButton={10}
                                 horizontalMarginInternScroll={'20px'}
                                 styles={{ justifyContent: 'flex-start', width: '100%' }}
+                                refreshResize={props.updateScrollSize}
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                   <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
@@ -122,6 +124,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   sizeArrowButton={80}
                                   marginsArrowButton={10}
                                   horizontalMarginInternScroll={'20px'}
+                                  refreshResize={props.updateScrollSize}
                                   styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                                 >
 

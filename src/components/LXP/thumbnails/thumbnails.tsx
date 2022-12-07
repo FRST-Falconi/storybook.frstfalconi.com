@@ -21,7 +21,6 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
 
   useEffect (() => {
     setChecked(!disabled)
-    console.log("Atualizou Ativo: ", !disabled)
   }, [disabled])
 
   const handleChangeCheck = (checkedValue: boolean) => {
