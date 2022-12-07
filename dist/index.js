@@ -340,6 +340,21 @@ function ThumbsUpIcon({ fill, width, height }) {
 function ThumbsUpCovered({ customColor_1, customColor_2, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "16", height: height ? height : "17", viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "8", cy: "8.78711", r: "8", fill: customColor_1 ? customColor_1 : "#FF4D0D" }), jsxRuntime.jsx("path", { d: "M3.83333 10.3022C3.83333 9.65539 3.95301 9.03722 4.1709 8.46979C4.29475 8.14726 4.61173 7.9585 4.94952 7.9585H5.37692C5.56851 7.9585 5.67946 8.19013 5.57999 8.35818C5.24448 8.92508 5.05128 9.5905 5.05128 10.3022C5.05128 10.7995 5.1456 11.2742 5.31687 11.7085C5.35049 11.7937 5.38708 11.8774 5.4265 11.9594C5.50653 12.1259 5.39482 12.3335 5.21394 12.3335H4.8454C4.4846 12.3335 4.14996 12.1177 4.04467 11.7635C3.90725 11.3013 3.83333 10.8106 3.83333 10.3022Z", fill: customColor_2 ? customColor_2 : "#D9D9D9" }), jsxRuntime.jsx("path", { d: "M3.83333 10.3022C3.83333 9.65539 3.95301 9.03722 4.1709 8.46979C4.29475 8.14726 4.61173 7.9585 4.94952 7.9585H5.37692C5.56851 7.9585 5.67946 8.19013 5.57999 8.35818C5.24448 8.92508 5.05128 9.5905 5.05128 10.3022C5.05128 10.7995 5.1456 11.2742 5.31687 11.7085C5.35049 11.7937 5.38708 11.8774 5.4265 11.9594C5.50653 12.1259 5.39482 12.3335 5.21394 12.3335H4.8454C4.4846 12.3335 4.14996 12.1177 4.04467 11.7635C3.90725 11.3013 3.83333 10.8106 3.83333 10.3022Z", fill: "black", fillOpacity: "0.2" }), jsxRuntime.jsx("path", { d: "M5.61258 8.271C5.93994 8.271 6.23532 8.08523 6.43734 7.82086C6.45594 7.79652 6.47482 7.77243 6.49399 7.74858C7.08538 7.01272 7.81831 6.36287 8.22582 5.5113L8.40064 5.146C8.55288 4.8335 8.53696 4.8335 8.70512 4.8335C9.20961 4.8335 9.61858 5.25323 9.61858 5.771C9.61858 6.25084 9.51321 6.70543 9.32491 7.11171C9.21709 7.34435 9.36835 7.646 9.61936 7.646M9.61936 7.646H10.8884C11.3052 7.646 11.6783 7.93516 11.7224 8.36052C11.7406 8.53645 11.75 8.7151 11.75 8.896C11.75 10.0825 11.3473 11.1725 10.6745 12.0298C10.5172 12.2304 10.2739 12.3335 10.023 12.3335H8.39262C8.19626 12.3335 8.00118 12.301 7.81489 12.2373L6.55048 11.8047C6.3642 11.741 6.16912 11.7085 5.97276 11.7085H5.31687M9.61936 7.646H8.70512M5.31687 11.7085C5.35049 11.7937 5.38708 11.8774 5.4265 11.9594C5.50653 12.1259 5.39482 12.3335 5.21394 12.3335H4.8454C4.4846 12.3335 4.14996 12.1177 4.04467 11.7635C3.90725 11.3013 3.83333 10.8106 3.83333 10.3022C3.83333 9.65539 3.95301 9.03722 4.1709 8.46979C4.29475 8.14726 4.61173 7.9585 4.94952 7.9585H5.37692C5.56851 7.9585 5.67946 8.19013 5.57999 8.35818C5.24448 8.92508 5.05128 9.5905 5.05128 10.3022C5.05128 10.7995 5.1456 11.2742 5.31687 11.7085Z", stroke: customColor_2 ? customColor_2 : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function StepCicleOne({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "40", height: height ? height : "40", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M20.4503 14.12C19.8203 15.02 17.8043 16.1 16.8503 16.226L17.2103 17.9C18.2903 17.666 19.3883 17.054 20.2163 16.262C20.1983 16.604 20.1803 16.928 20.1803 17.216V26H22.0703V14.12H20.4503Z", fill: fill ? fill : "#0645AD" })] }));
+}
+function StepCheckInCicle({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "40", height: height ? height : "40", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z", fill: fill ? fill : "#D1F6D1", stroke: fill ? fill : "#2CA92A", strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M17.59 22.5802L14.7723 19.7625C14.5775 19.5677 14.2619 19.5672 14.0665 19.7613L13.3561 20.4667C13.1601 20.6612 13.159 20.9778 13.3536 21.1738L13.3548 21.175L17.2365 25.0567C17.4317 25.2519 17.7483 25.2519 17.9436 25.0567L27.2365 15.7638C27.4317 15.5685 27.4317 15.2519 27.2365 15.0567L26.5336 14.3538L26.5334 14.354C26.3382 14.1588 26.0218 14.1587 25.8265 14.3538L17.59 22.5802Z", fill: fill ? fill : "#2CA92A" })] }));
+}
+function StepCicleTwo({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "40", height: height ? height : "40", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M15.9778 26H24.2398V24.344H20.4958C20.0098 24.344 18.9838 24.38 18.5338 24.416V24.38C22.4758 21.86 24.0238 19.952 24.0238 17.684C24.0238 15.596 22.5298 13.94 19.9018 13.94C17.3998 13.94 15.8338 15.38 15.5998 17.63L17.2738 18.404C17.3998 16.676 18.2998 15.614 19.7938 15.614C21.1978 15.614 22.0438 16.496 22.0438 17.756C22.0438 19.736 20.5318 21.374 15.9778 24.578V26Z", fill: fill ? fill : "#0645AD" })] }));
+}
+function StepCicleThree({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "40", height: height ? height : "40", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M20.0006 13.94C18.0386 13.94 16.4726 14.894 15.9506 16.64L17.7146 17.36C17.9306 16.244 18.6866 15.596 19.9646 15.596C21.2246 15.596 21.9446 16.244 21.9266 17.486C21.9086 18.692 21.1706 19.268 19.6946 19.268H19.2086V20.798H19.7486C21.3866 20.798 22.1786 21.248 22.1966 22.544C22.2146 23.714 21.3686 24.524 19.8926 24.524C18.3446 24.524 17.6606 23.768 17.3186 22.454L15.5546 23.3C16.2566 25.226 17.6606 26.18 19.8206 26.18C22.4126 26.18 24.1406 24.758 24.1406 22.796C24.1406 21.104 22.9886 20.024 21.6386 20.024V19.988C22.6826 19.988 23.8706 18.89 23.8706 17.108C23.8706 15.362 22.5206 13.94 20.0006 13.94Z", fill: fill ? fill : "#0645AD" })] }));
+}
+function StepCicleFour({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "40", height: height ? height : "40", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M24.8234 21.536H22.8074V14.12H20.4494L15.1394 21.86V23.03H20.9894V26H22.8074V23.03H24.8234V21.536ZM19.8734 17.522C20.2514 16.964 20.7374 16.154 21.0254 15.542H21.0614L20.9894 17.468V21.536H17.0654L19.8734 17.522Z", fill: fill ? fill : "#0645AD" })] }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -2815,7 +2830,7 @@ styled__default["default"].div `
     border-radius: 20px
 `;
 
-function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }) {
+function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll, refreshResize }) {
     const [actionAreaButtonLeft, setActionAreaButtonLeft] = React.useState(false);
     const [actionAreaButtonRight, setActionAreaButtonRight] = React.useState(false);
     const [iDScroll, setIDScroll] = React.useState(`iDScroll-${randID$1()}`);
@@ -2823,15 +2838,19 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
     const [isVisibleArrowButtonRight, setIsVisibleArrowButtonRight] = React.useState(false);
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
-        (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
-        setIsVisibleArrowButtonRight(true);
-        objDiv.scrollLeft = objDiv.scrollLeft - stepMove;
+        if (objDiv !== null) {
+            (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            setIsVisibleArrowButtonRight(true);
+            objDiv.scrollLeft = objDiv.scrollLeft - stepMove;
+        }
     };
     const scrollToRight = () => {
         var objDiv = document.getElementById(iDScroll);
-        (objDiv.scrollLeft + stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
-        ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
-        objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
+        if (objDiv !== null) {
+            (objDiv.scrollLeft + stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
+            objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
+        }
     };
     React.useEffect(() => {
         var objDiv = document.getElementById(iDScroll);
@@ -2841,16 +2860,20 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
             setIsVisibleArrowButtonRight(false);
     }, []);
     React.useEffect(() => {
-        function updateSize() {
-            var objDiv = document.getElementById(iDScroll);
+        updateSize();
+    }, [refreshResize]);
+    const updateSize = () => {
+        var objDiv = document.getElementById(iDScroll);
+        if (objDiv !== null) {
             ((objDiv.offsetWidth + objDiv.scrollLeft) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
             (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
-            var objDiv = document.getElementById(iDScroll);
             if (objDiv && objDiv.clientWidth && objDiv.clientWidth < objDiv.scrollWidth)
                 setIsVisibleArrowButtonRight(true);
             else
                 setIsVisibleArrowButtonRight(false);
         }
+    };
+    React.useEffect(() => {
         window.addEventListener('resize', updateSize);
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
@@ -7395,7 +7418,6 @@ function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleCli
     React.useState(false);
     React.useEffect(() => {
         setChecked(!disabled);
-        console.log("Atualizou Ativo: ", !disabled);
     }, [disabled]);
     const handleChangeCheck = (checkedValue) => {
         setChecked(checkedValue);
@@ -7478,7 +7500,7 @@ function AccordionTrack(props) {
             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: key === 0 ?
                     jsxRuntime.jsxs(AccordionTrackEmpty, { TrailName: data.TrailName, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h2", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", data.items.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), data.show &&
                                 jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
-                                        return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', styles: { justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), (data.ativo || data.ativo) && data.items.map((el, index) => {
+                                        return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), (data.ativo || data.ativo) && data.items.map((el, index) => {
                                                                 return (jsxRuntime.jsx(ThumbnailsDraggable, { disabled: el.disabled, id: el.id, index: index, title: el.name, variant: 'default', txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleChange: () => { } }, index));
                                                             })] }) }), provided.placeholder] }));
                                     } }, key)] })
@@ -7494,7 +7516,7 @@ function AccordionTrack(props) {
                                         }
                                     }, children: data.show &&
                                         jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
-                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), data.items && data.items.map((el, index) => {
+                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), data.items && data.items.map((el, index) => {
                                                                         return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: el.id, disabled: el.disabled, index: index, title: el.name, variant: 'default', handleChange: () => { }, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso }, index) }));
                                                                     })] }) }), provided.placeholder] }));
                                             } }, key) })] }) }));
@@ -7503,6 +7525,7 @@ function AccordionTrack(props) {
 
 function AccordionTrackList({ trailsData, handleChange, onNewTrail, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso }) {
     const [trails, setTrails] = React.useState(trailsData);
+    const [updateScrollSize, setUpdateScrollSize] = React.useState(0);
     React.useEffect(() => {
         if (handleChange) {
             handleChange(trails);
@@ -7526,6 +7549,7 @@ function AccordionTrackList({ trailsData, handleChange, onNewTrail, textMeusCont
             prev[destination.droppableId].items.splice(destination.index, 0, itemCopy);
             return prev;
         });
+        setUpdateScrollSize(updateScrollSize + 1);
     };
     const setActiveTrail = (active, id) => {
         ({ ...trails[id] });
@@ -7555,7 +7579,7 @@ function AccordionTrackList({ trailsData, handleChange, onNewTrail, textMeusCont
                             if (onNewTrail) {
                                 onNewTrail(id);
                             }
-                        }, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso }) }) }) }));
+                        }, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, updateScrollSize: updateScrollSize }) }) }) }));
 }
 
 const Container$3 = styled__default["default"].div `
@@ -9390,6 +9414,11 @@ exports.SmallSRGBanner = SmallSRGBanner;
 exports.SpecialistContact = SpecialistContact;
 exports.SpotifyIcon = SpotifyIcon;
 exports.StarMetric = StarMetric;
+exports.StepCheckInCicle = StepCheckInCicle;
+exports.StepCicleFour = StepCicleFour;
+exports.StepCicleOne = StepCicleOne;
+exports.StepCicleThree = StepCicleThree;
+exports.StepCicleTwo = StepCicleTwo;
 exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Steps = Steps;
