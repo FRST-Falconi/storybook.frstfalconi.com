@@ -1,7 +1,7 @@
 import '../../../shared/global.css'
 import { IAccordionTrack, IAccordionTranslate } from './IAccordionTrack'
 import * as Styles from './accordionTrackStyle'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ThumbnailsDraggable from '../thumbnails/thumbnailsDraggable'
 import Thumbnails from '../thumbnails/thumbnails'
 import ScrollContainer from '@components/scroll-container'
@@ -12,6 +12,10 @@ import AccordionTrackEmpty from './accordionTrackEmpty'
 export default function AccordionTrack(props: IAccordionTranslate) {
 
   const [state, setState] = useState(props.trailsData)
+  
+  useEffect(()=>{
+    setState(props.trailsData)
+  },[props.trailsData])
 
   return (
     <>
@@ -50,6 +54,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 marginsArrowButton={10}
                                 horizontalMarginInternScroll={'20px'}
                                 styles={{ justifyContent: 'flex-start', width: '100%' }}
+                                refreshResize={props.updateScrollSize}
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                   <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
@@ -122,6 +127,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   sizeArrowButton={80}
                                   marginsArrowButton={10}
                                   horizontalMarginInternScroll={'20px'}
+                                  refreshResize={props.updateScrollSize}
                                   styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                                 >
 
