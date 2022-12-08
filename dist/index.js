@@ -32,6 +32,7 @@ var reactDateRange = require('react-date-range');
 var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
 var Avatar$1 = require('@mui/material/Avatar');
+var reactScrollbarsCustom = require('react-scrollbars-custom');
 var isHotkey = require('is-hotkey');
 var slateReact = require('slate-react');
 var slate = require('slate');
@@ -1373,7 +1374,7 @@ const LinkButton$1 = styled__default["default"].a `
 
     ${({ disabled }) => disabled && styled.css `
         pointer-events: none;
-        color: ${({ theme }) => theme.colors.neutralsGrey2};
+        color: ${({ theme }) => theme.colors.linkDisabled};
     `}
 `;
 const LinkButtonStartIcon = styled__default["default"].a `
@@ -1409,7 +1410,7 @@ const LinkButtonStartIcon = styled__default["default"].a `
 
     ${({ disabled }) => disabled && styled.css `
         pointer-events: none;
-        color: ${({ theme }) => theme.colors.neutralsGrey2};
+        color: ${({ theme }) => theme.colors.linkDisabled};
     `}
 `;
 const LinkButtonEndIcon = styled__default["default"].a `
@@ -1445,7 +1446,7 @@ const LinkButtonEndIcon = styled__default["default"].a `
 
     ${({ disabled }) => disabled && styled.css `
         pointer-events: none;
-        color: ${({ theme }) => theme.colors.neutralsGrey2};
+        color: ${({ theme }) => theme.colors.linkDisabled};
     `}
 `;
 const variantStyles$1 = (variant = 'contained') => ({
@@ -5647,14 +5648,22 @@ const WrapperRightInfo = styled__default["default"].div `
     align-items: center;
 `;
 const WrapperIconNotification = styled__default["default"].div `
-    height: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
+    
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 150px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFF;
+`;
+const WrapperIconNotificationMobile = styled__default["default"].div `
+    
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
     font-weight: 400;
     color: #FFF;
@@ -6313,7 +6322,137 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
                             }) })] }) }));
 }
 
-function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNotification, handleNotification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, onClickLogo }) {
+const notificationContainer$1 = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    width: 375px;
+    height: 120px;
+    padding: 16px;
+    gap: 16px;
+    cursor: pointer;
+`;
+const notificationInfo = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+`;
+const notificationDescription = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-size: 16px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+`;
+const notificationDate = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+
+    font-family: 'PT Sans';
+    font-size: 14px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.neutralsGrey3};
+`;
+
+const Divider = () => {
+    return (jsxRuntime.jsx("svg", { width: "5", height: "5", viewBox: "0 0 5 5", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("circle", { cx: "2.5", cy: "2.5", r: "2.5", fill: "#757575" }) }));
+};
+function NotificationCard(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(notificationContainer$1, { onClick: props.handleClick, style: { backgroundColor: props.isNewNotification ? '#FEF0D0' : FRSTTheme['colors'].shadeWhite }, children: [jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: '40px' }), jsxRuntime.jsxs(notificationInfo, { children: [jsxRuntime.jsx(notificationDescription, { children: props.notificationDescription }), props.isNewNotification ?
+                            jsxRuntime.jsxs(notificationDate, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, color: FRSTTheme['colors'].primary1 }, children: props.textNew }), jsxRuntime.jsx(Divider, {}), props.notificationDate] })
+                            :
+                                jsxRuntime.jsx(notificationDate, { children: props.notificationDate })] })] }) }));
+}
+
+const notificationContainer = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    border-radius: 8px;
+    width: 375px;
+    height: 412px;
+    overflow: hidden;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+`;
+const notificationHeader = styled__default["default"].div `
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    width: 100%;
+`;
+const notificationCardList = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+`;
+const emptyState = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+`;
+const emptyStateInfo = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+
+    text-align: center;
+    font-family: 'PT Sans';
+    font-size: 16px;
+    font-weight: 700;
+    color: ${({ theme }) => theme.colors.neutralsGrey3};
+`;
+
+function NotificationPopOver(props) {
+    const isNewNotification = props.notificationList ? props.notificationList.filter((notification) => notification.isNewNotification) : [];
+    const emptyStateImage = 'https://i.gyazo.com/5551ed515f94a8b2502d2694d67633dc.png';
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(material.Popover, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'center',
+            }, transformOrigin: {
+                vertical: 'top',
+                horizontal: 'center',
+            }, PaperProps: {
+                style: {
+                    backgroundColor: "transparent",
+                    boxShadow: "none",
+                    borderRadius: 0
+                }
+            }, children: [jsxRuntime.jsx(material.Box, { sx: {
+                        position: "relative",
+                        mt: "10px",
+                        "&::before": {
+                            backgroundColor: "white",
+                            content: '""',
+                            display: "block",
+                            position: "absolute",
+                            width: 12,
+                            height: 12,
+                            top: -6,
+                            transform: "rotate(45deg)",
+                            left: "calc(50% - 6px)"
+                        }
+                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ?
+                            jsxRuntime.jsx(reactScrollbarsCustom.Scrollbar, { allowTransparency: true, removeTracksWhenNotUsed: true, disableTracksWidthCompensation: true, disableTracksMousewheelScrolling: true, children: jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
+                                        return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }));
+                                    }) }) })
+                            :
+                                jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: 'Empty notification list' }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) })] })] }) }));
+}
+
+function GlobalMenu({ variant, menu, subMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, onClickLogo }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -6322,6 +6461,8 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
     const [isVisibleMenuMobile, setIsVisibleMenuMobile] = React.useState(false);
     const [windowSize, setWindowSize] = React.useState([0, 0]);
     const [isMobileVersion, setIsMobileVersion] = React.useState(false);
+    const [openNotification, setOpenNotification] = React.useState(false);
+    const [anchorNotification, setAnchorNotification] = React.useState(null);
     React.useEffect(() => {
         function updateSize() {
             setWindowSize([window.innerWidth, window.innerHeight]);
@@ -6353,6 +6494,11 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
         setValueSearch(value);
         search.onChange(value);
     };
+    const onClickNotification = (event) => {
+        setOpenNotification(!openNotification);
+        setAnchorNotification(event.currentTarget);
+    };
+    const newNotification = notification.notificationList ? notification.notificationList.filter((notification) => notification.isNewNotification) : [];
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                                     paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
@@ -6397,12 +6543,13 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, haveNo
                                             jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
                                             jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, placeholder: search.label, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                     width: isMobileVersion ? '190px' : '332px',
-                                                } }) }), isMobileVersion &&
-                                            jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                    width: isMobileVersion ? '180px' : '332px',
-                                                    marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                                } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { justifyContent: 'flex-end', width: 'fit-content' }, children: [!isMobileVersion && notification &&
-                                                    jsxRuntime.jsx(WrapperIconNotification, { onClick: handleNotification, children: jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", haveNotification && jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }), " \u00A0 ", textNotification, " "] }) }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                                } }) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion &&
+                                                    jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                            width: isMobileVersion ? '180px' : '332px',
+                                                            marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
+                                                        } }), !isMobileVersion && notification &&
+                                                    jsxRuntime.jsxs(WrapperIconNotification, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", newNotification.length ? jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }) : null, " \u00A0 ", textNotification, " "] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification })] }), isMobileVersion && notification &&
+                                                    jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", newNotification.length ? jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }) : null] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification })] }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
                                                         marginLeft: isMobileVersion ? '0px' : '5px',
                                                         marginRight: isMobileVersion ? '0px' : '5px'
                                                     } }), !isMobileVersion && languages && languages.length > 0 &&
@@ -9396,6 +9543,8 @@ exports.MessageBox = MessageBox;
 exports.ModalLearningTech = ModalLearningTech;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
+exports.NotificationCard = NotificationCard;
+exports.NotificationPopOver = NotificationPopOver;
 exports.ObjectiveStep = ObjectiveStep;
 exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
@@ -9429,6 +9578,7 @@ exports.StepsMission = MissionSteps;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;
+exports.ThumbnailsDraggable = ThumbnailsDraggable;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
 exports.TrashIcon = TrashIcon;
