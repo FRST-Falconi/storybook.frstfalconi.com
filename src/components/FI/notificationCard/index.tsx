@@ -7,7 +7,6 @@ interface INotificationCard {
     notificationAvatar: string
     notificationDescription: string
     isNewNotification: boolean
-    isBottomCard: boolean
     notificationDate: string
 
     textNew: string
@@ -29,7 +28,7 @@ export default function NotificationCard ( props : INotificationCard ) {
             
             <Styles.notificationContainer 
                 onClick={props.handleClick}
-                style={{backgroundColor: props.isNewNotification ? '#FEF0D0' : FRSTTheme['colors'].shadeWhite, borderRadius: props.isBottomCard ? '0 0 8px 8px' : 0}} 
+                style={{backgroundColor: props.isNewNotification ? '#FEF0D0' : FRSTTheme['colors'].shadeWhite}} 
             >
                 
                 <Avatar src={props.notificationAvatar} size='40px' />

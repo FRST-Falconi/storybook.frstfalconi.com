@@ -33,7 +33,7 @@ export const LinkButton = styled.a<{ disabled: boolean }>`
 
     ${({ disabled }) => disabled && css`
         pointer-events: none;
-        color: ${({ theme }) => theme.colors.neutralsGrey2};
+        color: ${({ theme }) => theme.colors.linkDisabled};
     `}
 `
 export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
@@ -69,7 +69,7 @@ export const LinkButtonStartIcon = styled.a<{ disabled: boolean, sizeIcon: strin
 
     ${({ disabled }) => disabled && css`
         pointer-events: none;
-        color: ${({ theme }) => theme.colors.neutralsGrey2};
+        color: ${({ theme }) => theme.colors.linkDisabled};
     `}
 `
 export const LinkButtonEndIcon = styled.a<{ disabled: boolean, sizeIcon: string }>`
@@ -105,7 +105,7 @@ export const LinkButtonEndIcon = styled.a<{ disabled: boolean, sizeIcon: string 
 
     ${({ disabled }) => disabled && css`
         pointer-events: none;
-        color: ${({ theme }) => theme.colors.neutralsGrey2};
+        color: ${({ theme }) => theme.colors.linkDisabled};
     `}
 `
 
