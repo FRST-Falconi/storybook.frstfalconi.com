@@ -3,15 +3,17 @@ declare type notificationCard = {
     notificationAvatar: string;
     notificationDescription: string;
     isNewNotification: boolean;
-    isBottomCard: boolean;
     notificationDate: string;
     textNew: string;
     handleClick: () => void;
 };
 interface INotificationPopOver {
-    notificationList: Array<notificationCard>;
+    notificationList?: Array<notificationCard>;
     textNotification: string;
     textMarkAllAsRead: string;
+    textEmptyState: string;
+    isOpen: boolean;
+    anchor: any;
     handleClickMarkRead: () => void;
 }
 export default function NotificationPopOver(props: INotificationPopOver): JSX.Element;

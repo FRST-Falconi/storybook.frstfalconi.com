@@ -8,7 +8,7 @@ export const notificationContainer = styled.div`
     border-radius: 8px;
     width: 375px;
     height: 412px;
-
+    overflow: hidden;
     background-color: ${({theme}) => theme.colors.shadeWhite};
 `
 
@@ -26,4 +26,26 @@ export const notificationCardList = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
+`
+
+export const emptyState = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+`
+
+export const emptyStateInfo = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+
+    text-align: center;
+    font-family: 'PT Sans';
+    font-size: 16px;
+    font-weight: 700;
+    color: ${({theme}) => theme.colors.neutralsGrey3};
 `

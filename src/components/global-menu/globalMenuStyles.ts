@@ -48,14 +48,22 @@ export const WrapperRightInfo = styled.div`
 `
 
 export const WrapperIconNotification = styled.div`
-    height: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
+    
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 150px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFF;
+`
+export const WrapperIconNotificationMobile = styled.div`
+    
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 16px;
     font-weight: 400;
     color: #FFF;

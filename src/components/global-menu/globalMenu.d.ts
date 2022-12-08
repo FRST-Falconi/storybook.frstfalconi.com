@@ -49,8 +49,6 @@ export interface IGlobalMenu {
     search?: IFieldSearch,
     
     notification?: any,
-    haveNotification ?: boolean,
-    handleNotification?: () => void,
     
     languages: Array<enumLanguages>,
     languageSelected: enumLanguages,

@@ -21,8 +21,10 @@ export const notificationInfo = styled.div`
 `
 
 export const notificationDescription = styled.div`
-    ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
-    margin-bottom: 8px;
+    font-family: 'PT Sans';
+    font-size: 16px;
+    font-weight: 400;
+    color: ${({theme}) => theme.colors.neutralsGrey1};
 `
 
 export const notificationDate = styled.div`
@@ -30,6 +32,7 @@ export const notificationDate = styled.div`
     justify-content: center;
     align-items: center;
     gap: 8px;
+    margin-top: 8px;
 
     font-family: 'PT Sans';
     font-size: 14px;
