@@ -7496,6 +7496,9 @@ function AccordionTrackEmpty(data) {
 
 function AccordionTrack(props) {
     const [state, setState] = React.useState(props.trailsData);
+    React.useEffect(() => {
+        setState(props.trailsData);
+    }, [props.trailsData]);
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: state.map((data, key) => {
             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: key === 0 ?
                     jsxRuntime.jsxs(AccordionTrackEmpty, { TrailName: data.TrailName, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h2", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", data.items.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), data.show &&
