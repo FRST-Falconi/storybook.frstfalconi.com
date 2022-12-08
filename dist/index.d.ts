@@ -67,4 +67,6 @@ export { default as FeedInteraction } from './src/components/FI/feedInteraction'
 export { default as SessionFilters } from './src/components/FI/sessionFilters';
 export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner';
 export { default as PostFeed } from './src/components/FI/postFeed';
+export { default as NotificationCard } from './src/components/FI/notificationCard';
+export { default as NotificationPopOver } from './src/components/FI/notificationPopOver';
 //# sourceMappingURL=index.d.ts.map
