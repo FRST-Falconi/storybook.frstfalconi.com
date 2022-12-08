@@ -1,7 +1,7 @@
 import '../../../shared/global.css'
 import { IAccordionTrack, IAccordionTranslate } from './IAccordionTrack'
 import * as Styles from './accordionTrackStyle'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ThumbnailsDraggable from '../thumbnails/thumbnailsDraggable'
 import Thumbnails from '../thumbnails/thumbnails'
 import ScrollContainer from '@components/scroll-container'
@@ -13,6 +13,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
   const [state, setState] = useState(props.trailsData)
   
+  useEffect(()=>{
+    setState(props.trailsData)
+  },[props.trailsData])
 
   return (
     <>
