@@ -108,6 +108,7 @@ export { default as ExtraContent } from './src/components/LXP/extraContent'
 export { default as LoginLxp } from './src/components/LXP/login'
 export { default as AccordionTrackList } from './src/components/LXP/accordionTrack/accordionTrackList'
 export { default as ManageLearningCicles} from './src/components/LXP/manageLerningCicles'
+export { default as ThumbnailsDraggable} from './src/components/LXP/thumbnails/thumbnailsDraggable'
 
 // FI
 export { default as CardTrail } from './src/components/card-trail'
