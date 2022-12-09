@@ -5,11 +5,19 @@ interface AvatarI {
     color?: string;
     variant?: string;
 }
+interface AvatarImage {
+    size?: string;
+    src?: any;
+    disabled?: boolean;
+    image: any;
+    variant?: string;
+}
 interface PropsPopOver {
     variant: string;
 }
 export declare const ContainerGeral: import("styled-components").StyledComponent<"div", any, PropsPopOver, never>;
 export declare const AvatarChannel: import("styled-components").StyledComponent<"div", any, AvatarI, never>;
+export declare const AvatarChannelImage: import("styled-components").StyledComponent<"div", any, AvatarImage, never>;
 export declare const Channel: import("styled-components").StyledComponent<"span", any, {}, never>;
 export declare const AvatarCircle: import("styled-components").StyledComponent<"div", any, AvatarI, never>;
 export declare const AvatarCam: import("styled-components").StyledComponent<"div", any, AvatarI, never>;
