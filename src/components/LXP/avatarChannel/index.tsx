@@ -48,7 +48,22 @@ export default function AvatarChannel({
               />
             </div>
             {image ?
-              <img src={image} style={{borderRadius: "150px", width: "80px", height:"80px"}}/>
+              <Styles.AvatarChannelImage
+                size={size}
+                onClick={onChange}
+                className={className}
+                disabled={disabled}
+                variant={variantPopOver}
+                image={image}
+
+              >
+                {/* <img src={image} style={{ borderRadius: "150px", width: "80px", height: "80px" }} /> */}
+                <Styles.AvatarCircle className="hide">
+                  <Styles.AvatarCam>
+                    <Icons.Cam />
+                  </Styles.AvatarCam>
+                </Styles.AvatarCircle>
+              </Styles.AvatarChannelImage>
               :
               <Styles.AvatarChannel
                 size={size}
