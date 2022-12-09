@@ -74,6 +74,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           txtAtivarCurso={props.txtAtivarCurso}
                                           txtCriarNovoCurso={props.txtCriarNovoCurso}
                                           handleChange={() => { }}
+                                          handleClickContent={() => {}}
                                         />
                                       )
                                     }
