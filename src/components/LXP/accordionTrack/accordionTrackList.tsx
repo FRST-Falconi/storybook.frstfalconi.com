@@ -99,7 +99,7 @@ export default function AccordionTrackList(
               txtAtivarCurso={txtAtivarCurso}
               txtButtonLabel={txtButtonLabel}
               txtCriarNovoCurso={txtCriarNovoCurso}
-              updateScrollSize={updateScrollSize}
+              updateScrollSize={updateScrollSize}              
             />
           }                
         </>          

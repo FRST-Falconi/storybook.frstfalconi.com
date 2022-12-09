@@ -59,7 +59,7 @@ export default function AccordionTrackNormal(data: any, props: IAccordionTransla
                 />
               </Styles.TypographyActiveHeader>
               <Styles.IconVerticalHeader 
-                // onClick={data.handleClickContent}
+                onClick={data.handleClickContent}
               >
                 <Icons.MoreVertical fill={data.ativo ? '#000000' : '#bdbdbd'} />
               </Styles.IconVerticalHeader>
