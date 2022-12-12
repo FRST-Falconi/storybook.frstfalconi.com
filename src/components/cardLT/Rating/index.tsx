@@ -1,4 +1,5 @@
 
+import { NoBackpackSharp } from '@mui/icons-material';
 import style from './Rating.module.css'
 import StarIcon from './starIcon'
 
@@ -72,11 +73,9 @@ export default function Rating(props: RatingParams) {
               {props.nota}
             </span>
           </div>
-          <div className={style.avaliacao}>
-            <div style={{display: 'flex', flexDirection: 'column', flexWrap: 'wrap',width: 100 }}>
-              <span style={{fontSize: 14, fontWeight: 600}}>{props.descricaoAvaliacao}</span>
-              <span style={{fontSize: 12, fontWeight: 400}}>{`${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}`}</span>
-            </div>
+          <div className={style.avaliacao} style={{justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center'}}>
+            <span style={{fontSize: 14, fontWeight: 600}}>{props.descricaoAvaliacao }</span>
+            <span style={{fontSize: 12, fontWeight: 400}}>{`${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}`}</span>
             
           </div>
           

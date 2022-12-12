@@ -32,7 +32,12 @@
   margin-top: 8px;
   width: 100%;
   color: #FF4D0D;
-  word-break: break-all;
+}
+
+@media(max-width: 880px){
+  .description{
+    word-break: break-all;
+  }
 }
 
 .missaoTitle{
