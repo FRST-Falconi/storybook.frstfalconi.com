@@ -172,10 +172,10 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
             <h1 className={style.description}>{problema}</h1>
 
         }
-        <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16}}>
           <div style={{display: 'inline-flex', width: '100%'}}>
             <div style={{width:'100%', maxWidth: 600}}>
-              <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} />
+              <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8}} />
               <TextIcon description={props.area} svg={<Brain />}/>
               <TextIcon description={adapterEmail(props.email, size[0])} svg={<Mail />}/>
               {
