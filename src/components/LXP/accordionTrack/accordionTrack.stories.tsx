@@ -2,6 +2,7 @@ import React from 'react'
 import { v4 } from 'uuid'
 import AccordionTrackList from './accordionTrackList'
 
+
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'LXP/AccordionTrack',
@@ -48,7 +49,7 @@ const item6 = {
   disabled: true,
 }
 
-const trails = [
+var trails = [
   {  
     id: v4(),
     TrailName: 'Sem Trilhas',
@@ -73,10 +74,17 @@ const trails = [
   
 ]  
 
+
+
+
+
 export const Opened = Template.bind({})
 Opened.args = {
     onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
-    handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
+    handleChange: (trailsChange) => { 
+      console.log('Teve alteração: ', trailsChange)
+      trails = trailsChange
+    },    
     trailsData: trails,
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",

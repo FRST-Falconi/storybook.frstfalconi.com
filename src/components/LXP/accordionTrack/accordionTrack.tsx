@@ -14,13 +14,15 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   const [state, setState] = useState(props.trailsData)
   
   useEffect(()=>{
-    setState(props.trailsData)
+    if (Array.isArray(props.trailsData)) {
+      setState(props.trailsData)
+    }
   },[props.trailsData])
 
   return (
     <>
       {
-        state.map((data, key) => {
+        state && state.map((data, key) => {
           return (
             <>
               {
