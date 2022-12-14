@@ -99,6 +99,7 @@ export const RectangleRight = styled.div<{variant: string}>`
     ${({ variant }) => (variant)}
 `
 export const PopOver = styled.div`
+    z-index: 999;
     width: 100%;
     min-height: 31px;
     border-radius: 8px;
@@ -106,7 +107,7 @@ export const PopOver = styled.div`
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 18px 40px -15px #d3d3d3;
     position: relative;
-    margin: 0% 0% 0% 0%;
+    margin: 12px 0% 0% 0%;
     padding: 8px;
 `
 export const PopOverLeftRight = styled.div`
