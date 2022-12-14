@@ -1,11 +1,9 @@
 import Avatar from '@components/avatar'
 import Button from '@components/buttons'
-import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import FeedInteraction from '../feedInteraction'
 import * as Styles from './postFeedStyles' 
-import ReactMarkdown from 'react-markdown'
 
 interface IPostFeed{
     title: string
@@ -47,13 +45,6 @@ interface IPostFeed{
 
 export default function PostFeed( props : IPostFeed ){
     const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png'
-
-    const [descriptionMark, setDescriptionMark] = useState(props.description)
-
-    useEffect(() => {
-        setDescriptionMark(props.description)
-    }, [props.description])
-
     return(
         <ThemeProvider theme={FRSTTheme}>
             <Styles.postContainer style={{...props.style}}>
@@ -71,9 +62,7 @@ export default function PostFeed( props : IPostFeed ){
                     : null
                 }
 
-                <Styles.postDescription> 
-                    <ReactMarkdown>{descriptionMark}</ReactMarkdown>
-                </Styles.postDescription>
+                <Styles.postDescription> {props.description} </Styles.postDescription>
 
                 {props.postVideoId ?
                     <Styles.postVideo>
