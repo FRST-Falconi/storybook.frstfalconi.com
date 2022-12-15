@@ -7,7 +7,7 @@ import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 
 export default function AccordionTrackList(
-  { trailsData, handleChange, onNewTrail, 
+  { trailsData, handleChange, onNewTrail, handleEditCourse,
   textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso
 }: IAccordionTranslate) {
   
@@ -92,6 +92,7 @@ export default function AccordionTrackList(
                   onNewTrail(id)
                 }
               }} 
+              handleEditCourse={handleEditCourse}
               textMeusConteudos={textMeusConteudos}  
               textTotalDe={textTotalDe}      
               textRegistros={textRegistros}

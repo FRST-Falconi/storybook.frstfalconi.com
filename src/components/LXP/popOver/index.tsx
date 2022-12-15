@@ -3,21 +3,48 @@ import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './popOverStyle'
-import { IPopOver } from './popOver'
+import { IPopOver, IPopOverItems } from './popOver'
 import Popover from '@material-ui/core/Popover';
+import Button from '@components/buttons'
+import { display } from '@mui/system'
 
+const ArrowPopover = () => {
+    return (<svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 1L1 11.5H8.5H16L8.5 1Z" fill="white" stroke="#BDBDBD"/>
+                <path d="M1.21997 12L2.33 10.5H14.67L15.75 12H1.21997Z" fill="white"/>
+            </svg>)
+}
+export function PopOverItem(props: IPopOverItems) {
 
-export default function PopOver({ variant, children, element, onClosePopover }: IPopOver) {
+    return (
+        <div style={{
+                width: '100%',
+                padding: 8,
+                margin: 0,
+                fontSize: 16,
+                borderBottom: props.noBorder ? 'none' : '1px solid #EBEBEB',
+                display: 'flex',
+                flexDirection: 'row',
+                gap: 8,
+                fontFamily: 'PT Sans',
+                cursor: 'pointer',
+                color: props.color ? props.color : '#000000',
+                fontWeight: props.isFontBold ? '700' : 'normal'
+            }}        
+        >
+            {props.icon}
+            {props.label}
+        </div>
+    )
+}
+
+export function PopOver({ variant, children, element, onClosePopover }: IPopOver) {
 
     const [anchorEl, setAnchorEl] = useState(null);
 
     useEffect(() => {
         setAnchorEl(element);
     }, [element])
-
-    // const handleClick = (event) => {
-    //     setAnchorEl(event.currentTarget);
-    // };
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -47,18 +74,22 @@ export default function PopOver({ variant, children, element, onClosePopover }: 
                     style: {
                       backgroundColor: "transparent",
                       boxShadow: "none",
-                      borderRadius: 0
+                      borderRadius: 8
                     }
-                  }}
-
+                }}
+                style={{
+                    borderRadius: 8
+                }}
             >
-                <div style={{marginTop: 20, background: '#333333', position: 'relative'}}>
+                <div style={{marginTop: 12}}>
                 <Styles.PopOver>
                     {
                         variant === 'upLeft' ?        
                             <Styles.RectangleUpLeft variant={variant = 'upLeft'}/>
                         : variant === 'upRight' ?
-                            <Styles.RectangleUpRight variant={variant = 'upRight'} />
+                            <Styles.RectangleUpRight variant={variant = 'upRight'}>
+                               <ArrowPopover/>
+                            </Styles.RectangleUpRight>
                         : variant === 'lowRight' ?
                             <Styles.RectangleLowRight variant={variant = 'lowRight'} />
                         : variant === 'lowLeft' ?
@@ -69,7 +100,9 @@ export default function PopOver({ variant, children, element, onClosePopover }: 
                             <Styles.RectangleRight variant={variant = 'sideRight'} />
                         : null
                     }
-                    {children}
+                    <div style={{zIndex: 9}}>
+                        {children}
+                    </div>
                 </Styles.PopOver>   
                 </div>
             </Popover>             

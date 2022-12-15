@@ -23,7 +23,7 @@ Default.args = {
     handleClickContent: () => { alert('Click conteúdo') },
     handleChange: (checkedValue) => { console.log(`curso ativado=${checkedValue}`)},
     txtButtonLabel: "Go to course",
-    txtAtivarCurso: "Activate course",
+    txtAtivarCurso: "Activate Trail",
 }
 
 export const Add = Template.bind({})

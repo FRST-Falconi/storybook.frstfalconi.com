@@ -85,6 +85,9 @@ Opened.args = {
       console.log('Teve alteração: ', trailsChange)
       trails = trailsChange
     },    
+    handleEditCourse: (id) => {
+      alert(`Selected id: ${id}`)
+    },
     trailsData: trails,
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",

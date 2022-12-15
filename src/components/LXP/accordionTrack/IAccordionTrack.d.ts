@@ -18,6 +18,7 @@ export interface IAccordionTrack {
     onSetShowTrail?: (active, id) => void 
     onNewTrail?: (id) => void,
     handleClickNew?: () => void,
+    handleEditCourse?: (id: string) => void
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {

@@ -75,6 +75,10 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           txtButtonLabel={props.txtButtonLabel}
                                           txtAtivarCurso={props.txtAtivarCurso}
                                           txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                          handleClickCourse={() => {
+                                            console.log("Passou aqui")
+                                            props.handleEditCourse(el.id)
+                                          }}
                                           handleChange={() => { }}
                                           handleClickContent={() => {}}
                                         />
@@ -88,8 +92,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               {provided.placeholder}
                             </Styles.ContainerTrailsEmpty>
                           )
-                        }
-                        }
+                        }}
                       </Droppable>
                     }
                   </AccordionTrackEmpty>
@@ -150,9 +153,14 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                               title={el.name}
                                               variant={'default'}
                                               handleChange={() => { }}
+                                              handleClickCourse={() => {
+                                                console.log(props.handleEditCourse)
+                                                props.handleEditCourse(el.id)
+                                              }}
                                               txtButtonLabel={props.txtButtonLabel}
                                               txtAtivarCurso={props.txtAtivarCurso}
                                               txtCriarNovoCurso={props.txtCriarNovoCurso}
+
                                             />
                                           </>
                                         )

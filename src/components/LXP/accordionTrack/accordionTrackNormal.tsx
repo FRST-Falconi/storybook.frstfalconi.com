@@ -6,11 +6,13 @@ import React, { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
 import { IAccordionTranslate } from './IAccordionTrack'
+import { PopOver, PopOverItem } from '../popOver'
 
 export default function AccordionTrackNormal(data: any, props: IAccordionTranslate) {
 
     const [checked, setChecked] = useState(true)
     const [up, setUp] = useState(true)
+    const [ElementPopover, setElementPopover] = useState(null);
 
     const handleChange = (checkedValue) => {
       setChecked(checkedValue)
@@ -59,12 +61,51 @@ export default function AccordionTrackNormal(data: any, props: IAccordionTransla
                 />
               </Styles.TypographyActiveHeader>
               <Styles.IconVerticalHeader 
-                onClick={data.handleClickContent}
+                onClick={(element: any) => {
+                    setElementPopover(element.currentTarget)
+                }}
               >
-                <Icons.MoreVertical fill={data.ativo ? '#000000' : '#bdbdbd'} />
+                <div style={{ marginRight: 8 }}>
+                  <Icons.MoreVertical 
+                    fill={data.ativo ? '#000000' : '#bdbdbd'} 
+                  />
+                </div>
               </Styles.IconVerticalHeader>
           </Styles.ContentActiveHeader>
         </Styles.ContainerHeader>
+
+        <PopOver
+          element={ElementPopover}
+          onClosePopover={() => {
+            setElementPopover(null)
+          }}
+          variant={'upRight'}
+        >
+          <div style={{display: 'flex', flexDirection: 'column', padding: 0}}>            
+            <PopOverItem 
+              label={"Editar nome da trilha"}
+              onClick={() => {
+                console.log("teste")
+              }}
+            />
+            <PopOverItem 
+              label={"Duplicar trilha"}
+              onClick={() => {
+                console.log("teste")
+              }}
+            />
+            <PopOverItem 
+              label={"Excluir trilha"}
+              onClick={() => {
+                console.log("teste")
+              }}
+              icon={<Icons.Trash fill='#C00F00'/>}
+              noBorder={true}
+              isFontBold={true}
+              color={'#C00F00'}
+            />
+          </div>
+        </PopOver>   
 
         {data.children}
       </>

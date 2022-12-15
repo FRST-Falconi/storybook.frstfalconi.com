@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import PopOver from './index'
-import Button from '@components/buttons'
+import Button from '../../buttons'
 
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
