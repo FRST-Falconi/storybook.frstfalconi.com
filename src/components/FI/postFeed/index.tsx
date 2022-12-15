@@ -5,6 +5,8 @@ import { FRSTTheme } from '../../../theme'
 import FeedInteraction from '../feedInteraction'
 import * as Styles from './postFeedStyles' 
 
+import Markdown from 'markdown-to-jsx';
+
 interface IPostFeed{
     title: string
     description: string
@@ -62,7 +64,11 @@ export default function PostFeed( props : IPostFeed ){
                     : null
                 }
 
-                <Styles.postDescription> {props.description} </Styles.postDescription>
+                <Styles.postDescription> 
+                    <Markdown>
+                        {props.description}
+                    </Markdown>
+                </Styles.postDescription>
 
                 {props.postVideoId ?
                     <Styles.postVideo>
