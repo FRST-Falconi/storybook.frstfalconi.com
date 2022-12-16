@@ -14,6 +14,8 @@ export default function AccordionTrackList({
   handlePopOverDelete,
   handlePopOverMove,
   handlePopOverEdit,
+  handlePopOverTrailEdit,
+  handlePopOverTrailDelete,
   txtPopOverDeleteContent,
   txtPopOverEditContent,
   txtPopOverMoveToTrails,
@@ -118,6 +120,8 @@ export default function AccordionTrackList({
               updateScrollSize={updateScrollSize}
               handlePopOverDelete={handlePopOverDelete}
               handlePopOverEdit={handlePopOverEdit}
+              handlePopOverTrailDelete={handlePopOverTrailDelete}
+              handlePopOverTrailEdit={handlePopOverTrailEdit}
               handlePopOverMove={handlePopOverMove}
               txtPopOverDeleteContent={txtPopOverDeleteContent} 
               txtPopOverEditContent={txtPopOverEditContent}

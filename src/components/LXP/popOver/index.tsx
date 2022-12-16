@@ -31,6 +31,7 @@ export function PopOverItem(props: IPopOverItems) {
                 color: props.color ? props.color : '#000000',
                 fontWeight: props.isFontBold ? '700' : 'normal'
             }}        
+            onClick={props.onClick}
         >
             {props.icon}
             {props.label}                                  

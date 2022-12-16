@@ -163,10 +163,10 @@ export default function Thumbnails({
                 borderBottom: '1px black solid'
               }}
             />
-            <PopOverItem 
+            {/* <PopOverItem 
               label={txtPopOverMoveToTrails ? txtPopOverMoveToTrails : "Mover para Trilhas"}
               onClick={handleClickPopOverMove}
-            />
+            /> */}
             <PopOverItem 
               label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
               onClick={handleClickPopOverDelete}
