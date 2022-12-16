@@ -39,7 +39,7 @@ export function PopOverItem(props: IPopOverItems) {
     )
 }
 
-export function PopOver({ variant, children, element, onClosePopover }: IPopOver) {
+export default function PopOver({ variant, children, element, onClosePopover }: IPopOver) {
 
     const [anchorEl, setAnchorEl] = useState(null);
 

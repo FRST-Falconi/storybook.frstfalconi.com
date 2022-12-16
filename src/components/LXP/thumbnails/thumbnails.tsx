@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch'
 import Button from '../../buttons'
-import { PopOver, PopOverItem } from '../popOver'
+import  PopOver,{ PopOverItem } from '../popOver'
 
 export default function Thumbnails({ 
   variant, 

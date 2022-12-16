@@ -6,7 +6,7 @@ import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
 import { IAccordionTranslate } from './IAccordionTrack'
-import { PopOver, PopOverItem } from '../popOver'
+import PopOver,{ PopOverItem } from '../popOver'
 
 export default function AccordionTrackNormal(data: any, props: IAccordionTranslate) {
 
