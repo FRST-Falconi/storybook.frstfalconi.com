@@ -2,15 +2,17 @@ import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import * as Styles from './accordionTrackStyle'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
 import { IAccordionTranslate } from './IAccordionTrack'
+import { PopOver, PopOverItem } from '../popOver'
 
 export default function AccordionTrackNormal(data: any, props: IAccordionTranslate) {
 
     const [checked, setChecked] = useState(true)
     const [up, setUp] = useState(true)
+    const [ElementPopover, setElementPopover] = useState(null);
 
     const handleChange = (checkedValue) => {
       setChecked(checkedValue)
@@ -59,12 +61,51 @@ export default function AccordionTrackNormal(data: any, props: IAccordionTransla
                 />
               </Styles.TypographyActiveHeader>
               <Styles.IconVerticalHeader 
-                onClick={data.handleClickContent}
+                onClick={(element: any) => {
+                    setElementPopover(element.currentTarget)
+                }}
               >
-                <Icons.MoreVertical fill={data.ativo ? '#000000' : '#bdbdbd'} />
+                <div style={{ marginRight: 8 }}>
+                  <Icons.MoreVertical 
+                    fill={data.ativo ? '#000000' : '#bdbdbd'} 
+                  />
+                </div>
               </Styles.IconVerticalHeader>
           </Styles.ContentActiveHeader>
         </Styles.ContainerHeader>
+
+        <PopOver
+          element={ElementPopover}
+          onClosePopover={() => {
+            setElementPopover(null)
+          }}
+          variant={'upRight'}
+        >
+          <div style={{display: 'flex', flexDirection: 'column', padding: 0}}>            
+            <PopOverItem 
+              label={props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha"}
+              onClick={() =>{ 
+                props.handlePopOverEdit
+              }}
+            />
+            <PopOverItem 
+              label={props.txtTrailsPopOverDuplicar ? props.txtTrailsPopOverDuplicar : "Duplicar trilha"}
+              onClick={() => {
+                props.handlePopOverDuplicate
+              }}
+            />
+            <PopOverItem 
+              label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
+              onClick={() => {
+                props.handlePopOverDelete
+              }}
+              icon={<Icons.Trash fill='#C00F00'/>}
+              noBorder={true}
+              isFontBold={true}
+              color={'#C00F00'}
+            />
+          </div>
+        </PopOver>   
 
         {data.children}
       </>

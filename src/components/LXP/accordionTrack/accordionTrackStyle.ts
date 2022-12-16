@@ -13,7 +13,7 @@ export const ContainerHeader = styled.div<IImageBackground>`
     bottom: 0;
     right: 0;
     padding-left: 27px;
-    padding-right: 20px;
+    padding-right: 8px;
     background-color: ${( props ) => `${props.active ? '#ffffff' : '#ebebeb'}`};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     border-radius: 8px;
@@ -96,6 +96,7 @@ export const TypographyActiveHeader = styled.p<IImageBackground>`
     gap: 10px;        
 `
 export const IconVerticalHeader = styled.div`
+
     cursor: pointer;
 `
 export const ContainerAccordion = styled.div<IImageBackground>`

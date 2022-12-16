@@ -11,7 +11,6 @@ export const RectangleUpLeft = styled.div<{variant: string}>`
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
     border-bottom: none;
-    border-left: none;
     border-right: none;
     transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
 
@@ -23,16 +22,7 @@ export const RectangleUpRight = styled.div<{variant: string}>`
     position: absolute;
     right: 0;
     top: 0;
-    margin: -7px 32px 0 27px;
-    box-sizing: border-box;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);    
-    
-    ${({ variant }) => (variant)}
+    margin: -15px 16px 0 27px;}
 `
 export const RectangleLowRight = styled.div<{variant: string}>`
     width: 13.64px;
@@ -99,6 +89,7 @@ export const RectangleRight = styled.div<{variant: string}>`
     ${({ variant }) => (variant)}
 `
 export const PopOver = styled.div`
+    z-index: 999;
     width: 100%;
     min-height: 31px;
     border-radius: 8px;
@@ -106,7 +97,6 @@ export const PopOver = styled.div`
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 18px 40px -15px #d3d3d3;
     position: relative;
-    margin: 0% 0% 0% 0%;
     padding: 8px;
 `
 export const PopOverLeftRight = styled.div`
