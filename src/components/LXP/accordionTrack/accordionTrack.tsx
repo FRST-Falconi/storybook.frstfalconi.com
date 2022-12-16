@@ -1,7 +1,7 @@
 import '../../../shared/global.css'
-import { IAccordionTrack, IAccordionTranslate } from './IAccordionTrack'
+import { IAccordionTranslate } from './IAccordionTrack'
 import * as Styles from './accordionTrackStyle'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import ThumbnailsDraggable from '../thumbnails/thumbnailsDraggable'
 import Thumbnails from '../thumbnails/thumbnails'
 import ScrollContainer from '@components/scroll-container'
@@ -81,6 +81,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           }}
                                           handleChange={() => { }}
                                           handleClickContent={() => {}}
+                                          handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
+                                          handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
+                                          handleClickPopOverDelete={() => {props.handlePopOverDelete(el.id)}}
+                                          txtPopOverEditContent={props.txtPopOverEditContent}
+                                          txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
+                                          txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                          
                                         />
                                       )
                                     }
@@ -160,7 +166,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                               txtButtonLabel={props.txtButtonLabel}
                                               txtAtivarCurso={props.txtAtivarCurso}
                                               txtCriarNovoCurso={props.txtCriarNovoCurso}
-
+                                              handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
+                                              handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
+                                              handleClickPopOverDelete={() => {props.handlePopOverDelete(el.id)}}
+                                              txtPopOverEditContent={props.txtPopOverEditContent}
+                                              txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
+                                              txtPopOverDeleteContent={props.txtPopOverDeleteContent}
                                             />
                                           </>
                                         )

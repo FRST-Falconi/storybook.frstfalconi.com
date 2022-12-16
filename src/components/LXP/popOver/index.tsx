@@ -1,12 +1,11 @@
 import '../../../shared/global.css'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './popOverStyle'
 import { IPopOver, IPopOverItems } from './popOver'
 import Popover from '@material-ui/core/Popover';
 import Button from '@components/buttons'
-import { display } from '@mui/system'
 
 const ArrowPopover = () => {
     return (<svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +16,7 @@ const ArrowPopover = () => {
 export function PopOverItem(props: IPopOverItems) {
 
     return (
+        
         <div style={{
                 width: '100%',
                 padding: 8,
@@ -33,8 +33,9 @@ export function PopOverItem(props: IPopOverItems) {
             }}        
         >
             {props.icon}
-            {props.label}
+            {props.label}                                  
         </div>
+        
     )
 }
 
@@ -54,10 +55,9 @@ export function PopOver({ variant, children, element, onClosePopover }: IPopOver
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
 
-
     return (
         <ThemeProvider theme={FRSTTheme}>            
-            <Popover
+            <Popover                
                 id={id}
                 open={open}
                 anchorEl={anchorEl}
@@ -105,9 +105,7 @@ export function PopOver({ variant, children, element, onClosePopover }: IPopOver
                     </div>
                 </Styles.PopOver>   
                 </div>
-            </Popover>             
-            
-
+            </Popover> 
         </ThemeProvider>
     );
 }

@@ -1,14 +1,29 @@
 import '../../../shared/global.css'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 
-export default function AccordionTrackList(
-  { trailsData, handleChange, onNewTrail, handleEditCourse,
-  textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso
+export default function AccordionTrackList({ 
+  trailsData, 
+  handleChange, 
+  onNewTrail, 
+  handleEditCourse,
+  handlePopOverDelete,
+  handlePopOverMove,
+  handlePopOverEdit,
+  txtPopOverDeleteContent,
+  txtPopOverEditContent,
+  txtPopOverMoveToTrails,
+  textMeusConteudos, 
+  textTotalDe, 
+  textRegistros, 
+  textMinhasTrihas, 
+  txtAtivarCurso, 
+  txtButtonLabel, 
+  txtCriarNovoCurso
 }: IAccordionTranslate) {
   
   const [trails, setTrails] = useState(trailsData)  
@@ -69,7 +84,7 @@ export default function AccordionTrackList(
       prev[id].show = active      
       return prev
     })
-  }
+  }  
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -100,7 +115,13 @@ export default function AccordionTrackList(
               txtAtivarCurso={txtAtivarCurso}
               txtButtonLabel={txtButtonLabel}
               txtCriarNovoCurso={txtCriarNovoCurso}
-              updateScrollSize={updateScrollSize}              
+              updateScrollSize={updateScrollSize}
+              handlePopOverDelete={handlePopOverDelete}
+              handlePopOverEdit={handlePopOverEdit}
+              handlePopOverMove={handlePopOverMove}
+              txtPopOverDeleteContent={txtPopOverDeleteContent} 
+              txtPopOverEditContent={txtPopOverEditContent}
+              txtPopOverMoveToTrails={txtPopOverMoveToTrails}                                         
             />
           }                
         </>          

@@ -22,8 +22,14 @@ Default.args = {
     handleClickCourse: () => { alert('Indo para o curso') },
     handleClickContent: () => { alert('Click conteúdo') },
     handleChange: (checkedValue) => { console.log(`curso ativado=${checkedValue}`)},
+    handleClickPopOverEdit: () => { alert('editar conteúdo')},
+    handleClickPopOverMove: () => { alert('mover para trilha')},
+    handleClickPopOverDelete: () => {alert('deletar conteúdo')},
     txtButtonLabel: "Go to course",
     txtAtivarCurso: "Activate Trail",
+    txtPopOverEditContent: "Edit content",
+    txtPopOverMoveToTrails: "Move to Trails",
+    txtPopOverDeleteContent:"Delete content",    
 }
 
 export const Add = Template.bind({})

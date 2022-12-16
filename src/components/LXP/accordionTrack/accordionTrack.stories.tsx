@@ -2,7 +2,6 @@ import React from 'react'
 import { v4 } from 'uuid'
 import AccordionTrackList from './accordionTrackList'
 
-
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
     title: 'LXP/AccordionTrack',
@@ -72,29 +71,32 @@ var trails = [
     show: true,
   },  
   
-]  
-
-
-
-
+] 
 
 export const Opened = Template.bind({})
 Opened.args = {
     onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
     handleChange: (trailsChange) => { 
-      console.log('Teve alteração: ', trailsChange)
       trails = trailsChange
     },    
-    handleEditCourse: (id) => {
-      alert(`Selected id: ${id}`)
-    },
+    handleEditCourse: (id) => {alert(`Selected id: ${id}`)},
+    handlePopOverEdit: (id) => {alert(`Selectec id: ${id}`)},
+    handlePopOverMove: (id) => {alert(`Selectec id: ${id}`)},
+    handlePopOverDelete: (id) => {alert(`Selectec id: ${id}`)},
+    handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)}, 
     trailsData: trails,
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",
     textRegistros: "records",
     textMinhasTrihas: "My tracks",
     txtAtivarCurso: "Activate trail",
-    txtCriarNovoCurso: "New Trail"
+    txtCriarNovoCurso: "New Trail",
+    txtPopOverEditContent: "Edit content",
+    txtPopOverMoveToTrails: "Move to Trails",
+    txtPopOverDeleteContent:"Delete content",
+    txtTrailsPopOverEdit: "Editar nome da trilha",
+    txtTrailsPopOverDuplicar: "Duplicar trilha",
+    txtTrailsPopOverDelete: "Excluir trilha"
 }
 
 

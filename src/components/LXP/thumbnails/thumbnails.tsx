@@ -11,7 +11,27 @@ import Switch from 'react-switch'
 import Button from '../../buttons'
 import { PopOver, PopOverItem } from '../popOver'
 
-export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled, txtButtonLabel, txtCriarNovoCurso, txtAtivarCurso }: IThumbnailsTranslate) {
+export default function Thumbnails({ 
+  variant, 
+  src, 
+  handleClickCourse, 
+  handleClickNew, 
+  handleClickContent, 
+  handleChange,
+  handleClickPopOverDelete,
+  handleClickPopOverMove,
+  handleClickPopOverEdit,
+  title, 
+  provided, 
+  disabled, 
+  txtButtonLabel, 
+  txtCriarNovoCurso, 
+  txtAtivarCurso,
+  txtPopOverDeleteContent,
+  txtPopOverMoveToTrails,
+  txtPopOverEditContent 
+}: IThumbnailsTranslate) {
+
   const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg"
   const [checked, setChecked] = useState<boolean>(!disabled)
   const [showModules, setShowModules] = useState<boolean>(false)
@@ -137,25 +157,19 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
         >
           <div style={{display: 'flex', flexDirection: 'column', padding: 0}}>            
             <PopOverItem 
-              label={"Editar Conteúdo"}
-              onClick={() => {
-                console.log("teste")
-              }}
+              label={txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo"}
+              onClick={handleClickPopOverEdit}
               style={{
                 borderBottom: '1px black solid'
               }}
             />
             <PopOverItem 
-              label={"Mover para Trilhas"}
-              onClick={() => {
-                console.log("teste")
-              }}
+              label={txtPopOverMoveToTrails ? txtPopOverMoveToTrails : "Mover para Trilhas"}
+              onClick={handleClickPopOverMove}
             />
             <PopOverItem 
-              label={"Editar Conteúdo"}
-              onClick={() => {
-                console.log("teste")
-              }}
+              label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
+              onClick={handleClickPopOverDelete}
               icon={<Icons.Trash fill='#C00F00'/>}
               noBorder={true}
               isFontBold={true}

@@ -2,7 +2,7 @@ import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import * as Styles from './accordionTrackStyle'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
 import { IAccordionTranslate } from './IAccordionTrack'
@@ -83,21 +83,21 @@ export default function AccordionTrackNormal(data: any, props: IAccordionTransla
         >
           <div style={{display: 'flex', flexDirection: 'column', padding: 0}}>            
             <PopOverItem 
-              label={"Editar nome da trilha"}
-              onClick={() => {
-                console.log("teste")
+              label={props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha"}
+              onClick={() =>{ 
+                props.handlePopOverEdit
               }}
             />
             <PopOverItem 
-              label={"Duplicar trilha"}
+              label={props.txtTrailsPopOverDuplicar ? props.txtTrailsPopOverDuplicar : "Duplicar trilha"}
               onClick={() => {
-                console.log("teste")
+                props.handlePopOverDuplicate
               }}
             />
             <PopOverItem 
-              label={"Excluir trilha"}
+              label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
               onClick={() => {
-                console.log("teste")
+                props.handlePopOverDelete
               }}
               icon={<Icons.Trash fill='#C00F00'/>}
               noBorder={true}

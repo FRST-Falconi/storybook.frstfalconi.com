@@ -19,6 +19,10 @@ export interface IAccordionTrack {
     onNewTrail?: (id) => void,
     handleClickNew?: () => void,
     handleEditCourse?: (id: string) => void
+    handlePopOverEdit?: (id: string) => void
+    handlePopOverMove?: (id: string) => void
+    handlePopOverDelete?: (id: string) => void
+    handlePopOverDuplicate?: (id: string) => void
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
@@ -29,5 +33,11 @@ export interface IAccordionTranslate extends IAccordionTrack {
     txtAtivarCurso?: string
     txtButtonLabel?: string
     txtCriarNovoCurso?: string
+    txtPopOverEditContent?: string
+    txtPopOverMoveToTrails?: string
+    txtPopOverDeleteContent?: string
+    txtTrailsPopOverEdit?: string
+    txtTrailsPopOverDuplicar?: string
+    txtTrailsPopOverDelete?: string
 }
 
