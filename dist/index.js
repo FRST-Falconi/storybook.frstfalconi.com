@@ -5487,7 +5487,7 @@ function PopOverItem(props) {
             cursor: 'pointer',
             color: props.color ? props.color : '#000000',
             fontWeight: props.isFontBold ? '700' : 'normal'
-        }, children: [props.icon, props.label] }));
+        }, onClick: props.onClick, children: [props.icon, props.label] }));
 }
 function PopOver({ variant, children, element, onClosePopover }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -7669,7 +7669,7 @@ function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleCli
                         setElementPopover(null);
                     }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo", onClick: handleClickPopOverEdit, style: {
                                     borderBottom: '1px black solid'
-                                } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverMoveToTrails ? txtPopOverMoveToTrails : "Mover para Trilhas", onClick: handleClickPopOverMove }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo", onClick: handleClickPopOverDelete, icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) })] }) }));
+                                } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo", onClick: handleClickPopOverDelete, icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) })] }) }));
 }
 
 function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, id, index, disabled, txtButtonLabel, txtAtivarCurso, txtCriarNovoCurso, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverMove, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails }) {
@@ -7698,37 +7698,35 @@ function VectorUp(props) {
     return (jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 9L9 1L17 9", stroke: "#FF4D0D", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
 }
 
-function AccordionTrackNormal(data, props) {
+function AccordionTrackNormal(props) {
     const [checked, setChecked] = React.useState(true);
     const [up, setUp] = React.useState(true);
     const [ElementPopover, setElementPopover] = React.useState(null);
     const handleChange = (checkedValue) => {
         setChecked(checkedValue);
-        data.handleChangeCheck(checkedValue);
+        props.handleChangeCheck(checkedValue);
     };
     const changeSelect = () => {
         {
             if (up) {
                 setUp(false);
-                data.handleChangeShow(false);
+                props.handleChangeShow(false);
             }
             else {
                 setUp(true);
-                data.handleChangeShow(true);
+                props.handleChangeShow(true);
             }
         }
     };
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: "opened", active: data.ativo, children: [jsxRuntime.jsxs(ContentTrailName, { children: [jsxRuntime.jsx(TypographyTrailName, { children: data.TrailName }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: data.show ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] }), jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: data.ativo, style: { fontWeight: data.ativo ? 700 : 400 }, children: [props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: data.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: data.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: "opened", active: props.ativo, children: [jsxRuntime.jsxs(ContentTrailName, { children: [jsxRuntime.jsx(TypographyTrailName, { children: props.TrailName }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: props.show ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] }), jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
                                     setElementPopover(element.currentTarget);
-                                }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: data.ativo ? '#000000' : '#bdbdbd' }) }) })] })] }), jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
+                                }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: props.ativo ? '#000000' : '#bdbdbd' }) }) })] })] }), jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                     setElementPopover(null);
                 }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha", onClick: () => {
-                                props.handlePopOverEdit;
-                            } }), jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverDuplicar ? props.txtTrailsPopOverDuplicar : "Duplicar trilha", onClick: () => {
-                                props.handlePopOverDuplicate;
+                                props.handlePopOverTrailEdit(props.id);
                             } }), jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha", onClick: () => {
-                                props.handlePopOverDelete;
-                            }, icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) }), data.children] }));
+                                props.handlePopOverTrailDelete(props.id);
+                            }, icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) }), props.children] }));
 }
 
 function AccordionTrackEmpty(data) {
@@ -7747,15 +7745,12 @@ function AccordionTrack(props) {
                     jsxRuntime.jsxs(AccordionTrackEmpty, { TrailName: data.TrailName, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h2", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", data.items.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), data.show &&
                                 jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
                                         return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), (data.ativo || data.ativo) && data.items.map((el, index) => {
-                                                                return (jsxRuntime.jsx(ThumbnailsDraggable, { disabled: el.disabled, id: el.id, index: index, title: el.name, variant: 'default', txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => {
-                                                                        console.log("Passou aqui");
-                                                                        props.handleEditCourse(el.id);
-                                                                    }, handleChange: () => { }, handleClickContent: () => { }, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.id); }, handleClickPopOverDelete: () => { props.handlePopOverDelete(el.id); }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, index));
+                                                                return (jsxRuntime.jsx(ThumbnailsDraggable, { disabled: el.disabled, id: el.id, index: index, title: el.name, variant: 'default', txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => { props.handleEditCourse(el.id); }, handleChange: () => { }, handleClickContent: () => { }, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.id); }, handleClickPopOverDelete: () => { props.handlePopOverDelete(el.id); }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, index));
                                                             })] }) }), provided.placeholder] }));
                                     } }, key)] })
                     :
                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [key === 1 &&
-                                    jsxRuntime.jsx("span", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), jsxRuntime.jsx(AccordionTrackNormal, { TrailName: data.TrailName, ativo: data.ativo, handleChangeCheck: (bActive) => {
+                                    jsxRuntime.jsx("span", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), jsxRuntime.jsx(AccordionTrackNormal, { id: data.id, TrailName: data.TrailName, ativo: data.ativo, handleChangeCheck: (bActive) => {
                                         if (props.onSetActiveTrail) {
                                             props.onSetActiveTrail(bActive, key);
                                         }
@@ -7763,7 +7758,7 @@ function AccordionTrack(props) {
                                         if (props.onSetShowTrail) {
                                             props.onSetShowTrail(bShow, key);
                                         }
-                                    }, children: data.show &&
+                                    }, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, handlePopOverTrailDelete: (id) => { props.handlePopOverTrailDelete(id); }, children: data.show &&
                                         jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
                                                 return (jsxRuntime.jsxs(ContainerTrailsNormal, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '20px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), data.items && data.items.map((el, index) => {
                                                                         return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: el.id, disabled: el.disabled, index: index, title: el.name, variant: 'default', handleChange: () => { }, handleClickCourse: () => {
@@ -7775,7 +7770,7 @@ function AccordionTrack(props) {
         }) }));
 }
 
-function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCourse, handlePopOverDelete, handlePopOverMove, handlePopOverEdit, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso }) {
+function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCourse, handlePopOverDelete, handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso }) {
     const [trails, setTrails] = React.useState(trailsData);
     const [updateScrollSize, setUpdateScrollSize] = React.useState(0);
     React.useEffect(() => {
@@ -7831,7 +7826,7 @@ function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCo
                             if (onNewTrail) {
                                 onNewTrail(id);
                             }
-                        }, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, updateScrollSize: updateScrollSize, handlePopOverDelete: handlePopOverDelete, handlePopOverEdit: handlePopOverEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails }) }) }) }));
+                        }, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, updateScrollSize: updateScrollSize, handlePopOverDelete: handlePopOverDelete, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails }) }) }) }));
 }
 
 const Container$3 = styled__default["default"].div `

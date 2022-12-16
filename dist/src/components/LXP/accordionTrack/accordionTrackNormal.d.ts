@@ -1,5 +1,4 @@
 /// <reference types="react" />
 import '../../../shared/global.css';
-import { IAccordionTranslate } from './IAccordionTrack';
-export default function AccordionTrackNormal(data: any, props: IAccordionTranslate): JSX.Element;
+export default function AccordionTrackNormal(props: any): JSX.Element;
 //# sourceMappingURL=accordionTrackNormal.d.ts.map
