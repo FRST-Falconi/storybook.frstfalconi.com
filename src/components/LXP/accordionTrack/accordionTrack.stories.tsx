@@ -73,16 +73,24 @@ var trails = [
   
 ] 
 
+console.log(trails)
+
 export const Opened = Template.bind({})
 Opened.args = {
     onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
     handleChange: (trailsChange) => { 
       trails = trailsChange
     },    
-    handleEditCourse: (id) => {alert(`Selected id: ${id}`)},
-    handlePopOverEdit: (id) => {alert(`Selectec id: ${id}`)},
-    handlePopOverMove: (id) => {alert(`Selectec id: ${id}`)},
-    handlePopOverDelete: (id) => {alert(`Selectec id: ${id}`)},
+    handleEditCourse: (id) => {alert(`Selected id: ${id}`)},  
+    handlePopOverMove: (id) => {alert(`Move id: ${id}`)},
+    handlePopOverEdit: (id) => {alert(`Content Edit id: ${id}`)},
+    handlePopOverDelete: (id) => {alert(`Content Deleted id: ${id}`)},
+
+    handlePopOverTrailEdit: (id) => {alert(`Trail Edit id: ${id}`)},
+    handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
+
+
+
     handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)}, 
     trailsData: trails,
     textMeusConteudos: "My Contents",

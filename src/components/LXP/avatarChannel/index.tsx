@@ -4,8 +4,9 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './avatarChannelStyles'
 import { IAvatar } from './avatarChannel'
 import * as Icons from '../../../shared/icons'
-import PopOver from '@components/LXP/popOver'
 import { useState } from 'react'
+import { PopOver } from 'frst-components'
+
 
 export default function AvatarChannel({
   size,

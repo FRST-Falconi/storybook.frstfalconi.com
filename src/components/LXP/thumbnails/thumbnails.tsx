@@ -9,7 +9,7 @@ import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch'
 import Button from '../../buttons'
-import { PopOver, PopOverItem } from '../popOver'
+import  PopOver,{ PopOverItem } from '../popOver'
 
 export default function Thumbnails({ 
   variant, 
@@ -163,10 +163,10 @@ export default function Thumbnails({
                 borderBottom: '1px black solid'
               }}
             />
-            <PopOverItem 
+            {/* <PopOverItem 
               label={txtPopOverMoveToTrails ? txtPopOverMoveToTrails : "Mover para Trilhas"}
               onClick={handleClickPopOverMove}
-            />
+            /> */}
             <PopOverItem 
               label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
               onClick={handleClickPopOverDelete}

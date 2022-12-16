@@ -75,10 +75,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           txtButtonLabel={props.txtButtonLabel}
                                           txtAtivarCurso={props.txtAtivarCurso}
                                           txtCriarNovoCurso={props.txtCriarNovoCurso}
-                                          handleClickCourse={() => {
-                                            console.log("Passou aqui")
-                                            props.handleEditCourse(el.id)
-                                          }}
+                                          handleClickCourse={() => {props.handleEditCourse(el.id)}}
                                           handleChange={() => { }}
                                           handleClickContent={() => {}}
                                           handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
@@ -114,6 +111,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                       </span>
                     }
                     <AccordionTrackNormal
+                      id={data.id}
                       TrailName={data.TrailName}
                       ativo={data.ativo}
                       handleChangeCheck={(bActive: boolean) => {
@@ -126,6 +124,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                           props.onSetShowTrail(bShow, key)
                         }
                       }}
+                      handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
+                      handlePopOverTrailDelete={(id: string) => { props.handlePopOverTrailDelete(id) }}
                     >
                       {
                         data.show &&
