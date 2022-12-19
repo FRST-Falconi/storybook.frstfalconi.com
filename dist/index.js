@@ -600,7 +600,7 @@ const FormControlSelect = styled__default["default"](FormControl__default["defau
     margin-top: 5px !important;
   }
 `;
-const DropDownList$1 = styled__default["default"](Select__default["default"]) `
+const DropDownList$2 = styled__default["default"](Select__default["default"]) `
   max-width: 350px !important;
   height: 40px !important;
   & > div {
@@ -773,7 +773,7 @@ function CalendarCard(props) {
             jsxRuntime.jsx(Container$c, { className: 'shimmer' })
             :
                 jsxRuntime.jsx(Container$c, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$4, { children: t('calendar.title') }), moduleSelector &&
-                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$1, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
+                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
                                 jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon$1, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') })] }), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }), moduleEvents && moduleEvents.length > 0 &&
@@ -3123,7 +3123,7 @@ function TotalizerCard$1({ titleCard, textTotal, numberTotal, numberPartial, loa
 // Create react context to share data between components
 const SelectContext = React__default["default"].createContext(null);
 
-const DropDownContainer = styled__default["default"].div `
+const DropDownContainer$1 = styled__default["default"].div `
   width: 100%;
   height: 48px;
   background: #ffffff;
@@ -3136,7 +3136,7 @@ const DropDownContainer = styled__default["default"].div `
       border: 1px solid ${({ theme }) => theme.colors.messageError1};
     `}
 `;
-const EventOverlay = styled__default["default"].div `
+const EventOverlay$1 = styled__default["default"].div `
   position: absolute;
   width: 100%;
   height: 100%;
@@ -3146,7 +3146,7 @@ const EventOverlay = styled__default["default"].div `
   cursor: pointer;
   z-index: 2;
 `;
-const DropDownHeader = styled__default["default"].div `
+const DropDownHeader$1 = styled__default["default"].div `
   font-weight: 500;
   font-size: 1.3rem;
   color: #3faffa;
@@ -3174,8 +3174,8 @@ const DropDownHeader = styled__default["default"].div `
       }
     `}
 `;
-const DropDownListContainer = styled__default["default"]('div') ``;
-const DropDownList = styled__default["default"]('ul') `
+const DropDownListContainer$1 = styled__default["default"]('div') ``;
+const DropDownList$1 = styled__default["default"]('ul') `
   padding: 0;
   margin: 0;
   background: #ffffff;
@@ -3192,7 +3192,7 @@ const DropDownList = styled__default["default"]('ul') `
     padding-top: 0.8em;
   }
 `;
-const DropDownHeaderIcon = styled__default["default"]('div') `
+const DropDownHeaderIcon$1 = styled__default["default"]('div') `
   position: absolute;
   right: 16.48px;
   display: flex;
@@ -3205,7 +3205,7 @@ const DropDownHeaderIcon = styled__default["default"]('div') `
       transform: rotate(180deg);
     `}
 `;
-const SelectedOption = styled__default["default"]('p') `
+const SelectedOption$1 = styled__default["default"]('p') `
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 400;
@@ -3214,7 +3214,7 @@ const SelectedOption = styled__default["default"]('p') `
   color: #222222 !important;
 `;
 
-function ArrowIcon() {
+function ArrowIcon$1() {
     return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
 }
 function Select$2({ placeholder, defaultValue, children, onChange, loading, isError, style }) {
@@ -3254,10 +3254,10 @@ function Select$2({ placeholder, defaultValue, children, onChange, loading, isEr
         onChange(e);
         toggle();
     };
-    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader, { error: isError, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer$1, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay$1, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader$1, { error: isError, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption$1, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon$1, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon$1, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer$1, { children: jsxRuntime.jsx(DropDownList$1, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
 }
 
-const ListItem = styled__default["default"]("li") `
+const ListItem$1 = styled__default["default"]("li") `
     list-style: none;
     font-family: 'Work Sans';
     font-style: normal;
@@ -3289,7 +3289,7 @@ const ListItem = styled__default["default"]("li") `
     }
 `;
 function SelectItem({ value, label, selected, handleSelect, disabled }) {
-    return (jsxRuntime.jsx(SelectContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
+    return (jsxRuntime.jsx(SelectContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem$1, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
 }
 
 function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style }) {
@@ -7940,6 +7940,170 @@ function ManageLearningCicles({ variant, label, disabled, style, handleClick, ha
                         : jsxRuntime.jsx(TypographyContentsName, { children: "Introdu\u00E7\u00E3o a blockchain" }) }), jsxRuntime.jsxs(ContainerIcon, { children: [jsxRuntime.jsx("p", { children: jsxRuntime.jsx(DropdownIconWhite, { fill: '#000000' }) }), jsxRuntime.jsx(SelectIcon, { onChange: handleChange, children: listTrails.map((item, index) => jsxRuntime.jsx("option", { value: item.id, children: item.name }, index)) })] }), jsxRuntime.jsxs(GroupName, { isOpen: isOpen, children: [jsxRuntime.jsx("p", { children: "Group name" }), jsxRuntime.jsx("div", { onClick: handleClickCheck, children: jsxRuntime.jsx(MoreHorizontal, {}) })] })] }) }));
 }
 
+// Create react context to share data between components
+const SelectLXPContext = React__default["default"].createContext(null);
+
+const DropDownContainer = styled__default["default"]("div") `
+    width: 100%;
+    height: 48px;
+    background: #FFFFFF;
+    border: 1px solid #E8E8E8;
+    border-radius: 4px;
+    position: relative;
+`;
+const EventOverlay = styled__default["default"].div `
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+    cursor: pointer;
+    z-index: 2;
+`;
+const DropDownHeader = styled__default["default"]("div") `
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #3faffa;
+  background: #ffffff;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+  border-radius: 4px;
+
+  p {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #A6A6A6;
+  }
+`;
+const DropDownListContainer = styled__default["default"]("div") ``;
+const DropDownList = styled__default["default"]("ul") `
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  box-sizing: border-box;
+  color: #3faffa;
+  font-size: 1.3rem;
+  font-weight: 500;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+
+  &:first-child {
+    padding-top: 0.8em;
+  }
+
+`;
+const DropDownHeaderIcon = styled__default["default"]('div') `
+  position: absolute;
+  right: 16.48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease-in-out;
+
+  ${({ open }) => open === true && styled.css `
+    transform: rotate(180deg);
+  `}
+`;
+const SelectedOption = styled__default["default"]('p') `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #222222 !important;
+`;
+function ArrowIcon() {
+    return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
+}
+function SelectLXP$1({ placeholder, defaultValue, children, onChange, loading }) {
+    const wrapperRef = React.useRef(null);
+    const [isOpen, setIsOpen] = React.useState(false);
+    const [selectedOption, setSelectedOption] = React.useState(null);
+    const [selectedOptionValue, setSelectedOptionValue] = React.useState();
+    React.useEffect(() => {
+        function handleClickOutside(event) {
+            // @ts-ignore
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target) && isOpen)
+                setIsOpen(false);
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [wrapperRef, isOpen]);
+    React.useEffect(() => {
+        let param = false;
+        children && children.length && children.forEach((child) => {
+            if (child.props.value == defaultValue) {
+                param = true;
+                setSelectedOption(child.props.label);
+                setSelectedOptionValue(child.props.value);
+            }
+        });
+        if (!param) {
+            setSelectedOption(null);
+            setSelectedOptionValue(false);
+        }
+    }, [children, defaultValue]);
+    const toggle = () => setIsOpen(!isOpen);
+    const handleChange = (e) => {
+        onChange(e);
+        toggle();
+    };
+    return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs(DropDownContainer, { ref: wrapperRef, children: [jsxRuntime.jsx(EventOverlay, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader, { children: [loading ?
+                            jsxRuntime.jsx("p", { children: "Carregando dados..." })
+                            :
+                                selectedOption ? jsxRuntime.jsx(SelectedOption, { children: selectedOption }) : jsxRuntime.jsx("p", { children: placeholder }), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectLXPContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+}
+
+const ListItem = styled__default["default"]("li") `
+    list-style: none;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000;
+    height: 38px;
+    margin: 0;
+    padding-left: 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    ${props => props.disabled === true && styled.css `
+        cursor: not-allowed;
+        background-color: #e5e5e5;
+        opacity: 0.3;
+    `}
+
+    ${props => props.selected === true && styled.css `
+        background-color: #e5e5e5;
+        cursor: pointer;
+        opacity: 1;
+    `}
+
+    &:hover {
+        background-color: #e5e5e5;
+    }
+`;
+function SelectLXPItem({ value, label, selected, handleSelect, disabled }) {
+    return (jsxRuntime.jsx(SelectLXPContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
+}
+
+function SelectLXP({ placeholder, valueSelect, handleValueSelect, listItems }) {
+    return (jsxRuntime.jsx(SelectLXP$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), children: listItems.map((item, index) => (jsxRuntime.jsx(SelectLXPItem, { label: item.label, value: item.id }, index))) }));
+}
+
 const ProgressBox = styled__default["default"](_.Box) `
   z-index: 1 !important;
   float: right !important;
@@ -9657,6 +9821,7 @@ exports.SearchBox = SearchBox;
 exports.SearchField = SearchField;
 exports.SearchResults = SearchResults;
 exports.Select = SelectFRST;
+exports.SelectLXP = SelectLXP;
 exports.SessionFilters = SessionFilters;
 exports.SiteIcon = SiteIcon;
 exports.SmallSRGBanner = SmallSRGBanner;
