@@ -44,6 +44,8 @@ interface IFeedInteraction {
     handleImpactoChange?: any
     handleRelevanciaChange?: any
     handlePostReviewChange ?: any
+
+    hideComments ?: any
 }
 
 export default function FeedInteraction ( props : IFeedInteraction ) {
@@ -110,9 +112,10 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                             <Button startIcon={<Icons.ThumbsUpIcon fill={'currentColor'} />} label={props.textLikes} variant='link' handleClick={props.handleLikeClick}  />
                         </Styles.buttons>
                     }
+                    { !props?.hideComments &&
                     <Styles.buttons onClick={OnCommentsClick} style={{color:openComments && FRSTTheme['colors'].linkPressed}}>
                         <Icons.TalkIcon fill={'currentColor'} /> {props.textComments}
-                    </Styles.buttons>
+                    </Styles.buttons>}
                     <Styles.buttons onClick={OnReviewClick} style={{color:openReview && FRSTTheme['colors'].linkPressed}} >
                         <Icons.StarOutlined fill={'currentColor'} /> {props.textAvaluation}
                     </Styles.buttons>

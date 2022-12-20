@@ -93,6 +93,7 @@ export default function PostFeed( props : IPostFeed ){
 
             </Styles.postContainer>
             <FeedInteraction 
+                hideComments={true}
                 isPostReview={true}
                 userAvatar={props.userAvatar}
                 id={props.postId}
