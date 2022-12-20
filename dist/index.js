@@ -9150,7 +9150,7 @@ function FeedInteraction(props) {
     const [showMoreComments, setShowMoreComments] = React.useState(false);
     const [focusComment, setFocusComment] = React.useState(false);
     const [commentData, setCommentData] = React.useState('');
-    const [isVisibleComments, setIsVisibleComments] = React.useState(true);
+    const [isVisibleComments, setIsVisibleComments] = React.useState(!props?.hideComments);
     React.useEffect(() => {
         setIsVisibleComments(!props?.hideComments);
     }, [props?.hideComments]);

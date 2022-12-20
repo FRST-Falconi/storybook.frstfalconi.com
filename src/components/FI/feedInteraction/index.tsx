@@ -56,7 +56,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const [focusComment, setFocusComment] = useState(false);
     const [commentData, setCommentData] = useState('');
 
-    const [isVisibleComments, setIsVisibleComments] = useState(true)
+    const [isVisibleComments, setIsVisibleComments] = useState(!props?.hideComments)
 
     useEffect(() => {
         setIsVisibleComments(!props?.hideComments)
