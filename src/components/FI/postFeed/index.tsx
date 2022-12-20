@@ -64,7 +64,7 @@ export default function PostFeed( props : IPostFeed ){
                     : null
                 }
 
-                <Styles.postDescription> 
+                <Styles.postDescription style={{paddingLeft: '24px', paddingRight: '24px'}}> 
                     <Markdown>
                         {props.description}
                     </Markdown>
@@ -76,8 +76,8 @@ export default function PostFeed( props : IPostFeed ){
                             src= {`https://www.youtube.com/embed/${props.postVideoId}`}
                             frameBorder= "0" 
                             allow="autoplay; fullscreen; picture-in-picture"
-                            width={ props.videoWidth ? props.videoWidth : 586}
-                            height={ props.videoHeight ? props.videoHeight : 330}
+                            width={props.videoWidth ? props.videoWidth : '100%'}
+                            height={ props.videoHeight ? props.videoHeight : 430}
                         />
                         
                     </Styles.postVideo>
@@ -85,7 +85,7 @@ export default function PostFeed( props : IPostFeed ){
                 }
 
                 {props.handlePostButtonClick ?
-                    <div style={{marginTop: 32, width: '100%'}}>
+                    <div style={{marginTop: 32, width: '100%', paddingLeft: '24px', paddingRight: '24px'}}> 
                         <Button variant='expandedPrimary' label={props.textPostButton} handleClick={props.handlePostButtonClick} />
                     </div>
                     : null

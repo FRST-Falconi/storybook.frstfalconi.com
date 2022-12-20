@@ -11,7 +11,8 @@ export const postContainer = styled.div`
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     background-color: ${({theme}) => theme.colors.shadeWhite};
-    padding: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     
     &>img{
         max-width: 100%;
@@ -56,6 +57,7 @@ export const postImage = styled.div`
 
     & img{
         max-width: 100%;
+        width: 100%;
         max-height: 100%;
     }
 `

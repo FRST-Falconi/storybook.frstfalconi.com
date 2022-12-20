@@ -9461,7 +9461,8 @@ const postContainer = styled__default["default"].div `
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-    padding: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
     
     &>img{
         max-width: 100%;
@@ -9502,6 +9503,7 @@ const postImage = styled__default["default"].div `
 
     & img{
         max-width: 100%;
+        width: 100%;
         max-height: 100%;
     }
 `;
@@ -9518,10 +9520,10 @@ function PostFeed(props) {
     const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png';
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { children: [jsxRuntime.jsxs("div", { style: { marginRight: 16 }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1 }, children: " FRST Falconi " })] }), jsxRuntime.jsxs(postTitle, { children: [" ", props.title, " "] }), props.postImage ?
                         jsxRuntime.jsx(postImage, { children: jsxRuntime.jsx("img", { src: props.postImage }) })
-                        : null, jsxRuntime.jsx(postDescription, { children: jsxRuntime.jsx(Markdown__default["default"], { children: props.description }) }), props.postVideoId ?
-                        jsxRuntime.jsx(postVideo, { children: jsxRuntime.jsx("iframe", { src: `https://www.youtube.com/embed/${props.postVideoId}`, frameBorder: "0", allow: "autoplay; fullscreen; picture-in-picture", width: props.videoWidth ? props.videoWidth : 586, height: props.videoHeight ? props.videoHeight : 330 }) })
+                        : null, jsxRuntime.jsx(postDescription, { style: { paddingLeft: '24px', paddingRight: '24px' }, children: jsxRuntime.jsx(Markdown__default["default"], { children: props.description }) }), props.postVideoId ?
+                        jsxRuntime.jsx(postVideo, { children: jsxRuntime.jsx("iframe", { src: `https://www.youtube.com/embed/${props.postVideoId}`, frameBorder: "0", allow: "autoplay; fullscreen; picture-in-picture", width: props.videoWidth ? props.videoWidth : '100%', height: props.videoHeight ? props.videoHeight : 430 }) })
                         : null, props.handlePostButtonClick ?
-                        jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%' }, children: jsxRuntime.jsx(Button$2, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
+                        jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%', paddingLeft: '24px', paddingRight: '24px' }, children: jsxRuntime.jsx(Button$2, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
                         : null] }), jsxRuntime.jsx(FeedInteraction, { isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, commentList: props.commentList, userCommentPlaceholder: props.userCommentPlaceholder, textLoadMoreComments: props.textLoadMoreComments, textSaveCommentBtn: props.textSaveCommentBtn, ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, handleSaveCommentBtn: props.handleSaveCommentBtn, onCommentChange: props.onCommentChange, isDisabledAvaluation: props.isDisabledAvaluation })] }));
 }
 
