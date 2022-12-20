@@ -64,7 +64,7 @@ export default function PostFeed( props : IPostFeed ){
                     : null
                 }
 
-                <Styles.postDescription style={{paddingLeft: '24px', paddingRight: '24px'}}> 
+                <Styles.postDescription style={{paddingLeft: '24px', paddingRight: '24px', width: '100%'}}> 
                     <Markdown>
                         {props.description}
                     </Markdown>
