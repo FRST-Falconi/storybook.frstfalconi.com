@@ -56,6 +56,12 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     const [focusComment, setFocusComment] = useState(false);
     const [commentData, setCommentData] = useState('');
 
+    const [isVisibleComments, setIsVisibleComments] = useState(true)
+
+    useEffect(() => {
+        setIsVisibleComments(!props?.hideComments)
+    }, [props?.hideComments])
+
     const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
     useEffect(() => {
         setStateLatestComment(props.latestComment)
@@ -112,7 +118,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                             <Button startIcon={<Icons.ThumbsUpIcon fill={'currentColor'} />} label={props.textLikes} variant='link' handleClick={props.handleLikeClick}  />
                         </Styles.buttons>
                     }
-                    { !props?.hideComments &&
+                    { isVisibleComments &&
                     <Styles.buttons onClick={OnCommentsClick} style={{color:openComments && FRSTTheme['colors'].linkPressed}}>
                         <Icons.TalkIcon fill={'currentColor'} /> {props.textComments}
                     </Styles.buttons>}
