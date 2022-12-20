@@ -15,7 +15,7 @@ export const Text = Template.bind({})
 Text.args = {
     title: 'O título do post será escrito aqui e seu limite máximo será de 125 caracteres de texto.',
     description: "Você já conhece a nossa ferramenta guia de resolução de problemas, o **Space Race Game**? \n\nEla será utilizada em um ciclo ágil de aprendizado, colaboração e experimentação, aonde você selecionará um problema real da sua empresa para solucionar. Essa jornada contará com cinco etapas: **Definição do problema, Levantamento de hipóteses, Testes realizados, Resultados e aprendizados e Próximos passos**.\n\nQue tal testar na prática? Clique no botão abaixo para criar seu primeiro problema:",
-    
+    isVisibleComments: true,
     textPostButton: 'Botão CTA',
     handlePostButtonClick: () => alert('Clicado!'),
 

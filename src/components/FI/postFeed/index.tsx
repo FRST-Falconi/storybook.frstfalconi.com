@@ -6,6 +6,7 @@ import FeedInteraction from '../feedInteraction'
 import * as Styles from './postFeedStyles' 
 
 import Markdown from 'markdown-to-jsx';
+import { useEffect, useState } from 'react'
 
 interface IPostFeed{
     title: string
@@ -42,11 +43,19 @@ interface IPostFeed{
     handleLikeClick?: () => void
     handlePostReviewChange?: () => void
     handleSaveCommentBtn?: (comment) => void
-    onCommentChange?: (e) => void
+    onCommentChange?: (e) => void,
+    isVisibleComments?: boolean
 }
 
 export default function PostFeed( props : IPostFeed ){
     const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png'
+
+    const [isVisibleComments, setIsVisibleComments] = useState(props.isVisibleComments)
+
+    useEffect(() => {
+        setIsVisibleComments(props.isVisibleComments)
+    }, [props.isVisibleComments])
+
     return(
         <ThemeProvider theme={FRSTTheme}>
             <Styles.postContainer style={{...props.style}}>
@@ -93,7 +102,7 @@ export default function PostFeed( props : IPostFeed ){
 
             </Styles.postContainer>
             <FeedInteraction 
-                hideComments={true}
+                hideComments={isVisibleComments}
                 isPostReview={true}
                 userAvatar={props.userAvatar}
                 id={props.postId}
