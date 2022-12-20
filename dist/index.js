@@ -9491,6 +9491,7 @@ const postDescription = styled__default["default"].span `
     text-align: left;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     margin-top: 32px;
+    width: 100% !important;
 `;
 const postImage = styled__default["default"].div `
     display: flex;
