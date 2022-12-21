@@ -104,7 +104,8 @@ Opened.args = {
     txtPopOverDeleteContent:"Delete content",
     txtTrailsPopOverEdit: "Editar nome da trilha",
     txtTrailsPopOverDuplicar: "Duplicar trilha",
-    txtTrailsPopOverDelete: "Excluir trilha"
+    txtTrailsPopOverDelete: "Excluir trilha",
+    txtPlacerolderInputNameTrail: 'Enter track name'
 }
 
 

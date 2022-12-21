@@ -15,6 +15,7 @@ export interface IAccordionTrack {
     handleClickSelect?: () => void,
     handleClickContent?: () => void 
     onSetActiveTrail?: (active, id) => void 
+    onSetNameTrail?: (name, id) => void
     onSetShowTrail?: (active, id) => void 
     onNewTrail?: (id) => void,
     handleClickNew?: () => void,
@@ -25,6 +26,7 @@ export interface IAccordionTrack {
     handlePopOverDuplicate?: (id: string) => void
     handlePopOverTrailEdit?: (id: string) => void
     handlePopOverTrailDelete?: (id: string) => void
+
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
@@ -41,5 +43,6 @@ export interface IAccordionTranslate extends IAccordionTrack {
     txtTrailsPopOverEdit?: string
     txtTrailsPopOverDuplicar?: string
     txtTrailsPopOverDelete?: string
+    txtPlacerolderInputNameTrail?: string
 }
 
