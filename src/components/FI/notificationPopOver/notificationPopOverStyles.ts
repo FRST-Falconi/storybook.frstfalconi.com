@@ -12,6 +12,18 @@ export const notificationContainer = styled.div`
     background-color: ${({theme}) => theme.colors.shadeWhite};
 `
 
+export const notificationContainerMobile = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-top: 1px solid ${({theme}) => theme.colors.borderPrimary};
+    background-color: ${({theme}) => theme.colors.shadeWhite};
+`
+
 export const notificationHeader = styled.div`
     display: flex;
     justify-content: space-between;

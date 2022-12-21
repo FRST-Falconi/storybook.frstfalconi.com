@@ -10,6 +10,7 @@ interface INotificationCard {
     notificationDate: string
 
     textNew: string
+    style?: React.CSSProperties
 
     handleClick: () => void
 }
@@ -28,7 +29,7 @@ export default function NotificationCard ( props : INotificationCard ) {
             
             <Styles.notificationContainer 
                 onClick={props.handleClick}
-                style={{backgroundColor: props.isNewNotification ? '#FEF0D0' : FRSTTheme['colors'].shadeWhite}} 
+                style={{...props.style, backgroundColor: props.isNewNotification ? '#FEF0D0' : FRSTTheme['colors'].shadeWhite}} 
             >
                 
                 <Avatar src={props.notificationAvatar} size='40px' />
