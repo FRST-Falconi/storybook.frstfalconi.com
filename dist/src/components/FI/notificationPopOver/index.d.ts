@@ -14,6 +14,7 @@ interface INotificationPopOver {
     textEmptyState: string;
     isOpen: boolean;
     anchor: any;
+    isMobile: boolean;
     handleClickMarkRead: () => void;
 }
 export default function NotificationPopOver(props: INotificationPopOver): JSX.Element;

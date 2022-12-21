@@ -50,6 +50,7 @@ export default function GlobalMenu({
     const [windowSize, setWindowSize] = useState([0, 0])
     const [isMobileVersion, setIsMobileVersion] = useState(false)
     const [openNotification, setOpenNotification] = useState(false);
+    const [openNotificationMobile, setOpenNotificationMobile] = useState(false);
     const [anchorNotification, setAnchorNotification] = useState(null);
 
     useEffect(() => {
@@ -91,6 +92,7 @@ export default function GlobalMenu({
 
     const onClickNotification = (event) => {
         setOpenNotification(!openNotification)
+        setOpenNotificationMobile(!openNotificationMobile)
         setAnchorNotification(event.currentTarget)
     }
 
@@ -323,22 +325,27 @@ export default function GlobalMenu({
                                                 notificationList={notification.notificationList}
                                                 textMarkAllAsRead={notification.textMarkAllAsRead}
                                                 textNotification={notification.textNotification}
+                                                isMobile={false}
                                             />
                                         </Styles.WrapperIconNotification>
                                         
                                     }
                                     {isMobileVersion && notification &&
-                                        <Styles.WrapperIconNotificationMobile onClick={onClickNotification}>
+                                        <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
                                             <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
-                                            <NotificationPopOver 
-                                                handleClickMarkRead={notification.handleClickMarkRead}
-                                                isOpen={openNotification}
-                                                anchor={anchorNotification}
-                                                textEmptyState={notification.textEmptyState}
-                                                notificationList={notification.notificationList}
-                                                textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                textNotification={notification.textNotification}
-                                            />
+                                            {windowSize[0] > 650 ?
+                                                <NotificationPopOver 
+                                                    handleClickMarkRead={notification.handleClickMarkRead}
+                                                    isOpen={openNotificationMobile}
+                                                    anchor={anchorNotification}
+                                                    textEmptyState={notification.textEmptyState}
+                                                    notificationList={notification.notificationList}
+                                                    textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                    textNotification={notification.textNotification}
+                                                    isMobile={false}
+                                                />
+                                                : null
+                                            }
                                         </Styles.WrapperIconNotificationMobile>
                                     }
                                     <DropdownProfileMenu
@@ -385,6 +392,19 @@ export default function GlobalMenu({
                                     })}
                                 </Styles.SubMenuContainer>}
                         </div>
+                        {openNotificationMobile && windowSize[0] <= 650 ? 
+                            <NotificationPopOver 
+                                handleClickMarkRead={notification.handleClickMarkRead}
+                                isOpen={openNotificationMobile}
+                                anchor={anchorNotification}
+                                textEmptyState={notification.textEmptyState}
+                                notificationList={notification.notificationList}
+                                textMarkAllAsRead={notification.textMarkAllAsRead}
+                                textNotification={notification.textNotification}
+                                isMobile={true}
+                            />
+                            : null
+                        }
                     </>
                     :
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', ...style }}>

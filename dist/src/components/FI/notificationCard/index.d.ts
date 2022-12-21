@@ -5,6 +5,7 @@ interface INotificationCard {
     isNewNotification: boolean;
     notificationDate: string;
     textNew: string;
+    style?: React.CSSProperties;
     handleClick: () => void;
 }
 export default function NotificationCard(props: INotificationCard): JSX.Element;
