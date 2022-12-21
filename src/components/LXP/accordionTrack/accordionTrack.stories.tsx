@@ -48,7 +48,7 @@ const item6 = {
   disabled: true,
 }
 
-const trails = [
+var trails = [
   {  
     id: v4(),
     TrailName: 'Sem Trilhas',
@@ -71,19 +71,40 @@ const trails = [
     show: true,
   },  
   
-]  
+] 
+
+console.log(trails)
 
 export const Opened = Template.bind({})
 Opened.args = {
     onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
-    handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
+    handleChange: (trailsChange) => { 
+      trails = trailsChange
+    },    
+    handleEditCourse: (id) => {alert(`Selected id: ${id}`)},  
+    handlePopOverMove: (id) => {alert(`Move id: ${id}`)},
+    handlePopOverEdit: (id) => {alert(`Content Edit id: ${id}`)},
+    handlePopOverDelete: (id) => {alert(`Content Deleted id: ${id}`)},
+
+    handlePopOverTrailEdit: (id) => {alert(`Trail Edit id: ${id}`)},
+    handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
+
+
+
+    handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)}, 
     trailsData: trails,
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",
     textRegistros: "records",
     textMinhasTrihas: "My tracks",
     txtAtivarCurso: "Activate trail",
-    txtCriarNovoCurso: "New Trail"
+    txtCriarNovoCurso: "New Trail",
+    txtPopOverEditContent: "Edit content",
+    txtPopOverMoveToTrails: "Move to Trails",
+    txtPopOverDeleteContent:"Delete content",
+    txtTrailsPopOverEdit: "Editar nome da trilha",
+    txtTrailsPopOverDuplicar: "Duplicar trilha",
+    txtTrailsPopOverDelete: "Excluir trilha"
 }
 
 

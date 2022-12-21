@@ -71,6 +71,7 @@ export const Typography = styled.p`
 export const IconVertical = styled.div`
     margin-left: 150px;
     margin-top: 10px;
+    width: 34px;
     cursor: pointer;
     position: absolute;
 `

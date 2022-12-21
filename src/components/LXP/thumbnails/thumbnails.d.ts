@@ -10,7 +10,10 @@ export interface IThumbnails {
     handleClickCourse?: () => void,
     handleChange?: (checkedValue: boolean) => void,
     handleClickNew?: () => void,
-    handleClickContent?: () => void,    
+    handleClickContent?: () => void, 
+    handleClickPopOverEdit?: () => void,
+    handleClickPopOverMove?: () => void,
+    handleClickPopOverDelete?: () => void,   
     variant?: enumVariant,
     title?: string   
     id?: string,
@@ -22,5 +25,8 @@ export interface IThumbnailsTranslate extends IThumbnails {
     txtButtonLabel?: string
     txtAtivarCurso?: string
     txtCriarNovoCurso?: string
+    txtPopOverEditContent?: string
+    txtPopOverMoveToTrails?: string
+    txtPopOverDeleteContent?: string
 }
 
