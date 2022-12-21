@@ -64,7 +64,7 @@ export const ContainerTrailsEmpty = styled.div`
 `
 
 
-export const ContentTrailName = styled.div`
+export const ContentTrailName = styled.div<IImageBackground>`
     display: flex;
     flex-direction: row;    
     gap: 20px;    
@@ -119,5 +119,14 @@ export const ContainerCard = styled.div`
     width: 100%;
     min-height: 300px;
     gap: 20px;
-
+`
+export const ContainerInputNameTrail = styled.div`
+    input{
+        border: 1px solid #BDBDBD;
+        border-radius: 8px;
+        background: #EBEBEB;
+        width: 220px;
+        height: 45px;
+        padding-left: 10px;
+    }
 `

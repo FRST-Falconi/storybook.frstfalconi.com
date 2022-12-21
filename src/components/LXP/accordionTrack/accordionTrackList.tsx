@@ -35,6 +35,7 @@ export default function AccordionTrackList({
     if (handleChange) {
       handleChange(trails)
     } 
+    console.log('trails' ,trails)
   }, [trails])
 
   useEffect(() => {
@@ -77,6 +78,16 @@ export default function AccordionTrackList({
     })
   }
 
+  const setNameTrail = (name, id) => {
+    
+    const itemCopy = { ...trails[id]}
+    setTrails((prev) => {
+      prev = { ...prev }       
+      prev[id].TrailName = name
+      return prev
+    })
+  }
+
   const setShowTrail = (active, id) => {
     
     const itemCopy = { ...trails[id]}
@@ -100,6 +111,9 @@ export default function AccordionTrackList({
               variant={"opened"}
               onSetActiveTrail={(active, id) => {
                 setActiveTrail(active, id)
+              }}
+              onSetNameTrail={(name, id) => {
+                setNameTrail(name, id)
               }}
               onSetShowTrail={(active, id) => {
                 setShowTrail(active, id)

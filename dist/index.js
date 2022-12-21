@@ -7523,7 +7523,16 @@ const ContainerCard = styled__default["default"].div `
     width: 100%;
     min-height: 300px;
     gap: 20px;
-
+`;
+const ContainerInputNameTrail = styled__default["default"].div `
+    input{
+        border: 1px solid #BDBDBD;
+        border-radius: 8px;
+        background: #EBEBEB;
+        width: 220px;
+        height: 45px;
+        padding-left: 10px;
+    }
 `;
 
 const ContainerThumbnails = styled__default["default"].div `
@@ -7730,6 +7739,8 @@ function AccordionTrackNormal(props) {
     const [checked, setChecked] = React.useState(true);
     const [up, setUp] = React.useState(true);
     const [ElementPopover, setElementPopover] = React.useState(null);
+    const [active, setActive] = React.useState(false);
+    const [nameTrail, setNameTrail] = React.useState('');
     const handleChange = (checkedValue) => {
         setChecked(checkedValue);
         props.handleChangeCheck(checkedValue);
@@ -7746,12 +7757,32 @@ function AccordionTrackNormal(props) {
             }
         }
     };
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: "opened", active: props.ativo, children: [jsxRuntime.jsxs(ContentTrailName, { children: [jsxRuntime.jsx(TypographyTrailName, { children: props.TrailName }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: props.show ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] }), jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
+    const handleClickActiveNameTrail = () => {
+        setNameTrail('');
+        if (active) {
+            return setActive(false);
+        }
+        else {
+            setActive(true);
+        }
+    };
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: "opened", active: props.ativo, children: [jsxRuntime.jsx(ContentTrailName, { active: active, children: !active ?
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyTrailName, { children: props.TrailName }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: props.show ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })
+                            :
+                                jsxRuntime.jsx(ContainerInputNameTrail, { children: jsxRuntime.jsx("input", { placeholder: props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha', value: nameTrail, onChange: (e) => {
+                                            setNameTrail(e.target.value);
+                                        }, onClick: () => {
+                                            if (nameTrail) {
+                                                setActive(false);
+                                                props.handleChangeTrailName(nameTrail);
+                                            }
+                                        } }) }) }), jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
                                     setElementPopover(element.currentTarget);
                                 }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: props.ativo ? '#000000' : '#bdbdbd' }) }) })] })] }), jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                     setElementPopover(null);
                 }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha", onClick: () => {
-                                props.handlePopOverTrailEdit(props.id);
+                                //props.handlePopOverTrailEdit(props.id)
+                                handleClickActiveNameTrail();
                             } }), jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha", onClick: () => {
                                 props.handlePopOverTrailDelete(props.id);
                             }, icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) }), props.children] }));
@@ -7782,6 +7813,10 @@ function AccordionTrack(props) {
                                         if (props.onSetActiveTrail) {
                                             props.onSetActiveTrail(bActive, key);
                                         }
+                                    }, handleChangeTrailName: (name) => {
+                                        if (props.onSetNameTrail) {
+                                            props.onSetNameTrail(name, key);
+                                        }
                                     }, handleChangeShow: (bShow) => {
                                         if (props.onSetShowTrail) {
                                             props.onSetShowTrail(bShow, key);
@@ -7805,6 +7840,7 @@ function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCo
         if (handleChange) {
             handleChange(trails);
         }
+        console.log('trails', trails);
     }, [trails]);
     React.useEffect(() => {
         setTrails(trailsData);
@@ -7837,6 +7873,14 @@ function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCo
             return prev;
         });
     };
+    const setNameTrail = (name, id) => {
+        ({ ...trails[id] });
+        setTrails((prev) => {
+            prev = { ...prev };
+            prev[id].TrailName = name;
+            return prev;
+        });
+    };
     const setShowTrail = (active, id) => {
         ({ ...trails[id] });
         setTrails((prev) => {
@@ -7848,6 +7892,8 @@ function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCo
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(reactBeautifulDnd.DragDropContext, { onDragEnd: handleDragEnd, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: trails &&
                     jsxRuntime.jsx(AccordionTrack, { trailsData: trails, variant: "opened", onSetActiveTrail: (active, id) => {
                             setActiveTrail(active, id);
+                        }, onSetNameTrail: (name, id) => {
+                            setNameTrail(name, id);
                         }, onSetShowTrail: (active, id) => {
                             setShowTrail(active, id);
                         }, onNewTrail: (id) => {
