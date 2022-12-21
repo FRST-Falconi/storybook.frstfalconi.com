@@ -129,7 +129,7 @@ export default function Follow ( props : IFollow){
                     {props.doNotFollowPostText ?
                         <Styles.followItems style={{border: 'none'}}>
                             <div onClick={props.handleDoNotFollowPostClick}
-                                style={{display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#D60000', fontWeight: 700, gap: 8}}
+                                style={{display: 'flex', justifyContent: 'center', alignItems: 'center', color: '#D60000', fontWeight: 700, gap: 8, cursor: 'pointer'}}
                                 >
                                 <EyeOff width="24" height="24" fill="currentColor" />
                                 {props.doNotFollowPostText}
