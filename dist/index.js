@@ -9525,16 +9525,33 @@ const postVideo = styled__default["default"].div `
 function PostFeed(props) {
     const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png';
     const [isVisibleComments, setIsVisibleComments] = React.useState(props.isVisibleComments);
+    const [actionArea, setActionArea] = React.useState(false);
     React.useEffect(() => {
         setIsVisibleComments(props.isVisibleComments);
     }, [props.isVisibleComments]);
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { children: [jsxRuntime.jsxs("div", { style: { marginRight: 16 }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1 }, children: " FRST Falconi " })] }), jsxRuntime.jsxs(postTitle, { children: [" ", props.title, " "] }), props.postImage ?
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { style: { width: '100%', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { width: props?.fixPostButton && props?.fixPostButton?.isVisibleButton ? '50px' : '0px' } }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsxs("div", { style: { marginRight: 16 }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1 }, children: " FRST Falconi " })] }), props?.fixPostButton && props?.fixPostButton?.isVisibleButton ?
+                                jsxRuntime.jsx("div", { onClick: () => props?.fixPostButton?.actionClick(), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), style: {
+                                        width: '50px',
+                                        color: actionArea ? '#0645ad' : '#ff4d0d',
+                                        cursor: 'pointer',
+                                        justifySelf: 'end',
+                                        display: 'flex',
+                                        justifyContent: 'flex-end',
+                                        paddingRight: '22px',
+                                        marginTop: '-25px'
+                                    }, children: jsxRuntime.jsx(IconPin, { fill: actionArea ? '#0645ad' : '#ff4d0d' }) })
+                                : jsxRuntime.jsx("div", {})] }), jsxRuntime.jsxs(postTitle, { children: [" ", props.title, " "] }), props.postImage ?
                         jsxRuntime.jsx(postImage, { children: jsxRuntime.jsx("img", { src: props.postImage }) })
                         : null, jsxRuntime.jsx(postDescription, { style: { paddingLeft: '24px', paddingRight: '24px', width: '100%' }, children: jsxRuntime.jsx(Markdown__default["default"], { children: props.description }) }), props.postVideoId ?
-                        jsxRuntime.jsx(postVideo, { children: jsxRuntime.jsx("iframe", { src: `https://www.youtube.com/embed/${props.postVideoId}`, frameBorder: "0", allow: "autoplay; fullscreen; picture-in-picture", width: props.videoWidth ? props.videoWidth : '100%', height: props.videoHeight ? props.videoHeight : 430 }) })
+                        jsxRuntime.jsxs(postVideo, { children: [props.videoSource == 'youtube' &&
+                                    jsxRuntime.jsx("iframe", { src: `https://www.youtube.com/embed/${props.postVideoId}`, frameBorder: "0", allow: "autoplay; fullscreen; picture-in-picture", width: props.videoWidth ? props.videoWidth : '100%', height: props.videoHeight ? props.videoHeight : 430 }), props.videoSource == 'vimeo' &&
+                                    jsxRuntime.jsx("iframe", { src: `https://player.vimeo.com/video/${props.postVideoId}?autoplay=0`, width: props.videoWidth ? props.videoWidth : '100%', height: props.videoHeight ? props.videoHeight : 430, allow: "autoplay; fullscreen" })] })
                         : null, props.handlePostButtonClick ?
                         jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%', paddingLeft: '24px', paddingRight: '24px' }, children: jsxRuntime.jsx(Button$2, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
                         : null] }), jsxRuntime.jsx(FeedInteraction, { hideComments: isVisibleComments, isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, commentList: props.commentList, userCommentPlaceholder: props.userCommentPlaceholder, textLoadMoreComments: props.textLoadMoreComments, textSaveCommentBtn: props.textSaveCommentBtn, ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, handleSaveCommentBtn: props.handleSaveCommentBtn, onCommentChange: props.onCommentChange, isDisabledAvaluation: props.isDisabledAvaluation })] }));
+}
+function IconPin({ fill }) {
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "20px", height: "20px", viewBox: "-3 -2.5 24 24", xmlns: "http://www.w3.org/2000/svg", preserveAspectRatio: "xMinYMin", children: jsxRuntime.jsx("path", { d: 'M7.374 12.268l-5.656 5.657A1 1 0 1 1 .303 16.51l5.657-5.656L1.718 6.61A6.992 6.992 0 0 1 7.9 4.67L11.617.954a2 2 0 0 1 2.828 0l2.829 2.828a2 2 0 0 1 0 2.829l-3.716 3.716a6.992 6.992 0 0 1-1.941 6.183l-4.243-4.242z', fill: fill ? fill : '#ff4d0d' }) }) });
 }
 
 exports.AccordionTrackList = AccordionTrackList;
