@@ -1713,7 +1713,6 @@ function BannerProblem(props) {
     /// States para controle de elementos do Banner
     const [TrilhaBanner, setTrilhaBanner] = React.useState(props.trilha ? props.trilha : '');
     const [Tags, setTags] = React.useState(props.tags ? props.tags : []);
-    const [problema, setProblema] = React.useState(props.problema ? props.problema : '');
     // const [selectedTags, setSelectedTags] = useState([{label: '', value:''},{label: '', value:''},{label: '', value:''}]);
     React.useState([
         props.tags && props.tags.length >= 1 ? props.tags[0] : '',
@@ -1753,7 +1752,6 @@ function BannerProblem(props) {
         /// States para controle de elementos do Banner
         setTrilhaBanner(props.trilha ? props.trilha : '');
         setTags(props.tags ? props.tags : []);
-        setProblema(props.problema ? props.problema : '');
     }, [props]);
     React.useEffect(() => {
         setIdioma(props.missionIdioma ? props.missionIdioma : 'pt-BR');
@@ -1763,9 +1761,10 @@ function BannerProblem(props) {
             let titleInEditing = TituloProblema;
             (document.getElementById("idEdit-fieldTitleProblem")) &&
                 (titleInEditing = document.getElementById("idEdit-fieldTitleProblem").innerText);
-            setProblema(titleInEditing);
+            setTituloProblema(titleInEditing);
             setTrilhaBanner(TrilhaDescricaoSelecionada);
             setTags([Tag1, Tag2, Tag3]);
+            console.log(`Titulo: ${TituloProblema}`);
             props.onClickSave([titleInEditing, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]]);
         }
         setEdit(!Edit);
@@ -1807,7 +1806,7 @@ function BannerProblem(props) {
                                 wordBreak: 'break-all',
                             }, children: TituloProblema }) })
                     :
-                        jsxRuntime.jsx("h1", { className: style$a.description, children: problema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
+                        jsxRuntime.jsx("h1", { className: style$a.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
                                         jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textTrailLabel ? props.textTrailLabel : 'Deseja vincular este novo problema a uma Trilha de Aprendizagem?' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha', onChange: e => {
                                                             setTrilhaId(e.value);
                                                             setTrilhaDescricaoSelecionada(e.label);
