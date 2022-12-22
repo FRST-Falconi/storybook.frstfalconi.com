@@ -31,6 +31,13 @@ Text.args = {
     textAvaluationTitle: 'Este conteúdo foi útil para você?',
     ratingPostReview: 0,
 
+    fixPostButton: {
+        isVisibleButton: true,
+        textFixed: '',
+        textUnfix: '',
+        actionClick: () => alert('Click')
+    },
+
     userCommentPlaceholder: 'Comente aqui sobre este projeto...',
     commentList: [
         {
@@ -109,6 +116,13 @@ Image.args = {
     handlePostButtonClick: () => alert('Clicado!'),
 
     postImage: 'https://i.gyazo.com/865239e98e9e1e30976f1c78506093a5.png',
+
+    fixPostButton: {
+        isVisibleButton: true,
+        textFixed: 'Fixado',
+        textUnfix: 'Desfixar',
+        actionClick: () => alert('Click')
+    },
 
     userAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
     postId: 'abc',
@@ -199,8 +213,15 @@ Video.args = {
     textPostButton: 'Botão CTA',
     handlePostButtonClick: () => alert('Clicado!'),
 
+    fixPostButton: {
+        isVisibleButton: true,
+        textFixed: 'Fixado',
+        textUnfix: 'Desfixar',
+        actionClick: () => alert('Click')
+    },
     
     postVideoId: 'sY63f5aJy4M',
+    videoSource: 'youtube',
     videoWidth: '800',
     videoHeight: '400',
 
