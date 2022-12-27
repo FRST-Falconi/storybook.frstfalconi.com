@@ -9521,6 +9521,112 @@ const postVideo = styled__default["default"].div `
     margin-top: 32px;
     width: 100%;
 `;
+const buttonCheck = styled__default["default"].span `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 110%;
+    /* identical to box height, or 18px */
+
+    display: flex;
+    align-items: center;
+
+    /* link/onfocus */
+
+    color: #0645AD;
+`;
+const TooltipText = styled__default["default"].div `
+  color: #757575;
+  text-align: center;
+  line-height: 44px;
+  border-radius: 3px;
+  cursor: pointer;
+`;
+const TooltipBox = styled__default["default"].div `
+  position: absolute;
+  top: calc(100% + 10px);
+  left: -10px;
+  visibility: hidden;
+  
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  color: #757575;
+
+  background-color: #FFF;
+  width: 150px;
+  padding: 5px 5px;
+  border-radius: 4px;
+  border: 1px solid #BDBDBD;
+  -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+  -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+  box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+
+  &:after {
+    content: "";
+    width: 0;
+    height: 0;
+    left: 40px;
+    top: -7px;
+    position: absolute;
+
+    border: 7px solid #fff;
+    transform: rotate(135deg);
+    transition: border 0.3s ease-in-out;
+  }
+
+  &:before {
+    content: "";
+    width: 0;
+    height: 0;
+    left: 40px;
+    top: -8px;
+    position: absolute;
+
+    border: 7px solid #BDBDBD;
+    transform: rotate(135deg);
+  }
+  
+`;
+const TooltipCard = styled__default["default"].div `
+  position: relative;
+  & ${TooltipText}:hover + ${TooltipBox} {
+    visibility: visible;
+    color: #757575;
+    background-color: #FFFFFF;
+    width: 230px;
+    padding: 8px 8px;
+
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        left: 40px;
+        top: -7px;
+        position: absolute;
+    
+        border-color: transparent transparent #FFF #FFF;
+        transform: rotate(135deg);
+      }
+    
+      &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        left: 40px;
+        top: -8px;
+        position: absolute;
+    
+        border-color: transparent transparent #BDBDBD #BDBDBD;
+        transform: rotate(135deg);
+      }
+    
+  }
+`;
 
 function PostFeed(props) {
     const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png';
@@ -9530,16 +9636,18 @@ function PostFeed(props) {
         setIsVisibleComments(props.isVisibleComments);
     }, [props.isVisibleComments]);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { style: { width: '100%', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { width: props?.fixPostButton && props?.fixPostButton?.isVisibleButton ? '50px' : '0px' } }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsxs("div", { style: { marginRight: 16 }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1 }, children: " FRST Falconi " })] }), props?.fixPostButton && props?.fixPostButton?.isVisibleButton ?
-                                jsxRuntime.jsx("div", { onClick: () => props?.fixPostButton?.actionClick(), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), style: {
-                                        width: '50px',
-                                        color: actionArea ? '#0645ad' : '#ff4d0d',
-                                        cursor: 'pointer',
-                                        justifySelf: 'end',
-                                        display: 'flex',
-                                        justifyContent: 'flex-end',
-                                        paddingRight: '22px',
-                                        marginTop: '-25px'
-                                    }, children: jsxRuntime.jsx(IconPin, { fill: actionArea ? '#0645ad' : '#ff4d0d' }) })
+                                jsxRuntime.jsxs(TooltipCard, { children: [jsxRuntime.jsx(TooltipText, { children: jsxRuntime.jsxs("div", { onClick: () => props?.fixPostButton?.actionClick(), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), style: {
+                                                    width: '105px',
+                                                    fontSize: '18px',
+                                                    color: '#0645ad',
+                                                    cursor: 'pointer',
+                                                    justifySelf: 'end',
+                                                    display: 'flex',
+                                                    justifyContent: 'space-between',
+                                                    alignItems: 'center',
+                                                    paddingRight: '22px',
+                                                    marginTop: '-25px'
+                                                }, children: [jsxRuntime.jsx(IconPin, { fill: actionArea ? '#0645ad' : '#ff4d0d' }), jsxRuntime.jsx(buttonCheck, { children: props.fixPostButton?.textFixed })] }) }), jsxRuntime.jsx(TooltipBox, { children: jsxRuntime.jsx("p", { children: props.fixPostButton?.textTooltip }) })] })
                                 : jsxRuntime.jsx("div", {})] }), jsxRuntime.jsxs(postTitle, { children: [" ", props.title, " "] }), props.postImage ?
                         jsxRuntime.jsx(postImage, { children: jsxRuntime.jsx("img", { src: props.postImage }) })
                         : null, jsxRuntime.jsx(postDescription, { style: { paddingLeft: '24px', paddingRight: '24px', width: '100%' }, children: jsxRuntime.jsx(Markdown__default["default"], { children: props.description }) }), props.postVideoId ?
@@ -9551,7 +9659,7 @@ function PostFeed(props) {
                         : null] }), jsxRuntime.jsx(FeedInteraction, { hideComments: isVisibleComments, isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, commentList: props.commentList, userCommentPlaceholder: props.userCommentPlaceholder, textLoadMoreComments: props.textLoadMoreComments, textSaveCommentBtn: props.textSaveCommentBtn, ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, handleSaveCommentBtn: props.handleSaveCommentBtn, onCommentChange: props.onCommentChange, isDisabledAvaluation: props.isDisabledAvaluation })] }));
 }
 function IconPin({ fill }) {
-    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "20px", height: "20px", viewBox: "-3 -2.5 24 24", xmlns: "http://www.w3.org/2000/svg", preserveAspectRatio: "xMinYMin", children: jsxRuntime.jsx("path", { d: 'M7.374 12.268l-5.656 5.657A1 1 0 1 1 .303 16.51l5.657-5.656L1.718 6.61A6.992 6.992 0 0 1 7.9 4.67L11.617.954a2 2 0 0 1 2.828 0l2.829 2.828a2 2 0 0 1 0 2.829l-3.716 3.716a6.992 6.992 0 0 1-1.941 6.183l-4.243-4.242z', fill: fill ? fill : '#ff4d0d' }) }) });
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#0645AD", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }) });
 }
 
 exports.AccordionTrackList = AccordionTrackList;
