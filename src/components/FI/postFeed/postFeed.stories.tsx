@@ -19,6 +19,8 @@ Text.args = {
     textPostButton: 'Botão CTA',
     handlePostButtonClick: () => alert('Clicado!'),
 
+    isCompletePost: false,
+    
     userAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
     postId: 'abc',
     qtdLikes: '23 pessoas',
@@ -113,6 +115,8 @@ Image.args = {
     title: 'O título do post será escrito aqui e seu limite máximo será de 125 caracteres de texto.',
     description: 'Esse espaço está destinado para o conteúdo textual do post, que será limitado a 800 caracteres.',
     
+    isCompletePost: false,
+
     textPostButton: 'Botão CTA',
     handlePostButtonClick: () => alert('Clicado!'),
 

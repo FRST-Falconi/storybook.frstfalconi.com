@@ -45,8 +45,9 @@ interface IPostFeed{
     handleSaveCommentBtn?: (comment) => void
     onCommentChange?: (e) => void,
     isVisibleComments?: boolean,
-    videoSource?: string
-    fixPostButton?: any
+    videoSource?: string,
+    fixPostButton?: any,
+    isCompletePost?: boolean,
 }
 
 export default function PostFeed( props : IPostFeed ){
@@ -60,6 +61,7 @@ export default function PostFeed( props : IPostFeed ){
     }, [props.isVisibleComments])
 
     return(
+        <Styles.Wrapper isCompletePost={props.isCompletePost}>
         <ThemeProvider theme={FRSTTheme}>
             <Styles.postContainer style={{...props.style}}>
                 <Styles.postHeader style={{width:'100%', justifyContent: 'space-between'}}>
@@ -173,6 +175,7 @@ export default function PostFeed( props : IPostFeed ){
                 isDisabledAvaluation={props.isDisabledAvaluation}
             />
         </ThemeProvider>
+        </Styles.Wrapper>
     )
 }
 

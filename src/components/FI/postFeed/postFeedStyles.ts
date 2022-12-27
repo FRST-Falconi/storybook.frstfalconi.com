@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div<({isCompletePost})>`
+  opacity: ${({isCompletePost}) => isCompletePost ? '0' : '1'};
+  transition: opacity 0.5s ease-in-out;
+`
 
 export const postContainer = styled.div`
     display: flex;
