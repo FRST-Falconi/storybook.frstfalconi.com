@@ -39,33 +39,33 @@ export default function Button({
         <ThemeProvider theme={{...FRSTTheme, type: type }}>
             { startIcon ?
                 (variant === 'link') ?
-                    <Styles.LinkButtonStartIcon disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.LinkButtonStartIcon style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
                         {startIcon}
                         {label}                        
                     </Styles.LinkButtonStartIcon>
                 :
-                    <Styles.ButtonStartIcon variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.ButtonStartIcon style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
                         {startIcon}
                         {label}
                     </Styles.ButtonStartIcon>
             : endIcon ?
                 (variant === 'link') ?
-                    <Styles.LinkButtonEndIcon disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.LinkButtonEndIcon style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
                         {label} 
                         {endIcon}                       
                     </Styles.LinkButtonEndIcon>
                 :
-                    <Styles.ButtonEndIcon variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.ButtonEndIcon style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
                         {label}
                         {endIcon}
                     </Styles.ButtonEndIcon>
             :
                 (variant === 'link') ?
-                    <Styles.LinkButton disabled={disabled} onClick={handleClick}>
+                    <Styles.LinkButton style={{...style}} disabled={disabled} onClick={handleClick}>
                         {label}                       
                     </Styles.LinkButton>
                 :
-                    <Styles.Button length={length} active={active} value={value} style={style} variant={variant} disabled={disabled} onClick={handleClick}>
+                    <Styles.Button style={{...style}} length={length} active={active} value={value} variant={variant} disabled={disabled} onClick={handleClick}>
                         {label}
                     </Styles.Button>
                     
