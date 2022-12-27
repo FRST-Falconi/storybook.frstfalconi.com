@@ -33,8 +33,9 @@ Text.args = {
 
     fixPostButton: {
         isVisibleButton: true,
-        textFixed: '',
+        textFixed: 'Concluir',
         textUnfix: '',
+        textTooltip: 'Ao concluir, posts mais recentes aparecerão primeiro na tela',
         actionClick: () => alert('Click')
     },
 
@@ -119,8 +120,9 @@ Image.args = {
 
     fixPostButton: {
         isVisibleButton: true,
-        textFixed: 'Fixado',
-        textUnfix: 'Desfixar',
+        textFixed: 'Concluir',
+        textUnfix: '',
+        textTooltip: 'Ao concluir, posts mais recentes aparecerão primeiro na tela',
         actionClick: () => alert('Click')
     },
 

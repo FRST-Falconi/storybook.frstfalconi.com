@@ -70,24 +70,36 @@ export default function PostFeed( props : IPostFeed ){
                     </div>
 
                     { props?.fixPostButton && props?.fixPostButton?.isVisibleButton ?
+                            <Styles.TooltipCard>
+                                <Styles.TooltipText>
                         <div 
                             onClick={() => props?.fixPostButton?.actionClick()}
                             onMouseOver={() => setActionArea(true)}
                             onMouseOut={() => setActionArea(false)}
                             style={{
-                                width: '50px',
-                                color: actionArea ? '#0645ad' : '#ff4d0d', 
+                                width: '105px',
+                                fontSize: '18px',
+                                color: '#0645ad', 
                                 cursor: 'pointer', 
                                 justifySelf:'end', 
                                 display: 'flex', 
-                                justifyContent: 'flex-end', 
+                                justifyContent: 'space-between', 
+                                alignItems: 'center',
                                 paddingRight: '22px', 
                                 marginTop: '-25px'}}>
                             {/* <p style={{marginRight: '5px', paddingTop: '0px',fontSize: '17px'}}>
                                 {actionArea ? props?.fixPostButton?.textUnfix : props?.fixPostButton?.textFixed }
                             </p> */}
+                                    
                             <IconPin fill={actionArea ? '#0645ad' : '#ff4d0d'}/>
+                            <Styles.buttonCheck>{props.fixPostButton?.textFixed}</Styles.buttonCheck>
+
                         </div>
+                        </Styles.TooltipText>
+                            <Styles.TooltipBox>
+                            <p>{props.fixPostButton?.textTooltip}</p>
+                            </Styles.TooltipBox>
+                        </Styles.TooltipCard>
                     : <div></div>}
                 </Styles.postHeader>
 
@@ -166,8 +178,8 @@ export default function PostFeed( props : IPostFeed ){
 
 function IconPin({fill}) {
     return <>
-        <svg width="20px" height="20px" viewBox="-3 -2.5 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin">
-            <path d='M7.374 12.268l-5.656 5.657A1 1 0 1 1 .303 16.51l5.657-5.656L1.718 6.61A6.992 6.992 0 0 1 7.9 4.67L11.617.954a2 2 0 0 1 2.828 0l2.829 2.828a2 2 0 0 1 0 2.829l-3.716 3.716a6.992 6.992 0 0 1-1.941 6.183l-4.243-4.242z' fill={ fill ? fill : '#ff4d0d'}/>
+        <svg width="18" height="13" viewBox="0 0 18 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 1L6 12L1 7" stroke="#0645AD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </>
 }
