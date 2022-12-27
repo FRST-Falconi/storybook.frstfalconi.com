@@ -16,6 +16,18 @@ export const containerThumbContent = styled.div`
     background-color: ${({theme}) => theme.colors.shadeWhite};
 `
 
+export const loadingImageThumb = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+`
+
 export const iconsThumb = styled.div`
     display: flex;
     justify-content: center;
@@ -30,6 +42,28 @@ export const imageThumbContent = styled.div`
     align-items: flex-start;
     
     object-fit: cover;    
+`
+
+export const loadingThumbContent = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 16px 16px 16px 16px;
+    gap: 4px;
+`
+
+export const loadingContent = styled.div`
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    color: transparent;
+    border-radius: 16px;
+    
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
 `
 
 export const infoThumbContent = styled.div`
