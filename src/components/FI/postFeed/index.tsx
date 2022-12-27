@@ -65,7 +65,7 @@ export default function PostFeed( props : IPostFeed ){
         <ThemeProvider theme={FRSTTheme}>
             <Styles.postContainer style={{...props.style}}>
                 <Styles.postHeader style={{width:'100%', justifyContent: 'space-between'}}>
-                    <div style={{width: props?.fixPostButton && props?.fixPostButton?.isVisibleButton ? '50px' : '0px'}}></div>
+                    <div style={{width: props?.fixPostButton && props?.fixPostButton?.isVisibleButton ? '105px' : '0px'}}></div>
                     <div style={{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems: 'center'}}>
                         <div style={{marginRight: 16}}> <Avatar src={FRSTAvatar} size='40px' /> </div>
                         <span style={{fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1}} > FRST Falconi </span>

@@ -66,6 +66,9 @@ export const WrapperIconNotificationMobile = styled.div`
     align-items: center;
     font-size: 16px;
     font-weight: 400;
+    margin-left: 24px;
+    margin-right: 24px;
+    height: 100%;
     color: #FFF;
 `
 

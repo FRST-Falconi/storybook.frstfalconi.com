@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import '../../../shared/global.css';
-import { IPopOver } from './popOver';
-export default function PopOver({ variant, children }: IPopOver): JSX.Element;
+import { IPopOver, IPopOverItems } from './popOver';
+export declare function PopOverItem(props: IPopOverItems): JSX.Element;
+export default function PopOver({ variant, children, element, onClosePopover }: IPopOver): JSX.Element;
 //# sourceMappingURL=index.d.ts.map

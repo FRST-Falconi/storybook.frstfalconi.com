@@ -1,3 +1,6 @@
+export declare const Wrapper: import("styled-components").StyledComponent<"div", any, {
+    isCompletePost: any;
+}, never>;
 export declare const postContainer: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const postHeader: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const postTitle: import("styled-components").StyledComponent<"span", any, {}, never>;
