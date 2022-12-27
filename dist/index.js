@@ -301,8 +301,8 @@ function MedalLineIcon({ fill }) {
 function MedalFilledIcon({ fill }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 15C15.3137 15 18 12.3137 18 9C18 5.68629 15.3137 3 12 3C8.68629 3 6 5.68629 6 9C6 12.3137 8.68629 15 12 15Z", stroke: fill ? fill : "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15", fill: fill ? fill : "#FF4D0D" }), jsxRuntime.jsx("path", { d: "M8.968 15.0077L8 22L12 19.6974L16 22L15.032 15", stroke: fill ? fill : "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function PlayLineIcon({ fill }) {
-    return (jsxRuntime.jsxs("svg", { width: "20", height: "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19Z", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.75 6.625L13.375 10L7.75 13.375V6.625Z", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+function PlayLineIcon({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "20", height: height ? height : "20", viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19Z", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.75 6.625L13.375 10L7.75 13.375V6.625Z", stroke: fill ? fill : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function PlayFilledIcon({ customColor_1, customColor_2 }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z", fill: customColor_1 ? customColor_1 : "#FF4D0D", stroke: customColor_1 ? customColor_1 : "#FF4D0D", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10 9L15 12L10 15V9Z", fill: customColor_2 ? customColor_2 : "white", stroke: customColor_2 ? customColor_2 : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -1682,19 +1682,19 @@ const ButtonEndIcon = styled__default["default"].button `
 function Button$2({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, type: type }, children: startIcon ?
             (variant === 'link') ?
-                jsxRuntime.jsxs(LinkButtonStartIcon, { disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
+                jsxRuntime.jsxs(LinkButtonStartIcon, { style: { ...style }, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
                 :
-                    jsxRuntime.jsxs(ButtonStartIcon$1, { variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
+                    jsxRuntime.jsxs(ButtonStartIcon$1, { style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [startIcon, label] })
             : endIcon ?
                 (variant === 'link') ?
-                    jsxRuntime.jsxs(LinkButtonEndIcon, { disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [label, endIcon] })
+                    jsxRuntime.jsxs(LinkButtonEndIcon, { style: { ...style }, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [label, endIcon] })
                     :
-                        jsxRuntime.jsxs(ButtonEndIcon, { variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [label, endIcon] })
+                        jsxRuntime.jsxs(ButtonEndIcon, { style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, children: [label, endIcon] })
                 :
                     (variant === 'link') ?
-                        jsxRuntime.jsx(LinkButton$1, { disabled: disabled, onClick: handleClick, children: label })
+                        jsxRuntime.jsx(LinkButton$1, { style: { ...style }, disabled: disabled, onClick: handleClick, children: label })
                         :
-                            jsxRuntime.jsx(Button$3, { length: length, active: active, value: value, style: style, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
+                            jsxRuntime.jsx(Button$3, { style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
 var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-break: break-all;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-break: break-all;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
