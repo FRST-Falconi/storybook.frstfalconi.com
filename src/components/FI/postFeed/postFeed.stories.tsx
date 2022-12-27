@@ -14,11 +14,13 @@ const Template = (args) => <PostFeed {...args} />
 export const Text = Template.bind({})
 Text.args = {
     title: 'O título do post será escrito aqui e seu limite máximo será de 125 caracteres de texto.',
-    description: 'Esse espaço está destinado para o conteúdo textual do post, que será limitado a 800 caracteres.',
-    
+    description: "Você já conhece a nossa ferramenta guia de resolução de problemas, o **Space Race Game**? \n\nEla será utilizada em um ciclo ágil de aprendizado, colaboração e experimentação, aonde você selecionará um problema real da sua empresa para solucionar. Essa jornada contará com cinco etapas: **Definição do problema, Levantamento de hipóteses, Testes realizados, Resultados e aprendizados e Próximos passos**.\n\nQue tal testar na prática? Clique no botão abaixo para criar seu primeiro problema:",
+    isVisibleComments: true,
     textPostButton: 'Botão CTA',
     handlePostButtonClick: () => alert('Clicado!'),
 
+    isCompletePost: false,
+    
     userAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
     postId: 'abc',
     qtdLikes: '23 pessoas',
@@ -30,6 +32,14 @@ Text.args = {
     isPostLiked: false,
     textAvaluationTitle: 'Este conteúdo foi útil para você?',
     ratingPostReview: 0,
+
+    fixPostButton: {
+        isVisibleButton: true,
+        textFixed: 'Concluir',
+        textUnfix: '',
+        textTooltip: 'Ao concluir, posts mais recentes aparecerão primeiro na tela',
+        actionClick: () => alert('Click')
+    },
 
     userCommentPlaceholder: 'Comente aqui sobre este projeto...',
     commentList: [
@@ -105,10 +115,20 @@ Image.args = {
     title: 'O título do post será escrito aqui e seu limite máximo será de 125 caracteres de texto.',
     description: 'Esse espaço está destinado para o conteúdo textual do post, que será limitado a 800 caracteres.',
     
+    isCompletePost: false,
+
     textPostButton: 'Botão CTA',
     handlePostButtonClick: () => alert('Clicado!'),
 
     postImage: 'https://i.gyazo.com/865239e98e9e1e30976f1c78506093a5.png',
+
+    fixPostButton: {
+        isVisibleButton: true,
+        textFixed: 'Concluir',
+        textUnfix: '',
+        textTooltip: 'Ao concluir, posts mais recentes aparecerão primeiro na tela',
+        actionClick: () => alert('Click')
+    },
 
     userAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
     postId: 'abc',
@@ -199,8 +219,15 @@ Video.args = {
     textPostButton: 'Botão CTA',
     handlePostButtonClick: () => alert('Clicado!'),
 
+    fixPostButton: {
+        isVisibleButton: true,
+        textFixed: 'Fixado',
+        textUnfix: 'Desfixar',
+        actionClick: () => alert('Click')
+    },
     
     postVideoId: 'sY63f5aJy4M',
+    videoSource: 'youtube',
     videoWidth: '800',
     videoHeight: '400',
 
