@@ -35,6 +35,7 @@ interface IPostFeed {
     isVisibleComments?: boolean;
     videoSource?: string;
     fixPostButton?: any;
+    isCompletePost?: boolean;
 }
 export default function PostFeed(props: IPostFeed): JSX.Element;
 export {};
