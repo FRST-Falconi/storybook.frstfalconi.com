@@ -54,7 +54,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 isVisibleControlsButtons
                                 sizeArrowButton={80}
                                 marginsArrowButton={10}
-                                horizontalMarginInternScroll={'20px'}
+                                horizontalMarginInternScroll={'5px'}
                                 styles={{ justifyContent: 'flex-start', width: '100%' }}
                                 refreshResize={props.updateScrollSize}
                               >
@@ -143,7 +143,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   isVisibleControlsButtons
                                   sizeArrowButton={80}
                                   marginsArrowButton={10}
-                                  horizontalMarginInternScroll={'20px'}
+                                  horizontalMarginInternScroll={'5px'}
                                   refreshResize={props.updateScrollSize}
                                   styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                                 >
