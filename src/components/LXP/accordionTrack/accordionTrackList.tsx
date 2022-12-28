@@ -16,6 +16,7 @@ export default function AccordionTrackList({
   handlePopOverEdit,
   handlePopOverTrailEdit,
   handlePopOverTrailDelete,
+  onSetNameTrail,
   txtPopOverDeleteContent,
   txtPopOverEditContent,
   txtPopOverMoveToTrails,
@@ -83,10 +84,11 @@ export default function AccordionTrackList({
     const itemCopy = { ...trails[id]}
     setTrails((prev) => {
       prev = { ...prev }       
-      prev[id].TrailName = name
+      prev[id].TrailName = name      
       return prev
     })
-  }
+    onSetNameTrail(name, trails[id].id)
+  }  
 
   const setShowTrail = (active, id) => {
     

@@ -46,7 +46,7 @@ export const ContainerHeaderEmpty = styled.div<IImageBackground>`
 export const ContainerTrailsNormal = styled.div`
     height: 415px; 
     border: 1px solid black; 
-    padding: 16px;
+    padding-top: 16px;
     margin-top: -5px; 
     background-color: rgb(235, 235, 235);
     border-bottom-left-radius: 16px;
@@ -57,7 +57,7 @@ export const ContainerTrailsNormal = styled.div`
 
 export const ContainerTrailsEmpty = styled.div`
     height: 415px; 
-    padding: 16px;
+    padding-top: 16px;
     margin-top: -5px; 
     z-index: 0;
     width: 100%;
