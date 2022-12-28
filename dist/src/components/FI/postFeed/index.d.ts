@@ -32,6 +32,10 @@ interface IPostFeed {
     handlePostReviewChange?: () => void;
     handleSaveCommentBtn?: (comment: any) => void;
     onCommentChange?: (e: any) => void;
+    isVisibleComments?: boolean;
+    videoSource?: string;
+    fixPostButton?: any;
+    isCompletePost?: boolean;
 }
 export default function PostFeed(props: IPostFeed): JSX.Element;
 export {};

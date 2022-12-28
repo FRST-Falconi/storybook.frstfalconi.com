@@ -93,7 +93,7 @@ export declare function LampLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function LampFilledIcon({ fill }: IconsProps): JSX.Element;
 export declare function MedalLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function MedalFilledIcon({ fill }: IconsProps): JSX.Element;
-export declare function PlayLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function PlayLineIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function PlayFilledIcon({ customColor_1, customColor_2 }: IconsProps): JSX.Element;
 export declare function SiteIcon({ fill }: IconsProps): JSX.Element;
 export declare function LinkedinIcon({ fill, width, height }: IconsProps): JSX.Element;
