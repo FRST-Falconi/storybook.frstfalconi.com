@@ -32,7 +32,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   >
                     <div>
                       <h2
-                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
+                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, fontStyle: 'normal', color: '#ff4d0d'}}
                       >
                         {props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos'}
                       </h2>
@@ -72,6 +72,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           index={index}
                                           title={el.name}
                                           variant={'default'}
+                                          src={el.src}
                                           txtButtonLabel={props.txtButtonLabel}
                                           txtAtivarCurso={props.txtAtivarCurso}
                                           txtCriarNovoCurso={props.txtCriarNovoCurso}
@@ -83,7 +84,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           handleClickPopOverDelete={() => {props.handlePopOverDelete(el.id)}}
                                           txtPopOverEditContent={props.txtPopOverEditContent}
                                           txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
-                                          txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                          
+                                          txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                                                                  
                                         />
                                       )
                                     }
@@ -168,6 +169,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                                 console.log(props.handleEditCourse)
                                                 props.handleEditCourse(el.id)
                                               }}
+                                              src={el.src}
                                               txtButtonLabel={props.txtButtonLabel}
                                               txtAtivarCurso={props.txtAtivarCurso}
                                               txtCriarNovoCurso={props.txtCriarNovoCurso}
