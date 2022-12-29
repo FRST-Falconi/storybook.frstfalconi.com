@@ -117,5 +117,6 @@ export declare function StepCheckInCicle({ fill, width, height }: IconsProps): J
 export declare function StepCicleTwo({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StepCicleThree({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StepCicleFour({ fill, width, height }: IconsProps): JSX.Element;
+export declare function FowardArrow({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

@@ -40,8 +40,9 @@ export const imageThumbContent = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    
-    object-fit: cover;    
+    height: 100%;
+    background-repeat: no-repeat ;
+    background-size: cover;
 `
 
 export const loadingThumbContent = styled.div`
@@ -96,4 +97,5 @@ export const viewMoreContent = styled.div`
     right: 0;
     bottom: 0;
     margin: 0px 16px 12px 0px;
+    user-select: none;
 `

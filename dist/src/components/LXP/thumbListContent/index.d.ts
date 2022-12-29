@@ -1,11 +1,11 @@
 /// <reference types="react" />
 declare type typeThumb = 'video' | 'podcast' | 'question';
 interface IThumbListContent {
-    imageSrc: string;
+    imageSrc?: string;
     typeThumbContent: typeThumb;
     title?: string;
     description: string;
-    isLoading: boolean;
+    isLoading?: boolean;
     textViewMoreButton: string;
     textViewLessButton: string;
     onClickThumb: () => void;
