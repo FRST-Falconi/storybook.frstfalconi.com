@@ -45,7 +45,7 @@ export const ContainerHeaderEmpty = styled.div<IImageBackground>`
 
 export const ContainerTrailsNormal = styled.div`
     height: 415px; 
-    border: 1px solid black; 
+    //border: 1px solid black; 
     padding-top: 16px;
     margin-top: -5px; 
     background-color: rgb(235, 235, 235);
@@ -62,8 +62,6 @@ export const ContainerTrailsEmpty = styled.div`
     z-index: 0;
     width: 100%;
 `
-
-
 export const ContentTrailName = styled.div<IImageBackground>`
     display: flex;
     flex-direction: row;    

@@ -16,36 +16,42 @@ const item = {
   id: v4(),
   name: 'Curso de Bitcoin',
   disabled: false,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item2 = {
   id: v4(),
   name: 'Curso de Liderança',
   disabled: false,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item3 = {
   id: v4(),
   name: 'Curso de Negociação',
   disabled: false,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item4 = {
   id: v4(),
   name: 'Curso de Vendas Curso de Vendas ',
   disabled: true,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item5 = {
   id: v4(),
   name: 'Curso de Letras',
   disabled: true,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
   
 const item6 = {
   id: v4(),
   name: 'Curso de Teste',
   disabled: true,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 var trails = [
@@ -89,9 +95,9 @@ Opened.args = {
     handlePopOverTrailEdit: (id) => {alert(`Trail Edit id: ${id}`)},
     handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
 
-
     onSetNameTrail: (name, id) => { alert(`TrailName: ${id} ${name}`) },
-    handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)}, 
+    handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)},
+     
     trailsData: trails,
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",
