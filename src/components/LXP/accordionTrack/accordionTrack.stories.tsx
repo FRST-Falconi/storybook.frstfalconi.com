@@ -90,7 +90,7 @@ Opened.args = {
     handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
 
 
-
+    onSetNameTrail: (name, id) => { alert(`TrailName: ${id} ${name}`) },
     handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)}, 
     trailsData: trails,
     textMeusConteudos: "My Contents",
