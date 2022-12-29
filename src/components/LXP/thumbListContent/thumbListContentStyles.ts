@@ -97,4 +97,5 @@ export const viewMoreContent = styled.div`
     right: 0;
     bottom: 0;
     margin: 0px 16px 12px 0px;
+    user-select: none;
 `

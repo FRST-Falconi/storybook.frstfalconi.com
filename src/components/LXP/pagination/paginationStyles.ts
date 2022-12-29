@@ -39,6 +39,7 @@ export const buttonPage = styled.div<buttonProps>`
     border-radius: 6px;
     cursor: pointer;
 
+    user-select: none;
     font-family: 'PT Sans';
     font-size: 16px;
     font-weight: 700;

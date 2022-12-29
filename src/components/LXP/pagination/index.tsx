@@ -17,11 +17,10 @@ interface IPagination{
      * @prop {number} qtdNumberShowPagination: Quantidade de botões a serem exibidos na paginação 
      */ 
     qtdNumberShowPagination: number
-    showFirstLastButton: boolean
-    isLoading: boolean
+    showFirstLastButton?: boolean
 
-    textFirstButton: string
-    textLastButton: string
+    textFirstButton?: string
+    textLastButton?: string
 
     children: React.ReactNode
     onLoadPage: (page : number) => void
@@ -34,7 +33,6 @@ export default function Pagination( props : IPagination ) {
     const [activePage, setActivePage] = useState(0);
     const totalPages = Math.ceil(props.totalRegistry / props.registryPerPage)
     const [paginationElements, setPaginationElements] = useState([]);
-    const [ellipsisOn, setEllipsisOn] = useState(false);
 
     const handleSwitchPage = (page : number) => {
         if(page < 0){
@@ -59,7 +57,6 @@ export default function Pagination( props : IPagination ) {
             start = 1
             finish = totalPages
         }
-        
         else{
             if(activePage + props.qtdNumberShowPagination + 1 > totalPages){
                 start = totalPages - props.qtdNumberShowPagination + 1
@@ -68,14 +65,8 @@ export default function Pagination( props : IPagination ) {
             }
             else{
                 start = activePage + 1
-                finish = totalPages - (props.qtdNumberShowPagination - activePage)
+                finish = activePage + props.qtdNumberShowPagination 
             }
-
-            // if(activePage + props.qtdNumberShowPagination + 1 > totalPages){
-            // }
-            // else{
-            //     finish = activePage + (props.qtdNumberShowPagination - 1)
-            // }
         }
 
         for(let i = start; i <= finish; i++ ){
@@ -87,13 +78,9 @@ export default function Pagination( props : IPagination ) {
             }
         }
 
-        setEllipsisOn(showEllipsis)
         setPaginationElements(elements)
 
     }, [activePage]);
-
-    console.log(`Total Pages: ${totalPages}`)
-    console.log(`Current Page: ${activePage}`)
     
     return(
         <ThemeProvider theme={FRSTTheme} >
@@ -105,7 +92,7 @@ export default function Pagination( props : IPagination ) {
                 <Styles.pageButtonList>
                     {props.showFirstLastButton ?
                         <Styles.buttonPage disabled={activePage === 0} onClick={() => activePage > 0 && handleSwitchPage(0)} selected={false}>
-                            {props.textFirstButton}
+                            {props.textFirstButton ? props.textFirstButton : 'Primeiro'}
                         </Styles.buttonPage>
                         : null
                     }
@@ -127,7 +114,7 @@ export default function Pagination( props : IPagination ) {
                         
                     {props.showFirstLastButton ?
                         <Styles.buttonPage disabled={activePage === totalPages-1} onClick={() => activePage < totalPages-1 && handleSwitchPage(totalPages-1)} selected={false}>
-                            {props.textLastButton}
+                            {props.textLastButton ? props.textLastButton : 'Último'}
                         </Styles.buttonPage>
                         : null
                     }

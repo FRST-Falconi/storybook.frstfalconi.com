@@ -18,10 +18,37 @@ normal.args = {
     registryPerPage: 10,
     qtdNumberShowPagination: 5,
     showFirstLastButton: false,
-    isLoading: false,
+
+    onLoadPage: (page) => console.log(`Página ${page}`),
+
+    children: 
+        <>
+            
+        </>
+}
+export const lastFirst = Template.bind({})
+lastFirst.args = {
+    totalRegistry: 100,
+    registryPerPage: 10,
+    qtdNumberShowPagination: 5,
+    showFirstLastButton: true,
 
     textFirstButton: 'First',
     textLastButton: 'Last',
+
+    onLoadPage: (page) => console.log(`Página ${page}`),
+
+    children: 
+        <>
+            
+        </>
+}
+export const withChildren = Template.bind({})
+withChildren.args = {
+    totalRegistry: 100,
+    registryPerPage: 10,
+    qtdNumberShowPagination: 5,
+    showFirstLastButton: false,
 
     onLoadPage: (page) => console.log(`Página ${page}`),
 
