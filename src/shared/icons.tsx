@@ -1041,3 +1041,12 @@ export function StepCicleFour({ fill, width, height }: IconsProps) {
     </svg>
   )
 }
+
+export function FowardArrow({ fill, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width : "16"} height={height ? height : "18"} viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.06665 14.1L13.3333 9.3L9.06665 4.5" stroke={fill ? fill : "#222222"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M13.3334 9.3L2.66675 9.3" stroke={fill ? fill : "#222222"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
