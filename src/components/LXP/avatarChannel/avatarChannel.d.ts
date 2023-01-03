@@ -6,6 +6,6 @@ export interface IAvatar {
   className?: string
   disabled?: boolean
   color?: string
-  onChange: () => void
+  onChange: (file) => void
   variantPopOver?: string
 }
