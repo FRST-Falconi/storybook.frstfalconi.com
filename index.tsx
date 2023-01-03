@@ -67,6 +67,7 @@ export { default as FilterAccordionCheckbox } from './src/components/filter-acco
 
 export { default as ModalStatusProblema } from './src/components/modal/statusProblema'
 export { default as ModalLearningTech } from './src/components/modal/modalLearningTech'
+export { default as ModalVideo } from './src/components/modal/modalVideo'
 
 export { default as CardProblemGestor } from './src/components/cards/cardProblemGestor'
 export { default as CardProblem } from './src/components/cards/cardProblem'
@@ -107,11 +108,9 @@ export { default as GlobalMenu } from './src/components/global-menu'
 export { default as ExtraContent } from './src/components/LXP/extraContent'
 export { default as LoginLxp } from './src/components/LXP/login'
 export { default as AccordionTrackList } from './src/components/LXP/accordionTrack/accordionTrackList'
-export { default as ManageLearningCicles} from './src/components/LXP/manageLerningCicles'
-export { default as ThumbnailsDraggable} from './src/components/LXP/thumbnails/thumbnailsDraggable'
-export { default as SelectLXP} from './src/components/LXP/selectLXP'
-
-
+export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles'
+export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable'
+export { default as SelectLXP } from './src/components/LXP/selectLXP'
 
 // FI
 export { default as CardTrail } from './src/components/card-trail'
