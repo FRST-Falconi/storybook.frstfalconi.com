@@ -12,24 +12,32 @@ const Template = (args) => <DropdownSelectMultiple {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-  placeholder: 'placeholder',
-  valueSelect: 'primeiro',
+  placeholderSelect: 'Please choose',
+  labelSelect: 'Selecione as Opções',
+  placeholderFilter: 'Pesquisar',
   handleValueSelect: (e) => console.log(e),
-  isIcon: false,
   isDisabled: false,
-  iconSelect: <Trash />,
+  optionLabel: 'name',
   listItems: [
-    'primeiro',
-    'segundo',
-    'terceiro',
-    'quarto',
-    'primeiro',
-    'segundo',
-    'terceiro',
-    'quarto',
-    'primeiro',
-    'segundo',
-    'terceiro',
-    'quarto'
+    { name: 'Australia' },
+    { name: 'Brazil' },
+    { name: 'China' },
+    { name: 'Egypt' },
+    { name: 'France' },
+    { name: 'Germany' },
+    { name: 'India' },
+    { name: 'Japan' },
+    { name: 'Spain' },
+    { name: 'United States' },
+    { name: 'Au' },
+    { name: 'Brazil' },
+    { name: 'China' },
+    { name: 'Egypt' },
+    { name: 'France' },
+    { name: 'Germany' },
+    { name: 'India' },
+    { name: 'Japan' },
+    { name: 'Spain' },
+    { name: 'United States' }
   ]
 }

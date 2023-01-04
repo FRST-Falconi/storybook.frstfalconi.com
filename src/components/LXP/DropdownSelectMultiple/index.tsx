@@ -1,78 +1,78 @@
-import SelectMultiple from './SelectMultiple'
-import SelectItens from './SelectItens'
-import Button from '../../buttons'
 import { useEffect, useMemo, useState } from 'react'
-import * as StyleSelect from './styles/StylesSelect'
-import TextField from '../../form-elements/textfield'
-import { Lupa } from '../../../shared/icons'
+import { MultiSelect } from 'primereact/multiselect'
+import * as StylesMultiSelect from './styles/MultiSelectDemo'
+import selectItemsCss from './styles/MultiSelectItems.css'
+import 'primeicons/primeicons.css'
+import 'primereact/resources/themes/lara-light-indigo/theme.css'
+import 'primereact/resources/primereact.css'
+import 'primeflex/primeflex.css'
 
 export default function DropdownSelectMultiple({
-  placeholder,
-  valueSelect,
+  placeholderSelect,
+  placeholderFilter,
   handleValueSelect,
+  labelSelect,
+  optionLabel,
   listItems,
-  isError,
-  style,
-  isIcon,
-  iconSelect,
   isDisabled
 }) {
-  const [selectAll, setSelectAll] = useState<boolean>(false)
-  const [search, setSearch] = useState<string>('')
+  const [lazyItems, setLazyItems] = useState([])
+  const [lazyLoading, setLazyLoading] = useState(false)
+  const [selectedListItems, setSelectedListItems] = useState(null)
 
-  const listItensFilter = useMemo(() => {
-    const lowerSearch = search.toLocaleLowerCase()
-    return listItems.filter((itens) => itens.includes(lowerSearch))
-  }, [search, listItems])
+  useEffect(() => {
+    setLazyItems(Array.from({ length: 100000 }))
+    setLazyLoading(false)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const panelFooterTemplate = () => {
+    const selectedItems = selectedListItems
+    const length = selectedItems ? selectedItems.length : 0
+    return (
+      <div className="py-2 px-3">
+        <b>{length}</b> item{length > 1 ? 's' : ''} selected.
+      </div>
+    )
+  }
+
+  const selectedCountriesTemplate = (option) => {
+    if (option) {
+      return (
+        <div className="country-item country-item-value">
+          <div>{option.name}</div>
+        </div>
+      )
+    }
+
+    return placeholderSelect ? placeholderSelect : 'Por favor escolha'
+  }
+
+  const handleSelectItems = (items) => {
+    setSelectedListItems(items)
+    return handleValueSelect(items)
+  }
 
   return (
     <>
-      <SelectMultiple
-        placeholder={placeholder}
-        defaultValue={valueSelect}
-        onChange={(e) => handleValueSelect(e.target?.attributes?.value?.value)}
-        isError={isError}
-        style={style}
-        listItems={listItems}
-        isIcon={isIcon}
-        iconSelect={iconSelect}
-        isDisabled={isDisabled}
-      >
-        <StyleSelect.ContainerSelectItens>
-          {listItems.length > 10 ? (
-            <TextField
-              placeholder={'Buscar'}
-              required={false}
-              startIcon={<Lupa />}
-              type={'text'}
-              error={false}
-              disabled={false}
-              id={'MyTextField'}
-              name={''}
-              className={''}
-              onChange={(e: any) => {
-                setSearch(e.target.value)
-              }}
-              style={{ margin: '0rem 0.7rem' }}
-            />
-          ) : null}
-          <Button
-            variant="link"
-            label="Selecionar Tudo"
-            disabled={false}
-            handleClick={() => {
-              !selectAll ? setSelectAll(true) : setSelectAll(false)
-            }}
-          />
-          {listItems.length > 10
-            ? listItensFilter.map((item, index) => (
-                <SelectItens label={item} value={item} key={index} selectAll={selectAll} />
-              ))
-            : listItems.map((item, index) => (
-                <SelectItens label={item} value={item} key={index} selectAll={selectAll} />
-              ))}
-        </StyleSelect.ContainerSelectItens>
-      </SelectMultiple>
+      <StylesMultiSelect.SelectMultipesLabel>
+        {labelSelect ? labelSelect : 'label'}
+      </StylesMultiSelect.SelectMultipesLabel>
+      <StylesMultiSelect.SelectMultipesPrimeReact>
+        <MultiSelect
+          value={selectedListItems}
+          options={listItems}
+          onChange={(e) => handleSelectItems(e.value)}
+          optionLabel={optionLabel}
+          placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
+          filter={listItems.length > 10}
+          className="multiselect-custom"
+          selectedItemTemplate={selectedCountriesTemplate}
+          panelFooterTemplate={panelFooterTemplate}
+          panelStyle={selectItemsCss}
+          filterPlaceholder={placeholderFilter ? placeholderFilter : 'Pesquisar'}
+          disabled={isDisabled}
+        />
+      </StylesMultiSelect.SelectMultipesPrimeReact>
     </>
   )
 }
