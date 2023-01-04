@@ -13,11 +13,10 @@ interface ModalVideoProps {
   timeBegin: number
   language?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es'
   handleClose: () => void
-  handleRating: () => void
-  showRating: boolean
-  rating: number
-  setRating: () => void
-
+  handleChangeRating?: () => void
+  showRating?: boolean
+  rating?: number
+  ratingDescription?: string
   style?: React.CSSProperties
 }
 
@@ -54,16 +53,20 @@ export default function ModalVideo(props: ModalVideoProps) {
   }, [])
   return (
     <Modal open={props.open} onClose={props.handleClose}>
-      <Box className={style.modalBox} style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
+      <Box
+        className={style.modalBox}
+        style={{
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          minHeight: props.showRating ? '560px' : '400px'
+        }}
+      >
         <Stack flexDirection="row" alignItems="center" justifyContent="space-between" px={3}>
           <Box textAlign="left">{props.title}</Box>
           <Box className={style.fechar} onClick={props.handleClose}>
             <CloseIcon />
           </Box>
-          {/* <Box className={style.fechar} onClick={props.handleClose}>
-            <span style={{ marginRight: 10 }}> {props.language === 'en-US' ? 'Close' : 'Fechar'} </span> 
-            <CloseIcon />
-          </Box> */}
         </Stack>
 
         <Box p={3}>
@@ -86,74 +89,23 @@ export default function ModalVideo(props: ModalVideoProps) {
           {props.showRating && (
             <Box style={{ display: 'flex', justifyContent: 'flex-start', float: 'right' }}>
               <Box style={{ maxWidth: 240 }}>
-                <p style={{ textAlign: 'left', fontSize: 14 }}>Avalie abaixo o quanto isso foi útil para você.</p>
-
-                <Rating
-                  isVisibleNumberRating
-                  marginStars="3.5px"
-                  orientation="horizontal"
-                  qtdStars={5}
-                  rating={4}
-                  sizeStars={18}
-                />
+                <p style={{ textAlign: 'left', fontSize: 14, fontWeight: 400 }}>{props.ratingDescription}</p>
+                <Box style={{ display: 'flex', float: 'left' }}>
+                  <Rating
+                    isVisibleNumberRating
+                    marginStars="3.5px"
+                    orientation="horizontal"
+                    qtdStars={5}
+                    rating={props.rating}
+                    sizeStars={25}
+                    handleRating={props.handleChangeRating}
+                  />
+                </Box>
               </Box>
             </Box>
           )}
         </Box>
       </Box>
     </Modal>
-
-    // <Modal open={props.open} onClose={props.handleClose} style={{ overflow: 'scroll' }}>
-    //   <>
-    //     <div
-    //       style={{
-    //         position: 'absolute',
-    //         top: 0,
-    //         right: 0,
-    //         width: 80,
-    //         backgroundColor: '#efefef',
-    //         padding: 8,
-    //         display: 'flex',
-    //         justifyContent: 'space-evenly',
-    //         alignItems: 'center',
-    //         borderTopRightRadius: 8,
-    //         cursor: 'pointer'
-    //       }}
-    //       onClick={props.handleClose}
-    //     >
-    //       <span style={{ fontSize: 12 }}>Fechar</span>
-    //       {/* <svg width={'13'} height={'11'} viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-    //         <path
-    //           d="M11.8346 0.630371L1.16797 9.43511"
-    //           stroke={'#222222'}
-    //           strokeWidth="1.2"
-    //           strokeLinecap="round"
-    //           strokeLinejoin="round"
-    //         />
-    //         <path
-    //           d="M1.16797 0.630371L11.8346 9.43511"
-    //           stroke={'#222222'}
-    //           strokeWidth="1.2"
-    //           strokeLinecap="round"
-    //           strokeLinejoin="round"
-    //         />
-    //       </svg> */}
-    //       <div style={{ marginTop: 0, width: '100%', paddingLeft: 24, paddingRight: 24 }}>
-    //         <h1 style={{ fontSize: 18, fontFamily: 'Work Sans', fontWeight: 700 }}>{props.nameVideo}</h1>
-    //       </div>
-    //       <div style={{ marginTop: 36 }}>
-    //         <Video
-    //           videoId={IdVideo}
-    //           privateHash={HashVideo}
-    //           autoplay={1}
-    //           controls={1}
-    //           keyboard={1}
-    //           timeStart={convertTimeToString(props.timeBegin)}
-    //           showSpeedControl={1}
-    //         />
-    //       </div>
-    //     </div>
-    //   </>
-    // </Modal>
   )
 }

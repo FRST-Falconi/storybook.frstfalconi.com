@@ -14,10 +14,20 @@ const Template = (args) => {
   return <ModalVideo {...args} />
 }
 
+export const ModalDefaultVideo = Template.bind({})
+ModalDefaultVideo.args = {
+  open: false,
+  handleClose: () => {},
+  title: 'Cultura da Inovação',
+  style: { textAlign: 'center', padding: 20 },
+  language: 'en-US',
+  videoUrl: 'https://player.vimeo.com/video/786061124?h=e346220ada&amp;badge=0&amp'
+}
+
 export const ModalVideoRating = Template.bind({})
 
 ModalVideoRating.args = {
-  open: true,
+  open: false,
   handleClose: () => {},
   title: 'Cultura da Inovação',
   style: { textAlign: 'center', padding: 20 },
@@ -25,5 +35,6 @@ ModalVideoRating.args = {
   videoUrl: 'https://player.vimeo.com/video/786061124?h=e346220ada&amp;badge=0&amp',
   showRating: true,
   rating: 1,
-  setRating: () => {}
+  ratingDescription: 'Avalie abaixo o quanto isso foi útil para você.',
+  handleChangeRating: (e) => alert(e)
 }
