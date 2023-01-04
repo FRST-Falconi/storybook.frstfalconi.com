@@ -65,7 +65,7 @@ export default function Thumbnails({
           <>
             <Styles.ContainerThumbnails className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
               <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
-                <Button label={txtButtonLabel ? txtButtonLabel : 'Ir para o curso'} variant='primary' handleClick={handleClickCourse} />
+                <Button label={txtButtonLabel ? txtButtonLabel : 'Ver conteúdo'} variant='primary' handleClick={handleClickCourse} />
               </Styles.ContainerButton>
               <Styles.GeralThumbnails ref={provided ? provided.innerRef : null} {...provided ? provided.dragHandleProps : null}>
                 <Styles.Thumbnails>
