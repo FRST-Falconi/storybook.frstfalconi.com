@@ -9,6 +9,8 @@ interface IconsProps {
     height?: string;
     active?: boolean;
 }
+export declare function Lupa({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ArrowIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function EditIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WarningIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function FRSTLogo({ fill, width, height }: IconsProps): JSX.Element;
