@@ -111,6 +111,7 @@ export default function ModalVideo(props: ModalVideoProps) {
                       setCurrentRating(e)
                       props.handleChangeRating(props.recommendationId, e)
                     }}
+                    disabled={false}
                   />
                 </Box>
               </Box>
