@@ -5,7 +5,7 @@ import ThumbListContent from '../thumbListContent'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'LXP/Pagination',
+    title: 'IJ/Pagination',
     component: Pagination,
 }
 
