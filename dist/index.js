@@ -7535,6 +7535,20 @@ const ContainerInputNameTrail = styled__default["default"].div `
         padding-left: 10px;
     }
 `;
+const TypographyMyContents = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;    
+    color: ${({ theme }) => theme.colors.primary1};
+`;
+const TypographyMyTrails = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;    
+    color: ${({ theme }) => theme.colors.primary1};
+`;
 
 const ContainerThumbnails = styled__default["default"].div `
     width: 180px;
@@ -7630,11 +7644,12 @@ const ContainerThumbnailsAdd = styled__default["default"].div `
     border: 1px dashed ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.neutralsGrey6};
     box-sizing: border-box;
+    padding: 14px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
     gap: 10px;
 `;
 const ContainerEllipse = styled__default["default"].button `
@@ -7651,8 +7666,9 @@ const TypographyAdd = styled__default["default"].p `
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 19px;     
     color: ${({ theme }) => theme.colors.neutralsGrey4};
+    text-align: center;      
 `;
 
 ///-----------------------------------------
@@ -7698,7 +7714,7 @@ function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleCli
         }
     };
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [variant === 'default' ?
-                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(ContainerThumbnails, { className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsx(ContainerButton, { onMouseOut: handleHoverImageOut, className: 'buttonVisible', active: showModules, children: jsxRuntime.jsx(Button$2, { label: txtButtonLabel ? txtButtonLabel : 'Ir para o curso', variant: 'primary', handleClick: handleClickCourse }) }), jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: checked }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(Typography$1, { style: { color: checked ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
+                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(ContainerThumbnails, { className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsx(ContainerButton, { onMouseOut: handleHoverImageOut, className: 'buttonVisible', active: showModules, children: jsxRuntime.jsx(Button$2, { label: txtButtonLabel ? txtButtonLabel : 'Ver conteúdo', variant: 'primary', handleClick: handleClickCourse }) }), jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: checked }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(Typography$1, { style: { color: checked ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
                                                 setElementPopover(element.currentTarget);
                                             }, children: jsxRuntime.jsx(MoreVertical, { fill: checked ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: checked, style: { fontWeight: checked ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar curso' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: checked, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#ebebeb', activeBoxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }) })
                     : variant === 'add' ?
@@ -7802,7 +7818,7 @@ function AccordionTrack(props) {
     }, [props.trailsData]);
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: state && state.map((data, key) => {
             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: key === 0 ?
-                    jsxRuntime.jsxs(AccordionTrackEmpty, { TrailName: data.TrailName, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h2", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, fontStyle: 'normal', color: '#ff4d0d' }, children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", data.items.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), data.show &&
+                    jsxRuntime.jsxs(AccordionTrackEmpty, { TrailName: data.TrailName, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", data.items.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), data.show &&
                                 jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
                                         return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), (data.ativo || data.ativo) && data.items.map((el, index) => {
                                                                 return (jsxRuntime.jsx(ThumbnailsDraggable, { disabled: el.disabled, id: el.id, index: index, title: el.name, variant: 'default', src: el.src, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => { props.handleEditCourse(el.id); }, handleChange: () => { }, handleClickContent: () => { }, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.id); }, handleClickPopOverDelete: () => { props.handlePopOverDelete(el.id); }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, index));
@@ -7810,7 +7826,7 @@ function AccordionTrack(props) {
                                     } }, key)] })
                     :
                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [key === 1 &&
-                                    jsxRuntime.jsx("span", { style: { fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), jsxRuntime.jsx(AccordionTrackNormal, { id: data.id, TrailName: data.TrailName, ativo: data.ativo, handleChangeCheck: (bActive) => {
+                                    jsxRuntime.jsx(TypographyMyTrails, { children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), jsxRuntime.jsx(AccordionTrackNormal, { id: data.id, TrailName: data.TrailName, ativo: data.ativo, handleChangeCheck: (bActive) => {
                                         if (props.onSetActiveTrail) {
                                             props.onSetActiveTrail(bActive, key);
                                         }

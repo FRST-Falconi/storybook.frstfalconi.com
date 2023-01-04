@@ -31,11 +31,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                     TrailName={data.TrailName}
                   >
                     <div>
-                      <h2
-                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, fontStyle: 'normal', color: '#ff4d0d'}}
-                      >
+                      <Styles.TypographyMyContents>
                         {props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos'}
-                      </h2>
+                      </Styles.TypographyMyContents>
                       <h2
                         style={{ fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }}
                       >
@@ -105,11 +103,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   <>
                     {
                       key === 1 &&
-                      <span
-                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
-                      >
+                      <Styles.TypographyMyTrails>
                         {props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas'}
-                      </span>
+                      </Styles.TypographyMyTrails>
                     }
                     <AccordionTrackNormal
                       id={data.id}

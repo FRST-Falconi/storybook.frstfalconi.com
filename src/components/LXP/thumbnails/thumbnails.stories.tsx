@@ -25,7 +25,7 @@ Default.args = {
     handleClickPopOverEdit: () => { alert('editar conteúdo')},
     handleClickPopOverMove: () => { alert('mover para trilha')},
     handleClickPopOverDelete: () => {alert('deletar conteúdo')},
-    txtButtonLabel: "Go to course",
+    txtButtonLabel: "See content",
     txtAtivarCurso: "Activate Trail",
     txtPopOverEditContent: "Edit content",
     txtPopOverMoveToTrails: "Move to Trails",
