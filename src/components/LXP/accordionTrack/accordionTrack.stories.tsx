@@ -16,39 +16,45 @@ const item = {
   id: v4(),
   name: 'Curso de Bitcoin',
   disabled: false,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item2 = {
   id: v4(),
   name: 'Curso de Liderança',
   disabled: false,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item3 = {
   id: v4(),
   name: 'Curso de Negociação',
   disabled: false,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item4 = {
   id: v4(),
   name: 'Curso de Vendas Curso de Vendas ',
   disabled: true,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
 const item5 = {
   id: v4(),
   name: 'Curso de Letras',
   disabled: true,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
   
 const item6 = {
   id: v4(),
   name: 'Curso de Teste',
   disabled: true,
+  src: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
 }
 
-const trails = [
+var trails = [
   {  
     id: v4(),
     TrailName: 'Sem Trilhas',
@@ -71,19 +77,41 @@ const trails = [
     show: true,
   },  
   
-]  
+] 
+
+console.log(trails)
 
 export const Opened = Template.bind({})
 Opened.args = {
     onNewTrail: (id) => {alert(`Indice para adiconar: ${id}`)},
-    handleChange: (trails) => { console.log('Teve alteração: ', trails) },    
+    handleChange: (trailsChange) => { 
+      trails = trailsChange
+    },    
+    handleEditCourse: (id) => {alert(`Selected id: ${id}`)},  
+    handlePopOverMove: (id) => {alert(`Move id: ${id}`)},
+    handlePopOverEdit: (id) => {alert(`Content Edit id: ${id}`)},
+    handlePopOverDelete: (id) => {alert(`Content Deleted id: ${id}`)},
+
+    handlePopOverTrailEdit: (id) => {alert(`Trail Edit id: ${id}`)},
+    handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
+
+    onSetNameTrail: (name, id) => { alert(`TrailName: ${id} ${name}`) },
+    handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)},
+     
     trailsData: trails,
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",
     textRegistros: "records",
     textMinhasTrihas: "My tracks",
     txtAtivarCurso: "Activate trail",
-    txtCriarNovoCurso: "New Trail"
+    txtCriarNovoCurso: "New Trail",
+    txtPopOverEditContent: "Edit content",
+    txtPopOverMoveToTrails: "Move to Trails",
+    txtPopOverDeleteContent:"Delete content",
+    txtTrailsPopOverEdit: "Editar nome da trilha",
+    txtTrailsPopOverDuplicar: "Duplicar trilha",
+    txtTrailsPopOverDelete: "Excluir trilha",
+    txtPlacerolderInputNameTrail: 'Enter track name'
 }
 
 

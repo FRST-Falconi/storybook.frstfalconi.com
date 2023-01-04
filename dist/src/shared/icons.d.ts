@@ -93,7 +93,7 @@ export declare function LampLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function LampFilledIcon({ fill }: IconsProps): JSX.Element;
 export declare function MedalLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function MedalFilledIcon({ fill }: IconsProps): JSX.Element;
-export declare function PlayLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function PlayLineIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function PlayFilledIcon({ customColor_1, customColor_2 }: IconsProps): JSX.Element;
 export declare function SiteIcon({ fill }: IconsProps): JSX.Element;
 export declare function LinkedinIcon({ fill, width, height }: IconsProps): JSX.Element;
@@ -112,5 +112,11 @@ export declare function StarOutlined({ fill, width, height }: IconsProps): JSX.E
 export declare function TalkIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ThumbsUpIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ThumbsUpCovered({ customColor_1, customColor_2, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleOne({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCheckInCicle({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleTwo({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleThree({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StepCicleFour({ fill, width, height }: IconsProps): JSX.Element;
+export declare function FowardArrow({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

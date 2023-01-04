@@ -33,7 +33,6 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
   /// States para controle de elementos do Banner
   const [TrilhaBanner, setTrilhaBanner] = useState(props.trilha ? props.trilha : '')
   const [Tags, setTags] = useState(props.tags ? props.tags : [])
-  const [problema, setProblema] = useState(props.problema ? props.problema : '')
 
   // const [selectedTags, setSelectedTags] = useState([{label: '', value:''},{label: '', value:''},{label: '', value:''}]);
   const [selectedTags, setSelectedTags] = useState([
@@ -77,7 +76,6 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
     /// States para controle de elementos do Banner
     setTrilhaBanner(props.trilha ? props.trilha : '')
     setTags(props.tags ? props.tags : [])
-    setProblema(props.problema ? props.problema : '')
   }, [props]);
 
   useEffect(()=>{
@@ -92,9 +90,10 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
       (titleInEditing = document.getElementById("idEdit-fieldTitleProblem").innerText);
 
 
-      setProblema(titleInEditing)
+      setTituloProblema(titleInEditing)
       setTrilhaBanner(TrilhaDescricaoSelecionada)
       setTags([Tag1, Tag2, Tag3])
+      console.log(`Titulo: ${TituloProblema}`)
       props.onClickSave([titleInEditing, TrilhaDescricaoSelecionada, [Tag1, Tag2, Tag3]])
     }
     setEdit(!Edit)
@@ -169,13 +168,13 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
               </div>
             </div>
           :
-            <h1 className={style.description}>{problema}</h1>
+            <h1 className={style.description}>{TituloProblema}</h1>
 
         }
-        <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 32}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16}}>
           <div style={{display: 'inline-flex', width: '100%'}}>
             <div style={{width:'100%', maxWidth: 600}}>
-              <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} />
+              <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8}} />
               <TextIcon description={props.area} svg={<Brain />}/>
               <TextIcon description={adapterEmail(props.email, size[0])} svg={<Mail />}/>
               {

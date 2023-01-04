@@ -11,7 +11,7 @@ import { randID } from './scrollContainer.utils'
 import { WrapperHorizontal, WrapperContent, ButtonControll, CardTest } from './scrollContainerStyles'
 
 export default function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton,
-    stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll }: IScrollContainer) {    
+    stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll, refreshResize }: IScrollContainer) {    
     const [ actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
     const [ actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
     
@@ -23,16 +23,20 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
 
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
-        (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
-        setIsVisibleArrowButtonRight(true)
-        objDiv.scrollLeft = objDiv.scrollLeft - stepMove;
+        if (objDiv !== null) {
+            (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            setIsVisibleArrowButtonRight(true)
+            objDiv.scrollLeft = objDiv.scrollLeft - stepMove;
+        }
     }
 
     const scrollToRight = () => {
         var objDiv = document.getElementById(iDScroll);
-        (objDiv.scrollLeft + stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
-        ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
-        objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
+        if (objDiv !== null) {
+            (objDiv.scrollLeft + stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
+            objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
+        }
     }
 
     useEffect(()=>{
@@ -44,17 +48,24 @@ export default function ScrollContainer({ children, type, isVisibleControlsButto
     },[]);
 
     useEffect(() => {
-        function updateSize() {
-            var objDiv = document.getElementById(iDScroll);
+        updateSize()
+    }, [refreshResize])
+
+    const updateSize = () => {
+        var objDiv = document.getElementById(iDScroll);
+        if (objDiv !== null) {
             ((objDiv.offsetWidth + objDiv.scrollLeft ) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
             (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
-
-            var objDiv = document.getElementById(iDScroll);
+    
             if(objDiv && objDiv.clientWidth && objDiv.clientWidth < objDiv.scrollWidth) 
                 setIsVisibleArrowButtonRight(true)
             else
                 setIsVisibleArrowButtonRight(false)
         }
+        
+    }
+
+    useEffect(() => {        
         window.addEventListener('resize', updateSize);
         updateSize();
         return () => window.removeEventListener('resize', updateSize);

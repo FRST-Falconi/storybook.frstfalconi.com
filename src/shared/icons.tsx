@@ -1892,13 +1892,32 @@ export function CalendarFilledIcon({ customColor_1, customColor_2 }: IconsProps)
           stroke={customColor_1 ? customColor_1 : '#FF4D0D'}
           strokeWidth="1.2"
           strokeLinejoin="round"
+          strokeLinejoin="round"
         />
         {/* @ts-ignore */}
-        <path d="M16 3V7" stroke={customColor_1 ? customColor_1 : '#FF4D0D'} strokeWidth="1.2" strokeLinejoin="round" />
+        <path
+          d="M16 3V7"
+          stroke={customColor_1 ? customColor_1 : '#FF4D0D'}
+          strokeWidth="1.2"
+          strokeLinejoin="round"
+          strokeLinejoin="round"
+        />
         {/* @ts-ignore */}
-        <path d="M8 3V7" stroke={customColor_1 ? customColor_1 : '#FF4D0D'} strokeWidth="1.2" strokeLinejoin="round" />
+        <path
+          d="M8 3V7"
+          stroke={customColor_1 ? customColor_1 : '#FF4D0D'}
+          strokeWidth="1.2"
+          strokeLinejoin="round"
+          strokeLinejoin="round"
+        />
         {/* @ts-ignore */}
-        <path d="M4 10H20" stroke={customColor_2 ? customColor_2 : 'white'} strokeWidth="1.2" strokeLinejoin="round" />
+        <path
+          d="M4 10H20"
+          stroke={customColor_2 ? customColor_2 : 'white'}
+          strokeWidth="1.2"
+          strokeLinejoin="round"
+          strokeLinejoin="round"
+        />
       </svg>
     </>
   )
@@ -2028,9 +2047,15 @@ export function MedalFilledIcon({ fill }: IconsProps) {
   )
 }
 
-export function PlayLineIcon({ fill }: IconsProps) {
+export function PlayLineIcon({ fill, width, height }: IconsProps) {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width ? width : '20'}
+      height={height ? height : '20'}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19Z"
         stroke={fill ? fill : '#222222'}
@@ -2403,6 +2428,144 @@ export function ThumbsUpCovered({ customColor_1, customColor_2, width, height }:
         d="M5.61258 8.271C5.93994 8.271 6.23532 8.08523 6.43734 7.82086C6.45594 7.79652 6.47482 7.77243 6.49399 7.74858C7.08538 7.01272 7.81831 6.36287 8.22582 5.5113L8.40064 5.146C8.55288 4.8335 8.53696 4.8335 8.70512 4.8335C9.20961 4.8335 9.61858 5.25323 9.61858 5.771C9.61858 6.25084 9.51321 6.70543 9.32491 7.11171C9.21709 7.34435 9.36835 7.646 9.61936 7.646M9.61936 7.646H10.8884C11.3052 7.646 11.6783 7.93516 11.7224 8.36052C11.7406 8.53645 11.75 8.7151 11.75 8.896C11.75 10.0825 11.3473 11.1725 10.6745 12.0298C10.5172 12.2304 10.2739 12.3335 10.023 12.3335H8.39262C8.19626 12.3335 8.00118 12.301 7.81489 12.2373L6.55048 11.8047C6.3642 11.741 6.16912 11.7085 5.97276 11.7085H5.31687M9.61936 7.646H8.70512M5.31687 11.7085C5.35049 11.7937 5.38708 11.8774 5.4265 11.9594C5.50653 12.1259 5.39482 12.3335 5.21394 12.3335H4.8454C4.4846 12.3335 4.14996 12.1177 4.04467 11.7635C3.90725 11.3013 3.83333 10.8106 3.83333 10.3022C3.83333 9.65539 3.95301 9.03722 4.1709 8.46979C4.29475 8.14726 4.61173 7.9585 4.94952 7.9585H5.37692C5.56851 7.9585 5.67946 8.19013 5.57999 8.35818C5.24448 8.92508 5.05128 9.5905 5.05128 10.3022C5.05128 10.7995 5.1456 11.2742 5.31687 11.7085Z"
         stroke={customColor_2 ? customColor_2 : 'white'}
         strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function StepCicleOne({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '40'}
+      height={height ? height : '40'}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="2"
+      />
+      <path
+        d="M20.4503 14.12C19.8203 15.02 17.8043 16.1 16.8503 16.226L17.2103 17.9C18.2903 17.666 19.3883 17.054 20.2163 16.262C20.1983 16.604 20.1803 16.928 20.1803 17.216V26H22.0703V14.12H20.4503Z"
+        fill={fill ? fill : '#0645AD'}
+      />
+    </svg>
+  )
+}
+
+export function StepCheckInCicle({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '40'}
+      height={height ? height : '40'}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z"
+        fill={fill ? fill : '#D1F6D1'}
+        stroke={fill ? fill : '#2CA92A'}
+        strokeWidth="2"
+      />
+      <path
+        d="M17.59 22.5802L14.7723 19.7625C14.5775 19.5677 14.2619 19.5672 14.0665 19.7613L13.3561 20.4667C13.1601 20.6612 13.159 20.9778 13.3536 21.1738L13.3548 21.175L17.2365 25.0567C17.4317 25.2519 17.7483 25.2519 17.9436 25.0567L27.2365 15.7638C27.4317 15.5685 27.4317 15.2519 27.2365 15.0567L26.5336 14.3538L26.5334 14.354C26.3382 14.1588 26.0218 14.1587 25.8265 14.3538L17.59 22.5802Z"
+        fill={fill ? fill : '#2CA92A'}
+      />
+    </svg>
+  )
+}
+
+export function StepCicleTwo({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '40'}
+      height={height ? height : '40'}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="2"
+      />
+      <path
+        d="M15.9778 26H24.2398V24.344H20.4958C20.0098 24.344 18.9838 24.38 18.5338 24.416V24.38C22.4758 21.86 24.0238 19.952 24.0238 17.684C24.0238 15.596 22.5298 13.94 19.9018 13.94C17.3998 13.94 15.8338 15.38 15.5998 17.63L17.2738 18.404C17.3998 16.676 18.2998 15.614 19.7938 15.614C21.1978 15.614 22.0438 16.496 22.0438 17.756C22.0438 19.736 20.5318 21.374 15.9778 24.578V26Z"
+        fill={fill ? fill : '#0645AD'}
+      />
+    </svg>
+  )
+}
+
+export function StepCicleThree({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '40'}
+      height={height ? height : '40'}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="2"
+      />
+      <path
+        d="M20.0006 13.94C18.0386 13.94 16.4726 14.894 15.9506 16.64L17.7146 17.36C17.9306 16.244 18.6866 15.596 19.9646 15.596C21.2246 15.596 21.9446 16.244 21.9266 17.486C21.9086 18.692 21.1706 19.268 19.6946 19.268H19.2086V20.798H19.7486C21.3866 20.798 22.1786 21.248 22.1966 22.544C22.2146 23.714 21.3686 24.524 19.8926 24.524C18.3446 24.524 17.6606 23.768 17.3186 22.454L15.5546 23.3C16.2566 25.226 17.6606 26.18 19.8206 26.18C22.4126 26.18 24.1406 24.758 24.1406 22.796C24.1406 21.104 22.9886 20.024 21.6386 20.024V19.988C22.6826 19.988 23.8706 18.89 23.8706 17.108C23.8706 15.362 22.5206 13.94 20.0006 13.94Z"
+        fill={fill ? fill : '#0645AD'}
+      />
+    </svg>
+  )
+}
+
+export function StepCicleFour({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '40'}
+      height={height ? height : '40'}
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="2"
+      />
+      <path
+        d="M24.8234 21.536H22.8074V14.12H20.4494L15.1394 21.86V23.03H20.9894V26H22.8074V23.03H24.8234V21.536ZM19.8734 17.522C20.2514 16.964 20.7374 16.154 21.0254 15.542H21.0614L20.9894 17.468V21.536H17.0654L19.8734 17.522Z"
+        fill={fill ? fill : '#0645AD'}
+      />
+    </svg>
+  )
+}
+
+export function FowardArrow({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '16'}
+      height={height ? height : '18'}
+      viewBox="0 0 16 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M9.06665 14.1L13.3333 9.3L9.06665 4.5"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.3334 9.3L2.66675 9.3"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

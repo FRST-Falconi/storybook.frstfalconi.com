@@ -9,19 +9,36 @@ import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch'
 import Button from '../../buttons'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import  PopOver,{ PopOverItem } from '../popOver'
 
-export default function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled, txtButtonLabel, txtCriarNovoCurso, txtAtivarCurso }: IThumbnailsTranslate) {
+export default function Thumbnails({ 
+  variant, 
+  src, 
+  handleClickCourse, 
+  handleClickNew, 
+  handleClickContent, 
+  handleChange,
+  handleClickPopOverDelete,
+  handleClickPopOverMove,
+  handleClickPopOverEdit,
+  title, 
+  provided, 
+  disabled, 
+  txtButtonLabel, 
+  txtCriarNovoCurso, 
+  txtAtivarCurso,
+  txtPopOverDeleteContent,
+  txtPopOverMoveToTrails,
+  txtPopOverEditContent 
+}: IThumbnailsTranslate) {
+
   const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg"
-  //{ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleChange, title, provided, disabled }:
   const [checked, setChecked] = useState<boolean>(!disabled)
   const [showModules, setShowModules] = useState<boolean>(false)
-  const [down, setDown] = useState(true)
-  const [up, setUp] = useState(false)
+  const [ElementPopover, setElementPopover] = useState(null);
 
   useEffect (() => {
     setChecked(!disabled)
-    console.log("Atualizou Ativo: ", !disabled)
   }, [disabled])
 
   const handleChangeCheck = (checkedValue: boolean) => {
@@ -91,7 +108,9 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
               <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={checked} />
               <Styles.ContainerMain>
                 <Styles.Typography style={{ color: checked ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
-                <Styles.IconVertical onClick={handleClickContent}>
+                <Styles.IconVertical onClick={(element: any) => {
+                    setElementPopover(element.currentTarget)
+                }}>
                   <Icons.MoreVertical fill={checked ? '#000000' : '#bdbdbd'} />
                 </Styles.IconVertical>
               </Styles.ContainerMain >
@@ -116,7 +135,6 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
                 />
               </Styles.ContainerAtivar>
             </Styles.ContainerThumbnails>
-
           </>
           : variant === 'add' ?
             <Styles.ContainerThumbnailsAdd>
@@ -130,6 +148,35 @@ export default function Thumbnails({ variant, src, handleClickCourse, handleClic
 
             : null
         }
+        <PopOver
+          element={ElementPopover}
+          onClosePopover={() => {
+            setElementPopover(null)
+          }}
+          variant={'upRight'}
+        >
+          <div style={{display: 'flex', flexDirection: 'column', padding: 0}}>            
+            <PopOverItem 
+              label={txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo"}
+              onClick={handleClickPopOverEdit}
+              style={{
+                borderBottom: '1px black solid'
+              }}
+            />
+            {/* <PopOverItem 
+              label={txtPopOverMoveToTrails ? txtPopOverMoveToTrails : "Mover para Trilhas"}
+              onClick={handleClickPopOverMove}
+            /> */}
+            <PopOverItem 
+              label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
+              onClick={handleClickPopOverDelete}
+              icon={<Icons.Trash fill='#C00F00'/>}
+              noBorder={true}
+              isFontBold={true}
+              color={'#C00F00'}
+            />
+          </div>
+        </PopOver>       
       </ThemeProvider>
     </>
   )

@@ -1,7 +1,7 @@
 import '../../../shared/global.css'
-import { IAccordionTrack, IAccordionTranslate } from './IAccordionTrack'
+import { IAccordionTranslate } from './IAccordionTrack'
 import * as Styles from './accordionTrackStyle'
-import React, { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ThumbnailsDraggable from '../thumbnails/thumbnailsDraggable'
 import Thumbnails from '../thumbnails/thumbnails'
 import ScrollContainer from '@components/scroll-container'
@@ -12,11 +12,17 @@ import AccordionTrackEmpty from './accordionTrackEmpty'
 export default function AccordionTrack(props: IAccordionTranslate) {
 
   const [state, setState] = useState(props.trailsData)
+  
+  useEffect(()=>{
+    if (Array.isArray(props.trailsData)) {
+      setState(props.trailsData)
+    }
+  },[props.trailsData])
 
   return (
     <>
       {
-        state.map((data, key) => {
+        state && state.map((data, key) => {
           return (
             <>
               {
@@ -26,7 +32,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   >
                     <div>
                       <h2
-                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
+                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, fontStyle: 'normal', color: '#ff4d0d'}}
                       >
                         {props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos'}
                       </h2>
@@ -48,8 +54,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 isVisibleControlsButtons
                                 sizeArrowButton={80}
                                 marginsArrowButton={10}
-                                horizontalMarginInternScroll={'20px'}
+                                horizontalMarginInternScroll={'5px'}
                                 styles={{ justifyContent: 'flex-start', width: '100%' }}
+                                refreshResize={props.updateScrollSize}
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                   <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
@@ -65,10 +72,19 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           index={index}
                                           title={el.name}
                                           variant={'default'}
+                                          src={el.src}
                                           txtButtonLabel={props.txtButtonLabel}
                                           txtAtivarCurso={props.txtAtivarCurso}
                                           txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                          handleClickCourse={() => {props.handleEditCourse(el.id)}}
                                           handleChange={() => { }}
+                                          handleClickContent={() => {}}
+                                          handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
+                                          handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
+                                          handleClickPopOverDelete={() => {props.handlePopOverDelete(el.id)}}
+                                          txtPopOverEditContent={props.txtPopOverEditContent}
+                                          txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
+                                          txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                                                                  
                                         />
                                       )
                                     }
@@ -80,8 +96,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               {provided.placeholder}
                             </Styles.ContainerTrailsEmpty>
                           )
-                        }
-                        }
+                        }}
                       </Droppable>
                     }
                   </AccordionTrackEmpty>
@@ -97,6 +112,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                       </span>
                     }
                     <AccordionTrackNormal
+                      id={data.id}
                       TrailName={data.TrailName}
                       ativo={data.ativo}
                       handleChangeCheck={(bActive: boolean) => {
@@ -104,11 +120,18 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                           props.onSetActiveTrail(bActive, key)
                         }
                       }}
+                      handleChangeTrailName={(name: boolean) => {
+                        if (props.onSetNameTrail) {
+                          props.onSetNameTrail(name, key)
+                        }
+                      }}
                       handleChangeShow={(bShow) => {
                         if (props.onSetShowTrail) {
                           props.onSetShowTrail(bShow, key)
                         }
                       }}
+                      handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
+                      handlePopOverTrailDelete={(id: string) => { props.handlePopOverTrailDelete(id) }}
                     >
                       {
                         data.show &&
@@ -121,7 +144,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   isVisibleControlsButtons
                                   sizeArrowButton={80}
                                   marginsArrowButton={10}
-                                  horizontalMarginInternScroll={'20px'}
+                                  horizontalMarginInternScroll={'5px'}
+                                  refreshResize={props.updateScrollSize}
                                   styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                                 >
 
@@ -141,9 +165,20 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                               title={el.name}
                                               variant={'default'}
                                               handleChange={() => { }}
+                                              handleClickCourse={() => {
+                                                console.log(props.handleEditCourse)
+                                                props.handleEditCourse(el.id)
+                                              }}
+                                              src={el.src}
                                               txtButtonLabel={props.txtButtonLabel}
                                               txtAtivarCurso={props.txtAtivarCurso}
                                               txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                              handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
+                                              handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
+                                              handleClickPopOverDelete={() => {props.handlePopOverDelete(el.id)}}
+                                              txtPopOverEditContent={props.txtPopOverEditContent}
+                                              txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
+                                              txtPopOverDeleteContent={props.txtPopOverDeleteContent}
                                             />
                                           </>
                                         )

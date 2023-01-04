@@ -1,4 +1,4 @@
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow } from './src/shared/icons';
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour } from './src/shared/icons';
 export { default as Tag } from './src/components/tag';
 export { default as BaseCard } from './src/components/cards/base';
 export { default as UserCard } from './src/components/cards/user';
@@ -54,6 +54,9 @@ export { default as GlobalMenu } from './src/components/global-menu';
 export { default as ExtraContent } from './src/components/LXP/extraContent';
 export { default as LoginLxp } from './src/components/LXP/login';
 export { default as AccordionTrackList } from './src/components/LXP/accordionTrack/accordionTrackList';
+export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles';
+export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable';
+export { default as SelectLXP } from './src/components/LXP/selectLXP';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';
@@ -65,4 +68,6 @@ export { default as FeedInteraction } from './src/components/FI/feedInteraction'
 export { default as SessionFilters } from './src/components/FI/sessionFilters';
 export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner';
 export { default as PostFeed } from './src/components/FI/postFeed';
+export { default as NotificationCard } from './src/components/FI/notificationCard';
+export { default as NotificationPopOver } from './src/components/FI/notificationPopOver';
 //# sourceMappingURL=index.d.ts.map

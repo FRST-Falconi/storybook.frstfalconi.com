@@ -8,6 +8,7 @@ export declare const HamburgerButton: import("styled-components").StyledComponen
 export declare const WrapperMenu: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const WrapperRightInfo: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const WrapperIconNotification: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const WrapperIconNotificationMobile: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const SubMenuContainer: import("styled-components").StyledComponent<"div", any, IMenuContainer, never>;
 export declare const MenuMobile: import("styled-components").StyledComponent<"div", any, {
     isVisible: any;

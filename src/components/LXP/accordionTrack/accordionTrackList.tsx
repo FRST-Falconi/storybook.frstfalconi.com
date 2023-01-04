@@ -1,22 +1,42 @@
 import '../../../shared/global.css'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 
-export default function AccordionTrackList(
-  { trailsData, handleChange, onNewTrail, 
-  textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso
+export default function AccordionTrackList({ 
+  trailsData, 
+  handleChange, 
+  onNewTrail, 
+  handleEditCourse,
+  handlePopOverDelete,
+  handlePopOverMove,
+  handlePopOverEdit,
+  handlePopOverTrailEdit,
+  handlePopOverTrailDelete,
+  onSetNameTrail,
+  txtPopOverDeleteContent,
+  txtPopOverEditContent,
+  txtPopOverMoveToTrails,
+  textMeusConteudos, 
+  textTotalDe, 
+  textRegistros, 
+  textMinhasTrihas, 
+  txtAtivarCurso, 
+  txtButtonLabel, 
+  txtCriarNovoCurso
 }: IAccordionTranslate) {
   
   const [trails, setTrails] = useState(trailsData)  
+  const [updateScrollSize, setUpdateScrollSize] = useState(0)
 
   useEffect(() => {
     if (handleChange) {
       handleChange(trails)
     } 
+    console.log('trails' ,trails)
   }, [trails])
 
   useEffect(() => {
@@ -42,6 +62,8 @@ export default function AccordionTrackList(
       prev[destination.droppableId].items.splice(destination.index, 0, itemCopy)
       return prev
     })
+
+    setUpdateScrollSize(updateScrollSize+1)
   }
 
   const setActiveTrail = (active, id) => {
@@ -57,6 +79,17 @@ export default function AccordionTrackList(
     })
   }
 
+  const setNameTrail = (name, id) => {
+    
+    const itemCopy = { ...trails[id]}
+    setTrails((prev) => {
+      prev = { ...prev }       
+      prev[id].TrailName = name      
+      return prev
+    })
+    onSetNameTrail(name, trails[id].id)
+  }  
+
   const setShowTrail = (active, id) => {
     
     const itemCopy = { ...trails[id]}
@@ -66,7 +99,7 @@ export default function AccordionTrackList(
       prev[id].show = active      
       return prev
     })
-  }
+  }  
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -81,6 +114,9 @@ export default function AccordionTrackList(
               onSetActiveTrail={(active, id) => {
                 setActiveTrail(active, id)
               }}
+              onSetNameTrail={(name, id) => {
+                setNameTrail(name, id)
+              }}
               onSetShowTrail={(active, id) => {
                 setShowTrail(active, id)
               }}    
@@ -89,6 +125,7 @@ export default function AccordionTrackList(
                   onNewTrail(id)
                 }
               }} 
+              handleEditCourse={handleEditCourse}
               textMeusConteudos={textMeusConteudos}  
               textTotalDe={textTotalDe}      
               textRegistros={textRegistros}
@@ -96,6 +133,15 @@ export default function AccordionTrackList(
               txtAtivarCurso={txtAtivarCurso}
               txtButtonLabel={txtButtonLabel}
               txtCriarNovoCurso={txtCriarNovoCurso}
+              updateScrollSize={updateScrollSize}
+              handlePopOverDelete={handlePopOverDelete}
+              handlePopOverEdit={handlePopOverEdit}
+              handlePopOverTrailDelete={handlePopOverTrailDelete}
+              handlePopOverTrailEdit={handlePopOverTrailEdit}
+              handlePopOverMove={handlePopOverMove}
+              txtPopOverDeleteContent={txtPopOverDeleteContent} 
+              txtPopOverEditContent={txtPopOverEditContent}
+              txtPopOverMoveToTrails={txtPopOverMoveToTrails}                                                    
             />
           }                
         </>          

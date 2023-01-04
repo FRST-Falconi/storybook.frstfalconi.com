@@ -29,7 +29,12 @@ export {
   Content,
   AddIcon,
   Channel,
-  ExitArrow
+  ExitArrow,
+  StepCicleOne,
+  StepCheckInCicle,
+  StepCicleTwo,
+  StepCicleThree,
+  StepCicleFour
 } from './src/shared/icons'
 
 // Base
@@ -102,6 +107,10 @@ export { default as GlobalMenu } from './src/components/global-menu'
 export { default as ExtraContent } from './src/components/LXP/extraContent'
 export { default as LoginLxp } from './src/components/LXP/login'
 export { default as AccordionTrackList } from './src/components/LXP/accordionTrack/accordionTrackList'
+export { default as ManageLearningCicles} from './src/components/LXP/manageLerningCicles'
+export { default as ThumbnailsDraggable} from './src/components/LXP/thumbnails/thumbnailsDraggable'
+export { default as SelectLXP} from './src/components/LXP/selectLXP'
+
 
 
 // FI
@@ -116,3 +125,5 @@ export { default as FeedInteraction } from './src/components/FI/feedInteraction'
 export { default as SessionFilters } from './src/components/FI/sessionFilters'
 export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner'
 export { default as PostFeed } from './src/components/FI/postFeed'
+export { default as NotificationCard } from './src/components/FI/notificationCard'
+export { default as NotificationPopOver } from './src/components/FI/notificationPopOver'

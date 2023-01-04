@@ -1,3 +1,4 @@
+import { url } from 'inspector'
 import styled, { css } from 'styled-components'
 
 interface AvatarI {
@@ -5,6 +6,14 @@ interface AvatarI {
   src?: any
   disabled?: boolean
   color?: string
+  variant?: string
+}
+
+interface AvatarImage {
+  size?: string
+  src?: any
+  disabled?: boolean
+  image: any
   variant?: string
 }
 
@@ -28,6 +37,32 @@ export const AvatarChannel = styled.div<AvatarI>`
   height: ${(props) => props.size || '80px'};
   border-radius: 50%;
   background-color: ${(props) => props.color || '#6a3f86'};
+  position: relative;
+  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
+  cursor: pointer;
+  ${(props) =>
+    props.variant === 'sideRight' &&
+    css`
+      margin-left: 8.5rem;
+    `}
+
+  img {
+    border-radius: 50%;
+  }
+
+  ${({ disabled }) =>
+    disabled === true &&
+    `
+        filter: grayscale(100%);
+    `}
+`
+export const AvatarChannelImage = styled.div<AvatarImage>`
+  width: ${(props) => props.size || '80px'};
+  height: ${(props) => props.size || '80px'};
+  border-radius: 50%;
+  background-image: ${(props) => `url(${props.image})`  };
+  background-repeat: no-repeat;
+  background-size: ${(props) => props.size || '80px'};
   position: relative;
   margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
   cursor: pointer;

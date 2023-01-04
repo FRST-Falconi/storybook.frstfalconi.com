@@ -13,7 +13,7 @@ export const ContainerHeader = styled.div<IImageBackground>`
     bottom: 0;
     right: 0;
     padding-left: 27px;
-    padding-right: 20px;
+    padding-right: 8px;
     background-color: ${( props ) => `${props.active ? '#ffffff' : '#ebebeb'}`};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     border-radius: 8px;
@@ -45,8 +45,8 @@ export const ContainerHeaderEmpty = styled.div<IImageBackground>`
 
 export const ContainerTrailsNormal = styled.div`
     height: 415px; 
-    border: 1px solid black; 
-    padding: 16px;
+    //border: 1px solid black; 
+    padding-top: 16px;
     margin-top: -5px; 
     background-color: rgb(235, 235, 235);
     border-bottom-left-radius: 16px;
@@ -57,14 +57,12 @@ export const ContainerTrailsNormal = styled.div`
 
 export const ContainerTrailsEmpty = styled.div`
     height: 415px; 
-    padding: 16px;
+    padding-top: 16px;
     margin-top: -5px; 
     z-index: 0;
     width: 100%;
 `
-
-
-export const ContentTrailName = styled.div`
+export const ContentTrailName = styled.div<IImageBackground>`
     display: flex;
     flex-direction: row;    
     gap: 20px;    
@@ -96,6 +94,7 @@ export const TypographyActiveHeader = styled.p<IImageBackground>`
     gap: 10px;        
 `
 export const IconVerticalHeader = styled.div`
+
     cursor: pointer;
 `
 export const ContainerAccordion = styled.div<IImageBackground>`
@@ -118,5 +117,14 @@ export const ContainerCard = styled.div`
     width: 100%;
     min-height: 300px;
     gap: 20px;
-
+`
+export const ContainerInputNameTrail = styled.div`
+    input{
+        border: 1px solid #BDBDBD;
+        border-radius: 8px;
+        background: #EBEBEB;
+        width: 220px;
+        height: 45px;
+        padding-left: 10px;
+    }
 `

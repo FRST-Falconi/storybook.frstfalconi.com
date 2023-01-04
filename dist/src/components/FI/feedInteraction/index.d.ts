@@ -31,6 +31,7 @@ interface IFeedInteraction {
     handleImpactoChange?: any;
     handleRelevanciaChange?: any;
     handlePostReviewChange?: any;
+    hideComments?: any;
 }
 export default function FeedInteraction(props: IFeedInteraction): JSX.Element;
 export {};

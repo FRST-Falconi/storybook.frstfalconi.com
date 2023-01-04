@@ -12,6 +12,7 @@ import ItemGlobalMenu from '@components/item-menu-global'
 import LanguagesDropdown from '@components/languages-dropdown'
 import DropdownProfileMenu from '@components/dropdown-profile-menu'
 import { PropaneSharp } from '@mui/icons-material'
+import NotificationPopOver from '@components/FI/notificationPopOver'
 
 
 export default function GlobalMenu({
@@ -21,8 +22,6 @@ export default function GlobalMenu({
     user, 
     search, 
     notification, 
-    haveNotification, 
-    handleNotification, 
     languages, 
     languageSelected, 
     onChangeLanguage, 
@@ -50,6 +49,10 @@ export default function GlobalMenu({
 
     const [windowSize, setWindowSize] = useState([0, 0])
     const [isMobileVersion, setIsMobileVersion] = useState(false)
+    const [openNotification, setOpenNotification] = useState(false);
+    const [openNotificationMobile, setOpenNotificationMobile] = useState(false);
+    const [anchorNotification, setAnchorNotification] = useState(null);
+
     useEffect(() => {
         function updateSize() {
             setWindowSize([window.innerWidth, window.innerHeight]);
@@ -87,6 +90,14 @@ export default function GlobalMenu({
         search.onChange(value)
     }
 
+    const onClickNotification = (event) => {
+        setOpenNotification(!openNotification)
+        setOpenNotificationMobile(!openNotificationMobile)
+        setAnchorNotification(event.currentTarget)
+    }
+
+    const newNotification = notification.notificationList ? notification.notificationList.filter((notification) => notification.isNewNotification) : []
+    
     return (
         <ThemeProvider theme={FRSTTheme}>
             {variant == 'LXP' ?
@@ -281,32 +292,61 @@ export default function GlobalMenu({
                                     />}
                                 </Styles.WrapperMenu>
                                 
-                                {isMobileVersion && 
-                                <FieldSearch
-                                    variant='LXP'
-                                    value={valueSearch}
-                                    onChange={(e) => handleChangeValueSearch(e.target.value)}
-                                    placeholder={search.label}
-                                    loading={loadingSearch}
+                                <Styles.WrapperRightInfo  >
+                                    {isMobileVersion && 
+                                    <FieldSearch
+                                        variant='LXP'
+                                        value={valueSearch}
+                                        onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                        placeholder={search.label}
+                                        loading={loadingSearch}
 
-                                    fieldSearchIsOpen={controlExpandedSearchMobile}
-                                    setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                                        fieldSearchIsOpen={controlExpandedSearchMobile}
+                                        setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
-                                    listResults={valueListSearch}
-                                    isMobileVersion={isMobileVersion}
-                                    hasOptionSeeAll={search.hasOptionSeeAll}
-                                    seeAll={search.seeAll}
+                                        listResults={valueListSearch}
+                                        isMobileVersion={isMobileVersion}
+                                        hasOptionSeeAll={search.hasOptionSeeAll}
+                                        seeAll={search.seeAll}
 
-                                    style={{
-                                        width: isMobileVersion ? '180px' : '332px',
-                                        marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                    }}
-                                />}
-                                <Styles.WrapperRightInfo style={{justifyContent:'flex-end', width: 'fit-content'}} >
+                                        style={{
+                                            width: isMobileVersion ? '180px' : '332px',
+                                            marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
+                                        }}
+                                    />}
                                     {!isMobileVersion && notification &&
-                                        <Styles.WrapperIconNotification onClick={handleNotification}>
-                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {haveNotification && <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div>} &nbsp; {textNotification} </span>
+                                        <Styles.WrapperIconNotification onClick={onClickNotification}>
+                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null} &nbsp; {textNotification} </span>
+                                            <NotificationPopOver 
+                                                handleClickMarkRead={notification.handleClickMarkRead}
+                                                isOpen={openNotification}
+                                                anchor={anchorNotification}
+                                                textEmptyState={notification.textEmptyState}
+                                                notificationList={notification.notificationList}
+                                                textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                textNotification={notification.textNotification}
+                                                isMobile={false}
+                                            />
                                         </Styles.WrapperIconNotification>
+                                        
+                                    }
+                                    {isMobileVersion && notification &&
+                                        <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
+                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
+                                            {windowSize[0] > 650 ?
+                                                <NotificationPopOver 
+                                                    handleClickMarkRead={notification.handleClickMarkRead}
+                                                    isOpen={openNotificationMobile}
+                                                    anchor={anchorNotification}
+                                                    textEmptyState={notification.textEmptyState}
+                                                    notificationList={notification.notificationList}
+                                                    textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                    textNotification={notification.textNotification}
+                                                    isMobile={false}
+                                                />
+                                                : null
+                                            }
+                                        </Styles.WrapperIconNotificationMobile>
                                     }
                                     <DropdownProfileMenu
                                         variant='LXP'
@@ -352,6 +392,19 @@ export default function GlobalMenu({
                                     })}
                                 </Styles.SubMenuContainer>}
                         </div>
+                        {openNotificationMobile && windowSize[0] <= 650 ? 
+                            <NotificationPopOver 
+                                handleClickMarkRead={notification.handleClickMarkRead}
+                                isOpen={openNotificationMobile}
+                                anchor={anchorNotification}
+                                textEmptyState={notification.textEmptyState}
+                                notificationList={notification.notificationList}
+                                textMarkAllAsRead={notification.textMarkAllAsRead}
+                                textNotification={notification.textNotification}
+                                isMobile={true}
+                            />
+                            : null
+                        }
                     </>
                     :
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column', ...style }}>

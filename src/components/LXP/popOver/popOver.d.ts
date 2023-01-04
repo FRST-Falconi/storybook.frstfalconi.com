@@ -13,5 +13,19 @@ export interface IPopOver {
    */
   children?: React.ReactNode
 
+  element: any
+
+  onClosePopover: () => void
+
   style?: React.CSSProperties
+}
+
+export interface IPopOverItems {
+  onClick?: () => void
+  label: string
+  icon?: any
+  style?: React.CSSProperties
+  noBorder?: boolean
+  color?: string
+  isFontBold?: boolean
 }
