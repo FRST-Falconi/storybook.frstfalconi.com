@@ -1,0 +1,87 @@
+/* ## header */
+
+.p-multiselect-panel .p-multiselect-header .p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #ff4d0d;
+  background: #ff4d0d;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-highlight:hover {
+  border-color: #ff4d0d;
+  background: #ff4d0d;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled):hover {
+  border-color: #ff4d0d;
+  background: #ff4d0d;
+}
+.p-multiselect-panel .p-multiselect-header .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: #ff4d0d;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box.p-focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #e2beb0;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box {
+  border-color: #ced4da;
+}
+
+.p-multiselect-panel .p-multiselect-header .p-multiselect-filter-container .p-inputtext:enabled:focus {
+  box-shadow: 0 0 0 0.2rem rgba(102, 51, 102, 0.4);
+  border-color: #663366;
+}
+
+/* ##Items wrapper  */
+
+.p-multiselect-panel .p-multiselect-items-wrapper .p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+  border-color: #ff4d0d;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper .p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #ff4d0d;
+  background: #ff4d0d;
+}
+
+.p-multiselect-panel
+  .p-multiselect-items-wrapper
+  .p-checkbox:not(.p-checkbox-disabled)
+  .p-checkbox-box.p-highlight:hover {
+  border-color: #ff4d0d;
+  background: #ff4d0d;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper .p-checkbox .p-checkbox-box.p-highlight:not(.p-disabled):hover {
+  border-color: #ff4d0d;
+  background: #ff4d0d;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper .p-multiselect-items .p-multiselect-item:focus {
+  box-shadow: none;
+}
+
+.p-multiselect-panel
+  .p-multiselect-items-wrapper
+  .p-multiselect-items
+  .p-multiselect-item:not(.p-highlight):not(.p-disabled):hover {
+  background: #f7f9fc;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper .p-multiselect-items .p-multiselect-item.p-highlight {
+  color: #525960;
+  background: #f2f2f2;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 20px;
+}

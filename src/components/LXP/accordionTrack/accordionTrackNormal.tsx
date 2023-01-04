@@ -70,7 +70,7 @@ export default function AccordionTrackNormal(props: any) {
                 }}
               />
             </Styles.ContainerInputNameTrail>
-          }
+          }          
         </Styles.ContentTrailName>
 
         <Styles.ContentActiveHeader>

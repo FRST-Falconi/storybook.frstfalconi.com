@@ -5,12 +5,15 @@ export declare const DesignTokens: {
         borderSecondary2: string;
         borderSecondary3: string;
         borderSecondary4: string;
+        borderGray: string;
         linkDisabled: string;
         linkHover: string;
         linkOnfocus: string;
         linkPressed: string;
         linkError: string;
         inputError: string;
+        inputSelect: string;
+        selectItens: string;
         messageAlert1: string;
         messageAlert2: string;
         messageError1: string;
@@ -26,6 +29,7 @@ export declare const DesignTokens: {
         neutralsGrey7: string;
         neutralsGrey8: string;
         neutralsGrey9: string;
+        disabledLabelGray: string;
         primary1: string;
         primary2: string;
         primary3: string;
