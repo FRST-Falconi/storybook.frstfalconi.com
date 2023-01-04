@@ -1892,32 +1892,13 @@ export function CalendarFilledIcon({ customColor_1, customColor_2 }: IconsProps)
           stroke={customColor_1 ? customColor_1 : '#FF4D0D'}
           strokeWidth="1.2"
           strokeLinejoin="round"
-          strokeLinejoin="round"
         />
         {/* @ts-ignore */}
-        <path
-          d="M16 3V7"
-          stroke={customColor_1 ? customColor_1 : '#FF4D0D'}
-          strokeWidth="1.2"
-          strokeLinejoin="round"
-          strokeLinejoin="round"
-        />
+        <path d="M16 3V7" stroke={customColor_1 ? customColor_1 : '#FF4D0D'} strokeWidth="1.2" strokeLinejoin="round" />
         {/* @ts-ignore */}
-        <path
-          d="M8 3V7"
-          stroke={customColor_1 ? customColor_1 : '#FF4D0D'}
-          strokeWidth="1.2"
-          strokeLinejoin="round"
-          strokeLinejoin="round"
-        />
+        <path d="M8 3V7" stroke={customColor_1 ? customColor_1 : '#FF4D0D'} strokeWidth="1.2" strokeLinejoin="round" />
         {/* @ts-ignore */}
-        <path
-          d="M4 10H20"
-          stroke={customColor_2 ? customColor_2 : 'white'}
-          strokeWidth="1.2"
-          strokeLinejoin="round"
-          strokeLinejoin="round"
-        />
+        <path d="M4 10H20" stroke={customColor_2 ? customColor_2 : 'white'} strokeWidth="1.2" strokeLinejoin="round" />
       </svg>
     </>
   )
