@@ -2,18 +2,19 @@ import { Grid, Box, Modal, Stack } from '@mui/material'
 import style from './modalVideo.module.css'
 import { CloseIcon } from '@shared/icons'
 import Rating from '@components/EBR/rating'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import Video from '@components/LXP/video'
 
 interface ModalVideoProps {
   open: boolean
+  recommendationId?: string
   title?: string
   nameVideo: string
   videoUrl: string
   timeBegin: number
   language?: 'pt-BR' | 'pt-PT' | 'en-US' | 'es'
   handleClose: () => void
-  handleChangeRating?: () => void
+  handleChangeRating?: (recommendationId: string, rating: number) => void
   showRating?: boolean
   rating?: number
   ratingDescription?: string
@@ -23,6 +24,7 @@ interface ModalVideoProps {
 export default function ModalVideo(props: ModalVideoProps) {
   const [IdVideo, setIdVideo] = useState('')
   const [HashVideo, setHashVideo] = useState('')
+  const [currentRating, setCurrentRating] = useState(props.rating)
 
   const getInformationsURL = () => {
     let parts = props?.videoUrl.split('/')
@@ -51,6 +53,13 @@ export default function ModalVideo(props: ModalVideoProps) {
   useEffect(() => {
     getInformationsURL()
   }, [])
+
+  useEffect(() => {
+    if (props.rating) {
+      setCurrentRating(props.rating)
+    }
+  }, [props.rating])
+
   return (
     <Modal open={props.open} onClose={props.handleClose}>
       <Box
@@ -96,9 +105,12 @@ export default function ModalVideo(props: ModalVideoProps) {
                     marginStars="3.5px"
                     orientation="horizontal"
                     qtdStars={5}
-                    rating={props.rating}
+                    rating={currentRating}
                     sizeStars={25}
-                    handleRating={props.handleChangeRating}
+                    handleRating={(e) => {
+                      setCurrentRating(e)
+                      props.handleChangeRating(props.recommendationId, e)
+                    }}
                   />
                 </Box>
               </Box>

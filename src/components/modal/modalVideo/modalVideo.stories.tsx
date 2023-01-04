@@ -36,5 +36,6 @@ ModalVideoRating.args = {
   showRating: true,
   rating: 1,
   ratingDescription: 'Avalie abaixo o quanto isso foi útil para você.',
-  handleChangeRating: (e) => alert(e)
+  recommendationId: '123',
+  handleChangeRating: (recommendationId, rating) => alert(`RecomendationId:${recommendationId} and Rating:${rating}`)
 }
