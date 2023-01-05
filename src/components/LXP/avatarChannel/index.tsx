@@ -14,22 +14,22 @@ export default function AvatarChannel({
   className,
   disabled,
   color,
-  // onChange,
+  handleValueAvatar,
   variantPopOver
 }: IAvatar) {
 
   const onChange = () => {
     document.getElementById('fileSelector').click()
-    console.log("click")
   }
 
   const handleFileSelected = (file) => {
-    console.log(file)
+    //console.log(file)
     const reader = new FileReader();
     reader.onload = function (e) {
       setImage(e.target.result)
     };
     reader.readAsDataURL(file);
+    handleValueAvatar(file)
     return file;
   }
 
@@ -55,8 +55,7 @@ export default function AvatarChannel({
                 className={className}
                 disabled={disabled}
                 variant={variantPopOver}
-                image={image}
-
+                image={image}                                
               >
                 {/* <img src={image} style={{ borderRadius: "150px", width: "80px", height: "80px" }} /> */}
                 <Styles.AvatarCircle className="hide">

@@ -13,7 +13,7 @@ export default function Avatar({ size, src, alt, className, disabled }: IAvatar)
                     src={src || defaultImg}
                     alt={alt}
                     size={size}
-                    disabled={disabled}
+                    disabled={disabled}                   
                 />
             </Styles.AvatarWrapper>
         </ThemeProvider>
