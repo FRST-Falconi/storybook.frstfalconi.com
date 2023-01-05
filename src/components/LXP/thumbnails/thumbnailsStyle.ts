@@ -123,5 +123,6 @@ export const TypographyAdd = styled.p`
     font-size: 16px;
     line-height: 19px;     
     color: ${({ theme }) => theme.colors.neutralsGrey4};
-    text-align: center;      
+    text-align: center;
+    word-wrap: break-word;      
 `

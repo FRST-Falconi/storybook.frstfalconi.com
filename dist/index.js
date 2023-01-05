@@ -4733,20 +4733,18 @@ const ContainerPopOver = styled__default["default"].div `
     `}
 `;
 
-function AvatarChannel({ size, channel, className, disabled, color, 
-// onChange,
-variantPopOver }) {
+function AvatarChannel({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver }) {
     const onChange = () => {
         document.getElementById('fileSelector').click();
-        console.log("click");
     };
     const handleFileSelected = (file) => {
-        console.log(file);
+        //console.log(file)
         const reader = new FileReader();
         reader.onload = function (e) {
             setImage(e.target.result);
         };
         reader.readAsDataURL(file);
+        handleValueAvatar(file);
         return file;
     };
     const [image, setImage] = React.useState(null);
@@ -4797,8 +4795,16 @@ function BannerLxp(props) {
         setBackgroundImage('');
     };
     const handleFileSelected = (file) => {
-        setSelectedFile(file);
-        props.selectedFile([selectedFile]);
+        //setSelectedFile(file)
+        //props.selectedFile([selectedFile])
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            setSelectedFile(e.target.result);
+            props.selectedFile([e.target.result]);
+        };
+        reader.readAsDataURL(file);
+        props.selectedFile(file);
+        return file;
     };
     return (jsxRuntime.jsxs("div", { className: style$3.bannerContainer, style: { ...props.style, objectFit: fixImage ? 'fill' : 'none', backgroundImage: backgroundColor === '' ? `url(${backgroundImage})` : '', backgroundColor: backgroundImage === '' ? backgroundColor : '' }, children: [!disableText ?
                 jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText })
@@ -7725,7 +7731,8 @@ const TypographyAdd = styled__default["default"].p `
     font-size: 16px;
     line-height: 19px;     
     color: ${({ theme }) => theme.colors.neutralsGrey4};
-    text-align: center;      
+    text-align: center;
+    word-wrap: break-word;      
 `;
 
 ///-----------------------------------------
@@ -7877,7 +7884,7 @@ function AccordionTrack(props) {
             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: key === 0 ?
                     jsxRuntime.jsxs(AccordionTrackEmpty, { TrailName: data.TrailName, children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", data.items.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), data.show &&
                                 jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: key.toString(), direction: "horizontal", children: (provided) => {
-                                        return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), (data.ativo || data.ativo) && data.items.map((el, index) => {
+                                        return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => { props.onNewTrail && props.onNewTrail(key); }, style: { wordWrap: 'break-word' }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', disabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), (data.ativo || data.ativo) && data.items.map((el, index) => {
                                                                 return (jsxRuntime.jsx(ThumbnailsDraggable, { disabled: el.disabled, id: el.id, index: index, title: el.name, variant: 'default', src: el.src, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => { props.handleEditCourse(el.id); }, handleChange: () => { }, handleClickContent: () => { }, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.id); }, handleClickPopOverDelete: () => { props.handlePopOverDelete(el.id); }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, index));
                                                             })] }) }), provided.placeholder] }));
                                     } }, key)] })

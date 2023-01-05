@@ -18,8 +18,8 @@ normal.args = {
   alt: 'Alt example',
   disabled: false,
   color: '#6a3f86',
-  onChange: (file) => {
-    console.log(file)
+  handleValueAvatar: (file) => {
+    console.log("avatar:", file)
   },
   variantPopOver: 'lowLeft'
 }

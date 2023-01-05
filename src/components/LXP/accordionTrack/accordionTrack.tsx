@@ -57,8 +57,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 refreshResize={props.updateScrollSize}
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                  <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
-                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso}/>
+                                  <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }} style={{wordWrap: 'break-word'}}>
+                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} />
                                   </div>
                                   {
                                     (data.ativo || data.ativo!) && data.items.map((el, index) => {

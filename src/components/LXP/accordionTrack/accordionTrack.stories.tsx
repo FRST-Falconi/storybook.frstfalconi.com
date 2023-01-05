@@ -104,7 +104,7 @@ Opened.args = {
     textRegistros: "records",
     textMinhasTrihas: "My tracks",
     txtAtivarCurso: "Activate trail",
-    txtCriarNovoCurso: "New Trail",
+    txtCriarNovoCurso: "Create new course",
     txtPopOverEditContent: "Edit content",
     txtPopOverMoveToTrails: "Move to Trails",
     txtPopOverDeleteContent:"Delete content",
