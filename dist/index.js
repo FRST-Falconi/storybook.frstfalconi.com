@@ -1483,7 +1483,7 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            background-color: ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -1510,8 +1510,8 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            color: ${({ theme }) => theme.colors.neutralsGrey2};
-            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
+            color: ${({ theme }) => theme.colors.neutralsGrey5};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -1535,7 +1535,7 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            background-color: ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -1563,8 +1563,8 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            color: ${({ theme }) => theme.colors.neutralsGrey2};
-            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
+            color: ${({ theme }) => theme.colors.neutralsGrey5};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
