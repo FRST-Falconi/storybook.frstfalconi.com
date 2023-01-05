@@ -2,10 +2,10 @@ import { useEffect, useMemo, useState } from 'react'
 import { MultiSelect } from 'primereact/multiselect'
 import * as StylesMultiSelect from './styles/MultiSelectDemo'
 import selectItemsCss from './styles/MultiSelectItems.css'
-import 'primeicons/primeicons.css'
-import 'primereact/resources/themes/lara-light-indigo/theme.css'
-import 'primereact/resources/primereact.css'
-import 'primeflex/primeflex.css'
+import '../../../../node_modules/primeicons/primeicons.css'
+import '../../../../node_modules/primereact/resources/themes/lara-light-indigo/theme.css'
+import '../../../../node_modules/primereact/resources/primereact.css'
+import '../../../../node_modules/primeflex/primeflex.css'
 
 export default function DropdownSelectMultiple({
   placeholderSelect,
