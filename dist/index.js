@@ -394,8 +394,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$j = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$j);
+var css_248z$k = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+styleInject(css_248z$k);
 
 function Tag(props) {
     function getBG() {
@@ -792,9 +792,9 @@ function CalendarCard(props) {
                                         jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
 }
 
-var css_248z$i = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
-var style$g = {"container":"TextIcon-module_container__c5xjY"};
-styleInject(css_248z$i);
+var css_248z$j = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
+var style$h = {"container":"TextIcon-module_container__c5xjY"};
+styleInject(css_248z$j);
 
 ///-----------------------------------------
 /// Componente
@@ -803,12 +803,12 @@ styleInject(css_248z$i);
  * @componente
  */
 function TextIcon(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$g.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$h.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
 }
 
-var css_248z$h = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
-var style$f = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
-styleInject(css_248z$h);
+var css_248z$i = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
+var style$g = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
+styleInject(css_248z$i);
 
 ///-----------------------------------------
 /// Componente
@@ -862,28 +862,28 @@ function MessageBox(props) {
         jsxRuntime.jsx(SaveIcon, { fill: 'red' })
     ];
     return (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsxs("div", { className: props.hasHover ?
-                    `${props.tipoVisualizacao === 1 ? style$f.success
-                        : props.tipoVisualizacao === 2 ? style$f.warning
-                            : props.tipoVisualizacao === 3 ? style$f.error
-                                : props.tipoVisualizacao === 4 ? style$f.notificacao
-                                    : props.tipoVisualizacao === 5 ? style$f.notificacaoErro
-                                        : ''} ${style$f.container}`
+                    `${props.tipoVisualizacao === 1 ? style$g.success
+                        : props.tipoVisualizacao === 2 ? style$g.warning
+                            : props.tipoVisualizacao === 3 ? style$g.error
+                                : props.tipoVisualizacao === 4 ? style$g.notificacao
+                                    : props.tipoVisualizacao === 5 ? style$g.notificacaoErro
+                                        : ''} ${style$g.container}`
                     :
-                        `${props.tipoVisualizacao === 1 ? style$f.successNoHover
-                            : props.tipoVisualizacao === 2 ? style$f.warningNoHover
-                                : props.tipoVisualizacao === 3 ? style$f.errorNoHover
-                                    : props.tipoVisualizacao === 4 ? style$f.notificacaoNoHover
-                                        : props.tipoVisualizacao === 5 ? style$f.notificacaoErroNoHover
-                                            : ''} ${style$f.container}`, style: {
+                        `${props.tipoVisualizacao === 1 ? style$g.successNoHover
+                            : props.tipoVisualizacao === 2 ? style$g.warningNoHover
+                                : props.tipoVisualizacao === 3 ? style$g.errorNoHover
+                                    : props.tipoVisualizacao === 4 ? style$g.notificacaoNoHover
+                                        : props.tipoVisualizacao === 5 ? style$g.notificacaoErroNoHover
+                                            : ''} ${style$g.container}`, style: {
                     cursor: props.onClick ? 'pointer' : 'default',
                     ...props.style
-                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$f.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
+                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$g.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
                 jsxRuntime.jsxs("div", { style: { display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 32, marginTop: 16, cursor: 'pointer' }, onClick: props.onClickExit, children: [" ", jsxRuntime.jsx(CloseIcon, {}), " "] })] }));
 }
 
-var css_248z$g = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
-var style$e = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
-styleInject(css_248z$g);
+var css_248z$h = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
+var style$f = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
+styleInject(css_248z$h);
 
 ///-----------------------------------------
 /// Componente
@@ -913,12 +913,12 @@ function Rating$1(props) {
         '#FFC200',
         '#FF4D0D',
     ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$e.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$e.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$e.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$e.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$f.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$f.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$f.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$f.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$f.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
 }
 
-var css_248z$f = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
-var style$d = {"container":"RatingCurtidas-module_container__Ns11t"};
-styleInject(css_248z$f);
+var css_248z$g = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
+var style$e = {"container":"RatingCurtidas-module_container__Ns11t"};
+styleInject(css_248z$g);
 
 ///-----------------------------------------
 /// Componente
@@ -959,12 +959,12 @@ function RocketButton(props) {
  * @componente
  */
 function RatingCurtidas(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
 }
 
-var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
-var style$c = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
-styleInject(css_248z$e);
+var css_248z$f = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
+var style$d = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
+styleInject(css_248z$f);
 
 ///-----------------------------------------
 /// Componente
@@ -1017,16 +1017,16 @@ function Steps(props) {
     React.useEffect(() => {
         setIdioma(props.idioma ? props.idioma : 'pt-BR');
     }, [props.idioma]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, onClick: () => {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, onClick: () => {
                 if (props.status !== 'B') {
                     props.onClick();
                 }
             }, children: [jsxRuntime.jsx("img", { src: TypeStep[props.step - 1], className: props.status === "A" ?
-                        style$c.imgAtive
+                        style$d.imgAtive
                         : props.status === "I" ?
-                            style$c.imgInative
-                            : style$c.imgBlocked }), jsxRuntime.jsx("div", { className: style$c.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
-                    jsxRuntime.jsx("div", { className: style$c.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
+                            style$d.imgInative
+                            : style$d.imgBlocked }), jsxRuntime.jsx("div", { className: style$d.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
+                    jsxRuntime.jsx("div", { className: style$d.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
 }
 
 ///-----------------------------------------
@@ -1091,14 +1091,14 @@ function MissionSteps(props) {
     const BREAKWIDTH = 475;
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white' }, children: [stepActive > 1 ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previous}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previous}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previousShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previousShort}` })
                     : null, stepActive < stepLiberado ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).next}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).next}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).nextShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).nextShort}` })
                     : null, jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
                                 setStep(1);
                             } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
@@ -1112,9 +1112,9 @@ function MissionSteps(props) {
                             } })] })] }) }));
 }
 
-var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
-var style$b = {"container":"avatarWithInfo-module_container__Y-yUf"};
-styleInject(css_248z$d);
+var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
+var style$c = {"container":"avatarWithInfo-module_container__Y-yUf"};
+styleInject(css_248z$e);
 
 const DesignTokens = {
     colors: {
@@ -1352,7 +1352,7 @@ function Vector(props) {
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
 function AvatarWithInfo(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
 }
 
 const LinkButton$1 = styled__default["default"].a `
@@ -1483,7 +1483,7 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            background-color: ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -1510,8 +1510,8 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            color: ${({ theme }) => theme.colors.neutralsGrey2};
-            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
+            color: ${({ theme }) => theme.colors.neutralsGrey5};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -1535,7 +1535,7 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            background-color: ${({ theme }) => theme.colors.neutralsGrey2};
+            background-color: ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -1563,8 +1563,8 @@ const variantStyles$1 = (variant = 'contained') => ({
         }
 
         &:disabled {
-            color: ${({ theme }) => theme.colors.neutralsGrey2};
-            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey2};
+            color: ${({ theme }) => theme.colors.neutralsGrey5};
+            border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -1706,9 +1706,9 @@ function Button$2({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$3, { style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
-var css_248z$c = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-break: break-all;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-break: break-all;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
-var style$a = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
-styleInject(css_248z$c);
+var css_248z$d = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-break: break-all;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-break: break-all;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
+var style$b = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
+styleInject(css_248z$d);
 
 function BannerProblem(props) {
     const [Idioma, setIdioma] = React.useState(props.missionIdioma ? props.missionIdioma : 'pt-BR');
@@ -1794,7 +1794,7 @@ function BannerProblem(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const MOBILEWIDTH = 650;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.container, style: { ...props.style }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$a.titleProblem, children: props.textTitleProblem ? props.textTitleProblem : 'Problema' }), props.isEditable &&
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$b.titleProblem, children: props.textTitleProblem ? props.textTitleProblem : 'Problema' }), props.isEditable &&
                             jsxRuntime.jsx(Button$2, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
                             marginTop: '8px',
@@ -1817,7 +1817,7 @@ function BannerProblem(props) {
                                 wordBreak: 'break-all',
                             }, children: TituloProblema }) })
                     :
-                        jsxRuntime.jsx("h1", { className: style$a.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
+                        jsxRuntime.jsx("h1", { className: style$b.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
                                         jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textTrailLabel ? props.textTrailLabel : 'Deseja vincular este novo problema a uma Trilha de Aprendizagem?' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha', onChange: e => {
                                                             setTrilhaId(e.value);
                                                             setTrilhaDescricaoSelecionada(e.label);
@@ -1827,13 +1827,13 @@ function BannerProblem(props) {
                                                     jsxRuntime.jsx(TextIcon, { description: props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
                                                     :
                                                         jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, color: "#222", style: { marginRight: 8, marginTop: 8 }, selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                                     jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 }, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
-                                        : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$a.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
+                                        : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$b.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
                                 jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
                                 : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
@@ -3694,14 +3694,14 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-var css_248z$b = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n\n    \n}\n\n.statusProblema-module_titulo__6REcF{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    \n    width: 360px;\n    margin-top: 16px;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    \n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 250px;\n        \n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n\n    margin-left: 50px;\n    margin-right: 50px;\n    margin-top: 20px;\n\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_conclusao__OCWBZ{\n    margin-top: 30px;\n}\n\n";
-var style$9 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","conclusao":"statusProblema-module_conclusao__OCWBZ"};
-styleInject(css_248z$b);
+var css_248z$c = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n\n    \n}\n\n.statusProblema-module_titulo__6REcF{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    \n    width: 360px;\n    margin-top: 16px;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    \n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 250px;\n        \n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n\n    margin-left: 50px;\n    margin-right: 50px;\n    margin-top: 20px;\n\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_conclusao__OCWBZ{\n    margin-top: 30px;\n}\n\n";
+var style$a = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","conclusao":"statusProblema-module_conclusao__OCWBZ"};
+styleInject(css_248z$c);
 
 var problemaFRST = "data:image/png;base64,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";
 
 function ApprovesItem(props) {
-    return (jsxRuntime.jsxs("div", { className: style$9.containerItem, children: [jsxRuntime.jsxs("div", { className: style$9.avatar, style: { width: props.size }, children: [jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.size }), jsxRuntime.jsx("span", { style: { marginTop: 4, color: '#FF4D0D', fontWeight: 600 }, children: props.nomeAvatar }), jsxRuntime.jsx("span", { style: { fontSize: 14, color: '#222222', fontWeight: 400 }, children: props.dataAvatar })] }), props.statusApprove === 'aprovar' ?
+    return (jsxRuntime.jsxs("div", { className: style$a.containerItem, children: [jsxRuntime.jsxs("div", { className: style$a.avatar, style: { width: props.size }, children: [jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.size }), jsxRuntime.jsx("span", { style: { marginTop: 4, color: '#FF4D0D', fontWeight: 600 }, children: props.nomeAvatar }), jsxRuntime.jsx("span", { style: { fontSize: 14, color: '#222222', fontWeight: 400 }, children: props.dataAvatar })] }), props.statusApprove === 'aprovar' ?
                 jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(CorrectInCicleIcon, {}) })
                 : props.statusApprove === 'revisar' ?
                     jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(ErrorInCicleIcon, {}) })
@@ -3720,21 +3720,145 @@ function ModalStatusProblema(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 500;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$9.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { size: (size[0] >= BREAKWIDTH) ? '120px' : '80px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsx("div", { className: style$9.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, fechar', handleClick: props.handleClose }) })] }) }));
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$a.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$a.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$a.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$a.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { size: (size[0] >= BREAKWIDTH) ? '120px' : '80px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsx("div", { className: style$a.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$a.conclusao, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, fechar', handleClick: props.handleClose }) })] }) }));
 }
 
-var css_248z$a = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n    \n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
-var style$8 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
-styleInject(css_248z$a);
+var css_248z$b = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n    \n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
+var style$9 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
+styleInject(css_248z$b);
 
 function ModalLearningTech(props) {
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$8.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, children: props.children }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: props.confirmationButton ?
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$9.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, children: props.children }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: props.confirmationButton ?
                         props.cancelButton ?
                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$2, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$2, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
                             :
                                 jsxRuntime.jsx(Button$2, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
+}
+
+var css_248z$a = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
+var style$8 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
+styleInject(css_248z$a);
+
+const WrapperStars = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-direction: ${({ orientation }) => orientation == 'vertical' ? 'column' : 'row'};
+    width: auto;
+`;
+const Raiting = styled__default["default"].p `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Work Sans;
+    font-size: 24px;
+    line-height: 100%;
+    font-weight: 500;
+    line-height: 28px;
+    color: #222;
+    padding-top: 3px;
+    margin-left: 16.5px;
+`;
+
+/**
+ * @componente
+ */
+function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
+    React.useState(rating + 1);
+    const [hoverRaiting, setHoverRaiting] = React.useState(-1);
+    const rederStars = () => {
+        var groupStars = [];
+        const handleClick = (e) => {
+            if (!disabled)
+                handleRating(e);
+        };
+        const getStatusActive = (id) => {
+            if (id < hoverRaiting)
+                return true;
+            else if (hoverRaiting != -1)
+                return false;
+            else if (id < rating)
+                return true;
+        };
+        for (var i = 0; i < qtdStars; i++) {
+            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled }, i));
+        }
+        return groupStars;
+    };
+    return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [rederStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: (rating).toFixed(1) })] }));
+}
+function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
+    const [actionArea, setActionArea] = React.useState(false);
+    const getColorStar = () => {
+        if (active)
+            return '#FFC200';
+        else
+            return '#757575';
+    };
+    React.useEffect(() => {
+        setTimeout(() => {
+            if (actionArea)
+                setOnHover(id);
+            else
+                setOnHover(-1);
+        }, 150);
+    }, [actionArea]);
+    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { onMouseOver: () => setActionArea(!disabled), onMouseOut: () => setActionArea(false ), onClick: () => handleClick(id), style: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: marginStars ? marginStars : '3.5px'
+            }, children: jsxRuntime.jsx(StarRating, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 29, fill: getColorStar(), fillOpacity: disabled ? '0.6' : '1' }) }) });
+}
+
+function Video({ videoId, privateHash, width, height, autoplay, quality, timeStart, showSpeedControl, controls, loop, keyboard, style }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { ...style }, children: jsxRuntime.jsx("iframe", { src: `https://player.vimeo.com/video/${videoId}?h=${privateHash ? privateHash : ''}&autoplay=${autoplay ? autoplay : 0}&quality=${quality ? quality : '720p'}&speed=${showSpeedControl ? showSpeedControl : 0}&controls=${controls ? controls : 1}&loop=${loop ? loop : 0}&keyboard=${keyboard ? keyboard : 0}&#t=${timeStart ? timeStart : '0m0s'}`, width: width ? width : 640, height: height ? height : 342, allow: "autoplay; fullscreen; picture-in-picture", frameBorder: "0", allowFullScreen: true }) }) }));
+}
+
+function ModalVideo(props) {
+    const [IdVideo, setIdVideo] = React.useState('');
+    const [HashVideo, setHashVideo] = React.useState('');
+    const [currentRating, setCurrentRating] = React.useState(props.rating);
+    const getInformationsURL = () => {
+        let parts = props?.videoUrl.split('/');
+        let hash = parts[parts.length - 1];
+        let dataVideo = hash.split('?h=');
+        setIdVideo(dataVideo[0]);
+        setHashVideo(dataVideo[1]);
+    };
+    const convertTimeToString = (time) => {
+        let temp = time;
+        let hora = Math.trunc(time / 3600);
+        temp -= hora * 3600;
+        let min = Math.trunc(temp / 60);
+        temp -= min * 60;
+        if (hora > 0) {
+            return `${hora}h${min}m${temp}s`;
+        }
+        else {
+            return `${min}m${temp}s`;
+        }
+    };
+    React.useEffect(() => {
+        getInformationsURL();
+    }, []);
+    React.useEffect(() => {
+        if (props.rating) {
+            setCurrentRating(props.rating);
+        }
+    }, [props.rating]);
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: {
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                minHeight: props.showRating ? '560px' : '400px'
+            }, children: [jsxRuntime.jsxs(material.Stack, { flexDirection: "row", alignItems: "center", justifyContent: "space-between", px: 3, children: [jsxRuntime.jsx(material.Box, { textAlign: "left", children: props.title }), jsxRuntime.jsx(material.Box, { className: style$8.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) })] }), jsxRuntime.jsxs(material.Box, { p: 3, children: [props.videoUrl && (jsxRuntime.jsx(material.Box, { width: "100%", children: jsxRuntime.jsx(Video, { videoId: IdVideo, privateHash: HashVideo, autoplay: 1, controls: 1, keyboard: 1, timeStart: convertTimeToString(props.timeBegin), showSpeedControl: 1, width: 620, height: 400 }) })), props.showRating && (jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-start', float: 'right' }, children: jsxRuntime.jsxs(material.Box, { style: { maxWidth: 240 }, children: [jsxRuntime.jsx("p", { style: { textAlign: 'left', fontSize: 14, fontWeight: 400 }, children: props.ratingDescription }), jsxRuntime.jsx(material.Box, { style: { display: 'flex', float: 'left' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: true, marginStars: "3.5px", orientation: "horizontal", qtdStars: 5, rating: currentRating, sizeStars: 25, handleRating: (e) => {
+                                                setCurrentRating(e);
+                                                props.handleChangeRating(props.recommendationId, e);
+                                            }, disabled: false }) })] }) }))] })] }) }));
 }
 
 var css_248z$9 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-break: break-all;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
@@ -4021,79 +4145,6 @@ function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeA
         return (jsxRuntime.jsx(CardResultConquista, { textMoreDetails: btnViewMore ? btnViewMore : 'Mais detalhes', description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
-}
-
-const WrapperStars = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    flex-direction: ${({ orientation }) => orientation == 'vertical' ? 'column' : 'row'};
-    width: auto;
-`;
-const Raiting = styled__default["default"].p `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Work Sans;
-    font-size: 24px;
-    line-height: 100%;
-    font-weight: 500;
-    line-height: 28px;
-    color: #222;
-    padding-top: 3px;
-    margin-left: 16.5px;
-`;
-
-/**
- * @componente
- */
-function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
-    React.useState(rating + 1);
-    const [hoverRaiting, setHoverRaiting] = React.useState(-1);
-    const rederStars = () => {
-        var groupStars = [];
-        const handleClick = (e) => {
-            if (!disabled)
-                handleRating(e);
-        };
-        const getStatusActive = (id) => {
-            if (id < hoverRaiting)
-                return true;
-            else if (hoverRaiting != -1)
-                return false;
-            else if (id < rating)
-                return true;
-        };
-        for (var i = 0; i < qtdStars; i++) {
-            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled }, i));
-        }
-        return groupStars;
-    };
-    return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [rederStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: (rating).toFixed(1) })] }));
-}
-function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
-    const [actionArea, setActionArea] = React.useState(false);
-    const getColorStar = () => {
-        if (active)
-            return '#FFC200';
-        else
-            return '#757575';
-    };
-    React.useEffect(() => {
-        setTimeout(() => {
-            if (actionArea)
-                setOnHover(id);
-            else
-                setOnHover(-1);
-        }, 150);
-    }, [actionArea]);
-    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { onMouseOver: () => setActionArea(!disabled), onMouseOut: () => setActionArea(false ), onClick: () => handleClick(id), style: {
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: marginStars ? marginStars : '3.5px'
-            }, children: jsxRuntime.jsx(StarRating, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 29, fill: getColorStar(), fillOpacity: disabled ? '0.6' : '1' }) }) });
 }
 
 styled__default["default"].div `
@@ -5698,10 +5749,6 @@ function CalendarLxp(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$1.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$1.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$1.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$1.btnSubmit, children: jsxRuntime.jsx(Button$2, { label: 'Aplicar', variant: 'primary', handleClick: () => {
                             props.onSave([newRange[0].startDate, newRange[0].endDate]);
                         } }) })] }) }));
-}
-
-function Video({ videoId, privateHash, width, height, autoplay, quality, timeStart, showSpeedControl, controls, loop, keyboard, style }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { ...style }, children: jsxRuntime.jsx("iframe", { src: `https://player.vimeo.com/video/${videoId}?h=${privateHash ? privateHash : ''}&autoplay=${autoplay ? autoplay : 0}&quality=${quality ? quality : '720p'}&speed=${showSpeedControl ? showSpeedControl : 0}&controls=${controls ? controls : 1}&loop=${loop ? loop : 0}&keyboard=${keyboard ? keyboard : 0}&#t=${timeStart ? timeStart : '0m0s'}`, width: width ? width : 640, height: height ? height : 342, allow: "autoplay; fullscreen; picture-in-picture", frameBorder: "0", allowFullScreen: true }) }) }));
 }
 
 const MenuContainer = styled__default["default"].div `
@@ -10145,6 +10192,7 @@ exports.MedalLineIcon = MedalLineIcon;
 exports.MessageBox = MessageBox;
 exports.ModalLearningTech = ModalLearningTech;
 exports.ModalStatusProblema = ModalStatusProblema;
+exports.ModalVideo = ModalVideo;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
 exports.NotificationCard = NotificationCard;
 exports.NotificationPopOver = NotificationPopOver;
