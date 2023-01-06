@@ -80,7 +80,6 @@ export default function BannerLxp(props: BannerLxpParams) {
     setBackgroundImage(props.bgSrc)
     return file
   }
-  console.log('Banner:', props.bgSrc)
 
   return (
     <div
@@ -88,7 +87,6 @@ export default function BannerLxp(props: BannerLxpParams) {
       style={{
         ...props.style,
         objectFit: fixImage ? 'fill' : 'none',
-        // backgroundImage: backgroundColor === '' ? `url(${backgroundImage})` : '',
         backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
         backgroundColor: backgroundImage === '' ? backgroundColor : ''
       }}
