@@ -8,4 +8,5 @@ export interface IAvatar {
   color?: string
   handleValueAvatar: (file) => void
   variantPopOver?: string
+  sourceImage?: string
 }
