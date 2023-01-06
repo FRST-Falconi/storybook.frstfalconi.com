@@ -142,12 +142,5 @@ export const ContainerPopOver = styled.div<PropsPopOver>`
 `
 
 export const ContainerSelectedImage = styled.div`
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  /* width: 80px;
-  height: 80px; */
-  margin-top: 50px;
-  border-radius: 50%;
-  background-color: #fff;
+  margin-top: 60px;
 `

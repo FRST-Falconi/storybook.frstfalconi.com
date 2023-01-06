@@ -4733,14 +4733,7 @@ const ContainerPopOver = styled__default["default"].div `
     `}
 `;
 const ContainerSelectedImage = styled__default["default"].div `
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  /* width: 80px;
-  height: 80px; */
-  margin-top: 50px;
-  border-radius: 50%;
-  background-color: #fff;
+  margin-top: 60px;
 `;
 
 function AvatarChannel({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage }) {
