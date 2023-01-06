@@ -141,7 +141,7 @@ export default function AccordionTrackList({
               handlePopOverMove={handlePopOverMove}
               txtPopOverDeleteContent={txtPopOverDeleteContent} 
               txtPopOverEditContent={txtPopOverEditContent}
-              txtPopOverMoveToTrails={txtPopOverMoveToTrails}                                         
+              txtPopOverMoveToTrails={txtPopOverMoveToTrails}                                                    
             />
           }                
         </>          

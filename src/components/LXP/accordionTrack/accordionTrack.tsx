@@ -31,11 +31,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                     TrailName={data.TrailName}
                   >
                     <div>
-                      <h2
-                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
-                      >
+                      <Styles.TypographyMyContents>
                         {props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos'}
-                      </h2>
+                      </Styles.TypographyMyContents>
                       <h2
                         style={{ fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }}
                       >
@@ -59,8 +57,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 refreshResize={props.updateScrollSize}
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                  <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
-                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso}/>
+                                  <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }} style={{wordWrap: 'break-word'}}>
+                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} />
                                   </div>
                                   {
                                     (data.ativo || data.ativo!) && data.items.map((el, index) => {
@@ -72,6 +70,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           index={index}
                                           title={el.name}
                                           variant={'default'}
+                                          src={el.src}
                                           txtButtonLabel={props.txtButtonLabel}
                                           txtAtivarCurso={props.txtAtivarCurso}
                                           txtCriarNovoCurso={props.txtCriarNovoCurso}
@@ -83,7 +82,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           handleClickPopOverDelete={() => {props.handlePopOverDelete(el.id)}}
                                           txtPopOverEditContent={props.txtPopOverEditContent}
                                           txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
-                                          txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                          
+                                          txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                                                                  
                                         />
                                       )
                                     }
@@ -104,11 +103,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   <>
                     {
                       key === 1 &&
-                      <span
-                        style={{ fontFamily: 'Works Sans', fontWeight: 500, fontSize: 20, color: '#ff4d0d' }}
-                      >
+                      <Styles.TypographyMyTrails>
                         {props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas'}
-                      </span>
+                      </Styles.TypographyMyTrails>
                     }
                     <AccordionTrackNormal
                       id={data.id}
@@ -168,6 +165,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                                 console.log(props.handleEditCourse)
                                                 props.handleEditCourse(el.id)
                                               }}
+                                              src={el.src}
                                               txtButtonLabel={props.txtButtonLabel}
                                               txtAtivarCurso={props.txtAtivarCurso}
                                               txtCriarNovoCurso={props.txtCriarNovoCurso}

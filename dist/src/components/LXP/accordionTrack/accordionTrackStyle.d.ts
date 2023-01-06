@@ -14,5 +14,7 @@ export declare const IconVerticalHeader: import("styled-components").StyledCompo
 export declare const ContainerAccordion: import("styled-components").StyledComponent<"div", any, IImageBackground, never>;
 export declare const ContainerCard: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ContainerInputNameTrail: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const TypographyMyContents: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const TypographyMyTrails: import("styled-components").StyledComponent<"div", any, {}, never>;
 export {};
 //# sourceMappingURL=accordionTrackStyle.d.ts.map

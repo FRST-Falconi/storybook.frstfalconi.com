@@ -2,18 +2,17 @@ import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import * as Styles from './thumbListContentStyles'
 import { useState } from 'react'
-import { PlayFilledIcon, PlayLineIcon, PodCast, QuizSucessError } from '@shared/icons'
-import { url } from 'inspector'
+import { PlayLineIcon, PodCast, QuizSucessError } from '@shared/icons'
 import Button from '@components/buttons'
 
 type typeThumb = 'video' | 'podcast' | 'question'
 
 interface IThumbListContent{
-    imageSrc: string
+    imageSrc?: string
     typeThumbContent: typeThumb
     title?: string
     description: string
-    isLoading: boolean
+    isLoading?: boolean
 
     textViewMoreButton: string
     textViewLessButton: string
@@ -42,8 +41,8 @@ export default function ThumbListContent( props : IThumbListContent ) {
                 :
                 <Styles.containerThumbContent style={{...props.style}}>
                     {props.imageSrc ?
-                        <Styles.imageThumbContent onClick={props.onClickThumb} >
-                            <img src={props.imageSrc} />
+                        <Styles.imageThumbContent style={{backgroundImage: `url(${props.imageSrc})`}} onClick={props.onClickThumb} >
+                            
                         </Styles.imageThumbContent>
                         :
                         <Styles.iconsThumb onClick={props.onClickThumb} >

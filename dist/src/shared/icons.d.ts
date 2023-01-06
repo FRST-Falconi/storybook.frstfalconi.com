@@ -9,6 +9,8 @@ interface IconsProps {
     height?: string;
     active?: boolean;
 }
+export declare function Lupa({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ArrowIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function EditIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WarningIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function FRSTLogo({ fill, width, height }: IconsProps): JSX.Element;
@@ -117,5 +119,6 @@ export declare function StepCheckInCicle({ fill, width, height }: IconsProps): J
 export declare function StepCicleTwo({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StepCicleThree({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StepCicleFour({ fill, width, height }: IconsProps): JSX.Element;
+export declare function FowardArrow({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

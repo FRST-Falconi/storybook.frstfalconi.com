@@ -52,7 +52,7 @@ export default function AccordionTrackNormal(props: any) {
             <>
               <Styles.TypographyTrailName>{props.TrailName}</Styles.TypographyTrailName><Styles.Select onClick={changeSelect}>
                 {props.show ? <VectorUp /> : <VectorDown />}
-              </Styles.Select>
+              </Styles.Select>              
             </>
             :
             <Styles.ContainerInputNameTrail>
@@ -70,7 +70,7 @@ export default function AccordionTrackNormal(props: any) {
                 }}
               />
             </Styles.ContainerInputNameTrail>
-          }
+          }          
         </Styles.ContentTrailName>
 
         <Styles.ContentActiveHeader>

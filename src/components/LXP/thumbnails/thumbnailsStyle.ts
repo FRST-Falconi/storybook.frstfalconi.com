@@ -99,11 +99,12 @@ export const ContainerThumbnailsAdd = styled.div`
     border: 1px dashed ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.neutralsGrey6};
     box-sizing: border-box;
+    padding: 14px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
     gap: 10px;
 `
 export const ContainerEllipse = styled.button`
@@ -120,6 +121,8 @@ export const TypographyAdd = styled.p`
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
-    line-height: 19px;
+    line-height: 19px;     
     color: ${({ theme }) => theme.colors.neutralsGrey4};
+    text-align: center;
+    word-wrap: break-word;      
 `
