@@ -21,6 +21,7 @@ export { default as SearchField } from './src/components/search-field';
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox';
 export { default as ModalStatusProblema } from './src/components/modal/statusProblema';
 export { default as ModalLearningTech } from './src/components/modal/modalLearningTech';
+export { default as ModalVideo } from './src/components/modal/modalVideo';
 export { default as CardProblemGestor } from './src/components/cards/cardProblemGestor';
 export { default as CardProblem } from './src/components/cards/cardProblem';
 export { default as CardDefinicaoProblema } from './src/components/cards/cardDefinicaoProblema';
@@ -57,6 +58,7 @@ export { default as AccordionTrackList } from './src/components/LXP/accordionTra
 export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles';
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable';
 export { default as SelectLXP } from './src/components/LXP/selectLXP';
+export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';

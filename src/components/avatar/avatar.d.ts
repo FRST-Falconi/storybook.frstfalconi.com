@@ -4,5 +4,5 @@ export interface IAvatar {
     src?: any,
     alt?: string,
     className?: string,
-    disabled?: boolean,
+    disabled?: boolean,  
 }

@@ -8,7 +8,6 @@ export default {
   component: AvatarChannel
 }
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <AvatarChannel {...args} />
 
 export const normal = Template.bind({})
@@ -18,8 +17,22 @@ normal.args = {
   alt: 'Alt example',
   disabled: false,
   color: '#6a3f86',
-  onChange: (file) => {
-    console.log(file)
+  handleValueAvatar: (file) => {
+    console.log('avatar:', file)
   },
   variantPopOver: 'lowLeft'
+}
+
+export const sourceImage = Template.bind({})
+sourceImage.args = {
+  size: '80px',
+  channel: 'XP',
+  alt: 'Alt example',
+  disabled: false,
+  color: '#6a3f86',
+  handleValueAvatar: (file) => {
+    console.log('avatar:', file)
+  },
+  variantPopOver: 'lowLeft',
+  sourceImage: 'https://lxp-cdn.dev.frstfalconi.cloud/logo-frst.png'
 }

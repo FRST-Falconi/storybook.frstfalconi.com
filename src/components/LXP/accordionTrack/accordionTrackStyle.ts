@@ -128,3 +128,17 @@ export const ContainerInputNameTrail = styled.div`
         padding-left: 10px;
     }
 `
+export const TypographyMyContents = styled.div`
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;    
+    color: ${({ theme }) => theme.colors.primary1};
+`
+export const TypographyMyTrails = styled.div`
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;    
+    color: ${({ theme }) => theme.colors.primary1};
+`
