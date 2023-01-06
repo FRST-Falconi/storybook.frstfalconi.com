@@ -58,6 +58,7 @@ export { default as AccordionTrackList } from './src/components/LXP/accordionTra
 export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles';
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable';
 export { default as SelectLXP } from './src/components/LXP/selectLXP';
+export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';
