@@ -9,4 +9,8 @@ export declare const stepsContainer: import("styled-components").StyledComponent
 export declare const stepsTitle: import("styled-components").StyledComponent<"span", any, {}, never>;
 export declare const stepsLabel: import("styled-components").StyledComponent<"span", any, {}, never>;
 export declare const stepsValueText: import("styled-components").StyledComponent<"span", any, {}, never>;
+export declare const topHeaderTag: import("styled-components").StyledComponent<"span", any, {
+    background: string;
+    color: string;
+}, never>;
 //# sourceMappingURL=bannerProblemFeedStyles.d.ts.map
