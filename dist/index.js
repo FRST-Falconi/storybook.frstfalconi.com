@@ -4804,11 +4804,9 @@ function BannerLxp(props) {
         setBackgroundImage(props.bgSrc);
         return file;
     };
-    console.log('Banner:', props.bgSrc);
     return (jsxRuntime.jsxs("div", { className: style$3.bannerContainer, style: {
             ...props.style,
             objectFit: fixImage ? 'fill' : 'none',
-            // backgroundImage: backgroundColor === '' ? `url(${backgroundImage})` : '',
             backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
             backgroundColor: backgroundImage === '' ? backgroundColor : ''
         }, children: [!disableText ? jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText }) : '', jsxRuntime.jsx("div", { className: style$3.configButton, children: jsxRuntime.jsx(Button$2, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: handleCloseConfig, children: jsxRuntime.jsxs(material.Box, { className: style$3.configContainer, style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: "Alterar t\u00EDtulo do KnowHub", placeholder: "Digite seu t\u00EDtulo aqui", style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs("div", { className: style$3.enableText, children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
