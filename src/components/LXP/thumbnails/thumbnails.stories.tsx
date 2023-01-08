@@ -36,6 +36,7 @@ export const Add = Template.bind({})
 Add.args = {
     variant: 'add',
     handleClickNew: () => { alert('Adicionado novo curso') },
-    txtCriarNovoCurso: "Create new course"
+    txtCriarNovoCurso: "Create new",
+    txtCriarNovoCurso2: "course"
 }
 
