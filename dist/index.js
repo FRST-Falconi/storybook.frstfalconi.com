@@ -7548,7 +7548,10 @@ const ContainerTrailsEmpty = styled__default["default"].div `
     padding-top: 16px;
     margin-top: -5px; 
     z-index: 0;
-    width: 100%;
+    width: 100%;    
+    div[visibility="hidden"]{
+        position: absolute;
+    };
 `;
 const ContentTrailName = styled__default["default"].div `
     display: flex;
@@ -7604,7 +7607,7 @@ const ContainerCard = styled__default["default"].div `
     justify-items: center;
     width: 100%;
     min-height: 300px;
-    gap: 20px;
+    gap: 20px;       
 `;
 const ContainerInputNameTrail = styled__default["default"].div `
     input{
