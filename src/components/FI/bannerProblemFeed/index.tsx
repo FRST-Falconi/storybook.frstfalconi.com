@@ -16,6 +16,7 @@ interface IBannerProblemFeed extends stepsInfo{
     userAvatar ?: string
     userName : string
     userPosition : string
+    userCompany ?: string
     problemTitle : string
     problemTags ?: []
 
@@ -61,7 +62,11 @@ interface IBannerProblemFeed extends stepsInfo{
     onCommentChange ?: () => void
     handleLikeClick ?: () => void
     handleImpactoChange?: any
-    handleRelevanciaChange?: any
+    handleRelevanciaChange?: any,
+
+    topHeaderTagColor?: string
+    topHeaderTagBgColor?: string
+    topHeaderTagText?: string
 }
 
 interface stepsInfo{
@@ -287,8 +292,13 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 : null
             }
             <Styles.bannerContainer style={{borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8}}>
+                {props.topHeaderTagText &&
+                    <Styles.topHeaderTag background={props.topHeaderTagBgColor} color={props.topHeaderTagColor}>
+                        {props.topHeaderTagText}
+                    </Styles.topHeaderTag>
+                }
                 <Styles.headerContent>
-                    <Avatar size="40px" src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />
+                    <Avatar size="48px" src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />
                     <Styles.userInfo>
                         <span style={{fontWeight: 600, fontSize: 20}}>
                             {props.isSuccessCase ?   
@@ -302,6 +312,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                             }
                         </span>
                         <span style={{fontWeight: 400, fontSize: 16}}>{props.userPosition}</span>
+                        <span style={{fontWeight: 400, fontSize: 16}}>{props.userCompany}</span>
                     </Styles.userInfo>
                 </Styles.headerContent>
                 <Styles.problemTitle> {props.problemTitle} </Styles.problemTitle>
@@ -309,7 +320,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     {
                         props.problemTags?.map((item,index) => (
                             item &&
-                                <Tag title={item} color={FRSTTheme['colors'].neutralsGrey1} selected={false} inverted={false} key={index} />
+                                <Tag style={{ color: '#000 !important' }} title={item} color="#E4E1FF" selected={false} inverted={false} key={index} />
                         ))
                     }
                 </Styles.tagContent>
@@ -317,7 +328,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     <span style={{fontWeight: 700}}>{props.lastUpdated}:</span>
                     <span>&nbsp;{props.lastUpdatedStep}</span>
                 </Styles.lastUpdatedText>
-                <div style={{width:'100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`}}>
+                <div style={{width:'100%', marginTop: 24, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`}}>
 
                     <MissionSteps
                         stepProblem={props.stepProblem}
