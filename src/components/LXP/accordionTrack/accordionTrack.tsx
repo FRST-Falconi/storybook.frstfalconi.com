@@ -58,7 +58,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               >
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                   <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }} style={{wordWrap: 'break-word'}}>
-                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} />
+                                    <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} txtCriarNovoCurso2={props.txtCriarNovoCurso2} />
                                   </div>
                                   {
                                     (data.ativo || data.ativo!) && data.items.map((el, index) => {
@@ -74,6 +74,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                           txtButtonLabel={props.txtButtonLabel}
                                           txtAtivarCurso={props.txtAtivarCurso}
                                           txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                          txtCriarNovoCurso2={props.txtCriarNovoCurso2}
                                           handleClickCourse={() => {props.handleEditCourse(el.id)}}
                                           handleChange={() => { }}
                                           handleClickContent={() => {}}
@@ -147,7 +148,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
                                   <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                     <div onClick={() => { props.onNewTrail && props.onNewTrail(key) }}>
-                                      <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso}/>
+                                      <Thumbnails variant='add' disabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} txtCriarNovoCurso2={props.txtCriarNovoCurso2}/>
                                     </div>
                                     {
                                       data.items && data.items.map((el, index) => {
@@ -169,6 +170,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                               txtButtonLabel={props.txtButtonLabel}
                                               txtAtivarCurso={props.txtAtivarCurso}
                                               txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                              txtCriarNovoCurso2={props.txtCriarNovoCurso2}
                                               handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
                                               handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
                                               handleClickPopOverDelete={() => {props.handlePopOverDelete(el.id)}}
