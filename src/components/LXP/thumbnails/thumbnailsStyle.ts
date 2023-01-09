@@ -99,7 +99,6 @@ export const ContainerThumbnailsAdd = styled.div`
     border: 1px dashed ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.neutralsGrey6};
     box-sizing: border-box;
-    padding: 14px;
     position: relative;
     display: flex;
     flex-direction: column;
