@@ -7545,7 +7545,10 @@ const ContainerTrailsEmpty = styled__default["default"].div `
     padding-top: 16px;
     margin-top: -5px; 
     z-index: 0;
-    width: 100%;
+    width: 100%;    
+    div[visibility="hidden"]{
+        position: absolute;
+    };
 `;
 const ContentTrailName = styled__default["default"].div `
     display: flex;
@@ -7601,7 +7604,7 @@ const ContainerCard = styled__default["default"].div `
     justify-items: center;
     width: 100%;
     min-height: 300px;
-    gap: 20px;
+    gap: 20px;       
 `;
 const ContainerInputNameTrail = styled__default["default"].div `
     input{
@@ -7722,7 +7725,6 @@ const ContainerThumbnailsAdd = styled__default["default"].div `
     border: 1px dashed ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.neutralsGrey6};
     box-sizing: border-box;
-    //padding: 14px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -7797,7 +7799,7 @@ function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleCli
                                                 setElementPopover(element.currentTarget);
                                             }, children: jsxRuntime.jsx(MoreVertical, { fill: checked ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: checked, style: { fontWeight: checked ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar curso' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: checked, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#ebebeb', activeBoxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }) })
                     : variant === 'add' ?
-                        jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsxs(TypographyAdd, { children: [txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo', jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'curso' })] })] })
+                        jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsxs(TypographyAdd, { children: [txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo', jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo' })] })] })
                         : null, jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                         setElementPopover(null);
                     }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo", onClick: handleClickPopOverEdit, style: {
@@ -7929,7 +7931,7 @@ function AccordionTrack(props) {
         }) }));
 }
 
-function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCourse, handlePopOverDelete, handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, onSetNameTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso }) {
+function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCourse, handlePopOverDelete, handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, onSetNameTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtCriarNovoCurso2 }) {
     const [trails, setTrails] = React.useState(trailsData);
     const [updateScrollSize, setUpdateScrollSize] = React.useState(0);
     React.useEffect(() => {
@@ -7997,7 +7999,7 @@ function AccordionTrackList({ trailsData, handleChange, onNewTrail, handleEditCo
                             if (onNewTrail) {
                                 onNewTrail(id);
                             }
-                        }, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, updateScrollSize: updateScrollSize, handlePopOverDelete: handlePopOverDelete, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails }) }) }) }));
+                        }, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, txtCriarNovoCurso2: txtCriarNovoCurso2, updateScrollSize: updateScrollSize, handlePopOverDelete: handlePopOverDelete, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails }) }) }) }));
 }
 
 const Container$3 = styled__default["default"].div `
