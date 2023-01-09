@@ -1,5 +1,4 @@
 /// <reference types="react" />
-import './styles/primeicons.css';
 import './styles/theme.css';
 import './styles/primereact.css';
 import './styles/primeflex.css';
