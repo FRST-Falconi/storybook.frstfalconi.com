@@ -37,6 +37,6 @@ Add.args = {
     variant: 'add',
     handleClickNew: () => { alert('Adicionado novo curso') },
     txtCriarNovoCurso: "Create new",
-    txtCriarNovoCurso2: "course"
+    txtCriarNovoCurso2: "content"
 }
 

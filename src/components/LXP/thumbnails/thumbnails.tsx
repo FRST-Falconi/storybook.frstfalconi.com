@@ -145,7 +145,7 @@ export default function Thumbnails({
               <Styles.TypographyAdd >
                 {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo'}
               <Styles.TypographyAdd >
-                {txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'curso'}
+                {txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo'}
               </Styles.TypographyAdd>
               </Styles.TypographyAdd>
             </Styles.ContainerThumbnailsAdd>
