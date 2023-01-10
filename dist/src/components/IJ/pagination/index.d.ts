@@ -13,11 +13,12 @@ interface IPagination {
      */
     qtdNumberShowPagination: number;
     showFirstLastButton?: boolean;
+    isLoading?: boolean;
     textFirstButton?: string;
     textLastButton?: string;
     children: React.ReactNode;
     onLoadPage: (page: number) => void;
-    style: React.CSSProperties;
+    style?: React.CSSProperties;
 }
 export default function Pagination(props: IPagination): JSX.Element;
 export {};

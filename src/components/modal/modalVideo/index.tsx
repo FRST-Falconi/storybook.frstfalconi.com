@@ -51,8 +51,10 @@ export default function ModalVideo(props: ModalVideoProps) {
   }
 
   useEffect(() => {
-    getInformationsURL()
-  }, [])
+    getInformationsURL()     
+    setCurrentRating(props.rating)   
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.videoUrl])
 
   useEffect(() => {
     if (props.rating) {
@@ -68,11 +70,13 @@ export default function ModalVideo(props: ModalVideoProps) {
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          minHeight: props.showRating ? '560px' : '400px'
+          height: props.showRating ? '80%' : '400px',
+          maxHeight: props.showRating ? '620px' : '400px',
+          overflowY: 'auto'
         }}
       >
-        <Stack flexDirection="row" alignItems="center" justifyContent="space-between" px={3}>
-          <Box textAlign="left">{props.title}</Box>
+        <Stack flexDirection="row" alignItems="flex-start" justifyContent="space-between" px={3}>
+          <Box textAlign="left" style={{paddingLeft: 6, }}>{props.title}</Box>
           <Box className={style.fechar} onClick={props.handleClose}>
             <CloseIcon />
           </Box>
@@ -96,10 +100,10 @@ export default function ModalVideo(props: ModalVideoProps) {
           )}
 
           {props.showRating && (
-            <Box style={{ display: 'flex', justifyContent: 'flex-start', float: 'right' }}>
+            <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
               <Box style={{ maxWidth: 240 }}>
                 <p style={{ textAlign: 'left', fontSize: 14, fontWeight: 400 }}>{props.ratingDescription}</p>
-                <Box style={{ display: 'flex', float: 'left' }}>
+                <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <Rating
                     isVisibleNumberRating
                     marginStars="3.5px"
