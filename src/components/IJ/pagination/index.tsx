@@ -2,7 +2,7 @@ import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from "styled-components";
 import { useEffect, useState } from 'react';
 import * as Styles from './paginationStyles'
-import { BackArrow, FowardArrow, MoreDotsHorizontal } from '@shared/icons';
+import { BackArrow, FowardArrow } from '@shared/icons';
 
 interface IPagination{
     /**
@@ -18,6 +18,7 @@ interface IPagination{
      */ 
     qtdNumberShowPagination: number
     showFirstLastButton?: boolean
+    isLoading?: boolean
 
     textFirstButton?: string
     textLastButton?: string
@@ -25,14 +26,17 @@ interface IPagination{
     children: React.ReactNode
     onLoadPage: (page : number) => void
     
-    style: React.CSSProperties
+    style?: React.CSSProperties
 
 }
 
 export default function Pagination( props : IPagination ) {
-    const [activePage, setActivePage] = useState(0);
-    const totalPages = Math.ceil(props.totalRegistry / props.registryPerPage)
+    const [activePage, setActivePage] = useState(0)
+    const [TotalRegistry, setTotalRegistry] = useState(props.totalRegistry)
+    const [totalPages, setTotalPages] = useState(Math.ceil(props.totalRegistry / props.registryPerPage));
     const [paginationElements, setPaginationElements] = useState([]);
+    const [IsLoading, setIsLoading] = useState(props.isLoading);
+    const [Refresh, setRefresh] = useState(0);
 
     const handleSwitchPage = (page : number) => {
         if(page < 0){
@@ -40,7 +44,9 @@ export default function Pagination( props : IPagination ) {
             props.onLoadPage(0)
         }else if(page > totalPages - 1){
             setActivePage(totalPages-1)
-            props.onLoadPage(totalPages-1)
+            if (page === 0) {
+                props.onLoadPage(totalPages-1)
+            }
         }
         else{
             setActivePage(page)
@@ -49,8 +55,29 @@ export default function Pagination( props : IPagination ) {
     }
 
     useEffect(() => {
+        setIsLoading(props.isLoading)        
+    }, [props.isLoading])  
+
+
+    useEffect(() => {
+        if (props.totalRegistry === 0) {
+            setActivePage(0)
+        }
+        setTotalRegistry(props.totalRegistry)
+        setTotalPages(Math.ceil(props.totalRegistry / props.registryPerPage));
+        CalcPaginations(Math.ceil(props.totalRegistry / props.registryPerPage))
+        setRefresh(Refresh+1)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [props.totalRegistry])        
+
+    useEffect(() => {
+        CalcPaginations(totalPages)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [activePage]);
+
+    const CalcPaginations = (totalPages) => {
         let elements = []
-        let start = 0
+        let start = 1
         let finish = 0
         let showEllipsis = true
         if(totalPages <= props.qtdNumberShowPagination){
@@ -79,8 +106,7 @@ export default function Pagination( props : IPagination ) {
         }
 
         setPaginationElements(elements)
-
-    }, [activePage]);
+    }
     
     return(
         <ThemeProvider theme={FRSTTheme} >
@@ -88,38 +114,41 @@ export default function Pagination( props : IPagination ) {
                 <Styles.contentPagination>
                     {props.children}
                 </Styles.contentPagination>
-                
-                <Styles.pageButtonList>
-                    {props.showFirstLastButton ?
-                        <Styles.buttonPage disabled={activePage === 0} onClick={() => activePage > 0 && handleSwitchPage(0)} selected={false}>
-                            {props.textFirstButton ? props.textFirstButton : 'Primeiro'}
-                        </Styles.buttonPage>
-                        : null
-                    }
-                    
-                    <Styles.buttonPage disabled={activePage === 0} onClick={() => activePage > 0 && handleSwitchPage(activePage-1)} selected={false}>
-                        <BackArrow width='16' height='16' fill='currentColor'/>
-                    </Styles.buttonPage>
 
-                    { paginationElements.map((item, index)=>
-                        <Styles.buttonPage disabled={item === '...'} key={index} onClick={() => item != '...' && handleSwitchPage(item - 1)} selected={ activePage === item - 1 }>
-                            {item}
-                        </Styles.buttonPage>
-                    )}
+                {
+                    !IsLoading && Refresh > 0 &&
+                        <Styles.pageButtonList>
+                            {props.showFirstLastButton ?
+                                <Styles.buttonPage disabled={activePage === 0} onClick={() => activePage > 0 && handleSwitchPage(0)} selected={false}>
+                                    {props.textFirstButton ? props.textFirstButton : 'Primeiro'}
+                                </Styles.buttonPage>
+                                : null
+                            }
+                            
+                            <Styles.buttonPage disabled={activePage === 0} onClick={() => activePage > 0 && handleSwitchPage(activePage-1)} selected={false}>
+                                <BackArrow width='16' height='16' fill='currentColor'/>
+                            </Styles.buttonPage>
 
-                    
-                    <Styles.buttonPage disabled={activePage === totalPages - 1} onClick={() => activePage < totalPages-1 &&  handleSwitchPage(activePage+1)} selected={false}>
-                        <FowardArrow width='18' height='18' fill='currentColor'/>
-                    </Styles.buttonPage>
-                        
-                    {props.showFirstLastButton ?
-                        <Styles.buttonPage disabled={activePage === totalPages-1} onClick={() => activePage < totalPages-1 && handleSwitchPage(totalPages-1)} selected={false}>
-                            {props.textLastButton ? props.textLastButton : 'Último'}
-                        </Styles.buttonPage>
-                        : null
-                    }
-                </Styles.pageButtonList>
-                
+                            { paginationElements.map((item, index)=>
+                                <Styles.buttonPage disabled={item === '...'} key={index} onClick={() => item != '...' && handleSwitchPage(item - 1)} selected={ activePage === item - 1 }>
+                                    {item}
+                                </Styles.buttonPage>
+                            )}
+
+                            
+                            <Styles.buttonPage disabled={activePage === totalPages - 1} onClick={() => activePage < totalPages-1 &&  handleSwitchPage(activePage+1)} selected={false}>
+                                <FowardArrow width='18' height='18' fill='currentColor'/>
+                            </Styles.buttonPage>
+                                
+                            {props.showFirstLastButton ?
+                                <Styles.buttonPage disabled={activePage === totalPages-1} onClick={() => activePage < totalPages-1 && handleSwitchPage(totalPages-1)} selected={false}>
+                                    {props.textLastButton ? props.textLastButton : 'Último'}
+                                </Styles.buttonPage>
+                                : null
+                            }
+                        </Styles.pageButtonList>
+                }
+                                                
             </Styles.containerPagination>
         </ThemeProvider>
     )
