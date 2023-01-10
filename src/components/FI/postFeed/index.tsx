@@ -67,8 +67,8 @@ export default function PostFeed( props : IPostFeed ){
                 <Styles.postHeader style={{width:'100%', justifyContent: 'space-between'}}>
                     <div style={{width: props?.fixPostButton && props?.fixPostButton?.isVisibleButton ? '105px' : '0px'}}></div>
                     <div style={{display: 'flex', flexDirection:'row', justifyContent: 'center', alignItems: 'center'}}>
-                        <div style={{marginRight: 16}}> <Avatar src={FRSTAvatar} size='40px' /> </div>
-                        <span style={{fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1}} > FRST Falconi </span>
+                        <div style={{marginRight: 16, paddingTop: '18px'}}> <Avatar src={FRSTAvatar} size='40px' /> </div>
+                        <span style={{fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1, paddingTop: '18px'}} > FRST Falconi </span>
                     </div>
 
                     { props?.fixPostButton && props?.fixPostButton?.isVisibleButton ?
@@ -88,7 +88,7 @@ export default function PostFeed( props : IPostFeed ){
                                 justifyContent: 'space-between', 
                                 alignItems: 'center',
                                 paddingRight: '22px', 
-                                marginTop: '-25px'}}>
+                                marginTop: '-30px'}}>
                             {/* <p style={{marginRight: '5px', paddingTop: '0px',fontSize: '17px'}}>
                                 {actionArea ? props?.fixPostButton?.textUnfix : props?.fixPostButton?.textFixed }
                             </p> */}
