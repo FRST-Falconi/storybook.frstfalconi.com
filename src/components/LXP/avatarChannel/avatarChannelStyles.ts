@@ -1,4 +1,3 @@
-import { url } from 'inspector'
 import styled, { css } from 'styled-components'
 
 interface AvatarI {
