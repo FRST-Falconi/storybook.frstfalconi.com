@@ -10568,7 +10568,7 @@ function IconPin({ fill }) {
 const containerPagination = styled__default["default"].div `
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 `;
 const contentPagination = styled__default["default"].div `
@@ -10576,7 +10576,7 @@ const contentPagination = styled__default["default"].div `
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: 12px;
+    padding-bottom: 12px;
 `;
 const pageButtonList = styled__default["default"].div `
     display: flex;
@@ -10688,7 +10688,7 @@ function Pagination(props) {
         }
         setPaginationElements(elements);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerPagination, { children: [jsxRuntime.jsx(contentPagination, { children: props.children }), !IsLoading && Refresh > 0 &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerPagination, { style: { ...props.style }, children: [jsxRuntime.jsx(contentPagination, { children: props.children }), !IsLoading && Refresh > 0 &&
                     jsxRuntime.jsxs(pageButtonList, { children: [props.showFirstLastButton ?
                                 jsxRuntime.jsx(buttonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(0), selected: false, children: props.textFirstButton ? props.textFirstButton : 'Primeiro' })
                                 : null, jsxRuntime.jsx(buttonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(activePage - 1), selected: false, children: jsxRuntime.jsx(BackArrow, { width: '16', height: '16', fill: 'currentColor' }) }), paginationElements.map((item, index) => jsxRuntime.jsx(buttonPage, { disabled: item === '...', onClick: () => item != '...' && handleSwitchPage(item - 1), selected: activePage === item - 1, children: item }, index)), jsxRuntime.jsx(buttonPage, { disabled: activePage === totalPages - 1, onClick: () => activePage < totalPages - 1 && handleSwitchPage(activePage + 1), selected: false, children: jsxRuntime.jsx(FowardArrow, { width: '18', height: '18', fill: 'currentColor' }) }), props.showFirstLastButton ?
