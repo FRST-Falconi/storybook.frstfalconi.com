@@ -8,13 +8,13 @@ import RatingCurtidas from '../RatingCurtidas/index'
 import Select from 'react-select'
 
 import StepMission from '../StepsMission/StepMission'
-import { Brain, Mail, WithoutTrail, WithTrail, EditIcon } from '../../../shared/icons'
+import { Brain, Mail, WithoutTrail, WithTrail, EditIcon, CompanyIcon } from '../../../shared/icons'
 import Tag from '../../tag/index'
 import AvatarWithInfo from '../AvatarWithInfo/index'
 import Button from '@components/buttons'
 import { IBannerProgressTranslate } from './BannerProblem'
 import style from './BannerProblem.module.css'
-import TextField from '@components/form-elements/textfield'
+import { SpanHeaderTag } from './styles'
 
 
 export default function BannerProblem(props: IBannerProgressTranslate) {
@@ -120,6 +120,11 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
 
     <>    
       <div className={style.container} style={{...props.style }}>
+        {props.topHeaderTagText &&
+          <SpanHeaderTag background={props.topHeaderTagBgColor} color={props.topHeaderTagColor}>
+              {props.topHeaderTagText}
+          </SpanHeaderTag>
+        }
         <div style={{width: '100%', display: 'flex', justifyContent:'space-between', flexDirection: 'row', alignItems:'center'}}>
           <span className={style.titleProblem}>{props.textTitleProblem ? props.textTitleProblem : 'Problema'}</span>
           {
@@ -176,6 +181,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
             <div style={{width:'100%', maxWidth: 600}}>
               <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8}} />
               <TextIcon description={props.area} svg={<Brain />}/>
+              {props.company && <TextIcon description={props.company} svg={<CompanyIcon />}/>}
               <TextIcon description={adapterEmail(props.email, size[0])} svg={<Mail />}/>
               {
                 Edit && props.isVisibleEditTrail ? 
@@ -244,7 +250,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                       {
                         Tags?.map((item, key) => (
                           item &&
-                           <Tag title={item} color={"#222"} style={{marginRight: 8, marginTop: 8}} selected={false} inverted={false} key={key}/>  
+                           <Tag title={item} style={{ color: '#000 !important', marginRight: 8, marginTop: 8 }} color={"#E4E1FF"} selected={false} inverted={false} key={key}/>  
                         ))
                       }
                   </>
