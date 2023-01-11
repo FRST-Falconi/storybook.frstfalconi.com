@@ -6,6 +6,7 @@ import { IAvatar } from './avatarChannel'
 import * as Icons from '../../../shared/icons'
 import { useState } from 'react'
 import { PopOver } from 'frst-components'
+import PopOverLXP from '../popOverLXP'
 
 export default function AvatarChannel({
   size,
@@ -39,7 +40,7 @@ export default function AvatarChannel({
         {sourceImage ? (
           <>
             <Styles.ContainerPopOver className="popOver" variant={variantPopOver}>
-              <PopOver children={'Alterar avatar'} variant={variantPopOver} />
+              <PopOverLXP children={'Alterar avatar'} variant={variantPopOver} element={undefined} />
             </Styles.ContainerPopOver>
             <Styles.ContainerSelectedImage onClick={onChange}>
               <div style={{ display: 'none' }}>
@@ -58,7 +59,7 @@ export default function AvatarChannel({
             {variantPopOver === 'lowLeft' || variantPopOver === 'lowRight' || variantPopOver === 'sideRight' ? (
               <>
                 <Styles.ContainerPopOver className="popOver" variant={variantPopOver}>
-                  <PopOver children={'Alterar avatar'} variant={variantPopOver} />
+                  <PopOverLXP children={'Alterar avatar'} variant={variantPopOver} element={undefined} />
                 </Styles.ContainerPopOver>
                 <div style={{ display: 'none' }}>
                   <input
