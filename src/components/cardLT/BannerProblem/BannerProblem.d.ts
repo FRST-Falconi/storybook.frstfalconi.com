@@ -7,6 +7,12 @@ interface IBannerProblemParams {
      * @prop {React.CSSProperties} style: Styles de CSS adicional
      */  
     style?: React.CSSProperties
+    
+    company?: string,
+    topHeaderTagColor?: string
+    topHeaderTagBgColor?: string
+    topHeaderTagText?: string
+
     problema: string
     cargo: string
     nome: string
