@@ -110,7 +110,7 @@ export default function Pagination( props : IPagination ) {
     
     return(
         <ThemeProvider theme={FRSTTheme} >
-            <Styles.containerPagination>
+            <Styles.containerPagination style={{...props.style}}>
                 <Styles.contentPagination>
                     {props.children}
                 </Styles.contentPagination>
