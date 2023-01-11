@@ -99,6 +99,7 @@ export { default as ContentThumbnails } from './src/components/LXP/contentThumbn
 export { default as FileUpload } from './src/components/LXP/fileUpload'
 export { default as HeaderContent } from './src/components/LXP/headerContent'
 export { default as PopOver } from './src/components/LXP/popOver'
+export { default as PopOverLXP } from './src/components/LXP/popOverLXP-antigo'
 export { default as ProgressBar } from './src/components/LXP/progressBar'
 export { default as SearchResults } from './src/components/LXP/searchResults'
 export { default as StarMetric } from './src/components/LXP/star-metric'
@@ -112,7 +113,7 @@ export { default as ManageLearningCicles} from './src/components/LXP/manageLerni
 export { default as ThumbnailsDraggable} from './src/components/LXP/thumbnails/thumbnailsDraggable'
 export { default as SelectLXP} from './src/components/LXP/selectLXP'
 export { default as ParticipantCard} from './src/components/LXP/participantCard'
-export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
+//export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI
 export { default as CardTrail } from './src/components/card-trail'
