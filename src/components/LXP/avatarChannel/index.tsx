@@ -5,7 +5,6 @@ import * as Styles from './avatarChannelStyles'
 import { IAvatar } from './avatarChannel'
 import * as Icons from '../../../shared/icons'
 import { useState } from 'react'
-import { PopOver } from 'frst-components'
 import PopOverLXP from '../popOverLXP'
 
 export default function AvatarChannel({
