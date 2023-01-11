@@ -46,6 +46,7 @@ export { default as ContentThumbnails } from './src/components/LXP/contentThumbn
 export { default as FileUpload } from './src/components/LXP/fileUpload';
 export { default as HeaderContent } from './src/components/LXP/headerContent';
 export { default as PopOver } from './src/components/LXP/popOver';
+export { default as PopOverLXP } from './src/components/LXP/popOverLXP';
 export { default as ProgressBar } from './src/components/LXP/progressBar';
 export { default as SearchResults } from './src/components/LXP/searchResults';
 export { default as StarMetric } from './src/components/LXP/star-metric';
