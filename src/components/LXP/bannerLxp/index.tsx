@@ -35,7 +35,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   const [disableText, setDisableText] = useState(props.isDisabledTitle)
   const [titleText, setTitleText] = useState(props.title ? props.title : '')
   const [colorTitle, setColorTitle] = useState(props.titleColor ? props.titleColor : '#FFF')
-  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')
+  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')  
   const [backgroundImage, setBackgroundImage] = useState(props.bgSrc || '')
   const [fixImage, setFixImage] = useState(false)
   const [selectedFile, setSelectedFile] = useState({})
@@ -87,8 +87,9 @@ export default function BannerLxp(props: BannerLxpParams) {
       style={{
         ...props.style,
         objectFit: fixImage ? 'fill' : 'none',
-        backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
-        backgroundColor: backgroundImage === '' ? backgroundColor : ''
+        //backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
+        //backgroundColor: backgroundImage === '' ? backgroundColor : '',
+        background: backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`
       }}
     >
       {!disableText ? <span style={{ color: colorTitle, fontSize: 40, fontWeight: 700 }}>{titleText}</span> : ''}

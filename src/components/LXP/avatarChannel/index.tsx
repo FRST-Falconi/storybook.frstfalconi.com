@@ -78,11 +78,11 @@ export default function AvatarChannel({
                     image={image}
                   >
                     <img src={sourceImage} style={{ borderRadius: '150px', width: '80px', height: '80px' }} />
-                    <Styles.AvatarCircle className="hide">
+                    {/* <Styles.AvatarCircle className="hide">
                       <Styles.AvatarCam>
                         <Icons.Cam />
                       </Styles.AvatarCam>
-                    </Styles.AvatarCircle>
+                    </Styles.AvatarCircle> */}
                   </Styles.AvatarChannelImage>
                 ) : (
                   <Styles.AvatarChannel
