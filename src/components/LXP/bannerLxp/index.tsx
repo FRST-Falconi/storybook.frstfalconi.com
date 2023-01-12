@@ -5,7 +5,7 @@ import { UploadIcon } from '@shared/icons'
 import React, { useRef, useState } from 'react'
 import style from './bannerLxp.module.css'
 import { ChromePicker } from 'react-color'
-import { PopOver } from 'frst-components'
+import PopOverLXP from '../popOverLXP-antigo'
 
 interface BannerLxpParams {
   title: string
@@ -145,9 +145,9 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorEl={anchor}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
-              <PopOver variant="upRight">
+              <PopOverLXP variant="upRight">
                 <ChromePicker color={colorTitle} disableAlpha={true} onChangeComplete={handleChangeTitleColor} />
-              </PopOver>
+              </PopOverLXP>
             </Popover>
           </div>
 
@@ -175,13 +175,13 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorEl={anchor}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
-              <PopOver variant="upRight">
+              <PopOverLXP variant="upRight">
                 <ChromePicker
                   color={backgroundColor}
                   disableAlpha={true}
                   onChangeComplete={handleChangeBackgroundColor}
                 />
-              </PopOver>
+              </PopOverLXP>
             </Popover>
           </div>
 

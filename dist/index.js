@@ -22,7 +22,6 @@ var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
 var Select$4 = require('react-select');
-var frstComponents = require('frst-components');
 var reactColor = require('react-color');
 var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
@@ -4746,7 +4745,142 @@ const ContainerSelectedImage = styled__default["default"].div `
   margin-top: 60px;
 `;
 
-//import PopOverLXP from '../popOverLXP'
+const RectangleUpLeft$1 = styled__default["default"].div `
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    margin: -7px 0 32px 27px;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+    ${({ variant }) => (variant)}
+`;
+const RectangleUpRight$1 = styled__default["default"].div `
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: -7px 32px 0 27px;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);    
+    
+    ${({ variant }) => (variant)}
+`;
+const RectangleLowRight$1 = styled__default["default"].div `
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    margin: 27px 32px -7px 0px;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-left: none;   
+    border-top: none;
+    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+    
+    ${({ variant }) => (variant)}
+`;
+const RectangleLowLeft$1 = styled__default["default"].div `
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    margin: 27px 0 -7px 32px;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-left: none;   
+    border-top: none;
+    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+    
+    ${({ variant }) => (variant)}
+`;
+const RectangleLeft$1 = styled__default["default"].div `
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    margin: 39px 0px 32px -7px;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-right: none;
+    border-bottom: none;
+    transform: matrix(0.91, -0.51, 0.91, 0.61, 0, 0);    
+    
+    ${({ variant }) => (variant)}
+`;
+const RectangleRight$1 = styled__default["default"].div `
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    margin: 39px -7px 13px 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-left: none;   
+    border-top: none;
+    transform: matrix(0.91, -0.51, 0.91, 0.61, 0, 0);    
+    
+    ${({ variant }) => (variant)}
+`;
+const PopOver$2 = styled__default["default"].div `
+    width: 100%;
+    min-height: 31px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    box-shadow: 0px 18px 40px -15px #d3d3d3;
+    position: relative;
+    margin: 0% 0% 0% 0%;
+    padding: 8px;
+`;
+const PopOverLeftRight = styled__default["default"].div `
+    width: 100%;
+    min-height: 67px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    box-shadow: 0px 18px 40px -15px #d3d3d3;
+    position: relative;
+    margin: 0% 0% 0% 0%;
+    padding: 8px;    
+`;
+
+function PopOverLXP({ variant, children }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'upLeft' ?
+            jsxRuntime.jsxs(PopOver$2, { children: [jsxRuntime.jsx(RectangleUpLeft$1, { variant: variant = 'upLeft' }), children] })
+            : variant === 'upRight' ?
+                jsxRuntime.jsxs(PopOver$2, { children: [jsxRuntime.jsx(RectangleUpRight$1, { variant: variant = 'upRight' }), children] })
+                : variant === 'lowRight' ?
+                    jsxRuntime.jsxs(PopOver$2, { children: [jsxRuntime.jsx(RectangleLowRight$1, { variant: variant = 'lowRight' }), children] })
+                    : variant === 'lowLeft' ?
+                        jsxRuntime.jsxs(PopOver$2, { children: [jsxRuntime.jsx(RectangleLowLeft$1, { variant: variant = 'lowLeft' }), children] })
+                        : variant === 'sideLeft' ?
+                            jsxRuntime.jsxs(PopOverLeftRight, { children: [jsxRuntime.jsx(RectangleLeft$1, { variant: variant = 'sideLeft' }), children] })
+                            : variant === 'sideRight' ?
+                                jsxRuntime.jsxs(PopOverLeftRight, { children: [jsxRuntime.jsx(RectangleRight$1, { variant: variant = 'sideRight' }), children] })
+                                : null }));
+}
+
 function AvatarChannel({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage }) {
     const onChange = () => {
         document.getElementById('fileSelector').click();
@@ -4761,7 +4895,7 @@ function AvatarChannel({ size, channel, className, disabled, color, handleValueA
         return file;
     };
     const [image, setImage] = React.useState(null);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral, { className: "geral", variant: variantPopOver, children: sourceImage ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(frstComponents.PopOver, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsxs(ContainerSelectedImage, { onClick: onChange, children: [jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } })] })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: variantPopOver === 'lowLeft' || variantPopOver === 'lowRight' || variantPopOver === 'sideRight' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(frstComponents.PopOver, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), image ? (jsxRuntime.jsxs(AvatarChannelImage, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, image: image, children: [jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] })) : (jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }))] })) : null })) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral, { className: "geral", variant: variantPopOver, children: sourceImage ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsxs(ContainerSelectedImage, { onClick: onChange, children: [jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } })] })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: variantPopOver === 'lowLeft' || variantPopOver === 'lowRight' || variantPopOver === 'sideRight' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), image ? (jsxRuntime.jsxs(AvatarChannelImage, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, image: image, children: [jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] })) : (jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }))] })) : null })) }) }));
 }
 
 var css_248z$4 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
@@ -4834,14 +4968,14 @@ function BannerLxp(props) {
                                         borderRadius: 8,
                                         border: '1px solid #BDBDBD',
                                         backgroundColor: colorTitle
-                                    }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(frstComponents.PopOver, { variant: "upRight", children: jsxRuntime.jsx(reactColor.ChromePicker, { color: colorTitle, disableAlpha: true, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs("div", { className: style$3.inputBgColor, children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: {
+                                    }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.ChromePicker, { color: colorTitle, disableAlpha: true, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs("div", { className: style$3.inputBgColor, children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: {
                                         cursor: 'pointer',
                                         width: 23,
                                         height: 23,
                                         borderRadius: 8,
                                         border: '1px solid #BDBDBD',
                                         backgroundColor: backgroundColor
-                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(frstComponents.PopOver, { variant: "upRight", children: jsxRuntime.jsx(reactColor.ChromePicker, { color: backgroundColor, disableAlpha: true, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs("div", { className: style$3.bgInput, children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar", ' '] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs("div", { className: style$3.fixImage, children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
+                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.ChromePicker, { color: backgroundColor, disableAlpha: true, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs("div", { className: style$3.bgInput, children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar", ' '] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs("div", { className: style$3.fixImage, children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF'
                                         },
@@ -5452,176 +5586,6 @@ function HeaderContent(props) {
                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { className: style$2.content, children: RecomendationHeader(props.listaRecomendacao[selectedContent]) }), jsxRuntime.jsxs("div", { className: style$2.contadorConteudo, children: [jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(0); }, children: selectedContent === 0 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(1); }, children: selectedContent === 1 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(2); }, children: selectedContent === 2 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(3); }, children: selectedContent === 3 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) }), jsxRuntime.jsx("div", { style: { marginRight: 8 }, onClick: () => { setSelectedContent(4); }, children: selectedContent === 4 ? jsxRuntime.jsx(SelectedCountCircle, {}) : jsxRuntime.jsx(CountCircle, {}) })] })] }) }));
 }
 
-const RectangleUpLeft$1 = styled__default["default"].div `
-    width: 13.64px;
-    height: 13.64px;
-    position: absolute;
-    margin: -7px 0 32px 27px;
-    left: 0;
-    top: 0;
-    box-sizing: border-box;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    border-bottom: none;
-    border-right: none;
-    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
-
-    ${({ variant }) => (variant)}
-`;
-const RectangleUpRight$1 = styled__default["default"].div `
-    width: 13.64px;
-    height: 13.64px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: -15px 16px 0 27px;}
-`;
-const RectangleLowRight$1 = styled__default["default"].div `
-    width: 13.64px;
-    height: 13.64px;
-    position: absolute;
-    margin: 27px 32px -7px 0px;
-    right: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    border-left: none;   
-    border-top: none;
-    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
-    
-    ${({ variant }) => (variant)}
-`;
-const RectangleLowLeft$1 = styled__default["default"].div `
-    width: 13.64px;
-    height: 13.64px;
-    position: absolute;
-    margin: 27px 0 -7px 32px;
-    left: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    border-left: none;   
-    border-top: none;
-    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
-    
-    ${({ variant }) => (variant)}
-`;
-const RectangleLeft$1 = styled__default["default"].div `
-    width: 13.64px;
-    height: 13.64px;
-    position: absolute;
-    margin: 39px 0px 32px -7px;
-    left: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    border-right: none;
-    border-bottom: none;
-    transform: matrix(0.91, -0.51, 0.91, 0.61, 0, 0);    
-    
-    ${({ variant }) => (variant)}
-`;
-const RectangleRight$1 = styled__default["default"].div `
-    width: 13.64px;
-    height: 13.64px;
-    position: absolute;
-    margin: 39px -7px 13px 0;
-    right: 0;
-    bottom: 0;
-    box-sizing: border-box;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    border-left: none;   
-    border-top: none;
-    transform: matrix(0.91, -0.51, 0.91, 0.61, 0, 0);    
-    
-    ${({ variant }) => (variant)}
-`;
-const PopOver$2 = styled__default["default"].div `
-    z-index: 999;
-    width: 100%;
-    min-height: 31px;
-    border-radius: 8px;
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    box-shadow: 0px 18px 40px -15px #d3d3d3;
-    position: relative;
-    padding: 8px;
-`;
-styled__default["default"].div `
-    width: 100%;
-    min-height: 67px;
-    border-radius: 8px;
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    box-shadow: 0px 18px 40px -15px #d3d3d3;
-    position: relative;
-    margin: 0% 0% 0% 0%;
-    padding: 8px;    
-`;
-
-const ArrowPopover = () => {
-    return (jsxRuntime.jsxs("svg", { width: "17", height: "12", viewBox: "0 0 17 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.5 1L1 11.5H8.5H16L8.5 1Z", fill: "white", stroke: "#BDBDBD" }), jsxRuntime.jsx("path", { d: "M1.21997 12L2.33 10.5H14.67L15.75 12H1.21997Z", fill: "white" })] }));
-};
-function PopOverItem(props) {
-    return (jsxRuntime.jsxs("div", { style: {
-            width: '100%',
-            padding: 8,
-            margin: 0,
-            fontSize: 16,
-            borderBottom: props.noBorder ? 'none' : '1px solid #EBEBEB',
-            display: 'flex',
-            flexDirection: 'row',
-            gap: 8,
-            fontFamily: 'PT Sans',
-            cursor: 'pointer',
-            color: props.color ? props.color : '#000000',
-            fontWeight: props.isFontBold ? '700' : 'normal'
-        }, onClick: props.onClick, children: [props.icon, props.label] }));
-}
-function PopOver$1({ variant, children, element, onClosePopover }) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    React.useEffect(() => {
-        setAnchorEl(element);
-    }, [element]);
-    const handleClose = () => {
-        setAnchorEl(null);
-        onClosePopover();
-    };
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
-                vertical: 'bottom',
-                horizontal: 'right',
-            }, transformOrigin: {
-                vertical: 'top',
-                horizontal: 'right',
-            }, PaperProps: {
-                style: {
-                    backgroundColor: "transparent",
-                    boxShadow: "none",
-                    borderRadius: 8
-                }
-            }, style: {
-                borderRadius: 8
-            }, children: jsxRuntime.jsx("div", { style: { marginTop: 12 }, children: jsxRuntime.jsxs(PopOver$2, { children: [variant === 'upLeft' ?
-                            jsxRuntime.jsx(RectangleUpLeft$1, { variant: variant = 'upLeft' })
-                            : variant === 'upRight' ?
-                                jsxRuntime.jsx(RectangleUpRight$1, { variant: variant = 'upRight', children: jsxRuntime.jsx(ArrowPopover, {}) })
-                                : variant === 'lowRight' ?
-                                    jsxRuntime.jsx(RectangleLowRight$1, { variant: variant = 'lowRight' })
-                                    : variant === 'lowLeft' ?
-                                        jsxRuntime.jsx(RectangleLowLeft$1, { variant: variant = 'lowLeft' })
-                                        : variant === 'sideLeft' ?
-                                            jsxRuntime.jsx(RectangleLeft$1, { variant: variant = 'sideLeft' })
-                                            : variant === 'sideRight' ?
-                                                jsxRuntime.jsx(RectangleRight$1, { variant: variant = 'sideRight' })
-                                                : null, jsxRuntime.jsx("div", { style: { zIndex: 9 }, children: children })] }) }) }) }));
-}
-
 const RectangleUpLeft = styled__default["default"].div `
     width: 13.64px;
     height: 13.64px;
@@ -5633,9 +5597,9 @@ const RectangleUpLeft = styled__default["default"].div `
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
     border-bottom: none;
-    border-left: none;
     border-right: none;
     transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+
     ${({ variant }) => (variant)}
 `;
 const RectangleUpRight = styled__default["default"].div `
@@ -5644,16 +5608,7 @@ const RectangleUpRight = styled__default["default"].div `
     position: absolute;
     right: 0;
     top: 0;
-    margin: -7px 32px 0 27px;
-    box-sizing: border-box;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
-    border-bottom: none;
-    border-left: none;
-    border-right: none;
-    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);    
-    
-    ${({ variant }) => (variant)}
+    margin: -15px 16px 0 27px;}
 `;
 const RectangleLowRight = styled__default["default"].div `
     width: 13.64px;
@@ -5719,7 +5674,8 @@ const RectangleRight = styled__default["default"].div `
     
     ${({ variant }) => (variant)}
 `;
-const PopOver = styled__default["default"].div `
+const PopOver$1 = styled__default["default"].div `
+    z-index: 999;
     width: 100%;
     min-height: 31px;
     border-radius: 8px;
@@ -5727,10 +5683,9 @@ const PopOver = styled__default["default"].div `
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 18px 40px -15px #d3d3d3;
     position: relative;
-    margin: 0% 0% 0% 0%;
     padding: 8px;
 `;
-const PopOverLeftRight = styled__default["default"].div `
+styled__default["default"].div `
     width: 100%;
     min-height: 67px;
     border-radius: 8px;
@@ -5742,20 +5697,63 @@ const PopOverLeftRight = styled__default["default"].div `
     padding: 8px;    
 `;
 
-function PopOverLXP({ variant, children }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'upLeft' ?
-            jsxRuntime.jsxs(PopOver, { children: [jsxRuntime.jsx(RectangleUpLeft, { variant: variant = 'upLeft' }), children] })
-            : variant === 'upRight' ?
-                jsxRuntime.jsxs(PopOver, { children: [jsxRuntime.jsx(RectangleUpRight, { variant: variant = 'upRight' }), children] })
-                : variant === 'lowRight' ?
-                    jsxRuntime.jsxs(PopOver, { children: [jsxRuntime.jsx(RectangleLowRight, { variant: variant = 'lowRight' }), children] })
-                    : variant === 'lowLeft' ?
-                        jsxRuntime.jsxs(PopOver, { children: [jsxRuntime.jsx(RectangleLowLeft, { variant: variant = 'lowLeft' }), children] })
-                        : variant === 'sideLeft' ?
-                            jsxRuntime.jsxs(PopOverLeftRight, { children: [jsxRuntime.jsx(RectangleLeft, { variant: variant = 'sideLeft' }), children] })
-                            : variant === 'sideRight' ?
-                                jsxRuntime.jsxs(PopOverLeftRight, { children: [jsxRuntime.jsx(RectangleRight, { variant: variant = 'sideRight' }), children] })
-                                : null }));
+const ArrowPopover = () => {
+    return (jsxRuntime.jsxs("svg", { width: "17", height: "12", viewBox: "0 0 17 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.5 1L1 11.5H8.5H16L8.5 1Z", fill: "white", stroke: "#BDBDBD" }), jsxRuntime.jsx("path", { d: "M1.21997 12L2.33 10.5H14.67L15.75 12H1.21997Z", fill: "white" })] }));
+};
+function PopOverItem(props) {
+    return (jsxRuntime.jsxs("div", { style: {
+            width: '100%',
+            padding: 8,
+            margin: 0,
+            fontSize: 16,
+            borderBottom: props.noBorder ? 'none' : '1px solid #EBEBEB',
+            display: 'flex',
+            flexDirection: 'row',
+            gap: 8,
+            fontFamily: 'PT Sans',
+            cursor: 'pointer',
+            color: props.color ? props.color : '#000000',
+            fontWeight: props.isFontBold ? '700' : 'normal'
+        }, onClick: props.onClick, children: [props.icon, props.label] }));
+}
+function PopOver({ variant, children, element, onClosePopover }) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    React.useEffect(() => {
+        setAnchorEl(element);
+    }, [element]);
+    const handleClose = () => {
+        setAnchorEl(null);
+        onClosePopover();
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'right',
+            }, transformOrigin: {
+                vertical: 'top',
+                horizontal: 'right',
+            }, PaperProps: {
+                style: {
+                    backgroundColor: "transparent",
+                    boxShadow: "none",
+                    borderRadius: 8
+                }
+            }, style: {
+                borderRadius: 8
+            }, children: jsxRuntime.jsx("div", { style: { marginTop: 12 }, children: jsxRuntime.jsxs(PopOver$1, { children: [variant === 'upLeft' ?
+                            jsxRuntime.jsx(RectangleUpLeft, { variant: variant = 'upLeft' })
+                            : variant === 'upRight' ?
+                                jsxRuntime.jsx(RectangleUpRight, { variant: variant = 'upRight', children: jsxRuntime.jsx(ArrowPopover, {}) })
+                                : variant === 'lowRight' ?
+                                    jsxRuntime.jsx(RectangleLowRight, { variant: variant = 'lowRight' })
+                                    : variant === 'lowLeft' ?
+                                        jsxRuntime.jsx(RectangleLowLeft, { variant: variant = 'lowLeft' })
+                                        : variant === 'sideLeft' ?
+                                            jsxRuntime.jsx(RectangleLeft, { variant: variant = 'sideLeft' })
+                                            : variant === 'sideRight' ?
+                                                jsxRuntime.jsx(RectangleRight, { variant: variant = 'sideRight' })
+                                                : null, jsxRuntime.jsx("div", { style: { zIndex: 9 }, children: children })] }) }) }) }));
 }
 
 const Container$7 = styled__default["default"].div `
@@ -7946,7 +7944,7 @@ function Thumbnails({ variant, src, handleClickCourse, handleClickNew, handleCli
                                             }, children: jsxRuntime.jsx(MoreVertical, { fill: checked ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: checked, style: { fontWeight: checked ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar curso' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: checked, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#ebebeb', activeBoxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: checked ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }) })
                     : variant === 'add' ?
                         jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsxs(TypographyAdd, { children: [txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo', jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo' })] })] })
-                        : null, jsxRuntime.jsx(PopOver$1, { element: ElementPopover, onClosePopover: () => {
+                        : null, jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                         setElementPopover(null);
                     }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo", onClick: handleClickPopOverEdit, style: {
                                     borderBottom: '1px black solid'
@@ -8022,7 +8020,7 @@ function AccordionTrackNormal(props) {
                                             }
                                         } }) }) }), jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
                                     setElementPopover(element.currentTarget);
-                                }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: props.ativo ? '#000000' : '#bdbdbd' }) }) })] })] }), jsxRuntime.jsx(PopOver$1, { element: ElementPopover, onClosePopover: () => {
+                                }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: props.ativo ? '#000000' : '#bdbdbd' }) }) })] })] }), jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                     setElementPopover(null);
                 }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha", onClick: () => {
                                 //props.handlePopOverTrailEdit(props.id)
@@ -10942,7 +10940,7 @@ exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
 exports.PodCastIcon = PodCastIcon;
-exports.PopOver = PopOver$1;
+exports.PopOver = PopOver;
 exports.PopOverLXP = PopOverLXP;
 exports.PostFeed = PostFeed;
 exports.ProgressBar = ProgressBar$1;
