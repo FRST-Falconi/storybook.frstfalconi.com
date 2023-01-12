@@ -5,7 +5,7 @@ import { UploadIcon } from '@shared/icons'
 import React, { useRef, useState } from 'react'
 import style from './bannerLxp.module.css'
 import { ChromePicker } from 'react-color'
-import { PopOver } from 'frst-components'
+import PopOverLXP from '../popOverLXP-antigo'
 
 interface BannerLxpParams {
   title: string
@@ -35,7 +35,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   const [disableText, setDisableText] = useState(props.isDisabledTitle)
   const [titleText, setTitleText] = useState(props.title ? props.title : '')
   const [colorTitle, setColorTitle] = useState(props.titleColor ? props.titleColor : '#FFF')
-  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')
+  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')  
   const [backgroundImage, setBackgroundImage] = useState(props.bgSrc || '')
   const [fixImage, setFixImage] = useState(false)
   const [selectedFile, setSelectedFile] = useState({})
@@ -87,8 +87,9 @@ export default function BannerLxp(props: BannerLxpParams) {
       style={{
         ...props.style,
         objectFit: fixImage ? 'fill' : 'none',
-        backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
-        backgroundColor: backgroundImage === '' ? backgroundColor : ''
+        //backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
+        //backgroundColor: backgroundImage === '' ? backgroundColor : '',
+        background: backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`
       }}
     >
       {!disableText ? <span style={{ color: colorTitle, fontSize: 40, fontWeight: 700 }}>{titleText}</span> : ''}
@@ -145,9 +146,9 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorEl={anchor}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
-              <PopOver variant="upRight">
+              <PopOverLXP variant="upRight">
                 <ChromePicker color={colorTitle} disableAlpha={true} onChangeComplete={handleChangeTitleColor} />
-              </PopOver>
+              </PopOverLXP>
             </Popover>
           </div>
 
@@ -175,13 +176,13 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorEl={anchor}
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
-              <PopOver variant="upRight">
+              <PopOverLXP variant="upRight">
                 <ChromePicker
                   color={backgroundColor}
                   disableAlpha={true}
                   onChangeComplete={handleChangeBackgroundColor}
                 />
-              </PopOver>
+              </PopOverLXP>
             </Popover>
           </div>
 
