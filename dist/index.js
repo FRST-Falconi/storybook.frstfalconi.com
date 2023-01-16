@@ -3325,6 +3325,129 @@ function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, is
     return (jsxRuntime.jsx(Select$2, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), isError: isError, style: style, children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
+const ModalWrapper = styled__default["default"].div `
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.3);
+  overflow-y: auto;
+  display: none;
+
+  ${({ open }) => open && `
+    display: block;
+  `}
+`;
+const ModalContent = styled__default["default"].div `
+  width: 80%;
+  max-width: 528px;
+  padding: 24px;
+  margin: 1rem auto;
+  box-sizing: border-box;
+  margin-bottom: 100px;
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  border-radius: 16px;
+  margin-top: 10%;
+  animation: ${({ animation }) => {
+    switch (animation) {
+        case 'blowup':
+            return BlowUpAnimation;
+        case 'fade':
+            return FadeAnimation;
+        case 'slideup':
+            return SlideUpAnimation;
+        case 'slidedown':
+            return SlideDownAnimation;
+        default:
+            return 'none';
+    }
+}} 0.3s ease-in-out;
+
+  ${({ width }) => width && `
+    max-width: ${width};
+  `}
+
+  ${({ mobileFullPage }) => mobileFullPage === true && `
+    @media (max-width: 768px) {
+      margin: 0 !important;
+      width: 100%;
+      border-radius: 0 !important;
+      min-height: 100vh !important;
+    }
+  `}
+`;
+const BlowUpAnimation = styled.keyframes `
+  0% { transform: scale(0) }
+  100% { transform: scale(1) }
+`;
+const FadeAnimation = styled.keyframes `
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+`;
+const SlideUpAnimation = styled.keyframes `
+  0% { transform: translateY(100%) }
+  100% { transform: translateY(0) }
+`;
+const SlideDownAnimation = styled.keyframes `
+  0% { transform: translateY(-100%) }
+  100% { transform: translateY(0) }
+`;
+const ModalHeader = styled__default["default"].div `
+  position: relative;
+  height: 20px;
+`;
+const ModalCloseButton = styled__default["default"].span `
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+`;
+
+function Modal({ children, width, headerContent, open = false, mobileFullPage = false, showCloseButton = false, showHeader = false, style, onClose, onOpen, closeOnClickOutside = true, animation }) {
+    const ModalWrapperRef = React.useRef(null);
+    const ModalContentRef = React.useRef(null);
+    const AnimationType = animation.toLowerCase();
+    const [active, setActive] = React.useState(false);
+    React.useEffect(() => {
+        function handleClickOutside(event) {
+            const ModalWreapperEl = ModalWrapperRef?.current;
+            if (ModalWreapperEl === event.target && active) {
+                if (onClose)
+                    onClose(event);
+                if (closeOnClickOutside === true)
+                    setActive(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ModalWrapperRef, active, closeOnClickOutside, onClose]);
+    React.useEffect(() => {
+        if (open === true) {
+            document.body.style.overflow = 'hidden';
+            if (onOpen)
+                onOpen();
+        }
+        else {
+            document.body.style.overflow = 'auto';
+        }
+        setActive(open);
+    }, [onOpen, open]);
+    const handleClose = (e) => {
+        e.stopPropagation();
+        setActive(false);
+        if (onClose)
+            onClose(e);
+    };
+    return (jsxRuntime.jsx(ModalWrapper, { open: active, ref: ModalWrapperRef, children: jsxRuntime.jsxs(ModalContent, { style: style, width: width, mobileFullPage: mobileFullPage, ref: ModalContentRef, animation: AnimationType, children: [showHeader === true || showCloseButton === true &&
+                    jsxRuntime.jsx(ModalHeader, { children: showCloseButton === true &&
+                            jsxRuntime.jsxs(ModalCloseButton, { onClick: (e) => handleClose(e), children: [headerContent && headerContent, jsxRuntime.jsx(CloseIcon, {})] }) }), children && children] }) }));
+}
+
 const Container$b = styled__default["default"].div `
     display: flex;
     flex-direction: column;
@@ -10946,6 +11069,7 @@ exports.ManageLearningCicles = ManageLearningCicles;
 exports.MedalFilledIcon = MedalFilledIcon;
 exports.MedalLineIcon = MedalLineIcon;
 exports.MessageBox = MessageBox;
+exports.Modal = Modal;
 exports.ModalLearningTech = ModalLearningTech;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.ModalVideo = ModalVideo;
