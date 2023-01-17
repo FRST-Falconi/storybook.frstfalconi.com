@@ -28,7 +28,7 @@ export default function ThumbListContent( props : IThumbListContent ) {
     return(
         <ThemeProvider theme={FRSTTheme}>
             {props.isLoading ?
-                <Styles.containerThumbContent>
+                <Styles.containerThumbContent style={{...props.style}}>
                     <Styles.loadingImageThumb></Styles.loadingImageThumb>
                     <Styles.loadingThumbContent>
                         {

@@ -8,8 +8,9 @@ export const containerThumbContent = styled.div`
     display: grid;
     grid-template-columns: 0.75fr 1fr;
     position: relative;
-    width: 375px;
+    min-width: 250px;
     height: auto;
+    cursor: pointer;
 
     border: 1px solid ${({theme}) => theme.colors.borderPrimary};
     
@@ -75,7 +76,6 @@ export const infoThumbContent = styled.div`
 
     padding: 16px 16px 32px 16px;
     gap: 4px;
-    cursor: default;
     font-family: 'PT Sans';
     word-break: break-word;
 `

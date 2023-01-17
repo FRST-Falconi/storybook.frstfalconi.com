@@ -10,7 +10,7 @@ import { AddPeople, MessageCheckLine } from '@shared/icons'
 import { useEffect, useState } from 'react'
 
 
-export default function ParticipantCard({ userInfo, labels, handleSendInvitation, handleClickRemove }: ParticipantCardI) {
+export default function ParticipantCard({ userInfo, labels, style, handleSendInvitation, handleClickRemove }: ParticipantCardI) {
     const [ userName, setUserName ] = useState(userInfo?.name)
     const [ userEmail, setUserEmail ] = useState(userInfo?.email)
     const [ area, setArea ] = useState(`${labels?.area ? labels?.area: 'Área'}: ${userInfo?.area}`)
@@ -32,7 +32,7 @@ export default function ParticipantCard({ userInfo, labels, handleSendInvitation
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.WrapperCard>
+            <Styles.WrapperCard style={{...style}}>
                 <Styles.UserInfo>
                     <Avatar  size='40px' src={userInfo?.avatar} />
                     <Styles.DescriptionUser>
