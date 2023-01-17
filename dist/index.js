@@ -10862,6 +10862,7 @@ const imageThumbContent = styled__default["default"].div `
     height: 100%;
     background-repeat: no-repeat ;
     background-size: cover;
+    background-position: center;
 `;
 const loadingThumbContent = styled__default["default"].div `
     display: flex;
@@ -10876,12 +10877,22 @@ const loadingContent = styled__default["default"].div `
     background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
     color: transparent;
     border-radius: 16px;
+    width: 100%;
+    height: 0.45em;
     
     -webkit-animation-duration: 4s;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: placeholderShimmer;
     -webkit-animation-timing-function: linear;
+
+    &:first-child{
+        width: 50%;
+        margin-bottom: 8px;
+    }
+    &:last-child{
+        width: 30%;
+    }
 `;
 const infoThumbContent = styled__default["default"].div `
     display: flex;
@@ -10917,7 +10928,7 @@ function ThumbListContent(props) {
     const [showMore, setShowMore] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ?
             jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title &&
-                                jsxRuntime.jsx(loadingContent, { children: "Load Title" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9, marginTop: 8 }, children: " description shimmer number" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9 }, children: " description shimmer number two" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9 }, children: " description shimmer number two" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9 }, children: " last description" })] })] })
+                                jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })
             :
                 jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ?
                             jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb })
