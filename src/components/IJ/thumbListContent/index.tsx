@@ -33,12 +33,12 @@ export default function ThumbListContent( props : IThumbListContent ) {
                     <Styles.loadingThumbContent>
                         {
                             props.title &&
-                                <Styles.loadingContent>Load Title</Styles.loadingContent>
+                                <Styles.loadingContent>a</Styles.loadingContent>
                         }
-                        <Styles.loadingContent style={{fontSize: 9, marginTop: 8}}> description shimmer number</Styles.loadingContent>
-                        <Styles.loadingContent style={{fontSize: 9}}> description shimmer number two</Styles.loadingContent>
-                        <Styles.loadingContent style={{fontSize: 9}}> description shimmer number two</Styles.loadingContent>
-                        <Styles.loadingContent style={{fontSize: 9}}> last description</Styles.loadingContent>
+                        <Styles.loadingContent>a</Styles.loadingContent>
+                        <Styles.loadingContent>a</Styles.loadingContent>
+                        <Styles.loadingContent>a</Styles.loadingContent>
+                        <Styles.loadingContent>a</Styles.loadingContent>
                     </Styles.loadingThumbContent>
                 </Styles.containerThumbContent>
                 :
