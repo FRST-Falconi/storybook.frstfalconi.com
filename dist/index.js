@@ -8860,7 +8860,7 @@ function Tooltip(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
 }
 
-function ParticipantCard({ userInfo, labels, handleSendInvitation, handleClickRemove }) {
+function ParticipantCard({ userInfo, labels, style, handleSendInvitation, handleClickRemove }) {
     const [userName, setUserName] = React.useState(userInfo?.name);
     const [userEmail, setUserEmail] = React.useState(userInfo?.email);
     const [area, setArea] = React.useState(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
@@ -8876,7 +8876,7 @@ function ParticipantCard({ userInfo, labels, handleSendInvitation, handleClickRe
         setStatusSend('success');
         handleSendInvitation(userInfo?.id);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { children: [jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [userName && userName?.length > 25 ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, children: [jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [userName && userName?.length > 25 ?
                                     jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser, { children: userName }) })
                                     :
                                         jsxRuntime.jsx(NameUser, { children: userName }), userEmail && userEmail?.length > 30 ?
@@ -10829,8 +10829,9 @@ const containerThumbContent = styled__default["default"].div `
     display: grid;
     grid-template-columns: 0.75fr 1fr;
     position: relative;
-    width: 375px;
+    min-width: 250px;
     height: auto;
+    cursor: pointer;
 
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
     
@@ -10890,7 +10891,6 @@ const infoThumbContent = styled__default["default"].div `
 
     padding: 16px 16px 32px 16px;
     gap: 4px;
-    cursor: default;
     font-family: 'PT Sans';
     word-break: break-word;
 `;
@@ -10916,7 +10916,7 @@ const viewMoreContent$1 = styled__default["default"].div `
 function ThumbListContent(props) {
     const [showMore, setShowMore] = React.useState(false);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ?
-            jsxRuntime.jsxs(containerThumbContent, { children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title &&
+            jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title &&
                                 jsxRuntime.jsx(loadingContent, { children: "Load Title" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9, marginTop: 8 }, children: " description shimmer number" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9 }, children: " description shimmer number two" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9 }, children: " description shimmer number two" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 9 }, children: " last description" })] })] })
             :
                 jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ?
