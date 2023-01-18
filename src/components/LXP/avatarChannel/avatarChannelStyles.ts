@@ -88,7 +88,7 @@ export const Channel = styled.span`
   text-align: center;
   letter-spacing: 0.01em;
   top: 25px;
-  left: 25px;
+  left: 22.4px;
   font-size: 24px;
   color: #ffffff;
   font-family: 'Work Sans';

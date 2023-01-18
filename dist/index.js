@@ -4835,7 +4835,7 @@ const Channel$1 = styled__default["default"].span `
   text-align: center;
   letter-spacing: 0.01em;
   top: 25px;
-  left: 25px;
+  left: 22.4px;
   font-size: 24px;
   color: #ffffff;
   font-family: 'Work Sans';
