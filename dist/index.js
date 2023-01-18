@@ -361,6 +361,9 @@ function StepCicleThree({ fill, width, height }) {
 function StepCicleFour({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '40', height: height ? height : '40', viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M37 20C37 29.3888 29.3888 37 20 37C10.6112 37 3 29.3888 3 20C3 10.6112 10.6112 3 20 3C29.3888 3 37 10.6112 37 20Z", stroke: fill ? fill : '#0645AD', strokeWidth: "2" }), jsxRuntime.jsx("path", { d: "M24.8234 21.536H22.8074V14.12H20.4494L15.1394 21.86V23.03H20.9894V26H22.8074V23.03H24.8234V21.536ZM19.8734 17.522C20.2514 16.964 20.7374 16.154 21.0254 15.542H21.0614L20.9894 17.468V21.536H17.0654L19.8734 17.522Z", fill: fill ? fill : '#0645AD' })] }));
 }
+function FowardArrow({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '18', viewBox: "0 0 16 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.06665 14.1L13.3333 9.3L9.06665 4.5", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13.3334 9.3L2.66675 9.3", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -10040,6 +10043,286 @@ function IconPin({ fill }) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#0645AD", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }) });
 }
 
+const containerPagination = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+`;
+const contentPagination = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 12px;
+`;
+const pageButtonList = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+`;
+const buttonPage = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 40px;
+    height: 40px;
+
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    user-select: none;
+    font-family: 'PT Sans';
+    font-size: 16px;
+    font-weight: 700;
+    color: ${(props) => props.selected ? props.theme.colors.shadeWhite : props.theme.colors.neutralsGrey1};
+    background-color: ${(props) => props.selected ? props.theme.colors.primary1 : props.theme.colors.neutralsGrey6};
+    
+    ${(props) => !props.disabled && styled.css `
+        &:hover{
+            color: ${({ theme }) => theme.colors.shadeWhite};
+            background-color: ${({ theme }) => theme.colors.primary3};
+        }
+    `};
+
+    ${(props) => props.disabled && styled.css `
+        color: ${({ theme }) => theme.colors.linkDisabled};
+        cursor: not-allowed
+    `};
+    
+`;
+
+function Pagination(props) {
+    const [activePage, setActivePage] = React.useState(0);
+    const totalPages = Math.ceil(props.totalRegistry / props.registryPerPage);
+    const [paginationElements, setPaginationElements] = React.useState([]);
+    const handleSwitchPage = (page) => {
+        if (page < 0) {
+            setActivePage(0);
+            props.onLoadPage(0);
+        }
+        else if (page > totalPages - 1) {
+            setActivePage(totalPages - 1);
+            props.onLoadPage(totalPages - 1);
+        }
+        else {
+            setActivePage(page);
+            props.onLoadPage(page);
+        }
+    };
+    React.useEffect(() => {
+        let elements = [];
+        let start = 0;
+        let finish = 0;
+        let showEllipsis = true;
+        if (totalPages <= props.qtdNumberShowPagination) {
+            start = 1;
+            finish = totalPages;
+        }
+        else {
+            if (activePage + props.qtdNumberShowPagination + 1 > totalPages) {
+                start = totalPages - props.qtdNumberShowPagination + 1;
+                finish = totalPages;
+                showEllipsis = false;
+            }
+            else {
+                start = activePage + 1;
+                finish = activePage + props.qtdNumberShowPagination;
+            }
+        }
+        for (let i = start; i <= finish; i++) {
+            if (showEllipsis && i === finish) {
+                elements.push('...');
+                elements.push(totalPages);
+            }
+            else {
+                elements.push(i);
+            }
+        }
+        setPaginationElements(elements);
+    }, [activePage]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerPagination, { children: [jsxRuntime.jsx(contentPagination, { children: props.children }), jsxRuntime.jsxs(pageButtonList, { children: [props.showFirstLastButton ?
+                            jsxRuntime.jsx(buttonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(0), selected: false, children: props.textFirstButton ? props.textFirstButton : 'Primeiro' })
+                            : null, jsxRuntime.jsx(buttonPage, { disabled: activePage === 0, onClick: () => activePage > 0 && handleSwitchPage(activePage - 1), selected: false, children: jsxRuntime.jsx(BackArrow, { width: '16', height: '16', fill: 'currentColor' }) }), paginationElements.map((item, index) => jsxRuntime.jsx(buttonPage, { disabled: item === '...', onClick: () => item != '...' && handleSwitchPage(item - 1), selected: activePage === item - 1, children: item }, index)), jsxRuntime.jsx(buttonPage, { disabled: activePage === totalPages - 1, onClick: () => activePage < totalPages - 1 && handleSwitchPage(activePage + 1), selected: false, children: jsxRuntime.jsx(FowardArrow, { width: '18', height: '18', fill: 'currentColor' }) }), props.showFirstLastButton ?
+                            jsxRuntime.jsx(buttonPage, { disabled: activePage === totalPages - 1, onClick: () => activePage < totalPages - 1 && handleSwitchPage(totalPages - 1), selected: false, children: props.textLastButton ? props.textLastButton : 'Último' })
+                            : null] })] }) }));
+}
+
+const containerList = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+    padding: 8px;
+    
+`;
+const titleList = styled__default["default"].span `
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+`;
+const listContent = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    flex-direction: column;
+`;
+const itemList = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 8px;
+
+    font-family: 'PT Sans';
+    font-weight: 400;
+    font-size: 14px;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+`;
+const viewMoreContent$1 = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    user-select: none;
+`;
+
+function ListSelector(props) {
+    const [selectedItens, setSelectedItens] = React.useState([]);
+    const [showSize, setShowSize] = React.useState(props.minShowList);
+    React.useEffect(() => {
+        props.selectedItens(selectedItens);
+    }, [selectedItens]);
+    const handleSelect = (id) => {
+        let indexId = selectedItens.indexOf(id);
+        if (indexId === -1) {
+            setSelectedItens(value => [...value, id]);
+        }
+        else {
+            setSelectedItens(selectedItens.filter(item => item !== id));
+        }
+    };
+    const handleView = () => {
+        if (showSize === props.minShowList)
+            setShowSize(props.contentList.length);
+        else
+            setShowSize(props.minShowList);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerList, { style: { ...props.style }, children: [jsxRuntime.jsxs(titleList, { children: [" ", props.listTitle, " "] }), jsxRuntime.jsx(listContent, { children: props.contentList.map((item, index) => {
+                        return (index < showSize ?
+                            jsxRuntime.jsxs(itemList, { children: [jsxRuntime.jsx("div", { onClick: () => handleSelect(item.id), children: selectedItens.includes(item.id) ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), item.description] }, index)
+                            : null);
+                    }) }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$2, { variant: 'link', label: showSize === props.minShowList ? props.textViewMore : props.textViewLess, handleClick: handleView }) })] }) }));
+}
+
+const containerThumbContent = styled__default["default"].div `
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+    position: relative;
+    width: 375px;
+    height: auto;
+
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+`;
+const loadingImageThumb = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+`;
+const iconsThumb = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: ${({ theme }) => theme.colors.primary1};
+`;
+const imageThumbContent = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    background-repeat: no-repeat ;
+    background-size: cover;
+`;
+const loadingThumbContent = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 16px 16px 16px 16px;
+    gap: 4px;
+`;
+const loadingContent = styled__default["default"].div `
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    color: transparent;
+    border-radius: 16px;
+    
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+`;
+const infoThumbContent = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    padding: 16px 16px 32px 16px;
+    gap: 4px;
+    cursor: default;
+    font-family: 'PT Sans';
+    word-break: break-word;
+`;
+const descriptionThumbContent = styled__default["default"].div `
+    font-size: 12px;
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.shadeBlack};
+
+    overflow: hidden;
+    text-overflow: ${props => props.showText ? 'none' : 'ellipsis'};
+    display: ${props => props.showText ? 'flex' : '-webkit-box'};
+    -webkit-line-clamp: ${props => props.showText ? 'none' : 3};
+    -webkit-box-orient: ${props => props.showText ? 'none' : 'vertical'};
+`;
+const viewMoreContent = styled__default["default"].div `
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0px 16px 12px 0px;
+    user-select: none;
+`;
+
+function ThumbListContent(props) {
+    const [showMore, setShowMore] = React.useState(false);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ?
+            jsxRuntime.jsxs(containerThumbContent, { children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [jsxRuntime.jsx(loadingContent, { children: "Load Title" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 10, marginTop: 8 }, children: " description shimmer number one" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 10 }, children: " description shimmer number two" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 10 }, children: " description shimmer number three" }), jsxRuntime.jsx(loadingContent, { style: { fontSize: 10 }, children: " last description" })] })] })
+            :
+                jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ?
+                            jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb })
+                            :
+                                jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(PlayLineIcon, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null, props.typeThumbContent === 'podcast' ? jsxRuntime.jsx(PodCast, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(QuizSucessError, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null] }), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, children: [props.title ?
+                                    jsxRuntime.jsxs("span", { style: { color: FRSTTheme['colors'].primary1, fontSize: 16, fontWeight: 700 }, children: [" ", props.title, " "] })
+                                    : null, jsxRuntime.jsxs(descriptionThumbContent, { showText: showMore, children: [" ", props.description, " "] })] }), jsxRuntime.jsx(viewMoreContent, { children: jsxRuntime.jsx(Button$2, { variant: 'link', label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12 } }) })] }) }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
@@ -10093,6 +10376,7 @@ exports.LampLineIcon = LampLineIcon;
 exports.LateralMenu = LateralMenu;
 exports.LearningSteps = LearningSteps;
 exports.LinkedinIcon = LinkedinIcon;
+exports.ListSelector = ListSelector;
 exports.LoginLxp = Login;
 exports.ManageLearningCicles = ManageLearningCicles;
 exports.MedalFilledIcon = MedalFilledIcon;
@@ -10105,6 +10389,7 @@ exports.MoreDotsHorizontal = MoreDotsHorizontal;
 exports.NotificationCard = NotificationCard;
 exports.NotificationPopOver = NotificationPopOver;
 exports.ObjectiveStep = ObjectiveStep;
+exports.Pagination = Pagination;
 exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
@@ -10138,6 +10423,7 @@ exports.StepsMission = MissionSteps;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;
+exports.ThumbListContent = ThumbListContent;
 exports.ThumbnailsDraggable = ThumbnailsDraggable;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;

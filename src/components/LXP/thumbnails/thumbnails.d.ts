@@ -6,9 +6,11 @@ type enumVariant =  'default' | 'add'
 
 export interface IThumbnails {
     src?: string,
-    disabled: boolean,    
+    isDisabled: boolean,    
+    isIndividual?: boolean,  
+    showSwitchIndividual?: boolean,  
     handleClickCourse?: () => void,
-    handleChange?: (checkedValue: boolean) => void,
+    handleSwitchAtivarIndividual?: (checkedValue: boolean) => void,
     handleClickNew?: () => void,
     handleClickContent?: () => void, 
     handleClickPopOverEdit?: () => void,

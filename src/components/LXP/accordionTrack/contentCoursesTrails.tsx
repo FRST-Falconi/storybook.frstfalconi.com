@@ -8,7 +8,7 @@ import Switch from 'react-switch';
 import { IAccordionTranslate } from './IAccordionTrack'
 import PopOver, { PopOverItem } from '../popOver'
 
-export default function AccordionTrackNormal(props: any) {
+export default function ContentCoursesTrails(props: any) {
 
   const [checked, setChecked] = useState(true)
   const [up, setUp] = useState(true)
@@ -75,7 +75,7 @@ export default function AccordionTrackNormal(props: any) {
 
         <Styles.ContentActiveHeader>
           <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
-            {props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso'}
+            {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
             <Switch
               onChange={handleChange}
               checked={props.ativo}
