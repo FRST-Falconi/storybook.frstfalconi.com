@@ -24,9 +24,10 @@ export default function AccordionTrackList({
   textTotalDe, 
   textRegistros, 
   textMinhasTrihas, 
-  txtAtivarCurso, 
+  txtAtivarCurso,   
   txtButtonLabel, 
-  txtCriarNovoCurso
+  txtCriarNovoCurso,
+  txtCriarNovoCurso2
 }: IAccordionTranslate) {
   
   const [trails, setTrails] = useState(trailsData)  
@@ -133,6 +134,7 @@ export default function AccordionTrackList({
               txtAtivarCurso={txtAtivarCurso}
               txtButtonLabel={txtButtonLabel}
               txtCriarNovoCurso={txtCriarNovoCurso}
+              txtCriarNovoCurso2={txtCriarNovoCurso2}
               updateScrollSize={updateScrollSize}
               handlePopOverDelete={handlePopOverDelete}
               handlePopOverEdit={handlePopOverEdit}

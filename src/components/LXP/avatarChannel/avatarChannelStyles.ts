@@ -1,4 +1,3 @@
-import { url } from 'inspector'
 import styled, { css } from 'styled-components'
 
 interface AvatarI {
@@ -60,7 +59,7 @@ export const AvatarChannelImage = styled.div<AvatarImage>`
   width: ${(props) => props.size || '80px'};
   height: ${(props) => props.size || '80px'};
   border-radius: 50%;
-  background-image: ${(props) => `url(${props.image})`  };
+  background-image: ${(props) => `url(${props.image})`};
   background-repeat: no-repeat;
   background-size: ${(props) => props.size || '80px'};
   position: relative;
@@ -139,4 +138,8 @@ export const ContainerPopOver = styled.div<PropsPopOver>`
     css`
       margin-top: 1rem;
     `}
+`
+
+export const ContainerSelectedImage = styled.div`
+  margin-top: 60px;
 `

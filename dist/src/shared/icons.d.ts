@@ -35,6 +35,7 @@ export declare function MoreDotsHorizontal({ fill, width, height }: IconsProps):
 export declare function Mail({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Dot({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Brain({ fill, width, height }: IconsProps): JSX.Element;
+export declare function CompanyIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WithTrail({ fill, width, height }: IconsProps): JSX.Element;
 export declare function EyeOff({ fill, width, height }: IconsProps): JSX.Element;
 export declare function SmileOutlined({ fill, width, height }: IconsProps): JSX.Element;
@@ -120,5 +121,6 @@ export declare function StepCicleTwo({ fill, width, height }: IconsProps): JSX.E
 export declare function StepCicleThree({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StepCicleFour({ fill, width, height }: IconsProps): JSX.Element;
 export declare function FowardArrow({ fill, width, height }: IconsProps): JSX.Element;
+export declare function AddPeople({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

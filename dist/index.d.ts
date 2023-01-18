@@ -17,6 +17,7 @@ export { default as ScrollContainer } from './src/components/scroll-container';
 export { default as LearningSteps } from './src/components/learning-steps';
 export { default as TotalizerCard } from './src/components/totalizer-card';
 export { default as Select } from './src/components/DS/select';
+export { default as Modal } from './src/components/DS/modal';
 export { default as SearchField } from './src/components/search-field';
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox';
 export { default as ModalStatusProblema } from './src/components/modal/statusProblema';
@@ -46,6 +47,7 @@ export { default as ContentThumbnails } from './src/components/LXP/contentThumbn
 export { default as FileUpload } from './src/components/LXP/fileUpload';
 export { default as HeaderContent } from './src/components/LXP/headerContent';
 export { default as PopOver } from './src/components/LXP/popOver';
+export { default as PopOverLXP } from './src/components/LXP/popOverLXP-antigo';
 export { default as ProgressBar } from './src/components/LXP/progressBar';
 export { default as SearchResults } from './src/components/LXP/searchResults';
 export { default as StarMetric } from './src/components/LXP/star-metric';
@@ -58,6 +60,7 @@ export { default as AccordionTrackList } from './src/components/LXP/accordionTra
 export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles';
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable';
 export { default as SelectLXP } from './src/components/LXP/selectLXP';
+export { default as ParticipantCard } from './src/components/LXP/participantCard';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';
@@ -71,4 +74,7 @@ export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner';
 export { default as PostFeed } from './src/components/FI/postFeed';
 export { default as NotificationCard } from './src/components/FI/notificationCard';
 export { default as NotificationPopOver } from './src/components/FI/notificationPopOver';
+export { default as Pagination } from './src/components/IJ/pagination';
+export { default as ThumbListContent } from './src/components/IJ/thumbListContent';
+export { default as ListSelector } from './src/components/IJ/listSelector';
 //# sourceMappingURL=index.d.ts.map

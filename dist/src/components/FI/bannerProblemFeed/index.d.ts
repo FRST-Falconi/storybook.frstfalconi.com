@@ -4,6 +4,7 @@ interface IBannerProblemFeed extends stepsInfo {
     userAvatar?: string;
     userName: string;
     userPosition: string;
+    userCompany?: string;
     problemTitle: string;
     problemTags?: [];
     lastUpdated?: string;
@@ -41,6 +42,9 @@ interface IBannerProblemFeed extends stepsInfo {
     handleLikeClick?: () => void;
     handleImpactoChange?: any;
     handleRelevanciaChange?: any;
+    topHeaderTagColor?: string;
+    topHeaderTagBgColor?: string;
+    topHeaderTagText?: string;
 }
 interface stepsInfo {
     /**

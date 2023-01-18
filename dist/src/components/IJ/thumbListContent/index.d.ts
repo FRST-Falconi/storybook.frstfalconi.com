@@ -2,13 +2,13 @@
 declare type typeThumb = 'video' | 'podcast' | 'question';
 interface IThumbListContent {
     imageSrc?: string;
-    typeThumbContent: typeThumb;
+    typeThumbContent?: typeThumb;
     title?: string;
-    description: string;
+    description?: string;
     isLoading?: boolean;
-    textViewMoreButton: string;
-    textViewLessButton: string;
-    onClickThumb: () => void;
+    textViewMoreButton?: string;
+    textViewLessButton?: string;
+    onClickThumb?: () => void;
     style?: React.CSSProperties;
 }
 export default function ThumbListContent(props: IThumbListContent): JSX.Element;

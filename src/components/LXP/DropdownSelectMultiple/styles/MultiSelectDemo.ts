@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { MultiSelectPanelFooterTemplateType } from 'primereact/multiselect'
+import ArrowIcon from './icons/DropdownChevron.png'
 
 export const SelectMultipesPrimeReact = styled.div`
   width: 100%;
@@ -52,6 +52,18 @@ export const SelectMultipesPrimeReact = styled.div`
   }
   .p-multiselect .p-component .p-inputwrapper .p-inputwrapper-focus .multiselect-custom {
     border-color: #663366;
+  }
+
+  .p-multiselect .p-multiselect-trigger {
+    span {
+      background-image: url(${ArrowIcon});
+      background-size: 1rem;
+      width: 20px;
+      height: 20px;
+      background-repeat: no-repeat;
+      margin-top: 0.6rem;
+      margin-left: 0.2rem;
+    }
   }
 `
 

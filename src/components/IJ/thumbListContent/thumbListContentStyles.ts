@@ -8,8 +8,9 @@ export const containerThumbContent = styled.div`
     display: grid;
     grid-template-columns: 0.75fr 1fr;
     position: relative;
-    width: 375px;
+    min-width: 250px;
     height: auto;
+    cursor: pointer;
 
     border: 1px solid ${({theme}) => theme.colors.borderPrimary};
     
@@ -43,6 +44,7 @@ export const imageThumbContent = styled.div`
     height: 100%;
     background-repeat: no-repeat ;
     background-size: cover;
+    background-position: center;
 `
 
 export const loadingThumbContent = styled.div`
@@ -59,12 +61,22 @@ export const loadingContent = styled.div`
     background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
     color: transparent;
     border-radius: 16px;
+    width: 100%;
+    height: 0.45em;
     
     -webkit-animation-duration: 4s;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-name: placeholderShimmer;
     -webkit-animation-timing-function: linear;
+
+    &:first-child{
+        width: 50%;
+        margin-bottom: 8px;
+    }
+    &:last-child{
+        width: 30%;
+    }
 `
 
 export const infoThumbContent = styled.div`
@@ -75,7 +87,6 @@ export const infoThumbContent = styled.div`
 
     padding: 16px 16px 32px 16px;
     gap: 4px;
-    cursor: default;
     font-family: 'PT Sans';
     word-break: break-word;
 `
