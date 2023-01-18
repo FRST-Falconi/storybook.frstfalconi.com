@@ -5,7 +5,6 @@ import { FRSTTheme } from '../../../theme'
 import { DragDropContext } from 'react-beautiful-dnd'
 import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
-import { v4 } from 'uuid'
 
 export default function AccordionTrackList({ 
   trailsData, 
@@ -40,6 +39,17 @@ export default function AccordionTrackList({
   
   const [trails, setTrails] = useState(trailsData)  
   const [updateScrollSize, setUpdateScrollSize] = useState(0)
+
+  const create_UUID = () => {
+    var dt = new Date().getTime();
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = (dt + Math.random()*16)%16 | 0;
+        dt = Math.floor(dt/16);
+        return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+    });
+    return uuid;
+  }
+
 
   useEffect(() => {
     if (handleChange) {
@@ -95,11 +105,10 @@ export default function AccordionTrackList({
       itemCopy = { ...trails[source.droppableId-1].trail_course[source.index].course }
     }    
 
-    console.log(trails[destination.droppableId-1].id, v4())
     let trailId = trails[destination.droppableId-1].id
       
     itemCopy = {
-      "id": v4(),
+      "id": create_UUID(),
       "trail_id": trailId,
       "course": itemCopy,
       "course_id": itemCopy.id,
