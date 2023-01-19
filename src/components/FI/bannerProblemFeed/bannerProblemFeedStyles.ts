@@ -24,6 +24,7 @@ export const bannerContainer = styled.div`
     border: 1px solid ${({theme}) => theme.colors.borderPrimary}; 
     background-color: ${({theme}) => theme.colors.shadeWhite};
     padding: 24px;
+    position: relative;
 `
 
 export const headerContent = styled.div`
@@ -59,7 +60,7 @@ export const tagContent = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 32px;
+    margin-top: 24px;
 `
 
 export const lastUpdatedText = styled.div`
@@ -68,7 +69,7 @@ export const lastUpdatedText = styled.div`
     align-items: center;
     flex-direction: row;
     ${({theme}) => theme.fonts.textMessageComponentsBodySmall};
-    margin-top: 16px;
+    margin-top: 24px;
 `
 
 export const stepsContainer = styled.div`
@@ -105,4 +106,22 @@ export const stepsValueText = styled.span`
     color: ${({theme}) => theme.colors.neutralsGrey1};
     margin-top: 8px;
     word-break: break-all;
+`
+
+export const topHeaderTag = styled.span<{ background: string, color: string }>`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 10px;
+
+    position: absolute;
+    right: -1px;
+    top: -1px;
+
+    background: ${({background}) => background || '#940059'};
+    color: ${({color}) => color || '#FFFFFF'};
+    border-radius: 0px 8px;
+
 `

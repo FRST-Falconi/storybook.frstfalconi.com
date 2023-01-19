@@ -18,6 +18,7 @@ export default function ThumbnailsDraggable({
    txtAtivarCurso, 
    showSwitchIndividual,
    txtCriarNovoCurso,
+   txtCriarNovoCurso2,
    handleClickPopOverDelete,
    handleClickPopOverEdit,
    handleClickPopOverMove,
@@ -53,6 +54,7 @@ export default function ThumbnailsDraggable({
               txtButtonLabel={txtButtonLabel}
               txtAtivarCurso={txtAtivarCurso}
               txtCriarNovoCurso={txtCriarNovoCurso}
+              txtCriarNovoCurso2={txtCriarNovoCurso2}
               handleClickPopOverDelete={handleClickPopOverDelete}
               handleClickPopOverEdit={handleClickPopOverEdit}
               handleClickPopOverMove={handleClickPopOverMove}

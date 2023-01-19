@@ -20,7 +20,8 @@ loading.args = {
     textViewMoreButton: 'Ver mais',
     textViewLessButton: 'Ver menos',
     onClickThumb: () => alert('clicado'),
-    isLoading: true
+    isLoading: true,
+    style: {width: 375},
 }
 export const video = Template.bind({})
 video.args = {
@@ -31,7 +32,8 @@ video.args = {
     textViewMoreButton: 'Ver mais',
     textViewLessButton: 'Ver menos',
     onClickThumb: () => alert('clicado'),
-    isLoading: false
+    isLoading: false,
+    style: {width: 375},
 }
 
 export const podcast = Template.bind({})
@@ -43,7 +45,8 @@ podcast.args = {
     textViewMoreButton: 'Ver mais',
     textViewLessButton: 'Ver menos',
     onClickThumb: () => alert('clicado'),
-    isLoading: false
+    isLoading: false,
+    style: {width: 375},
 }
 
 export const questionario = Template.bind({})
@@ -55,5 +58,6 @@ questionario.args = {
     textViewMoreButton: 'Ver mais',
     textViewLessButton: 'Ver menos',
     onClickThumb: () => alert('clicado'),
-    isLoading: false
+    isLoading: false,
+    style: {width: 375},
 }

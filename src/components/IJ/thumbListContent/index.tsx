@@ -9,15 +9,15 @@ type typeThumb = 'video' | 'podcast' | 'question'
 
 interface IThumbListContent{
     imageSrc?: string
-    typeThumbContent: typeThumb
+    typeThumbContent?: typeThumb
     title?: string
-    description: string
+    description?: string
     isLoading?: boolean
 
-    textViewMoreButton: string
-    textViewLessButton: string
+    textViewMoreButton?: string
+    textViewLessButton?: string
 
-    onClickThumb: () => void
+    onClickThumb?: () => void
 
     style?: React.CSSProperties
 }
@@ -28,14 +28,17 @@ export default function ThumbListContent( props : IThumbListContent ) {
     return(
         <ThemeProvider theme={FRSTTheme}>
             {props.isLoading ?
-                <Styles.containerThumbContent>
+                <Styles.containerThumbContent style={{...props.style}}>
                     <Styles.loadingImageThumb></Styles.loadingImageThumb>
                     <Styles.loadingThumbContent>
-                        <Styles.loadingContent>Load Title</Styles.loadingContent>
-                        <Styles.loadingContent style={{fontSize: 10, marginTop: 8}}> description shimmer number one</Styles.loadingContent>
-                        <Styles.loadingContent style={{fontSize: 10}}> description shimmer number two</Styles.loadingContent>
-                        <Styles.loadingContent style={{fontSize: 10}}> description shimmer number three</Styles.loadingContent>
-                        <Styles.loadingContent style={{fontSize: 10}}> last description</Styles.loadingContent>
+                        {
+                            props.title &&
+                                <Styles.loadingContent>a</Styles.loadingContent>
+                        }
+                        <Styles.loadingContent>a</Styles.loadingContent>
+                        <Styles.loadingContent>a</Styles.loadingContent>
+                        <Styles.loadingContent>a</Styles.loadingContent>
+                        <Styles.loadingContent>a</Styles.loadingContent>
                     </Styles.loadingThumbContent>
                 </Styles.containerThumbContent>
                 :
@@ -63,7 +66,7 @@ export default function ThumbListContent( props : IThumbListContent ) {
                             label={showMore ? props.textViewLessButton : props.textViewMoreButton} 
                             handleClick={() => setShowMore(!showMore)} 
                             style={{fontSize: 12}}
-                            />
+                        />
                     </Styles.viewMoreContent>
                 </Styles.containerThumbContent>
             }

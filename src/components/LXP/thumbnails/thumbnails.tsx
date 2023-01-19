@@ -24,7 +24,8 @@ export default function Thumbnails({
   provided, 
   isDisabled, 
   txtButtonLabel, 
-  txtCriarNovoCurso, 
+  txtCriarNovoCurso,
+  txtCriarNovoCurso2, 
   txtAtivarCurso,
   txtPopOverDeleteContent,
   txtPopOverMoveToTrails,
@@ -146,7 +147,10 @@ export default function Thumbnails({
                 <VectorCross />
               </Styles.ContainerEllipse>
               <Styles.TypographyAdd >
-                {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo curso'}
+                {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo'}
+              <Styles.TypographyAdd >
+                {txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo'}
+              </Styles.TypographyAdd>
               </Styles.TypographyAdd>
             </Styles.ContainerThumbnailsAdd>
 

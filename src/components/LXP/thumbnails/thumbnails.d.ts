@@ -27,6 +27,7 @@ export interface IThumbnailsTranslate extends IThumbnails {
     txtButtonLabel?: string
     txtAtivarCurso?: string
     txtCriarNovoCurso?: string
+    txtCriarNovoCurso2?: string
     txtPopOverEditContent?: string
     txtPopOverMoveToTrails?: string
     txtPopOverDeleteContent?: string

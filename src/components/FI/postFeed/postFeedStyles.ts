@@ -39,6 +39,8 @@ export const postTitle = styled.span`
     text-align: center;
     color: ${({theme}) => theme.colors.primary1};
     margin-top: 32px;
+    padding-left: 22px;
+    padding-right: 22px;
 `
 
 export const postDescription = styled.span`

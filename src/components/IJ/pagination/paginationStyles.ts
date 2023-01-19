@@ -8,7 +8,7 @@ interface buttonProps{
 export const containerPagination = styled.div`
     display: flex;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
 `
 
@@ -17,7 +17,7 @@ export const contentPagination = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    padding: 12px;
+    padding-bottom: 12px;
 `
 
 export const pageButtonList = styled.div`

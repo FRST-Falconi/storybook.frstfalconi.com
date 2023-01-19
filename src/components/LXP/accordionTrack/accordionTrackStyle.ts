@@ -54,13 +54,15 @@ export const ContainerTrailsNormal = styled.div`
     z-index: 0;
     width: 100%;
 `
-
 export const ContainerTrailsEmpty = styled.div`
     height: 415px; 
     padding-top: 16px;
     margin-top: -5px; 
     z-index: 0;
-    width: 100%;
+    width: 100%;    
+    div[visibility="hidden"]{
+        position: absolute;
+    };
 `
 export const ContentTrailName = styled.div<IImageBackground>`
     display: flex;
@@ -116,7 +118,7 @@ export const ContainerCard = styled.div`
     justify-items: center;
     width: 100%;
     min-height: 300px;
-    gap: 20px;
+    gap: 20px;       
 `
 export const ContainerInputNameTrail = styled.div`
     input{

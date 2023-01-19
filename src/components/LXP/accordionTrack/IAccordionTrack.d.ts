@@ -66,6 +66,7 @@ export interface IAccordionTranslate extends IAccordionTrack {
     txtAtivarTrilha?: string
     txtButtonLabel?: string
     txtCriarNovoCurso?: string
+    txtCriarNovoCurso2?: string
     txtPopOverEditContent?: string
     txtPopOverMoveToTrails?: string
     txtPopOverDeleteContent?: string

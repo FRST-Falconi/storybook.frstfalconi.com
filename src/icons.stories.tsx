@@ -279,3 +279,6 @@ StepCicleFour.args = Icons.StepCicleFour({})
 
 export const FowardArrow = Template.bind({})
 FowardArrow.args = Icons.FowardArrow({})
+
+export const AddPeople = Template.bind({})
+AddPeople.args = Icons.AddPeople({})

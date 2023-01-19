@@ -1,4 +1,5 @@
 import React from 'react'
+
 export interface IAvatar {
   size?: string
   channel?: string
@@ -8,4 +9,5 @@ export interface IAvatar {
   color?: string
   handleValueAvatar: (file) => void
   variantPopOver?: string
+  sourceImage?: string
 }

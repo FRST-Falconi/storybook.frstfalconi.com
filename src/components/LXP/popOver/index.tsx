@@ -5,7 +5,6 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './popOverStyle'
 import { IPopOver, IPopOverItems } from './popOver'
 import Popover from '@material-ui/core/Popover';
-import Button from '@components/buttons'
 
 const ArrowPopover = () => {
     return (<svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
