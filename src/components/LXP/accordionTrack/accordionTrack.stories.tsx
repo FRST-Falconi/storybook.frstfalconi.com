@@ -13,53 +13,76 @@ const Template = (args) => <AccordionTrackList {...args} />
 
 /// Mesmo payload da API do LXP
 const courses = [
-  {
-      "id": 63,
-      "uuid": "1b7179d4-b264-44ea-ae09-8c8b38994a4d",
-      "title": "Curso de HTML 5",
-      "language": "pt-br",
-      "desc": "Description content",
-      "tags": {
-          "custom": "#tag",
-          "category": [
-              "Gestão",
-              "Liderança"
-          ]
-      },
-      "settings": {
-          "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
-          "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
-          "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
-      },
-      "excluded": false,
-      "private": false,
-      "active": true,
-      "active_individual": false,
-      "channel": 104
-  },
-  {
-      "id": 82,
-      "uuid": "63552d66-468e-4c44-87f8-7dca992d9dd9",
-      "title": "conteúdo de teste",
-      "language": "pt-br",
-      "desc": "descrição",
-      "tags": {
-          "custom": "#tags",
-          "category": [
-              "Gestão"
-          ]
-      },
-      "settings": {
-          "cover_full_url": "https://lxp-cdn.dev.frstfalconi.cloud/yin-yang-o-que-e-e-como-usa-lo-para-garantir-o-bem-estar-fisico-e-mental.png",
-          "cover_thumb_url": "https://lxp-cdn.dev.frstfalconi.cloud/yin-yang-o-que-e-e-como-usa-lo-para-garantir-o-bem-estar-fisico-e-mental.png",
-          "cover_video_url": ""
-      },
-      "excluded": false,
-      "private": false,
-      "active": true,
-      "active_individual": false,
-      "channel": 104
-  }
+{
+   "id":63,
+   "uuid":"1b7179d4-b264-44ea-ae09-8c8b38994a4d",
+   "title":"Curso de HTML 5",
+   "language":"pt-br",
+   "desc":"Description content",
+   "tags":{
+      "custom":"#tag",
+      "category":[
+         "Gestão",
+         "Liderança"
+      ]
+   },
+   "settings":{
+      "cover_full_url":"",
+      "cover_thumb_url":"",
+      "cover_video_url":""
+   },
+   "excluded":false,
+   "private":false,
+   "active":true,
+   "active_individual":true,
+   "channel":104
+},
+{
+   "id":82,
+   "uuid":"63552d66-468e-4c44-87f8-7dca992d9dd9",
+   "title":"conteúdo de teste",
+   "language":"pt-br",
+   "desc":"descrição",
+   "tags":{
+      "custom":"#tags",
+      "category":[
+         "Gestão"
+      ]
+   },
+   "settings":{
+      "cover_full_url":"https://lxp-cdn.dev.frstfalconi.cloud/yin-yang-o-que-e-e-como-usa-lo-para-garantir-o-bem-estar-fisico-e-mental.png",
+      "cover_thumb_url":"https://lxp-cdn.dev.frstfalconi.cloud/yin-yang-o-que-e-e-como-usa-lo-para-garantir-o-bem-estar-fisico-e-mental.png",
+      "cover_video_url":""
+   },
+   "excluded":false,
+   "private":false,
+   "active":true,
+   "active_individual":false,
+   "channel":104
+},
+{
+   "id":87,
+   "uuid":"89f06dc7-82b7-475f-aae0-f3d6b02bc9dc",
+   "title":"Conteúdo para deletar",
+   "language":"pt-br",
+   "desc":"teste",
+   "tags":{
+      "custom":"#a",
+      "category":[
+         "Gestão"
+      ]
+   },
+   "settings":{
+      "cover_full_url":"",
+      "cover_thumb_url":"",
+      "cover_video_url":""
+   },
+   "excluded":false,
+   "private":false,
+   "active":false,
+   "active_individual":false,
+   "channel":104
+}
 ]
 
 var trailCourse = [
