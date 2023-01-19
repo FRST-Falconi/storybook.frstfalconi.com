@@ -6,7 +6,7 @@ import { IContentThumbnails } from './contentThumbnails'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import VectorEllipse from './vectorEllipse'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
@@ -70,6 +70,10 @@ export default function ContentThumbnails({
       const reorderedItems = reorder(contentListData, result.source.index, result.destination.index)
       setContentListData(reorderedItems)
     }
+
+    useEffect(() => {
+      setContentListData(contentList)
+    }, [contentList, setContentListData])
 
     return (
       <DragDropContext onDragEnd={onDragEnd}>
