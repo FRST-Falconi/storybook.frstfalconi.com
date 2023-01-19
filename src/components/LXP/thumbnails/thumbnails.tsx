@@ -162,7 +162,10 @@ export default function Thumbnails({
           <div style={{display: 'flex', flexDirection: 'column', padding: 0}}>            
             <PopOverItem 
               label={txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo"}
-              onClick={handleClickPopOverEdit}
+              onClick={() => {
+                handleClickPopOverEdit()
+                setElementPopover(null)
+              }}
               style={{
                 borderBottom: '1px black solid'
               }}
@@ -173,7 +176,10 @@ export default function Thumbnails({
             /> */}
             <PopOverItem 
               label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
-              onClick={handleClickPopOverDelete}
+              onClick={() => {
+                handleClickPopOverDelete()
+                setElementPopover(null)
+              }}
               icon={<Icons.Trash fill='#C00F00'/>}
               noBorder={true}
               isFontBold={true}

@@ -2,7 +2,7 @@ import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import * as Styles from './accordionTrackStyle'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
 import { IAccordionTranslate } from './IAccordionTrack'
@@ -57,15 +57,17 @@ export default function ContentCoursesTrails(props: any) {
             :
             <Styles.ContainerInputNameTrail>
               <input 
-                placeholder={props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha'} 
+                placeholder={props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha'}        
                 value={nameTrail}
                 onChange={(e) =>{                  
                   setNameTrail(e.target.value)                  
                 }} 
-                onClick={()=>{                 
-                  if(nameTrail){                    
-                    setActive(false)
-                    props.handleChangeTrailName(nameTrail)                    
+                onKeyPress={(event) => {
+                  if(event.key === 'Enter'){
+                    if (nameTrail) {
+                      setActive(false)
+                      props.handleChangeTrailName(nameTrail)                    
+                    }
                   }                  
                 }}
               />
@@ -119,6 +121,7 @@ export default function ContentCoursesTrails(props: any) {
             onClick={() => {
               //props.handlePopOverTrailEdit(props.id)
               handleClickActiveNameTrail()
+              setElementPopover(null)
               
             }}
           />
@@ -132,6 +135,7 @@ export default function ContentCoursesTrails(props: any) {
             label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
             onClick={() => {
               props.handlePopOverTrailDelete(props.id)
+              setElementPopover(null)
             }}
             icon={<Icons.Trash fill='#C00F00' />}
             noBorder={true}
