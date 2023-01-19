@@ -85,7 +85,7 @@ export const ContentActiveHeader = styled.div`
     flex-direction: row;    
     gap: 50px;    
 `
-export const TypographyActiveHeader = styled.p<IImageBackground>`
+export const TypographyActiveHeader = styled.span<IImageBackground>`
     font-family: 'PT Sans';
     font-style: normal;
     font-size: 16px;

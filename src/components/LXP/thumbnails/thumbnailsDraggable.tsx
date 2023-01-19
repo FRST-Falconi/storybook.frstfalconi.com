@@ -9,13 +9,14 @@ export default function ThumbnailsDraggable({
    handleClickCourse, 
    handleClickNew, 
    handleClickContent, 
-   handleChange, 
+   handleSwitchAtivarIndividual, 
    title, 
    id, 
    index, 
-   disabled, 
+   isDisabled, 
    txtButtonLabel, 
    txtAtivarCurso, 
+   showSwitchIndividual,
    txtCriarNovoCurso,
    txtCriarNovoCurso2,
    handleClickPopOverDelete,
@@ -23,13 +24,14 @@ export default function ThumbnailsDraggable({
    handleClickPopOverMove,
    txtPopOverDeleteContent,
    txtPopOverEditContent,
+   isIndividual,
    txtPopOverMoveToTrails 
   }: IThumbnailsTranslate) {
 
   return (
     <>    
       <Draggable
-        key={id}
+        key={id.toString()}
         index={index}
         draggableId={id}
       >
@@ -37,14 +39,16 @@ export default function ThumbnailsDraggable({
           return (
             <Thumbnails 
               src={src}
-              disabled={disabled}
+              isDisabled={isDisabled}
               handleClickCourse={handleClickCourse}
-              handleChange={handleChange}
+              handleSwitchAtivarIndividual={handleSwitchAtivarIndividual}
               handleClickNew={handleClickNew}
               handleClickContent={handleClickContent}
               variant={variant}
               title={title}
               id={id}
+              isIndividual={isIndividual}
+              showSwitchIndividual={showSwitchIndividual}
               index={index}    
               provided={provided}
               txtButtonLabel={txtButtonLabel}

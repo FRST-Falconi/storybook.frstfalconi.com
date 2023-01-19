@@ -2,13 +2,13 @@ import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import * as Styles from './accordionTrackStyle'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
 import { IAccordionTranslate } from './IAccordionTrack'
 import PopOver, { PopOverItem } from '../popOver'
 
-export default function AccordionTrackNormal(props: any) {
+export default function ContentCoursesTrails(props: any) {
 
   const [checked, setChecked] = useState(true)
   const [up, setUp] = useState(true)
@@ -57,15 +57,17 @@ export default function AccordionTrackNormal(props: any) {
             :
             <Styles.ContainerInputNameTrail>
               <input 
-                placeholder={props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha'} 
+                placeholder={props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha'}        
                 value={nameTrail}
                 onChange={(e) =>{                  
                   setNameTrail(e.target.value)                  
                 }} 
-                onClick={()=>{                 
-                  if(nameTrail){                    
-                    setActive(false)
-                    props.handleChangeTrailName(nameTrail)                    
+                onKeyPress={(event) => {
+                  if(event.key === 'Enter'){
+                    if (nameTrail) {
+                      setActive(false)
+                      props.handleChangeTrailName(nameTrail)                    
+                    }
                   }                  
                 }}
               />
@@ -75,7 +77,7 @@ export default function AccordionTrackNormal(props: any) {
 
         <Styles.ContentActiveHeader>
           <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
-            {props.txtAtivarCurso ? props.txtAtivarCurso : 'Ativar curso'}
+            {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
             <Switch
               onChange={handleChange}
               checked={props.ativo}
@@ -119,6 +121,7 @@ export default function AccordionTrackNormal(props: any) {
             onClick={() => {
               //props.handlePopOverTrailEdit(props.id)
               handleClickActiveNameTrail()
+              setElementPopover(null)
               
             }}
           />
@@ -132,6 +135,7 @@ export default function AccordionTrackNormal(props: any) {
             label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
             onClick={() => {
               props.handlePopOverTrailDelete(props.id)
+              setElementPopover(null)
             }}
             icon={<Icons.Trash fill='#C00F00' />}
             noBorder={true}

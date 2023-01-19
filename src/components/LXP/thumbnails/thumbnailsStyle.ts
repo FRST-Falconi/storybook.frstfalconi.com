@@ -4,10 +4,15 @@ interface IImageBackground {
     active: boolean
 }
 
-export const ContainerThumbnails = styled.div`
+interface IContainerThumbnails {
+    showSwitchIndividual: boolean
+}
+
+
+export const ContainerThumbnails = styled.div<IContainerThumbnails>`
     width: 180px;
     min-width: 180px;
-    height: 352px;
+    height: ${( props ) => `${props.showSwitchIndividual ? '352px' : '320px'}`};
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -82,7 +87,7 @@ export const ContainerAtivar = styled.div`
     margin-left: 24px;
     position: absolute;
 `
-export const TypographyAtivar = styled.p<IImageBackground>`
+export const TypographyAtivar = styled.span<IImageBackground>`
     font-family: 'PT Sans';
     font-style: normal;
     font-size: 16px;
