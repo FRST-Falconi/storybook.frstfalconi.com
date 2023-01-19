@@ -29,7 +29,8 @@ export default function ContentThumbnails({
   onChange,
   handleClick,
   handleReloadItens,
-  title
+  title,
+  removeContentList
 }: IContentThumbnails) {
   const defaultImg =
     'https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg'
@@ -141,7 +142,7 @@ export default function ContentThumbnails({
                         </Styles.Thumbnails>
                         {iconList[item.type]}
                         <Styles.Title onClick={handleClick}>{item.title}</Styles.Title>
-                        <Styles.IconTrash className="trash" onClick={() => removeContentList(item.title)}>
+                        <Styles.IconTrash className="trash" onClick={removeContentList}>
                           <Icons.TrashIcon fill={'#FF4D0D'} />
                         </Styles.IconTrash>
                       </Styles.ContainerCard>
@@ -154,12 +155,6 @@ export default function ContentThumbnails({
         </Droppable>
       </DragDropContext>
     )
-  }
-
-  const removeContentList = (title: string) => {
-    const newList = contentListData.filter((key) => key.title !== title)
-    setContentListData(newList)
-    console.log(newList)
   }
 
   return (

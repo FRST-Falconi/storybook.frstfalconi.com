@@ -15,4 +15,5 @@ export interface IContentThumbnails {
   contentList?: any
   variant?: enumVariant
   title?: string
+  removeContentList?: () => void
 }
