@@ -23,6 +23,7 @@ export default function ThumbnailsDraggable({
    handleClickPopOverMove,
    txtPopOverDeleteContent,
    txtPopOverEditContent,
+   isIndividual,
    txtPopOverMoveToTrails 
   }: IThumbnailsTranslate) {
 
@@ -45,6 +46,7 @@ export default function ThumbnailsDraggable({
               variant={variant}
               title={title}
               id={id}
+              isIndividual={isIndividual}
               showSwitchIndividual={showSwitchIndividual}
               index={index}    
               provided={provided}

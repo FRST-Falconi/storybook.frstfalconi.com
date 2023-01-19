@@ -81,6 +81,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               handleSwitchAtivarIndividual={(checked) => {
                                 props.handleSwitchAtivarIndividual(el.id, checked)
                               }}
+                              isIndividual={el.active_individual}
                               showSwitchIndividual
                               src={el.settings.cover_thumb_url}
                               txtButtonLabel={props.txtButtonLabel}
@@ -191,7 +192,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                         handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
                                         handleClickPopOverDelete={() => {
                                           props.handleDeleteCourseTrail(el.id)
-                                        }}
+                                        }}                                        
                                         txtPopOverEditContent={props.txtPopOverEditContent}
                                         txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
                                         txtPopOverDeleteContent={props.txtPopOverDeleteContent}
