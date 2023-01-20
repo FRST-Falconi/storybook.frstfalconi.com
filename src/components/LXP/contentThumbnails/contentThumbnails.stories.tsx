@@ -54,6 +54,9 @@ IndividualCourse.args = {
   },
   handleReloadItens: () => {
     alert('Click 2')
+  },
+  removeContentList: () => {
+    alert('excluiu!')
   }
 }
 
