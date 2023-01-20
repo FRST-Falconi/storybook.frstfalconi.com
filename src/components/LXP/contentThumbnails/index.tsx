@@ -74,7 +74,7 @@ export default function ContentThumbnails({
 
     useEffect(() => {
       setContentListData(contentList)
-    }, [contentList, setContentListData])
+    }, [contentList])
 
     return (
       <DragDropContext onDragEnd={onDragEnd}>
