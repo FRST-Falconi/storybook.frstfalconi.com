@@ -72,6 +72,8 @@ export default function ContentThumbnails({
       setContentListData(reorderedItems)
     }
 
+    console.log('contentList:', contentList)
+
     useEffect(() => {
       if (contentList) {
         setContentListData(contentList)

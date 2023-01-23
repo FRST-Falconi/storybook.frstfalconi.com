@@ -5561,6 +5561,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
             const reorderedItems = reorder(contentListData, result.source.index, result.destination.index);
             setContentListData(reorderedItems);
         };
+        console.log('contentList:', contentList);
         React.useEffect(() => {
             if (contentList) {
                 setContentListData(contentList);
