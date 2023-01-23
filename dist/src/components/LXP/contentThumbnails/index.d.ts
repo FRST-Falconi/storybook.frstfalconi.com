@@ -9,5 +9,5 @@ export declare enum typeContent {
     Quiz = 4,
     Certificate = 5
 }
-export default function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title }: IContentThumbnails): JSX.Element;
+export default function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title, removeContentList }: IContentThumbnails): JSX.Element;
 //# sourceMappingURL=index.d.ts.map

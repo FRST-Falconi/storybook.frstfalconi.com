@@ -6,7 +6,7 @@ import { IContentThumbnails } from './contentThumbnails'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import VectorEllipse from './vectorEllipse'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
@@ -44,7 +44,7 @@ export default function ContentThumbnails({
     <Icons.Certificate fill={'#FF4D0D'} />
   ]
 
-  const [contentListData, setContentListData] = useState(contentList)
+  const [contentListData, setContentListData] = useState([])
   const [down, setDown] = useState(true)
   const [up, setUp] = useState(false)
 
@@ -73,8 +73,17 @@ export default function ContentThumbnails({
     }
 
     useEffect(() => {
-      setContentListData(contentList)
-    }, [contentList, setContentListData])
+      if (contentList) {
+        setContentListData(contentList)
+      }
+    }, [contentList])
+
+    useMemo(() => {
+      if (contentList) {
+        console.log('mudou para:', contentList)
+        setContentListData(contentList)
+      }
+    }, [contentList])
 
     return (
       <DragDropContext onDragEnd={onDragEnd}>
