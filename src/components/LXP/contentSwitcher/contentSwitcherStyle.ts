@@ -35,7 +35,7 @@ export const ContentSwitcher= styled.button<{}>`
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 30px;
+    padding: 0 20px 0 20px;    
     width: 180px;
     height: 176px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
@@ -48,6 +48,7 @@ export const ContentSwitcher= styled.button<{}>`
     font-size: 20px;
     line-height: 23px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
+    white-space: wrap;
      
     & > svg {        
         height: 64px;

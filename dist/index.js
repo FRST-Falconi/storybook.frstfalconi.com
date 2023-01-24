@@ -5283,7 +5283,7 @@ const ContentSwitcher$1 = styled__default["default"].button `
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 30px;
+    padding: 0 20px 0 20px;
     width: 180px;
     height: 176px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
