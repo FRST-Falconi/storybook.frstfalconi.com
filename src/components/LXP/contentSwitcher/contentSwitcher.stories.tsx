@@ -13,7 +13,7 @@ const Template = (args) => <ContentSwitcher {...args} />
 let isActive = false
 export const primary = Template.bind({})
 primary.args = {
-  label: 'Name item',
+  label: 'Criar conteúdo',
   startIcon: <Icons.Course />,
   startIconSelected: <Icons.Course fill={'#FFFFFF'} />,
   handleClick: () => {
