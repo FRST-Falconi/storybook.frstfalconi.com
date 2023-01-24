@@ -5254,6 +5254,7 @@ const Container$9 = styled__default["default"].div `
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 0 20px 0 20px;
     width: 180px;
     height: 176px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
