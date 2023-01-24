@@ -1,5 +1,5 @@
 /// <reference types="react" />
-type notificationCard = {
+declare type notificationCard = {
     notificationAvatar: string;
     notificationDescription: string;
     isNewNotification: boolean;

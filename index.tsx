@@ -34,7 +34,8 @@ export {
   StepCheckInCicle,
   StepCicleTwo,
   StepCicleThree,
-  StepCicleFour
+  StepCicleFour,
+  Books
 } from './src/shared/icons'
 
 // Base

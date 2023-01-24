@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import '../../../shared/global.css';
-type enumType = 'text' | 'password' | 'email' | 'number';
+declare type enumType = 'text' | 'password' | 'email' | 'number';
 export interface TextFieldProps {
     label?: string;
     placeholder?: string;
