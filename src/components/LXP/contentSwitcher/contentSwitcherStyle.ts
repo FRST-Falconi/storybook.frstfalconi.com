@@ -35,7 +35,7 @@ export const ContentSwitcher= styled.button<{}>`
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 25px;
+    padding: 30px;
     width: 180px;
     height: 176px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
