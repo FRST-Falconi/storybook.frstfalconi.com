@@ -5283,7 +5283,7 @@ const ContentSwitcher$1 = styled__default["default"].button `
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 20px 0 20px;
+    padding: 0 20px 0 20px;    
     width: 180px;
     height: 176px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
@@ -5296,7 +5296,7 @@ const ContentSwitcher$1 = styled__default["default"].button `
     font-size: 20px;
     line-height: 23px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-     
+         
     & > svg {        
         height: 64px;
         width: 64px;       
@@ -5312,6 +5312,7 @@ const ContentSwitcherSelected = styled__default["default"].button `
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 0 20px 0 20px;
     width: 180px;
     height: 176px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
