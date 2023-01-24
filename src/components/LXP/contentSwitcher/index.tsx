@@ -2,8 +2,6 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './contentSwitcherStyle'
 import { IcontentSwitcher } from './contentSwitcher'
-import { useState } from 'react'
-import * as Icons from '@shared/icons'
 
 export default function ContentSwitcher({
   label,
@@ -17,6 +15,7 @@ export default function ContentSwitcher({
 }: IcontentSwitcher) {
   return (
     <ThemeProvider theme={FRSTTheme}>
+      <div style={{backgroundColor: 'white', height: 400, padding: 60}}>
       <Styles.Container sizeIcon={sizeIcon} style={{ ...style }}>
         {!isActive ? (
           <Styles.ContentSwitcher onClick={handleClick} id={idButtonSwitcher}>
@@ -30,6 +29,7 @@ export default function ContentSwitcher({
           </Styles.ContentSwitcherSelected>
         )}
       </Styles.Container>
+      </div>
     </ThemeProvider>
   )
 }
