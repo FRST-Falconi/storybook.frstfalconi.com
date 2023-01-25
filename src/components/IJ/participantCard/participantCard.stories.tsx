@@ -4,7 +4,7 @@ import ParticipantCard from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'LXP/ParticipantCard',
+    title: 'IJ/ParticipantCard',
     component: ParticipantCard,
 }
 
@@ -28,6 +28,7 @@ normal.args = {
         area: 'Área',
         position: 'Cargo'
     },
+    successfullInvite: false,
     handleSendInvitation: (id: any) => alert(`Send: ${id}`),
     handleClickRemove: (id: any) => alert(`Remove: ${id}`),
 }
