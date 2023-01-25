@@ -8612,347 +8612,6 @@ function SelectLXP({ placeholder, valueSelect, handleValueSelect, listItems }) {
     return (jsxRuntime.jsx(SelectLXP$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), children: listItems.map((item, index) => (jsxRuntime.jsx(SelectLXPItem, { label: item.label, value: item.id }, index))) }));
 }
 
-const WrapperCard$2 = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    width: 282px;
-    height: fit-content;
-
-    padding: 17px;
-    padding-top: 14px;
-
-    background: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    border-radius: 8px;
-`;
-styled__default["default"].div `
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-`;
-const UserInfo = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-`;
-const DescriptionUser = styled__default["default"].div `
-        display: flex;
-        flex-direction: column;
-        margin-left: 13px;
-    `;
-const NameUser = styled__default["default"].div `
-            font-family: 'PT Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 110%;
-
-            display: flex;
-            align-items: center;
-
-            color: #222222;
-            word-break: normal;
-            
-            max-width: 100%;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            word-break: break-all;
-
-        `;
-const EmailUser = styled__default["default"].div `
-            font-family: 'PT Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            display: flex;
-            align-items: center;
-
-            color: #9C9C9C;
-            margin-top: 5px;
-            word-break: normal;
-            
-            max-width: 100%;
-            
-            max-width: 100%;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            word-break: break-all;
-        `;
-const UserAdditionalInfo = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-`;
-const Area = styled__default["default"].div `
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 110%;
-        /* or 18px */
-
-        display: flex;
-        align-items: center;
-
-        /* neutrals/grey_1 */
-
-        color: #222222;
-        max-width: 100%;
-            
-        max-width: 100%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        word-break: break-all;
-    `;
-const Position = styled__default["default"].div `
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 110%;
-        /* or 18px */
-        
-        display: flex;
-        align-items: center;
-        
-        /* neutrals/grey_1 */
-        
-        color: #222222;
-            
-        max-width: 100%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        word-break: break-all;
-    `;
-const FooterButton = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    margin-top: 15px;
-    justify-content: space-around;
-    align-items: center;
-`;
-const ButtonSend = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 0px;
-    padding: 4px 16px;
-    gap: 8px;
-
-    width: 149px;
-    height: 32px;
-
-    /* primary_1 */
-
-    background: ${({ theme }) => theme.colors.primary1};
-    border-radius: 8px;
-
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    cursor: pointer;
-    margin-left: -13px;
-`;
-const ButtonRemove = styled__default["default"].div `
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: #0645AD;
-    cursor: pointer;
-`;
-const ButtonSuccess = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 4px 16px;
-    gap: 8px;
-
-    width: 159px;
-    height: 32px;
-
-    /* message/success_2 */
-
-    background: #D1F6D1;
-    /* message/success_1 */
-
-    border: 1px solid #1BA853;
-    border-radius: 8px;
-
-    width: 163px;
-    height: 32px;
-    cursor: pointer;
-    white-space: nowrap;
-
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-
-    display: flex;
-    align-items: center;
-
-    /* neutrals/grey_1 */
-
-    color: #222222;
-`;
-
-const Tooltip$1 = styled__default["default"].div `
-    position: relative;
-    display: inline-block;
-    
-    &:after #tooltipinfo {
-        content: "";
-        position: absolute;
-
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'top: 100%; left: 50%;';
-        case 'bottom':
-            return 'bottom: 100%; left: 50%;';
-        case 'right':
-            return 'top: 50%; right: 100%;';
-        case 'left':
-            return 'top: 50%; left: 100%;';
-    }
-}}
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
-    }
-
-    &:hover #tooltipinfo {
-        visibility: visible;
-    }
-
-    &:hover {
-        visibility: visible;
-    }
-`;
-const Tooltiptext = styled__default["default"].div `
-    visibility: hidden;
-    width: 156px;
-    background-color: #fff;
-    border: solid 1px #BDBDBD;
-
-    padding: 8px! important;
-    padding-bottom: 4px;
-
-    word-break: break-all;
-
-    color: #757575;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'bottom: 160%; left: 50%;';
-        case 'bottom':
-            return 'top: 160%; left: 50%;';
-        case 'right':
-            return 'top: -5px; left: 220%;';
-        case 'left':
-            return 'top: -5px; right: 120%;';
-    }
-}}
-
-    margin-left: -70px;
-
-    -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-
-    &:after {
-        content: "";
-        width: 0;
-        height: 0;
-        
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'left: 48%; bottom: -6px;';
-        case 'bottom':
-            return 'left: 48%; top: -6px;';
-        case 'right':
-            return 'top: 35%; left: -6px; border: 5px solid #fff !important;';
-        case 'left':
-            return 'top: 35%; right: -6px; border: 5px solid #fff !important;';
-    }
-}}
-        position: absolute;
-    
-        border: 6px solid #fff;
-        transform: rotate(135deg);
-        transition: border 0.3s ease-in-out;
-      }
-`;
-
-function Tooltip(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
-}
-
-function ParticipantCard({ userInfo, labels, style, handleSendInvitation, handleClickRemove }) {
-    const [userName, setUserName] = React.useState(userInfo?.name);
-    const [userEmail, setUserEmail] = React.useState(userInfo?.email);
-    const [area, setArea] = React.useState(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
-    const [position, setPosition] = React.useState(`${labels?.position ? labels?.position : 'Cargo'}: ${userInfo?.position}`);
-    const [statusSend, setStatusSend] = React.useState('default');
-    React.useEffect(() => {
-        setUserName(userInfo?.name);
-        setUserEmail(userInfo?.email);
-        setArea(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
-        setPosition(`${labels?.position ? labels?.position : 'Cargo'}: ${userInfo?.position}`);
-    }, [userInfo, labels]);
-    const clickSendInvitation = () => {
-        setStatusSend('success');
-        handleSendInvitation(userInfo?.id);
-    };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, children: [jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [userName && userName?.length > 25 ?
-                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser, { children: userName }) })
-                                    :
-                                        jsxRuntime.jsx(NameUser, { children: userName }), userEmail && userEmail?.length > 30 ?
-                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser, { children: userEmail }) })
-                                    :
-                                        jsxRuntime.jsx(EmailUser, { children: userEmail })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [area && area?.length > 31 ?
-                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area, { children: area }) })
-                            :
-                                jsxRuntime.jsx(Area, { children: area }), position && position?.length > 33 ?
-                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position, { children: position }) })
-                            :
-                                jsxRuntime.jsx(Position, { children: position })] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] }), jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })] }) : null, statusSend == 'success' ?
-                            jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: '14' }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) }) : null] })] }) }));
-}
-
 const ProgressBox = styled__default["default"](_.Box) `
   z-index: 1 !important;
   float: right !important;
@@ -9113,7 +8772,7 @@ function CardTrailCarousel({ objectCards, marginsArrowButton, move, isVisibleBut
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: move ? move : 380, isVisibleControlsButtons: isVisibleButtons, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
 }
 
-const WrapperCard$1 = styled__default["default"].div `
+const WrapperCard$2 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     width: 282px;
@@ -9426,7 +9085,7 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
             setActiveClick(false);
         }, 700);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
                             jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
@@ -9582,7 +9241,7 @@ function SearchBox(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, children: [jsxRuntime.jsx(Typography, { children: props.textTitle ? props.textTitle : props.textTitle }), jsxRuntime.jsx(ContainerSearch, { children: jsxRuntime.jsx(SearchField, { hasSearchIcon: true, textButton: props.textButton ? props.textButton : '', placeholder: props.textPlaceholder ? props.textPlaceholder : '', handleClickButton: props.handleClickSearchButton, onChange: props.onChange }) })] }) }));
 }
 
-const WrapperCard = styled__default["default"].div `
+const WrapperCard$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9776,7 +9435,7 @@ function LateralMenu$1({ label, onClick, button, beginComponent, activeBeginIcon
 }
 
 function LateralMenu({ variant, hiddenButtonHeader, avatar, name, channel, button, listOptions, style }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { style: { ...style }, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Avatar, { src: avatar.src, alt: avatar.alt ? avatar.alt : 'Image profile avatar', size: avatar.size ? avatar.size : '80px' }), jsxRuntime.jsx(NameProfile, { children: name }), channel &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { style: { ...style }, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Avatar, { src: avatar.src, alt: avatar.alt ? avatar.alt : 'Image profile avatar', size: avatar.size ? avatar.size : '80px' }), jsxRuntime.jsx(NameProfile, { children: name }), channel &&
                             jsxRuntime.jsx(Channel, { children: channel }), !hiddenButtonHeader &&
                             jsxRuntime.jsx(WrapperButton$1, { children: !channel ?
                                     jsxRuntime.jsx(Button$2, { variant: 'primary', label: button.label, handleClick: (e) => button.onClick(e) })
@@ -11066,7 +10725,351 @@ function ListSelector(props) {
                         return (index < showSize ?
                             jsxRuntime.jsxs(itemList, { children: [jsxRuntime.jsx("div", { onClick: () => handleSelect(item.id), children: selectedItens.includes(item.id) ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), item.description] }, index)
                             : null);
-                    }) }), jsxRuntime.jsx(viewMoreContent, { children: jsxRuntime.jsx(Button$2, { variant: 'link', label: showSize === props.minShowList ? props.textViewMore : props.textViewLess, handleClick: handleView }) })] }) }));
+                    }) }), props.minShowList < props.contentList.length ?
+                    jsxRuntime.jsx(viewMoreContent, { children: jsxRuntime.jsx(Button$2, { variant: 'link', label: showSize === props.minShowList ? props.textViewMore : props.textViewLess, handleClick: handleView }) })
+                    : null] }) }));
+}
+
+const WrapperCard = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    width: 282px;
+    height: fit-content;
+
+    padding: 17px;
+    padding-top: 14px;
+
+    background: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-radius: 8px;
+`;
+styled__default["default"].div `
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+`;
+const UserInfo = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+`;
+const DescriptionUser = styled__default["default"].div `
+        display: flex;
+        flex-direction: column;
+        margin-left: 13px;
+    `;
+const NameUser = styled__default["default"].div `
+            font-family: 'PT Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 110%;
+
+            display: flex;
+            align-items: center;
+
+            color: #222222;
+            word-break: normal;
+            
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+
+        `;
+const EmailUser = styled__default["default"].div `
+            font-family: 'PT Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+            display: flex;
+            align-items: center;
+
+            color: #9C9C9C;
+            margin-top: 5px;
+            word-break: normal;
+            
+            max-width: 100%;
+            
+            max-width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+        `;
+const UserAdditionalInfo = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+`;
+const Area = styled__default["default"].div `
+        font-family: 'PT Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 110%;
+        /* or 18px */
+
+        display: flex;
+        align-items: center;
+
+        /* neutrals/grey_1 */
+
+        color: #222222;
+        max-width: 100%;
+            
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+    `;
+const Position = styled__default["default"].div `
+        font-family: 'PT Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 110%;
+        /* or 18px */
+        
+        display: flex;
+        align-items: center;
+        
+        /* neutrals/grey_1 */
+        
+        color: #222222;
+            
+        max-width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        word-break: break-all;
+    `;
+const FooterButton = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    justify-content: space-around;
+    align-items: center;
+`;
+const ButtonSend = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 0px;
+    padding: 4px 16px;
+    gap: 8px;
+
+    width: 149px;
+    height: 32px;
+
+    /* primary_1 */
+
+    background: ${({ theme }) => theme.colors.primary1};
+    border-radius: 8px;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: ${({ theme }) => theme.colors.shadeWhite};
+    cursor: pointer;
+    margin-left: -13px;
+`;
+const ButtonRemove = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #0645AD;
+    cursor: pointer;
+`;
+const ButtonSuccess = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 16px;
+    gap: 8px;
+
+    width: 159px;
+    height: 32px;
+
+    /* message/success_2 */
+
+    background: #D1F6D1;
+    /* message/success_1 */
+
+    border: 1px solid #1BA853;
+    border-radius: 8px;
+
+    width: 163px;
+    height: 32px;
+    cursor: default;
+    white-space: nowrap;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    /* neutrals/grey_1 */
+
+    color: #222222;
+`;
+
+const Tooltip$1 = styled__default["default"].div `
+    position: relative;
+    display: inline-block;
+    
+    &:after #tooltipinfo {
+        content: "";
+        position: absolute;
+
+        ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'top: 100%; left: 50%;';
+        case 'bottom':
+            return 'bottom: 100%; left: 50%;';
+        case 'right':
+            return 'top: 50%; right: 100%;';
+        case 'left':
+            return 'top: 50%; left: 100%;';
+    }
+}}
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+    }
+
+    &:hover #tooltipinfo {
+        visibility: visible;
+    }
+
+    &:hover {
+        visibility: visible;
+    }
+`;
+const Tooltiptext = styled__default["default"].div `
+    visibility: hidden;
+    width: 156px;
+    background-color: #fff;
+    border: solid 1px #BDBDBD;
+
+    padding: 8px! important;
+    padding-bottom: 4px;
+
+    word-break: break-all;
+
+    color: #757575;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'bottom: 160%; left: 50%;';
+        case 'bottom':
+            return 'top: 160%; left: 50%;';
+        case 'right':
+            return 'top: -5px; left: 220%;';
+        case 'left':
+            return 'top: -5px; right: 120%;';
+    }
+}}
+
+    margin-left: -70px;
+
+    -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+    -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+    box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        
+        ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'left: 48%; bottom: -6px;';
+        case 'bottom':
+            return 'left: 48%; top: -6px;';
+        case 'right':
+            return 'top: 35%; left: -6px; border: 5px solid #fff !important;';
+        case 'left':
+            return 'top: 35%; right: -6px; border: 5px solid #fff !important;';
+    }
+}}
+        position: absolute;
+    
+        border: 6px solid #fff;
+        transform: rotate(135deg);
+        transition: border 0.3s ease-in-out;
+      }
+`;
+
+function Tooltip(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
+}
+
+function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
+    const [userName, setUserName] = React.useState(userInfo?.name);
+    const [userEmail, setUserEmail] = React.useState(userInfo?.email);
+    const [area, setArea] = React.useState(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
+    const [position, setPosition] = React.useState(`${labels?.position ? labels?.position : 'Cargo'}: ${userInfo?.position}`);
+    const [statusSend, setStatusSend] = React.useState(successfullInvite ? 'success' : 'default');
+    React.useEffect(() => {
+        setUserName(userInfo?.name);
+        setUserEmail(userInfo?.email);
+        setArea(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
+        setPosition(`${labels?.position ? labels?.position : 'Cargo'}: ${userInfo?.position}`);
+        setStatusSend(successfullInvite ? 'success' : 'default');
+    }, [userInfo, labels, successfullInvite]);
+    const clickSendInvitation = () => {
+        setStatusSend('success');
+        handleSendInvitation(userInfo?.id);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { style: { ...style }, children: [jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [userName && userName?.length > 25 ?
+                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser, { children: userName }) })
+                                    :
+                                        jsxRuntime.jsx(NameUser, { children: userName }), userEmail && userEmail?.length > 30 ?
+                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser, { children: userEmail }) })
+                                    :
+                                        jsxRuntime.jsx(EmailUser, { children: userEmail })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [area && area?.length > 31 ?
+                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area, { children: area }) })
+                            :
+                                jsxRuntime.jsx(Area, { children: area }), position && position?.length > 33 ?
+                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position, { children: position }) })
+                            :
+                                jsxRuntime.jsx(Position, { children: position })] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ?
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] }), jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })] }) : null, statusSend == 'success' ?
+                            jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: '14' }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) }) : null] })] }) }));
 }
 
 exports.AccordionTrackList = AccordionTrackList;
