@@ -9,7 +9,7 @@ export declare const ContentTrailName: import("styled-components").StyledCompone
 export declare const TypographyTrailName: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const Select: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ContentActiveHeader: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const TypographyActiveHeader: import("styled-components").StyledComponent<"p", any, IImageBackground, never>;
+export declare const TypographyActiveHeader: import("styled-components").StyledComponent<"span", any, IImageBackground, never>;
 export declare const IconVerticalHeader: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ContainerAccordion: import("styled-components").StyledComponent<"div", any, IImageBackground, never>;
 export declare const ContainerCard: import("styled-components").StyledComponent<"div", any, {}, never>;

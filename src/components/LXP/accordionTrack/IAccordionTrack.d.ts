@@ -1,11 +1,19 @@
 import React from "react"
 //import * as Icons from '../../shared/icons'
-
-type enumVariant = 'closedDefault' | 'opened' 
-
 export interface IAccordionTrack {
+    /**
+	 * @prop {any} trailData: Informações referente as trilhas
+	 */
     trailsData?: any
-    variant?: enumVariant
+    /**
+     * @prop {any} courseData: Informações referente aos cursos 
+     */
+    courseData?: any    
+    /**
+     * @prop {() => {})} onNewTrail: Callback para adicionar novo conteúdo
+     */
+    onNewTrail?: () => void,
+
     TrailName?: string
     key?: number
     index?: number
@@ -14,20 +22,39 @@ export interface IAccordionTrack {
     src?: string
     handleChange?: (trails: any) => void
     handleClickSelect?: () => void,
-    handleClickContent?: () => void 
-    onSetActiveTrail?: (active, id) => void 
+    handleClickContent?: () => void     
     onSetNameTrail?: (name, id) => void
-    onSetShowTrail?: (active, id) => void 
-    onNewTrail?: (id) => void,
     handleClickNew?: () => void,
     handleEditCourse?: (id: string) => void
     handlePopOverMove?: (id: string) => void
-    handlePopOverEdit?: (id: string) => void
-    handlePopOverDelete?: (id: string) => void
+    handlePopOverEdit?: (id: string) => void    
+    /**
+	 * @prop {(idCourse: string) => {}} handleDeleteCourse: Callback para deletar o curso 
+	 */
+    handleDeleteCourse?: (idCourse: string) => void
+	/**
+	 * @prop {(idCourse: string, idTrail: string) => {}} handleDeleteCourseTrail: Callback para deletar o vinculo do curso com a trilha
+	 */
+    handleDeleteCourseTrail?: (idTrailCourse: string) => void
+	/**
+	 * @prop {(idCourse: string, idTrail: string) => {}} handleDeleteCourseTrail: Callback para deletar o vinculo do curso com a trilha
+	 */    
+    handleSwitchAtivarIndividual? (idCourse: string, checked: boolean)
+    /**
+     * @prop {(errorCode: number) => {}} handleMessageError: Callback para mensagem de erro
+     */    
+    handleMessageError? (errorCode: string) 
+    /**
+     * @prop {(errorCode: number) => {}} handleMessageError: Callback para mensagem de erro
+     */           
+    handleSwitchActiveTrail?: (idTrail, active) => void     
+    /**
+     * @prop {(errorCode: number) => {}} handleUpdateTrail: Callback atualizar ordenação, exclusão e inserção de cursos nas trilahs
+     */           
+    handleUpdateTrail?: (deletedItem, insertItem, trailCoursesList) => void   
     handlePopOverDuplicate?: (id: string) => void
     handlePopOverTrailEdit?: (id: string) => void
     handlePopOverTrailDelete?: (id: string) => void
-
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
@@ -36,6 +63,7 @@ export interface IAccordionTranslate extends IAccordionTrack {
     textRegistros?: string
     textMinhasTrihas?: string
     txtAtivarCurso?: string
+    txtAtivarTrilha?: string
     txtButtonLabel?: string
     txtCriarNovoCurso?: string
     txtCriarNovoCurso2?: string

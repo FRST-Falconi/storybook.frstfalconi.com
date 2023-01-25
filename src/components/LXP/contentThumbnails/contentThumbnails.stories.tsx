@@ -54,6 +54,9 @@ IndividualCourse.args = {
   },
   handleReloadItens: () => {
     alert('Click 2')
+  },
+  removeContentList: () => {
+    alert('excluiu!')
   }
 }
 
@@ -68,30 +71,6 @@ Trilha.args = {
     {
       title: 'Introdução ao curso',
       type: typeContent.Content
-    },
-    {
-      title: 'Título do Conteúdo',
-      type: typeContent.Content
-    },
-    {
-      title: 'Título do Vídeo',
-      type: typeContent.Video
-    },
-    {
-      title: 'Título de Podcast',
-      type: typeContent.PodCast
-    },
-    {
-      title: 'Título do Quiz',
-      type: typeContent.QuizSucessError
-    },
-    {
-      title: 'Título do questionário',
-      type: typeContent.Quiz
-    },
-    {
-      title: 'Título do Certificado',
-      type: typeContent.Certificate
     }
   ],
   handleClick: () => {

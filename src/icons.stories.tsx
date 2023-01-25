@@ -282,3 +282,6 @@ FowardArrow.args = Icons.FowardArrow({})
 
 export const AddPeople = Template.bind({})
 AddPeople.args = Icons.AddPeople({})
+
+export const Books = Template.bind({})
+Books.args = Icons.AddPeople({})

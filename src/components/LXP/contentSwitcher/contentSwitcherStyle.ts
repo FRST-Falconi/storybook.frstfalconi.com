@@ -5,22 +5,20 @@ export const Container= styled.div<{sizeIcon}>`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    text-align: center;    
     width: 180px;
     height: 176px;
-    border: none;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     cursor: pointer;
     border-radius: 8px;
     box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
-    box-shadow: none;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-
+    
     & > svg {        
         max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon:'64px'};
         height: 100%;
@@ -28,7 +26,7 @@ export const Container= styled.div<{sizeIcon}>`
     }
 
     &:hover{
-        box-shadow: 0px 18px 40px -15px;
+        box-shadow: 0px 15px 5px -15px;  
     }
 `
 export const ContentSwitcher= styled.button<{}>`
@@ -37,28 +35,27 @@ export const ContentSwitcher= styled.button<{}>`
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 0 20px 0 20px;    
     width: 180px;
     height: 176px;
-    border: none;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     cursor: pointer;
     border-radius: 8px;
     box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
-    box-shadow: none;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
-
+         
     & > svg {        
         height: 64px;
         width: 64px;       
     }
 
     &:hover{
-        box-shadow: 0px 18px 40px -15px
+        box-shadow: 0px 15px 5px -15px;    
     }
 `;
 export const ContentSwitcherSelected= styled.button<{sizeIcon}>`
@@ -67,19 +64,18 @@ export const ContentSwitcherSelected= styled.button<{sizeIcon}>`
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 0 20px 0 20px;
     width: 180px;
     height: 176px;
-    border: none;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     cursor: pointer;
     border-radius: 8px;
     box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
-    box-shadow: none;
     background-color: ${({ theme }) => theme.colors.primary1};
     color: ${({ theme }) => theme.colors.shadeWhite};
 
@@ -87,12 +83,10 @@ export const ContentSwitcherSelected= styled.button<{sizeIcon}>`
         max-height: ${({sizeIcon}) => sizeIcon ? sizeIcon:'64px'};
         height: 100%;
         width: auto;
-        stroke: #FFFFFF;
+        stroke: #FFFFFF;       
     }
 
-    &:hover{
-        box-shadow: 0px 18px 40px -15px ${({ theme }) => theme.colors.primary3} ;
-    }
+    /* &:hover{
+        background-color: ${({ theme }) => theme.colors.primary3} ;
+    } */
 `;
-
-
