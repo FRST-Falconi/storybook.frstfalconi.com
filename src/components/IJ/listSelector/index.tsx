@@ -68,14 +68,17 @@ export default function ListSelector( props : IListSelector ) {
                         )}
                     )}
                 </Styles.listContent>
-                <Styles.viewMoreContent>
-                    
-                        <Button variant='link' 
-                            label={showSize === props.minShowList ? props.textViewMore : props.textViewLess } 
-                            handleClick={handleView}
-                        />
-                    
-                </Styles.viewMoreContent>
+                { props.minShowList < props.contentList.length ?
+                    <Styles.viewMoreContent>
+                        
+                            <Button variant='link' 
+                                label={showSize === props.minShowList ? props.textViewMore : props.textViewLess } 
+                                handleClick={handleView}
+                            />
+                        
+                    </Styles.viewMoreContent>
+                    : null
+                }
             </Styles.containerList>
         </ThemeProvider>
     )

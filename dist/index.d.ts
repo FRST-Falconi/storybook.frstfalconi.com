@@ -60,7 +60,6 @@ export { default as AccordionTrackList } from './src/components/LXP/accordionTra
 export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles';
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable';
 export { default as SelectLXP } from './src/components/LXP/selectLXP';
-export { default as ParticipantCard } from './src/components/LXP/participantCard';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';
@@ -77,4 +76,5 @@ export { default as NotificationPopOver } from './src/components/FI/notification
 export { default as Pagination } from './src/components/IJ/pagination';
 export { default as ThumbListContent } from './src/components/IJ/thumbListContent';
 export { default as ListSelector } from './src/components/IJ/listSelector';
+export { default as ParticipantCard } from './src/components/IJ/participantCard';
 //# sourceMappingURL=index.d.ts.map
