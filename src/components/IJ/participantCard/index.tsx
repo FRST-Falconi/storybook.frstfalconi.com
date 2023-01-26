@@ -10,20 +10,21 @@ import { AddPeople, MessageCheckLine } from '@shared/icons'
 import { useEffect, useState } from 'react'
 
 
-export default function ParticipantCard({ userInfo, labels, style, handleSendInvitation, handleClickRemove }: ParticipantCardI) {
+export default function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }: ParticipantCardI) {
     const [ userName, setUserName ] = useState(userInfo?.name)
     const [ userEmail, setUserEmail ] = useState(userInfo?.email)
     const [ area, setArea ] = useState(`${labels?.area ? labels?.area: 'Área'}: ${userInfo?.area}`)
     const [ position, setPosition ] = useState(`${labels?.position ? labels?.position: 'Cargo'}: ${userInfo?.position}`)
 
-    const [ statusSend, setStatusSend ] = useState('default')
+    const [ statusSend, setStatusSend ] = useState(successfullInvite ? 'success' : 'default')
 
     useEffect(() => {
         setUserName(userInfo?.name)
         setUserEmail(userInfo?.email)
         setArea(`${labels?.area ? labels?.area: 'Área'}: ${userInfo?.area}`)
         setPosition(`${labels?.position ? labels?.position: 'Cargo'}: ${userInfo?.position}`)
-    }, [userInfo, labels])
+        setStatusSend(successfullInvite ? 'success' : 'default')
+    }, [userInfo, labels, successfullInvite])
 
     const clickSendInvitation = () => {
         setStatusSend('success')

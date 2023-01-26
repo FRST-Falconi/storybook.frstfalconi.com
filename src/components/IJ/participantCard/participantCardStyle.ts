@@ -199,7 +199,7 @@ export const ButtonSuccess = styled.div`
 
     width: 163px;
     height: 32px;
-    cursor: pointer;
+    cursor: default;
     white-space: nowrap;
 
     font-family: 'Work Sans';

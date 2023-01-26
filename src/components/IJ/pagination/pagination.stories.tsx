@@ -61,6 +61,7 @@ withChildren.args = {
                 textViewMoreButton='Ver mais'
                 typeThumbContent='video'
                 onClickThumb={() => alert('clicado!')}
+                style= {{width: 375}}
             />
             <ThumbListContent 
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.' 
@@ -69,6 +70,7 @@ withChildren.args = {
                 textViewMoreButton='Ver mais'
                 typeThumbContent='video'
                 onClickThumb={() => alert('clicado!')}
+                style= {{width: 375}}
             />
             <ThumbListContent 
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.' 
@@ -77,6 +79,7 @@ withChildren.args = {
                 textViewMoreButton='Ver mais'
                 typeThumbContent='video'
                 onClickThumb={() => alert('clicado!')}
+                style= {{width: 375}}
             />
             <ThumbListContent 
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.' 
@@ -85,6 +88,7 @@ withChildren.args = {
                 textViewMoreButton='Ver mais'
                 typeThumbContent='video'
                 onClickThumb={() => alert('clicado!')}
+                style= {{width: 375}}
             />
             <ThumbListContent 
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.' 
@@ -93,6 +97,7 @@ withChildren.args = {
                 textViewMoreButton='Ver mais'
                 typeThumbContent='video'
                 onClickThumb={() => alert('clicado!')}
+                style= {{width: 375}}
             />
             <ThumbListContent 
                 description='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.' 
@@ -101,6 +106,7 @@ withChildren.args = {
                 textViewMoreButton='Ver mais'
                 typeThumbContent='video'
                 onClickThumb={() => alert('clicado!')}
+                style= {{width: 375}}
             />
         </>
 }

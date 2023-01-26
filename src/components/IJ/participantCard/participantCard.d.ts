@@ -16,6 +16,7 @@ export interface ParticipantCardI {
         area: 'Área',
         position: 'Cargo',
     },
+    successfullInvite ?: boolean
     style: React.CSSProperties
     handleSendInvitation?: (id: any) => void;
     handleClickRemove?: (id: any) => void;
