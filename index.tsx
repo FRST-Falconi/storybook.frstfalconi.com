@@ -135,3 +135,6 @@ export { default as Pagination } from './src/components/IJ/pagination'
 export { default as ThumbListContent } from './src/components/IJ/thumbListContent'
 export { default as ListSelector } from './src/components/IJ/listSelector'
 export { default as ParticipantCard} from './src/components/IJ/participantCard'
+
+// TP
+export { default as BannerChallenge } from './src/components/bannerChallenge'
