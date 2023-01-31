@@ -137,4 +137,4 @@ export { default as ListSelector } from './src/components/IJ/listSelector'
 export { default as ParticipantCard} from './src/components/IJ/participantCard'
 
 // TP
-export { default as BannerChallenge } from './src/components/bannerChallenge'
+export { default as HeaderChallenge } from './src/components/headerChallenge'
