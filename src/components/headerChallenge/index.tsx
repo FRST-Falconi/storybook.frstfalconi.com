@@ -2,13 +2,14 @@ import '../../shared/global.css'
 import * as Styles from './headerChallengeStyle'
 
 interface HeaderChallengeProps {
-    label?: string,
+    firstLine?: string,
+    secondLine?: string,
 }
 
-export default function HeaderChallenge({ label }: HeaderChallengeProps) {
+export default function HeaderChallenge({ firstLine, secondLine }: HeaderChallengeProps) {
     return (
         <Styles.Div>
-            <h1>{label}</h1>
+            <h1>{firstLine}<br />{secondLine}</h1>
         </Styles.Div>
     );
 }
