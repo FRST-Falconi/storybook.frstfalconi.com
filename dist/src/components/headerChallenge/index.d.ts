@@ -1,8 +1,9 @@
 /// <reference types="react" />
 import '../../shared/global.css';
 interface HeaderChallengeProps {
-    label?: string;
+    firstLine?: string;
+    secondLine?: string;
 }
-export default function HeaderChallenge({ label }: HeaderChallengeProps): JSX.Element;
+export default function HeaderChallenge({ firstLine, secondLine }: HeaderChallengeProps): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

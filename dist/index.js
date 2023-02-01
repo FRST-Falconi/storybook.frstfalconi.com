@@ -11087,7 +11087,6 @@ const Div = styled__default["default"].div `
         font-size: 3.25rem;
         line-height: 67.6px;
         font-weight: 700;
-        max-width: 706px;
         background-image: linear-gradient(to right, rgb(255, 98, 0), rgb(255, 176, 0));
         background: linear-gradient(-45deg, rgb(255, 98, 0), rgb(255, 176, 0), rgb(255, 98, 0), rgb(255, 176, 0));
 	    background-size: 400% 400%;
@@ -11106,15 +11105,21 @@ const Div = styled__default["default"].div `
             }
         }
     }
-    @media (max-width: 1850px) {
-        background-position: bottom 0px right -220px; 
+    @media (max-width: 1880px) {
+        background-position: bottom 0px right -220px;
+        h1 {
+            font-size: 3.0rem;
+            line-height: 60px;
+            }
+      
     }
     @media (max-width: 1650px) {
-        padding: 50px 50px 50px 100px;
+        padding: 50px 50px 50px 130px;
+        background-position: bottom 0px right -280px; 
         h1 {
-            font-size: 2.5rem;
-            max-width: 541px;
-            line-height: 52px;
+            font-size: 2.4rem;
+         //   max-width: 580px;
+            line-height: 50px;
         }
     }
     @media (max-width: 1400px) {
@@ -11123,31 +11128,31 @@ const Div = styled__default["default"].div `
     @media (max-width: 1350px) {
         height: 250px;
         background-size:contain;
-        background-position: bottom 0px right -180px; 
+        background-position: bottom 0px right -220px; 
     }
-    @media (max-width: 1200px) {
+    @media (max-width: 1230px) {
         background-size:contain;
         background-position: bottom 0px right -200px; 
         h1 {
-           max-width: 380px;
+         //  max-width: 380px;
            font-size: 1.8rem;
            line-height: 36px;
         }
     }
-    @media (max-width: 1050px) {
+    @media (max-width: 1100px) {
         height: 150px;
         background-size:contain;
         background-position: bottom 0px right -130px;
     }
-    @media (max-width: 820px) {
+    @media (max-width: 860px) {
         background-position: bottom 0px right -130px;
         h1 {
            font-size: 1.4rem;
            line-height: 30px;
-           max-width: 320px;
+         //  max-width: 320px;
         }
     }
-    @media (max-width: 730px) {
+    @media (max-width: 750px) {
         background-image:  url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallengeMobile_bg.png');
         background-position: bottom 0px right 0px;
         
@@ -11157,23 +11162,26 @@ const Div = styled__default["default"].div `
            line-height: 31.2px;
         }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 520px) {
         padding: 10px;
         background-size:unset;
         height: 120px;
         h1 {
            max-width: 260px;
-           font-size: 18px;
+           font-size: 16px;
            line-height: 21.11px;
         }
     }
-    @media (max-width: 390px) {
+    @media (max-width: 410px) {
         background-position: bottom 0px right -20px;
     }
 `;
+// People who solve Challenges transform the game
+// Las personas que resuelven
+// desafíos trasnsforman el juego
 
-function HeaderChallenge({ label }) {
-    return (jsxRuntime.jsx(Div, { children: jsxRuntime.jsx("h1", { children: label }) }));
+function HeaderChallenge({ firstLine, secondLine }) {
+    return (jsxRuntime.jsx(Div, { children: jsxRuntime.jsxs("h1", { children: [firstLine, jsxRuntime.jsx("br", {}), secondLine] }) }));
 }
 
 exports.AccordionTrackList = AccordionTrackList;
