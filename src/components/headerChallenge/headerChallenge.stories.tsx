@@ -12,6 +12,7 @@ const Template = (args) => <HeaderChallenge {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    label: 'Gente que soluciona desafios transforma o jogo',
+    firstLine: 'Gente que soluciona',
+    secondLine: 'desafios transforma o jogo',
 }
 
