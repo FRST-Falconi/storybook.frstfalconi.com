@@ -11105,6 +11105,7 @@ const Div = styled__default["default"].div `
             }
         }
     }
+
     @media (max-width: 1880px) {
         background-position: bottom 0px right -220px;
         h1 {
@@ -11118,7 +11119,6 @@ const Div = styled__default["default"].div `
         background-position: bottom 0px right -280px; 
         h1 {
             font-size: 2.4rem;
-         //   max-width: 580px;
             line-height: 50px;
         }
     }
@@ -11134,25 +11134,28 @@ const Div = styled__default["default"].div `
         background-size:contain;
         background-position: bottom 0px right -200px; 
         h1 {
-         //  max-width: 380px;
+      
            font-size: 1.8rem;
            line-height: 36px;
         }
     }
     @media (max-width: 1100px) {
+
         height: 150px;
         background-size:contain;
         background-position: bottom 0px right -130px;
     }
+
     @media (max-width: 860px) {
+
         background-position: bottom 0px right -130px;
         h1 {
            font-size: 1.4rem;
            line-height: 30px;
-         //  max-width: 320px;
         }
     }
     @media (max-width: 750px) {
+
         background-image:  url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallengeMobile_bg.png');
         background-position: bottom 0px right 0px;
         
@@ -11162,12 +11165,15 @@ const Div = styled__default["default"].div `
            line-height: 31.2px;
         }
     }
+
     @media (max-width: 520px) {
+
         padding: 10px;
         background-size:unset;
         height: 120px;
         h1 {
            max-width: 260px;
+
            font-size: 16px;
            line-height: 21.11px;
         }
@@ -11176,9 +11182,7 @@ const Div = styled__default["default"].div `
         background-position: bottom 0px right -20px;
     }
 `;
-// People who solve Challenges transform the game
-// Las personas que resuelven
-// desafíos trasnsforman el juego
+
 
 function HeaderChallenge({ firstLine, secondLine }) {
     return (jsxRuntime.jsx(Div, { children: jsxRuntime.jsxs("h1", { children: [firstLine, jsxRuntime.jsx("br", {}), secondLine] }) }));
