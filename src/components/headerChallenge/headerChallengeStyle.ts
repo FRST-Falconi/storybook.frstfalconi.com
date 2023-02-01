@@ -46,7 +46,6 @@ export const Div = styled.div<any>`
         background-position: bottom 0px right -280px; 
         h1 {
             font-size: 2.4rem;
-         //   max-width: 580px;
             line-height: 50px;
         }
     }
@@ -62,7 +61,6 @@ export const Div = styled.div<any>`
         background-size:contain;
         background-position: bottom 0px right -200px; 
         h1 {
-         //  max-width: 380px;
            font-size: 1.8rem;
            line-height: 36px;
         }
@@ -77,7 +75,6 @@ export const Div = styled.div<any>`
         h1 {
            font-size: 1.4rem;
            line-height: 30px;
-         //  max-width: 320px;
         }
     }
     @media (max-width: 750px) {
@@ -104,9 +101,3 @@ export const Div = styled.div<any>`
         background-position: bottom 0px right -20px;
     }
 `;
-
-
-
-// People who solve Challenges transform the game
-// Las personas que resuelven
-// desafíos trasnsforman el juego
