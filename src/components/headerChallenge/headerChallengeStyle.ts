@@ -8,7 +8,7 @@ export const Div = styled.div<any>`
     background-color: #fff;
     padding: 50px 50px 50px 124px;
     margin: 0;
-    background-image: url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallenge_bg.png');
+    background-image: ${props => `url(${props.desktopBackgroundProps})`};
     background-position: bottom 0px right 0px; 
     background-repeat: no-repeat;
     h1 {
@@ -78,9 +78,8 @@ export const Div = styled.div<any>`
         }
     }
     @media (max-width: 750px) {
-        background-image:  url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallengeMobile_bg.png');
+        background-image:  ${props => `url(${props.mobileBackgroundProps})`};
         background-position: bottom 0px right 0px;
-        
         h1 {
            max-width: 345px;
            font-size: 1.5rem;

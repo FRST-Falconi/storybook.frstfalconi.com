@@ -11080,7 +11080,7 @@ const Div = styled__default["default"].div `
     background-color: #fff;
     padding: 50px 50px 50px 124px;
     margin: 0;
-    background-image: url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallenge_bg.png');
+    background-image: ${props => `url(${props.desktopBackgroundProps})`};
     background-position: bottom 0px right 0px; 
     background-repeat: no-repeat;
     h1 {
@@ -11105,7 +11105,6 @@ const Div = styled__default["default"].div `
             }
         }
     }
-
     @media (max-width: 1880px) {
         background-position: bottom 0px right -220px;
         h1 {
@@ -11134,20 +11133,16 @@ const Div = styled__default["default"].div `
         background-size:contain;
         background-position: bottom 0px right -200px; 
         h1 {
-      
            font-size: 1.8rem;
            line-height: 36px;
         }
     }
     @media (max-width: 1100px) {
-
         height: 150px;
         background-size:contain;
         background-position: bottom 0px right -130px;
     }
-
     @media (max-width: 860px) {
-
         background-position: bottom 0px right -130px;
         h1 {
            font-size: 1.4rem;
@@ -11155,25 +11150,20 @@ const Div = styled__default["default"].div `
         }
     }
     @media (max-width: 750px) {
-
-        background-image:  url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallengeMobile_bg.png');
+        background-image:  ${props => `url(${props.mobileBackgroundProps})`};
         background-position: bottom 0px right 0px;
-        
         h1 {
            max-width: 345px;
            font-size: 1.5rem;
            line-height: 31.2px;
         }
     }
-
     @media (max-width: 520px) {
-
         padding: 10px;
         background-size:unset;
         height: 120px;
         h1 {
            max-width: 260px;
-
            font-size: 16px;
            line-height: 21.11px;
         }
@@ -11183,9 +11173,8 @@ const Div = styled__default["default"].div `
     }
 `;
 
-
-function HeaderChallenge({ firstLine, secondLine }) {
-    return (jsxRuntime.jsx(Div, { children: jsxRuntime.jsxs("h1", { children: [firstLine, jsxRuntime.jsx("br", {}), secondLine] }) }));
+function HeaderChallenge({ firstLine, secondLine, desktopBackground, mobileBackground }) {
+    return (jsxRuntime.jsx(Div, { desktopBackgroundProps: desktopBackground, mobileBackgroundProps: mobileBackground, children: jsxRuntime.jsxs("h1", { children: [firstLine, jsxRuntime.jsx("br", {}), " ", secondLine] }) }));
 }
 
 exports.AccordionTrackList = AccordionTrackList;
