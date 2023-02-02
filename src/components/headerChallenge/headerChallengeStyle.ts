@@ -18,7 +18,7 @@ export const Div = styled.div<any>`
         background-image: linear-gradient(to right, rgb(255, 98, 0), rgb(255, 176, 0));
         background: linear-gradient(-45deg, rgb(255, 98, 0), rgb(255, 176, 0), rgb(255, 98, 0), rgb(255, 176, 0));
 	    background-size: 400% 400%;
-	    animation: gradient 15s ease infinite;
+	    animation: gradient 10s ease infinite;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         @keyframes gradient {
@@ -39,7 +39,6 @@ export const Div = styled.div<any>`
             font-size: 3.0rem;
             line-height: 60px;
             }
-      
     }
     @media (max-width: 1650px) {
         padding: 50px 50px 50px 130px;
