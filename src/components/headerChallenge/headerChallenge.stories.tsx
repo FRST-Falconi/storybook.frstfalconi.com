@@ -14,5 +14,7 @@ export const normal = Template.bind({})
 normal.args = {
     firstLine: 'Gente que soluciona',
     secondLine: 'desafios transforma o jogo',
+    desktopBackground: 'https://cdn-images.dev.frstfalconi.cloud/headerChallenge_bg.png',
+    mobileBackground: 'https://cdn-images.dev.frstfalconi.cloud/headerChallengeMobile_bg.png',
 }
 

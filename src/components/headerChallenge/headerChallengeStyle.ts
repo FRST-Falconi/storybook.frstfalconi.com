@@ -8,7 +8,7 @@ export const Div = styled.div<any>`
     background-color: #fff;
     padding: 50px 50px 50px 124px;
     margin: 0;
-    background-image: url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallenge_bg.png');
+    background-image: ${props => `url(${props.desktopBackgroundProps})`};
     background-position: bottom 0px right 0px; 
     background-repeat: no-repeat;
     h1 {
@@ -18,7 +18,7 @@ export const Div = styled.div<any>`
         background-image: linear-gradient(to right, rgb(255, 98, 0), rgb(255, 176, 0));
         background: linear-gradient(-45deg, rgb(255, 98, 0), rgb(255, 176, 0), rgb(255, 98, 0), rgb(255, 176, 0));
 	    background-size: 400% 400%;
-	    animation: gradient 15s ease infinite;
+	    animation: gradient 10s ease infinite;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         @keyframes gradient {
@@ -39,7 +39,6 @@ export const Div = styled.div<any>`
             font-size: 3.0rem;
             line-height: 60px;
             }
-      
     }
     @media (max-width: 1650px) {
         padding: 50px 50px 50px 130px;
@@ -78,9 +77,8 @@ export const Div = styled.div<any>`
         }
     }
     @media (max-width: 750px) {
-        background-image:  url('https://frst-imagens-cdn.dev.frstfalconi.cloud/headerChallengeMobile_bg.png');
+        background-image:  ${props => `url(${props.mobileBackgroundProps})`};
         background-position: bottom 0px right 0px;
-        
         h1 {
            max-width: 345px;
            font-size: 1.5rem;
