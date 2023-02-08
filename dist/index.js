@@ -6825,7 +6825,9 @@ const notificationContainer = styled__default["default"].div `
     overflow: hidden;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary} !important;
-    
+    & > div:nth-child(2) > div:nth-child(3) {
+        display: none !important;
+    }
 `;
 const notificationContainerMobile = styled__default["default"].div `
     display: flex;
