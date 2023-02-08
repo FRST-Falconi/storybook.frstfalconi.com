@@ -1,4 +1,5 @@
 import Avatar from '@components/avatar'
+import Markdown from 'markdown-to-jsx'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './notificationCardStyles'
@@ -35,7 +36,9 @@ export default function NotificationCard ( props : INotificationCard ) {
                 <Avatar src={props.notificationAvatar} size='40px' />
                 <Styles.notificationInfo>    
                     <Styles.notificationDescription>
-                        {props.notificationDescription}
+                        <Markdown>
+                            {props.notificationDescription}
+                        </Markdown>
                     </Styles.notificationDescription>
                     {props.isNewNotification ?
                         <Styles.notificationDate>
