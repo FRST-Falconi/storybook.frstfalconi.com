@@ -92,6 +92,11 @@ export default function GlobalMenu({
     }
 
 
+    const handleCloseNotification = () => {
+        setOpenNotification(!openNotification)
+        setOpenNotificationMobile(!openNotificationMobile)
+    }
+
     const handleOpenNotification = (event) => {
             setOpenNotification(!openNotification)
             setOpenNotificationMobile(!openNotificationMobile)
@@ -344,7 +349,7 @@ export default function GlobalMenu({
                                                 isMobile={false}
                                                 setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                                                 textBack={notification.textBack}
-                                                handleClickBack={notification.handleClickBack}
+                                                handleClickBack={() => handleCloseNotification()}
                                             />
                                         </Styles.WrapperIconNotification>
                                         
@@ -364,7 +369,7 @@ export default function GlobalMenu({
                                                     isMobile={false}
                                                     setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                                                     textBack={notification.textBack}
-                                                    handleClickBack={notification.handleClickBack}
+                                                    handleClickBack={() => handleCloseNotification()}
                                                 />
                                                 : null
                                             }
@@ -426,7 +431,7 @@ export default function GlobalMenu({
                                 isMobile={true}
                                 setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                                 textBack={notification.textBack}
-                                handleClickBack={notification.handleClickBack}
+                                handleClickBack={() => handleCloseNotification()}
                             />
                             : null
                         }
