@@ -1,4 +1,14 @@
 import styled from "styled-components"
+import { Box, Popover } from '@mui/material'
+
+export const PopoverCustom = styled(Popover)`
+    & > div:nth-child(3) {
+        border-radius: 7px !important;
+        box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.37) !important;
+        -webkit-box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.47);
+        -moz-box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.47);
+    }
+`
 
 export const notificationContainer = styled.div`
     display: flex;
@@ -6,10 +16,12 @@ export const notificationContainer = styled.div`
     align-items: flex-start;
     flex-direction: column;
     border-radius: 8px;
-    width: 375px;
+    width: 376px;
     height: 412px;
     overflow: hidden;
     background-color: ${({theme}) => theme.colors.shadeWhite};
+    border: 1px solid ${({theme}) => theme.colors.borderPrimary} !important;
+    
 `
 
 export const notificationContainerMobile = styled.div`
@@ -22,6 +34,11 @@ export const notificationContainerMobile = styled.div`
     overflow: hidden;
     border-top: 1px solid ${({theme}) => theme.colors.borderPrimary};
     background-color: ${({theme}) => theme.colors.shadeWhite};
+
+    & > div:nth-child(2) {
+        max-height: 80vh !important;
+        overflow-y: scroll !important;
+    }
 `
 
 export const notificationHeader = styled.div`

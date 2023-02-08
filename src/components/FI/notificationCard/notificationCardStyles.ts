@@ -14,10 +14,10 @@ export const notificationContainer = styled.div`
 
 export const notificationInfo = styled.div`
     display: flex;
-    justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-
+    justify-content: space-between;
+    height: 100%;
 `
 
 export const notificationDescription = styled.div`

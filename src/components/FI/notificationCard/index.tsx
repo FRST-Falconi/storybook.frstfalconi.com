@@ -1,5 +1,6 @@
 import Avatar from '@components/avatar'
 import Markdown from 'markdown-to-jsx'
+import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './notificationCardStyles'
@@ -25,6 +26,12 @@ const Divider = () => {
 }
 
 export default function NotificationCard ( props : INotificationCard ) {
+    const [descriptionNotification, setDescriptionNotification] = useState(props.notificationDescription);
+
+    useEffect(() => {
+        setDescriptionNotification(props.notificationDescription)
+    }, [props.notificationDescription])
+
     return (
         <ThemeProvider theme={FRSTTheme} >
             
@@ -37,7 +44,7 @@ export default function NotificationCard ( props : INotificationCard ) {
                 <Styles.notificationInfo>    
                     <Styles.notificationDescription>
                         <Markdown>
-                            {props.notificationDescription}
+                            {descriptionNotification}
                         </Markdown>
                     </Styles.notificationDescription>
                     {props.isNewNotification ?

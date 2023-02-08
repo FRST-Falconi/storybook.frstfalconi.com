@@ -55,10 +55,6 @@ export default function GlobalMenu({
     const [onAreaPopOver, setOnAreaPopOver] = useState(false);
     
     useEffect(() => {
-        console.log('area: ', onAreaPopOver)
-    }, [onAreaPopOver])
-
-    useEffect(() => {
         function updateSize() {
             setWindowSize([window.innerWidth, window.innerHeight]);
             setIsMobileVersion(window.innerWidth < 1200)
@@ -97,7 +93,6 @@ export default function GlobalMenu({
 
 
     const handleOpenNotification = (event) => {
-            console.log('1onAreaPopOver: ', onAreaPopOver)
             setOpenNotification(!openNotification)
             setOpenNotificationMobile(!openNotificationMobile)
             setAnchorNotification(event.currentTarget)
@@ -105,7 +100,6 @@ export default function GlobalMenu({
 
     const onClickNotification = (event) => {
         if(!!onAreaPopOver == false) {
-            console.log('2onAreaPopOver: ', onAreaPopOver)
             setOpenNotification(!openNotification)
             setOpenNotificationMobile(!openNotificationMobile)
             setAnchorNotification(event.currentTarget)
@@ -349,6 +343,8 @@ export default function GlobalMenu({
                                                 textNotification={notification.textNotification}
                                                 isMobile={false}
                                                 setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                textBack={notification.textBack}
+                                                handleClickBack={notification.handleClickBack}
                                             />
                                         </Styles.WrapperIconNotification>
                                         
@@ -367,6 +363,8 @@ export default function GlobalMenu({
                                                     textNotification={notification.textNotification}
                                                     isMobile={false}
                                                     setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                    textBack={notification.textBack}
+                                                    handleClickBack={notification.handleClickBack}
                                                 />
                                                 : null
                                             }
@@ -427,6 +425,8 @@ export default function GlobalMenu({
                                 textNotification={notification.textNotification}
                                 isMobile={true}
                                 setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                textBack={notification.textBack}
+                                handleClickBack={notification.handleClickBack}
                             />
                             : null
                         }
