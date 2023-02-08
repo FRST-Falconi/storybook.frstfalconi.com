@@ -9,6 +9,7 @@ declare type notificationCard = {
 };
 interface INotificationPopOver {
     notificationList?: Array<notificationCard>;
+    textBack: string;
     textNotification: string;
     textMarkAllAsRead: string;
     textEmptyState: string;
@@ -16,6 +17,8 @@ interface INotificationPopOver {
     anchor: any;
     isMobile: boolean;
     handleClickMarkRead: () => void;
+    setOnAreaPopOver?: (e: any) => void;
+    handleClickBack: () => void;
 }
 export default function NotificationPopOver(props: INotificationPopOver): JSX.Element;
 export {};
