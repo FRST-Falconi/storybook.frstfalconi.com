@@ -2,7 +2,7 @@ import Button from '@components/buttons'
 import TextField from '@components/form-elements/textfield'
 import { Modal, Box, Switch, Dialog, Popover } from '@mui/material'
 import { UploadIcon } from '@shared/icons'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import style from './bannerLxp.module.css'
 import { ChromePicker } from 'react-color'
 import PopOverLXP from '../popOverLXP-antigo'
@@ -35,7 +35,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   const [disableText, setDisableText] = useState(props.isDisabledTitle)
   const [titleText, setTitleText] = useState(props.title ? props.title : '')
   const [colorTitle, setColorTitle] = useState(props.titleColor ? props.titleColor : '#FFF')
-  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')  
+  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')
   const [backgroundImage, setBackgroundImage] = useState(props.bgSrc || '')
   const [fixImage, setFixImage] = useState(false)
   const [selectedFile, setSelectedFile] = useState({})
@@ -80,6 +80,22 @@ export default function BannerLxp(props: BannerLxpParams) {
     setBackgroundImage(props.bgSrc)
     return file
   }
+
+  useEffect(() => {
+    setBackgroundColor(props.bgColor)
+  }, [props.bgColor])
+
+  useEffect(() => {
+    setBackgroundImage(props.bgSrc)
+  }, [props.bgSrc])
+
+  useEffect(() => {
+    setTitleText(props.title)
+  }, [props.title])
+
+  useEffect(() => {
+    setColorTitle(props.titleColor)
+  }, [props.titleColor])
 
   return (
     <div
