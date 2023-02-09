@@ -64,13 +64,15 @@ normal.args = {
     showSearchField: true,
     search: {
         label: 'O que você busca?', 
-        onChange: (e) => alert(e), 
+        loading: false,
+        onFilter: (e) => console.log("Valor pesquisado", e), 
+        hasOptionSeeAll: true,
         seeAll: { label: 'Ver todos os resultados',      onClick:  () => alert('Ver todos') },
         listEntry: [
-            { id: '1', label: 'List Entry',  onClick: (e) => alert('List Entry 1') },
-            { id: '2', label: 'List Entry',  onClick: (e) => alert('List Entry 2') },
-            { id: '3', label: 'List Entry',  onClick: (e) => alert('List Entry 3') },
-            { id: '4', label: 'List Entry',  onClick: (e) => alert('List Entry 4') },
+            { id: '1', label: 'List Entry 1',  onClick: (e) => alert('List Entry 1') },
+            { id: '2', label: 'List Entry 2',  onClick: (e) => alert('List Entry 2') },
+            { id: '3', label: 'List Entry 3',  onClick: (e) => alert('List Entry 3') },
+            { id: '4', label: 'List Entry 4',  onClick: (e) => alert('List Entry 4') },
         ]
     },
     menu: [

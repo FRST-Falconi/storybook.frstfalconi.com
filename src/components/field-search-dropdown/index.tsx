@@ -30,13 +30,13 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     // Handle Open list results
 
     const handleFocusUp = () => {
-        console.log("Focus On")
+        
         setInputOnFocus(true)
         setIsOpenDrop(true)
         setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
     }
     const handleFocusDown = () => {
-        console.log("Focus Off")
+        
         setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput)
     }
