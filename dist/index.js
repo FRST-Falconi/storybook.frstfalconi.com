@@ -4482,7 +4482,7 @@ function ObjectiveStep({ description, number }) {
 const Wrapper$4 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
-    max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '375px'};
+    max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '400px'};
 `;
 const Title$3 = styled__default["default"].p `
     font-family: 'Work Sans';
@@ -4564,6 +4564,7 @@ const WrapperButtons = styled__default["default"].div `
     justify-content: space-between;
     width: 100%;
     margin-top: 45px;
+    gap: 16px;
 `;
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
