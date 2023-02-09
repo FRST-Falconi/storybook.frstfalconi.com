@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import '../../shared/global.css';
-declare type enumVariant = 'primary' | 'secondary' | 'link' | 'expandedPrimary' | 'expandedSecondary';
-declare type enumType = 'group' | null;
+type enumVariant = 'primary' | 'secondary' | 'link' | 'expandedPrimary' | 'expandedSecondary';
+type enumType = 'group' | null;
 interface buttonProps {
     variant?: enumVariant;
     label?: string;
