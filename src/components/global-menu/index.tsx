@@ -144,25 +144,27 @@ export default function GlobalMenu({
                                 </Styles.WrapperLogo>
                             }
                             <Styles.WrapperMenu style={{ height: '100%' }}>
-                                {!isMobileVersion && showSearchField && <FieldSearch
-                                    variant='LXP'
-                                    value={valueSearch}
-                                    
-                                    placeholder={search.label}
-                                    onFilter={search.onFilter}
-                                    loading={loadingSearch}
+                                {!isMobileVersion && showSearchField && 
+                                    <FieldSearch
+                                        variant='LXP'
+                                        value={valueSearch}
+                                        
+                                        placeholder={search.label}
+                                        onFilter={search.onFilter}
+                                        loading={loadingSearch}
 
-                                    setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                                        setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
-                                    listResults={valueListSearch}
-                                    isMobileVersion={isMobileVersion}
-                                    hasOptionSeeAll={search.hasOptionSeeAll}
-                                    seeAll={search.seeAll}
+                                        listResults={valueListSearch}
+                                        isMobileVersion={isMobileVersion}
+                                        hasOptionSeeAll={search.hasOptionSeeAll}
+                                        seeAll={search.seeAll}
 
-                                    style={{
-                                        width: isMobileVersion ? '190px' : '332px',
-                                    }}
-                                />}
+                                        style={{
+                                            width: isMobileVersion ? '190px' : '332px',
+                                        }}
+                                    />
+                                }
                                 <Styles.MenuContainer
                                     variant={variant}
                                     style={{
@@ -286,25 +288,28 @@ export default function GlobalMenu({
                                     </Styles.WrapperLogo>
                                 }
                                 <Styles.WrapperMenu style={{ height: '100%' }}>
-                                    {!isMobileVersion && showSearchField && <FieldSearch
-                                        variant='LXP'
-                                        value={valueSearch}
-                                        onFilter={search.onFilter}
-                                        placeholder={search.label}
-                                        
-                                        loading={loadingSearch}
+                                    {!isMobileVersion && showSearchField && 
+                                        <FieldSearch
+                                            variant='LXP'
+                                            value={valueSearch}
+                                            onFilter={search.onFilter}
+                                            onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                            placeholder={search.label}
+                                            
+                                            loading={loadingSearch}
 
-                                        setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                                            setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
-                                        listResults={valueListSearch}
-                                        isMobileVersion={isMobileVersion}
-                                        hasOptionSeeAll={search.hasOptionSeeAll}
-                                        seeAll={search.seeAll}
+                                            listResults={valueListSearch}
+                                            isMobileVersion={isMobileVersion}
+                                            hasOptionSeeAll={search.hasOptionSeeAll}
+                                            seeAll={search.seeAll}
 
-                                        style={{
-                                            width: isMobileVersion ? '190px' : '332px',
-                                        }}
-                                    />}
+                                            style={{
+                                                width: isMobileVersion ? '190px' : '332px',
+                                            }}
+                                        />
+                                    }
                                 </Styles.WrapperMenu>
                                 
                                 <Styles.WrapperRightInfo  >
@@ -312,6 +317,7 @@ export default function GlobalMenu({
                                     <FieldSearch
                                         variant='LXP'
                                         value={valueSearch}
+                                        onFilter={search.onFilter}
                                         onChange={(e) => handleChangeValueSearch(e.target.value)}
                                         placeholder={search.label}
                                         loading={loadingSearch}

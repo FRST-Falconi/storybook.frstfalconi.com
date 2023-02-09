@@ -26,10 +26,10 @@ normal.args = {
         {id: '4', label: 'List Entry 4', onClick: (e) => alert(e)}
     ],
     isMobileVersion: true,
-    hasOptionSeeAll: false, 
+    hasOptionSeeAll: true, 
     setFieldSearchIsOpen: (e) => console.log("setFieldSearchIsOpen", e), 
     fieldSearchIsOpen: false,
-    seeAll: {id: '9', label: 'Ver todos os resultados', onClick: (e) => alert(e)},
+    seeAll: {id: '9', label: 'Ver todos os resultados', onClick: () => alert("Ver todos!")},
     style: { width: '332px' },
     onFilter: (term) => console.log('Valor Pesquido', term)
 }
