@@ -5885,47 +5885,71 @@ function PopOver({ variant, children, element, onClosePopover }) {
 }
 
 const Container$7 = styled__default["default"].div `
-  display: flex;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 0.11fr 1fr;
   height: 120px;
   position: relative;
+  gap: 16px;
+  cursor: pointer;
+  box-sizing: border-box;
 `;
 const TextContainer = styled__default["default"].div `
   display: flex;
   flex-direction: column;
-  width: 100%;
+  position: relative;
 `;
-const Image$2 = styled__default["default"].img `
-  width: 88px;
-  height: 120px;
+const Image$2 = styled__default["default"].div `
   border-radius: 8px;
-  position: absolute;
-  left: 0;
-  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 `;
 const Title = styled__default["default"].text `
-  width: 650px;
-  margin-left: 102px;
+  
   margin-bottom: 12px;
   color: ${({ theme }) => theme.colors.linkOnfocus};
   font-size: 16px;
   font-weight: 700;
-  cursor: pointer;
 `;
 const Description = styled__default["default"].text `
-  width: 650px;
-  margin-left: 102px;
+  
   font-weight: 400;
   font-size: 16px;
-  color: #757575;
+  color: ${({ theme }) => theme.colors.neutralsGrey3};
   display: -webkit-box;
   -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
   -webkit-box-orient: vertical;
   overflow: hidden;
 `;
+const skillSets = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: -20px;
+  
+  font-family: 'PT Sans';
+  font-weight: 400;
+  font-size: 12px;
+  color: ${({ theme }) => theme.colors.neutralsGrey3};
+`;
+const skillTag = styled__default["default"].div `
+  display: flex;
+  border-radius: 4px;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+  background-color: ${({ theme }) => theme.colors.secondary1};
+  padding: 2px 4px;
+`;
 
-function SearchResults({ src, title, description, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { children: [jsxRuntime.jsx(Image$2, { src: src, onClick: onClick }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { onClick: onClick, children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] })] })] }) }));
+function SearchResults({ src, title, description, textSkills, skills, style, onClick }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$2, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
+                            jsxRuntime.jsxs(skillSets, { children: [textSkills, ":", skills.map(item => {
+                                        return (jsxRuntime.jsx(skillTag, { children: item }));
+                                    })] })
+                            : null] })] }) }));
 }
 
 const WrapperCard$3 = styled__default["default"].div `
@@ -6330,13 +6354,11 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     }, [openSearchFieldMobile]);
     // Handle Open list results
     const handleFocusUp = () => {
-        console.log("Focus On");
         setInputOnFocus(true);
         setIsOpenDrop(true);
         setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
     };
     const handleFocusDown = () => {
-        console.log("Focus Off");
         setInputOnFocus(false);
         setIsOpenDrop(actionAreaInput);
     };
@@ -6995,9 +7017,10 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, langua
                                 }, children: [isMobileVersion &&
                                         jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                         jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
-                                        jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                    width: isMobileVersion ? '190px' : '332px',
-                                                } }), jsxRuntime.jsx(MenuContainer, { variant: variant, style: {
+                                        jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && showSearchField &&
+                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                        width: isMobileVersion ? '190px' : '332px',
+                                                    } }), jsxRuntime.jsx(MenuContainer, { variant: variant, style: {
                                                     height: '100%',
                                                     paddingLeft: (windowSize[0] * 0.03) + 'px',
                                                     paddingRight: (windowSize[0] * 0.03) + 'px',
@@ -7029,10 +7052,11 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, langua
                                     }, children: [isMobileVersion &&
                                             jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                             jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
-                                            jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && showSearchField && jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, placeholder: search.label, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                    width: isMobileVersion ? '190px' : '332px',
-                                                } }) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion &&
-                                                    jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                            jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && showSearchField &&
+                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                        width: isMobileVersion ? '190px' : '332px',
+                                                    } }) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion &&
+                                                    jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                             width: isMobileVersion ? '180px' : '332px',
                                                             marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                                         } }), !isMobileVersion && notification &&
