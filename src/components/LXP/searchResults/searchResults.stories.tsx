@@ -16,5 +16,8 @@ normal.args = {
     title: 'Name of the course',
     onClick: () => {alert('click')},
     description: 'Description bacon ipsum dolor amet landjaeger pastrami pork belly flank shankle ground round. Chicken tri-tipalcatra, pastrami buffalo pork chop shoulder drumstick ham hock landjaeger. Short loin hamburger tri-tip,chuck flank pork cho',
+    textSkills: 'Competências',
+    skills: ['Liderança', 'Negociação'],
+    style: {background: '#e5e5e5'}
 }
 
