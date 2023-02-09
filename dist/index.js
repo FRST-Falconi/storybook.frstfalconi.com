@@ -5093,6 +5093,18 @@ function BannerLxp(props) {
         setBackgroundImage(props.bgSrc);
         return file;
     };
+    React.useEffect(() => {
+        setBackgroundColor(props.bgColor);
+    }, [props.bgColor]);
+    React.useEffect(() => {
+        setBackgroundImage(props.bgSrc);
+    }, [props.bgSrc]);
+    React.useEffect(() => {
+        setTitleText(props.title);
+    }, [props.title]);
+    React.useEffect(() => {
+        setColorTitle(props.titleColor);
+    }, [props.titleColor]);
     return (jsxRuntime.jsxs("div", { className: style$3.bannerContainer, style: {
             ...props.style,
             objectFit: fixImage ? 'fill' : 'none',
