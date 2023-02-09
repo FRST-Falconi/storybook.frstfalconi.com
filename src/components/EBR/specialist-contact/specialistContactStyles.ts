@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Wrapper = styled.div<{mobileVersion: boolean}>`
     display: flex;
     flex-direction: column;
-    max-width:  ${({mobileVersion})=> mobileVersion ? '343px': '375px'};
+    max-width:  ${({mobileVersion})=> mobileVersion ? '343px': '400px'};
 `
 
 export const Title = styled.p<{mobileVersion: boolean}>`
@@ -89,4 +89,5 @@ export const WrapperButtons = styled.div`
     justify-content: space-between;
     width: 100%;
     margin-top: 45px;
+    gap: 16px;
 `
