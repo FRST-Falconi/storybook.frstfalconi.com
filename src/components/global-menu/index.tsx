@@ -52,7 +52,8 @@ export default function GlobalMenu({
     const [openNotification, setOpenNotification] = useState(false);
     const [openNotificationMobile, setOpenNotificationMobile] = useState(false);
     const [anchorNotification, setAnchorNotification] = useState(null);
-
+    const [onAreaPopOver, setOnAreaPopOver] = useState(false);
+    
     useEffect(() => {
         function updateSize() {
             setWindowSize([window.innerWidth, window.innerHeight]);
@@ -90,10 +91,24 @@ export default function GlobalMenu({
         search.onChange(value)
     }
 
-    const onClickNotification = (event) => {
+
+    const handleCloseNotification = () => {
         setOpenNotification(!openNotification)
         setOpenNotificationMobile(!openNotificationMobile)
-        setAnchorNotification(event.currentTarget)
+    }
+
+    const handleOpenNotification = (event) => {
+            setOpenNotification(!openNotification)
+            setOpenNotificationMobile(!openNotificationMobile)
+            setAnchorNotification(event.currentTarget)
+    }
+
+    const onClickNotification = (event) => {
+        if(!!onAreaPopOver == false) {
+            setOpenNotification(!openNotification)
+            setOpenNotificationMobile(!openNotificationMobile)
+            setAnchorNotification(event.currentTarget)
+        }
     }
 
     const newNotification = notification.notificationList ? notification.notificationList.filter((notification) => notification.isNewNotification) : []
@@ -322,7 +337,13 @@ export default function GlobalMenu({
                                     />}
                                     {!isMobileVersion && notification &&
                                         <Styles.WrapperIconNotification onClick={onClickNotification}>
-                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null} &nbsp; {textNotification} </span>
+                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}} onClick={handleOpenNotification}>
+                                                <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
+                                                {newNotification.length ? 
+                                                <div style={{marginLeft:'-12px'}}> 
+                                                    <HasNotificationIcon/> 
+                                                </div> : null} &nbsp; {textNotification} 
+                                            </span>
                                             <NotificationPopOver 
                                                 handleClickMarkRead={notification.handleClickMarkRead}
                                                 isOpen={openNotification}
@@ -332,6 +353,9 @@ export default function GlobalMenu({
                                                 textMarkAllAsRead={notification.textMarkAllAsRead}
                                                 textNotification={notification.textNotification}
                                                 isMobile={false}
+                                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                textBack={notification.textBack}
+                                                handleClickBack={() => handleCloseNotification()}
                                             />
                                         </Styles.WrapperIconNotification>
                                         
@@ -349,6 +373,9 @@ export default function GlobalMenu({
                                                     textMarkAllAsRead={notification.textMarkAllAsRead}
                                                     textNotification={notification.textNotification}
                                                     isMobile={false}
+                                                    setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                    textBack={notification.textBack}
+                                                    handleClickBack={() => handleCloseNotification()}
                                                 />
                                                 : null
                                             }
@@ -408,6 +435,9 @@ export default function GlobalMenu({
                                 textMarkAllAsRead={notification.textMarkAllAsRead}
                                 textNotification={notification.textNotification}
                                 isMobile={true}
+                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                textBack={notification.textBack}
+                                handleClickBack={() => handleCloseNotification()}
                             />
                             : null
                         }

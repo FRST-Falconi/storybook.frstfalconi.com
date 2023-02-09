@@ -6,6 +6,7 @@ import NotificationCard from '../notificationCard'
 import * as Styles from './notificationPopOverStyles'
 import {Scrollbar} from 'react-scrollbars-custom'
 import { BackArrow } from '@shared/icons'
+import { useState } from 'react'
 
 type notificationCard ={
     notificationAvatar: string
@@ -19,7 +20,8 @@ type notificationCard ={
 }
 interface INotificationPopOver{
     notificationList?: Array<notificationCard>
-
+    
+    textBack: string
     textNotification: string
     textMarkAllAsRead: string
     textEmptyState: string
@@ -29,6 +31,8 @@ interface INotificationPopOver{
     isMobile: boolean
 
     handleClickMarkRead: () => void
+    setOnAreaPopOver?: (e) => void
+    handleClickBack: () => void
 }
 
 export default function NotificationPopOver ( props : INotificationPopOver ) {
@@ -41,7 +45,7 @@ export default function NotificationPopOver ( props : INotificationPopOver ) {
                 
                 <div style={{backgroundColor: '#E5E5E5'}}>
                     <div style={{padding: 16}}>
-                        <Button variant='link' startIcon={<BackArrow fill='currentColor' />} label={'Voltar'} handleClick={()=>alert('click!')} />
+                        <Button variant='link' startIcon={<BackArrow fill='currentColor' />} label={props.textBack} handleClick={() => props.handleClickBack()} />
                     </div>
                     <Styles.notificationContainerMobile>
                         <Styles.notificationHeader>
@@ -79,7 +83,8 @@ export default function NotificationPopOver ( props : INotificationPopOver ) {
                     </Styles.notificationContainerMobile>
                 </div>
                 :
-                <Popover open={props.isOpen}
+                <Styles.PopoverCustom 
+                    open={props.isOpen}
                     anchorEl={props.anchor}
                     anchorOrigin={{
                         vertical: 'bottom',
@@ -116,26 +121,37 @@ export default function NotificationPopOver ( props : INotificationPopOver ) {
                     />
 
                     <Styles.notificationContainer>
-                        <Styles.notificationHeader>
+                        <Styles.notificationHeader
+                            onMouseOver={() => props?.setOnAreaPopOver(true)}
+                            onMouseOut={() => props?.setOnAreaPopOver(false)}
+                        >
                             <span style={{fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1}}>{props.textNotification}</span>
                             <Button variant='link' label={props.textMarkAllAsRead} disabled={isNewNotification.length ? false : true} handleClick={props.handleClickMarkRead}  />
                         </Styles.notificationHeader>
                         {props.notificationList ?
-                            <Scrollbar allowTransparency removeTracksWhenNotUsed disableTracksWidthCompensation disableTracksMousewheelScrolling >
+                            //@ts-ignore
+                            <Scrollbar allowtransparency="true" removeTracksWhenNotUsed disableTracksWidthCompensation disableTracksMousewheelScrolling
+                                onMouseOver={() => props?.setOnAreaPopOver(true)}
+                                onMouseOut={() => props?.setOnAreaPopOver(false)}
+                            >
                             <Styles.notificationCardList>
                                 {
                                     props.notificationList.map((item, index) => {
                                         return(
-                                            <div style={{borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}`}} >
+                                            <div style={{borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}`}}                                            
+                                                    onMouseOver={() => props?.setOnAreaPopOver(true)}
+                                                    onMouseOut={() => props?.setOnAreaPopOver(false)}
+                                                    key = {index}
+                                                >
                                                 <NotificationCard
                                                     notificationAvatar = {item.notificationAvatar}
                                                     notificationDescription = {item.notificationDescription}
-                                                    notificationDate = {item.notificationDate} 
+                                                    notificationDate = {item.notificationDate}  
                                                     textNew = {item.textNew}
                                                     isNewNotification = {item.isNewNotification}
                                                     handleClick = {item.handleClick}
                                                     key = {index}
-                                                    />
+                                                />
                                             </div>
                                         )
                                     })
@@ -151,7 +167,7 @@ export default function NotificationPopOver ( props : INotificationPopOver ) {
                             </Styles.emptyState>
                         }
                     </Styles.notificationContainer>
-                </Popover>
+                </Styles.PopoverCustom >
             }
         </ThemeProvider>
     )
