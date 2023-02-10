@@ -175,13 +175,13 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                     <>
                                       <ThumbnailsDraggable
                                         key={`contentTrails${trailIndex}_course${courseTrailIndex}`}                                        
-                                        id={el.id.toString()}
+                                        id={el.course.id.toString()}
                                         isDisabled={trail.active === false ? false : el.course.active}
                                         index={courseTrailIndex}
                                         title={el.course.title}
                                         variant={'default'}
                                         handleClickCourse={() => {
-                                          props.handleEditCourse(el.id)
+                                          props.handleEditCourse(el.course.id)
                                         }}
                                         showSwitchIndividual={false}
                                         src={el.course.settings.cover_thumb_url}
@@ -189,9 +189,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                         txtAtivarCurso={props.txtAtivarCurso}
                                         txtCriarNovoCurso={props.txtCriarNovoCurso}
                                         handleClickPopOverEdit={() => {props.handlePopOverEdit(el.course.id)}}
-                                        handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
+                                        handleClickPopOverMove={() => {props.handlePopOverMove(el.course.id)}}
                                         handleClickPopOverDelete={() => {
-                                          props.handleDeleteCourseTrail(el.id)
+                                          props.handleDeleteCourseTrail(el.course.id)
                                         }}                                        
                                         txtPopOverEditContent={props.txtPopOverEditContent}
                                         txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
