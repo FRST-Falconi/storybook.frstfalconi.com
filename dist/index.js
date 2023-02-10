@@ -9995,7 +9995,7 @@ function FeedInteraction(props) {
         setCommentData('');
         setFocusComment(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { style: { ...props.style }, children: [props.qtdLikes || props.qtdComments ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { style: { ...props.style }, id: props.id, children: [props.qtdLikes || props.qtdComments ?
                     jsxRuntime.jsxs(infoContent, { children: [props.qtdLikes ?
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
                                 : null, props.qtdComments ?

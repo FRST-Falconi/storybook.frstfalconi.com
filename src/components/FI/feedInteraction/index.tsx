@@ -92,9 +92,10 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
         setFocusComment(false)
     }
 
+
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.Container style={{...props.style}}>
+            <Styles.Container style={{...props.style}} id={props.id}>
                 {props.qtdLikes || props.qtdComments ?
                     <Styles.infoContent>
                         {props.qtdLikes ?
