@@ -23,7 +23,7 @@ export declare const LabelTitleStepper: import("styled-components").StyledCompon
 export declare const ContainerStepper: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const CustomStepper: import("styled-components").StyledComponent<import("@mui/material/OverridableComponent").OverridableComponent<import("@mui/material/Stepper").StepperTypeMap<{}, "div">>, any, {}, never>;
 export declare const CustomStep: import("styled-components").StyledComponent<import("@mui/material/OverridableComponent").OverridableComponent<import("@mui/material/Step").StepTypeMap<{}, "div">>, any, {}, never>;
-export declare const BoxStepper: import("styled-components").StyledComponent<import("@mui/types").OverridableComponent<import("@mui/system").BoxTypeMap<{}, "div", import("@mui/material/styles").Theme>>, any, {}, never>;
+export declare const BoxStepper: import("styled-components").StyledComponent<import("@mui/material/OverridableComponent").OverridableComponent<import("@mui/material/Box").BoxTypeMap<{}, "div">>, any, {}, never>;
 export declare const LabelTimeMentoring: import("styled-components").StyledComponent<"label", any, {}, never>;
 export declare const BoxLabelTimeMentoring: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const LabelSchedule: import("styled-components").StyledComponent<"span", any, {}, never>;
