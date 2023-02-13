@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 interface ISearchField {
     isHover?: boolean,
-    isOnFocus?: boolean,
+    isOnFocus?: boolean,    
 }
 
 
