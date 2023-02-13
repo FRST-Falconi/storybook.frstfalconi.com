@@ -9,4 +9,5 @@ export interface ISearchField{
     textButton?: string,
     handleClickButton: () => void,
     className?: string,
+    handleKeyPress?: (e) => void,
 }
