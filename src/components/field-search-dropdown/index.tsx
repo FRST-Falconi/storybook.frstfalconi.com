@@ -32,7 +32,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const handleFocusUp = () => {
         
         setInputOnFocus(true)
-        setIsOpenDrop(true)
+        // setIsOpenDrop(true)
         setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
     }
     const handleFocusDown = () => {
@@ -85,12 +85,12 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                                 <TextItem isLastItem={true} style={{color: '#999'}}>{textLoading ? textLoading : 'Carregando...'}</TextItem>
                             </ItemResult>
                         </WrapperResults>
-                    :
+                    :   listResults && listResults.length > 0 &&
                         <WrapperResults style={{...style, marginTop: 8}} isVisibleResults={isOpenDrop}
                             onMouseOver={() => setActionAreaInput(true)}
                             onMouseOut={() => setActionAreaInput(false)}
                         >
-                            { listResults && listResults.map((item, index) => {
+                            { listResults.map((item, index) => {
                                 return <ItemResult 
                                     key={item.id} 
                                     onClick={() => {
@@ -101,7 +101,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                                     <TextItem isLastItem={false && !hasOptionSeeAll}>{item.label}</TextItem>
                                 </ItemResult>
                             })}
-                            { hasOptionSeeAll && 
+                            { hasOptionSeeAll && listResults.length > 0 &&
                                 <ItemSeeAll
                                     onClick={(e) => { 
                                         setIsOpenDrop(false)

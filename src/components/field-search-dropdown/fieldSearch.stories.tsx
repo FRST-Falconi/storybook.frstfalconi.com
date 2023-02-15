@@ -25,7 +25,7 @@ normal.args = {
         {id: '3', label: 'List Entry 3', onClick: (e) => alert(e)},
         {id: '4', label: 'List Entry 4', onClick: (e) => alert(e)}
     ],
-    isMobileVersion: true,
+    isMobileVersion: false,
     hasOptionSeeAll: true, 
     setFieldSearchIsOpen: (e) => console.log("setFieldSearchIsOpen", e), 
     fieldSearchIsOpen: false,
