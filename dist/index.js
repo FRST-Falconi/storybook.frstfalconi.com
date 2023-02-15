@@ -6336,7 +6336,7 @@ const ItemSeeAll = styled__default["default"].div `
         width: 100%;
         display: flex;
         justify-content: center;   
-        align-item: center;
+        align-items: center;
         text-align: center;
 
         cursor: pointer;
@@ -6372,7 +6372,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     // Handle Open list results
     const handleFocusUp = () => {
         setInputOnFocus(true);
-        setIsOpenDrop(true);
+        // setIsOpenDrop(true)
         setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
     };
     const handleFocusDown = () => {
@@ -6393,12 +6393,12 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                     }, disabled: loading, value: ValueSearch })] }), Loading ?
                             jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
                             :
-                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.map((item, index) => {
+                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.length > 0 && listResults.map((item, index) => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
                                                 }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id);
-                                        }), hasOptionSeeAll &&
+                                        }), hasOptionSeeAll && listResults.length > 0 &&
                                             jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
                                                     setIsOpenDrop(false);
                                                     return seeAll.onClick(e);
