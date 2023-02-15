@@ -85,12 +85,12 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                                 <TextItem isLastItem={true} style={{color: '#999'}}>{textLoading ? textLoading : 'Carregando...'}</TextItem>
                             </ItemResult>
                         </WrapperResults>
-                    :
+                    :   listResults && listResults.length > 0 &&
                         <WrapperResults style={{...style, marginTop: 8}} isVisibleResults={isOpenDrop}
                             onMouseOver={() => setActionAreaInput(true)}
                             onMouseOut={() => setActionAreaInput(false)}
                         >
-                            { listResults && listResults.length > 0 && listResults.map((item, index) => {
+                            { listResults.map((item, index) => {
                                 return <ItemResult 
                                     key={item.id} 
                                     onClick={() => {

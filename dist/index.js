@@ -6392,8 +6392,8 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                         setValueSearch(e.target.value);
                                     }, disabled: loading, value: ValueSearch })] }), Loading ?
                             jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
-                            :
-                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.length > 0 && listResults.map((item, index) => {
+                            : listResults && listResults.length > 0 &&
+                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults.map((item, index) => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
