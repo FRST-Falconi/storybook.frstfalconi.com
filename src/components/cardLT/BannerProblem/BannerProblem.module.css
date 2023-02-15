@@ -36,7 +36,6 @@
 
 @media(max-width: 880px){
   .description{
-    /* word-break: break-all; */
     word-wrap: break-word;
   }
 }
@@ -71,6 +70,7 @@ h3{
   font-size: 14px;
   line-height: 21px;
   margin: 0;
+  word-wrap: break-word;
 }
 
 .contentInput {
