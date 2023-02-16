@@ -41,6 +41,7 @@ export {
 // Base
 export { default as Tag } from './src/components/tag'
 export { default as BaseCard } from './src/components/cards/base'
+export { default as LanguagesDropdown } from './src/components/languages-dropdown'
 
 // CARDS
 export { default as UserCard } from './src/components/cards/user'

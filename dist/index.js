@@ -4,9 +4,9 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var jsxRuntime = require('react/jsx-runtime');
 var React = require('react');
+var styled = require('styled-components');
 var reactI18next = require('react-i18next');
 var material = require('@mui/material');
-var styled = require('styled-components');
 var Button$4 = require('@mui/material/Button');
 var Menu$1 = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
@@ -422,6 +422,317 @@ function Tag(props) {
 
 function EmptyCard(props) {
     return (jsxRuntime.jsx("div", { className: 'cardContent', style: { height: '100%' }, children: props.children }));
+}
+
+const DesignTokens = {
+    colors: {
+        borderPrimary: '#bdbdbd',
+        borderSecondary1: '#2ca92a',
+        borderSecondary2: '#ffd600',
+        borderSecondary3: '#6a3f86',
+        borderSecondary4: '#222222',
+        borderGray: '#E5E5E5',
+        linkDisabled: '#bdbdbd',
+        linkHover: '#0b0080',
+        linkOnfocus: '#0645ad',
+        linkPressed: '#663366',
+        linkError: '#923534',
+        inputError: '#ffe0e0',
+        inputSelect: '#9BB5DE',
+        selectItens: '#F7F9FC',
+        messageAlert1: '#ffc200',
+        messageAlert2: '#fef0d4',
+        messageError1: '#ea0000',
+        messageError2: '#ffe5e5',
+        messageSuccess1: '#2ca92a',
+        messageSuccess2: '#d1f6d1',
+        neutralsGrey1: '#222222',
+        neutralsGrey2: '#444444',
+        neutralsGrey3: '#757575',
+        neutralsGrey4: '#9c9c9c',
+        neutralsGrey5: '#bdbdbd',
+        neutralsGrey6: '#e0e0e0',
+        neutralsGrey7: '#ebebeb',
+        neutralsGrey8: '#ebeded',
+        neutralsGrey9: '#f2f2f2',
+        disabledLabelGray: '#D3D3D3',
+        primary1: '#ff4d0d',
+        primary2: '#ee4c15',
+        primary3: '#d14211',
+        secondary1: '#6a3f86',
+        secondary2: '#ffd600',
+        secondary5: '#a50000',
+        shadeWhite: '#ffffff',
+        shadeBlack: '#000000'
+    },
+    fonts: {
+        header1: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '34px',
+            letterSpacing: '-0.7px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
+        },
+        header2: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '20px',
+            letterSpacing: '-0.4px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
+        },
+        textMessageComponentsBodyBold: {
+            fontFamily: "'PT Sans', 'PTSans-Bold'",
+            fontSize: '16px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
+        },
+        textMessageComponentsBodyRegular: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '16px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageComponentsBodySmall: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '12px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageComponentsBodyTiny: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '10px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageComponentsCardTitle: {
+            fontFamily: "'Work Sans', 'WorkSansRoman-Medium'",
+            fontSize: '20px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 500,
+            color: 'black'
+        },
+        textMessageComponentsHero: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '40px',
+            letterSpacing: '0.4px',
+            lineHeight: '130%',
+            fontWeight: 700,
+            color: 'black'
+        }
+    },
+    global: {
+        shadowLevel_0: {
+            value: {
+                x: '0',
+                y: '0',
+                blur: '0',
+                spread: '0',
+                color: '#000000',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        shadowLevel_1: {
+            value: {
+                x: '0',
+                y: '18',
+                blur: '40',
+                spread: '-15',
+                color: 'D3D3D3',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        shadowLevel_2: {
+            value: {
+                x: '0',
+                y: '25',
+                blur: '30',
+                spread: '-15',
+                color: 'D3D3D3',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        shadowLevel_3: {
+            value: {
+                x: '0',
+                y: '35',
+                blur: '25',
+                spread: '15',
+                color: '#cccccc',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        border_width_small: {
+            value: '1px',
+            type: 'borderWidth'
+        },
+        border_width_medium: {
+            value: '2px',
+            type: 'borderWidth'
+        },
+        'border-width-large': {
+            value: '3',
+            type: 'borderWidth'
+        },
+        'border-radius-small': {
+            value: '4px',
+            type: 'borderRadius'
+        },
+        'border-radius-medium': {
+            value: '8px',
+            type: 'borderRadius'
+        },
+        'border-radius-large': {
+            value: '16px',
+            type: 'borderRadius'
+        },
+        'border-radius-xlarge': {
+            value: '24px',
+            type: 'borderRadius'
+        },
+        button_padding: {
+            value: '16px',
+            type: 'other'
+        },
+        card_padding_normal: {
+            value: '24px',
+            type: 'other'
+        },
+        card_padding_large: {
+            value: '32px',
+            type: 'other'
+        }
+    }
+};
+
+const FRSTTheme = {
+    ...DesignTokens,
+};
+
+styled__default["default"].button `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 0;
+    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+    border-top: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
+
+    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
+
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+
+
+    &:hover {
+        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
+        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
+        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
+    }
+
+    &:focus {
+        font-weight: 700;
+    }
+`;
+const Wrapper$4 = styled__default["default"].div `
+    width: 50px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    background: transparent;
+    border: 0;
+`;
+const Image$3 = styled__default["default"].img `
+    width: 50px;
+    user-select: none;
+    cursor: pointer;
+    object-fit: contain;
+`;
+const WrapperDrop = styled__default["default"].div `
+    user-select: none;
+    width: 50px;
+
+    position: absolute;
+    margin-top: 45px;
+    z-index: 10000;
+
+    border: 0;
+    display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
+    flex-direction: column;
+    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : '#F5792A'};
+`;
+
+function LanguagesDropdown({ variant, languages, selected, onSelect, style, distanceBtnDrop }) {
+    const imgES = 'https://i.gyazo.com/1cfa904ea1d492ace9dc67c2a37a10e4.png';
+    const imgBR = 'https://i.gyazo.com/ee7e65d12345200b8c3dd12670f85881.png';
+    const imgEN = 'https://i.gyazo.com/06a0ea969c48c12589d5d5565cf834df.png';
+    const imgPT = 'https://i.gyazo.com/cb567fc306928d02d31bc876df58be40.png';
+    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
+    const [activeArea, setActiveArea] = React.useState(false);
+    const [activeImgFlag, setActiveImgFlag] = React.useState(imgBR);
+    React.useEffect(() => {
+        switch (selected) {
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
+            case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
+        }
+    }, [selected]);
+    React.useEffect(() => {
+        const checksAnyClickOnScreen = () => {
+            if (isOpenDrop) {
+                document.body.removeEventListener("click", checksAnyClickOnScreen, false);
+                setIsOpenDrop(false);
+            }
+        };
+        if (isOpenDrop) {
+            (document.body.addEventListener("click", checksAnyClickOnScreen, false));
+        }
+    }, [isOpenDrop]);
+    const handleChangeSelect = (value) => {
+        onSelect(value);
+        switch (value) {
+            case 'pt-BR': return setActiveImgFlag(imgBR);
+            case 'en-US': return setActiveImgFlag(imgEN);
+            case 'es': return setActiveImgFlag(imgES);
+            case 'pt-PT': return setActiveImgFlag(imgPT);
+        }
+        setIsOpenDrop(false);
+        setActiveArea(false);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$4, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image$3, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
+                        return (jsxRuntime.jsx("div", { children: item == 'pt-BR' ?
+                                jsxRuntime.jsx(Image$3, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                : item == 'en-US' ?
+                                    jsxRuntime.jsx(Image$3, { onClick: () => handleChangeSelect('en-US'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                    : item == 'pt-PT' ?
+                                        jsxRuntime.jsx(Image$3, { onClick: () => handleChangeSelect('pt-PT'), src: imgPT, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
+                                        : item == 'es' &&
+                                            jsxRuntime.jsx(Image$3, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
+                    }) })] }) }));
 }
 
 /**
@@ -1121,205 +1432,6 @@ function MissionSteps(props) {
 var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
 var style$c = {"container":"avatarWithInfo-module_container__Y-yUf"};
 styleInject(css_248z$d);
-
-const DesignTokens = {
-    colors: {
-        borderPrimary: '#bdbdbd',
-        borderSecondary1: '#2ca92a',
-        borderSecondary2: '#ffd600',
-        borderSecondary3: '#6a3f86',
-        borderSecondary4: '#222222',
-        borderGray: '#E5E5E5',
-        linkDisabled: '#bdbdbd',
-        linkHover: '#0b0080',
-        linkOnfocus: '#0645ad',
-        linkPressed: '#663366',
-        linkError: '#923534',
-        inputError: '#ffe0e0',
-        inputSelect: '#9BB5DE',
-        selectItens: '#F7F9FC',
-        messageAlert1: '#ffc200',
-        messageAlert2: '#fef0d4',
-        messageError1: '#ea0000',
-        messageError2: '#ffe5e5',
-        messageSuccess1: '#2ca92a',
-        messageSuccess2: '#d1f6d1',
-        neutralsGrey1: '#222222',
-        neutralsGrey2: '#444444',
-        neutralsGrey3: '#757575',
-        neutralsGrey4: '#9c9c9c',
-        neutralsGrey5: '#bdbdbd',
-        neutralsGrey6: '#e0e0e0',
-        neutralsGrey7: '#ebebeb',
-        neutralsGrey8: '#ebeded',
-        neutralsGrey9: '#f2f2f2',
-        disabledLabelGray: '#D3D3D3',
-        primary1: '#ff4d0d',
-        primary2: '#ee4c15',
-        primary3: '#d14211',
-        secondary1: '#6a3f86',
-        secondary2: '#ffd600',
-        secondary5: '#a50000',
-        shadeWhite: '#ffffff',
-        shadeBlack: '#000000'
-    },
-    fonts: {
-        header1: {
-            fontFamily: "'Work Sans', 'WorkSans-Bold'",
-            fontSize: '34px',
-            letterSpacing: '-0.7px',
-            lineHeight: '100%',
-            fontWeight: 700,
-            color: 'black'
-        },
-        header2: {
-            fontFamily: "'Work Sans', 'WorkSans-Bold'",
-            fontSize: '20px',
-            letterSpacing: '-0.4px',
-            lineHeight: '100%',
-            fontWeight: 700,
-            color: 'black'
-        },
-        textMessageComponentsBodyBold: {
-            fontFamily: "'PT Sans', 'PTSans-Bold'",
-            fontSize: '16px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 700,
-            color: 'black'
-        },
-        textMessageComponentsBodyRegular: {
-            fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '16px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 400,
-            color: 'black'
-        },
-        textMessageComponentsBodySmall: {
-            fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '12px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 400,
-            color: 'black'
-        },
-        textMessageComponentsBodyTiny: {
-            fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '10px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 400,
-            color: 'black'
-        },
-        textMessageComponentsCardTitle: {
-            fontFamily: "'Work Sans', 'WorkSansRoman-Medium'",
-            fontSize: '20px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 500,
-            color: 'black'
-        },
-        textMessageComponentsHero: {
-            fontFamily: "'Work Sans', 'WorkSans-Bold'",
-            fontSize: '40px',
-            letterSpacing: '0.4px',
-            lineHeight: '130%',
-            fontWeight: 700,
-            color: 'black'
-        }
-    },
-    global: {
-        shadowLevel_0: {
-            value: {
-                x: '0',
-                y: '0',
-                blur: '0',
-                spread: '0',
-                color: '#000000',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        shadowLevel_1: {
-            value: {
-                x: '0',
-                y: '18',
-                blur: '40',
-                spread: '-15',
-                color: 'D3D3D3',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        shadowLevel_2: {
-            value: {
-                x: '0',
-                y: '25',
-                blur: '30',
-                spread: '-15',
-                color: 'D3D3D3',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        shadowLevel_3: {
-            value: {
-                x: '0',
-                y: '35',
-                blur: '25',
-                spread: '15',
-                color: '#cccccc',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        border_width_small: {
-            value: '1px',
-            type: 'borderWidth'
-        },
-        border_width_medium: {
-            value: '2px',
-            type: 'borderWidth'
-        },
-        'border-width-large': {
-            value: '3',
-            type: 'borderWidth'
-        },
-        'border-radius-small': {
-            value: '4px',
-            type: 'borderRadius'
-        },
-        'border-radius-medium': {
-            value: '8px',
-            type: 'borderRadius'
-        },
-        'border-radius-large': {
-            value: '16px',
-            type: 'borderRadius'
-        },
-        'border-radius-xlarge': {
-            value: '24px',
-            type: 'borderRadius'
-        },
-        button_padding: {
-            value: '16px',
-            type: 'other'
-        },
-        card_padding_normal: {
-            value: '24px',
-            type: 'other'
-        },
-        card_padding_large: {
-            value: '32px',
-            type: 'other'
-        }
-    }
-};
-
-const FRSTTheme = {
-    ...DesignTokens,
-};
 
 const AvatarImg$1 = styled__default["default"].img `
     width: ${props => props.size || '120px'};
@@ -4483,7 +4595,7 @@ function ObjectiveStep({ description, number }) {
     return (jsxRuntime.jsxs(WrapperCard$4, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
-const Wrapper$4 = styled__default["default"].div `
+const Wrapper$3 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '400px'};
@@ -4573,7 +4685,7 @@ const WrapperButtons = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$4, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$3, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$3, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$3, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -4682,7 +4794,7 @@ function TotalizerCard({ objectStatistics, loading, hasShadow, styles }) {
                                                 }, children: renderObjectStatistics(false) }) }) }));
 }
 
-const Wrapper$3 = styled__default["default"].div `
+const Wrapper$2 = styled__default["default"].div `
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -4749,7 +4861,7 @@ function TrailList({ title, trails, style }) {
     React.useEffect(() => {
         setTrailsList(trails);
     }, [trails]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$3, { style: { ...style }, children: [jsxRuntime.jsx(Title$2, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { style: { ...style }, children: [jsxRuntime.jsx(Title$2, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
                         jsxRuntime.jsx("div", { style: {
                                 display: 'flex',
                                 flexDirection: 'column'
@@ -5370,7 +5482,7 @@ const Container$8 = styled__default["default"].div `
     align-items: center; 
     position: relative;
 `;
-const Image$3 = styled__default["default"].img `
+const Image$2 = styled__default["default"].img `
     width: 232px;
     height: 310px;
     margin-bottom: 45px;
@@ -5584,7 +5696,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
                         return (jsxRuntime.jsx(reactBeautifulDnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), iconList[item.type], jsxRuntime.jsx(Title$1, { onClick: handleClick, children: item.title }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: removeContentList, children: jsxRuntime.jsx(TrashIcon, { fill: '#FF4D0D' }) })] })) }, index));
                     }) })) }) }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$8, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$8, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$2, { src: src || defaultImg }), jsxRuntime.jsxs(Content, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
 }
 
 const LandscapeContainer = styled__default["default"].label `
@@ -5915,7 +6027,7 @@ const TextContainer = styled__default["default"].div `
   flex-direction: column;
   position: relative;
 `;
-const Image$2 = styled__default["default"].div `
+const Image$1 = styled__default["default"].div `
   border-radius: 8px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5962,7 +6074,7 @@ const skillTag = styled__default["default"].div `
 `;
 
 function SearchResults({ src, title, description, textSkills, skills, style, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$2, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$1, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
                             jsxRuntime.jsxs(skillSets, { children: [textSkills, ":", skills.map(item => {
                                         return (jsxRuntime.jsx(skillTag, { children: item }));
                                     })] })
@@ -6407,7 +6519,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                     jsxRuntime.jsx(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
 }
 
-const Wrapper$2 = styled__default["default"].button `
+const Wrapper$1 = styled__default["default"].button `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6478,119 +6590,7 @@ styled__default["default"].button `
 `;
 
 function ItemGlobalMenu({ variant, type, label, onClick, wrapText, pressed, style }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Wrapper$2, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: (e) => onClick(e), children: label }) }));
-}
-
-styled__default["default"].button `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 0;
-    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
-    border-top: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
-
-    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
-
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #FFFFFF;
-
-
-    &:hover {
-        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
-        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
-        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
-    }
-
-    &:focus {
-        font-weight: 700;
-    }
-`;
-const Wrapper$1 = styled__default["default"].div `
-    width: 50px;
-    object-fit: contain;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    background: transparent;
-    border: 0;
-`;
-const Image$1 = styled__default["default"].img `
-    width: 50px;
-    user-select: none;
-    cursor: pointer;
-    object-fit: contain;
-`;
-const WrapperDrop = styled__default["default"].div `
-    user-select: none;
-    width: 50px;
-
-    position: absolute;
-    margin-top: 45px;
-    z-index: 10000;
-
-    border: 0;
-    display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
-    flex-direction: column;
-    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : '#F5792A'};
-`;
-
-function LanguagesDropdown({ variant, languages, selected, onSelect, style, distanceBtnDrop }) {
-    const imgES = 'https://i.gyazo.com/1cfa904ea1d492ace9dc67c2a37a10e4.png';
-    const imgBR = 'https://i.gyazo.com/ee7e65d12345200b8c3dd12670f85881.png';
-    const imgEN = 'https://i.gyazo.com/06a0ea969c48c12589d5d5565cf834df.png';
-    const imgPT = 'https://i.gyazo.com/cb567fc306928d02d31bc876df58be40.png';
-    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
-    const [activeArea, setActiveArea] = React.useState(false);
-    const [activeImgFlag, setActiveImgFlag] = React.useState(imgBR);
-    React.useEffect(() => {
-        switch (selected) {
-            case 'pt-BR': return setActiveImgFlag(imgBR);
-            case 'en-US': return setActiveImgFlag(imgEN);
-            case 'es': return setActiveImgFlag(imgES);
-            case 'pt-PT': return setActiveImgFlag(imgPT);
-        }
-    }, [selected]);
-    React.useEffect(() => {
-        const checksAnyClickOnScreen = () => {
-            if (isOpenDrop) {
-                document.body.removeEventListener("click", checksAnyClickOnScreen, false);
-                setIsOpenDrop(false);
-            }
-        };
-        if (isOpenDrop) {
-            (document.body.addEventListener("click", checksAnyClickOnScreen, false));
-        }
-    }, [isOpenDrop]);
-    const handleChangeSelect = (value) => {
-        onSelect(value);
-        switch (value) {
-            case 'pt-BR': return setActiveImgFlag(imgBR);
-            case 'en-US': return setActiveImgFlag(imgEN);
-            case 'es': return setActiveImgFlag(imgES);
-            case 'pt-PT': return setActiveImgFlag(imgPT);
-        }
-        setIsOpenDrop(false);
-        setActiveArea(false);
-    };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image$1, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
-                        return (jsxRuntime.jsx("div", { children: item == 'pt-BR' ?
-                                jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                : item == 'en-US' ?
-                                    jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('en-US'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                    : item == 'pt-PT' ?
-                                        jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('pt-PT'), src: imgPT, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                        : item == 'es' &&
-                                            jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
-                    }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Wrapper$1, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: (e) => onClick(e), children: label }) }));
 }
 
 const Container$5 = styled__default["default"].div `
@@ -11304,6 +11304,7 @@ exports.InputComment = InputComment;
 exports.InstagramIcon = InstagramIcon;
 exports.LampFilledIcon = LampFilledIcon;
 exports.LampLineIcon = LampLineIcon;
+exports.LanguagesDropdown = LanguagesDropdown;
 exports.LateralMenu = LateralMenu;
 exports.LearningSteps = LearningSteps;
 exports.LinkedinIcon = LinkedinIcon;
