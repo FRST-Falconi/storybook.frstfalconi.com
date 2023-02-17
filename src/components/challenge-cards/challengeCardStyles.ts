@@ -138,7 +138,7 @@ export const DescriptionProject = styled.span`
     display: -webkit-box;
     -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
     -webkit-box-orient: vertical;
-    word-break: break-all;
+    word-wrap: break-word;
 `
 
 export const DescriptionSRG = styled.span`
