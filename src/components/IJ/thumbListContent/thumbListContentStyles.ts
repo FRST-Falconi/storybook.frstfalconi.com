@@ -88,7 +88,7 @@ export const infoThumbContent = styled.div`
     padding: 16px 16px 32px 16px;
     gap: 4px;
     font-family: 'PT Sans';
-    word-break: break-word;
+    word-wrap: break-word;
 `
 
 export const descriptionThumbContent = styled.div<content>`
