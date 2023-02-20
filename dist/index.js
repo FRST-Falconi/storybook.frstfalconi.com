@@ -8971,7 +8971,7 @@ const DescriptionProject = styled__default["default"].span `
     display: -webkit-box;
     -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
     -webkit-box-orient: vertical;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const DescriptionSRG$1 = styled__default["default"].span `
     flex: 1;
@@ -9750,7 +9750,7 @@ const achievementHeader = styled__default["default"].div `
     padding: 20px 32px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    word-break: break-all;
+    word-wrap: break-word;
 
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
     color: ${({ theme }) => theme.colors.shadeWhite};
@@ -9788,7 +9788,7 @@ const problemTitle = styled__default["default"].div `
     font-weight: 600;
     text-align: center;
     margin-top: 32px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const tagContent = styled__default["default"].div `
     display: flex;
@@ -9827,7 +9827,7 @@ const stepsLabel = styled__default["default"].span `
     font-weight: 700;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     margin-top: 16px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const stepsValueText = styled__default["default"].span `
     font-family: 'Work Sans';
@@ -9835,7 +9835,7 @@ const stepsValueText = styled__default["default"].span `
     font-weight: 400;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     margin-top: 8px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const topHeaderTag = styled__default["default"].span `
     display: flex;
@@ -10698,7 +10698,7 @@ const infoThumbContent = styled__default["default"].div `
     padding: 16px 16px 32px 16px;
     gap: 4px;
     font-family: 'PT Sans';
-    word-break: break-word;
+    word-wrap: break-word;
 `;
 const descriptionThumbContent = styled__default["default"].div `
     font-size: 12px;
@@ -10852,7 +10852,7 @@ const NameUser = styled__default["default"].div `
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
 
         `;
 const EmailUser = styled__default["default"].div `
@@ -10876,7 +10876,7 @@ const EmailUser = styled__default["default"].div `
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
         `;
 const UserAdditionalInfo = styled__default["default"].div `
     display: flex;
@@ -10905,7 +10905,7 @@ const Area = styled__default["default"].div `
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `;
 const Position = styled__default["default"].div `
         font-family: 'PT Sans';
@@ -10928,7 +10928,7 @@ const Position = styled__default["default"].div `
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `;
 const FooterButton = styled__default["default"].div `
     display: flex;
@@ -11052,7 +11052,7 @@ const Tooltiptext = styled__default["default"].div `
     padding: 8px! important;
     padding-bottom: 4px;
 
-    word-break: break-all;
+    word-wrap: break-word;
 
     color: #757575;
     font-family: 'PT Sans';
