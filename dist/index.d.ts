@@ -39,6 +39,7 @@ export { default as SpecialistContact } from './src/components/EBR/specialist-co
 export { default as GroupStatistics } from './src/components/EBR/group-statistics';
 export { default as TrailList } from './src/components/EBR/trail-list';
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel';
+export { default as AvatarAssociatedChannel } from './src/components/LXP/avatarAssociatedChannel';
 export { default as BannerLxp } from './src/components/LXP/bannerLxp';
 export { default as ButtonContent } from './src/components/LXP/buttonContent';
 export { default as ColorPicker } from './src/components/LXP/colorpicker';

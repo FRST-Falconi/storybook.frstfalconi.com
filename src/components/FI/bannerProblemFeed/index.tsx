@@ -285,7 +285,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                         width= '56'
                         height= '56'
                     />
-                    <span style={{marginLeft: 16, wordBreak: 'break-all', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical'}}>
+                    <span style={{marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical'}}>
                         {props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue}
                     </span>
                 </Styles.achievementHeader>
