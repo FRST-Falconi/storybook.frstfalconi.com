@@ -1836,7 +1836,7 @@ function BannerProblem(props) {
                                 color: '#FF4D0D',
                                 backgroundColor: 'rgb(242, 242, 242)',
                                 border: 'none',
-                                wordBreak: 'break-all',
+                                wordBreak: 'break-word',
                             }, children: TituloProblema }) })
                     :
                         jsxRuntime.jsx("h1", { className: style$b.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
@@ -10171,7 +10171,7 @@ function BannerProblemFeed(props) {
                                 : null }));
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
-                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-all', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
+                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
                 : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
                         jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "48px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
                                             (props.language === 'pt-BR' ? 'Case de sucesso'
