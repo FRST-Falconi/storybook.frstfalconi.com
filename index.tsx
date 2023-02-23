@@ -93,6 +93,7 @@ export { default as TrailList } from './src/components/EBR/trail-list'
 
 // LXP
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel'
+export { default as AvatarAssociatedChannel } from './src/components/LXP/avatarAssociatedChannel'
 export { default as BannerLxp } from './src/components/LXP/bannerLxp'
 export { default as ButtonContent } from './src/components/LXP/buttonContent'
 export { default as ColorPicker } from './src/components/LXP/colorpicker'
@@ -111,9 +112,9 @@ export { default as GlobalMenu } from './src/components/global-menu'
 export { default as ExtraContent } from './src/components/LXP/extraContent'
 export { default as LoginLxp } from './src/components/LXP/login'
 export { default as AccordionTrackList } from './src/components/LXP/accordionTrack/accordionTrackList'
-export { default as ManageLearningCicles} from './src/components/LXP/manageLerningCicles'
-export { default as ThumbnailsDraggable} from './src/components/LXP/thumbnails/thumbnailsDraggable'
-export { default as SelectLXP} from './src/components/LXP/selectLXP'
+export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles'
+export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable'
+export { default as SelectLXP } from './src/components/LXP/selectLXP'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI
@@ -134,7 +135,7 @@ export { default as NotificationPopOver } from './src/components/FI/notification
 export { default as Pagination } from './src/components/IJ/pagination'
 export { default as ThumbListContent } from './src/components/IJ/thumbListContent'
 export { default as ListSelector } from './src/components/IJ/listSelector'
-export { default as ParticipantCard} from './src/components/IJ/participantCard'
+export { default as ParticipantCard } from './src/components/IJ/participantCard'
 
 // TP
 export { default as HeaderChallenge } from './src/components/headerChallenge'
