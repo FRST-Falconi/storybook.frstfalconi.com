@@ -166,7 +166,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                   color: '#FF4D0D',
                   backgroundColor: 'rgb(242, 242, 242)',
                   border: 'none',
-                  wordBreak: 'break-all',
+                  wordBreak: 'break-word',
                 }}
                 >
                   {TituloProblema}
