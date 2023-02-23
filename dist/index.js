@@ -1712,7 +1712,7 @@ function Button$2({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$3, { style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
-var css_248z$c = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    /* word-break: break-all; */\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
+var css_248z$c = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
 var style$b = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
 styleInject(css_248z$c);
 
@@ -4014,7 +4014,7 @@ function ModalVideo(props) {
                                             }, disabled: false }) })] }) }))] })] }) }));
 }
 
-var css_248z$8 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-break: break-all;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
+var css_248z$8 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
 var style$7 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
 styleInject(css_248z$8);
 
@@ -4031,7 +4031,7 @@ function CardProblemGestor(props) {
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
-var css_248z$7 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-break: break-all;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
+var css_248z$7 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
 var style$6 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
 styleInject(css_248z$7);
 
@@ -4215,7 +4215,7 @@ function CardDefinicaoProblema(props) {
                 jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$5.footerContainer} ${props.typeButton === 2 && style$5.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue : 'Continuar'), startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
 }
 
-var css_248z$5 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-break: break-all;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-break: break-all;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
+var css_248z$5 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
 var style$4 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
 styleInject(css_248z$5);
 
@@ -6336,7 +6336,7 @@ const ItemSeeAll = styled__default["default"].div `
         width: 100%;
         display: flex;
         justify-content: center;   
-        align-item: center;
+        align-items: center;
         text-align: center;
 
         cursor: pointer;
@@ -6372,7 +6372,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     // Handle Open list results
     const handleFocusUp = () => {
         setInputOnFocus(true);
-        setIsOpenDrop(true);
+        // setIsOpenDrop(true)
         setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
     };
     const handleFocusDown = () => {
@@ -6392,13 +6392,13 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                         setValueSearch(e.target.value);
                                     }, disabled: loading, value: ValueSearch })] }), Loading ?
                             jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
-                            :
-                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults && listResults.map((item, index) => {
+                            : listResults && listResults.length > 0 &&
+                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults.map((item, index) => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
                                                 }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id);
-                                        }), hasOptionSeeAll &&
+                                        }), hasOptionSeeAll && listResults.length > 0 &&
                                             jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
                                                     setIsOpenDrop(false);
                                                     return seeAll.onClick(e);
@@ -8971,7 +8971,7 @@ const DescriptionProject = styled__default["default"].span `
     display: -webkit-box;
     -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
     -webkit-box-orient: vertical;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const DescriptionSRG$1 = styled__default["default"].span `
     flex: 1;
@@ -9750,7 +9750,7 @@ const achievementHeader = styled__default["default"].div `
     padding: 20px 32px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    word-break: break-all;
+    word-wrap: break-word;
 
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
     color: ${({ theme }) => theme.colors.shadeWhite};
@@ -9788,7 +9788,7 @@ const problemTitle = styled__default["default"].div `
     font-weight: 600;
     text-align: center;
     margin-top: 32px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const tagContent = styled__default["default"].div `
     display: flex;
@@ -9827,7 +9827,7 @@ const stepsLabel = styled__default["default"].span `
     font-weight: 700;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     margin-top: 16px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const stepsValueText = styled__default["default"].span `
     font-family: 'Work Sans';
@@ -9835,7 +9835,7 @@ const stepsValueText = styled__default["default"].span `
     font-weight: 400;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     margin-top: 8px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const topHeaderTag = styled__default["default"].span `
     display: flex;
@@ -10698,7 +10698,7 @@ const infoThumbContent = styled__default["default"].div `
     padding: 16px 16px 32px 16px;
     gap: 4px;
     font-family: 'PT Sans';
-    word-break: break-word;
+    word-wrap: break-word;
 `;
 const descriptionThumbContent = styled__default["default"].div `
     font-size: 12px;
@@ -10852,7 +10852,7 @@ const NameUser = styled__default["default"].div `
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
 
         `;
 const EmailUser = styled__default["default"].div `
@@ -10876,7 +10876,7 @@ const EmailUser = styled__default["default"].div `
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
         `;
 const UserAdditionalInfo = styled__default["default"].div `
     display: flex;
@@ -10905,7 +10905,7 @@ const Area = styled__default["default"].div `
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `;
 const Position = styled__default["default"].div `
         font-family: 'PT Sans';
@@ -10928,7 +10928,7 @@ const Position = styled__default["default"].div `
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `;
 const FooterButton = styled__default["default"].div `
     display: flex;
@@ -11052,7 +11052,7 @@ const Tooltiptext = styled__default["default"].div `
     padding: 8px! important;
     padding-bottom: 4px;
 
-    word-break: break-all;
+    word-wrap: break-word;
 
     color: #757575;
     font-family: 'PT Sans';

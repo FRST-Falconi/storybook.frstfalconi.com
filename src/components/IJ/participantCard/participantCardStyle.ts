@@ -55,7 +55,7 @@ export const UserInfo = styled.div`
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
 
         `
         export const EmailUser = styled.div`
@@ -79,7 +79,7 @@ export const UserInfo = styled.div`
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
         `
         
 export const UserAdditionalInfo = styled.div`
@@ -109,7 +109,7 @@ export const UserAdditionalInfo = styled.div`
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `
     export const Position = styled.div`
         font-family: 'PT Sans';
@@ -132,7 +132,7 @@ export const UserAdditionalInfo = styled.div`
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `
 
 export const FooterButton = styled.div`

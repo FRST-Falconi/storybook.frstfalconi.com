@@ -132,7 +132,7 @@ export const WrapperResults = styled.div<{isVisibleResults}>`
         width: 100%;
         display: flex;
         justify-content: center;   
-        align-item: center;
+        align-items: center;
         text-align: center;
 
         cursor: pointer;
