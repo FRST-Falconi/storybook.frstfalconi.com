@@ -3024,7 +3024,7 @@ input.p-dropdown-label {
 }
 
 .p-fileupload-filename {
-  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .p-fluid .p-fileupload .p-button {

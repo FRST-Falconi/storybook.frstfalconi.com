@@ -216,7 +216,7 @@ function OpenedEye({ fill, width, height }) {
 function PeopleIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '28', height: height ? height : '28', viewBox: "0 0 28 28", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.5367 18.3986C15.3803 18.5237 15.2967 18.7186 15.3137 18.9181C15.3307 19.1176 15.4461 19.2955 15.6214 19.3923L21.2219 22.4851L21.285 22.5272C21.3293 22.5568 21.3775 22.5803 21.4281 22.5972C21.428 22.5971 21.4306 22.598 21.436 22.6002C21.4414 22.6024 21.4488 22.6056 21.4585 22.6101C21.478 22.6193 21.5037 22.6323 21.5362 22.6503C21.6154 22.6944 21.7095 22.7481 21.819 22.8119C21.8988 22.8585 21.9835 22.9179 22.0728 22.9924C22.1661 23.0701 22.2427 23.1437 22.3047 23.2125C22.3458 23.2582 22.3833 23.3142 22.4157 23.3843C22.4422 23.4417 22.4444 23.4726 22.4444 23.4825V25.7482C22.4444 26.0206 22.3569 26.2222 22.1793 26.3942C21.9913 26.5763 21.7861 26.6587 21.5339 26.6587H2.17724C1.92499 26.6587 1.71979 26.5763 1.53178 26.3942C1.35426 26.2222 1.26675 26.0206 1.26675 25.7482V23.4825C1.26675 23.4815 1.2688 23.3777 1.49572 23.1659C1.76764 22.9121 1.94776 22.7765 2.04904 22.7203C2.21282 22.6293 2.34438 22.5592 2.44557 22.5087C2.45135 22.5058 2.45708 22.5028 2.46276 22.4997L8.25297 19.3668C8.42969 19.2712 8.54681 19.0935 8.56499 18.8934C8.58317 18.6933 8.49998 18.4974 8.34338 18.3715C7.49188 17.687 6.84229 16.7418 6.40751 15.507C5.9566 14.2264 5.74227 13.1114 5.74227 12.1538V8.3776C5.74227 7.99893 5.84022 7.58426 6.06035 7.12769C6.27957 6.67302 6.58672 6.24878 6.98862 5.85525C7.40443 5.4481 7.87447 5.07769 8.40036 4.74463C8.91181 4.42071 9.47775 4.16277 10.1008 3.97238C10.7213 3.78278 11.3149 3.69088 11.8835 3.69088C12.8628 3.69088 13.833 3.9306 14.8002 4.42282C15.7763 4.91959 16.5485 5.54257 17.1316 6.28628C17.7149 7.03019 17.9688 7.72406 17.9688 8.3776V12.1538C17.9688 13.2371 17.7723 14.3955 17.369 15.6321C16.9807 16.8229 16.3659 17.7352 15.5367 18.3986Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14 1.70204C14.4984 1.38217 15.0467 1.12965 15.6449 0.944465C16.243 0.75928 16.8245 0.666687 17.3894 0.666687C18.3531 0.666687 19.3001 0.906586 20.2305 1.38638C21.161 1.86618 21.9128 2.47645 22.486 3.21719C23.0592 3.95793 23.3458 4.69867 23.3458 5.43941V8.8485C23.3458 9.89227 23.1589 10.995 22.785 12.1566C22.4112 13.3182 21.8089 14.2357 20.9782 14.9091L25.9875 17.7121L26.0623 17.7626C26.1122 17.7795 26.1745 17.8089 26.2492 17.851C26.324 17.8931 26.4112 17.9436 26.5109 18.0025C26.6106 18.0615 26.7103 18.133 26.81 18.2172C26.9097 18.3014 26.9969 18.3855 27.0717 18.4697C27.1464 18.5539 27.2087 18.6507 27.2586 18.7601C27.3084 18.8695 27.3333 18.9748 27.3333 19.0758V21.1212C27.3333 21.5084 27.2004 21.8325 26.9346 22.0934C26.6687 22.3544 26.3531 22.4849 25.9875 22.4849", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function Channel$2({ fill, width, height }) {
+function Channel$3({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M20.6982 6.27148H3.99915C3.30167 6.27148 2.73642 6.8363 2.73642 7.29402V17.7693C2.73642 18.3342 3.30184 18.7919 3.99915 18.7919H20.6982C21.3957 18.7919 21.9609 18.2271 21.9609 17.7693V7.29402C21.9609 6.72921 21.3955 6.27148 20.6982 6.27148V6.27148Z", stroke: "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.7383 20.7246H7.96194", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13.3498 6.23889L17.9463 2.51465", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.0947 6.23864L6.66223 1.5", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10.4209 15.1768L14.5044 12.8545L10.4209 10.5322V15.1768Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function Cam({ fill, width, height }) {
@@ -1836,7 +1836,7 @@ function BannerProblem(props) {
                                 color: '#FF4D0D',
                                 backgroundColor: 'rgb(242, 242, 242)',
                                 border: 'none',
-                                wordBreak: 'break-all',
+                                wordBreak: 'break-word',
                             }, children: TituloProblema }) })
                     :
                         jsxRuntime.jsx("h1", { className: style$b.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
@@ -4779,7 +4779,7 @@ function TrailList({ title, trails, style }) {
                                                     }, children: renderTrails() }) })] }) }));
 }
 
-const ContainerGeral = styled__default["default"].div `
+const ContainerGeral$1 = styled__default["default"].div `
   display: flex;
   height: 8.5rem;
   align-content: flex-end;
@@ -4790,7 +4790,7 @@ const ContainerGeral = styled__default["default"].div `
     display: block;
   }
 `;
-const AvatarChannel$1 = styled__default["default"].div `
+const AvatarChannel$2 = styled__default["default"].div `
   width: ${(props) => props.size || '80px'};
   height: ${(props) => props.size || '80px'};
   border-radius: 50%;
@@ -4812,7 +4812,7 @@ const AvatarChannel$1 = styled__default["default"].div `
         filter: grayscale(100%);
     `}
 `;
-const AvatarChannelImage = styled__default["default"].div `
+const AvatarChannelImage$1 = styled__default["default"].div `
   width: ${(props) => props.size || '80px'};
   height: ${(props) => props.size || '80px'};
   border-radius: 50%;
@@ -4836,7 +4836,7 @@ const AvatarChannelImage = styled__default["default"].div `
         filter: grayscale(100%);
     `}
 `;
-const Channel$1 = styled__default["default"].span `
+const Channel$2 = styled__default["default"].span `
   position: absolute;
   display: flex;
   align-items: center;
@@ -5031,7 +5031,7 @@ function PopOverLXP({ variant, children }) {
                                 : null }));
 }
 
-function AvatarChannel({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage }) {
+function AvatarChannel$1({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage }) {
     const onChange = () => {
         document.getElementById('fileSelector').click();
     };
@@ -5045,7 +5045,91 @@ function AvatarChannel({ size, channel, className, disabled, color, handleValueA
         return file;
     };
     const [image, setImage] = React.useState(null);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral, { className: "geral", variant: variantPopOver, children: sourceImage ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsxs(ContainerSelectedImage, { onClick: onChange, children: [jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } })] })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: variantPopOver === 'lowLeft' || variantPopOver === 'lowRight' || variantPopOver === 'sideRight' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), image ? (jsxRuntime.jsx(AvatarChannelImage, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, image: image, children: jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } }) })) : (jsxRuntime.jsxs(AvatarChannel$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$1, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }))] })) : null })) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", variant: variantPopOver, children: sourceImage ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsxs(ContainerSelectedImage, { onClick: onChange, children: [jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } })] })] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: variantPopOver === 'lowLeft' || variantPopOver === 'lowRight' || variantPopOver === 'sideRight' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), image ? (jsxRuntime.jsx(AvatarChannelImage$1, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, image: image, children: jsxRuntime.jsx("img", { src: sourceImage, style: { borderRadius: '150px', width: '80px', height: '80px' } }) })) : (jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', children: [jsxRuntime.jsx(Channel$2, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] }))] })) : null })) }) }));
+}
+
+const ContainerGeral = styled__default["default"].div `
+  width: 7rem;
+  display: flex;
+  align-content: flex-start;
+  top: 0;
+  flex-direction: column;
+  &:hover .cardInformation {
+    display: block;
+  }
+  &:hover .cardInformation {
+    display: block;
+  }
+`;
+const AvatarChannel = styled__default["default"].div `
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: ${(props) => props.color || '#6a3f86'};
+  position: relative;
+  cursor: pointer;
+  margin: 1rem;
+
+  img {
+    border-radius: 50%;
+  }
+`;
+const Channel$1 = styled__default["default"].span `
+  height: 80px;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  letter-spacing: 0.01em;
+  font-size: 24px;
+  color: #ffffff;
+  font-family: 'Work Sans';
+  font-weight: 700;
+`;
+const CardInformation = styled__default["default"].div `
+  width: 20rem;
+  background: #ffff;
+  font-size: 16px;
+  display: none;
+  margin-top: 0.5rem;
+  font-family: 'PT Sans';
+  font-weight: 400;
+  word-break: break-word;
+  box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
+  border-radius: 4px;
+  list-style: none;
+  padding: 8px 0px;
+  h2 {
+    margin: 1rem 0.5rem 0.5rem 1rem;
+  }
+  h3 {
+    margin: 1rem;
+  }
+  @media (max-width: 320px) {
+    width: 18rem;
+  }
+`;
+const AvatarChannelImage = styled__default["default"].div `
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-image: ${(props) => `url(${props.image})`};
+  background-repeat: no-repeat;
+  background-size: 80px;
+  position: relative;
+  cursor: pointer;
+  margin: 1rem;
+
+  img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+  }
+`;
+
+function AvatarAssociatedChannel({ descriptionChannel, nameChannel, channel, color, sourceImage, image }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral, { children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [image ? (jsxRuntime.jsx(AvatarChannelImage, { image: image, children: jsxRuntime.jsx("img", { src: sourceImage }) })) : (jsxRuntime.jsx(AvatarChannel, { color: color ? color : '#6a3f86', children: jsxRuntime.jsx(Channel$1, { children: channel }) })), jsxRuntime.jsxs(CardInformation, { className: "cardInformation", children: [image ? (jsxRuntime.jsx(AvatarChannelImage, { image: image, children: jsxRuntime.jsx("img", { src: sourceImage }) })) : (jsxRuntime.jsx(AvatarChannel, { color: color ? color : '#6a3f86', children: jsxRuntime.jsx(Channel$1, { children: channel }) })), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h2", { children: nameChannel }), jsxRuntime.jsx("h3", { children: descriptionChannel })] })] })] }) }) }));
 }
 
 var css_248z$4 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
@@ -8971,7 +9055,7 @@ const DescriptionProject = styled__default["default"].span `
     display: -webkit-box;
     -webkit-line-clamp: 4; /** número de linhas que você quer exibir */
     -webkit-box-orient: vertical;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const DescriptionSRG$1 = styled__default["default"].span `
     flex: 1;
@@ -9750,7 +9834,7 @@ const achievementHeader = styled__default["default"].div `
     padding: 20px 32px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    word-break: break-all;
+    word-wrap: break-word;
 
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
     color: ${({ theme }) => theme.colors.shadeWhite};
@@ -9788,7 +9872,7 @@ const problemTitle = styled__default["default"].div `
     font-weight: 600;
     text-align: center;
     margin-top: 32px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const tagContent = styled__default["default"].div `
     display: flex;
@@ -9827,7 +9911,7 @@ const stepsLabel = styled__default["default"].span `
     font-weight: 700;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     margin-top: 16px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const stepsValueText = styled__default["default"].span `
     font-family: 'Work Sans';
@@ -9835,7 +9919,7 @@ const stepsValueText = styled__default["default"].span `
     font-weight: 400;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
     margin-top: 8px;
-    word-break: break-all;
+    word-wrap: break-word;
 `;
 const topHeaderTag = styled__default["default"].span `
     display: flex;
@@ -10087,7 +10171,7 @@ function BannerProblemFeed(props) {
                                 : null }));
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
-                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-all', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
+                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
                 : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
                         jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "48px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
                                             (props.language === 'pt-BR' ? 'Case de sucesso'
@@ -10698,7 +10782,7 @@ const infoThumbContent = styled__default["default"].div `
     padding: 16px 16px 32px 16px;
     gap: 4px;
     font-family: 'PT Sans';
-    word-break: break-word;
+    word-wrap: break-word;
 `;
 const descriptionThumbContent = styled__default["default"].div `
     font-size: 12px;
@@ -10852,7 +10936,7 @@ const NameUser = styled__default["default"].div `
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
 
         `;
 const EmailUser = styled__default["default"].div `
@@ -10876,7 +10960,7 @@ const EmailUser = styled__default["default"].div `
             display: -webkit-box;
             -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
-            word-break: break-all;
+            word-wrap: break-word;
         `;
 const UserAdditionalInfo = styled__default["default"].div `
     display: flex;
@@ -10905,7 +10989,7 @@ const Area = styled__default["default"].div `
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `;
 const Position = styled__default["default"].div `
         font-family: 'PT Sans';
@@ -10928,7 +11012,7 @@ const Position = styled__default["default"].div `
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
-        word-break: break-all;
+        word-wrap: break-word;
     `;
 const FooterButton = styled__default["default"].div `
     display: flex;
@@ -11052,7 +11136,7 @@ const Tooltiptext = styled__default["default"].div `
     padding: 8px! important;
     padding-bottom: 4px;
 
-    word-break: break-all;
+    word-wrap: break-word;
 
     color: #757575;
     font-family: 'PT Sans';
@@ -11256,7 +11340,8 @@ exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
 exports.Avatar = Avatar;
-exports.AvatarChannel = AvatarChannel;
+exports.AvatarAssociatedChannel = AvatarAssociatedChannel;
+exports.AvatarChannel = AvatarChannel$1;
 exports.BannerLxp = BannerLxp;
 exports.BannerProblem = BannerProblem;
 exports.BannerProblemFeed = BannerProblemFeed;
@@ -11277,7 +11362,7 @@ exports.CardResultConquista = CardResultConquista;
 exports.CardTrail = CardTrail;
 exports.CardsTrailsCarousel = CardTrailCarousel;
 exports.ChallengeCard = ChallengeCard;
-exports.Channel = Channel$2;
+exports.Channel = Channel$3;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.ColorPicker = Colorpicker;

@@ -55,7 +55,7 @@ export const Tooltiptext = styled.div<{position}>`
     padding: 8px! important;
     padding-bottom: 4px;
 
-    word-break: break-all;
+    word-wrap: break-word;
 
     color: #757575;
     font-family: 'PT Sans';
