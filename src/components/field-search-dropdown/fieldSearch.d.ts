@@ -25,5 +25,12 @@ export interface IFieldSearch {
     isMobileVersion?: boolean,
     setFieldSearchIsOpen?: (e) => void,
     fieldSearchIsOpen?: boolean,
-    enableAnimationField?: boolean
+    enableAnimationField?: boolean,
+    historicResults?: Array<itemClick>
+    isLabeledResult?: boolean
+    labeledResultList?:[
+    {
+        label: string
+        listResult: Array<itemClick>
+    }]
 }

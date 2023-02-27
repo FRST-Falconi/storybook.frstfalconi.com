@@ -155,7 +155,9 @@ export default function GlobalMenu({
 
                                         setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
-                                        listResults={valueListSearch}
+                                        listResults={search.isLabeledResult ? null : valueListSearch}
+                                        labeledResultList={search.isLabeledResult ? valueListSearch : null}
+                                        historicResults={search.historicResults}
                                         isMobileVersion={isMobileVersion}
                                         hasOptionSeeAll={search.hasOptionSeeAll}
                                         seeAll={search.seeAll}
@@ -198,7 +200,9 @@ export default function GlobalMenu({
                                     fieldSearchIsOpen={controlExpandedSearchMobile}
                                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
-                                    listResults={valueListSearch}
+                                    listResults={search.isLabeledResult ? null : valueListSearch}
+                                    labeledResultList={search.isLabeledResult ? valueListSearch : null}
+                                    historicResults={search.historicResults}
                                     isMobileVersion={isMobileVersion}
                                     hasOptionSeeAll={search.hasOptionSeeAll}
                                     seeAll={search.seeAll}
@@ -299,8 +303,10 @@ export default function GlobalMenu({
                                             loading={loadingSearch}
 
                                             setFieldSearchIsOpen={setControlExpandedSearchMobile}
-
-                                            listResults={valueListSearch}
+                                            isLabeledResult={search.isLabeledResult}
+                                            listResults={search.isLabeledResult ? null : valueListSearch}
+                                            labeledResultList={search.isLabeledResult ? valueListSearch : null}
+                                            historicResults={search.historicResults}
                                             isMobileVersion={isMobileVersion}
                                             hasOptionSeeAll={search.hasOptionSeeAll}
                                             seeAll={search.seeAll}
@@ -325,7 +331,9 @@ export default function GlobalMenu({
                                         fieldSearchIsOpen={controlExpandedSearchMobile}
                                         setFieldSearchIsOpen={setControlExpandedSearchMobile}
 
-                                        listResults={valueListSearch}
+                                        listResults={search.isLabeledResult ? null : valueListSearch}
+                                        labeledResultList={search.isLabeledResult ? valueListSearch : null}
+                                        historicResults={search.historicResults}
                                         isMobileVersion={isMobileVersion}
                                         hasOptionSeeAll={search.hasOptionSeeAll}
                                         seeAll={search.seeAll}

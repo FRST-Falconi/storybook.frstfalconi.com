@@ -123,5 +123,6 @@ export declare function StepCicleFour({ fill, width, height }: IconsProps): JSX.
 export declare function FowardArrow({ fill, width, height }: IconsProps): JSX.Element;
 export declare function AddPeople({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Books({ fill, width, height }: IconsProps): JSX.Element;
+export declare function Clock({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
