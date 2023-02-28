@@ -6471,7 +6471,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
         }
     };
     const handleFocusDown = () => {
-        setInputOnFocus(false);
+        // setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput);
     };
     React.useEffect(() => {
@@ -6493,7 +6493,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                     }, disabled: loading, value: ValueSearch })] }), Loading &&
                             jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) }), labeledResultList && labeledResultList.length > 0 && inputOnFocus && isLabeledResult &&
                             jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
-                                        historicResults.map((item, index) => {
+                                        historicResults.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
@@ -6508,17 +6508,17 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                                 return seeAll.onClick(e);
                                             }, children: seeAll.label })] }), listResults && listResults.length > 0 && inputOnFocus && !isLabeledResult &&
                             jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
-                                        historicResults.map((item, index) => {
+                                        historicResults.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
                                                 }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [jsxRuntime.jsx(Clock, {}), " ", item.label] }) }, item.id);
                                         }), ValueSearch.length > 0 &&
-                                        listResults.map((item, index) => {
+                                        listResults.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
-                                                }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id);
+                                                }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [" ", item.label] }) }, item.id);
                                         }), hasOptionSeeAll && listResults.length > 0 && ValueSearch.length > 0 &&
                                         jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
                                                 setIsOpenDrop(false);
