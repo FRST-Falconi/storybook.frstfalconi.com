@@ -45,7 +45,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     }
     const handleFocusDown = () => {
         
-        setInputOnFocus(false)
+        // setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput)
     }
 
@@ -62,7 +62,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
         }, 500)
     
         return () => clearTimeout(delayDebounceFn)
-      }, [ValueSearch])    
+      }, [ValueSearch])
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -106,7 +106,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                             onMouseOut={() => setActionAreaInput(false)}
                         >
                             {ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
-                                historicResults.map((item, index) => {
+                                historicResults.map(item => {
                                     return <ItemResult 
                                         key={item.id} 
                                         onClick={() => {
@@ -160,7 +160,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                             onMouseOut={() => setActionAreaInput(false)}
                         >
                             {ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
-                                historicResults.map((item, index) => {
+                                historicResults.map(item => {
                                     return <ItemResult 
                                         key={item.id} 
                                         onClick={() => {
@@ -175,16 +175,17 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
 
                             }
                             {ValueSearch.length > 0 &&
-                                listResults.map((item, index) => {
+                                listResults.map(item => {
                                     return <ItemResult 
                                         key={item.id} 
                                         onClick={() => {
                                             setIsOpenDrop(false)
-                                            return item.onClick(item.id)
+                                            item.onClick(item.id)
                                         }}
                                     >
-                                        <TextItem isLastItem={false && !hasOptionSeeAll}>{item.label}</TextItem>
+                                        <TextItem isLastItem={false && !hasOptionSeeAll}> {item.label}</TextItem>
                                     </ItemResult>
+                                    
                                 })
                             }
                             { hasOptionSeeAll && listResults.length > 0 && ValueSearch.length > 0 &&
