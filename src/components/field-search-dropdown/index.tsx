@@ -180,7 +180,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                                         key={item.id} 
                                         onClick={() => {
                                             setIsOpenDrop(false)
-                                            item.onClick(item.id)
+                                            return item.onClick(item.id)
                                         }}
                                     >
                                         <TextItem isLastItem={false && !hasOptionSeeAll}> {item.label}</TextItem>
