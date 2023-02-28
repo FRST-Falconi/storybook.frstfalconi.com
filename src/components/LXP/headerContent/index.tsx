@@ -1,120 +1,108 @@
 import Button from '@components/buttons'
 import ProgressBar from '@components/LXP/progressBar'
-import style from './headerContent.module.css'
-import CountCircle from './countCircle'
-import SelectedCountCircle from './selectedCountCircle'
 import { useEffect, useState } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import { FRSTTheme } from '../../../theme'
+import * as styledHeaderContent from './headerContent'
+import { ArrowScrollRight } from './../../../shared/icons'
 
-type typeHeader = 'inProgress' | 'recomendation'
-interface HeaderContentParams {
+interface objPropiedades {
   title?: string
   description?: string
-  /**
-   * @prop {string} bgImg: imagem de background do header
-   */
   bgImg?: string
-  /**
-   * @prop {typeHeader} typeOfHeader: Tipo de header para exibição ( inProgress: Para alunos que estão fazendo algum conteúdo. recomendation: Para alunos que não estão fazendo algum conteúdo ou para aqueles que atingiram de 85% a 100% do conteúdo assistido)
-   */
-  typeOfHeader: typeHeader
+  typeOfHeader?: 'inProgress' | 'recomendation'
   progresso?: number
   channel?: string
-  listaRecomendacao?: any[]
-
-  onClick: () => void
+  onClick?: () => void
+  labelButton?: string
+}
+interface HeaderContentParams {
+  listaRecomendacao: any
 }
 
 export default function HeaderContent(props: HeaderContentParams) {
   const [selectedContent, setSelectedContent] = useState(0)
+  const [zeroHeigthDescription, setzeroHeigthDescription] = useState(false)
+  const settingsSlider = {
+    dots: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 6000
+  }
 
   useEffect(() => {
-    const timer = setTimeout(() => setSelectedContent(selectedContent < 4 ? selectedContent + 1 : 0), 10000)
+    const timer = setTimeout(() => setSelectedContent(selectedContent < 2 ? selectedContent + 1 : 0), 10000)
     return () => clearTimeout(timer)
   }, [selectedContent])
 
+  function addHeigthDescription() {
+    if (zeroHeigthDescription) {
+      setzeroHeigthDescription(false)
+    } else if (!zeroHeigthDescription) {
+      setzeroHeigthDescription(true)
+    }
+  }
+
   function RecomendationHeader(item) {
     return (
-      <div>
-        <div className={style.title}>{item.title}</div>
-        <div className={style.description}>{item.description}</div>
-        <div style={{ marginTop: 48 }} onClick={props.onClick}>
-          <Button label="Começar curso" variant="primary" />
-        </div>
-      </div>
+      <>
+        <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
+        <styledHeaderContent.Description hgtDesc={zeroHeigthDescription}>
+          {item.description}
+        </styledHeaderContent.Description>
+        <styledHeaderContent.SpaceButtonTopViewMore hgtDesc={zeroHeigthDescription} onClick={addHeigthDescription}>
+          <Button label={'Ver Mais'} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+          <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
+        </styledHeaderContent.SpaceButtonTopViewMore>
+        <styledHeaderContent.SpaceButtonTop onClick={item.onClick}>
+          <Button label={item.labelButton} variant="primary" />
+        </styledHeaderContent.SpaceButtonTop>
+      </>
     )
   }
+
+  function InProgressHeader(item) {
+    return (
+      <>
+        <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
+        <styledHeaderContent.Description hgtDesc={zeroHeigthDescription}>
+          {item.description}
+        </styledHeaderContent.Description>
+        <styledHeaderContent.SpaceButtonTopViewMore hgtDesc={zeroHeigthDescription} onClick={addHeigthDescription}>
+          <Button label={'Ver Mais'} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+          <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
+        </styledHeaderContent.SpaceButtonTopViewMore>
+        <styledHeaderContent.SpaceProgressAndButton>
+          <ProgressBar value={item.progresso} label={item.channel} />
+          <styledHeaderContent.SpaceButtonLeft onClick={item.onClick}>
+            <Button label={item.labelButton} variant="primary" />
+          </styledHeaderContent.SpaceButtonLeft>
+        </styledHeaderContent.SpaceProgressAndButton>
+      </>
+    )
+  }
+
   return (
-    <div
-      className={style.container}
-      style={{
-        backgroundImage: `url(${
-          props.typeOfHeader === 'inProgress' ? props.bgImg : props.listaRecomendacao[selectedContent].bg
-        })`,
-        backgroundRepeat: 'no-repeat',
-        width: '100%',
-        backgroundSize: '120rem 40rem'
-      }}
-    >
-      {props.typeOfHeader === 'inProgress' ? (
-        <div className={style.content}>
-          <div className={style.title}>{props.title}</div>
-          <div className={style.description}>{props.description}</div>
-          <div style={{ marginTop: 68, display: 'flex' }}>
-            <div>
-              <ProgressBar value={props.progresso} label={props.channel} />
-            </div>
-            <div style={{ marginLeft: 24 }} onClick={props.onClick}>
-              <Button label="Continuar curso" variant="primary" />
-            </div>
-          </div>
-        </div>
-      ) : (
-        <>
-          <div className={style.content}>{RecomendationHeader(props.listaRecomendacao[selectedContent])}</div>
-          <div className={style.contadorConteudo}>
-            <div
-              style={{ marginRight: 8 }}
-              onClick={() => {
-                setSelectedContent(0)
-              }}
-            >
-              {selectedContent === 0 ? <SelectedCountCircle /> : <CountCircle />}
-            </div>
-            <div
-              style={{ marginRight: 8 }}
-              onClick={() => {
-                setSelectedContent(1)
-              }}
-            >
-              {selectedContent === 1 ? <SelectedCountCircle /> : <CountCircle />}
-            </div>
-            <div
-              style={{ marginRight: 8 }}
-              onClick={() => {
-                setSelectedContent(2)
-              }}
-            >
-              {selectedContent === 2 ? <SelectedCountCircle /> : <CountCircle />}
-            </div>
-            <div
-              style={{ marginRight: 8 }}
-              onClick={() => {
-                setSelectedContent(3)
-              }}
-            >
-              {selectedContent === 3 ? <SelectedCountCircle /> : <CountCircle />}
-            </div>
-            <div
-              style={{ marginRight: 8 }}
-              onClick={() => {
-                setSelectedContent(4)
-              }}
-            >
-              {selectedContent === 4 ? <SelectedCountCircle /> : <CountCircle />}
-            </div>
-          </div>
-        </>
-      )}
-    </div>
+    <styledHeaderContent.Container theme={FRSTTheme}>
+      <Slider {...settingsSlider}>
+        {props.listaRecomendacao.map((item, index) => {
+          return (
+            <styledHeaderContent.HeaderImage key={index} img={item.bgImg}>
+              <>
+                {item.typeOfHeader === 'inProgress' ? (
+                  <styledHeaderContent.Content>{InProgressHeader(item)}</styledHeaderContent.Content>
+                ) : (
+                  <styledHeaderContent.Content>{RecomendationHeader(item)}</styledHeaderContent.Content>
+                )}
+              </>
+            </styledHeaderContent.HeaderImage>
+          )
+        })}
+      </Slider>
+    </styledHeaderContent.Container>
   )
 }
