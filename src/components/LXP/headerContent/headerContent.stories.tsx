@@ -2,17 +2,18 @@ import React from 'react'
 
 import HeaderContent from './index'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'LXP/HeaderContent',
   component: HeaderContent
 }
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <HeaderContent {...args} />
 
 export const InProgress = Template.bind({})
 InProgress.args = {
+  autoplayTime: 6000,
+  textViewMore: 'Ver mais',
+  textViewLess: 'Ver menos',
   listaRecomendacao: [
     {
       title: 'Blockchain e criptomoedas',

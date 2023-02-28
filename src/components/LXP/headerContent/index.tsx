@@ -19,19 +19,23 @@ interface objPropiedades {
   labelButton?: string
 }
 interface HeaderContentParams {
-  listaRecomendacao: any
+  textViewMore?: string
+  textViewLess?: string
+  autoplayTime?: number
+  listaRecomendacao: Array<objPropiedades>
 }
 
 export default function HeaderContent(props: HeaderContentParams) {
   const [selectedContent, setSelectedContent] = useState(0)
   const [zeroHeigthDescription, setzeroHeigthDescription] = useState(false)
+  const [textView, setTextView] = useState(props.textViewMore)
   const settingsSlider = {
     dots: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
     autoplay: true,
-    autoplaySpeed: 6000
+    autoplaySpeed: props.autoplayTime
   }
 
   useEffect(() => {
@@ -42,8 +46,10 @@ export default function HeaderContent(props: HeaderContentParams) {
   function addHeigthDescription() {
     if (zeroHeigthDescription) {
       setzeroHeigthDescription(false)
+      setTextView(props.textViewMore)
     } else if (!zeroHeigthDescription) {
       setzeroHeigthDescription(true)
+      setTextView(props.textViewLess)
     }
   }
 
@@ -55,7 +61,7 @@ export default function HeaderContent(props: HeaderContentParams) {
           {item.description}
         </styledHeaderContent.Description>
         <styledHeaderContent.SpaceButtonTopViewMore hgtDesc={zeroHeigthDescription} onClick={addHeigthDescription}>
-          <Button label={'Ver Mais'} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+          <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
           <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
         </styledHeaderContent.SpaceButtonTopViewMore>
         <styledHeaderContent.SpaceButtonTop onClick={item.onClick}>
@@ -73,7 +79,7 @@ export default function HeaderContent(props: HeaderContentParams) {
           {item.description}
         </styledHeaderContent.Description>
         <styledHeaderContent.SpaceButtonTopViewMore hgtDesc={zeroHeigthDescription} onClick={addHeigthDescription}>
-          <Button label={'Ver Mais'} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+          <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
           <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
         </styledHeaderContent.SpaceButtonTopViewMore>
         <styledHeaderContent.SpaceProgressAndButton>
@@ -91,7 +97,15 @@ export default function HeaderContent(props: HeaderContentParams) {
       <Slider {...settingsSlider}>
         {props.listaRecomendacao.map((item, index) => {
           return (
-            <styledHeaderContent.HeaderImage key={index} img={item.bgImg}>
+            <styledHeaderContent.HeaderImage
+              key={index}
+              img={item.bgImg}
+              tmnDescription={item.description.length}
+              tmnHeader={80}
+              tmnHeaderT={44}
+              tmnHeaderM={65}
+              tmnHeaderSM={87}
+            >
               <>
                 {item.typeOfHeader === 'inProgress' ? (
                   <styledHeaderContent.Content>{InProgressHeader(item)}</styledHeaderContent.Content>

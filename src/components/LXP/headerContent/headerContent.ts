@@ -3,6 +3,11 @@ import styled, { css } from 'styled-components'
 interface HeaderContentProps {
   img?: any
   hgtDesc?: boolean
+  tmnDescription?: number
+  tmnHeader?: number
+  tmnHeaderT?: number
+  tmnHeaderM?: number
+  tmnHeaderSM?: number
 }
 
 export const Container = styled.div`
@@ -32,7 +37,7 @@ export const Container = styled.div`
 export const HeaderImage = styled.div<HeaderContentProps>`
   display: flex;
   justify-content: flex-start;
-  height: 80vh;
+  height: ${(props) => (props.tmnHeader ? `${props.tmnHeader}vh` : '80vh')};
   align-items: flex-start;
   flex-direction: column;
   position: relative;
@@ -41,15 +46,52 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-size: 120rem 40rem;
+  ${(props) =>
+    props.tmnDescription < 164 &&
+    props.tmnHeader >= 80 &&
+    css`
+      section {
+        visibility: hidden;
+      }
+    `}
   @media (max-width: 834px) {
     height: 44vh;
+    height: ${(props) => (props.tmnHeaderT ? `${props.tmnHeaderT}vh` : '44vh')};
+
+    ${(props) =>
+      props.tmnDescription < 164 &&
+      props.tmnHeaderT <= 44 &&
+      css`
+        section {
+          visibility: inherit;
+        }
+      `}
   }
   @media (max-width: 414px) {
     height: 65vh;
+    height: ${(props) => (props.tmnHeaderM ? `${props.tmnHeaderM}vh` : '65vh')};
+
+    ${(props) =>
+      props.tmnDescription < 164 &&
+      props.tmnHeaderM <= 65 &&
+      css`
+        section {
+          visibility: inherit;
+        }
+      `}
   }
   @media (max-width: 320px) {
-    height: 132vh;
-    background-size: 120rem 48rem;
+    height: 87vh;
+    height: ${(props) => (props.tmnHeaderSM ? `${props.tmnHeaderSM}vh` : '87vh')};
+
+    ${(props) =>
+      props.tmnDescription < 164 &&
+      props.tmnHeaderSM <= 87 &&
+      css`
+        section {
+          visibility: inherit;
+        }
+      `}
   }
 `
 export const Content = styled.div`
@@ -66,8 +108,9 @@ export const Title = styled.div`
   font-size: 40px;
   font-weight: 700;
   max-width: 40rem;
-  @media (max-width: 414px) {
+  @media (max-width: 320px) {
     word-break: break-word;
+    font-size: 25px;
   }
 `
 
@@ -76,20 +119,18 @@ export const Description = styled.div<HeaderContentProps>`
   font-weight: 400;
   margin-top: 32px;
   max-width: 44rem;
-  height: 5rem;
-  transition: all 5s ease-out;
+  height: fit-content;
   ${(props) =>
     !props.hgtDesc &&
     css`
       height: 2.5rem;
     `}
-  transition: height 0.9s ease-out;
   overflow: hidden;
+  transition: all 0.9s ease-in-out;
   display: -webkit-box;
 
   @media (max-width: 834px) {
     max-width: 34rem;
-    height: 6rem;
     ${(props) =>
       !props.hgtDesc &&
       css`
@@ -99,7 +140,6 @@ export const Description = styled.div<HeaderContentProps>`
 
   @media (max-width: 414px) {
     word-break: break-word;
-    height: 10rem;
     ${(props) =>
       !props.hgtDesc &&
       css`
@@ -107,7 +147,8 @@ export const Description = styled.div<HeaderContentProps>`
       `}
   }
   @media (max-width: 320px) {
-    height: 16rem;
+    font-size: 12px;
+
     ${(props) =>
       !props.hgtDesc &&
       css`
@@ -136,6 +177,9 @@ export const SpaceProgressAndButton = styled.div`
     flex-direction: column;
     margin-top: 40px;
   }
+  @media (max-width: 320px) {
+    font-size: 14px;
+  }
 `
 export const SpaceButtonLeft = styled.div`
   margin-left: 24px;
@@ -145,15 +189,25 @@ export const SpaceButtonLeft = styled.div`
     margin-left: 0;
     margin-top: 1rem;
   }
+  button {
+    @media (max-width: 320px) {
+      font-size: 14px;
+    }
+  }
 `
 export const SpaceButtonTop = styled.div`
   margin-top: 48px;
   margin-bottom: 2rem;
+  button {
+    @media (max-width: 320px) {
+      font-size: 14px;
+    }
+  }
 `
 
-export const SpaceButtonTopViewMore = styled.div<HeaderContentProps>`
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+export const SpaceButtonTopViewMore = styled.section<HeaderContentProps>`
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   cursor: pointer;
   svg {
