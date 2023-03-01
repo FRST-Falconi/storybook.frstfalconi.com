@@ -17,6 +17,10 @@ interface MissionStepsParams {
      * @prop {(step: number) => void} onSelected: Função irá retornar o step selecionado
      */
     onSelected: (step: number) => void;
+    /**
+    * @prop {() => void} onClickContinue: Função executada no botão de continuar desafio
+    */
+    onClickContinue?: () => void;
 }
 /**
  *
