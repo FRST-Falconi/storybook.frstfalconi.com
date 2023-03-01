@@ -1,20 +1,21 @@
 /// <reference types="react" />
-type typeHeader = 'inProgress' | 'recomendation';
-interface HeaderContentParams {
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+interface objPropiedades {
     title?: string;
     description?: string;
-    /**
-    * @prop {string} bgImg: imagem de background do header
-    */
     bgImg?: string;
-    /**
-    * @prop {typeHeader} typeOfHeader: Tipo de header para exibição ( inProgress: Para alunos que estão fazendo algum conteúdo. recomendation: Para alunos que não estão fazendo algum conteúdo ou para aqueles que atingiram de 85% a 100% do conteúdo assistido)
-    */
-    typeOfHeader: typeHeader;
+    typeOfHeader?: 'inProgress' | 'recomendation';
     progresso?: number;
     channel?: string;
-    listaRecomendacao?: any[];
-    onClick: () => void;
+    onClick?: () => void;
+    labelButton?: string;
+}
+interface HeaderContentParams {
+    textViewMore?: string;
+    textViewLess?: string;
+    autoplayTime?: number;
+    listaRecomendacao: Array<objPropiedades>;
 }
 export default function HeaderContent(props: HeaderContentParams): JSX.Element;
 export {};
