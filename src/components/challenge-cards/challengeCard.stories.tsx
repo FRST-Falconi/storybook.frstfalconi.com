@@ -31,3 +31,12 @@ normal.args = {
     onClickContinue: () => alert('click continue'),
     onClickDelete: () => alert('click delete'),
 }
+
+export const exibition = Template.bind({})
+exibition.args = {
+    variant: 'mars',
+    description: 'Aumentar em 50% o engajamento dos alunos na plataforma.',
+    language: 'pt-BR',
+    onClickView: () => alert('view project'),
+    
+}

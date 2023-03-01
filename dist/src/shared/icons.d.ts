@@ -8,6 +8,7 @@ interface IconsProps {
     width?: string;
     height?: string;
     active?: boolean;
+    strokeWidth?: string;
 }
 export declare function Lupa({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ArrowIcon({ fill, width, height }: IconsProps): JSX.Element;
@@ -44,7 +45,7 @@ export declare function RocketIcon({ fill, width, height, fillOpacity }: IconsPr
 export declare function CheckInCicle({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function CloseInCicle({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function RocketIconCommentaryBox({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
-export declare function ArrowScrollRight({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function ArrowScrollRight({ fill, stroke, customColor_1, width, height, strokeWidth }: IconsProps): JSX.Element;
 export declare function ArrowScrollLeft({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function Bullseye({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function TrashIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;

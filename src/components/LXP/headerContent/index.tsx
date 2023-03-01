@@ -1,99 +1,120 @@
-import Button from "@components/buttons"
-import ProgressBar from "@components/LXP/progressBar"
-import style from "./headerContent.module.css"
-import CountCircle from './countCircle'
-import SelectedCountCircle from './selectedCountCircle'
-import { useEffect, useState } from "react"
+import Button from '@components/buttons'
+import ProgressBar from '@components/LXP/progressBar'
+import { useEffect, useState } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import { FRSTTheme } from '../../../theme'
+import * as styledHeaderContent from './headerContent'
+import { ArrowScrollRight } from './../../../shared/icons'
 
-type typeHeader = 'inProgress' | 'recomendation'
+interface objPropiedades {
+  title?: string
+  description?: string
+  bgImg?: string
+  typeOfHeader?: 'inProgress' | 'recomendation'
+  progresso?: number
+  channel?: string
+  onClick?: () => void
+  labelButton?: string
+}
 interface HeaderContentParams {
-    title?: string,
-    description?: string,
-    /**
-    * @prop {string} bgImg: imagem de background do header
-    */ 
-    bgImg?: string,
-    /**
-    * @prop {typeHeader} typeOfHeader: Tipo de header para exibição ( inProgress: Para alunos que estão fazendo algum conteúdo. recomendation: Para alunos que não estão fazendo algum conteúdo ou para aqueles que atingiram de 85% a 100% do conteúdo assistido)
-    */ 
-    typeOfHeader: typeHeader,
-    progresso ?: number,
-    channel ?: string,
-    listaRecomendacao ?: any[],
-
-    onClick: () => void
+  textViewMore?: string
+  textViewLess?: string
+  autoplayTime?: number
+  listaRecomendacao: Array<objPropiedades>
 }
 
+export default function HeaderContent(props: HeaderContentParams) {
+  const [selectedContent, setSelectedContent] = useState(0)
+  const [zeroHeigthDescription, setzeroHeigthDescription] = useState(false)
+  const [textView, setTextView] = useState(props.textViewMore)
+  const settingsSlider = {
+    dots: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: props.autoplayTime
+  }
 
+  useEffect(() => {
+    const timer = setTimeout(() => setSelectedContent(selectedContent < 2 ? selectedContent + 1 : 0), 10000)
+    return () => clearTimeout(timer)
+  }, [selectedContent])
 
-
-export default function HeaderContent ( props : HeaderContentParams) {
-    const [selectedContent, setSelectedContent] = useState(0)
-
-    useEffect(() => {
-        const timer = setTimeout(() => setSelectedContent(selectedContent < 4 ? selectedContent+1 : 0), 10000);
-        return () => clearTimeout(timer);
-    },[selectedContent])
-
-    function RecomendationHeader(item) {
-        return(
-            <div>        
-                <div className={style.title}>
-                    {item.title}
-                </div>
-                <div className={style.description} >
-                    {item.description}
-                </div>
-                <div style={{ marginTop: 48}} onClick={props.onClick}>
-                    <Button label="Começar curso" variant="primary" />
-                </div>
-            </div>
-        )
+  function addHeigthDescription() {
+    if (zeroHeigthDescription) {
+      setzeroHeigthDescription(false)
+      setTextView(props.textViewMore)
+    } else if (!zeroHeigthDescription) {
+      setzeroHeigthDescription(true)
+      setTextView(props.textViewLess)
     }
-    return(
-        <div className={style.container} style={{backgroundImage:`url(${props.typeOfHeader === 'inProgress' ? props.bgImg : props.listaRecomendacao[selectedContent].bg})` }}>
-        {props.typeOfHeader === 'inProgress' ?
-            <div className={style.content}>
-                <div className={style.title}>
-                    {props.title}
-                </div>
-                <div className={style.description} >
-                    {props.description}
-                </div>
-                    <div style={{marginTop: 68, display: 'flex'}}>
-                        <div>
-                            <ProgressBar value={props.progresso} label={props.channel} />
-                        </div>
-                        <div style={{ marginLeft: 24}} onClick={props.onClick}>
-                            <Button label="Continuar curso" variant="primary" />
-                        </div>
-                    </div>
-            </div>
-            :
-            <>
-                <div className={style.content}>
-                    {RecomendationHeader(props.listaRecomendacao[selectedContent])}
-                </div>
-                <div className={style.contadorConteudo}>
-                    <div style={{marginRight: 8}} onClick={() =>{ setSelectedContent(0) }} > 
-                        {selectedContent === 0 ? <SelectedCountCircle /> : <CountCircle /> } 
-                    </div>
-                    <div style={{marginRight: 8}} onClick={() =>{ setSelectedContent(1) }} > 
-                        {selectedContent === 1 ? <SelectedCountCircle /> : <CountCircle /> } 
-                    </div>
-                    <div style={{marginRight: 8}} onClick={() =>{ setSelectedContent(2) }} > 
-                        {selectedContent === 2 ? <SelectedCountCircle /> : <CountCircle /> }
-                    </div>
-                    <div style={{marginRight: 8}} onClick={() =>{ setSelectedContent(3) }} > 
-                        {selectedContent === 3 ? <SelectedCountCircle /> : <CountCircle /> } 
-                    </div>
-                    <div style={{marginRight: 8}} onClick={() =>{ setSelectedContent(4) }} > 
-                        {selectedContent === 4 ? <SelectedCountCircle /> : <CountCircle /> }
-                    </div>
-                </div>
-            </>
-        }
-        </div>
+  }
+
+  function RecomendationHeader(item) {
+    return (
+      <>
+        <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
+        <styledHeaderContent.Description zeroHeigthDescription={zeroHeigthDescription}>
+          {item.description}
+        </styledHeaderContent.Description>
+        <styledHeaderContent.SpaceButtonTopViewMore
+          zeroHeigthDescription={zeroHeigthDescription}
+          onClick={addHeigthDescription}
+        >
+          <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+          <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
+        </styledHeaderContent.SpaceButtonTopViewMore>
+        <styledHeaderContent.SpaceButtonTop onClick={item.onClick}>
+          <Button label={item.labelButton} variant="primary" />
+        </styledHeaderContent.SpaceButtonTop>
+      </>
     )
-    
+  }
+
+  function InProgressHeader(item) {
+    return (
+      <>
+        <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
+        <styledHeaderContent.Description zeroHeigthDescription={zeroHeigthDescription}>
+          {item.description}
+        </styledHeaderContent.Description>
+        <styledHeaderContent.SpaceButtonTopViewMore
+          zeroHeigthDescription={zeroHeigthDescription}
+          onClick={addHeigthDescription}
+        >
+          <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+          <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
+        </styledHeaderContent.SpaceButtonTopViewMore>
+        <styledHeaderContent.SpaceProgressAndButton>
+          <ProgressBar value={item.progresso} label={item.channel} />
+          <styledHeaderContent.SpaceButtonLeft onClick={item.onClick}>
+            <Button label={item.labelButton} variant="primary" />
+          </styledHeaderContent.SpaceButtonLeft>
+        </styledHeaderContent.SpaceProgressAndButton>
+      </>
+    )
+  }
+
+  return (
+    <styledHeaderContent.Container theme={FRSTTheme}>
+      <Slider {...settingsSlider}>
+        {props.listaRecomendacao.map((item, index) => {
+          return (
+            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length}>
+              <>
+                {item.typeOfHeader === 'inProgress' ? (
+                  <styledHeaderContent.Content>{InProgressHeader(item)}</styledHeaderContent.Content>
+                ) : (
+                  <styledHeaderContent.Content>{RecomendationHeader(item)}</styledHeaderContent.Content>
+                )}
+              </>
+            </styledHeaderContent.HeaderImage>
+          )
+        })}
+      </Slider>
+    </styledHeaderContent.Container>
+  )
 }
