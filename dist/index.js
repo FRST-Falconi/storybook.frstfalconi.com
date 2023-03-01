@@ -27,8 +27,6 @@ var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
 var styles$1 = require('@material-ui/core/styles');
 var Slider = require('react-slick');
-require('slick-carousel/slick/slick.css');
-require('slick-carousel/slick/slick-theme.css');
 var Popover = require('@material-ui/core/Popover');
 var Rating$2 = require('@mui/material/Rating');
 var Typography$3 = require('@mui/material/Typography');
