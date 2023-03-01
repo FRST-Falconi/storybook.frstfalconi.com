@@ -148,18 +148,19 @@ export default function MissionSteps(props: MissionStepsParams) {
               <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={rightButtonStyle}>{`${mapTraducao.get(Idioma).next}`}</span>
               :
               <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={rightButtonStyle}>{`${mapTraducao.get(Idioma).nextShort}`}</span>
-            : <span
-                className={style.missaoTitle}
-                style={{ ...rightButtonStyle, marginTop: '-10px' }}
-              >
-                <Button
-                  handleClick={() => props.onClickContinue()}
-                  label={mapTraducao.get(Idioma).continueChallenge}
-                  variant="primary"
-                  endIcon={<FowardArrow fill="#fff" />}
-                  style={{ height: '40px'}}
-                />
-              </span>
+            : props.stepProblem < 4 &&
+                <span
+                  className={style.missaoTitle}
+                  style={{ ...rightButtonStyle, marginTop: '-10px' }}
+                >
+                  <Button
+                    handleClick={() => props.onClickContinue()}
+                    label={mapTraducao.get(Idioma).continueChallenge}
+                    variant="primary"
+                    endIcon={<FowardArrow fill="#fff" />}
+                    style={{ height: '40px'}}
+                  />
+                </span>
         }
 
         <div style={{ display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }}>
