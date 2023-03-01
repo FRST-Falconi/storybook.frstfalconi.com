@@ -34,7 +34,6 @@ var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
 var Avatar$1 = require('@mui/material/Avatar');
 var Markdown = require('markdown-to-jsx');
-var reactScrollbarsCustom = require('react-scrollbars-custom');
 var isHotkey = require('is-hotkey');
 var slateReact = require('slate-react');
 var slate = require('slate');
@@ -371,6 +370,9 @@ function AddPeople({ fill, width, height }) {
 }
 function Books({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M15.0882 6.92067H10.4249M15.0882 6.92067V3.58448C15.0882 2.85052 14.4886 2.25 13.7558 2.25H11.7572C11.0244 2.25 10.4249 2.85052 10.4249 3.58448V6.92067M15.0882 6.92067V16.262M10.4249 6.92067V16.262M10.4249 16.262V19.5982C10.4249 20.3322 11.0244 20.9327 11.7572 20.9327H13.7558C14.4886 20.9327 15.0882 20.3322 15.0882 19.5982V16.262M10.4249 16.262H15.0882M21.75 8.18843H17.0867M21.75 8.18843V5.25258C21.75 4.51861 21.1504 3.9181 20.4176 3.9181H18.4191C17.6863 3.9181 17.0867 4.51861 17.0867 5.25258V8.18843M21.75 8.18843V16.7291H17.0867V8.18843M8.72044 8.62431L4.11916 7.86521M8.72044 8.62431L9.19684 5.72749C9.31593 5.00328 8.82178 4.31316 8.09872 4.19387L6.12674 3.86854C5.40369 3.74925 4.71465 4.24419 4.59555 4.96839L4.11916 7.86521M8.72044 8.62431L7.33457 17.0514L2.73328 16.2923L4.11916 7.86521M20.4176 20.9327H18.4191C17.6863 20.9327 17.0867 20.3322 17.0867 19.5982V16.6624H21.75V19.5982C21.75 20.3322 21.1504 20.9327 20.4176 20.9327ZM5.33781 20.9823L3.36583 20.6569C2.64277 20.5376 2.14862 19.8475 2.26772 19.1233L2.74411 16.2265L7.3454 16.9856L6.869 19.8824C6.7499 20.6066 6.06087 21.1015 5.33781 20.9823Z", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeMiterlimit: "10" }) }));
+}
+function Clock({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "25", height: height ? height : "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.4725 21C17.4431 21 21.4725 16.9706 21.4725 12C21.4725 7.02944 17.4431 3 12.4725 3C7.50197 3 3.47253 7.02944 3.47253 12C3.47253 16.9706 7.50197 21 12.4725 21Z", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.4725 7V12.25L16.4725 14", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 
 function styleInject(css, ref) {
@@ -1836,7 +1838,7 @@ function BannerProblem(props) {
                                 color: '#FF4D0D',
                                 backgroundColor: 'rgb(242, 242, 242)',
                                 border: 'none',
-                                wordBreak: 'break-all',
+                                wordBreak: 'break-word',
                             }, children: TituloProblema }) })
                     :
                         jsxRuntime.jsx("h1", { className: style$b.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
@@ -6405,8 +6407,8 @@ const TextItem = styled__default["default"].span `
 
         display: flex;
         align-items: center;
-        
-        color: #000000;    
+        gap: 8px;
+        color: #000000;
 
         height: 42px;
 
@@ -6438,7 +6440,7 @@ const ItemSeeAll = styled__default["default"].div `
         }
     `;
 
-function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSeeAll, value, seeAll, style, loading, textLoading, enableAnimationField, isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter }) {
+function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSeeAll, value, seeAll, style, loading, textLoading, enableAnimationField, isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter, historicResults, labeledResultList, isLabeledResult }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
     const [isMobile, setIsMobile] = React.useState(isMobileVersion);
@@ -6457,16 +6459,29 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     const handleFocusUp = () => {
         setInputOnFocus(true);
         // setIsOpenDrop(true)
-        setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
+        if (historicResults) {
+            setIsOpenDrop(historicResults.length > 0);
+        }
+        else if (listResults) {
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
+        }
+        else if (labeledResultList) {
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0);
+        }
     };
     const handleFocusDown = () => {
-        setInputOnFocus(false);
+        // setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput);
     };
     React.useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
             onFilter(ValueSearch);
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
+            if (listResults) {
+                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
+            }
+            else if (labeledResultList) {
+                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0);
+            }
         }, 500);
         return () => clearTimeout(delayDebounceFn);
     }, [ValueSearch]);
@@ -6474,19 +6489,40 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                 jsxRuntime.jsxs(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon$1, { onClick: () => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => {
                                         setIsOpenDrop(false);
                                         setValueSearch(e.target.value);
-                                    }, disabled: loading, value: ValueSearch })] }), Loading ?
-                            jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) })
-                            : listResults && listResults.length > 0 &&
-                                jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [listResults.map((item, index) => {
+                                    }, disabled: loading, value: ValueSearch })] }), Loading &&
+                            jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) }), labeledResultList && labeledResultList.length > 0 && inputOnFocus && isLabeledResult &&
+                            jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
+                                        historicResults.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
-                                                }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id);
-                                        }), hasOptionSeeAll && listResults.length > 0 &&
-                                            jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
+                                                }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [jsxRuntime.jsx(Clock, {}), " ", item.label] }) }, item.id);
+                                        }), ValueSearch.length > 0 &&
+                                        labeledResultList.map((item, index) => (jsxRuntime.jsxs("div", { style: { width: '100%', marginTop: 16 }, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5 }, children: item.label }), item.listResult.map(item => (jsxRuntime.jsx(ItemResult, { onClick: () => {
+                                                        setIsOpenDrop(false);
+                                                        return item.onClick(item.id);
+                                                    }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id)))] }, index))), hasOptionSeeAll && labeledResultList.length > 0 && ValueSearch.length > 0 &&
+                                        jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
+                                                setIsOpenDrop(false);
+                                                return seeAll.onClick(e);
+                                            }, children: seeAll.label })] }), listResults && listResults.length > 0 && inputOnFocus && !isLabeledResult &&
+                            jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
+                                        historicResults.map(item => {
+                                            return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
-                                                    return seeAll.onClick(e);
-                                                }, children: seeAll.label })] })] })
+                                                    return item.onClick(item.id);
+                                                }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [jsxRuntime.jsx(Clock, {}), " ", item.label] }) }, item.id);
+                                        }), ValueSearch.length > 0 &&
+                                        listResults.map(item => {
+                                            return jsxRuntime.jsx(ItemResult, { onClick: () => {
+                                                    setIsOpenDrop(false);
+                                                    return item.onClick(item.id);
+                                                }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [" ", item.label] }) }, item.id);
+                                        }), hasOptionSeeAll && listResults.length > 0 && ValueSearch.length > 0 &&
+                                        jsxRuntime.jsx(ItemSeeAll, { onClick: (e) => {
+                                                setIsOpenDrop(false);
+                                                return seeAll.onClick(e);
+                                            }, children: seeAll.label })] })] })
                 :
                     jsxRuntime.jsx(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
 }
@@ -6930,123 +6966,140 @@ function NotificationCard(props) {
 }
 
 const PopoverCustom = styled__default["default"](material.Popover) `
-    & > div:nth-child(3) {
-        border-radius: 7px !important;
-        box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.37) !important;
-        -webkit-box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.47);
-        -moz-box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.47);
-    }
+  & > div:nth-child(3) {
+    border-radius: 7px !important;
+    box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.37) !important;
+    -webkit-box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.47);
+  }
 `;
 const notificationContainer = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    border-radius: 8px;
-    width: 376px;
-    height: 412px;
-    overflow: hidden;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary} !important;
-    & > div:nth-child(2) > div:nth-child(3) {
-        display: none !important;
-    }
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 376px;
+  height: 412px;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  border: 1px solid ${({ theme }) => theme.colors.borderPrimary} !important;
+  /* & > div:nth-child(2) > div:nth-child(3) {
+    display: none !important;
+  } */
 `;
 const notificationContainerMobile = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
 
-    & > div:nth-child(2) {
-        max-height: 80vh !important;
-        overflow-y: scroll !important;
-    }
+  & > div:nth-child(2) {
+    max-height: 80vh !important;
+    overflow-y: scroll !important;
+  }
 `;
 const notificationHeader = styled__default["default"].div `
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  width: 100%;
 `;
 const notificationCardList = styled__default["default"].div `
+  height: 100%;
+  min-height: 300px;
+  min-width: 100%;
+  overflow: hidden;
+  overflow-y: ${(props) => props?.notificationsLength > 3 && 'scroll'};
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 90%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+    box-sizing: border-box;
+    margin-right: 5px !important;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.shadeWhite};
+    height: 30%;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.borderPrimary};
+    height: 30%;
+    border-radius: 5px;
+    margin: 3px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.borderPrimary};
+    height: 30%;
+  }
 `;
 const emptyState = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `;
 const emptyStateInfo = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
 
-    text-align: center;
-    font-family: 'PT Sans';
-    font-size: 16px;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.neutralsGrey3};
+  text-align: center;
+  font-family: 'PT Sans';
+  font-size: 16px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.neutralsGrey3};
 `;
 
 function NotificationPopOver(props) {
-    const isNewNotification = props.notificationList ? props.notificationList.filter((notification) => notification.isNewNotification) : [];
+    const isNewNotification = props.notificationList
+        ? props.notificationList.filter((notification) => notification.isNewNotification)
+        : [];
     const emptyStateImage = 'https://i.gyazo.com/5551ed515f94a8b2502d2694d67633dc.png';
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ?
-            jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$2, { variant: 'link', startIcon: jsxRuntime.jsx(BackArrow, { fill: 'currentColor' }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ?
-                                jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
-                                        return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { style: { width: '100%' }, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }));
-                                    }) })
-                                :
-                                    jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: 'Empty notification list' }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) })] })] })
-            :
-                jsxRuntime.jsxs(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }, transformOrigin: {
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }, PaperProps: {
-                        style: {
-                            backgroundColor: "transparent",
-                            boxShadow: "none",
-                            borderRadius: 0
+    const notificationsLength = props?.notificationList?.length;
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ? (jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$2, { variant: "link", startIcon: jsxRuntime.jsx(BackArrow, { fill: "currentColor" }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
+                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { style: { width: '100%' }, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }));
+                            }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) : (jsxRuntime.jsxs(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'center'
+            }, transformOrigin: {
+                vertical: 'top',
+                horizontal: 'center'
+            }, PaperProps: {
+                style: {
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none',
+                    borderRadius: 0
+                }
+            }, children: [jsxRuntime.jsx(material.Box, { sx: {
+                        position: 'relative',
+                        mt: '10px',
+                        '&::before': {
+                            backgroundColor: 'white',
+                            content: '""',
+                            display: 'block',
+                            position: 'absolute',
+                            width: 12,
+                            height: 12,
+                            top: -6,
+                            transform: 'rotate(45deg)',
+                            left: 'calc(50% - 6px)'
                         }
-                    }, children: [jsxRuntime.jsx(material.Box, { sx: {
-                                position: "relative",
-                                mt: "10px",
-                                "&::before": {
-                                    backgroundColor: "white",
-                                    content: '""',
-                                    display: "block",
-                                    position: "absolute",
-                                    width: 12,
-                                    height: 12,
-                                    top: -6,
-                                    transform: "rotate(45deg)",
-                                    left: "calc(50% - 6px)"
-                                }
-                            } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ?
-                                    //@ts-ignore
-                                    jsxRuntime.jsx(reactScrollbarsCustom.Scrollbar, { allowtransparency: "true", removeTracksWhenNotUsed: true, disableTracksWidthCompensation: true, disableTracksMousewheelScrolling: true, onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
-                                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: jsxRuntime.jsx(NotificationCard, { notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }, index));
-                                            }) }) })
-                                    :
-                                        jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: 'Empty notification list' }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) })] })] }) }));
+                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
+                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: jsxRuntime.jsx(NotificationCard, { notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }, index));
+                            }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
 
 function GlobalMenu({ variant, menu, subMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, onClickLogo }) {
@@ -7119,7 +7172,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, langua
                                         jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                         jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
                                         jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%' }, children: [!isMobileVersion && showSearchField &&
-                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                         width: isMobileVersion ? '190px' : '332px',
                                                     } }), jsxRuntime.jsx(MenuContainer, { variant: variant, style: {
                                                     height: '100%',
@@ -7129,7 +7182,7 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, langua
                                                 }, children: !isMobileVersion && menu && menu.length > 0 && menu.map((item, index) => {
                                                     return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'menu', pressed: item.active, onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
                                                 }) })] }), isMobileVersion &&
-                                        jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                        jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                 width: isMobileVersion ? '180px' : '332px',
                                                 marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                             } }), jsxRuntime.jsxs(WrapperRightInfo, { style: { width: '150px' }, children: [!isMobileVersion && notification &&
@@ -7154,10 +7207,10 @@ function GlobalMenu({ variant, menu, subMenu, user, search, notification, langua
                                             jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
                                             jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
                                             jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && showSearchField &&
-                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                         width: isMobileVersion ? '190px' : '332px',
                                                     } }) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion &&
-                                                    jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: valueListSearch, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                    jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                             width: isMobileVersion ? '180px' : '332px',
                                                             marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                                         } }), !isMobileVersion && notification &&
@@ -10171,7 +10224,7 @@ function BannerProblemFeed(props) {
                                 : null }));
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
-                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-all', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
+                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
                 : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
                         jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "48px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
                                             (props.language === 'pt-BR' ? 'Case de sucesso'

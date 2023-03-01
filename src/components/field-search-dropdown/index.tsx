@@ -5,11 +5,11 @@ import { FRSTTheme } from '../../theme'
 
 import { Container, ContainerIcon, LabelField, InputSearchWrapper, InputText, WrapperResults, ItemResult, TextItem, ItemSeeAll } from './fieldSearchStyle'
 import { IFieldSearch } from './fieldSearch'
-import { SearchIcon } from '@shared/icons'
+import { Clock, SearchIcon } from '@shared/icons'
 
 export default function FieldSearch({ variant, placeholder, onChange, listResults, 
     hasOptionSeeAll, value, seeAll, style, loading, textLoading, enableAnimationField,
-    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter }: IFieldSearch) {
+    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter, historicResults, labeledResultList, isLabeledResult }: IFieldSearch) {
     const [actionAreaInput, setActionAreaInput ] = useState(false)
     const [inputOnFocus, setInputOnFocus ] = useState(false)
     const [isMobile, setIsMobile ] = useState(isMobileVersion)
@@ -33,22 +33,36 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
         
         setInputOnFocus(true)
         // setIsOpenDrop(true)
-        setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
+        if(historicResults){
+            setIsOpenDrop(historicResults.length > 0)
+        }
+        else if(listResults){
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
+        }
+        else if(labeledResultList){
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
+        }
     }
     const handleFocusDown = () => {
         
-        setInputOnFocus(false)
+        // setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput)
     }
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
-          onFilter(ValueSearch)
-          setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
+            onFilter(ValueSearch)
+            if(listResults){
+                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
+            }
+            else if(labeledResultList){
+                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
+            }
+          
         }, 500)
     
         return () => clearTimeout(delayDebounceFn)
-      }, [ValueSearch])    
+      }, [ValueSearch])
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -79,29 +93,102 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                             value={ValueSearch} 
                         />
                     </InputSearchWrapper>
-                    { Loading ? 
+                    { Loading &&
                         <WrapperResults style={{...style, marginTop: 8}}  isVisibleResults={true}>
                             <ItemResult>                                
                                 <TextItem isLastItem={true} style={{color: '#999'}}>{textLoading ? textLoading : 'Carregando...'}</TextItem>
                             </ItemResult>
                         </WrapperResults>
-                    :   listResults && listResults.length > 0 &&
+                    }
+                    { labeledResultList && labeledResultList.length > 0 && inputOnFocus && isLabeledResult &&
                         <WrapperResults style={{...style, marginTop: 8}} isVisibleResults={isOpenDrop}
                             onMouseOver={() => setActionAreaInput(true)}
                             onMouseOut={() => setActionAreaInput(false)}
                         >
-                            { listResults.map((item, index) => {
-                                return <ItemResult 
-                                    key={item.id} 
-                                    onClick={() => {
+                            {ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
+                                historicResults.map(item => {
+                                    return <ItemResult 
+                                        key={item.id} 
+                                        onClick={() => {
+                                            setIsOpenDrop(false)
+                                            return item.onClick(item.id)
+                                        }}
+                                    >
+                                        <TextItem isLastItem={false && !hasOptionSeeAll}>{<Clock />} {item.label}</TextItem>
+                                    </ItemResult>
+                                    
+                                })
+
+                            }
+                            {ValueSearch.length > 0 &&
+                                labeledResultList.map((item, index) => (
+                                    <div key={index} style={{width: '100%', marginTop: 16}}>
+                                        <span style={{fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5}}>
+                                            {item.label}
+                                        </span>
+                                        {item.listResult.map(item => (
+                                            <ItemResult 
+                                                key={item.id} 
+                                                onClick={() => {
+                                                    setIsOpenDrop(false)
+                                                    return item.onClick(item.id)
+                                                }}
+                                            >
+                                                <TextItem isLastItem={false && !hasOptionSeeAll}>{item.label}</TextItem>
+                                            </ItemResult>
+                                        ))
+                                        }
+                                    </div>
+                                
+                                ))
+                            }
+                            { hasOptionSeeAll && labeledResultList.length > 0 && ValueSearch.length > 0 &&
+                                <ItemSeeAll
+                                    onClick={(e) => { 
                                         setIsOpenDrop(false)
-                                        return item.onClick(item.id)
+                                        return seeAll.onClick(e)
                                     }}
                                 >
-                                    <TextItem isLastItem={false && !hasOptionSeeAll}>{item.label}</TextItem>
-                                </ItemResult>
-                            })}
-                            { hasOptionSeeAll && listResults.length > 0 &&
+                                    {seeAll.label}
+                                </ItemSeeAll>
+                            }
+                        </WrapperResults>
+                    }
+                    { listResults && listResults.length > 0  && inputOnFocus && !isLabeledResult &&
+                        <WrapperResults style={{...style, marginTop: 8}} isVisibleResults={isOpenDrop}
+                            onMouseOver={() => setActionAreaInput(true)}
+                            onMouseOut={() => setActionAreaInput(false)}
+                        >
+                            {ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
+                                historicResults.map(item => {
+                                    return <ItemResult 
+                                        key={item.id} 
+                                        onClick={() => {
+                                            setIsOpenDrop(false)
+                                            return item.onClick(item.id)
+                                        }}
+                                    >
+                                        <TextItem isLastItem={false && !hasOptionSeeAll}>{<Clock />} {item.label}</TextItem>
+                                    </ItemResult>
+                                    
+                                })
+
+                            }
+                            {ValueSearch.length > 0 &&
+                                listResults.map(item => {
+                                    return <ItemResult 
+                                        key={item.id} 
+                                        onClick={() => {
+                                            setIsOpenDrop(false)
+                                            return item.onClick(item.id)
+                                        }}
+                                    >
+                                        <TextItem isLastItem={false && !hasOptionSeeAll}> {item.label}</TextItem>
+                                    </ItemResult>
+                                    
+                                })
+                            }
+                            { hasOptionSeeAll && listResults.length > 0 && ValueSearch.length > 0 &&
                                 <ItemSeeAll
                                     onClick={(e) => { 
                                         setIsOpenDrop(false)

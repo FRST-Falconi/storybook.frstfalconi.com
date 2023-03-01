@@ -116,8 +116,8 @@ export const WrapperResults = styled.div<{isVisibleResults}>`
 
         display: flex;
         align-items: center;
-        
-        color: #000000;    
+        gap: 8px;
+        color: #000000;
 
         height: 42px;
 

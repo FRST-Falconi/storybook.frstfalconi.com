@@ -285,3 +285,6 @@ AddPeople.args = Icons.AddPeople({})
 
 export const Books = Template.bind({})
 Books.args = Icons.AddPeople({})
+
+export const Clock = Template.bind({})
+Clock.args = Icons.Clock({})

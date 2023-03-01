@@ -68,12 +68,39 @@ normal.args = {
         onFilter: (e) => console.log("Valor pesquisado", e), 
         hasOptionSeeAll: true,
         seeAll: { label: 'Ver todos os resultados',      onClick:  () => alert('Ver todos') },
+        isLabeledResult: true,
         listEntry: [
-            { id: '1', label: 'List Entry 1',  onClick: (e) => alert('List Entry 1') },
-            { id: '2', label: 'List Entry 2',  onClick: (e) => alert('List Entry 2') },
-            { id: '3', label: 'List Entry 3',  onClick: (e) => alert('List Entry 3') },
-            { id: '4', label: 'List Entry 4',  onClick: (e) => alert('List Entry 4') },
-        ]
+            {
+                label: 'Conteúdos',
+                listResult: [
+                    {id: '1', label: 'Conteúdo 1', onClick: (e) => alert(e)},
+                    {id: '2', label: 'Conteúdo 2', onClick: (e) => alert(e)},
+                    {id: '3', label: 'Conteúdo 3', onClick: (e) => alert(e)},
+                    {id: '4', label: 'Conteúdo 4', onClick: (e) => alert(e)}
+                ]
+            },
+            {
+                label: 'Desafios',
+                listResult: [
+                    {id: '1', label: 'Desafio 1', onClick: (e) => alert(e)},
+                    {id: '2', label: 'Desafio 2', onClick: (e) => alert(e)},
+                    {id: '3', label: 'Desafio 3', onClick: (e) => alert(e)},
+                ]
+            },
+            {
+                label: 'Pessoas',
+                listResult: [
+                    {id: '1', label: 'Pessoa 1', onClick: (e) => alert(e)},
+                    {id: '2', label: 'Pessoa 2', onClick: (e) => alert(e)},
+                    {id: '3', label: 'Pessoa 3', onClick: (e) => alert(e)},
+                ]
+            }
+        ],
+        historicResults: [
+            {id: '1', label: 'pesquisa 1', onClick: (e) => alert(e)},
+            {id: '2', label: 'pesquisa 2', onClick: (e) => alert(e)},
+            {id: '3', label: 'pesquisa 3', onClick: (e) => alert(e)}
+        ],
     },
     menu: [
         { id:'1', label: 'Início', iconBegin: <Icons.HomeIcon /> , onClick: (e) => alert('Início')},

@@ -2622,3 +2622,12 @@ export function Books({ fill, width, height }: IconsProps) {
     </svg>
   )
 }
+
+export function Clock({ fill, width, height}: IconsProps) {
+  return (
+    <svg width={width ? width : "25"} height={height ? height : "24"} viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.4725 21C17.4431 21 21.4725 16.9706 21.4725 12C21.4725 7.02944 17.4431 3 12.4725 3C7.50197 3 3.47253 7.02944 3.47253 12C3.47253 16.9706 7.50197 21 12.4725 21Z" stroke={fill ? fill : "black"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12.4725 7V12.25L16.4725 14" stroke={fill ? fill : "black"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
