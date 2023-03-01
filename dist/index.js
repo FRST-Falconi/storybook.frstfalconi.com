@@ -1046,28 +1046,32 @@ function Steps(props) {
  */
 function MissionSteps(props) {
     const traducaoPTBR = {
-        next: "Próxima missão >",
+        next: "Ver missão seguinte >",
         nextShort: "Próx. >",
-        previous: "< Missão anterior",
+        previous: "< Ver missão anterior",
         previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
     };
     const traducaoES = {
-        next: "Próxima misión >",
+        next: "Ver misión siguiente >",
         nextShort: "Próx. >",
-        previous: "< Misión anterior",
+        previous: "< Ver misión anterior",
         previousShort: "< Ant.",
+        continueChallenge: "Continuar desafío"
     };
     const traducaoENUS = {
-        next: "Next mission >",
+        next: "View next mission >",
         nextShort: "Next >",
-        previous: "< Previous mission",
+        previous: "< View previous mission",
         previousShort: "< Previous",
+        continueChallenge: "Continue challenge"
     };
     const traducaoPT = {
-        next: "Próxima missão >",
+        next: "Ver missão seguinte >",
         nextShort: "Próx. >",
-        previous: "< Missão anterior",
+        previous: "< Ver missão anterior",
         previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
     };
     const mapTraducao = new Map();
     mapTraducao.set("pt-BR", traducaoPTBR);
@@ -1098,17 +1102,28 @@ function MissionSteps(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 475;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white' }, children: [stepActive > 1 ?
+    const leftButtonStyle = {
+        position: 'absolute',
+        top: 20,
+        left: 0,
+        cursor: 'pointer'
+    };
+    const rightButtonStyle = {
+        ...leftButtonStyle,
+        right: 0,
+        left: 'auto'
+    };
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white', marginTop: '10px' }, children: [stepActive > 1 ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previous}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previousShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
                     : null, stepActive < stepLiberado ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).next}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).nextShort}` })
-                    : null, jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
+                    : jsxRuntime.jsx("span", { className: style$d.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$2, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
                                 setStep(1);
                             } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
                                 setStep(2);
@@ -1861,7 +1876,7 @@ function BannerProblem(props) {
                                         : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$b.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
                                 jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
-                                : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
+                                : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onClickContinue: props.onClickContinue, onSelected: (step) => {
                         props.onSelectedStep(step);
                     }, idioma: Idioma }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
     function adapterEmail(email, widthScreen) {
