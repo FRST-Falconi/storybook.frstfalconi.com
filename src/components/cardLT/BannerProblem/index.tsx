@@ -329,6 +329,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
         <StepMission 
           stepProblem={props.stepProblem}
           stepActive={props.stepActive}
+          onClickContinue={props.onClickContinue}
           onSelected={(step: number)=>{
             props.onSelectedStep(step)
           }}
