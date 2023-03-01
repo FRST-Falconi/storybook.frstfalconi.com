@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import '../../shared/global.css';
-declare type iconStatus = 'warning' | 'checked';
+type iconStatus = 'warning' | 'checked';
 interface TagProps {
     title: string;
     color: string;
