@@ -30,5 +30,5 @@ normal.args = {
     },
     successfullInvite: false,
     handleSendInvitation: (id: any) => alert(`Send: ${id}`),
-    // handleClickRemove: (id: any) => alert(`Remove: ${id}`),
+    handleClickRemove: (id: any) => alert(`Remove: ${id}`),
 }
