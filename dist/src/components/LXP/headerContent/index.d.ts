@@ -1,5 +1,5 @@
 /// <reference types="react" />
-declare type typeHeader = 'inProgress' | 'recomendation';
+type typeHeader = 'inProgress' | 'recomendation';
 interface HeaderContentParams {
     title?: string;
     description?: string;

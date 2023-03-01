@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import '../../../shared/global.css';
-declare type statusAssessment = 'not-started' | 'started' | 'finished';
+type statusAssessment = 'not-started' | 'started' | 'finished';
 interface UserCardProps {
     loading: boolean;
     selected: boolean;
