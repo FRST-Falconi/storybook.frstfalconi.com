@@ -57,10 +57,13 @@ export default function HeaderContent(props: HeaderContentParams) {
     return (
       <>
         <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
-        <styledHeaderContent.Description hgtDesc={zeroHeigthDescription}>
+        <styledHeaderContent.Description zeroHeigthDescription={zeroHeigthDescription}>
           {item.description}
         </styledHeaderContent.Description>
-        <styledHeaderContent.SpaceButtonTopViewMore hgtDesc={zeroHeigthDescription} onClick={addHeigthDescription}>
+        <styledHeaderContent.SpaceButtonTopViewMore
+          zeroHeigthDescription={zeroHeigthDescription}
+          onClick={addHeigthDescription}
+        >
           <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
           <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
         </styledHeaderContent.SpaceButtonTopViewMore>
@@ -75,10 +78,13 @@ export default function HeaderContent(props: HeaderContentParams) {
     return (
       <>
         <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
-        <styledHeaderContent.Description hgtDesc={zeroHeigthDescription}>
+        <styledHeaderContent.Description zeroHeigthDescription={zeroHeigthDescription}>
           {item.description}
         </styledHeaderContent.Description>
-        <styledHeaderContent.SpaceButtonTopViewMore hgtDesc={zeroHeigthDescription} onClick={addHeigthDescription}>
+        <styledHeaderContent.SpaceButtonTopViewMore
+          zeroHeigthDescription={zeroHeigthDescription}
+          onClick={addHeigthDescription}
+        >
           <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
           <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
         </styledHeaderContent.SpaceButtonTopViewMore>
@@ -97,15 +103,7 @@ export default function HeaderContent(props: HeaderContentParams) {
       <Slider {...settingsSlider}>
         {props.listaRecomendacao.map((item, index) => {
           return (
-            <styledHeaderContent.HeaderImage
-              key={index}
-              img={item.bgImg}
-              tmnDescription={item.description.length}
-              tmnHeader={80}
-              tmnHeaderT={44}
-              tmnHeaderM={65}
-              tmnHeaderSM={87}
-            >
+            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length}>
               <>
                 {item.typeOfHeader === 'inProgress' ? (
                   <styledHeaderContent.Content>{InProgressHeader(item)}</styledHeaderContent.Content>

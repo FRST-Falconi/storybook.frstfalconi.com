@@ -2,12 +2,8 @@ import styled, { css } from 'styled-components'
 
 interface HeaderContentProps {
   img?: any
-  hgtDesc?: boolean
+  zeroHeigthDescription?: boolean
   tmnDescription?: number
-  tmnHeader?: number
-  tmnHeaderT?: number
-  tmnHeaderM?: number
-  tmnHeaderSM?: number
 }
 
 export const Container = styled.div`
@@ -37,7 +33,7 @@ export const Container = styled.div`
 export const HeaderImage = styled.div<HeaderContentProps>`
   display: flex;
   justify-content: flex-start;
-  height: ${(props) => (props.tmnHeader ? `${props.tmnHeader}vh` : '80vh')};
+  height: 80vh;
   align-items: flex-start;
   flex-direction: column;
   position: relative;
@@ -48,7 +44,6 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   background-size: 120rem 40rem;
   ${(props) =>
     props.tmnDescription < 164 &&
-    props.tmnHeader >= 80 &&
     css`
       section {
         visibility: hidden;
@@ -56,11 +51,8 @@ export const HeaderImage = styled.div<HeaderContentProps>`
     `}
   @media (max-width: 834px) {
     height: 44vh;
-    height: ${(props) => (props.tmnHeaderT ? `${props.tmnHeaderT}vh` : '44vh')};
-
     ${(props) =>
-      props.tmnDescription < 164 &&
-      props.tmnHeaderT <= 44 &&
+      props.tmnDescription >= 134 &&
       css`
         section {
           visibility: inherit;
@@ -69,29 +61,9 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   }
   @media (max-width: 414px) {
     height: 65vh;
-    height: ${(props) => (props.tmnHeaderM ? `${props.tmnHeaderM}vh` : '65vh')};
-
-    ${(props) =>
-      props.tmnDescription < 164 &&
-      props.tmnHeaderM <= 65 &&
-      css`
-        section {
-          visibility: inherit;
-        }
-      `}
   }
   @media (max-width: 320px) {
     height: 87vh;
-    height: ${(props) => (props.tmnHeaderSM ? `${props.tmnHeaderSM}vh` : '87vh')};
-
-    ${(props) =>
-      props.tmnDescription < 164 &&
-      props.tmnHeaderSM <= 87 &&
-      css`
-        section {
-          visibility: inherit;
-        }
-      `}
   }
 `
 export const Content = styled.div`
@@ -121,7 +93,7 @@ export const Description = styled.div<HeaderContentProps>`
   max-width: 44rem;
   height: fit-content;
   ${(props) =>
-    !props.hgtDesc &&
+    !props.zeroHeigthDescription &&
     css`
       height: 2.5rem;
     `}
@@ -132,7 +104,7 @@ export const Description = styled.div<HeaderContentProps>`
   @media (max-width: 834px) {
     max-width: 34rem;
     ${(props) =>
-      !props.hgtDesc &&
+      !props.zeroHeigthDescription &&
       css`
         height: 2.5rem;
       `}
@@ -141,31 +113,19 @@ export const Description = styled.div<HeaderContentProps>`
   @media (max-width: 414px) {
     word-break: break-word;
     ${(props) =>
-      !props.hgtDesc &&
+      !props.zeroHeigthDescription &&
       css`
         height: 2.5rem;
       `}
   }
   @media (max-width: 320px) {
     font-size: 12px;
-
     ${(props) =>
-      !props.hgtDesc &&
+      !props.zeroHeigthDescription &&
       css`
         height: 2.5rem;
       `}
   }
-`
-
-export const ContadorConteudo = styled.div`
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  margin-bottom: 82px;
-  cursor: pointer;
 `
 
 export const SpaceProgressAndButton = styled.div`
@@ -215,7 +175,7 @@ export const SpaceButtonTopViewMore = styled.section<HeaderContentProps>`
     margin-top: 0.2rem;
     margin-left: 0.5rem;
     ${(props) =>
-      !props.hgtDesc
+      !props.zeroHeigthDescription
         ? css`
             transform: rotate(3.142rad);
             transition: transform 0.5s;
