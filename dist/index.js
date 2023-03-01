@@ -34,7 +34,6 @@ var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
 var Avatar$1 = require('@mui/material/Avatar');
 var Markdown = require('markdown-to-jsx');
-var reactScrollbarsCustom = require('react-scrollbars-custom');
 var isHotkey = require('is-hotkey');
 var slateReact = require('slate-react');
 var slate = require('slate');
@@ -6967,123 +6966,140 @@ function NotificationCard(props) {
 }
 
 const PopoverCustom = styled__default["default"](material.Popover) `
-    & > div:nth-child(3) {
-        border-radius: 7px !important;
-        box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.37) !important;
-        -webkit-box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.47);
-        -moz-box-shadow: 0px 25px 62px -19px rgba(0,0,0,0.47);
-    }
+  & > div:nth-child(3) {
+    border-radius: 7px !important;
+    box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.37) !important;
+    -webkit-box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.47);
+  }
 `;
 const notificationContainer = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    border-radius: 8px;
-    width: 376px;
-    height: 412px;
-    overflow: hidden;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary} !important;
-    & > div:nth-child(2) > div:nth-child(3) {
-        display: none !important;
-    }
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 376px;
+  height: 412px;
+  overflow: hidden;
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  border: 1px solid ${({ theme }) => theme.colors.borderPrimary} !important;
+  /* & > div:nth-child(2) > div:nth-child(3) {
+    display: none !important;
+  } */
 `;
 const notificationContainerMobile = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
 
-    & > div:nth-child(2) {
-        max-height: 80vh !important;
-        overflow-y: scroll !important;
-    }
+  & > div:nth-child(2) {
+    max-height: 80vh !important;
+    overflow-y: scroll !important;
+  }
 `;
 const notificationHeader = styled__default["default"].div `
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  width: 100%;
 `;
 const notificationCardList = styled__default["default"].div `
+  height: 100%;
+  min-height: 300px;
+  min-width: 100%;
+  overflow: hidden;
+  overflow-y: ${(props) => props?.notificationsLength > 3 && 'scroll'};
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 90%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+    box-sizing: border-box;
+    margin-right: 5px !important;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.colors.shadeWhite};
+    height: 30%;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.colors.borderPrimary};
+    height: 30%;
+    border-radius: 5px;
+    margin: 3px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme }) => theme.colors.borderPrimary};
+    height: 30%;
+  }
 `;
 const emptyState = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 `;
 const emptyStateInfo = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
 
-    text-align: center;
-    font-family: 'PT Sans';
-    font-size: 16px;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.neutralsGrey3};
+  text-align: center;
+  font-family: 'PT Sans';
+  font-size: 16px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.neutralsGrey3};
 `;
 
 function NotificationPopOver(props) {
-    const isNewNotification = props.notificationList ? props.notificationList.filter((notification) => notification.isNewNotification) : [];
+    const isNewNotification = props.notificationList
+        ? props.notificationList.filter((notification) => notification.isNewNotification)
+        : [];
     const emptyStateImage = 'https://i.gyazo.com/5551ed515f94a8b2502d2694d67633dc.png';
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ?
-            jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$2, { variant: 'link', startIcon: jsxRuntime.jsx(BackArrow, { fill: 'currentColor' }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ?
-                                jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
-                                        return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { style: { width: '100%' }, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }));
-                                    }) })
-                                :
-                                    jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: 'Empty notification list' }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) })] })] })
-            :
-                jsxRuntime.jsxs(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }, transformOrigin: {
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }, PaperProps: {
-                        style: {
-                            backgroundColor: "transparent",
-                            boxShadow: "none",
-                            borderRadius: 0
+    const notificationsLength = props?.notificationList?.length;
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ? (jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$2, { variant: "link", startIcon: jsxRuntime.jsx(BackArrow, { fill: "currentColor" }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
+                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { style: { width: '100%' }, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }));
+                            }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) : (jsxRuntime.jsxs(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
+                vertical: 'bottom',
+                horizontal: 'center'
+            }, transformOrigin: {
+                vertical: 'top',
+                horizontal: 'center'
+            }, PaperProps: {
+                style: {
+                    backgroundColor: 'transparent',
+                    boxShadow: 'none',
+                    borderRadius: 0
+                }
+            }, children: [jsxRuntime.jsx(material.Box, { sx: {
+                        position: 'relative',
+                        mt: '10px',
+                        '&::before': {
+                            backgroundColor: 'white',
+                            content: '""',
+                            display: 'block',
+                            position: 'absolute',
+                            width: 12,
+                            height: 12,
+                            top: -6,
+                            transform: 'rotate(45deg)',
+                            left: 'calc(50% - 6px)'
                         }
-                    }, children: [jsxRuntime.jsx(material.Box, { sx: {
-                                position: "relative",
-                                mt: "10px",
-                                "&::before": {
-                                    backgroundColor: "white",
-                                    content: '""',
-                                    display: "block",
-                                    position: "absolute",
-                                    width: 12,
-                                    height: 12,
-                                    top: -6,
-                                    transform: "rotate(45deg)",
-                                    left: "calc(50% - 6px)"
-                                }
-                            } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ?
-                                    //@ts-ignore
-                                    jsxRuntime.jsx(reactScrollbarsCustom.Scrollbar, { allowtransparency: "true", removeTracksWhenNotUsed: true, disableTracksWidthCompensation: true, disableTracksMousewheelScrolling: true, onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
-                                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: jsxRuntime.jsx(NotificationCard, { notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }, index));
-                                            }) }) })
-                                    :
-                                        jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: 'Empty notification list' }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) })] })] }) }));
+                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$2, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
+                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => props?.setOnAreaPopOver(true), onMouseOut: () => props?.setOnAreaPopOver(false), children: jsxRuntime.jsx(NotificationCard, { notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }, index));
+                            }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
 
 function GlobalMenu({ variant, menu, subMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, onClickLogo }) {
