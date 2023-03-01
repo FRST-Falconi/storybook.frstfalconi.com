@@ -19,9 +19,15 @@ const ListItem = styled("li")<props>`
     height: 38px;
     margin: 0;
     padding-left: 16px;
+    margin-top: 4px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
 
     ${props => props.disabled === true && css`
         cursor: not-allowed;
