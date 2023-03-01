@@ -3306,9 +3306,15 @@ const ListItem$1 = styled__default["default"]("li") `
     height: 38px;
     margin: 0;
     padding-left: 16px;
+    margin-top: 4px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
 
     ${props => props.disabled === true && styled.css `
         cursor: not-allowed;
@@ -9192,7 +9198,7 @@ const WrapperCard$2 = styled__default["default"].div `
 `;
 const TagText = styled__default["default"].span `
     border-radius: 0px 8px;
-    margin-bottom: -24px
+    /* margin-bottom: -24px; */
 
     font-family: 'PT Sans';
     font-style: normal;
@@ -9452,7 +9458,7 @@ styled__default["default"](MenuItem__default["default"]) `
   color: white !important;
   background-color: #F5792A !important;
 
-  displey: flex;
+  display: flex;
   flex-direction: row;
   &:hover {
     background-color: #FD9350 !important;
@@ -9468,7 +9474,7 @@ const TextOption = styled__default["default"].div `
   line-height: 21px;
 `;
 
-function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete }) {
+function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, style }) {
     const [label, setLabel] = React.useState(labels['ptBR']);
     const [activeClick, setActiveClick] = React.useState(false);
     React.useEffect(() => {
@@ -9485,8 +9491,8 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
             setActiveClick(false);
         }, 700);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
-                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
+                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
@@ -11471,7 +11477,11 @@ function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSen
                             jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position, { children: position }) })
                             :
                                 jsxRuntime.jsx(Position, { children: position })] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] }), jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })] }) : null, statusSend == 'success' ?
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ?
+                                        jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })
+                                        : null, handleClickRemove ?
+                                        jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })
+                                        : null] }) : null, statusSend == 'success' ?
                             jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: '14' }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) }) : null] })] }) }));
 }
 

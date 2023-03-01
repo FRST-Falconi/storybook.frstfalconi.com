@@ -61,7 +61,7 @@ export const SubMenuItemCustom = styled(MenuItem)`
   color: white !important;
   background-color: #F5792A !important;
 
-  displey: flex;
+  display: flex;
   flex-direction: row;
   &:hover {
     background-color: #FD9350 !important;

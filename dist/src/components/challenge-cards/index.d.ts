@@ -1,7 +1,7 @@
 /// <reference types="react" />
 import '../../shared/global.css';
 import { IChallengeCard } from './challengeCard';
-export default function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete }: IChallengeCard): JSX.Element;
+export default function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, style }: IChallengeCard): JSX.Element;
 export declare function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDelete, variant }: {
     textContinue: any;
     textDelete: any;
