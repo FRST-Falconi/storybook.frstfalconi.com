@@ -58,7 +58,7 @@ interface IBannerProblemParams {
     /**
     * @prop {() => void} onClickContinue: Função executada no botão de continuar desafio
     */
-    onClickContinue: () => void
+    onClickContinue?: () => void
   }
   
   ///-----------------------------------------
