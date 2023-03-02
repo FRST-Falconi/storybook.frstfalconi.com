@@ -7,15 +7,14 @@ import { PlayLineIcon } from 'frst-components'
 export default function ParticipantThumbnails({ imgThumbnails }) {
   return (
     <>
+      <styleThumbnails.ContainerThumbnails>
+        <styleThumbnails.ThumbnailHeaderImage img={imgThumbnails} />
+        <h1>Intro a Blockchain</h1>
+      </styleThumbnails.ContainerThumbnails>
       <styleThumbnails.Container>
         <styleThumbnails.HeaderImage img={imgThumbnails} />
-        <styleThumbnails.ContainerDescriptionVideo>
-          <styleThumbnails.ButtonsVideo>
-            <Button variant="link" label={`${(<PlayLineIcon fill="#ffff" width="36" height="36" />)}`}></Button>
-            <Button label="Link" variant="link" />
-            <Button label="Link" variant="link" />
-          </styleThumbnails.ButtonsVideo>
-        </styleThumbnails.ContainerDescriptionVideo>
+        <h1>Life Long Learning</h1>
+        <p>Entenda como funciona o Agile Learning Experience FRST e comece sua jornada de aprendizado. </p>
       </styleThumbnails.Container>
     </>
   )
