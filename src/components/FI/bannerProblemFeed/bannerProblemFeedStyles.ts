@@ -51,7 +51,7 @@ export const problemTitle = styled.div`
     font-size: 24px;
     font-weight: 600;
     text-align: center;
-    margin-top: 32px;
+    margin-top: 24px;
     word-wrap: break-word;
 `
 
@@ -61,6 +61,7 @@ export const tagContent = styled.div`
     align-items: center;
     flex-wrap: wrap;
     margin-top: 24px;
+    gap: 8px;
 `
 
 export const lastUpdatedText = styled.div`
@@ -69,7 +70,7 @@ export const lastUpdatedText = styled.div`
     align-items: center;
     flex-direction: row;
     ${({theme}) => theme.fonts.textMessageComponentsBodySmall};
-    margin-top: 24px;
+    margin-top: 16px;
 `
 
 export const stepsContainer = styled.div`

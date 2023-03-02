@@ -1,5 +1,5 @@
 import { Popover } from '@mui/material';
-type NotificationListProps = {
+declare type NotificationListProps = {
     notificationsLength?: number;
 };
 export declare const PopoverCustom: import("styled-components").StyledComponent<typeof Popover, any, {}, never>;

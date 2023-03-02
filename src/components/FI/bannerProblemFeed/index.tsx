@@ -298,7 +298,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     </Styles.topHeaderTag>
                 }
                 <Styles.headerContent>
-                    <Avatar size="48px" src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />
+                    <Avatar size="54px" src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />
                     <Styles.userInfo>
                         <span style={{fontWeight: 600, fontSize: 20}}>
                             {props.isSuccessCase ?   
@@ -328,7 +328,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     <span style={{fontWeight: 700}}>{props.lastUpdated}:</span>
                     <span>&nbsp;{props.lastUpdatedStep}</span>
                 </Styles.lastUpdatedText>
-                <div style={{width:'100%', marginTop: 24, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`}}>
+                <div style={{width:'100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`}}>
 
                     <MissionSteps
                         stepProblem={props.stepProblem}

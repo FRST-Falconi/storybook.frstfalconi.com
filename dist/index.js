@@ -10129,7 +10129,7 @@ const problemTitle = styled__default["default"].div `
     font-size: 24px;
     font-weight: 600;
     text-align: center;
-    margin-top: 32px;
+    margin-top: 24px;
     word-wrap: break-word;
 `;
 const tagContent = styled__default["default"].div `
@@ -10138,6 +10138,7 @@ const tagContent = styled__default["default"].div `
     align-items: center;
     flex-wrap: wrap;
     margin-top: 24px;
+    gap: 8px;
 `;
 const lastUpdatedText = styled__default["default"].div `
     display: flex;
@@ -10145,7 +10146,7 @@ const lastUpdatedText = styled__default["default"].div `
     align-items: center;
     flex-direction: row;
     ${({ theme }) => theme.fonts.textMessageComponentsBodySmall};
-    margin-top: 24px;
+    margin-top: 16px;
 `;
 const stepsContainer = styled__default["default"].div `
     display: flex;
@@ -10198,13 +10199,14 @@ const topHeaderTag = styled__default["default"].span `
 `;
 
 const Container$1 = styled__default["default"].div `
-    padding: 12px 24px 0px 24px;
+    padding: 1px 24px 0px 24px;
     display: flex;
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-top: 0px !important;
 `;
 const infoContent = styled__default["default"].div `
     display: flex;
@@ -10217,6 +10219,7 @@ const infoContent = styled__default["default"].div `
     font-size: 16px;
     font-weight: 400;
     padding: 12px;
+    padding-top: 24px;
 `;
 const info = styled__default["default"].div `
     display: flex;
@@ -10289,7 +10292,7 @@ const inputComment = styled__default["default"].div `
     align-items: center;
     flex-direction: row;
     width: 100%;
-    margin-top: 28px;
+    margin-top: 12px;
 `;
 const submitButton = styled__default["default"].div `
     border: none;
@@ -10431,14 +10434,14 @@ function BannerProblemFeed(props) {
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
                 jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
                 : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
-                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "48px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
+                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
                                             (props.language === 'pt-BR' ? 'Case de sucesso'
                                                 : props.language === 'en-US' ? 'Success case'
                                                     : props.language === 'es' ? 'Caso de exito'
                                                         : props.language === 'pt-PT' ? 'Case de sucesso'
                                                             : null)
                                             : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
-                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 24, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
+                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                                 props.onSelectedStep(step);
                                 setSelectedStep(step);
                             }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar })] }));
