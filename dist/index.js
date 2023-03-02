@@ -1122,7 +1122,7 @@ function MissionSteps(props) {
                         jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
                         :
                             jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
-                    : props.stepProblem < 4 &&
+                    : props.stepProblem < 5 &&
                         props.onClickContinue &&
                         jsxRuntime.jsx("span", { className: style$c.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$2, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
                                 setStep(1);
