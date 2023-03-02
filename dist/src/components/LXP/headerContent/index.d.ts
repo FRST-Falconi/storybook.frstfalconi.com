@@ -1,6 +1,4 @@
 /// <reference types="react" />
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
 interface objPropiedades {
     title?: string;
     description?: string;
