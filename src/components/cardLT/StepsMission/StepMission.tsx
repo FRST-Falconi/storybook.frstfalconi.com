@@ -1,8 +1,15 @@
 
-import React, { useEffect, useState, useLayoutEffect } from 'react'
+import React, {
+  useEffect,
+  useState,
+  useLayoutEffect,
+  CSSProperties
+} from 'react'
 
 import style from './Planet.module.css'
 import Steps from './Steps'
+import { Button } from '../../../../index'
+import { FowardArrow } from '../../../shared/icons'
 
 ///-----------------------------------------
 /// Interface do Componente
@@ -24,6 +31,10 @@ interface MissionStepsParams {
    * @prop {(step: number) => void} onSelected: Função irá retornar o step selecionado
    */
   onSelected: (step: number) => void
+  /**
+  * @prop {() => void} onClickContinue: Função executada no botão de continuar desafio
+  */
+  onClickContinue?: () => void
 }
 
 ///-----------------------------------------
@@ -38,31 +49,35 @@ interface MissionStepsParams {
 export default function MissionSteps(props: MissionStepsParams) {
 
   const traducaoPTBR = {
-    next: "Próxima missão >",
+    next: "Ver missão seguinte >",
     nextShort: "Próx. >",
-    previous: "< Missão anterior",
+    previous: "< Ver missão anterior",
     previousShort: "< Ant.",
+    continueChallenge: "Continuar desafio"
   }
 
   const traducaoES = {
-    next: "Próxima misión >",
+    next: "Ver misión siguiente >",
     nextShort: "Próx. >",
-    previous: "< Misión anterior",
+    previous: "< Ver misión anterior",
     previousShort: "< Ant.",
+    continueChallenge: "Continuar desafío"
   }
 
   const traducaoENUS = {
-    next: "Next mission >",
+    next: "View next mission >",
     nextShort: "Next >",
-    previous: "< Previous mission",
+    previous: "< View previous mission",
     previousShort: "< Previous",
+    continueChallenge: "Continue challenge"
   }
 
   const traducaoPT = {
-    next: "Próxima missão >",
+    next: "Ver missão seguinte >",
     nextShort: "Próx. >",
-    previous: "< Missão anterior",
+    previous: "< Ver missão anterior",
     previousShort: "< Ant.",
+    continueChallenge: "Continuar desafio"
   }
 
   const mapTraducao = new Map()  
@@ -100,27 +115,53 @@ export default function MissionSteps(props: MissionStepsParams) {
   }, []);
   const BREAKWIDTH = 475
 
+  const leftButtonStyle: CSSProperties = {
+    position: 'absolute',
+    top: 20,
+    left: 0,
+    cursor: 'pointer'
+  }
+
+  const rightButtonStyle = {
+    ...leftButtonStyle,
+    right: 0,
+    left: 'auto'
+  }
+
   return (
 
     <>
-      <div style={{ display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white' }}>
+      <div style={{ display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white', marginTop: '10px' }}>
 
         {
           stepActive > 1 ?
             size[0] >= BREAKWIDTH ?
-              <span onClick={() => { setStep(stepActive - 1) }} className={style.missaoTitle} style={{ position: 'absolute', top: 20, left: 20, cursor: 'pointer' }}>{`${mapTraducao.get(Idioma).previous}`}</span>
+              <span onClick={() => { setStep(stepActive - 1) }} className={style.missaoTitle} style={leftButtonStyle}>{`${mapTraducao.get(Idioma).previous}`}</span>
               :
-              <span onClick={() => { setStep(stepActive - 1) }} className={style.missaoTitle} style={{ position: 'absolute', top: 20, left: 20, cursor: 'pointer' }}>{`${mapTraducao.get(Idioma).previousShort}`}</span>
+              <span onClick={() => { setStep(stepActive - 1) }} className={style.missaoTitle} style={leftButtonStyle}>{`${mapTraducao.get(Idioma).previousShort}`}</span>
             : null
         }
 
         {
           stepActive < stepLiberado ?
             size[0] >= BREAKWIDTH ?
-              <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={{ position: 'absolute', top: 20, right: 20, cursor: 'pointer' }}>{`${mapTraducao.get(Idioma).next}`}</span>
+              <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={rightButtonStyle}>{`${mapTraducao.get(Idioma).next}`}</span>
               :
-              <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={{ position: 'absolute', top: 20, right: 20, cursor: 'pointer' }}>{`${mapTraducao.get(Idioma).nextShort}`}</span>
-            : null
+              <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={rightButtonStyle}>{`${mapTraducao.get(Idioma).nextShort}`}</span>
+            : props.stepProblem < 4 &&
+                props.onClickContinue &&
+                  <span
+                    className={style.missaoTitle}
+                    style={{ ...rightButtonStyle, marginTop: '-10px' }}
+                  >
+                    <Button
+                      handleClick={() => props.onClickContinue()}
+                      label={mapTraducao.get(Idioma).continueChallenge}
+                      variant="primary"
+                      endIcon={<FowardArrow fill="#fff" />}
+                      style={{ height: '40px'}}
+                    />
+                  </span>
         }
 
         <div style={{ display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }}>

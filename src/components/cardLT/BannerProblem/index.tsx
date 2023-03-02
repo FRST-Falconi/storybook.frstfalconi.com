@@ -41,6 +41,8 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
     props.tags && props.tags.length >=3 ? props.tags[2] : ''
   ]);
 
+  const hasContinueProps = props?.onClickContinue?.name !== 'actionHandler'
+
   const customStyles = {
     option: (styles, {isFocused, isSelected, isDisabled}) => ({
       ...styles,
@@ -329,6 +331,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
         <StepMission 
           stepProblem={props.stepProblem}
           stepActive={props.stepActive}
+          onClickContinue={hasContinueProps ? props.onClickContinue : null}
           onSelected={(step: number)=>{
             props.onSelectedStep(step)
           }}

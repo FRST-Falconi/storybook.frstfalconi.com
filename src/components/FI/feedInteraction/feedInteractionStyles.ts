@@ -1,13 +1,14 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-    padding: 12px 24px 0px 24px;
+    padding: 1px 24px 0px 24px;
     display: flex;
     flex-direction: column;
     background-color: ${({theme}) => theme.colors.shadeWhite};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-top: 0px !important;
 `
 
 export const infoContent = styled.div`
@@ -21,6 +22,7 @@ export const infoContent = styled.div`
     font-size: 16px;
     font-weight: 400;
     padding: 12px;
+    padding-top: 24px;
 `
 
 export const info = styled.div`
@@ -101,7 +103,7 @@ export const inputComment = styled.div`
     align-items: center;
     flex-direction: row;
     width: 100%;
-    margin-top: 28px;
+    margin-top: 12px;
 `
 
 export const submitButton = styled.div`

@@ -26,9 +26,6 @@ var reactColor = require('react-color');
 var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
 var styles$1 = require('@material-ui/core/styles');
-var Slider = require('react-slick');
-require('slick-carousel/slick/slick.css');
-require('slick-carousel/slick/slick-theme.css');
 var Popover = require('@material-ui/core/Popover');
 var Rating$2 = require('@mui/material/Rating');
 var Typography$3 = require('@mui/material/Typography');
@@ -47,7 +44,7 @@ var iconsMaterial = require('@mui/icons-material');
 var Switch = require('react-switch');
 var moment = require('moment');
 var _ = require('@mui/material/');
-var Slider$1 = require('@mui/material/Slider');
+var Slider = require('@mui/material/Slider');
 var styles$2 = require('@material-ui/styles');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
@@ -88,7 +85,6 @@ var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
 var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
-var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
 var Popover__default = /*#__PURE__*/_interopDefaultLegacy(Popover);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$3);
@@ -97,7 +93,7 @@ var Markdown__default = /*#__PURE__*/_interopDefaultLegacy(Markdown);
 var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 var Switch__default = /*#__PURE__*/_interopDefaultLegacy(Switch);
 var moment__default = /*#__PURE__*/_interopDefaultLegacy(moment);
-var Slider__default$1 = /*#__PURE__*/_interopDefaultLegacy(Slider$1);
+var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
 
 function EditIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '20', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M16.1788 1.92286C16.3858 1.71638 16.667 1.6 16.9607 1.6C17.2544 1.6 17.5356 1.71638 17.7426 1.92286C17.9496 2.12928 18.0654 2.4088 18.0654 2.69981C18.0654 2.99083 17.9496 3.27034 17.7426 3.47676L9.5855 11.6127C9.4439 11.7539 9.26546 11.8543 9.07141 11.9027C8.26586 12.1036 7.52969 11.3753 7.73154 10.57C7.78007 10.3765 7.88036 10.1997 8.02166 10.0588L16.1788 1.92286ZM16.9607 0C16.244 0 15.5563 0.283939 15.0489 0.790021L6.5187 9.29803C6.41591 9.40055 6.34296 9.52912 6.30766 9.66994L5.40975 13.2523C5.34143 13.5248 5.42113 13.8133 5.61971 14.0121C5.81829 14.2109 6.10663 14.291 6.3793 14.223L9.97094 13.3274C10.1114 13.2924 10.2398 13.2199 10.3423 13.1176L18.8725 4.6096C19.38 4.10345 19.6654 3.41652 19.6654 2.69981C19.6654 1.9831 19.38 1.29617 18.8725 0.790021C18.3651 0.283939 17.6774 0 16.9607 0ZM2.59582 1.89842C1.90804 1.89842 1.24801 2.17091 0.761035 2.65662C0.273994 3.1424 0 3.80169 0 4.48958V17.0277C0 17.7156 0.273995 18.3749 0.761035 18.8607C1.24801 19.3464 1.90804 19.6188 2.59582 19.6188H15.1666C15.8544 19.6188 16.5144 19.3464 17.0014 18.8607C17.4884 18.3749 17.7624 17.7156 17.7624 17.0277V10.7586C17.7624 10.3168 17.4042 9.95864 16.9624 9.95864C16.5206 9.95864 16.1624 10.3168 16.1624 10.7586V17.0277C16.1624 17.2899 16.058 17.5418 15.8715 17.7278C15.6849 17.9139 15.4314 18.0189 15.1666 18.0189H2.59582C2.33104 18.0189 2.07753 17.9139 1.89093 17.7278C1.70441 17.5418 1.6 17.2899 1.6 17.0277V4.48958C1.6 4.22738 1.70441 3.9755 1.89093 3.78946C2.07753 3.60335 2.33104 3.49842 2.59582 3.49842H8.8812C9.32303 3.49842 9.6812 3.14025 9.6812 2.69842C9.6812 2.25659 9.32303 1.89842 8.8812 1.89842H2.59582Z", fill: fill ?? '#0645AD' }) }));
@@ -1049,28 +1045,32 @@ function Steps(props) {
  */
 function MissionSteps(props) {
     const traducaoPTBR = {
-        next: "Próxima missão >",
+        next: "Ver missão seguinte >",
         nextShort: "Próx. >",
-        previous: "< Missão anterior",
+        previous: "< Ver missão anterior",
         previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
     };
     const traducaoES = {
-        next: "Próxima misión >",
+        next: "Ver misión siguiente >",
         nextShort: "Próx. >",
-        previous: "< Misión anterior",
+        previous: "< Ver misión anterior",
         previousShort: "< Ant.",
+        continueChallenge: "Continuar desafío"
     };
     const traducaoENUS = {
-        next: "Next mission >",
+        next: "View next mission >",
         nextShort: "Next >",
-        previous: "< Previous mission",
+        previous: "< View previous mission",
         previousShort: "< Previous",
+        continueChallenge: "Continue challenge"
     };
     const traducaoPT = {
-        next: "Próxima missão >",
+        next: "Ver missão seguinte >",
         nextShort: "Próx. >",
-        previous: "< Missão anterior",
+        previous: "< Ver missão anterior",
         previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
     };
     const mapTraducao = new Map();
     mapTraducao.set("pt-BR", traducaoPTBR);
@@ -1101,17 +1101,30 @@ function MissionSteps(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 475;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white' }, children: [stepActive > 1 ?
+    const leftButtonStyle = {
+        position: 'absolute',
+        top: 20,
+        left: 0,
+        cursor: 'pointer'
+    };
+    const rightButtonStyle = {
+        ...leftButtonStyle,
+        right: 0,
+        left: 'auto'
+    };
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white', marginTop: '10px' }, children: [stepActive > 1 ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previous}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, left: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).previousShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
                     : null, stepActive < stepLiberado ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).next}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: { position: 'absolute', top: 20, right: 20, cursor: 'pointer' }, children: `${mapTraducao.get(Idioma).nextShort}` })
-                    : null, jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
+                    : props.stepProblem < 4 &&
+                        props.onClickContinue &&
+                        jsxRuntime.jsx("span", { className: style$c.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$2, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
                                 setStep(1);
                             } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
                                 setStep(2);
@@ -1757,6 +1770,7 @@ function BannerProblem(props) {
         props.tags && props.tags.length >= 2 ? props.tags[1] : '',
         props.tags && props.tags.length >= 3 ? props.tags[2] : ''
     ]);
+    const hasContinueProps = props?.onClickContinue?.name !== 'actionHandler';
     const customStyles = {
         option: (styles, { isFocused, isSelected, isDisabled }) => ({
             ...styles,
@@ -1864,7 +1878,7 @@ function BannerProblem(props) {
                                         : null, jsxRuntime.jsx(MessageBox, { texto: props.message, tipoVisualizacao: props.typeMessagem, onClick: props.onClickMessage, hasHover: true, style: { marginBottom: 16, maxWidth: 400 } }), jsxRuntime.jsx("span", { className: style$a.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
                                 jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
-                                : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
+                                : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onClickContinue: hasContinueProps ? props.onClickContinue : null, onSelected: (step) => {
                         props.onSelectedStep(step);
                     }, idioma: Idioma }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
     function adapterEmail(email, widthScreen) {
@@ -3306,9 +3320,15 @@ const ListItem$1 = styled__default["default"]("li") `
     height: 38px;
     margin: 0;
     padding-left: 16px;
+    margin-top: 4px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
 
     ${props => props.disabled === true && styled.css `
         cursor: not-allowed;
@@ -5971,14 +5991,14 @@ function HeaderContent(props) {
     const [selectedContent, setSelectedContent] = React.useState(0);
     const [zeroHeigthDescription, setzeroHeigthDescription] = React.useState(false);
     const [textView, setTextView] = React.useState(props.textViewMore);
-    const settingsSlider = {
+    ({
         dots: true,
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
         autoplay: true,
         autoplaySpeed: props.autoplayTime
-    };
+    });
     React.useEffect(() => {
         const timer = setTimeout(() => setSelectedContent(selectedContent < 2 ? selectedContent + 1 : 0), 10000);
         return () => clearTimeout(timer);
@@ -5999,9 +6019,9 @@ function HeaderContent(props) {
     function InProgressHeader(item) {
         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$2, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel }), jsxRuntime.jsx(SpaceButtonLeft, { onClick: item.onClick, children: jsxRuntime.jsx(Button$2, { label: item.labelButton, variant: "primary" }) })] })] }));
     }
-    return (jsxRuntime.jsx(Container$8, { theme: FRSTTheme, children: jsxRuntime.jsx(Slider__default["default"], { ...settingsSlider, children: props.listaRecomendacao.map((item, index) => {
-                return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { children: RecomendationHeader(item) })) }) }, index));
-            }) }) }));
+    return (jsxRuntime.jsx(Container$8, { theme: FRSTTheme, children: props.listaRecomendacao.map((item, index) => {
+            return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { children: RecomendationHeader(item) })) }) }, index));
+        }) }));
 }
 
 const RectangleUpLeft = styled__default["default"].div `
@@ -9192,7 +9212,7 @@ const WrapperCard$2 = styled__default["default"].div `
 `;
 const TagText = styled__default["default"].span `
     border-radius: 0px 8px;
-    margin-bottom: -24px
+    /* margin-bottom: -24px; */
 
     font-family: 'PT Sans';
     font-style: normal;
@@ -9452,7 +9472,7 @@ styled__default["default"](MenuItem__default["default"]) `
   color: white !important;
   background-color: #F5792A !important;
 
-  displey: flex;
+  display: flex;
   flex-direction: row;
   &:hover {
     background-color: #FD9350 !important;
@@ -9468,7 +9488,7 @@ const TextOption = styled__default["default"].div `
   line-height: 21px;
 `;
 
-function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete }) {
+function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, style }) {
     const [label, setLabel] = React.useState(labels['ptBR']);
     const [activeClick, setActiveClick] = React.useState(false);
     React.useEffect(() => {
@@ -9485,8 +9505,8 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
             setActiveClick(false);
         }, 700);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
-                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
+                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
@@ -10111,7 +10131,7 @@ const problemTitle = styled__default["default"].div `
     font-size: 24px;
     font-weight: 600;
     text-align: center;
-    margin-top: 32px;
+    margin-top: 24px;
     word-wrap: break-word;
 `;
 const tagContent = styled__default["default"].div `
@@ -10120,6 +10140,7 @@ const tagContent = styled__default["default"].div `
     align-items: center;
     flex-wrap: wrap;
     margin-top: 24px;
+    gap: 8px;
 `;
 const lastUpdatedText = styled__default["default"].div `
     display: flex;
@@ -10127,7 +10148,7 @@ const lastUpdatedText = styled__default["default"].div `
     align-items: center;
     flex-direction: row;
     ${({ theme }) => theme.fonts.textMessageComponentsBodySmall};
-    margin-top: 24px;
+    margin-top: 16px;
 `;
 const stepsContainer = styled__default["default"].div `
     display: flex;
@@ -10180,13 +10201,14 @@ const topHeaderTag = styled__default["default"].span `
 `;
 
 const Container$1 = styled__default["default"].div `
-    padding: 12px 24px 0px 24px;
+    padding: 1px 24px 0px 24px;
     display: flex;
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-top: 0px !important;
 `;
 const infoContent = styled__default["default"].div `
     display: flex;
@@ -10199,6 +10221,7 @@ const infoContent = styled__default["default"].div `
     font-size: 16px;
     font-weight: 400;
     padding: 12px;
+    padding-top: 24px;
 `;
 const info = styled__default["default"].div `
     display: flex;
@@ -10271,7 +10294,7 @@ const inputComment = styled__default["default"].div `
     align-items: center;
     flex-direction: row;
     width: 100%;
-    margin-top: 28px;
+    margin-top: 12px;
 `;
 const submitButton = styled__default["default"].div `
     border: none;
@@ -10370,7 +10393,7 @@ function BannerProblemFeed(props) {
         disabled: {
             color: '#FF4D0D',
         }
-    })(Slider__default$1["default"]);
+    })(Slider__default["default"]);
     const marks = [
         {
             value: 1,
@@ -10413,14 +10436,14 @@ function BannerProblemFeed(props) {
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
                 jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
                 : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
-                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "48px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
+                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
                                             (props.language === 'pt-BR' ? 'Case de sucesso'
                                                 : props.language === 'en-US' ? 'Success case'
                                                     : props.language === 'es' ? 'Caso de exito'
                                                         : props.language === 'pt-PT' ? 'Case de sucesso'
                                                             : null)
                                             : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
-                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 24, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
+                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                                 props.onSelectedStep(step);
                                 setSelectedStep(step);
                             }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar })] }));
@@ -11468,7 +11491,11 @@ function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSen
                             jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position, { children: position }) })
                             :
                                 jsxRuntime.jsx(Position, { children: position })] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] }), jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })] }) : null, statusSend == 'success' ?
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ?
+                                        jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })
+                                        : null, handleClickRemove ?
+                                        jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })
+                                        : null] }) : null, statusSend == 'success' ?
                             jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: '14' }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) }) : null] })] }) }));
 }
 

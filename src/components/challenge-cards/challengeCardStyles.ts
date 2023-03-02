@@ -27,7 +27,7 @@ export const WrapperCard = styled.div<{active}>`
 
 export const TagText = styled.span`
     border-radius: 0px 8px;
-    margin-bottom: -24px
+    /* margin-bottom: -24px; */
 
     font-family: 'PT Sans';
     font-style: normal;

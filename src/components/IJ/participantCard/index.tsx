@@ -74,8 +74,14 @@ export default function ParticipantCard({ userInfo, labels, successfullInvite, s
                 <Styles.FooterButton>
                     { statusSend == 'default' ? 
                     <>
-                        <Styles.ButtonSend onClick={() => clickSendInvitation()}><AddPeople/>{labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'}</Styles.ButtonSend>
-                        <Styles.ButtonRemove onClick={() => handleClickRemove(userInfo?.id)}>{labels?.remove ? labels?.remove : 'Remover'}</Styles.ButtonRemove>
+                        {clickSendInvitation ?
+                            <Styles.ButtonSend onClick={() => clickSendInvitation()}><AddPeople/>{labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'}</Styles.ButtonSend>
+                            : null
+                        }
+                        {handleClickRemove ?
+                            <Styles.ButtonRemove onClick={() => handleClickRemove(userInfo?.id)}>{labels?.remove ? labels?.remove : 'Remover'}</Styles.ButtonRemove>
+                            : null
+                        }
                     </> : null }
                     { statusSend == 'success' ? 
                     <div style={{width: '100%', justifyContent: 'flex-start'}}>

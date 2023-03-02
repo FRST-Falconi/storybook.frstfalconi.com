@@ -17,6 +17,7 @@ export const ShowData = Template.bind({
 ShowData.args = {
     onClickMessage: () => { alert('Opa!')},
     onClickSave: (nome) => {alert(nome)},
+    onClickContinue: () => { alert('Continuar desafio!')},
     problema: "Aumentar o engajamento dos alunos na plataforma",
     company: "FRST Falconi",
     topHeaderTagText: 'Convite recebido para aprovação',

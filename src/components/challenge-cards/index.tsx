@@ -22,7 +22,8 @@ export default function ChallengeCard({
     onClickView, 
     onClickNewProject, 
     onClickContinue, 
-    onClickDelete }: IChallengeCard) {
+    onClickDelete,
+    style }: IChallengeCard) {
     
     const [ label, setLabel] = useState<any>(labels['ptBR'])
     const [ activeClick, setActiveClick ] = useState(false)
@@ -44,7 +45,7 @@ export default function ChallengeCard({
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.WrapperCard active={activeClick}>                
+            <Styles.WrapperCard style={{...style}} active={activeClick}>                
                 <Styles.TagStep onClick={() => handleClick()} variant={variant}>
                     <Styles.TagText>
                         {label.tagStep[variant]}
@@ -65,7 +66,7 @@ export default function ChallengeCard({
                         <Styles.TitleProject onClick={() => handleClick()}>
                         {variant == 'srg' ? 'Space Race Game': label.project}
                         </Styles.TitleProject>
-                        { variant != 'srg' &&
+                        { variant != 'srg' && onClickContinue && onClickDelete &&
                             <Styles.Dots>
                                 <MoreVerticalMenu 
                                     textContinue={label.continue}

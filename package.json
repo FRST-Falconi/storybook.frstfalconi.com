@@ -1,13 +1,14 @@
 {
   "name": "frst-components",
   "homepage": "http://FRST-Falconi.github.io/storybook.frstfalconi.com",
-  "version": "0.10.1",
+  "version": "0.10.6",
   "private": true,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && mkdirp dist && rollup --config rollup.config.js",
     "sb": "start-storybook -p 6006 -s public",
+    "dev": "start-storybook -p 6006 -s public",
     "build-sb": "rimraf storybook-static && build-storybook -s public",
     "deploy-sb": "gh-pages -d storybook-static"
   },
@@ -43,11 +44,9 @@
     "react-scripts": "^5.0.0",
     "react-scrollbars-custom": "^4.1.1",
     "react-select": "^5.3.2",
-    "react-slick": "^0.29.0",
     "react-switch": "^7.0.0",
     "slate-history": "^0.66.0",
     "slate-react": "^0.83.0",
-    "slick-carousel": "^1.8.1",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
