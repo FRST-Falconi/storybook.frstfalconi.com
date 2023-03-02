@@ -7,33 +7,33 @@ interface HeaderContentProps {
 }
 
 export const Container = styled.div`
-  ul {
-    position: relative;
-    top: -2.5rem;
-    li {
-      button {
-        background: ${({ theme }) => theme.colors.neutralsGrey5};
-        border-radius: 100%;
-        width: 13px;
-        height: 13px;
-      }
-      button::before {
-        font-size: 16px;
-        line-height: 15px;
-        width: 13px;
-        height: 13px;
-        left: -1px;
-        opacity: -2.65;
-        color: ${({ theme }) => theme.colors.primary1} !important;
-      }
-    }
+  .rec-carousel-wrapper {
+    margin: 0 !important;
+    flex-direction: column-reverse;
+  }
+  .rec-carousel-wrapper .rec-carousel .rec-slider-container {
+    margin: 0 !important;
+  }
+  .rec-carousel-wrapper .rec-pagination {
+    margin-top: 0;
+    position: absolute;
+    margin-bottom: 1rem;
+  }
+  .rec-carousel-wrapper .rec-pagination .rec-dot_active {
+    background: ${({ theme }) => theme.colors.primary1} !important;
+  }
+  .rec-carousel-wrapper .rec-pagination .rec-dot {
+    background: ${({ theme }) => theme.colors.neutralsGrey5};
+    width: 16px;
+    height: 16px;
+    box-shadow: none;
   }
 `
 
 export const HeaderImage = styled.div<HeaderContentProps>`
   display: flex;
   justify-content: flex-start;
-  height: 80vh;
+  height: 30rem;
   align-items: flex-start;
   flex-direction: column;
   position: relative;

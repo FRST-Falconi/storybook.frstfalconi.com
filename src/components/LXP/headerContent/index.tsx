@@ -1,12 +1,10 @@
 import Button from '@components/buttons'
 import ProgressBar from '@components/LXP/progressBar'
 import { useEffect, useState } from 'react'
-// import Slider from 'react-slick'
-// import 'slick-carousel/slick/slick.css'
-// import 'slick-carousel/slick/slick-theme.css'
 import { FRSTTheme } from '../../../theme'
 import * as styledHeaderContent from './headerContent'
 import { ArrowScrollRight } from './../../../shared/icons'
+import Carousel from 'react-elastic-carousel'
 
 interface objPropiedades {
   title?: string
@@ -22,26 +20,13 @@ interface HeaderContentParams {
   textViewMore?: string
   textViewLess?: string
   autoplayTime?: number
+  autoPlay?: boolean
   listaRecomendacao: Array<objPropiedades>
 }
 
 export default function HeaderContent(props: HeaderContentParams) {
-  const [selectedContent, setSelectedContent] = useState(0)
   const [zeroHeigthDescription, setzeroHeigthDescription] = useState(false)
   const [textView, setTextView] = useState(props.textViewMore)
-  const settingsSlider = {
-    dots: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: props.autoplayTime
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => setSelectedContent(selectedContent < 2 ? selectedContent + 1 : 0), 10000)
-    return () => clearTimeout(timer)
-  }, [selectedContent])
 
   function addHeigthDescription() {
     if (zeroHeigthDescription) {
@@ -100,7 +85,7 @@ export default function HeaderContent(props: HeaderContentParams) {
 
   return (
     <styledHeaderContent.Container theme={FRSTTheme}>
-      {/* <Slider {...settingsSlider}> */}
+      <Carousel isRTL={false} showArrows={false} enableAutoPlay={props.autoPlay} autoPlaySpeed={props.autoplayTime}>
         {props.listaRecomendacao.map((item, index) => {
           return (
             <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length}>
@@ -114,7 +99,7 @@ export default function HeaderContent(props: HeaderContentParams) {
             </styledHeaderContent.HeaderImage>
           )
         })}
-      {/* </Slider> */}
+      </Carousel>
     </styledHeaderContent.Container>
   )
 }
