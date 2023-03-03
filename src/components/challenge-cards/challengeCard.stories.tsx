@@ -30,6 +30,7 @@ normal.args = {
     onClickNewProject: () => alert('new project'),
     onClickContinue: () => alert('click continue'),
     onClickDelete: () => alert('click delete'),
+    onClickEdit: () => alert('click edit'),
 }
 
 export const exibition = Template.bind({})
