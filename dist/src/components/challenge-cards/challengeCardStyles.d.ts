@@ -16,6 +16,9 @@ export declare const TitleProject: import("styled-components").StyledComponent<"
 export declare const Dots: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const DescriptionProject: import("styled-components").StyledComponent<"span", any, {}, never>;
 export declare const DescriptionSRG: import("styled-components").StyledComponent<"span", any, {}, never>;
-export declare const ButtonAction: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const ButtonActionWrapper: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const ButtonAction: import("styled-components").StyledComponent<"div", any, {
+    variant: string;
+}, never>;
 export declare const MyPopOver: import("styled-components").StyledComponent<"div", any, {}, never>;
 //# sourceMappingURL=challengeCardStyles.d.ts.map

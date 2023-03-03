@@ -12,5 +12,6 @@ export interface IChallengeCard {
     onClickNewProject?: () => void,
     onClickContinue?: () => void,
     onClickDelete?: () => void,
+    onClickEdit?: () => void,
     style?: React.CSSProperties
 }

@@ -4,16 +4,18 @@ import { FRSTTheme } from '../../theme'
 import '../../shared/global.css'
 
 import { IChallengeCard } from './challengeCard'
-import { MoreDotsVertical, EditIcon, TrashIcon, CheckInCicle, Plus } from '@shared/icons'
-import PopOver from '@components/LXP/popOver'
+import {
+    MoreDotsVertical,
+    EditIcon,
+    TrashIcon,
+    CheckInCicle,
+    Plus,
+    FowardArrow
+} from '@shared/icons'
 
 import * as Styles from './challengeCardStyles'
-import { Select, MenuItem } from '@material-ui/core';
-
 import * as StylesDrop from './dropdownMenuStyle'
 import Button from '@mui/material/Button'
-
-
 
 export default function ChallengeCard({ 
     variant, 
@@ -23,6 +25,7 @@ export default function ChallengeCard({
     onClickNewProject, 
     onClickContinue, 
     onClickDelete,
+    onClickEdit,
     style }: IChallengeCard) {
     
     const [ label, setLabel] = useState<any>(labels['ptBR'])
@@ -71,8 +74,10 @@ export default function ChallengeCard({
                                 <MoreVerticalMenu 
                                     textContinue={label.continue}
                                     textDelete={label.delete}
+                                    textEdit={label.edit}
                                     handleContinue={() => onClickContinue()}
                                     handleDelete={() => onClickDelete()}
+                                    handleEdit={() => onClickEdit()}
                                     variant={variant}
                                 />
                             </Styles.Dots> }
@@ -86,18 +91,28 @@ export default function ChallengeCard({
                     {label.srgDecription}
                     </Styles.DescriptionSRG>
                     }
-                    <Styles.ButtonAction onClick={() => handleClick()}>
-                        {variant == 'srg' ? 
-                        <>
-                            <Plus/>
-                            <span style={{marginLeft: '12px'}}>
-                                {label.newProject}
-                            </span>
-                        </>
-                        : 
-                        label.view
+
+                    <Styles.ButtonActionWrapper>
+                        <Styles.ButtonAction onClick={() => handleClick()} variant={variant}>
+                            {variant == 'srg' ? 
+                            <>
+                                <Plus/>
+                                <span style={{marginLeft: '12px'}}>
+                                    {label.newProject}
+                                </span>
+                            </>
+                            : 
+                            label.view
+                            }
+                        </Styles.ButtonAction>
+                        {variant !== 'srg' && variant !== 'completed' &&
+                            <Styles.ButtonAction onClick={() => onClickContinue()} variant={variant}>
+                                <span style={{marginLeft: '12px'}}>
+                                    {label.continue}
+                                </span>
+                            </Styles.ButtonAction>
                         }
-                    </Styles.ButtonAction>
+                    </Styles.ButtonActionWrapper>
                 </Styles.ContentCard>
 
             </Styles.WrapperCard>
@@ -132,9 +147,10 @@ const labels = {
         srgDecription: 'Nossa ferramenta ágil para atingir resultados e garantir aprendizados reais com ciclos de colaboração e experimentação.',
         project: 'Desafio',
         delete: 'Excluir',
+        edit: 'Editar',
         continue: 'Continuar',
         view: 'Visualizar',
-        newProject: 'Criar novo desafio',
+        newProject: 'Criar desafio',
         tagStep: {
             incompleteMars: 'Problema criado',
             mars: 'Definição do desafio',
@@ -157,9 +173,10 @@ const labels = {
         srgDecription: 'Our agile tool to achieve results and ensure real learning with cycles of collaboration and experimentation.',
         project: 'Challenge',
         delete: 'Delete',
+        edit: 'Edit',
         continue: 'Continue',
         view: 'View',
-        newProject: 'Create a new challenge',
+        newProject: 'Create challenge',
         tagStep: {
             incompleteMars: 'Created problem',
             mars: 'Challenge definition',
@@ -183,9 +200,10 @@ const labels = {
         srgDecription: 'Nuestra herramienta ágil para lograr resultados y asegurar un aprendizaje real con ciclos de colaboración y experimentación.',
         project: 'Desafio',
         delete: 'Elimina',
+        edit: 'Edita',
         continue: 'Continúa',
         view: 'Para ver',
-        newProject: 'Crear un nuevo desafio',
+        newProject: 'Crear desafio',
         tagStep: {
             incompleteMars: 'Problema creado',
             mars: 'Definición del desafío',
@@ -207,7 +225,7 @@ const labels = {
 }
 
 
-export function MoreVerticalMenu({textContinue, textDelete, handleContinue, handleDelete, variant}) {
+export function MoreVerticalMenu({textContinue, textDelete, textEdit, handleContinue, handleDelete, handleEdit, variant}) {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
     const [activeClick, setActiveClick] = useState([false, false])
     const open = Boolean(anchorEl)
@@ -223,7 +241,8 @@ export function MoreVerticalMenu({textContinue, textDelete, handleContinue, hand
       
       setTimeout(() => {
         if(value[0]) handleContinue()
-        if(value[1]) handleDelete()
+        if(value[1]) handleEdit()
+        if(value[2]) handleDelete()
         setActiveClick([false, false])
         setAnchorEl(null)
       }, 600);
@@ -251,20 +270,27 @@ export function MoreVerticalMenu({textContinue, textDelete, handleContinue, hand
           onClose={handleClose}
           step={variant}
         >   
-            { variant != 'completed' &&
+            {variant !== 'completed' &&
                 <StylesDrop.MenuItemCustom 
-                    onClick={() => handleSelect([true, false])} 
+                    onClick={() => handleSelect([true, false, false])} 
                     style={{color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB'}}
                 >                
-                    <EditIcon width='16' height='16' fill={activeClick[0] ? '#663366' : '#0645AD'}/>
+                    <FowardArrow width='16' height='16' fill={activeClick[0] ? '#663366' : '#0645AD'}/>
                     <StylesDrop.TextOption>{textContinue}</StylesDrop.TextOption>
                 </StylesDrop.MenuItemCustom>
             }
             <StylesDrop.MenuItemCustom 
-                onClick={() => handleSelect([false, true])} 
-                style={{color: activeClick[1] ? '#A50000' : '#FF0000' }}
+                onClick={() => handleSelect([false, true, false])} 
+                style={{color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB'}}
+            >                
+                <EditIcon width='16' height='16' fill={activeClick[0] ? '#663366' : '#0645AD'}/>
+                <StylesDrop.TextOption>{textEdit}</StylesDrop.TextOption>
+            </StylesDrop.MenuItemCustom>
+            <StylesDrop.MenuItemCustom 
+                onClick={() => handleSelect([false, false, true])} 
+                style={{color: activeClick[1] ? '#C00F00' : '#FF0000' }}
             >
-                <TrashIcon fill={activeClick[1] ? '#A50000' : '#FF0000'} width='13' height='16' /> 
+                <TrashIcon fill={activeClick[1] ? '#C00F00' : '#FF0000'} width='13' height='16' /> 
                 <StylesDrop.TextOption>{textDelete}</StylesDrop.TextOption>
             </StylesDrop.MenuItemCustom>
         </StylesDrop.MenuCustom>

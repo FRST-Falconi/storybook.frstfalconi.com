@@ -204,7 +204,7 @@ function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '48', height: height ? height : '48', viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#2CA92A" }), jsxRuntime.jsx("path", { d: "M36 15.75L19.5 32.25L12 24.75", stroke: "white", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function CloseIcon({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '13', height: height ? height : '11', viewBox: "0 0 13 11", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.8346 0.630371L1.16797 9.43511", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16797 0.630371L11.8346 9.43511", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '12', height: height ? height : '12', viewBox: "0 0 12 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.3334 0.666687L0.666748 11.3334", stroke: fill ? fill : '#222222', "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M0.666748 0.666687L11.3334 11.3334", stroke: fill ? fill : '#222222', "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
 function AddIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '17', height: height ? height : '16', viewBox: "0 0 17 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.16992 1V15", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16992 8H15.1699", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -3898,12 +3898,12 @@ function ModalStatusProblema(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$9.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { size: (size[0] >= BREAKWIDTH) ? '120px' : '80px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsx("div", { className: style$9.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, fechar', handleClick: props.handleClose }) })] }) }));
 }
 
-var css_248z$9 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n    \n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
+var css_248z$9 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
 var style$8 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
 styleInject(css_248z$9);
 
 function ModalLearningTech(props) {
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$8.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, children: props.children }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: props.confirmationButton ?
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$8.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, children: props.children }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: props.confirmationButton ?
                         props.cancelButton ?
                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$2, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$2, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
                             :
@@ -9334,12 +9334,19 @@ const DescriptionSRG$1 = styled__default["default"].span `
     padding-right: 25px;
     padding-top: 16px;
 `;
+const ButtonActionWrapper = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+`;
 const ButtonAction = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
     height: 47px;
     padding: 12px;
+    width: 100%;
 
     border-top: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
 
@@ -9350,6 +9357,17 @@ const ButtonAction = styled__default["default"].div `
     line-height: 21px;
 
     color: ${({ theme }) => theme.colors.linkOnfocus};
+
+    &:nth-child(1) {
+        ${({ variant, theme }) => variant != 'completed' && variant != 'srg' && `
+            border-right: 1px solid ${theme.colors.neutralsGrey5};
+        `}
+    }
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.neutralsGrey8};
+        color: ${({ theme }) => theme.colors.linkHover};
+    }
 `;
 styled__default["default"].div `
     position: absolute;
@@ -9464,8 +9482,16 @@ const MenuCustom = styled__default["default"](Menu__default["default"]) `
 const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
   background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
   margin: 1px !important;
+
   &:hover {
-    background-color: ${({ theme }) => theme.colors.neutralsGrey7} !important;
+    background-color: ${({ theme }) => theme.colors.neutralsGrey8} !important;
+    color: ${({ theme }) => theme.colors.linkHover} !important;
+  }
+
+  &:last-child {
+    &:hover {
+      color: ${({ theme }) => theme.colors.linkError} !important;
+    }
   }
 `;
 styled__default["default"](MenuItem__default["default"]) `
@@ -9488,7 +9514,7 @@ const TextOption = styled__default["default"].div `
   line-height: 21px;
 `;
 
-function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, style }) {
+function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, onClickEdit, style }) {
     const [label, setLabel] = React.useState(labels['ptBR']);
     const [activeClick, setActiveClick] = React.useState(false);
     React.useEffect(() => {
@@ -9507,13 +9533,14 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
                             jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
-                                    jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
+                                    jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, textEdit: label.edit, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), handleEdit: () => onClickEdit(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
-                                jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), children: variant == 'srg' ?
-                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
-                                :
-                                    label.view })] })] }) }));
+                                jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsxs(ButtonActionWrapper, { children: [jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), variant: variant, children: variant == 'srg' ?
+                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
+                                        :
+                                            label.view }), variant !== 'srg' && variant !== 'completed' &&
+                                    jsxRuntime.jsx(ButtonAction, { onClick: () => onClickContinue(), variant: variant, children: jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.continue }) })] })] })] }) }));
 }
 const resumeString = (str, limit) => {
     if (!str)
@@ -9540,9 +9567,10 @@ const labels = {
         srgDecription: 'Nossa ferramenta ágil para atingir resultados e garantir aprendizados reais com ciclos de colaboração e experimentação.',
         project: 'Desafio',
         delete: 'Excluir',
+        edit: 'Editar',
         continue: 'Continuar',
         view: 'Visualizar',
-        newProject: 'Criar novo desafio',
+        newProject: 'Criar desafio',
         tagStep: {
             incompleteMars: 'Problema criado',
             mars: 'Definição do desafio',
@@ -9565,9 +9593,10 @@ const labels = {
         srgDecription: 'Our agile tool to achieve results and ensure real learning with cycles of collaboration and experimentation.',
         project: 'Challenge',
         delete: 'Delete',
+        edit: 'Edit',
         continue: 'Continue',
         view: 'View',
-        newProject: 'Create a new challenge',
+        newProject: 'Create challenge',
         tagStep: {
             incompleteMars: 'Created problem',
             mars: 'Challenge definition',
@@ -9590,9 +9619,10 @@ const labels = {
         srgDecription: 'Nuestra herramienta ágil para lograr resultados y asegurar un aprendizaje real con ciclos de colaboración y experimentación.',
         project: 'Desafio',
         delete: 'Elimina',
+        edit: 'Edita',
         continue: 'Continúa',
         view: 'Para ver',
-        newProject: 'Crear un nuevo desafio',
+        newProject: 'Crear desafio',
         tagStep: {
             incompleteMars: 'Problema creado',
             mars: 'Definición del desafío',
@@ -9612,7 +9642,7 @@ const labels = {
         }
     },
 };
-function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDelete, variant }) {
+function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, handleDelete, handleEdit, variant }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [activeClick, setActiveClick] = React.useState([false, false]);
     const open = Boolean(anchorEl);
@@ -9628,13 +9658,15 @@ function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDele
             if (value[0])
                 handleContinue();
             if (value[1])
+                handleEdit();
+            if (value[2])
                 handleDelete();
             setActiveClick([false, false]);
             setAnchorEl(null);
         }, 600);
     };
-    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant != 'completed' &&
-                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true]), style: { color: activeClick[1] ? '#A50000' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#A50000' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
+    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant !== 'completed' &&
+                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
 }
 
 const Container$2 = styled__default["default"].div `
