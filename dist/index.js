@@ -9334,12 +9334,19 @@ const DescriptionSRG$1 = styled__default["default"].span `
     padding-right: 25px;
     padding-top: 16px;
 `;
+const ButtonActionWrapper = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+`;
 const ButtonAction = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
     height: 47px;
     padding: 12px;
+    width: 100%;
 
     border-top: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
 
@@ -9350,6 +9357,17 @@ const ButtonAction = styled__default["default"].div `
     line-height: 21px;
 
     color: ${({ theme }) => theme.colors.linkOnfocus};
+
+    &:nth-child(1) {
+        ${({ variant, theme }) => variant != 'completed' && variant != 'srg' && `
+            border-right: 1px solid ${theme.colors.neutralsGrey5};
+        `}
+    }
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.neutralsGrey8};
+        color: ${({ theme }) => theme.colors.linkHover};
+    }
 `;
 styled__default["default"].div `
     position: absolute;
@@ -9464,8 +9482,16 @@ const MenuCustom = styled__default["default"](Menu__default["default"]) `
 const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
   background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
   margin: 1px !important;
+
   &:hover {
-    background-color: ${({ theme }) => theme.colors.neutralsGrey7} !important;
+    background-color: ${({ theme }) => theme.colors.neutralsGrey8} !important;
+    color: ${({ theme }) => theme.colors.linkHover} !important;
+  }
+
+  &:last-child {
+    &:hover {
+      color: ${({ theme }) => theme.colors.linkError} !important;
+    }
   }
 `;
 styled__default["default"](MenuItem__default["default"]) `
@@ -9488,7 +9514,7 @@ const TextOption = styled__default["default"].div `
   line-height: 21px;
 `;
 
-function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, style }) {
+function ChallengeCard({ variant, description, language, onClickView, onClickNewProject, onClickContinue, onClickDelete, onClickEdit, style }) {
     const [label, setLabel] = React.useState(labels['ptBR']);
     const [activeClick, setActiveClick] = React.useState(false);
     React.useEffect(() => {
@@ -9507,13 +9533,14 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
                             jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
-                                    jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), variant: variant }) })] }), variant != 'srg' ?
+                                    jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, textEdit: label.edit, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), handleEdit: () => onClickEdit(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
-                                jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), children: variant == 'srg' ?
-                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
-                                :
-                                    label.view })] })] }) }));
+                                jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsxs(ButtonActionWrapper, { children: [jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), variant: variant, children: variant == 'srg' ?
+                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
+                                        :
+                                            label.view }), variant !== 'srg' && variant !== 'completed' &&
+                                    jsxRuntime.jsx(ButtonAction, { onClick: () => onClickContinue(), variant: variant, children: jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.continue }) })] })] })] }) }));
 }
 const resumeString = (str, limit) => {
     if (!str)
@@ -9540,9 +9567,10 @@ const labels = {
         srgDecription: 'Nossa ferramenta ágil para atingir resultados e garantir aprendizados reais com ciclos de colaboração e experimentação.',
         project: 'Desafio',
         delete: 'Excluir',
+        edit: 'Editar',
         continue: 'Continuar',
         view: 'Visualizar',
-        newProject: 'Criar novo desafio',
+        newProject: 'Criar desafio',
         tagStep: {
             incompleteMars: 'Problema criado',
             mars: 'Definição do desafio',
@@ -9565,9 +9593,10 @@ const labels = {
         srgDecription: 'Our agile tool to achieve results and ensure real learning with cycles of collaboration and experimentation.',
         project: 'Challenge',
         delete: 'Delete',
+        edit: 'Edit',
         continue: 'Continue',
         view: 'View',
-        newProject: 'Create a new challenge',
+        newProject: 'Create challenge',
         tagStep: {
             incompleteMars: 'Created problem',
             mars: 'Challenge definition',
@@ -9590,9 +9619,10 @@ const labels = {
         srgDecription: 'Nuestra herramienta ágil para lograr resultados y asegurar un aprendizaje real con ciclos de colaboración y experimentación.',
         project: 'Desafio',
         delete: 'Elimina',
+        edit: 'Edita',
         continue: 'Continúa',
         view: 'Para ver',
-        newProject: 'Crear un nuevo desafio',
+        newProject: 'Crear desafio',
         tagStep: {
             incompleteMars: 'Problema creado',
             mars: 'Definición del desafío',
@@ -9612,7 +9642,7 @@ const labels = {
         }
     },
 };
-function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDelete, variant }) {
+function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, handleDelete, handleEdit, variant }) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [activeClick, setActiveClick] = React.useState([false, false]);
     const open = Boolean(anchorEl);
@@ -9628,13 +9658,15 @@ function MoreVerticalMenu({ textContinue, textDelete, handleContinue, handleDele
             if (value[0])
                 handleContinue();
             if (value[1])
+                handleEdit();
+            if (value[2])
                 handleDelete();
             setActiveClick([false, false]);
             setAnchorEl(null);
         }, 600);
     };
-    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant != 'completed' &&
-                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true]), style: { color: activeClick[1] ? '#A50000' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#A50000' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
+    return (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Button__default["default"], { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, style: { maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center' }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant !== 'completed' &&
+                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
 }
 
 const Container$2 = styled__default["default"].div `
