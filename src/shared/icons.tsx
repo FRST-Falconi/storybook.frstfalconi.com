@@ -923,25 +923,25 @@ export function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height 
 export function CloseIcon({ fill, width, height }: IconsProps) {
   return (
     <svg
-      width={width ? width : '13'}
-      height={height ? height : '11'}
-      viewBox="0 0 13 11"
+      width={width ? width : '12'}
+      height={height ? height : '12'}
+      viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M11.8346 0.630371L1.16797 9.43511"
+        d="M11.3334 0.666687L0.666748 11.3334"
         stroke={fill ? fill : '#222222'}
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
       <path
-        d="M1.16797 0.630371L11.8346 9.43511"
+        d="M0.666748 0.666687L11.3334 11.3334"
         stroke={fill ? fill : '#222222'}
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   )
