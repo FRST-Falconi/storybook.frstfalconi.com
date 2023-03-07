@@ -288,3 +288,6 @@ Books.args = Icons.AddPeople({})
 
 export const Clock = Template.bind({})
 Clock.args = Icons.Clock({})
+
+export const Load = Template.bind({})
+Load.args = Icons.Load({})
