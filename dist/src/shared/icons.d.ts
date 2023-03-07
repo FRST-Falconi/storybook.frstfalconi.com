@@ -125,5 +125,6 @@ export declare function FowardArrow({ fill, width, height }: IconsProps): JSX.El
 export declare function AddPeople({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Books({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Clock({ fill, width, height }: IconsProps): JSX.Element;
+export declare function Load({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

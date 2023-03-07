@@ -1,7 +1,6 @@
 import { FRSTTheme } from "../../../theme";
 import { ThemeProvider } from "styled-components";
 import * as Styles from './loadingStyle'
-import Spin from './Spin.svg'
 import { useEffect, useState } from "react";
 import { Load } from "@shared/icons";
 
@@ -19,13 +18,14 @@ interface ILoading {
      * @prop {loadPosition} positionLoadingText: position of the load text: right, bottom, left or top
      */
     positionLoadingText?: loadPosition
+    style?: React.CSSProperties
 }
 
 export default function Loading ( props : ILoading) {
     const [Size, setSize] = useState('24');
     const [Color, setColor] = useState(props.loadColor ? props.loadColor : '');
     const [PositionTextLoad, setPositionTextLoad] = useState(props.positionLoadingText ? props.positionLoadingText : 'bottom');
-    const [LoadText, setLoadText] = useState(props.loadText ? props.loadText : null);
+    const [LoadText, setLoadText] = useState(props.loadText ? props.loadText : '');
 
     useEffect(() => {
         setLoadText(props.loadText)
@@ -57,12 +57,12 @@ export default function Loading ( props : ILoading) {
     
     return(
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.container textPosition={PositionTextLoad}>
+            <Styles.container textPosition={PositionTextLoad} style={{...props.style}} >
                 <Styles.loader >
                     <Load width={Size} height={Size} fill={Color !== '' && Color} />
                 </Styles.loader>
                 <Styles.loadText style={{color: props.loadTextColor ? props.loadTextColor : 'white'}}>
-                    {props.loadText}
+                    {LoadText}
                 </Styles.loadText>
             </Styles.container>
         </ThemeProvider>

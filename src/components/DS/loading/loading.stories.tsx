@@ -27,5 +27,5 @@ normal.args = {
   loadColor: '',
   loadText: 'Loading...',
   loadTextColor: '',
-  positionLoadingText: 'left'
+  positionLoadingText: 'right'
 }
