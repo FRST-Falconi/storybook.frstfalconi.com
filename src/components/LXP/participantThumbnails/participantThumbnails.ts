@@ -14,6 +14,7 @@ export const CardThumbnails = styled.div`
   position: relative;
   transition: transform 1s;
   border-radius: 8px;
+  margin-top: 5rem;
   height: 70vh;
 
   h1 {
@@ -34,6 +35,7 @@ export const CardThumbnails = styled.div`
     margin-right: 2rem;
     margin-left: -5rem;
     z-index: 1;
+    margin-top: 2rem;
 
     :first-child {
       margin-left: 2rem;
@@ -51,10 +53,14 @@ export const CardThumbnails = styled.div`
 
     @media (max-width: 834px) {
       transform: scale(1);
-      margin: 1rem 1.5rem;
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
+      margin-top: 5rem;
 
       :first-child {
-        margin: 1rem 1.5rem;
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+        margin-top: 5rem;
       }
 
       .imageThumbnails {

@@ -24,7 +24,7 @@ function handleThumbnails(listThumbnails) {
       sizeArrowButton={80}
       marginsArrowButton={1}
       horizontalMarginInternScroll={'0'}
-      marginTopArrrowButton={'-15rem'}
+      marginTopArrrowButton={'-11rem'}
       className={'scrollThumbnail'}
     >
       {listThumbnails.map((item, index) => {
