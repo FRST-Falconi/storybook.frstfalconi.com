@@ -71,12 +71,27 @@ function handleThumbnailsResposive(sliderThumbanils, listThumbnails, widthSlider
 export default function ParticipantThumbnails({ listThumbnails }: ParticipantThumbnails) {
   const sliderThumbanils = useRef<HTMLInputElement>()
   const [widthSlider, setWidthSlider] = useState(0)
+  const [width, setWidth] = useState<number>(window.innerWidth)
 
   useEffect(() => {
     setWidthSlider(sliderThumbanils.current?.scrollWidth - sliderThumbanils.current?.offsetWidth)
+    console.log('width ', width)
+    console.log('scroll ', sliderThumbanils.current?.scrollWidth)
+    console.log('offset ', sliderThumbanils.current?.offsetWidth)
+    console.log('WidthSlider ', sliderThumbanils.current?.scrollWidth - sliderThumbanils.current?.offsetWidth)
+  }, [listThumbnails, width])
+
+  function handleWindowSizeChange() {
+    setWidth(window.innerWidth)
+  }
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowSizeChange)
+    return () => {
+      window.removeEventListener('resize', handleWindowSizeChange)
+    }
   }, [])
 
-  if (innerWidth <= 834) {
+  if (width <= 834) {
     return handleThumbnailsResposive(sliderThumbanils, listThumbnails, widthSlider)
   } else {
     return handleThumbnails(listThumbnails)
