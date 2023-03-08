@@ -14,8 +14,8 @@ export const CardThumbnails = styled.div`
   position: relative;
   transition: transform 1s;
   border-radius: 8px;
-  margin-top: 5rem;
-  height: 70vh;
+  /* margin-top: 5rem; */
+  /* height: 70vh; */
 
   h1 {
     font-family: 'Work Sans';
@@ -29,26 +29,29 @@ export const CardThumbnails = styled.div`
     color: ${({ theme }) => theme.colors.neutralsGrey1};
   }
 
-  &:hover {
+  /* &:hover {
     transform: scale(1.05);
     transition: transform 1s ease;
     margin-right: 2rem;
     margin-left: -5rem;
-    z-index: 1;
-    margin-top: 2rem;
+    z-index: 99999 !important;
+    margin-top: -2rem;
 
     :first-child {
       margin-left: 2rem;
+      z-index: 99999 !important;
     }
 
     .imageThumbnails {
       width: 17.7rem;
       background-size: 17.7rem 24rem;
       background-position: 0rem -6rem;
+      z-index: 99999 !important;
     }
 
     .containerInformationThumbnails {
       display: block;
+      z-index: 99999 !important;
     }
 
     @media (max-width: 834px) {
@@ -75,7 +78,7 @@ export const CardThumbnails = styled.div`
         background: red;
       }
     }
-  }
+  } */
 `
 
 export const ThumbnailHeaderImage = styled.div<HeaderThumbnailsProps>`
@@ -89,7 +92,8 @@ export const ThumbnailHeaderImage = styled.div<HeaderThumbnailsProps>`
   color: #fff;
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
-  background-size: 13rem 17rem;
+  background-size: cover;
+  background-position: center;
   border-radius: 8px;
 `
 
