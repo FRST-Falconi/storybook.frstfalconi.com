@@ -115,7 +115,7 @@ export { default as AccordionTrackList } from './src/components/LXP/accordionTra
 export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles'
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable'
 export { default as SelectLXP } from './src/components/LXP/selectLXP'
-export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails'
+export { default as ParticipantThumbnail } from './src/components/LXP/participantThumbnails'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI
