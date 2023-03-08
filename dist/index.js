@@ -2805,85 +2805,84 @@ function randID$1() {
 }
 
 const WrapperHorizontal = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;    
-    width: 100%;
-    height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
 `;
 const WrapperContent$2 = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 
-    scroll-behavior: smooth;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    padding-left: ${({ paddingIntern }) => paddingIntern ? paddingIntern : '150px'};
-    padding-right: ${({ paddingIntern }) => paddingIntern ? paddingIntern : '150px'};
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  padding-left: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
+  padding-right: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
 `;
 const ButtonControll = styled__default["default"].div `
-    display: flex;
-    visibility: ${({ visibility }) => visibility};
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    
-    width: ${({ sizeButton }) => sizeButton + 'px'};
-    height: ${({ sizeButton }) => sizeButton + 'px'};
+  display: flex;
+  visibility: ${({ visibility }) => visibility};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-top: ${({ marginTopArrrowButton }) => (marginTopArrrowButton ? marginTopArrrowButton : '0.5rem')};
 
-    min-width: ${({ sizeButton }) => sizeButton + 'px'};
-    min-height: ${({ sizeButton }) => sizeButton + 'px'};
+  width: ${({ sizeButton }) => sizeButton + 'px'};
+  height: ${({ sizeButton }) => sizeButton + 'px'};
 
-    background: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid #E8E8E8;
+  min-width: ${({ sizeButton }) => sizeButton + 'px'};
+  min-height: ${({ sizeButton }) => sizeButton + 'px'};
 
-    border-radius: 50%;
-    
-    ${({ sizeButton, isLeftButton, marginsArrowButton }) => {
+  background: ${({ theme }) => theme.colors.shadeWhite};
+  border: 1px solid #e8e8e8;
+
+  border-radius: 50%;
+
+  ${({ sizeButton, isLeftButton, marginsArrowButton }) => {
     let result = '';
     if (sizeButton >= 80) {
-        result = isLeftButton ?
-            'padding-right: 6px; margin-right: ' + marginsArrowButton + ';'
-            :
-                'padding-left: 6px; margin-left: ' + marginsArrowButton + ';';
+        result = isLeftButton
+            ? 'padding-right: 6px; margin-right: ' + marginsArrowButton + ';'
+            : 'padding-left: 6px; margin-left: ' + marginsArrowButton + ';';
     }
     else {
-        result = isLeftButton ?
-            'padding-right: 3px; margin-right:  ' + marginsArrowButton + ';'
-            :
-                'padding-left: 3px; margin-left:  ' + marginsArrowButton + ';';
+        result = isLeftButton
+            ? 'padding-right: 3px; margin-right:  ' + marginsArrowButton + ';'
+            : 'padding-left: 3px; margin-left:  ' + marginsArrowButton + ';';
     }
     return result;
 }}
 
-    &:hover { 
-        background: ${({ theme }) => theme.colors.secondary2};
-        border: 0px solid #E8E8E8;
-    }
+  &:hover {
+    background: ${({ theme }) => theme.colors.primary1} !important;
+    border: 0px solid #e8e8e8;
+  }
 
-    box-shadow: 8px 21px 8px 0 rgb(34 34 34 / 30%) !important;
-    z-index: 9;
-    transition: all 0.2s ease-in-out;
+  box-shadow: 8px 21px 8px 0 rgb(34 34 34 / 30%) !important;
+  z-index: 9;
+  transition: all 0.2s ease-in-out;
 `;
 // ${({ isLeftButton }) => isLeftButton ? 'margin-right: -28px' : 'margin-left: -28px'};
 // ${({ isLeftButton }) => isLeftButton ? 'padding-right: 6px' : 'padding-left: 6px'};
 // ${({ isLeftButton }) => isLeftButton ? 'margin-right: -138px' : 'margin-left: -138px'};
 styled__default["default"].div `
-    min-width: 350px;
-    min-height: 300px;
-    margin: 10px;
-    margin-left: 40px;
-    margin-right: 40px;
-    background-color: #0f0;
-    z-index: 1;
-    border-radius: 20px
+  min-width: 350px;
+  min-height: 300px;
+  margin: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  background-color: #0f0;
+  z-index: 1;
+  border-radius: 20px;
 `;
 
 function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll, refreshResize }) {
@@ -2895,7 +2894,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
     const scrollToLeft = () => {
         var objDiv = document.getElementById(iDScroll);
         if (objDiv !== null) {
-            (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            objDiv.scrollLeft - stepMove <= 0 ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
             setIsVisibleArrowButtonRight(true);
             objDiv.scrollLeft = objDiv.scrollLeft - stepMove;
         }
@@ -2903,8 +2902,10 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
     const scrollToRight = () => {
         var objDiv = document.getElementById(iDScroll);
         if (objDiv !== null) {
-            (objDiv.scrollLeft + stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
-            ((objDiv.offsetWidth + objDiv.scrollLeft + stepMove) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
+            objDiv.scrollLeft + stepMove <= 0 ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            objDiv.offsetWidth + objDiv.scrollLeft + stepMove >= objDiv.scrollWidth
+                ? setIsVisibleArrowButtonRight(false)
+                : setIsVisibleArrowButtonRight(true);
             objDiv.scrollLeft = objDiv.scrollLeft + stepMove;
         }
     };
@@ -2921,8 +2922,10 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
     const updateSize = () => {
         var objDiv = document.getElementById(iDScroll);
         if (objDiv !== null) {
-            ((objDiv.offsetWidth + objDiv.scrollLeft) >= objDiv.scrollWidth) ? setIsVisibleArrowButtonRight(false) : setIsVisibleArrowButtonRight(true);
-            (objDiv.scrollLeft - stepMove <= 0) ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
+            objDiv.offsetWidth + objDiv.scrollLeft >= objDiv.scrollWidth
+                ? setIsVisibleArrowButtonRight(false)
+                : setIsVisibleArrowButtonRight(true);
+            objDiv.scrollLeft - stepMove <= 0 ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true);
             if (objDiv && objDiv.clientWidth && objDiv.clientWidth < objDiv.scrollWidth)
                 setIsVisibleArrowButtonRight(true);
             else
@@ -2934,13 +2937,14 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' &&
-                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(WrapperContent$2, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' &&
-                            jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? ((marginsArrowButton + 50) * -1) + 'px' : '-138px', ArrowScroll: ArrowScrollRight })] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' &&
-                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px' }, children: [jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollLeft }), jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollRight })] }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$2, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
+                            display: 'flex',
+                            flexDirection: 'row',
+                            marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'
+                        }, children: [jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton }), jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton })] })) })] }) }));
 }
-function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButton, isVisible, margin, ArrowScroll }) {
-    return (jsxRuntime.jsx(ButtonControll, { isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton ? sizeButton : 80, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? ((sizeButton / 2.3).toFixed(0)).toString() : '34', width: sizeButton ? ((sizeButton / 4.3).toFixed(0)).toString() : '18' }) }));
+function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButton, isVisible, margin, ArrowScroll, marginTopArrrowButton }) {
+    return (jsxRuntime.jsx(ButtonControll, { isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton ? sizeButton : 80, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -9032,6 +9036,214 @@ function SelectLXP({ placeholder, valueSelect, handleValueSelect, listItems }) {
     return (jsxRuntime.jsx(SelectLXP$1, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), children: listItems.map((item, index) => (jsxRuntime.jsx(SelectLXPItem, { label: item.label, value: item.id }, index))) }));
 }
 
+const CardThumbnails = styled__default["default"].div `
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  width: 11rem;
+  margin: 1rem 1.5rem;
+  position: relative;
+  transition: transform 1s;
+  border-radius: 8px;
+
+  h1 {
+    font-family: 'Work Sans';
+    font-weight: 500;
+    padding-top: 0.5rem;
+    font-size: 20px;
+    line-height: 23px;
+    word-break: break-word;
+    width: 11rem;
+    white-space: normal;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+  }
+
+  /* &:hover {
+    transform: scale(1.05);
+    transition: transform 1s ease;
+    margin-right: 2rem;
+    margin-left: -5rem;
+    z-index: 99999 !important;
+    margin-top: -2rem;
+
+    :first-child {
+      margin-left: 2rem;
+      z-index: 99999 !important;
+    }
+
+    .imageThumbnails {
+      width: 17.7rem;
+      background-size: 17.7rem 24rem;
+      background-position: 0rem -6rem;
+      z-index: 99999 !important;
+    }
+
+    .containerInformationThumbnails {
+      display: block;
+      z-index: 99999 !important;
+    }
+
+    @media (max-width: 834px) {
+      transform: scale(1);
+      margin-right: 1.5rem;
+      margin-left: 1.5rem;
+      margin-top: 5rem;
+
+      :first-child {
+        margin-right: 1.5rem;
+        margin-left: 1.5rem;
+        margin-top: 5rem;
+      }
+
+      .imageThumbnails {
+        width: 12rem;
+        background-size: 13rem 17rem;
+        background-position: 0rem 0rem;
+      }
+      .containerInformationThumbnails {
+        display: none;
+      }
+      .scrollThumbnail {
+        background: red;
+      }
+    }
+  } */
+`;
+const ThumbnailHeaderImage = styled__default["default"].div `
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 14.9rem;
+  flex-direction: column;
+  position: relative;
+  width: 12rem;
+  color: #fff;
+  background-image: url(${(props) => props.img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+`;
+const CardThumbnailsHove = styled__default["default"].div `
+  cursor: pointer;
+  width: 17rem;
+  height: 27.3rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+`;
+const ThumbnailImageHover = styled__default["default"].div `
+  width: 17rem;
+  height: 14.9rem;
+  background-image: url(${(props) => props.img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px 8px 0px 0px;
+`;
+const DescriptionThumbnails = styled__default["default"].div `
+  width: 17.8rem;
+  height: 15.1rem;
+  background-color: #000;
+  border-radius: 0px 0px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -1px;
+  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
+  padding: 8px 16px 16px 16px;
+
+  h2 {
+    font-family: 'Work Sans';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    word-break: break-word;
+    white-space: normal;
+    color: ${({ theme }) => theme.colors.shadeWhite};
+    padding-bottom: 8px;
+  }
+  p {
+    color: ${({ theme }) => theme.colors.shadeWhite};
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    padding-right: 16px;
+    word-break: break-word;
+    font-family: 'PT Sans';
+    white-space: normal;
+  }
+`;
+styled__default["default"].div `
+  display: flex;
+  height: 35vh;
+  overflow: hidden;
+  max-width: 100%;
+  cursor: grab;
+  @media (max-width: 414px) {
+    height: 45vh;
+  }
+  @media (max-width: 320px) {
+    height: 65vh;
+  }
+  .motionThumbnails {
+    display: flex;
+  }
+`;
+
+function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [itemSelected, setItemSelected] = React.useState(null);
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ScrollContainer, { type: 'horizontal', stepMove: 100, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 80, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '-5rem', className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
+                    return (jsxRuntime.jsxs(CardThumbnails, { theme: FRSTTheme, onClick: item.handleFunctionThumbnail, onMouseOver: (event) => {
+                            setAnchorEl(event.currentTarget);
+                            setItemSelected(item);
+                            item.handleFunctionThumbnail;
+                        }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: item.imgThumbnails }), jsxRuntime.jsx("h1", { children: item.titleThumbnail })] }, index));
+                }) }), isVisibleControlsButtons && (jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
+                    vertical: 'center',
+                    horizontal: 'center'
+                }, transformOrigin: {
+                    vertical: 'center',
+                    horizontal: 'center'
+                }, PaperProps: {
+                    style: {
+                        backgroundColor: 'transparent',
+                        boxShadow: 'none',
+                        borderRadius: 8,
+                        marginTop: '-1rem'
+                    }
+                }, style: {
+                    borderRadius: 8
+                }, children: jsxRuntime.jsx(CardThumbnailsHove, { onMouseLeave: (event) => {
+                        setAnchorEl(null);
+                        setItemSelected(null);
+                    }, children: itemSelected && (jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: itemSelected.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: itemSelected.imgThumbnails }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: itemSelected.titleThumbnail }), jsxRuntime.jsx("p", { children: itemSelected.descpThumbnail })] })] })) }) }))] }));
+}
+function ParticipantThumbnails({ listThumbnails }) {
+    const [width, setWidth] = React.useState(window.innerWidth);
+    function handleWindowSizeChange() {
+        setWidth(window.innerWidth);
+    }
+    React.useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        };
+    }, []);
+    if (width <= 834) {
+        return handleThumbnails(listThumbnails, false);
+    }
+    else {
+        return handleThumbnails(listThumbnails, true);
+    }
+}
+
 const ProgressBox = styled__default["default"](_.Box) `
   z-index: 1 !important;
   float: right !important;
@@ -11716,6 +11928,7 @@ exports.NotificationPopOver = NotificationPopOver;
 exports.ObjectiveStep = ObjectiveStep;
 exports.Pagination = Pagination;
 exports.ParticipantCard = ParticipantCard;
+exports.ParticipantThumbnails = ParticipantThumbnails;
 exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
