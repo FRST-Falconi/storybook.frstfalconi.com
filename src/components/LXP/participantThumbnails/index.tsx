@@ -15,7 +15,7 @@ interface ParticipantThumbnails {
   listThumbnails: Array<objThumbnails>
 }
 
-function handleThumbnails(props) {
+function handleThumbnails(listThumbnails) {
   return (
     <ScrollContainer
       type={'horizontal'}
@@ -27,7 +27,7 @@ function handleThumbnails(props) {
       marginTopArrrowButton={'-15rem'}
       className={'scrollThumbnail'}
     >
-      {props.listThumbnails.map((item, index) => {
+      {listThumbnails.map((item, index) => {
         return (
           <styleThumbnails.CardThumbnails theme={FRSTTheme} key={index} onClick={item.handleFunctionThumbnail}>
             <styleThumbnails.ThumbnailHeaderImage img={item.imgThumbnails} className="imageThumbnails" />
@@ -68,7 +68,7 @@ function handleThumbnailsResposive(sliderThumbanils, listThumbnails, widthSlider
   )
 }
 
-export default function ParticipantThumbnails(props: ParticipantThumbnails) {
+export default function ParticipantThumbnails({ listThumbnails }: ParticipantThumbnails) {
   const sliderThumbanils = useRef<HTMLInputElement>()
   const [widthSlider, setWidthSlider] = useState(0)
 
@@ -77,8 +77,8 @@ export default function ParticipantThumbnails(props: ParticipantThumbnails) {
   }, [])
 
   if (innerWidth <= 834) {
-    return handleThumbnailsResposive(sliderThumbanils, props.listThumbnails, widthSlider)
+    return handleThumbnailsResposive(sliderThumbanils, listThumbnails, widthSlider)
   } else {
-    return handleThumbnails(props)
+    return handleThumbnails(listThumbnails)
   }
 }
