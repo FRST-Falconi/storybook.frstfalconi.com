@@ -18,67 +18,78 @@ ParticipantThumbnailsComponent.args = {
       imgThumbnails: '/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/bg2.png',
       titleThumbnail: 'Blockchain e criptomoedas',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/bg2.png',
       titleThumbnail: 'Blockchain e criptomoedas',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/bg2.png',
       titleThumbnail: 'Blockchain e criptomoedas',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/bg2.png',
       titleThumbnail: 'Blockchain e criptomoedas',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/bg2.png',
       titleThumbnail: 'Blockchain e criptomoedas',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
       imgThumbnails: '/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
-        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.'
+        'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
+      handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     }
   ]
 }

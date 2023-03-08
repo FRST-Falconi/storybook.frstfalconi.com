@@ -50,7 +50,24 @@ export const CardThumbnails = styled.div`
     }
 
     @media (max-width: 834px) {
-      display: none;
+      transform: scale(1);
+      margin: 1rem 1.5rem;
+
+      :first-child {
+        margin: 1rem 1.5rem;
+      }
+
+      .imageThumbnails {
+        width: 12rem;
+        background-size: 13rem 17rem;
+        background-position: 0rem 0rem;
+      }
+      .containerInformationThumbnails {
+        display: none;
+      }
+      .scrollThumbnail {
+        background: red;
+      }
     }
   }
 `
@@ -102,11 +119,24 @@ export const DescriptionThumbnails = styled.div`
     line-height: 18px;
     word-break: break-word;
     font-family: 'PT Sans';
-    /* display: -webkit-box;
-    -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
-    overflow: hidden; */
     height: 6.4rem;
     white-space: normal;
+  }
+`
+
+export const ContainerThumbnailResposive = styled.div<HeaderThumbnailsProps>`
+  display: flex;
+  height: 35vh;
+  overflow: hidden;
+  max-width: 100%;
+  cursor: grab;
+  @media (max-width: 414px) {
+    height: 45vh;
+  }
+  @media (max-width: 320px) {
+    height: 65vh;
+  }
+  .motionThumbnails {
+    display: flex;
   }
 `
