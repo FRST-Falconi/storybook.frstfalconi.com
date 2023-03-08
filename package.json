@@ -24,7 +24,6 @@
     "date-fns": "^2.29.3",
     "drag-react": "^1.1.0",
     "emoji-mart": "^5.1.0",
-    "framer-motion": "^6.5.1",
     "frst-components": "github:FRST-Falconi/storybook.frstfalconi.com#0.3.84",
     "i18next": "^21.6.12",
     "i18next-browser-languagedetector": "^6.1.3",

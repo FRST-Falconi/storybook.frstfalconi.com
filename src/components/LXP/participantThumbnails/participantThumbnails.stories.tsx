@@ -23,7 +23,7 @@ ParticipantThumbnailsComponent.args = {
     },
     {
       imgThumbnails: '/bg2.png',
-      titleThumbnail: 'Blockchain e criptomoedas',
+      titleThumbnail: 'Blockchain e criptomoedas e criptomoedas',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
       handleFunctionThumbnail: () => alert('voce clicou aqui :D')

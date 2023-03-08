@@ -14,8 +14,6 @@ export const CardThumbnails = styled.div`
   position: relative;
   transition: transform 1s;
   border-radius: 8px;
-  /* margin-top: 5rem; */
-  /* height: 70vh; */
 
   h1 {
     font-family: 'Work Sans';
@@ -96,40 +94,54 @@ export const ThumbnailHeaderImage = styled.div<HeaderThumbnailsProps>`
   background-position: center;
   border-radius: 8px;
 `
+export const CardThumbnailsHove = styled.div`
+  cursor: pointer;
+  width: 17rem;
+  height: 27.3rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+`
+
+export const ThumbnailImageHover = styled.div<HeaderThumbnailsProps>`
+  width: 17rem;
+  height: 14.9rem;
+  background-image: url(${(props) => props.img});
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px 8px 0px 0px;
+`
 
 export const DescriptionThumbnails = styled.div`
-  width: 17.7rem;
+  width: 17.8rem;
   height: 15.1rem;
   background-color: #000;
   border-radius: 0px 0px 8px 8px;
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 12.1rem;
+  margin-top: -1px;
   box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
-  display: none;
-  cursor: pointer;
+  padding: 8px 16px 16px 16px;
 
   h2 {
-    width: 15.8rem;
     font-family: 'Work Sans';
-    margin: 24px 16px 24px 16px;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
     word-break: break-word;
     white-space: normal;
     color: ${({ theme }) => theme.colors.shadeWhite};
+    padding-bottom: 8px;
   }
   p {
     color: ${({ theme }) => theme.colors.shadeWhite};
-    padding: 0 16px 16px 16px;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
+    padding-right: 16px;
     word-break: break-word;
     font-family: 'PT Sans';
-    height: 6.4rem;
     white-space: normal;
   }
 `
