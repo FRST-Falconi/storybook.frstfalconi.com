@@ -403,19 +403,36 @@ normalWithSubMenu.args = {
 export const LXP = Template.bind({})
 LXP.args = {
     variant: 'LXP',
+    textNotification: 'Notificações',
     showSearchField: true,
     menu: [
-        { id:'1', label: 'Início',          onClick: (e) => alert('Início')},
-        { id:'2', label: 'Comunidade',      onClick: (e) => alert('Comunidade'),  active: true },
-        { id:'3', label: 'Conteúdo',        onClick: (e) => alert('Conteúdo') },
-        { id:'4', label: 'Criar conteúdo',  onClick: (e) => alert('Criar conteúdo') }
+        { id:'1',
+            label: 'Início',
+            iconBegin: <Icons.HomeLineIcon width='24' height='24' fill='white' />,
+            onClick: (e) => alert('Início'),
+        },
+        { id:'2',
+            label: 'Desafios',
+            iconBegin: <Icons.Challenge width='24' height='24' />,
+            onClick: (e) => alert('Comunidade'),
+            subMenu: [
+                { id:'1', label: 'Label',  onClick: (e) => alert('Label-1') },
+                { id:'2', label: 'Label',  onClick: (e) => alert('Label-2') },
+                { id:'3', label: 'Label',  onClick: (e) => alert('Label-3') },
+                { id:'4', label: 'Label',  onClick: (e) => alert('Label-4') }
+            ],
+        },
+        { id:'3',
+            label: 'Conteúdo',
+            iconBegin: <Icons.Diamond width='24' height='24' />,
+            onClick: (e) => alert('Conteúdo'),
+            subMenu: [
+                { id:'1', label: 'Label',  onClick: (e) => alert('Label-1') },
+                { id:'2', label: 'Label',  onClick: (e) => alert('Label-2') },
+            ],
+        },
     ],
-    subMenu: [
-        { id:'1', label: 'Label',  onClick: (e) => alert('Label-1') },
-        { id:'2', label: 'Label',  onClick: (e) => alert('Label-2') },
-        { id:'3', label: 'Label',  onClick: (e) => alert('Label-3') },
-        { id:'4', label: 'Label',  onClick: (e) => alert('Label-4') }
-    ],
+    
     user: {
         name: 'Student name',
         avatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
@@ -450,7 +467,7 @@ LXP.args = {
     search: {
         value: '',
         label: 'O que você busca?', 
-        onChange: (e) => console.log(e),
+        onFilter: (e) => console.log(e),
         loading: false,
         listEntry: [
             { id: '1', label: 'List Entry',  onClick: (e) => alert('List Entry 1') },
@@ -459,7 +476,104 @@ LXP.args = {
             { id: '4', label: 'List Entry',  onClick: (e) => alert('List Entry 4') },
         ]
     },
-    notification: true,
+    notification: {
+        textBack: 'Voltar',
+        textNotification: 'Notificações',
+        textMarkAllAsRead: 'Marcar todas como lidas',
+        textEmptyState: 'No momento você não tem notificações.',
+        notificationList: [{
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `**Edson Corbari** comentou no seu desafio **“Plataforma D2L”.**`,
+            isNewNotification : true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : true,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : false,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : false,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        },
+        {
+            notificationAvatar: 'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+            notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+            isNewNotification : false,
+            textNew: 'Nova',
+            notificationDate: 'Hoje',
+    
+            handleClick: () => alert('Notificação clicada!')
+        }],
+        handleClickMarkRead: () => alert('Marcado como lido!'),
+        handleClickBack: () => alert('Voltar!')
+    } ,
     languages: ['pt-BR', 'es', 'en-US', 'pt-PT'],
     languageSelected: 'pt-BR',
     onChangeLanguage: (e) => alert(e),

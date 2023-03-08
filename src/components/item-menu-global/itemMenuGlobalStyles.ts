@@ -4,7 +4,8 @@ export const Wrapper =  styled.button<{variant, typeItem, wrapText, pressed}>`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+    gap: 2px;
     cursor: pointer;
     border: 0;
     border-bottom: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid transparent;

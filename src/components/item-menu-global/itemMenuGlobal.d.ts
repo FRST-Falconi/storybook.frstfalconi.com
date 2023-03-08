@@ -12,4 +12,5 @@ export interface IItemMenuGlobal {
     style?: React.CSSProperties,
     wrapText?: boolean,
     pressed?: boolean,
+    icon?: any
 }

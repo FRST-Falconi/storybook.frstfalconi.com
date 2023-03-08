@@ -11,14 +11,12 @@ import FieldSearch from '@components/field-search-dropdown'
 import ItemGlobalMenu from '@components/item-menu-global'
 import LanguagesDropdown from '@components/languages-dropdown'
 import DropdownProfileMenu from '@components/dropdown-profile-menu'
-import { PropaneSharp } from '@mui/icons-material'
 import NotificationPopOver from '@components/FI/notificationPopOver'
 
 
 export default function GlobalMenu({
     variant, 
     menu, 
-    subMenu, 
     user, 
     search, 
     notification, 
@@ -53,6 +51,8 @@ export default function GlobalMenu({
     const [openNotificationMobile, setOpenNotificationMobile] = useState(false);
     const [anchorNotification, setAnchorNotification] = useState(null);
     const [onAreaPopOver, setOnAreaPopOver] = useState(false);
+    const [SubMenu, setSubMenu] = useState([]);
+    const [SelectedItem, setSelectedItem] = useState();
     
     useEffect(() => {
         function updateSize() {
@@ -109,6 +109,15 @@ export default function GlobalMenu({
             setOpenNotificationMobile(!openNotificationMobile)
             setAnchorNotification(event.currentTarget)
         }
+    }
+
+    const handleClickItem = (item) => {
+        item.onClick()
+        setSelectedItem(item.id)
+        if(item.subMenu)
+            setSubMenu(item.subMenu)
+        else
+            setSubMenu([])
     }
 
     const newNotification = notification.notificationList ? notification.notificationList.filter((notification) => notification.isNewNotification) : []
@@ -173,7 +182,7 @@ export default function GlobalMenu({
                                         height: '100%',
                                         paddingLeft: (windowSize[0] * 0.03) + 'px',
                                         paddingRight: (windowSize[0] * 0.03) + 'px',
-                                        justifyContent: 'center'
+                                        justifyContent: 'center',
                                     }}>
                                     {!isMobileVersion && menu && menu.length > 0 && menu.map((item, index) => {
                                         return <ItemGlobalMenu
@@ -181,9 +190,10 @@ export default function GlobalMenu({
                                             key={item.id ? item.id : index}
                                             variant='LXP'
                                             type='menu'
-                                            pressed={item.active}
-                                            onClick={() => item.onClick('tes')}
-                                            style={{ paddingRight: '10px', paddingLeft: '10px' }}
+                                            pressed={item.id === SelectedItem || item.active}
+                                            icon={item.iconBegin}
+                                            onClick={() => handleClickItem(item)}
+                                            style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
                                         />
                                     })}
                                 </Styles.MenuContainer>
@@ -212,12 +222,56 @@ export default function GlobalMenu({
                                         marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                     }}
                                 />}
-                            <Styles.WrapperRightInfo style={{ width: '150px' }}>
-                                {!isMobileVersion && notification &&
-                                    <Styles.WrapperIconNotification>
-                                        <IconNotification />
-                                    </Styles.WrapperIconNotification>
-                                }
+                            <Styles.WrapperRightInfo>
+                            {!isMobileVersion && notification &&
+                                <Styles.WrapperIconNotification onClick={onClickNotification}>
+                                    <span style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'column', gap: 2}} onClick={handleOpenNotification}>
+                                        <div style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}>
+                                            <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
+                                            {newNotification.length ? 
+                                            <div style={{marginLeft:'-12px'}}> 
+                                                <HasNotificationIcon/> 
+                                            </div> : null} 
+                                        </div>
+                                        {textNotification} 
+                                    </span>
+                                    <NotificationPopOver 
+                                        handleClickMarkRead={notification.handleClickMarkRead}
+                                        isOpen={openNotification}
+                                        anchor={anchorNotification}
+                                        textEmptyState={notification.textEmptyState}
+                                        notificationList={notification.notificationList}
+                                        textMarkAllAsRead={notification.textMarkAllAsRead}
+                                        textNotification={notification.textNotification}
+                                        isMobile={false}
+                                        setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                        textBack={notification.textBack}
+                                        handleClickBack={() => handleCloseNotification()}
+                                    />
+                                </Styles.WrapperIconNotification>
+                                
+                            }
+                            {isMobileVersion && notification &&
+                                <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
+                                    <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
+                                    {windowSize[0] > 650 ?
+                                        <NotificationPopOver 
+                                            handleClickMarkRead={notification.handleClickMarkRead}
+                                            isOpen={openNotificationMobile}
+                                            anchor={anchorNotification}
+                                            textEmptyState={notification.textEmptyState}
+                                            notificationList={notification.notificationList}
+                                            textMarkAllAsRead={notification.textMarkAllAsRead}
+                                            textNotification={notification.textNotification}
+                                            isMobile={false}
+                                            setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                            textBack={notification.textBack}
+                                            handleClickBack={() => handleCloseNotification()}
+                                        />
+                                        : null
+                                    }
+                                </Styles.WrapperIconNotificationMobile>
+                            }
                                 <DropdownProfileMenu
                                     variant='LXP'
                                     user={user}
@@ -241,7 +295,7 @@ export default function GlobalMenu({
                                 }
                             </Styles.WrapperRightInfo>
                         </Styles.MenuContainer>
-                        {subMenu && subMenu.length > 0 &&
+                        {SubMenu && SubMenu.length > 0 &&
                             <Styles.SubMenuContainer
                                 variant={variant}
                                 style={{
@@ -250,7 +304,7 @@ export default function GlobalMenu({
                                     ...style
                                 }
                                 }>
-                                {subMenu.map((item, index) => {
+                                {SubMenu.map((item, index) => {
                                     return <ItemGlobalMenu
                                         label={item.label}
                                         key={item.id ? item.id : index}
@@ -412,7 +466,7 @@ export default function GlobalMenu({
                                     }
                                 </Styles.WrapperRightInfo>
                             </Styles.MenuContainer>
-                            {subMenu && subMenu.length > 0 &&
+                            {/* {subMenu && subMenu.length > 0 &&
                                 <Styles.SubMenuContainer
                                     variant={variant}
                                     style={{
@@ -431,7 +485,7 @@ export default function GlobalMenu({
                                             style={{ paddingRight: '10px', paddingLeft: '10px' }}
                                         />
                                     })}
-                                </Styles.SubMenuContainer>}
+                                </Styles.SubMenuContainer>} */}
                         </div>
                         {openNotificationMobile && windowSize[0] <= 650 ? 
                             <NotificationPopOver 
