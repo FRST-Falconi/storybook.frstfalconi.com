@@ -101,12 +101,13 @@ export const WrapperHeader = styled.div`
     width: 100%;   
     display: flex;
     flex-direction: row;
-    padding-right: 24px;
+    padding-right: 10px;
 `
 
 export const TitleProject = styled.p`
     flex: 1;
-    padding: 24px;
+    padding: 17px;
+    padding-left: 24px;
     padding-bottom: 0px;
     font-family: 'PT Sans';
     font-style: normal;
@@ -116,7 +117,7 @@ export const TitleProject = styled.p`
 `
 
 export const Dots = styled.div`
-    margin-top: 24px;
+    margin-top: 5px;
 
     height: fit-content;
 `
@@ -159,12 +160,20 @@ export const DescriptionSRG = styled.span`
     padding-top: 16px;
 `
 
-export const ButtonAction = styled.div`
+export const ButtonActionWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+`
+
+export const ButtonAction = styled.div<{ variant: string }>`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 47px;
     padding: 12px;
+    width: 100%;
 
     border-top: 1px solid ${({theme}) => theme.colors.neutralsGrey5};
 
@@ -175,6 +184,17 @@ export const ButtonAction = styled.div`
     line-height: 21px;
 
     color: ${({theme}) => theme.colors.linkOnfocus};
+
+    &:nth-child(1) {
+        ${({variant, theme}) => variant != 'completed' && variant != 'srg' && `
+            border-right: 1px solid ${theme.colors.neutralsGrey5};
+        `}
+    }
+
+    &:hover {
+        background-color: ${({theme}) => theme.colors.neutralsGrey8};
+        color: ${({theme}) => theme.colors.linkHover};
+    }
 `
 
 export const MyPopOver = styled.div`

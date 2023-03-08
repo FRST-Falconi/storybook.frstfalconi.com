@@ -52,8 +52,16 @@ export const MenuCustom = styled(Menu)<{step}>`
 export const MenuItemCustom = styled(MenuItem)`
   background-color: ${({theme}) => theme.colors.shadeWhite} !important;
   margin: 1px !important;
+
   &:hover {
-    background-color: ${({theme}) => theme.colors.neutralsGrey7} !important;
+    background-color: ${({theme}) => theme.colors.neutralsGrey8} !important;
+    color: ${({theme}) => theme.colors.linkHover} !important;
+  }
+
+  &:last-child {
+    &:hover {
+      color: ${({theme}) => theme.colors.linkError} !important;
+    }
   }
 `
 

@@ -148,7 +148,7 @@ export default function MissionSteps(props: MissionStepsParams) {
               <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={rightButtonStyle}>{`${mapTraducao.get(Idioma).next}`}</span>
               :
               <span onClick={() => { setStep(stepActive + 1) }} className={style.missaoTitle} style={rightButtonStyle}>{`${mapTraducao.get(Idioma).nextShort}`}</span>
-            : props.stepProblem < 4 &&
+            : props.stepProblem < 5 &&
                 props.onClickContinue &&
                   <span
                     className={style.missaoTitle}
