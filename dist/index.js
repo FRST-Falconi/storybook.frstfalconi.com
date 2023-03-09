@@ -374,6 +374,9 @@ function Books({ fill, width, height }) {
 function Clock({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "25", height: height ? height : "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.4725 21C17.4431 21 21.4725 16.9706 21.4725 12C21.4725 7.02944 17.4431 3 12.4725 3C7.50197 3 3.47253 7.02944 3.47253 12C3.47253 16.9706 7.50197 21 12.4725 21Z", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.4725 7V12.25L16.4725 14", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function Load({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16.98 20.6256C17.5433 21.6013 18.8054 21.9477 19.6718 21.2274C21.567 19.6517 22.9447 17.5183 23.5911 15.1058C24.4148 12.0317 23.9836 8.75621 22.3923 6C20.801 3.24379 18.18 1.23261 15.1058 0.408891C12.6934 -0.237529 10.1569 -0.111098 7.84473 0.742337C6.78777 1.13247 6.45667 2.39867 7.02 3.37439C7.58333 4.3501 8.83088 4.65471 9.91792 4.35856C11.2588 3.99325 12.6844 3.984 14.0498 4.34987C16.0788 4.89352 17.8087 6.2209 18.8589 8.04C19.9092 9.8591 20.1938 12.0209 19.6501 14.0498C19.2843 15.4153 18.5634 16.6453 17.5766 17.6239C16.7766 18.4172 16.4167 19.6499 16.98 20.6256Z", fill: fill ? fill : "#FF4D0D" }) }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -3479,6 +3482,79 @@ function Modal({ children, width, headerContent, open = false, mobileFullPage = 
     return (jsxRuntime.jsx(ModalWrapper, { open: active, ref: ModalWrapperRef, children: jsxRuntime.jsxs(ModalContent, { style: style, width: width, mobileFullPage: mobileFullPage, ref: ModalContentRef, animation: AnimationType, children: [showHeader === true || showCloseButton === true &&
                     jsxRuntime.jsx(ModalHeader, { children: showCloseButton === true &&
                             jsxRuntime.jsxs(ModalCloseButton, { onClick: (e) => handleClose(e), children: [headerContent && headerContent, jsxRuntime.jsx(CloseIcon, {})] }) }), children && children] }) }));
+}
+
+const container = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: ${({ textPosition }) => textPosition === 'left' ? 'row-reverse'
+    : textPosition === 'right' ? 'row'
+        : textPosition === 'top' ? 'column-reverse'
+            : textPosition === 'bottom' ? 'column'
+                : null};
+    position: relative;
+    width: auto;
+    gap: 8px;
+    padding: 16px;
+`;
+const loader = styled__default["default"].div `
+    
+    svg {
+        animation: load 1.5s infinite linear;
+        
+        @keyframes load {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+`;
+const loadText = styled__default["default"].p `
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+`;
+
+function Loading(props) {
+    const [Size, setSize] = React.useState('24');
+    const [Color, setColor] = React.useState(props.loadColor ? props.loadColor : '');
+    const [PositionTextLoad, setPositionTextLoad] = React.useState(props.positionLoadingText ? props.positionLoadingText : 'bottom');
+    const [LoadText, setLoadText] = React.useState(props.loadText ? props.loadText : '');
+    React.useEffect(() => {
+        setLoadText(props.loadText);
+    }, [props.loadText]);
+    React.useEffect(() => {
+        setColor(props.loadColor);
+    }, [props.loadColor]);
+    React.useEffect(() => {
+        setPositionTextLoad(props.positionLoadingText);
+    }, [props.positionLoadingText]);
+    React.useEffect(() => {
+        if (props.sizeLoading === 'extra-small') {
+            setSize('16');
+        }
+        else if (props.sizeLoading === 'small') {
+            setSize('20');
+        }
+        else if (props.sizeLoading === 'medium') {
+            setSize('24');
+        }
+        else if (props.sizeLoading === 'large') {
+            setSize('32');
+        }
+        else if (props.sizeLoading === 'extra-large') {
+            setSize('40');
+        }
+        else {
+            setSize('24');
+        }
+    }, [props.sizeLoading]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
 const Container$c = styled__default["default"].div `
@@ -11863,6 +11939,7 @@ exports.LateralMenu = LateralMenu;
 exports.LearningSteps = LearningSteps;
 exports.LinkedinIcon = LinkedinIcon;
 exports.ListSelector = ListSelector;
+exports.Loading = Loading;
 exports.LoginLxp = Login;
 exports.ManageLearningCicles = ManageLearningCicles;
 exports.MedalFilledIcon = MedalFilledIcon;
