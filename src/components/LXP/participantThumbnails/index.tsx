@@ -4,7 +4,6 @@ import { FRSTTheme } from '../../../theme'
 import ScrollContainer from '../../scroll-container/index'
 import { useEffect, useState } from 'react'
 import Popover from '@material-ui/core/Popover'
-import { Margin } from '@mui/icons-material'
 
 interface objThumbnails {
   imgThumbnails?: any

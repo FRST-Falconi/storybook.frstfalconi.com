@@ -10,7 +10,7 @@ export const CardThumbnails = styled.div`
   flex-direction: column;
   color: #000;
   width: 11rem;
-  margin: 1rem 1.5rem;
+  margin: 1rem 1.1rem;
   position: relative;
   transition: transform 1s;
   border-radius: 8px;
@@ -26,57 +26,6 @@ export const CardThumbnails = styled.div`
     white-space: normal;
     color: ${({ theme }) => theme.colors.neutralsGrey1};
   }
-
-  /* &:hover {
-    transform: scale(1.05);
-    transition: transform 1s ease;
-    margin-right: 2rem;
-    margin-left: -5rem;
-    z-index: 99999 !important;
-    margin-top: -2rem;
-
-    :first-child {
-      margin-left: 2rem;
-      z-index: 99999 !important;
-    }
-
-    .imageThumbnails {
-      width: 17.7rem;
-      background-size: 17.7rem 24rem;
-      background-position: 0rem -6rem;
-      z-index: 99999 !important;
-    }
-
-    .containerInformationThumbnails {
-      display: block;
-      z-index: 99999 !important;
-    }
-
-    @media (max-width: 834px) {
-      transform: scale(1);
-      margin-right: 1.5rem;
-      margin-left: 1.5rem;
-      margin-top: 5rem;
-
-      :first-child {
-        margin-right: 1.5rem;
-        margin-left: 1.5rem;
-        margin-top: 5rem;
-      }
-
-      .imageThumbnails {
-        width: 12rem;
-        background-size: 13rem 17rem;
-        background-position: 0rem 0rem;
-      }
-      .containerInformationThumbnails {
-        display: none;
-      }
-      .scrollThumbnail {
-        background: red;
-      }
-    }
-  } */
 `
 
 export const ThumbnailHeaderImage = styled.div<HeaderThumbnailsProps>`
