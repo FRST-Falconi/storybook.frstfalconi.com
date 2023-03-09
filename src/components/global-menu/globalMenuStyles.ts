@@ -41,10 +41,11 @@ export const WrapperMenu = styled.div`
 
 export const WrapperRightInfo = styled.div`
     height: 100%;   
-    width: 100%;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 12px;
 `
 
 export const WrapperIconNotification = styled.div`

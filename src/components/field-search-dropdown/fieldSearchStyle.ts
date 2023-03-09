@@ -76,7 +76,6 @@ export const InputText = styled.input`
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
-        backgorund-color: #FFF;
         color: ${({ theme }) => theme.colors.shadeWhite};
     }
 

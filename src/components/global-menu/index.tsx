@@ -53,11 +53,14 @@ export default function GlobalMenu({
     const [onAreaPopOver, setOnAreaPopOver] = useState(false);
     const [SubMenu, setSubMenu] = useState([]);
     const [SelectedItem, setSelectedItem] = useState();
+    const [isTabletVersion, setIsTabletVersion] = useState(false);
+    const [HideHambMenu, setHideHambMenu] = useState(false);
     
     useEffect(() => {
         function updateSize() {
             setWindowSize([window.innerWidth, window.innerHeight]);
-            setIsMobileVersion(window.innerWidth < 1200)
+            setIsMobileVersion(window.innerWidth < 700 )
+            setIsTabletVersion(window.innerWidth < 1200 && window.innerWidth >= 700 )
             setShowLogo(false)
             setIsVisibleMenuMobile(false)
         }
@@ -131,8 +134,8 @@ export default function GlobalMenu({
                         <Styles.MenuContainer
                             variant={variant}
                             style={{
-                                paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
-                                paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
+                                paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
+                                paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 ...style
                             }
                             }
@@ -142,9 +145,14 @@ export default function GlobalMenu({
                                     <IconHamburgerMenu />
                                 </Styles.HamburgerButton>
                             }
+                            {isTabletVersion &&
+                                <Styles.HamburgerButton onClick={() => setIsVisibleMenuMobile(true)}>
+                                    <IconHamburgerMenu />
+                                </Styles.HamburgerButton>
+                            }
                             {!isMobileVersion &&
-                                <Styles.WrapperLogo onClick={() => onClickLogo()}>
-                                    <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
+                                <Styles.WrapperLogo onClick={() => onClickLogo()} style={{marginRight: isTabletVersion && 32 }} >
+                                    <FRSTLogo  height='28' fill={FRSTTheme['colors'].primary1} />
                                 </Styles.WrapperLogo>
                             }
                             {showLogo &&
@@ -152,7 +160,7 @@ export default function GlobalMenu({
                                     <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                 </Styles.WrapperLogo>
                             }
-                            <Styles.WrapperMenu style={{ height: '100%' }}>
+                            <Styles.WrapperMenu style={{ height: '100%',justifyContent: 'space-between'}}>
                                 {!isMobileVersion && showSearchField && 
                                     <FieldSearch
                                         variant='LXP'
@@ -172,19 +180,45 @@ export default function GlobalMenu({
                                         seeAll={search.seeAll}
 
                                         style={{
-                                            width: isMobileVersion ? '190px' : '332px',
+                                            width: windowSize[0] < 830  ? '230px' : windowSize[0] > 1500 ? '428px' : '332px',
                                         }}
                                     />
                                 }
+                                
                                 <Styles.MenuContainer
                                     variant={variant}
                                     style={{
                                         height: '100%',
-                                        paddingLeft: (windowSize[0] * 0.03) + 'px',
-                                        paddingRight: (windowSize[0] * 0.03) + 'px',
-                                        justifyContent: 'center',
+                                        paddingLeft: isMobileVersion ? '0' : (windowSize[0] * 0.03) + 'px',
+                                        paddingRight: isMobileVersion ? '0' : (windowSize[0] * 0.03) + 'px',
+                                        justifyContent: isMobileVersion ? 'space-between' : 'flex-end',
                                     }}>
-                                    {!isMobileVersion && menu && menu.length > 0 && menu.map((item, index) => {
+                                    {isMobileVersion && 
+                                        <FieldSearch
+                                            variant='LXP'
+                                            value={valueSearch}
+                                            onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                            placeholder={search.label}
+                                            onFilter={search.onFilter}
+                                            loading={loadingSearch}
+
+                                            fieldSearchIsOpen={controlExpandedSearchMobile}
+                                            setFieldSearchIsOpen={setControlExpandedSearchMobile}
+
+                                            listResults={search.isLabeledResult ? null : valueListSearch}
+                                            labeledResultList={search.isLabeledResult ? valueListSearch : null}
+                                            historicResults={search.historicResults}
+                                            isMobileVersion={isMobileVersion}
+                                            hasOptionSeeAll={search.hasOptionSeeAll}
+                                            seeAll={search.seeAll}
+
+                                            style={{
+                                                width: isMobileVersion ? '180px' : '332px',
+                                                // marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
+                                            }}
+                                        />
+                                    }
+                                    {!isMobileVersion && !isTabletVersion && menu && menu.length > 0 && menu.map((item, index) => {
                                         return <ItemGlobalMenu
                                             label={item.label}
                                             key={item.id ? item.id : index}
@@ -196,82 +230,85 @@ export default function GlobalMenu({
                                             style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
                                         />
                                     })}
+                                    {!isMobileVersion && !isTabletVersion && notification &&
+                                        <div style={{position: 'relative'}} onClick={onClickNotification}>
+                                            <ItemGlobalMenu
+                                                label={textNotification}
+                                                variant='LXP'
+                                                type='menu'
+                                                icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
+                                                pressed={false}
+                                                style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
+                                            />
+                                            {newNotification.length ? 
+                                                <div style={{position: 'absolute', marginLeft:'50%', marginTop: '-54px'}}> 
+                                                    <HasNotificationIcon/> 
+                                                </div> 
+                                                : null
+                                            }
+                                            <NotificationPopOver 
+                                                handleClickMarkRead={notification.handleClickMarkRead}
+                                                isOpen={openNotification}
+                                                anchor={anchorNotification}
+                                                textEmptyState={notification.textEmptyState}
+                                                notificationList={notification.notificationList}
+                                                textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                textNotification={notification.textNotification}
+                                                isMobile={false}
+                                                setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                textBack={notification.textBack}
+                                                handleClickBack={() => handleCloseNotification()}
+                                            />
+                                        </div>
+                                        
+                                    }
+                                    {isMobileVersion && notification &&
+                                        <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
+                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
+                                            {windowSize[0] > 650 ?
+                                                <NotificationPopOver 
+                                                    handleClickMarkRead={notification.handleClickMarkRead}
+                                                    isOpen={openNotificationMobile}
+                                                    anchor={anchorNotification}
+                                                    textEmptyState={notification.textEmptyState}
+                                                    notificationList={notification.notificationList}
+                                                    textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                    textNotification={notification.textNotification}
+                                                    isMobile={false}
+                                                    setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                    textBack={notification.textBack}
+                                                    handleClickBack={() => handleCloseNotification()}
+                                                />
+                                                : null
+                                            }
+                                        </Styles.WrapperIconNotificationMobile>
+                                    }
+                                    {isTabletVersion && notification &&
+                                        <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
+                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
+                                            {windowSize[0] > 650 ?
+                                                <NotificationPopOver 
+                                                    handleClickMarkRead={notification.handleClickMarkRead}
+                                                    isOpen={openNotificationMobile}
+                                                    anchor={anchorNotification}
+                                                    textEmptyState={notification.textEmptyState}
+                                                    notificationList={notification.notificationList}
+                                                    textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                    textNotification={notification.textNotification}
+                                                    isMobile={false}
+                                                    setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                    textBack={notification.textBack}
+                                                    handleClickBack={() => handleCloseNotification()}
+                                                />
+                                                : null
+                                            }
+                                        </Styles.WrapperIconNotificationMobile>
+                                    }
                                 </Styles.MenuContainer>
                             </Styles.WrapperMenu>
-                            {isMobileVersion && 
-                                <FieldSearch
-                                    variant='LXP'
-                                    value={valueSearch}
-                                    onChange={(e) => handleChangeValueSearch(e.target.value)}
-                                    placeholder={search.label}
-                                    onFilter={search.onFilter}
-                                    loading={loadingSearch}
-
-                                    fieldSearchIsOpen={controlExpandedSearchMobile}
-                                    setFieldSearchIsOpen={setControlExpandedSearchMobile}
-
-                                    listResults={search.isLabeledResult ? null : valueListSearch}
-                                    labeledResultList={search.isLabeledResult ? valueListSearch : null}
-                                    historicResults={search.historicResults}
-                                    isMobileVersion={isMobileVersion}
-                                    hasOptionSeeAll={search.hasOptionSeeAll}
-                                    seeAll={search.seeAll}
-
-                                    style={{
-                                        width: isMobileVersion ? '180px' : '332px',
-                                        marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                    }}
-                                />}
-                            <Styles.WrapperRightInfo>
-                            {!isMobileVersion && notification &&
-                                <Styles.WrapperIconNotification onClick={onClickNotification}>
-                                    <span style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', flexDirection: 'column', gap: 2}} onClick={handleOpenNotification}>
-                                        <div style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}>
-                                            <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
-                                            {newNotification.length ? 
-                                            <div style={{marginLeft:'-12px'}}> 
-                                                <HasNotificationIcon/> 
-                                            </div> : null} 
-                                        </div>
-                                        {textNotification} 
-                                    </span>
-                                    <NotificationPopOver 
-                                        handleClickMarkRead={notification.handleClickMarkRead}
-                                        isOpen={openNotification}
-                                        anchor={anchorNotification}
-                                        textEmptyState={notification.textEmptyState}
-                                        notificationList={notification.notificationList}
-                                        textMarkAllAsRead={notification.textMarkAllAsRead}
-                                        textNotification={notification.textNotification}
-                                        isMobile={false}
-                                        setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                        textBack={notification.textBack}
-                                        handleClickBack={() => handleCloseNotification()}
-                                    />
-                                </Styles.WrapperIconNotification>
-                                
-                            }
-                            {isMobileVersion && notification &&
-                                <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
-                                    <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
-                                    {windowSize[0] > 650 ?
-                                        <NotificationPopOver 
-                                            handleClickMarkRead={notification.handleClickMarkRead}
-                                            isOpen={openNotificationMobile}
-                                            anchor={anchorNotification}
-                                            textEmptyState={notification.textEmptyState}
-                                            notificationList={notification.notificationList}
-                                            textMarkAllAsRead={notification.textMarkAllAsRead}
-                                            textNotification={notification.textNotification}
-                                            isMobile={false}
-                                            setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                            textBack={notification.textBack}
-                                            handleClickBack={() => handleCloseNotification()}
-                                        />
-                                        : null
-                                    }
-                                </Styles.WrapperIconNotificationMobile>
-                            }
+                            
+                            <Styles.WrapperRightInfo >
+                            
                                 <DropdownProfileMenu
                                     variant='LXP'
                                     user={user}
@@ -284,7 +321,7 @@ export default function GlobalMenu({
                                         marginRight: isMobileVersion ? '0px' : '5px'
                                     }}
                                 />
-                                {!isMobileVersion && languages && languages.length > 0 &&
+                                {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 &&
                                     <LanguagesDropdown
                                         variant='LXP'
                                         languages={[...languages]}
@@ -330,12 +367,12 @@ export default function GlobalMenu({
                                 }
                                 }
                             >
-                                {isMobileVersion &&
+                                {isMobileVersion || isTabletVersion &&
                                     <Styles.HamburgerButton onClick={() => setIsVisibleMenuMobile(true)}>
                                         <IconHamburgerMenu />
                                     </Styles.HamburgerButton>
                                 }
-                                {!isMobileVersion &&
+                                {!isMobileVersion && !isTabletVersion &&
                                     <Styles.WrapperLogo onClick={() => onClickLogo()}>
                                         <FRSTLogo height='28' fill={FRSTTheme['colors'].primary1} />
                                     </Styles.WrapperLogo>
@@ -346,7 +383,7 @@ export default function GlobalMenu({
                                     </Styles.WrapperLogo>
                                 }
                                 <Styles.WrapperMenu style={{ height: '100%' }}>
-                                    {!isMobileVersion && showSearchField && 
+                                    {!isMobileVersion && !isTabletVersion && showSearchField && 
                                         <FieldSearch
                                             variant='LXP'
                                             value={valueSearch}
@@ -373,7 +410,7 @@ export default function GlobalMenu({
                                 </Styles.WrapperMenu>
                                 
                                 <Styles.WrapperRightInfo  >
-                                    {isMobileVersion && 
+                                    {isMobileVersion || isTabletVersion && 
                                     <FieldSearch
                                         variant='LXP'
                                         value={valueSearch}
@@ -397,7 +434,7 @@ export default function GlobalMenu({
                                             marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                         }}
                                     />}
-                                    {!isMobileVersion && notification &&
+                                    {!isMobileVersion && !isTabletVersion && notification &&
                                         <Styles.WrapperIconNotification onClick={onClickNotification}>
                                             <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}} onClick={handleOpenNotification}>
                                                 <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
@@ -422,7 +459,7 @@ export default function GlobalMenu({
                                         </Styles.WrapperIconNotification>
                                         
                                     }
-                                    {isMobileVersion && notification &&
+                                    {isMobileVersion || isTabletVersion && notification &&
                                         <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
                                             <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
                                             {windowSize[0] > 650 ?
@@ -455,7 +492,7 @@ export default function GlobalMenu({
                                             marginRight: isMobileVersion ? '0px' : '5px'
                                         }}
                                     />
-                                    {!isMobileVersion && languages && languages.length > 0 &&
+                                    {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 &&
                                         <LanguagesDropdown
                                             variant='LXP'
                                             languages={[...languages]}
