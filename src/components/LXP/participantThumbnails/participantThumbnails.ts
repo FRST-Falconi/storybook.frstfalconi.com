@@ -16,15 +16,15 @@ export const CardThumbnails = styled.div`
   border-radius: 8px;
 
   h1 {
-    font-family: 'Work Sans';
-    font-weight: 500;
+    font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};
+    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontWeight};
     padding-top: 0.5rem;
-    font-size: 20px;
+    font-size: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontSize};
     line-height: 23px;
     word-break: break-word;
     width: 11rem;
     white-space: normal;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    color: ${({ theme }) => theme.fonts.neutralsGrey1};
   }
 `
 
@@ -60,6 +60,7 @@ export const ThumbnailImageHover = styled.div<HeaderThumbnailsProps>`
   background-size: cover;
   background-position: center;
   border-radius: 8px 8px 0px 0px;
+  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
 `
 
 export const DescriptionThumbnails = styled.div`
@@ -70,13 +71,12 @@ export const DescriptionThumbnails = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: -1px;
-  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
   padding: 8px 16px 16px 16px;
 
   h2 {
-    font-family: 'Work Sans';
-    font-weight: 500;
-    font-size: 20px;
+    font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};
+    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontWeight};
+    font-size: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontSize};
     line-height: 23px;
     word-break: break-word;
     white-space: normal;
@@ -85,12 +85,13 @@ export const DescriptionThumbnails = styled.div`
   }
   p {
     color: ${({ theme }) => theme.colors.shadeWhite};
-    font-weight: 400;
+    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontWeight};
     font-size: 14px;
     line-height: 18px;
     padding-right: 16px;
     word-break: break-word;
     font-family: 'PT Sans';
+    font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontFamily};
     white-space: normal;
   }
 `
