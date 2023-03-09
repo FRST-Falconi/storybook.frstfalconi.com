@@ -50,7 +50,9 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
                 item.handleFunctionThumbnail
               }}
             >
-              <styleThumbnails.ThumbnailHeaderImage img={item.imgThumbnails} />
+              <styleThumbnails.ThumbnailHeaderImage
+                img={item.imgThumbnails ? item.imgThumbnails : '/img/NoUploaded.png'}
+              />
               <h1>{item.titleThumbnail}</h1>
             </styleThumbnails.CardThumbnails>
           )
@@ -90,7 +92,9 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
           >
             {itemSelected && (
               <styleThumbnails.CardThumbnailsHove theme={FRSTTheme} onClick={itemSelected.handleFunctionThumbnail}>
-                <styleThumbnails.ThumbnailImageHover img={itemSelected.imgThumbnails} />
+                <styleThumbnails.ThumbnailImageHover
+                  img={itemSelected.imgThumbnails ? itemSelected.imgThumbnails : '/img/NoUploaded.png'}
+                />
                 <styleThumbnails.DescriptionThumbnails theme={FRSTTheme}>
                   <h2>{itemSelected.titleThumbnail}</h2>
                   <p>{itemSelected.descpThumbnail}</p>
