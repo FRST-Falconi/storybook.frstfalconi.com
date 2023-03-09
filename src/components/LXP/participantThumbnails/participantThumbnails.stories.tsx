@@ -13,7 +13,6 @@ export const ParticipantThumbnailsComponent = Template.bind({})
 ParticipantThumbnailsComponent.args = {
   listThumbnails: [
     {
-      imgThumbnails: '',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
@@ -28,7 +27,7 @@ ParticipantThumbnailsComponent.args = {
       handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
-      imgThumbnails: '/Picture.png',
+      imgThumbnails: 'img/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
@@ -42,7 +41,7 @@ ParticipantThumbnailsComponent.args = {
       handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
-      imgThumbnails: '/Picture.png',
+      imgThumbnails: 'img/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
@@ -56,7 +55,7 @@ ParticipantThumbnailsComponent.args = {
       handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
-      imgThumbnails: '/Picture.png',
+      imgThumbnails: 'img/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
@@ -70,7 +69,7 @@ ParticipantThumbnailsComponent.args = {
       handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
-      imgThumbnails: '/Picture.png',
+      imgThumbnails: 'img/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
@@ -84,7 +83,7 @@ ParticipantThumbnailsComponent.args = {
       handleFunctionThumbnail: () => alert('voce clicou aqui :D')
     },
     {
-      imgThumbnails: '/Picture.png',
+      imgThumbnails: 'img/Picture.png',
       titleThumbnail: 'Name of the Content',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',

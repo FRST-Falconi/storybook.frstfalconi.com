@@ -9048,15 +9048,15 @@ const CardThumbnails = styled__default["default"].div `
   border-radius: 8px;
 
   h1 {
-    font-family: 'Work Sans';
-    font-weight: 500;
+    font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};
+    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontWeight};
     padding-top: 0.5rem;
-    font-size: 20px;
+    font-size: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontSize};
     line-height: 23px;
     word-break: break-word;
     width: 11rem;
     white-space: normal;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    color: ${({ theme }) => theme.fonts.neutralsGrey1};
   }
 `;
 const ThumbnailHeaderImage = styled__default["default"].div `
@@ -9090,6 +9090,7 @@ const ThumbnailImageHover = styled__default["default"].div `
   background-size: cover;
   background-position: center;
   border-radius: 8px 8px 0px 0px;
+  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
 `;
 const DescriptionThumbnails = styled__default["default"].div `
   width: 17.8rem;
@@ -9099,13 +9100,12 @@ const DescriptionThumbnails = styled__default["default"].div `
   display: flex;
   flex-direction: column;
   margin-top: -1px;
-  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
   padding: 8px 16px 16px 16px;
 
   h2 {
-    font-family: 'Work Sans';
-    font-weight: 500;
-    font-size: 20px;
+    font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};
+    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontWeight};
+    font-size: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontSize};
     line-height: 23px;
     word-break: break-word;
     white-space: normal;
@@ -9114,12 +9114,13 @@ const DescriptionThumbnails = styled__default["default"].div `
   }
   p {
     color: ${({ theme }) => theme.colors.shadeWhite};
-    font-weight: 400;
+    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontWeight};
     font-size: 14px;
     line-height: 18px;
     padding-right: 16px;
     word-break: break-word;
     font-family: 'PT Sans';
+    font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontFamily};
     white-space: normal;
   }
 `;
@@ -9153,7 +9154,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
                             setAnchorEl(event.currentTarget);
                             setItemSelected(item);
                             item.handleFunctionThumbnail;
-                        }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: item.imgThumbnails }), jsxRuntime.jsx("h1", { children: item.titleThumbnail })] }, index));
+                        }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: item.imgThumbnails ? item.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsx("h1", { children: item.titleThumbnail })] }, index));
                 }) }), isVisibleControlsButtons && (jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
                     vertical: 'center',
                     horizontal: 'center'
@@ -9172,7 +9173,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
                 }, children: jsxRuntime.jsx(CardThumbnailsHove, { onMouseLeave: (event) => {
                         setAnchorEl(null);
                         setItemSelected(null);
-                    }, children: itemSelected && (jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: itemSelected.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: itemSelected.imgThumbnails }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: itemSelected.titleThumbnail }), jsxRuntime.jsx("p", { children: itemSelected.descpThumbnail })] })] })) }) }))] }));
+                    }, children: itemSelected && (jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: itemSelected.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: itemSelected.imgThumbnails ? itemSelected.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: itemSelected.titleThumbnail }), jsxRuntime.jsx("p", { children: itemSelected.descpThumbnail })] })] })) }) }))] }));
 }
 function ParticipantThumbnails({ listThumbnails }) {
     const [width, setWidth] = React.useState(window.innerWidth);
