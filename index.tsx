@@ -63,6 +63,7 @@ export { default as TotalizerCard } from './src/components/totalizer-card'
 
 export { default as Select } from './src/components/DS/select'
 export { default as Modal } from './src/components/DS/modal'
+export { default as Loading } from './src/components/DS/loading'
 
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
