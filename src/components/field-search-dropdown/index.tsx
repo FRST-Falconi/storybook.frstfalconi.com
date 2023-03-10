@@ -13,18 +13,23 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const [actionAreaInput, setActionAreaInput ] = useState(false)
     const [inputOnFocus, setInputOnFocus ] = useState(false)
     const [isMobile, setIsMobile ] = useState(isMobileVersion)
-    const [openSearchFieldMobile, setOpenSearchFieldMobile ] = useState(isMobileVersion)
+    const [openSearchFieldMobile, setOpenSearchFieldMobile ] = useState(fieldSearchIsOpen)
     const [isOpenDrop, setIsOpenDrop ] = useState(false)
     const [ValueSearch, setValueSearch] = useState('');    
     const [Loading, setLoading] = useState(loading);
+    
+    useEffect(() => {
+        setFieldSearchIsOpen(openSearchFieldMobile)
+    },[])
 
     useEffect(() => {
-        setFieldSearchIsOpen(isMobileVersion)
-    },[])    
+        if(fieldSearchIsOpen !== openSearchFieldMobile)
+            setOpenSearchFieldMobile(fieldSearchIsOpen)
+    }, [fieldSearchIsOpen]);
 
     useEffect(() => {
         setIsOpenDrop(false)
-        setFieldSearchIsOpen(!openSearchFieldMobile)
+        setFieldSearchIsOpen(openSearchFieldMobile)
     },[openSearchFieldMobile])
 
     // Handle Open list results
@@ -77,10 +82,10 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                     <InputSearchWrapper 
                         isHover={actionAreaInput} 
                         isOnFocus={inputOnFocus} 
-                        isMobile={openSearchFieldMobile}
+                        isMobile={!openSearchFieldMobile}
                         style={{...style}}
                     >
-                        <ContainerIcon onClick={() => setOpenSearchFieldMobile(!openSearchFieldMobile && isMobile)}>
+                        <ContainerIcon onClick={() => isMobile && setOpenSearchFieldMobile( !openSearchFieldMobile )}>
                             <SearchIcon  fill={'#fff'}/>
                         </ContainerIcon>
                         <InputText 

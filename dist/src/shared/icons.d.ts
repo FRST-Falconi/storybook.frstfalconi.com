@@ -87,7 +87,7 @@ export declare function Viewer({ fill }: IconsProps): JSX.Element;
 export declare function IconNotification({ fill, width, height }: IconsProps): JSX.Element;
 export declare function LinkedinIconMentor(): JSX.Element;
 export declare function Plus({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
-export declare function HomeLineIcon({ fill }: IconsProps): JSX.Element;
+export declare function HomeLineIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function HomeFilledIcon({ fill }: IconsProps): JSX.Element;
 export declare function CalendarLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function CalendarFilledIcon({ customColor_1, customColor_2 }: IconsProps): JSX.Element;
@@ -126,5 +126,7 @@ export declare function AddPeople({ fill, width, height }: IconsProps): JSX.Elem
 export declare function Books({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Clock({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Load({ fill, width, height }: IconsProps): JSX.Element;
+export declare function Diamond({ fill, width, height }: IconsProps): JSX.Element;
+export declare function Challenge({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

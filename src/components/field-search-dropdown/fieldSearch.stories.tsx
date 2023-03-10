@@ -53,7 +53,7 @@ labeledResult.args = {
         {id: '2', label: 'pesquisa 2', onClick: (e) => alert(e)},
         {id: '3', label: 'pesquisa 3', onClick: (e) => alert(e)}
     ],
-    isMobileVersion: false,
+    isMobileVersion: true,
     hasOptionSeeAll: true, 
     setFieldSearchIsOpen: (e) => console.log("setFieldSearchIsOpen", e), 
     fieldSearchIsOpen: false,

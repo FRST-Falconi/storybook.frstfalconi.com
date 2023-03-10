@@ -291,3 +291,9 @@ Clock.args = Icons.Clock({})
 
 export const Load = Template.bind({})
 Load.args = Icons.Load({})
+
+export const Diamond = Template.bind({})
+Diamond.args = Icons.Diamond({})
+
+export const Challenge = Template.bind({})
+Challenge.args = Icons.Challenge({})

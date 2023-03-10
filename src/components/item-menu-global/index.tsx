@@ -8,7 +8,7 @@ import { IItemMenuGlobal } from './itemMenuGlobal'
 
 import { FRSTLogo } from '@shared/icons'
 
-export default function ItemGlobalMenu({ variant, type, label, onClick, wrapText, pressed, style}: IItemMenuGlobal) {
+export default function ItemGlobalMenu({ variant, type, label, onClick, wrapText, pressed, style, icon}: IItemMenuGlobal) {
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.Wrapper 
@@ -19,6 +19,7 @@ export default function ItemGlobalMenu({ variant, type, label, onClick, wrapText
                 style={{...style}} 
                 onClick={(e) => onClick(e)}
             >
+                {icon}
                 {label}
             </Styles.Wrapper>
         </ThemeProvider>

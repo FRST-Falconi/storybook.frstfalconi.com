@@ -10,6 +10,7 @@ export type itemClick = {
     iconBegin ?: any,
     onClick: (e) => void,
     active?: boolean,
+    subMenu?: Array<itemClick>,
 }
 
 export type options = {
@@ -44,7 +45,6 @@ export interface IGlobalMenu {
     variant?: enumVariant,
 
     menu?: Array<itemClick>,
-    subMenu?: Array<itemClick>,
     user?: typeUser,
     search?: IFieldSearch,
     
