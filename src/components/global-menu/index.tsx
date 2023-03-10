@@ -77,8 +77,6 @@ export default function GlobalMenu({
     }, [search])
 
     useEffect(() => {
-        console.log("MOBILE: ", isMobileVersion)
-        console.log('Control: ', controlExpandedSearchMobile)
         setShowLogo(isMobileVersion)
         if(isMobileVersion)
             setControlExpandedSearchMobile(false)
@@ -684,11 +682,11 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
                                 {item.label}
                             </Styles.ItemMenuMobile>
                         })}
-                    </div>
-                    <Styles.footerMenuMobile>
-                        <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
+                        <Styles.ItemMenuMobile style={{borderBottom: 'none'}} onClick={() => onClickExit()} >
                             <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Logout' : 'Sair'}</span>
                         </Styles.ItemMenuMobile>
+                    </div>
+                    <Styles.footerMenuMobile>
                         <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
                         <Styles.frstSocials>
                             <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
@@ -844,11 +842,11 @@ export function SideMenu({ items, isVisible, setVisible, variant, languageSelect
                                     {item.label}
                                 </Styles.ItemSideMenu>
                             })}
-                        </div>
-                        <Styles.footerMenuMobile>
-                            <Styles.ItemSideMenu style={{}} onClick={() => onClickExit()} >
+                            <Styles.ItemSideMenu style={{borderBottom: 'none'}} onClick={() => onClickExit()} >
                                 <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Logout' : 'Sair'}</span>
                             </Styles.ItemSideMenu>
+                        </div>
+                        <Styles.footerMenuMobile>
                             <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
                             <Styles.frstSocials>
                                 <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
