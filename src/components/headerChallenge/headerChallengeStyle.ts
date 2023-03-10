@@ -65,7 +65,7 @@ export const Div = styled.div<any>`
         }
     }
     @media (max-width: 1100px) {
-        height: 150px;
+        height: 200px;
         background-size:contain;
         background-position: bottom 0px right -130px;
     }
@@ -88,7 +88,7 @@ export const Div = styled.div<any>`
     @media (max-width: 520px) {
         padding: 10px;
         background-size:unset;
-        height: 120px;
+        height: 200px;
         h1 {
            max-width: 260px;
            font-size: 16px;
@@ -96,6 +96,7 @@ export const Div = styled.div<any>`
         }
     }
     @media (max-width: 410px) {
-        background-position: bottom 0px right -20px;
+        background-position: top 0px right -20px;
+        height: 180px
     }
 `;
