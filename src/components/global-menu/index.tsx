@@ -41,12 +41,13 @@ export default function GlobalMenu({
     const [valueListSearch, setValueListSearch] = useState(search.listEntry)
     const [loadingSearch, setLoadingSearch] = useState(search.loading)
 
-    const [controlExpandedSearchMobile, setControlExpandedSearchMobile] = useState(true)
+    const [isMobileVersion, setIsMobileVersion] = useState(false)
+    const [controlExpandedSearchMobile, setControlExpandedSearchMobile] = useState(false)
     const [showLogo, setShowLogo] = useState(false)
     const [isVisibleMenuMobile, setIsVisibleMenuMobile] = useState(false)
+    const [isVisibleSideMenu, setIsVisibleSideMenu] = useState(false)
 
     const [windowSize, setWindowSize] = useState([0, 0])
-    const [isMobileVersion, setIsMobileVersion] = useState(false)
     const [openNotification, setOpenNotification] = useState(false);
     const [openNotificationMobile, setOpenNotificationMobile] = useState(false);
     const [anchorNotification, setAnchorNotification] = useState(null);
@@ -76,17 +77,27 @@ export default function GlobalMenu({
     }, [search])
 
     useEffect(() => {
+        console.log("MOBILE: ", isMobileVersion)
+        console.log('Control: ', controlExpandedSearchMobile)
         setShowLogo(isMobileVersion)
-    }, [])
+        if(isMobileVersion)
+            setControlExpandedSearchMobile(false)
+        else{
+            setControlExpandedSearchMobile(true)
+        }
+        
+    }, [isMobileVersion])
 
     useEffect(() => {
         if (!controlExpandedSearchMobile)
             setTimeout(() => {
                 setShowLogo(!controlExpandedSearchMobile && isMobileVersion)
+                setHideHambMenu(window.innerWidth < 420 ? controlExpandedSearchMobile : false)
             }, 1500)
-        else
-            setShowLogo(!controlExpandedSearchMobile && isMobileVersion)
-
+            else{
+                setShowLogo(!controlExpandedSearchMobile && isMobileVersion)
+                setHideHambMenu(window.innerWidth < 420 ? controlExpandedSearchMobile : false)
+        }
     }, [controlExpandedSearchMobile])
 
     const handleChangeValueSearch = (value) => {
@@ -130,6 +141,7 @@ export default function GlobalMenu({
             {variant == 'LXP' ?
                 <>
                     <MenuMobile onClickExit={onClickExit} languageSelected={languageSelected} variant={'LXP'} items={menu} isVisible={isVisibleMenuMobile} setVisible={(e) => setIsVisibleMenuMobile(e)} onClickSite={onClickSite} onClickLinkedin={onClickLinkedin} onClickInstagram={onClickInstagram} onClickYoutube={onClickYoutube} onClickSpotify={onClickSpotify} onClickPodCast={onClickPodCast} />
+                    <SideMenu onClickExit={onClickExit} languageSelected={languageSelected} variant={'LXP'} items={menu} isVisible={isVisibleSideMenu} setVisible={(e) => setIsVisibleSideMenu(e)} onClickSite={onClickSite} onClickLinkedin={onClickLinkedin} onClickInstagram={onClickInstagram} onClickYoutube={onClickYoutube} onClickSpotify={onClickSpotify} onClickPodCast={onClickPodCast} />
                     <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                         <Styles.MenuContainer
                             variant={variant}
@@ -140,13 +152,18 @@ export default function GlobalMenu({
                             }
                             }
                         >
-                            {isMobileVersion &&
+                            {isMobileVersion && !HideHambMenu &&
                                 <Styles.HamburgerButton onClick={() => setIsVisibleMenuMobile(true)}>
                                     <IconHamburgerMenu />
                                 </Styles.HamburgerButton>
                             }
+                            {isMobileVersion && HideHambMenu &&
+                                <Styles.ArrowButton onClick={() => setControlExpandedSearchMobile(false)}>
+                                    <BackArrow fill={FRSTTheme['colors'].selectItens} />
+                                </Styles.ArrowButton>
+                            }
                             {isTabletVersion &&
-                                <Styles.HamburgerButton onClick={() => setIsVisibleMenuMobile(true)}>
+                                <Styles.HamburgerButton onClick={() => setIsVisibleSideMenu(true)}>
                                     <IconHamburgerMenu />
                                 </Styles.HamburgerButton>
                             }
@@ -171,6 +188,7 @@ export default function GlobalMenu({
                                         loading={loadingSearch}
 
                                         setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                                        fieldSearchIsOpen={controlExpandedSearchMobile}
 
                                         listResults={search.isLabeledResult ? null : valueListSearch}
                                         labeledResultList={search.isLabeledResult ? valueListSearch : null}
@@ -236,8 +254,8 @@ export default function GlobalMenu({
                                                 label={textNotification}
                                                 variant='LXP'
                                                 type='menu'
-                                                icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
                                                 pressed={false}
+                                                icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
                                                 style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
                                             />
                                             {newNotification.length ? 
@@ -265,28 +283,13 @@ export default function GlobalMenu({
                                     {isMobileVersion && notification &&
                                         <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
                                             <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
-                                            {windowSize[0] > 650 ?
-                                                <NotificationPopOver 
-                                                    handleClickMarkRead={notification.handleClickMarkRead}
-                                                    isOpen={openNotificationMobile}
-                                                    anchor={anchorNotification}
-                                                    textEmptyState={notification.textEmptyState}
-                                                    notificationList={notification.notificationList}
-                                                    textMarkAllAsRead={notification.textMarkAllAsRead}
-                                                    textNotification={notification.textNotification}
-                                                    isMobile={false}
-                                                    setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                                                    textBack={notification.textBack}
-                                                    handleClickBack={() => handleCloseNotification()}
-                                                />
-                                                : null
-                                            }
+                                            
                                         </Styles.WrapperIconNotificationMobile>
                                     }
                                     {isTabletVersion && notification &&
                                         <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
                                             <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
-                                            {windowSize[0] > 650 ?
+                                            {windowSize[0] >= 700 ?
                                                 <NotificationPopOver 
                                                     handleClickMarkRead={notification.handleClickMarkRead}
                                                     isOpen={openNotificationMobile}
@@ -353,6 +356,22 @@ export default function GlobalMenu({
                                 })}
                             </Styles.SubMenuContainer>}
                     </div>
+                    {openNotificationMobile && windowSize[0] < 700 ? 
+                        <NotificationPopOver 
+                            handleClickMarkRead={notification.handleClickMarkRead}
+                            isOpen={openNotificationMobile}
+                            anchor={anchorNotification}
+                            textEmptyState={notification.textEmptyState}
+                            notificationList={notification.notificationList}
+                            textMarkAllAsRead={notification.textMarkAllAsRead}
+                            textNotification={notification.textNotification}
+                            isMobile={true}
+                            setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                            textBack={notification.textBack}
+                            handleClickBack={() => handleCloseNotification()}
+                        />
+                        : null
+                    }
                 </>
                 : variant === 'default' ?
                     <>
@@ -361,13 +380,18 @@ export default function GlobalMenu({
                             <Styles.MenuContainer
                                 variant={variant}
                                 style={{
-                                    paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
-                                    paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
+                                    paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
+                                    paddingLeft: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
                                     ...style
                                 }
                                 }
                             >
-                                {isMobileVersion || isTabletVersion &&
+                                {isMobileVersion &&
+                                    <Styles.HamburgerButton style={{marginLeft: 0}} onClick={() => setIsVisibleMenuMobile(true)}>
+                                        <IconHamburgerMenu />
+                                    </Styles.HamburgerButton>
+                                }
+                                {isTabletVersion &&
                                     <Styles.HamburgerButton onClick={() => setIsVisibleMenuMobile(true)}>
                                         <IconHamburgerMenu />
                                     </Styles.HamburgerButton>
@@ -393,6 +417,7 @@ export default function GlobalMenu({
                                             
                                             loading={loadingSearch}
 
+                                            fieldSearchIsOpen={controlExpandedSearchMobile}
                                             setFieldSearchIsOpen={setControlExpandedSearchMobile}
                                             isLabeledResult={search.isLabeledResult}
                                             listResults={search.isLabeledResult ? null : valueListSearch}
@@ -410,7 +435,31 @@ export default function GlobalMenu({
                                 </Styles.WrapperMenu>
                                 
                                 <Styles.WrapperRightInfo  >
-                                    {isMobileVersion || isTabletVersion && 
+                                    {isMobileVersion && 
+                                    <FieldSearch
+                                        variant='LXP'
+                                        value={valueSearch}
+                                        onFilter={search.onFilter}
+                                        onChange={(e) => handleChangeValueSearch(e.target.value)}
+                                        placeholder={search.label}
+                                        loading={loadingSearch}
+
+                                        fieldSearchIsOpen={controlExpandedSearchMobile}
+                                        setFieldSearchIsOpen={setControlExpandedSearchMobile}
+
+                                        listResults={search.isLabeledResult ? null : valueListSearch}
+                                        labeledResultList={search.isLabeledResult ? valueListSearch : null}
+                                        historicResults={search.historicResults}
+                                        isMobileVersion={isMobileVersion}
+                                        hasOptionSeeAll={search.hasOptionSeeAll}
+                                        seeAll={search.seeAll}
+
+                                        style={{
+                                            width: isMobileVersion ? '180px' : '332px',
+                                            marginLeft: controlExpandedSearchMobile ? '-15px' : '-30px'
+                                        }}
+                                    />}
+                                    {isTabletVersion && 
                                     <FieldSearch
                                         variant='LXP'
                                         value={valueSearch}
@@ -459,10 +508,31 @@ export default function GlobalMenu({
                                         </Styles.WrapperIconNotification>
                                         
                                     }
-                                    {isMobileVersion || isTabletVersion && notification &&
+                                    {isMobileVersion && notification &&
                                         <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
                                             <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
-                                            {windowSize[0] > 650 ?
+                                            {windowSize[0] > 700 ?
+                                                <NotificationPopOver 
+                                                    handleClickMarkRead={notification.handleClickMarkRead}
+                                                    isOpen={openNotificationMobile}
+                                                    anchor={anchorNotification}
+                                                    textEmptyState={notification.textEmptyState}
+                                                    notificationList={notification.notificationList}
+                                                    textMarkAllAsRead={notification.textMarkAllAsRead}
+                                                    textNotification={notification.textNotification}
+                                                    isMobile={false}
+                                                    setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                                                    textBack={notification.textBack}
+                                                    handleClickBack={() => handleCloseNotification()}
+                                                />
+                                                : null
+                                            }
+                                        </Styles.WrapperIconNotificationMobile>
+                                    }
+                                    {isTabletVersion && notification &&
+                                        <Styles.WrapperIconNotificationMobile onClick={onClickNotification} style={{borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }}>
+                                            <span style={{display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center'}}><IconNotification fill={FRSTTheme['colors'].shadeWhite} /> {newNotification.length ? <div style={{marginLeft:'-12px'}}> <HasNotificationIcon/> </div> : null}</span>
+                                            {windowSize[0] > 700 ?
                                                 <NotificationPopOver 
                                                     handleClickMarkRead={notification.handleClickMarkRead}
                                                     isOpen={openNotificationMobile}
@@ -503,28 +573,8 @@ export default function GlobalMenu({
                                     }
                                 </Styles.WrapperRightInfo>
                             </Styles.MenuContainer>
-                            {/* {subMenu && subMenu.length > 0 &&
-                                <Styles.SubMenuContainer
-                                    variant={variant}
-                                    style={{
-                                        paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
-                                        paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
-                                        ...style
-                                    }
-                                    }>
-                                    {subMenu.map((item, index) => {
-                                        return <ItemGlobalMenu
-                                            label={item.label}
-                                            key={item.id ? item.id : index}
-                                            variant='LXP'
-                                            type='submenu'
-                                            onClick={() => item.onClick('tes')}
-                                            style={{ paddingRight: '10px', paddingLeft: '10px' }}
-                                        />
-                                    })}
-                                </Styles.SubMenuContainer>} */}
                         </div>
-                        {openNotificationMobile && windowSize[0] <= 650 ? 
+                        {openNotificationMobile && windowSize[0] <= 700 ? 
                             <NotificationPopOver 
                                 handleClickMarkRead={notification.handleClickMarkRead}
                                 isOpen={openNotificationMobile}
@@ -617,16 +667,38 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
             {variant === 'LXP' ?
                 <>
                     <div>
+                        <Styles.ItemMenuMobile onClick={() => setVisible(false)} >
+                            <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Back' : 'Voltar'}</span>
+                        </Styles.ItemMenuMobile>
                         {items && items.length > 0 && items.map((item, index) => {
                             if (item.label == 'Criar conteúdo') return;
+
+                            if(item.onClick == null)
+                            return <Styles.ItemMenuMobile onClick={() => newOptionsSubMenu(item.subItens)} key={index}>
+                                        &nbsp;
+                                        {item.label}
+                                    </Styles.ItemMenuMobile>
+
                             return <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                                &nbsp;
                                 {item.label}
                             </Styles.ItemMenuMobile>
                         })}
                     </div>
-                    <Styles.ItemMenuMobile onClick={() => setVisible(false)} style={{ borderTop: '1px solid #444' }}>
-                        {languageSelected === 'en-US' ? 'Back' : 'Voltar'}
-                    </Styles.ItemMenuMobile>
+                    <Styles.footerMenuMobile>
+                        <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
+                            <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Logout' : 'Sair'}</span>
+                        </Styles.ItemMenuMobile>
+                        <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
+                        <Styles.frstSocials>
+                            <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickLinkedin} > <LinkedinIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickInstagram} > <InstagramIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickYoutube} > <YoutubeIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickSpotify} > <SpotifyIcon /> </Styles.itemFrstSocials>
+                            <Styles.itemFrstSocials onClick={onClickPodCast} > <PodCastIcon /> </Styles.itemFrstSocials>
+                        </Styles.frstSocials>
+                    </Styles.footerMenuMobile>
                 </>
                 : 
                 <>
@@ -735,6 +807,100 @@ export function SubMenuMobile({ items, isVisible, setVisible, variant, languageS
                 </>
             }
         </Styles.MenuMobile>
+    )
+}
+
+export function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+    const [ optionsSubMenu, setOptionsSubmenu ] =useState({});
+    const [ subMenuIsVisible, setSubMenuIsVisible ] =useState(false);
+
+    const newOptionsSubMenu = (items) => {
+        setOptionsSubmenu(items);
+        console.log(items)
+        setTimeout(() => setSubMenuIsVisible(true)
+        , 200)
+    }
+
+    return (
+        <>
+            <Styles.SideMenu isVisible={isVisible} >
+                {variant === 'LXP' ?
+                    <>
+                        <div>
+                            <Styles.ItemSideMenu onClick={() => setVisible(false)} >
+                                <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Back' : 'Voltar'}</span>
+                            </Styles.ItemSideMenu>
+                            {items && items.length > 0 && items.map((item, index) => {
+                                if (item.label == 'Criar conteúdo') return;
+
+                                if(item.onClick == null)
+                                return <Styles.ItemSideMenu onClick={() => newOptionsSubMenu(item.subItens)} key={index}>
+                                            &nbsp;
+                                            {item.label}
+                                        </Styles.ItemSideMenu>
+
+                                return <Styles.ItemSideMenu onClick={(e) => item.onClick(e)} key={index}>
+                                    &nbsp;
+                                    {item.label}
+                                </Styles.ItemSideMenu>
+                            })}
+                        </div>
+                        <Styles.footerMenuMobile>
+                            <Styles.ItemSideMenu style={{}} onClick={() => onClickExit()} >
+                                <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Logout' : 'Sair'}</span>
+                            </Styles.ItemSideMenu>
+                            <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
+                            <Styles.frstSocials>
+                                <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickLinkedin} > <LinkedinIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickInstagram} > <InstagramIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickYoutube} > <YoutubeIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickSpotify} > <SpotifyIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickPodCast} > <PodCastIcon /> </Styles.itemFrstSocials>
+                            </Styles.frstSocials>
+                        </Styles.footerMenuMobile>
+                    </>
+                    : 
+                    <>
+                        <div>
+                            <Styles.ItemMenuMobile style={{paddingBottom: 32}} onClick={() => setVisible(false)} >
+                                <span> <BackArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Back' : 'Voltar'}</span>
+                            </Styles.ItemMenuMobile>
+                            {items && items.length > 0 && items.map((item, index) => {
+                                if (item.label == 'Criar conteúdo') return;
+
+                                if(item.onClick == null)
+                                return <Styles.ItemMenuMobile onClick={() => newOptionsSubMenu(item.subItens)} key={index}>
+                                            {item.iconBegin}
+                                            &nbsp;
+                                            {item.label}
+                                        </Styles.ItemMenuMobile>
+
+                                return <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                                    {item.iconBegin}
+                                    &nbsp;
+                                    {item.label}
+                                </Styles.ItemMenuMobile>
+                            })}
+                        </div>
+                        <Styles.footerMenuMobile>
+                            <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()} >
+                                <span> <ExitArrow fill='white' /> &nbsp; {languageSelected === 'en-US' ? 'Logout' : 'Sair'}</span>
+                            </Styles.ItemMenuMobile>
+                            <span style={{marginTop: 24}}>{languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais'}</span>
+                            <Styles.frstSocials>
+                                <Styles.itemFrstSocials onClick={onClickSite} > <SiteIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickLinkedin} > <LinkedinIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickInstagram} > <InstagramIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickYoutube} > <YoutubeIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickSpotify} > <SpotifyIcon /> </Styles.itemFrstSocials>
+                                <Styles.itemFrstSocials onClick={onClickPodCast} > <PodCastIcon /> </Styles.itemFrstSocials>
+                            </Styles.frstSocials>
+                        </Styles.footerMenuMobile>
+                    </>
+                }
+            </Styles.SideMenu>
+        </>
     )
 }
 

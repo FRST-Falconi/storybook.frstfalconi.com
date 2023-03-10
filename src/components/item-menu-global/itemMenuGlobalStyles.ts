@@ -9,7 +9,7 @@ export const Wrapper =  styled.button<{variant, typeItem, wrapText, pressed}>`
     cursor: pointer;
     border: 0;
     border-bottom: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid transparent;
-    border-top: ${({typeItem}) => typeItem == 'menu'? '4px': '2px'} solid transparent;
+    border-top: ${({typeItem}) => typeItem == 'menu'? '10px': '2px'} solid transparent;
 
     background-color: ${({variant, theme, typeItem}) => typeItem == 'submenu' ? 'transparent' : variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
 

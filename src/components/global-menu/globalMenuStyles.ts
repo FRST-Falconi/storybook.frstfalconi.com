@@ -32,6 +32,14 @@ export const WrapperLogo = styled.div`
         margin-bottom: 10px;
         margin-right: 20px;
     `
+    export const ArrowButton = styled.div`
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: auto;
+    `
 export const WrapperMenu = styled.div`
     width: 100%;
     height: 100%;
@@ -102,6 +110,43 @@ export const MenuMobile = styled.div<{isVisible}>`
     width: 100vw;
     height: 100vh;
     background: #222;
+`
+
+export const SideMenu = styled.div<{isVisible}>`
+    display: ${({isVisible}) => isVisible ? 'flex': 'none'};
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    z-index: 10001;
+    top:0;
+    left: 0;
+    width: 360px;
+    height: 100vh;
+    background: #222;
+    margin-top: 1rem;
+`
+
+export const ItemSideMenu = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 360px;
+    height: 20px;
+    
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 20px;
+
+    color: #FFFFFF;
+
+    border-bottom: 1px solid #444;
+
+    &:hover {
+        background: #4444;
+    }
 `
 
 export const ItemMenuMobile = styled.div`
