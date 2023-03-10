@@ -374,8 +374,13 @@ function Books({ fill, width, height }) {
 function Clock({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "25", height: height ? height : "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.4725 21C17.4431 21 21.4725 16.9706 21.4725 12C21.4725 7.02944 17.4431 3 12.4725 3C7.50197 3 3.47253 7.02944 3.47253 12C3.47253 16.9706 7.50197 21 12.4725 21Z", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.4725 7V12.25L16.4725 14", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+<<<<<<< HEAD
 function Load({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16.98 20.6256C17.5433 21.6013 18.8054 21.9477 19.6718 21.2274C21.567 19.6517 22.9447 17.5183 23.5911 15.1058C24.4148 12.0317 23.9836 8.75621 22.3923 6C20.801 3.24379 18.18 1.23261 15.1058 0.408891C12.6934 -0.237529 10.1569 -0.111098 7.84473 0.742337C6.78777 1.13247 6.45667 2.39867 7.02 3.37439C7.58333 4.3501 8.83088 4.65471 9.91792 4.35856C11.2588 3.99325 12.6844 3.984 14.0498 4.34987C16.0788 4.89352 17.8087 6.2209 18.8589 8.04C19.9092 9.8591 20.1938 12.0209 19.6501 14.0498C19.2843 15.4153 18.5634 16.6453 17.5766 17.6239C16.7766 18.4172 16.4167 19.6499 16.98 20.6256Z", fill: fill ? fill : "#FF4D0D" }) }));
+=======
+function SawBadgeIcon({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "20", height: height ? height : "20", viewBox: "0 0 20 20", fill: fill ? fill : "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_408_14996)", children: [jsxRuntime.jsx("path", { d: "M11.9804 2.16073C11.0545 0.717602 8.94551 0.717602 8.01957 2.16073C7.69063 2.67341 7.05964 2.90307 6.47811 2.72178C4.84118 2.21146 3.2256 3.56709 3.44392 5.26776C3.52148 5.87195 3.18574 6.45346 2.62372 6.68839C1.04173 7.34966 0.675512 9.4266 1.93593 10.5891C2.3837 11.002 2.50031 11.6633 2.22078 12.2045C1.43396 13.728 2.48845 15.5544 4.20121 15.6347C4.80968 15.6633 5.32406 16.0949 5.45782 16.6892C5.83433 18.3619 7.81613 19.0833 9.1798 18.0439C9.66426 17.6746 10.3357 17.6746 10.8202 18.0438C12.1839 19.0833 14.1657 18.3619 14.5422 16.6892C14.6759 16.0949 15.1903 15.6633 15.7988 15.6347C17.5115 15.5544 18.566 13.728 17.7792 12.2045C17.4997 11.6633 17.6163 11.002 18.0641 10.5891C19.3245 9.4266 18.9583 7.34966 17.3763 6.68839C16.8143 6.45346 16.4785 5.87195 16.5561 5.26776C16.7744 3.56709 15.1588 2.21146 13.5219 2.72178C12.9404 2.90307 12.3094 2.67341 11.9804 2.16073Z", fill: "#398787", stroke: "white" }), jsxRuntime.jsx("path", { d: "M6.25 10.4167L9.16667 12.9167L14.1667 7.5", stroke: "white", "stroke-linecap": "round", "stroke-linejoin": "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_408_14996", children: jsxRuntime.jsx("rect", { width: "20", height: "20", fill: "white" }) }) })] }));
+>>>>>>> a27b297 (build)
 }
 
 function styleInject(css, ref) {
@@ -1734,7 +1739,7 @@ function Button$2({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$3, { style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
-var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}";
+var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n  padding-top: 20px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n";
 var style$a = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk"};
 styleInject(css_248z$b);
 
@@ -1837,9 +1842,15 @@ function BannerProblem(props) {
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
+    const showChallengeTitle = () => {
+        let title = props.textTitleProblem ? props.textTitleProblem : 'Desafio';
+        title = props.isVerified ? 'Desafio verificado' : title;
+        return title;
+    };
     const MOBILEWIDTH = 650;
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.container, style: { ...props.style }, children: [props.topHeaderTagText &&
-                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx("span", { className: style$a.titleProblem, children: props.textTitleProblem ? props.textTitleProblem : 'Problema' }), props.isEditable &&
+                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$a.titleProblem, children: [showChallengeTitle(), props.isVerified &&
+                                    jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', style: { textAlign: 'center', marginBottom: '-5px' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
                             jsxRuntime.jsx(Button$2, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
                             marginTop: '8px',
@@ -3177,6 +3188,131 @@ function TotalizerCard$1({ titleCard, textTotal, numberTotal, numberPartial, loa
                         jsxRuntime.jsxs(TitleCard$2, { children: [" ", titleCard, " "] }), loading ?
                     jsxRuntime.jsx(TotalLoading, { className: 'shimmer' }) :
                     jsxRuntime.jsxs(AreaCounter, { children: [jsxRuntime.jsxs(TotalText, { children: [" ", textTotal, " "] }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'baseline', marginBottom: '16px' }, children: [jsxRuntime.jsxs(TotalNumber, { children: [" ", numberTotal, " "] }), numberPartial && jsxRuntime.jsxs(PartialNumber, { children: ["/", numberPartial, " "] })] })] })] }) }));
+}
+
+const TooltipWrapper = styled__default["default"].div `
+  display: flex;
+  position: relative;
+`;
+const TooltipTip = styled__default["default"].div `
+  position: absolute;
+  border-radius: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px;
+  background: #FFF;
+  z-index: 100;
+  border: 1px solid #BDBDBD;
+
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: #757575;
+  box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
+
+  ${({ width }) => width && `width: ${width};`}
+  ${({ height }) => height && `height: ${height}px;`}
+
+  &::before {
+    content: " ";
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 6px;
+    margin-left: calc(6px * -1);
+  }
+
+  ${({ direction, height }) => {
+    switch (direction) {
+        case 'top':
+            return `
+          top: calc(${height}px * -1);
+
+          &::before {
+            top: 100%;
+            border-top-color: #FFF
+          }
+        `;
+        case 'right':
+            return `
+          left: calc(100% + ${height}px);
+          top: 50%;
+          transform: translateX(0) translateY(-50%);
+      
+          &::before {
+            left: calc(6px * -1);
+            top: 50%;
+            transform: translateX(0) translateY(-50%);
+            border-right-color: #FFFFFF;
+          }
+        `;
+        case 'bottom':
+            return `
+          bottom: calc(${height}px * -1);
+
+          &::before {
+            bottom: 100%;
+            border-bottom-color: #FFFFFF;
+          }
+        `;
+        case 'left':
+            return `
+          left: auto;
+          right: calc(100% + ${height}px);
+          top: 50%;
+          transform: translateX(0) translateY(-50%);
+      
+          &::before {
+            left: auto;
+            right: calc(6px * -2);
+            top: 50%;
+            transform: translateX(0) translateY(-50%);
+            border-left-color: #FFFFFF;
+          }
+        `;
+        default:
+            return '';
+    }
+}}
+`;
+
+function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, onShow, onHide }) {
+    let shpwTimeout;
+    let hideTimeout;
+    const [active, setActive] = React.useState(false);
+    const [height, setHeight] = React.useState('51px');
+    const ref = React.useRef(null);
+    React.useEffect(() => {
+        if (!ref.current || !active)
+            return;
+        if (height === '51px')
+            setHeight(ref.current.clientHeight);
+    }, [active]);
+    const showTip = () => {
+        const timeoutDelay = trigger === 'click' ? 0 : delay;
+        shpwTimeout = setTimeout(() => {
+            setActive(true);
+            if (onShow)
+                onShow({ active: true });
+        }, timeoutDelay);
+    };
+    const hideTip = () => {
+        clearInterval(shpwTimeout);
+        clearInterval(hideTimeout);
+        hideTimeout = setTimeout(() => {
+            ref.current = null;
+            setHeight('51px');
+            setActive(false);
+            if (onHide)
+                onHide({ active: false });
+        }, 1000);
+    };
+    return (jsxRuntime.jsxs(TooltipWrapper, { onMouseEnter: trigger === 'hover' ? showTip : undefined, onMouseLeave: hideTip, onClick: trigger === 'click' ? showTip : undefined, children: [children, active && (jsxRuntime.jsx(TooltipTip, { direction: direction || 'top', className: className, style: style, width: width || '100px', height: height || '100px', ref: ref, children: content }))] }));
 }
 
 // Create react context to share data between components
@@ -12098,6 +12234,7 @@ exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.ThumbListContent = ThumbListContent;
 exports.ThumbnailsDraggable = ThumbnailsDraggable;
+exports.Tooltip = Tooltip$2;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
 exports.TrashIcon = TrashIcon;
