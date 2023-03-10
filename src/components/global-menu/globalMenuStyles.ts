@@ -123,7 +123,6 @@ export const SideMenu = styled.div<{isVisible}>`
     width: 360px;
     height: 100vh;
     background: #222;
-    margin-top: 1rem;
 `
 
 export const ItemSideMenu = styled.div`

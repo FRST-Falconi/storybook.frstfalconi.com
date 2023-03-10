@@ -640,7 +640,6 @@ export function MenuMobile({ items, isVisible, setVisible, variant, languageSele
 
     const newOptionsSubMenu = (items) => {
         setOptionsSubmenu(items);
-        console.log(items)
         setTimeout(() => setSubMenuIsVisible(true)
         , 200)
     }
@@ -814,7 +813,6 @@ export function SideMenu({ items, isVisible, setVisible, variant, languageSelect
 
     const newOptionsSubMenu = (items) => {
         setOptionsSubmenu(items);
-        console.log(items)
         setTimeout(() => setSubMenuIsVisible(true)
         , 200)
     }
