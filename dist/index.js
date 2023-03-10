@@ -4319,16 +4319,7 @@ function CardProblem(props) {
                         jsxRuntime.jsx("div", { className: style$5.tagsContainer, children: props.tags.map((item, index) => (item &&
                                 jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
                         props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$5.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: translate[languageSlected]['impact'], tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: translate[languageSlected]['relevance'], tipoVisualizacao: selected ? 3 : 2 })] }), props.statusProblema ?
-                        props.statusProblema === 'aprovado' ?
-                            jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 1, texto: translate[languageSlected]['problemApproved'], style: { minWidth: 200, width: '90%' } })
-                            :
-                                props.statusProblema === 'revisar' ?
-                                    jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 3, texto: translate[languageSlected]['reviewProblem'], style: { minWidth: 200, width: '90%' } })
-                                    :
-                                        jsxRuntime.jsx(MessageBox, { tipoVisualizacao: 2, texto: translate[languageSlected]['waitingApproval'], style: { minWidth: 200, width: '90%' } })
-                        :
-                            jsxRuntime.jsx(jsxRuntime.Fragment, {}), statusName !== translate[languageSlected][6] ?
+                        jsxRuntime.jsxs("div", { className: style$5.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: translate[languageSlected]['impact'], tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: translate[languageSlected]['relevance'], tipoVisualizacao: selected ? 3 : 2 })] }), statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
                             jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                             :
