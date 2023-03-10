@@ -58,7 +58,7 @@ export const Div = styled.div<any>`
     }
     @media (max-width: 1230px) {
         background-size:contain;
-        background-position: bottom 0px right -200px; 
+        background-position: bottom 0px right -250px; 
         h1 {
            font-size: 1.8rem;
            line-height: 36px;
@@ -67,10 +67,10 @@ export const Div = styled.div<any>`
     @media (max-width: 1100px) {
         height: 200px;
         background-size:contain;
-        background-position: bottom 0px right -130px;
+        background-position: bottom 0px right -220px;
     }
     @media (max-width: 860px) {
-        background-position: bottom 0px right -130px;
+        background-position: bottom 0px right -250px;
         h1 {
            font-size: 1.4rem;
            line-height: 30px;
