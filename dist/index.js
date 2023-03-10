@@ -11941,19 +11941,19 @@ const Div = styled__default["default"].div `
     }
     @media (max-width: 1230px) {
         background-size:contain;
-        background-position: bottom 0px right -200px; 
+        background-position: bottom 0px right -250px; 
         h1 {
            font-size: 1.8rem;
            line-height: 36px;
         }
     }
     @media (max-width: 1100px) {
-        height: 150px;
+        height: 200px;
         background-size:contain;
-        background-position: bottom 0px right -130px;
+        background-position: bottom 0px right -220px;
     }
     @media (max-width: 860px) {
-        background-position: bottom 0px right -130px;
+        background-position: bottom 0px right -250px;
         h1 {
            font-size: 1.4rem;
            line-height: 30px;
@@ -11961,7 +11961,7 @@ const Div = styled__default["default"].div `
     }
     @media (max-width: 750px) {
         background-image:  ${props => `url(${props.mobileBackgroundProps})`};
-        background-position: bottom 0px right 0px;
+        background-position: top -20px right 0px;
         h1 {
            max-width: 345px;
            font-size: 1.5rem;
@@ -11971,7 +11971,7 @@ const Div = styled__default["default"].div `
     @media (max-width: 520px) {
         padding: 10px;
         background-size:unset;
-        height: 120px;
+        height: 200px;
         h1 {
            max-width: 260px;
            font-size: 16px;
@@ -11979,7 +11979,8 @@ const Div = styled__default["default"].div `
         }
     }
     @media (max-width: 410px) {
-        background-position: bottom 0px right -20px;
+        background-position: top 0px right -20px;
+        height: 180px
     }
 `;
 
