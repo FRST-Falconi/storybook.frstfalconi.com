@@ -256,7 +256,15 @@ export function MoreVerticalMenu({textContinue, textDelete, textEdit, handleCont
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          style={{maxWidth: '30px', minWidth: '30px', margin: 0, padding: 0, display: 'flex', justifyContent: 'center'}}
+          style={{
+            width: '51px',
+            minWidth: '30px',
+            height: '47px',
+            margin: 0,
+            padding: 0,
+            display: 'flex',
+            justifyContent: 'center'
+        }}
         >
             <MoreDotsVertical/>
         </Button>

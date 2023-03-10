@@ -3,6 +3,7 @@ interface IButtonContoll {
     sizeButton?: number;
     visibility?: string;
     marginsArrowButton?: string;
+    marginTopArrrowButton?: string;
 }
 export declare const WrapperHorizontal: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const WrapperContent: import("styled-components").StyledComponent<"div", any, {

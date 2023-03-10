@@ -63,6 +63,7 @@ export { default as TotalizerCard } from './src/components/totalizer-card'
 
 export { default as Select } from './src/components/DS/select'
 export { default as Modal } from './src/components/DS/modal'
+export { default as Loading } from './src/components/DS/loading'
 
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
@@ -115,6 +116,7 @@ export { default as AccordionTrackList } from './src/components/LXP/accordionTra
 export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles'
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable'
 export { default as SelectLXP } from './src/components/LXP/selectLXP'
+export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI

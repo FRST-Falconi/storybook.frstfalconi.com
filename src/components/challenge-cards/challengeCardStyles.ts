@@ -101,12 +101,13 @@ export const WrapperHeader = styled.div`
     width: 100%;   
     display: flex;
     flex-direction: row;
-    padding-right: 24px;
+    padding-right: 10px;
 `
 
 export const TitleProject = styled.p`
     flex: 1;
-    padding: 24px;
+    padding: 17px;
+    padding-left: 24px;
     padding-bottom: 0px;
     font-family: 'PT Sans';
     font-style: normal;
@@ -116,7 +117,7 @@ export const TitleProject = styled.p`
 `
 
 export const Dots = styled.div`
-    margin-top: 24px;
+    margin-top: 5px;
 
     height: fit-content;
 `
