@@ -78,7 +78,7 @@ export const Div = styled.div<any>`
     }
     @media (max-width: 750px) {
         background-image:  ${props => `url(${props.mobileBackgroundProps})`};
-        background-position: bottom 0px right 0px;
+        background-position: top -20px right 0px;
         h1 {
            max-width: 345px;
            font-size: 1.5rem;
