@@ -16,6 +16,10 @@
   font-weight: 700;
   font-size: 18px;
   word-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
 
 .created{

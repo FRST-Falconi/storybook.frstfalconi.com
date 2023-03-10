@@ -18,6 +18,8 @@ ShowData.args = {
     onClickMessage: () => { alert('Opa!')},
     onClickSave: (nome) => {alert(nome)},
     onClickContinue: () => { alert('Continuar desafio!')},
+    isVerified: true,
+    verifiedTooltipContent: 'Este desafio consta como verificado pois o objetivo dele está alinhado às metas da empresa a qual ele pertence',
     problema: "Aumentar o engajamento dos alunos na plataforma",
     company: "FRST Falconi",
     topHeaderTagText: 'Convite recebido para aprovação',

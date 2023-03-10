@@ -1,14 +1,22 @@
-import { relative } from 'path';
-import { ReactNode, useEffect, useState, useLayoutEffect } from 'react'
+import { useEffect, useState, useLayoutEffect } from 'react'
 
 import TextIcon from '../TextIcon/index'
 import MessageBox from '../MessageBox/index'
 import Rating from '../Rating/index'
 import RatingCurtidas from '../RatingCurtidas/index'
 import Select from 'react-select'
+import { Tooltip } from '../../../../index'
 
 import StepMission from '../StepsMission/StepMission'
-import { Brain, Mail, WithoutTrail, WithTrail, EditIcon, CompanyIcon } from '../../../shared/icons'
+import {
+  Brain,
+  Mail,
+  WithoutTrail,
+  WithTrail,
+  EditIcon,
+  CompanyIcon,
+  SawBadgeIcon
+} from '../../../shared/icons'
 import Tag from '../../tag/index'
 import AvatarWithInfo from '../AvatarWithInfo/index'
 import Button from '@components/buttons'
@@ -116,7 +124,13 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
 
-    const MOBILEWIDTH = 650;
+  const showChallengeTitle = () => {
+    let title = props.textTitleProblem ? props.textTitleProblem : 'Desafio'
+    title = props.isVerified ? 'Desafio verificado' : title
+    return title
+  }
+
+  const MOBILEWIDTH = 650;
 
   return (
 
@@ -128,7 +142,20 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
           </SpanHeaderTag>
         }
         <div style={{width: '100%', display: 'flex', justifyContent:'space-between', flexDirection: 'row', alignItems:'center'}}>
-          <span className={style.titleProblem}>{props.textTitleProblem ? props.textTitleProblem : 'Problema'}</span>
+          <span className={style.titleProblem}>
+            {showChallengeTitle()}
+            {props.isVerified &&
+              <Tooltip
+                direction="bottom"
+                content={props.verifiedTooltipContent}
+                trigger='hover'
+                width='361px'
+                style={{ textAlign: 'center', marginBottom: '-5px' }}
+              >
+                <SawBadgeIcon/>
+              </Tooltip>
+            }
+          </span>
           {
             props.isEditable &&
             <Button 
@@ -371,4 +398,3 @@ ${email.slice(indexBreak)}`
   }
 
 }
-
