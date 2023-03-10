@@ -6778,7 +6778,6 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     const [ValueSearch, setValueSearch] = React.useState('');
     const [Loading, setLoading] = React.useState(loading);
     React.useEffect(() => {
-        console.log('OpenField: ', openSearchFieldMobile);
         setFieldSearchIsOpen(openSearchFieldMobile);
     }, []);
     React.useEffect(() => {

@@ -19,7 +19,6 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const [Loading, setLoading] = useState(loading);
     
     useEffect(() => {
-        console.log('OpenField: ', openSearchFieldMobile)
         setFieldSearchIsOpen(openSearchFieldMobile)
     },[])
 
