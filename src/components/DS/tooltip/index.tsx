@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { TooltipWrapper, TooltipTip } from './styles'
+import { TooltipWrapper, TooltipGhost, TooltipTip } from './styles'
 import { TooltipProps } from './types'
 
 function Tooltip({
@@ -11,19 +11,21 @@ function Tooltip({
   style,
   className,
   width,
+  height,
   onShow,
   onHide
 }: TooltipProps ): JSX.Element {
   let shpwTimeout: any
   let hideTimeout: any
   const [active, setActive] = useState(false)
-  const [height, setHeight] = useState('51px')
+  const [renderHeight, setRenderHeight] = useState('51px')
   const ref = useRef(null)
 
   useEffect(() => {
     if(!ref.current || !active) return
 
-    if(height === '51px') setHeight(ref.current.clientHeight)
+    if(height) setRenderHeight(height)
+    if(renderHeight === '51px') setRenderHeight(ref.current.clientHeight + 'px')
   }, [active])
 
   const showTip = () => {
@@ -36,12 +38,13 @@ function Tooltip({
   }
 
   const hideTip = () => {
+    return
     clearInterval(shpwTimeout)
     clearInterval(hideTimeout)
 
     hideTimeout = setTimeout(() => {
       ref.current = null
-      setHeight('51px')
+      setRenderHeight('51px')
       setActive(false)
       if(onHide) onHide({ active: false })
     }, 1000)
@@ -55,16 +58,22 @@ function Tooltip({
     >
       {children}
       {active && (
-        <TooltipTip
+        <TooltipGhost
           direction={direction || 'top'}
           className={className}
-          style={style}
           width={width || '100px'}
-          height={height || '100px'}
+          height={height ? height : renderHeight || '100px'}
           ref={ref}
         >
-          {content}
-        </TooltipTip>
+          <TooltipTip
+            direction={direction || 'top'}
+            style={style}
+            width={width || '100px'}
+            height={height ? height : renderHeight || '100px'}
+          >
+            {content}
+          </TooltipTip>
+        </TooltipGhost>
       )}
     </TooltipWrapper>
   )

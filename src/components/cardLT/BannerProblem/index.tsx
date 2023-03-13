@@ -150,7 +150,8 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                 content={props.verifiedTooltipContent}
                 trigger='hover'
                 width='361px'
-                style={{ textAlign: 'center', marginBottom: '-5px' }}
+                height='54px'
+                style={{ top: '10px', textAlign: 'center' }}
               >
                 <SawBadgeIcon/>
               </Tooltip>

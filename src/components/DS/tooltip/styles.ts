@@ -1,20 +1,18 @@
 import styled from 'styled-components'
 
 export const TooltipWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   position: relative;
 `;
 
-export const TooltipTip = styled.div<{ direction: string, width: string, height: string }>`
-  position: absolute;
-  border-radius: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px;
+export const TooltipTip = styled.div<{
+  direction: string,
+  width: string,
+  height: string
+}>`
   background: #FFF;
-  z-index: 100;
+  border-radius: 4px;
   border: 1px solid #BDBDBD;
-
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 400;
@@ -22,9 +20,23 @@ export const TooltipTip = styled.div<{ direction: string, width: string, height:
   line-height: 18px;
   color: #757575;
   box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
+  padding: 6px;
+  position: relative;
 
   ${({ width }) => width && `width: ${width};`}
-  ${({ height }) => height && `height: ${height}px;`}
+  ${({ height }) => height && `height: ${height};`}
+
+  &::after {
+    content: " ";
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 5px;
+    margin-left: calc(5px * -1);
+  }
 
   &::before {
     content: " ";
@@ -38,54 +50,103 @@ export const TooltipTip = styled.div<{ direction: string, width: string, height:
     margin-left: calc(6px * -1);
   }
 
-  ${({ direction, height }) => {
+  ${({ direction }) => {
     switch (direction) {
       case 'top':
         return `
-          top: calc(${height}px * -1);
-
-          &::before {
+          &::before,
+          &::after {
             top: 100%;
-            border-top-color: #FFF
+            border-top-color: #BDBDBD
+          }
+
+          &::after {
+            border-top-color: #FFFFFF;
           }
         `
       case 'right':
         return `
-          left: calc(100% + ${height}px);
-          top: 50%;
-          transform: translateX(0) translateY(-50%);
-      
-          &::before {
+          &::before,
+          &::after {
             left: calc(6px * -1);
             top: 50%;
             transform: translateX(0) translateY(-50%);
+            border-right-color: #BDBDBD;
+          }
+
+          &::after {
             border-right-color: #FFFFFF;
           }
         `
       case 'bottom':
         return `
-          bottom: calc(${height}px * -1);
-
-          &::before {
+          &::before,
+          &::after {
             bottom: 100%;
+            border-bottom-color: #BDBDBD;
+          }
+
+          &::after {
             border-bottom-color: #FFFFFF;
           }
         `
 
       case 'left':
         return `
-          left: auto;
-          right: calc(100% + ${height}px);
-          top: 50%;
-          transform: translateX(0) translateY(-50%);
-      
-          &::before {
+          &::before,
+          &::after {
             left: auto;
             right: calc(6px * -2);
             top: 50%;
             transform: translateX(0) translateY(-50%);
+            border-left-color: #BDBDBD;
+          }
+
+          &::after {
             border-left-color: #FFFFFF;
           }
+        `
+      default:
+        return ''
+    }
+  }}
+
+`
+
+export const TooltipGhost = styled.div<{
+  direction: string,
+  width: string,
+  height: string
+}>`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+
+  ${({ direction, height }) => {
+    switch (direction) {
+      case 'top':
+        return `
+          top: calc(${height} * -1);
+        `
+      case 'right':
+        return `
+          left: calc(100% + 5px);
+          top: 50%;
+          transform: translateX(0) translateY(-50%);
+        `
+      case 'bottom':
+        return `
+          bottom: calc(${height} * -1);
+        `
+
+      case 'left':
+        return `
+          left: auto;
+          right: calc(100% + 5px);
+          top: 50%;
+          transform: translateX(0) translateY(-50%);
         `
       default:
         return ''

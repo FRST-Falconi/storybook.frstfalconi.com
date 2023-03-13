@@ -6,6 +6,7 @@ export type TooltipProps = {
   style?: React.CSSProperties
   className?: string
   width?: string
+  height?: string
   onShow?: (event: any) => void
   onHide?: (event: any) => void
   direction?:
