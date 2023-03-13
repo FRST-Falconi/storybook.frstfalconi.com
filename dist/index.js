@@ -1848,7 +1848,7 @@ function BannerProblem(props) {
     const MOBILEWIDTH = 650;
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.container, style: { ...props.style }, children: [props.topHeaderTagText &&
                     jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$a.titleProblem, children: [showChallengeTitle(), props.isVerified &&
-                                    jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', style: { textAlign: 'center', marginBottom: '-5px' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
+                                    jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', height: '54px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
                             jsxRuntime.jsx(Button$2, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
                             marginTop: '8px',
@@ -3189,19 +3189,13 @@ function TotalizerCard$1({ titleCard, textTotal, numberTotal, numberPartial, loa
 }
 
 const TooltipWrapper = styled__default["default"].div `
-  display: flex;
+  display: inline-flex;
   position: relative;
 `;
 const TooltipTip = styled__default["default"].div `
-  position: absolute;
-  border-radius: 4px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px;
   background: #FFF;
-  z-index: 100;
+  border-radius: 4px;
   border: 1px solid #BDBDBD;
-
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 400;
@@ -3209,9 +3203,23 @@ const TooltipTip = styled__default["default"].div `
   line-height: 18px;
   color: #757575;
   box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
+  padding: 6px;
+  position: relative;
 
   ${({ width }) => width && `width: ${width};`}
-  ${({ height }) => height && `height: ${height}px;`}
+  ${({ height }) => height && `height: ${height};`}
+
+  &::after {
+    content: " ";
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: 5px;
+    margin-left: calc(5px * -1);
+  }
 
   &::before {
     content: " ";
@@ -3225,51 +3233,58 @@ const TooltipTip = styled__default["default"].div `
     margin-left: calc(6px * -1);
   }
 
-  ${({ direction, height }) => {
+  ${({ direction }) => {
     switch (direction) {
         case 'top':
             return `
-          top: calc(${height}px * -1);
-
-          &::before {
+          &::before,
+          &::after {
             top: 100%;
-            border-top-color: #FFF
+            border-top-color: #BDBDBD
+          }
+
+          &::after {
+            border-top-color: #FFFFFF;
           }
         `;
         case 'right':
             return `
-          left: calc(100% + ${height}px);
-          top: 50%;
-          transform: translateX(0) translateY(-50%);
-      
-          &::before {
+          &::before,
+          &::after {
             left: calc(6px * -1);
             top: 50%;
             transform: translateX(0) translateY(-50%);
+            border-right-color: #BDBDBD;
+          }
+
+          &::after {
             border-right-color: #FFFFFF;
           }
         `;
         case 'bottom':
             return `
-          bottom: calc(${height}px * -1);
-
-          &::before {
+          &::before,
+          &::after {
             bottom: 100%;
+            border-bottom-color: #BDBDBD;
+          }
+
+          &::after {
             border-bottom-color: #FFFFFF;
           }
         `;
         case 'left':
             return `
-          left: auto;
-          right: calc(100% + ${height}px);
-          top: 50%;
-          transform: translateX(0) translateY(-50%);
-      
-          &::before {
+          &::before,
+          &::after {
             left: auto;
             right: calc(6px * -2);
             top: 50%;
             transform: translateX(0) translateY(-50%);
+            border-left-color: #BDBDBD;
+          }
+
+          &::after {
             border-left-color: #FFFFFF;
           }
         `;
@@ -3277,40 +3292,68 @@ const TooltipTip = styled__default["default"].div `
             return '';
     }
 }}
+
+`;
+const TooltipGhost = styled__default["default"].div `
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+
+  ${({ direction, height }) => {
+    switch (direction) {
+        case 'top':
+            return `
+          top: calc(${height} * -1);
+        `;
+        case 'right':
+            return `
+          left: calc(100% + 5px);
+          top: 50%;
+          transform: translateX(0) translateY(-50%);
+        `;
+        case 'bottom':
+            return `
+          bottom: calc(${height} * -1);
+        `;
+        case 'left':
+            return `
+          left: auto;
+          right: calc(100% + 5px);
+          top: 50%;
+          transform: translateX(0) translateY(-50%);
+        `;
+        default:
+            return '';
+    }
+}}
 `;
 
-function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, onShow, onHide }) {
-    let shpwTimeout;
-    let hideTimeout;
+function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, height, onShow, onHide }) {
     const [active, setActive] = React.useState(false);
-    const [height, setHeight] = React.useState('51px');
+    const [renderHeight, setRenderHeight] = React.useState('51px');
     const ref = React.useRef(null);
     React.useEffect(() => {
         if (!ref.current || !active)
             return;
-        if (height === '51px')
-            setHeight(ref.current.clientHeight);
+        if (height)
+            setRenderHeight(height);
+        if (renderHeight === '51px')
+            setRenderHeight(ref.current.clientHeight + 'px');
     }, [active]);
     const showTip = () => {
         const timeoutDelay = trigger === 'click' ? 0 : delay;
-        shpwTimeout = setTimeout(() => {
+        setTimeout(() => {
             setActive(true);
             if (onShow)
                 onShow({ active: true });
         }, timeoutDelay);
     };
     const hideTip = () => {
-        clearInterval(shpwTimeout);
-        clearInterval(hideTimeout);
-        hideTimeout = setTimeout(() => {
-            ref.current = null;
-            setHeight('51px');
-            setActive(false);
-            if (onHide)
-                onHide({ active: false });
-        }, 1000);
+        return;
     };
-    return (jsxRuntime.jsxs(TooltipWrapper, { onMouseEnter: trigger === 'hover' ? showTip : undefined, onMouseLeave: hideTip, onClick: trigger === 'click' ? showTip : undefined, children: [children, active && (jsxRuntime.jsx(TooltipTip, { direction: direction || 'top', className: className, style: style, width: width || '100px', height: height || '100px', ref: ref, children: content }))] }));
+    return (jsxRuntime.jsxs(TooltipWrapper, { onMouseEnter: trigger === 'hover' ? showTip : undefined, onMouseLeave: hideTip, onClick: trigger === 'click' ? showTip : undefined, children: [children, active && (jsxRuntime.jsx(TooltipGhost, { direction: direction || 'top', className: className, width: width || '100px', height: height ? height : renderHeight || '100px', ref: ref, children: jsxRuntime.jsx(TooltipTip, { direction: direction || 'top', style: style, width: width || '100px', height: height ? height : renderHeight || '100px', children: content }) }))] }));
 }
 
 // Create react context to share data between components
