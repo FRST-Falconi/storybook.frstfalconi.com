@@ -128,5 +128,6 @@ export declare function Clock({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Load({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Diamond({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Challenge({ fill, width, height }: IconsProps): JSX.Element;
+export declare function SawBadgeIcon({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

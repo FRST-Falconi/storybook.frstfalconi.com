@@ -215,19 +215,6 @@ export default function CardProblem(props: CardProblemProps) {
                         </div>
                 }
                 {
-                    props.statusProblema ?
-                        props.statusProblema === 'aprovado' ?
-                            <MessageBox tipoVisualizacao={1} texto={translate[languageSlected]['problemApproved']} style={{minWidth:200, width:'90%'}} />
-                        : 
-                        props.statusProblema === 'revisar' ?
-                            <MessageBox tipoVisualizacao={3} texto={translate[languageSlected]['reviewProblem']} style={{minWidth:200, width:'90%'}} />
-                        :
-                        <MessageBox tipoVisualizacao={2} texto={translate[languageSlected]['waitingApproval']} style={{minWidth:200, width:'90%'}} />
-                    :
-                    <></>
-                }
-                
-                {
                     statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
                             <TextIcon description={`${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`} svg={<WithTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
