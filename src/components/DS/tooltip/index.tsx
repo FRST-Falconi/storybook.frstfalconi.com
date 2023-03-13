@@ -38,7 +38,6 @@ function Tooltip({
   }
 
   const hideTip = () => {
-    return
     clearInterval(shpwTimeout)
     clearInterval(hideTimeout)
 
