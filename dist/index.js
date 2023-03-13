@@ -3331,6 +3331,8 @@ const TooltipGhost = styled__default["default"].div `
 `;
 
 function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, height, onShow, onHide }) {
+    let shpwTimeout;
+    let hideTimeout;
     const [active, setActive] = React.useState(false);
     const [renderHeight, setRenderHeight] = React.useState('51px');
     const ref = React.useRef(null);
@@ -3344,14 +3346,22 @@ function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 40
     }, [active]);
     const showTip = () => {
         const timeoutDelay = trigger === 'click' ? 0 : delay;
-        setTimeout(() => {
+        shpwTimeout = setTimeout(() => {
             setActive(true);
             if (onShow)
                 onShow({ active: true });
         }, timeoutDelay);
     };
     const hideTip = () => {
-        return;
+        clearInterval(shpwTimeout);
+        clearInterval(hideTimeout);
+        hideTimeout = setTimeout(() => {
+            ref.current = null;
+            setRenderHeight('51px');
+            setActive(false);
+            if (onHide)
+                onHide({ active: false });
+        }, 1000);
     };
     return (jsxRuntime.jsxs(TooltipWrapper, { onMouseEnter: trigger === 'hover' ? showTip : undefined, onMouseLeave: hideTip, onClick: trigger === 'click' ? showTip : undefined, children: [children, active && (jsxRuntime.jsx(TooltipGhost, { direction: direction || 'top', className: className, width: width || '100px', height: height ? height : renderHeight || '100px', ref: ref, children: jsxRuntime.jsx(TooltipTip, { direction: direction || 'top', style: style, width: width || '100px', height: height ? height : renderHeight || '100px', children: content }) }))] }));
 }
