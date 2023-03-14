@@ -142,8 +142,10 @@ export default function ContentThumbnails({
                           <VectorEllipse />
                           <VectorEllipse />
                         </Styles.Thumbnails>
-                        {iconList[item.type]}
-                        <Styles.Title onClick={handleClick}>{item.title}</Styles.Title>
+                        <div onClick={handleClick} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer'}}>
+                          {iconList[item.type]}
+                          <Styles.Title >{item.title}</Styles.Title>
+                        </div>
                         <Styles.IconTrash className="trash" onClick={removeContentList}>
                           <Icons.TrashIcon fill={'#C00F00'} />
                         </Styles.IconTrash>
