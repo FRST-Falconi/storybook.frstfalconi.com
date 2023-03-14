@@ -5734,31 +5734,33 @@ function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, start
 
 const Container$9 = styled__default["default"].div `
     width: 270px;
-    height: 409px;
+    min-height: 409px;
     background-color: ${({ theme }) => theme.colors.primary2};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
     position: relative;
+    box-sizing: border-box;
+    padding: 16px 16px 24px 16px;
 `;
 const Image$3 = styled__default["default"].img `
-    width: 232px;
+    width: 236px;
     height: 310px;
-    margin-bottom: 45px;
     border-radius: 8px;
-    position: absolute;
     object-fit: cover;
+    object-position: center;
 `;
 const Content$1 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
-    position: absolute ;
-    margin-top: 340px;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
 `;
-const Typography$2 = styled__default["default"].p `
-    width: 140px;
-    height: 46px;    
+const Typography$2 = styled__default["default"].p `     
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -5766,15 +5768,23 @@ const Typography$2 = styled__default["default"].p `
     line-height: 23px;
     display: flex;
     align-items: center;
+    margin-right: 20px;
     color: ${({ theme }) => theme.colors.shadeWhite};
-    margin: 70px;
-    margin-left: 8px;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
 `;
 const Select$1 = styled__default["default"].div `
     background: none;
     width: 20px;
     height: 20px;
-    margin-top: 95px;
+    position: absolute;
+    right: 0;
+    top: 0;
     cursor: pointer;
 
     &:hover {
@@ -5782,18 +5792,22 @@ const Select$1 = styled__default["default"].div `
     }
 `;
 const ContainerCard$1 = styled__default["default"].div `
-    width: 269px;
+    width: 270px;
     height: 76px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     display: flex;
     align-items: center;
-    margin-top: 2px;
     padding: 8px;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
 
     &:hover {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey5};
+        background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+    }
+
+    &:active {
+        background-color: ${({ theme }) => theme.colors.neutralsGrey6};
     }
     
     &:hover .trash {
@@ -5810,14 +5824,22 @@ const Thumbnails$2 = styled__default["default"].div `
     align-items: center;    
 `;
 const Title$2 = styled__default["default"].div `
-    margin: 10px;
+    width: 166px;
+    margin-left: 12px;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
     cursor: default;
 `;
 const IconTrash = styled__default["default"].div `
     cursor: pointer;
     right: -15px;
     position: absolute;
-    transition: all .2s linear;
+    transition: all .5s linear;
     
 `;
 // ##############TRILHA##############
@@ -5915,19 +5937,18 @@ var typeContent;
     typeContent[typeContent["Quiz"] = 4] = "Quiz";
     typeContent[typeContent["Certificate"] = 5] = "Certificate";
 })(typeContent || (typeContent = {}));
-function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title, removeContentList }) {
-    const defaultImg = 'https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg';
+function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title, removeContentList, onChangeOrder, isOpen }) {
+    const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png';
     const iconList = [
-        jsxRuntime.jsx(Content$2, { fill: '#FF4D0D' }),
-        jsxRuntime.jsx(Video$1, {}),
-        jsxRuntime.jsx(PodCast, { fill: '#FF4D0D' }),
-        jsxRuntime.jsx(QuizSucessError, { fill: '#FF4D0D' }),
-        jsxRuntime.jsx(Quiz, { fill: '#FF4D0D' }),
-        jsxRuntime.jsx(Certificate, { fill: '#FF4D0D' })
+        jsxRuntime.jsx(Content$2, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(Video$1, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(PodCast, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(QuizSucessError, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(Quiz, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(Certificate, { fill: '#EE4C15' })
     ];
-    const [contentListData, setContentListData] = React.useState(contentList);
-    const [down, setDown] = React.useState(true);
-    const [up, setUp] = React.useState(false);
+    const [contentListData, setContentListData] = React.useState(contentList ? contentList : []);
+    const [up, setUp] = React.useState(isOpen);
     const reorder = (list, startIndex, endIndex) => {
         const result = Array.from(list);
         const [removed] = result.splice(startIndex, 1);
@@ -5937,26 +5958,26 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
     const change = () => {
         {
             up ? setUp(false) : setUp(true);
-            setDown(false);
             return handleReloadItens();
         }
     };
+    React.useEffect(() => {
+        setContentListData(contentList ? contentList : []);
+    }, [contentList]);
+    const onDragEnd = (result) => {
+        if (!result.destination) {
+            return;
+        }
+        const reorderedItems = reorder(contentListData, result.source.index, result.destination.index);
+        setContentListData(reorderedItems);
+        onChangeOrder(reorderedItems);
+    };
     function Exibir() {
-        const onDragEnd = (result) => {
-            if (!result.destination) {
-                return;
-            }
-            const reorderedItems = reorder(contentListData, result.source.index, result.destination.index);
-            setContentListData(reorderedItems);
-        };
-        React.useEffect(() => {
-            setContentListData(contentList);
-        }, [contentList, setContentListData]);
-        return (jsxRuntime.jsx(reactBeautifulDnd.DragDropContext, { onDragEnd: onDragEnd, children: jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: "contentListData", children: (provided) => (jsxRuntime.jsx("div", { ref: provided.innerRef, children: contentListData.map((item, index) => {
-                        return (jsxRuntime.jsx(reactBeautifulDnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), iconList[item.type], jsxRuntime.jsx(Title$2, { onClick: handleClick, children: item.title }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: removeContentList, children: jsxRuntime.jsx(TrashIcon, { fill: '#FF4D0D' }) })] })) }, index));
+        return (jsxRuntime.jsx(reactBeautifulDnd.DragDropContext, { onDragEnd: onDragEnd, children: jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: "contentListData", children: (provided) => (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '462px', width: 270 }, ref: provided.innerRef, children: contentListData?.map((item, index) => {
+                        return (jsxRuntime.jsx(reactBeautifulDnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), iconList[item.type], jsxRuntime.jsx(Title$2, { onClick: handleClick, children: item.title }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: removeContentList, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
                     }) })) }) }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$9, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$9, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), jsxRuntime.jsx("div", { children: up ? (jsxRuntime.jsx(Exibir, {})) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
 }
 
 const LandscapeContainer = styled__default["default"].label `
