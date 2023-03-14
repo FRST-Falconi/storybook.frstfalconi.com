@@ -30,23 +30,24 @@ export default function ContentThumbnails({
   handleClick,
   handleReloadItens,
   title,
-  removeContentList
+  removeContentList,
+  onChangeOrder,
+  isOpen
 }: IContentThumbnails) {
   const defaultImg =
-    'https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg'
+    'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
 
   const iconList = [
-    <Icons.Content fill={'#FF4D0D'} />,
-    <Icons.Video />,
-    <Icons.PodCast fill={'#FF4D0D'} />,
-    <Icons.QuizSucessError fill={'#FF4D0D'} />,
-    <Icons.Quiz fill={'#FF4D0D'} />,
-    <Icons.Certificate fill={'#FF4D0D'} />
+    <Icons.Content fill={'#EE4C15'} />,
+    <Icons.Video fill={'#EE4C15'} />,
+    <Icons.PodCast fill={'#EE4C15'} />,
+    <Icons.QuizSucessError fill={'#EE4C15'} />,
+    <Icons.Quiz fill={'#EE4C15'} />,
+    <Icons.Certificate fill={'#EE4C15'} />
   ]
 
-  const [contentListData, setContentListData] = useState(contentList)
-  const [down, setDown] = useState(true)
-  const [up, setUp] = useState(false)
+  const [contentListData, setContentListData] = useState(contentList ? contentList : [])
+  const [up, setUp] = useState(isOpen)
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list)
@@ -58,30 +59,31 @@ export default function ContentThumbnails({
   const change = () => {
     {
       up ? setUp(false) : setUp(true)
-      setDown(false)
       return handleReloadItens()
     }
   }
 
-  function Exibir() {
-    const onDragEnd = (result) => {
-      if (!result.destination) {
-        return
-      }
-      const reorderedItems = reorder(contentListData, result.source.index, result.destination.index)
-      setContentListData(reorderedItems)
-    }
+  useEffect(() => {
+    setContentListData(contentList ? contentList : [])
+  }, [contentList])
 
-    useEffect(() => {
-      setContentListData(contentList)
-    }, [contentList, setContentListData])
+  const onDragEnd = (result) => {
+    if (!result.destination) {
+      return
+    }
+    const reorderedItems = reorder(contentListData, result.source.index, result.destination.index)
+    setContentListData(reorderedItems)
+    onChangeOrder(reorderedItems)
+  }
+
+  function Exibir() {
 
     return (
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="contentListData">
           {(provided: any) => (
-            <div ref={provided.innerRef}>
-              {contentListData.map((item, index) => {
+            <div style={{backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '462px', width: 270}} ref={provided.innerRef}>
+              {contentListData?.map((item, index) => {
                 return (
                   <Draggable draggableId={item.title} index={index} key={index}>
                     {(provided: any) => (
@@ -143,7 +145,7 @@ export default function ContentThumbnails({
                         {iconList[item.type]}
                         <Styles.Title onClick={handleClick}>{item.title}</Styles.Title>
                         <Styles.IconTrash className="trash" onClick={removeContentList}>
-                          <Icons.TrashIcon fill={'#FF4D0D'} />
+                          <Icons.TrashIcon fill={'#C00F00'} />
                         </Styles.IconTrash>
                       </Styles.ContainerCard>
                     )}
@@ -169,11 +171,11 @@ export default function ContentThumbnails({
             </Styles.Content>
           </Styles.Container>
 
+          <div >
           {up ? (
-            <div>
-              <Exibir />
-            </div>
+            <Exibir />
           ) : null}
+          </div>
         </div>
       ) : variant === 'trilha' ? (
         <div>
@@ -192,7 +194,7 @@ export default function ContentThumbnails({
           </Styles.ContainerTrilha>
 
           {up ? (
-            <div>
+            <div style={{backgroundColor: '#D1D5DB', width: 270}}>
               <Exibir />
             </div>
           ) : null}
