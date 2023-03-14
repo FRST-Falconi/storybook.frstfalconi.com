@@ -15,7 +15,8 @@ import {
   WithTrail,
   EditIcon,
   CompanyIcon,
-  SawBadgeIcon
+  SawBadgeIcon,
+  GoalInviteIcon
 } from '../../../shared/icons'
 import Tag from '../../tag/index'
 import AvatarWithInfo from '../AvatarWithInfo/index'
@@ -320,7 +321,16 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                 : null
               }
 
-              <MessageBox texto={props.message} tipoVisualizacao={props.typeMessagem} onClick={props.onClickMessage} hasHover={true} style={{marginBottom: 16, maxWidth:400}}/>
+              {props.showButtonInvite &&
+                <div className={style.goal_invite}>
+                  <Button
+                    variant='link'
+                    label={props.textGoalInviteBtn}
+                    startIcon={<GoalInviteIcon />}
+                    handleClick={props.onClickMessage}
+                  />
+                </div>
+              }
               <span className={style.created}>{props.dataCriacao}</span>
             </div>
 

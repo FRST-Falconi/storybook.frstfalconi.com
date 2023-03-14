@@ -35,6 +35,8 @@ ShowData.args = {
         "CSAT"
     ],
     typeMessagem: 1,
+    showButtonInvite: true,
+    textGoalInviteBtn: "Ver convites enviados",
     message: "Problema aprovado - 30 de Abr. 2022",
     dataCriacao: "Criado em 20 de abr. 2022 - Atualizado em 04 de mai. 2022",
     qtdeAvaliacao: 19,
