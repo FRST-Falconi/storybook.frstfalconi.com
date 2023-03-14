@@ -24,7 +24,6 @@
 
 .created{
   font-size: 12px;
-  padding-top: 20px;
 }
 
 .description{
@@ -92,4 +91,13 @@ h3{
   border-radius: 8px;
   border: 1px solid #BDBDBD;
   background-color: white;
+}
+
+.goal_invite {
+  margin-bottom: 20px;
+}
+
+.goal_invite svg {
+  max-width: none;
+  max-height: none !important;
 }

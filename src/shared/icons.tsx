@@ -2678,3 +2678,15 @@ export function SawBadgeIcon({ fill, width, height }: IconsProps) {
     </svg>
   )
 }
+
+export function GoalInviteIcon({fill, width, height}: IconsProps) {
+  return (
+    <svg width={width ? width : "25"} height={height ? height : "25"} viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7.02656 9.04883H5.82656C4.94291 9.04883 4.22656 9.67563 4.22656 10.4488V18.8488C4.22656 19.622 4.94291 20.2488 5.82656 20.2488H18.6266C19.5102 20.2488 20.2266 19.622 20.2266 18.8488V10.4488C20.2266 9.67563 19.5102 9.04883 18.6266 9.04883H17.4266" stroke={fill ? fill : "#0645AD"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M20.2266 10.6484L13.0506 15.2084C12.8036 15.3632 12.518 15.4452 12.2266 15.4452C11.9351 15.4452 11.6495 15.3632 11.4026 15.2084L4.22656 10.6484" stroke={fill ? fill : "#0645AD"} stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M7.02637 12.6486V7.84863C7.02637 6.74406 7.9218 5.84863 9.02637 5.84863H15.4264C16.5309 5.84863 17.4264 6.74406 17.4264 7.84863V12.6486" stroke={fill ? fill : "#0645AD"} stroke-width="1.5" />
+      <path d="M15.4264 13.8487C14.6264 11.8487 13.4264 11.4487 12.2264 11.4487C11.0264 11.4487 9.82637 11.8487 9.02637 13.8487" stroke={fill ? fill : "#0645AD"} stroke-width="1.5" />
+      <circle cx="12.2265" cy="9.04873" r="0.85" stroke={fill ? fill : "#0645AD"} stroke-width="1.5" />
+    </svg>
+  )
+}
