@@ -19,6 +19,7 @@ IndividualCourseWithActivity.args = {
   src: 'https://i.gyazo.com/7ccff0252cbd94f10bae665be4456854.png',
   disabled: false,
   title: 'Name of the Content',
+  isOpen: true,
   contentList: [
     {
       title: 'Introdução ao curso',

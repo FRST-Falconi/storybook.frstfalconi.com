@@ -101,10 +101,12 @@ export const Title = styled.div`
     -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
     white-space: pre-wrap;
     text-overflow: ellipsis;
-    cursor: default;
 ` 
 export const IconTrash = styled.div`
     cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
     right: -15px;
     position: absolute;
     transition: all .5s linear;
