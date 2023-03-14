@@ -2,31 +2,33 @@ import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
     width: 270px;
-    height: 409px;
+    min-height: 409px;
     background-color: ${({ theme }) => theme.colors.primary2};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; 
     position: relative;
+    box-sizing: border-box;
+    padding: 16px 16px 24px 16px;
 `
 export const Image = styled.img`
-    width: 232px;
+    width: 236px;
     height: 310px;
-    margin-bottom: 45px;
     border-radius: 8px;
-    position: absolute;
     object-fit: cover;
+    object-position: center;
 `
 export const Content = styled.div`
     display: flex;
     flex-direction: row;
-    position: absolute ;
-    margin-top: 340px;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
 `
-export const Typography = styled.p`
-    width: 140px;
-    height: 46px;    
+export const Typography = styled.p`     
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -34,15 +36,23 @@ export const Typography = styled.p`
     line-height: 23px;
     display: flex;
     align-items: center;
+    margin-right: 20px;
     color: ${({ theme }) => theme.colors.shadeWhite};
-    margin: 70px;
-    margin-left: 8px;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
 `
 export const Select = styled.div`
     background: none;
     width: 20px;
     height: 20px;
-    margin-top: 95px;
+    position: absolute;
+    right: 0;
+    top: 0;
     cursor: pointer;
 
     &:hover {
@@ -50,18 +60,22 @@ export const Select = styled.div`
     }
 `
 export const ContainerCard = styled.div`
-    width: 269px;
+    width: 270px;
     height: 76px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     display: flex;
     align-items: center;
-    margin-top: 2px;
     padding: 8px;
     position: relative;
     overflow: hidden;
+    border-bottom: 1px solid ${({theme}) => theme.colors.borderPrimary};
 
     &:hover {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey5};
+        background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+    }
+
+    &:active {
+        background-color: ${({theme}) => theme.colors.neutralsGrey6};
     }
     
     &:hover .trash {
@@ -78,14 +92,22 @@ export const Thumbnails = styled.div`
     align-items: center;    
 `
 export const Title = styled.div`
-    margin: 10px;
+    width: 166px;
+    margin-left: 12px;
+    word-wrap: break-word;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
     cursor: default;
 ` 
 export const IconTrash = styled.div`
     cursor: pointer;
     right: -15px;
     position: absolute;
-    transition: all .2s linear;
+    transition: all .5s linear;
     
 `
 // ##############TRILHA##############
