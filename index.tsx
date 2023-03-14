@@ -61,6 +61,8 @@ export { default as ScrollContainer } from './src/components/scroll-container'
 export { default as LearningSteps } from './src/components/learning-steps'
 export { default as TotalizerCard } from './src/components/totalizer-card'
 
+// Quasar design system
+export { default as Tooltip } from './src/components/DS/tooltip'
 export { default as Select } from './src/components/DS/select'
 export { default as Modal } from './src/components/DS/modal'
 export { default as Loading } from './src/components/DS/loading'

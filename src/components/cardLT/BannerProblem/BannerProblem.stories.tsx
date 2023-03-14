@@ -18,6 +18,8 @@ ShowData.args = {
     onClickMessage: () => { alert('Opa!')},
     onClickSave: (nome) => {alert(nome)},
     onClickContinue: () => { alert('Continuar desafio!')},
+    isVerified: true,
+    verifiedTooltipContent: 'Este desafio consta como verificado pois o objetivo dele está alinhado às metas da empresa a qual ele pertence',
     problema: "Aumentar o engajamento dos alunos na plataforma",
     company: "FRST Falconi",
     topHeaderTagText: 'Convite recebido para aprovação',
@@ -33,6 +35,8 @@ ShowData.args = {
         "CSAT"
     ],
     typeMessagem: 1,
+    showButtonInvite: true,
+    textGoalInviteBtn: "Ver convites enviados",
     message: "Problema aprovado - 30 de Abr. 2022",
     dataCriacao: "Criado em 20 de abr. 2022 - Atualizado em 04 de mai. 2022",
     qtdeAvaliacao: 19,
