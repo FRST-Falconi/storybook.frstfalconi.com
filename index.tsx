@@ -38,6 +38,9 @@ export {
   Books
 } from './src/shared/icons'
 
+//Icon
+export * as Icons from './src/shared/icons'
+
 // Base
 export { default as Tag } from './src/components/tag'
 export { default as BaseCard } from './src/components/cards/base'

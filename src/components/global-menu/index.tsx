@@ -286,6 +286,7 @@ export default function GlobalMenu({
                         variant="LXP"
                         type="menu"
                         pressed={false}
+                        onClick={onClickNotification}
                         icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
                         style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
                       />
