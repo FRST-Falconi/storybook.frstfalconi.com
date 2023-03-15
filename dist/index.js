@@ -2018,7 +2018,7 @@ const TextFieldContainer = styled__default["default"].div `
 `;
 const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     type: type || 'text',
-    as: as || 'input'
+    as: as || 'input',
 })) `
   width: 100%;
   height: 100%;
@@ -2050,6 +2050,7 @@ const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     `}
     ${(props) => props.theme.error &&
     styled.css `
+      color: ${({ theme }) => theme.colors.messageError1};
       ${placeholderStyle('linkError')}
     `}
 `;

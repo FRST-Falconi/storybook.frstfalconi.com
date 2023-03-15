@@ -4,6 +4,7 @@ interface TextFieldProps {
   type?: string
   as?: string
   isClicked?: boolean
+  erroe?: boolean
 }
 
 const placeholderStyle = (color: string) => css`
@@ -94,7 +95,7 @@ export const TextFieldContainer = styled.div<{ isClicked }>`
 
 export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
   type: type || 'text',
-  as: as || 'input'
+  as: as || 'input',
 }))<{ as: string }>`
   width: 100%;
   height: 100%;
@@ -129,6 +130,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     ${(props) =>
     props.theme.error &&
     css`
+      color: ${({ theme }) => theme.colors.messageError1};
       ${placeholderStyle('linkError')}
     `}
 `
