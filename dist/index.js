@@ -2110,8 +2110,8 @@ const InputIconButton = styled__default["default"].button `
   min-width: 40px;
   min-height: 40px;
   margin-right: -10px;
-  background-color: transparent;
-  border: none;
+  background-color: transparent !important;
+  border: none !important;
   border-radius: 50%;
   outline: none;
   transition: all 0.1s linear;
