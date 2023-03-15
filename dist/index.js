@@ -1964,10 +1964,11 @@ const TextFieldContainer = styled__default["default"].div `
   border-radius: 8px;
   outline: none;
   transition: all 0.2s linear;
-  padding-right: 16px;
+  
   margin: 8px 0;
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   ${({ isClicked }) => isClicked &&
     `
@@ -2050,6 +2051,7 @@ const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     `}
     ${(props) => props.theme.error &&
     styled.css `
+      color: ${({ theme }) => theme.colors.messageError1};
       ${placeholderStyle('linkError')}
     `}
 `;
@@ -2108,12 +2110,13 @@ const InputIconButton = styled__default["default"].button `
   min-width: 40px;
   min-height: 40px;
   margin-right: -10px;
-  background-color: transparent;
-  border: none;
+  background-color: transparent !important;
+  border: none !important;
   border-radius: 50%;
   outline: none;
   transition: all 0.1s linear;
   cursor: pointer;
+  margin-right: 16px;
 `;
 const StartIcon = styled__default["default"].span `
   margin-left: 16px;
@@ -2124,21 +2127,21 @@ function TextField(props) {
     const [hover, setHover] = React.useState(false);
     const [click, setClick] = React.useState(false);
     const [inputType, setInputType] = React.useState(props.type);
+    const [endIconState, setEndIcon] = React.useState(props?.endIcon);
     const { t } = reactI18next.useTranslation();
-    const handleTogglePasswordVisibility = () => {
-        if (inputType === 'password')
-            return setInputType('text');
-        setInputType('password');
-    };
+    React.useEffect(() => {
+        setInputType(props.type);
+    }, [props.type]);
+    React.useEffect(() => {
+        setEndIcon(props?.endIcon);
+    }, [props?.endIcon]);
     const showBorderAfterClick = () => {
         setClick(true);
         setTimeout(() => {
             setClick(false);
         }, 1000);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && ((props.type === 'password')
-                            ? jsxRuntime.jsx(InputIconButton, { onClick: handleTogglePasswordVisibility, children: props.endIcon })
-                            : jsxRuntime.jsx("span", { children: props.endIcon }))] }), props.helperText && jsxRuntime.jsx(HelperText$2, { children: props.helperText })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$1, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$2, { children: props.helperText })] }) }));
 }
 
 function Textarea(props) {
@@ -12232,6 +12235,7 @@ exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
 exports.ExtraContent = ExtraContent;
+exports.EyeOff = EyeOff;
 exports.FeedInteraction = FeedInteraction;
 exports.FileUpload = FileUpload;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
@@ -12264,6 +12268,7 @@ exports.MoreDotsHorizontal = MoreDotsHorizontal;
 exports.NotificationCard = NotificationCard;
 exports.NotificationPopOver = NotificationPopOver;
 exports.ObjectiveStep = ObjectiveStep;
+exports.OpenedEye = OpenedEye;
 exports.Pagination = Pagination;
 exports.ParticipantCard = ParticipantCard;
 exports.ParticipantThumbnails = ParticipantThumbnails;
