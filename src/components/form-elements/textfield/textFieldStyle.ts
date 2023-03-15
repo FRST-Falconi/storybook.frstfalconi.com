@@ -95,7 +95,7 @@ export const TextFieldContainer = styled.div<{ isClicked }>`
 
 export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
   type: type || 'text',
-  as: as || 'input',
+  as: as || 'input'
 }))<{ as: string }>`
   width: 100%;
   height: 100%;

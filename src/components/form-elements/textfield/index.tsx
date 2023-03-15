@@ -40,11 +40,13 @@ export default function TextField(props: TextFieldProps) {
     const [ endIconState, setEndIcon ] = useState(props?.endIcon)
     const { t } = useTranslation()
 
-
     useEffect(() => {
         setInputType(props.type)
+    }, [props.type]);
+
+    useEffect(() => {
         setEndIcon(props?.endIcon)
-    }, [props.type, props?.endIcon])
+    }, [props?.endIcon])
     
 
     const showBorderAfterClick = () => {

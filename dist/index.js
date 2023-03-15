@@ -2018,7 +2018,7 @@ const TextFieldContainer = styled__default["default"].div `
 `;
 const TextField$1 = styled__default["default"].input.attrs(({ type, as }) => ({
     type: type || 'text',
-    as: as || 'input',
+    as: as || 'input'
 })) `
   width: 100%;
   height: 100%;
@@ -2129,8 +2129,10 @@ function TextField(props) {
     const { t } = reactI18next.useTranslation();
     React.useEffect(() => {
         setInputType(props.type);
+    }, [props.type]);
+    React.useEffect(() => {
         setEndIcon(props?.endIcon);
-    }, [props.type, props?.endIcon]);
+    }, [props?.endIcon]);
     const showBorderAfterClick = () => {
         setClick(true);
         setTimeout(() => {
