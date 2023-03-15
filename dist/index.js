@@ -1964,10 +1964,11 @@ const TextFieldContainer = styled__default["default"].div `
   border-radius: 8px;
   outline: none;
   transition: all 0.2s linear;
-  padding-right: 16px;
+  
   margin: 8px 0;
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   ${({ isClicked }) => isClicked &&
     `
@@ -2115,6 +2116,7 @@ const InputIconButton = styled__default["default"].button `
   outline: none;
   transition: all 0.1s linear;
   cursor: pointer;
+  margin-right: 16px;
 `;
 const StartIcon = styled__default["default"].span `
   margin-left: 16px;

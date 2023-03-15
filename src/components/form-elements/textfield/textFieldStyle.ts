@@ -34,10 +34,11 @@ export const TextFieldContainer = styled.div<{ isClicked }>`
   border-radius: 8px;
   outline: none;
   transition: all 0.2s linear;
-  padding-right: 16px;
+  
   margin: 8px 0;
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   ${({ isClicked }) =>
     isClicked &&
@@ -204,6 +205,7 @@ export const InputIconButton = styled.button`
   outline: none;
   transition: all 0.1s linear;
   cursor: pointer;
+  margin-right: 16px;
 `
 
 export const StartIcon = styled.span`
