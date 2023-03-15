@@ -3,9 +3,9 @@ import TextField from '@components/form-elements/textfield'
 import { Modal, Box, Switch, Dialog, Popover } from '@mui/material'
 import { UploadIcon } from '@shared/icons'
 import React, { useEffect, useRef, useState } from 'react'
-import style from './bannerLxp.module.css'
-import { ChromePicker } from 'react-color'
+import { SketchPicker } from 'react-color'
 import PopOverLXP from '../popOverLXP-antigo'
+import * as Styles from './bannerLxp'
 
 interface BannerLxpParams {
   title: string
@@ -65,7 +65,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   const handleChangeTitleColor = (color, event) => {
     setColorTitle(color.hex)
   }
-  const handleChangeBackgroundColor = (color, event) => {
+  const handleChangeBackgroundColor = (color) => {
     setBackgroundColor(color.hex)
     setBackgroundImage('')
   }
@@ -98,23 +98,20 @@ export default function BannerLxp(props: BannerLxpParams) {
   }, [props.titleColor])
 
   return (
-    <div
-      className={style.bannerContainer}
+    <Styles.BannerContainer
+      backgroundBanner={backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`}
       style={{
         ...props.style,
-        objectFit: fixImage ? 'fill' : 'none',
-        //backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
-        //backgroundColor: backgroundImage === '' ? backgroundColor : '',
-        background: backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`
+        objectFit: fixImage ? 'fill' : 'none'
       }}
     >
       {!disableText ? <span style={{ color: colorTitle, fontSize: 40, fontWeight: 700 }}>{titleText}</span> : ''}
-      <div className={style.configButton}>
+      <Styles.ConfigButton className="configButton">
         <Button variant="primary" label="Configuração de capa" handleClick={handleOpenConfig} />
-      </div>
+      </Styles.ConfigButton>
 
       <Modal open={openConfig} onClose={handleCloseConfig}>
-        <Box className={style.configContainer} style={{ ...props.style }}>
+        <Styles.ConfigContainer style={{ ...props.style }}>
           <span style={{ fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }}>Título</span>
 
           <TextField
@@ -123,7 +120,7 @@ export default function BannerLxp(props: BannerLxpParams) {
             style={{ width: '100%' }}
             onChange={(e) => setTitleText(e.target.value)}
           />
-          <div className={style.enableText}>
+          <Styles.EnableText>
             <span>Mostrar texto</span>
             <Switch
               checked={!disableText}
@@ -138,9 +135,9 @@ export default function BannerLxp(props: BannerLxpParams) {
                 }
               }}
             />
-          </div>
+          </Styles.EnableText>
 
-          <div className={style.inputTextColor}>
+          <Styles.InputTextColor>
             <span>Cor do título</span>
             <button
               aria-describedby={idTitle}
@@ -163,14 +160,14 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
               <PopOverLXP variant="upRight">
-                <ChromePicker color={colorTitle} disableAlpha={true} onChangeComplete={handleChangeTitleColor} />
+                <SketchPicker color={colorTitle} onChangeComplete={handleChangeTitleColor} />
               </PopOverLXP>
             </Popover>
-          </div>
+          </Styles.InputTextColor>
 
           <span style={{ marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }}>Background</span>
 
-          <div className={style.inputBgColor}>
+          <Styles.InputBgColor className="inputBgColor">
             <span>Cor de fundo</span>
             <button
               aria-describedby={idBg}
@@ -184,7 +181,6 @@ export default function BannerLxp(props: BannerLxpParams) {
               }}
               onClick={handleOpenBackgroundColorPicker}
             />
-
             <Popover
               id={idBg}
               open={displayBackgroundColorPicker}
@@ -193,16 +189,12 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
               <PopOverLXP variant="upRight">
-                <ChromePicker
-                  color={backgroundColor}
-                  disableAlpha={true}
-                  onChangeComplete={handleChangeBackgroundColor}
-                />
+                <SketchPicker color={backgroundColor} onChangeComplete={handleChangeBackgroundColor} />
               </PopOverLXP>
             </Popover>
-          </div>
+          </Styles.InputBgColor>
 
-          <div className={style.bgInput}>
+          <Styles.BgInput>
             <span>Imagem de fundo</span>
             <label htmlFor="backgroundSelector">
               {' '}
@@ -214,9 +206,9 @@ export default function BannerLxp(props: BannerLxpParams) {
               accept=".jpg, .jpeg, .png"
               onChange={(e) => handleFileSelected(e.target.files[0])}
             />
-          </div>
+          </Styles.BgInput>
 
-          <div className={style.fixImage}>
+          <Styles.FixImage>
             <span> Ajustar a imagem </span>
             <Switch
               checked={fixImage}
@@ -231,9 +223,9 @@ export default function BannerLxp(props: BannerLxpParams) {
                 }
               }}
             />
-          </div>
-        </Box>
+          </Styles.FixImage>
+        </Styles.ConfigContainer>
       </Modal>
-    </div>
+    </Styles.BannerContainer>
   )
 }
