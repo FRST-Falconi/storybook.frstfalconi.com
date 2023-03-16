@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { FRSTTheme } from '../../../theme'
 import * as styledHeaderContent from './headerContent'
 import { ArrowScrollRight } from './../../../shared/icons'
+import { ThemeProvider } from 'styled-components'
 
 interface objPropiedades {
   title?: string
@@ -29,17 +30,14 @@ export default function HeaderContent(props: HeaderContentParams) {
   const [selectedContent, setSelectedContent] = useState(0)
   const [zeroHeigthDescription, setzeroHeigthDescription] = useState(false)
   const [textView, setTextView] = useState(props.textViewMore)
-  const settingsSlider = {
-    dots: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    autoplay: true,
-    autoplaySpeed: props.autoplayTime
-  }
 
   useEffect(() => {
-    const timer = setTimeout(() => setSelectedContent(selectedContent < 2 ? selectedContent + 1 : 0), 10000)
+    console.log(selectedContent)
+    const timer = setTimeout(() => {
+      setSelectedContent(selectedContent < (props.listaRecomendacao.length - 1) ? selectedContent + 1 : 0)
+      setzeroHeigthDescription(false)
+      setTextView(props.textViewMore)
+    }, props.autoplayTime ? props.autoplayTime : 10000)
     return () => clearTimeout(timer)
   }, [selectedContent])
 
@@ -99,22 +97,30 @@ export default function HeaderContent(props: HeaderContentParams) {
   }
 
   return (
-    <styledHeaderContent.Container theme={FRSTTheme}>
-      {/* <Slider {...settingsSlider}> */}
+    <ThemeProvider theme={FRSTTheme}>
+      <styledHeaderContent.Container theme={FRSTTheme}>
         {props.listaRecomendacao.map((item, index) => {
           return (
-            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length}>
+            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length} onDisplay={index === selectedContent} >
               <>
                 {item.typeOfHeader === 'inProgress' ? (
-                  <styledHeaderContent.Content>{InProgressHeader(item)}</styledHeaderContent.Content>
+                  <styledHeaderContent.Content onDisplay={index === selectedContent}>{InProgressHeader(item)}</styledHeaderContent.Content>
                 ) : (
-                  <styledHeaderContent.Content>{RecomendationHeader(item)}</styledHeaderContent.Content>
+                  <styledHeaderContent.Content onDisplay={index === selectedContent}>{RecomendationHeader(item)}</styledHeaderContent.Content>
                 )}
               </>
             </styledHeaderContent.HeaderImage>
           )
         })}
-      {/* </Slider> */}
-    </styledHeaderContent.Container>
+        <styledHeaderContent.ListCounters>
+          {Array.from({ length : props.listaRecomendacao.length}).map((_,index) =>
+            <styledHeaderContent.Counters key={index} 
+              selected={index === selectedContent}
+              onClick={() => setSelectedContent(index)}   
+            />
+          )}
+        </styledHeaderContent.ListCounters>
+      </styledHeaderContent.Container>
+    </ThemeProvider>
   )
 }

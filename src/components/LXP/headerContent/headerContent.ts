@@ -4,30 +4,12 @@ interface HeaderContentProps {
   img?: any
   zeroHeigthDescription?: boolean
   tmnDescription?: number
+  onDisplay?: boolean
 }
 
 export const Container = styled.div`
-  ul {
-    position: relative;
-    top: -2.5rem;
-    li {
-      button {
-        background: ${({ theme }) => theme.colors.neutralsGrey5};
-        border-radius: 100%;
-        width: 13px;
-        height: 13px;
-      }
-      button::before {
-        font-size: 16px;
-        line-height: 15px;
-        width: 13px;
-        height: 13px;
-        left: -1px;
-        opacity: -2.65;
-        color: ${({ theme }) => theme.colors.primary1} !important;
-      }
-    }
-  }
+  display: flex;
+  position: relative;
 `
 
 export const HeaderImage = styled.div<HeaderContentProps>`
@@ -37,11 +19,14 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   align-items: flex-start;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
   color: #fff;
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
-  background-size: 120rem 40rem;
+  background-size: cover;
+  background-position: center;
+  
   ${(props) =>
     props.tmnDescription < 164 &&
     css`
@@ -50,7 +35,7 @@ export const HeaderImage = styled.div<HeaderContentProps>`
       }
     `}
   @media (max-width: 834px) {
-    height: 44vh;
+    height: 72vh;
     ${(props) =>
       props.tmnDescription >= 134 &&
       css`
@@ -59,6 +44,14 @@ export const HeaderImage = styled.div<HeaderContentProps>`
         }
       `}
   }
+
+  ${(props) =>
+    props.onDisplay ?
+      css` width: 100%;`
+    :
+      css` width: 0px;`
+  }
+
   @media (max-width: 414px) {
     height: 65vh;
   }
@@ -66,14 +59,42 @@ export const HeaderImage = styled.div<HeaderContentProps>`
     height: 87vh;
   }
 `
-export const Content = styled.div`
+export const Content = styled.div<HeaderContentProps>`
   width: 100%;
   height: 100%;
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
+  
+  ${(props) =>
+    !props.onDisplay &&
+      css` display: none;`
+  }
+
   @media (max-width: 414px) {
     padding: 2rem;
   }
+`
+
+export const ListCounters = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+
+  position: absolute;
+  margin-bottom: 36px;
+  bottom: 0;
+  right: 50%;
+
+`
+
+export const Counters = styled.button<{selected : boolean}>`
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: none;
+  background-color: ${({selected, theme}) => selected ? theme.colors.primary1 : theme.colors.neutralsGrey5 };
 `
 
 export const Title = styled.div`
@@ -95,7 +116,7 @@ export const Description = styled.div<HeaderContentProps>`
   ${(props) =>
     !props.zeroHeigthDescription &&
     css`
-      height: 2.5rem;
+      height: 2.4rem;
     `}
   overflow: hidden;
   transition: all 0.9s ease-in-out;
@@ -106,7 +127,7 @@ export const Description = styled.div<HeaderContentProps>`
     ${(props) =>
       !props.zeroHeigthDescription &&
       css`
-        height: 2.5rem;
+        height: 2.4rem;
       `}
   }
 
@@ -115,7 +136,7 @@ export const Description = styled.div<HeaderContentProps>`
     ${(props) =>
       !props.zeroHeigthDescription &&
       css`
-        height: 2.5rem;
+        height: 2.4rem;
       `}
   }
   @media (max-width: 320px) {
@@ -123,7 +144,7 @@ export const Description = styled.div<HeaderContentProps>`
     ${(props) =>
       !props.zeroHeigthDescription &&
       css`
-        height: 2.5rem;
+        height: 2.4rem;
       `}
   }
 `

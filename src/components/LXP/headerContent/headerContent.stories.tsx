@@ -11,7 +11,7 @@ const Template = (args) => <HeaderContent {...args} />
 
 export const InProgress = Template.bind({})
 InProgress.args = {
-  autoplayTime: 6000,
+  autoplayTime: 5000,
   textViewMore: 'Ver mais',
   textViewLess: 'Ver menos',
   listaRecomendacao: [
