@@ -4,6 +4,7 @@ interface TextFieldProps {
   type?: string
   as?: string
   isClicked?: boolean
+  erroe?: boolean
 }
 
 const placeholderStyle = (color: string) => css`
@@ -33,10 +34,11 @@ export const TextFieldContainer = styled.div<{ isClicked }>`
   border-radius: 8px;
   outline: none;
   transition: all 0.2s linear;
-  padding-right: 16px;
+  
   margin: 8px 0;
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   ${({ isClicked }) =>
     isClicked &&
@@ -129,6 +131,7 @@ export const TextField = styled.input.attrs<TextFieldProps>(({ type, as }) => ({
     ${(props) =>
     props.theme.error &&
     css`
+      color: ${({ theme }) => theme.colors.messageError1};
       ${placeholderStyle('linkError')}
     `}
 `
@@ -196,12 +199,13 @@ export const InputIconButton = styled.button`
   min-width: 40px;
   min-height: 40px;
   margin-right: -10px;
-  background-color: transparent;
-  border: none;
+  background-color: transparent !important;
+  border: none !important;
   border-radius: 50%;
   outline: none;
   transition: all 0.1s linear;
   cursor: pointer;
+  margin-right: 16px;
 `
 
 export const StartIcon = styled.span`

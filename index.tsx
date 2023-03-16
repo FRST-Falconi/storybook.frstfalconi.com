@@ -38,7 +38,9 @@ export {
   Books,
   Diamond,
   Challenge,
-  ChangeAccount
+  ChangeAccount,
+  EyeOff,
+  OpenedEye
 } from './src/shared/icons'
 
 // Base
