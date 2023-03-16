@@ -35,11 +35,11 @@ export {
   StepCicleTwo,
   StepCicleThree,
   StepCicleFour,
-  Books
+  Books,
+  Diamond,
+  Challenge,
+  ChangeAccount
 } from './src/shared/icons'
-
-//Icon
-export * as Icons from './src/shared/icons'
 
 // Base
 export { default as Tag } from './src/components/tag'
