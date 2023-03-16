@@ -280,7 +280,7 @@ export default function GlobalMenu({
                       )
                     })}
                   {!isMobileVersion && !isTabletVersion && notification && (
-                    <div style={{ position: 'relative' }} onClick={onClickNotification}>
+                    <div style={{ position: 'relative' }}>
                       <ItemGlobalMenu
                         label={textNotification}
                         variant="LXP"
