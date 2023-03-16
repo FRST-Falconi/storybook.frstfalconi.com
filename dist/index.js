@@ -107,6 +107,9 @@ function FRSTLogo({ fill, width, height }) {
 function FRSTLogoBig({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '142', height: height ? height : '40', viewBox: "0 0 142 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.77222 7.99854H35.7659V0.000332832H8.77222V7.99854Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M118.996 40H127.994V9.99779H118.996V40Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M105.499 0.05795V8.05615H141.491V0.05795H105.499Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M93.3707 16.6074C86.3928 15.1306 85.2937 15.0713 85.2937 11.2909C85.2937 8.39651 86.2906 7.99791 90.743 7.99791C91.9324 7.99791 93.1265 7.99791 94.1828 8.19776L94.2365 0.212822C93.3515 -0.000297546 92.6365 -0.000297546 91.5098 -0.000297546C79.3487 -0.000297546 76.2251 3.19806 76.2251 11.0545C76.2251 19.5609 77.8201 21.451 88.5193 23.5188C95.7631 24.9363 96.5008 25.1499 96.5008 28.694C96.5008 32.002 94.4195 31.9923 89.3025 31.9923C87.7712 31.9923 86.6029 31.9923 85.2534 31.7923V39.7904C86.6029 39.9902 87.8328 39.9902 89.2657 39.9902C103.249 39.9902 105.481 36.5505 105.481 28.753C105.481 21.0149 105.333 19.1472 93.3707 16.6074Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M31.2666 17.9928H8.77192L0 21.9011L2.44158 29.4923L8.77192 26.5009V39.9875H17.7697V25.9908H31.2666V17.9928Z", fill: fill ?? 'white' }), jsxRuntime.jsx("path", { d: "M67.2584 15.9632V10.0303C67.2584 4.4907 62.2065 -0.000297546 55.9742 -0.000297546H44.7637V7.99791H54.0049C56.3555 7.99791 58.2606 9.69159 58.2606 11.7806V14.2129C58.2606 16.3019 56.3555 17.9955 54.0049 17.9955H44.7637V25.9935H48.1034L59.6102 39.9902L67.2584 34.5918L59.8101 25.3533C60.3827 25.2339 60.8179 25.0922 61.0433 24.924C64.7287 23.2734 67.2584 19.8818 67.2584 15.9632Z", fill: fill ?? 'white' })] }));
 }
+function ChangeAccount({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '18', height: height ? height : '16', viewBox: "0 0 18 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M1 1.74841V6.2496H5.36364", stroke: fill ?? 'white', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.9999 13.7516V9.25043H12.6362", stroke: fill ?? 'white', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.1745 5.49941C14.8057 4.42421 14.1788 3.46293 13.3524 2.70524C12.526 1.94755 11.5269 1.41816 10.4485 1.16646C9.3701 0.914767 8.24745 0.948968 7.18532 1.26588C6.12318 1.58278 5.15618 2.17207 4.37455 2.97875L1 6.24961M17 9.25039L13.6255 12.5213C12.8438 13.3279 11.8768 13.9172 10.8147 14.2341C9.75255 14.551 8.6299 14.5852 7.55148 14.3335C6.47307 14.0818 5.47404 13.5524 4.64761 12.7948C3.82119 12.0371 3.1943 11.0758 2.82545 10.0006", stroke: fill ?? 'white', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
 function DownloadIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M12.8 1C12.8 0.447715 12.3523 0 11.8 0C11.2477 0 10.8 0.447715 10.8 1V12.9858L6.50711 8.69289C6.11658 8.30237 5.48342 8.30237 5.09289 8.69289C4.70237 9.08342 4.70237 9.71658 5.09289 10.1071L11.0929 16.1071C11.2858 16.3 11.5379 16.3976 11.7908 16.4C11.7938 16.4 11.7969 16.4 11.8 16.4M12.8 1V12.9858V1ZM11.8092 16.4C12.0621 16.3976 12.3142 16.3 12.5071 16.1071L18.5071 10.1071C18.8976 9.71658 18.8976 9.08342 18.5071 8.69289C18.1166 8.30237 17.4834 8.30237 17.0929 8.69289L12.8 12.9858M1 14.4C1.55228 14.4 2 14.8477 2 15.4V20.2C2 20.5713 2.1475 20.9274 2.41005 21.1899C2.6726 21.4525 3.0287 21.6 3.4 21.6H20.2C20.5713 21.6 20.9274 21.4525 21.1899 21.1899C21.4525 20.9274 21.6 20.5713 21.6 20.2V15.4C21.6 14.8477 22.0477 14.4 22.6 14.4C23.1523 14.4 23.6 14.8477 23.6 15.4V20.2C23.6 21.1017 23.2418 21.9665 22.6042 22.6042C21.9665 23.2418 21.1017 23.6 20.2 23.6H3.4C2.49826 23.6 1.63346 23.2418 0.995837 22.6042C0.358213 21.9665 0 21.1017 0 20.2V15.4C0 14.8477 0.447715 14.4 1 14.4Z", fill: fill ?? '#FF4D0D' }) }));
 }
@@ -377,6 +380,12 @@ function Clock({ fill, width, height }) {
 function Load({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16.98 20.6256C17.5433 21.6013 18.8054 21.9477 19.6718 21.2274C21.567 19.6517 22.9447 17.5183 23.5911 15.1058C24.4148 12.0317 23.9836 8.75621 22.3923 6C20.801 3.24379 18.18 1.23261 15.1058 0.408891C12.6934 -0.237529 10.1569 -0.111098 7.84473 0.742337C6.78777 1.13247 6.45667 2.39867 7.02 3.37439C7.58333 4.3501 8.83088 4.65471 9.91792 4.35856C11.2588 3.99325 12.6844 3.984 14.0498 4.34987C16.0788 4.89352 17.8087 6.2209 18.8589 8.04C19.9092 9.8591 20.1938 12.0209 19.6501 14.0498C19.2843 15.4153 18.5634 16.6453 17.5766 17.6239C16.7766 18.4172 16.4167 19.6499 16.98 20.6256Z", fill: fill ? fill : "#FF4D0D" }) }));
 }
+function Diamond({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "32", height: height ? height : "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00001 4H24L29.3333 12L16 29.3333L2.66667 12L8.00001 4Z", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L21.3333 12L17.3333 4", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L10.6667 12L14.6667 4", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M2.66667 12H29.3333", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function Challenge({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : "32", height: height ? height : "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.66668 28.6666L6.13402 28.3904C6.03758 28.5764 6.04514 28.7992 6.15398 28.9783C6.26282 29.1573 6.45716 29.2666 6.66668 29.2666V28.6666ZM25.3333 28.6666V29.2666C25.5429 29.2666 25.7372 29.1573 25.846 28.9783C25.9549 28.7992 25.9624 28.5764 25.866 28.3904L25.3333 28.6666ZM30.6667 28.6666V29.2666C30.8793 29.2666 31.076 29.1541 31.1838 28.9709C31.2916 28.7876 31.2944 28.561 31.1912 28.3752L30.6667 28.6666ZM24 16.6666L24.5245 16.3752C24.4229 16.1923 24.2333 16.0755 24.0243 16.0671C23.8152 16.0586 23.6168 16.1597 23.5008 16.3338L24 16.6666ZM20.8341 20.3338C20.6503 20.6095 20.7248 20.982 21.0005 21.1658C21.2762 21.3496 21.6488 21.2751 21.8326 20.9994L20.8341 20.3338ZM1.33334 28.6666L0.808849 28.3752C0.705605 28.561 0.70841 28.7876 0.816221 28.9709C0.924032 29.1541 1.12075 29.2666 1.33334 29.2666L1.33334 28.6666ZM8.00001 16.6666L8.49924 16.3338C8.38318 16.1597 8.18481 16.0586 7.97575 16.0671C7.76668 16.0755 7.57713 16.1923 7.47552 16.3752L8.00001 16.6666ZM10.1674 20.9994C10.3513 21.2751 10.7238 21.3496 10.9995 21.1658C11.2752 20.982 11.3497 20.6095 11.1659 20.3338L10.1674 20.9994ZM14.6667 18.6666L14.2424 19.0908L14.6667 19.5151L15.0909 19.0908L14.6667 18.6666ZM16 17.3333L16.4243 16.909L16 16.4847L15.5757 16.909L16 17.3333ZM17.3333 18.6666L16.9091 19.0908L17.3333 19.5151L17.7576 19.0908L17.3333 18.6666ZM16 3.33325V2.73325C15.6686 2.73325 15.4 3.00188 15.4 3.33325H16ZM21.3333 3.33325H21.9333C21.9333 3.00188 21.6647 2.73325 21.3333 2.73325V3.33325ZM21.3333 6.66658V7.26659C21.6647 7.26659 21.9333 6.99796 21.9333 6.66658H21.3333ZM16 6.66658H15.4C15.4 6.99796 15.6686 7.26659 16 7.26659V6.66658ZM15.4674 10.3904L6.13402 28.3904L7.19933 28.9428L16.5327 10.9428L15.4674 10.3904ZM6.66668 29.2666H25.3333V28.0666H6.66668V29.2666ZM25.866 28.3904L16.5327 10.3904L15.4674 10.9428L24.8007 28.9428L25.866 28.3904ZM17.3333 29.2666H30.6667V28.0666H17.3333V29.2666ZM31.1912 28.3752L24.5245 16.3752L23.4755 16.958L30.1422 28.958L31.1912 28.3752ZM23.5008 16.3338L20.8341 20.3338L21.8326 20.9994L24.4992 16.9994L23.5008 16.3338ZM14.6667 28.0666H1.33334V29.2666H14.6667V28.0666ZM1.85784 28.958L8.5245 16.958L7.47552 16.3752L0.808849 28.3752L1.85784 28.958ZM7.50078 16.9994L10.1674 20.9994L11.1659 20.3338L8.49924 16.3338L7.50078 16.9994ZM12.2424 17.0908L14.2424 19.0908L15.0909 18.2423L13.0909 16.2423L12.2424 17.0908ZM15.0909 19.0908L16.4243 17.7575L15.5757 16.909L14.2424 18.2423L15.0909 19.0908ZM15.5757 17.7575L16.9091 19.0908L17.7576 18.2423L16.4243 16.909L15.5757 17.7575ZM17.7576 19.0908L19.7576 17.0908L18.9091 16.2423L16.9091 18.2423L17.7576 19.0908ZM16.6 10.6666V3.33325H15.4V10.6666H16.6ZM16 3.93325H21.3333V2.73325H16V3.93325ZM20.7333 3.33325V6.66658H21.9333V3.33325H20.7333ZM21.3333 6.06659H16V7.26659H21.3333V6.06659ZM16.6 6.66658V3.33325H15.4V6.66658H16.6Z", fill: fill ? fill : "white" }) }));
+}
 function SawBadgeIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : "20", height: height ? height : "20", viewBox: "0 0 20 20", fill: fill ? fill : "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_408_14996)", children: [jsxRuntime.jsx("path", { d: "M11.9804 2.16073C11.0545 0.717602 8.94551 0.717602 8.01957 2.16073C7.69063 2.67341 7.05964 2.90307 6.47811 2.72178C4.84118 2.21146 3.2256 3.56709 3.44392 5.26776C3.52148 5.87195 3.18574 6.45346 2.62372 6.68839C1.04173 7.34966 0.675512 9.4266 1.93593 10.5891C2.3837 11.002 2.50031 11.6633 2.22078 12.2045C1.43396 13.728 2.48845 15.5544 4.20121 15.6347C4.80968 15.6633 5.32406 16.0949 5.45782 16.6892C5.83433 18.3619 7.81613 19.0833 9.1798 18.0439C9.66426 17.6746 10.3357 17.6746 10.8202 18.0438C12.1839 19.0833 14.1657 18.3619 14.5422 16.6892C14.6759 16.0949 15.1903 15.6633 15.7988 15.6347C17.5115 15.5544 18.566 13.728 17.7792 12.2045C17.4997 11.6633 17.6163 11.002 18.0641 10.5891C19.3245 9.4266 18.9583 7.34966 17.3763 6.68839C16.8143 6.45346 16.4785 5.87195 16.5561 5.26776C16.7744 3.56709 15.1588 2.21146 13.5219 2.72178C12.9404 2.90307 12.3094 2.67341 11.9804 2.16073Z", fill: "#398787", stroke: "white" }), jsxRuntime.jsx("path", { d: "M6.25 10.4167L9.16667 12.9167L14.1667 7.5", stroke: "white", "stroke-linecap": "round", "stroke-linejoin": "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_408_14996", children: jsxRuntime.jsx("rect", { width: "20", height: "20", fill: "white" }) }) })] }));
 }
@@ -411,8 +420,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$i = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$i);
+var css_248z$h = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+styleInject(css_248z$h);
 
 function Tag(props) {
     function getBG() {
@@ -809,9 +818,9 @@ function CalendarCard(props) {
                                         jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
 }
 
-var css_248z$h = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
-var style$g = {"container":"TextIcon-module_container__c5xjY"};
-styleInject(css_248z$h);
+var css_248z$g = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
+var style$f = {"container":"TextIcon-module_container__c5xjY"};
+styleInject(css_248z$g);
 
 ///-----------------------------------------
 /// Componente
@@ -820,12 +829,12 @@ styleInject(css_248z$h);
  * @componente
  */
 function TextIcon(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$g.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$f.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
 }
 
-var css_248z$g = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
-var style$f = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
-styleInject(css_248z$g);
+var css_248z$f = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
+var style$e = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
+styleInject(css_248z$f);
 
 ///-----------------------------------------
 /// Componente
@@ -855,12 +864,12 @@ function Rating$1(props) {
         '#FFC200',
         '#FF4D0D',
     ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$f.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$f.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$f.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$f.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$f.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$e.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$e.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$e.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$e.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
 }
 
-var css_248z$f = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
-var style$e = {"container":"RatingCurtidas-module_container__Ns11t"};
-styleInject(css_248z$f);
+var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
+var style$d = {"container":"RatingCurtidas-module_container__Ns11t"};
+styleInject(css_248z$e);
 
 ///-----------------------------------------
 /// Componente
@@ -901,12 +910,12 @@ function RocketButton(props) {
  * @componente
  */
 function RatingCurtidas(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
 }
 
-var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
-var style$d = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
-styleInject(css_248z$e);
+var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
+var style$c = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
+styleInject(css_248z$d);
 
 ///-----------------------------------------
 /// Componente
@@ -959,16 +968,16 @@ function Steps(props) {
     React.useEffect(() => {
         setIdioma(props.idioma ? props.idioma : 'pt-BR');
     }, [props.idioma]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, onClick: () => {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, onClick: () => {
                 if (props.status !== 'B') {
                     props.onClick();
                 }
             }, children: [jsxRuntime.jsx("img", { src: TypeStep[props.step - 1], className: props.status === "A" ?
-                        style$d.imgAtive
+                        style$c.imgAtive
                         : props.status === "I" ?
-                            style$d.imgInative
-                            : style$d.imgBlocked }), jsxRuntime.jsx("div", { className: style$d.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
-                    jsxRuntime.jsx("div", { className: style$d.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
+                            style$c.imgInative
+                            : style$c.imgBlocked }), jsxRuntime.jsx("div", { className: style$c.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
+                    jsxRuntime.jsx("div", { className: style$c.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
 }
 
 ///-----------------------------------------
@@ -1048,17 +1057,17 @@ function MissionSteps(props) {
     };
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white', marginTop: '10px' }, children: [stepActive > 1 ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
                     : null, stepActive < stepLiberado ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
                     : props.stepProblem < 5 &&
                         props.onClickContinue &&
-                        jsxRuntime.jsx("span", { className: style$d.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$2, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
+                        jsxRuntime.jsx("span", { className: style$c.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$2, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
                                 setStep(1);
                             } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
                                 setStep(2);
@@ -1071,9 +1080,9 @@ function MissionSteps(props) {
                             } })] })] }) }));
 }
 
-var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
-var style$c = {"container":"avatarWithInfo-module_container__Y-yUf"};
-styleInject(css_248z$d);
+var css_248z$c = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
+var style$b = {"container":"avatarWithInfo-module_container__Y-yUf"};
+styleInject(css_248z$c);
 
 const DesignTokens = {
     colors: {
@@ -1311,7 +1320,7 @@ function Vector(props) {
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
 function AvatarWithInfo(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
 }
 
 const LinkButton$1 = styled__default["default"].a `
@@ -1665,9 +1674,9 @@ function Button$2({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$3, { style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, children: label }) }));
 }
 
-var css_248z$c = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N {\n  margin-bottom: 20px;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
-var style$b = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
-styleInject(css_248z$c);
+var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N {\n  margin-bottom: 20px;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
+var style$a = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
+styleInject(css_248z$b);
 
 const SpanHeaderTag = styled__default["default"].span `
     display: flex;
@@ -1774,8 +1783,8 @@ function BannerProblem(props) {
         return title;
     };
     const MOBILEWIDTH = 650;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [props.topHeaderTagText &&
-                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$b.titleProblem, children: [showChallengeTitle(), props.isVerified &&
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.container, style: { ...props.style }, children: [props.topHeaderTagText &&
+                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$a.titleProblem, children: [showChallengeTitle(), props.isVerified &&
                                     jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', height: '54px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
                             jsxRuntime.jsx(Button$2, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
@@ -1799,7 +1808,7 @@ function BannerProblem(props) {
                                 wordBreak: 'break-word',
                             }, children: TituloProblema }) })
                     :
-                        jsxRuntime.jsx("h1", { className: style$b.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
+                        jsxRuntime.jsx("h1", { className: style$a.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
                                         jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textTrailLabel ? props.textTrailLabel : 'Deseja vincular este novo problema a uma Trilha de Aprendizagem?' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha', onChange: e => {
                                                             setTrilhaId(e.value);
                                                             setTrilhaDescricaoSelecionada(e.label);
@@ -1809,14 +1818,14 @@ function BannerProblem(props) {
                                                     jsxRuntime.jsx(TextIcon, { description: props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
                                                     :
                                                         jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, style: { color: '#000 !important', marginRight: 8, marginTop: 8 }, color: "#E4E1FF", selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                                     jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 }, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
                                         : null, props.showButtonInvite &&
-                                        jsxRuntime.jsx("div", { className: style$b.goal_invite, children: jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textGoalInviteBtn, startIcon: jsxRuntime.jsx(GoalInviteIcon, {}), handleClick: props.onClickMessage }) }), jsxRuntime.jsx("span", { className: style$b.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
+                                        jsxRuntime.jsx("div", { className: style$a.goal_invite, children: jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textGoalInviteBtn, startIcon: jsxRuntime.jsx(GoalInviteIcon, {}), handleClick: props.onClickMessage }) }), jsxRuntime.jsx("span", { className: style$a.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
                                 jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
                                 : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onClickContinue: hasContinueProps ? props.onClickContinue : null, onSelected: (step) => {
@@ -1845,9 +1854,9 @@ ${email.slice(indexBreak)}`;
     }
 }
 
-var css_248z$b = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
-var style$a = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
-styleInject(css_248z$b);
+var css_248z$a = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
+var style$9 = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
+styleInject(css_248z$a);
 
 ///-----------------------------------------
 /// Componente
@@ -1901,22 +1910,22 @@ function MessageBox(props) {
         jsxRuntime.jsx(SaveIcon, { fill: 'red' })
     ];
     return (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsxs("div", { className: props.hasHover ?
-                    `${props.tipoVisualizacao === 1 ? style$a.success
-                        : props.tipoVisualizacao === 2 ? style$a.warning
-                            : props.tipoVisualizacao === 3 ? style$a.error
-                                : props.tipoVisualizacao === 4 ? style$a.notificacao
-                                    : props.tipoVisualizacao === 5 ? style$a.notificacaoErro
-                                        : ''} ${style$a.container}`
+                    `${props.tipoVisualizacao === 1 ? style$9.success
+                        : props.tipoVisualizacao === 2 ? style$9.warning
+                            : props.tipoVisualizacao === 3 ? style$9.error
+                                : props.tipoVisualizacao === 4 ? style$9.notificacao
+                                    : props.tipoVisualizacao === 5 ? style$9.notificacaoErro
+                                        : ''} ${style$9.container}`
                     :
-                        `${props.tipoVisualizacao === 1 ? style$a.successNoHover
-                            : props.tipoVisualizacao === 2 ? style$a.warningNoHover
-                                : props.tipoVisualizacao === 3 ? style$a.errorNoHover
-                                    : props.tipoVisualizacao === 4 ? style$a.notificacaoNoHover
-                                        : props.tipoVisualizacao === 5 ? style$a.notificacaoErroNoHover
-                                            : ''} ${style$a.container}`, style: {
+                        `${props.tipoVisualizacao === 1 ? style$9.successNoHover
+                            : props.tipoVisualizacao === 2 ? style$9.warningNoHover
+                                : props.tipoVisualizacao === 3 ? style$9.errorNoHover
+                                    : props.tipoVisualizacao === 4 ? style$9.notificacaoNoHover
+                                        : props.tipoVisualizacao === 5 ? style$9.notificacaoErroNoHover
+                                            : ''} ${style$9.container}`, style: {
                     cursor: props.onClick ? 'pointer' : 'default',
                     ...props.style
-                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$a.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
+                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$9.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
                 jsxRuntime.jsxs("div", { style: { display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 32, marginTop: 16, cursor: 'pointer' }, onClick: props.onClickExit, children: [" ", jsxRuntime.jsx(CloseIcon, {}), " "] })] }));
 }
 
@@ -4143,14 +4152,14 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-var css_248z$a = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n\n    \n}\n\n.statusProblema-module_titulo__6REcF{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    \n    width: 360px;\n    margin-top: 16px;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    \n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 250px;\n        \n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n\n    margin-left: 50px;\n    margin-right: 50px;\n    margin-top: 20px;\n\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_conclusao__OCWBZ{\n    margin-top: 30px;\n}\n\n";
-var style$9 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","conclusao":"statusProblema-module_conclusao__OCWBZ"};
-styleInject(css_248z$a);
+var css_248z$9 = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    color: #222222;\n    padding: 8px;\n    background-color: #E0E0E080;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-top: 0px;\n    cursor: default;\n\n    \n}\n\n.statusProblema-module_titulo__6REcF{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    \n    width: 360px;\n    margin-top: 16px;\n\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    \n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 250px;\n        \n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n\n    margin-left: 50px;\n    margin-right: 50px;\n    margin-top: 20px;\n\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_conclusao__OCWBZ{\n    margin-top: 30px;\n}\n\n";
+var style$8 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","conclusao":"statusProblema-module_conclusao__OCWBZ"};
+styleInject(css_248z$9);
 
 var problemaFRST = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAwmSURBVHgB7Z1BbNzGFYbf0OuigCRne2luzbpnu5ZPLVAXXSG3RrLlW90eLAEOEPci99TUPlg+uG1OlQ6tAzSA5UPjoxRb8S21gqRAc4pc+Zys05Nz6dqSiiLS7mR+kk874pK75C7JHVLzAWutVySXmp/vzeObN0NBJUDOVqu0vz9JbVEjR06SEK+oj2v+C1T9V5AGSdEkIZvqfZOkfKL2/686zhOqVDbFWrNJBUdQAZHT43UlxBmSTl39d5I6QqZNQ702SbQ3ILpY39mgglEIgV0Lbe9dVoLOkidolUYDLHpDtdoaOXsfi7X/N8hwjBU4IGqdzARir5gstnECu+6XxJw6sws0OksdhBXVh98zzY0bI7ArrBA3yVxrjYcUmyo+WBIPtu+RAYxcYF/Yu5RdoDQqGqp1F0ct9MgELo3F9kfdisn5Ubnu3AVWwVONWi1YbJ2OFit0bO9W3sGYQzkiz59YUOJ+TkdPXDBHreOfqza4STmSiwUfYauNoqGseSoPa87cgo+41UZRc6155sQ1ypjMLNhLVLRvqgAj8z+i2Igl8fDlbykjMhHYdcn77VWVxJ8kSxwyc9mpCyxnxyap5axS+e5rsyYTkVPtg+X0xKwS9zFZcQfB65fRhimSmgXL8xNqYEDd61mGR9BcWhmwVAS24mZASiIPLbAVN0NSEHkogd3+QtAqWbJD0kWxvr1GAzKwwH52CgmMIo3ZFpEmtdpT4tHuJg3AQFG0Ly6iZStu9lTpmLMqZ79bowEY7DbJE7dGlrxQiaPvrMp6NbFBJRZY5Zb/TFbc/EFWcKKdeCQqkcDuwIHNLY8QeS3pAEXsIMsGVcbQVCnNs3FTmvEt2AZVplBVKc27cTeOJbCcdqsQamQxhXpcV93XRVvXbCyxXHV/C95vLZIV10RiueqeFuyXtj4mi7lIOdWrJLe3BXsF6RaT8WrLI4kUWM5MzJENrIpA3ZvPFU4vC861ftcyBD08bajA1noLRy3KisMtWMoFshSLiL64S2A/crblrsUjtC8OsWAxR5ZiIsTlro/0//hZqy/JUlSatH3spNjorA502IJbrTpZikyVxvbm9A8OCyzpMhWR7/+A6NLvic7/pvd2P37D2w4/y4rjXND/W+E3vnuuU9qgMX/4o+7Pv/g30WcfUiqwwF9/RfTgr9Hb/WSa6PVfE3309/S+2zzqKO1hN30gcGbumRs1DIh8Q10Auy/IkiKem17CW81FywuUJf9aJ7pyimjhp0TLb3miwrKj3CqscuyV7s/w6gf2i7Nd2D5x9gs7t37fGffYaaC56Y4Fk6hTlkBQuFDw5RbRSV9c/qP/9pToVfX++i/URfCu9/7+H70XtoML5kbFceBm8bsg+ra9ttPh/ls//u1L3nlGnRvgYy/cITr9s86+2I7/VnivK386fEGgG3nvbcqQgzyGa8H+DXK+Y74sbNASbtwnGj9BtPWJ99IbCA2DBpUyPKjCNpfe9hoeL+6bT52LPg8cG9vsNr1j835/eBR+bl8/87wRwLkt/9PbDvs9f+btC8H5b8R7/dxxoeO8o7qtdKhy0sOzYHeidsbLdZw87TUkv0ffDD5bP7wdGnrhXKdffvMd7yeueA6gIDwEwPHQsAwaEl0AWx5AQ+L19FPqAtvzRXL9jY7V4XOOHfSgDcIuX/Xe48LAvjhfjiNwIeG82Jrd8/4duW3Lx+HvRPCpn3vaSHfy/YbvosXPKWvQ3+rRtGsxqpE+ev/wdg/uHA66cDEABGQMC4jG0q0M++niQlSIpDe4Dh8b3Nai6vFq9+/5ePp3gedfdd7zBcK4Uf0d7ziv/8rrlvjCDnqHtHGcuvp3iQXOPvcMq+O+kPvjsOg5TkStbxOnoXYiln3+34vO8cIs/OknNBQ4t+vvexcYLugvtrxzySfYOoN/Ku5iKa1WjbIGgoY1Yj9wYaCB8OL9OVHBFst9LBoU73k7/jxoWQxbH/bDxcfbnTrX7Q0GAdaK89ZvB9Enh+UF0qeG++GKu1K6MHjZaPRdaCT0t7jy0UgcoASTGrCSa+96fSW2ZXeoew7Ax+NgDH0i+k68h9g4Pn4ikh4mIcLe5dXXOsfkc0Ikrl+MWTC+P+kYvxIOGhj3zYhQ0UhuUCS9oCt4+7P1aUcwNCQEx3ZsiXqky7dSfJyxE1pk7h9/2GwXvg8eCN/jBmVXvaDLPYfXOkFnVghZEyqcXuxXuGUM3HdFuVyGgy9YbFifzp4g+Lu4x08Kn49+3KhzSBMpl4WcGV9VUqe6sovFGFYcksIWtZcWWVOZLGkFLi1CCSysBZcZ5KJrZCkr1VwXBLfkjhW47FiBS44VuORA4MI/YdMSDYYLIfDobpWQsnvvafztke5DbVe//ZECxCiOnosOgwcXkPjHuC0GBsK+p9d3DXru2dOoUFmBcBg1QkkN13YFgWC3H3VqrMqGFE2VqnSfkVtuouqy8HlZxQWi3UQf/IyOAmFFbjw2W1rEC+Wi8XjzEQ74o186f4IGJmx/rmbUa7GCdVnBei6AclcegA8rBRr2XPNGyk2H2mKgdYiNBkJw9WMUQQGDJUVJxmlxQT142XkNE4iliZTKRTuyQZbsqxxHgRDKgiuV8lkwGO8jWNBC3ZrqO92lskVmp7LpiDV3FlqDygTE+mWg3ilYOguBnwdKc3imwv3/eOWu+tSa4tHADEP/PlhuYnCY8ga3LrhViSpM14lKEsRNPoQlOx7+RR3zne7PufoRLxTLccIkywrI9HmCf/xctPyY8gTCYiZBcJpHloQlOjDrgKsce4E6ZpxrrzlOptFub+CHJ7DMOZLGDL28hAV6UXsQiPzmaa8GGnXWWz1mM/RbQcAkhKep66KxmKWcmcgvJ40JZ3k0FmYCLl2N51pRA8110HDRCLYQdHFuGuQzIyENmrxAaWe4UFJ+VszTL1GYHpydwMmE4CsqSc/bI0kRBMXlg9Qd81ylG4Vdy+Ogy+0ILNofUF4g4IHbvHK695oaSYAgYcfCnN4y3uP2QnsaXUfgY8dXKC9gITwZOk0Q6Qb7UJ6mkhQeRtTZKcjQubN3YMEHw4W4H5bTExtK/ToVGaQoedY9g/4ewveaaxTndqsQi8XIDX2Z/8MlO3m66axAn7z0VvfnaQRI/8hwRn5aCLGi//ewwJ6bLn4JDyxV74/DZiImBR4guBqBiWjuGRyq6PDd9AfKTRdzxTsdCIpbnX4lO1Egwt/xo2lMAy1GFmsl+BSWroFg+yCOAhPygI7QkX5lxY8LH2wdNVQ2Uqy/PBv8OKIuWt4iS7Fw5FLYx5G1Oip1iXWja2QpAg3xcPtk2C+iZzZIOU+WYiBoMfpXPbB9cSGItF7QZ26S7YuNp4+n7SmwG3JL2iCLqaz0em4h6D+7sHIMV4idoGYeeLxsXw/bV2CV3WoQta2rNg0hl+M85j32lAYbcBlFz8BKJ/4EcOuqTQGueSruxrEFtq7aENrtW3FcM5NoCQfxcHcJ6x+SZTRg7ckPd5eS7JJ8jY5KZZFLMi250nDbPiGJBXanujjORSrbdBezaaDf9acZJWLgicFydmySWg7Gje1SiNmCoOpskn5XZ+BllMTa7qbKctkBiaxRbTyouGCodbLE+vaa+mFFzo55v40HJpW1G9TY8Zz6cZcsaTKvkhkrNCSpLc5hRU6VVMQFqa6+otKZs+qIENkGXoPRdPvcId2yTurL6/jPIUZ0XSNLEtStUPuiG7ymSCbrJ1mRE4L52ZVvLg4TLUeRyWqzyFu7ox02rdkftFHFmcpCXJD5CmhyZuyauo7wXCbbLx+m6Q4cJMwtJyWXJe6syw4g5QZV9uezslqdXNcw9J+ytkBH15pzsVqd3BepdK15v7VYigluScjRanVGtgqpP8kN98w1KjMQluhWv+rHrBjhMrMefgYMQViNykUDNcujEpYZucCMK7SUC8qqzX7cbT9GbLFBjBGYcV03ibmC9dEYiF9T4t4zRVjGOIEZ/9aqrhrtsrLqOpkIrNWRa+QcvzdItUUeGCuwzoHYJC+oU1Y/R3ab1cQq6qaLqlMIgYO4btyRZ1QOt67+BPTZNcqGhrsSr1CW2hZPTHO/cSikwEGUhVdpf3/SFb0tvqf+KiW+a+VV//G5tZDdmsSF/FI21HaIel+4jzjAKviVymYRLLQf3wLhTtzjIIDUjgAAAABJRU5ErkJggg==";
 
 function ApprovesItem(props) {
-    return (jsxRuntime.jsxs("div", { className: style$9.containerItem, children: [jsxRuntime.jsxs("div", { className: style$9.avatar, style: { width: props.size }, children: [jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.size }), jsxRuntime.jsx("span", { style: { marginTop: 4, color: '#FF4D0D', fontWeight: 600 }, children: props.nomeAvatar }), jsxRuntime.jsx("span", { style: { fontSize: 14, color: '#222222', fontWeight: 400 }, children: props.dataAvatar })] }), props.statusApprove === 'aprovar' ?
+    return (jsxRuntime.jsxs("div", { className: style$8.containerItem, children: [jsxRuntime.jsxs("div", { className: style$8.avatar, style: { width: props.size }, children: [jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.size }), jsxRuntime.jsx("span", { style: { marginTop: 4, color: '#FF4D0D', fontWeight: 600 }, children: props.nomeAvatar }), jsxRuntime.jsx("span", { style: { fontSize: 14, color: '#222222', fontWeight: 400 }, children: props.dataAvatar })] }), props.statusApprove === 'aprovar' ?
                 jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(CorrectInCicleIcon, {}) })
                 : props.statusApprove === 'revisar' ?
                     jsxRuntime.jsx("div", { style: { minWidth: '48px' }, children: jsxRuntime.jsx(ErrorInCicleIcon, {}) })
@@ -4169,15 +4178,15 @@ function ModalStatusProblema(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 500;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$9.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { size: (size[0] >= BREAKWIDTH) ? '120px' : '80px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsx("div", { className: style$9.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, fechar', handleClick: props.handleClose }) })] }) }));
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsxs("div", { className: style$8.fechar, onClick: props.handleClose, children: [jsxRuntime.jsxs("span", { style: { marginRight: 10 }, children: [" ", props.language === 'en-US' ? 'Close' : 'Fechar', " "] }), " ", jsxRuntime.jsx(CloseIcon, {})] }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { size: (size[0] >= BREAKWIDTH) ? '120px' : '80px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsx("div", { className: style$8.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, fechar', handleClick: props.handleClose }) })] }) }));
 }
 
-var css_248z$9 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
-var style$8 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
-styleInject(css_248z$9);
+var css_248z$8 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
+var style$7 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
+styleInject(css_248z$8);
 
 function ModalLearningTech(props) {
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$8.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, children: props.children }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: props.confirmationButton ?
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$7.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$7.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$7.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$7.container, children: props.children }), jsxRuntime.jsx("div", { className: style$7.conclusao, children: props.confirmationButton ?
                         props.cancelButton ?
                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$2, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$2, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
                             :
@@ -4186,9 +4195,9 @@ function ModalLearningTech(props) {
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
 }
 
-var css_248z$8 = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
-var style$7 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
-styleInject(css_248z$8);
+var css_248z$7 = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
+var style$6 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
+styleInject(css_248z$7);
 
 const WrapperStars = styled__default["default"].div `
     display: flex;
@@ -4301,22 +4310,22 @@ function ModalVideo(props) {
             setCurrentRating(props.rating);
         }
     }, [props.rating]);
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$7.modalBox, style: {
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$6.modalBox, style: {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 height: props.showRating ? '80%' : '400px',
                 maxHeight: props.showRating ? '620px' : '400px',
                 overflowY: 'auto'
-            }, children: [jsxRuntime.jsxs(material.Stack, { flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between", px: 3, children: [jsxRuntime.jsx(material.Box, { textAlign: "left", style: { paddingLeft: 6, }, children: props.title }), jsxRuntime.jsx(material.Box, { className: style$7.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) })] }), jsxRuntime.jsxs(material.Box, { p: 3, children: [props.videoUrl && (jsxRuntime.jsx(material.Box, { width: "100%", children: jsxRuntime.jsx(Video, { videoId: IdVideo, privateHash: HashVideo, autoplay: 1, controls: 1, keyboard: 1, timeStart: convertTimeToString(props.timeBegin), showSpeedControl: 1, width: 620, height: 400 }) })), props.showRating && (jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsxs(material.Box, { style: { maxWidth: 240 }, children: [jsxRuntime.jsx("p", { style: { textAlign: 'left', fontSize: 14, fontWeight: 400 }, children: props.ratingDescription }), jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: true, marginStars: "3.5px", orientation: "horizontal", qtdStars: 5, rating: currentRating, sizeStars: 25, handleRating: (e) => {
+            }, children: [jsxRuntime.jsxs(material.Stack, { flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between", px: 3, children: [jsxRuntime.jsx(material.Box, { textAlign: "left", style: { paddingLeft: 6, }, children: props.title }), jsxRuntime.jsx(material.Box, { className: style$6.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) })] }), jsxRuntime.jsxs(material.Box, { p: 3, children: [props.videoUrl && (jsxRuntime.jsx(material.Box, { width: "100%", children: jsxRuntime.jsx(Video, { videoId: IdVideo, privateHash: HashVideo, autoplay: 1, controls: 1, keyboard: 1, timeStart: convertTimeToString(props.timeBegin), showSpeedControl: 1, width: 620, height: 400 }) })), props.showRating && (jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsxs(material.Box, { style: { maxWidth: 240 }, children: [jsxRuntime.jsx("p", { style: { textAlign: 'left', fontSize: 14, fontWeight: 400 }, children: props.ratingDescription }), jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: true, marginStars: "3.5px", orientation: "horizontal", qtdStars: 5, rating: currentRating, sizeStars: 25, handleRating: (e) => {
                                                 setCurrentRating(e);
                                                 props.handleChangeRating(props.recommendationId, e);
                                             }, disabled: false }) })] }) }))] })] }) }));
 }
 
-var css_248z$7 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
-var style$6 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
-styleInject(css_248z$7);
+var css_248z$6 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
+var style$5 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
+styleInject(css_248z$6);
 
 /**
  * @param {CardProblemGestorProps} props
@@ -4324,16 +4333,16 @@ styleInject(css_248z$7);
 function CardProblemGestor(props) {
     const statusBg = props.statusBackgroundColor || '#757575';
     const statusColor = props.statusColor || '#FFFFFF';
-    return (jsxRuntime.jsxs("div", { className: style$6.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$6.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName }), jsxRuntime.jsxs("div", { className: style$6.contentCard, children: [jsxRuntime.jsxs("div", { className: style$6.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$6.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
-                        jsxRuntime.jsx("div", { className: style$6.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
-                        jsxRuntime.jsx("div", { className: style$6.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$6.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] }), props.lastUpdated &&
+    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName }), jsxRuntime.jsxs("div", { className: style$5.contentCard, children: [jsxRuntime.jsxs("div", { className: style$5.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$5.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
+                        jsxRuntime.jsx("div", { className: style$5.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
+                        jsxRuntime.jsx("div", { className: style$5.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
+                        jsxRuntime.jsxs("div", { className: style$5.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] }), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
-var css_248z$6 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
-var style$5 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
-styleInject(css_248z$6);
+var css_248z$5 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
+var style$4 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
+styleInject(css_248z$5);
 
 const translate = {
     "pt-BR": {
@@ -4448,14 +4457,14 @@ function CardProblem(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 450;
-    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.checkBox, onClick: () => {
+    return (jsxRuntime.jsxs("div", { className: style$4.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$4.tagStatusProblem, style: { background: statusColor, color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$4.checkBox, onClick: () => {
                     props.handleSelect(props.problemID);
-                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$5.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$5.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$5.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
-                        jsxRuntime.jsx("div", { className: style$5.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
-                        jsxRuntime.jsx("div", { className: style$5.tagsContainer, children: props.tags.map((item, index) => (item &&
+                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$4.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$4.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$4.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
+                        jsxRuntime.jsx("div", { className: style$4.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
+                        jsxRuntime.jsx("div", { className: style$4.tagsContainer, children: props.tags.map((item, index) => (item &&
                                 jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
                         props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$5.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: translate[languageSlected]['impact'], tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: translate[languageSlected]['relevance'], tipoVisualizacao: selected ? 3 : 2 })] }), statusName !== translate[languageSlected][6] ?
+                        jsxRuntime.jsxs("div", { className: style$4.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: translate[languageSlected]['impact'], tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: translate[languageSlected]['relevance'], tipoVisualizacao: selected ? 3 : 2 })] }), statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
                             jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                             :
@@ -4463,12 +4472,12 @@ function CardProblem(props) {
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }), props.isButtonVerMais &&
-                        jsxRuntime.jsx("div", { className: style$5.buttonVerMais, children: jsxRuntime.jsx(Button$2, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
+                        jsxRuntime.jsx("div", { className: style$4.buttonVerMais, children: jsxRuntime.jsx(Button$2, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
 }
 
-var css_248z$5 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
-var style$4 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagStatusProblem":"cardDefinicaoProblema-module_tagStatusProblem__FoQ12","headerContainer":"cardDefinicaoProblema-module_headerContainer__UXFIi","descriptionContainer":"cardDefinicaoProblema-module_descriptionContainer__Z7yo8","footerContainer":"cardDefinicaoProblema-module_footerContainer__6EjXg","footerContainerType2":"cardDefinicaoProblema-module_footerContainerType2__v2sGa"};
-styleInject(css_248z$5);
+var css_248z$4 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
+var style$3 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagStatusProblem":"cardDefinicaoProblema-module_tagStatusProblem__FoQ12","headerContainer":"cardDefinicaoProblema-module_headerContainer__UXFIi","descriptionContainer":"cardDefinicaoProblema-module_descriptionContainer__Z7yo8","footerContainer":"cardDefinicaoProblema-module_footerContainer__6EjXg","footerContainerType2":"cardDefinicaoProblema-module_footerContainerType2__v2sGa"};
+styleInject(css_248z$4);
 
 /**
  * @param {CardDefinicaoProblemaTranslateProps} props
@@ -4502,13 +4511,13 @@ function CardDefinicaoProblema(props) {
                 break;
         }
     }, [props.problemStatus]);
-    return (jsxRuntime.jsxs("div", { className: style$4.container, children: [props.typeButton !== 1 &&
-                jsxRuntime.jsx("div", { className: style$4.tagStatusProblem, style: { background: statusColor, color: statusName === (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$4.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$4.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$4.footerContainer} ${props.typeButton === 2 && style$4.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue : 'Continuar'), startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
+    return (jsxRuntime.jsxs("div", { className: style$3.container, children: [props.typeButton !== 1 &&
+                jsxRuntime.jsx("div", { className: style$3.tagStatusProblem, style: { background: statusColor, color: statusName === (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$3.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$3.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$3.footerContainer} ${props.typeButton === 2 && style$3.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue : 'Continuar'), startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
 }
 
-var css_248z$4 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
-var style$3 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
-styleInject(css_248z$4);
+var css_248z$3 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
+var style$2 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
+styleInject(css_248z$3);
 
 var Conquista = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAxCAYAAACYq/ofAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAdKSURBVHgB7VrNThtXFD7njm0idRHnCTI8QZxdF00YngDyBMCiFaBKgWWgEUYJidRNiNQCUheYJwh5AgzpojvME9Q8QSaLSomx7+137p1x7MnYzGCMqNRPgvF47s859/yfMVNGLD/e2jbMD+imoent7oe1w8uGKcoIYYKJKmyIb+yPKGAy5Sz0FSgjsOgk2DncOVlfoBvASlAtt0zpo8nISGaJ3DS269VQrsycTSJLU6+ORIR0W8G8sTz1amPoGEPHBXelJhtzMHAc89RNM+tUy9JWB23HAwcyz8mlgJHnsCpfa11XnrefOpYok3ivE59poqxAnDgYEOunjblg86RoaEaTCZPG7pMx7zE9TE4CszMQzSRdAaK+u8dr03nmKNJle4SQRpIexXQfkgomSJXBhA9DPy7AvTUxYY4KhSYmiSwP4bdryYURRw7BzX3KieVgax5rBouPtub3PqzXss7TbV2GhpBSavu3+rN677OlR69mWVHwhXRYJOsMQoWRTeqegPCR7u6iU8mvYoatobLijTzTmD27lxCb8tiXf15Ms+EGpKIb9qbD8jDkAfroJEepzwbBSkPmsNmEkvg/PXq5knUuImJFrt/RRTPlmQ+KQ2q7e8/jsFDCwBaV7EScegOMTKWuLJKD6i1+X/X3/qo2BxEg3uZz26vgRCsQ41NxjTvH61XYyVQBUoFaYJlO406h04hjxQBUhNi0MTbLMHQGtQvkvkBfGioa2LAu1pgzWUCI+XZdJzkulippxItBw99/lGgM3T6CDr/Bo7JWrXm3eWdT5Crfy3MZJ+OXp7ZSPSXouYt/Z2l7uVBgLM1Cu/DgIjs8A1SnYhTX5bbVKc4mFyh1Raz95DNZqM1mFR/t6RlNq5p5cud47d5e3Ulvr/68LvfEhYdQNZvmwLWEmi82KQUxscnvW+RoE1rtmCjGWEa00sguYf0dS2QTg+bSiMXlHKcQpG38R329AeLFxTZZmY1OZIhJaOqE4gAkCBtuTceM9mLxhxeBJda4g+2D4ac2gEdOCep12GVETksiKL6diQwzWApezH67iDmED0+3IbvOs6ZjhkMEqqPFoOr3Phe1UMYcGUtPOhMCa18yxmv1SSRyHhWjzWZ8GLFrVl8nmwNhoN0xZZcWqP0kIe6EuLwYuBMbxAxU662M61CxTyqRVMuwxfeDmCBH1Qz+N3rHLAav/Zh45dmvfMtQd0qEnfp6TRgQzxIZZsim1HeqE16rThJ8tJqlIYjdo7jOxcdbSPq2TiUgRo+beogbF4LlQI3W3dzvx2Cr8lWSnYUoNjV6A2xfGg/9X7CexXj7GhNYBpjiaez/5USxWAND5mgIxD1KAIVnOlXMVazISvE+PNvfdtMhlSYCc2DX8NpW95ewd9FwlwkF2uSz5taT/nk9ELVAIjbNVvyOGajT+4JSb4QIMcJIWkPVy1aSNm+jcxA9/fvxWkWu7B6L/vvpLp5cJoDYQ23PtyUG9sb9GbziE2ECI8ryOama3xRW4n0iZiAN9c4YUxd3ae8lPhjPpRzRNYmYQK3Nws7JWhAbo1zhficj19v8h4p+cu7XTIAe2L3AtKxjjD6MpSK0CY3JuakVYuxKJdKLSkAqG1oMyzHkW0agx4OkUuLW5KAEUWxRGEpLPeK8zALeU1QJOdpcLBXxdGlMRPQMh8te7Qa+9f1gCC5YagTrzye49fCSVCMTxBaEYGRB24gRn+JiLt7zssz5UkaohyE2vIKF+wxVNt49WVulESCeSrwSOWm7LBt2oo2pZU39MzMSYzn4FQGpvcIuMPryHXR4fvfklwO6AqJuySnFTKDklmidrEEuQ25GevFz8DrAqUlyWLkqMy5p5HkN+9urZy+8khiJEUF0oqIWFTBV3TtZ38w674spvbOJHwwbTqBKI2BkRrpE6dI2u0DZ0J3O6t6fz+uDxkcORCSJwGZWR5FEjGthJEbSw+HaiGocQRme6H7UVnLGjFplaM6VA9fKSAzLkOZ5SsmU4eUOPMW1vMZ8GcbCSAxUgOhlmLcanRCl9TZizwMb3ceAm+j9hpLDkVW1bA3pq+Amm9ghEf/3GIGduCoPPSe3k+ufSReGxoCxMRL1yWzPSa5aSmnZsFgMaAwYn2oxzUqVGHunyE7CtMbGdWBsjES5WP+7P3gwiSMDi6oRMBZG4gJJserLvUrqYluuLV3M3DrNimuJI0uPX86hKhcic5/0sP5WHozMiPS/UPa+s3U2oSzOTYHYjCmj4/hwFGYyv9UdSIfx3siporgK6ApAUVVThk6VU7crq1xuiUgnBYXPLGbeRU0vDeXZqEfboCtD2rA26jvngO6LVhe1PBLKJRHXKGOpPSQ2fIpO4RyE3MN1mkYCf+qugVdraA6Km86cl+VipKhJJEG2qz5GLAev0R8w+5e9i+nFrf3BQF78z8htQy4bQSYbyk925CdPFL2dGgfQppXmHN25k32PXIzgtUINTQa86OSnNEawJJesV/N0MP8F5hSqQY4bC0cAAAAASUVORK5CYII=";
 
@@ -4531,10 +4540,10 @@ function CardResultConquista(props) {
     React.useEffect(() => {
         setBtnViewMore(props.textMoreDetails);
     }, [props.textMoreDetails]);
-    return (jsxRuntime.jsxs("div", { className: style$3.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
+    return (jsxRuntime.jsxs("div", { className: style$2.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
             props.onClick(props.problemId);
             setIsPressed(true);
-        }, children: [jsxRuntime.jsxs("div", { className: style$3.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
+        }, children: [jsxRuntime.jsxs("div", { className: style$2.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
                         isPressed ?
                             jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })
                             :
@@ -4543,7 +4552,7 @@ function CardResultConquista(props) {
                             isPressed ?
                                 jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })
                                 :
-                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$3.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$3.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
+                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$2.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$2.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
 }
 
 const WrapperCard$5 = styled__default["default"].div `
@@ -5423,9 +5432,103 @@ function AvatarAssociatedChannel({ descriptionChannel, nameChannel, channel, col
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral, { children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [image ? (jsxRuntime.jsx(AvatarChannelImage, { image: image, children: jsxRuntime.jsx("img", { src: sourceImage }) })) : (jsxRuntime.jsx(AvatarChannel, { color: color ? color : '#6a3f86', children: jsxRuntime.jsx(Channel$1, { children: channel }) })), jsxRuntime.jsxs(CardInformation, { className: "cardInformation", children: [image ? (jsxRuntime.jsx(AvatarChannelImage, { image: image, children: jsxRuntime.jsx("img", { src: sourceImage }) })) : (jsxRuntime.jsx(AvatarChannel, { color: color ? color : '#6a3f86', children: jsxRuntime.jsx(Channel$1, { children: channel }) })), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("h2", { children: nameChannel }), jsxRuntime.jsx("h3", { children: descriptionChannel })] })] })] }) }) }));
 }
 
-var css_248z$3 = "/*------------------------------------------- \n *  banner styles\n*/\n.bannerLxp-module_bannerContainer__vvF-D {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    position: relative;\n    font-family: 'Work Sans';\n\n    width: 100%;\n    height: 214px;\n    cursor: default;\n    padding: 60px 80px 60px 120px;\n    border-radius: 4px;\n}\n\n.bannerLxp-module_bannerContainer__vvF-D:hover .bannerLxp-module_configButton__hOi0i {\n    display: block;\n}\n\n.bannerLxp-module_configButton__hOi0i {\n    position: absolute;\n    right: 0;\n    margin-right: 83px;\n    display: none;\n}\n\n/* ---------------------------------- \n *  config styles\n*/\n\n.bannerLxp-module_configContainer__qtric {\n    width: 350px;\n    height: 420px;\n    border-radius: 8px;\n    border: 1px solid #BDBDBD;\n    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);\n    background-color: #FFF;\n    font-family: 'PT Sans', 'PTSans-Regular';\n\n    padding: 16px;\n    position: absolute;\n    display: flex;\n    align-items: flex-start;\n    justify-content: flex-start;\n    flex-direction: column;\n    right: 0;\n    margin-right: 83px;\n    \n}\n\n.bannerLxp-module_enableText__1NkRy {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.bannerLxp-module_inputTextColor__rN3R3 {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_inputBgColor__eZcAw {\n    width: 100%;\n    display: flex;\n    position: relative;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 20px;\n}\n\n.bannerLxp-module_bgInput__lCGKb {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 8px 0;\n    margin-top: 8px;\n    border-top: 1px solid #EBEBEB;\n    border-bottom: 1px solid #EBEBEB;\n}\n\n.bannerLxp-module_bgInput__lCGKb input[type='file'] {\n    display: none;\n}\n\n.bannerLxp-module_bgInput__lCGKb label {\n    display: flex;\n    align-items: center;\n    color: #0645AD;\n    font-size: 16;\n    font-weight: 700;\n    cursor: pointer;\n}\n\n.bannerLxp-module_fixImage__SQ-LI {\n    width: 100%;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    margin-top: 4px;\n}";
-var style$2 = {"bannerContainer":"bannerLxp-module_bannerContainer__vvF-D","configButton":"bannerLxp-module_configButton__hOi0i","configContainer":"bannerLxp-module_configContainer__qtric","enableText":"bannerLxp-module_enableText__1NkRy","inputTextColor":"bannerLxp-module_inputTextColor__rN3R3","inputBgColor":"bannerLxp-module_inputBgColor__eZcAw","bgInput":"bannerLxp-module_bgInput__lCGKb","fixImage":"bannerLxp-module_fixImage__SQ-LI"};
-styleInject(css_248z$3);
+const BannerContainer = styled__default["default"].div `
+  background: ${(props) => props.backgroundBanner};
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  font-family: 'Work Sans';
+  width: 100%;
+  height: 214px;
+  cursor: default;
+  padding: 60px 80px 60px 120px;
+  border-radius: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
+  :hover .configButton {
+    display: block;
+  }
+`;
+const ConfigButton = styled__default["default"].div `
+  position: absolute;
+  right: 0;
+  margin-right: 83px;
+  display: none;
+`;
+const ConfigContainer = styled__default["default"].div `
+  width: 350px;
+  height: 420px;
+  border-radius: 8px;
+  border: 1px solid #bdbdbd;
+  box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);
+  background-color: #fff;
+  font-family: 'PT Sans', 'PTSans-Regular';
+  padding: 16px;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  right: 0;
+  margin-right: 83px;
+`;
+const EnableText = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+const InputTextColor = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 8px 0;
+  margin-top: 8px;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+`;
+const InputBgColor = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+`;
+const BgInput = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  margin-top: 8px;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+
+  input[type='file'] {
+    display: none;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    color: #0645ad;
+    font-size: 16;
+    font-weight: 700;
+    cursor: pointer;
+  }
+`;
+const FixImage = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
+`;
 
 function BannerLxp(props) {
     const [openConfig, setOpenConfig] = React.useState(false);
@@ -5459,7 +5562,7 @@ function BannerLxp(props) {
     const handleChangeTitleColor = (color, event) => {
         setColorTitle(color.hex);
     };
-    const handleChangeBackgroundColor = (color, event) => {
+    const handleChangeBackgroundColor = (color) => {
         setBackgroundColor(color.hex);
         setBackgroundImage('');
     };
@@ -5485,13 +5588,10 @@ function BannerLxp(props) {
     React.useEffect(() => {
         setColorTitle(props.titleColor);
     }, [props.titleColor]);
-    return (jsxRuntime.jsxs("div", { className: style$2.bannerContainer, style: {
+    return (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`, style: {
             ...props.style,
-            objectFit: fixImage ? 'fill' : 'none',
-            //backgroundImage: props.bgSrc && `url(${props.bgSrc})`,
-            //backgroundColor: backgroundImage === '' ? backgroundColor : '',
-            background: backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`
-        }, children: [!disableText ? jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText }) : '', jsxRuntime.jsx("div", { className: style$2.configButton, children: jsxRuntime.jsx(Button$2, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: handleCloseConfig, children: jsxRuntime.jsxs(material.Box, { className: style$2.configContainer, style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: "Alterar t\u00EDtulo do KnowHub", placeholder: "Digite seu t\u00EDtulo aqui", style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs("div", { className: style$2.enableText, children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
+            objectFit: fixImage ? 'fill' : 'none'
+        }, children: [!disableText ? jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText }) : '', jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$2, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: handleCloseConfig, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: "Alterar t\u00EDtulo do KnowHub", placeholder: "Digite seu t\u00EDtulo aqui", style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs(EnableText, { children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF'
                                         },
@@ -5499,21 +5599,21 @@ function BannerLxp(props) {
                                             backgroundColor: '#FF4D0D !important',
                                             opacity: 1
                                         }
-                                    } })] }), jsxRuntime.jsxs("div", { className: style$2.inputTextColor, children: [jsxRuntime.jsx("span", { children: "Cor do t\u00EDtulo" }), jsxRuntime.jsx("button", { "aria-describedby": idTitle, style: {
+                                    } })] }), jsxRuntime.jsxs(InputTextColor, { children: [jsxRuntime.jsx("span", { children: "Cor do t\u00EDtulo" }), jsxRuntime.jsx("button", { "aria-describedby": idTitle, style: {
                                         cursor: 'pointer',
                                         width: 23,
                                         height: 23,
                                         borderRadius: 8,
                                         border: '1px solid #BDBDBD',
                                         backgroundColor: colorTitle
-                                    }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.ChromePicker, { color: colorTitle, disableAlpha: true, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs("div", { className: style$2.inputBgColor, children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: {
+                                    }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: colorTitle, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs(InputBgColor, { className: "inputBgColor", children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: {
                                         cursor: 'pointer',
                                         width: 23,
                                         height: 23,
                                         borderRadius: 8,
                                         border: '1px solid #BDBDBD',
                                         backgroundColor: backgroundColor
-                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.ChromePicker, { color: backgroundColor, disableAlpha: true, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs("div", { className: style$2.bgInput, children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar", ' '] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs("div", { className: style$2.fixImage, children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
+                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: backgroundColor, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs(BgInput, { children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar", ' '] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs(FixImage, { children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF'
                                         },
@@ -6662,183 +6762,181 @@ function CalendarLxp(props) {
 }
 
 const MenuContainer = styled__default["default"].div `
-    width: 100%;
-    height: 64px;
+  width: 100%;
+  height: 64px;
 
-    background: ${({ theme }) => theme.colors.neutralsGrey1};
+  background: ${({ theme }) => theme.colors.neutralsGrey1};
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    & > button {
-        height: 100%;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > button {
+    height: 100%;
+  }
 `;
 const WrapperLogo = styled__default["default"].div `
-    margin-right: 65px;
-    cursor: pointer;
+  margin-right: 65px;
+  cursor: pointer;
 `;
 const HamburgerButton = styled__default["default"].div `
-        cursor: pointer;
-        display: flex;
-        width: 48px;
-        height: auto;
-        margin-bottom: 10px;
-        margin-right: 20px;
-    `;
+  cursor: pointer;
+  display: flex;
+  width: 48px;
+  height: auto;
+  margin-bottom: 10px;
+  margin-right: 20px;
+`;
 const ArrowButton = styled__default["default"].div `
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 32px;
-        height: auto;
-    `;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: auto;
+`;
 const WrapperMenu = styled__default["default"].div `
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 `;
 const WrapperRightInfo = styled__default["default"].div `
-    height: 100%;   
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
+  height: 100%;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 `;
 const WrapperIconNotification = styled__default["default"].div `
-    
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 150px;
-    font-size: 16px;
-    font-weight: 400;
-    color: #FFF;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 150px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
 `;
 const WrapperIconNotificationMobile = styled__default["default"].div `
-    
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 400;
-    margin-left: 24px;
-    margin-right: 24px;
-    height: 100%;
-    color: #FFF;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 24px;
+  margin-right: 24px;
+  height: 100%;
+  color: #fff;
 `;
 const SubMenuContainer = styled__default["default"].div `
-    width: 100%;
-    height: 32px;
+  width: 100%;
+  height: 32px;
+  ${(props) => props.marginTop &&
+    styled.css `
+      margin-top: 4rem;
+    `}
+  background: ${({ variant, theme }) => (variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1)};
 
-    background: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey2 : theme.colors.primary1};
+  padding-left: 124px;
+  padding-right: 124px;
 
-    padding-left: 124px;
-    padding-right: 124px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-top: 1px solid ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : theme.colors.primary1};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const MenuMobile$1 = styled__default["default"].div `
-    display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    z-index: 10001;
-    top:0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #222;
+  display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 10001;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #222;
 `;
 const SideMenu$1 = styled__default["default"].div `
-    display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    z-index: 10001;
-    top:0;
-    left: 0;
-    width: 360px;
-    height: 100vh;
-    background: #222;
+  display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 10001;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 100vh;
+  background: #222;
 `;
 const ItemSideMenu = styled__default["default"].div `
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    width: 360px;
-    height: 20px;
-    
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 360px;
+  height: 20px;
 
-    color: #FFFFFF;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 20px;
 
-    border-bottom: 1px solid #444;
+  color: #ffffff;
 
-    &:hover {
-        background: #4444;
-    }
+  border-bottom: 1px solid #444;
+
+  &:hover {
+    background: #4444;
+  }
 `;
 const ItemMenuMobile = styled__default["default"].div `
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    width: 100vw;
-    height: 20px;
-    
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 21px;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100vw;
+  height: 20px;
 
-    color: #FFFFFF;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  padding: 20px;
 
-    border-bottom: 1px solid #444;
+  color: #ffffff;
 
-    &:hover {
-        background: #4444;
-    }
+  border-bottom: 1px solid #444;
+
+  &:hover {
+    background: #4444;
+  }
 `;
 const footerMenuMobile = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    border-color: ${({ theme }) => theme.colors.neutralsGrey3};
-    margin-top: 0px;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
+  color: ${({ theme }) => theme.colors.shadeWhite};
+  border-color: ${({ theme }) => theme.colors.neutralsGrey3};
+  margin-top: 0px;
 `;
 const frstSocials = styled__default["default"].div `
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin-top: 24px;
-    margin-bottom: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 24px;
+  margin-bottom: 32px;
 `;
 const itemFrstSocials = styled__default["default"].button `
-    border: none;
-    background: none;
-    cursor: pointer;
+  border: none;
+  background: none;
+  cursor: pointer;
 `;
 
 const Container$6 = styled__default["default"].div `
@@ -7139,8 +7237,8 @@ styled__default["default"].button `
     }
 `;
 
-function ItemGlobalMenu({ variant, type, label, onClick, wrapText, pressed, style, icon }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: (e) => onClick(e), children: [icon, label] }) }));
+function ItemGlobalMenu({ variant, type, label, handleOnClick, wrapText, pressed, style, icon }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [icon, label] }) }));
 }
 
 styled__default["default"].button `
@@ -7644,7 +7742,7 @@ function NotificationPopOver(props) {
                             }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
 
-function GlobalMenu({ variant, menu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, onClickLogo }) {
+function GlobalMenu({ variant, menu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, onClickLogo }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -7726,92 +7824,78 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
         else
             setSubMenu([]);
     };
-    const newNotification = notification.notificationList ? notification.notificationList.filter((notification) => notification.isNewNotification) : [];
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx(SideMenu, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleSideMenu, setVisible: (e) => setIsVisibleSideMenu(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
-                                    paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
-                                    paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
-                                    ...style
-                                }, children: [isMobileVersion && !HideHambMenu &&
-                                        jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), isMobileVersion && HideHambMenu &&
-                                        jsxRuntime.jsx(ArrowButton, { onClick: () => setControlExpandedSearchMobile(false), children: jsxRuntime.jsx(BackArrow, { fill: FRSTTheme['colors'].selectItens }) }), isTabletVersion &&
-                                        jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleSideMenu(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion &&
-                                        jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: isTabletVersion && 32 }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
-                                        jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%', justifyContent: 'space-between' }, children: [!isMobileVersion && showSearchField &&
-                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, fieldSearchIsOpen: controlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                        width: windowSize[0] < 830 ? '230px' : windowSize[0] > 1500 ? '428px' : '332px',
-                                                    } }), jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
-                                                    height: '100%',
-                                                    paddingLeft: isMobileVersion ? '0' : (windowSize[0] * 0.03) + 'px',
-                                                    paddingRight: isMobileVersion ? '0' : (windowSize[0] * 0.03) + 'px',
-                                                    justifyContent: isMobileVersion ? 'space-between' : 'flex-end',
-                                                }, children: [isMobileVersion &&
-                                                        jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                                width: isMobileVersion ? '180px' : '332px',
-                                                                // marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                                            } }), !isMobileVersion && !isTabletVersion && menu && menu.length > 0 && menu.map((item, index) => {
-                                                        return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'menu', pressed: item.id === SelectedItem || item.active, icon: item.iconBegin, onClick: () => handleClickItem(item), style: { paddingRight: '10px', paddingLeft: '10px', height: '100%' } }, item.id ? item.id : index);
-                                                    }), !isMobileVersion && !isTabletVersion && notification &&
-                                                        jsxRuntime.jsxs("div", { style: { position: 'relative' }, onClick: onClickNotification, children: [jsxRuntime.jsx(ItemGlobalMenu, { label: textNotification, variant: 'LXP', type: 'menu', pressed: false, icon: jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), style: { paddingRight: '10px', paddingLeft: '10px', height: '100%' } }), newNotification.length ?
-                                                                    jsxRuntime.jsx("div", { style: { position: 'absolute', marginLeft: '50%', marginTop: '-54px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })
-                                                                    : null, jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] }), isMobileVersion && notification &&
-                                                        jsxRuntime.jsx(WrapperIconNotificationMobile, { onClick: onClickNotification, style: { borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }, children: jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", newNotification.length ? jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }) : null] }) }), isTabletVersion && notification &&
-                                                        jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: { borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", newNotification.length ? jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }) : null] }), windowSize[0] >= 700 ?
-                                                                    jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })
-                                                                    : null] })] })] }), jsxRuntime.jsxs(WrapperRightInfo, { children: [jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
-                                                    marginLeft: isMobileVersion ? '0px' : '5px',
-                                                    marginRight: isMobileVersion ? '0px' : '5px'
-                                                } }), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 &&
-                                                jsxRuntime.jsx(LanguagesDropdown, { variant: 'LXP', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' })] })] }), SubMenu && SubMenu.length > 0 &&
-                                jsxRuntime.jsx(SubMenuContainer, { variant: variant, style: {
-                                        paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
-                                        paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
-                                        ...style
-                                    }, children: SubMenu.map((item, index) => {
-                                        return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'LXP', type: 'submenu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
-                                    }) })] }), openNotificationMobile && windowSize[0] < 700 ?
-                        jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })
-                        : null] })
-            : variant === 'default' ?
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
-                                    paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
-                                    paddingLeft: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
-                                    ...style
-                                }, children: [isMobileVersion &&
-                                        jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 0 }, onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), isTabletVersion &&
-                                        jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) }), !isMobileVersion && !isTabletVersion &&
-                                        jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), showLogo &&
-                                        jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: '28', fill: FRSTTheme['colors'].primary1 }) }), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && !isTabletVersion && showSearchField &&
-                                            jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                    width: isMobileVersion ? '190px' : '332px',
-                                                } }) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion &&
-                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                        width: isMobileVersion ? '180px' : '332px',
-                                                        marginLeft: controlExpandedSearchMobile ? '-15px' : '-30px'
-                                                    } }), isTabletVersion &&
-                                                jsxRuntime.jsx(FieldSearch, { variant: 'LXP', value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
-                                                        width: isMobileVersion ? '180px' : '332px',
-                                                        marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                                    } }), !isMobileVersion && !isTabletVersion && notification &&
-                                                jsxRuntime.jsxs(WrapperIconNotification, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), newNotification.length ?
-                                                                    jsxRuntime.jsx("div", { style: { marginLeft: '-12px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) }) : null, " \u00A0 ", textNotification] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] }), isMobileVersion && notification &&
-                                                jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: { borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", newNotification.length ? jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }) : null] }), windowSize[0] > 700 ?
-                                                            jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })
-                                                            : null] }), isTabletVersion && notification &&
-                                                jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: { borderBottom: openNotificationMobile && windowSize[0] <= 650 ? `4px solid ${FRSTTheme['colors'].primary1}` : '', height: windowSize[0] <= 650 ? '100%' : 'auto' }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), " ", newNotification.length ? jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [" ", jsxRuntime.jsx(HasNotificationIcon, {}), " "] }) : null] }), windowSize[0] > 700 ?
-                                                            jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })
-                                                            : null] }), jsxRuntime.jsx(DropdownProfileMenu, { variant: 'LXP', user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
-                                                    marginLeft: isMobileVersion ? '0px' : '5px',
-                                                    marginRight: isMobileVersion ? '0px' : '5px'
-                                                } }), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 &&
-                                                jsxRuntime.jsx(LanguagesDropdown, { variant: 'LXP', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' })] })] }) }), openNotificationMobile && windowSize[0] <= 700 ?
-                            jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })
-                            : null] })
-                :
-                    jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: '28' }) }), jsxRuntime.jsx(WrapperMenu, { children: menu && menu.length > 0 && menu.map((item, index) => {
-                                        return jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: 'default', type: 'menu', onClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index);
-                                    }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: 'default', user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText }) }), languages && languages.length > 0 &&
-                                    jsxRuntime.jsx(LanguagesDropdown, { variant: 'default', languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' })] }) }) }));
+    const newNotification = notification.notificationList
+        ? notification.notificationList.filter((notification) => notification.isNewNotification)
+        : [];
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx(SideMenu, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleSideMenu, setVisible: (e) => setIsVisibleSideMenu(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                                paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
+                                paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
+                                ...style
+                            }, children: [isMobileVersion && !HideHambMenu && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isMobileVersion && HideHambMenu && (jsxRuntime.jsx(ArrowButton, { onClick: () => setControlExpandedSearchMobile(false), children: jsxRuntime.jsx(BackArrow, { fill: FRSTTheme['colors'].selectItens }) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleSideMenu(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: isTabletVersion && 32 }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%', justifyContent: 'space-between' }, children: [!isMobileVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, fieldSearchIsOpen: controlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                width: windowSize[0] < 830 ? '230px' : windowSize[0] > 1500 ? '428px' : '332px'
+                                            } })), jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                                                height: '100%',
+                                                paddingLeft: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
+                                                paddingRight: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
+                                                justifyContent: isMobileVersion ? 'space-between' : 'flex-end'
+                                            }, children: [isMobileVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                                        width: isMobileVersion ? '180px' : '332px'
+                                                        // marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
+                                                    } })), !isMobileVersion &&
+                                                    !isTabletVersion &&
+                                                    menu &&
+                                                    menu.length > 0 &&
+                                                    menu.map((item, index) => {
+                                                        return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "LXP", type: "menu", pressed: item.id === SelectedItem || item.active, icon: item.iconBegin, handleOnClick: () => handleClickItem(item), style: { paddingRight: '10px', paddingLeft: '10px', height: '100%' } }, item.id ? item.id : index));
+                                                    }), !isMobileVersion && !isTabletVersion && notification && (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(ItemGlobalMenu, { label: textNotification, variant: "LXP", type: "menu", pressed: false, handleOnClick: () => onClickNotification, icon: jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), style: { paddingRight: '10px', paddingLeft: '10px', height: '100%' } }), newNotification.length ? (jsxRuntime.jsx("div", { style: { position: 'absolute', marginLeft: '50%', marginTop: '-54px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })), isMobileVersion && notification && (jsxRuntime.jsx(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
+                                                        borderBottom: openNotificationMobile && windowSize[0] <= 650
+                                                            ? `4px solid ${FRSTTheme['colors'].primary1}`
+                                                            : '',
+                                                        height: windowSize[0] <= 650 ? '100%' : 'auto'
+                                                    }, children: jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', newNotification.length ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }) })), isTabletVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
+                                                        borderBottom: openNotificationMobile && windowSize[0] <= 650
+                                                            ? `4px solid ${FRSTTheme['colors'].primary1}`
+                                                            : '',
+                                                        height: windowSize[0] <= 650 ? '100%' : 'auto'
+                                                    }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', newNotification.length ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] >= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] }))] })] }), jsxRuntime.jsxs(WrapperRightInfo, { children: [jsxRuntime.jsx(DropdownProfileMenu, { variant: "LXP", user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                                marginLeft: isMobileVersion ? '0px' : '5px',
+                                                marginRight: isMobileVersion ? '0px' : '5px'
+                                            } }), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }), SubMenu && SubMenu.length > 0 && (jsxRuntime.jsx(SubMenuContainer, { variant: variant, marginTop: marginTopSubMenu, style: {
+                                paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
+                                paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
+                                ...style
+                            }, children: SubMenu.map((item, index) => {
+                                return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "LXP", type: "submenu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
+                            }) }))] }), openNotificationMobile && windowSize[0] < 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })) : variant === 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                            paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
+                            paddingLeft: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
+                            ...style
+                        }, children: [isMobileVersion && (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 0 }, onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && !isTabletVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && !isTabletVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                        width: isMobileVersion ? '190px' : '332px'
+                                    } })) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                            width: isMobileVersion ? '180px' : '332px',
+                                            marginLeft: controlExpandedSearchMobile ? '-15px' : '-30px'
+                                        } })), isTabletVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                            width: isMobileVersion ? '180px' : '332px',
+                                            marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
+                                        } })), !isMobileVersion && !isTabletVersion && notification && (jsxRuntime.jsxs(WrapperIconNotification, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), newNotification.length ? (jsxRuntime.jsx("div", { style: { marginLeft: '-12px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, ' ', "\u00A0 ", textNotification] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })), isMobileVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
+                                            borderBottom: openNotificationMobile && windowSize[0] <= 650
+                                                ? `4px solid ${FRSTTheme['colors'].primary1}`
+                                                : '',
+                                            height: windowSize[0] <= 650 ? '100%' : 'auto'
+                                        }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', newNotification.length ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] > 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })), isTabletVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
+                                            borderBottom: openNotificationMobile && windowSize[0] <= 650
+                                                ? `4px solid ${FRSTTheme['colors'].primary1}`
+                                                : '',
+                                            height: windowSize[0] <= 650 ? '100%' : 'auto'
+                                        }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', newNotification.length ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] > 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })), jsxRuntime.jsx(DropdownProfileMenu, { variant: "LXP", user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
+                                            marginLeft: isMobileVersion ? '0px' : '5px',
+                                            marginRight: isMobileVersion ? '0px' : '5px'
+                                        } }), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
+                            menu.length > 0 &&
+                            menu.map((item, index) => {
+                                return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "default", type: "menu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
+                            }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: "default", user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText }) }), languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "default", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' }))] }) })) }));
 }
 function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
     const [optionsSubMenu, setOptionsSubmenu] = React.useState({});
@@ -7820,42 +7904,50 @@ function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, o
         setOptionsSubmenu(items);
         setTimeout(() => setSubMenuIsVisible(true), 200);
     };
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SubMenuMobile, { onClickExit: onClickExit, items: optionsSubMenu, isVisible: subMenuIsVisible, setVisible: setSubMenuIsVisible, variant: variant, languageSelected: languageSelected, onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' ?
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items && items.length > 0 && items.map((item, index) => {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SubMenuMobile, { onClickExit: onClickExit, items: optionsSubMenu, isVisible: subMenuIsVisible, setVisible: setSubMenuIsVisible, variant: variant, languageSelected: languageSelected, onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
+                                    items.length > 0 &&
+                                    items.map((item, index) => {
                                         if (item.label == 'Criar conteúdo')
                                             return;
                                         if (item.onClick == null)
-                                            return jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: ["\u00A0", item.label] }, index);
-                                        return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: ["\u00A0", item.label] }, index);
-                                    }), jsxRuntime.jsx(ItemMenuMobile, { style: { borderBottom: 'none' }, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] })
-                    :
-                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items && items.length > 0 && items.map((item, index) => {
-                                            if (item.label == 'Criar conteúdo')
-                                                return;
-                                            if (item.onClick == null)
-                                                return jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                            return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                        })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) })] }));
+                                            return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: ["\u00A0", item.label] }, index));
+                                        return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: ["\u00A0", item.label] }, index));
+                                    }), jsxRuntime.jsx(ItemMenuMobile, { style: { borderBottom: 'none' }, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                                        ? 'Visit our channel and social networks'
+                                        : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
+                                    items.length > 0 &&
+                                    items.map((item, index) => {
+                                        if (item.label == 'Criar conteúdo')
+                                            return;
+                                        if (item.onClick == null)
+                                            return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: [item.iconBegin, "\u00A0", item.label] }, index));
+                                        return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
+                                    })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                                        ? 'Visit our channel and social networks'
+                                        : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) })] }));
 }
 function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
     const [options, setOptions] = React.useState(items);
     React.useEffect(() => {
         setOptions(items);
     }, [items]);
-    return (jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, style: { zIndex: '10002' }, children: variant === 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: options && options.length > 0 && options.map((item, index) => {
+    return (jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, style: { zIndex: '10002' }, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { children: options &&
+                        options.length > 0 &&
+                        options.map((item, index) => {
                             if (item.label == 'Criar conteúdo')
                                 return;
-                            return jsxRuntime.jsx(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: item.label }, index);
-                        }) }), jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), style: { borderTop: '1px solid #444' }, children: languageSelected === 'en-US' ? 'Back' : 'Voltar' })] })
-            :
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), options && options.length > 0 && options.map((item, index) => {
-                                    if (item.label == 'Criar conteúdo')
-                                        return;
-                                    if (item.onClick == null)
-                                        return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                    return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) }));
+                            return (jsxRuntime.jsx(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: item.label }, index));
+                        }) }), jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), style: { borderTop: '1px solid #444' }, children: languageSelected === 'en-US' ? 'Back' : 'Voltar' })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), options &&
+                            options.length > 0 &&
+                            options.map((item, index) => {
+                                if (item.label == 'Criar conteúdo')
+                                    return;
+                                if (item.onClick == null)
+                                    return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
+                                return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
+                            })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                                ? 'Visit our channel and social networks'
+                                : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) }));
 }
 function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
     const [optionsSubMenu, setOptionsSubmenu] = React.useState({});
@@ -7864,22 +7956,27 @@ function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onC
         setOptionsSubmenu(items);
         setTimeout(() => setSubMenuIsVisible(true), 200);
     };
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(SideMenu$1, { isVisible: isVisible, children: variant === 'LXP' ?
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemSideMenu, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items && items.length > 0 && items.map((item, index) => {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(SideMenu$1, { isVisible: isVisible, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemSideMenu, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
+                                items.length > 0 &&
+                                items.map((item, index) => {
                                     if (item.label == 'Criar conteúdo')
                                         return;
                                     if (item.onClick == null)
-                                        return jsxRuntime.jsxs(ItemSideMenu, { onClick: () => newOptionsSubMenu(item.subItens), children: ["\u00A0", item.label] }, index);
-                                    return jsxRuntime.jsxs(ItemSideMenu, { onClick: (e) => item.onClick(e), children: ["\u00A0", item.label] }, index);
-                                }), jsxRuntime.jsx(ItemSideMenu, { style: { borderBottom: 'none' }, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] })
-                :
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(BackArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items && items.length > 0 && items.map((item, index) => {
-                                        if (item.label == 'Criar conteúdo')
-                                            return;
-                                        if (item.onClick == null)
-                                            return jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                        return jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index);
-                                    })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [" ", jsxRuntime.jsx(ExitArrow, { fill: 'white' }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US' ? 'Visit our channel and social networks' : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] })] })] }) }) }));
+                                        return (jsxRuntime.jsxs(ItemSideMenu, { onClick: () => newOptionsSubMenu(item.subItens), children: ["\u00A0", item.label] }, index));
+                                    return (jsxRuntime.jsxs(ItemSideMenu, { onClick: (e) => item.onClick(e), children: ["\u00A0", item.label] }, index));
+                                }), jsxRuntime.jsx(ItemSideMenu, { style: { borderBottom: 'none' }, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                                    ? 'Visit our channel and social networks'
+                                    : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { style: { paddingBottom: 32 }, onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
+                                items.length > 0 &&
+                                items.map((item, index) => {
+                                    if (item.label == 'Criar conteúdo')
+                                        return;
+                                    if (item.onClick == null)
+                                        return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: [item.iconBegin, "\u00A0", item.label] }, index));
+                                    return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
+                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                                    ? 'Visit our channel and social networks'
+                                    : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) }) }));
 }
 function IconHamburgerMenu() {
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs("svg", { width: "27", height: "33", viewBox: "0 0 27 33", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.46 2.4H6.23L4.79 6.42L4.28 8.06H4.26L3.76 6.41L2.31 2.4H1.08V9H1.84V4.85L1.75 3.11H1.76L3.93 9H4.61L6.78 3.11H6.79L6.7 4.85V9H7.46V2.4ZM13.6673 6.24C13.6673 4.95 12.8773 3.9 11.4273 3.9C9.91727 3.9 9.06727 4.88 9.06727 6.5C9.06727 8.12 9.97727 9.1 11.4873 9.1C12.5673 9.1 13.1873 8.69 13.5673 8.01L12.8973 7.66C12.7173 8.14 12.2173 8.4 11.4873 8.4C10.5673 8.4 9.95727 7.81 9.85727 6.8H13.6273C13.6473 6.66 13.6673 6.47 13.6673 6.24ZM11.4273 4.6C12.2773 4.6 12.7873 5.17 12.8973 6.09H9.86727C9.98727 5.15 10.5373 4.6 11.4273 4.6ZM17.6178 3.9C16.9278 3.9 16.2878 4.15 15.9378 4.78L15.8878 4H15.1878V9H15.9878V6.34C15.9878 5.06 16.8078 4.6 17.5378 4.6C18.2278 4.6 18.7678 4.97 18.7678 6.08V9H19.5678V5.8C19.5678 4.51 18.6878 3.9 17.6178 3.9ZM24.9092 4V6.72C24.9092 7.9 24.1592 8.4 23.3092 8.4C22.5892 8.4 22.1292 8.09 22.1292 7.06V4H21.3292V7.27C21.3292 8.59 22.1792 9.1 23.1692 9.1C23.9692 9.1 24.6092 8.84 24.9592 8.24L25.0092 9H25.7092V4H24.9092Z", fill: "white" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M0 15.5854C0 15.0332 0.447715 14.5854 1 14.5854H24.7843C25.3366 14.5854 25.7843 15.0332 25.7843 15.5854C25.7843 16.1377 25.3366 16.5854 24.7843 16.5854H1C0.447715 16.5854 0 16.1377 0 15.5854ZM0 23.6736C0 23.1213 0.447715 22.6736 1 22.6736H24.7843C25.3366 22.6736 25.7843 23.1213 25.7843 23.6736C25.7843 24.2259 25.3366 24.6736 24.7843 24.6736H1C0.447715 24.6736 0 24.2259 0 23.6736ZM1 30.7617C0.447715 30.7617 0 31.2094 0 31.7617C0 32.314 0.447715 32.7617 1 32.7617H24.7843C25.3366 32.7617 25.7843 32.314 25.7843 31.7617C25.7843 31.2094 25.3366 30.7617 24.7843 30.7617H1Z", fill: "white" })] }) }));
@@ -12221,7 +12318,9 @@ exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
 exports.CardTrail = CardTrail;
 exports.CardsTrailsCarousel = CardTrailCarousel;
+exports.Challenge = Challenge;
 exports.ChallengeCard = ChallengeCard;
+exports.ChangeAccount = ChangeAccount;
 exports.Channel = Channel$3;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
@@ -12231,6 +12330,7 @@ exports.ConquistaCarrossel = ConquistaCarrossel;
 exports.Content = Content$2;
 exports.ContentSwitcher = ContentSwitcher;
 exports.ContentThumbnails = ContentThumbnails;
+exports.Diamond = Diamond;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;

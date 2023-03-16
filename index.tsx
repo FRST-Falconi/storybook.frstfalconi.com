@@ -36,8 +36,11 @@ export {
   StepCicleThree,
   StepCicleFour,
   Books,
+  Diamond,
+  Challenge,
+  ChangeAccount,
   EyeOff,
-  OpenedEye,
+  OpenedEye
 } from './src/shared/icons'
 
 // Base

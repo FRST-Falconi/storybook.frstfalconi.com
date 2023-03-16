@@ -1,6 +1,7 @@
 import { enumVariant } from './globalMenu';
 interface IMenuContainer {
     variant?: enumVariant;
+    marginTop?: boolean;
 }
 export declare const MenuContainer: import("styled-components").StyledComponent<"div", any, IMenuContainer, never>;
 export declare const WrapperLogo: import("styled-components").StyledComponent<"div", any, {}, never>;
