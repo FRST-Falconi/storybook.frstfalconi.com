@@ -24,6 +24,7 @@ interface HeaderContentParams {
   textViewLess?: string
   autoplayTime?: number
   listaRecomendacao: Array<objPropiedades>
+  style?: React.CSSProperties
 }
 
 export default function HeaderContent(props: HeaderContentParams) {
@@ -32,7 +33,6 @@ export default function HeaderContent(props: HeaderContentParams) {
   const [textView, setTextView] = useState(props.textViewMore)
 
   useEffect(() => {
-    console.log(selectedContent)
     const timer = setTimeout(() => {
       setSelectedContent(selectedContent < (props.listaRecomendacao.length - 1) ? selectedContent + 1 : 0)
       setzeroHeigthDescription(false)
@@ -98,7 +98,7 @@ export default function HeaderContent(props: HeaderContentParams) {
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <styledHeaderContent.Container theme={FRSTTheme}>
+      <styledHeaderContent.Container style={{...props.style}}>
         {props.listaRecomendacao.map((item, index) => {
           return (
             <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length} onDisplay={index === selectedContent} >
