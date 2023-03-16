@@ -57,6 +57,7 @@ WithIconAndHelpertext.args = {
     name: '',
     className: '',
     onChange: (e : any) => { console.log(e.target.value) },
+    handleClickEndIcon: () => alert('CickEndIcon')
 }
 
 export const WithoutIconAndHelpertext = Template.bind({})
@@ -72,6 +73,7 @@ WithoutIconAndHelpertext.args = {
     name: '',
     className: '',
     onChange: (e : any) => { console.log(e.target.value) },
+    handleClickEndIcon: () => alert('CickEndIcon')
 }
 
 export const PasswordWithIconAndHelperText = Template.bind({})
@@ -87,6 +89,7 @@ PasswordWithIconAndHelperText.args = {
     name: '',
     className: '',
     onChange: (e : any) => { console.log(e.target.value) },
+    handleClickEndIcon: () => alert('CickEndIcon')
 }
 
 export const WithStartIcon = Template.bind({})

@@ -6,6 +6,7 @@ export interface TextFieldProps {
     placeholder?: string;
     helperText?: string;
     endIcon?: any;
+    endIconChanged?: any;
     startIcon?: any;
     type?: enumType;
     width?: string;
@@ -22,6 +23,7 @@ export interface TextFieldProps {
     defaultValue?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
     maxLength?: number;
+    handleClickEndIcon?: () => void;
 }
 export default function TextField(props: TextFieldProps): JSX.Element;
 export {};

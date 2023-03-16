@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../../../shared/global.css'
 import * as Styles from './textFieldStyle'
 import {  ThemeProvider } from 'styled-components'
@@ -12,6 +12,7 @@ export interface TextFieldProps {
     placeholder?: string,
     helperText?: string,
     endIcon?: any,
+    endIconChanged?: any,
     startIcon?: any,
     type?: enumType,
     width?: string,
@@ -27,7 +28,8 @@ export interface TextFieldProps {
     multiline?: boolean,
     defaultValue?: string,
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    maxLength?: number
+    maxLength?: number,
+    handleClickEndIcon?: () => void
 }
 
 export default function TextField(props: TextFieldProps) {
@@ -35,12 +37,17 @@ export default function TextField(props: TextFieldProps) {
     const [ hover, setHover ] = useState(false)
     const [ click, setClick ] = useState(false)
     const [ inputType, setInputType ] = useState(props.type)
+    const [ endIconState, setEndIcon ] = useState(props?.endIcon)
     const { t } = useTranslation()
 
-    const handleTogglePasswordVisibility = () => {
-        if (inputType === 'password') return setInputType('text')
-        setInputType('password')
-    }
+    useEffect(() => {
+        setInputType(props.type)
+    }, [props.type]);
+
+    useEffect(() => {
+        setEndIcon(props?.endIcon)
+    }, [props?.endIcon])
+    
 
     const showBorderAfterClick = () => {
         setClick(true)
@@ -84,9 +91,7 @@ export default function TextField(props: TextFieldProps) {
                     />
                     {
                         props.endIcon && !props.multiline && (
-                            (props.type === 'password')
-                                ? <Styles.InputIconButton onClick={handleTogglePasswordVisibility}>{props.endIcon}</Styles.InputIconButton>
-                                : <span>{props.endIcon}</span>
+                            !!props.endIcon && <Styles.InputIconButton onClick={props.handleClickEndIcon}>{endIconState}</Styles.InputIconButton>
                         )
                     }
                 </Styles.TextFieldContainer>
