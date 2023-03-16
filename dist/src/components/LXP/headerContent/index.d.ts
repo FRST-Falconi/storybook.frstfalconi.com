@@ -14,6 +14,7 @@ interface HeaderContentParams {
     textViewLess?: string;
     autoplayTime?: number;
     listaRecomendacao: Array<objPropiedades>;
+    style?: React.CSSProperties;
 }
 export default function HeaderContent(props: HeaderContentParams): JSX.Element;
 export {};
