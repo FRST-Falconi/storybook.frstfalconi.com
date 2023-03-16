@@ -274,7 +274,7 @@ export default function GlobalMenu({
                           type="menu"
                           pressed={item.id === SelectedItem || item.active}
                           icon={item.iconBegin}
-                          onClick={() => handleClickItem(item)}
+                          handleOnClick={() => handleClickItem(item)}
                           style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
                         />
                       )
@@ -286,7 +286,7 @@ export default function GlobalMenu({
                         variant="LXP"
                         type="menu"
                         pressed={false}
-                        onClick={onClickNotification}
+                        handleOnClick={() => onClickNotification}
                         icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
                         style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
                       />
@@ -413,7 +413,7 @@ export default function GlobalMenu({
                       key={item.id ? item.id : index}
                       variant="LXP"
                       type="submenu"
-                      onClick={() => item.onClick('tes')}
+                      handleOnClick={() => item.onClick('tes')}
                       style={{ paddingRight: '10px', paddingLeft: '10px' }}
                     />
                   )
@@ -711,7 +711,7 @@ export default function GlobalMenu({
                       key={item.id ? item.id : index}
                       variant="default"
                       type="menu"
-                      onClick={() => item.onClick('tes')}
+                      handleOnClick={() => item.onClick('tes')}
                       style={{ paddingRight: '10px', paddingLeft: '10px' }}
                     />
                   )
