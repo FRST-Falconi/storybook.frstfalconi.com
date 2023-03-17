@@ -45,12 +45,12 @@ export const ContainerHeaderEmpty = styled.div<IImageBackground>`
 
 export const ContainerTrailsNormal = styled.div`
     height: 415px; 
-    //border: 1px solid black; 
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     padding-top: 16px;
     margin-top: -5px; 
     background-color: rgb(235, 235, 235);
-    border-bottom-left-radius: 16px;
-    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     z-index: 0;
     width: 100%;
 `

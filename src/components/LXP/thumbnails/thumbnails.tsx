@@ -22,7 +22,8 @@ export default function Thumbnails({
   handleClickPopOverEdit,
   title, 
   provided, 
-  isDisabled, 
+  isDisabled,
+  isLoading,
   txtButtonLabel, 
   txtCriarNovoCurso,
   txtCriarNovoCurso2, 
@@ -33,15 +34,20 @@ export default function Thumbnails({
   isIndividual
 }: IThumbnailsTranslate) {
 
-  const defaultImg = "https://media.itpro.co.uk/image/upload/f_auto,t_primary-image-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg"
-  const [ativo, setAtivo] = useState<boolean>(isDisabled)
+  const defaultImg = "https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png"
+  const [ativo, setAtivo] = useState<boolean>(!isDisabled)
   const [individual, setIndividual] = useState<boolean>(isIndividual ? isIndividual : false)
   const [showModules, setShowModules] = useState<boolean>(false)
   const [ElementPopover, setElementPopover] = useState(null);
+  const [Loading, setLoading] = useState(isLoading);
 
   useEffect (() => {
-    setAtivo(isDisabled)
+    setAtivo(!isDisabled)
   }, [isDisabled])
+
+  useEffect(() => {
+    setLoading(isLoading)
+  }, [isLoading]);
 
   const handleChangeCheck = (checkedValue: boolean) => {
     setIndividual(checkedValue)
@@ -65,95 +71,112 @@ export default function Thumbnails({
       <ThemeProvider theme={FRSTTheme}>
         {variant === 'default' ?
           <>
-            <Styles.ContainerThumbnails showSwitchIndividual={showSwitchIndividual} className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
-              <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
-                <Button label={txtButtonLabel ? txtButtonLabel : 'Ver conteúdo'} variant='primary' handleClick={handleClickCourse} />
-              </Styles.ContainerButton>
-              <Styles.GeralThumbnails ref={provided ? provided.innerRef : null} {...provided ? provided.dragHandleProps : null}>
-                <Styles.Thumbnails>
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                </Styles.Thumbnails>
-                <Styles.Thumbnails >
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                </Styles.Thumbnails>
-                <Styles.Thumbnails >
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                  <VectorEllipse />
-                </Styles.Thumbnails>
-              </Styles.GeralThumbnails>
-              <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={ativo} />
-              <Styles.ContainerMain>
-                <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
-                <Styles.IconVertical onClick={(element: any) => {
+            {Loading ?
+              <Styles.LoadingContainer>
+                <Styles.LoadingImage/>
+                <Styles.LoadingContent />
+                <Styles.LoadingContent style={{width: '50%'}} />
+              </Styles.LoadingContainer>
+              :
+              <Styles.ContainerThumbnails showSwitchIndividual={showSwitchIndividual} className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
+                <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
+                  <Button label={txtButtonLabel ? txtButtonLabel : 'Ver conteúdo'} variant='primary' handleClick={handleClickCourse} />
+                </Styles.ContainerButton>
+                <Styles.GeralThumbnails ref={provided ? provided.innerRef : null} {...provided ? provided.dragHandleProps : null}>
+                  <Styles.Thumbnails>
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                  </Styles.Thumbnails>
+                  <Styles.Thumbnails >
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                  </Styles.Thumbnails>
+                  <Styles.Thumbnails >
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                    <VectorEllipse />
+                  </Styles.Thumbnails>
+                </Styles.GeralThumbnails>
+                <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={ativo} />
+                <Styles.ContainerMain>
+                  <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
+                  <Styles.IconVertical onClick={(element: any) => {
                     setElementPopover(element.currentTarget)
-                }}>
-                  <Icons.MoreVertical fill={ativo ? '#000000' : '#bdbdbd'} />
-                </Styles.IconVertical>
-              </Styles.ContainerMain >
-              {
-                showSwitchIndividual &&
-                <Styles.ContainerAtivar>
-                  <Styles.TypographyAtivar active={ativo} style={{ fontWeight: ativo ? 700 : 400 }}>
-                    {txtAtivarCurso ? txtAtivarCurso : 'Ativar Indiv.'}
-                  </Styles.TypographyAtivar>
-                  <Switch
-                    onChange={handleChangeCheck}
-                    checked={individual}
-                    height={16}
-                    width={40}
-                    checkedIcon={false}
-                    uncheckedIcon={false}
-                    handleDiameter={24}
-                    onHandleColor='#ffffff'
-                    offHandleColor='#ffffff'
-                    onColor='#FF4D0D'
-                    offColor='#ebebeb'
-                    activeBoxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                    boxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                  />
-                </Styles.ContainerAtivar>                
-              }              
-            </Styles.ContainerThumbnails>
+                  }}>
+                    <Icons.MoreVertical fill={ativo ? '#000000' : '#bdbdbd'} />
+                  </Styles.IconVertical>
+                </Styles.ContainerMain >
+                {
+                  showSwitchIndividual &&
+                  <Styles.ContainerAtivar>
+                    <Styles.TypographyAtivar active={ativo} style={{ fontWeight: ativo ? 700 : 400 }}>
+                      {txtAtivarCurso ? txtAtivarCurso : 'Ativar Indiv.'}
+                    </Styles.TypographyAtivar>
+                    <Switch
+                      onChange={handleChangeCheck}
+                      checked={individual}
+                      height={16}
+                      width={40}
+                      checkedIcon={false}
+                      uncheckedIcon={false}
+                      handleDiameter={24}
+                      onHandleColor='#ffffff'
+                      offHandleColor='#ffffff'
+                      onColor='#FF4D0D'
+                      offColor='#ebebeb'
+                      activeBoxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                      boxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                      />
+                  </Styles.ContainerAtivar>                
+                }              
+              </Styles.ContainerThumbnails>
+            }
           </>
           : variant === 'add' ?
-            <Styles.ContainerThumbnailsAdd>
-              <Styles.ContainerEllipse onClick={handleClickNew}>
-                <VectorCross />
-              </Styles.ContainerEllipse>
-              <Styles.TypographyAdd >
-                {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo'}
-              <Styles.TypographyAdd >
-                {txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo'}
-              </Styles.TypographyAdd>
-              </Styles.TypographyAdd>
-            </Styles.ContainerThumbnailsAdd>
-
+            <>
+            {Loading ?
+              <Styles.LoadingContainer>
+                <Styles.LoadingImage/>
+                <Styles.LoadingContent />
+                <Styles.LoadingContent style={{width: '50%'}} />
+              </Styles.LoadingContainer>
+              :
+              <Styles.ContainerThumbnailsAdd>
+                <Styles.ContainerEllipse onClick={handleClickNew}>
+                  <VectorCross />
+                </Styles.ContainerEllipse>
+                <Styles.TypographyAdd >
+                  {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo'}
+                <Styles.TypographyAdd >
+                  {txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo'}
+                </Styles.TypographyAdd>
+                </Styles.TypographyAdd>
+              </Styles.ContainerThumbnailsAdd>
+            }
+            </>
             : null
         }
         <PopOver

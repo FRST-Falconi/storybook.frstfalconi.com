@@ -11,6 +11,12 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <Thumbnails {...args} />
 
+export const Loading = Template.bind({})
+Loading.args = {
+    variant: 'default',
+    isLoading: true,
+}
+
 export const Default = Template.bind({})
 Default.args = {
     variant: 'default',
@@ -29,7 +35,7 @@ Default.args = {
     txtAtivarCurso: "Activate Trail",
     txtPopOverEditContent: "Edit content",
     txtPopOverMoveToTrails: "Move to Trails",
-    txtPopOverDeleteContent:"Delete content",    
+    txtPopOverDeleteContent:"Delete content",
 }
 
 export const Add = Template.bind({})
