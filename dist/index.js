@@ -6203,27 +6203,8 @@ function ProgressBar$1({ value, label }) {
 }
 
 const Container$8 = styled__default["default"].div `
-  ul {
-    position: relative;
-    top: -2.5rem;
-    li {
-      button {
-        background: ${({ theme }) => theme.colors.neutralsGrey5};
-        border-radius: 100%;
-        width: 13px;
-        height: 13px;
-      }
-      button::before {
-        font-size: 16px;
-        line-height: 15px;
-        width: 13px;
-        height: 13px;
-        left: -1px;
-        opacity: -2.65;
-        color: ${({ theme }) => theme.colors.primary1} !important;
-      }
-    }
-  }
+  display: flex;
+  position: relative;
 `;
 const HeaderImage$1 = styled__default["default"].div `
   display: flex;
@@ -6232,11 +6213,14 @@ const HeaderImage$1 = styled__default["default"].div `
   align-items: flex-start;
   flex-direction: column;
   position: relative;
-  width: 100%;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
   color: #fff;
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
-  background-size: 120rem 40rem;
+  background-size: cover;
+  background-position: center;
+  
   ${(props) => props.tmnDescription < 164 &&
     styled.css `
       section {
@@ -6244,7 +6228,7 @@ const HeaderImage$1 = styled__default["default"].div `
       }
     `}
   @media (max-width: 834px) {
-    height: 44vh;
+    height: 72vh;
     ${(props) => props.tmnDescription >= 134 &&
     styled.css `
         section {
@@ -6252,6 +6236,12 @@ const HeaderImage$1 = styled__default["default"].div `
         }
       `}
   }
+
+  ${(props) => props.onDisplay ?
+    styled.css ` width: 100%;`
+    :
+        styled.css ` width: 0px;`}
+
   @media (max-width: 414px) {
     height: 65vh;
   }
@@ -6264,9 +6254,33 @@ const Content = styled__default["default"].div `
   height: 100%;
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
+  
+  ${(props) => !props.onDisplay &&
+    styled.css ` display: none;`}
+
   @media (max-width: 414px) {
     padding: 2rem;
   }
+`;
+const ListCounters = styled__default["default"].div `
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+
+  position: absolute;
+  margin-bottom: 36px;
+  bottom: 0;
+  right: 50%;
+
+`;
+const Counters = styled__default["default"].button `
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border-radius: 100%;
+  border: none;
+  background-color: ${({ selected, theme }) => selected ? theme.colors.primary1 : theme.colors.neutralsGrey5};
 `;
 const Title$1 = styled__default["default"].div `
   font-size: 40px;
@@ -6285,7 +6299,7 @@ const Description$1 = styled__default["default"].div `
   height: fit-content;
   ${(props) => !props.zeroHeigthDescription &&
     styled.css `
-      height: 2.5rem;
+      height: 2.4rem;
     `}
   overflow: hidden;
   transition: all 0.9s ease-in-out;
@@ -6295,7 +6309,7 @@ const Description$1 = styled__default["default"].div `
     max-width: 34rem;
     ${(props) => !props.zeroHeigthDescription &&
     styled.css `
-        height: 2.5rem;
+        height: 2.4rem;
       `}
   }
 
@@ -6303,14 +6317,14 @@ const Description$1 = styled__default["default"].div `
     word-break: break-word;
     ${(props) => !props.zeroHeigthDescription &&
     styled.css `
-        height: 2.5rem;
+        height: 2.4rem;
       `}
   }
   @media (max-width: 320px) {
     font-size: 12px;
     ${(props) => !props.zeroHeigthDescription &&
     styled.css `
-        height: 2.5rem;
+        height: 2.4rem;
       `}
   }
 `;
@@ -6379,16 +6393,12 @@ function HeaderContent(props) {
     const [selectedContent, setSelectedContent] = React.useState(0);
     const [zeroHeigthDescription, setzeroHeigthDescription] = React.useState(false);
     const [textView, setTextView] = React.useState(props.textViewMore);
-    ({
-        dots: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: props.autoplayTime
-    });
     React.useEffect(() => {
-        const timer = setTimeout(() => setSelectedContent(selectedContent < 2 ? selectedContent + 1 : 0), 10000);
+        const timer = setTimeout(() => {
+            setSelectedContent(selectedContent < (props.listaRecomendacao.length - 1) ? selectedContent + 1 : 0);
+            setzeroHeigthDescription(false);
+            setTextView(props.textViewMore);
+        }, props.autoplayTime ? props.autoplayTime : 10000);
         return () => clearTimeout(timer);
     }, [selectedContent]);
     function addHeigthDescription() {
@@ -6407,9 +6417,9 @@ function HeaderContent(props) {
     function InProgressHeader(item) {
         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$2, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel }), jsxRuntime.jsx(SpaceButtonLeft, { onClick: item.onClick, children: jsxRuntime.jsx(Button$2, { label: item.labelButton, variant: "primary" }) })] })] }));
     }
-    return (jsxRuntime.jsx(Container$8, { theme: FRSTTheme, children: props.listaRecomendacao.map((item, index) => {
-            return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { children: RecomendationHeader(item) })) }) }, index));
-        }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
+                    return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
+                }), jsxRuntime.jsx(ListCounters, { children: Array.from({ length: props.listaRecomendacao.length }).map((_, index) => jsxRuntime.jsx(Counters, { selected: index === selectedContent, onClick: () => setSelectedContent(index) }, index)) })] }) }));
 }
 
 const RectangleUpLeft = styled__default["default"].div `
