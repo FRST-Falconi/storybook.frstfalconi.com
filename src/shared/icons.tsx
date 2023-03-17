@@ -2690,3 +2690,40 @@ export function GoalInviteIcon({fill, width, height}: IconsProps) {
     </svg>
   )
 }
+
+export function StatusProblemaSawBadgeIcon({fill, width, height}: IconsProps) {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#D1F6D1"/>
+      <g clip-path="url(#clip0_482_14529)">
+        <path d="M26.2923 14.6469C25.2206 12.9765 22.7794 12.9765 21.7077 14.6469C21.2886 15.3 20.4848 15.5926 19.744 15.3616C17.8492 14.7709 15.9792 16.34 16.2319 18.3086C16.3307 19.0783 15.903 19.8191 15.187 20.1183C13.3559 20.8837 12.932 23.2878 14.3909 24.6334C14.9613 25.1595 15.1099 26.0019 14.7538 26.6913C13.843 28.4547 15.0636 30.5688 17.0461 30.6618C17.8213 30.6981 18.4765 31.248 18.6469 32.005C19.0828 33.9413 21.3767 34.7762 22.9551 33.5731C23.5723 33.1027 24.4277 33.1027 25.0449 33.5731C26.6233 34.7762 28.9172 33.9413 29.3531 32.005C29.5235 31.248 30.1787 30.6981 30.9539 30.6618C32.9364 30.5688 34.157 28.4547 33.2462 26.6913C32.8901 26.0019 33.0387 25.1595 33.6091 24.6334C35.068 23.2878 34.6441 20.8837 32.813 20.1183C32.097 19.8191 31.6693 19.0783 31.7681 18.3086C32.0208 16.34 30.1508 14.7709 28.256 15.3616C27.5152 15.5926 26.7114 15.3 26.2923 14.6469Z" stroke="#222222"/>
+        <path d="M19.5 24.5L23 27.5L29 21" stroke="#222222" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+      <defs>
+        <clipPath id="clip0_482_14529">
+          <rect width="24" height="24" fill="white" transform="translate(12 12)"/>
+        </clipPath>
+      </defs>
+    </svg>
+  )
+}
+
+export function StatusProblemaSendIcon({fill, width, height}: IconsProps) {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#CDDAEF"/>
+      <path d="M33 15L22 26" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M31.9154 14.7941C32.7223 14.4868 33.5132 15.2777 33.2059 16.0846L26.8633 32.7337C26.5456 33.5677 25.3775 33.5994 25.015 32.7839L22 26L15.2161 22.985C14.4006 22.6225 14.4323 21.4544 15.2663 21.1367L31.9154 14.7941Z" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+
+export function StatusProblemaEdit({fill, width, height}: IconsProps) {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="24" fill="#FEF0D0"/>
+      <path d="M24 17.0669H18.5556C18.143 17.0669 17.7473 17.2417 17.4556 17.5529C17.1639 17.8641 17 18.2861 17 18.7262V30.341C17 30.781 17.1639 31.2031 17.4556 31.5142C17.7473 31.8254 18.143 32.0002 18.5556 32.0002H29.4444C29.857 32.0002 30.2527 31.8254 30.5444 31.5142C30.8361 31.2031 31 30.781 31 30.341V24.5336" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M30.1791 16.5163C30.489 16.1857 30.9093 16 31.3476 16C31.7858 16 32.2061 16.1857 32.516 16.5163C32.8259 16.8468 33 17.2951 33 17.7626C33 18.2301 32.8259 18.6784 32.516 19.0089L25.1159 26.9024L22 27.7333L22.779 24.4098L30.1791 16.5163Z" stroke="#222222" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
