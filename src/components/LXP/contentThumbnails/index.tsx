@@ -82,7 +82,7 @@ export default function ContentThumbnails({
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="contentListData">
           {(provided: any) => (
-            <div style={{backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '462px', width: 270}} ref={provided.innerRef}>
+            <div style={{backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '100vh', width: 270}} ref={provided.innerRef}>
               {contentListData?.map((item, index) => {
                 return (
                   <Draggable draggableId={item.title} index={index} key={index}>

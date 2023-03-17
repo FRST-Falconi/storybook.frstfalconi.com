@@ -2,10 +2,9 @@ import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import * as Styles from './accordionTrackStyle'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
-import { IAccordionTranslate } from './IAccordionTrack'
 import PopOver, { PopOverItem } from '../popOver'
 
 export default function ContentCoursesTrails(props: any) {
@@ -50,7 +49,8 @@ export default function ContentCoursesTrails(props: any) {
         <Styles.ContentTrailName active={active}>
           {!active ?
             <>
-              <Styles.TypographyTrailName>{props.TrailName}</Styles.TypographyTrailName><Styles.Select onClick={changeSelect}>
+              <Styles.TypographyTrailName>{props.TrailName}</Styles.TypographyTrailName>
+              <Styles.Select onClick={changeSelect}>
                 {props.show ? <VectorUp /> : <VectorDown />}
               </Styles.Select>              
             </>

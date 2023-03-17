@@ -22,17 +22,33 @@ export const ContainerThumbnails = styled.div<IContainerThumbnails>`
     z-index: 9999px;
     user-select: none;
 `
+export const LoadingContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 12px;
+    width: 180px;
+    height: 320px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 8px;    
+    z-index: 9999px;
+    user-select: none;
+    
+`
 export const ContainerButton = styled.div<IImageBackground>`    
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 8px;
+    width: 155px;
+    height: 205px;
+    margin-top: 24px;
+    margin-left: 12px;
+    border-radius: 4px;
     z-index: 1;
     background-color: #00000090;
-    margin:0;
+    
     padding: 0;
     border: none;
     display: ${( props ) => `${props.active ? 'flex' : 'none'}`};
@@ -42,7 +58,7 @@ export const ContainerButton = styled.div<IImageBackground>`
 export const Thumbnails = styled.div`
     display: flex;
     justify-content: center;   
-    `
+`
 export const Image = styled.img<IImageBackground>`
     width: 155px;
     height: 205px;
@@ -52,7 +68,39 @@ export const Image = styled.img<IImageBackground>`
     margin-top: 10px;
     margin-left: 12px;
     filter: ${( props ) => `grayscale(${props.active ? '0' : '1'})`};   
-    `
+`
+export const LoadingImage = styled.div`
+    width: 155px;
+    height: 205px;
+    margin-top: 12px;
+    border-radius: 4px;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+`
+
+export const LoadingContent = styled.div`
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    color: transparent;
+    border-radius: 16px;
+    width: 90%;
+    height: 0.45em;
+    
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+
+`
+
 export const GeralThumbnails = styled.div`    
    margin: 0;
 `
