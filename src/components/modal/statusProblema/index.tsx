@@ -36,28 +36,34 @@ interface ApprovesItemProps{
 function ApprovesItem(props: ApprovesItemProps){
 
         return (
-            <div className={style.containerItem} >
-                <div className={style.avatar} style={{width: props.size}}>
-                    <Avatar src={props.avatar} size={props.avatarSize} />
-                    <span className={style.name}>{props.nomeAvatar}</span>
-                    <span className={style.sub_title}>{props.dataAvatar}</span>
-                </div>
-                {
-                    props.statusApprove === 'reviewed' ?
-                    <div style={{minWidth: '48px', marginTop: '-40px' }}>
-                        <StatusProblemaSawBadgeIcon />
+            <>
+                <div className={style.containerItem}>
+                    <div className={style.avatar} style={{width: props.size}}>
+                        <Avatar src={props.avatar} size={props.avatarSize} />
                     </div>
-                    : props.statusApprove === 'adjustments' ?
-                    <div style={{minWidth: '48px', marginTop: '-40px' }}>
-                        <StatusProblemaEdit/>
+                    {
+                        props.statusApprove === 'reviewed' ?
+                        <div>
+                            <StatusProblemaSawBadgeIcon />
+                        </div>
+                        : props.statusApprove === 'adjustments' ?
+                        <div>
+                            <StatusProblemaEdit/>
+                        </div>
+                        : 
+                        <div><StatusProblemaSendIcon /></div>
+                    } 
+                    <div style={{width: props.size}} className={style.status_logo}>
+                        <Avatar src={problemaFRST} size={props.avatarSize}  />
                     </div>
-                    : 
-                    <div style={{minWidth: '48px', marginTop: '-40px'  }}><StatusProblemaSendIcon /></div>
-                } 
-                <div style={{width: props.size}} className={style.status_logo}>
-                    <Avatar src={problemaFRST} size={props.avatarSize}  />
                 </div>
-            </div>
+                <div className={style.containerItem} style={{ marginTop: '8px' }}>
+                    <div className={style.containerData} style={{ width: props.size }}>
+                        <span className={style.name}>{props.nomeAvatar}</span>
+                        <span className={style.sub_title}>{props.dataAvatar}</span>
+                    </div>
+                </div>
+            </>
         )
     
 }

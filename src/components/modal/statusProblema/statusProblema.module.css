@@ -71,14 +71,19 @@
 }
 
 .containerItem {
-    
-    width: auto;
+    width: 400px;
     margin-top: 24px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+}
+
+.containerData {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 @media (max-width: 500px) {    
@@ -109,9 +114,6 @@
     line-height: 110%;
 }
 
-.conclusao {
-
-}
 
 .modal_controls_wrapper {
     gap: 23px;
@@ -124,7 +126,6 @@
 }
 
 .status_logo {
-    margin-bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
