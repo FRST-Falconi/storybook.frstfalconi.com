@@ -2,12 +2,10 @@ import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import * as Styles from './accordionTrackStyle'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch';
-import { IAccordionTranslate } from './IAccordionTrack'
 import PopOver, { PopOverItem } from '../popOver'
-import { margin } from '@mui/system'
 
 export default function ContentCoursesTrails(props: any) {
 
