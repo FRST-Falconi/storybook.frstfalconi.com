@@ -130,5 +130,8 @@ export declare function Diamond({ fill, width, height }: IconsProps): JSX.Elemen
 export declare function Challenge({ fill, width, height }: IconsProps): JSX.Element;
 export declare function SawBadgeIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function GoalInviteIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StatusProblemaSawBadgeIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StatusProblemaSendIcon({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StatusProblemaEdit({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
