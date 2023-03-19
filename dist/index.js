@@ -12473,6 +12473,7 @@ exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.ThumbListContent = ThumbListContent;
+exports.Thumbnails = Thumbnails;
 exports.ThumbnailsDraggable = ThumbnailsDraggable;
 exports.Tooltip = Tooltip$2;
 exports.TotalizerCard = TotalizerCard$1;
