@@ -14,6 +14,7 @@ export default function ThumbnailsDraggable({
    id, 
    index, 
    isDisabled, 
+   isLoading, 
    txtButtonLabel, 
    txtAtivarCurso, 
    showSwitchIndividual,
@@ -48,6 +49,7 @@ export default function ThumbnailsDraggable({
               title={title}
               id={id}
               isIndividual={isIndividual}
+              isLoading={isLoading}
               showSwitchIndividual={showSwitchIndividual}
               index={index}    
               provided={provided}
