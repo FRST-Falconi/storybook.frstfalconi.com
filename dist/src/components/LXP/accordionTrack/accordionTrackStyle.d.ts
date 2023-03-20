@@ -2,6 +2,7 @@ interface IImageBackground {
     active: boolean;
 }
 export declare const ContainerHeader: import("styled-components").StyledComponent<"div", any, IImageBackground, never>;
+export declare const LoadingContent: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ContainerHeaderEmpty: import("styled-components").StyledComponent<"div", any, IImageBackground, never>;
 export declare const ContainerTrailsNormal: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ContainerTrailsEmpty: import("styled-components").StyledComponent<"div", any, {}, never>;

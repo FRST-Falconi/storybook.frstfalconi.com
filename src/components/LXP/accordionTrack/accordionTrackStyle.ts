@@ -24,6 +24,21 @@ export const ContainerHeader = styled.div<IImageBackground>`
     align-items: center; 
     z-index: 99px;   
 `
+export const LoadingContent = styled.div`
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    color: transparent;
+    border-radius: 5px;
+    width: 90%;
+    height: 0.45em;
+    border: none;
+    
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+
+`
 
 export const ContainerHeaderEmpty = styled.div<IImageBackground>`
     width: 100%;

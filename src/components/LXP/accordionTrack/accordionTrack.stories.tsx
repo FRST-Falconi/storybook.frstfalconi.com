@@ -276,4 +276,23 @@ Opened.args = {
     txtPlacerolderInputNameTrail: 'Enter track name'
 }
 
-
+export const Loading = Template.bind({})
+Loading.args = {
+    isLoading: true,
+    trailsData: trailCourse,
+    courseData: courses,
+    textMeusConteudos: "My Contents",
+    textTotalDe: "Total of",
+    textRegistros: "records",
+    textMinhasTrihas: "My tracks",
+    txtAtivarCurso: "Ativar Indiv.",
+    txtAtivarTrilha: "Ativar trilha",
+    txtCriarNovoCurso: "Criar novo Conteúdo",
+    txtPopOverEditContent: "Edit content",
+    txtPopOverMoveToTrails: "Move to Trails",
+    txtPopOverDeleteContent:"Delete content",
+    txtTrailsPopOverEdit: "Editar nome da trilha",
+    txtTrailsPopOverDuplicar: "Duplicar trilha",
+    txtTrailsPopOverDelete: "Excluir trilha",
+    txtPlacerolderInputNameTrail: 'Enter track name'
+}

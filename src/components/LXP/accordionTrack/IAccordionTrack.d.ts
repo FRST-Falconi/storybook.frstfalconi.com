@@ -12,14 +12,14 @@ export interface IAccordionTrack {
     /**
      * @prop {() => {})} onNewTrail: Callback para adicionar novo conteúdo
      */
-    onNewTrail?: () => void,
-
+    isLoading?: boolean
     TrailName?: string
     key?: number
     index?: number
     data?: any
     updateScrollSize?: number
     src?: string
+    onNewTrail?: () => void
     handleChange?: (trails: any) => void
     handleClickSelect?: () => void,
     handleClickContent?: () => void     

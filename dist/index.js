@@ -8704,6 +8704,21 @@ const ContainerHeader = styled__default["default"].div `
     align-items: center; 
     z-index: 99px;   
 `;
+const LoadingContent$1 = styled__default["default"].div `
+    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
+    color: transparent;
+    border-radius: 5px;
+    width: 90%;
+    height: 0.45em;
+    border: none;
+    
+    -webkit-animation-duration: 4s;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-name: placeholderShimmer;
+    -webkit-animation-timing-function: linear;
+
+`;
 styled__default["default"].div `
     width: 100%;
     min-height: 72px;
@@ -9153,6 +9168,7 @@ function ContentCourses(data) {
 function AccordionTrack(props) {
     const [trails, setTrail] = React.useState(props.trailsData);
     const [ShowTrail, setShowTrail] = React.useState([]);
+    const [IsLoading, setIsLoading] = React.useState(props.isLoading);
     React.useEffect(() => {
         if (Array.isArray(props.trailsData)) {
             setTrail(props.trailsData);
@@ -9163,47 +9179,58 @@ function AccordionTrack(props) {
             setShowTrail(showHideTrail);
         }
     }, [props.trailsData]);
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContentCourses, { TrailName: '', children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsxs("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", props.courseData.length, " ", props.textRegistros ? props.textRegistros : 'registros'] })] }), jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: '0', direction: "horizontal", children: (provided) => {
-                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [jsxRuntime.jsx("div", { onClick: () => {
-                                                        props.onNewTrail && props.onNewTrail();
-                                                    }, style: { wordWrap: 'break-word' }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', isDisabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), props.courseData.map((el, contentIndex) => {
-                                                    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { isDisabled: el.active, id: el.id.toString(), index: contentIndex, title: el.title, variant: 'default', handleSwitchAtivarIndividual: (checked) => {
-                                                                props.handleSwitchAtivarIndividual(el.id, checked);
-                                                            }, isIndividual: el.active_individual, showSwitchIndividual: true, src: el.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => { props.handleEditCourse(el.id); }, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.id); }, handleClickPopOverDelete: () => {
-                                                                props.handleDeleteCourse(el.id);
-                                                            }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `content${contentIndex}`) }));
-                                                })] }) }), provided.placeholder] }));
-                        } })] }), jsxRuntime.jsx(TypographyMyTrails, { children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), trails && trails.map((trail, trailIndex) => {
-                return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { id: trail.id, TrailName: trail.name, ativo: trail.active, handleChangeCheck: (bActive) => {
-                            if (props.handleSwitchActiveTrail) {
-                                props.handleSwitchActiveTrail(trailIndex, bActive);
-                            }
-                        }, handleChangeTrailName: (name) => {
-                            if (props.onSetNameTrail) {
-                                props.onSetNameTrail(name, trailIndex);
-                            }
-                        }, handleChangeShow: (bShow) => {
-                            setShowTrail((prev) => {
-                                prev = { ...prev };
-                                prev[trailIndex] = bShow;
-                                return prev;
-                            });
-                        }, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, handlePopOverTrailDelete: (id) => { props.handlePopOverTrailDelete(id); }, children: ShowTrail.length === 0 || ShowTrail[trailIndex] &&
-                            jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: (trailIndex + 1).toString(), direction: "horizontal", children: (provided) => {
-                                    return (jsxRuntime.jsxs(ContainerTrailsNormal, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course && trail.trail_course.map((el, courseTrailIndex) => {
-                                                        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: el.course.id.toString(), isDisabled: trail.active === false ? false : el.course.active, index: courseTrailIndex, title: el.course.title, variant: 'default', handleClickCourse: () => {
-                                                                    props.handleEditCourse(el.course.id);
-                                                                }, showSwitchIndividual: false, src: el.course.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.course.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.course.id); }, handleClickPopOverDelete: () => {
-                                                                    props.handleDeleteCourseTrail(el.course.id);
-                                                                }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `contentTrails${trailIndex}_course${courseTrailIndex}`) }));
-                                                    }) }) }), provided.placeholder] }, `contentTrailsDrop${trailIndex}`));
-                                } }) }, `contentTrails${trailIndex}`) }));
-            })] }));
+    React.useEffect(() => {
+        setIsLoading(props.isLoading);
+        console.log('props.isLoading', props);
+    }, [props.isLoading]);
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContentCourses, { TrailName: '', children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsx("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: IsLoading ?
+                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(LoadingContent$1, { style: { width: 200, height: 20 } }) })
+                                    :
+                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", props.courseData.length, " ", props.textRegistros ? props.textRegistros : 'registros'] }) })] }), jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: '0', direction: "horizontal", children: (provided) => {
+                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [console.log(props.isLoading), IsLoading ?
+                                                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] })
+                                                    :
+                                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { onClick: () => {
+                                                                        props.onNewTrail && props.onNewTrail();
+                                                                    }, style: { wordWrap: 'break-word' }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', isDisabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), props.courseData.map((el, contentIndex) => {
+                                                                    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { isDisabled: el.active, id: el.id.toString(), index: contentIndex, title: el.title, variant: 'default', handleSwitchAtivarIndividual: (checked) => {
+                                                                                props.handleSwitchAtivarIndividual(el.id, checked);
+                                                                            }, isIndividual: el.active_individual, showSwitchIndividual: true, src: el.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => { props.handleEditCourse(el.id); }, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.id); }, handleClickPopOverDelete: () => {
+                                                                                props.handleDeleteCourse(el.id);
+                                                                            }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `content${contentIndex}`) }));
+                                                                })] })] }) }), provided.placeholder] }));
+                        } })] }), !IsLoading &&
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyMyTrails, { children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), trails && trails.map((trail, trailIndex) => {
+                            return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { id: trail.id, TrailName: trail.name, ativo: trail.active, handleChangeCheck: (bActive) => {
+                                        if (props.handleSwitchActiveTrail) {
+                                            props.handleSwitchActiveTrail(trailIndex, bActive);
+                                        }
+                                    }, handleChangeTrailName: (name) => {
+                                        if (props.onSetNameTrail) {
+                                            props.onSetNameTrail(name, trailIndex);
+                                        }
+                                    }, handleChangeShow: (bShow) => {
+                                        setShowTrail((prev) => {
+                                            prev = { ...prev };
+                                            prev[trailIndex] = bShow;
+                                            return prev;
+                                        });
+                                    }, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, handlePopOverTrailDelete: (id) => { props.handlePopOverTrailDelete(id); }, children: ShowTrail.length === 0 || ShowTrail[trailIndex] &&
+                                        jsxRuntime.jsx(reactBeautifulDnd.Droppable, { droppableId: (trailIndex + 1).toString(), direction: "horizontal", children: (provided) => {
+                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course && trail.trail_course.map((el, courseTrailIndex) => {
+                                                                    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: el.course.id.toString(), isDisabled: trail.active === false ? false : el.course.active, index: courseTrailIndex, title: el.course.title, variant: 'default', handleClickCourse: () => {
+                                                                                props.handleEditCourse(el.course.id);
+                                                                            }, showSwitchIndividual: false, src: el.course.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.course.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.course.id); }, handleClickPopOverDelete: () => {
+                                                                                props.handleDeleteCourseTrail(el.course.id);
+                                                                            }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `contentTrails${trailIndex}_course${courseTrailIndex}`) }));
+                                                                }) }) }), provided.placeholder] }, `contentTrailsDrop${trailIndex}`));
+                                            } }) }, `contentTrails${trailIndex}`) }));
+                        })] })] }));
 }
 
 function AccordionTrackList({ trailsData, courseData, handleChange, onNewTrail, handleEditCourse, 
 // handlePopOverDelete,
-handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivarIndividual, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha }) {
+handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivarIndividual, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha, isLoading }) {
     const [trails, setTrails] = React.useState(trailsData);
     const [updateScrollSize, setUpdateScrollSize] = React.useState(0);
     const create_UUID = () => {
@@ -9310,7 +9337,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
                         if (onNewTrail) {
                             onNewTrail();
                         }
-                    }, handleSwitchAtivarIndividual: handleSwitchAtivarIndividual, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails })) }) }) }));
+                    }, handleSwitchAtivarIndividual: handleSwitchAtivarIndividual, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, isLoading: isLoading, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails })) }) }) }));
 }
 
 const Container$3 = styled__default["default"].div `
