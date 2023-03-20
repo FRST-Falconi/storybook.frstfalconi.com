@@ -16,6 +16,6 @@ export interface IContentThumbnails {
   variant?: enumVariant
   title?: string
   isOpen?: boolean
-  removeContentList?: () => void
+  removeContentList?: (item) => void
   onChangeOrder?: (listOrder) => void
 }

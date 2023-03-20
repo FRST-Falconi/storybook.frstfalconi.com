@@ -146,7 +146,7 @@ export default function ContentThumbnails({
                           {iconList[item.type]}
                           <Styles.Title >{item.title}</Styles.Title>
                         </div>
-                        <Styles.IconTrash className="trash" onClick={removeContentList}>
+                        <Styles.IconTrash className="trash" onClick={() => {removeContentList(item)}} >
                           <Icons.TrashIcon fill={'#C00F00'} />
                         </Styles.IconTrash>
                       </Styles.ContainerCard>
