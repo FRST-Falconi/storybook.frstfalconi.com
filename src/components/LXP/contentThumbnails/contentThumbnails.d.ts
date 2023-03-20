@@ -9,7 +9,7 @@ export interface IContentThumbnails {
   src?: string
   disabled?: boolean
   icon?: any
-  handleClick?: () => void
+  handleClick?: (item) => void
   onChange?: () => void
   handleReloadItens?: () => void
   contentList?: []

@@ -142,7 +142,7 @@ export default function ContentThumbnails({
                           <VectorEllipse />
                           <VectorEllipse />
                         </Styles.Thumbnails>
-                        <div onClick={handleClick} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer'}}>
+                        <div onClick={() => {handleClick(item)}} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer'}}>
                           {iconList[item.type]}
                           <Styles.Title >{item.title}</Styles.Title>
                         </div>
