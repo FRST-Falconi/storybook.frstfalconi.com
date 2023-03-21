@@ -221,13 +221,6 @@ export default function CardProblem(props: CardProblemProps) {
                         </div>
                 }
                 
-                { size[0] > BREAKWIDTH &&
-                    props.ratingImpacto &&
-                        <div className={style.avaliacao}>
-                            <Rating nomeAvaliacao={translate[languageSlected]['evaluation']} nota={props.ratingImpacto.nota} qtdeAvaliacao={props.ratingImpacto.qtdeAvaliacao} descricaoAvaliacao={props.ratingImpacto.description} titulo={translate[languageSlected]['impact']} tipoVisualizacao={selected ? 3 : 2} />
-                            <Rating  nomeAvaliacao={translate[languageSlected]['evaluation']} nota={props.ratingRelevancia.nota} qtdeAvaliacao={props.ratingRelevancia.qtdeAvaliacao} descricaoAvaliacao={props.ratingRelevancia.description} titulo={translate[languageSlected]['relevance']} tipoVisualizacao={selected ? 3 : 2} />
-                        </div>
-                }
                 {
                     statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?

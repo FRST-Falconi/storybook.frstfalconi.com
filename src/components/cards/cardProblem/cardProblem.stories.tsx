@@ -30,16 +30,6 @@ hipoteseLevantada.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aguardando',
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022',
@@ -58,16 +48,6 @@ finalizado.args = {
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
 
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aprovado',
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022'
@@ -86,16 +66,6 @@ proxPassos.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'revisar',
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022'
@@ -114,16 +84,6 @@ resultadosAprendizados.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aprovado',
     
     lastUpdated: 'Atualizado 30 de Abr. 2022'
@@ -142,17 +102,6 @@ testesRealizados.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
-    
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022'
 }
@@ -170,16 +119,6 @@ verificado.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aguardando',
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022',
@@ -205,16 +144,6 @@ problemaDefinido.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aguardando',
     
     lastUpdated: 'Atualizado 30 de Abr. 2022'

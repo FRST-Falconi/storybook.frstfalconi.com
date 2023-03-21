@@ -95,14 +95,6 @@
     flex-wrap: wrap;
 }
 
-.avaliacao {
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-   
-}
-
 .buttonVerMais {
     display: flex;
     justify-content: flex-start;
