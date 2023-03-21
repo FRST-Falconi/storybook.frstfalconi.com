@@ -30,7 +30,6 @@ interface CardProblemProps {
     problemStatus: string
     userAvatar?: string
     
-    tags?: string[]
     cardTitle?: string
     ratingImpacto?: any
     ratingRelevancia?: any 
@@ -221,19 +220,7 @@ export default function CardProblem(props: CardProblemProps) {
                             <span >{props.cardTitle}</span>
                         </div>
                 }
-                {
-                    props.tags &&
-                        <div className={style.tagsContainer}> 
-                                
-                            {
-                                props.tags.map((item, index) =>(
-                                    item &&
-                                    <Tag  title={item} color={'#050505'} selected={false} inverted={true} key={index} style={{fontWeight: 500, fontSize:14, marginRight: 8, marginTop: 8}} /> 
-                                ))
-
-                            }
-                        </div>
-                }
+                
                 { size[0] > BREAKWIDTH &&
                     props.ratingImpacto &&
                         <div className={style.avaliacao}>

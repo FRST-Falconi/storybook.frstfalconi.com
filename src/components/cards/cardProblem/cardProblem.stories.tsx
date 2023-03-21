@@ -30,7 +30,6 @@ hipoteseLevantada.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     ratingImpacto:{
         nota: 4.6,
         qtdeAvaliacao: 19,
@@ -59,7 +58,6 @@ finalizado.args = {
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
 
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     ratingImpacto:{
         nota: 4.6,
         qtdeAvaliacao: 19,
@@ -88,7 +86,6 @@ proxPassos.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     ratingImpacto:{
         nota: 4.6,
         qtdeAvaliacao: 19,
@@ -117,7 +114,6 @@ resultadosAprendizados.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     ratingImpacto:{
         nota: 4.6,
         qtdeAvaliacao: 19,
@@ -146,7 +142,6 @@ testesRealizados.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     ratingImpacto:{
         nota: 4.6,
         qtdeAvaliacao: 19,
@@ -175,7 +170,6 @@ verificado.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     ratingImpacto:{
         nota: 4.6,
         qtdeAvaliacao: 19,
@@ -211,7 +205,6 @@ problemaDefinido.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     ratingImpacto:{
         nota: 4.6,
         qtdeAvaliacao: 19,
