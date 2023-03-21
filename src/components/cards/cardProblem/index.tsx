@@ -1,6 +1,6 @@
 import '../../../shared/global.css'
 import { useState, useEffect, useLayoutEffect } from 'react'
-import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail } from '@shared/icons'
+import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail, SawBadgeIcon } from '@shared/icons'
 import Tag from '@components/tag'
 import style from './cardProblem.module.css'
 import Avatar from '../../avatar/index'
@@ -9,6 +9,8 @@ import Rating from '@components/cardLT/Rating'
 import MessageBox from '@components/cardLT/MessageBox'
 import TextIcon from '@components/cardLT/TextIcon'
 import Button from '@components/buttons'
+import { dividerClasses } from '@mui/material'
+import Tooltip from '@components/DS/tooltip'
 
 
 
@@ -38,6 +40,8 @@ interface CardProblemProps {
     statusProblema?: string
     trilhaVinculada?: string
     lastUpdated?: string
+    isVerified?: boolean
+    verifiedTooltipContent?:any
 }
 
 
@@ -187,7 +191,30 @@ export default function CardProblem(props: CardProblemProps) {
                         <span style={{fontSize:14, fontWeight:400}}>{props.userCargo}</span>
                     </div>
                 </div>
-                
+
+                {
+                    props.isVerified ?
+                         <Tooltip
+                            direction="bottom"
+                            content={props.verifiedTooltipContent}
+                            trigger='hover'
+                            width='361px'
+                            height='54px'
+                            style={{ top: '10px', textAlign: 'center' }}
+                        >
+                           <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#000' , width: '100%'}}> 
+                            <span >Desafio verificado</span>
+                        </div>
+                            <SawBadgeIcon/>
+                        </Tooltip>
+
+                        :
+                            <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#000' , width: '100%'}}> 
+                                <span >Desafio</span>
+                            </div>
+
+                }
+
                 {    
                     props.cardTitle &&
                         <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#FF4D0D' , width: '100%'}}> 
