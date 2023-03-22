@@ -1926,7 +1926,17 @@ function MessageBox(props) {
                     cursor: props.onClick ? 'pointer' : 'default',
                     ...props.style
                 }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$9.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
-                jsxRuntime.jsxs("div", { style: { display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 32, marginTop: 16, cursor: 'pointer' }, onClick: props.onClickExit, children: [" ", jsxRuntime.jsx(CloseIcon, {}), " "] })] }));
+                jsxRuntime.jsxs("div", { style: {
+                        display: 'inline-flex',
+                        position: 'absolute',
+                        width: '40px',
+                        height: '100%',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        right: 0,
+                        top: 0,
+                        cursor: 'pointer'
+                    }, onClick: props.onClickExit, children: [" ", jsxRuntime.jsx(CloseIcon, { width: '9' }), " "] })] }));
 }
 
 const ButtonGroupWrapper = styled__default["default"].div `
