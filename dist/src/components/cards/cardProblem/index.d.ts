@@ -14,16 +14,15 @@ interface CardProblemProps {
     */
     problemStatus: string;
     userAvatar?: string;
-    tags?: string[];
     cardTitle?: string;
-    ratingImpacto?: any;
-    ratingRelevancia?: any;
     /**
         * @prop {string} statusProblema: Qual o status do problema (aprovado, revisar ou aguardando)
     */
     statusProblema?: string;
     trilhaVinculada?: string;
     lastUpdated?: string;
+    isVerified?: boolean;
+    verifiedTooltipContent?: any;
 }
 /**
  * @param {CardProblemProps} props
