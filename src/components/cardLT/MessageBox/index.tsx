@@ -106,7 +106,16 @@ export default function MessageBox(props: MessageBoxParams): any {
         </div>
       </div>
       {props.hasClickExit &&
-        <div style={{ display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 32, marginTop: 16, cursor: 'pointer' }} onClick={props.onClickExit}> <CloseIcon /> </div>
+        <div style={{ 
+          display: 'inline-flex', 
+          position: 'absolute', 
+          width: '40px',
+          height: '100%',
+          justifyContent: 'center',
+          alignItems: 'center',
+          right: 0, 
+          top: 0, 
+          cursor: 'pointer' }} onClick={props.onClickExit}> <CloseIcon width='9' /> </div>
       }
     </div>
   )
