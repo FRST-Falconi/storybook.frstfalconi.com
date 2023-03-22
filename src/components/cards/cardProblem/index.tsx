@@ -63,7 +63,11 @@ const translate = {
         'linkedTrail':'Vinculado à trilha',
         'notLinkedTrail': 'Ainda não está vinculado a uma trilha',
 
+        'verifiedChallenge': 'Desafio verificado',
+        'challenge': 'Desafio',
+
         'viewMore': 'Ver mais',
+        
     },
     'en-US': {
         'notStarted': 'Not started',
@@ -85,6 +89,9 @@ const translate = {
 
         'linkedTrail':'Linked to trail',
         'notLinkedTrail': 'Not yet linked to a trail',
+
+        'verifiedChallenge': 'Verified Challenge',
+        'challenge': 'Challenge',
 
         'viewMore': 'View more',
     },
@@ -108,6 +115,10 @@ const translate = {
 
         'linkedTrail':'Vinculado a sendero',
         'notLinkedTrail': 'Aún no vinculado a un sendero',
+
+        'verifiedChallenge': 'Desafío verificado',
+        'challenge': 'Desafío',
+
         'viewMore': 'Ver más',
     }
 }
@@ -199,14 +210,14 @@ export default function CardProblem(props: CardProblemProps) {
                             style={{ top: '10px', textAlign: 'center' }}
                         >
                            <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#000' , width: '100%'}}> 
-                            <span >Desafio verificado</span>
+                            <span >{translate[languageSlected]['verifiedChallenge']}</span>
                         </div>
-                            <SawBadgeIcon/>
+                            <SawBadgeIcon />
                         </Tooltip>
 
                         :
                             <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#000' , width: '100%'}}> 
-                                <span >Desafio</span>
+                                <span >{translate[languageSlected]['challenge']}</span>
                             </div>
 
                 }
