@@ -22,7 +22,6 @@ interface CardProblemProps {
     trilhaVinculada?: string;
     lastUpdated?: string;
     isVerified?: boolean;
-    verifiedTooltipContent?: any;
 }
 /**
  * @param {CardProblemProps} props
