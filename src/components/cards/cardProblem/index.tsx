@@ -1,16 +1,14 @@
 import '../../../shared/global.css'
 import { useState, useEffect, useLayoutEffect } from 'react'
-import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail, SawBadgeIcon } from '@shared/icons'
-import Tag from '@components/tag'
+import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail, SawBadgeIcon} from '@shared/icons'
 import style from './cardProblem.module.css'
 import Avatar from '../../avatar/index'
+import {Tooltip} from '../../../../index'
 import RocketButton from '@components/cardLT/RocketButton'
-import Rating from '@components/cardLT/Rating'
 import MessageBox from '@components/cardLT/MessageBox'
 import TextIcon from '@components/cardLT/TextIcon'
 import Button from '@components/buttons'
 import { dividerClasses } from '@mui/material'
-import Tooltip from '@components/DS/tooltip'
 import { Padding } from '@mui/icons-material'
 
 
@@ -32,8 +30,6 @@ interface CardProblemProps {
     userAvatar?: string
     
     cardTitle?: string
-    ratingImpacto?: any
-    ratingRelevancia?: any 
     /**
         * @prop {string} statusProblema: Qual o status do problema (aprovado, revisar ou aguardando)
     */
