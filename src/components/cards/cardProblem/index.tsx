@@ -209,14 +209,14 @@ export default function CardProblem(props: CardProblemProps) {
                             height='54px'
                             style={{ top: '10px', textAlign: 'center' }}
                         >
-                           <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#000' , width: '100%'}}> 
+                           <div style={ {color: selected ? '#FFF' : '#000' , width: '100%', fontWeight:700}}> 
                             <span >{translate[languageSlected]['verifiedChallenge']}</span>
                         </div>
                             <SawBadgeIcon />
                         </Tooltip>
 
                         :
-                            <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#000' , width: '100%'}}> 
+                            <div  style={ {color: selected ? '#FFF' : '#000' , width: '100%', fontWeight:700}}> 
                                 <span >{translate[languageSlected]['challenge']}</span>
                             </div>
 
