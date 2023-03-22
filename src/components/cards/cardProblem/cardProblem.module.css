@@ -1,12 +1,12 @@
 .container {
     width: 100%;
     border-radius: 10px;
-    padding-right: 48px;
+    padding-right: 24px;
     padding-left: 48px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 24px;
 
-    
+
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
@@ -36,14 +36,14 @@
 }
 
 .checkBox {
-    
+
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     height: 100%;
-    padding-top: 20px;
+    padding-top: 12px;
     padding-left: 30px;
-    
+
 
     position: absolute;
     left: 0;
@@ -51,7 +51,7 @@
 }
 
 .contentCard {
-    
+
     margin-left: 8px;
     display: flex;
     justify-content: center;
@@ -64,6 +64,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 24px;
+
 }
 
 .infoUser {
@@ -75,8 +77,9 @@
 }
 
 .tituloCard {
-    
+
     margin-top: 4px;
+    margin-bottom: 8px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -87,8 +90,8 @@
 }
 
 .tagsContainer {
-    
-    
+
+
     display: flex;
     justify-content: flex-start;
     align-items: center;

@@ -11,6 +11,7 @@ import TextIcon from '@components/cardLT/TextIcon'
 import Button from '@components/buttons'
 import { dividerClasses } from '@mui/material'
 import Tooltip from '@components/DS/tooltip'
+import { Padding } from '@mui/icons-material'
 
 
 
@@ -225,7 +226,7 @@ export default function CardProblem(props: CardProblemProps) {
                 {
                     statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
-                            <TextIcon description={`${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`} svg={<WithTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
+                            <TextIcon description={`${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`} svg={<WithTrail />} style={{fontSize: 12, fontWeight: 400, marginTop: 8 }}/>
                         :
                         <TextIcon description={translate[languageSlected]['notLinkedTrail']} svg={<WithoutTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
                     :
@@ -233,7 +234,7 @@ export default function CardProblem(props: CardProblemProps) {
                 }
                 {
                     props.lastUpdated &&
-                        <div style={{color: '#000', fontSize: 12, fontWeight: 400, marginTop:8}}>{props.lastUpdated} </div>
+                        <div style={{color: '#000', fontSize: 12, fontWeight: 400, marginTop:40}}>{props.lastUpdated} </div>
                 }
 
                 {
