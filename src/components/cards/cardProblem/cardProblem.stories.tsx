@@ -125,8 +125,6 @@ verificado.args = {
     isButtonVerMais: true,
     onClick: (problemID) => { alert(problemID)},
     isVerified: true,
-    verifiedTooltipContent: 'Este desafio consta como verificado pois o objetivo dele está alinhado às metas da empresa a qual ele pertence'
-
 
 }
 

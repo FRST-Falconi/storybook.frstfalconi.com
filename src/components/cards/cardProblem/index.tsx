@@ -1,9 +1,8 @@
 import '../../../shared/global.css'
 import { useState, useEffect, useLayoutEffect } from 'react'
-import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail, SawBadgeIcon} from '@shared/icons'
+import { EditIcon, CheckboxChecked, CheckboxEmpty, WithTrail, WithoutTrail, SawBadgeIcon } from '@shared/icons'
 import style from './cardProblem.module.css'
 import Avatar from '../../avatar/index'
-import {Tooltip} from '../../../../index'
 import RocketButton from '@components/cardLT/RocketButton'
 import MessageBox from '@components/cardLT/MessageBox'
 import TextIcon from '@components/cardLT/TextIcon'
@@ -14,7 +13,7 @@ import { Padding } from '@mui/icons-material'
 
 
 interface CardProblemProps {
-    
+
     selected: boolean
     language: string,
     isButtonVerMais: boolean
@@ -28,7 +27,7 @@ interface CardProblemProps {
     */
     problemStatus: string
     userAvatar?: string
-    
+
     cardTitle?: string
     /**
         * @prop {string} statusProblema: Qual o status do problema (aprovado, revisar ou aguardando)
@@ -37,7 +36,6 @@ interface CardProblemProps {
     trilhaVinculada?: string
     lastUpdated?: string
     isVerified?: boolean
-    verifiedTooltipContent?:any
 }
 
 
@@ -60,14 +58,14 @@ const translate = {
         'reviewProblem': 'Revisar problema proposto',
         'waitingApproval': 'Aguardando aprovação',
 
-        'linkedTrail':'Vinculado à trilha',
+        'linkedTrail': 'Vinculado à trilha',
         'notLinkedTrail': 'Ainda não está vinculado a uma trilha',
 
         'verifiedChallenge': 'Desafio verificado',
         'challenge': 'Desafio',
 
         'viewMore': 'Ver mais',
-        
+
     },
     'en-US': {
         'notStarted': 'Not started',
@@ -87,7 +85,7 @@ const translate = {
         'reviewProblem': 'Review proposed problem',
         'waitingApproval': 'Waiting for approval',
 
-        'linkedTrail':'Linked to trail',
+        'linkedTrail': 'Linked to trail',
         'notLinkedTrail': 'Not yet linked to a trail',
 
         'verifiedChallenge': 'Verified Challenge',
@@ -113,7 +111,7 @@ const translate = {
         'reviewProblem': 'Revisar el problema propuesto',
         'waitingApproval': 'Aguardando aprobación',
 
-        'linkedTrail':'Vinculado a sendero',
+        'linkedTrail': 'Vinculado a sendero',
         'notLinkedTrail': 'Aún no vinculado a un sendero',
 
         'verifiedChallenge': 'Desafío verificado',
@@ -140,7 +138,7 @@ export default function CardProblem(props: CardProblemProps) {
     const [statusName, setStatusName] = useState(translate[languageSlected]['notStarted'])
     const [selected, setSelected] = useState(props.selected)
 
-    
+
 
     const [statusColor, setStatusColor] = useState('#757575')
 
@@ -165,95 +163,89 @@ export default function CardProblem(props: CardProblemProps) {
     const [size, setSize] = useState([0, 0])
     useLayoutEffect(() => {
         function updateSize() {
-        setSize([window.innerWidth, window.innerHeight]);
+            setSize([window.innerWidth, window.innerHeight]);
         }
         window.addEventListener('resize', updateSize);
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    
+
     const BREAKWIDTH = 450;
-    
+
     return (
-        
-        <div className={style.container} style={{border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }}>
-            <div className={style.tagStatusProblem} style={{background: statusColor, color: statusName===translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF'}}>
+
+        <div className={style.container} style={{ border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }}>
+            <div className={style.tagStatusProblem} style={{ background: statusColor, color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF' }}>
                 {statusName}
             </div>
-            
-            <div className={style.checkBox} onClick={()=>
-                {
-                    props.handleSelect(props.problemID)
-                }}>
 
-                { selected ? <CheckboxChecked /> : <CheckboxEmpty />}
-                
+            <div className={style.checkBox} onClick={() => {
+                props.handleSelect(props.problemID)
+            }}>
+
+                {selected ? <CheckboxChecked /> : <CheckboxEmpty />}
+
             </div>
-            <div className={style.contentCard}  onClick={()=> {props.onClick(props.problemID) }} >
-                
+            <div className={style.contentCard} onClick={() => { props.onClick(props.problemID) }} >
+
                 <div className={style.avatarInfoUser}>
                     <div> <Avatar size='40px' src={props.userAvatar} /> </div>
-                    <div className={style.infoUser}> 
-                        <span style={{fontSize:16, fontWeight:600}}>{props.userName}</span> 
-                        <span style={{fontSize:14, fontWeight:400}}>{props.userCargo}</span>
+                    <div className={style.infoUser}>
+                        <span style={{ fontSize: 16, fontWeight: 600 }}>{props.userName}</span>
+                        <span style={{ fontSize: 14, fontWeight: 400 }}>{props.userCargo}</span>
                     </div>
                 </div>
 
                 {
                     props.isVerified ?
-                         <Tooltip
-                            direction="bottom"
-                            content={props.verifiedTooltipContent}
-                            trigger='hover'
-                            width='361px'
-                            height='54px'
-                            style={{ top: '10px', textAlign: 'center' }}
-                        >
-                           <div style={ {color: selected ? '#FFF' : '#000' , width: '100%', fontWeight:700}}> 
-                            <span >{translate[languageSlected]['verifiedChallenge']}</span>
-                        </div>
+                        <div
+                            style={{ textAlign: 'center', display:'flex' }}
+                         >
+                            <div style={{ color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }}>
+                                <span >{translate[languageSlected]['verifiedChallenge']}</span>
+                            </div>
                             <SawBadgeIcon />
-                        </Tooltip>
+                        </div>
 
                         :
-                            <div  style={ {color: selected ? '#FFF' : '#000' , width: '100%', fontWeight:700}}> 
-                                <span >{translate[languageSlected]['challenge']}</span>
-                            </div>
-
-                }
-
-                {    
-                    props.cardTitle &&
-                        <div className={style.tituloCard} style={ {color: selected ? '#FFF' : '#FF4D0D' , width: '100%'}}> 
-                            <span >{props.cardTitle}</span>
+                        <div style={{ color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }}>
+                            <span >{translate[languageSlected]['challenge']}</span>
                         </div>
+
                 }
-                
+
+                {
+                    props.cardTitle &&
+                    <div className={style.tituloCard} style={{ color: selected ? '#FFF' : '#FF4D0D', width: '100%' }}>
+                        <span >{props.cardTitle}</span>
+                    </div>
+                }
+
 
                 {
                     statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
-                            <TextIcon description={`${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`} svg={<WithTrail />} style={{fontSize: 12, fontWeight: 400, marginTop: 8 }}/>
+                            <TextIcon description={`${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`} svg={<WithTrail />} style={{ fontSize: 12, fontWeight: 400, marginTop: 8 }} />
+                            :
+                            <TextIcon description={translate[languageSlected]['notLinkedTrail']} svg={<WithoutTrail />} style={{ fontSize: 12, fontWeight: 400, marginTop: 8 }} />
                         :
-                        <TextIcon description={translate[languageSlected]['notLinkedTrail']} svg={<WithoutTrail />} style={{fontSize: 12, fontWeight: 400, marginTop:8 }}/>
-                    :
-                    <></>
+                        <></>
                 }
                 {
                     props.lastUpdated &&
-                        <div style={{color: '#000', fontSize: 12, fontWeight: 400, marginTop:40}}>{props.lastUpdated} </div>
+                    <div style={{ color: '#000', fontSize: 12, fontWeight: 400, marginTop: 40 }}>{props.lastUpdated} </div>
                 }
 
                 {
                     props.isButtonVerMais &&
-                        <div className={style.buttonVerMais} >
-                            <Button variant='link' label={translate[languageSlected]['viewMore']} handleClick={() => props.onClick(props.problemID)} />
+                    <div className={style.buttonVerMais} >
+                        <Button variant='link' label={translate[languageSlected]['viewMore']} handleClick={() => props.onClick(props.problemID)} />
 
-                        </div>
+                    </div>
                 }
-                
+
             </div>
-            
+
         </div>
     )
 }
