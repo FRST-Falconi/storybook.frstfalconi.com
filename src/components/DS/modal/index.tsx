@@ -86,7 +86,9 @@ export default function Modal({
               {showCloseButton === true && (
                 <ModalCloseButton onClick={(e: MouseEvent) => handleClose(e)}>
                   {headerContent && headerContent}
-                  <CloseIcon onClick={(e: MouseEvent) => handleCloseOnIcon() ?? handleClose(e)} />
+                  <span onClick={(e: MouseEvent) => (handleCloseOnIcon ? handleCloseOnIcon() : handleClose(e))}>
+                    <CloseIcon />
+                  </span>
                 </ModalCloseButton>
               )}
             </ModalHeader>
