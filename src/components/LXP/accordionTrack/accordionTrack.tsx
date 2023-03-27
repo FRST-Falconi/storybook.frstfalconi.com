@@ -41,7 +41,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
   useEffect(() => {
     setIsLoading(props.isLoading)
-    console.log('props.isLoading', props)
   }, [props.isLoading])
 
   return (
@@ -87,7 +86,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   refreshResize={props.updateScrollSize}
                 >
                   <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                    {console.log(props.isLoading)}
                     {
                       IsLoading ?
                       <>
