@@ -35,14 +35,14 @@ export default function Thumbnails({
 }: IThumbnailsTranslate) {
 
   const defaultImg = "https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png"
-  const [ativo, setAtivo] = useState<boolean>(!isDisabled)
+  const [ativo, setAtivo] = useState<boolean>(isDisabled)
   const [individual, setIndividual] = useState<boolean>(isIndividual ? isIndividual : false)
   const [showModules, setShowModules] = useState<boolean>(false)
   const [ElementPopover, setElementPopover] = useState(null);
   const [Loading, setLoading] = useState(isLoading);
 
   useEffect (() => {
-    setAtivo(!isDisabled)
+    setAtivo(isDisabled)
   }, [isDisabled])
 
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function Thumbnails({
             {Loading ?
               <Styles.LoadingContainer>
                 <Styles.LoadingImage/>
-                <Styles.LoadingContent />
+                <Styles.LoadingContent/>
                 <Styles.LoadingContent style={{width: '50%'}} />
               </Styles.LoadingContainer>
               :

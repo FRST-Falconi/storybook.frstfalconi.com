@@ -50,13 +50,13 @@ const courses = [
       ]
    },
    "settings":{
-      "cover_full_url":"https://lxp-cdn.dev.frstfalconi.cloud/yin-yang-o-que-e-e-como-usa-lo-para-garantir-o-bem-estar-fisico-e-mental.png",
-      "cover_thumb_url":"https://lxp-cdn.dev.frstfalconi.cloud/yin-yang-o-que-e-e-como-usa-lo-para-garantir-o-bem-estar-fisico-e-mental.png",
+      "cover_full_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
+      "cover_thumb_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
       "cover_video_url":""
    },
    "excluded":false,
    "private":false,
-   "active":true,
+   "active":false,
    "active_individual":false,
    "channel":104
 },

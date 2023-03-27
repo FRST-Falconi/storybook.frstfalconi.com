@@ -32,7 +32,7 @@ export default function ThumbnailsDraggable({
   return (
     <>    
       <Draggable
-        key={id.toString()}
+        key={id}
         index={index}
         draggableId={id}
       >

@@ -9,12 +9,23 @@ import { Droppable } from 'react-beautiful-dnd'
 import ContentCoursesTrails from './contentCoursesTrails'
 import ContentCourses from './contentCourses'
 import { use } from 'i18next'
+import React from 'react'
 
 export default function AccordionTrack(props: IAccordionTranslate) {
 
   const [trails, setTrail] = useState(props.trailsData)
   const [ShowTrail, setShowTrail] = useState([]);
   const [IsLoading, setIsLoading] = useState<boolean>(props.isLoading);
+
+  const create_UUID = () => {
+    var dt = new Date().getTime()
+    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      var r = (dt + Math.random() * 16) % 16 | 0
+      dt = Math.floor(dt / 16)
+      return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16)
+    })
+    return uuid
+  }
   
   useEffect(()=>{
     if (Array.isArray(props.trailsData)) {
@@ -39,7 +50,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
       //----------------------------------------------------------------------------
       // Carregamento de Cursos individuais
       //---------------------------------------------------------------------------- 
-      */}
+    */}
+      <React.StrictMode>
       <ContentCourses TrailName={''}>
         <div>
           <Styles.TypographyMyContents>
@@ -117,7 +129,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 <ThumbnailsDraggable
                                   isDisabled={el.active}
                                   key={`content${contentIndex}`}
-                                  id={el.id.toString()}
+                                  id={`content${contentIndex}`}
                                   index={contentIndex}
                                   title={el.title}
                                   variant={'default'}
@@ -172,7 +184,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                 <>              
                   <ContentCoursesTrails
                     key={`contentTrails${trailIndex}`}
-                    id={trail.id}
+                    id={`contentTrails${trailIndex}`}
                     TrailName={trail.name}
                     ativo={trail.active}
                     handleChangeCheck={(bActive: boolean) => {
@@ -221,7 +233,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                         <>
                                           <ThumbnailsDraggable
                                             key={`contentTrails${trailIndex}_course${courseTrailIndex}`}                                        
-                                            id={el.course.id.toString()}
+                                            id={`contentTrails${trailIndex}_course${courseTrailIndex}`}                                        
                                             isDisabled={trail.active === false ? false : el.course.active}
                                             index={courseTrailIndex}
                                             title={el.course.title}
@@ -264,7 +276,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
           }
         </>        
       }        
-
+      </React.StrictMode>
     </>
   )
 }
