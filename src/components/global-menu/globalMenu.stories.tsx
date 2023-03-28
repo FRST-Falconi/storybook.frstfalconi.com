@@ -64,6 +64,7 @@ normal.args = {
   },
   showSearchField: true,
   search: {
+    
     label: 'O que você busca?',
     loading: false,
     onFilter: (e) => console.log('Valor pesquisado', e),
