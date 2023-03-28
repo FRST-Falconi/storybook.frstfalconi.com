@@ -289,7 +289,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
 
               </div>
               { size[0] <= MOBILEWIDTH || Edit ? 
-                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}}>
+                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}} >
                     <Rating 
                       titulo={props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto'}
                       descricaoAvaliacao={props.descriptionImpacto}
@@ -335,7 +335,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
             </div>
 
             { size[0] > MOBILEWIDTH && Edit === false ?
-              <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
+              <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}} id='avaliations-banner-problem'>
                 <Rating 
                   titulo={props.ratingTitleImpact ? props.ratingTitleImpact :'Impacto'}
                   descricaoAvaliacao={props.descriptionImpacto}

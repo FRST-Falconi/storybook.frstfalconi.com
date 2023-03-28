@@ -71,7 +71,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <div style={{position: 'relative'}}>
+            <div style={{position: 'relative'}} id='bar-search-global-menu'>
             { variant == 'LXP' ?
                 <Container
                     onMouseOver={() => setActionAreaInput(true)}

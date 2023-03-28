@@ -63,8 +63,9 @@ export default function ModalVideo(props: ModalVideoProps) {
   }, [props.rating])
 
   return (
-    <Modal open={props.open} onClose={props.handleClose}>
+    <Modal open={props.open} onClose={props.handleClose} >
       <Box
+      id={`modal-video${(props.title? props.title : '').replace(/( )+/g, '')}`}
         className={style.modalBox}
         style={{
           top: '50%',

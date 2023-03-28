@@ -1,5 +1,5 @@
 /// <reference types="react" />
-type enumTypeButton = 'primary' | 'secondary' | 'link';
+declare type enumTypeButton = 'primary' | 'secondary' | 'link';
 interface ModalLearningTechProps {
     open: boolean;
     title?: string;
