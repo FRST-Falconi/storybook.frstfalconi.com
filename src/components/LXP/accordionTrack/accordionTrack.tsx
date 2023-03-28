@@ -85,6 +85,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   styles={{ justifyContent: 'flex-start', width: '100%' }}
                   refreshResize={props.updateScrollSize}
                 >
+                  
                   <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                     {
                       IsLoading ?
