@@ -51,7 +51,7 @@ interface IPostFeed{
 }
 
 export default function PostFeed( props : IPostFeed ){
-    const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png'
+    const FRSTAvatar = 'https://api-deimos-cdn.frstfalconi.cloud/logo_first.png'
 
     const [isVisibleComments, setIsVisibleComments] = useState(props.isVisibleComments)
     const [ actionArea, setActionArea] = useState(false)
