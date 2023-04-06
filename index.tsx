@@ -148,3 +148,6 @@ export { default as ParticipantCard } from './src/components/IJ/participantCard'
 
 // TP
 export { default as HeaderChallenge } from './src/components/headerChallenge'
+
+// Hall
+export { default as LogoFRST} from './src/components/LogoFRST'
