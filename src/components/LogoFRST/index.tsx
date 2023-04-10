@@ -1,30 +1,30 @@
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
-import LogoLight from "./frst_branco 1.png"
-import LogoDark from "./logofrst_black.png"
 import style from "./logoFRST.module.css"
 
 interface ILogoFRST {
-  variant: string;
+  variant: string 
+  title1Logo?: string
+  title2Logo?: string
 }
 
-export default function LogoFRST({ variant }: ILogoFRST) {
+export default function LogoFRST(props: ILogoFRST) {
    
     return (
         <ThemeProvider theme={FRSTTheme}>
-          {variant === 'light' ? (
+          {props.variant === 'light' ? (
           <div className={style.containerLight} >
-            <img src={LogoLight} alt='LogoFRST'  width={198} height={64}/>
-            <p>Pessoas transformam o jogo,</p>
-            <p>Resultados transformam as pessoas.</p>
+            <img src="https://api-deimos-cdn.frstfalconi.cloud/frst_branco_1.png" alt='LogoFRST'  width={198} height={64}/>
+            <p>{props.title1Logo ? props.title1Logo : 'Pessoas transformam o jogo,'}</p> 
+            <p>{props.title2Logo ? props.title2Logo : 'Resultados transformam as pessoas.'}</p>           
           </div> 
           )
-         : variant === 'dark' ? (
+         : props.variant === 'dark' ? (
          <div className={style.containerDark} >
-            <img src={LogoDark} alt='LogoFRST'  width={198} height={64}/>
-            <p>Pessoas transformam o jogo,</p>
-            <p>Resultados transformam as pessoas.</p>
+            <img src="https://api-deimos-cdn.frstfalconi.cloud/logofrst_black.png" alt='LogoFRST'  width={198} height={64}/>
+            <p>{props.title1Logo ? props.title1Logo : 'Pessoas transformam o jogo,'}</p> 
+            <p>{props.title2Logo ? props.title2Logo : 'Resultados transformam as pessoas.'}</p>          
           </div>
          )
          :null

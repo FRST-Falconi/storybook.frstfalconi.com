@@ -82,4 +82,5 @@ export { default as ThumbListContent } from './src/components/IJ/thumbListConten
 export { default as ListSelector } from './src/components/IJ/listSelector';
 export { default as ParticipantCard } from './src/components/IJ/participantCard';
 export { default as HeaderChallenge } from './src/components/headerChallenge';
+export { default as LogoFRST } from './src/components/LogoFRST';
 //# sourceMappingURL=index.d.ts.map
