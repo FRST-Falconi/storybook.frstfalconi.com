@@ -21,4 +21,18 @@ LogoDark.args = {
     variant: 'dark',
 }
 
+export const LogoLightTranslate = Template.bind({})
+LogoLightTranslate.args = {
+    variant: 'light',
+    title1Logo: 'People transform the game,',
+    title2Logo: 'Results transform people.'
+}
+
+export const LogoDarkTranslate = Template.bind({})
+LogoDarkTranslate.args = {
+    variant: 'dark',
+    title1Logo: 'People transform the game,',
+    title2Logo: 'Results transform people.'
+}
+
 
