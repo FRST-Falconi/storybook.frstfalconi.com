@@ -9864,14 +9864,14 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
                     }, children: itemSelected && (jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: itemSelected.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: itemSelected.imgThumbnails ? itemSelected.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: itemSelected.titleThumbnail }), jsxRuntime.jsx("p", { children: itemSelected.descpThumbnail })] })] })) }) }))] }));
 }
 function ParticipantThumbnails({ listThumbnails }) {
-    const [width, setWidth] = React.useState(window.innerWidth);
+    const [width, setWidth] = React.useState(typeof window !== "undefined" && window.innerWidth);
     function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
+        setWidth(typeof window !== "undefined" && window.innerWidth);
     }
     React.useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
+        typeof window !== "undefined" && window.addEventListener('resize', handleWindowSizeChange);
         return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
+            typeof window !== "undefined" && window.removeEventListener('resize', handleWindowSizeChange);
         };
     }, []);
     if (width <= 834) {
