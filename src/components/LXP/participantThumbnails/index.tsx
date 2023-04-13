@@ -109,15 +109,15 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
 }
 
 export default function ParticipantThumbnails({ listThumbnails }: ParticipantThumbnails) {
-  const [width, setWidth] = useState<number>(window.innerWidth)
+  const [width, setWidth] = useState<number>(typeof window !== "undefined" && window.innerWidth)
 
   function handleWindowSizeChange() {
-    setWidth(window.innerWidth)
+    setWidth(typeof window !== "undefined" && window.innerWidth)
   }
   useEffect(() => {
-    window.addEventListener('resize', handleWindowSizeChange)
+    typeof window !== "undefined" && window.addEventListener('resize', handleWindowSizeChange)
     return () => {
-      window.removeEventListener('resize', handleWindowSizeChange)
+      typeof window !== "undefined" && window.removeEventListener('resize', handleWindowSizeChange)
     }
   }, [])
 
