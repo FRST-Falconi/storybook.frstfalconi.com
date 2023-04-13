@@ -55,6 +55,7 @@ export interface IAccordionTrack {
     handlePopOverDuplicate?: (id: string) => void
     handlePopOverTrailEdit?: (id: string) => void
     handlePopOverTrailDelete?: (id: string) => void
+    handlePopOverRemoveIndividual?: (id: string) => void
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
@@ -74,5 +75,6 @@ export interface IAccordionTranslate extends IAccordionTrack {
     txtTrailsPopOverDuplicar?: string
     txtTrailsPopOverDelete?: string
     txtPlacerolderInputNameTrail?: string
+    txtCursoIndividual?: string
 }
 

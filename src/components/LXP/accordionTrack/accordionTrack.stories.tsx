@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { v4 } from 'uuid'
 import AccordionTrackList from './accordionTrackList'
 
@@ -9,83 +9,82 @@ export default {
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <AccordionTrackList {...args} />
+const Template = (args) => {
+  // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+  const [Course, setCourse] = useState([
+    {
+    "id":63,
+    "uuid":"1b7179d4-b264-44ea-ae09-8c8b38994a4d",
+    "title":"Curso de HTML 5",
+    "language":"pt-br",
+    "desc":"Description content",
+    "tags":{
+        "custom":"#tag",
+        "category":[
+          "Gestão",
+          "Liderança"
+        ]
+    },
+    "settings":{
+        "cover_full_url":"",
+        "cover_thumb_url":"",
+        "cover_video_url":""
+    },
+    "excluded":false,
+    "private":false,
+    "active":true,
+    "active_individual":true,
+    "channel":104
+    },
+    {
+    "id":82,
+    "uuid":"63552d66-468e-4c44-87f8-7dca992d9dd9",
+    "title":"Entendendo funções recursivas",
+    "language":"pt-br",
+    "desc":"descrição",
+    "tags":{
+        "custom":"#tags",
+        "category":[
+          "Gestão"
+        ]
+    },
+    "settings":{
+        "cover_full_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
+        "cover_thumb_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
+        "cover_video_url":""
+    },
+    "excluded":false,
+    "private":false,
+    "active":true,
+    "active_individual":false,
+    "channel":104
+    },
+    {
+    "id":87,
+    "uuid":"89f06dc7-82b7-475f-aae0-f3d6b02bc9dc",
+    "title":"Conteúdo para deletar",
+    "language":"pt-br",
+    "desc":"teste",
+    "tags":{
+        "custom":"#a",
+        "category":[
+          "Gestão"
+        ]
+    },
+    "settings":{
+        "cover_full_url":"",
+        "cover_thumb_url":"",
+        "cover_video_url":""
+    },
+    "excluded":false,
+    "private":false,
+    "active":false,
+    "active_individual":false,
+    "channel":104
+    }
+  ])
 
-/// Mesmo payload da API do LXP
-const courses = [
-{
-   "id":63,
-   "uuid":"1b7179d4-b264-44ea-ae09-8c8b38994a4d",
-   "title":"Curso de HTML 5",
-   "language":"pt-br",
-   "desc":"Description content",
-   "tags":{
-      "custom":"#tag",
-      "category":[
-         "Gestão",
-         "Liderança"
-      ]
-   },
-   "settings":{
-      "cover_full_url":"",
-      "cover_thumb_url":"",
-      "cover_video_url":""
-   },
-   "excluded":false,
-   "private":false,
-   "active":true,
-   "active_individual":true,
-   "channel":104
-},
-{
-   "id":82,
-   "uuid":"63552d66-468e-4c44-87f8-7dca992d9dd9",
-   "title":"conteúdo de teste",
-   "language":"pt-br",
-   "desc":"descrição",
-   "tags":{
-      "custom":"#tags",
-      "category":[
-         "Gestão"
-      ]
-   },
-   "settings":{
-      "cover_full_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
-      "cover_thumb_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
-      "cover_video_url":""
-   },
-   "excluded":false,
-   "private":false,
-   "active":false,
-   "active_individual":false,
-   "channel":104
-},
-{
-   "id":87,
-   "uuid":"89f06dc7-82b7-475f-aae0-f3d6b02bc9dc",
-   "title":"Conteúdo para deletar",
-   "language":"pt-br",
-   "desc":"teste",
-   "tags":{
-      "custom":"#a",
-      "category":[
-         "Gestão"
-      ]
-   },
-   "settings":{
-      "cover_full_url":"",
-      "cover_thumb_url":"",
-      "cover_video_url":""
-   },
-   "excluded":false,
-   "private":false,
-   "active":false,
-   "active_individual":false,
-   "channel":104
-}
-]
-
-var trailCourse = [
+  const [Trail, setTrail] = useState([
   {
     "id": 174,
     "uuid": "10e6c506-9d66-4312-bda6-3552de5c4a56",
@@ -100,7 +99,7 @@ var trailCourse = [
         "course":{
             "id":44,
             "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
-            "title":"Como resolver problemas",
+            "title":"Curso de Programação Inicial",
             "language":"pt-br",
             "desc":"Test description",
             "tags":{
@@ -129,7 +128,7 @@ var trailCourse = [
         "course":{
             "id":32,
             "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
-            "title":"Planejamento Estratégico",
+            "title":"Finanças Básicas",
             "language":"pt-br",
             "desc":"Test description",
             "tags":{
@@ -220,17 +219,28 @@ var trailCourse = [
         "course_id":75,
         "order":0
       },
-    ]
-  }  
-]
+    ]}  
+  ])
+
+  return <>
+    <AccordionTrackList  
+      // handleChange={(trailsChange) => { 
+      //   console.log('\n-----------------\ntrailsChange', trailsChange)
+      //   setTrail(trailsChange)
+      // }}
+      trailsData={Trail}
+      courseData={Course}
+      {...args} 
+    />
+  </>
+}
+
+/// Mesmo payload da API do LXP
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 
 export const Opened = Template.bind({})
 Opened.args = {
-    onNewTrail: () => {alert(`Adicionando novo Conteúdo`)},
-    handleChange: (trailsChange) => { 
-      console.log('\n-----------------\ntrailsChange', trailsChange)
-      trailCourse = trailsChange
-    },    
+    onNewTrail: () => {alert(`Adicionando novo Conteúdo`)},  
     handleEditCourse: (id) => {alert(`Selected id: ${id}`)},  
     handlePopOverMove: (id) => {alert(`Move id: ${id}`)},
     handlePopOverEdit: (id) => {alert(`Content Edit id: ${id}`)},
@@ -257,14 +267,11 @@ Opened.args = {
       console.log(`trailCoursesList`, trailCoursesList)
     },
     handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)},
-    handleMessageError: (errorCode) => {alert(errorCode)},
-    trailsData: trailCourse,
-    courseData: courses,
-    textMeusConteudos: "My Contents",
-    textTotalDe: "Total of",
-    textRegistros: "records",
-    textMinhasTrihas: "My tracks",
-    txtAtivarCurso: "Ativar Indiv.",
+    textMeusConteudos: "Meus Conteúdos",
+    textTotalDe: "Total de",
+    textRegistros: "registros",
+    textMinhasTrihas: "Minhas Trilhas",
+    txtAtivarCurso: "Ativar conteúdo",
     txtAtivarTrilha: "Ativar trilha",
     txtCriarNovoCurso: "Criar novo Conteúdo",
     txtPopOverEditContent: "Edit content",
@@ -279,8 +286,8 @@ Opened.args = {
 export const Loading = Template.bind({})
 Loading.args = {
     isLoading: true,
-    trailsData: trailCourse,
-    courseData: courses,
+    trailsData: [],
+    courseData: [],
     textMeusConteudos: "My Contents",
     textTotalDe: "Total of",
     textRegistros: "records",

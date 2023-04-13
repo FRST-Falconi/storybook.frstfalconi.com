@@ -9,7 +9,10 @@ import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch'
 import Button from '../../buttons'
+import { styled } from '@mui/material/styles';
+// import Tooltip from '@components/LXP/tooltip'
 import  PopOver,{ PopOverItem } from '../popOver'
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 
 export default function Thumbnails({ 
   variant, 
@@ -66,6 +69,17 @@ export default function Thumbnails({
     }
   }
 
+  const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: theme.palette.common.white,
+      color: 'rgba(0, 0, 0, 0.87)',
+      boxShadow: theme.shadows[1],
+      fontSize: 11,
+    },
+  }));
+
   return (
     <>    
       <ThemeProvider theme={FRSTTheme}>
@@ -121,35 +135,37 @@ export default function Thumbnails({
                   </Styles.Thumbnails>
                 </Styles.GeralThumbnails>
                 <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={ativo} />
-                <Styles.ContainerMain>
-                  <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
+                <Styles.ContainerMain>                  
+                  <LightTooltip title={title}>
+                    <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
+                  </LightTooltip> 
                   <Styles.IconVertical onClick={(element: any) => {
                     setElementPopover(element.currentTarget)
                   }}>
                     <Icons.MoreVertical fill={ativo ? '#000000' : '#bdbdbd'} />
                   </Styles.IconVertical>
-                </Styles.ContainerMain >
+                </Styles.ContainerMain>
                 {
                   showSwitchIndividual &&
                   <Styles.ContainerAtivar>
                     <Styles.TypographyAtivar active={ativo} style={{ fontWeight: ativo ? 700 : 400 }}>
-                      {txtAtivarCurso ? txtAtivarCurso : 'Ativar Indiv.'}
+                      {txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso'}
                     </Styles.TypographyAtivar>
                     <Switch
                       onChange={handleChangeCheck}
-                      checked={individual}
+                      checked={ativo}
                       height={16}
-                      width={40}
+                      width={35}
                       checkedIcon={false}
                       uncheckedIcon={false}
-                      handleDiameter={24}
+                      handleDiameter={20}
                       onHandleColor='#ffffff'
                       offHandleColor='#ffffff'
                       onColor='#FF4D0D'
                       offColor='#ebebeb'
                       activeBoxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                       boxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                      />
+                    />
                   </Styles.ContainerAtivar>                
                 }              
               </Styles.ContainerThumbnails>

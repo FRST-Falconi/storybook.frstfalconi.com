@@ -12,7 +12,7 @@ interface IContainerThumbnails {
 export const ContainerThumbnails = styled.div<IContainerThumbnails>`
     width: 180px;
     min-width: 180px;
-    height: ${( props ) => `${props.showSwitchIndividual ? '352px' : '320px'}`};
+    height: ${( props ) => `${props.showSwitchIndividual ? '352px' : '300px'}`};
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -130,9 +130,8 @@ export const IconVertical = styled.div`
 `
 export const ContainerAtivar = styled.div`
     display: flex;
-    gap: 5px;
+    gap: 6px;
     margin-top: 45px;
-    margin-left: 24px;
     position: absolute;
 `
 export const TypographyAtivar = styled.span<IImageBackground>`
@@ -141,7 +140,8 @@ export const TypographyAtivar = styled.span<IImageBackground>`
     font-size: 16px;
     line-height: 21px;
     text-align: right;
-    color: ${({ theme }) => theme.colors.shadeBlack};        
+    width: 120px;
+    color: ${({ theme }) => theme.colors.shadeBlack};
 `
 /* ################addNew############################ */
 

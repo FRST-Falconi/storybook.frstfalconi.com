@@ -17,5 +17,9 @@ export declare const ContainerCard: import("styled-components").StyledComponent<
 export declare const ContainerInputNameTrail: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TypographyMyContents: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const TypographyMyTrails: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const PopOver: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const RectangleLowCenter: import("styled-components").StyledComponent<"div", any, {
+    variant: string;
+}, never>;
 export {};
 //# sourceMappingURL=accordionTrackStyle.d.ts.map

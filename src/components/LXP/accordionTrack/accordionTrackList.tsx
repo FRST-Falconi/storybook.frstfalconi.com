@@ -117,12 +117,12 @@ export default function AccordionTrackList({
 
       /// Armazendo o dado da trilha que será deletada
       let deletedItem = null
-      if (source.droppableId !== '0' && source.droppableId !== destination.droppableId) {
+      if (source.droppableId !== '0' && source.droppableId !== '1' && source.droppableId !== destination.droppableId) {
         deletedItem = prev[source.droppableId - 1].trail_course[source.index]
       }
 
       /// Verificando se a movimentação vai ser do conteúdo ou das trilhas
-      if (source.droppableId !== '0') {
+      if (source.droppableId !== '0' && source.droppableId !== '1') {
         prev[source.droppableId - 1].trail_course.splice(source.index, 1)
       }
       prev[destination.droppableId - 1].trail_course.splice(destination.index, 0, itemCopy)

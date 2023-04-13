@@ -101,6 +101,9 @@ export const ContentActiveHeader = styled.div`
     gap: 50px;    
 `
 export const TypographyActiveHeader = styled.span<IImageBackground>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: 'PT Sans';
     font-style: normal;
     font-size: 16px;
@@ -111,7 +114,9 @@ export const TypographyActiveHeader = styled.span<IImageBackground>`
     gap: 10px;        
 `
 export const IconVerticalHeader = styled.div`
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 `
 export const ContainerAccordion = styled.div<IImageBackground>`
@@ -158,4 +163,34 @@ export const TypographyMyTrails = styled.div`
     font-weight: 500;
     font-size: 20px;    
     color: ${({ theme }) => theme.colors.primary1};
+`
+
+export const PopOver = styled.div`
+    z-index: 999;
+    width: 100%;
+    min-height: 31px;
+    border-radius: 8px;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    box-shadow: 0px 18px 20px -15px #222222;
+    position: relative;
+    padding: 8px;
+    margin-bottom: 16px;
+`
+
+export const RectangleLowCenter = styled.div<{variant: string}>`
+    width: 13.64px;
+    height: 13.64px;
+    position: absolute;
+    margin: 27px 0 -7px calc(50% - 7px);
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    border-left: none;   
+    border-top: none;
+    transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+    
+    ${({ variant }) => (variant)}
 `
