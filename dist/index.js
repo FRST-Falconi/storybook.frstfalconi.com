@@ -25,7 +25,6 @@ var Select$4 = require('react-select');
 var reactColor = require('react-color');
 var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
-var styles$1 = require('@material-ui/core/styles');
 var Popover = require('@material-ui/core/Popover');
 var Rating$2 = require('@mui/material/Rating');
 var Typography$3 = require('@mui/material/Typography');
@@ -45,7 +44,7 @@ var Switch = require('react-switch');
 var moment = require('moment');
 var _ = require('@mui/material/');
 var Slider = require('@mui/material/Slider');
-var styles$2 = require('@material-ui/styles');
+var styles$1 = require('@material-ui/styles');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -391,6 +390,15 @@ function StatusProblemaSendIcon({ fill, width, height }) {
 }
 function StatusProblemaEdit({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#FEF0D0" }), jsxRuntime.jsx("path", { d: "M24 17.0669H18.5556C18.143 17.0669 17.7473 17.2417 17.4556 17.5529C17.1639 17.8641 17 18.2861 17 18.7262V30.341C17 30.781 17.1639 31.2031 17.4556 31.5142C17.7473 31.8254 18.143 32.0002 18.5556 32.0002H29.4444C29.857 32.0002 30.2527 31.8254 30.5444 31.5142C30.8361 31.2031 31 30.781 31 30.341V24.5336", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M30.1791 16.5163C30.489 16.1857 30.9093 16 31.3476 16C31.7858 16 32.2061 16.1857 32.516 16.5163C32.8259 16.8468 33 17.2951 33 17.7626C33 18.2301 32.8259 18.6784 32.516 19.0089L25.1159 26.9024L22 27.7333L22.779 24.4098L30.1791 16.5163Z", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+}
+function ThumbVideo({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '117', height: height ? height : '127', viewBox: "0 0 177 127", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M163.62 1.5H12.88C6.595 1.5 1.5 6.595 1.5 12.88V113.92C1.5 120.205 6.595 125.3 12.88 125.3H163.62C169.905 125.3 175 120.205 175 113.92V12.88C175 6.595 169.905 1.5 163.62 1.5Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M175 103.86H1.5", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M79.01 114.58H97.49", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M56.78 55.96C56.78 47.62 60.1 39.61 66 33.71C71.9 27.81 79.91 24.49 88.25 24.49C96.59 24.49 104.6 27.81 110.5 33.71C116.4 39.61 119.72 47.62 119.72 55.96C119.72 64.3 116.4 72.31 110.5 78.21C104.6 84.11 96.59 87.43 88.25 87.43C79.91 87.42 71.91 84.1 66.01 78.2C60.11 72.3 56.79 64.3 56.78 55.96Z", stroke: "white", "stroke-width": "3", "stroke-miterlimit": "10" }), jsxRuntime.jsx("path", { d: "M82.28 44.93V66.77C82.28 67.9 83.56 68.55 84.47 67.89L99.47 56.97C100.23 56.42 100.23 55.29 99.47 54.74L84.47 43.82C83.56 43.16 82.28 43.81 82.28 44.94V44.93Z", stroke: "white", "stroke-width": "3", "stroke-miterlimit": "10" })] }));
+}
+function ThumbTexto({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '117', height: height ? height : '127', viewBox: "0 0 177 127", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M163.62 1.5H12.88C6.595 1.5 1.5 6.595 1.5 12.88V113.92C1.5 120.205 6.595 125.3 12.88 125.3H163.62C169.905 125.3 175 120.205 175 113.92V12.88C175 6.595 169.905 1.5 163.62 1.5Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M175 103.86H1.5", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M79.01 114.58H97.49", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M94.2401 21.9399H52.4201C50.1701 21.9399 48.3201 23.7799 48.3201 26.0399V54.4099C48.3201 56.6599 50.1601 58.5099 52.4201 58.5099H59.2801V69.3199C59.2801 70.7299 60.9901 71.4399 61.9901 70.4399L72.5101 58.5099H94.2301C96.4801 58.5099 98.3301 56.6699 98.3301 54.4099V26.0399C98.3301 23.7899 96.4901 21.9399 94.2301 21.9399H94.2401Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M87.7701 32.8398H58.8801", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M87.7701 40.2197H58.8801", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M87.7701 47.5898H58.8801", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("mask", { id: "mask0_8643_48376", maskUnits: "userSpaceOnUse", x: "75", y: "37", width: "57", height: "54", children: jsxRuntime.jsx("path", { d: "M102 37.8999L125.24 38.1599C128.48 38.1599 131.11 40.7899 131.11 44.0299V72.3999C131.11 75.6399 128.48 78.2699 125.24 78.2699H120.16V87.1599C120.16 88.6999 119.18 90.1499 117.69 90.5499C116.48 90.8799 115.27 90.5399 114.41 89.6799C114.38 89.6499 114.36 89.6299 114.33 89.5999L104.34 78.2699L83 80.8899C79.76 80.8899 75 76.1299 75 72.8899V61.8899H96C98.84 61.8899 102 58.7299 102 55.8899V37.8899V37.8999Z", fill: "white" }) }), jsxRuntime.jsxs("g", { mask: "url(#mask0_8643_48376)", children: [jsxRuntime.jsx("path", { d: "M89.55 51.1199H118.44", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M89.55 58.4998H118.44", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M89.55 65.8699H118.44", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M83.08 40.22H124.9C127.15 40.22 129 42.06 129 44.32V72.69C129 74.94 127.16 76.79 124.9 76.79H118.04V87.6C118.04 89.01 116.33 89.72 115.33 88.72L104.81 76.79H83.09C80.84 76.79 78.99 74.95 78.99 72.69V44.32C78.99 42.07 80.83 40.22 83.09 40.22H83.08Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" })] })] }));
+}
+function ThumbPodcast({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '113', height: height ? height : '146', viewBox: "0 0 113 146", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M101.53 1.29004H11.05C5.65974 1.29004 1.29004 5.65974 1.29004 11.05V134.93C1.29004 140.32 5.65974 144.69 11.05 144.69H101.53C106.92 144.69 111.29 140.32 111.29 134.93V11.05C111.29 5.65974 106.92 1.29004 101.53 1.29004Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M111.29 119.85H1.29004", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M50.4299 132.27H62.1399", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M56.1201 83.52C54.6401 83.52 53.1601 84.08 52.0301 85.21C49.7701 87.47 49.7601 91.14 52.0301 93.41C53.1601 94.54 54.6401 95.1 56.1301 95.1C57.6201 95.1 59.1001 94.53 60.2301 93.4C62.4901 91.14 62.4901 87.47 60.2301 85.21C59.1001 84.08 57.6101 83.51 56.1301 83.51L56.1201 83.52Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M43.8401 77.02C50.6301 70.24 61.6301 70.24 68.4201 77.04", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M32.9199 66.0901C45.7399 53.2701 66.5299 53.2801 79.3499 66.1101", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M22 55.16C40.85 36.31 71.42 36.33 90.29 55.2", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
 
 function styleInject(css, ref) {
@@ -4622,7 +4630,7 @@ styled__default["default"].div `
   align-items: center;
   justify-content: center;
 `;
-const ProgressContainer = styled__default["default"].div `
+const ProgressContainer$1 = styled__default["default"].div `
   position: relative;
   padding-left: 75px;
 `;
@@ -4746,7 +4754,7 @@ const ProgressItemSubtitle = styled__default["default"].p `
 `;
 
 function Stepper({ children, }) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer, { children: jsxRuntime.jsx(Progress, { children: children && children }) }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer$1, { children: jsxRuntime.jsx(Progress, { children: children && children }) }) }));
 }
 
 function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
@@ -6194,23 +6202,32 @@ function FileUpload({ variant, src, alt, disabled, startIcon, style, handleClick
                 : null }));
 }
 
-const BorderLinearProgress = styles$1.withStyles((theme) => ({
-    root: {
-        width: 289,
-        height: 19,
-        borderRadius: 8,
-    },
-    colorPrimary: {
-        backgroundColor: 'rgba(0,0,0,0.6)',
-        border: '1px solid #9c9c9c',
-    },
-    bar: {
-        borderRadius: 8,
-        backgroundColor: '#ff4d0d',
-    },
-}))(LinearProgress__default["default"]);
+const ProgressContainer = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  span {
+    margin-bottom: 0.3rem;
+  }
+`;
+const ValueAndProgress = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+const BorderLinearProgress = styled__default["default"](LinearProgress__default["default"]) `
+  width: 100%;
+  height: 8px !important;
+  border-radius: 8px;
+  background: rgba(255, 77, 13, 0.3) !important;
+
+  .MuiLinearProgress-bar {
+    background: #ff4d0d !important;
+  }
+`;
+
 function ProgressBar$1({ value, label }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', color: '#FFF' }, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex' }, children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ProgressContainer, { children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs(ValueAndProgress, { children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
 const Container$8 = styled__default["default"].div `
@@ -11147,7 +11164,7 @@ function BannerProblemFeed(props) {
     React.useEffect(() => {
         setStateLatestComment(props.latestComment);
     }, [props.latestComment]);
-    const CustomSlider = styles$2.withStyles({
+    const CustomSlider = styles$1.withStyles({
         root: {
             color: "#FF4D0D",
             height: 3,
@@ -11734,116 +11751,180 @@ function Pagination(props) {
 }
 
 const containerThumbContent = styled__default["default"].div `
-    display: grid;
-    grid-template-columns: 0.75fr 1fr;
-    position: relative;
-    min-width: 250px;
-    height: auto;
-    cursor: pointer;
-
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+  display: grid;
+  grid-template-columns: 0.75fr 1fr;
+  position: relative;
+  min-width: 250px;
+  height: auto;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
 `;
 const loadingImageThumb = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
-    -webkit-animation-duration: 4s;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-name: placeholderShimmer;
-    -webkit-animation-timing-function: linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+`;
+const iconsThumbAndProgress = styled__default["default"].div `
+  display: flex;
+  height: 100%;
+  background-color: #ee8736;
+  flex-direction: column;
 `;
 const iconsThumb = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    background-color: ${({ theme }) => theme.colors.primary1};
+  display: flex;
+  height: 100%;
+  background-color: #ee8736;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const imageThumbContent = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-    background-repeat: no-repeat ;
-    background-size: cover;
-    background-position: center;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `;
 const loadingThumbContent = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-
-    padding: 16px 16px 16px 16px;
-    gap: 4px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 16px 16px 16px 16px;
+  gap: 4px;
 `;
 const loadingContent = styled__default["default"].div `
-    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
-    color: transparent;
-    border-radius: 16px;
-    width: 100%;
-    height: 0.45em;
-    
-    -webkit-animation-duration: 4s;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-name: placeholderShimmer;
-    -webkit-animation-timing-function: linear;
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  color: transparent;
+  border-radius: 16px;
+  width: 100%;
+  height: 0.45em;
 
-    &:first-child{
-        width: 50%;
-        margin-bottom: 8px;
-    }
-    &:last-child{
-        width: 30%;
-    }
+  -webkit-animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+
+  &:first-child {
+    width: 50%;
+    margin-bottom: 8px;
+  }
+  &:last-child {
+    width: 30%;
+  }
 `;
 const infoThumbContent = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-
-    padding: 16px 16px 32px 16px;
-    gap: 4px;
-    font-family: 'PT Sans';
-    word-wrap: break-word;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 16px;
+  padding: 0px 0px 32px 0px;
+  gap: 4px;
+  font-family: 'PT Sans';
+  word-wrap: break-word;
+  span {
+    color: ${({ theme }) => theme.colors.primary1};
+    font-size: 16px;
+    font-weight: 700;
+    padding-top: ${(props) => (props.tagVisualized === 'notVisualized' ? '16px' : '0px')};
+    padding-right: 16px;
+    padding-bottom: 0px;
+    padding-left: 16px;
+  }
+`;
+const tagThumbContentContainer = styled__default["default"].div `
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+`;
+const tagThumbContent = styled__default["default"].div `
+  height: 24px;
+  background: ${(props) => (props.tagVisualized === 'vizualized' ? '#2ca92a' : '#851F41')};
+  width: 91px;
+  border-radius: 0px 0px 0px 8px;
+  color: #ffff;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const descriptionThumbContent = styled__default["default"].div `
-    font-size: 12px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.colors.shadeBlack};
+  font-size: 14px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.shadeBlack};
+  padding: 0px 16px 0px 16px;
 
-    overflow: hidden;
-    text-overflow: ${props => props.showText ? 'none' : 'ellipsis'};
-    display: ${props => props.showText ? 'flex' : '-webkit-box'};
-    -webkit-line-clamp: ${props => props.showText ? 'none' : 3};
-    -webkit-box-orient: ${props => props.showText ? 'none' : 'vertical'};
+  overflow: hidden;
+  text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
+  display: ${(props) => (props.showText ? 'flex' : '-webkit-box')};
+  -webkit-line-clamp: ${(props) => (props.showText ? 'none' : 3)};
+  -webkit-box-orient: ${(props) => (props.showText ? 'none' : 'vertical')};
 `;
 const viewMoreContent$1 = styled__default["default"].div `
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0px 16px 12px 0px;
+  user-select: none;
+`;
+const shadedThumb = styled__default["default"].div `
+  position: relative;
+  height: 100%;
+  :after {
     position: absolute;
+    top: 0;
     right: 0;
     bottom: 0;
-    margin: 0px 16px 12px 0px;
-    user-select: none;
+    left: 0;
+    content: '';
+    background: linear-gradient(360deg, #2d2c2c 7.86%, rgba(117, 117, 117, 0) 61.43%);
+    z-index: 1;
+  }
+`;
+const ProgressAndImg = styled__default["default"].div `
+  padding: 0.3rem 0.5rem;
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+`;
+const ProgressIcon = styled__default["default"].div `
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  z-index: 999;
+  padding-bottom: 0.3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+`;
+const IconAndProgress = styled__default["default"].div `
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 `;
 
 function ThumbListContent(props) {
     const [showMore, setShowMore] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ?
-            jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title &&
-                                jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })
-            :
-                jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ?
-                            jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb })
-                            :
-                                jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(PlayLineIcon, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null, props.typeThumbContent === 'podcast' ? jsxRuntime.jsx(PodCast, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(QuizSucessError, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null] }), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, children: [props.title ?
-                                    jsxRuntime.jsxs("span", { style: { color: FRSTTheme['colors'].primary1, fontSize: 16, fontWeight: 700 }, children: [" ", props.title, " "] })
-                                    : null, jsxRuntime.jsxs(descriptionThumbContent, { showText: showMore, children: [" ", props.description, " "] })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$2, { variant: 'link', label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12 } }) })] }) }));
+    const [tagVisualized, setTagVisualized] = React.useState(props.valueProgress);
+    React.useEffect(() => {
+        setTagVisualized(props.valueProgress);
+    }, [props.valueProgress]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ? (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title && jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })) : (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ? (tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsx(ProgressAndImg, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) }) }) })) : (jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb }))) : tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsxs(iconsThumbAndProgress, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx(IconAndProgress, { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, jsxRuntime.jsx(ProgressIcon, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) })] }) })) : (jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null] })), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, tagVisualized: props.tagValue, children: [props.tagValue !== 'notVisualized' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.tagValue === 'vizualized' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressVisualized }) })) : null, props.tagValue === 'inProgress' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressInProgress }) })) : null] })) : null, props.title ? jsxRuntime.jsx("span", { children: props.title }) : null, jsxRuntime.jsxs(descriptionThumbContent, { showText: showMore, children: [" ", props.description, " "] })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12 } }) })] })) }));
 }
 
 const containerList = styled__default["default"].div `

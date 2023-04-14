@@ -2,7 +2,7 @@ import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import * as Styles from './thumbListContentStyles'
 import { useEffect, useState } from 'react'
-import { PlayLineIcon, PodCast, QuizSucessError, ThumbPodcast, ThumbTexto, ThumbVideo } from '@shared/icons'
+import { ThumbPodcast, ThumbTexto, ThumbVideo } from '@shared/icons'
 import Button from '@components/buttons'
 import ProgressBar from '@components/LXP/progressBar'
 

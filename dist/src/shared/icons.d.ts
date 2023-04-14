@@ -133,5 +133,8 @@ export declare function GoalInviteIcon({ fill, width, height }: IconsProps): JSX
 export declare function StatusProblemaSawBadgeIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StatusProblemaSendIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StatusProblemaEdit({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ThumbVideo({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ThumbTexto({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ThumbPodcast({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
