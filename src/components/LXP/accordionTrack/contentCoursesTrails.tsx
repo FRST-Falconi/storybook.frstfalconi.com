@@ -130,6 +130,11 @@ export default function ContentCoursesTrails(props: any) {
                   anchorEl={ElementPopoverPublish} 
                   placement={'top'} 
                   transition
+                  modifiers={{
+                    preventOverflow: {
+                      boundariesElement: "document"
+                    }
+                  }}
                 >
                   {({ TransitionProps }) => (
                     <Fade {...TransitionProps}>
