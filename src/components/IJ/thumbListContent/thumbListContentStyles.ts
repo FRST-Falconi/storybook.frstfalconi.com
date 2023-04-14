@@ -27,12 +27,20 @@ export const loadingImageThumb = styled.div`
   -webkit-animation-timing-function: linear;
 `
 
+export const iconsThumbAndProgress = styled.div`
+  display: flex;
+  height: 100%;
+  background-color: #ee8736;
+  flex-direction: column;
+`
+
 export const iconsThumb = styled.div`
   display: flex;
+  height: 100%;
+  background-color: #ee8736;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  background-color: ${({ theme }) => theme.colors.primary1};
 `
 
 export const imageThumbContent = styled.div`
@@ -105,7 +113,7 @@ export const tagThumbContentContainer = styled.div`
 `
 export const tagThumbContent = styled.div<content>`
   height: 24px;
-  background: ${(props) => (props.tagVisualized ? '#2ca92a' : '#851F41')};
+  background: ${(props) => (props.tagVisualized === 'vizualized' ? '#2ca92a' : '#851F41')};
   width: 91px;
   border-radius: 0px 0px 0px 8px;
   color: #ffff;
@@ -149,13 +157,7 @@ export const shadedThumb = styled.div`
     bottom: 0;
     left: 0;
     content: '';
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.89),
-      rgba(0, 0, 0, 0.2) 40%,
-      rgba(0, 0, 0, 0.2) 80%,
-      rgba(0, 0, 0, 0.4)
-    );
+    background: linear-gradient(360deg, #2d2c2c 7.86%, rgba(117, 117, 117, 0) 61.43%);
     z-index: 1;
   }
 `
@@ -165,4 +167,22 @@ export const ProgressAndImg = styled.div`
   z-index: 9999;
   position: absolute;
   width: 100%;
+`
+
+export const ProgressIcon = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  z-index: 999;
+  padding-bottom: 0.3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+`
+
+export const IconAndProgress = styled.div`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 `

@@ -38,12 +38,46 @@ video.args = {
   style: { width: 375 },
   textProgressVisualized: 'Visualizado',
   textProgressInProgress: 'Em andamento',
-  //   valueProgress: 0,
+  valueProgress: 82,
   tagValue: 'vizualized'
 }
 
-export const podcast = Template.bind({})
-podcast.args = {
+export const videoSemProgresso = Template.bind({})
+videoSemProgresso.args = {
+  imageSrc: 'img/thumbFoto.png',
+  typeThumbContent: 'video',
+  title: 'Label',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+  textViewMoreButton: 'Ver mais',
+  textViewLessButton: 'Ver menos',
+  onClickThumb: () => alert('clicado'),
+  isLoading: false,
+  style: { width: 375 },
+  textProgressVisualized: 'Visualizado',
+  textProgressInProgress: 'Em andamento',
+  tagValue: 'notVisualized'
+}
+
+export const videoSemFoto = Template.bind({})
+videoSemFoto.args = {
+  imageSrc: '',
+  typeThumbContent: 'video',
+  title: 'Label',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+  textViewMoreButton: 'Ver mais',
+  textViewLessButton: 'Ver menos',
+  onClickThumb: () => alert('clicado'),
+  isLoading: false,
+  style: { width: 375 },
+  textProgressVisualized: 'Visualizado',
+  textProgressInProgress: 'Em andamento',
+  tagValue: 'notVisualized'
+}
+
+export const podcastComProgresso = Template.bind({})
+podcastComProgresso.args = {
   imageSrc: '',
   typeThumbContent: 'podcast',
   title: 'Label',
@@ -56,7 +90,8 @@ podcast.args = {
   style: { width: 375 },
   textProgressVisualized: 'Visualizado',
   textProgressInProgress: 'Em andamento',
-  tagValue: 'notVisualized'
+  valueProgress: 84,
+  tagValue: 'inProgress'
 }
 
 export const questionario = Template.bind({})
@@ -74,4 +109,21 @@ questionario.args = {
   textProgressVisualized: 'Visualizado',
   textProgressInProgress: 'Em andamento',
   tagValue: 'notVisualized'
+}
+
+export const questionarioVizualizado = Template.bind({})
+questionarioVizualizado.args = {
+  imageSrc: '',
+  typeThumbContent: 'question',
+  title: 'Label',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+  textViewMoreButton: 'Ver mais',
+  textViewLessButton: 'Ver menos',
+  onClickThumb: () => alert('clicado'),
+  isLoading: false,
+  style: { width: 375 },
+  textProgressVisualized: 'Visualizado',
+  textProgressInProgress: 'Em andamento',
+  tagValue: 'vizualized'
 }

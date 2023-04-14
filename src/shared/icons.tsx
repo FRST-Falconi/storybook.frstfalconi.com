@@ -2862,3 +2862,185 @@ export function StatusProblemaEdit({ fill, width, height }: IconsProps) {
     </svg>
   )
 }
+
+export function ThumbVideo({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '117'}
+      height={height ? height : '127'}
+      viewBox="0 0 177 127"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M163.62 1.5H12.88C6.595 1.5 1.5 6.595 1.5 12.88V113.92C1.5 120.205 6.595 125.3 12.88 125.3H163.62C169.905 125.3 175 120.205 175 113.92V12.88C175 6.595 169.905 1.5 163.62 1.5Z"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M175 103.86H1.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M79.01 114.58H97.49" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path
+        d="M56.78 55.96C56.78 47.62 60.1 39.61 66 33.71C71.9 27.81 79.91 24.49 88.25 24.49C96.59 24.49 104.6 27.81 110.5 33.71C116.4 39.61 119.72 47.62 119.72 55.96C119.72 64.3 116.4 72.31 110.5 78.21C104.6 84.11 96.59 87.43 88.25 87.43C79.91 87.42 71.91 84.1 66.01 78.2C60.11 72.3 56.79 64.3 56.78 55.96Z"
+        stroke="white"
+        stroke-width="3"
+        stroke-miterlimit="10"
+      />
+      <path
+        d="M82.28 44.93V66.77C82.28 67.9 83.56 68.55 84.47 67.89L99.47 56.97C100.23 56.42 100.23 55.29 99.47 54.74L84.47 43.82C83.56 43.16 82.28 43.81 82.28 44.94V44.93Z"
+        stroke="white"
+        stroke-width="3"
+        stroke-miterlimit="10"
+      />
+    </svg>
+  )
+}
+
+export function ThumbTexto({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '117'}
+      height={height ? height : '127'}
+      viewBox="0 0 177 127"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M163.62 1.5H12.88C6.595 1.5 1.5 6.595 1.5 12.88V113.92C1.5 120.205 6.595 125.3 12.88 125.3H163.62C169.905 125.3 175 120.205 175 113.92V12.88C175 6.595 169.905 1.5 163.62 1.5Z"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path d="M175 103.86H1.5" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M79.01 114.58H97.49" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+      <path
+        d="M94.2401 21.9399H52.4201C50.1701 21.9399 48.3201 23.7799 48.3201 26.0399V54.4099C48.3201 56.6599 50.1601 58.5099 52.4201 58.5099H59.2801V69.3199C59.2801 70.7299 60.9901 71.4399 61.9901 70.4399L72.5101 58.5099H94.2301C96.4801 58.5099 98.3301 56.6699 98.3301 54.4099V26.0399C98.3301 23.7899 96.4901 21.9399 94.2301 21.9399H94.2401Z"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M87.7701 32.8398H58.8801"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M87.7701 40.2197H58.8801"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M87.7701 47.5898H58.8801"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <mask id="mask0_8643_48376" maskUnits="userSpaceOnUse" x="75" y="37" width="57" height="54">
+        <path
+          d="M102 37.8999L125.24 38.1599C128.48 38.1599 131.11 40.7899 131.11 44.0299V72.3999C131.11 75.6399 128.48 78.2699 125.24 78.2699H120.16V87.1599C120.16 88.6999 119.18 90.1499 117.69 90.5499C116.48 90.8799 115.27 90.5399 114.41 89.6799C114.38 89.6499 114.36 89.6299 114.33 89.5999L104.34 78.2699L83 80.8899C79.76 80.8899 75 76.1299 75 72.8899V61.8899H96C98.84 61.8899 102 58.7299 102 55.8899V37.8899V37.8999Z"
+          fill="white"
+        />
+      </mask>
+      <g mask="url(#mask0_8643_48376)">
+        <path
+          d="M89.55 51.1199H118.44"
+          stroke="white"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M89.55 58.4998H118.44"
+          stroke="white"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M89.55 65.8699H118.44"
+          stroke="white"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M83.08 40.22H124.9C127.15 40.22 129 42.06 129 44.32V72.69C129 74.94 127.16 76.79 124.9 76.79H118.04V87.6C118.04 89.01 116.33 89.72 115.33 88.72L104.81 76.79H83.09C80.84 76.79 78.99 74.95 78.99 72.69V44.32C78.99 42.07 80.83 40.22 83.09 40.22H83.08Z"
+          stroke="white"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+    </svg>
+  )
+}
+
+export function ThumbPodcast({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '113'}
+      height={height ? height : '146'}
+      viewBox="0 0 113 146"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M101.53 1.29004H11.05C5.65974 1.29004 1.29004 5.65974 1.29004 11.05V134.93C1.29004 140.32 5.65974 144.69 11.05 144.69H101.53C106.92 144.69 111.29 140.32 111.29 134.93V11.05C111.29 5.65974 106.92 1.29004 101.53 1.29004Z"
+        stroke="white"
+        stroke-width="2.57"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M111.29 119.85H1.29004"
+        stroke="white"
+        stroke-width="2.57"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M50.4299 132.27H62.1399"
+        stroke="white"
+        stroke-width="2.57"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M56.1201 83.52C54.6401 83.52 53.1601 84.08 52.0301 85.21C49.7701 87.47 49.7601 91.14 52.0301 93.41C53.1601 94.54 54.6401 95.1 56.1301 95.1C57.6201 95.1 59.1001 94.53 60.2301 93.4C62.4901 91.14 62.4901 87.47 60.2301 85.21C59.1001 84.08 57.6101 83.51 56.1301 83.51L56.1201 83.52Z"
+        stroke="white"
+        stroke-width="2.57"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M43.8401 77.02C50.6301 70.24 61.6301 70.24 68.4201 77.04"
+        stroke="white"
+        stroke-width="2.57"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M32.9199 66.0901C45.7399 53.2701 66.5299 53.2801 79.3499 66.1101"
+        stroke="white"
+        stroke-width="2.57"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M22 55.16C40.85 36.31 71.42 36.33 90.29 55.2"
+        stroke="white"
+        stroke-width="2.57"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}

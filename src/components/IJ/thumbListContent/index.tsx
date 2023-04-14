@@ -2,7 +2,7 @@ import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import * as Styles from './thumbListContentStyles'
 import { useEffect, useState } from 'react'
-import { PlayLineIcon, PodCast, QuizSucessError } from '@shared/icons'
+import { PlayLineIcon, PodCast, QuizSucessError, ThumbPodcast, ThumbTexto, ThumbVideo } from '@shared/icons'
 import Button from '@components/buttons'
 import ProgressBar from '@components/LXP/progressBar'
 
@@ -65,17 +65,26 @@ export default function ThumbListContent(props: IThumbListContent) {
                 onClick={props.onClickThumb}
               ></Styles.imageThumbContent>
             )
+          ) : tagVisualized > 0 ? (
+            <Styles.shadedThumb>
+              <Styles.iconsThumbAndProgress onClick={props.onClickThumb}>
+                {props.typeThumbContent === 'video' ? <ThumbVideo width="74" height="74" /> : null}
+                {props.typeThumbContent === 'podcast' ? (
+                  <Styles.IconAndProgress>
+                    <ThumbPodcast width="74" height="74" />
+                  </Styles.IconAndProgress>
+                ) : null}
+                {props.typeThumbContent === 'question' ? <ThumbTexto width="74" height="74" /> : null}
+                <Styles.ProgressIcon>
+                  <ProgressBar label="" value={props.valueProgress} />
+                </Styles.ProgressIcon>
+              </Styles.iconsThumbAndProgress>
+            </Styles.shadedThumb>
           ) : (
             <Styles.iconsThumb onClick={props.onClickThumb}>
-              {props.typeThumbContent === 'video' ? (
-                <PlayLineIcon fill={FRSTTheme['colors'].shadeWhite} width="48" height="48" />
-              ) : null}
-              {props.typeThumbContent === 'podcast' ? (
-                <PodCast fill={FRSTTheme['colors'].shadeWhite} width="48" height="48" />
-              ) : null}
-              {props.typeThumbContent === 'question' ? (
-                <QuizSucessError fill={FRSTTheme['colors'].shadeWhite} width="48" height="48" />
-              ) : null}
+              {props.typeThumbContent === 'video' ? <ThumbVideo width="74" height="74" /> : null}
+              {props.typeThumbContent === 'podcast' ? <ThumbPodcast width="74" height="74" /> : null}
+              {props.typeThumbContent === 'question' ? <ThumbTexto width="74" height="74" /> : null}
             </Styles.iconsThumb>
           )}
           <Styles.infoThumbContent onClick={props.onClickThumb} tagVisualized={props.tagValue}>
