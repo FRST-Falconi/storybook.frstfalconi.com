@@ -98,7 +98,7 @@ export declare function LampFilledIcon({ fill }: IconsProps): JSX.Element;
 export declare function MedalLineIcon({ fill }: IconsProps): JSX.Element;
 export declare function MedalFilledIcon({ fill }: IconsProps): JSX.Element;
 export declare function PlayLineIcon({ fill, width, height }: IconsProps): JSX.Element;
-export declare function PlayFilledIcon({ customColor_1, customColor_2 }: IconsProps): JSX.Element;
+export declare function PlayFilledIcon({ customColor_1, customColor_2, width, height }: IconsProps): JSX.Element;
 export declare function SiteIcon({ fill }: IconsProps): JSX.Element;
 export declare function LinkedinIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function Handshake({ fill }: IconsProps): JSX.Element;
@@ -133,5 +133,11 @@ export declare function GoalInviteIcon({ fill, width, height }: IconsProps): JSX
 export declare function StatusProblemaSawBadgeIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StatusProblemaSendIcon({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StatusProblemaEdit({ fill, width, height }: IconsProps): JSX.Element;
+export declare function PlayIcon({ width, height, customColor_1, customColor_2 }: IconsProps): JSX.Element;
+export declare function PauseIcon({ customColor_1, customColor_2, width, height }: IconsProps): JSX.Element;
+export declare function Back15({ width, height, fill }: IconsProps): JSX.Element;
+export declare function Foward15({ width, height, fill }: IconsProps): JSX.Element;
+export declare function VolumeIcon({ width, height, fill }: IconsProps): JSX.Element;
+export declare function MuteIcon({ width, height, fill }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
