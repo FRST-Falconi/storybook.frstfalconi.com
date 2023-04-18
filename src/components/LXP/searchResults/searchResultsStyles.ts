@@ -20,14 +20,14 @@ export const Image = styled.div`
   background-size: cover;
   background-position: center;
 `
-export const Title = styled.text`
+export const Title = styled.p`
   
   margin-bottom: 12px;
   color: ${({ theme })=> theme.colors.linkOnfocus};
   font-size: 16px;
   font-weight: 700;
 `
-export const Description = styled.text`
+export const Description = styled.p`
   
   font-weight: 400;
   font-size: 16px;
