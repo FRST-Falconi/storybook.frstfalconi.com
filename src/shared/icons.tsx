@@ -2088,9 +2088,15 @@ export function PlayLineIcon({ fill, width, height }: IconsProps) {
   )
 }
 
-export function PlayFilledIcon({ customColor_1, customColor_2 }: IconsProps) {
+export function PlayFilledIcon({ customColor_1, customColor_2, width, height }: IconsProps) {
   return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width ? width : '24'}
+      height={height ? height : '24'}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z"
         fill={customColor_1 ? customColor_1 : '#FF4D0D'}
@@ -2858,6 +2864,255 @@ export function StatusProblemaEdit({ fill, width, height }: IconsProps) {
         stroke-width="1.2"
         stroke-linecap="round"
         stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function PlayIcon({ width, height, customColor_1, customColor_2 }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '32'}
+      height={height ? height : '32'}
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_d_1_22)">
+        <circle cx="16" cy="16" r="16" fill={customColor_1 ? customColor_1 : '#EE4C15'} />
+        <path
+          d="M22.3411 17.3317C22.934 16.9358 22.934 16.0643 22.3411 15.6684L14.5553 10.47C13.8908 10.0264 13 10.5027 13 11.3017V21.6984C13 22.4974 13.8908 22.9737 14.5553 22.5301L22.3411 17.3317Z"
+          fill={customColor_2 ? customColor_2 : 'white'}
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_1_22"
+          x="0"
+          y="0"
+          width={width ? width : '32'}
+          height={height ? height : '32'}
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feMorphology radius="20" operator="erode" in="SourceAlpha" result="effect1_dropShadow_1_22" />
+          <feOffset dy="3" />
+          <feGaussianBlur stdDeviation="2.5" />
+          <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" />
+          <feBlend mode="multiply" in2="BackgroundImageFix" result="effect1_dropShadow_1_22" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_22" result="shape" />
+        </filter>
+      </defs>
+    </svg>
+  )
+}
+
+export function PauseIcon({ customColor_1, customColor_2, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '32'}
+      height={height ? height : '32'}
+      viewBox="0 0 32 32"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g filter="url(#filter0_d_1_159)">
+        <g filter="url(#filter1_d_1_159)">
+          <circle cx="16" cy="16" r="16" fill={customColor_1 ? customColor_1 : '#EE4C15'} />
+        </g>
+        <rect
+          width="3"
+          height="17"
+          rx="1.5"
+          transform="matrix(-1 0 0 1 22 8)"
+          fill={customColor_2 ? customColor_2 : 'white'}
+        />
+        <rect
+          width="3"
+          height="17"
+          rx="1.5"
+          transform="matrix(-1 0 0 1 14 8)"
+          fill={customColor_2 ? customColor_2 : 'white'}
+        />
+      </g>
+      <defs>
+        <filter
+          id="filter0_d_1_159"
+          x="0"
+          y="0"
+          width={width ? width : '32'}
+          height={height ? height : '32'}
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feMorphology radius="20" operator="erode" in="SourceAlpha" result="effect1_dropShadow_1_159" />
+          <feOffset dy="5" />
+          <feGaussianBlur stdDeviation="1.5" />
+          <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" />
+          <feBlend mode="multiply" in2="BackgroundImageFix" result="effect1_dropShadow_1_159" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_159" result="shape" />
+        </filter>
+        <filter
+          id="filter1_d_1_159"
+          x="0"
+          y="0"
+          width={width ? width : '32'}
+          height={height ? height : '32'}
+          filterUnits="userSpaceOnUse"
+          color-interpolation-filters="sRGB"
+        >
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix
+            in="SourceAlpha"
+            type="matrix"
+            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha"
+          />
+          <feMorphology radius="20" operator="erode" in="SourceAlpha" result="effect1_dropShadow_1_159" />
+          <feOffset dy="25" />
+          <feGaussianBlur stdDeviation="9" />
+          <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.2 0" />
+          <feBlend mode="multiply" in2="BackgroundImageFix" result="effect1_dropShadow_1_159" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_159" result="shape" />
+        </filter>
+      </defs>
+    </svg>
+  )
+}
+
+export function Back15({ width, height, fill }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '24'}
+      height={height ? height : '24'}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 2V8H9"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16.524 19.8037C18.2613 18.7786 19.6037 17.1995 20.336 15.32C21.0683 13.4405 21.1479 11.3694 20.5622 9.43922C19.9764 7.509 18.7592 5.83152 17.1059 4.67595C15.4525 3.52038 13.4589 2.95373 11.445 3.06692C9.43099 3.18012 7.51344 3.96659 6 5.30015L3 8.00014"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M5.01 17.9H6.4V13.95L6.55 13.27L6.07 13.86L5.18 14.47L4.63 13.72L6.91 11.88H7.64V17.9H9V19H5.01V17.9ZM11.8738 17.99C12.3138 17.99 12.6505 17.8833 12.8838 17.67C13.1172 17.4567 13.2338 17.1633 13.2338 16.79C13.2338 16.39 13.0972 16.0967 12.8238 15.91C12.5505 15.7233 12.1605 15.63 11.6538 15.63L10.8638 15.66V12H14.3038V13.22H11.9838V14.57L12.3938 14.53C12.7205 14.5433 13.0138 14.6033 13.2738 14.71C13.5405 14.8167 13.7672 14.9667 13.9538 15.16C14.1405 15.3467 14.2838 15.5767 14.3838 15.85C14.4838 16.1167 14.5338 16.4167 14.5338 16.75C14.5338 17.1433 14.4672 17.49 14.3338 17.79C14.2005 18.09 14.0138 18.34 13.7738 18.54C13.5405 18.74 13.2638 18.89 12.9438 18.99C12.6238 19.09 12.2738 19.14 11.8938 19.14C11.5938 19.14 11.3072 19.1133 11.0338 19.06C10.7672 19.0133 10.5405 18.9467 10.3538 18.86L10.7038 17.78C10.8572 17.8467 11.0238 17.9 11.2038 17.94C11.3905 17.9733 11.6138 17.99 11.8738 17.99Z"
+        fill={fill ? fill : '#222222'}
+      />
+    </svg>
+  )
+}
+
+export function Foward15({ width, height, fill }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '24'}
+      height={height ? height : '24'}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M21 2V8H15"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M7.42591 19.8037C5.6887 18.7786 4.34624 17.1995 3.61396 15.32C2.88167 13.4405 2.80202 11.3694 3.38778 9.43922C3.97354 7.509 5.19075 5.83152 6.84409 4.67595C8.49743 3.52038 10.491 2.95373 12.505 3.06692C14.519 3.18012 16.4365 3.96659 17.95 5.30015L20.95 8.00014"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M10.01 17.9H11.4V13.95L11.55 13.27L11.07 13.86L10.18 14.47L9.63 13.72L11.91 11.88H12.64V17.9H14V19H10.01V17.9ZM16.8738 17.99C17.3138 17.99 17.6505 17.8833 17.8838 17.67C18.1172 17.4567 18.2338 17.1633 18.2338 16.79C18.2338 16.39 18.0972 16.0967 17.8238 15.91C17.5505 15.7233 17.1605 15.63 16.6538 15.63L15.8638 15.66V12H19.3038V13.22H16.9838V14.57L17.3938 14.53C17.7205 14.5433 18.0138 14.6033 18.2738 14.71C18.5405 14.8167 18.7672 14.9667 18.9538 15.16C19.1405 15.3467 19.2838 15.5767 19.3838 15.85C19.4838 16.1167 19.5338 16.4167 19.5338 16.75C19.5338 17.1433 19.4672 17.49 19.3338 17.79C19.2005 18.09 19.0138 18.34 18.7738 18.54C18.5405 18.74 18.2638 18.89 17.9438 18.99C17.6238 19.09 17.2738 19.14 16.8938 19.14C16.5938 19.14 16.3072 19.1133 16.0338 19.06C15.7672 19.0133 15.5405 18.9467 15.3538 18.86L15.7038 17.78C15.8572 17.8467 16.0238 17.9 16.2038 17.94C16.3905 17.9733 16.6138 17.99 16.8738 17.99Z"
+        fill={fill ? fill : '#222222'}
+      />
+    </svg>
+  )
+}
+
+export function VolumeIcon({ width, height, fill }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '17'}
+      height={height ? height : '17'}
+      viewBox="0 0 17 17"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7.6271 2.54614C8.28897 2.07337 9.20834 2.5465 9.20834 3.35987V13.6402C9.20834 14.4535 8.28897 14.9267 7.62711 14.4539L4.25001 12.0417H2.70834C1.60377 12.0417 0.708344 11.1462 0.708344 10.0417V6.95835C0.708344 5.85378 1.60377 4.95835 2.70834 4.95835H4.25001L7.6271 2.54614Z"
+        fill={fill ? fill : '#222222'}
+      />
+      <path
+        d="M11.3289 11.9746C12.2079 11.0799 12.75 9.8533 12.75 8.50003C12.75 7.14107 12.2033 5.9098 11.3178 5.01416"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M13.3012 2.99048C14.7112 4.40049 15.5833 6.34841 15.5833 8.50002C15.5833 10.6516 14.7112 12.5995 13.3012 14.0096"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function MuteIcon({ width, height, fill }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '21'}
+      height={height ? height : '24'}
+      viewBox="0 0 21 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7.6271 6.54614C8.28897 6.07337 9.20834 6.5465 9.20834 7.35987V17.6402C9.20834 18.4535 8.28897 18.9267 7.62711 18.4539L4.25001 16.0417H2.70834C1.60377 16.0417 0.708344 15.1462 0.708344 14.0417V10.9583C0.708344 9.85378 1.60377 8.95835 2.70834 8.95835H4.25001L7.6271 6.54614Z"
+        fill={fill ? fill : '#222222'}
+      />
+      <path
+        d="M18 10L12 16"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 10L18 16"
+        stroke={fill ? fill : '#222222'}
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
