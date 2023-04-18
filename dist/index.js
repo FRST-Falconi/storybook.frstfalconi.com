@@ -45,6 +45,10 @@ var moment = require('moment');
 var _ = require('@mui/material/');
 var Slider = require('@mui/material/Slider');
 var styles$1 = require('@material-ui/styles');
+var ComputerIcon = require('@mui/icons-material/Computer');
+var PersonAddIcon = require('@mui/icons-material/PersonAdd');
+var ArrowBackIosIcon = require('@mui/icons-material/ArrowBackIos');
+var ArrowForwardIosIcon = require('@mui/icons-material/ArrowForwardIos');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -93,6 +97,10 @@ var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 var Switch__default = /*#__PURE__*/_interopDefaultLegacy(Switch);
 var moment__default = /*#__PURE__*/_interopDefaultLegacy(moment);
 var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
+var ComputerIcon__default = /*#__PURE__*/_interopDefaultLegacy(ComputerIcon);
+var PersonAddIcon__default = /*#__PURE__*/_interopDefaultLegacy(PersonAddIcon);
+var ArrowBackIosIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowBackIosIcon);
+var ArrowForwardIosIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowForwardIosIcon);
 
 function EditIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '20', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M16.1788 1.92286C16.3858 1.71638 16.667 1.6 16.9607 1.6C17.2544 1.6 17.5356 1.71638 17.7426 1.92286C17.9496 2.12928 18.0654 2.4088 18.0654 2.69981C18.0654 2.99083 17.9496 3.27034 17.7426 3.47676L9.5855 11.6127C9.4439 11.7539 9.26546 11.8543 9.07141 11.9027C8.26586 12.1036 7.52969 11.3753 7.73154 10.57C7.78007 10.3765 7.88036 10.1997 8.02166 10.0588L16.1788 1.92286ZM16.9607 0C16.244 0 15.5563 0.283939 15.0489 0.790021L6.5187 9.29803C6.41591 9.40055 6.34296 9.52912 6.30766 9.66994L5.40975 13.2523C5.34143 13.5248 5.42113 13.8133 5.61971 14.0121C5.81829 14.2109 6.10663 14.291 6.3793 14.223L9.97094 13.3274C10.1114 13.2924 10.2398 13.2199 10.3423 13.1176L18.8725 4.6096C19.38 4.10345 19.6654 3.41652 19.6654 2.69981C19.6654 1.9831 19.38 1.29617 18.8725 0.790021C18.3651 0.283939 17.6774 0 16.9607 0ZM2.59582 1.89842C1.90804 1.89842 1.24801 2.17091 0.761035 2.65662C0.273994 3.1424 0 3.80169 0 4.48958V17.0277C0 17.7156 0.273995 18.3749 0.761035 18.8607C1.24801 19.3464 1.90804 19.6188 2.59582 19.6188H15.1666C15.8544 19.6188 16.5144 19.3464 17.0014 18.8607C17.4884 18.3749 17.7624 17.7156 17.7624 17.0277V10.7586C17.7624 10.3168 17.4042 9.95864 16.9624 9.95864C16.5206 9.95864 16.1624 10.3168 16.1624 10.7586V17.0277C16.1624 17.2899 16.058 17.5418 15.8715 17.7278C15.6849 17.9139 15.4314 18.0189 15.1666 18.0189H2.59582C2.33104 18.0189 2.07753 17.9139 1.89093 17.7278C1.70441 17.5418 1.6 17.2899 1.6 17.0277V4.48958C1.6 4.22738 1.70441 3.9755 1.89093 3.78946C2.07753 3.60335 2.33104 3.49842 2.59582 3.49842H8.8812C9.32303 3.49842 9.6812 3.14025 9.6812 2.69842C9.6812 2.25659 9.32303 1.89842 8.8812 1.89842H2.59582Z", fill: fill ?? '#0645AD' }) }));
@@ -12461,6 +12469,54 @@ function LogoFRST(props) {
                 : null }));
 }
 
+const ContainerStepController = styled__default["default"].div `
+  width: 100%;
+  height: 51px;
+  background: #efeded;
+  padding: 10px;
+  position: relative;
+  top: 25px;
+  display: flex;
+  justify-content: space-between;
+  color: #272727;
+  font-weight: lighter;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid #bdbdbd;
+  font-size: 14px;
+  font-weight: 600;
+  > div {
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: inline-flex;
+    vertical-align: text-bottom;
+    box-sizing: inherit;
+    text-align: center;
+    align-items: center;
+  }
+`;
+const StepControllerArrow = styled__default["default"].span `
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #272727;
+  transition: all 0.2s;
+  margin: 5px;
+
+  :hover {
+    opacity: 0.5;
+    background-color: #272727;
+    color: #bdbdbd;
+  }
+`;
+
+function StepController({ top = '25px', numberCurrentStep, numberTotalSteps, labelHome, labelContact, prevStep, nextStep, goToStart, goToContact }) {
+    return (jsxRuntime.jsxs(ContainerStepController, { style: { top: top }, children: [jsxRuntime.jsxs("div", { onClick: goToStart, children: [jsxRuntime.jsx(ComputerIcon__default["default"], { sx: { color: '#242424', fontSize: '0.9rem', marginRight: '8px' } }), labelHome] }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(StepControllerArrow, { onClick: prevStep, children: jsxRuntime.jsx(ArrowBackIosIcon__default["default"], { sx: { fontSize: '0.8rem', marginLeft: '2px' } }) }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberCurrentStep }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: "de" }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberTotalSteps }), jsxRuntime.jsx(StepControllerArrow, { onClick: nextStep, children: jsxRuntime.jsx(ArrowForwardIosIcon__default["default"], { sx: { fontSize: '0.8rem' } }) })] }), jsxRuntime.jsxs("div", { onClick: goToContact, children: [jsxRuntime.jsx(PersonAddIcon__default["default"], { sx: { color: 'inherit', fontSize: '0.8rem', marginRight: '8px' } }), labelContact] })] }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
@@ -12568,6 +12624,7 @@ exports.StepCicleFour = StepCicleFour;
 exports.StepCicleOne = StepCicleOne;
 exports.StepCicleThree = StepCicleThree;
 exports.StepCicleTwo = StepCicleTwo;
+exports.StepController = StepController;
 exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Steps = Steps;

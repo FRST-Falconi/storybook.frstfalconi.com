@@ -6,7 +6,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd'
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 
-const StepController = ({
+export default function StepController({
   top = '25px',
   numberCurrentStep,
   numberTotalSteps,
@@ -26,7 +26,7 @@ const StepController = ({
   nextStep: () => void
   goToStart: () => void
   goToContact: () => void
-}) => {
+}) {
   return (
     <S.ContainerStepController style={{ top: top }}>
       <div onClick={goToStart}>
@@ -52,5 +52,3 @@ const StepController = ({
     </S.ContainerStepController>
   )
 }
-
-export default StepController
