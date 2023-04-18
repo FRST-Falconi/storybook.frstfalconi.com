@@ -139,5 +139,8 @@ export declare function Back15({ width, height, fill }: IconsProps): JSX.Element
 export declare function Foward15({ width, height, fill }: IconsProps): JSX.Element;
 export declare function VolumeIcon({ width, height, fill }: IconsProps): JSX.Element;
 export declare function MuteIcon({ width, height, fill }: IconsProps): JSX.Element;
+export declare function ThumbVideo({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ThumbTexto({ fill, width, height }: IconsProps): JSX.Element;
+export declare function ThumbPodcast({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
