@@ -1,5 +1,5 @@
 /// <reference types="react" />
-declare const StepController: ({ top, numberCurrentStep, numberTotalSteps, labelHome, labelContact, prevStep, nextStep, goToStart, goToContact }: {
+export default function StepController({ top, numberCurrentStep, numberTotalSteps, labelHome, labelContact, prevStep, nextStep, goToStart, goToContact }: {
     top?: string;
     numberCurrentStep: number;
     numberTotalSteps: number;
@@ -9,6 +9,5 @@ declare const StepController: ({ top, numberCurrentStep, numberTotalSteps, label
     nextStep: () => void;
     goToStart: () => void;
     goToContact: () => void;
-}) => JSX.Element;
-export default StepController;
+}): JSX.Element;
 //# sourceMappingURL=index.d.ts.map
