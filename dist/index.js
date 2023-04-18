@@ -6640,14 +6640,14 @@ const Image$2 = styled__default["default"].div `
   background-size: cover;
   background-position: center;
 `;
-const Title = styled__default["default"].text `
+const Title = styled__default["default"].p `
   
   margin-bottom: 12px;
   color: ${({ theme }) => theme.colors.linkOnfocus};
   font-size: 16px;
   font-weight: 700;
 `;
-const Description = styled__default["default"].text `
+const Description = styled__default["default"].p `
   
   font-weight: 400;
   font-size: 16px;
