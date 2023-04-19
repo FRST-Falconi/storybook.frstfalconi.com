@@ -7807,6 +7807,9 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
     const [isTabletVersion, setIsTabletVersion] = React.useState(false);
     const [HideHambMenu, setHideHambMenu] = React.useState(false);
     React.useEffect(() => {
+        setValueListSearch(search.listEntry);
+    }, [search.listEntry]);
+    React.useEffect(() => {
         function updateSize() {
             setWindowSize([window.innerWidth, window.innerHeight]);
             setIsMobileVersion(window.innerWidth < 700);
