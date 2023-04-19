@@ -7136,6 +7136,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
         }
         if (labeledResultList) {
             setResultList(labeledResultList);
+            console.log("labeledResult!");
         }
     }, [listResults, labeledResultList]);
     React.useEffect(() => {
@@ -7817,6 +7818,7 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
     const [HideHambMenu, setHideHambMenu] = React.useState(false);
     React.useEffect(() => {
         setValueListSearch(search.listEntry);
+        console.log("Atualizado Resultado!");
     }, [search.listEntry]);
     React.useEffect(() => {
         function updateSize() {
