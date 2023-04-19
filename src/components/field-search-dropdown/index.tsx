@@ -25,6 +25,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
         }
         if(labeledResultList){
             setResultList(labeledResultList)
+            console.log("labeledResult!")
         }
     }, [listResults, labeledResultList]);
     

@@ -70,6 +70,7 @@ export default function GlobalMenu({
 
   useEffect(() => {
     setValueListSearch(search.listEntry)
+    console.log("Atualizado Resultado!")
   }, [search.listEntry]);
 
   useEffect(() => {
