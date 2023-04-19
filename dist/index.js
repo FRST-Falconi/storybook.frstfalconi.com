@@ -9754,6 +9754,30 @@ function ParticipantThumbnails(props) {
                 }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsx("h1", { children: props.titleThumbnail })] })] }));
 }
 
+function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ScrollContainer, { type: 'horizontal', stepMove: 100, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 80, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '-5rem', className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
+                return (jsxRuntime.jsx(ParticipantThumbnails, { imgThumbnails: item.imgThumbnails, titleThumbnail: item.titleThumbnail, descpThumbnail: item.descpThumbnail, handleFunctionThumbnail: item.handleFunctionThumbnail }));
+            }) }) }));
+}
+function ParticipantThumbnailsList({ listThumbnails }) {
+    const [width, setWidth] = React.useState(typeof window !== "undefined" && window.innerWidth);
+    function handleWindowSizeChange() {
+        setWidth(typeof window !== "undefined" && window.innerWidth);
+    }
+    React.useEffect(() => {
+        typeof window !== "undefined" && window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            typeof window !== "undefined" && window.removeEventListener('resize', handleWindowSizeChange);
+        };
+    }, []);
+    if (width <= 834) {
+        return handleThumbnails(listThumbnails, false);
+    }
+    else {
+        return handleThumbnails(listThumbnails, true);
+    }
+}
+
 const ProgressBox = styled__default["default"](_.Box) `
   z-index: 1 !important;
   float: right !important;
@@ -12564,3 +12588,4 @@ exports.TrashIcon = TrashIcon;
 exports.UserCard = CalendarCard$1;
 exports.Video = Video;
 exports.YoutubeIcon = YoutubeIcon;
+exports.participantThumbnailsList = ParticipantThumbnailsList;
