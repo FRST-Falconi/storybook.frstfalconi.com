@@ -9,7 +9,9 @@ import { Clock, SearchIcon } from '@shared/icons'
 
 export default function FieldSearch({ variant, placeholder, onChange, listResults, 
     hasOptionSeeAll, value, seeAll, style, loading, textLoading, enableAnimationField,
-    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter, historicResults, labeledResultList, isLabeledResult }: IFieldSearch) {
+    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter, historicResults,
+    labeledResultList, isLabeledResult }: IFieldSearch
+) {
     const [actionAreaInput, setActionAreaInput ] = useState(false)
     const [inputOnFocus, setInputOnFocus ] = useState(false)
     const [isMobile, setIsMobile ] = useState(isMobileVersion)
@@ -17,6 +19,22 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const [isOpenDrop, setIsOpenDrop ] = useState(false)
     const [ValueSearch, setValueSearch] = useState('');    
     const [Loading, setLoading] = useState(loading);
+    const [resultList, setResultList] = useState([]);
+
+    useEffect(() => {
+        if(listResults && listResults.length > 0){
+            setResultList(listResults)
+            setIsOpenDrop(true)
+        }
+        if(labeledResultList && labeledResultList.length > 0){
+            setResultList(labeledResultList)
+            setIsOpenDrop(true)
+        }
+    }, [listResults, labeledResultList]);
+
+    useEffect(() => {
+        setLoading(loading)
+    }, [loading]);
     
     useEffect(() => {
         setFieldSearchIsOpen(openSearchFieldMobile)
@@ -37,32 +55,24 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const handleFocusUp = () => {
         
         setInputOnFocus(true)
-        // setIsOpenDrop(true)
+        setIsOpenDrop(true)
         if(historicResults){
             setIsOpenDrop(historicResults.length > 0)
         }
-        else if(listResults){
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
-        }
-        else if(labeledResultList){
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
+        else{
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0)
         }
     }
     const handleFocusDown = () => {
         
-        // setInputOnFocus(false)
+        setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput)
     }
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
             onFilter(ValueSearch)
-            if(listResults){
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
-            }
-            else if(labeledResultList){
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
-            }
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0)
           
         }, 500)
     
@@ -94,13 +104,12 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                                 setIsOpenDrop(false)
                                 setValueSearch(e.target.value)
                             }}
-                            disabled={loading}
                             value={ValueSearch} 
                         />
                     </InputSearchWrapper>
                     { Loading &&
                         <WrapperResults style={{...style, marginTop: 8}}  isVisibleResults={true}>
-                            <ItemResult>                                
+                            <ItemResult style={{cursor: 'default'}}>                                
                                 <TextItem isLastItem={true} style={{color: '#999'}}>{textLoading ? textLoading : 'Carregando...'}</TextItem>
                             </ItemResult>
                         </WrapperResults>
@@ -126,7 +135,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
 
                             }
                             {ValueSearch.length > 0 &&
-                                labeledResultList.map((item, index) => (
+                                resultList.map((item, index) => (
                                     <div key={index} style={{width: '100%', marginTop: 16}}>
                                         <span style={{fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5}}>
                                             {item.label}
@@ -180,7 +189,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
 
                             }
                             {ValueSearch.length > 0 &&
-                                listResults.map(item => {
+                                resultList.map(item => {
                                     return <ItemResult 
                                         key={item.id} 
                                         onClick={() => {
