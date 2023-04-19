@@ -164,7 +164,7 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
                     </Styles.controls>
                     <Styles.audioTimeline>
                             <Styles.timeText>
-                                {currTime.min}:{currTime.sec}
+                                {currTime.min.toString().padStart(2, '0')}:{currTime.sec.toString().padStart(2, '0')}
                             </Styles.timeText>
                             <Styles.timeline
                                 type="range"
@@ -178,10 +178,9 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
                                 currentInputValue={percentagePlaytime}
                             />
                             <Styles.timeText>
-                                {time.min}:{time.sec}
+                                {time.min.toString().padStart(2, '0')}:{time.sec.toString().padStart(2, '0')}
                             </Styles.timeText>
-                    </Styles.audioTimeline>
-                    
+                    </Styles.audioTimeline>                    
                 </Styles.content>
             </Styles.container>
         </ThemeProvider>

@@ -6245,7 +6245,7 @@ const Container$8 = styled__default["default"].div `
 const HeaderImage$1 = styled__default["default"].div `
   display: flex;
   justify-content: flex-start;
-  height: 80vh;
+  height: 200;
   align-items: flex-start;
   flex-direction: column;
   position: relative;
@@ -6264,7 +6264,7 @@ const HeaderImage$1 = styled__default["default"].div `
       }
     `}
   @media (max-width: 834px) {
-    height: 72vh;
+    height: 450px;
     ${(props) => props.tmnDescription >= 134 &&
     styled.css `
         section {
@@ -6279,15 +6279,15 @@ const HeaderImage$1 = styled__default["default"].div `
         styled.css ` width: 0px;`}
 
   @media (max-width: 414px) {
-    height: 65vh;
+    height: 450px;
   }
   @media (max-width: 320px) {
-    height: 87vh;
+    height: 450px;
   }
 `;
 const Content = styled__default["default"].div `
   width: 100%;
-  height: 100%;
+  height: 450px;
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
   
@@ -6454,7 +6454,7 @@ function HeaderContent(props) {
         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$2, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel }), jsxRuntime.jsx(SpaceButtonLeft, { onClick: item.onClick, children: jsxRuntime.jsx(Button$2, { label: item.labelButton, variant: "primary" }) })] })] }));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
-                    return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
+                    return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
                 }), jsxRuntime.jsx(ListCounters, { children: Array.from({ length: props.listaRecomendacao.length }).map((_, index) => jsxRuntime.jsx(Counters, { selected: index === selectedContent, onClick: () => setSelectedContent(index) }, index)) })] }) }));
 }
 
@@ -9747,7 +9747,7 @@ styled__default["default"].div `
   }
 `;
 
-function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
+function ParticipantThumbnails(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [itemSelected, setItemSelected] = React.useState(null);
     const handleClose = () => {
@@ -9755,13 +9755,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
     };
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ScrollContainer, { type: 'horizontal', stepMove: 100, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 80, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '-5rem', className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
-                    return (jsxRuntime.jsxs(CardThumbnails, { theme: FRSTTheme, onClick: item.handleFunctionThumbnail, onMouseOver: (event) => {
-                            setAnchorEl(event.currentTarget);
-                            setItemSelected(item);
-                            item.handleFunctionThumbnail;
-                        }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: item.imgThumbnails ? item.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsx("h1", { children: item.titleThumbnail })] }, index));
-                }) }), isVisibleControlsButtons && (jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
                     vertical: 'center',
                     horizontal: 'center'
                 }, transformOrigin: {
@@ -9779,17 +9773,27 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
                 }, children: jsxRuntime.jsx(CardThumbnailsHove, { onMouseLeave: (event) => {
                         setAnchorEl(null);
                         setItemSelected(null);
-                    }, children: itemSelected && (jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: itemSelected.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: itemSelected.imgThumbnails ? itemSelected.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: itemSelected.titleThumbnail }), jsxRuntime.jsx("p", { children: itemSelected.descpThumbnail })] })] })) }) }))] }));
+                    }, children: jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: props.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: props.titleThumbnail }), jsxRuntime.jsx("p", { children: props.descpThumbnail })] })] }) }) }), jsxRuntime.jsxs(CardThumbnails, { theme: FRSTTheme, onClick: props.handleFunctionThumbnail, onMouseOver: (event) => {
+                    setAnchorEl(event.currentTarget);
+                    setItemSelected(props);
+                    props.handleFunctionThumbnail;
+                }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsx("h1", { children: props.titleThumbnail })] })] }));
 }
-function ParticipantThumbnails({ listThumbnails }) {
-    const [width, setWidth] = React.useState(window.innerWidth);
+
+function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ScrollContainer, { type: 'horizontal', stepMove: 100, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 80, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '-5rem', className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
+                return (jsxRuntime.jsx(ParticipantThumbnails, { imgThumbnails: item.imgThumbnails, titleThumbnail: item.titleThumbnail, descpThumbnail: item.descpThumbnail, handleFunctionThumbnail: item.handleFunctionThumbnail }));
+            }) }) }));
+}
+function ParticipantThumbnailsList({ listThumbnails }) {
+    const [width, setWidth] = React.useState(typeof window !== "undefined" && window.innerWidth);
     function handleWindowSizeChange() {
-        setWidth(window.innerWidth);
+        setWidth(typeof window !== "undefined" && window.innerWidth);
     }
     React.useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
+        typeof window !== "undefined" && window.addEventListener('resize', handleWindowSizeChange);
         return () => {
-            window.removeEventListener('resize', handleWindowSizeChange);
+            typeof window !== "undefined" && window.removeEventListener('resize', handleWindowSizeChange);
         };
     }, []);
     if (width <= 834) {
@@ -12659,3 +12663,4 @@ exports.TrashIcon = TrashIcon;
 exports.UserCard = CalendarCard$1;
 exports.Video = Video;
 exports.YoutubeIcon = YoutubeIcon;
+exports.participantThumbnailsList = ParticipantThumbnailsList;
