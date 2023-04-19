@@ -105,7 +105,7 @@ export default function ChallengeCard({
                             label.view
                             }
                         </Styles.ButtonAction>
-                        {variant !== 'srg' && variant !== 'completed' &&
+                        {variant !== 'srg' && variant !== 'completed' && onClickContinue &&
                             <Styles.ButtonAction onClick={() => onClickContinue()} variant={variant}>
                                 <span style={{marginLeft: '12px'}}>
                                     {label.continue}
