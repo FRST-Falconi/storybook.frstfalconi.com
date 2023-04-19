@@ -29,6 +29,10 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
             setIsOpenDrop(true)
         }
     }, [listResults, labeledResultList]);
+
+    useEffect(() => {
+        setLoading(loading)
+    }, [loading]);
     
     useEffect(() => {
         setFieldSearchIsOpen(openSearchFieldMobile)
@@ -53,11 +57,8 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
         if(historicResults){
             setIsOpenDrop(historicResults.length > 0)
         }
-        else if(listResults){
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
-        }
-        else if(labeledResultList){
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
+        else{
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0)
         }
     }
     const handleFocusDown = () => {
@@ -107,13 +108,12 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
                                 setIsOpenDrop(false)
                                 setValueSearch(e.target.value)
                             }}
-                            disabled={loading}
                             value={ValueSearch} 
                         />
                     </InputSearchWrapper>
                     { Loading &&
                         <WrapperResults style={{...style, marginTop: 8}}  isVisibleResults={true}>
-                            <ItemResult>                                
+                            <ItemResult style={{cursor: 'default'}}>                                
                                 <TextItem isLastItem={true} style={{color: '#999'}}>{textLoading ? textLoading : 'Carregando...'}</TextItem>
                             </ItemResult>
                         </WrapperResults>

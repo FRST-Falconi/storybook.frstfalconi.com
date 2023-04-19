@@ -14,8 +14,8 @@ const Template = (args) => <FieldSearch {...args} />
 export const labeledResult = Template.bind({})
 labeledResult.args = {
     variant: 'LXP',
-    loading: false,
-    textLoading: 'Carregando...',
+    loading: true,
+    textLoading: 'Buscando...',
     placeholder: 'O que você busca?', 
     value: 'Default to show options',
     hasListResult: true, 
