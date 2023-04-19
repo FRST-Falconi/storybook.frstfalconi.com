@@ -20,12 +20,13 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const [resultList, setResultList] = useState([]);
 
     useEffect(() => {
-        if(listResults){
+        if(listResults && listResults.length > 0){
             setResultList(listResults)
+            setIsOpenDrop(true)
         }
-        if(labeledResultList){
+        if(labeledResultList && labeledResultList.length > 0){
             setResultList(labeledResultList)
-            console.log("labeledResult!")
+            setIsOpenDrop(true)
         }
     }, [listResults, labeledResultList]);
     
