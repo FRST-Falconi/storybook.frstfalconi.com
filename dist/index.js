@@ -7131,12 +7131,13 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     const [Loading, setLoading] = React.useState(loading);
     const [resultList, setResultList] = React.useState([]);
     React.useEffect(() => {
-        if (listResults) {
+        if (listResults && listResults.length > 0) {
             setResultList(listResults);
+            setIsOpenDrop(true);
         }
-        if (labeledResultList) {
+        if (labeledResultList && labeledResultList.length > 0) {
             setResultList(labeledResultList);
-            console.log("labeledResult!");
+            setIsOpenDrop(true);
         }
     }, [listResults, labeledResultList]);
     React.useEffect(() => {
@@ -7818,7 +7819,6 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
     const [HideHambMenu, setHideHambMenu] = React.useState(false);
     React.useEffect(() => {
         setValueListSearch(search.listEntry);
-        console.log("Atualizado Resultado!");
     }, [search.listEntry]);
     React.useEffect(() => {
         function updateSize() {
