@@ -10290,7 +10290,7 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
                                 jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsxs(ButtonActionWrapper, { children: [jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), variant: variant, children: variant == 'srg' ?
                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
                                         :
-                                            label.view }), variant !== 'srg' && variant !== 'completed' &&
+                                            label.view }), variant !== 'srg' && variant !== 'completed' && onClickContinue &&
                                     jsxRuntime.jsx(ButtonAction, { onClick: () => onClickContinue(), variant: variant, children: jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.continue }) })] })] })] }) }));
 }
 const resumeString = (str, limit) => {
