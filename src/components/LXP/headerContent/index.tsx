@@ -98,7 +98,7 @@ export default function HeaderContent(props: HeaderContentParams) {
       <styledHeaderContent.Container style={{...props.style}}>
         {props.listaRecomendacao.map((item, index) => {
           return (
-            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length} onDisplay={index === selectedContent} >
+            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length} onDisplay={index === selectedContent} style={{...props.style}}>
               <>
                 {item.typeOfHeader === 'inProgress' ? (
                   <styledHeaderContent.Content onDisplay={index === selectedContent}>{InProgressHeader(item)}</styledHeaderContent.Content>

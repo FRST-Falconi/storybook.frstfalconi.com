@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const HeaderImage = styled.div<HeaderContentProps>`
   display: flex;
   justify-content: flex-start;
-  height: 80vh;
+  height: 200;
   align-items: flex-start;
   flex-direction: column;
   position: relative;
