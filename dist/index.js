@@ -7129,6 +7129,15 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     const [isOpenDrop, setIsOpenDrop] = React.useState(false);
     const [ValueSearch, setValueSearch] = React.useState('');
     const [Loading, setLoading] = React.useState(loading);
+    const [resultList, setResultList] = React.useState([]);
+    React.useEffect(() => {
+        if (listResults) {
+            setResultList(listResults);
+        }
+        if (labeledResultList) {
+            setResultList(labeledResultList);
+        }
+    }, [listResults, labeledResultList]);
     React.useEffect(() => {
         setFieldSearchIsOpen(openSearchFieldMobile);
     }, []);
@@ -7183,7 +7192,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                                     return item.onClick(item.id);
                                                 }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [jsxRuntime.jsx(Clock, {}), " ", item.label] }) }, item.id);
                                         }), ValueSearch.length > 0 &&
-                                        labeledResultList.map((item, index) => (jsxRuntime.jsxs("div", { style: { width: '100%', marginTop: 16 }, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5 }, children: item.label }), item.listResult.map(item => (jsxRuntime.jsx(ItemResult, { onClick: () => {
+                                        resultList.map((item, index) => (jsxRuntime.jsxs("div", { style: { width: '100%', marginTop: 16 }, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5 }, children: item.label }), item.listResult.map(item => (jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                         setIsOpenDrop(false);
                                                         return item.onClick(item.id);
                                                     }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id)))] }, index))), hasOptionSeeAll && labeledResultList.length > 0 && ValueSearch.length > 0 &&
@@ -7198,7 +7207,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                                     return item.onClick(item.id);
                                                 }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [jsxRuntime.jsx(Clock, {}), " ", item.label] }) }, item.id);
                                         }), ValueSearch.length > 0 &&
-                                        listResults.map(item => {
+                                        resultList.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
