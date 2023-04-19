@@ -1,14 +1,11 @@
 /// <reference types="react" />
 import '../../../shared/global.css';
-interface objThumbnails {
+interface ParticipantThumbnails {
     imgThumbnails?: any;
     titleThumbnail?: string;
     descpThumbnail?: string;
     handleFunctionThumbnail?: () => void;
 }
-interface ParticipantThumbnails {
-    listThumbnails: Array<objThumbnails>;
-}
-export default function ParticipantThumbnails({ listThumbnails }: ParticipantThumbnails): JSX.Element;
+export default function ParticipantThumbnails(props: ParticipantThumbnails): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

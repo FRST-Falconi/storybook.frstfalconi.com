@@ -53,15 +53,15 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   }
 
   @media (max-width: 414px) {
-    height: 65vh;
+    height: 450px;
   }
   @media (max-width: 320px) {
-    height: 87vh;
+    height: 450px;
   }
 `
 export const Content = styled.div<HeaderContentProps>`
   width: 100%;
-  height: 100%;
+  height: 450px;
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
   
