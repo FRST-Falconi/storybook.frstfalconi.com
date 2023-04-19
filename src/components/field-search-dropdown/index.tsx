@@ -17,6 +17,16 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const [isOpenDrop, setIsOpenDrop ] = useState(false)
     const [ValueSearch, setValueSearch] = useState('');    
     const [Loading, setLoading] = useState(loading);
+    const [resultList, setResultList] = useState([]);
+
+    useEffect(() => {
+        if(listResults){
+            setResultList(listResults)
+        }
+        if(labeledResultList){
+            setResultList(labeledResultList)
+        }
+    }, [listResults, labeledResultList]);
     
     useEffect(() => {
         setFieldSearchIsOpen(openSearchFieldMobile)
@@ -126,7 +136,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
 
                             }
                             {ValueSearch.length > 0 &&
-                                labeledResultList.map((item, index) => (
+                                resultList.map((item, index) => (
                                     <div key={index} style={{width: '100%', marginTop: 16}}>
                                         <span style={{fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5}}>
                                             {item.label}
@@ -180,7 +190,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
 
                             }
                             {ValueSearch.length > 0 &&
-                                listResults.map(item => {
+                                resultList.map(item => {
                                     return <ItemResult 
                                         key={item.id} 
                                         onClick={() => {
