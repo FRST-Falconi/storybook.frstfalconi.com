@@ -7154,7 +7154,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     // Handle Open list results
     const handleFocusUp = () => {
         setInputOnFocus(true);
-        // setIsOpenDrop(true)
+        setIsOpenDrop(true);
         if (historicResults) {
             setIsOpenDrop(historicResults.length > 0);
         }
@@ -7166,18 +7166,19 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
         }
     };
     const handleFocusDown = () => {
-        // setInputOnFocus(false)
+        setInputOnFocus(false);
         setIsOpenDrop(actionAreaInput);
     };
     React.useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
             onFilter(ValueSearch);
-            if (listResults) {
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
-            }
-            else if (labeledResultList) {
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0);
-            }
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0);
+            // if(listResults){
+            //     setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
+            // }
+            // else if(labeledResultList){
+            //     setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
+            // }
         }, 500);
         return () => clearTimeout(delayDebounceFn);
     }, [ValueSearch]);
