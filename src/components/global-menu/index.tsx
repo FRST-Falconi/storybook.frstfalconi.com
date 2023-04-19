@@ -227,6 +227,7 @@ export default function GlobalMenu({
                     textLoading={search.textLoading}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
+                    isLabeledResult={search.isLabeledResult}
                     listResults={search.isLabeledResult ? null : valueListSearch}
                     labeledResultList={search.isLabeledResult ? valueListSearch : null}
                     historicResults={search.historicResults}
@@ -259,6 +260,7 @@ export default function GlobalMenu({
                       textLoading={search.textLoading}
                       fieldSearchIsOpen={controlExpandedSearchMobile}
                       setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                      isLabeledResult={search.isLabeledResult}
                       listResults={search.isLabeledResult ? null : valueListSearch}
                       labeledResultList={search.isLabeledResult ? valueListSearch : null}
                       historicResults={search.historicResults}
@@ -530,6 +532,7 @@ export default function GlobalMenu({
                     textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                    isLabeledResult={search.isLabeledResult}
                     listResults={search.isLabeledResult ? null : valueListSearch}
                     labeledResultList={search.isLabeledResult ? valueListSearch : null}
                     historicResults={search.historicResults}
@@ -553,6 +556,7 @@ export default function GlobalMenu({
                     textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                    isLabeledResult={search.isLabeledResult}
                     listResults={search.isLabeledResult ? null : valueListSearch}
                     labeledResultList={search.isLabeledResult ? valueListSearch : null}
                     historicResults={search.historicResults}

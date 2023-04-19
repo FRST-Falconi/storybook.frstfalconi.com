@@ -65,7 +65,6 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     }
     const handleFocusDown = () => {
         
-        setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput)
     }
 
