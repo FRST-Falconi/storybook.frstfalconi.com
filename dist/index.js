@@ -4,9 +4,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var jsxRuntime = require('react/jsx-runtime');
 var React = require('react');
+var styled = require('styled-components');
+var useSound = require('use-sound');
 var reactI18next = require('react-i18next');
 var material = require('@mui/material');
-var styled = require('styled-components');
 var Button$4 = require('@mui/material/Button');
 var Menu$1 = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
@@ -73,6 +74,7 @@ function _interopNamespace(e) {
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
+var useSound__default = /*#__PURE__*/_interopDefaultLegacy(useSound);
 var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$4);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu$1);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
@@ -399,6 +401,24 @@ function StatusProblemaSendIcon({ fill, width, height }) {
 function StatusProblemaEdit({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#FEF0D0" }), jsxRuntime.jsx("path", { d: "M24 17.0669H18.5556C18.143 17.0669 17.7473 17.2417 17.4556 17.5529C17.1639 17.8641 17 18.2861 17 18.7262V30.341C17 30.781 17.1639 31.2031 17.4556 31.5142C17.7473 31.8254 18.143 32.0002 18.5556 32.0002H29.4444C29.857 32.0002 30.2527 31.8254 30.5444 31.5142C30.8361 31.2031 31 30.781 31 30.341V24.5336", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M30.1791 16.5163C30.489 16.1857 30.9093 16 31.3476 16C31.7858 16 32.2061 16.1857 32.516 16.5163C32.8259 16.8468 33 17.2951 33 17.7626C33 18.2301 32.8259 18.6784 32.516 19.0089L25.1159 26.9024L22 27.7333L22.779 24.4098L30.1791 16.5163Z", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
+function PlayIcon({ width, height, customColor_1, customColor_2 }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_22)", children: [jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }), jsxRuntime.jsx("path", { d: "M22.3411 17.3317C22.934 16.9358 22.934 16.0643 22.3411 15.6684L14.5553 10.47C13.8908 10.0264 13 10.5027 13 11.3017V21.6984C13 22.4974 13.8908 22.9737 14.5553 22.5301L22.3411 17.3317Z", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsxs("filter", { id: "filter0_d_1_22", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feOffset", { dy: "3" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_22", result: "shape" })] }) })] }));
+}
+function PauseIcon({ customColor_1, customColor_2, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_159)", children: [jsxRuntime.jsx("g", { filter: "url(#filter1_d_1_159)", children: jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }) }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 22 8)", fill: customColor_2 ? customColor_2 : 'white' }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 14 8)", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("filter", { id: "filter0_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "5" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "1.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter1_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "25" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "9" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.2 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] })] })] }));
+}
+function Back15({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3 2V8H9", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.524 19.8037C18.2613 18.7786 19.6037 17.1995 20.336 15.32C21.0683 13.4405 21.1479 11.3694 20.5622 9.43922C19.9764 7.509 18.7592 5.83152 17.1059 4.67595C15.4525 3.52038 13.4589 2.95373 11.445 3.06692C9.43099 3.18012 7.51344 3.96659 6 5.30015L3 8.00014", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M5.01 17.9H6.4V13.95L6.55 13.27L6.07 13.86L5.18 14.47L4.63 13.72L6.91 11.88H7.64V17.9H9V19H5.01V17.9ZM11.8738 17.99C12.3138 17.99 12.6505 17.8833 12.8838 17.67C13.1172 17.4567 13.2338 17.1633 13.2338 16.79C13.2338 16.39 13.0972 16.0967 12.8238 15.91C12.5505 15.7233 12.1605 15.63 11.6538 15.63L10.8638 15.66V12H14.3038V13.22H11.9838V14.57L12.3938 14.53C12.7205 14.5433 13.0138 14.6033 13.2738 14.71C13.5405 14.8167 13.7672 14.9667 13.9538 15.16C14.1405 15.3467 14.2838 15.5767 14.3838 15.85C14.4838 16.1167 14.5338 16.4167 14.5338 16.75C14.5338 17.1433 14.4672 17.49 14.3338 17.79C14.2005 18.09 14.0138 18.34 13.7738 18.54C13.5405 18.74 13.2638 18.89 12.9438 18.99C12.6238 19.09 12.2738 19.14 11.8938 19.14C11.5938 19.14 11.3072 19.1133 11.0338 19.06C10.7672 19.0133 10.5405 18.9467 10.3538 18.86L10.7038 17.78C10.8572 17.8467 11.0238 17.9 11.2038 17.94C11.3905 17.9733 11.6138 17.99 11.8738 17.99Z", fill: fill ? fill : '#222222' })] }));
+}
+function Foward15({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21 2V8H15", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.42591 19.8037C5.6887 18.7786 4.34624 17.1995 3.61396 15.32C2.88167 13.4405 2.80202 11.3694 3.38778 9.43922C3.97354 7.509 5.19075 5.83152 6.84409 4.67595C8.49743 3.52038 10.491 2.95373 12.505 3.06692C14.519 3.18012 16.4365 3.96659 17.95 5.30015L20.95 8.00014", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10.01 17.9H11.4V13.95L11.55 13.27L11.07 13.86L10.18 14.47L9.63 13.72L11.91 11.88H12.64V17.9H14V19H10.01V17.9ZM16.8738 17.99C17.3138 17.99 17.6505 17.8833 17.8838 17.67C18.1172 17.4567 18.2338 17.1633 18.2338 16.79C18.2338 16.39 18.0972 16.0967 17.8238 15.91C17.5505 15.7233 17.1605 15.63 16.6538 15.63L15.8638 15.66V12H19.3038V13.22H16.9838V14.57L17.3938 14.53C17.7205 14.5433 18.0138 14.6033 18.2738 14.71C18.5405 14.8167 18.7672 14.9667 18.9538 15.16C19.1405 15.3467 19.2838 15.5767 19.3838 15.85C19.4838 16.1167 19.5338 16.4167 19.5338 16.75C19.5338 17.1433 19.4672 17.49 19.3338 17.79C19.2005 18.09 19.0138 18.34 18.7738 18.54C18.5405 18.74 18.2638 18.89 17.9438 18.99C17.6238 19.09 17.2738 19.14 16.8938 19.14C16.5938 19.14 16.3072 19.1133 16.0338 19.06C15.7672 19.0133 15.5405 18.9467 15.3538 18.86L15.7038 17.78C15.8572 17.8467 16.0238 17.9 16.2038 17.94C16.3905 17.9733 16.6138 17.99 16.8738 17.99Z", fill: fill ? fill : '#222222' })] }));
+}
+function VolumeIcon({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '17', height: height ? height : '17', viewBox: "0 0 17 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.6271 2.54614C8.28897 2.07337 9.20834 2.5465 9.20834 3.35987V13.6402C9.20834 14.4535 8.28897 14.9267 7.62711 14.4539L4.25001 12.0417H2.70834C1.60377 12.0417 0.708344 11.1462 0.708344 10.0417V6.95835C0.708344 5.85378 1.60377 4.95835 2.70834 4.95835H4.25001L7.6271 2.54614Z", fill: fill ? fill : '#222222' }), jsxRuntime.jsx("path", { d: "M11.3289 11.9746C12.2079 11.0799 12.75 9.8533 12.75 8.50003C12.75 7.14107 12.2033 5.9098 11.3178 5.01416", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13.3012 2.99048C14.7112 4.40049 15.5833 6.34841 15.5833 8.50002C15.5833 10.6516 14.7112 12.5995 13.3012 14.0096", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function MuteIcon({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '21', height: height ? height : '24', viewBox: "0 0 21 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.6271 6.54614C8.28897 6.07337 9.20834 6.5465 9.20834 7.35987V17.6402C9.20834 18.4535 8.28897 18.9267 7.62711 18.4539L4.25001 16.0417H2.70834C1.60377 16.0417 0.708344 15.1462 0.708344 14.0417V10.9583C0.708344 9.85378 1.60377 8.95835 2.70834 8.95835H4.25001L7.6271 6.54614Z", fill: fill ? fill : '#222222' }), jsxRuntime.jsx("path", { d: "M18 10L12 16", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 10L18 16", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
 function ThumbVideo({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '117', height: height ? height : '127', viewBox: "0 0 177 127", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M163.62 1.5H12.88C6.595 1.5 1.5 6.595 1.5 12.88V113.92C1.5 120.205 6.595 125.3 12.88 125.3H163.62C169.905 125.3 175 120.205 175 113.92V12.88C175 6.595 169.905 1.5 163.62 1.5Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M175 103.86H1.5", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M79.01 114.58H97.49", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M56.78 55.96C56.78 47.62 60.1 39.61 66 33.71C71.9 27.81 79.91 24.49 88.25 24.49C96.59 24.49 104.6 27.81 110.5 33.71C116.4 39.61 119.72 47.62 119.72 55.96C119.72 64.3 116.4 72.31 110.5 78.21C104.6 84.11 96.59 87.43 88.25 87.43C79.91 87.42 71.91 84.1 66.01 78.2C60.11 72.3 56.79 64.3 56.78 55.96Z", stroke: "white", "stroke-width": "3", "stroke-miterlimit": "10" }), jsxRuntime.jsx("path", { d: "M82.28 44.93V66.77C82.28 67.9 83.56 68.55 84.47 67.89L99.47 56.97C100.23 56.42 100.23 55.29 99.47 54.74L84.47 43.82C83.56 43.16 82.28 43.81 82.28 44.94V44.93Z", stroke: "white", "stroke-width": "3", "stroke-miterlimit": "10" })] }));
 }
@@ -458,6 +478,595 @@ function Tag(props) {
 
 function EmptyCard(props) {
     return (jsxRuntime.jsx("div", { className: 'cardContent', style: { height: '100%' }, children: props.children }));
+}
+
+const DesignTokens = {
+    colors: {
+        borderPrimary: '#bdbdbd',
+        borderSecondary1: '#2ca92a',
+        borderSecondary2: '#ffd600',
+        borderSecondary3: '#6a3f86',
+        borderSecondary4: '#222222',
+        borderGray: '#E5E5E5',
+        linkDisabled: '#bdbdbd',
+        linkHover: '#0b0080',
+        linkOnfocus: '#0645ad',
+        linkPressed: '#663366',
+        linkError: '#923534',
+        inputError: '#ffe0e0',
+        inputSelect: '#9BB5DE',
+        selectItens: '#F7F9FC',
+        messageAlert1: '#ffc200',
+        messageAlert2: '#fef0d4',
+        messageError1: '#ea0000',
+        messageError2: '#ffe5e5',
+        messageSuccess1: '#2ca92a',
+        messageSuccess2: '#d1f6d1',
+        neutralsGrey1: '#222222',
+        neutralsGrey2: '#444444',
+        neutralsGrey3: '#757575',
+        neutralsGrey4: '#9c9c9c',
+        neutralsGrey5: '#bdbdbd',
+        neutralsGrey6: '#e0e0e0',
+        neutralsGrey7: '#ebebeb',
+        neutralsGrey8: '#ebeded',
+        neutralsGrey9: '#f2f2f2',
+        disabledLabelGray: '#D3D3D3',
+        primary1: '#ff4d0d',
+        primary2: '#ee4c15',
+        primary3: '#d14211',
+        secondary1: '#6a3f86',
+        secondary2: '#ffd600',
+        secondary5: '#a50000',
+        shadeWhite: '#ffffff',
+        shadeBlack: '#000000'
+    },
+    fonts: {
+        header1: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '34px',
+            letterSpacing: '-0.7px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
+        },
+        header2: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '20px',
+            letterSpacing: '-0.4px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
+        },
+        textMessageComponentsBodyBold: {
+            fontFamily: "'PT Sans', 'PTSans-Bold'",
+            fontSize: '16px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 700,
+            color: 'black'
+        },
+        textMessageComponentsBodyRegular: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '16px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageComponentsBodySmall: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '12px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageComponentsBodyTiny: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '10px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageComponentsCardTitle: {
+            fontFamily: "'Work Sans', 'WorkSansRoman-Medium'",
+            fontSize: '20px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
+            fontWeight: 500,
+            color: 'black'
+        },
+        textMessageComponentsHero: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '40px',
+            letterSpacing: '0.4px',
+            lineHeight: '130%',
+            fontWeight: 700,
+            color: 'black'
+        }
+    },
+    global: {
+        shadowLevel_0: {
+            value: {
+                x: '0',
+                y: '0',
+                blur: '0',
+                spread: '0',
+                color: '#000000',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        shadowLevel_1: {
+            value: {
+                x: '0',
+                y: '18',
+                blur: '40',
+                spread: '-15',
+                color: 'D3D3D3',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        shadowLevel_2: {
+            value: {
+                x: '0',
+                y: '25',
+                blur: '30',
+                spread: '-15',
+                color: 'D3D3D3',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        shadowLevel_3: {
+            value: {
+                x: '0',
+                y: '35',
+                blur: '25',
+                spread: '15',
+                color: '#cccccc',
+                type: 'dropShadow'
+            },
+            type: 'boxShadow'
+        },
+        border_width_small: {
+            value: '1px',
+            type: 'borderWidth'
+        },
+        border_width_medium: {
+            value: '2px',
+            type: 'borderWidth'
+        },
+        'border-width-large': {
+            value: '3',
+            type: 'borderWidth'
+        },
+        'border-radius-small': {
+            value: '4px',
+            type: 'borderRadius'
+        },
+        'border-radius-medium': {
+            value: '8px',
+            type: 'borderRadius'
+        },
+        'border-radius-large': {
+            value: '16px',
+            type: 'borderRadius'
+        },
+        'border-radius-xlarge': {
+            value: '24px',
+            type: 'borderRadius'
+        },
+        button_padding: {
+            value: '16px',
+            type: 'other'
+        },
+        card_padding_normal: {
+            value: '24px',
+            type: 'other'
+        },
+        card_padding_large: {
+            value: '32px',
+            type: 'other'
+        }
+    }
+};
+
+const FRSTTheme = {
+    ...DesignTokens,
+};
+
+const container$1 = styled__default["default"].div `
+    display: flex;
+    position: relative;
+    gap: 20px;
+    height: 234px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    background-color: #E2E8F0;
+    z-index: 1;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+`;
+const containerMask = styled__default["default"].div `
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    z-index: 1;
+`;
+const thumb = styled__default["default"].img `
+    display: flex;
+    border-radius: 8px;
+    width: 194px;
+    height: 194px;
+    z-index: 2;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+`;
+const content = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+`;
+const title = styled__default["default"].p `
+    font-family: 'Work Sans';
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    color: #222222;
+
+    margin-top: 12px;
+`;
+const description = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #222222;
+    
+`;
+const date = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #222222;
+
+`;
+const controls = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 24px;
+    width: 100%;
+    margin-top: 24px;
+`;
+const navigationButton = styled__default["default"].button `
+    border: none;
+    background: none;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+    &:hover{
+        color: ${({ theme }) => theme.colors.primary1};
+    }
+
+    &:active{
+        color: ${({ theme }) => theme.colors.primary3};
+    }
+`;
+const playButton = styled__default["default"].button `
+    border: none;
+    background: none;
+    color: ${({ theme }) => theme.colors.primary2};
+    &:hover{
+        color: ${({ theme }) => theme.colors.primary1};
+    }
+
+    &:active{
+        color: ${({ theme }) => theme.colors.primary3};
+    }
+`;
+const volumeControl = styled__default["default"].div `
+    position: absolute;
+    right: 0;
+`;
+const volume = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+`;
+const volumeBar = styled__default["default"].input `
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    border-radius: 1px;
+    box-sizing: border-box;
+    width: 32px;
+    height: 2px;
+    margin: 0px;
+    background: ${({ theme }) => theme.colors.neutralsGrey1};
+    background-image: linear-gradient(#ee4c15, #ee4c15);
+    background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
+    background-repeat: no-repeat;
+
+    &::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &:hover::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 5px;
+        height: 5px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 5px;
+        height: 5px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 5px;
+        height: 5px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &::-webkit-slider-runnable-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-moz-range-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-ms-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+`;
+const audioTimeline = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+`;
+const timeText = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #222222;
+
+`;
+const timeline = styled__default["default"].input `
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    border-radius: 2px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 4px;
+    margin: 0px;
+    background: ${({ theme }) => theme.colors.neutralsGrey1};
+    background-image: linear-gradient(#ee4c15, #ee4c15);
+    background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
+    background-repeat: no-repeat;
+
+    &::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &:hover::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &::-webkit-slider-runnable-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-moz-range-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-ms-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+`;
+
+function AudioPlayer(props) {
+    const [isPlaying, setIsPlaying] = React.useState(false);
+    const [time, setTime] = React.useState({
+        min: 0,
+        sec: 0
+    });
+    const [currTime, setCurrTime] = React.useState({
+        min: 0,
+        sec: 0
+    });
+    const [seconds, setSeconds] = React.useState(0);
+    const [audioVolume, setAudioVolume] = React.useState(props.volume ? props.volume : 0.5);
+    const [play, { pause, duration, sound }] = useSound__default["default"](props.audio, { volume: audioVolume,
+        onend: () => {
+            setIsPlaying(false);
+        } });
+    //porcentagem percorrida da musica
+    const [percentagePlaytime, setPercentagePlaytime] = React.useState(0);
+    const defaultThumb = 'https://i.gyazo.com/b5c2aa898e5b75a296b3c638cdfaee6f.png';
+    React.useEffect(() => {
+        setAudioVolume(props.volume);
+    }, [props.volume]);
+    React.useEffect(() => {
+        if (duration) {
+            const sec = duration / 1000;
+            const min = Math.floor(sec / 60);
+            const secRemain = Math.floor(sec % 60);
+            setTime({
+                min: min,
+                sec: secRemain
+            });
+        }
+        const interval = setInterval(() => {
+            if (sound) {
+                if (!isPlaying && props.startAt && sound.seek([]) === 0) {
+                    setSeconds(props.startAt);
+                    sound.seek([props.startAt]);
+                }
+                setSeconds(sound.seek([]));
+                const min = Math.floor(sound.seek([]) / 60);
+                const sec = Math.floor(sound.seek([]) % 60);
+                setCurrTime({
+                    min,
+                    sec
+                });
+                if (props.getCurrentTime) {
+                    props.getCurrentTime(sound.seek([]));
+                }
+                setPercentagePlaytime(calcCurrentInputPercentage(0, duration / 1000, sound.seek([])));
+            }
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [sound]);
+    const playingButton = () => {
+        if (isPlaying) {
+            pause();
+            setIsPlaying(false);
+        }
+        else {
+            play();
+            setIsPlaying(true);
+        }
+    };
+    // função para calcular a porcentagem que foi percorrida a musica, para fazer o acompanhamento da barra
+    const calcCurrentInputPercentage = (valorMin, valorMax, valorAtual) => {
+        const min = valorMin;
+        const max = valorMax;
+        const val = valorAtual;
+        let result = (val - min) * 100 / (max - min);
+        return result;
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container$1, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : '' }, children: [jsxRuntime.jsx(containerMask, {}), jsxRuntime.jsx(thumb, { src: props.coverImage ? props.coverImage : defaultThumb }), jsxRuntime.jsxs(content, { children: [jsxRuntime.jsxs(title, { children: [" ", props.title, " "] }), jsxRuntime.jsxs(description, { children: [" ", props.description, " "] }), jsxRuntime.jsxs(date, { children: [" ", props.date, " "] }), jsxRuntime.jsxs(controls, { children: [jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                        sound.seek([seconds ? seconds - 15 : 0]);
+                                    }, children: jsxRuntime.jsx(Back15, { fill: 'currentColor' }) }), !isPlaying ?
+                                    jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PlayIcon, { customColor_1: 'currentColor' }) })
+                                    :
+                                        jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PauseIcon, { customColor_1: 'currentColor' }) }), jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                        sound.seek([seconds ? seconds + 15 : 15]);
+                                    }, children: jsxRuntime.jsx(Foward15, { fill: 'currentColor' }) }), jsxRuntime.jsx(volumeControl, { children: audioVolume === 0 ?
+                                        jsxRuntime.jsx(volume, { onClick: () => {
+                                                setAudioVolume(0.1);
+                                            }, children: jsxRuntime.jsx(MuteIcon, {}) })
+                                        :
+                                            jsxRuntime.jsxs(volume, { children: [jsxRuntime.jsx("div", { onClick: () => {
+                                                            setAudioVolume(0);
+                                                        }, children: jsxRuntime.jsx(VolumeIcon, {}) }), jsxRuntime.jsx(volumeBar, { type: 'range', min: '0', max: '1', value: audioVolume, className: 'volumeBar', step: '0.1', onChange: (e) => {
+                                                            setAudioVolume(Number(e.target.value));
+                                                        }, currentInputValue: calcCurrentInputPercentage(0, 1, audioVolume) })] }) })] }), jsxRuntime.jsxs(audioTimeline, { children: [jsxRuntime.jsxs(timeText, { children: [currTime.min.toString().padStart(2, '0'), ":", currTime.sec.toString().padStart(2, '0')] }), jsxRuntime.jsx(timeline, { type: "range", min: "0", max: duration / 1000, value: seconds, className: "timeline", onChange: (e) => {
+                                        sound.seek([e.target.value]);
+                                    }, currentInputValue: percentagePlaytime }), jsxRuntime.jsxs(timeText, { children: [time.min.toString().padStart(2, '0'), ":", time.sec.toString().padStart(2, '0')] })] })] })] }) }));
 }
 
 /**
@@ -1099,205 +1708,6 @@ function MissionSteps(props) {
 var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
 var style$c = {"container":"avatarWithInfo-module_container__Y-yUf"};
 styleInject(css_248z$d);
-
-const DesignTokens = {
-    colors: {
-        borderPrimary: '#bdbdbd',
-        borderSecondary1: '#2ca92a',
-        borderSecondary2: '#ffd600',
-        borderSecondary3: '#6a3f86',
-        borderSecondary4: '#222222',
-        borderGray: '#E5E5E5',
-        linkDisabled: '#bdbdbd',
-        linkHover: '#0b0080',
-        linkOnfocus: '#0645ad',
-        linkPressed: '#663366',
-        linkError: '#923534',
-        inputError: '#ffe0e0',
-        inputSelect: '#9BB5DE',
-        selectItens: '#F7F9FC',
-        messageAlert1: '#ffc200',
-        messageAlert2: '#fef0d4',
-        messageError1: '#ea0000',
-        messageError2: '#ffe5e5',
-        messageSuccess1: '#2ca92a',
-        messageSuccess2: '#d1f6d1',
-        neutralsGrey1: '#222222',
-        neutralsGrey2: '#444444',
-        neutralsGrey3: '#757575',
-        neutralsGrey4: '#9c9c9c',
-        neutralsGrey5: '#bdbdbd',
-        neutralsGrey6: '#e0e0e0',
-        neutralsGrey7: '#ebebeb',
-        neutralsGrey8: '#ebeded',
-        neutralsGrey9: '#f2f2f2',
-        disabledLabelGray: '#D3D3D3',
-        primary1: '#ff4d0d',
-        primary2: '#ee4c15',
-        primary3: '#d14211',
-        secondary1: '#6a3f86',
-        secondary2: '#ffd600',
-        secondary5: '#a50000',
-        shadeWhite: '#ffffff',
-        shadeBlack: '#000000'
-    },
-    fonts: {
-        header1: {
-            fontFamily: "'Work Sans', 'WorkSans-Bold'",
-            fontSize: '34px',
-            letterSpacing: '-0.7px',
-            lineHeight: '100%',
-            fontWeight: 700,
-            color: 'black'
-        },
-        header2: {
-            fontFamily: "'Work Sans', 'WorkSans-Bold'",
-            fontSize: '20px',
-            letterSpacing: '-0.4px',
-            lineHeight: '100%',
-            fontWeight: 700,
-            color: 'black'
-        },
-        textMessageComponentsBodyBold: {
-            fontFamily: "'PT Sans', 'PTSans-Bold'",
-            fontSize: '16px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 700,
-            color: 'black'
-        },
-        textMessageComponentsBodyRegular: {
-            fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '16px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 400,
-            color: 'black'
-        },
-        textMessageComponentsBodySmall: {
-            fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '12px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 400,
-            color: 'black'
-        },
-        textMessageComponentsBodyTiny: {
-            fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '10px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 400,
-            color: 'black'
-        },
-        textMessageComponentsCardTitle: {
-            fontFamily: "'Work Sans', 'WorkSansRoman-Medium'",
-            fontSize: '20px',
-            letterSpacing: '0px',
-            lineHeight: '100%',
-            fontWeight: 500,
-            color: 'black'
-        },
-        textMessageComponentsHero: {
-            fontFamily: "'Work Sans', 'WorkSans-Bold'",
-            fontSize: '40px',
-            letterSpacing: '0.4px',
-            lineHeight: '130%',
-            fontWeight: 700,
-            color: 'black'
-        }
-    },
-    global: {
-        shadowLevel_0: {
-            value: {
-                x: '0',
-                y: '0',
-                blur: '0',
-                spread: '0',
-                color: '#000000',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        shadowLevel_1: {
-            value: {
-                x: '0',
-                y: '18',
-                blur: '40',
-                spread: '-15',
-                color: 'D3D3D3',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        shadowLevel_2: {
-            value: {
-                x: '0',
-                y: '25',
-                blur: '30',
-                spread: '-15',
-                color: 'D3D3D3',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        shadowLevel_3: {
-            value: {
-                x: '0',
-                y: '35',
-                blur: '25',
-                spread: '15',
-                color: '#cccccc',
-                type: 'dropShadow'
-            },
-            type: 'boxShadow'
-        },
-        border_width_small: {
-            value: '1px',
-            type: 'borderWidth'
-        },
-        border_width_medium: {
-            value: '2px',
-            type: 'borderWidth'
-        },
-        'border-width-large': {
-            value: '3',
-            type: 'borderWidth'
-        },
-        'border-radius-small': {
-            value: '4px',
-            type: 'borderRadius'
-        },
-        'border-radius-medium': {
-            value: '8px',
-            type: 'borderRadius'
-        },
-        'border-radius-large': {
-            value: '16px',
-            type: 'borderRadius'
-        },
-        'border-radius-xlarge': {
-            value: '24px',
-            type: 'borderRadius'
-        },
-        button_padding: {
-            value: '16px',
-            type: 'other'
-        },
-        card_padding_normal: {
-            value: '24px',
-            type: 'other'
-        },
-        card_padding_large: {
-            value: '32px',
-            type: 'other'
-        }
-    }
-};
-
-const FRSTTheme = {
-    ...DesignTokens,
-};
 
 const AvatarImg$1 = styled__default["default"].img `
     width: ${props => props.size || '120px'};
@@ -12524,6 +12934,7 @@ function StepController({ top = '25px', numberCurrentStep, numberTotalSteps, lab
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
+exports.AudioPlayer = AudioPlayer;
 exports.Avatar = Avatar;
 exports.AvatarAssociatedChannel = AvatarAssociatedChannel;
 exports.AvatarChannel = AvatarChannel$1;
