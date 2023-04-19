@@ -35,7 +35,7 @@ export const HeaderImage = styled.div<HeaderContentProps>`
       }
     `}
   @media (max-width: 834px) {
-    height: 72vh;
+    height: 450px;
     ${(props) =>
       props.tmnDescription >= 134 &&
       css`

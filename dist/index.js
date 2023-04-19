@@ -6256,7 +6256,7 @@ const HeaderImage$1 = styled__default["default"].div `
       }
     `}
   @media (max-width: 834px) {
-    height: 72vh;
+    height: 450px;
     ${(props) => props.tmnDescription >= 134 &&
     styled.css `
         section {
