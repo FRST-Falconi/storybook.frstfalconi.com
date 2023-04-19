@@ -73,6 +73,10 @@ export default function GlobalMenu({
   }, [search.listEntry]);
 
   useEffect(() => {
+    setLoadingSearch(search.isloading)
+  }, [search.loading]);
+
+  useEffect(() => {
     function updateSize() {
       setWindowSize([window.innerWidth, window.innerHeight])
       setIsMobileVersion(window.innerWidth < 700)
@@ -220,6 +224,7 @@ export default function GlobalMenu({
                     placeholder={search.label}
                     onFilter={search.onFilter}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     listResults={search.isLabeledResult ? null : valueListSearch}
@@ -251,6 +256,7 @@ export default function GlobalMenu({
                       placeholder={search.label}
                       onFilter={search.onFilter}
                       loading={loadingSearch}
+                      textLoading={search.textLoading}
                       fieldSearchIsOpen={controlExpandedSearchMobile}
                       setFieldSearchIsOpen={setControlExpandedSearchMobile}
                       listResults={search.isLabeledResult ? null : valueListSearch}
@@ -495,6 +501,7 @@ export default function GlobalMenu({
                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                     placeholder={search.label}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
                     isLabeledResult={search.isLabeledResult}
@@ -520,6 +527,7 @@ export default function GlobalMenu({
                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                     placeholder={search.label}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
                     listResults={search.isLabeledResult ? null : valueListSearch}
@@ -542,6 +550,7 @@ export default function GlobalMenu({
                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                     placeholder={search.label}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
                     listResults={search.isLabeledResult ? null : valueListSearch}
