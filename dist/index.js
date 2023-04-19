@@ -7141,6 +7141,9 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
         }
     }, [listResults, labeledResultList]);
     React.useEffect(() => {
+        setLoading(loading);
+    }, [loading]);
+    React.useEffect(() => {
         setFieldSearchIsOpen(openSearchFieldMobile);
     }, []);
     React.useEffect(() => {
@@ -7158,11 +7161,8 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
         if (historicResults) {
             setIsOpenDrop(historicResults.length > 0);
         }
-        else if (listResults) {
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
-        }
-        else if (labeledResultList) {
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0);
+        else {
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0);
         }
     };
     const handleFocusDown = () => {
@@ -7186,8 +7186,8 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                 jsxRuntime.jsxs(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: !openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon$1, { onClick: () => isMobile && setOpenSearchFieldMobile(!openSearchFieldMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => {
                                         setIsOpenDrop(false);
                                         setValueSearch(e.target.value);
-                                    }, disabled: loading, value: ValueSearch })] }), Loading &&
-                            jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) }), labeledResultList && labeledResultList.length > 0 && inputOnFocus && isLabeledResult &&
+                                    }, value: ValueSearch })] }), Loading &&
+                            jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { style: { cursor: 'default' }, children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) }), labeledResultList && labeledResultList.length > 0 && inputOnFocus && isLabeledResult &&
                             jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
                                         historicResults.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
