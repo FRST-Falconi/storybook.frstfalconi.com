@@ -69,6 +69,10 @@ export default function GlobalMenu({
   const [HideHambMenu, setHideHambMenu] = useState(false)
 
   useEffect(() => {
+    setValueListSearch(search.listEntry)
+  }, [search.listEntry]);
+
+  useEffect(() => {
     function updateSize() {
       setWindowSize([window.innerWidth, window.innerHeight])
       setIsMobileVersion(window.innerWidth < 700)
