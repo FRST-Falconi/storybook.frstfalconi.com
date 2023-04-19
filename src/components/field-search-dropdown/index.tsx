@@ -9,7 +9,9 @@ import { Clock, SearchIcon } from '@shared/icons'
 
 export default function FieldSearch({ variant, placeholder, onChange, listResults, 
     hasOptionSeeAll, value, seeAll, style, loading, textLoading, enableAnimationField,
-    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter, historicResults, labeledResultList, isLabeledResult }: IFieldSearch) {
+    isMobileVersion, setFieldSearchIsOpen, fieldSearchIsOpen, onFilter, historicResults,
+    labeledResultList, isLabeledResult }: IFieldSearch
+) {
     const [actionAreaInput, setActionAreaInput ] = useState(false)
     const [inputOnFocus, setInputOnFocus ] = useState(false)
     const [isMobile, setIsMobile ] = useState(isMobileVersion)
@@ -71,12 +73,6 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
         const delayDebounceFn = setTimeout(() => {
             onFilter(ValueSearch)
             setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0)
-            // if(listResults){
-            //     setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
-            // }
-            // else if(labeledResultList){
-            //     setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
-            // }
           
         }, 500)
     
