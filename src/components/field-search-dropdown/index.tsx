@@ -49,7 +49,7 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     const handleFocusUp = () => {
         
         setInputOnFocus(true)
-        // setIsOpenDrop(true)
+        setIsOpenDrop(true)
         if(historicResults){
             setIsOpenDrop(historicResults.length > 0)
         }
@@ -62,19 +62,20 @@ export default function FieldSearch({ variant, placeholder, onChange, listResult
     }
     const handleFocusDown = () => {
         
-        // setInputOnFocus(false)
+        setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput)
     }
 
     useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
             onFilter(ValueSearch)
-            if(listResults){
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
-            }
-            else if(labeledResultList){
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
-            }
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0)
+            // if(listResults){
+            //     setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0)
+            // }
+            // else if(labeledResultList){
+            //     setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0)
+            // }
           
         }, 500)
     
