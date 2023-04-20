@@ -82,9 +82,9 @@ export default function ThumbListContent(props: IThumbListContent) {
             </Styles.shadedThumb>
           ) : (
             <Styles.iconsThumb onClick={props.onClickThumb}>
-              {props.typeThumbContent === 'video' ? <ThumbVideo width="74" height="74" /> : null}
-              {props.typeThumbContent === 'podcast' ? <ThumbPodcast width="74" height="74" /> : null}
-              {props.typeThumbContent === 'question' ? <ThumbTexto width="74" height="74" /> : null}
+              {props.typeThumbContent === 'video' ? <div><ThumbVideo width="74" height="74" /></div> : null}
+              {props.typeThumbContent === 'podcast' ? <div><ThumbPodcast width="74" height="74" /></div> : null}
+              {props.typeThumbContent === 'question' ? <div><ThumbTexto width="74" height="74" /></div> : null}
             </Styles.iconsThumb>
           )}
           <Styles.infoThumbContent onClick={props.onClickThumb} tagVisualized={props.tagValue}>

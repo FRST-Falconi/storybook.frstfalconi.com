@@ -114,7 +114,7 @@ questionario.args = {
 export const questionarioVizualizado = Template.bind({})
 questionarioVizualizado.args = {
   imageSrc: '',
-  typeThumbContent: 'question',
+  typeThumbContent: 'video',
   title: 'Label',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
@@ -125,5 +125,6 @@ questionarioVizualizado.args = {
   style: { width: 375 },
   textProgressVisualized: 'Visualizado',
   textProgressInProgress: 'Em andamento',
-  tagValue: 'vizualized'
+  tagValue: 'vizualized',
+  valueProgress: 84,
 }

@@ -20,6 +20,20 @@ normal.args = {
     description: 'FIRST THINGS FRST - Gente que transforma o futuro',
     date: '10/05/2023',
     volume: 0.7,
-    getCurrentTime: (e) => console.log(e),
+    onProgress: (e) => console.log('onProgress: ', e),
+    onEnded: (e) => console.log('onEnded: ', 'Fim'),
+    style: {width: 814},
+}
+
+export const SemCapa = Template.bind({})
+SemCapa.args = {
+    audio: Royalty,
+    startAt: 90,
+    title: 'T4:e02 - Human Made: Coragem, Criatividade e Resiliência',
+    description: 'FIRST THINGS FRST - Gente que transforma o futuro',
+    date: '10/05/2023',
+    volume: 0.7,
+    onProgress: (e) => console.log('onProgress: ', e),
+    onEnded: (e) => console.log('onEnded: ', 'Fim'),
     style: {width: 814},
 }

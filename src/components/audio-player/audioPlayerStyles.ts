@@ -29,12 +29,13 @@ export const containerMask = styled.div`
     z-index: 1;
 `
 
-export const thumb = styled.img`
-    display: flex;
+export const thumb = styled.div`
     border-radius: 8px;
     width: 194px;
+    max-width: 194px;
     height: 194px;
     z-index: 2;
+    /* background-color: red; */
 
     background-repeat: no-repeat;
     background-position: center;
@@ -63,8 +64,7 @@ export const description = styled.p`
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
-    color: #222222;
-    
+    color: #222222;   
 `
 
 export const date = styled.p`
@@ -73,7 +73,6 @@ export const date = styled.p`
     font-weight: 400;
     line-height: 16px;
     color: #222222;
-
 `
 
 export const controls = styled.div`
