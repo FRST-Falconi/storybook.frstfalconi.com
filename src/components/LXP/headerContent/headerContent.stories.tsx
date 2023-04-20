@@ -25,7 +25,7 @@ InProgress.args = {
       onClick: () => {
         alert('Continuar o Curso')
       },
-      channel: 'XP Investimentos',
+      // channel: 'XP Investimentos',
       labelButton: 'Continuar curso'
     },
     {

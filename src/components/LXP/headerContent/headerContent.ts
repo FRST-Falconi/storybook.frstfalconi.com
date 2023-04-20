@@ -152,6 +152,9 @@ export const Description = styled.div<HeaderContentProps>`
 export const SpaceProgressAndButton = styled.div`
   margin-top: 68px;
   display: flex;
+  height: 50px;
+  gap: 28px;
+  align-items: center;
   margin-bottom: 2rem;
   cursor: pointer;
   @media (max-width: 414px) {
