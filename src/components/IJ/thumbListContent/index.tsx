@@ -6,7 +6,7 @@ import { ThumbPodcast, ThumbTexto, ThumbVideo } from '@shared/icons'
 import Button from '@components/buttons'
 import ProgressBar from '@components/LXP/progressBar'
 
-type typeThumb = 'video' | 'podcast' | 'question'
+type typeThumb = 'video' | 'podcast' | 'question' | 'textual'
 
 interface IThumbListContent {
   imageSrc?: string
@@ -75,6 +75,7 @@ export default function ThumbListContent(props: IThumbListContent) {
                   </Styles.IconAndProgress>
                 ) : null}
                 {props.typeThumbContent === 'question' ? <ThumbTexto width="74" height="74" /> : null}
+                {props.typeThumbContent === 'textual' ? <ThumbTexto width="74" height="74" /> : null}
                 <Styles.ProgressIcon>
                   <ProgressBar label="" value={props.valueProgress} />
                 </Styles.ProgressIcon>
@@ -85,6 +86,7 @@ export default function ThumbListContent(props: IThumbListContent) {
               {props.typeThumbContent === 'video' ? <div><ThumbVideo width="74" height="74" /></div> : null}
               {props.typeThumbContent === 'podcast' ? <div><ThumbPodcast width="74" height="74" /></div> : null}
               {props.typeThumbContent === 'question' ? <div><ThumbTexto width="74" height="74" /></div> : null}
+              {props.typeThumbContent === 'textual' ? <div><ThumbTexto width="74" height="74" /></div> : null}
             </Styles.iconsThumb>
           )}
           <Styles.infoThumbContent onClick={props.onClickThumb} tagVisualized={props.tagValue}>
