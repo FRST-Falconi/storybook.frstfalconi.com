@@ -1,6 +1,7 @@
 export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour, Books, Diamond, Challenge, ChangeAccount, EyeOff, OpenedEye } from './src/shared/icons';
 export { default as Tag } from './src/components/tag';
 export { default as BaseCard } from './src/components/cards/base';
+export { default as AudioPlayer } from './src/components/audio-player';
 export { default as UserCard } from './src/components/cards/user';
 export { default as CalendarCard } from './src/components/calendar';
 export { default as BannerProblem } from './src/components/cardLT/BannerProblem';
@@ -64,6 +65,7 @@ export { default as ManageLearningCicles } from './src/components/LXP/manageLern
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable';
 export { default as SelectLXP } from './src/components/LXP/selectLXP';
 export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails';
+export { default as participantThumbnailsList } from './src/components/LXP/participantThumbnailsList';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';

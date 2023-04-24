@@ -46,6 +46,7 @@ export {
 // Base
 export { default as Tag } from './src/components/tag'
 export { default as BaseCard } from './src/components/cards/base'
+export { default as AudioPlayer } from './src/components/audio-player'
 
 // CARDS
 export { default as UserCard } from './src/components/cards/user'
@@ -124,6 +125,7 @@ export { default as ManageLearningCicles } from './src/components/LXP/manageLern
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable'
 export { default as SelectLXP } from './src/components/LXP/selectLXP'
 export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails'
+export { default as participantThumbnailsList } from './src/components/LXP/participantThumbnailsList'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI

@@ -7,7 +7,7 @@ export default {
   component: HeaderContent
 }
 
-const Template = (args) => <HeaderContent {...args} />
+const Template = (args) => <HeaderContent {...args}/>
 
 export const InProgress = Template.bind({})
 InProgress.args = {
