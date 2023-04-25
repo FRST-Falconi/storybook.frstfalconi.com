@@ -152,7 +152,7 @@ export { default as ParticipantCard } from './src/components/IJ/participantCard'
 export { default as HeaderChallenge } from './src/components/headerChallenge'
 
 // Hall
-export { default as LogoFRST } from './src/components/LogoFRST'
+export { default as LogoFRST } from './src/components/LogoFRST' 
 
 //Demo
 export { default as StepController } from './src/components/demo/stepController'
