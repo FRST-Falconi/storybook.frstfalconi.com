@@ -1,5 +1,5 @@
 /// <reference types="react" />
-declare type valueEnum = string | number | boolean | null;
+type valueEnum = string | number | boolean | null;
 interface SelectProps {
     value?: valueEnum;
     label?: string;

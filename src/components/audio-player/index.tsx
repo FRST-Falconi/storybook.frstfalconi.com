@@ -61,7 +61,7 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
             console.log(isPlaying)
             if (isPlaying) {
                 props.onProgress({
-                    loadedSeconds: duration,
+                    loadedSeconds: duration / 1000,
                     playedSeconds: sound.seek([])
                 })
             }
