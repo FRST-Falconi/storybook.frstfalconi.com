@@ -102,6 +102,7 @@ export { default as GroupStatistics } from './src/components/EBR/group-statistic
 export { default as TrailList } from './src/components/EBR/trail-list'
 
 export { default as Favorite } from './src/components/IJ/favorite'
+export { default as ContentCycle } from './src/components/IJ/ContentCycle'
 
 // LXP
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel'
