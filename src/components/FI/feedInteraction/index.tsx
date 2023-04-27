@@ -99,7 +99,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.Container style={{...props.style}} id={props.id}>
-                {!props.textTotalView && (props.qtdLikes || props.qtdComments) ?
+                {!props.textTotalView && (props.qtdLikes || props.qtdComments) &&
                     <Styles.infoContent>
                         {props.qtdLikes ?
                             <Styles.info style={{left: 0}}> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.info>
@@ -109,8 +109,9 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                             <Styles.info style={{right: 0}}>{props.qtdComments}</Styles.info>
                             : null
                         }
-                    </Styles.infoContent>
-                    : 
+                    </Styles.infoContent> 
+                }
+                {props.textTotalView && (props.qtdLikes || props.qtdComments) &&
                     <Styles.infoContentWithView>
                         <div style={{display: 'flex', flexDirection: 'row', gap: '5px'}}>
                             {props.qtdLikes && <Styles.infoWithView> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.infoWithView> }

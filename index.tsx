@@ -142,6 +142,7 @@ export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner'
 export { default as PostFeed } from './src/components/FI/postFeed'
 export { default as NotificationCard } from './src/components/FI/notificationCard'
 export { default as NotificationPopOver } from './src/components/FI/notificationPopOver'
+export { default as InteractionsModal } from './src/components/FI/interactionsModal'
 
 export { default as Pagination } from './src/components/IJ/pagination'
 export { default as ThumbListContent } from './src/components/IJ/thumbListContent'

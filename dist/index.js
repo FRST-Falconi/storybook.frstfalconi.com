@@ -28,7 +28,7 @@ var reactBeautifulDnd = require('react-beautiful-dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
 var Popover = require('@material-ui/core/Popover');
 var Rating$2 = require('@mui/material/Rating');
-var Typography$3 = require('@mui/material/Typography');
+var Typography$4 = require('@mui/material/Typography');
 var reactDateRange = require('react-date-range');
 var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
@@ -92,7 +92,7 @@ var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Popover__default = /*#__PURE__*/_interopDefaultLegacy(Popover);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
-var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$3);
+var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$4);
 var Avatar__default = /*#__PURE__*/_interopDefaultLegacy(Avatar$1);
 var Markdown__default = /*#__PURE__*/_interopDefaultLegacy(Markdown);
 var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
@@ -1222,7 +1222,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$d = styled__default["default"](Card__default["default"]) `
+const Container$e = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -1428,9 +1428,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$d, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$e, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$d, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$5, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$e, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$5, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -4193,7 +4193,7 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const Container$c = styled__default["default"].div `
+const Container$d = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -4284,7 +4284,7 @@ const ButtonAction$1 = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$c, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$d, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
                             jsxRuntime.jsxs(ContainerIcon$2, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText$1, { placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
                                 if (event.key === "Enter") {
@@ -6125,7 +6125,7 @@ function ButtonContent({ variant, label, disabled, startIcon, style, handleClick
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ButtonStartIcon, { style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] }) }));
 }
 
-const Container$b = styled__default["default"].span `
+const Container$c = styled__default["default"].span `
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -6166,7 +6166,7 @@ const Container$b = styled__default["default"].span `
 `;
 
 const ColorPicker = props => {
-    return (jsxRuntime.jsxs(Container$b, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
+    return (jsxRuntime.jsxs(Container$c, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
 };
 function Colorpicker({ width, height, color, }) {
     const [state, updateState] = React.useState(color);
@@ -6177,7 +6177,7 @@ function Colorpicker({ width, height, color, }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ColorPicker, { onChange: handleInput, value: state, width: width, height: height }) }));
 }
 
-const Container$a = styled__default["default"].div `
+const Container$b = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6269,10 +6269,10 @@ const ContentSwitcherSelected = styled__default["default"].button `
 `;
 
 function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected, isActive, idButtonSwitcher }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$a, { sizeIcon: sizeIcon, style: { ...style }, children: !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, id: idButtonSwitcher, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, id: idButtonSwitcher, children: [startIconSelected, label] })) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$b, { sizeIcon: sizeIcon, style: { ...style }, children: !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, id: idButtonSwitcher, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, id: idButtonSwitcher, children: [startIconSelected, label] })) }) }));
 }
 
-const Container$9 = styled__default["default"].div `
+const Container$a = styled__default["default"].div `
     width: 270px;
     min-height: 409px;
     background-color: ${({ theme }) => theme.colors.primary2};
@@ -6300,7 +6300,7 @@ const Content$1 = styled__default["default"].div `
     width: 100%;
     margin-top: 20px;
 `;
-const Typography$2 = styled__default["default"].p `     
+const Typography$3 = styled__default["default"].p `     
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -6519,7 +6519,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
                         return (jsxRuntime.jsx(reactBeautifulDnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs("div", { onClick: handleClick, style: { display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer' }, children: [iconList[item.type], jsxRuntime.jsx(Title$2, { children: item.title })] }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: removeContentList, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
                     }) })) }) }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$9, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), jsxRuntime.jsx("div", { children: up ? (jsxRuntime.jsx(Exibir, {})) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$a, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), jsxRuntime.jsx("div", { children: up ? (jsxRuntime.jsx(Exibir, {})) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
 }
 
 const LandscapeContainer = styled__default["default"].label `
@@ -6648,7 +6648,7 @@ function ProgressBar$1({ value, label }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ProgressContainer, { children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs(ValueAndProgress, { children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
-const Container$8 = styled__default["default"].div `
+const Container$9 = styled__default["default"].div `
   display: flex;
   position: relative;
 `;
@@ -6863,7 +6863,7 @@ function HeaderContent(props) {
     function InProgressHeader(item) {
         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$2, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel }), jsxRuntime.jsx(SpaceButtonLeft, { onClick: item.onClick, children: jsxRuntime.jsx(Button$2, { label: item.labelButton, variant: "primary" }) })] })] }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$9, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
                     return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
                 }), jsxRuntime.jsx(ListCounters, { children: Array.from({ length: props.listaRecomendacao.length }).map((_, index) => jsxRuntime.jsx(Counters, { selected: index === selectedContent, onClick: () => setSelectedContent(index) }, index)) })] }) }));
 }
@@ -7038,7 +7038,7 @@ function PopOver({ variant, children, element, onClosePopover }) {
                                                 : null, jsxRuntime.jsx("div", { style: { zIndex: 9 }, children: children })] }) }) }) }));
 }
 
-const Container$7 = styled__default["default"].div `
+const Container$8 = styled__default["default"].div `
   display: grid;
   grid-template-columns: 0.11fr 1fr;
   height: 120px;
@@ -7099,7 +7099,7 @@ const skillTag = styled__default["default"].div `
 `;
 
 function SearchResults({ src, title, description, textSkills, skills, style, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$2, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$2, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
                             jsxRuntime.jsxs(skillSets, { children: [textSkills, ":", skills.map(item => {
                                         return (jsxRuntime.jsx(skillTag, { children: item }));
                                     })] })
@@ -7395,7 +7395,7 @@ const itemFrstSocials = styled__default["default"].button `
   cursor: pointer;
 `;
 
-const Container$6 = styled__default["default"].div `
+const Container$7 = styled__default["default"].div `
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -7586,7 +7586,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
         return () => clearTimeout(delayDebounceFn);
     }, [ValueSearch]);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, id: 'bar-search-global-menu', children: variant == 'LXP' ?
-                jsxRuntime.jsxs(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: !openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon$1, { onClick: () => isMobile && setOpenSearchFieldMobile(!openSearchFieldMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => {
+                jsxRuntime.jsxs(Container$7, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: !openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon$1, { onClick: () => isMobile && setOpenSearchFieldMobile(!openSearchFieldMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => {
                                         setIsOpenDrop(false);
                                         setValueSearch(e.target.value);
                                     }, value: ValueSearch })] }), Loading &&
@@ -7624,7 +7624,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                                 return seeAll.onClick(e);
                                             }, children: seeAll.label })] })] })
                 :
-                    jsxRuntime.jsx(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
+                    jsxRuntime.jsx(Container$7, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
 }
 
 const Wrapper$2 = styled__default["default"].button `
@@ -7814,7 +7814,7 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
                     }) })] }) }));
 }
 
-const Container$5 = styled__default["default"].div `
+const Container$6 = styled__default["default"].div `
   width: auto;
   height: auto;
 `;
@@ -7991,7 +7991,7 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
         setAnchorSub(event.currentTarget);
         setSubMenu(subItens);
     };
-    return (jsxRuntime.jsx(Container$5, { style: { ...style }, children: variant == 'LXP' ?
+    return (jsxRuntime.jsx(Container$6, { style: { ...style }, children: variant == 'LXP' ?
             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$2, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
@@ -8729,7 +8729,7 @@ function ExtraContent(props) {
 
 const isColorBlack = ({ theme }) => theme.colors.shadeBlack;
 const isColorError = ({ theme }) => theme.colors.linkError;
-const Container$4 = styled__default["default"].div `
+const Container$5 = styled__default["default"].div `
   width: 100%;
   max-width: 445px;
   min-height: 509px;
@@ -9126,11 +9126,11 @@ function Login(props) {
         setError(props.isError);
         setMsgInput2(props.isError ? 'E-mail ou senhas incorretos.' : '');
     }, [props.isError]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$4, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerInputAndLink, { children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmail, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerPassword, { isError: error, children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { style: { paddingTop: '78px' }, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerEmailAndTypeRecoverRecover, { children: [jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerInputAndLink, { children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmail, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerPassword, { isError: error, children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { style: { paddingTop: '78px' }, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerEmailAndTypeRecoverRecover, { children: [jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
                                         ? props.textEmailCadastro
                                         : 'Digite seu e-mail de cadastro abaixo e clique em enviar.' }), jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro2
                                         ? props.textEmailCadastro2
-                                        : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$4, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
+                                        : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
                         ? props.textNewPasswordInformacao
                         : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { isError: error, children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, placeholder: props.textNewPasswordInputEmailPlaceholder
                                         ? props.textNewPasswordInputEmailPlaceholder
@@ -9379,7 +9379,7 @@ const ContainerMain = styled__default["default"].div `
     position: relative;
     align-items: center;
 `;
-const Typography$1 = styled__default["default"].p `
+const Typography$2 = styled__default["default"].p `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
@@ -9498,7 +9498,7 @@ function Thumbnails({ variant, src, showSwitchIndividual, handleClickCourse, han
                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ?
                             jsxRuntime.jsxs(LoadingContainer, { children: [jsxRuntime.jsx(LoadingImage, {}), jsxRuntime.jsx(LoadingContent, {}), jsxRuntime.jsx(LoadingContent, { style: { width: '50%' } })] })
                             :
-                                jsxRuntime.jsxs(ContainerThumbnails, { showSwitchIndividual: showSwitchIndividual, className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsx(ContainerButton, { onMouseOut: handleHoverImageOut, className: 'buttonVisible', active: showModules, children: jsxRuntime.jsx(Button$2, { label: txtButtonLabel ? txtButtonLabel : 'Ver conteúdo', variant: 'primary', handleClick: handleClickCourse }) }), jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: ativo }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(Typography$1, { style: { color: ativo ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
+                                jsxRuntime.jsxs(ContainerThumbnails, { showSwitchIndividual: showSwitchIndividual, className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsx(ContainerButton, { onMouseOut: handleHoverImageOut, className: 'buttonVisible', active: showModules, children: jsxRuntime.jsx(Button$2, { label: txtButtonLabel ? txtButtonLabel : 'Ver conteúdo', variant: 'primary', handleClick: handleClickCourse }) }), jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: ativo }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
                                                         setElementPopover(element.currentTarget);
                                                     }, children: jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), showSwitchIndividual &&
                                             jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: ativo, style: { fontWeight: ativo ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar Indiv.' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: individual, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#ebebeb', activeBoxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }) })
@@ -9770,7 +9770,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
                     }, handleSwitchAtivarIndividual: handleSwitchAtivarIndividual, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails })) }) }) }));
 }
 
-const Container$3 = styled__default["default"].div `
+const Container$4 = styled__default["default"].div `
     width: 24.188rem;    
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -9876,7 +9876,7 @@ function ManageLearningCicles({ variant, label, disabled, style, handleClick, ha
             setCounterRender(1);
         }
     }, [isOpen]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$3, { isOpen: isOpen, children: [jsxRuntime.jsx(TypographyDefinition, { children: label }), jsxRuntime.jsx(Date$1, { children: dateAtual }), jsxRuntime.jsx(ContetsName, { children: individualContent.length !== 0 ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$4, { isOpen: isOpen, children: [jsxRuntime.jsx(TypographyDefinition, { children: label }), jsxRuntime.jsx(Date$1, { children: dateAtual }), jsxRuntime.jsx(ContetsName, { children: individualContent.length !== 0 ?
                         individualContent.map((item, index) => jsxRuntime.jsx(TypographyContentsName, { children: item.title }, index))
                         : jsxRuntime.jsx(TypographyContentsName, { children: "Introdu\u00E7\u00E3o a blockchain" }) }), jsxRuntime.jsxs(ContainerIcon, { children: [jsxRuntime.jsx("p", { children: jsxRuntime.jsx(DropdownIconWhite, { fill: '#000000' }) }), jsxRuntime.jsx(SelectIcon, { onChange: handleChange, children: listTrails.map((item, index) => jsxRuntime.jsx("option", { value: item.id, children: item.name }, index)) })] }), jsxRuntime.jsxs(GroupName, { isOpen: isOpen, children: [jsxRuntime.jsx("p", { children: "Group name" }), jsxRuntime.jsx("div", { onClick: handleClickCheck, children: jsxRuntime.jsx(MoreHorizontal, {}) })] })] }) }));
 }
@@ -10853,14 +10853,14 @@ function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, 
                         jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
 }
 
-const Container$2 = styled__default["default"].div `
+const Container$3 = styled__default["default"].div `
     width: 100%;
     min-height: 127px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     border-radius: 8px;
 `;
-const Typography = styled__default["default"].div `
+const Typography$1 = styled__default["default"].div `
     font-family: Work Sans;
     font-size: 20px;
     font-weight: 500;
@@ -10874,7 +10874,7 @@ const ContainerSearch = styled__default["default"].div `
 `;
 
 function SearchBox(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, children: [jsxRuntime.jsx(Typography, { children: props.textTitle ? props.textTitle : props.textTitle }), jsxRuntime.jsx(ContainerSearch, { children: jsxRuntime.jsx(SearchField, { hasSearchIcon: true, textButton: props.textButton ? props.textButton : '', placeholder: props.textPlaceholder ? props.textPlaceholder : '', handleClickButton: props.handleClickSearchButton, onChange: props.onChange }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$3, { style: { ...props.style }, children: [jsxRuntime.jsx(Typography$1, { children: props.textTitle ? props.textTitle : props.textTitle }), jsxRuntime.jsx(ContainerSearch, { children: jsxRuntime.jsx(SearchField, { hasSearchIcon: true, textButton: props.textButton ? props.textButton : '', placeholder: props.textPlaceholder ? props.textPlaceholder : '', handleClickButton: props.handleClickSearchButton, onChange: props.onChange }) })] }) }));
 }
 
 const WrapperCard$1 = styled__default["default"].div `
@@ -11416,7 +11416,7 @@ const topHeaderTag = styled__default["default"].span `
 
 `;
 
-const Container$1 = styled__default["default"].div `
+const Container$2 = styled__default["default"].div `
     padding: 1px 24px 0px 24px;
     display: flex;
     flex-direction: column;
@@ -11581,14 +11581,13 @@ function FeedInteraction(props) {
         setCommentData('');
         setFocusComment(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || props.qtdComments) ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || props.qtdComments) &&
                     jsxRuntime.jsxs(infoContent, { children: [props.qtdLikes ?
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
                                 : null, props.qtdComments ?
                                 jsxRuntime.jsx(info, { style: { right: 0 }, children: props.qtdComments })
-                                : null] })
-                    :
-                        jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && props.qtdComments && jsxRuntime.jsx("div", { children: "\u2022" }), props.qtdComments && jsxRuntime.jsx(infoWithView, { children: props.qtdComments })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
+                                : null] }), props.textTotalView && (props.qtdLikes || props.qtdComments) &&
+                    jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && props.qtdComments && jsxRuntime.jsx("div", { children: "\u2022" }), props.qtdComments && jsxRuntime.jsx(infoWithView, { children: props.qtdComments })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
                             jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textDeslike, variant: 'link', handleClick: props.handleLikeClick }) })
                             :
                                 jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textLikes, variant: 'link', handleClick: props.handleLikeClick }) }), isVisibleComments &&
@@ -11825,7 +11824,7 @@ function SessionFilters(props) {
                     : null] }) }));
 }
 
-const Container = styled__default["default"].div `
+const Container$1 = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11857,7 +11856,7 @@ const Button = styled__default["default"].div `
 `;
 
 function SmallSRGBanner(props) {
-    return (jsxRuntime.jsx(Container, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: 'https://i.gyazo.com/eb084ab35cbd9ad52b24148afba59950.png', alt: 'SRG Logo' }) }), jsxRuntime.jsx(Button, { children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFF' }) }) })] }) }));
+    return (jsxRuntime.jsx(Container$1, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: 'https://i.gyazo.com/eb084ab35cbd9ad52b24148afba59950.png', alt: 'SRG Logo' }) }), jsxRuntime.jsx(Button, { children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFF' }) }) })] }) }));
 }
 
 const Wrapper = styled__default["default"].div `
@@ -12070,6 +12069,193 @@ function PostFeed(props) {
 }
 function IconPin({ fill }) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) });
+}
+
+// <{image, notstarted}>
+const Container = styled__default["default"](material.Box) `
+    background-color: #FFF;
+    width: 488px !important;
+    max-width: 80%;
+    height: 488px !important;
+    max-height: 80%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+
+    border-radius: 16px;
+
+    font-family: 'Work Sans';
+    overflow: hidden;
+`;
+const Typography = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+
+    /* neutrals/neutral_1 */
+
+    color: ${({ theme }) => theme.colors.neutral_1};
+    margin-left: 25px;
+`;
+const CloseButton = styled__default["default"].div `
+    cursor: pointer;    
+    align-self: flex-end;
+    width: 20px;
+    margin-top: 20px;
+    margin-right: 15px;
+`;
+const HeaderDiv = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 1px solid #BDBDBD;
+    padding-bottom: 24px;
+`;
+const ContentDiv = styled__default["default"].div `
+    width: 100%;
+    heigth: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #0000;
+        border-radius: 10px;
+        margin: 16px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #BDBDBD; 
+        border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #888; 
+    }
+
+`;
+styled__default["default"].div `
+    position: relative;
+`;
+const ContentScroll = styled__default["default"].div `
+    width: 100%;
+    heigth: fit-content;
+`;
+const CardItemUser = styled__default["default"].div `
+    width: calc(100% + 10px);
+    height: 86px;
+    border-bottom: 1px solid #BDBDBD;
+    padding: 16px;
+    padding-left: 24px;
+
+    display: flex;
+    flex-direction: row;
+`;
+const UserInfoContainer = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 16px;
+`;
+const NameUser$1 = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 110%;
+    /* or 18px */
+
+    display: flex;
+    align-items: center;
+
+    /* neutrals/neutral_1 */
+
+    color: #222222;
+`;
+const PositionUser = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 110%;
+    /* or 18px */
+
+    display: flex;
+    align-items: center;
+
+    /* neutrals/neutral_1 */
+
+    color: #222222;
+
+`;
+const OrgUser = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 110%;
+    /* or 18px */
+
+    display: flex;
+    align-items: center;
+
+    /* neutrals/neutral_1 */
+
+    color: #222222;
+`;
+
+function InteractionsModal({ textTitle, textSubtitle, listUsers, isOpen, handleClickClose, newListUsers, checkScrollEnd, style }) {
+    const scrollContainerRef = React.useRef(null);
+    const handleScroll = (e) => {
+        const { scrollTop, scrollHeight, clientHeight } = e.target;
+        if (scrollTop + clientHeight >= scrollHeight) {
+            if (checkScrollEnd)
+                checkScrollEnd();
+        }
+    };
+    React.useEffect(() => {
+        const scrollContainer = scrollContainerRef.current;
+        if (scrollContainer) {
+            scrollContainer.addEventListener('scroll', handleScroll);
+        }
+        return () => {
+            if (scrollContainer) {
+                scrollContainer.removeEventListener('scroll', handleScroll);
+            }
+        };
+    }, []);
+    const [listUsersState, setListUsersState] = React.useState(listUsers);
+    React.useEffect(() => {
+        if (newListUsers) {
+            setListUsersState((listUsersState) => [...listUsersState, ...newListUsers]);
+        }
+    }, [newListUsers]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(material.Modal, { open: isOpen, onClose: () => handleClickClose(), children: jsxRuntime.jsxs(Container, { style: {
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    ...style
+                }, children: [jsxRuntime.jsxs(HeaderDiv, { children: [jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(CloseButton, { onClick: () => handleClickClose(), children: jsxRuntime.jsx(CloseIcon, { width: '11' }) }) }), jsxRuntime.jsx(Typography, { children: textTitle }), jsxRuntime.jsx(Typography, { children: textSubtitle })] }), jsxRuntime.jsx(ContentDiv, { ref: scrollContainerRef, onScroll: handleScroll, children: jsxRuntime.jsx(ContentScroll, { children: listUsersState && listUsersState.map((item) => {
+                                return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(CardItemUser, { children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar }), jsxRuntime.jsxs(UserInfoContainer, { children: [jsxRuntime.jsxs(NameUser$1, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] }, item?.id) }));
+                            }) }) })] }) }) }));
 }
 
 const containerPagination = styled__default["default"].div `
@@ -13018,6 +13204,7 @@ exports.HomeLineIcon = HomeLineIcon;
 exports.IconNotification = IconNotification;
 exports.InputComment = InputComment;
 exports.InstagramIcon = InstagramIcon;
+exports.InteractionsModal = InteractionsModal;
 exports.LampFilledIcon = LampFilledIcon;
 exports.LampLineIcon = LampLineIcon;
 exports.LateralMenu = LateralMenu;
