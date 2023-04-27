@@ -143,5 +143,9 @@ export declare function ThumbVideo({ fill, width, height }: IconsProps): JSX.Ele
 export declare function ThumbTexto({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ThumbPodcast({ fill, width, height }: IconsProps): JSX.Element;
 export declare function StarFavorite({ fill, width, stroke, height }: IconsProps): JSX.Element;
+export declare function IconDown({ fill, width, height }: IconsProps): JSX.Element;
+export declare function IconUp({ fill, width, height }: IconsProps): JSX.Element;
+export declare function IconGaps({ fill, width, height }: IconsProps): JSX.Element;
+export declare function IconModules({ fill, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
