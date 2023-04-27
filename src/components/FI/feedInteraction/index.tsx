@@ -99,7 +99,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.Container style={{...props.style}} id={props.id}>
-                {!props.textTotalView && (props.qtdLikes || props.qtdComments) &&
+                {!props.textTotalView && (props.qtdLikes || props.qtdComments) ?
                     <Styles.infoContent>
                         {props.qtdLikes ?
                             <Styles.info style={{left: 0}}> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.info>
@@ -110,20 +110,22 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                             : null
                         }
                     </Styles.infoContent> 
-                }
-                {props.textTotalView || (props.qtdLikes || props.qtdComments) &&
-                    <Styles.infoContentWithView>
-                        <div style={{display: 'flex', flexDirection: 'row', gap: '5px'}}>
-                            {props.qtdLikes && <Styles.infoWithView> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.infoWithView> }
-                            {props.qtdLikes && props.qtdComments && <div>•</div>}
-                            {props.qtdComments && <Styles.infoWithView>{props.qtdComments}</Styles.infoWithView> }
-                        </div>
-                        {props.textTotalView && <Styles.infoWithView 
-                            style={{color: '#0645AD', fontWeight: 700 , cursor: 'pointer'}}
-                            onClick={() => props.handleClickTextTotalViews()}
-                        >{props.textTotalView}</Styles.infoWithView> }
-                    </Styles.infoContentWithView>
-                }
+                : <>
+                    {(props.textTotalView || props.qtdLikes || props.qtdComments) &&
+                        <Styles.infoContentWithView>
+                            <div style={{display: 'flex', flexDirection: 'row', gap: '5px'}}>
+                                {props.qtdLikes && <Styles.infoWithView> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.infoWithView> }
+                                {props.qtdLikes && props.qtdComments && <div>•</div>}
+                                {props.qtdComments && <Styles.infoWithView> {props.qtdComments} </Styles.infoWithView> }
+                            </div>
+                            {props.textTotalView && <Styles.infoWithView 
+                                style={{color: '#0645AD', fontWeight: 700 , cursor: 'pointer'}}
+                                onClick={() => props.handleClickTextTotalViews()}
+                            >{props.textTotalView}
+                            </Styles.infoWithView> }
+                        </Styles.infoContentWithView>
+                    }
+                </> }
                 <Styles.buttonsContent>
                     {props.isLiked ?
                         <Styles.buttons >

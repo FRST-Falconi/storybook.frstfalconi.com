@@ -368,9 +368,6 @@ function StepCicleFour({ fill, width, height }) {
 function FowardArrow({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '18', viewBox: "0 0 16 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.06665 14.1L13.3333 9.3L9.06665 4.5", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13.3334 9.3L2.66675 9.3", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function AddPeople({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M13.549 15.9713C13.532 15.7717 13.6157 15.5768 13.772 15.4517C14.2283 15.0867 14.5727 14.581 14.7932 13.9049C15.0286 13.1829 15.1413 12.5131 15.1413 11.8923V9.62656C15.1413 9.30123 15.016 8.93556 14.6901 8.51986C14.3643 8.10436 13.9296 7.75177 13.3712 7.46759C12.8218 7.18796 12.2767 7.05453 11.7301 7.05453C11.4151 7.05453 11.0826 7.1054 10.7306 7.21296C10.376 7.32129 10.0563 7.46735 9.76858 7.64954C9.46646 7.84088 9.19782 8.05278 8.96103 8.28464C8.73815 8.50287 8.57086 8.73504 8.45235 8.98085C8.33291 9.22857 8.28531 9.44184 8.28531 9.62656V11.8923C8.28531 12.4321 8.4064 13.0735 8.67084 13.8245C8.91914 14.5297 9.28527 15.0571 9.75636 15.4359C9.91295 15.5617 9.99614 15.7577 9.97796 15.9578C9.95979 16.1579 9.84266 16.3356 9.66594 16.4312L6.19182 18.3109C6.18613 18.314 6.1804 18.317 6.17462 18.3199C6.11819 18.3481 6.04257 18.3883 5.94593 18.442C5.91178 18.4609 5.82117 18.5256 5.66114 18.675C5.63587 18.6986 5.61809 18.7179 5.60598 18.7327C5.60376 18.7354 5.60177 18.738 5.6 18.7403V20.0489C5.6 20.1498 5.62784 20.2078 5.68601 20.2641C5.75468 20.3307 5.81815 20.3552 5.90629 20.3552H17.5203C17.6084 20.3552 17.6719 20.3307 17.7406 20.2641C17.7987 20.2078 17.8266 20.1498 17.8266 20.0489V18.7212C17.8184 18.7054 17.8107 18.6951 17.8044 18.6881C17.776 18.6565 17.7386 18.6203 17.69 18.5798C17.6454 18.5426 17.6054 18.5149 17.5704 18.4945C17.5057 18.4568 17.4508 18.4254 17.4051 18.4C17.3894 18.3913 17.3791 18.3862 17.3736 18.3836L13.549 15.9713ZM13.549 15.9713C13.566 16.1708 13.6815 16.3487 13.8568 16.4455L17.2083 18.2963L17.2378 18.316C17.2798 18.344 17.3252 18.3666 17.3729 18.3832L13.549 15.9713Z", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13 5.62121C13.2991 5.42929 13.628 5.27778 13.9869 5.16667C14.3458 5.05556 14.6947 5 15.0336 5C15.6118 5 16.1801 5.14394 16.7383 5.43182C17.2966 5.7197 17.7477 6.08586 18.0916 6.5303C18.4355 6.97475 18.6075 7.41919 18.6075 7.86364V9.90909C18.6075 10.5354 18.4953 11.197 18.271 11.8939C18.0467 12.5909 17.6854 13.1414 17.1869 13.5455L20.1925 15.2273L20.2374 15.2576C20.2673 15.2677 20.3047 15.2854 20.3495 15.3106C20.3944 15.3359 20.4467 15.3662 20.5065 15.4015C20.5663 15.4369 20.6262 15.4798 20.686 15.5303C20.7458 15.5808 20.7981 15.6313 20.843 15.6818C20.8878 15.7323 20.9252 15.7904 20.9551 15.8561C20.985 15.9217 21 15.9848 21 16.0455V17.2727C21 17.505 20.9202 17.6995 20.7607 17.8561C20.6012 18.0126 20.4118 18.0909 20.1925 18.0909", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M6 3V9", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M9 6H3", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
-}
 function Books({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M15.0882 6.92067H10.4249M15.0882 6.92067V3.58448C15.0882 2.85052 14.4886 2.25 13.7558 2.25H11.7572C11.0244 2.25 10.4249 2.85052 10.4249 3.58448V6.92067M15.0882 6.92067V16.262M10.4249 6.92067V16.262M10.4249 16.262V19.5982C10.4249 20.3322 11.0244 20.9327 11.7572 20.9327H13.7558C14.4886 20.9327 15.0882 20.3322 15.0882 19.5982V16.262M10.4249 16.262H15.0882M21.75 8.18843H17.0867M21.75 8.18843V5.25258C21.75 4.51861 21.1504 3.9181 20.4176 3.9181H18.4191C17.6863 3.9181 17.0867 4.51861 17.0867 5.25258V8.18843M21.75 8.18843V16.7291H17.0867V8.18843M8.72044 8.62431L4.11916 7.86521M8.72044 8.62431L9.19684 5.72749C9.31593 5.00328 8.82178 4.31316 8.09872 4.19387L6.12674 3.86854C5.40369 3.74925 4.71465 4.24419 4.59555 4.96839L4.11916 7.86521M8.72044 8.62431L7.33457 17.0514L2.73328 16.2923L4.11916 7.86521M20.4176 20.9327H18.4191C17.6863 20.9327 17.0867 20.3322 17.0867 19.5982V16.6624H21.75V19.5982C21.75 20.3322 21.1504 20.9327 20.4176 20.9327ZM5.33781 20.9823L3.36583 20.6569C2.64277 20.5376 2.14862 19.8475 2.26772 19.1233L2.74411 16.2265L7.3454 16.9856L6.869 19.8824C6.7499 20.6066 6.06087 21.1015 5.33781 20.9823Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeMiterlimit: "10" }) }));
 }
@@ -427,6 +424,18 @@ function ThumbTexto({ fill, width, height }) {
 }
 function ThumbPodcast({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '113', height: height ? height : '146', viewBox: "0 0 113 146", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M101.53 1.29004H11.05C5.65974 1.29004 1.29004 5.65974 1.29004 11.05V134.93C1.29004 140.32 5.65974 144.69 11.05 144.69H101.53C106.92 144.69 111.29 140.32 111.29 134.93V11.05C111.29 5.65974 106.92 1.29004 101.53 1.29004Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M111.29 119.85H1.29004", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M50.4299 132.27H62.1399", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M56.1201 83.52C54.6401 83.52 53.1601 84.08 52.0301 85.21C49.7701 87.47 49.7601 91.14 52.0301 93.41C53.1601 94.54 54.6401 95.1 56.1301 95.1C57.6201 95.1 59.1001 94.53 60.2301 93.4C62.4901 91.14 62.4901 87.47 60.2301 85.21C59.1001 84.08 57.6101 83.51 56.1301 83.51L56.1201 83.52Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M43.8401 77.02C50.6301 70.24 61.6301 70.24 68.4201 77.04", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M32.9199 66.0901C45.7399 53.2701 66.5299 53.2801 79.3499 66.1101", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M22 55.16C40.85 36.31 71.42 36.33 90.29 55.2", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+}
+function StarFavorite({ fill = '#E0E0E0', width = '24px', stroke = '#BDBDBD', height = '23' }) {
+    return (jsxRuntime.jsx("svg", { width: width, height: height, viewBox: "0 0 24 23", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M11.1062 1.78116C11.4752 1.04583 12.5248 1.04583 12.8938 1.78116L15.4737 6.92247C15.6205 7.21502 15.9012 7.41721 16.2251 7.46379L21.9686 8.28959C22.7936 8.40821 23.12 9.42484 22.5181 10.0015L18.3849 13.9616C18.1443 14.1921 18.0343 14.5272 18.0916 14.8554L19.0697 20.4652C19.2117 21.2799 18.3596 21.9051 17.625 21.5251L12.4595 18.8529C12.1713 18.7039 11.8287 18.7039 11.5405 18.8529L6.37496 21.5251C5.64038 21.9051 4.78829 21.2799 4.93035 20.4652L5.90845 14.8554C5.96567 14.5272 5.85569 14.1921 5.61513 13.9616L1.48189 10.0015C0.880041 9.42484 1.20637 8.40821 2.0314 8.28959L7.77486 7.46379C8.09884 7.41721 8.37952 7.21502 8.52632 6.92247L11.1062 1.78116Z", fill: fill, stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
+}
+function IconUp({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.45361 9L9.37114 1L17.2887 9", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
+}
+function IconGaps({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66127 22C9.1639 20.402 8.41378 19.211 7.41041 18.4265C5.9056 17.25 3.51466 17.9815 2.63157 16.7675C1.74848 15.5535 3.25024 13.3215 3.77705 12.0045C4.30437 10.6875 1.75711 10.222 2.05452 9.848C2.25245 9.5985 3.54004 8.8795 5.91626 7.69C6.59127 3.8965 9.08473 2 13.3977 2C19.8666 2 22.3311 7.403 22.3311 10.84C22.3311 14.2765 19.3468 17.9785 15.0958 18.777C14.7157 19.322 15.2638 20.397 16.7402 22.0005", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M9.89679 7.24994C9.56487 8.51694 9.66333 9.40694 10.1927 9.91894C10.7215 10.4314 11.6229 10.7664 12.8968 10.9239C12.6075 12.5589 12.9602 13.3254 13.9539 13.2244C14.9477 13.1234 15.545 12.7169 15.7455 12.0044C17.2985 12.4344 18.1405 12.0744 18.2709 10.9244C18.4663 9.19944 17.5223 7.82394 17.1351 7.82394C16.7484 7.82394 15.7455 7.77744 15.7455 7.24994C15.7455 6.72244 14.5741 6.42494 13.517 6.42494C12.4598 6.42494 13.0957 5.72244 11.6442 5.99994C10.6763 6.18494 10.0937 6.60144 9.89679 7.24994V7.24994Z", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M15.4795 12.75C14.9634 13.0655 14.2554 13.59 13.9569 14C13.2114 15.025 12.6069 15.6485 12.475 16.304", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round" })] }));
+}
+function IconModules({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21.6079 4.5C21.6079 5.54426 20.7522 6.4 19.6853 6.4C18.6184 6.4 17.7627 5.54426 17.7627 4.5C17.7627 3.45574 18.6184 2.6 19.6853 2.6C20.7522 2.6 21.6079 3.45574 21.6079 4.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 12.5C21.6079 13.5443 20.7522 14.4 19.6853 14.4C18.6184 14.4 17.7627 13.5443 17.7627 12.5C17.7627 11.4557 18.6184 10.6 19.6853 10.6C20.7522 10.6 21.6079 11.4557 21.6079 12.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 19.5C21.6079 20.5443 20.7522 21.4 19.6853 21.4C18.6184 21.4 17.7627 20.5443 17.7627 19.5C17.7627 18.4557 18.6184 17.6 19.6853 17.6C20.7522 17.6 21.6079 18.4557 21.6079 19.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M14.1356 12L17.1627 12", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 16H15.8654L18.1718 18", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 8H15.8654L18.1718 6", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.03613 15L5.05421 15", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1085 10L10.0995 10", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.0361 10H5.99596C6.39957 10 7.07227 9.25 7.07227 8.49999C7.07227 7 7.07227 8.8377 7.07227 7", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1084 15H8.14858C7.74496 15 7.07227 15.5 7.07227 16C7.07227 17 7.07227 15.7749 7.07227 17", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.9344 4.41895L10.977 4.47036L11.0298 4.51117C11.1053 4.56956 11.5175 5.03708 11.5175 6V18C11.5175 18.1873 11.4114 18.8808 10.9187 19.5999C10.708 19.8492 10.4509 20.0482 10.1646 20.1854C9.87158 20.3259 9.55413 20.3987 9.23347 20.4H8.51448C6.96145 20.3982 5.46746 19.7556 4.36173 18.605C3.2553 17.4537 2.62893 15.8878 2.6271 14.2497V9.75031C2.62893 8.11221 3.2553 6.5463 4.36173 5.39496C5.46737 4.24444 6.96122 3.60189 8.51413 3.6H9.23343C9.5541 3.60126 9.87157 3.67412 10.1646 3.8146C10.458 3.95526 10.7209 4.16085 10.9344 4.41895Z", stroke: "#0645AD", "stroke-width": "1.2" })] }));
 }
 
 function styleInject(css, ref) {
@@ -2211,7 +2220,7 @@ function BannerProblem(props) {
     const MOBILEWIDTH = 650;
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [props.topHeaderTagText &&
                     jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$b.titleProblem, children: [showChallengeTitle(), props.isVerified &&
-                                    jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', height: '54px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
+                                    jsxRuntime.jsx(Tooltip, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', height: '54px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
                             jsxRuntime.jsx(Button$2, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
                             marginTop: '8px',
@@ -3780,7 +3789,7 @@ const TooltipGhost = styled__default["default"].div `
 }}
 `;
 
-function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, height, onShow, onHide }) {
+function Tooltip({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, height, onShow, onHide }) {
     let shpwTimeout;
     let hideTimeout;
     const [active, setActive] = React.useState(false);
@@ -5514,6 +5523,50 @@ function TrailList({ title, trails, style }) {
                                                         gridTemplateColumns: windowSize[0] > 1400 ? '1fr 1fr 1fr' :
                                                             windowSize[0] > 900 ? '1fr 1fr' : '1fr'
                                                     }, children: renderTrails() }) })] }) }));
+}
+
+const SFavorite = styled__default["default"].div `
+  padding: 12px 20px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  cursor: pointer;
+
+  &.disable {
+    cursor: not-allowed;
+  }
+`;
+
+function Favorite({ variant, disable = false, action }) {
+    const types = {
+        default: {
+            name: 'default',
+            fill: '#E0E0E0',
+            stroke: '#BDBDBD'
+        },
+        pressed: {
+            name: 'pressed',
+            fill: '#FFD600',
+            stroke: '#FDAE15'
+        },
+        disabled: {
+            name: 'disabled',
+            fill: '#757575',
+            stroke: '#BDBDBD'
+        }
+    };
+    const [status, setStatus] = React.useState(types[variant]);
+    function handleSetStatus() {
+        const newStatus = status.name === 'default' ? 'pressed' : 'default';
+        setStatus(types[newStatus]);
+        action();
+    }
+    React.useEffect(() => {
+        setStatus(types[!disable ? variant : 'disabled']);
+    }, [disable]);
+    return (jsxRuntime.jsx(SFavorite, { onClick: !disable && handleSetStatus, className: disable && 'disable', children: jsxRuntime.jsx(StarFavorite, { fill: status.fill, stroke: status.stroke }) }));
 }
 
 const ContainerGeral$1 = styled__default["default"].div `
@@ -11581,13 +11634,14 @@ function FeedInteraction(props) {
         setCommentData('');
         setFocusComment(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || props.qtdComments) &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || props.qtdComments) ?
                     jsxRuntime.jsxs(infoContent, { children: [props.qtdLikes ?
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
                                 : null, props.qtdComments ?
                                 jsxRuntime.jsx(info, { style: { right: 0 }, children: props.qtdComments })
-                                : null] }), props.textTotalView || (props.qtdLikes || props.qtdComments) &&
-                    jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && props.qtdComments && jsxRuntime.jsx("div", { children: "\u2022" }), props.qtdComments && jsxRuntime.jsx(infoWithView, { children: props.qtdComments })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
+                                : null] })
+                    : jsxRuntime.jsx(jsxRuntime.Fragment, { children: (props.textTotalView || props.qtdLikes || props.qtdComments) &&
+                            jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && props.qtdComments && jsxRuntime.jsx("div", { children: "\u2022" }), props.qtdComments && jsxRuntime.jsxs(infoWithView, { children: [" ", props.qtdComments, " "] })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }) }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
                             jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textDeslike, variant: 'link', handleClick: props.handleLikeClick }) })
                             :
                                 jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textLikes, variant: 'link', handleClick: props.handleLikeClick }) }), isVisibleComments &&
@@ -12639,350 +12693,300 @@ function ListSelector(props) {
                     : null] }) }));
 }
 
+const activeStatus = 'Cadastrado';
+const inactiveStatus = 'Inativado';
 const WrapperCard = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    width: 282px;
-    height: fit-content;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
 
-    padding: 17px;
-    padding-top: 14px;
+  background: ${(props) => (props.status == activeStatus ? '#fff' : '#BDBDBD')};
 
-    background: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    border-radius: 8px;
+  border-radius: 10px;
+  padding-bottom: ${(props) => (props.status == inactiveStatus ? '30px' : '7px')};
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+const TagArea = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 8px 0px 5px;
+`;
+const ClickArea = styled__default["default"].div `
+  background-color: ${(props) => props.status !== inactiveStatus && props.isPressed && '#FCE4CC'};
+  border-radius: 10px 10px 0px 0px;
+  padding-bottom: 10px;
+  min-height: 150px;
+`;
+const TagStatus = styled__default["default"].div `
+  background-color: ${(props) => (props.isPressed && props.status === activeStatus && '#2CA92A') ||
+    (props.status === activeStatus && '#398787') ||
+    (props.status === inactiveStatus && '#222222')};
+  color: ${(props) => (props.status !== inactiveStatus && '#fff') || '#D3D3D3'};
+  font-weight: 300;
+  border-radius: 4px;
+  max-width: 120px !important;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const AccordionList = styled__default["default"].div `
+  .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    box-shadow: none !important;
+    border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-radius: 0px !important;
+    padding: 0px 10px;
+  }
+
+  #panel1bh-content {
+    margin-top: -5px;
+  }
+
+  .Mui-expanded {
+    margin: 0px !important;
+    background-color: #f7f9fc !important;
+  }
+`;
+const AccortionTitle = styled__default["default"].span `
+  color: #0645ad;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  svg {
+    margin-right: 5px;
+  }
 `;
 styled__default["default"].div `
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 const UserInfo = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  padding: 0px 25px;
 `;
 const DescriptionUser = styled__default["default"].div `
-        display: flex;
-        flex-direction: column;
-        margin-left: 13px;
-    `;
+  display: flex;
+  flex-direction: column;
+  margin-left: 13px;
+`;
 const NameUser = styled__default["default"].div `
-            font-family: 'PT Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 110%;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 110%;
 
-            display: flex;
-            align-items: center;
+  display: flex;
+  align-items: center;
 
-            color: #222222;
-            word-break: normal;
-            
-            max-width: 100%;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            word-wrap: break-word;
+  color: #222222;
+  word-break: normal;
 
-        `;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+`;
 const EmailUser = styled__default["default"].div `
-            font-family: 'PT Sans';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 12px;
-            line-height: 16px;
-            display: flex;
-            align-items: center;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
 
-            color: #9C9C9C;
-            margin-top: 5px;
-            word-break: normal;
-            
-            max-width: 100%;
-            
-            max-width: 100%;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            word-wrap: break-word;
-        `;
+  color: #9c9c9c;
+  word-break: normal;
+
+  max-width: 100%;
+
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+`;
 const UserAdditionalInfo = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  padding: 0px 25px;
 `;
 const Area = styled__default["default"].div `
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 110%;
-        /* or 18px */
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 110%;
+  /* or 18px */
 
-        display: flex;
-        align-items: center;
+  display: flex;
+  align-items: center;
 
-        /* neutrals/grey_1 */
+  /* neutrals/grey_1 */
 
-        color: #222222;
-        max-width: 100%;
-            
-        max-width: 100%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        word-wrap: break-word;
-    `;
+  color: #222222;
+  max-width: 100%;
+
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+`;
 const Position = styled__default["default"].div `
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 110%;
-        /* or 18px */
-        
-        display: flex;
-        align-items: center;
-        
-        /* neutrals/grey_1 */
-        
-        color: #222222;
-            
-        max-width: 100%;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        word-wrap: break-word;
-    `;
-const FooterButton = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    margin-top: 15px;
-    justify-content: space-around;
-    align-items: center;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  /* or 18px */
+
+  display: flex;
+  align-items: center;
+
+  /* neutrals/grey_1 */
+
+  color: #222222;
+
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
 `;
-const ButtonSend = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 0px;
-    padding: 4px 16px;
-    gap: 8px;
-
-    width: 149px;
-    height: 32px;
-
-    /* primary_1 */
-
-    background: ${({ theme }) => theme.colors.primary1};
-    border-radius: 8px;
-
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    cursor: pointer;
-    margin-left: -13px;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  justify-content: space-around;
+  align-items: center;
 `;
-const ButtonRemove = styled__default["default"].div `
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    color: #0645AD;
-    cursor: pointer;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 0px;
+  padding: 4px 16px;
+  gap: 8px;
+
+  width: 149px;
+  height: 32px;
+
+  /* primary_1 */
+
+  background: ${({ theme }) => theme.colors.primary1};
+  border-radius: 8px;
+
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+  cursor: pointer;
+  margin-left: -13px;
 `;
-const ButtonSuccess = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 4px 16px;
-    gap: 8px;
-
-    width: 159px;
-    height: 32px;
-
-    /* message/success_2 */
-
-    background: #D1F6D1;
-    /* message/success_1 */
-
-    border: 1px solid #1BA853;
-    border-radius: 8px;
-
-    width: 163px;
-    height: 32px;
-    cursor: default;
-    white-space: nowrap;
-
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 14px;
-    /* identical to box height */
-
-    display: flex;
-    align-items: center;
-
-    /* neutrals/grey_1 */
-
-    color: #222222;
+styled__default["default"].div `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #0645ad;
+  cursor: pointer;
 `;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 16px;
+  gap: 8px;
 
-const Tooltip$1 = styled__default["default"].div `
-    position: relative;
-    display: inline-block;
-    
-    &:after #tooltipinfo {
-        content: "";
-        position: absolute;
+  width: 159px;
+  height: 32px;
 
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'top: 100%; left: 50%;';
-        case 'bottom':
-            return 'bottom: 100%; left: 50%;';
-        case 'right':
-            return 'top: 50%; right: 100%;';
-        case 'left':
-            return 'top: 50%; left: 100%;';
-    }
-}}
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
-    }
+  /* message/success_2 */
 
-    &:hover #tooltipinfo {
-        visibility: visible;
-    }
+  background: #d1f6d1;
+  /* message/success_1 */
 
-    &:hover {
-        visibility: visible;
-    }
+  border: 1px solid #1ba853;
+  border-radius: 8px;
+
+  width: 163px;
+  height: 32px;
+  cursor: default;
+  white-space: nowrap;
+
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+
+  /* neutrals/grey_1 */
+
+  color: #222222;
 `;
-const Tooltiptext = styled__default["default"].div `
-    visibility: hidden;
-    width: 156px;
-    background-color: #fff;
-    border: solid 1px #BDBDBD;
-
-    padding: 8px! important;
-    padding-bottom: 4px;
-
-    word-wrap: break-word;
-
-    color: #757575;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'bottom: 160%; left: 50%;';
-        case 'bottom':
-            return 'top: 160%; left: 50%;';
-        case 'right':
-            return 'top: -5px; left: 220%;';
-        case 'left':
-            return 'top: -5px; right: 120%;';
-    }
-}}
-
-    margin-left: -70px;
-
-    -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-
-    &:after {
-        content: "";
-        width: 0;
-        height: 0;
-        
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'left: 48%; bottom: -6px;';
-        case 'bottom':
-            return 'left: 48%; top: -6px;';
-        case 'right':
-            return 'top: 35%; left: -6px; border: 5px solid #fff !important;';
-        case 'left':
-            return 'top: 35%; right: -6px; border: 5px solid #fff !important;';
-    }
-}}
-        position: absolute;
-    
-        border: 6px solid #fff;
-        transform: rotate(135deg);
-        transition: border 0.3s ease-in-out;
-      }
+const DataList = styled__default["default"].ul `
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0 !important;
+  line-height: 25px;
+`;
+const DataListItem = styled__default["default"].li `
+  list-style-type: none;
+  margin: 0;
+  font-weight: 400;
 `;
 
-function Tooltip(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
-}
-
-function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
-    const [userName, setUserName] = React.useState(userInfo?.name);
-    const [userEmail, setUserEmail] = React.useState(userInfo?.email);
-    const [area, setArea] = React.useState(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
-    const [position, setPosition] = React.useState(`${labels?.position ? labels?.position : 'Cargo'}: ${userInfo?.position}`);
-    const [statusSend, setStatusSend] = React.useState(successfullInvite ? 'success' : 'default');
-    React.useEffect(() => {
-        setUserName(userInfo?.name);
-        setUserEmail(userInfo?.email);
-        setArea(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
-        setPosition(`${labels?.position ? labels?.position : 'Cargo'}: ${userInfo?.position}`);
-        setStatusSend(successfullInvite ? 'success' : 'default');
-    }, [userInfo, labels, successfullInvite]);
-    const clickSendInvitation = () => {
-        setStatusSend('success');
-        handleSendInvitation(userInfo?.id);
+function ParticipantCard({ userInfo, labels, competencesList, modulesList, disabled, style }) {
+    const [selectedItem, setSelectedItem] = React.useState(null);
+    const [typeDetails, setTypeDetails] = React.useState(null);
+    const [isAccordionOpen, setIsAccordionOpen] = React.useState(false);
+    const [isPressed, setIsPressed] = React.useState(false);
+    const [accordionState, setAccordionState] = React.useState({
+        competences: false,
+        modules: false
+    });
+    const IS_TYPE_COMPETENCES = typeDetails === 'competences';
+    const IS_TYPE_MODULES = typeDetails === 'modules';
+    const handleSelectedItem = (id, type) => {
+        setIsAccordionOpen(!isAccordionOpen);
+        setSelectedItem(id);
+        setTypeDetails(type);
+        handleAccordionState(type, !accordionState[type]);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { style: { ...style }, children: [jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [userName && userName?.length > 25 ?
-                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser, { children: userName }) })
-                                    :
-                                        jsxRuntime.jsx(NameUser, { children: userName }), userEmail && userEmail?.length > 30 ?
-                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser, { children: userEmail }) })
-                                    :
-                                        jsxRuntime.jsx(EmailUser, { children: userEmail })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [area && area?.length > 31 ?
-                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area, { children: area }) })
-                            :
-                                jsxRuntime.jsx(Area, { children: area }), position && position?.length > 33 ?
-                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position, { children: position }) })
-                            :
-                                jsxRuntime.jsx(Position, { children: position })] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ?
-                                        jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })
-                                        : null, handleClickRemove ?
-                                        jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })
-                                        : null] }) : null, statusSend == 'success' ?
-                            jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: '14' }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) }) : null] })] }) }));
+    const handleAccordionState = (type, value) => {
+        setAccordionState({
+            ...accordionState,
+            [type]: value
+        });
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { status: labels?.tag, style: { ...style }, children: [jsxRuntime.jsxs(ClickArea, { status: labels?.tag, isPressed: isPressed, onClick: () => setIsPressed(true), children: [jsxRuntime.jsx(TagArea, { children: jsxRuntime.jsx(TagStatus, { isPressed: isPressed, status: labels?.tag, children: labels?.tag }) }), jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [jsxRuntime.jsx(NameUser, { children: userInfo?.name }), jsxRuntime.jsx(EmailUser, { children: userInfo?.email })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [jsxRuntime.jsx(Area, { children: `${labels?.area}: ${userInfo?.area}` }), jsxRuntime.jsx(Position, { children: `${labels?.position}: ${userInfo?.position}` })] })] }), !disabled && (jsxRuntime.jsxs(AccordionList, { children: [jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'competences'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel1bh-content", id: "panel1bh-header", children: jsxRuntime.jsxs(AccortionTitle, { children: [jsxRuntime.jsx(IconGaps, {}), labels?.competences] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList, { children: competencesList?.map((item, index) => (jsxRuntime.jsx(DataListItem, { children: item.name }, index))) }) })] }), jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'modules'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel2bh-content", id: "panel2bh-header", children: jsxRuntime.jsxs(AccortionTitle, { children: [jsxRuntime.jsx(IconModules, {}), labels?.modules] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList, { children: modulesList?.map((item, index) => (jsxRuntime.jsx(DataListItem, { children: item.name }, index))) }) })] })] }))] }) }));
 }
 
 const Div = styled__default["default"].div `
@@ -13192,6 +13196,7 @@ exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
 exports.ExtraContent = ExtraContent;
 exports.EyeOff = EyeOff;
+exports.Favorite = Favorite;
 exports.FeedInteraction = FeedInteraction;
 exports.FileUpload = FileUpload;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
@@ -13251,6 +13256,7 @@ exports.SiteIcon = SiteIcon;
 exports.SmallSRGBanner = SmallSRGBanner;
 exports.SpecialistContact = SpecialistContact;
 exports.SpotifyIcon = SpotifyIcon;
+exports.StarFavorite = StarFavorite;
 exports.StarMetric = StarMetric;
 exports.StepCheckInCicle = StepCheckInCicle;
 exports.StepCicleFour = StepCicleFour;
@@ -13267,7 +13273,7 @@ exports.TextArea = Textarea;
 exports.TextField = TextField;
 exports.ThumbListContent = ThumbListContent;
 exports.ThumbnailsDraggable = ThumbnailsDraggable;
-exports.Tooltip = Tooltip$2;
+exports.Tooltip = Tooltip;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
 exports.TrashIcon = TrashIcon;

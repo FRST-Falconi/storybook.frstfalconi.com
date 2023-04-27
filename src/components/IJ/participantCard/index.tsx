@@ -5,90 +5,107 @@ import * as Styles from './participantCardStyle'
 import { ParticipantCardI } from './participantCard'
 
 import Avatar from '@components/avatar'
-import Tooltip from '@components/LXP/tooltip'
-import { AddPeople, MessageCheckLine } from '@shared/icons'
-import { useEffect, useState } from 'react'
+import { IconUp, IconDown, IconGaps, IconModules } from '@shared/icons'
+import { useState } from 'react'
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 
+export default function ParticipantCard({
+  userInfo,
+  labels,
+  competencesList,
+  modulesList,
+  disabled,
+  style
+}: ParticipantCardI) {
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [typeDetails, setTypeDetails] = useState(null)
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false)
+  const [isPressed, setIsPressed] = useState(false)
+  const [accordionState, setAccordionState] = useState({
+    competences: false,
+    modules: false
+  })
 
-export default function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }: ParticipantCardI) {
-    const [ userName, setUserName ] = useState(userInfo?.name)
-    const [ userEmail, setUserEmail ] = useState(userInfo?.email)
-    const [ area, setArea ] = useState(`${labels?.area ? labels?.area: 'Área'}: ${userInfo?.area}`)
-    const [ position, setPosition ] = useState(`${labels?.position ? labels?.position: 'Cargo'}: ${userInfo?.position}`)
+  const IS_TYPE_COMPETENCES = typeDetails === 'competences'
+  const IS_TYPE_MODULES = typeDetails === 'modules'
 
-    const [ statusSend, setStatusSend ] = useState(successfullInvite ? 'success' : 'default')
+  const handleSelectedItem = (id: string, type: string) => {
+    setIsAccordionOpen(!isAccordionOpen)
+    setSelectedItem(id)
+    setTypeDetails(type)
+    handleAccordionState(type, !accordionState[type])
+  }
 
-    useEffect(() => {
-        setUserName(userInfo?.name)
-        setUserEmail(userInfo?.email)
-        setArea(`${labels?.area ? labels?.area: 'Área'}: ${userInfo?.area}`)
-        setPosition(`${labels?.position ? labels?.position: 'Cargo'}: ${userInfo?.position}`)
-        setStatusSend(successfullInvite ? 'success' : 'default')
-    }, [userInfo, labels, successfullInvite])
+  const handleAccordionState = (type, value) => {
+    setAccordionState({
+      ...accordionState,
+      [type]: value
+    })
+  }
 
-    const clickSendInvitation = () => {
-        setStatusSend('success')
-        handleSendInvitation(userInfo?.id)
-    }
+  return (
+    <ThemeProvider theme={FRSTTheme}>
+      <Styles.WrapperCard status={labels?.tag} style={{ ...style }}>
+        <Styles.ClickArea status={labels?.tag} isPressed={isPressed} onClick={() => setIsPressed(true)}>
+          <Styles.TagArea>
+            <Styles.TagStatus isPressed={isPressed} status={labels?.tag}>
+              {labels?.tag}
+            </Styles.TagStatus>
+          </Styles.TagArea>
+          <Styles.UserInfo>
+            <Avatar size="40px" src={userInfo?.avatar} />
+            <Styles.DescriptionUser>
+              <Styles.NameUser>{userInfo?.name}</Styles.NameUser>
+              <Styles.EmailUser>{userInfo?.email}</Styles.EmailUser>
+            </Styles.DescriptionUser>
+          </Styles.UserInfo>
 
-    return (
-        <ThemeProvider theme={FRSTTheme}>
-            <Styles.WrapperCard style={{...style}}>
-                <Styles.UserInfo>
-                    <Avatar  size='40px' src={userInfo?.avatar} />
-                    <Styles.DescriptionUser>
-                        { userName && userName?.length > 25 ?
-                            <Tooltip position="top" textTooltip={userName}>
-                                <Styles.NameUser>{userName}</Styles.NameUser>
-                            </Tooltip> 
-                            :
-                            <Styles.NameUser>{userName}</Styles.NameUser> 
-                        }
-                        { userEmail && userEmail?.length > 30 ?
-                            <Tooltip position="top" textTooltip={userEmail}>
-                                <Styles.EmailUser>{userEmail}</Styles.EmailUser>
-                            </Tooltip> 
-                            :
-                            <Styles.EmailUser>{userEmail}</Styles.EmailUser>
-                        }                        
-                    </Styles.DescriptionUser>
-                </Styles.UserInfo>
-
-                <Styles.UserAdditionalInfo>
-                    { area && area?.length > 31 ?
-                        <Tooltip position="top" textTooltip={userInfo?.area}>
-                            <Styles.Area>{area}</Styles.Area>
-                        </Tooltip> 
-                        :
-                        <Styles.Area>{area}</Styles.Area>
-                    }  
-                    { position && position?.length > 33 ?
-                        <Tooltip position="top" textTooltip={userInfo?.position}>
-                            <Styles.Position>{position}</Styles.Position>
-                        </Tooltip> 
-                        :
-                        <Styles.Position>{position}</Styles.Position>
-                    }                      
-                </Styles.UserAdditionalInfo>
-                
-                <Styles.FooterButton>
-                    { statusSend == 'default' ? 
-                    <>
-                        {clickSendInvitation ?
-                            <Styles.ButtonSend onClick={() => clickSendInvitation()}><AddPeople/>{labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'}</Styles.ButtonSend>
-                            : null
-                        }
-                        {handleClickRemove ?
-                            <Styles.ButtonRemove onClick={() => handleClickRemove(userInfo?.id)}>{labels?.remove ? labels?.remove : 'Remover'}</Styles.ButtonRemove>
-                            : null
-                        }
-                    </> : null }
-                    { statusSend == 'success' ? 
-                    <div style={{width: '100%', justifyContent: 'flex-start'}}>
-                        <Styles.ButtonSuccess><MessageCheckLine width='14'/>{labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'}</Styles.ButtonSuccess>
-                    </div> : null }
-                </Styles.FooterButton>
-            </Styles.WrapperCard>
-        </ThemeProvider>
-    )
+          <Styles.UserAdditionalInfo>
+            <Styles.Area>{`${labels?.area}: ${userInfo?.area}`}</Styles.Area>
+            <Styles.Position>{`${labels?.position}: ${userInfo?.position}`}</Styles.Position>
+          </Styles.UserAdditionalInfo>
+        </Styles.ClickArea>
+        {!disabled && (
+          <Styles.AccordionList>
+            <Accordion
+              expanded={selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen}
+              onChange={() => handleSelectedItem(userInfo?.id, 'competences')}
+            >
+              <AccordionSummary expandIcon={<IconUp />} aria-controls="panel1bh-content" id="panel1bh-header">
+                <Styles.AccortionTitle>
+                  <IconGaps />
+                  {labels?.competences}
+                </Styles.AccortionTitle>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Styles.DataList>
+                  {competencesList?.map((item, index) => (
+                    <Styles.DataListItem key={index}>{item.name}</Styles.DataListItem>
+                  ))}
+                </Styles.DataList>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen}
+              onChange={() => handleSelectedItem(userInfo?.id, 'modules')}
+            >
+              <AccordionSummary expandIcon={<IconUp />} aria-controls="panel2bh-content" id="panel2bh-header">
+                <Styles.AccortionTitle>
+                  <IconModules />
+                  {labels?.modules}
+                </Styles.AccortionTitle>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Styles.DataList>
+                  {modulesList?.map((item, index) => (
+                    <Styles.DataListItem key={index}>{item.name}</Styles.DataListItem>
+                  ))}
+                </Styles.DataList>
+              </AccordionDetails>
+            </Accordion>
+          </Styles.AccordionList>
+        )}
+      </Styles.WrapperCard>
+    </ThemeProvider>
+  )
 }
