@@ -19,16 +19,13 @@ export default function ContentCycle({
   onSelect
 }: IContentCycleProps) {
   const [openModal, setOpenModal] = useState(false)
-  const [select, setSelect] = useState(selected)
 
-  const handleClick = () => {
-    onSelect()
-    setSelect(!select)
-  }
+  const defaultImage = 'https://lxp-cdn.frstfalconi.cloud/Thumb.png'
+
   return (
-    <S.Container className={selected && 'selected'} onClick={handleClick}>
+    <S.Container className={selected && 'selected'} onClick={() => onSelect()}>
       <S.Thumbnail>
-        <img src={urlPhoto} alt={title} />
+        <img src={urlPhoto ? urlPhoto : defaultImage} alt={title} />
       </S.Thumbnail>
       <S.Content>
         <S.Article>
@@ -75,6 +72,7 @@ export default function ContentCycle({
         handleClose={() => setOpenModal(false)}
         videoUrl={urlVideo}
         nameVideo={titleVideo}
+        title={titleVideo}
       />
     </S.Container>
   )

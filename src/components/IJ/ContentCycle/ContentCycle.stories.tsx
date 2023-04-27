@@ -11,17 +11,18 @@ const Template = (args) => <ContentCycle {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-  title: 'Pikachu',
-  description:
-    'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus doloribus voluptate dolorem quam asperiores eaque at quibusdam consequatur ab quisquam placeat cum explicabo, vitae amet porro id atque in ad.',
+  title: 'Liderança que inspira',
+  description: `Description bacon ipsum dolor amet landjaeger pastrami pork belly flank shankle ground round. 
+     Chicken tri-tip alcatra, pastrami buffalo pork chop shoulder drumstick ham hock landjaeger. Short
+     loin hamburger tri-tip, chuck flank pork chop doner porchetta.  Tenderloin tri-tip meatloaf cow brisket
+     `,
   selected: false,
-  listSkils: ['velocidade', 'eletricidade'],
-  urlPhoto:
-    'https://i0.wp.com/www.jbox.com.br/wp/wp-content/uploads/2023/02/pikachu-capitao-destacada.jpg?fit=1340%2C846&ssl=1',
-  urlVideo: 'https://www.youtube.com/watch?v=j5KvubvurDA',
-  titleVideo: 'Os Melhores momentos do Pikachu',
+  listSkils: ['Liderança', 'colaboração'],
+  urlPhoto: '',
+  urlVideo: 'https://vimeo.com/367756121',
+  titleVideo: 'Um video Legal',
   progress: 0,
   started: false,
-  stepContent: false,
-  onSelect: () => alert('selecionei')
+  onSelect: () => alert('selecionei'),
+  stepContent: false
 }
