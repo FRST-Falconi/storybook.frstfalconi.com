@@ -428,6 +428,9 @@ function ThumbTexto({ fill, width, height }) {
 function ThumbPodcast({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '113', height: height ? height : '146', viewBox: "0 0 113 146", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M101.53 1.29004H11.05C5.65974 1.29004 1.29004 5.65974 1.29004 11.05V134.93C1.29004 140.32 5.65974 144.69 11.05 144.69H101.53C106.92 144.69 111.29 140.32 111.29 134.93V11.05C111.29 5.65974 106.92 1.29004 101.53 1.29004Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M111.29 119.85H1.29004", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M50.4299 132.27H62.1399", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M56.1201 83.52C54.6401 83.52 53.1601 84.08 52.0301 85.21C49.7701 87.47 49.7601 91.14 52.0301 93.41C53.1601 94.54 54.6401 95.1 56.1301 95.1C57.6201 95.1 59.1001 94.53 60.2301 93.4C62.4901 91.14 62.4901 87.47 60.2301 85.21C59.1001 84.08 57.6101 83.51 56.1301 83.51L56.1201 83.52Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M43.8401 77.02C50.6301 70.24 61.6301 70.24 68.4201 77.04", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M32.9199 66.0901C45.7399 53.2701 66.5299 53.2801 79.3499 66.1101", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M22 55.16C40.85 36.31 71.42 36.33 90.29 55.2", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
+function StarFavorite({ fill = '#E0E0E0', width = '24px', stroke = '#BDBDBD', height = '23' }) {
+    return (jsxRuntime.jsx("svg", { width: width, height: height, viewBox: "0 0 24 23", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M11.1062 1.78116C11.4752 1.04583 12.5248 1.04583 12.8938 1.78116L15.4737 6.92247C15.6205 7.21502 15.9012 7.41721 16.2251 7.46379L21.9686 8.28959C22.7936 8.40821 23.12 9.42484 22.5181 10.0015L18.3849 13.9616C18.1443 14.1921 18.0343 14.5272 18.0916 14.8554L19.0697 20.4652C19.2117 21.2799 18.3596 21.9051 17.625 21.5251L12.4595 18.8529C12.1713 18.7039 11.8287 18.7039 11.5405 18.8529L6.37496 21.5251C5.64038 21.9051 4.78829 21.2799 4.93035 20.4652L5.90845 14.8554C5.96567 14.5272 5.85569 14.1921 5.61513 13.9616L1.48189 10.0015C0.880041 9.42484 1.20637 8.40821 2.0314 8.28959L7.77486 7.46379C8.09884 7.41721 8.37952 7.21502 8.52632 6.92247L11.1062 1.78116Z", fill: fill, stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -5514,6 +5517,50 @@ function TrailList({ title, trails, style }) {
                                                         gridTemplateColumns: windowSize[0] > 1400 ? '1fr 1fr 1fr' :
                                                             windowSize[0] > 900 ? '1fr 1fr' : '1fr'
                                                     }, children: renderTrails() }) })] }) }));
+}
+
+const SFavorite = styled__default["default"].div `
+  padding: 12px 20px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  cursor: pointer;
+
+  &.disable {
+    cursor: not-allowed;
+  }
+`;
+
+function Favorite({ variant, disable = false, action }) {
+    const types = {
+        default: {
+            name: 'default',
+            fill: '#E0E0E0',
+            stroke: '#BDBDBD'
+        },
+        pressed: {
+            name: 'pressed',
+            fill: '#FFD600',
+            stroke: '#FDAE15'
+        },
+        disabled: {
+            name: 'disabled',
+            fill: '#757575',
+            stroke: '#BDBDBD'
+        }
+    };
+    const [status, setStatus] = React.useState(types[variant]);
+    function handleSetStatus() {
+        const newStatus = status.name === 'default' ? 'pressed' : 'default';
+        setStatus(types[newStatus]);
+        action();
+    }
+    React.useEffect(() => {
+        setStatus(types[!disable ? variant : 'disabled']);
+    }, [disable]);
+    return (jsxRuntime.jsx(SFavorite, { onClick: !disable && handleSetStatus, className: disable && 'disable', children: jsxRuntime.jsx(StarFavorite, { fill: status.fill, stroke: status.stroke }) }));
 }
 
 const ContainerGeral$1 = styled__default["default"].div `
@@ -12986,6 +13033,7 @@ exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
 exports.ExtraContent = ExtraContent;
 exports.EyeOff = EyeOff;
+exports.Favorite = Favorite;
 exports.FeedInteraction = FeedInteraction;
 exports.FileUpload = FileUpload;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
@@ -13044,6 +13092,7 @@ exports.SiteIcon = SiteIcon;
 exports.SmallSRGBanner = SmallSRGBanner;
 exports.SpecialistContact = SpecialistContact;
 exports.SpotifyIcon = SpotifyIcon;
+exports.StarFavorite = StarFavorite;
 exports.StarMetric = StarMetric;
 exports.StepCheckInCicle = StepCheckInCicle;
 exports.StepCicleFour = StepCicleFour;

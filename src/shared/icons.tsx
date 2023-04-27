@@ -3300,6 +3300,21 @@ export function ThumbPodcast({ fill, width, height }: IconsProps) {
   )
 }
 
+export function StarFavorite({ fill = '#E0E0E0', width = '24px', stroke = '#BDBDBD', height = '23' }: IconsProps) {
+  return (
+    <svg width={width} height={height} viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M11.1062 1.78116C11.4752 1.04583 12.5248 1.04583 12.8938 1.78116L15.4737 6.92247C15.6205 7.21502 15.9012 7.41721 16.2251 7.46379L21.9686 8.28959C22.7936 8.40821 23.12 9.42484 22.5181 10.0015L18.3849 13.9616C18.1443 14.1921 18.0343 14.5272 18.0916 14.8554L19.0697 20.4652C19.2117 21.2799 18.3596 21.9051 17.625 21.5251L12.4595 18.8529C12.1713 18.7039 11.8287 18.7039 11.5405 18.8529L6.37496 21.5251C5.64038 21.9051 4.78829 21.2799 4.93035 20.4652L5.90845 14.8554C5.96567 14.5272 5.85569 14.1921 5.61513 13.9616L1.48189 10.0015C0.880041 9.42484 1.20637 8.40821 2.0314 8.28959L7.77486 7.46379C8.09884 7.41721 8.37952 7.21502 8.52632 6.92247L11.1062 1.78116Z"
+        fill={fill}
+        stroke={stroke}
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
 export function IconDown({ fill, width, height }: IconsProps) {
   return (
     <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
