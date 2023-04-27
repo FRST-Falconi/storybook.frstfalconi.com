@@ -3299,3 +3299,129 @@ export function ThumbPodcast({ fill, width, height }: IconsProps) {
     </svg>
   )
 }
+
+export function IconDown({ fill, width, height }: IconsProps) {
+  return (
+    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M17.0234 1L9.0705 9L1.11756 0.999998"
+        stroke="#222222"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function IconUp({ fill, width, height }: IconsProps) {
+  return (
+    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1.45361 9L9.37114 1L17.2887 9"
+        stroke="#222222"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function IconGaps({ fill, width, height }: IconsProps) {
+  return (
+    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9.66127 22C9.1639 20.402 8.41378 19.211 7.41041 18.4265C5.9056 17.25 3.51466 17.9815 2.63157 16.7675C1.74848 15.5535 3.25024 13.3215 3.77705 12.0045C4.30437 10.6875 1.75711 10.222 2.05452 9.848C2.25245 9.5985 3.54004 8.8795 5.91626 7.69C6.59127 3.8965 9.08473 2 13.3977 2C19.8666 2 22.3311 7.403 22.3311 10.84C22.3311 14.2765 19.3468 17.9785 15.0958 18.777C14.7157 19.322 15.2638 20.397 16.7402 22.0005"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M9.89679 7.24994C9.56487 8.51694 9.66333 9.40694 10.1927 9.91894C10.7215 10.4314 11.6229 10.7664 12.8968 10.9239C12.6075 12.5589 12.9602 13.3254 13.9539 13.2244C14.9477 13.1234 15.545 12.7169 15.7455 12.0044C17.2985 12.4344 18.1405 12.0744 18.2709 10.9244C18.4663 9.19944 17.5223 7.82394 17.1351 7.82394C16.7484 7.82394 15.7455 7.77744 15.7455 7.24994C15.7455 6.72244 14.5741 6.42494 13.517 6.42494C12.4598 6.42494 13.0957 5.72244 11.6442 5.99994C10.6763 6.18494 10.0937 6.60144 9.89679 7.24994V7.24994Z"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M15.4795 12.75C14.9634 13.0655 14.2554 13.59 13.9569 14C13.2114 15.025 12.6069 15.6485 12.475 16.304"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+      />
+    </svg>
+  )
+}
+
+export function IconModules({ fill, width, height }: IconsProps) {
+  return (
+    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M21.6079 4.5C21.6079 5.54426 20.7522 6.4 19.6853 6.4C18.6184 6.4 17.7627 5.54426 17.7627 4.5C17.7627 3.45574 18.6184 2.6 19.6853 2.6C20.7522 2.6 21.6079 3.45574 21.6079 4.5Z"
+        stroke="#0645AD"
+        stroke-width="1.2"
+      />
+      <path
+        d="M21.6079 12.5C21.6079 13.5443 20.7522 14.4 19.6853 14.4C18.6184 14.4 17.7627 13.5443 17.7627 12.5C17.7627 11.4557 18.6184 10.6 19.6853 10.6C20.7522 10.6 21.6079 11.4557 21.6079 12.5Z"
+        stroke="#0645AD"
+        stroke-width="1.2"
+      />
+      <path
+        d="M21.6079 19.5C21.6079 20.5443 20.7522 21.4 19.6853 21.4C18.6184 21.4 17.7627 20.5443 17.7627 19.5C17.7627 18.4557 18.6184 17.6 19.6853 17.6C20.7522 17.6 21.6079 18.4557 21.6079 19.5Z"
+        stroke="#0645AD"
+        stroke-width="1.2"
+      />
+      <path d="M14.1356 12L17.1627 12" stroke="#0645AD" stroke-width="1.2" stroke-linecap="round" />
+      <path
+        d="M14.1356 16H15.8654L18.1718 18"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M14.1356 8H15.8654L18.1718 6"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M3.03613 15L5.05421 15"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M11.1085 10L10.0995 10"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M3.0361 10H5.99596C6.39957 10 7.07227 9.25 7.07227 8.49999C7.07227 7 7.07227 8.8377 7.07227 7"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M11.1084 15H8.14858C7.74496 15 7.07227 15.5 7.07227 16C7.07227 17 7.07227 15.7749 7.07227 17"
+        stroke="#0645AD"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M10.9344 4.41895L10.977 4.47036L11.0298 4.51117C11.1053 4.56956 11.5175 5.03708 11.5175 6V18C11.5175 18.1873 11.4114 18.8808 10.9187 19.5999C10.708 19.8492 10.4509 20.0482 10.1646 20.1854C9.87158 20.3259 9.55413 20.3987 9.23347 20.4H8.51448C6.96145 20.3982 5.46746 19.7556 4.36173 18.605C3.2553 17.4537 2.62893 15.8878 2.6271 14.2497V9.75031C2.62893 8.11221 3.2553 6.5463 4.36173 5.39496C5.46737 4.24444 6.96122 3.60189 8.51413 3.6H9.23343C9.5541 3.60126 9.87157 3.67412 10.1646 3.8146C10.458 3.95526 10.7209 4.16085 10.9344 4.41895Z"
+        stroke="#0645AD"
+        stroke-width="1.2"
+      />
+    </svg>
+  )
+}

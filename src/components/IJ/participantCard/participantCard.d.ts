@@ -10,12 +10,11 @@ export interface ParticipantCardI {
     position: string
   }
   labels?: {
-    name: string
     competences: string
-    recomendations: string
-    tag: 'Cadastrado'
-    area: 'Área'
-    position: 'Cargo'
+    modules: string
+    tag: string
+    area: string
+    position: string
   }
   successfullInvite?: boolean
   style: React.CSSProperties

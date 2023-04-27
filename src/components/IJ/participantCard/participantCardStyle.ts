@@ -42,6 +42,17 @@ export const TagStatus = styled.div`
   justify-content: center;
 `
 
+export const AccortionTitle = styled.span`
+  color: #0645ad;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  svg {
+    margin-right: 5px;
+  }
+`
+
 export const WrapperUserInfo = styled.div`
   width: 100%;
   display: flex;
