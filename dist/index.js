@@ -11439,12 +11439,31 @@ const infoContent = styled__default["default"].div `
     padding: 12px;
     padding-top: 24px;
 `;
+const infoContentWithView = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    font-family: 'Work Sans';
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 12px;
+`;
 const info = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     position: absolute;
+    margin-bottom: 12px;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
+`;
+const infoWithView = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     margin-bottom: 12px;
     ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
 `;
@@ -11562,13 +11581,14 @@ function FeedInteraction(props) {
         setCommentData('');
         setFocusComment(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { style: { ...props.style }, id: props.id, children: [props.qtdLikes || props.qtdComments ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || props.qtdComments) ?
                     jsxRuntime.jsxs(infoContent, { children: [props.qtdLikes ?
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
                                 : null, props.qtdComments ?
                                 jsxRuntime.jsx(info, { style: { right: 0 }, children: props.qtdComments })
                                 : null] })
-                    : null, jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
+                    :
+                        jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && props.qtdComments && jsxRuntime.jsx("div", { children: "\u2022" }), props.qtdComments && jsxRuntime.jsx(infoWithView, { children: props.qtdComments })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
                             jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textDeslike, variant: 'link', handleClick: props.handleLikeClick }) })
                             :
                                 jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textLikes, variant: 'link', handleClick: props.handleLikeClick }) }), isVisibleComments &&
@@ -11662,7 +11682,7 @@ function BannerProblemFeed(props) {
                             jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                                 props.onSelectedStep(step);
                                 setSelectedStep(step);
-                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar })] }));
+                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews })] }));
 }
 
 const ButtonSessionFilters = styled__default["default"].button `

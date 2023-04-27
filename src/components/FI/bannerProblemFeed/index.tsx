@@ -67,6 +67,9 @@ interface IBannerProblemFeed extends stepsInfo{
     topHeaderTagColor?: string
     topHeaderTagBgColor?: string
     topHeaderTagText?: string
+
+    textTotalView?: string
+    handleClickTextTotalViews?: () => void
 }
 
 interface stepsInfo{
@@ -377,7 +380,8 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 textSaveCommentBtn={props.textSaveCommentBtn}
                 handleSaveCommentBtn={props.handleSaveCommentBtn}
                 userAvatar={props.avatar}
-                
+                textTotalView={props.textTotalView}
+                handleClickTextTotalViews={props.handleClickTextTotalViews}
             />
         </ThemeProvider>
     )
