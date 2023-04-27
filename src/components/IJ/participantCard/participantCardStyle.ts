@@ -11,13 +11,10 @@ export const WrapperCard = styled.div`
   flex-direction: column;
   width: 100%;
   height: fit-content;
-
-  padding: 17px;
-  padding-top: 5px;
-
   background: ${({ theme }) => theme.colors.shadeWhite};
   border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  border-radius: 8px;
+  border-radius: 10px;
+  padding-bottom: 7px;
 
   :hover {
     cursor: pointer;
@@ -28,18 +25,39 @@ export const TagArea = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  padding: 5px 5px 0px 5px;
 `
 
 export const TagStatus = styled.div`
   background-color: #398787;
   color: #fff;
-  font-weight: 400;
+  font-weight: 300;
   border-radius: 4px;
   max-width: 120px !important;
   padding: 2px 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+export const AccordionList = styled.div`
+  margin-top: 15px;
+
+  .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    box-shadow: none !important;
+    border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-radius: 0px !important;
+    padding: 0px 10px;
+  }
+
+  #panel1bh-content {
+    margin-top: -8px;
+  }
+
+  .Mui-expanded {
+    margin: 0px !important;
+    background-color: #f7f9fc !important;
+  }
 `
 
 export const AccortionTitle = styled.span`
@@ -62,6 +80,7 @@ export const WrapperUserInfo = styled.div`
 export const UserInfo = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0px 25px;
 `
 export const DescriptionUser = styled.div`
   display: flex;
@@ -92,14 +111,13 @@ export const NameUser = styled.div`
 export const EmailUser = styled.div`
   font-family: 'PT Sans';
   font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: 600;
+  font-size: 16px;
   line-height: 16px;
   display: flex;
   align-items: center;
 
   color: #9c9c9c;
-  margin-top: 5px;
   word-break: normal;
 
   max-width: 100%;
@@ -117,6 +135,7 @@ export const UserAdditionalInfo = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
+  padding: 0px 25px;
 `
 export const Area = styled.div`
   font-family: 'PT Sans';
@@ -246,4 +265,16 @@ export const ButtonSuccess = styled.div`
   /* neutrals/grey_1 */
 
   color: #222222;
+`
+export const DataList = styled.ul`
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0 !important;
+  line-height: 30px;
+  margin-top: -10px;
+`
+
+export const DataListItem = styled.li`
+  list-style-type: none;
+  margin: 0;
 `

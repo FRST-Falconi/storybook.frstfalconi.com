@@ -15,10 +15,10 @@ export const normal = Template.bind({})
 normal.args = {
   userInfo: {
     id: '1',
-    name: 'Karen Gisele da Silva dos Santos Silvero',
+    name: 'Karen Gisele',
     avatar: null,
     email: 'nome@empresa.com.br',
-    area: 'Tecnologia da Informação e Computação',
+    area: 'Tecnologia da Informação',
     position: 'Estudante/Universitário(a)'
   },
   labels: {
@@ -28,6 +28,34 @@ normal.args = {
     area: 'Área',
     position: 'Cargo'
   },
+  competencesList: [
+    {
+      id: 1,
+      name: 'Gap de competência 1'
+    },
+    {
+      id: 2,
+      name: 'Gap de competência 2'
+    },
+    {
+      id: 3,
+      name: 'Gap de competência 3'
+    }
+  ],
+  modulesList: [
+    {
+      id: 1,
+      name: 'Modulo selecionado 1'
+    },
+    {
+      id: 2,
+      name: 'Modulo selecionado 2'
+    },
+    {
+      id: 3,
+      name: 'Modulo selecionado 3'
+    }
+  ],
   successfullInvite: false,
   handleSendInvitation: (id: any) => alert(`Send: ${id}`),
   handleClickRemove: (id: any) => alert(`Remove: ${id}`)

@@ -9,7 +9,7 @@ import Tooltip from '@components/LXP/tooltip'
 import { AddPeople, MessageCheckLine } from '@shared/icons'
 import { useEffect, useState } from 'react'
 
-export default function ParticipantCard({
+export default function ParticipantCardOld({
   userInfo,
   labels,
   successfullInvite,
