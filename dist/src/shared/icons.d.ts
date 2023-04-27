@@ -142,5 +142,6 @@ export declare function MuteIcon({ width, height, fill }: IconsProps): JSX.Eleme
 export declare function ThumbVideo({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ThumbTexto({ fill, width, height }: IconsProps): JSX.Element;
 export declare function ThumbPodcast({ fill, width, height }: IconsProps): JSX.Element;
+export declare function StarFavorite({ fill, width, stroke, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

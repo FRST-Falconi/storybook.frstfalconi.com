@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { SFavorite } from './favoriteStyles'
-import StarTwoToneIcon from '@mui/icons-material/StarTwoTone'
 import { StarFavorite } from '@shared/icons'
 export type IFavoriteProps = {
   variant: 'default' | 'pressed'
