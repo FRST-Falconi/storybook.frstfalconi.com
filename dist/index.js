@@ -11586,7 +11586,7 @@ function FeedInteraction(props) {
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
                                 : null, props.qtdComments ?
                                 jsxRuntime.jsx(info, { style: { right: 0 }, children: props.qtdComments })
-                                : null] }), props.textTotalView && (props.qtdLikes || props.qtdComments) &&
+                                : null] }), props.textTotalView || (props.qtdLikes || props.qtdComments) &&
                     jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && props.qtdComments && jsxRuntime.jsx("div", { children: "\u2022" }), props.qtdComments && jsxRuntime.jsx(infoWithView, { children: props.qtdComments })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
                             jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textDeslike, variant: 'link', handleClick: props.handleLikeClick }) })
                             :

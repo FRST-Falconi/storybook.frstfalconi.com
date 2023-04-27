@@ -111,7 +111,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                         }
                     </Styles.infoContent> 
                 }
-                {props.textTotalView && (props.qtdLikes || props.qtdComments) &&
+                {props.textTotalView || (props.qtdLikes || props.qtdComments) &&
                     <Styles.infoContentWithView>
                         <div style={{display: 'flex', flexDirection: 'row', gap: '5px'}}>
                             {props.qtdLikes && <Styles.infoWithView> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.infoWithView> }
