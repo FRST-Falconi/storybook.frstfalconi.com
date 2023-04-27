@@ -5,9 +5,8 @@ import * as Styles from './participantCardStyle'
 import { ParticipantCardI } from './participantCard'
 
 import Avatar from '@components/avatar'
-import Tooltip from '@components/LXP/tooltip'
-import { AddPeople, MessageCheckLine, IconUp, IconDown, IconGaps, IconModules } from '@shared/icons'
-import { useEffect, useMemo, useState } from 'react'
+import { IconUp, IconDown, IconGaps, IconModules } from '@shared/icons'
+import { useState } from 'react'
 import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
 
 export default function ParticipantCard({
@@ -23,8 +22,8 @@ export default function ParticipantCard({
   const [isAccordionOpen, setIsAccordionOpen] = useState(false)
   const [isPressed, setIsPressed] = useState(false)
   const [accordionState, setAccordionState] = useState({
-    competences: true,
-    modules: true
+    competences: false,
+    modules: false
   })
 
   const IS_TYPE_COMPETENCES = typeDetails === 'competences'
@@ -34,7 +33,7 @@ export default function ParticipantCard({
     setIsAccordionOpen(!isAccordionOpen)
     setSelectedItem(id)
     setTypeDetails(type)
-    handleAccordionState(type, isAccordionOpen)
+    handleAccordionState(type, !accordionState[type])
   }
 
   const handleAccordionState = (type, value) => {
@@ -72,11 +71,7 @@ export default function ParticipantCard({
               expanded={selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen}
               onChange={() => handleSelectedItem(userInfo?.id, 'competences')}
             >
-              <AccordionSummary
-                expandIcon={accordionState?.competences ? <IconUp /> : <IconDown />}
-                aria-controls="panel1bh-content"
-                id="panel1bh-header"
-              >
+              <AccordionSummary expandIcon={<IconUp />} aria-controls="panel1bh-content" id="panel1bh-header">
                 <Styles.AccortionTitle>
                   <IconGaps />
                   {labels?.competences}
@@ -94,11 +89,7 @@ export default function ParticipantCard({
               expanded={selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen}
               onChange={() => handleSelectedItem(userInfo?.id, 'modules')}
             >
-              <AccordionSummary
-                expandIcon={accordionState?.modules ? <IconUp /> : <IconDown />}
-                aria-controls="panel2bh-content"
-                id="panel2bh-header"
-              >
+              <AccordionSummary expandIcon={<IconUp />} aria-controls="panel2bh-content" id="panel2bh-header">
                 <Styles.AccortionTitle>
                   <IconModules />
                   {labels?.modules}
