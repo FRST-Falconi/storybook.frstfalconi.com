@@ -28,6 +28,7 @@ normal.args = {
     area: 'Área',
     position: 'Cargo'
   },
+  disabled: false,
   competencesList: [
     {
       id: 1,
@@ -55,8 +56,27 @@ normal.args = {
       id: 3,
       name: 'Modulo selecionado 3'
     }
-  ],
-  successfullInvite: false,
-  handleSendInvitation: (id: any) => alert(`Send: ${id}`),
-  handleClickRemove: (id: any) => alert(`Remove: ${id}`)
+  ]
+}
+
+export const disabled = Template.bind({})
+disabled.args = {
+  userInfo: {
+    id: '1',
+    name: 'Karen Gisele',
+    avatar: null,
+    email: 'nome@empresa.com.br',
+    area: 'Tecnologia da Informação',
+    position: 'Estudante/Universitário(a)'
+  },
+  labels: {
+    competences: 'Gaps de Competências',
+    modules: 'Módulos recomendados',
+    tag: 'Inativado',
+    area: 'Área',
+    position: 'Cargo'
+  },
+  disabled: true,
+  competencesList: [],
+  modulesList: []
 }

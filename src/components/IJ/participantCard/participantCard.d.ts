@@ -19,5 +19,6 @@ export interface ParticipantCardI {
   competencesList: [{ id: number | string; name: string }]
   modulesList: [{ id: number | string; name: string }]
   successfullInvite?: boolean
+  disabled?: boolean
   style: React.CSSProperties
 }

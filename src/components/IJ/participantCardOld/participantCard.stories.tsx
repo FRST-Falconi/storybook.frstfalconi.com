@@ -4,7 +4,7 @@ import ParticipantCardOld from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'IJ/ParticipantCard',
+  title: 'IJ/ParticipantCardOld',
   component: ParticipantCardOld
 }
 

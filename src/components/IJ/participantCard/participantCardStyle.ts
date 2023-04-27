@@ -6,15 +6,31 @@ interface ParticipantCardI {
   disabled?: boolean
 }
 
-export const WrapperCard = styled.div`
+interface ITag {
+  status: string
+  isPressed: boolean
+}
+interface ICardParticipant {
+  status: string
+}
+
+interface IClickArea {
+  isPressed: boolean
+  status: string
+}
+const activeStatus = 'Cadastrado'
+const inactiveStatus = 'Inativado'
+
+export const WrapperCard = styled.div<ICardParticipant>`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: fit-content;
-  background: ${({ theme }) => theme.colors.shadeWhite};
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+
+  background: ${(props) => (props.status == activeStatus ? '#fff' : '#BDBDBD')};
+
   border-radius: 10px;
-  padding-bottom: 7px;
+  padding-bottom: ${(props) => (props.status == inactiveStatus ? '30px' : '7px')};
 
   :hover {
     cursor: pointer;
@@ -25,12 +41,22 @@ export const TagArea = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  padding: 5px 5px 0px 5px;
+  padding: 8px 8px 0px 5px;
 `
 
-export const TagStatus = styled.div`
-  background-color: #398787;
-  color: #fff;
+export const ClickArea = styled.div<IClickArea>`
+  background-color: ${(props) => props.status !== inactiveStatus && props.isPressed && '#FCE4CC'};
+  border-radius: 10px 10px 0px 0px;
+  padding-bottom: 10px;
+  min-height: 150px;
+`
+
+export const TagStatus = styled.div<ITag>`
+  background-color: ${(props) =>
+    (props.isPressed && props.status === activeStatus && '#2CA92A') ||
+    (props.status === activeStatus && '#398787') ||
+    (props.status === inactiveStatus && '#222222')};
+  color: ${(props) => (props.status !== inactiveStatus && '#fff') || '#D3D3D3'};
   font-weight: 300;
   border-radius: 4px;
   max-width: 120px !important;
@@ -41,8 +67,6 @@ export const TagStatus = styled.div`
 `
 
 export const AccordionList = styled.div`
-  margin-top: 15px;
-
   .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
     box-shadow: none !important;
     border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -51,7 +75,7 @@ export const AccordionList = styled.div`
   }
 
   #panel1bh-content {
-    margin-top: -8px;
+    margin-top: -5px;
   }
 
   .Mui-expanded {
@@ -270,11 +294,11 @@ export const DataList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin-top: 0 !important;
-  line-height: 30px;
-  margin-top: -10px;
+  line-height: 25px;
 `
 
 export const DataListItem = styled.li`
   list-style-type: none;
   margin: 0;
+  font-weight: 400;
 `
