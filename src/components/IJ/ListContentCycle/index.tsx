@@ -13,6 +13,8 @@ export default function ListContentCycle({
       {listContent.map((content, index) => {
         return (
           <ContentCycle
+            key={content.id}
+            id={content.id}
             description={content.description}
             onSelect={() => onSelect(index)}
             selected={content.selected}
@@ -24,6 +26,7 @@ export default function ListContentCycle({
             progress={content.progress}
             started={content.started}
             stepContent={stepContentCompleted}
+            typeContent={content.typeContent}
           />
         )
       })}

@@ -16,16 +16,22 @@ export default function ContentCycle({
   progress,
   started,
   stepContent,
-  onSelect
+  onSelect,
+  typeContent,
+  id
 }: IContentCycleProps) {
   const [openModal, setOpenModal] = useState(false)
 
-  const defaultImage = 'https://lxp-cdn.frstfalconi.cloud/Thumb.png'
+  const defaultImage = {
+    video: 'https://lxp-cdn.frstfalconi.cloud/upload_content_video.png',
+    podcast: ' https://lxp-cdn.frstfalconi.cloud/upload_content_podcast.png',
+    text: 'https://lxp-cdn.frstfalconi.cloud/upload_content_text.png'
+  }
 
   return (
-    <S.Container className={selected && 'selected'} onClick={() => onSelect()}>
+    <S.Container className={selected && 'selected'} onClick={() => onSelect()} id={id}>
       <S.Thumbnail>
-        <img src={urlPhoto ? urlPhoto : defaultImage} alt={title} />
+        <img src={urlPhoto ? urlPhoto : defaultImage[typeContent]} alt={title} />
       </S.Thumbnail>
       <S.Content>
         <S.Article>

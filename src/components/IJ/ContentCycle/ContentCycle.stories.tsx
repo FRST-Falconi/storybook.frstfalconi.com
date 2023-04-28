@@ -11,6 +11,7 @@ const Template = (args) => <ContentCycle {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
+  id: 'cttLQI01',
   title: 'Liderança que inspira',
   description: `Description bacon ipsum dolor amet landjaeger pastrami pork belly flank shankle ground round. 
      Chicken tri-tip alcatra, pastrami buffalo pork chop shoulder drumstick ham hock landjaeger. Short
@@ -24,5 +25,6 @@ normal.args = {
   progress: 0,
   started: false,
   onSelect: () => alert('selecionei'),
-  stepContent: false
+  stepContent: false,
+  typeContent: 'video'
 }
