@@ -2,6 +2,10 @@ import React from 'react'
 
 export type IContentCycleProps = {
   /**
+   * @prop {string} id: Identificação
+   */
+  id: string
+  /**
    * @prop {string} title: Titulo do conteudo
    */
   title: string
@@ -45,4 +49,8 @@ export type IContentCycleProps = {
    * @prop {boolean} stepContent: Validação para saber se o passo de add conteudos ao ciclo foi finalizado
    */
   stepContent?: boolean
+  /**
+   * @prop {'video' | 'text' | 'podcast'} typeContent: Tipo do conteúdo Video, text ou podcast
+   */
+  typeContent: 'video' | 'text' | 'podcast'
 }
