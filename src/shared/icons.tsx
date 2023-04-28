@@ -2805,6 +2805,18 @@ export function GoalInviteIcon({ fill, width, height }: IconsProps) {
   )
 }
 
+
+export function GoalViewsIcon({ fill, width, height }: IconsProps) {
+
+  return (
+    <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="18" y="2.25" width="3.75" height="19.5" rx="1.875" stroke={fill ? fill : "#0645AD"} strokeWidth="2"/>
+      <rect x="10.125" y="8.25" width="3.75" height="13.5" rx="1.875" stroke={fill ? fill : "#0645AD"}  strokeWidth="2"/>
+      <rect x="2.25" y="15" width="3.75" height="6.75" rx="1.875" stroke={fill ? fill : "#0645AD"}  strokeWidth="2"/>
+    </svg>
+  )
+}
+
 export function StatusProblemaSawBadgeIcon({ fill, width, height }: IconsProps) {
   return (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
