@@ -224,7 +224,7 @@ function Channel$3({ fill, width, height }) {
 function Cam({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21.75 19C21.75 19.5304 21.5632 20.0391 21.2308 20.4142C20.8983 20.7893 20.4474 21 19.9773 21H4.02273C3.55257 21 3.10167 20.7893 2.76922 20.4142C2.43677 20.0391 2.25 19.5304 2.25 19V8C2.25 7.46957 2.43677 6.96086 2.76922 6.58579C3.10167 6.21071 3.55257 6 4.02273 6H7.56818L9.34091 3H14.6591L16.4318 6H19.9773C20.4474 6 20.8983 6.21071 21.2308 6.58579C21.5632 6.96086 21.75 7.46957 21.75 8V19Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 17.25C14.0711 17.25 15.75 15.5711 15.75 13.5C15.75 11.4289 14.0711 9.75 12 9.75C9.92893 9.75 8.25 11.4289 8.25 13.5C8.25 15.5711 9.92893 17.25 12 17.25Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function Content$2({ fill, width, height }) {
+function Content$3({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2V2Z", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function Certificate({ fill, width, height }) {
@@ -1237,7 +1237,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$e = styled__default["default"](Card__default["default"]) `
+const Container$g = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -1245,7 +1245,7 @@ const Container$e = styled__default["default"](Card__default["default"]) `
   border-radius: 8px !important;
   padding: 24px !important;
 `;
-const Title$5 = styled__default["default"].span `
+const Title$6 = styled__default["default"].span `
   font-size: 20px !important;
   color: #ff4d0d !important;
 `;
@@ -1443,9 +1443,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$e, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$g, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$e, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$5, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$g, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$6, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -4209,7 +4209,7 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const Container$d = styled__default["default"].div `
+const Container$f = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -4300,7 +4300,7 @@ const ButtonAction$1 = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$d, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$f, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
                             jsxRuntime.jsxs(ContainerIcon$2, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText$1, { placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
                                 if (event.key === "Enter") {
@@ -5068,7 +5068,7 @@ const ProgressContainer$1 = styled__default["default"].div `
   position: relative;
   padding-left: 75px;
 `;
-const Progress = styled__default["default"].ul `
+const Progress$1 = styled__default["default"].ul `
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -5188,7 +5188,7 @@ const ProgressItemSubtitle = styled__default["default"].p `
 `;
 
 function Stepper({ children, }) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer$1, { children: jsxRuntime.jsx(Progress, { children: children && children }) }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer$1, { children: jsxRuntime.jsx(Progress$1, { children: children && children }) }) }));
 }
 
 function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
@@ -5241,7 +5241,7 @@ const Wrapper$4 = styled__default["default"].div `
     flex-direction: column;
     max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '400px'};
 `;
-const Title$4 = styled__default["default"].p `
+const Title$5 = styled__default["default"].p `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -5326,7 +5326,7 @@ const WrapperButtons = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$4, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$4, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$4, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -5440,7 +5440,7 @@ const Wrapper$3 = styled__default["default"].div `
     width: 100%;
     flex-direction: column;
 `;
-const Title$3 = styled__default["default"].p ` 
+const Title$4 = styled__default["default"].p ` 
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -5502,7 +5502,7 @@ function TrailList({ title, trails, style }) {
     React.useEffect(() => {
         setTrailsList(trails);
     }, [trails]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$3, { style: { ...style }, children: [jsxRuntime.jsx(Title$3, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$3, { style: { ...style }, children: [jsxRuntime.jsx(Title$4, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
                         jsxRuntime.jsx("div", { style: {
                                 display: 'flex',
                                 flexDirection: 'column'
@@ -5574,6 +5574,277 @@ function Favorite({ variant, disable = false, action }) {
         setStatus(types[!disable ? variant : 'disabled']);
     }, [disable]);
     return (jsxRuntime.jsx(SFavorite, { onClick: !disable && handleSetStatus, className: disable && 'disable', children: jsxRuntime.jsx(StarFavorite, { fill: status.fill, stroke: status.stroke }) }));
+}
+
+const Container$e = styled__default["default"].div `
+  width: auto;
+  height: 218px;
+  min-width: 720px;
+  padding: 25px 26px 20px 26px;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  &.selected {
+    background: #fce4cc;
+    border: 1px solid #ff8a15;
+  }
+  :hover {
+    background: #fcf3eb;
+    border: 1px solid #ff8a15;
+  }
+`;
+const Thumbnail = styled__default["default"].section `
+  height: 100%;
+  width: 88px;
+  border-radius: 8px;
+
+  > img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 8px;
+  }
+`;
+const Content$2 = styled__default["default"].section `
+  width: calc(100% - 88px - 14px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+const Article = styled__default["default"].article `
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+`;
+const Options = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Title$3 = styled__default["default"].h3 `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #6a3f86;
+`;
+const Description$2 = styled__default["default"].p `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  color: #757575;
+  width: 60%;
+`;
+const SkillsList = styled__default["default"].ul `
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0;
+  gap: 8px;
+
+  > .title {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #757575;
+  }
+`;
+const Skill = styled__default["default"].li `
+  text-decoration: none;
+  list-style: none;
+  text-transform: capitalize;
+  padding: 2px 4px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+  background: #6a3f86;
+  border-radius: 4px;
+`;
+const ContentBarProgess = styled__default["default"].div `
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  > p {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #222222;
+  }
+`;
+const BarProgress = styled__default["default"].div `
+  width: 160px;
+  height: 20px;
+  padding: 2px;
+  border: 1px solid #9c9c9c;
+  border-radius: 100px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+const Progress = styled__default["default"].span `
+  height: 100%;
+  background-color: #ff4d0d;
+  width: ${(p) => p.progress}%;
+  z-index: 2;
+  border-radius: 100px;
+`;
+
+const Tooltip$1 = styled__default["default"].div `
+    position: relative;
+    display: inline-block;
+    
+    &:after #tooltipinfo {
+        content: "";
+        position: absolute;
+
+        ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'top: 100%; left: 50%;';
+        case 'bottom':
+            return 'bottom: 100%; left: 50%;';
+        case 'right':
+            return 'top: 50%; right: 100%;';
+        case 'left':
+            return 'top: 50%; left: 100%;';
+    }
+}}
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+    }
+
+    &:hover #tooltipinfo {
+        visibility: visible;
+    }
+
+    &:hover {
+        visibility: visible;
+    }
+`;
+const Tooltiptext = styled__default["default"].div `
+    visibility: hidden;
+    width: 156px;
+    background-color: #fff;
+    border: solid 1px #BDBDBD;
+
+    padding: 8px! important;
+    padding-bottom: 4px;
+
+    word-wrap: break-word;
+
+    color: #757575;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'bottom: 160%; left: 50%;';
+        case 'bottom':
+            return 'top: 160%; left: 50%;';
+        case 'right':
+            return 'top: -5px; left: 220%;';
+        case 'left':
+            return 'top: -5px; right: 120%;';
+    }
+}}
+
+    margin-left: -70px;
+
+    -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+    -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+    box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        
+        ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'left: 48%; bottom: -6px;';
+        case 'bottom':
+            return 'left: 48%; top: -6px;';
+        case 'right':
+            return 'top: 35%; left: -6px; border: 5px solid #fff !important;';
+        case 'left':
+            return 'top: 35%; right: -6px; border: 5px solid #fff !important;';
+    }
+}}
+        position: absolute;
+    
+        border: 6px solid #fff;
+        transform: rotate(135deg);
+        transition: border 0.3s ease-in-out;
+      }
+`;
+
+function Tooltip(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
+}
+
+function ContentCycle({ title, description, selected, listSkils, urlPhoto, urlVideo, titleVideo, progress, started, stepContent, onSelect }) {
+    const [openModal, setOpenModal] = React.useState(false);
+    const defaultImage = 'https://lxp-cdn.frstfalconi.cloud/Thumb.png';
+    return (jsxRuntime.jsxs(Container$e, { className: selected && 'selected', onClick: () => onSelect(), children: [jsxRuntime.jsx(Thumbnail, { children: jsxRuntime.jsx("img", { src: urlPhoto ? urlPhoto : defaultImage, alt: title }) }), jsxRuntime.jsxs(Content$2, { children: [jsxRuntime.jsxs(Article, { children: [jsxRuntime.jsxs(Options, { children: [jsxRuntime.jsx(Title$3, { children: title }), stepContent && (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: "Remover", children: jsxRuntime.jsx(Trash, {}) }))] }), jsxRuntime.jsx(Description$2, { children: description })] }), jsxRuntime.jsxs(SkillsList, { children: [jsxRuntime.jsx("p", { className: "title", children: "Competencias: " }), listSkils.map((skill, index) => {
+                                return (jsxRuntime.jsx(Skill, { id: skill, children: skill }, index));
+                            })] }), started ? (jsxRuntime.jsxs(ContentBarProgess, { children: [jsxRuntime.jsx(BarProgress, { children: jsxRuntime.jsx(Progress, { progress: progress }) }), jsxRuntime.jsxs("p", { children: [progress, "%"] })] })) : (jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(PlayLineIcon, { fill: "#0645AD" }), variant: "link", label: "Ver Teaser", handleClick: () => setOpenModal(true), sizeIcon: "24px" }))] }), jsxRuntime.jsx(ModalVideo, { timeBegin: 0, open: openModal, handleClose: () => setOpenModal(false), videoUrl: urlVideo, nameVideo: titleVideo, title: titleVideo })] }));
+}
+
+const Container$d = styled__default["default"].div `
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-direction: column;
+`;
+
+function ListContentCycle({ stepContentCompleted = false, listContent, onSelect }) {
+    return (jsxRuntime.jsx(Container$d, { children: listContent.map((content, index) => {
+            return (jsxRuntime.jsx(ContentCycle, { description: content.description, onSelect: () => onSelect(index), selected: content.selected, title: content.title, listSkils: content.listSkils, urlPhoto: content.urlPhoto, urlVideo: content.urlVideo, titleVideo: content.titleVideo, progress: content.progress, started: content.started, stepContent: stepContentCompleted }));
+        }) }));
 }
 
 const ContainerGeral$1 = styled__default["default"].div `
@@ -6542,7 +6813,7 @@ var typeContent;
 function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title, removeContentList, onChangeOrder, isOpen }) {
     const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png';
     const iconList = [
-        jsxRuntime.jsx(Content$2, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(Content$3, { fill: '#EE4C15' }),
         jsxRuntime.jsx(Video$1, { fill: '#EE4C15' }),
         jsxRuntime.jsx(PodCast, { fill: '#EE4C15' }),
         jsxRuntime.jsx(QuizSucessError, { fill: '#EE4C15' }),
@@ -12903,111 +13174,6 @@ const ButtonSuccess = styled__default["default"].div `
     color: #222222;
 `;
 
-const Tooltip$1 = styled__default["default"].div `
-    position: relative;
-    display: inline-block;
-    
-    &:after #tooltipinfo {
-        content: "";
-        position: absolute;
-
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'top: 100%; left: 50%;';
-        case 'bottom':
-            return 'bottom: 100%; left: 50%;';
-        case 'right':
-            return 'top: 50%; right: 100%;';
-        case 'left':
-            return 'top: 50%; left: 100%;';
-    }
-}}
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
-    }
-
-    &:hover #tooltipinfo {
-        visibility: visible;
-    }
-
-    &:hover {
-        visibility: visible;
-    }
-`;
-const Tooltiptext = styled__default["default"].div `
-    visibility: hidden;
-    width: 156px;
-    background-color: #fff;
-    border: solid 1px #BDBDBD;
-
-    padding: 8px! important;
-    padding-bottom: 4px;
-
-    word-wrap: break-word;
-
-    color: #757575;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'bottom: 160%; left: 50%;';
-        case 'bottom':
-            return 'top: 160%; left: 50%;';
-        case 'right':
-            return 'top: -5px; left: 220%;';
-        case 'left':
-            return 'top: -5px; right: 120%;';
-    }
-}}
-
-    margin-left: -70px;
-
-    -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-
-    &:after {
-        content: "";
-        width: 0;
-        height: 0;
-        
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'left: 48%; bottom: -6px;';
-        case 'bottom':
-            return 'left: 48%; top: -6px;';
-        case 'right':
-            return 'top: 35%; left: -6px; border: 5px solid #fff !important;';
-        case 'left':
-            return 'top: 35%; right: -6px; border: 5px solid #fff !important;';
-    }
-}}
-        position: absolute;
-    
-        border: 6px solid #fff;
-        transform: rotate(135deg);
-        transition: border 0.3s ease-in-out;
-      }
-`;
-
-function Tooltip(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
-}
-
 function ParticipantCardOld({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
     const [userName, setUserName] = React.useState(userInfo?.name);
     const [userEmail, setUserEmail] = React.useState(userInfo?.email);
@@ -13522,7 +13688,8 @@ exports.Checkmark = Checkmark;
 exports.ColorPicker = Colorpicker;
 exports.CommentaryBox = CommentaryBox;
 exports.ConquistaCarrossel = ConquistaCarrossel;
-exports.Content = Content$2;
+exports.Content = Content$3;
+exports.ContentCycle = ContentCycle;
 exports.ContentSwitcher = ContentSwitcher;
 exports.ContentThumbnails = ContentThumbnails;
 exports.Diamond = Diamond;
@@ -13550,6 +13717,7 @@ exports.LampLineIcon = LampLineIcon;
 exports.LateralMenu = LateralMenu;
 exports.LearningSteps = LearningSteps;
 exports.LinkedinIcon = LinkedinIcon;
+exports.ListContentCycle = ListContentCycle;
 exports.ListSelector = ListSelector;
 exports.Loading = Loading;
 exports.LoginLxp = Login;
