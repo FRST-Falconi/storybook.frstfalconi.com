@@ -4,31 +4,79 @@ import ParticipantCard from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'IJ/ParticipantCard',
-    component: ParticipantCard,
+  title: 'IJ/ParticipantCard',
+  component: ParticipantCard
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <ParticipantCard {...args} />
 
 export const normal = Template.bind({})
-normal.args = {    
-    userInfo: {
-        id: 'id-user-00128-idasd',
-        name: 'Karen Gisele da Silva dos Santos Silvero',
-        avatar: null,
-        email: 'nome@empresa.com.br',
-        area: 'Tecnologia da Informação e Computação',
-        position: 'Estudante/Universitário(a)',
+normal.args = {
+  userInfo: {
+    id: '1',
+    name: 'Karen Gisele',
+    avatar: null,
+    email: 'nome@empresa.com.br',
+    area: 'Tecnologia da Informação',
+    position: 'Estudante/Universitário(a)'
+  },
+  labels: {
+    competences: 'Gaps de Competências',
+    modules: 'Módulos recomendados',
+    tag: 'Cadastrado',
+    area: 'Área',
+    position: 'Cargo'
+  },
+  disabled: false,
+  competencesList: [
+    {
+      id: 1,
+      name: 'Gap de competência 1'
     },
-    labels: {
-        sendInvitation: 'Enviar convite',
-        invitationSuccess: 'Convite enviado',
-        remove: 'Remover',
-        area: 'Área',
-        position: 'Cargo'
+    {
+      id: 2,
+      name: 'Gap de competência 2'
     },
-    successfullInvite: false,
-    handleSendInvitation: (id: any) => alert(`Send: ${id}`),
-    handleClickRemove: (id: any) => alert(`Remove: ${id}`),
+    {
+      id: 3,
+      name: 'Gap de competência 3'
+    }
+  ],
+  modulesList: [
+    {
+      id: 1,
+      name: 'Modulo selecionado 1'
+    },
+    {
+      id: 2,
+      name: 'Modulo selecionado 2'
+    },
+    {
+      id: 3,
+      name: 'Modulo selecionado 3'
+    }
+  ]
+}
+
+export const disabled = Template.bind({})
+disabled.args = {
+  userInfo: {
+    id: '1',
+    name: 'Karen Gisele',
+    avatar: null,
+    email: 'nome@empresa.com.br',
+    area: 'Tecnologia da Informação',
+    position: 'Estudante/Universitário(a)'
+  },
+  labels: {
+    competences: 'Gaps de Competências',
+    modules: 'Módulos recomendados',
+    tag: 'Inativado',
+    area: 'Área',
+    position: 'Cargo'
+  },
+  disabled: true,
+  competencesList: [],
+  modulesList: []
 }

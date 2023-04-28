@@ -40,7 +40,8 @@ export {
   Challenge,
   ChangeAccount,
   EyeOff,
-  OpenedEye
+  OpenedEye,
+  StarFavorite
 } from './src/shared/icons'
 
 // Base
@@ -100,6 +101,10 @@ export { default as SpecialistContact } from './src/components/EBR/specialist-co
 export { default as GroupStatistics } from './src/components/EBR/group-statistics'
 export { default as TrailList } from './src/components/EBR/trail-list'
 
+export { default as Favorite } from './src/components/IJ/favorite'
+export { default as ContentCycle } from './src/components/IJ/ContentCycle'
+export { default as ListContentCycle } from './src/components/IJ/ListContentCycle'
+
 // LXP
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel'
 export { default as AvatarAssociatedChannel } from './src/components/LXP/avatarAssociatedChannel'
@@ -152,7 +157,7 @@ export { default as ParticipantCard } from './src/components/IJ/participantCard'
 export { default as HeaderChallenge } from './src/components/headerChallenge'
 
 // Hall
-export { default as LogoFRST } from './src/components/LogoFRST' 
+export { default as LogoFRST } from './src/components/LogoFRST'
 
 //Demo
 export { default as StepController } from './src/components/demo/stepController'
