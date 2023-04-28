@@ -16,7 +16,8 @@ import {
   EditIcon,
   CompanyIcon,
   SawBadgeIcon,
-  GoalInviteIcon
+  GoalInviteIcon,
+  GoalViewsIcon,
 } from '../../../shared/icons'
 import Tag from '../../tag/index'
 import AvatarWithInfo from '../AvatarWithInfo/index'
@@ -322,17 +323,28 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                   </div>
                 : null
               }
-
-              {props.showButtonInvite &&
-                <div className={style.goal_invite}>
-                  <Button
-                    variant='link'
-                    label={props.textGoalInviteBtn}
-                    startIcon={<GoalInviteIcon />}
-                    handleClick={props.onClickMessage}
-                  />
-                </div>
-              }
+              <div style={{display: 'flex', flexDirection: 'row', gap: '20px'}}>
+                {props.showButtonInvite &&
+                  <div className={style.goal_invite}>
+                    <Button
+                      variant='link'
+                      label={props.textGoalInviteBtn}
+                      startIcon={<GoalInviteIcon />}
+                      handleClick={props.onClickMessage}
+                    />
+                  </div>
+                }
+                {props.showButtonViews &&
+                  <div className={style.goal_invite}>
+                    <Button
+                      variant='link'
+                      label={props.textGoalViewsBtn}
+                      startIcon={<GoalViewsIcon width='20'/>}
+                      handleClick={props.onClickViewsBtn}
+                    />
+                  </div>
+                }
+              </div>
               <span className={style.created}>{props.dataCriacao}</span>
             </div>
 

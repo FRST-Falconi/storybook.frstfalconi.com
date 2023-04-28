@@ -16,6 +16,7 @@ export const ShowData = Template.bind({
 })
 ShowData.args = {
     onClickMessage: () => { alert('Opa!')},
+    onClickViewsBtn: () => { alert('Views Btn!')},
     onClickSave: (nome) => {alert(nome)},
     onClickContinue: () => { alert('Continuar desafio!')},
     isVerified: true,
@@ -37,6 +38,10 @@ ShowData.args = {
     typeMessagem: 1,
     showButtonInvite: true,
     textGoalInviteBtn: "Ver convites enviados",
+
+    showButtonViews: true,
+    textGoalViewsBtn: "Visualizações",
+
     message: "Problema aprovado - 30 de Abr. 2022",
     dataCriacao: "Criado em 20 de abr. 2022 - Atualizado em 04 de mai. 2022",
     qtdeAvaliacao: 19,

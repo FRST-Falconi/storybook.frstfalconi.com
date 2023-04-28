@@ -58,6 +58,9 @@ interface IBannerProblemParams {
     children: React.ReactNode
     showButtonInvite?: boolean
     onClickMessage: () => void
+    showButtonViews?: boolean
+    onClickViewsBtn: () => void
+
     /**
     * @prop {() => void} onClickContinue: Função executada no botão de continuar desafio
     */
@@ -91,4 +94,5 @@ export interface IBannerProgressTranslate  extends IBannerProblemParams{
     ratingLikesDescription?: string
     ratingNavegationAnt?: string
     textGoalInviteBtn?: string
+    textGoalViewsBtn?: string
 }

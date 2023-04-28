@@ -45,6 +45,8 @@ interface IBannerProblemFeed extends stepsInfo {
     topHeaderTagColor?: string;
     topHeaderTagBgColor?: string;
     topHeaderTagText?: string;
+    textTotalView?: string;
+    handleClickTextTotalViews?: () => void;
 }
 interface stepsInfo {
     /**
