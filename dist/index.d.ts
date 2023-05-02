@@ -2,6 +2,7 @@ export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, H
 export { default as Tag } from './src/components/tag';
 export { default as BaseCard } from './src/components/cards/base';
 export { default as AudioPlayer } from './src/components/audio-player';
+export { default as QuantidadeDesafios } from './src/components/quantidadeDesafios';
 export { default as UserCard } from './src/components/cards/user';
 export { default as CalendarCard } from './src/components/calendar';
 export { default as BannerProblem } from './src/components/cardLT/BannerProblem';
