@@ -48,6 +48,7 @@ export {
 export { default as Tag } from './src/components/tag'
 export { default as BaseCard } from './src/components/cards/base'
 export { default as AudioPlayer } from './src/components/audio-player'
+export { default as QuantidadeDesafios } from './src/components/quantidadeDesafios'
 
 // CARDS
 export { default as UserCard } from './src/components/cards/user'
