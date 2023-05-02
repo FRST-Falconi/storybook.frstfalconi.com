@@ -10,6 +10,10 @@ export interface IAccordionTrack {
      */
     courseData?: any    
     /**
+     * @prop {any} courseIndividualData: Informações referente aos Cursos Individuais
+     */
+    courseIndividualData?: any        
+    /**
      * @prop {() => {})} onNewTrail: Callback para adicionar novo conteúdo
      */
     isLoading?: boolean
@@ -36,17 +40,13 @@ export interface IAccordionTrack {
 	 * @prop {(idCourse: string, idTrail: string) => {}} handleDeleteCourseTrail: Callback para deletar o vinculo do curso com a trilha
 	 */
     handleDeleteCourseTrail?: (idTrailCourse: string) => void
-	/**
-	 * @prop {(idCourse: string, idTrail: string) => {}} handleDeleteCourseTrail: Callback para deletar o vinculo do curso com a trilha
-	 */    
-    handleSwitchAtivarIndividual? (idCourse: string, checked: boolean)
+    handleSwitchAtivar? (idCourse: string, checked: boolean)
+    handleSwitchAtivarConteudo? (idCourse: string, checked: boolean)
+    handleSwitchAtivarTrail? (idTrailCourse: string, checked: boolean)
     /**
      * @prop {(errorCode: number) => {}} handleMessageError: Callback para mensagem de erro
      */    
-    handleMessageError? (errorCode: string) 
-    /**
-     * @prop {(errorCode: number) => {}} handleMessageError: Callback para mensagem de erro
-     */           
+    handleMessageError? (errorCode: string)   
     handleSwitchActiveTrail?: (idTrail, active) => void     
     /**
      * @prop {(errorCode: number) => {}} handleUpdateTrail: Callback atualizar ordenação, exclusão e inserção de cursos nas trilahs

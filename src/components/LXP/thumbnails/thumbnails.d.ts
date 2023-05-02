@@ -7,11 +7,11 @@ type enumVariant =  'default' | 'add'
 export interface IThumbnails {
     src?: string,
     isDisabled: boolean,    
-    isIndividual?: boolean, 
+    isActive?: boolean, 
     isLoading?: boolean
-    showSwitchIndividual?: boolean,  
+    showSwitch?: boolean,  
     handleClickCourse?: () => void,
-    handleSwitchAtivarIndividual?: (checkedValue: boolean) => void,
+    handleSwitchAtivar?: (checkedValue: boolean) => void,
     handleClickNew?: () => void,
     handleClickContent?: () => void, 
     handleClickPopOverEdit?: () => void,
@@ -21,7 +21,7 @@ export interface IThumbnails {
     title?: string   
     id?: string,
     index?: string,
-    provided?: any    
+    provided?: any
 }
 
 export interface IThumbnailsTranslate extends IThumbnails {

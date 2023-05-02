@@ -245,11 +245,11 @@ Opened.args = {
     handlePopOverMove: (id) => {alert(`Move id: ${id}`)},
     handlePopOverEdit: (id) => {alert(`Content Edit id: ${id}`)},
     handlePopOverDelete: (id) => {alert(`Content Deleted id: ${id}`)},
-
+    handleMessageError: (error) => {alert(error)},
     handlePopOverTrailEdit: (id) => {alert(`Trail Edit id: ${id}`)},
     handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
-    handleSwitchAtivarIndividual: (idCourse, checked) => {
-      alert(`Alterando curso ${idCourse} Individual: ${checked}`)
+    handleSwitchAtivar: (idCourse, checked) => {
+      alert(`Alterando conteúudo ${idCourse}: ${checked}`)
     },
     handleDeleteCourse: (idCourse) => {
       alert(`Deletando o Curso: ${idCourse}`)

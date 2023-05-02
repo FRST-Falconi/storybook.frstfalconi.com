@@ -8,7 +8,8 @@ import VectorUp from './vectorUp'
 import VectorEllipse from './vectorEllipse'
 import { useEffect, useState } from 'react'
 import * as Icons from '../../../shared/icons'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
+// import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 export enum typeContent {
   Content,

@@ -1,7 +1,8 @@
 import '../../../shared/global.css'
 import { IThumbnailsTranslate } from './thumbnails.d'
 import Thumbnails from './thumbnails'
-import { Draggable } from 'react-beautiful-dnd'
+import { Draggable } from '@hello-pangea/dnd'
+// import { Draggable } from 'react-beautiful-dnd'
 
 export default function ThumbnailsDraggable({
    variant, 
@@ -9,7 +10,7 @@ export default function ThumbnailsDraggable({
    handleClickCourse, 
    handleClickNew, 
    handleClickContent, 
-   handleSwitchAtivarIndividual, 
+   handleSwitchAtivar, 
    title, 
    id, 
    index, 
@@ -17,7 +18,7 @@ export default function ThumbnailsDraggable({
    isLoading, 
    txtButtonLabel, 
    txtAtivarCurso, 
-   showSwitchIndividual,
+   showSwitch,
    txtCriarNovoCurso,
    txtCriarNovoCurso2,
    handleClickPopOverDelete,
@@ -25,7 +26,7 @@ export default function ThumbnailsDraggable({
    handleClickPopOverMove,
    txtPopOverDeleteContent,
    txtPopOverEditContent,
-   isIndividual,
+   isActive,
    txtPopOverMoveToTrails 
   }: IThumbnailsTranslate) {
 
@@ -33,7 +34,7 @@ export default function ThumbnailsDraggable({
     <>    
       <Draggable
         key={id}
-        index={index}
+        index={parseInt(index)}
         draggableId={id}
       >
         {(provided) => {
@@ -42,15 +43,15 @@ export default function ThumbnailsDraggable({
               src={src}
               isDisabled={isDisabled}
               handleClickCourse={handleClickCourse}
-              handleSwitchAtivarIndividual={handleSwitchAtivarIndividual}
+              handleSwitchAtivar={handleSwitchAtivar}
               handleClickNew={handleClickNew}
               handleClickContent={handleClickContent}
               variant={variant}
               title={title}
               id={id}
-              isIndividual={isIndividual}
+              isActive={isActive}
               isLoading={isLoading}
-              showSwitchIndividual={showSwitchIndividual}
+              showSwitch={showSwitch}
               index={index}    
               provided={provided}
               txtButtonLabel={txtButtonLabel}
@@ -62,7 +63,7 @@ export default function ThumbnailsDraggable({
               handleClickPopOverMove={handleClickPopOverMove}
               txtPopOverDeleteContent={txtPopOverDeleteContent}
               txtPopOverEditContent={txtPopOverEditContent}
-              txtPopOverMoveToTrails={txtPopOverMoveToTrails}              
+              txtPopOverMoveToTrails={txtPopOverMoveToTrails}
             />
           )}
         }

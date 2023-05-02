@@ -5,12 +5,10 @@ import { useState, useEffect } from 'react'
 import ThumbnailsDraggable from '../thumbnails/thumbnailsDraggable'
 import Thumbnails from '../thumbnails/thumbnails'
 import ScrollContainer from '@components/scroll-container'
-import { Droppable } from 'react-beautiful-dnd'
+import { Droppable } from '@hello-pangea/dnd'
 import ContentCoursesTrails from './contentCoursesTrails'
 import ContentCourses from './contentCourses'
-import { use } from 'i18next'
 import React from 'react'
-import { bs } from 'date-fns/locale'
 
 export default function AccordionTrack(props: IAccordionTranslate) {
 
@@ -18,7 +16,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   const [ShowTrail, setShowTrail] = useState([]);
   const [ShowIndividual, setShowIndividual] = useState<boolean>(true);
   const [IsLoading, setIsLoading] = useState<boolean>(props.isLoading);
-  const [CursosIndividuais, setCursosIndividuais] = useState([]);
+  const MEUS_CONTEUDOS_CONTENT = '0'
+  const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
   const create_UUID = () => {
     var dt = new Date().getTime()
@@ -41,15 +40,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
     }    
   },[props.trailsData])
 
-  useEffect(()=>{
-    if (Array.isArray(props.courseData)) {
-      let individual = props.courseData.filter((item) => {        
-        return item.active_individual
-      })
-
-      setCursosIndividuais(individual)
-    }    
-  },[props.courseData])  
 
   useEffect(() => {
     setIsLoading(props.isLoading)
@@ -57,11 +47,11 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
   return (
     <>
-      {/* 
-      //----------------------------------------------------------------------------
-      // Carregamento de Cursos individuais
-      //---------------------------------------------------------------------------- 
-    */}
+      {
+      /* ---------------------------------------------------------
+        Meus Conteúdos
+      --------------------------------------------------------- */
+      }   
       <React.StrictMode>
       <ContentCourses TrailName={''}>
         <div>
@@ -85,7 +75,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         </div>
         
         {/* Meus conteúdos */}
-        <Droppable droppableId={'0'} direction="horizontal">
+        <Droppable droppableId={MEUS_CONTEUDOS_CONTENT} direction="horizontal">
           {(provided) => {
             return (
               <Styles.ContainerTrailsEmpty>
@@ -145,11 +135,11 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   index={contentIndex}
                                   title={el.title}
                                   variant={'default'}
-                                  handleSwitchAtivarIndividual={(checked) => {
-                                    props.handleSwitchAtivarIndividual(el.id, checked)
+                                  handleSwitchAtivar={(checked) => {
+                                    props.handleSwitchAtivarConteudo(el.id, checked)
                                   }}
-                                  isIndividual={el.active_individual}
-                                  showSwitchIndividual
+                                  isActive={el.active_individual}
+                                  showSwitch
                                   src={el.settings.cover_thumb_url}
                                   txtButtonLabel={props.txtButtonLabel}
                                   txtAtivarCurso={props.txtAtivarCurso}
@@ -179,13 +169,15 @@ export default function AccordionTrack(props: IAccordionTranslate) {
           }}
         </Droppable>
       </ContentCourses> 
-      {/* Curso Individual */} 
+
+      {
+      /* ---------------------------------------------------------
+        Curso Individual
+      --------------------------------------------------------- */
+      }           
       {
         !IsLoading &&
         <>
-          {/* <Styles.TypographyMyTrails>
-            {props.txtCursoIndividual ? props.txtCursoIndividual : 'Conteúdo individual'}
-          </Styles.TypographyMyTrails> */}
           {/* 
           //----------------------------------------------------------------------------
           // Carregamento de trilhas
@@ -214,10 +206,10 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             handlePopOverTrailDelete={(id: string) => { props.handlePopOverTrailDelete(id) }}
           >
             {              
-              <Droppable droppableId={'1'} direction="horizontal">
+              <Droppable droppableId={CONTEUDO_INDIVIDUAL_CONTENT} direction="horizontal">
                 {(provided) => {
                   return (
-                    <Styles.ContainerTrailsNormal style={{height: 342}}>
+                    <Styles.ContainerTrailsNormal style={{}}>
                       <ScrollContainer
                         stepMove={380}
                         isVisibleControlsButtons
@@ -230,20 +222,23 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
                         <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                           {
-                            CursosIndividuais.map((individual, individualIndex) => {
+                            props.courseIndividualData.map((individual, individualIndex) => {
                               return (
                                 <>
                                   <ThumbnailsDraggable
                                     key={`contentTrails${1}_individual${individualIndex}`}                                        
-                                    id={`contentTrails${1}_individual${individualIndex}`}                                        
+                                    id={`contentTrails${1}_individual${individualIndex}`}                                
+                                    index={`${individualIndex}`}
                                     isDisabled={individual.active === false ? false : individual.active}
-                                    index={individualIndex.toString()}
                                     title={individual.title}
                                     variant={'default'}
+                                    showSwitch
                                     handleClickCourse={() => {
                                       props.handleEditCourse(individual.id)
                                     }}
-                                    // showSwitchIndividual={true}
+                                    handleSwitchAtivar={(checked) => {
+                                      props.handleSwitchAtivarConteudo(individual.id, checked)
+                                    }}
                                     src={individual.settings.cover_thumb_url}
                                     txtButtonLabel={props.txtButtonLabel}
                                     txtAtivarCurso={props.txtAtivarCurso}
@@ -274,7 +269,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
           </ContentCoursesTrails>                
         </>        
       }
-      {/* Trilhas */}           
+
+      {
+      /* ---------------------------------------------------------
+        Trilhas 
+      --------------------------------------------------------- */
+      }           
       {
         !IsLoading &&
         <>
@@ -293,7 +293,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   <ContentCoursesTrails
                     showButtonActive={true}
                     key={`contentTrails${trailIndex}`}
-                    id={`contentTrails${trailIndex}`}
+                    id={`${3000}${trailIndex}`}
                     TrailName={trail.name}
                     ativo={trail.active}
                     handleChangeCheck={(bActive: boolean) => {
@@ -342,16 +342,15 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                       return (
                                         <>
                                           <ThumbnailsDraggable
-                                            key={`contentTrails${trailIndex}_course${courseTrailIndex}`}                                        
-                                            id={`contentTrails${trailIndex}_course${courseTrailIndex}`}                                        
+                                            id={`trail_${trailIndex}_course_${courseTrailIndex}`}                                                               
+                                            index={`${courseTrailIndex}`}                                          
                                             isDisabled={trail.active === false ? false : el.course.active}
-                                            index={courseTrailIndex}
                                             title={el.course.title}
                                             variant={'default'}
                                             handleClickCourse={() => {
                                               props.handleEditCourse(el.course.id)
                                             }}
-                                            showSwitchIndividual={true}
+                                            showSwitch={true}
                                             src={el.course.settings.cover_thumb_url}
                                             txtButtonLabel={props.txtButtonLabel}
                                             txtAtivarCurso={props.txtAtivarCurso}

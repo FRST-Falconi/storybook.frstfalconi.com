@@ -17,10 +17,10 @@ import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 export default function Thumbnails({ 
   variant, 
   src, 
-  showSwitchIndividual,
+  showSwitch,
   handleClickCourse, 
   handleClickNew, 
-  handleSwitchAtivarIndividual,
+  handleSwitchAtivar,
   handleClickPopOverDelete,
   handleClickPopOverEdit,
   title, 
@@ -34,12 +34,11 @@ export default function Thumbnails({
   txtPopOverDeleteContent,
   txtPopOverMoveToTrails,
   txtPopOverEditContent,
-  isIndividual
+  isActive
 }: IThumbnailsTranslate) {
 
   const defaultImg = "https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png"
   const [ativo, setAtivo] = useState<boolean>(isDisabled)
-  const [individual, setIndividual] = useState<boolean>(isIndividual ? isIndividual : false)
   const [showModules, setShowModules] = useState<boolean>(false)
   const [ElementPopover, setElementPopover] = useState(null);
   const [Loading, setLoading] = useState(isLoading);
@@ -53,8 +52,8 @@ export default function Thumbnails({
   }, [isLoading]);
 
   const handleChangeCheck = (checkedValue: boolean) => {
-    setIndividual(checkedValue)
-    handleSwitchAtivarIndividual(checkedValue)
+    setAtivo(checkedValue)
+    handleSwitchAtivar(checkedValue)
   };
 
   const handleHoverImage = () => {
@@ -92,7 +91,7 @@ export default function Thumbnails({
                 <Styles.LoadingContent style={{width: '50%'}} />
               </Styles.LoadingContainer>
               :
-              <Styles.ContainerThumbnails showSwitchIndividual={showSwitchIndividual} className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
+              <Styles.ContainerThumbnails showSwitchIndividual={showSwitch} className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
                 <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
                   <Button label={txtButtonLabel ? txtButtonLabel : 'Ver conteúdo'} variant='primary' handleClick={handleClickCourse} />
                 </Styles.ContainerButton>
@@ -146,7 +145,7 @@ export default function Thumbnails({
                   </Styles.IconVertical>
                 </Styles.ContainerMain>
                 {
-                  showSwitchIndividual &&
+                  showSwitch &&
                   <Styles.ContainerAtivar>
                     <Styles.TypographyAtivar active={ativo} style={{ fontWeight: ativo ? 700 : 400 }}>
                       {txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso'}
