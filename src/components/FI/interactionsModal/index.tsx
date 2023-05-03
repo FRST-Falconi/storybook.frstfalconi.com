@@ -27,6 +27,7 @@ export default function InteractionsModal({
     handleClickClose, 
     newListUsers,
     checkScrollEnd,
+    trackClick,
     style }: IInteractionsModal) {
     
     const scrollContainerRef = useRef(null);
@@ -80,6 +81,7 @@ export default function InteractionsModal({
                         <ContentDiv 
                             ref={scrollContainerRef}
                             onScroll={handleScroll}
+                            onClick={trackClick ? () => trackClick() : () => {}}
                         >
                             <ContentScroll>
                                 { listUsersState && listUsersState.map((item: IUser) => {
