@@ -18,5 +18,6 @@ export interface IInteractionsModal {
     
     newListUsers?: Array<IUser>
     checkScrollEnd: () => void
+    trackClick?: () => void
 }
 

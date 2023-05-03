@@ -115,7 +115,8 @@ DefaultInfiniteScroll.args = {
             organization: 'FRST Falconi',
             avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png'
         },
-    ]
+    ],
+    trackClick: () => alert('Track click mix painel'),
 }
 
 
