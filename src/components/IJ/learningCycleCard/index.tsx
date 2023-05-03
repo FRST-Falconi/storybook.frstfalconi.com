@@ -5,9 +5,9 @@ import * as Styles from './learningCycleCardStyle'
 import { LearningCycleCardI } from './learningCycleCard'
 
 import Avatar from '@components/avatar'
-import { IconUp, IconDown, IconGaps, IconModules } from '@shared/icons'
+import { IconUp } from '@shared/icons'
 import { useState } from 'react'
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Divider, Typography } from '@mui/material'
 
 export default function LearningCycleCard({
   id,
@@ -22,7 +22,6 @@ export default function LearningCycleCard({
   const [selectedItem, setSelectedItem] = useState(null)
   const [typeDetails, setTypeDetails] = useState(null)
   const [isAccordionOpen, setIsAccordionOpen] = useState(false)
-  const [isPressed, setIsPressed] = useState(false)
   const [accordionState, setAccordionState] = useState({
     competences: false,
     modules: false
@@ -71,6 +70,7 @@ export default function LearningCycleCard({
                 {labels?.groupsQuantityDescription}
               </Styles.AccortionTitle>
             </AccordionSummary>
+            {isAccordionOpen && <Divider sx={{ marginBottom: 2 }} />}
             <AccordionDetails>
               <Styles.DataList>
                 {modulesList?.map((item, index) => (

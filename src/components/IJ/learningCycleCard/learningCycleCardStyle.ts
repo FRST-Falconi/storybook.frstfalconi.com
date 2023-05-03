@@ -8,11 +8,6 @@ interface ILearningCycleCard {
   disabled: boolean
 }
 
-interface IClickArea {
-  isPressed: boolean
-  status: string
-}
-
 interface IAccordionList {
   disabled: boolean
 }
