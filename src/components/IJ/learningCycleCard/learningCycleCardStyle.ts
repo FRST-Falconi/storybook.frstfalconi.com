@@ -49,6 +49,10 @@ export const TagStatus = styled.div<ITag>`
 
 export const Actions = styled.div`
   display: flex;
+
+  .MuiMenu-root {
+    border: 1px solid red !important;
+  }
 `
 
 export const AccordionList = styled.div<IAccordionList>`

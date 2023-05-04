@@ -4,16 +4,13 @@ import MenuItem from '@mui/material/MenuItem'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { useState } from 'react'
 import { Divider } from '@mui/material'
-import PopOverLXP from '@components/LXP/popOverLXP-antigo'
 
 const options = [
-  'Editar Plano de conteúdo',
-  'Duplicar Plano de conteúdo',
-  'Desativar Plano de conteúdo',
-  'Excluir Plano de conteúdo'
+  { label: 'Editar Plano de conteúdo', icon: null, type: 'edit', action: null },
+  { label: 'Duplicar Plano de conteúdo', icon: null, type: 'duplicate', action: null },
+  { label: 'Desativar Plano de conteúdo', icon: null, type: 'disable', action: null },
+  { label: 'Excluir Plano de conteúdo', icon: 'edit icon', type: 'delete', action: null }
 ]
-
-const ITEM_HEIGHT = 48
 
 export default function CardMenu() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
@@ -29,7 +26,6 @@ export default function CardMenu() {
     <div>
       <IconButton
         aria-label="more"
-        id="long-button"
         aria-controls={open ? 'long-menu' : undefined}
         aria-expanded={open ? 'true' : undefined}
         aria-haspopup="true"
@@ -40,34 +36,37 @@ export default function CardMenu() {
       </IconButton>
 
       {open && (
-        <PopOverLXP
-          children={
-            <Menu
-              id="long-menu"
-              MenuListProps={{
-                'aria-labelledby': 'long-button'
-              }}
-              anchorEl={anchorEl}
-              open={open}
-              onClose={handleClose}
-              PaperProps={{
-                style: {
-                  maxHeight: ITEM_HEIGHT * 4.5,
-                  width: '20ch'
-                }
-              }}
-            >
-              {options.map((option) => (
-                <MenuItem key={option} onClick={handleClose}>
-                  {option}
-                  <Divider sx={{ marginTop: '5px' }} />
-                </MenuItem>
-              ))}
-            </Menu>
-          }
-          variant="sideLeft"
-          element={undefined}
-        />
+        <Menu
+          id="long-menu"
+          MenuListProps={{
+            'aria-labelledby': 'long-button'
+          }}
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          PaperProps={{
+            style: {
+              width: '300px'
+            }
+          }}
+        >
+          {options.map((option, index) => (
+            <>
+              <MenuItem
+                key={index}
+                onClick={() => {
+                  handleClose(), option?.action
+                }}
+                sx={{
+                  color: option?.type === 'delete' ? '#923534' : '#000000'
+                }}
+              >
+                {option?.icon} {option?.label}
+              </MenuItem>
+              <Divider />
+            </>
+          ))}
+        </Menu>
       )}
     </div>
   )
