@@ -29,6 +29,8 @@ export const loadingImageThumb = styled.div`
 
 export const iconsThumbAndProgress = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   background-color: #ee8736;
   flex-direction: column;
@@ -37,6 +39,7 @@ export const iconsThumbAndProgress = styled.div`
 export const iconsThumb = styled.div`
   display: flex;
   height: 100%;
+  min-height: 144px;
   background-color: #ee8736;
   flex-direction: column;
   justify-content: center;
@@ -148,10 +151,13 @@ export const viewMoreContent = styled.div`
 `
 
 export const shadedThumb = styled.div`
-  position: relative;
+  position: relative;  
   height: 100%;
   :after {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     right: 0;
     bottom: 0;
@@ -170,6 +176,8 @@ export const ProgressAndImg = styled.div`
 `
 
 export const ProgressIcon = styled.div`
+  position: absolute;
+  bottom: 2px;
   display: flex;
   width: 100%;
   flex-direction: column;

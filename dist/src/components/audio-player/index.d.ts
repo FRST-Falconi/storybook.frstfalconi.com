@@ -13,7 +13,8 @@ interface IAudioPlayer {
      * @prop {number} volume: valor do volume (minimo 0 - máximo 1)
     */
     volume?: number;
-    getCurrentTime?: (e: any) => void;
+    onProgress?: (data: any) => void;
+    onEnded?: () => void;
     style?: React.CSSProperties;
 }
 export default function AudioPlayer(props: IAudioPlayer): JSX.Element;

@@ -1,5 +1,5 @@
 /// <reference types="react" />
-type typeThumb = 'video' | 'podcast' | 'question';
+type typeThumb = 'video' | 'podcast' | 'question' | 'textual';
 interface IThumbListContent {
     imageSrc?: string;
     typeThumbContent?: typeThumb;

@@ -39,7 +39,7 @@ export default function ParticipantThumbnails(props: ParticipantThumbnails) {
         }}
         PaperProps={{
           style: {
-            backgroundColor: 'transparent',
+            backgroundColor: '#FFF',
             boxShadow: 'none',
             borderRadius: 8,
             marginTop: '-1rem'

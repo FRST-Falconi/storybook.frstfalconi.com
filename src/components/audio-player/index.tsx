@@ -19,12 +19,14 @@ interface IAudioPlayer {
      * @prop {number} volume: valor do volume (minimo 0 - máximo 1)
     */
     volume ?: number
-    getCurrentTime ?: (e) => void
+    onProgress ?: (data) => void
+    onEnded ?: () => void
     style ?: React.CSSProperties
 }
 
 export default function AudioPlayer ( props : IAudioPlayer ) {
     const [isPlaying, setIsPlaying] = useState(false);
+    const [CurrentTimeAudio, setCurrentTimeAudio] = useState();
     const [time, setTime] = useState({
         min: 0,
         sec: 0
@@ -37,17 +39,34 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
     const [audioVolume, setAudioVolume] = useState(props.volume ? props.volume : 0.5);
     const [play, { pause, duration, sound }] = useSound(props.audio, {volume : audioVolume, 
         onend : () => {
+            console.log("Passou aqui 3")
             setIsPlaying(false)
+            props.onEnded()
         }})
     
     //porcentagem percorrida da musica
     const [percentagePlaytime, setPercentagePlaytime] = useState(0);
-    const defaultThumb = 'https://i.gyazo.com/b5c2aa898e5b75a296b3c638cdfaee6f.png'
+    const defaultThumb = 'https://i.gyazo.com/f201e5ef302347108c31a2129104adc1.png'
 
     useEffect(() => {
         setAudioVolume(props.volume)
-
     }, [props.volume]);
+
+    useEffect(() => {
+        console.log('isPlaying', isPlaying)
+    }, [isPlaying]);
+
+    useEffect(() => {
+        if (props.onProgress) {
+            console.log(isPlaying)
+            if (isPlaying) {
+                props.onProgress({
+                    loadedSeconds: duration / 1000,
+                    playedSeconds: sound.seek([])
+                })
+            }
+        }
+    }, [seconds]);
     
     useEffect(() => {
         if (duration) {
@@ -69,14 +88,14 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
                 setSeconds(sound.seek([]));
                 const min = Math.floor(sound.seek([]) / 60);
                 const sec = Math.floor(sound.seek([]) % 60);
+
                 setCurrTime({
                     min,
                     sec
                 });
-                if(props.getCurrentTime){
-                    props.getCurrentTime(sound.seek([]))
-                }
-                setPercentagePlaytime(calcCurrentInputPercentage(0,duration/1000, sound.seek([])))
+
+
+                setPercentagePlaytime(calcCurrentInputPercentage(0, duration/1000, sound.seek([])))
             }
         }, 1000);
         return () => clearInterval(interval);
@@ -84,11 +103,13 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
 
     const playingButton = () => {
         if (isPlaying) {
-            pause();
+            console.log("Passou aqui")
             setIsPlaying(false);
+            pause();
         } else {
-            play();
+            console.log("Passou aqui 2")
             setIsPlaying(true);
+            play();
         }
     };
 
@@ -107,8 +128,8 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
         <ThemeProvider theme={FRSTTheme}>
             <Styles.container style={{...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : ''}} >
                 <Styles.containerMask></Styles.containerMask>
-                <Styles.thumb src={props.coverImage ? props.coverImage : defaultThumb} />
-                <Styles.content >
+                <Styles.thumb style={{...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})`}}/>
+                <Styles.content style={{width: '100%'}}>
                     <Styles.title> {props.title} </Styles.title>
                     <Styles.description> {props.description} </Styles.description>
                     <Styles.date> {props.date} </Styles.date>

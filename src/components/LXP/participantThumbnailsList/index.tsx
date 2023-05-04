@@ -61,3 +61,4 @@ export default function ParticipantThumbnailsList({ listThumbnails }: Participan
     return handleThumbnails(listThumbnails, true)
   }
 }
+  

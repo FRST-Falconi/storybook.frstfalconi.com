@@ -131,7 +131,7 @@ export { default as ManageLearningCicles } from './src/components/LXP/manageLern
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable'
 export { default as SelectLXP } from './src/components/LXP/selectLXP'
 export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails'
-export { default as participantThumbnailsList } from './src/components/LXP/participantThumbnailsList'
+export { default as ParticipantThumbnailsList } from './src/components/LXP/participantThumbnailsList'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI
