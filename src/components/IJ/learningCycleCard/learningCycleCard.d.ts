@@ -10,8 +10,11 @@ export interface LearningCycleCardI {
     groupsQuantity: number | string
     groupsQuantityDescription: string
     groupsLabel: string
+    actionButton: string
   }
   modulesList: [{ id: number | string; name: string }]
   disabled?: boolean
+  handleClick: () => void
+  handleFavorite?: () => void
   style: React.CSSProperties
 }

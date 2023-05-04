@@ -18,11 +18,13 @@ normal.args = {
   name: 'Learning Cycle Name',
   favorite: false,
   labels: {
-    groupsQuantity: 5,
-    groupsLabel: 'Grupos',
-    groupsQuantityDescription: 'nesse plano de conteúdo'
+    groupsLabel: 'grupos',
+    groupsQuantityDescription: 'nesse plano de conteúdo',
+    actionButton: 'Editar grupo'
   },
   disabled: false,
+  handleClick: () => alert('click'),
+  handleFavorite: (favorite) => alert('favorite:', favorite),
   modulesList: [
     {
       id: 1,
@@ -58,10 +60,12 @@ favorite.args = {
   name: 'Learning Cycle Name',
   favorite: true,
   labels: {
-    groupsQuantity: 5,
-    groupsLabel: 'Grupos',
-    groupsQuantityDescription: 'nesse plano de conteúdo'
+    groupsLabel: 'grupos',
+    groupsQuantityDescription: 'nesse plano de conteúdo',
+    actionButton: 'Editar grupo'
   },
+  handleClick: () => alert('click'),
+  handleFavorite: (favorite) => alert('favorite:', favorite),
   disabled: false,
   modulesList: [
     {
@@ -87,6 +91,18 @@ favorite.args = {
     {
       id: 6,
       name: 'Suporte Santos/São Paulo'
+    },
+    {
+      id: 7,
+      name: 'Suporte Santos/São Paulo'
+    },
+    {
+      id: 8,
+      name: 'Suporte Santos/São Paulo'
+    },
+    {
+      id: 9,
+      name: 'Suporte Santos/São Paulo'
     }
   ]
 }
@@ -98,10 +114,12 @@ disabled.args = {
   name: 'Learning Cycle Name',
   favorite: false,
   labels: {
-    groupsQuantity: 5,
-    groupsLabel: 'Grupos',
-    groupsQuantityDescription: 'nesse plano de conteúdo'
+    groupsLabel: 'grupos',
+    groupsQuantityDescription: 'nesse plano de conteúdo',
+    actionButton: 'Editar grupo'
   },
+  handleClick: () => alert('click'),
+  handleFavorite: (favorite) => alert('favorite:', favorite),
   disabled: true,
   modulesList: [
     {

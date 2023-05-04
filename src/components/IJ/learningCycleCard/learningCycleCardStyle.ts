@@ -30,8 +30,8 @@ export const WrapperCard = styled.div<ILearningCycleCard>`
 `
 
 export const TagArea = styled.div`
-  width: 100%;
   display: flex;
+  justify-content: space-between;
 `
 
 export const TagStatus = styled.div<ITag>`
@@ -40,11 +40,15 @@ export const TagStatus = styled.div<ITag>`
   font-weight: 300;
   border-radius: 4px;
   width: 100%;
-  max-width: 180px !important;
-  padding: 2px 5px;
+  max-width: 160px !important;
+  padding: 4px 5px;
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+export const Actions = styled.div`
+  display: flex;
 `
 
 export const AccordionList = styled.div<IAccordionList>`
@@ -107,11 +111,37 @@ export const DataList = styled.ul`
   list-style-type: none;
   padding: 0;
   margin-top: 0 !important;
-  line-height: 25px;
+  line-height: 35px;
+  overflow-y: scroll;
+  height: 194px;
+  color: #222222;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+  -moz-scrollbars-none: none;
 `
 
 export const DataListItem = styled.li`
   list-style-type: none;
   margin: 0;
   font-weight: 400;
+`
+
+export const Button = styled.button`
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px auto;
+
+  border: none;
+  font-size: 16px;
+  color: #64748b;
+
+  :hover {
+    cursor: pointer;
+  }
 `
