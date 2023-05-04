@@ -1201,8 +1201,68 @@ const TitleDesafiosGrey = styled__default["default"].div `
   position: relative;
 `;
 
-function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, finalizados }) {
-    return (jsxRuntime.jsxs(ContainerDesafios, { children: [jsxRuntime.jsxs(ContainerItemDesafio, { children: [jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: definicao.count }), jsxRuntime.jsx("p", { children: definicao.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: hipoteses.count }), jsxRuntime.jsx("p", { children: hipoteses.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: testes.count }), jsxRuntime.jsx("p", { children: testes.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: resultados.count }), jsxRuntime.jsx("p", { children: resultados.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: proximosPassos.count }), jsxRuntime.jsx("p", { children: proximosPassos.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: finalizados.count }), jsxRuntime.jsx("p", { children: finalizados.percentage })] }) })] }), jsxRuntime.jsxs(containerTitleDesafio, { children: [jsxRuntime.jsx(TitleDesafiosWhite, { children: definicao.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: hipoteses.title }), jsxRuntime.jsx(TitleDesafiosWhite, { children: testes.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: resultados.title }), jsxRuntime.jsx(TitleDesafiosWhite, { children: proximosPassos.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: finalizados.title })] })] }));
+function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, finalizados, languagem }) {
+    return (jsxRuntime.jsxs(ContainerDesafios, { children: [jsxRuntime.jsxs(ContainerItemDesafio, { children: [jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: definicao.count }), jsxRuntime.jsx("p", { children: definicao.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: hipoteses.count }), jsxRuntime.jsx("p", { children: hipoteses.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: testes.count }), jsxRuntime.jsx("p", { children: testes.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: resultados.count }), jsxRuntime.jsx("p", { children: resultados.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: proximosPassos.count }), jsxRuntime.jsx("p", { children: proximosPassos.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: finalizados.count }), jsxRuntime.jsx("p", { children: finalizados.percentage })] }) })] }), jsxRuntime.jsxs(containerTitleDesafio, { children: [jsxRuntime.jsx(TitleDesafiosWhite, { children: languagem
+                            ? languagem === 'en-US'
+                                ? definicao.title_en
+                                    ? definicao.title_en
+                                    : definicao.title
+                                : languagem === 'es'
+                                    ? definicao.title_es
+                                        ? definicao.title_es
+                                        : definicao.title
+                                    : definicao.title
+                            : definicao.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: languagem
+                            ? languagem === 'en-US'
+                                ? hipoteses.title_en
+                                    ? hipoteses.title_en
+                                    : hipoteses.title
+                                : languagem === 'es'
+                                    ? hipoteses.title_es
+                                        ? hipoteses.title_es
+                                        : hipoteses.title
+                                    : hipoteses.title
+                            : hipoteses.title }), jsxRuntime.jsx(TitleDesafiosWhite, { children: languagem
+                            ? languagem === 'en-US'
+                                ? testes.title_en
+                                    ? testes.title_en
+                                    : testes.title
+                                : languagem === 'es'
+                                    ? testes.title_es
+                                        ? testes.title_es
+                                        : testes.title
+                                    : testes.title
+                            : testes.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: languagem
+                            ? languagem === 'en-US'
+                                ? resultados.title_en
+                                    ? resultados.title_en
+                                    : resultados.title
+                                : languagem === 'es'
+                                    ? resultados.title_es
+                                        ? resultados.title_es
+                                        : resultados.title
+                                    : resultados.title
+                            : resultados.title }), jsxRuntime.jsx(TitleDesafiosWhite, { children: languagem
+                            ? languagem === 'en-US'
+                                ? proximosPassos.title_en
+                                    ? proximosPassos.title_en
+                                    : proximosPassos.title
+                                : languagem === 'es'
+                                    ? proximosPassos.title_es
+                                        ? proximosPassos.title_es
+                                        : proximosPassos.title
+                                    : proximosPassos.title
+                            : proximosPassos.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: languagem
+                            ? languagem === 'en-US'
+                                ? finalizados.title_en
+                                    ? finalizados.title_en
+                                    : finalizados.title
+                                : languagem === 'es'
+                                    ? finalizados.title_es
+                                        ? finalizados.title_es
+                                        : finalizados.title
+                                    : finalizados.title
+                            : finalizados.title })] })] }));
 }
 
 /**
