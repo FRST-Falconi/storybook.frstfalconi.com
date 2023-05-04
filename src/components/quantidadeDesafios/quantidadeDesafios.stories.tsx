@@ -13,7 +13,7 @@ const Template = (args) => <QuantidadeDesafios {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-  languagem: 'en-US',
+  languagem: 'es',
   definicao: {
     title: 'definicao',
     count: 111,

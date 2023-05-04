@@ -71,11 +71,11 @@ export default function QuantidadeDesafios({
         <Styles.TitleDesafiosWhite>
           {languagem
             ? languagem === 'en-US'
-              ? definicao.title_en !== ''
+              ? definicao.title_en
                 ? definicao.title_en
                 : definicao.title
               : languagem === 'es'
-              ? definicao.title_es !== ''
+              ? definicao.title_es
                 ? definicao.title_es
                 : definicao.title
               : definicao.title
@@ -84,11 +84,11 @@ export default function QuantidadeDesafios({
         <Styles.TitleDesafiosGrey>
           {languagem
             ? languagem === 'en-US'
-              ? hipoteses.title_en !== ''
+              ? hipoteses.title_en
                 ? hipoteses.title_en
                 : hipoteses.title
               : languagem === 'es'
-              ? hipoteses.title_es !== ''
+              ? hipoteses.title_es
                 ? hipoteses.title_es
                 : hipoteses.title
               : hipoteses.title
@@ -97,11 +97,11 @@ export default function QuantidadeDesafios({
         <Styles.TitleDesafiosWhite>
           {languagem
             ? languagem === 'en-US'
-              ? testes.title_en !== ''
+              ? testes.title_en
                 ? testes.title_en
                 : testes.title
               : languagem === 'es'
-              ? testes.title_es !== ''
+              ? testes.title_es
                 ? testes.title_es
                 : testes.title
               : testes.title
@@ -110,11 +110,11 @@ export default function QuantidadeDesafios({
         <Styles.TitleDesafiosGrey>
           {languagem
             ? languagem === 'en-US'
-              ? resultados.title_en !== ''
+              ? resultados.title_en
                 ? resultados.title_en
                 : resultados.title
               : languagem === 'es'
-              ? resultados.title_es !== ''
+              ? resultados.title_es
                 ? resultados.title_es
                 : resultados.title
               : resultados.title
@@ -123,11 +123,11 @@ export default function QuantidadeDesafios({
         <Styles.TitleDesafiosWhite>
           {languagem
             ? languagem === 'en-US'
-              ? proximosPassos.title_en !== ''
+              ? proximosPassos.title_en
                 ? proximosPassos.title_en
                 : proximosPassos.title
               : languagem === 'es'
-              ? proximosPassos.title_es !== ''
+              ? proximosPassos.title_es
                 ? proximosPassos.title_es
                 : proximosPassos.title
               : proximosPassos.title
@@ -136,11 +136,11 @@ export default function QuantidadeDesafios({
         <Styles.TitleDesafiosGrey>
           {languagem
             ? languagem === 'en-US'
-              ? finalizados.title_en !== ''
+              ? finalizados.title_en
                 ? finalizados.title_en
                 : finalizados.title
               : languagem === 'es'
-              ? finalizados.title_es !== ''
+              ? finalizados.title_es
                 ? finalizados.title_es
                 : finalizados.title
               : finalizados.title
