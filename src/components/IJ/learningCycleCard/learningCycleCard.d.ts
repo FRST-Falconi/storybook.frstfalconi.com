@@ -15,6 +15,14 @@ export interface LearningCycleCardI {
   modulesList: [{ id: number | string; name: string }]
   disabled?: boolean
   handleClick: () => void
-  handleFavorite?: () => void
+  handleFavorite: (favorite: boolean) => void
+  menuOptions: [
+    {
+      label: string
+      icon?: React.ReactNode
+      type?: string | null
+      action: ({ id, option }: any) => any
+    }
+  ]
   style: React.CSSProperties
 }

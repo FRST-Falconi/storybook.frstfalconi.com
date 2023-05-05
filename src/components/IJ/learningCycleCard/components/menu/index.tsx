@@ -4,22 +4,17 @@ import MenuItem from '@mui/material/MenuItem'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { useState } from 'react'
 import { Divider } from '@mui/material'
+import { TrashDelete } from '@shared/icons'
 
-const options = [
-  { label: 'Editar Plano de conteúdo', icon: null, type: 'edit', action: null },
-  { label: 'Duplicar Plano de conteúdo', icon: null, type: 'duplicate', action: null },
-  { label: 'Desativar Plano de conteúdo', icon: null, type: 'disable', action: null },
-  { label: 'Excluir Plano de conteúdo', icon: 'edit icon', type: 'delete', action: null }
-]
-
-export default function CardMenu() {
+export default function CardMenu({ id, menuOptions }) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
   const open = Boolean(anchorEl)
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget)
   }
-  const handleClose = () => {
+  const handleClose = (option: any) => {
     setAnchorEl(null)
+    option?.action(id, option)
   }
 
   return (
@@ -50,18 +45,18 @@ export default function CardMenu() {
             }
           }}
         >
-          {options.map((option, index) => (
+          {menuOptions?.map((option, index) => (
             <>
               <MenuItem
                 key={index}
                 onClick={() => {
-                  handleClose(), option?.action
+                  handleClose(option)
                 }}
                 sx={{
                   color: option?.type === 'delete' ? '#923534' : '#000000'
                 }}
               >
-                {option?.icon} {option?.label}
+                {option?.type === 'delete' ? <TrashDelete fill="#923534" width="30px" /> : option?.icon} {option?.label}
               </MenuItem>
               <Divider />
             </>

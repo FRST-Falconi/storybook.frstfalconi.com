@@ -24,7 +24,34 @@ normal.args = {
   },
   disabled: false,
   handleClick: () => alert('click'),
-  handleFavorite: (favorite) => alert('favorite:', favorite),
+  handleFavorite: (favorite) => alert(`favorite: ${favorite}`),
+
+  menuOptions: [
+    {
+      label: 'Editar Plano de conteúdo',
+      icon: null,
+      type: 'edit',
+      action: (id: string | number, option: any) => console.log('handleEdit', id, option)
+    },
+    {
+      label: 'Duplicar Plano de conteúdo',
+      icon: null,
+      type: 'duplicate',
+      action: (id: string | number, option: any) => console.log('handleDuplicate', id, option)
+    },
+    {
+      label: 'Desativar Plano de conteúdo',
+      icon: null,
+      type: 'disable',
+      action: (id: string | number, option: any) => console.log('handleDisable', id, option)
+    },
+    {
+      label: 'Excluir Plano de conteúdo',
+      icon: 'edit icon',
+      type: 'delete',
+      action: (id: string | number, option: any) => console.log('handleDelete', id, option)
+    }
+  ],
   modulesList: [
     {
       id: 1,
@@ -65,7 +92,33 @@ favorite.args = {
     actionButton: 'Editar grupo'
   },
   handleClick: () => alert('click'),
-  handleFavorite: (favorite) => alert('favorite:', favorite),
+  handleFavorite: (favorite) => alert(`favorite: ${favorite}`),
+  menuOptions: [
+    {
+      label: 'Editar Plano de conteúdo',
+      icon: null,
+      type: 'edit',
+      action: (id: string | number) => console.log('handleEdit', id)
+    },
+    {
+      label: 'Duplicar Plano de conteúdo',
+      icon: null,
+      type: 'duplicate',
+      action: (id: string | number) => console.log('handleDuplicate', id)
+    },
+    {
+      label: 'Desativar Plano de conteúdo',
+      icon: null,
+      type: 'disable',
+      action: (id: string | number) => console.log('handleDisable', id)
+    },
+    {
+      label: 'Excluir Plano de conteúdo',
+      icon: 'edit icon',
+      type: 'delete',
+      action: (id: string | number) => console.log('handleDelete', id)
+    }
+  ],
   disabled: false,
   modulesList: [
     {
@@ -119,7 +172,33 @@ disabled.args = {
     actionButton: 'Editar grupo'
   },
   handleClick: () => alert('click'),
-  handleFavorite: (favorite) => alert('favorite:', favorite),
+  handleFavorite: (favorite) => alert(`favorite: ${favorite}`),
+  menuOptions: [
+    {
+      label: 'Editar Plano de conteúdo',
+      icon: null,
+      type: 'edit',
+      action: (id: string | number) => console.log('handleEdit', id)
+    },
+    {
+      label: 'Duplicar Plano de conteúdo',
+      icon: null,
+      type: 'duplicate',
+      action: (id: string | number) => console.log('handleDuplicate', id)
+    },
+    {
+      label: 'Desativar Plano de conteúdo',
+      icon: null,
+      type: 'disable',
+      action: (id: string | number) => console.log('handleDisable', id)
+    },
+    {
+      label: 'Excluir Plano de conteúdo',
+      icon: 'edit icon',
+      type: 'delete',
+      action: (id: string | number) => console.log('handleDelete', id)
+    }
+  ],
   disabled: true,
   modulesList: [
     {

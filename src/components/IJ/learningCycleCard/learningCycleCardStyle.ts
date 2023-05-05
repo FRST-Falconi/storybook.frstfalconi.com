@@ -51,6 +51,27 @@ export const Actions = styled.div`
   display: flex;
 
   .MuiMenu-root {
+    position: relative;
+    border: 1px solid red !important;
+  }
+
+  #long-menu::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 0;
+    height: 0;
+    border-top: solid 10px #fff;
+    border-right: solid 10px transparent;
+  }
+
+  #long-menu {
+    border: 1px solid red !important;
+  }
+
+  .MuiMenu-paper {
     border: 1px solid red !important;
   }
 `

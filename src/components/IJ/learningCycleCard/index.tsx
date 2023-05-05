@@ -21,6 +21,7 @@ export default function LearningCycleCard({
   handleClick,
   handleFavorite,
   disabled,
+  menuOptions,
   style
 }: LearningCycleCardI) {
   const [selectedItem, setSelectedItem] = useState(null)
@@ -48,7 +49,7 @@ export default function LearningCycleCard({
         max={1}
         onChange={() => {
           setIsFavorite(!isFavorite)
-          handleFavorite()
+          handleFavorite(!isFavorite)
         }}
       />
     )
@@ -61,7 +62,7 @@ export default function LearningCycleCard({
           <Styles.TagStatus disabled={disabled}>{tag}</Styles.TagStatus>
           <Styles.Actions>
             <FavoriteStar />
-            <CardMenu />
+            <CardMenu id={id} menuOptions={menuOptions} />
           </Styles.Actions>
         </Styles.TagArea>
         <Styles.CycleName>{name}</Styles.CycleName>
