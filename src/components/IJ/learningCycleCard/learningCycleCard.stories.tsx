@@ -98,25 +98,25 @@ favorite.args = {
       label: 'Editar Plano de conteúdo',
       icon: null,
       type: 'edit',
-      action: (id: string | number) => console.log('handleEdit', id)
+      action: (id: string | number, option: any) => console.log('handleEdit', id, option)
     },
     {
       label: 'Duplicar Plano de conteúdo',
       icon: null,
       type: 'duplicate',
-      action: (id: string | number) => console.log('handleDuplicate', id)
+      action: (id: string | number, option: any) => console.log('handleDuplicate', id, option)
     },
     {
       label: 'Desativar Plano de conteúdo',
       icon: null,
       type: 'disable',
-      action: (id: string | number) => console.log('handleDisable', id)
+      action: (id: string | number, option: any) => console.log('handleDisable', id, option)
     },
     {
       label: 'Excluir Plano de conteúdo',
       icon: 'edit icon',
       type: 'delete',
-      action: (id: string | number) => console.log('handleDelete', id)
+      action: (id: string | number, option: any) => console.log('handleDelete', id, option)
     }
   ],
   disabled: false,
@@ -178,25 +178,25 @@ disabled.args = {
       label: 'Editar Plano de conteúdo',
       icon: null,
       type: 'edit',
-      action: (id: string | number) => console.log('handleEdit', id)
+      action: (id: string | number, option: any) => console.log('handleEdit', id, option)
     },
     {
       label: 'Duplicar Plano de conteúdo',
       icon: null,
       type: 'duplicate',
-      action: (id: string | number) => console.log('handleDuplicate', id)
+      action: (id: string | number, option: any) => console.log('handleDuplicate', id, option)
     },
     {
       label: 'Desativar Plano de conteúdo',
       icon: null,
       type: 'disable',
-      action: (id: string | number) => console.log('handleDisable', id)
+      action: (id: string | number, option: any) => console.log('handleDisable', id, option)
     },
     {
       label: 'Excluir Plano de conteúdo',
       icon: 'edit icon',
       type: 'delete',
-      action: (id: string | number) => console.log('handleDelete', id)
+      action: (id: string | number, option: any) => console.log('handleDelete', id, option)
     }
   ],
   disabled: true,
