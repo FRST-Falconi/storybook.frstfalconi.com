@@ -242,9 +242,11 @@ export default function CommentaryBox({
                             <Styles.TextTotalLikes>{ totalLikes }</Styles.TextTotalLikes>
                         </Styles.LikesStatistics>
                         <Styles.IterationsButtonsWrapper>
-                            { isLiked ? 
-                            <Styles.LinkButton onClick={ actionLike }> { textUnliked } </Styles.LinkButton>:
-                            <Styles.LinkButton onClick={ actionLike }> { textLiked } </Styles.LinkButton>}    
+                            {actionLike && (
+                                <Styles.LinkButton onClick={ actionLike }>
+                                    { isLiked ? textLiked : textUnliked }
+                                </Styles.LinkButton>
+                            )}
                             { hasAnswer &&
                             <Styles.LinkButton onClick={ actionAnswer }>  { textAnswer }  </Styles.LinkButton> }
                         </Styles.IterationsButtonsWrapper>

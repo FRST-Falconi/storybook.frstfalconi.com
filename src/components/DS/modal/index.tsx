@@ -1,19 +1,6 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
+import React, { useEffect, useState, useRef, CSSProperties, ReactNode, MouseEvent } from 'react'
 
-  CSSProperties,
-  ReactNode,
-  MouseEvent
-} from 'react'
-
-import {
-  ModalWrapper,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton
-} from './styles'
+import { ModalWrapper, ModalContent, ModalHeader, ModalCloseButton } from './styles'
 
 import { CloseIcon } from '@shared/icons'
 
@@ -30,6 +17,7 @@ interface ModalProps {
   onOpen?: (event?: MouseEvent | any) => void
   closeOnClickOutside?: boolean
   animation?: 'BlowUp' | 'Fade' | 'SlideUp' | 'SlideDown'
+  handleCloseOnIcon?: () => void
 }
 
 export default function Modal({
@@ -44,9 +32,9 @@ export default function Modal({
   onClose,
   onOpen,
   closeOnClickOutside = true,
-  animation
-}: ModalProps ): JSX.Element {
-
+  animation,
+  handleCloseOnIcon
+}: ModalProps): JSX.Element {
   const ModalWrapperRef = useRef(null)
   const ModalContentRef = useRef(null)
   const AnimationType = animation.toLowerCase()
@@ -55,22 +43,21 @@ export default function Modal({
   useEffect(() => {
     function handleClickOutside(event: any) {
       const ModalWreapperEl = ModalWrapperRef?.current
-      if(ModalWreapperEl === event.target && active) {
-        if(onClose) onClose(event)
-        if(closeOnClickOutside === true) setActive(false)
+      if (ModalWreapperEl === event.target && active) {
+        if (onClose) onClose(event)
+        if (closeOnClickOutside === true) setActive(false)
       }
     }
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside)
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
+      document.removeEventListener('mousedown', handleClickOutside)
     }
-
   }, [ModalWrapperRef, active, closeOnClickOutside, onClose])
 
   useEffect(() => {
-    if(open === true) {
+    if (open === true) {
       document.body.style.overflow = 'hidden'
-      if(onOpen) onOpen()
+      if (onOpen) onOpen()
     } else {
       document.body.style.overflow = 'auto'
     }
@@ -81,14 +68,11 @@ export default function Modal({
     e.stopPropagation()
     setActive(false)
 
-    if(onClose) onClose(e)
+    if (onClose) onClose(e)
   }
 
   return (
-    <ModalWrapper
-      open={active}
-      ref={ModalWrapperRef}
-    >
+    <ModalWrapper open={active} ref={ModalWrapperRef}>
       <ModalContent
         style={style}
         width={width}
@@ -96,17 +80,19 @@ export default function Modal({
         ref={ModalContentRef}
         animation={AnimationType}
       >
-        {showHeader === true || showCloseButton === true &&
-          <ModalHeader>
-            {showCloseButton === true && 
-              <ModalCloseButton onClick={(e: MouseEvent) => handleClose(e)}>
-                {headerContent && headerContent}
-                <CloseIcon />
-              </ModalCloseButton>
-            }
-          </ModalHeader>
-
-        }
+        {showHeader === true ||
+          (showCloseButton === true && (
+            <ModalHeader>
+              {showCloseButton === true && (
+                <ModalCloseButton onClick={(e: MouseEvent) => handleClose(e)}>
+                  {headerContent && headerContent}
+                  <span onClick={(e: MouseEvent) => (handleCloseOnIcon ? handleCloseOnIcon() : handleClose(e))}>
+                    <CloseIcon />
+                  </span>
+                </ModalCloseButton>
+              )}
+            </ModalHeader>
+          ))}
         {children && children}
       </ModalContent>
     </ModalWrapper>

@@ -1,5 +1,5 @@
 /// <reference types="react" />
-type typeThumb = 'video' | 'podcast' | 'question';
+type typeThumb = 'video' | 'podcast' | 'question' | 'textual';
 interface IThumbListContent {
     imageSrc?: string;
     typeThumbContent?: typeThumb;
@@ -10,6 +10,10 @@ interface IThumbListContent {
     textViewLessButton?: string;
     onClickThumb?: () => void;
     style?: React.CSSProperties;
+    textProgressVisualized?: string;
+    textProgressInProgress?: string;
+    valueProgress?: number;
+    tagValue: 'vizualized' | 'inProgress' | 'notVisualized';
 }
 export default function ThumbListContent(props: IThumbListContent): JSX.Element;
 export {};

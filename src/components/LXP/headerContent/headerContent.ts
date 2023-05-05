@@ -15,7 +15,7 @@ export const Container = styled.div`
 export const HeaderImage = styled.div<HeaderContentProps>`
   display: flex;
   justify-content: flex-start;
-  height: 80vh;
+  height: 200;
   align-items: flex-start;
   flex-direction: column;
   position: relative;
@@ -35,7 +35,7 @@ export const HeaderImage = styled.div<HeaderContentProps>`
       }
     `}
   @media (max-width: 834px) {
-    height: 72vh;
+    height: 450px;
     ${(props) =>
       props.tmnDescription >= 134 &&
       css`
@@ -53,15 +53,15 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   }
 
   @media (max-width: 414px) {
-    height: 65vh;
+    height: 450px;
   }
   @media (max-width: 320px) {
-    height: 87vh;
+    height: 450px;
   }
 `
 export const Content = styled.div<HeaderContentProps>`
   width: 100%;
-  height: 100%;
+  height: 450px;
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
   
@@ -152,6 +152,9 @@ export const Description = styled.div<HeaderContentProps>`
 export const SpaceProgressAndButton = styled.div`
   margin-top: 68px;
   display: flex;
+  height: 50px;
+  gap: 28px;
+  align-items: center;
   margin-bottom: 2rem;
   cursor: pointer;
   @media (max-width: 414px) {

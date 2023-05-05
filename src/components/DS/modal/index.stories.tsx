@@ -17,5 +17,9 @@ normal.args = {
   onClose: () => console.log('closed'),
   onOpen: () => console.log('opened'),
   children: <div>Modal Content</div>,
-  animation: 'BlowUp'
+  animation: 'BlowUp',
+  handleCloseOnIcon: () => {
+    console.log('custom close with handleCloseOnIcon')
+  },
+  showCloseButton: true
 }

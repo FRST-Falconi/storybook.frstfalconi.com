@@ -1,6 +1,8 @@
 export declare const Container: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const infoContent: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const infoContentWithView: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const info: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const infoWithView: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const buttonsContent: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const buttons: import("styled-components").StyledComponent<"button", any, {}, never>;
 export declare const reviewContainer: import("styled-components").StyledComponent<"div", any, {}, never>;

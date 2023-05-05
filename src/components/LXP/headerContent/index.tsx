@@ -84,10 +84,8 @@ export default function HeaderContent(props: HeaderContentParams) {
           <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
         </styledHeaderContent.SpaceButtonTopViewMore>
         <styledHeaderContent.SpaceProgressAndButton>
-          <ProgressBar value={item.progresso} label={item.channel} />
-          <styledHeaderContent.SpaceButtonLeft onClick={item.onClick}>
-            <Button label={item.labelButton} variant="primary" />
-          </styledHeaderContent.SpaceButtonLeft>
+          <ProgressBar value={item.progresso} label={item.channel} style={{width: 200}}/>
+          <Button label={item.labelButton} variant="primary" handleClick={item.onClick}/>
         </styledHeaderContent.SpaceProgressAndButton>
       </>
     )
@@ -98,7 +96,7 @@ export default function HeaderContent(props: HeaderContentParams) {
       <styledHeaderContent.Container style={{...props.style}}>
         {props.listaRecomendacao.map((item, index) => {
           return (
-            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length} onDisplay={index === selectedContent} >
+            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length} onDisplay={index === selectedContent} style={{...props.style}}>
               <>
                 {item.typeOfHeader === 'inProgress' ? (
                   <styledHeaderContent.Content onDisplay={index === selectedContent}>{InProgressHeader(item)}</styledHeaderContent.Content>

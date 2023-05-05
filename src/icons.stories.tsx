@@ -5,19 +5,14 @@ import * as Icons from './shared/icons'
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Icons',
-  component: IconsStories,
+  component: IconsStories
 }
-
 
 function IconsStories(props: any) {
-  return (
-    <div>
-      {props.children}
-    </div>
-  )
+  return <div>{props.children}</div>
 }
 
-const Template = (args) => <IconsStories >{args} </IconsStories>
+const Template = (args) => <IconsStories>{args} </IconsStories>
 
 export const BackArrow = Template.bind({})
 BackArrow.args = Icons.BackArrow({})
@@ -297,3 +292,24 @@ Diamond.args = Icons.Diamond({})
 
 export const Challenge = Template.bind({})
 Challenge.args = Icons.Challenge({})
+
+export const PlayIcon = Template.bind({})
+PlayIcon.args = Icons.PlayIcon({})
+
+export const PauseIcon = Template.bind({})
+PauseIcon.args = Icons.PauseIcon({})
+
+export const Back15 = Template.bind({})
+Back15.args = Icons.Back15({})
+
+export const Foward15 = Template.bind({})
+Foward15.args = Icons.Foward15({})
+
+export const VolumeIcon = Template.bind({})
+VolumeIcon.args = Icons.VolumeIcon({})
+
+export const MuteIcon = Template.bind({})
+MuteIcon.args = Icons.MuteIcon({})
+
+export const StarFavorite = Template.bind({})
+StarFavorite.args = Icons.MuteIcon({})

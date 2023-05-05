@@ -41,12 +41,15 @@ export {
   Challenge,
   ChangeAccount,
   EyeOff,
-  OpenedEye
+  OpenedEye,
+  StarFavorite
 } from './src/shared/icons'
 
 // Base
 export { default as Tag } from './src/components/tag'
 export { default as BaseCard } from './src/components/cards/base'
+export { default as AudioPlayer } from './src/components/audio-player'
+export { default as QuantidadeDesafios } from './src/components/quantidadeDesafios'
 
 // CARDS
 export { default as UserCard } from './src/components/cards/user'
@@ -100,6 +103,10 @@ export { default as SpecialistContact } from './src/components/EBR/specialist-co
 export { default as GroupStatistics } from './src/components/EBR/group-statistics'
 export { default as TrailList } from './src/components/EBR/trail-list'
 
+export { default as Favorite } from './src/components/IJ/favorite'
+export { default as ContentCycle } from './src/components/IJ/ContentCycle'
+export { default as ListContentCycle } from './src/components/IJ/ListContentCycle'
+
 // LXP
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel'
 export { default as AvatarAssociatedChannel } from './src/components/LXP/avatarAssociatedChannel'
@@ -127,6 +134,7 @@ export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/
 export { default as Thumbnails } from './src/components/LXP/thumbnails/thumbnails'
 export { default as SelectLXP } from './src/components/LXP/selectLXP'
 export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails'
+export { default as ParticipantThumbnailsList } from './src/components/LXP/participantThumbnailsList'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI
@@ -143,11 +151,19 @@ export { default as SmallSRGBanner } from './src/components/FI/smallSRGBanner'
 export { default as PostFeed } from './src/components/FI/postFeed'
 export { default as NotificationCard } from './src/components/FI/notificationCard'
 export { default as NotificationPopOver } from './src/components/FI/notificationPopOver'
+export { default as InteractionsModal } from './src/components/FI/interactionsModal'
 
 export { default as Pagination } from './src/components/IJ/pagination'
 export { default as ThumbListContent } from './src/components/IJ/thumbListContent'
 export { default as ListSelector } from './src/components/IJ/listSelector'
-export { default as ParticipantCard } from './src/components/IJ/participantCard'
+export { default as ParticipantCard } from './src/components/IJ/participantCardOld'
+export { default as ParticipantCardNew } from './src/components/IJ/participantCard'
 
 // TP
 export { default as HeaderChallenge } from './src/components/headerChallenge'
+
+// Hall
+export { default as LogoFRST } from './src/components/LogoFRST'
+
+//Demo
+export { default as StepController } from './src/components/demo/stepController'

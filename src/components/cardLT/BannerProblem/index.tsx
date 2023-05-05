@@ -16,7 +16,8 @@ import {
   EditIcon,
   CompanyIcon,
   SawBadgeIcon,
-  GoalInviteIcon
+  GoalInviteIcon,
+  GoalViewsIcon,
 } from '../../../shared/icons'
 import Tag from '../../tag/index'
 import AvatarWithInfo from '../AvatarWithInfo/index'
@@ -207,12 +208,17 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
             <h1 className={style.description}>{TituloProblema}</h1>
 
         }
-        <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16}}>
+        <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC'}}>
           <div style={{display: 'inline-flex', width: '100%'}}>
             <div style={{width:'100%', maxWidth: 600}}>
-              <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8}} />
+              <div style={{display: 'flex', flexDirection: 'column', width: 'fit-content', paddingTop: '16px'}}>
+                <span className={style.created}>{props.dataCriacao}</span>
+                <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8, marginTop:24}} />
+              </div>
               <TextIcon description={props.area} svg={<Brain />}/>
-              {props.company && <TextIcon description={props.company} svg={<CompanyIcon />}/>}
+              
+              {props.company && <TextIcon style={{width: '80%'}} description={props.company} svg={<CompanyIcon />} />}
+
               <TextIcon description={adapterEmail(props.email, size[0])} svg={<Mail />}/>
               {
                 Edit && props.isVisibleEditTrail ? 
@@ -243,7 +249,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                 </>
               }
               
-              <div style={{ marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px': '100%'}}>
+              <div style={{ marginTop: 16, marginBottom: 26, maxWidth: !Edit ? '400px': '100%'}}>
                 {
                   Edit && props.isVisibleEditTags ? 
                   <>
@@ -289,7 +295,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
 
               </div>
               { size[0] <= MOBILEWIDTH || Edit ? 
-                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}}>
+                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}} >
                     <Rating 
                       titulo={props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto'}
                       descricaoAvaliacao={props.descriptionImpacto}
@@ -320,22 +326,38 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                   </div>
                 : null
               }
-
-              {props.showButtonInvite &&
-                <div className={style.goal_invite}>
-                  <Button
-                    variant='link'
-                    label={props.textGoalInviteBtn}
-                    startIcon={<GoalInviteIcon />}
-                    handleClick={props.onClickMessage}
-                  />
-                </div>
-              }
-              <span className={style.created}>{props.dataCriacao}</span>
+              <div style={{display: 'flex', flexDirection: 'row', gap: '32px'}}>
+                {props.showButtonInvite &&
+                    <Button
+                      variant='link'
+                      label={props.textGoalInviteBtn}
+                      startIcon={
+                        <div style={{width: '26px', marginBottom:'-2px', marginRight: '8px'}}>
+                          <GoalInviteIcon width='26px' height='26px'/>
+                        </div>
+                      }
+                      handleClick={props.onClickMessage}
+                      style={{paddingTop: '0px', paddingBottom: '16px'}}
+                    />
+                }
+                {props.showButtonViews &&
+                    <Button
+                      variant='link'
+                      label={props.textGoalViewsBtn}
+                      startIcon={
+                        <div style={{width: '20px', marginBottom:'-1px', marginRight: '8px'}}>
+                          <GoalViewsIcon width='20px'/>
+                        </div>
+                      }
+                      handleClick={props.onClickViewsBtn}
+                      style={{paddingTop: '0px', paddingBottom: '16px'}}
+                    />
+                }
+              </div>
             </div>
 
             { size[0] > MOBILEWIDTH && Edit === false ?
-              <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}}>
+              <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}} id='avaliations-banner-problem'>
                 <Rating 
                   titulo={props.ratingTitleImpact ? props.ratingTitleImpact :'Impacto'}
                   descricaoAvaliacao={props.descriptionImpacto}

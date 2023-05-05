@@ -12,7 +12,8 @@ interface ModalProps {
     onOpen?: (event?: MouseEvent | any) => void;
     closeOnClickOutside?: boolean;
     animation?: 'BlowUp' | 'Fade' | 'SlideUp' | 'SlideDown';
+    handleCloseOnIcon?: () => void;
 }
-export default function Modal({ children, width, headerContent, open, mobileFullPage, showCloseButton, showHeader, style, onClose, onOpen, closeOnClickOutside, animation }: ModalProps): JSX.Element;
+export default function Modal({ children, width, headerContent, open, mobileFullPage, showCloseButton, showHeader, style, onClose, onOpen, closeOnClickOutside, animation, handleCloseOnIcon }: ModalProps): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

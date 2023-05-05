@@ -4,9 +4,10 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var jsxRuntime = require('react/jsx-runtime');
 var React = require('react');
+var styled = require('styled-components');
+var useSound = require('use-sound');
 var reactI18next = require('react-i18next');
 var material = require('@mui/material');
-var styled = require('styled-components');
 var Button$4 = require('@mui/material/Button');
 var Menu$1 = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
@@ -25,10 +26,9 @@ var Select$4 = require('react-select');
 var reactColor = require('react-color');
 var dnd = require('@hello-pangea/dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
-var styles$1 = require('@material-ui/core/styles');
 var Popover = require('@material-ui/core/Popover');
 var Rating$2 = require('@mui/material/Rating');
-var Typography$3 = require('@mui/material/Typography');
+var Typography$4 = require('@mui/material/Typography');
 var reactDateRange = require('react-date-range');
 var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
@@ -47,7 +47,11 @@ var core = require('@material-ui/core');
 var moment = require('moment');
 var _ = require('@mui/material/');
 var Slider = require('@mui/material/Slider');
-var styles$2 = require('@material-ui/styles');
+var styles$1 = require('@material-ui/styles');
+var ComputerIcon = require('@mui/icons-material/Computer');
+var PersonAddIcon = require('@mui/icons-material/PersonAdd');
+var ArrowBackIosIcon = require('@mui/icons-material/ArrowBackIos');
+var ArrowForwardIosIcon = require('@mui/icons-material/ArrowForwardIos');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -72,6 +76,7 @@ function _interopNamespace(e) {
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
+var useSound__default = /*#__PURE__*/_interopDefaultLegacy(useSound);
 var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$4);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu$1);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
@@ -89,7 +94,7 @@ var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Popover__default = /*#__PURE__*/_interopDefaultLegacy(Popover);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
-var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$3);
+var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$4);
 var Avatar__default = /*#__PURE__*/_interopDefaultLegacy(Avatar$1);
 var Markdown__default = /*#__PURE__*/_interopDefaultLegacy(Markdown);
 var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
@@ -97,6 +102,10 @@ var Switch__default = /*#__PURE__*/_interopDefaultLegacy(Switch);
 var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip$3);
 var moment__default = /*#__PURE__*/_interopDefaultLegacy(moment);
 var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
+var ComputerIcon__default = /*#__PURE__*/_interopDefaultLegacy(ComputerIcon);
+var PersonAddIcon__default = /*#__PURE__*/_interopDefaultLegacy(PersonAddIcon);
+var ArrowBackIosIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowBackIosIcon);
+var ArrowForwardIosIcon__default = /*#__PURE__*/_interopDefaultLegacy(ArrowForwardIosIcon);
 
 function EditIcon({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '20', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M16.1788 1.92286C16.3858 1.71638 16.667 1.6 16.9607 1.6C17.2544 1.6 17.5356 1.71638 17.7426 1.92286C17.9496 2.12928 18.0654 2.4088 18.0654 2.69981C18.0654 2.99083 17.9496 3.27034 17.7426 3.47676L9.5855 11.6127C9.4439 11.7539 9.26546 11.8543 9.07141 11.9027C8.26586 12.1036 7.52969 11.3753 7.73154 10.57C7.78007 10.3765 7.88036 10.1997 8.02166 10.0588L16.1788 1.92286ZM16.9607 0C16.244 0 15.5563 0.283939 15.0489 0.790021L6.5187 9.29803C6.41591 9.40055 6.34296 9.52912 6.30766 9.66994L5.40975 13.2523C5.34143 13.5248 5.42113 13.8133 5.61971 14.0121C5.81829 14.2109 6.10663 14.291 6.3793 14.223L9.97094 13.3274C10.1114 13.2924 10.2398 13.2199 10.3423 13.1176L18.8725 4.6096C19.38 4.10345 19.6654 3.41652 19.6654 2.69981C19.6654 1.9831 19.38 1.29617 18.8725 0.790021C18.3651 0.283939 17.6774 0 16.9607 0ZM2.59582 1.89842C1.90804 1.89842 1.24801 2.17091 0.761035 2.65662C0.273994 3.1424 0 3.80169 0 4.48958V17.0277C0 17.7156 0.273995 18.3749 0.761035 18.8607C1.24801 19.3464 1.90804 19.6188 2.59582 19.6188H15.1666C15.8544 19.6188 16.5144 19.3464 17.0014 18.8607C17.4884 18.3749 17.7624 17.7156 17.7624 17.0277V10.7586C17.7624 10.3168 17.4042 9.95864 16.9624 9.95864C16.5206 9.95864 16.1624 10.3168 16.1624 10.7586V17.0277C16.1624 17.2899 16.058 17.5418 15.8715 17.7278C15.6849 17.9139 15.4314 18.0189 15.1666 18.0189H2.59582C2.33104 18.0189 2.07753 17.9139 1.89093 17.7278C1.70441 17.5418 1.6 17.2899 1.6 17.0277V4.48958C1.6 4.22738 1.70441 3.9755 1.89093 3.78946C2.07753 3.60335 2.33104 3.49842 2.59582 3.49842H8.8812C9.32303 3.49842 9.6812 3.14025 9.6812 2.69842C9.6812 2.25659 9.32303 1.89842 8.8812 1.89842H2.59582Z", fill: fill ?? '#0645AD' }) }));
@@ -218,7 +227,7 @@ function Channel$3({ fill, width, height }) {
 function Cam({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21.75 19C21.75 19.5304 21.5632 20.0391 21.2308 20.4142C20.8983 20.7893 20.4474 21 19.9773 21H4.02273C3.55257 21 3.10167 20.7893 2.76922 20.4142C2.43677 20.0391 2.25 19.5304 2.25 19V8C2.25 7.46957 2.43677 6.96086 2.76922 6.58579C3.10167 6.21071 3.55257 6 4.02273 6H7.56818L9.34091 3H14.6591L16.4318 6H19.9773C20.4474 6 20.8983 6.21071 21.2308 6.58579C21.5632 6.96086 21.75 7.46957 21.75 8V19Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 17.25C14.0711 17.25 15.75 15.5711 15.75 13.5C15.75 11.4289 14.0711 9.75 12 9.75C9.92893 9.75 8.25 11.4289 8.25 13.5C8.25 15.5711 9.92893 17.25 12 17.25Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function Content$2({ fill, width, height }) {
+function Content$3({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2V2Z", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function Certificate({ fill, width, height }) {
@@ -270,7 +279,7 @@ function Plus({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "18", height: "18", viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.15381 1.15384V17.1538", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.15381 9.15385H17.1538", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function HomeLineIcon({ fill, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : "20", height: height ? height : "22", viewBox: "0 0 20 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 8.67412V20C1 20.5523 1.44772 21 2 21H7.1875V13.2222H12.8125V21H18C18.5523 21 19 20.5523 19 20V8.67412C19 8.04041 18.6997 7.4442 18.1905 7.067L10.5952 1.44091C10.2416 1.17899 9.75837 1.17899 9.40477 1.44091L1.80954 7.067C1.30033 7.4442 1 8.04041 1 8.67412Z", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinejoin: "round" }) }));
+    return (jsxRuntime.jsx("svg", { width: width ? width : '20', height: height ? height : '22', viewBox: "0 0 20 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 8.67412V20C1 20.5523 1.44772 21 2 21H7.1875V13.2222H12.8125V21H18C18.5523 21 19 20.5523 19 20V8.67412C19 8.04041 18.6997 7.4442 18.1905 7.067L10.5952 1.44091C10.2416 1.17899 9.75837 1.17899 9.40477 1.44091L1.80954 7.067C1.30033 7.4442 1 8.04041 1 8.67412Z", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinejoin: "round" }) }));
 }
 function HomeFilledIcon({ fill }) {
     return (jsxRuntime.jsx("svg", { width: "20", height: "22", viewBox: "0 0 20 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1 8.67412V20C1 20.5523 1.44772 21 2 21H7.1875V13.2222H12.8125V21H18C18.5523 21 19 20.5523 19 20V8.67412C19 8.04041 18.6997 7.4442 18.1905 7.067L10.5952 1.44091C10.2416 1.17899 9.75837 1.17899 9.40477 1.44091L1.80954 7.067C1.30033 7.4442 1 8.04041 1 8.67412Z", fill: fill ? fill : '#FF4D0D', stroke: fill ? fill : '#FF4D0D', strokeWidth: "1.2", strokeLinejoin: "round" }) }));
@@ -302,8 +311,8 @@ function MedalFilledIcon({ fill }) {
 function PlayLineIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '20', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M10 19C14.9706 19 19 14.9706 19 10C19 5.02944 14.9706 1 10 1C5.02944 1 1 5.02944 1 10C1 14.9706 5.02944 19 10 19Z", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.75 6.625L13.375 10L7.75 13.375V6.625Z", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function PlayFilledIcon({ customColor_1, customColor_2 }) {
-    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z", fill: customColor_1 ? customColor_1 : '#FF4D0D', stroke: customColor_1 ? customColor_1 : '#FF4D0D', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10 9L15 12L10 15V9Z", fill: customColor_2 ? customColor_2 : 'white', stroke: customColor_2 ? customColor_2 : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+function PlayFilledIcon({ customColor_1, customColor_2, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20Z", fill: customColor_1 ? customColor_1 : '#FF4D0D', stroke: customColor_1 ? customColor_1 : '#FF4D0D', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10 9L15 12L10 15V9Z", fill: customColor_2 ? customColor_2 : 'white', stroke: customColor_2 ? customColor_2 : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function SiteIcon({ fill }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("g", { clipPath: "url(#clip0_1957_36176)", children: jsxRuntime.jsx("path", { d: "M11.9958 0C8.81434 0 5.76315 1.26428 3.5135 3.51472C1.26384 5.76516 0 8.8174 0 12C0 15.1826 1.26384 18.2348 3.5135 20.4853C5.76315 22.7357 8.81434 24 11.9958 24C15.1773 24 18.2285 22.7357 20.4782 20.4853C22.7278 18.2348 23.9917 15.1826 23.9917 12C23.9917 8.8174 22.7278 5.76516 20.4782 3.51472C18.2285 1.26428 15.1773 0 11.9958 0V0ZM1.47949 12.9067H4.82499C4.87831 14.12 5.04758 15.3253 5.33148 16.5067H2.45248C1.91561 15.3745 1.58606 14.1552 1.47949 12.9067ZM12.9022 5.70667V1.58667C14.1867 2.07497 15.2421 3.02616 15.8612 4.25333C16.1344 4.716 16.3756 5.19733 16.5809 5.69333L12.9022 5.70667ZM17.194 7.50667C17.5033 8.684 17.6872 9.89067 17.7405 11.1067H12.9022V7.50667H17.194ZM11.0895 1.58667V5.70667H7.41076C7.61637 5.21026 7.85689 4.72906 8.13051 4.26667C8.74692 3.03447 9.80272 2.07821 11.0895 1.58667ZM11.0895 7.50667V11.1067H6.26449C6.31781 9.89067 6.50174 8.684 6.81097 7.50667H11.0895ZM4.82499 11.0933H1.47949C1.58606 9.84479 1.91561 8.62549 2.45248 7.49333H5.33148C5.04704 8.67419 4.87742 9.87981 4.82499 11.0933ZM6.26449 12.9067H11.0895V16.5067H6.81097C6.50179 15.3294 6.3186 14.1226 6.26449 12.9067ZM11.1028 18.24V22.36C9.81835 21.8717 8.76288 20.9205 8.14384 19.6933C7.87022 19.2309 7.6297 18.7497 7.42409 18.2533L11.1028 18.24ZM12.9022 22.36V18.3067H16.5809C16.3753 18.8031 16.1348 19.2843 15.8612 19.7467C15.2421 20.9738 14.1867 21.925 12.9022 22.4133V22.36ZM12.9022 16.44V12.84H17.7272C17.6731 14.056 17.4899 15.2628 17.1807 16.44H12.9022ZM19.18 12.84H22.5255C22.4189 14.0885 22.0894 15.3078 21.5525 16.44H18.6602C18.9401 15.28 19.1094 14.0973 19.1667 12.9067L19.18 12.84ZM19.18 11.04C19.119 9.84841 18.9449 8.66532 18.6602 7.50667H21.5392C22.0763 8.64 22.4056 9.85867 22.5122 11.1067L19.18 11.04ZM20.5129 5.70667H18.127C17.6954 4.49373 17.0696 3.35897 16.2743 2.34667C17.9329 3.09144 19.3736 4.24807 20.4596 5.70667H20.5129ZM7.71732 2.34667C6.92202 3.35897 6.29632 4.49373 5.86463 5.70667H3.53211C4.61803 4.24807 6.05872 3.09144 7.71732 2.34667ZM3.51878 18.3467H5.86463C6.29632 19.5596 6.92202 20.6944 7.71732 21.7067C6.05413 20.9507 4.61299 19.7799 3.53211 18.3067L3.51878 18.3467ZM16.261 21.7067C17.0563 20.6944 17.682 19.5596 18.1137 18.3467H20.4596C19.367 19.7857 17.9269 20.9235 16.2743 21.6533L16.261 21.7067Z", fill: fill ? fill : 'white' }) }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_1957_36176", children: jsxRuntime.jsx("rect", { width: "23.9917", height: "24", fill: fill ? fill : 'white' }) }) })] }));
@@ -369,22 +378,25 @@ function Books({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M15.0882 6.92067H10.4249M15.0882 6.92067V3.58448C15.0882 2.85052 14.4886 2.25 13.7558 2.25H11.7572C11.0244 2.25 10.4249 2.85052 10.4249 3.58448V6.92067M15.0882 6.92067V16.262M10.4249 6.92067V16.262M10.4249 16.262V19.5982C10.4249 20.3322 11.0244 20.9327 11.7572 20.9327H13.7558C14.4886 20.9327 15.0882 20.3322 15.0882 19.5982V16.262M10.4249 16.262H15.0882M21.75 8.18843H17.0867M21.75 8.18843V5.25258C21.75 4.51861 21.1504 3.9181 20.4176 3.9181H18.4191C17.6863 3.9181 17.0867 4.51861 17.0867 5.25258V8.18843M21.75 8.18843V16.7291H17.0867V8.18843M8.72044 8.62431L4.11916 7.86521M8.72044 8.62431L9.19684 5.72749C9.31593 5.00328 8.82178 4.31316 8.09872 4.19387L6.12674 3.86854C5.40369 3.74925 4.71465 4.24419 4.59555 4.96839L4.11916 7.86521M8.72044 8.62431L7.33457 17.0514L2.73328 16.2923L4.11916 7.86521M20.4176 20.9327H18.4191C17.6863 20.9327 17.0867 20.3322 17.0867 19.5982V16.6624H21.75V19.5982C21.75 20.3322 21.1504 20.9327 20.4176 20.9327ZM5.33781 20.9823L3.36583 20.6569C2.64277 20.5376 2.14862 19.8475 2.26772 19.1233L2.74411 16.2265L7.3454 16.9856L6.869 19.8824C6.7499 20.6066 6.06087 21.1015 5.33781 20.9823Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeMiterlimit: "10" }) }));
 }
 function Clock({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : "25", height: height ? height : "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.4725 21C17.4431 21 21.4725 16.9706 21.4725 12C21.4725 7.02944 17.4431 3 12.4725 3C7.50197 3 3.47253 7.02944 3.47253 12C3.47253 16.9706 7.50197 21 12.4725 21Z", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.4725 7V12.25L16.4725 14", stroke: fill ? fill : "black", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '25', height: height ? height : '24', viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.4725 21C17.4431 21 21.4725 16.9706 21.4725 12C21.4725 7.02944 17.4431 3 12.4725 3C7.50197 3 3.47253 7.02944 3.47253 12C3.47253 16.9706 7.50197 21 12.4725 21Z", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.4725 7V12.25L16.4725 14", stroke: fill ? fill : 'black', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function Load({ fill, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16.98 20.6256C17.5433 21.6013 18.8054 21.9477 19.6718 21.2274C21.567 19.6517 22.9447 17.5183 23.5911 15.1058C24.4148 12.0317 23.9836 8.75621 22.3923 6C20.801 3.24379 18.18 1.23261 15.1058 0.408891C12.6934 -0.237529 10.1569 -0.111098 7.84473 0.742337C6.78777 1.13247 6.45667 2.39867 7.02 3.37439C7.58333 4.3501 8.83088 4.65471 9.91792 4.35856C11.2588 3.99325 12.6844 3.984 14.0498 4.34987C16.0788 4.89352 17.8087 6.2209 18.8589 8.04C19.9092 9.8591 20.1938 12.0209 19.6501 14.0498C19.2843 15.4153 18.5634 16.6453 17.5766 17.6239C16.7766 18.4172 16.4167 19.6499 16.98 20.6256Z", fill: fill ? fill : "#FF4D0D" }) }));
+    return (jsxRuntime.jsx("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16.98 20.6256C17.5433 21.6013 18.8054 21.9477 19.6718 21.2274C21.567 19.6517 22.9447 17.5183 23.5911 15.1058C24.4148 12.0317 23.9836 8.75621 22.3923 6C20.801 3.24379 18.18 1.23261 15.1058 0.408891C12.6934 -0.237529 10.1569 -0.111098 7.84473 0.742337C6.78777 1.13247 6.45667 2.39867 7.02 3.37439C7.58333 4.3501 8.83088 4.65471 9.91792 4.35856C11.2588 3.99325 12.6844 3.984 14.0498 4.34987C16.0788 4.89352 17.8087 6.2209 18.8589 8.04C19.9092 9.8591 20.1938 12.0209 19.6501 14.0498C19.2843 15.4153 18.5634 16.6453 17.5766 17.6239C16.7766 18.4172 16.4167 19.6499 16.98 20.6256Z", fill: fill ? fill : '#FF4D0D' }) }));
 }
 function Diamond({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : "32", height: height ? height : "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00001 4H24L29.3333 12L16 29.3333L2.66667 12L8.00001 4Z", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L21.3333 12L17.3333 4", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L10.6667 12L14.6667 4", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M2.66667 12H29.3333", stroke: fill ? fill : "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00001 4H24L29.3333 12L16 29.3333L2.66667 12L8.00001 4Z", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L21.3333 12L17.3333 4", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L10.6667 12L14.6667 4", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M2.66667 12H29.3333", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function Challenge({ fill, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : "32", height: height ? height : "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.66668 28.6666L6.13402 28.3904C6.03758 28.5764 6.04514 28.7992 6.15398 28.9783C6.26282 29.1573 6.45716 29.2666 6.66668 29.2666V28.6666ZM25.3333 28.6666V29.2666C25.5429 29.2666 25.7372 29.1573 25.846 28.9783C25.9549 28.7992 25.9624 28.5764 25.866 28.3904L25.3333 28.6666ZM30.6667 28.6666V29.2666C30.8793 29.2666 31.076 29.1541 31.1838 28.9709C31.2916 28.7876 31.2944 28.561 31.1912 28.3752L30.6667 28.6666ZM24 16.6666L24.5245 16.3752C24.4229 16.1923 24.2333 16.0755 24.0243 16.0671C23.8152 16.0586 23.6168 16.1597 23.5008 16.3338L24 16.6666ZM20.8341 20.3338C20.6503 20.6095 20.7248 20.982 21.0005 21.1658C21.2762 21.3496 21.6488 21.2751 21.8326 20.9994L20.8341 20.3338ZM1.33334 28.6666L0.808849 28.3752C0.705605 28.561 0.70841 28.7876 0.816221 28.9709C0.924032 29.1541 1.12075 29.2666 1.33334 29.2666L1.33334 28.6666ZM8.00001 16.6666L8.49924 16.3338C8.38318 16.1597 8.18481 16.0586 7.97575 16.0671C7.76668 16.0755 7.57713 16.1923 7.47552 16.3752L8.00001 16.6666ZM10.1674 20.9994C10.3513 21.2751 10.7238 21.3496 10.9995 21.1658C11.2752 20.982 11.3497 20.6095 11.1659 20.3338L10.1674 20.9994ZM14.6667 18.6666L14.2424 19.0908L14.6667 19.5151L15.0909 19.0908L14.6667 18.6666ZM16 17.3333L16.4243 16.909L16 16.4847L15.5757 16.909L16 17.3333ZM17.3333 18.6666L16.9091 19.0908L17.3333 19.5151L17.7576 19.0908L17.3333 18.6666ZM16 3.33325V2.73325C15.6686 2.73325 15.4 3.00188 15.4 3.33325H16ZM21.3333 3.33325H21.9333C21.9333 3.00188 21.6647 2.73325 21.3333 2.73325V3.33325ZM21.3333 6.66658V7.26659C21.6647 7.26659 21.9333 6.99796 21.9333 6.66658H21.3333ZM16 6.66658H15.4C15.4 6.99796 15.6686 7.26659 16 7.26659V6.66658ZM15.4674 10.3904L6.13402 28.3904L7.19933 28.9428L16.5327 10.9428L15.4674 10.3904ZM6.66668 29.2666H25.3333V28.0666H6.66668V29.2666ZM25.866 28.3904L16.5327 10.3904L15.4674 10.9428L24.8007 28.9428L25.866 28.3904ZM17.3333 29.2666H30.6667V28.0666H17.3333V29.2666ZM31.1912 28.3752L24.5245 16.3752L23.4755 16.958L30.1422 28.958L31.1912 28.3752ZM23.5008 16.3338L20.8341 20.3338L21.8326 20.9994L24.4992 16.9994L23.5008 16.3338ZM14.6667 28.0666H1.33334V29.2666H14.6667V28.0666ZM1.85784 28.958L8.5245 16.958L7.47552 16.3752L0.808849 28.3752L1.85784 28.958ZM7.50078 16.9994L10.1674 20.9994L11.1659 20.3338L8.49924 16.3338L7.50078 16.9994ZM12.2424 17.0908L14.2424 19.0908L15.0909 18.2423L13.0909 16.2423L12.2424 17.0908ZM15.0909 19.0908L16.4243 17.7575L15.5757 16.909L14.2424 18.2423L15.0909 19.0908ZM15.5757 17.7575L16.9091 19.0908L17.7576 18.2423L16.4243 16.909L15.5757 17.7575ZM17.7576 19.0908L19.7576 17.0908L18.9091 16.2423L16.9091 18.2423L17.7576 19.0908ZM16.6 10.6666V3.33325H15.4V10.6666H16.6ZM16 3.93325H21.3333V2.73325H16V3.93325ZM20.7333 3.33325V6.66658H21.9333V3.33325H20.7333ZM21.3333 6.06659H16V7.26659H21.3333V6.06659ZM16.6 6.66658V3.33325H15.4V6.66658H16.6Z", fill: fill ? fill : "white" }) }));
+    return (jsxRuntime.jsx("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.66668 28.6666L6.13402 28.3904C6.03758 28.5764 6.04514 28.7992 6.15398 28.9783C6.26282 29.1573 6.45716 29.2666 6.66668 29.2666V28.6666ZM25.3333 28.6666V29.2666C25.5429 29.2666 25.7372 29.1573 25.846 28.9783C25.9549 28.7992 25.9624 28.5764 25.866 28.3904L25.3333 28.6666ZM30.6667 28.6666V29.2666C30.8793 29.2666 31.076 29.1541 31.1838 28.9709C31.2916 28.7876 31.2944 28.561 31.1912 28.3752L30.6667 28.6666ZM24 16.6666L24.5245 16.3752C24.4229 16.1923 24.2333 16.0755 24.0243 16.0671C23.8152 16.0586 23.6168 16.1597 23.5008 16.3338L24 16.6666ZM20.8341 20.3338C20.6503 20.6095 20.7248 20.982 21.0005 21.1658C21.2762 21.3496 21.6488 21.2751 21.8326 20.9994L20.8341 20.3338ZM1.33334 28.6666L0.808849 28.3752C0.705605 28.561 0.70841 28.7876 0.816221 28.9709C0.924032 29.1541 1.12075 29.2666 1.33334 29.2666L1.33334 28.6666ZM8.00001 16.6666L8.49924 16.3338C8.38318 16.1597 8.18481 16.0586 7.97575 16.0671C7.76668 16.0755 7.57713 16.1923 7.47552 16.3752L8.00001 16.6666ZM10.1674 20.9994C10.3513 21.2751 10.7238 21.3496 10.9995 21.1658C11.2752 20.982 11.3497 20.6095 11.1659 20.3338L10.1674 20.9994ZM14.6667 18.6666L14.2424 19.0908L14.6667 19.5151L15.0909 19.0908L14.6667 18.6666ZM16 17.3333L16.4243 16.909L16 16.4847L15.5757 16.909L16 17.3333ZM17.3333 18.6666L16.9091 19.0908L17.3333 19.5151L17.7576 19.0908L17.3333 18.6666ZM16 3.33325V2.73325C15.6686 2.73325 15.4 3.00188 15.4 3.33325H16ZM21.3333 3.33325H21.9333C21.9333 3.00188 21.6647 2.73325 21.3333 2.73325V3.33325ZM21.3333 6.66658V7.26659C21.6647 7.26659 21.9333 6.99796 21.9333 6.66658H21.3333ZM16 6.66658H15.4C15.4 6.99796 15.6686 7.26659 16 7.26659V6.66658ZM15.4674 10.3904L6.13402 28.3904L7.19933 28.9428L16.5327 10.9428L15.4674 10.3904ZM6.66668 29.2666H25.3333V28.0666H6.66668V29.2666ZM25.866 28.3904L16.5327 10.3904L15.4674 10.9428L24.8007 28.9428L25.866 28.3904ZM17.3333 29.2666H30.6667V28.0666H17.3333V29.2666ZM31.1912 28.3752L24.5245 16.3752L23.4755 16.958L30.1422 28.958L31.1912 28.3752ZM23.5008 16.3338L20.8341 20.3338L21.8326 20.9994L24.4992 16.9994L23.5008 16.3338ZM14.6667 28.0666H1.33334V29.2666H14.6667V28.0666ZM1.85784 28.958L8.5245 16.958L7.47552 16.3752L0.808849 28.3752L1.85784 28.958ZM7.50078 16.9994L10.1674 20.9994L11.1659 20.3338L8.49924 16.3338L7.50078 16.9994ZM12.2424 17.0908L14.2424 19.0908L15.0909 18.2423L13.0909 16.2423L12.2424 17.0908ZM15.0909 19.0908L16.4243 17.7575L15.5757 16.909L14.2424 18.2423L15.0909 19.0908ZM15.5757 17.7575L16.9091 19.0908L17.7576 18.2423L16.4243 16.909L15.5757 17.7575ZM17.7576 19.0908L19.7576 17.0908L18.9091 16.2423L16.9091 18.2423L17.7576 19.0908ZM16.6 10.6666V3.33325H15.4V10.6666H16.6ZM16 3.93325H21.3333V2.73325H16V3.93325ZM20.7333 3.33325V6.66658H21.9333V3.33325H20.7333ZM21.3333 6.06659H16V7.26659H21.3333V6.06659ZM16.6 6.66658V3.33325H15.4V6.66658H16.6Z", fill: fill ? fill : 'white' }) }));
 }
 function SawBadgeIcon({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : "20", height: height ? height : "20", viewBox: "0 0 20 20", fill: fill ? fill : "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_408_14996)", children: [jsxRuntime.jsx("path", { d: "M11.9804 2.16073C11.0545 0.717602 8.94551 0.717602 8.01957 2.16073C7.69063 2.67341 7.05964 2.90307 6.47811 2.72178C4.84118 2.21146 3.2256 3.56709 3.44392 5.26776C3.52148 5.87195 3.18574 6.45346 2.62372 6.68839C1.04173 7.34966 0.675512 9.4266 1.93593 10.5891C2.3837 11.002 2.50031 11.6633 2.22078 12.2045C1.43396 13.728 2.48845 15.5544 4.20121 15.6347C4.80968 15.6633 5.32406 16.0949 5.45782 16.6892C5.83433 18.3619 7.81613 19.0833 9.1798 18.0439C9.66426 17.6746 10.3357 17.6746 10.8202 18.0438C12.1839 19.0833 14.1657 18.3619 14.5422 16.6892C14.6759 16.0949 15.1903 15.6633 15.7988 15.6347C17.5115 15.5544 18.566 13.728 17.7792 12.2045C17.4997 11.6633 17.6163 11.002 18.0641 10.5891C19.3245 9.4266 18.9583 7.34966 17.3763 6.68839C16.8143 6.45346 16.4785 5.87195 16.5561 5.26776C16.7744 3.56709 15.1588 2.21146 13.5219 2.72178C12.9404 2.90307 12.3094 2.67341 11.9804 2.16073Z", fill: "#398787", stroke: "white" }), jsxRuntime.jsx("path", { d: "M6.25 10.4167L9.16667 12.9167L14.1667 7.5", stroke: "white", "stroke-linecap": "round", "stroke-linejoin": "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_408_14996", children: jsxRuntime.jsx("rect", { width: "20", height: "20", fill: "white" }) }) })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '20', height: height ? height : '20', viewBox: "0 0 20 20", fill: fill ? fill : 'none', xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_408_14996)", children: [jsxRuntime.jsx("path", { d: "M11.9804 2.16073C11.0545 0.717602 8.94551 0.717602 8.01957 2.16073C7.69063 2.67341 7.05964 2.90307 6.47811 2.72178C4.84118 2.21146 3.2256 3.56709 3.44392 5.26776C3.52148 5.87195 3.18574 6.45346 2.62372 6.68839C1.04173 7.34966 0.675512 9.4266 1.93593 10.5891C2.3837 11.002 2.50031 11.6633 2.22078 12.2045C1.43396 13.728 2.48845 15.5544 4.20121 15.6347C4.80968 15.6633 5.32406 16.0949 5.45782 16.6892C5.83433 18.3619 7.81613 19.0833 9.1798 18.0439C9.66426 17.6746 10.3357 17.6746 10.8202 18.0438C12.1839 19.0833 14.1657 18.3619 14.5422 16.6892C14.6759 16.0949 15.1903 15.6633 15.7988 15.6347C17.5115 15.5544 18.566 13.728 17.7792 12.2045C17.4997 11.6633 17.6163 11.002 18.0641 10.5891C19.3245 9.4266 18.9583 7.34966 17.3763 6.68839C16.8143 6.45346 16.4785 5.87195 16.5561 5.26776C16.7744 3.56709 15.1588 2.21146 13.5219 2.72178C12.9404 2.90307 12.3094 2.67341 11.9804 2.16073Z", fill: "#398787", stroke: "white" }), jsxRuntime.jsx("path", { d: "M6.25 10.4167L9.16667 12.9167L14.1667 7.5", stroke: "white", "stroke-linecap": "round", "stroke-linejoin": "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_408_14996", children: jsxRuntime.jsx("rect", { width: "20", height: "20", fill: "white" }) }) })] }));
 }
 function GoalInviteIcon({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : "25", height: height ? height : "25", viewBox: "0 0 25 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.02656 9.04883H5.82656C4.94291 9.04883 4.22656 9.67563 4.22656 10.4488V18.8488C4.22656 19.622 4.94291 20.2488 5.82656 20.2488H18.6266C19.5102 20.2488 20.2266 19.622 20.2266 18.8488V10.4488C20.2266 9.67563 19.5102 9.04883 18.6266 9.04883H17.4266", stroke: fill ? fill : "#0645AD", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M20.2266 10.6484L13.0506 15.2084C12.8036 15.3632 12.518 15.4452 12.2266 15.4452C11.9351 15.4452 11.6495 15.3632 11.4026 15.2084L4.22656 10.6484", stroke: fill ? fill : "#0645AD", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M7.02637 12.6486V7.84863C7.02637 6.74406 7.9218 5.84863 9.02637 5.84863H15.4264C16.5309 5.84863 17.4264 6.74406 17.4264 7.84863V12.6486", stroke: fill ? fill : "#0645AD", "stroke-width": "1.5" }), jsxRuntime.jsx("path", { d: "M15.4264 13.8487C14.6264 11.8487 13.4264 11.4487 12.2264 11.4487C11.0264 11.4487 9.82637 11.8487 9.02637 13.8487", stroke: fill ? fill : "#0645AD", "stroke-width": "1.5" }), jsxRuntime.jsx("circle", { cx: "12.2265", cy: "9.04873", r: "0.85", stroke: fill ? fill : "#0645AD", "stroke-width": "1.5" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '25', height: height ? height : '25', viewBox: "0 0 25 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.02656 9.04883H5.82656C4.94291 9.04883 4.22656 9.67563 4.22656 10.4488V18.8488C4.22656 19.622 4.94291 20.2488 5.82656 20.2488H18.6266C19.5102 20.2488 20.2266 19.622 20.2266 18.8488V10.4488C20.2266 9.67563 19.5102 9.04883 18.6266 9.04883H17.4266", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M20.2266 10.6484L13.0506 15.2084C12.8036 15.3632 12.518 15.4452 12.2266 15.4452C11.9351 15.4452 11.6495 15.3632 11.4026 15.2084L4.22656 10.6484", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M7.02637 12.6486V7.84863C7.02637 6.74406 7.9218 5.84863 9.02637 5.84863H15.4264C16.5309 5.84863 17.4264 6.74406 17.4264 7.84863V12.6486", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5" }), jsxRuntime.jsx("path", { d: "M15.4264 13.8487C14.6264 11.8487 13.4264 11.4487 12.2264 11.4487C11.0264 11.4487 9.82637 11.8487 9.02637 13.8487", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5" }), jsxRuntime.jsx("circle", { cx: "12.2265", cy: "9.04873", r: "0.85", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5" })] }));
+}
+function GoalViewsIcon({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "18", y: "2.25", width: "3.75", height: "19.5", rx: "1.875", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("rect", { x: "10.125", y: "8.25", width: "3.75", height: "13.5", rx: "1.875", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("rect", { x: "2.25", y: "15", width: "3.75", height: "6.75", rx: "1.875", stroke: fill ? fill : "#0645AD", strokeWidth: "2" })] }));
 }
 function StatusProblemaSawBadgeIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#D1F6D1" }), jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_482_14529)", children: [jsxRuntime.jsx("path", { d: "M26.2923 14.6469C25.2206 12.9765 22.7794 12.9765 21.7077 14.6469C21.2886 15.3 20.4848 15.5926 19.744 15.3616C17.8492 14.7709 15.9792 16.34 16.2319 18.3086C16.3307 19.0783 15.903 19.8191 15.187 20.1183C13.3559 20.8837 12.932 23.2878 14.3909 24.6334C14.9613 25.1595 15.1099 26.0019 14.7538 26.6913C13.843 28.4547 15.0636 30.5688 17.0461 30.6618C17.8213 30.6981 18.4765 31.248 18.6469 32.005C19.0828 33.9413 21.3767 34.7762 22.9551 33.5731C23.5723 33.1027 24.4277 33.1027 25.0449 33.5731C26.6233 34.7762 28.9172 33.9413 29.3531 32.005C29.5235 31.248 30.1787 30.6981 30.9539 30.6618C32.9364 30.5688 34.157 28.4547 33.2462 26.6913C32.8901 26.0019 33.0387 25.1595 33.6091 24.6334C35.068 23.2878 34.6441 20.8837 32.813 20.1183C32.097 19.8191 31.6693 19.0783 31.7681 18.3086C32.0208 16.34 30.1508 14.7709 28.256 15.3616C27.5152 15.5926 26.7114 15.3 26.2923 14.6469Z", stroke: "#222222" }), jsxRuntime.jsx("path", { d: "M19.5 24.5L23 27.5L29 21", stroke: "#222222", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_482_14529", children: jsxRuntime.jsx("rect", { width: "24", height: "24", fill: "white", transform: "translate(12 12)" }) }) })] }));
@@ -394,6 +406,45 @@ function StatusProblemaSendIcon({ fill, width, height }) {
 }
 function StatusProblemaEdit({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#FEF0D0" }), jsxRuntime.jsx("path", { d: "M24 17.0669H18.5556C18.143 17.0669 17.7473 17.2417 17.4556 17.5529C17.1639 17.8641 17 18.2861 17 18.7262V30.341C17 30.781 17.1639 31.2031 17.4556 31.5142C17.7473 31.8254 18.143 32.0002 18.5556 32.0002H29.4444C29.857 32.0002 30.2527 31.8254 30.5444 31.5142C30.8361 31.2031 31 30.781 31 30.341V24.5336", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M30.1791 16.5163C30.489 16.1857 30.9093 16 31.3476 16C31.7858 16 32.2061 16.1857 32.516 16.5163C32.8259 16.8468 33 17.2951 33 17.7626C33 18.2301 32.8259 18.6784 32.516 19.0089L25.1159 26.9024L22 27.7333L22.779 24.4098L30.1791 16.5163Z", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+}
+function PlayIcon({ width, height, customColor_1, customColor_2 }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_22)", children: [jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }), jsxRuntime.jsx("path", { d: "M22.3411 17.3317C22.934 16.9358 22.934 16.0643 22.3411 15.6684L14.5553 10.47C13.8908 10.0264 13 10.5027 13 11.3017V21.6984C13 22.4974 13.8908 22.9737 14.5553 22.5301L22.3411 17.3317Z", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsxs("filter", { id: "filter0_d_1_22", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feOffset", { dy: "3" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_22", result: "shape" })] }) })] }));
+}
+function PauseIcon({ customColor_1, customColor_2, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_159)", children: [jsxRuntime.jsx("g", { filter: "url(#filter1_d_1_159)", children: jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }) }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 22 8)", fill: customColor_2 ? customColor_2 : 'white' }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 14 8)", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("filter", { id: "filter0_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "5" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "1.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter1_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "25" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "9" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.2 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] })] })] }));
+}
+function Back15({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3 2V8H9", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.524 19.8037C18.2613 18.7786 19.6037 17.1995 20.336 15.32C21.0683 13.4405 21.1479 11.3694 20.5622 9.43922C19.9764 7.509 18.7592 5.83152 17.1059 4.67595C15.4525 3.52038 13.4589 2.95373 11.445 3.06692C9.43099 3.18012 7.51344 3.96659 6 5.30015L3 8.00014", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M5.01 17.9H6.4V13.95L6.55 13.27L6.07 13.86L5.18 14.47L4.63 13.72L6.91 11.88H7.64V17.9H9V19H5.01V17.9ZM11.8738 17.99C12.3138 17.99 12.6505 17.8833 12.8838 17.67C13.1172 17.4567 13.2338 17.1633 13.2338 16.79C13.2338 16.39 13.0972 16.0967 12.8238 15.91C12.5505 15.7233 12.1605 15.63 11.6538 15.63L10.8638 15.66V12H14.3038V13.22H11.9838V14.57L12.3938 14.53C12.7205 14.5433 13.0138 14.6033 13.2738 14.71C13.5405 14.8167 13.7672 14.9667 13.9538 15.16C14.1405 15.3467 14.2838 15.5767 14.3838 15.85C14.4838 16.1167 14.5338 16.4167 14.5338 16.75C14.5338 17.1433 14.4672 17.49 14.3338 17.79C14.2005 18.09 14.0138 18.34 13.7738 18.54C13.5405 18.74 13.2638 18.89 12.9438 18.99C12.6238 19.09 12.2738 19.14 11.8938 19.14C11.5938 19.14 11.3072 19.1133 11.0338 19.06C10.7672 19.0133 10.5405 18.9467 10.3538 18.86L10.7038 17.78C10.8572 17.8467 11.0238 17.9 11.2038 17.94C11.3905 17.9733 11.6138 17.99 11.8738 17.99Z", fill: fill ? fill : '#222222' })] }));
+}
+function Foward15({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21 2V8H15", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.42591 19.8037C5.6887 18.7786 4.34624 17.1995 3.61396 15.32C2.88167 13.4405 2.80202 11.3694 3.38778 9.43922C3.97354 7.509 5.19075 5.83152 6.84409 4.67595C8.49743 3.52038 10.491 2.95373 12.505 3.06692C14.519 3.18012 16.4365 3.96659 17.95 5.30015L20.95 8.00014", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10.01 17.9H11.4V13.95L11.55 13.27L11.07 13.86L10.18 14.47L9.63 13.72L11.91 11.88H12.64V17.9H14V19H10.01V17.9ZM16.8738 17.99C17.3138 17.99 17.6505 17.8833 17.8838 17.67C18.1172 17.4567 18.2338 17.1633 18.2338 16.79C18.2338 16.39 18.0972 16.0967 17.8238 15.91C17.5505 15.7233 17.1605 15.63 16.6538 15.63L15.8638 15.66V12H19.3038V13.22H16.9838V14.57L17.3938 14.53C17.7205 14.5433 18.0138 14.6033 18.2738 14.71C18.5405 14.8167 18.7672 14.9667 18.9538 15.16C19.1405 15.3467 19.2838 15.5767 19.3838 15.85C19.4838 16.1167 19.5338 16.4167 19.5338 16.75C19.5338 17.1433 19.4672 17.49 19.3338 17.79C19.2005 18.09 19.0138 18.34 18.7738 18.54C18.5405 18.74 18.2638 18.89 17.9438 18.99C17.6238 19.09 17.2738 19.14 16.8938 19.14C16.5938 19.14 16.3072 19.1133 16.0338 19.06C15.7672 19.0133 15.5405 18.9467 15.3538 18.86L15.7038 17.78C15.8572 17.8467 16.0238 17.9 16.2038 17.94C16.3905 17.9733 16.6138 17.99 16.8738 17.99Z", fill: fill ? fill : '#222222' })] }));
+}
+function VolumeIcon({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '17', height: height ? height : '17', viewBox: "0 0 17 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.6271 2.54614C8.28897 2.07337 9.20834 2.5465 9.20834 3.35987V13.6402C9.20834 14.4535 8.28897 14.9267 7.62711 14.4539L4.25001 12.0417H2.70834C1.60377 12.0417 0.708344 11.1462 0.708344 10.0417V6.95835C0.708344 5.85378 1.60377 4.95835 2.70834 4.95835H4.25001L7.6271 2.54614Z", fill: fill ? fill : '#222222' }), jsxRuntime.jsx("path", { d: "M11.3289 11.9746C12.2079 11.0799 12.75 9.8533 12.75 8.50003C12.75 7.14107 12.2033 5.9098 11.3178 5.01416", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M13.3012 2.99048C14.7112 4.40049 15.5833 6.34841 15.5833 8.50002C15.5833 10.6516 14.7112 12.5995 13.3012 14.0096", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function MuteIcon({ width, height, fill }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '21', height: height ? height : '24', viewBox: "0 0 21 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.6271 6.54614C8.28897 6.07337 9.20834 6.5465 9.20834 7.35987V17.6402C9.20834 18.4535 8.28897 18.9267 7.62711 18.4539L4.25001 16.0417H2.70834C1.60377 16.0417 0.708344 15.1462 0.708344 14.0417V10.9583C0.708344 9.85378 1.60377 8.95835 2.70834 8.95835H4.25001L7.6271 6.54614Z", fill: fill ? fill : '#222222' }), jsxRuntime.jsx("path", { d: "M18 10L12 16", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 10L18 16", stroke: fill ? fill : '#222222', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function ThumbVideo({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '117', height: height ? height : '127', viewBox: "0 0 177 127", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M163.62 1.5H12.88C6.595 1.5 1.5 6.595 1.5 12.88V113.92C1.5 120.205 6.595 125.3 12.88 125.3H163.62C169.905 125.3 175 120.205 175 113.92V12.88C175 6.595 169.905 1.5 163.62 1.5Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M175 103.86H1.5", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M79.01 114.58H97.49", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M56.78 55.96C56.78 47.62 60.1 39.61 66 33.71C71.9 27.81 79.91 24.49 88.25 24.49C96.59 24.49 104.6 27.81 110.5 33.71C116.4 39.61 119.72 47.62 119.72 55.96C119.72 64.3 116.4 72.31 110.5 78.21C104.6 84.11 96.59 87.43 88.25 87.43C79.91 87.42 71.91 84.1 66.01 78.2C60.11 72.3 56.79 64.3 56.78 55.96Z", stroke: "white", "stroke-width": "3", "stroke-miterlimit": "10" }), jsxRuntime.jsx("path", { d: "M82.28 44.93V66.77C82.28 67.9 83.56 68.55 84.47 67.89L99.47 56.97C100.23 56.42 100.23 55.29 99.47 54.74L84.47 43.82C83.56 43.16 82.28 43.81 82.28 44.94V44.93Z", stroke: "white", "stroke-width": "3", "stroke-miterlimit": "10" })] }));
+}
+function ThumbTexto({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '117', height: height ? height : '127', viewBox: "0 0 177 127", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M163.62 1.5H12.88C6.595 1.5 1.5 6.595 1.5 12.88V113.92C1.5 120.205 6.595 125.3 12.88 125.3H163.62C169.905 125.3 175 120.205 175 113.92V12.88C175 6.595 169.905 1.5 163.62 1.5Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M175 103.86H1.5", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M79.01 114.58H97.49", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M94.2401 21.9399H52.4201C50.1701 21.9399 48.3201 23.7799 48.3201 26.0399V54.4099C48.3201 56.6599 50.1601 58.5099 52.4201 58.5099H59.2801V69.3199C59.2801 70.7299 60.9901 71.4399 61.9901 70.4399L72.5101 58.5099H94.2301C96.4801 58.5099 98.3301 56.6699 98.3301 54.4099V26.0399C98.3301 23.7899 96.4901 21.9399 94.2301 21.9399H94.2401Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M87.7701 32.8398H58.8801", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M87.7701 40.2197H58.8801", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M87.7701 47.5898H58.8801", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("mask", { id: "mask0_8643_48376", maskUnits: "userSpaceOnUse", x: "75", y: "37", width: "57", height: "54", children: jsxRuntime.jsx("path", { d: "M102 37.8999L125.24 38.1599C128.48 38.1599 131.11 40.7899 131.11 44.0299V72.3999C131.11 75.6399 128.48 78.2699 125.24 78.2699H120.16V87.1599C120.16 88.6999 119.18 90.1499 117.69 90.5499C116.48 90.8799 115.27 90.5399 114.41 89.6799C114.38 89.6499 114.36 89.6299 114.33 89.5999L104.34 78.2699L83 80.8899C79.76 80.8899 75 76.1299 75 72.8899V61.8899H96C98.84 61.8899 102 58.7299 102 55.8899V37.8899V37.8999Z", fill: "white" }) }), jsxRuntime.jsxs("g", { mask: "url(#mask0_8643_48376)", children: [jsxRuntime.jsx("path", { d: "M89.55 51.1199H118.44", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M89.55 58.4998H118.44", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M89.55 65.8699H118.44", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M83.08 40.22H124.9C127.15 40.22 129 42.06 129 44.32V72.69C129 74.94 127.16 76.79 124.9 76.79H118.04V87.6C118.04 89.01 116.33 89.72 115.33 88.72L104.81 76.79H83.09C80.84 76.79 78.99 74.95 78.99 72.69V44.32C78.99 42.07 80.83 40.22 83.09 40.22H83.08Z", stroke: "white", "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" })] })] }));
+}
+function ThumbPodcast({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '113', height: height ? height : '146', viewBox: "0 0 113 146", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M101.53 1.29004H11.05C5.65974 1.29004 1.29004 5.65974 1.29004 11.05V134.93C1.29004 140.32 5.65974 144.69 11.05 144.69H101.53C106.92 144.69 111.29 140.32 111.29 134.93V11.05C111.29 5.65974 106.92 1.29004 101.53 1.29004Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M111.29 119.85H1.29004", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M50.4299 132.27H62.1399", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M56.1201 83.52C54.6401 83.52 53.1601 84.08 52.0301 85.21C49.7701 87.47 49.7601 91.14 52.0301 93.41C53.1601 94.54 54.6401 95.1 56.1301 95.1C57.6201 95.1 59.1001 94.53 60.2301 93.4C62.4901 91.14 62.4901 87.47 60.2301 85.21C59.1001 84.08 57.6101 83.51 56.1301 83.51L56.1201 83.52Z", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M43.8401 77.02C50.6301 70.24 61.6301 70.24 68.4201 77.04", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M32.9199 66.0901C45.7399 53.2701 66.5299 53.2801 79.3499 66.1101", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M22 55.16C40.85 36.31 71.42 36.33 90.29 55.2", stroke: "white", "stroke-width": "2.57", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+}
+function StarFavorite({ fill = '#E0E0E0', width = '24px', stroke = '#BDBDBD', height = '23' }) {
+    return (jsxRuntime.jsx("svg", { width: width, height: height, viewBox: "0 0 24 23", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M11.1062 1.78116C11.4752 1.04583 12.5248 1.04583 12.8938 1.78116L15.4737 6.92247C15.6205 7.21502 15.9012 7.41721 16.2251 7.46379L21.9686 8.28959C22.7936 8.40821 23.12 9.42484 22.5181 10.0015L18.3849 13.9616C18.1443 14.1921 18.0343 14.5272 18.0916 14.8554L19.0697 20.4652C19.2117 21.2799 18.3596 21.9051 17.625 21.5251L12.4595 18.8529C12.1713 18.7039 11.8287 18.7039 11.5405 18.8529L6.37496 21.5251C5.64038 21.9051 4.78829 21.2799 4.93035 20.4652L5.90845 14.8554C5.96567 14.5272 5.85569 14.1921 5.61513 13.9616L1.48189 10.0015C0.880041 9.42484 1.20637 8.40821 2.0314 8.28959L7.77486 7.46379C8.09884 7.41721 8.37952 7.21502 8.52632 6.92247L11.1062 1.78116Z", fill: fill, stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
+}
+function IconUp({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.45361 9L9.37114 1L17.2887 9", stroke: "#222222", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }) }));
+}
+function IconGaps({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66127 22C9.1639 20.402 8.41378 19.211 7.41041 18.4265C5.9056 17.25 3.51466 17.9815 2.63157 16.7675C1.74848 15.5535 3.25024 13.3215 3.77705 12.0045C4.30437 10.6875 1.75711 10.222 2.05452 9.848C2.25245 9.5985 3.54004 8.8795 5.91626 7.69C6.59127 3.8965 9.08473 2 13.3977 2C19.8666 2 22.3311 7.403 22.3311 10.84C22.3311 14.2765 19.3468 17.9785 15.0958 18.777C14.7157 19.322 15.2638 20.397 16.7402 22.0005", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M9.89679 7.24994C9.56487 8.51694 9.66333 9.40694 10.1927 9.91894C10.7215 10.4314 11.6229 10.7664 12.8968 10.9239C12.6075 12.5589 12.9602 13.3254 13.9539 13.2244C14.9477 13.1234 15.545 12.7169 15.7455 12.0044C17.2985 12.4344 18.1405 12.0744 18.2709 10.9244C18.4663 9.19944 17.5223 7.82394 17.1351 7.82394C16.7484 7.82394 15.7455 7.77744 15.7455 7.24994C15.7455 6.72244 14.5741 6.42494 13.517 6.42494C12.4598 6.42494 13.0957 5.72244 11.6442 5.99994C10.6763 6.18494 10.0937 6.60144 9.89679 7.24994V7.24994Z", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M15.4795 12.75C14.9634 13.0655 14.2554 13.59 13.9569 14C13.2114 15.025 12.6069 15.6485 12.475 16.304", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round" })] }));
+}
+function IconModules({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21.6079 4.5C21.6079 5.54426 20.7522 6.4 19.6853 6.4C18.6184 6.4 17.7627 5.54426 17.7627 4.5C17.7627 3.45574 18.6184 2.6 19.6853 2.6C20.7522 2.6 21.6079 3.45574 21.6079 4.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 12.5C21.6079 13.5443 20.7522 14.4 19.6853 14.4C18.6184 14.4 17.7627 13.5443 17.7627 12.5C17.7627 11.4557 18.6184 10.6 19.6853 10.6C20.7522 10.6 21.6079 11.4557 21.6079 12.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 19.5C21.6079 20.5443 20.7522 21.4 19.6853 21.4C18.6184 21.4 17.7627 20.5443 17.7627 19.5C17.7627 18.4557 18.6184 17.6 19.6853 17.6C20.7522 17.6 21.6079 18.4557 21.6079 19.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M14.1356 12L17.1627 12", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 16H15.8654L18.1718 18", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 8H15.8654L18.1718 6", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.03613 15L5.05421 15", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1085 10L10.0995 10", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.0361 10H5.99596C6.39957 10 7.07227 9.25 7.07227 8.49999C7.07227 7 7.07227 8.8377 7.07227 7", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1084 15H8.14858C7.74496 15 7.07227 15.5 7.07227 16C7.07227 17 7.07227 15.7749 7.07227 17", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.9344 4.41895L10.977 4.47036L11.0298 4.51117C11.1053 4.56956 11.5175 5.03708 11.5175 6V18C11.5175 18.1873 11.4114 18.8808 10.9187 19.5999C10.708 19.8492 10.4509 20.0482 10.1646 20.1854C9.87158 20.3259 9.55413 20.3987 9.23347 20.4H8.51448C6.96145 20.3982 5.46746 19.7556 4.36173 18.605C3.2553 17.4537 2.62893 15.8878 2.6271 14.2497V9.75031C2.62893 8.11221 3.2553 6.5463 4.36173 5.39496C5.46737 4.24444 6.96122 3.60189 8.51413 3.6H9.23343C9.5541 3.60126 9.87157 3.67412 10.1646 3.8146C10.458 3.95526 10.7209 4.16085 10.9344 4.41895Z", stroke: "#0645AD", "stroke-width": "1.2" })] }));
 }
 
 function styleInject(css, ref) {
@@ -423,8 +474,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$h = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$h);
+var css_248z$i = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+styleInject(css_248z$i);
 
 function Tag(props) {
     function getBG() {
@@ -446,646 +497,6 @@ function Tag(props) {
 function EmptyCard(props) {
     return (jsxRuntime.jsx("div", { className: 'cardContent', style: { height: '100%' }, children: props.children }));
 }
-
-/**
- * @param {UserCardProps} props
- */
-function CalendarCard$1(props) {
-    const { t } = reactI18next.useTranslation();
-    const [selected, setSelected] = React.useState(props.selected);
-    const setClass = () => {
-        setSelected(!selected);
-        props.handleSelect(props.userID);
-    };
-    const [statusColor, setStatusColor] = React.useState('#A6A6A6');
-    const hasCurrentData = () => {
-        return props.newLicenses.filter(el => el.isCurrent);
-    };
-    const hasAssignedLicenseData = () => {
-        return props.newLicenses.filter(el => el.isCurrent && el.hasLicense && !el.hasTrail && !el.hasEnrollment);
-    };
-    const hasDefinedTrailData = () => {
-        return props.newLicenses.filter(el => el.isCurrent && el.hasTrail && !el.hasEnrollment);
-    };
-    const hasEnrollmentsData = () => {
-        return props.newLicenses.filter(el => el.isCurrent && el.hasEnrollment);
-    };
-    const hasPreviusData = () => {
-        return props.newLicenses.filter(el => !el.isCurrent);
-    };
-    const newFormatHtml = () => {
-        const hasCurrent = hasCurrentData();
-        const hasAssignedLicense = hasAssignedLicenseData();
-        const hasDefinedTrail = hasDefinedTrailData();
-        const hasEnrollments = hasEnrollmentsData();
-        const hasPrevius = hasPreviusData();
-        return (jsxRuntime.jsxs("div", { children: [hasCurrent.length > 0 &&
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.current }), hasAssignedLicense.length > 0 &&
-                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.assignedLicense, ": ", ' ', hasAssignedLicense.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), !hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasDefinedTrail.length > 0 &&
-                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.definedTrail, ": ", ' ', hasDefinedTrail.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasEnrollments.length > 0 &&
-                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.enrollments, ": ", ' ', hasEnrollments.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] })] }), hasPrevius.length > 0 &&
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.previus }), jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [hasPrevius.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#BDBDBD', selected: selected, inverted: false })), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#BDBDBD', selected: selected, inverted: false, iconType: "checked" })] })] })] }));
-    };
-    React.useEffect(() => {
-        switch (props.userStatus) {
-            case 'complete':
-                setStatusColor("#2CA92A");
-                break;
-            case 'enrolled':
-                setStatusColor("#222222");
-                break;
-            case 'defined':
-                setStatusColor("#FFD600");
-                break;
-            case 'error':
-                setStatusColor("#FF0000");
-                break;
-            case 'incomplete':
-            default:
-                setStatusColor("#A6A6A6");
-                break;
-        }
-    }, [props.userStatus]);
-    React.useEffect(() => {
-        setSelected(props.selected);
-    }, [props.selected]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.loading ?
-            jsxRuntime.jsxs("div", { className: 'cardContentNoMargin', children: [jsxRuntime.jsx("div", { className: 'shimmer cardTopRightConner', style: { color: statusColor, background: statusColor, padding: '4px' }, children: "Status" }), jsxRuntime.jsxs("div", { className: 'content', children: [jsxRuntime.jsxs("div", { className: 'centeredVertically', style: { paddingBottom: '16px' }, children: [selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}), jsxRuntime.jsx("div", { style: { marginLeft: '16px', marginRight: '16px' }, className: "avatar shimmer" }), jsxRuntime.jsxs("div", { style: { display: 'inline-grid' }, children: [jsxRuntime.jsx("div", { className: "shimmer", children: "ShimmerName" }), jsxRuntime.jsx("div", { className: "shimmer", children: "ShimmerEmail" })] })] }), jsxRuntime.jsxs("div", { className: 'innerContent', style: { paddingBottom: '0px !important' }, children: [jsxRuntime.jsx("div", { className: "shimmer", children: "Area: " }), jsxRuntime.jsx("div", { className: "shimmer", children: "Cargo:" }), jsxRuntime.jsx(Tag, { title: 'Product Tag', color: '#000', loading: true, selected: false, inverted: false }), jsxRuntime.jsx(Tag, { title: 'Product Tag', color: '#000', loading: true, selected: false, inverted: false })] })] }), jsxRuntime.jsx(material.Button, { className: 'shimmer frstButton blue', fullWidth: true })] })
-            :
-                jsxRuntime.jsxs("div", { onClick: setClass, className: 'cardContentNoMargin', style: { color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }, children: [jsxRuntime.jsx("div", { className: 'cardTopRightConner', style: { color: '#fff', background: statusColor, padding: '4px' }, children: t(`user.card.status.${props.userStatus}`) }), jsxRuntime.jsxs("div", { className: 'content', style: { marginBottom: '46px' }, children: [jsxRuntime.jsxs("div", { className: 'centeredVertically', style: { paddingBottom: '16px' }, children: [jsxRuntime.jsxs("div", { style: { paddingRight: '8px' }, children: [" ", selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {})] }), jsxRuntime.jsx("img", { src: props.userAvatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", alt: "Avatar", className: "avatar" }), jsxRuntime.jsxs("div", { style: { paddingLeft: '8px', display: 'grid' }, children: [jsxRuntime.jsx("p", { style: { fontSize: '24px', fontWeight: '700', paddingBottom: '8px' }, children: props.userName }), jsxRuntime.jsx(material.Tooltip, { title: [props.userEmail], children: jsxRuntime.jsx("p", { style: { fontSize: '16px', fontWeight: '700', color: selected ? "#F3D224" : '#AEB0B3' }, className: 'ellipsis', children: props.userEmail }) })] })] }), jsxRuntime.jsx("div", { className: 'innerContent', children: jsxRuntime.jsxs("div", { style: { display: 'block' }, children: [props.userArea && jsxRuntime.jsxs("p", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: [t('user.card.area'), ": ", props.userArea] }), props.userPosition && jsxRuntime.jsxs("p", { style: { fontSize: '16px', fontWeight: '400', paddingBottom: '8px' }, children: [t('user.card.position'), ": ", props.userPosition] }), props.newFormat ?
-                                                jsxRuntime.jsx("div", { children: newFormatHtml() })
-                                                :
-                                                    jsxRuntime.jsxs("div", { children: [props.licenses.length > 0 ?
-                                                                props.licenses.map((p) => {
-                                                                    return jsxRuntime.jsx(Tag, { title: p, color: '#000', selected: selected, inverted: false });
-                                                                })
-                                                                :
-                                                                    jsxRuntime.jsx(Tag, { title: t('user.card.noProduct'), color: '#FF0000', selected: selected, inverted: true }), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" }), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "checked" })] })] }) })] }), jsxRuntime.jsxs(material.Button, { onClick: props.editAction, className: 'frstButton blue fixedBottom', fullWidth: true, children: [jsxRuntime.jsx(EditIcon, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('globals.edit') })] })] }) }));
-}
-
-styled__default["default"].span `
-  color: #0645AD !important;
-  font-size: 16px !important;
-  font-weight: bolder !important;
-  cursor: pointer !important;
-  &:disabled {
-    color: #7C7C7C !important;
-  }
-`;
-styled__default["default"].div `
-  .Mui-selected {
-    color: #FF4D0D !important; 
-  }
-  .MuiTab-root {
-    font-family: Work Sans !important;
-    text-transform: none !important;
-    font-weight: bolder !important;
-  }
-  .MuiTabs-indicator {
-    background-color: #FF4D0D !important;
-  }
-`;
-styled__default["default"].label `
-  font-size: 20px;
-  color: #ff4d0d;
-  font-weight: bolder;
-`;
-styled__default["default"].label `
-  font-size: 20px;
-  color: #ff4d0d;
-`;
-styled__default["default"].label `
-  font-size: 16px;
-  color: #ff4d0d;
-`;
-const FRSTButton = styled__default["default"](Button__default["default"]) `
-  color: #fff !important;
-  font-weight: bold !important;
-  background-color: #FF4D0D !important;
-  border-color: #FF4D0D !important;
-  height: 48px !important;
-  font-size: 16px !important;
-  padding-left: 16px !important;
-  padding-right: 16px !important;
-  padding-top: 18px !important;
-  padding-bottom: 18px !important;
-  text-transform: none !important;
-  border-radius: 5px 5px 5px 5px !important;
-  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;
-  &:focus,
-  &:hover {
-    color: #fff !important;
-    background-color: #E94E1B !important;
-    border-color: #fff !important;
-  };
-  &:disabled {
-    background-color: #7C7C7C !important;
-  }
-`;
-styled__default["default"](Menu__default["default"]) `
-  & .MuiPaper-root{
-    border-radius: 0px;
-    box-shadow: none !important;
-  }
-  ul {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-`;
-styled__default["default"](MenuItem__default["default"]) `
-  color: white !important;
-  background-color: #FF4D0D !important;
-  &:hover {
-    background-color: #F5792A !important;
-  }
-`;
-
-const Container$d = styled__default["default"](Card__default["default"]) `
-  height: 100%;
-  box-shadow: none !important;
-  border: 1px solid #c4c4c4 !important;
-  box-sizing: border-box !important;
-  border-radius: 8px !important;
-  padding: 24px !important;
-`;
-const Title$5 = styled__default["default"].span `
-  font-size: 20px !important;
-  color: #ff4d0d !important;
-`;
-const TextDescription$1 = styled__default["default"].span `
-  font-size: 14px !important;
-  color: #222222 !important;
-`;
-const ContainerDescription = styled__default["default"].div `
-  padding-top: 26px !important;
-`;
-styled__default["default"].div `
-  padding-top: 35px !important;
-`;
-const CheckIconCustom = styled__default["default"](CheckIcon__default["default"]) `
-  color: white !important;
-  font-size: 19px !important;
-`;
-const LoginIconCustom = styled__default["default"](LoginIcon__default["default"]) `
-  color: white !important;
-  font-size: 20px !important;
-`;
-const FormControlSelect = styled__default["default"](FormControl__default["default"]) `
-  .MuiInputLabel-formControl {
-    color: rgba(0, 0, 0, 0.6) !important;
-    margin-top: 5px !important;
-  }
-`;
-const DropDownList$2 = styled__default["default"](Select__default["default"]) `
-  max-width: 350px !important;
-  height: 40px !important;
-  & > div {
-    border: 1px solid #e8e8e8 !important;
-  }
-  .MuiSelect-select {
-    border: none !important;
-  }
-  .MuiSelect-icon {
-    color: #000 !important; // for icon drop down icon color
-  }
-  &.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    border-color: #ff4d0d !important;
-    border-width: 1px !important;
-  }
-`;
-const LabelDateStepper = styled__default["default"].label `
-  font-size: 14px !important;
-  line-height: 14px !important;
-`;
-const LabelTitleStepper = styled__default["default"].label `
-  overflow: hidden; !important;
-  display: block !important;
-  max-height: 1.33rem !important;
-;
-`;
-const ContainerStepper = styled__default["default"].div `
-  margin-top: 10px !important;
-`;
-const CustomStepper = styled__default["default"](Stepper__default["default"]) `
-  height: 100px !important;
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
-  box-sizing: content-box !important;
-  scroll-behavior: smooth !important;
-  padding-bottom: 30px !important;
-`;
-const CustomStep = styled__default["default"](Step__default["default"]) `
-  padding: 0px !important;
-  min-width: 150px !important;
-`;
-const BoxStepper = styled__default["default"](Box__default["default"]) `
-  width: 100% !important;
-  padding-top: 20px !important;
-  text-align: center !important;
-  overflow: hidden !important;
-  height: 120px !important;
-`;
-const LabelTimeMentoring = styled__default["default"].label `
-  font-size: 16px !important;
-  color: #ff4d0d !important;
-  font-weight: bolder !important;
-`;
-const BoxLabelTimeMentoring = styled__default["default"].div `
-  padding-top: 30px !important;
-  padding-bottom: 16px !important;
-`;
-const LabelSchedule = styled__default["default"].span `
-  font-size: 16px !important;
-`;
-const LabelScheduleClick = styled__default["default"].span `
-  color: #0645ad !important;
-  font-size: 16px !important;
-  font-weight: bolder !important;
-  cursor: pointer !important;
-`;
-const ActionContainer = styled__default["default"](CardActions__default["default"]) `
-  padding: 0px !important;
-`;
-const ColorlibConnector = styles.styled(StepConnector__default["default"])(({ theme }) => ({
-    [`&.${StepConnector.stepConnectorClasses.alternativeLabel}`]: {
-        top: 40,
-        left: 'calc(-54% + 7px)',
-        right: 'calc(40% + 20px)',
-        [`&.MuiStepLabel-labelContainer`]: {
-            [`&.Mui-active`]: {
-                backgroundColor: 'red'
-            }
-        }
-    },
-    [`&.${StepConnector.stepConnectorClasses.active}`]: {
-        [`& .${StepConnector.stepConnectorClasses.line}`]: {
-            backgroundColor: '#ff4d0d'
-        }
-    },
-    [`&.${StepConnector.stepConnectorClasses.completed}`]: {
-        [`& .${StepConnector.stepConnectorClasses.line}`]: {
-            backgroundColor: '#000'
-        }
-    },
-    [`& .${StepConnector.stepConnectorClasses.line}`]: {
-        height: 1,
-        border: 0,
-        backgroundColor: '#ff4d0d',
-        borderRadius: 1
-    }
-}));
-const ColorlibStepIconRoot = styles.styled('div')(({ ownerState }) => ({
-    backgroundColor: '#000',
-    zIndex: 1,
-    color: '#fff',
-    display: 'flex',
-    borderRadius: '50%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    boxShadow: 'none !important',
-    ...(ownerState.active && {
-        backgroundColor: '#ff4d0d',
-        width: 32,
-        height: 32,
-        boxShadow: 'none !important'
-    }),
-    ...(ownerState.completed && {
-        backgroundColor: '#000',
-        width: 24,
-        height: 24,
-        boxShadow: 'none !important'
-    }),
-    ...(!ownerState.active &&
-        !ownerState.completed && {
-        backgroundColor: '#ff4d0d',
-        width: 24,
-        height: 24,
-        boxShadow: 'none !important'
-    }),
-    ...(ownerState.active &&
-        ownerState.completed && {
-        backgroundColor: '#000',
-        width: 24,
-        height: 24,
-        boxShadow: 'none !important'
-    })
-}));
-
-function getStepIcon(props) {
-    const { active, completed } = props;
-    return (jsxRuntime.jsx(ColorlibStepIconRoot, { ownerState: { completed, active }, children: completed ? jsxRuntime.jsx(CheckIconCustom, {}) : active ? jsxRuntime.jsx(LoginIconCustom, {}) : jsxRuntime.jsx("div", {}) }));
-}
-function getMissedStepIcon() {
-    return (jsxRuntime.jsx(ColorlibStepIconRoot, { ownerState: { completed: true, active: true }, children: jsxRuntime.jsx("div", {}) }));
-}
-function StepsComponent(props) {
-    const { t } = reactI18next.useTranslation();
-    let { events } = props;
-    return (jsxRuntime.jsx(BoxStepper, { children: jsxRuntime.jsx(CustomStepper, { alternativeLabel: true, connector: jsxRuntime.jsx(ColorlibConnector, {}), children: events && events.length > 0 && events?.map((event) => (jsxRuntime.jsxs(CustomStep, { completed: event.completed, active: event.today, children: [jsxRuntime.jsxs(LabelDateStepper, { children: [event.day, " ", t(`calendar.monthsInitials.${event.month}`)] }), jsxRuntime.jsx(ContainerStepper, { children: jsxRuntime.jsx(material.Tooltip, { title: event.title, children: jsxRuntime.jsx(material.StepLabel, { StepIconComponent: event.completed && !event.present ? getMissedStepIcon : getStepIcon, children: jsxRuntime.jsx(LabelTitleStepper, { children: event.title }) }) }) })] }, event.id))) }) }));
-}
-/**
- * @param {CalendarProps} props
- */
-function CalendarCard(props) {
-    const { t } = reactI18next.useTranslation();
-    const [module, setModule] = React.useState(0);
-    const [moduleEvents, setModuleEvents] = React.useState([]);
-    const [moduleSelector, setModuleSelector] = React.useState(false);
-    const handleChange = (event) => {
-        let val = event.target?.value;
-        setModule(val);
-        if (props.trails[val].events)
-            setModuleEvents(props.trails[val].events);
-    };
-    React.useEffect(() => {
-        if (props.trails[0]) {
-            if (props.trails[0].events)
-                setModuleEvents(props.trails[0].events);
-            if (props.trails.length > 1)
-                setModuleSelector(true);
-        }
-    }, [props.trails]);
-    return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$d, { className: 'shimmer' })
-            :
-                jsxRuntime.jsx(Container$d, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$5, { children: t('calendar.title') }), moduleSelector &&
-                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
-                                                    return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
-                                                }) }) })] }), moduleEvents?.length === 0 &&
-                                jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon$1, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') })] }), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }), moduleEvents && moduleEvents.length > 0 &&
-                                jsxRuntime.jsx(BoxLabelTimeMentoring, { children: props.trails[module]?.nextEvent ?
-                                        jsxRuntime.jsxs(LabelTimeMentoring, { children: [t('calendar.card.mentoringSchedule'), " ", t(`calendar.weekdays.${props.trails[module].nextEvent.weekday}`), " @ ", props.trails[module]?.nextEvent.hour] })
-                                        :
-                                            jsxRuntime.jsx(LabelTimeMentoring, { children: t(`calendar.noMoreEvents`) }) }), jsxRuntime.jsxs(ActionContainer, { children: [props.short &&
-                                        jsxRuntime.jsxs(LabelSchedule, { children: [jsxRuntime.jsx(LabelScheduleClick, { onClick: props.showFullPageAction, children: t('globals.clickHere') }), ' ', t('calendar.card.fullSchedule')] }), props.trails[module]?.joinEventAction &&
-                                        jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
-}
-
-var css_248z$g = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
-var style$f = {"container":"TextIcon-module_container__c5xjY"};
-styleInject(css_248z$g);
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function TextIcon(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$f.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
-}
-
-var css_248z$f = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
-var style$e = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
-styleInject(css_248z$f);
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function StarIcon(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "30", height: "30", viewBox: "0 0 30 30", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.0989 0.872803C14.4623 0.117576 15.5377 0.117574 15.9011 0.872801L19.7145 8.7983C19.8581 9.09663 20.14 9.30458 20.4674 9.35367L29.0382 10.6388C29.8501 10.7606 30.1775 11.7548 29.5967 12.3352L23.3644 18.5625C23.1358 18.791 23.0316 19.1159 23.085 19.4348L24.5511 28.2045C24.6883 29.025 23.8221 29.6445 23.09 29.2495L15.4748 25.1411C15.1785 24.9812 14.8215 24.9812 14.5252 25.1411L6.91 29.2495C6.17789 29.6445 5.31171 29.025 5.44888 28.2045L6.91505 19.4348C6.96835 19.1159 6.86424 18.791 6.63556 18.5625L0.403279 12.3352C-0.17751 11.7548 0.149858 10.7606 0.961814 10.6388L9.53263 9.35367C9.86003 9.30458 10.1419 9.09663 10.2855 8.79831L14.0989 0.872803Z", fill: props.color }) }) }));
-}
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function Rating$1(props) {
-    const MapColorStar = [
-        '#FFC200',
-        '#000000',
-        '#FFFFFF',
-    ];
-    const MapColorNumberStar = [
-        '#FFFFFF',
-        '#FFFFFF',
-        '#FFC200',
-        '#FF4D0D',
-    ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$e.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$e.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$e.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$e.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
-}
-
-var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
-var style$d = {"container":"RatingCurtidas-module_container__Ns11t"};
-styleInject(css_248z$e);
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function RocketButtonIcon(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { style: { display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 25, background: props.colorSecundaria ? props.colorSecundaria : '#FF4D0D', width: 32, height: 32, margin: 0 }, children: jsxRuntime.jsxs("svg", { width: "28", height: "28", viewBox: "0 0 28 28", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.15625 16.9915C6.89922 17.3907 6.69141 17.82 6.54102 18.2657H8.85977V15.2771C8.18164 15.72 7.60195 16.3024 7.15625 16.9915ZM19.141 15.2771V18.2657H21.4598C21.3094 17.82 21.1016 17.3907 20.8445 16.9915C20.4037 16.3065 19.8232 15.7222 19.141 15.2771ZM17.391 8.71729L14.0004 4.69775L10.6098 8.71729V18.2657H17.391V8.71729ZM14.0004 12.2501C13.6569 12.2431 13.3299 12.1017 13.0895 11.8563C12.8491 11.611 12.7144 11.2811 12.7144 10.9376C12.7144 10.5941 12.8491 10.2642 13.0895 10.0188C13.3299 9.77347 13.6569 9.63211 14.0004 9.6251C14.3438 9.63211 14.6709 9.77347 14.9113 10.0188C15.1517 10.2642 15.2864 10.5941 15.2864 10.9376C15.2864 11.2811 15.1517 11.611 14.9113 11.8563C14.6709 12.1017 14.3438 12.2431 14.0004 12.2501Z", fill: props.colorPrimaria ? props.colorPrimaria : '#FFF', fillOpacity: "0.35" }), jsxRuntime.jsx("path", { d: "M23.625 20.125C23.625 17.0734 21.8367 14.4375 19.25 13.2098V8.67617C19.25 8.26328 19.1051 7.86406 18.8371 7.54961L14.6699 2.60859C14.4949 2.40078 14.2461 2.29688 14 2.29688C13.7539 2.29688 13.5051 2.40078 13.3301 2.60859L9.16289 7.54961C8.89674 7.86471 8.7505 8.26372 8.75 8.67617V13.2098C6.16328 14.4375 4.375 17.0734 4.375 20.125H8.6543C8.59141 20.3219 8.55859 20.5352 8.55859 20.7758C8.55859 21.3801 8.76641 21.9707 9.14375 22.4383C9.45175 22.8207 9.85968 23.1103 10.3223 23.275C10.9539 24.7516 12.3895 25.7031 14 25.7031C14.7957 25.7031 15.5668 25.468 16.2258 25.025C16.8711 24.593 17.3715 23.9887 17.675 23.275C18.1374 23.1113 18.5454 22.8226 18.8535 22.441C19.2314 21.9692 19.4377 21.383 19.4387 20.7785C19.4387 20.5488 19.4086 20.3301 19.3539 20.1277L23.625 20.125ZM8.85938 18.2656H6.54062C6.69102 17.8199 6.89883 17.3906 7.15586 16.9914C7.60156 16.3023 8.18125 15.7199 8.85938 15.277V18.2656ZM10.6094 13.2098V8.71719L14 4.69766L17.3906 8.71719V18.2656H10.6094V13.2098ZM17.1746 21.443C17.0324 21.525 16.8684 21.5578 16.707 21.5359L16.1738 21.4703L16.0973 22.0008C15.9496 23.0371 15.0473 23.8191 14 23.8191C12.9527 23.8191 12.0504 23.0371 11.9027 22.0008L11.8262 21.4676L11.293 21.5359C11.1309 21.5553 10.9669 21.5217 10.8254 21.4402C10.5875 21.3035 10.4398 21.0492 10.4398 20.773C10.4398 20.4832 10.6012 20.2426 10.8391 20.1223H17.1637C17.4043 20.2453 17.5629 20.4859 17.5629 20.773C17.5602 21.052 17.4125 21.309 17.1746 21.443ZM19.1406 18.2656V15.277C19.8228 15.7221 20.4033 16.3064 20.8441 16.9914C21.1012 17.3906 21.309 17.8199 21.4594 18.2656H19.1406V18.2656Z", fill: props.colorPrimaria ? props.colorPrimaria : '#FFF' }), jsxRuntime.jsx("path", { d: "M12.6875 10.9375C12.6875 11.2856 12.8258 11.6194 13.0719 11.8656C13.3181 12.1117 13.6519 12.25 14 12.25C14.3481 12.25 14.6819 12.1117 14.9281 11.8656C15.1742 11.6194 15.3125 11.2856 15.3125 10.9375C15.3125 10.5894 15.1742 10.2556 14.9281 10.0094C14.6819 9.76328 14.3481 9.625 14 9.625C13.6519 9.625 13.3181 9.76328 13.0719 10.0094C12.8258 10.2556 12.6875 10.5894 12.6875 10.9375Z", fill: props.colorPrimaria ? props.colorPrimaria : '#FFF' })] }) }) }));
-}
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function RocketButton(props) {
-    const MapColorPrimaria = [
-        '#FF4D0D',
-        '#FFFFFF',
-        '#FFFFFF',
-        '#222222'
-    ];
-    const MapColorSecundaria = [
-        '#FFFFFF',
-        '#FF4D0D',
-        '#CCCCCC',
-        '#FFFFFF'
-    ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { children: jsxRuntime.jsx(RocketButtonIcon, { colorPrimaria: MapColorPrimaria[props.tipoBotao - 1], colorSecundaria: MapColorSecundaria[props.tipoBotao - 1] }) }) }));
-}
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function RatingCurtidas(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
-}
-
-var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
-var style$c = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
-styleInject(css_248z$d);
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
- */
-function Steps(props) {
-    const TypeStep = [
-        'https://api-motor.s3.amazonaws.com/marte.png',
-        'https://api-motor.s3.amazonaws.com/jupter.png',
-        'https://api-motor.s3.amazonaws.com/saturno.png',
-        'https://api-motor.s3.amazonaws.com/urano.png',
-        'https://api-motor.s3.amazonaws.com/netuno.png',
-    ];
-    const TypeStepNamePTBR = [
-        'Marte',
-        'Júpiter',
-        'Saturno',
-        'Urano',
-        'Netuno',
-    ];
-    const TypeStepNamePT = [
-        'Marte',
-        'Júpiter',
-        'Saturno',
-        'Urano',
-        'Netuno',
-    ];
-    const TypeStepNameEN = [
-        'Mars',
-        'Jupiter',
-        'Saturn',
-        'Uranus',
-        'Neptune',
-    ];
-    const TypeStepNameES = [
-        'Marte',
-        'Júpiter',
-        'Saturno',
-        'Urano',
-        'Netuno',
-    ];
-    const mapTraducao = new Map();
-    mapTraducao.set("pt-BR", TypeStepNamePTBR);
-    mapTraducao.set("pt-PT", TypeStepNamePT);
-    mapTraducao.set("en-US", TypeStepNameEN);
-    mapTraducao.set("es", TypeStepNameES);
-    const [Idioma, setIdioma] = React.useState(props.idioma ? props.idioma : 'pt-BR');
-    React.useEffect(() => {
-        setIdioma(props.idioma ? props.idioma : 'pt-BR');
-    }, [props.idioma]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, onClick: () => {
-                if (props.status !== 'B') {
-                    props.onClick();
-                }
-            }, children: [jsxRuntime.jsx("img", { src: TypeStep[props.step - 1], className: props.status === "A" ?
-                        style$c.imgAtive
-                        : props.status === "I" ?
-                            style$c.imgInative
-                            : style$c.imgBlocked }), jsxRuntime.jsx("div", { className: style$c.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
-                    jsxRuntime.jsx("div", { className: style$c.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
-}
-
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
- */
-function MissionSteps(props) {
-    const traducaoPTBR = {
-        next: "Ver missão seguinte >",
-        nextShort: "Próx. >",
-        previous: "< Ver missão anterior",
-        previousShort: "< Ant.",
-        continueChallenge: "Continuar desafio"
-    };
-    const traducaoES = {
-        next: "Ver misión siguiente >",
-        nextShort: "Próx. >",
-        previous: "< Ver misión anterior",
-        previousShort: "< Ant.",
-        continueChallenge: "Continuar desafío"
-    };
-    const traducaoENUS = {
-        next: "View next mission >",
-        nextShort: "Next >",
-        previous: "< View previous mission",
-        previousShort: "< Previous",
-        continueChallenge: "Continue challenge"
-    };
-    const traducaoPT = {
-        next: "Ver missão seguinte >",
-        nextShort: "Próx. >",
-        previous: "< Ver missão anterior",
-        previousShort: "< Ant.",
-        continueChallenge: "Continuar desafio"
-    };
-    const mapTraducao = new Map();
-    mapTraducao.set("pt-BR", traducaoPTBR);
-    mapTraducao.set("es", traducaoES);
-    mapTraducao.set("en-US", traducaoENUS);
-    mapTraducao.set("pt-PT", traducaoPT);
-    const [stepLiberado, setstepLiberado] = React.useState(props.stepProblem);
-    const [stepActive, setStepActive] = React.useState(props.stepActive);
-    const [Idioma, setIdioma] = React.useState(props.idioma ? props.idioma : 'pt-BR');
-    const setStep = (step) => {
-        setStepActive(step);
-        props.onSelected(step);
-    };
-    React.useEffect(() => {
-        setIdioma(props.idioma ? props.idioma : 'pt-BR');
-    }, [props.idioma]);
-    React.useEffect(() => {
-        setstepLiberado(props.stepProblem);
-    }, [props.stepProblem]);
-    // Função para pegar o width da tela
-    const [size, setSize] = React.useState([0, 0]);
-    React.useLayoutEffect(() => {
-        function updateSize() {
-            setSize([window.innerWidth, window.innerHeight]);
-        }
-        window.addEventListener('resize', updateSize);
-        updateSize();
-        return () => window.removeEventListener('resize', updateSize);
-    }, []);
-    const BREAKWIDTH = 475;
-    const leftButtonStyle = {
-        position: 'absolute',
-        top: 20,
-        left: 0,
-        cursor: 'pointer'
-    };
-    const rightButtonStyle = {
-        ...leftButtonStyle,
-        right: 0,
-        left: 'auto'
-    };
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white', marginTop: '10px' }, children: [stepActive > 1 ?
-                    size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
-                        :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$c.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
-                    : null, stepActive < stepLiberado ?
-                    size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
-                        :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$c.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
-                    : props.stepProblem < 5 &&
-                        props.onClickContinue &&
-                        jsxRuntime.jsx("span", { className: style$c.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$2, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
-                                setStep(1);
-                            } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
-                                setStep(2);
-                            } }), jsxRuntime.jsx(Steps, { step: 3, idioma: Idioma, status: stepLiberado >= 3 ? stepActive === 3 ? "A" : "I" : "B", onClick: () => {
-                                setStep(3);
-                            } }), jsxRuntime.jsx(Steps, { step: 4, idioma: Idioma, status: stepLiberado >= 4 ? stepActive === 4 ? "A" : "I" : "B", onClick: () => {
-                                setStep(4);
-                            } }), jsxRuntime.jsx(Steps, { step: 5, idioma: Idioma, status: stepLiberado >= 5 ? stepActive === 5 ? "A" : "I" : "B", onClick: () => {
-                                setStep(5);
-                            } })] })] }) }));
-}
-
-var css_248z$c = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
-var style$b = {"container":"avatarWithInfo-module_container__Y-yUf"};
-styleInject(css_248z$c);
 
 const DesignTokens = {
     colors: {
@@ -1286,6 +697,1232 @@ const FRSTTheme = {
     ...DesignTokens,
 };
 
+const container$1 = styled__default["default"].div `
+    display: flex;
+    position: relative;
+    gap: 20px;
+    height: 234px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    background-color: #E2E8F0;
+    z-index: 1;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+`;
+const containerMask = styled__default["default"].div `
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 16px;
+    z-index: 1;
+`;
+const thumb = styled__default["default"].div `
+    border-radius: 8px;
+    width: 194px;
+    max-width: 194px;
+    height: 194px;
+    z-index: 2;
+    /* background-color: red; */
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+`;
+const content = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 2;
+`;
+const title = styled__default["default"].p `
+    font-family: 'Work Sans';
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    color: #222222;
+
+    margin-top: 12px;
+`;
+const description = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: #222222;   
+`;
+const date = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: #222222;
+`;
+const controls = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 24px;
+    width: 100%;
+    margin-top: 24px;
+`;
+const navigationButton = styled__default["default"].button `
+    border: none;
+    background: none;
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+    &:hover{
+        color: ${({ theme }) => theme.colors.primary1};
+    }
+
+    &:active{
+        color: ${({ theme }) => theme.colors.primary3};
+    }
+`;
+const playButton = styled__default["default"].button `
+    border: none;
+    background: none;
+    color: ${({ theme }) => theme.colors.primary2};
+    &:hover{
+        color: ${({ theme }) => theme.colors.primary1};
+    }
+
+    &:active{
+        color: ${({ theme }) => theme.colors.primary3};
+    }
+`;
+const volumeControl = styled__default["default"].div `
+    position: absolute;
+    right: 0;
+`;
+const volume = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+`;
+const volumeBar = styled__default["default"].input `
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    border-radius: 1px;
+    box-sizing: border-box;
+    width: 32px;
+    height: 2px;
+    margin: 0px;
+    background: ${({ theme }) => theme.colors.neutralsGrey1};
+    background-image: linear-gradient(#ee4c15, #ee4c15);
+    background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
+    background-repeat: no-repeat;
+
+    &::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &:hover::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 5px;
+        height: 5px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 5px;
+        height: 5px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 5px;
+        height: 5px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &::-webkit-slider-runnable-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-moz-range-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-ms-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+`;
+const audioTimeline = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+`;
+const timeText = styled__default["default"].p `
+    font-family: 'PT Sans';
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #222222;
+
+`;
+const timeline = styled__default["default"].input `
+    appearance: none;
+    -webkit-appearance: none;
+    display: block;
+    border-radius: 2px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 4px;
+    margin: 0px;
+    background: ${({ theme }) => theme.colors.neutralsGrey1};
+    background-image: linear-gradient(#ee4c15, #ee4c15);
+    background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
+    background-repeat: no-repeat;
+
+    &::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &:hover::-webkit-slider-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-moz-range-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &:hover::-ms-thumb{
+        -webkit-appearance: none;
+        appearance: none;
+        width: 10px;
+        height: 10px;
+        border: none;
+        border-radius: 50%;
+        background: ${({ theme }) => theme.colors.primary2};
+    }
+
+    &::-webkit-slider-runnable-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-moz-range-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    &::-ms-track{
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+`;
+
+function AudioPlayer(props) {
+    const [isPlaying, setIsPlaying] = React.useState(false);
+    React.useState();
+    const [time, setTime] = React.useState({
+        min: 0,
+        sec: 0
+    });
+    const [currTime, setCurrTime] = React.useState({
+        min: 0,
+        sec: 0
+    });
+    const [seconds, setSeconds] = React.useState(0);
+    const [audioVolume, setAudioVolume] = React.useState(props.volume ? props.volume : 0.5);
+    const [play, { pause, duration, sound }] = useSound__default["default"](props.audio, { volume: audioVolume,
+        onend: () => {
+            console.log("Passou aqui 3");
+            setIsPlaying(false);
+            props.onEnded();
+        } });
+    //porcentagem percorrida da musica
+    const [percentagePlaytime, setPercentagePlaytime] = React.useState(0);
+    const defaultThumb = 'https://i.gyazo.com/f201e5ef302347108c31a2129104adc1.png';
+    React.useEffect(() => {
+        setAudioVolume(props.volume);
+    }, [props.volume]);
+    React.useEffect(() => {
+        console.log('isPlaying', isPlaying);
+    }, [isPlaying]);
+    React.useEffect(() => {
+        if (props.onProgress) {
+            console.log(isPlaying);
+            if (isPlaying) {
+                props.onProgress({
+                    loadedSeconds: duration / 1000,
+                    playedSeconds: sound.seek([])
+                });
+            }
+        }
+    }, [seconds]);
+    React.useEffect(() => {
+        if (duration) {
+            const sec = duration / 1000;
+            const min = Math.floor(sec / 60);
+            const secRemain = Math.floor(sec % 60);
+            setTime({
+                min: min,
+                sec: secRemain
+            });
+        }
+        const interval = setInterval(() => {
+            if (sound) {
+                if (!isPlaying && props.startAt && sound.seek([]) === 0) {
+                    setSeconds(props.startAt);
+                    sound.seek([props.startAt]);
+                }
+                setSeconds(sound.seek([]));
+                const min = Math.floor(sound.seek([]) / 60);
+                const sec = Math.floor(sound.seek([]) % 60);
+                setCurrTime({
+                    min,
+                    sec
+                });
+                setPercentagePlaytime(calcCurrentInputPercentage(0, duration / 1000, sound.seek([])));
+            }
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [sound]);
+    const playingButton = () => {
+        if (isPlaying) {
+            console.log("Passou aqui");
+            setIsPlaying(false);
+            pause();
+        }
+        else {
+            console.log("Passou aqui 2");
+            setIsPlaying(true);
+            play();
+        }
+    };
+    // função para calcular a porcentagem que foi percorrida a musica, para fazer o acompanhamento da barra
+    const calcCurrentInputPercentage = (valorMin, valorMax, valorAtual) => {
+        const min = valorMin;
+        const max = valorMax;
+        const val = valorAtual;
+        let result = (val - min) * 100 / (max - min);
+        return result;
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container$1, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : '' }, children: [jsxRuntime.jsx(containerMask, {}), jsxRuntime.jsx(thumb, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})` } }), jsxRuntime.jsxs(content, { style: { width: '100%' }, children: [jsxRuntime.jsxs(title, { children: [" ", props.title, " "] }), jsxRuntime.jsxs(description, { children: [" ", props.description, " "] }), jsxRuntime.jsxs(date, { children: [" ", props.date, " "] }), jsxRuntime.jsxs(controls, { children: [jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                        sound.seek([seconds ? seconds - 15 : 0]);
+                                    }, children: jsxRuntime.jsx(Back15, { fill: 'currentColor' }) }), !isPlaying ?
+                                    jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PlayIcon, { customColor_1: 'currentColor' }) })
+                                    :
+                                        jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PauseIcon, { customColor_1: 'currentColor' }) }), jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                        sound.seek([seconds ? seconds + 15 : 15]);
+                                    }, children: jsxRuntime.jsx(Foward15, { fill: 'currentColor' }) }), jsxRuntime.jsx(volumeControl, { children: audioVolume === 0 ?
+                                        jsxRuntime.jsx(volume, { onClick: () => {
+                                                setAudioVolume(0.1);
+                                            }, children: jsxRuntime.jsx(MuteIcon, {}) })
+                                        :
+                                            jsxRuntime.jsxs(volume, { children: [jsxRuntime.jsx("div", { onClick: () => {
+                                                            setAudioVolume(0);
+                                                        }, children: jsxRuntime.jsx(VolumeIcon, {}) }), jsxRuntime.jsx(volumeBar, { type: 'range', min: '0', max: '1', value: audioVolume, className: 'volumeBar', step: '0.1', onChange: (e) => {
+                                                            setAudioVolume(Number(e.target.value));
+                                                        }, currentInputValue: calcCurrentInputPercentage(0, 1, audioVolume) })] }) })] }), jsxRuntime.jsxs(audioTimeline, { children: [jsxRuntime.jsxs(timeText, { children: [currTime.min.toString().padStart(2, '0'), ":", currTime.sec.toString().padStart(2, '0')] }), jsxRuntime.jsx(timeline, { type: "range", min: "0", max: duration / 1000, value: seconds, className: "timeline", onChange: (e) => {
+                                        sound.seek([e.target.value]);
+                                    }, currentInputValue: percentagePlaytime }), jsxRuntime.jsxs(timeText, { children: [time.min.toString().padStart(2, '0'), ":", time.sec.toString().padStart(2, '0')] })] })] })] }) }));
+}
+
+var imgSeta = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYzIiBoZWlnaHQ9IjI2MyIgdmlld0JveD0iMCAwIDk2MyAyNjMiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMjE2LjE5MyA5Ny4wOTAxQzIxNi4yMTUgOTcuMDQ5NiAyMTYuMjM2IDk3LjAwOSAyMTYuMjU3IDk2Ljk2ODNDMjE2LjI4NCA5Ni45MjI2IDIxNi4zMTEgOTYuODc2NSAyMTYuMzM3IDk2LjgzQzIyMS40ODkgODcuNjQ3MSAyMjguODg4IDc5Ljg4MyAyMzcuODc3IDc0LjI4OEMyNDguNDAxIDY3LjczNzIgMjYwLjYzMiA2NC40NTQyIDI3My4wMjIgNjQuODU0NEMyODUuNDEyIDY1LjI1NDUgMjk3LjQwNSA2OS4zMTk3IDMwNy40ODUgNzYuNTM2QzMxNC44MjQgODEuNzkwNSAzMjAuOTA5IDg4LjU0MzggMzI1LjM2MyA5Ni4zMDU1QzMyNS40NjEgOTYuNTkxMiAzMjUuNTg0IDk2Ljg3MjYgMzI1LjczMiA5Ny4xNDY4QzMyNy44OTQgMTAxLjEyOCAzMzAuMDQ2IDEwNi41NTggMzMyLjQwMSAxMTMuMDdDMzMzLjMzNSAxMTUuNjUxIDMzNC4zMTggMTE4LjQ1NSAzMzUuMzQgMTIxLjM3TDMzNS4zNDEgMTIxLjM3MUMzMzYuODA2IDEyNS41NDkgMzM4LjM1MSAxMjkuOTU1IDMzOS45NDQgMTM0LjI1OUMzNDUuMzk4IDE0OSAzNTIuMjU5IDE2NS4wMDcgMzYyLjI0MyAxNzYuMTY1QzM2Mi40ODcgMTc2LjQzOCAzNjIuNzUyIDE3Ni42OCAzNjMuMDMzIDE3Ni44OTFDMzY1Ljg1NyAxNzkuOTI5IDM2OC45NDQgMTgyLjczNSAzNzIuMjY5IDE4NS4yNzRDMzgzLjQzIDE5My43OTYgMzk2Ljc5OSAxOTguOTQyIDQxMC43OTQgMjAwLjEwNEM0MjQuNzg5IDIwMS4yNjUgNDM4LjgyNCAxOTguMzkzIDQ1MS4yMzcgMTkxLjgyN0M0NjIuMDY5IDE4Ni4wOTggNDcxLjI3IDE3Ny43NjcgNDc4LjAzNCAxNjcuNjE3QzQ3OS42NzUgMTY1LjE1NSA0NzguNzUzIDE2MS44NzQgNDc2LjE3OCAxNjAuNDE3QzQ3My42MDMgMTU4Ljk2IDQ3MC4zNTQgMTU5Ljg4MiA0NjguNjgyIDE2Mi4zMjNDNDYyLjk0OCAxNzAuNyA0NTUuMjUgMTc3LjU4NiA0NDYuMjI4IDE4Mi4zNTdDNDM1LjYyNCAxODcuOTY2IDQyMy42MzUgMTkwLjQxOSA0MTEuNjggMTg5LjQyN0MzOTkuNzI1IDE4OC40MzUgMzg4LjMwNSAxODQuMDM5IDM3OC43NyAxNzYuNzU5QzM3NS44OSAxNzQuNTYgMzczLjIxOCAxNzIuMTI1IDM3MC43NzggMTY5LjQ4N0MzNzAuNjQ1IDE2OS4yOTIgMzcwLjQ5OCAxNjkuMTA0IDM3MC4zMzcgMTY4LjkyNEMzNjEuODU4IDE1OS40NDggMzU1LjU3NiAxNDUuMjExIDM1MC4xMjkgMTMwLjQ5QzM0OC41MzQgMTI2LjE4IDM0Ny4wODEgMTIyLjAzMyAzNDUuNjY0IDExNy45OUwzNDUuNjYzIDExNy45ODdDMzQ0LjY0MSAxMTUuMDcgMzQzLjYzOCAxMTIuMjA3IDM0Mi42MTQgMTA5LjM3NkMzNDEuMTE3IDEwNS4yMzggMzM5LjYxIDEwMS4yNjUgMzM4LjA0NyA5Ny42OTY3QzMzNy45NzIgOTcuMzI0NSAzMzcuODUyIDk2Ljk1MzkgMzM3LjY4NCA5Ni41OTA3QzMzMi4zNTcgODUuMDk3NyAzMjQuMTM0IDc1LjE0NjUgMzEzLjc4NSA2Ny43MzY5QzMwMS45NjUgNTkuMjc0NyAyODcuOTAxIDU0LjUwNzUgMjczLjM3MSA1NC4wMzgzQzI1OC44NDIgNTMuNTY5MSAyNDQuNSA1Ny40MTg4IDIzMi4xNTggNjUuMTAwOEMyMjEuNjkzIDcxLjYxNDkgMjEzLjA2NSA4MC42MzY2IDIwNy4wMjkgOTEuMzA0NkMyMDYuODkxIDkxLjQ5NSAyMDYuNzY0IDkxLjY5NjUgMjA2LjY0OCA5MS45MDg3QzIwNC4wNTcgOTYuNjgyNSAyMDEuNjY0IDEwMi44MzggMTk5LjI5NyAxMDkuNDE3QzE5OC4yNjEgMTEyLjI5NyAxOTcuMjQ4IDExNS4yMDcgMTk2LjIxNCAxMTguMTc0TDE5Ni4yMTQgMTE4LjE3NUwxOTYuMjE0IDExOC4xNzVDMTk0LjggMTIyLjIzMyAxOTMuMzUxIDEyNi4zOTYgMTkxLjc1NyAxMzAuNzI5QzE4Ni4yODkgMTQ1LjYgMTc5Ljk5IDE1OS45NjggMTcxLjUxOCAxNjkuNDM2QzE3MS4zNTcgMTY5LjYxNiAxNzEuMjEgMTY5LjgwNCAxNzEuMDc3IDE2OS45OTlDMTY4LjYzOCAxNzIuNjM3IDE2NS45NjUgMTc1LjA3MiAxNjMuMDg1IDE3Ny4yNzFDMTUzLjU1IDE4NC41NTEgMTQyLjEzIDE4OC45NDcgMTMwLjE3NSAxODkuOTRDMTE4LjIyIDE5MC45MzIgMTA2LjIzMSAxODguNDc4IDk1LjYyNjUgMTgyLjg2OUM4Ni42MDUxIDE3OC4wOTggNzguOTA3MyAxNzEuMjEzIDczLjE3MjUgMTYyLjgzNUM3MS41MDEzIDE2MC4zOTQgNjguMjUxNCAxNTkuNDczIDY1LjY3NjcgMTYwLjkzQzYzLjEwMTkgMTYyLjM4NyA2Mi4xNzk4IDE2NS42NjggNjMuODIwNSAxNjguMTNDNzAuNTg0NiAxNzguMjc5IDc5Ljc4NjIgMTg2LjYxMSA5MC42MTc1IDE5Mi4zNEMxMDMuMDMxIDE5OC45MDUgMTE3LjA2NiAyMDEuNzc4IDEzMS4wNjEgMjAwLjYxNkMxNDUuMDU2IDE5OS40NTUgMTU4LjQyNSAxOTQuMzA5IDE2OS41ODYgMTg1Ljc4NkMxNzIuOTExIDE4My4yNDggMTc1Ljk5OCAxODAuNDQyIDE3OC44MjEgMTc3LjQwNEMxNzkuMTAzIDE3Ny4xOTIgMTc5LjM2OCAxNzYuOTUgMTc5LjYxMiAxNzYuNjc4QzE4OS42MDMgMTY1LjUxMiAxOTYuNDgxIDE0OS4zNTEgMjAxLjk1IDEzNC40NzdDMjAzLjUzOCAxMzAuMTU5IDIwNS4wODEgMTI1LjczMiAyMDYuNTQ0IDEyMS41MzRMMjA2LjU0NSAxMjEuNTMzTDIwNi41NDUgMTIxLjUzM0MyMDcuNTc5IDExOC41NjYgMjA4LjU3NCAxMTUuNzEzIDIwOS41MTYgMTEzLjA5M0MyMTEuODc4IDEwNi41MjYgMjE0LjAzNCAxMDEuMDY2IDIxNi4xOTMgOTcuMDkwMVoiIGZpbGw9InVybCgjcGFpbnQwX2xpbmVhcl8yNzNfMjUyNTYpIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMzU3LjY3NyA5Ni45NDQzQzM1NS4xMDIgOTUuNDg3MiAzNTQuMTggOTIuMjA2IDM1NS44MiA4OS43NDQyQzM2MS4zNDEgODEuNDYwMyAzNjguNDk5IDc0LjM2OCAzNzYuODcyIDY4LjkxNTFDMzg2Ljc0NCA2Mi40ODU4IDM5OC4wMTggNTguNTIzOSA0MDkuNzQyIDU3LjM2MzRDNDIxLjQ2NiA1Ni4yMDI4IDQzMy4yOTcgNTcuODc3NSA0NDQuMjM4IDYyLjI0NjRDNDUyLjcxNCA2NS42MzA4IDQ2MC40NjMgNzAuNTU1MSA0NjcuMTA1IDc2Ljc0NzZMNDczLjc4OSA3MC45MTU5TDQ3OC43NDcgOTYuMTc4Mkw0NTQuMzkgODcuODQwM0w0NTguOTgyIDgzLjgzNDZDNDUzLjQ5MyA3OC44OTU2IDQ0Ny4xNjEgNzQuOTQ5MiA0NDAuMjY1IDcyLjE5NTlDNDMwLjkxOSA2OC40NjM4IDQyMC44MTIgNjcuMDMzMiA0MTAuNzk3IDY4LjAyNDZDNDAwLjc4MiA2OS4wMTYgMzkxLjE1MiA3Mi40MDA0IDM4Mi43MTggNzcuODkyNkMzNzUuNzg1IDgyLjQwODEgMzY5LjgyNyA4OC4yMzk1IDM2NS4xNzIgOTUuMDM4NkMzNjMuNTAxIDk3LjQ3OTggMzYwLjI1MSA5OC40MDEzIDM1Ny42NzcgOTYuOTQ0M1oiIGZpbGw9InVybCgjcGFpbnQxX2xpbmVhcl8yNzNfMjUyNTYpIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNjUuNjc2NyA5Ni45NDQzQzYzLjEwMiA5NS40ODcyIDYyLjE3OTggOTIuMjA2IDYzLjgyMDUgODkuNzQ0MkM2OS4zNDEzIDgxLjQ2MDMgNzYuNDk4NyA3NC4zNjggODQuODcxOSA2OC45MTUxQzk0Ljc0NDMgNjIuNDg1OCAxMDYuMDE4IDU4LjUyMzkgMTE3Ljc0MiA1Ny4zNjM0QzEyOS40NjYgNTYuMjAyOCAxNDEuMjk3IDU3Ljg3NzUgMTUyLjIzOCA2Mi4yNDY1QzE2MC43MTQgNjUuNjMwOCAxNjguNDYzIDcwLjU1NTEgMTc1LjEwNSA3Ni43NDc2TDE4MS43ODkgNzAuOTE1OUwxODYuNzQ3IDk2LjE3ODJMMTYyLjM5IDg3Ljg0MDNMMTY2Ljk4MSA4My44MzQ2QzE2MS40OTMgNzguODk1NiAxNTUuMTYxIDc0Ljk0OTMgMTQ4LjI2NSA3Mi4xOTU5QzEzOC45MTkgNjguNDYzOCAxMjguODEyIDY3LjAzMzIgMTE4Ljc5NyA2OC4wMjQ2QzEwOC43ODIgNjkuMDE2IDk5LjE1MTcgNzIuNDAwNCA5MC43MTgzIDc3Ljg5MjZDODMuNzg0NiA4Mi40MDgxIDc3LjgyNjggODguMjM5NiA3My4xNzI0IDk1LjAzODZDNzEuNTAxMyA5Ny40Nzk4IDY4LjI1MTQgOTguNDAxMyA2NS42NzY3IDk2Ljk0NDNaIiBmaWxsPSJ1cmwoI3BhaW50Ml9saW5lYXJfMjczXzI1MjU2KSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTY0OS42NzcgOTYuOTQ0M0M2NDcuMTAyIDk1LjQ4NzIgNjQ2LjE4IDkyLjIwNiA2NDcuODIgODkuNzQ0MkM2NTMuMzQxIDgxLjQ2MDMgNjYwLjQ5OSA3NC4zNjggNjY4Ljg3MiA2OC45MTUxQzY3OC43NDQgNjIuNDg1OCA2OTAuMDE4IDU4LjUyMzkgNzAxLjc0MiA1Ny4zNjM0QzcxMy40NjYgNTYuMjAyOCA3MjUuMjk3IDU3Ljg3NzUgNzM2LjIzOCA2Mi4yNDY1Qzc0NC43MTQgNjUuNjMwOSA3NTIuNDYzIDcwLjU1NTIgNzU5LjEwNSA3Ni43NDc3TDc2NS43ODkgNzAuOTE2TDc3MC43NDcgOTYuMTc4NEw3NDYuMzkgODcuODQwNUw3NTAuOTgyIDgzLjgzNDdDNzQ1LjQ5MyA3OC44OTU3IDczOS4xNjEgNzQuOTQ5MyA3MzIuMjY1IDcyLjE5NTlDNzIyLjkxOSA2OC40NjM4IDcxMi44MTIgNjcuMDMzMiA3MDIuNzk3IDY4LjAyNDZDNjkyLjc4MiA2OS4wMTYgNjgzLjE1MiA3Mi40MDA0IDY3NC43MTggNzcuODkyNkM2NjcuNzg1IDgyLjQwODEgNjYxLjgyNyA4OC4yMzk2IDY1Ny4xNzIgOTUuMDM4NkM2NTUuNTAxIDk3LjQ3OTggNjUyLjI1MSA5OC40MDEzIDY0OS42NzcgOTYuOTQ0M1oiIGZpbGw9InVybCgjcGFpbnQzX2xpbmVhcl8yNzNfMjUyNTYpIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNTAzLjY3NyAxNjQuNzA0QzUwMS4xMDIgMTY2LjE2MSA1MDAuMTggMTY5LjQ0MiA1MDEuODIgMTcxLjkwNEM1MDcuMzQxIDE4MC4xODggNTE0LjQ5OSAxODcuMjggNTIyLjg3MiAxOTIuNzMzQzUzMi43NDQgMTk5LjE2MyA1NDQuMDE4IDIwMy4xMjUgNTU1Ljc0MiAyMDQuMjg1QzU2Ny40NjYgMjA1LjQ0NiA1NzkuMjk3IDIwMy43NzEgNTkwLjIzOCAxOTkuNDAyQzU5OC43MTQgMTk2LjAxOCA2MDYuNDYzIDE5MS4wOTMgNjEzLjEwNSAxODQuOTAxTDYxOS43ODkgMTkwLjczM0w2MjQuNzQ3IDE2NS40N0w2MDAuMzkgMTczLjgwOEw2MDQuOTgyIDE3Ny44MTRDNTk5LjQ5MyAxODIuNzUzIDU5My4xNjEgMTg2LjY5OSA1ODYuMjY1IDE4OS40NTNDNTc2LjkxOSAxOTMuMTg1IDU2Ni44MTIgMTk0LjYxNSA1NTYuNzk3IDE5My42MjRDNTQ2Ljc4MiAxOTIuNjMyIDUzNy4xNTIgMTg5LjI0OCA1MjguNzE4IDE4My43NTZDNTIxLjc4NSAxNzkuMjQgNTE1LjgyNyAxNzMuNDA5IDUxMS4xNzIgMTY2LjYxQzUwOS41MDEgMTY0LjE2OSA1MDYuMjUxIDE2My4yNDcgNTAzLjY3NyAxNjQuNzA0WiIgZmlsbD0idXJsKCNwYWludDRfbGluZWFyXzI3M18yNTI1NikiLz4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yMTEuNjc3IDE2NC43MDRDMjA5LjEwMiAxNjYuMTYxIDIwOC4xOCAxNjkuNDQyIDIwOS44MiAxNzEuOTA0QzIxNS4zNDEgMTgwLjE4OCAyMjIuNDk5IDE4Ny4yOCAyMzAuODcyIDE5Mi43MzNDMjQwLjc0NCAxOTkuMTYzIDI1Mi4wMTggMjAzLjEyNCAyNjMuNzQyIDIwNC4yODVDMjc1LjQ2NiAyMDUuNDQ2IDI4Ny4yOTcgMjAzLjc3MSAyOTguMjM4IDE5OS40MDJDMzA2LjcxNCAxOTYuMDE4IDMxNC40NjMgMTkxLjA5MyAzMjEuMTA1IDE4NC45MDFMMzI3Ljc4OSAxOTAuNzMzTDMzMi43NDcgMTY1LjQ3TDMwOC4zOSAxNzMuODA4TDMxMi45ODIgMTc3LjgxNEMzMDcuNDkzIDE4Mi43NTMgMzAxLjE2MSAxODYuNjk5IDI5NC4yNjUgMTg5LjQ1MkMyODQuOTE5IDE5My4xODUgMjc0LjgxMiAxOTQuNjE1IDI2NC43OTcgMTkzLjYyNEMyNTQuNzgyIDE5Mi42MzIgMjQ1LjE1MiAxODkuMjQ4IDIzNi43MTggMTgzLjc1NkMyMjkuNzg1IDE3OS4yNCAyMjMuODI3IDE3My40MDkgMjE5LjE3MiAxNjYuNjFDMjE3LjUwMSAxNjQuMTY5IDIxNC4yNTEgMTYzLjI0NyAyMTEuNjc3IDE2NC43MDRaIiBmaWxsPSJ1cmwoI3BhaW50NV9saW5lYXJfMjczXzI1MjU2KSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTc5NS42NzcgMTY0LjcwNEM3OTMuMTAyIDE2Ni4xNjEgNzkyLjE4IDE2OS40NDIgNzkzLjgyIDE3MS45MDRDNzk5LjM0MSAxODAuMTg4IDgwNi40OTkgMTg3LjI4IDgxNC44NzIgMTkyLjczM0M4MjQuNzQ0IDE5OS4xNjMgODM2LjAxOCAyMDMuMTI0IDg0Ny43NDIgMjA0LjI4NUM4NTkuNDY2IDIwNS40NDYgODcxLjI5NyAyMDMuNzcxIDg4Mi4yMzggMTk5LjQwMkM4OTAuNzE0IDE5Ni4wMTggODk4LjQ2MyAxOTEuMDkzIDkwNS4xMDUgMTg0LjkwMUw5MTEuNzg5IDE5MC43MzJMOTE2Ljc0NyAxNjUuNDdMODkyLjM5IDE3My44MDhMODk2Ljk4MiAxNzcuODE0Qzg5MS40OTMgMTgyLjc1MyA4ODUuMTYxIDE4Ni42OTkgODc4LjI2NSAxODkuNDUyQzg2OC45MTkgMTkzLjE4NSA4NTguODEyIDE5NC42MTUgODQ4Ljc5NyAxOTMuNjI0QzgzOC43ODIgMTkyLjYzMiA4MjkuMTUyIDE4OS4yNDggODIwLjcxOCAxODMuNzU2QzgxMy43ODUgMTc5LjI0IDgwNy44MjcgMTczLjQwOSA4MDMuMTcyIDE2Ni42MUM4MDEuNTAxIDE2NC4xNjkgNzk4LjI1MSAxNjMuMjQ3IDc5NS42NzcgMTY0LjcwNFoiIGZpbGw9InVybCgjcGFpbnQ2X2xpbmVhcl8yNzNfMjUyNTYpIi8+CjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNTA4LjE5MyA5Ny4wOTAxQzUwOC4yMTUgOTcuMDQ5NSA1MDguMjM2IDk3LjAwODkgNTA4LjI1NyA5Ni45NjhDNTA4LjI2OCA5Ni45NSA1MDguMjc5IDk2LjkzMTggNTA4LjI4OSA5Ni45MTM3QzUwOC4zMDUgOTYuODg1OSA1MDguMzIxIDk2Ljg1OCA1MDguMzM3IDk2LjgzQzUxMy40ODkgODcuNjQ3MSA1MjAuODg4IDc5Ljg4MyA1MjkuODc3IDc0LjI4OEM1NDAuNDAxIDY3LjczNzIgNTUyLjYzMiA2NC40NTQyIDU2NS4wMjIgNjQuODU0NEM1NzcuNDEyIDY1LjI1NDUgNTg5LjQwNSA2OS4zMTk3IDU5OS40ODUgNzYuNTM2QzYwNi44MjQgODEuNzkwNSA2MTIuOTA5IDg4LjU0MzcgNjE3LjM2MyA5Ni4zMDU0QzYxNy40NjEgOTYuNTkxMSA2MTcuNTgzIDk2Ljg3MjYgNjE3LjczMiA5Ny4xNDY4QzYxOS44OTQgMTAxLjEyOCA2MjIuMDQ2IDEwNi41NTggNjI0LjQwMSAxMTMuMDdDNjI1LjMzNSAxMTUuNjUxIDYyNi4zMTggMTE4LjQ1NSA2MjcuMzQgMTIxLjM3TDYyNy4zNDEgMTIxLjM3MUM2MjguODA2IDEyNS41NDkgNjMwLjM1MSAxMjkuOTU1IDYzMS45NDQgMTM0LjI1OUM2MzcuMzk4IDE0OSA2NDQuMjU5IDE2NS4wMDcgNjU0LjI0MyAxNzYuMTY1QzY1NC40ODcgMTc2LjQzOCA2NTQuNzUyIDE3Ni42OCA2NTUuMDMzIDE3Ni44OTFDNjU3Ljg1NyAxNzkuOTI5IDY2MC45NDQgMTgyLjczNSA2NjQuMjY5IDE4NS4yNzRDNjc1LjQzIDE5My43OTYgNjg4Ljc5OSAxOTguOTQyIDcwMi43OTQgMjAwLjEwNEM3MTYuNzg5IDIwMS4yNjUgNzMwLjgyNCAxOTguMzkzIDc0My4yMzcgMTkxLjgyN0M3NTQuMDY5IDE4Ni4wOTggNzYzLjI3IDE3Ny43NjcgNzcwLjAzNCAxNjcuNjE3Qzc3MS42NzUgMTY1LjE1NSA3NzAuNzUzIDE2MS44NzQgNzY4LjE3OCAxNjAuNDE3Qzc2NS42MDMgMTU4Ljk2IDc2Mi4zNTQgMTU5Ljg4MiA3NjAuNjgyIDE2Mi4zMjNDNzU0Ljk0OCAxNzAuNyA3NDcuMjUgMTc3LjU4NiA3MzguMjI4IDE4Mi4zNTdDNzI3LjYyNCAxODcuOTY2IDcxNS42MzUgMTkwLjQxOSA3MDMuNjggMTg5LjQyN0M2OTEuNzI1IDE4OC40MzUgNjgwLjMwNSAxODQuMDM5IDY3MC43NyAxNzYuNzU5QzY2Ny44OSAxNzQuNTYgNjY1LjIxOCAxNzIuMTI1IDY2Mi43NzggMTY5LjQ4N0M2NjIuNjQ1IDE2OS4yOTIgNjYyLjQ5OCAxNjkuMTA0IDY2Mi4zMzcgMTY4LjkyNEM2NTMuODU4IDE1OS40NDggNjQ3LjU3NiAxNDUuMjExIDY0Mi4xMjkgMTMwLjQ5QzY0MC41MzQgMTI2LjE4IDYzOS4wODEgMTIyLjAzMyA2MzcuNjY0IDExNy45OUw2MzcuNjYzIDExNy45ODdDNjM2LjY0MSAxMTUuMDcgNjM1LjYzOCAxMTIuMjA3IDYzNC42MTQgMTA5LjM3NkM2MzMuMTE3IDEwNS4yMzggNjMxLjYxIDEwMS4yNjYgNjMwLjA0NyA5Ny42OTY4QzYyOS45NzIgOTcuMzI0NiA2MjkuODUyIDk2Ljk1MzkgNjI5LjY4NCA5Ni41OTA3QzYyNC4zNTcgODUuMDk3NyA2MTYuMTM0IDc1LjE0NjUgNjA1Ljc4NSA2Ny43MzY5QzU5My45NjUgNTkuMjc0NyA1NzkuOTAxIDU0LjUwNzUgNTY1LjM3MSA1NC4wMzgzQzU1MC44NDIgNTMuNTY5MSA1MzYuNSA1Ny40MTg4IDUyNC4xNTggNjUuMTAwOEM1MTMuNjkzIDcxLjYxNSA1MDUuMDY1IDgwLjYzNjcgNDk5LjAyOSA5MS4zMDQ4QzQ5OC44OTEgOTEuNDk1MSA0OTguNzY0IDkxLjY5NjUgNDk4LjY0OCA5MS45MDg4QzQ5Ni4wNTcgOTYuNjgyNSA0OTMuNjY0IDEwMi44MzggNDkxLjI5NyAxMDkuNDE3QzQ5MC4yNjIgMTEyLjI5NiA0ODkuMjQ4IDExNS4yMDUgNDg4LjIxNSAxMTguMTcxTDQ4OC4yMTQgMTE4LjE3NEw0ODguMjE0IDExOC4xNzVMNDg4LjIxNCAxMTguMTc1TDQ4OC4yMTQgMTE4LjE3NUw0ODguMjEzIDExOC4xNzZDNDg2LjggMTIyLjIzMyA0ODUuMzUgMTI2LjM5NiA0ODMuNzU3IDEzMC43MjlDNDc4LjI4OSAxNDUuNiA0NzEuOTkgMTU5Ljk2OCA0NjMuNTE4IDE2OS40MzZDNDYzLjM1NyAxNjkuNjE3IDQ2My4yMSAxNjkuODA1IDQ2My4wNzcgMTY5Ljk5OUM0NjAuNjM3IDE3Mi42MzcgNDU3Ljk2NSAxNzUuMDcyIDQ1NS4wODUgMTc3LjI3MUM0NDUuNTUgMTg0LjU1MSA0MzQuMTMgMTg4Ljk0OCA0MjIuMTc1IDE4OS45NEM0MTAuMjIgMTkwLjkzMiAzOTguMjMxIDE4OC40NzggMzg3LjYyNiAxODIuODdDMzc4LjYwNSAxNzguMDk4IDM3MC45MDcgMTcxLjIxMyAzNjUuMTcyIDE2Mi44MzVDMzYzLjUwMSAxNjAuMzk0IDM2MC4yNTEgMTU5LjQ3MyAzNTcuNjc3IDE2MC45M0MzNTUuMTAyIDE2Mi4zODcgMzU0LjE4IDE2NS42NjggMzU1LjgyIDE2OC4xM0MzNjIuNTg1IDE3OC4yNzkgMzcxLjc4NiAxODYuNjExIDM4Mi42MTggMTkyLjM0QzM5NS4wMzEgMTk4LjkwNiA0MDkuMDY2IDIwMS43NzggNDIzLjA2MSAyMDAuNjE2QzQzNy4wNTYgMTk5LjQ1NSA0NTAuNDI1IDE5NC4zMDkgNDYxLjU4NiAxODUuNzg2QzQ2NC45MTEgMTgzLjI0OCA0NjcuOTk4IDE4MC40NDIgNDcwLjgyMiAxNzcuNDA0QzQ3MS4xMDMgMTc3LjE5MiA0NzEuMzY4IDE3Ni45NSA0NzEuNjEyIDE3Ni42NzhDNDgxLjYwMyAxNjUuNTEyIDQ4OC40ODEgMTQ5LjM1MSA0OTMuOTUgMTM0LjQ3N0M0OTUuNTM4IDEzMC4xNTkgNDk3LjA4MSAxMjUuNzMyIDQ5OC41NDQgMTIxLjUzNEw0OTguNTQ1IDEyMS41MzNDNDk5LjU3OSAxMTguNTY2IDUwMC41NzQgMTE1LjcxMyA1MDEuNTE2IDExMy4wOTNDNTAzLjg3OCAxMDYuNTI2IDUwNi4wMzQgMTAxLjA2NiA1MDguMTkzIDk3LjA5MDFaIiBmaWxsPSJ1cmwoI3BhaW50N19saW5lYXJfMjczXzI1MjU2KSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTgwMC4xOTMgOTcuMDkwMUM4MDAuMjE1IDk3LjA0OTggODAwLjIzNiA5Ny4wMDk0IDgwMC4yNTcgOTYuOTY4OEM4MDAuMjY3IDk2Ljk1MiA4MDAuMjc3IDk2LjkzNTEgODAwLjI4NyA5Ni45MTgyQzgwMC4zMDQgOTYuODg5IDgwMC4zMiA5Ni44NTk2IDgwMC4zMzcgOTYuODMwMUM4MDQuNzcyIDg4LjkyNDggODEwLjg4MSA4Mi4wNTU5IDgxOC4yNiA3Ni43MTc2QzgyNy4xMDQgNzAuMzE5NSA4MzcuNDY2IDY2LjM0MTkgODQ4LjMxOSA2NS4xNzg2Qzg1OS4xNzMgNjQuMDE1NCA4NzAuMTQyIDY1LjcwNjggODgwLjE0MSA3MC4wODU0Qzg4Ny40MDIgNzMuMjY0OSA4OTMuOTY4IDc3Ljc4MTIgODk5LjUxMSA4My4zNzI0TDg5NC4zOSA4Ny44NEw5MTguNzQ3IDk2LjE3NzlMOTEzLjc4OSA3MC45MTU2TDkwNy42OCA3Ni4yNDU4QzkwMS4wNzkgNjkuNDYxOCA4OTMuMjA4IDYzLjk5MzggODg0LjQ4MiA2MC4xNzI1Qzg3Mi43NTcgNTUuMDM3OSA4NTkuODk0IDUzLjA1NDUgODQ3LjE2NiA1NC40MTg2QzgzNC40MzkgNTUuNzgyNyA4MjIuMjg4IDYwLjQ0NyA4MTEuOTE3IDY3Ljk0OThDODAzLjMzNiA3NC4xNTc5IDc5Ni4yMiA4Mi4xMzEyIDc5MS4wMjkgOTEuMzA0NEM3OTAuODkxIDkxLjQ5NDggNzkwLjc2NCA5MS42OTY0IDc5MC42NDggOTEuOTA4N0M3ODguMDU3IDk2LjY4MjUgNzg1LjY2NCAxMDIuODM4IDc4My4yOTcgMTA5LjQxN0M3ODIuMjYyIDExMi4yOTYgNzgxLjI0OCAxMTUuMjA1IDc4MC4yMTUgMTE4LjE3TDc4MC4yMTQgMTE4LjE3NUw3ODAuMjEzIDExOC4xNzdMNzgwLjIxMSAxMTguMTgyQzc3OC43OTkgMTIyLjIzOCA3NzcuMzUgMTI2LjM5OCA3NzUuNzU3IDEzMC43MjlDNzcwLjI4OSAxNDUuNiA3NjMuOTkgMTU5Ljk2OCA3NTUuNTE4IDE2OS40MzZDNzU1LjM1NyAxNjkuNjE3IDc1NS4yMSAxNjkuODA1IDc1NS4wNzcgMTY5Ljk5OUM3NTIuNjM3IDE3Mi42MzcgNzQ5Ljk2NSAxNzUuMDcyIDc0Ny4wODUgMTc3LjI3MUM3MzcuNTUgMTg0LjU1MSA3MjYuMTMgMTg4Ljk0OCA3MTQuMTc1IDE4OS45NEM3MDIuMjIgMTkwLjkzMiA2OTAuMjMxIDE4OC40NzggNjc5LjYyNiAxODIuODdDNjcwLjYwNSAxNzguMDk4IDY2Mi45MDcgMTcxLjIxMyA2NTcuMTcyIDE2Mi44MzVDNjU1LjUwMSAxNjAuMzk0IDY1Mi4yNTEgMTU5LjQ3MyA2NDkuNjc3IDE2MC45M0M2NDcuMTAyIDE2Mi4zODcgNjQ2LjE4IDE2NS42NjggNjQ3LjgyIDE2OC4xM0M2NTQuNTg1IDE3OC4yNzkgNjYzLjc4NiAxODYuNjExIDY3NC42MTggMTkyLjM0QzY4Ny4wMzEgMTk4LjkwNiA3MDEuMDY2IDIwMS43NzggNzE1LjA2MSAyMDAuNjE2QzcyOS4wNTYgMTk5LjQ1NSA3NDIuNDI1IDE5NC4zMDkgNzUzLjU4NiAxODUuNzg2Qzc1Ni45MTEgMTgzLjI0OCA3NTkuOTk4IDE4MC40NDIgNzYyLjgyMiAxNzcuNDA0Qzc2My4xMDMgMTc3LjE5MiA3NjMuMzY4IDE3Ni45NSA3NjMuNjEyIDE3Ni42NzhDNzczLjYwMyAxNjUuNTEyIDc4MC40ODEgMTQ5LjM1MSA3ODUuOTUgMTM0LjQ3N0M3ODcuNTM3IDEzMC4xNjIgNzg5LjA3OCAxMjUuNzQgNzkwLjU0MSAxMjEuNTQ1TDc5MC41NDMgMTIxLjU0TDc5MC41NDUgMTIxLjUzNEw3OTAuNTQ1IDEyMS41MzNDNzkxLjU3OSAxMTguNTY2IDc5Mi41NzQgMTE1LjcxMyA3OTMuNTE2IDExMy4wOTNDNzk1Ljg3OCAxMDYuNTI2IDc5OC4wMzQgMTAxLjA2NiA4MDAuMTkzIDk3LjA5MDFaIiBmaWxsPSJ1cmwoI3BhaW50OF9saW5lYXJfMjczXzI1MjU2KSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzI3M18yNTI1NiIgeDE9IjM0OC41IiB5MT0iNTQiIHgyPSI2NS44MzU4IiB5Mj0iMTU0LjY0NSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjxzdG9wIG9mZnNldD0iMC4yMjA0NTIiIHN0b3AtY29sb3I9IiNGMjY4MTgiLz4KPHN0b3Agb2Zmc2V0PSIwLjU2NDk4IiBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjxzdG9wIG9mZnNldD0iMC45NDI5NTYiIHN0b3AtY29sb3I9IiNGMjY4MTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDFfbGluZWFyXzI3M18yNTI1NiIgeDE9IjQ2NCIgeTE9Ijk4LjAwMDIiIHgyPSIzNDkiIHkyPSI5OC4wMDAyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGNDZFMUQiLz4KPHN0b3Agb2Zmc2V0PSIwLjU3NTE5NyIgc3RvcC1jb2xvcj0iI0ZGOTkzNCIvPgo8c3RvcCBvZmZzZXQ9IjAuODY1ODI0IiBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQyX2xpbmVhcl8yNzNfMjUyNTYiIHgxPSIxOTEiIHkxPSI5OC4wMDAyIiB4Mj0iMzYiIHkyPSI5OC4wMDAyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIG9mZnNldD0iMC4xNzY1MDkiIHN0b3AtY29sb3I9IiNGMjY4MTgiLz4KPHN0b3Agb2Zmc2V0PSIwLjQ2MjgyNSIgc3RvcC1jb2xvcj0iI0ZGOTkzNCIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGRjk5MzQiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDNfbGluZWFyXzI3M18yNTI1NiIgeDE9Ijc3MSIgeTE9Ijk4LjAwMDUiIHgyPSI2MjcuNSIgeTI9IjEwMi41IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIG9mZnNldD0iMC4xMjM3MTUiIHN0b3AtY29sb3I9IiNGMjY4MTgiLz4KPHN0b3Agb2Zmc2V0PSIwLjU5NzA2MiIgc3RvcC1jb2xvcj0iI0ZGOTkzNCIvPgo8c3RvcCBvZmZzZXQ9IjAuOTE5MzUyIiBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQ0X2xpbmVhcl8yNzNfMjUyNTYiIHgxPSI0ODgiIHkxPSIyMDUiIHgyPSI2MzAuNSIgeTI9IjIwNSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjRkU5MzNDIi8+CjxzdG9wIG9mZnNldD0iMC41NTUzODYiIHN0b3AtY29sb3I9IiNGRjk5MzQiLz4KPHN0b3Agb2Zmc2V0PSIwLjk1ODE4NCIgc3RvcC1jb2xvcj0iI0YyNjgxOCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8bGluZWFyR3JhZGllbnQgaWQ9InBhaW50NV9saW5lYXJfMjczXzI1MjU2IiB4MT0iMjA5IiB5MT0iMjA1IiB4Mj0iMzI1IiB5Mj0iMjA1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRTkzM0MiLz4KPHN0b3Agb2Zmc2V0PSIwLjUxNDI5OCIgc3RvcC1jb2xvcj0iI0ZFOTMzQyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNGMjY4MTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDZfbGluZWFyXzI3M18yNTI1NiIgeDE9Ijc2OS41IiB5MT0iMjA1IiB4Mj0iOTUyIiB5Mj0iMjA1IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CjxzdG9wIG9mZnNldD0iMC4wNjk1NDA2IiBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjxzdG9wIG9mZnNldD0iMC41MTQ1MyIgc3RvcC1jb2xvcj0iI0ZGOTkzNCIvPgo8c3RvcCBvZmZzZXQ9IjAuNjk1NDYiIHN0b3AtY29sb3I9IiNGMjY4MTgiLz4KPC9saW5lYXJHcmFkaWVudD4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDdfbGluZWFyXzI3M18yNTI1NiIgeDE9IjQzOC41IiB5MT0iNTMuOTk5OSIgeDI9IjU5MS43MDYiIHkyPSItNDIuMTExNiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjxzdG9wIG9mZnNldD0iMC40NTg0OSIgc3RvcC1jb2xvcj0iI0YyNjgxOCIvPgo8c3RvcCBvZmZzZXQ9IjAuOTczMDMxIiBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjwvbGluZWFyR3JhZGllbnQ+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQ4X2xpbmVhcl8yNzNfMjUyNTYiIHgxPSIxMDIyLjUiIHkxPSI1Ny4wOTY5IiB4Mj0iNzg2LjgwOCIgeTI9IjE4NS44MjYiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agb2Zmc2V0PSIwLjQyMzY1MyIgc3RvcC1jb2xvcj0iI0YyNjgxOCIvPgo8c3RvcCBvZmZzZXQ9IjAuNTIxNzkzIiBzdG9wLWNvbG9yPSIjRkY5OTM0Ii8+CjxzdG9wIG9mZnNldD0iMC45MzE1MTUiIHN0b3AtY29sb3I9IiNGMjY4MTgiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRkU5MzNDIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==";
+
+const ContainerDesafios = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+const ContainerItemDesafio = styled__default["default"].div `
+  width: 100%;
+  background-image: url(${imgSeta});
+  background-repeat: no-repeat;
+  padding: 1rem;
+  display: flex;
+  background-size: 100%;
+  background-position: top 5rem;
+  background-position: -2rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+`;
+const ItemDesafio = styled__default["default"].div `
+  width: 14%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 1.2rem;
+  margin-left: 0.1rem;
+`;
+const QuantidadeDesafio = styled__default["default"].div `
+  width: 85%;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+  height: 8rem;
+  border-radius: 100%;
+  border-width: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    margin: 0;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #222222;
+    word-wrap: break-word;
+    max-width: 90%;
+    word-break: break-all;
+  }
+  p {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #222222;
+  }
+`;
+const containerTitleDesafio = styled__default["default"].div `
+  width: 100%;
+  height: 24px;
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: row;
+`;
+const TitleDesafiosWhite = styled__default["default"].div `
+  width: 240px;
+  height: 24px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 30px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #d14211;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 9999;
+  margin-right: -2rem;
+  margin-left: -2rem;
+`;
+const TitleDesafiosGrey = styled__default["default"].div `
+  width: 240px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid #d1d5db;
+  border-radius: 30px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #d14211;
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
+
+function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, finalizados, languagem }) {
+    return (jsxRuntime.jsxs(ContainerDesafios, { children: [jsxRuntime.jsxs(ContainerItemDesafio, { children: [jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: definicao.count }), jsxRuntime.jsx("p", { children: definicao.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: hipoteses.count }), jsxRuntime.jsx("p", { children: hipoteses.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: testes.count }), jsxRuntime.jsx("p", { children: testes.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: resultados.count }), jsxRuntime.jsx("p", { children: resultados.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: proximosPassos.count }), jsxRuntime.jsx("p", { children: proximosPassos.percentage })] }) }), jsxRuntime.jsx(ItemDesafio, { children: jsxRuntime.jsxs(QuantidadeDesafio, { children: [jsxRuntime.jsx("h1", { children: finalizados.count }), jsxRuntime.jsx("p", { children: finalizados.percentage })] }) })] }), jsxRuntime.jsxs(containerTitleDesafio, { children: [jsxRuntime.jsx(TitleDesafiosWhite, { children: languagem
+                            ? languagem === 'en-US'
+                                ? definicao.title_en
+                                    ? definicao.title_en
+                                    : definicao.title
+                                : languagem === 'es'
+                                    ? definicao.title_es
+                                        ? definicao.title_es
+                                        : definicao.title
+                                    : definicao.title
+                            : definicao.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: languagem
+                            ? languagem === 'en-US'
+                                ? hipoteses.title_en
+                                    ? hipoteses.title_en
+                                    : hipoteses.title
+                                : languagem === 'es'
+                                    ? hipoteses.title_es
+                                        ? hipoteses.title_es
+                                        : hipoteses.title
+                                    : hipoteses.title
+                            : hipoteses.title }), jsxRuntime.jsx(TitleDesafiosWhite, { children: languagem
+                            ? languagem === 'en-US'
+                                ? testes.title_en
+                                    ? testes.title_en
+                                    : testes.title
+                                : languagem === 'es'
+                                    ? testes.title_es
+                                        ? testes.title_es
+                                        : testes.title
+                                    : testes.title
+                            : testes.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: languagem
+                            ? languagem === 'en-US'
+                                ? resultados.title_en
+                                    ? resultados.title_en
+                                    : resultados.title
+                                : languagem === 'es'
+                                    ? resultados.title_es
+                                        ? resultados.title_es
+                                        : resultados.title
+                                    : resultados.title
+                            : resultados.title }), jsxRuntime.jsx(TitleDesafiosWhite, { children: languagem
+                            ? languagem === 'en-US'
+                                ? proximosPassos.title_en
+                                    ? proximosPassos.title_en
+                                    : proximosPassos.title
+                                : languagem === 'es'
+                                    ? proximosPassos.title_es
+                                        ? proximosPassos.title_es
+                                        : proximosPassos.title
+                                    : proximosPassos.title
+                            : proximosPassos.title }), jsxRuntime.jsx(TitleDesafiosGrey, { children: languagem
+                            ? languagem === 'en-US'
+                                ? finalizados.title_en
+                                    ? finalizados.title_en
+                                    : finalizados.title
+                                : languagem === 'es'
+                                    ? finalizados.title_es
+                                        ? finalizados.title_es
+                                        : finalizados.title
+                                    : finalizados.title
+                            : finalizados.title })] })] }));
+}
+
+/**
+ * @param {UserCardProps} props
+ */
+function CalendarCard$1(props) {
+    const { t } = reactI18next.useTranslation();
+    const [selected, setSelected] = React.useState(props.selected);
+    const setClass = () => {
+        setSelected(!selected);
+        props.handleSelect(props.userID);
+    };
+    const [statusColor, setStatusColor] = React.useState('#A6A6A6');
+    const hasCurrentData = () => {
+        return props.newLicenses.filter(el => el.isCurrent);
+    };
+    const hasAssignedLicenseData = () => {
+        return props.newLicenses.filter(el => el.isCurrent && el.hasLicense && !el.hasTrail && !el.hasEnrollment);
+    };
+    const hasDefinedTrailData = () => {
+        return props.newLicenses.filter(el => el.isCurrent && el.hasTrail && !el.hasEnrollment);
+    };
+    const hasEnrollmentsData = () => {
+        return props.newLicenses.filter(el => el.isCurrent && el.hasEnrollment);
+    };
+    const hasPreviusData = () => {
+        return props.newLicenses.filter(el => !el.isCurrent);
+    };
+    const newFormatHtml = () => {
+        const hasCurrent = hasCurrentData();
+        const hasAssignedLicense = hasAssignedLicenseData();
+        const hasDefinedTrail = hasDefinedTrailData();
+        const hasEnrollments = hasEnrollmentsData();
+        const hasPrevius = hasPreviusData();
+        return (jsxRuntime.jsxs("div", { children: [hasCurrent.length > 0 &&
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.current }), hasAssignedLicense.length > 0 &&
+                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.assignedLicense, ": ", ' ', hasAssignedLicense.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), !hasDefinedTrail && !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasDefinedTrail.length > 0 &&
+                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.definedTrail, ": ", ' ', hasDefinedTrail.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), !hasEnrollments && (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] }), hasEnrollments.length > 0 &&
+                                jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [props.newTexts.enrollments, ": ", ' ', hasEnrollments.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#000', selected: selected, inverted: false })), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" })] })] }), hasPrevius.length > 0 &&
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: props.newTexts.previus }), jsxRuntime.jsxs("div", { style: { fontSize: '16px', paddingBottom: '8px' }, children: [hasPrevius.map(p => jsxRuntime.jsx(Tag, { title: p.name, color: '#BDBDBD', selected: selected, inverted: false })), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#BDBDBD', selected: selected, inverted: false, iconType: "checked" })] })] })] }));
+    };
+    React.useEffect(() => {
+        switch (props.userStatus) {
+            case 'complete':
+                setStatusColor("#2CA92A");
+                break;
+            case 'enrolled':
+                setStatusColor("#222222");
+                break;
+            case 'defined':
+                setStatusColor("#FFD600");
+                break;
+            case 'error':
+                setStatusColor("#FF0000");
+                break;
+            case 'incomplete':
+            default:
+                setStatusColor("#A6A6A6");
+                break;
+        }
+    }, [props.userStatus]);
+    React.useEffect(() => {
+        setSelected(props.selected);
+    }, [props.selected]);
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.loading ?
+            jsxRuntime.jsxs("div", { className: 'cardContentNoMargin', children: [jsxRuntime.jsx("div", { className: 'shimmer cardTopRightConner', style: { color: statusColor, background: statusColor, padding: '4px' }, children: "Status" }), jsxRuntime.jsxs("div", { className: 'content', children: [jsxRuntime.jsxs("div", { className: 'centeredVertically', style: { paddingBottom: '16px' }, children: [selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}), jsxRuntime.jsx("div", { style: { marginLeft: '16px', marginRight: '16px' }, className: "avatar shimmer" }), jsxRuntime.jsxs("div", { style: { display: 'inline-grid' }, children: [jsxRuntime.jsx("div", { className: "shimmer", children: "ShimmerName" }), jsxRuntime.jsx("div", { className: "shimmer", children: "ShimmerEmail" })] })] }), jsxRuntime.jsxs("div", { className: 'innerContent', style: { paddingBottom: '0px !important' }, children: [jsxRuntime.jsx("div", { className: "shimmer", children: "Area: " }), jsxRuntime.jsx("div", { className: "shimmer", children: "Cargo:" }), jsxRuntime.jsx(Tag, { title: 'Product Tag', color: '#000', loading: true, selected: false, inverted: false }), jsxRuntime.jsx(Tag, { title: 'Product Tag', color: '#000', loading: true, selected: false, inverted: false })] })] }), jsxRuntime.jsx(material.Button, { className: 'shimmer frstButton blue', fullWidth: true })] })
+            :
+                jsxRuntime.jsxs("div", { onClick: setClass, className: 'cardContentNoMargin', style: { color: selected ? '#fff' : '#000', border: `1px solid ${statusColor}`, background: selected ? "#ff4d0d" : "#fff" }, children: [jsxRuntime.jsx("div", { className: 'cardTopRightConner', style: { color: '#fff', background: statusColor, padding: '4px' }, children: t(`user.card.status.${props.userStatus}`) }), jsxRuntime.jsxs("div", { className: 'content', style: { marginBottom: '46px' }, children: [jsxRuntime.jsxs("div", { className: 'centeredVertically', style: { paddingBottom: '16px' }, children: [jsxRuntime.jsxs("div", { style: { paddingRight: '8px' }, children: [" ", selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {})] }), jsxRuntime.jsx("img", { src: props.userAvatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", alt: "Avatar", className: "avatar" }), jsxRuntime.jsxs("div", { style: { paddingLeft: '8px', display: 'grid' }, children: [jsxRuntime.jsx("p", { style: { fontSize: '24px', fontWeight: '700', paddingBottom: '8px' }, children: props.userName }), jsxRuntime.jsx(material.Tooltip, { title: [props.userEmail], children: jsxRuntime.jsx("p", { style: { fontSize: '16px', fontWeight: '700', color: selected ? "#F3D224" : '#AEB0B3' }, className: 'ellipsis', children: props.userEmail }) })] })] }), jsxRuntime.jsx("div", { className: 'innerContent', children: jsxRuntime.jsxs("div", { style: { display: 'block' }, children: [props.userArea && jsxRuntime.jsxs("p", { style: { fontSize: '16px', fontWeight: '700', paddingBottom: '8px' }, children: [t('user.card.area'), ": ", props.userArea] }), props.userPosition && jsxRuntime.jsxs("p", { style: { fontSize: '16px', fontWeight: '400', paddingBottom: '8px' }, children: [t('user.card.position'), ": ", props.userPosition] }), props.newFormat ?
+                                                jsxRuntime.jsx("div", { children: newFormatHtml() })
+                                                :
+                                                    jsxRuntime.jsxs("div", { children: [props.licenses.length > 0 ?
+                                                                props.licenses.map((p) => {
+                                                                    return jsxRuntime.jsx(Tag, { title: p, color: '#000', selected: selected, inverted: false });
+                                                                })
+                                                                :
+                                                                    jsxRuntime.jsx(Tag, { title: t('user.card.noProduct'), color: '#FF0000', selected: selected, inverted: true }), (props.assessment === 'not-started' || props.assessment === 'started') && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "warning" }), props.assessment === 'finished' && jsxRuntime.jsx(Tag, { title: 'Assessment', color: '#000', selected: selected, inverted: false, iconType: "checked" })] })] }) })] }), jsxRuntime.jsxs(material.Button, { onClick: props.editAction, className: 'frstButton blue fixedBottom', fullWidth: true, children: [jsxRuntime.jsx(EditIcon, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('globals.edit') })] })] }) }));
+}
+
+styled__default["default"].span `
+  color: #0645AD !important;
+  font-size: 16px !important;
+  font-weight: bolder !important;
+  cursor: pointer !important;
+  &:disabled {
+    color: #7C7C7C !important;
+  }
+`;
+styled__default["default"].div `
+  .Mui-selected {
+    color: #FF4D0D !important; 
+  }
+  .MuiTab-root {
+    font-family: Work Sans !important;
+    text-transform: none !important;
+    font-weight: bolder !important;
+  }
+  .MuiTabs-indicator {
+    background-color: #FF4D0D !important;
+  }
+`;
+styled__default["default"].label `
+  font-size: 20px;
+  color: #ff4d0d;
+  font-weight: bolder;
+`;
+styled__default["default"].label `
+  font-size: 20px;
+  color: #ff4d0d;
+`;
+styled__default["default"].label `
+  font-size: 16px;
+  color: #ff4d0d;
+`;
+const FRSTButton = styled__default["default"](Button__default["default"]) `
+  color: #fff !important;
+  font-weight: bold !important;
+  background-color: #FF4D0D !important;
+  border-color: #FF4D0D !important;
+  height: 48px !important;
+  font-size: 16px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+  text-transform: none !important;
+  border-radius: 5px 5px 5px 5px !important;
+  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;
+  &:focus,
+  &:hover {
+    color: #fff !important;
+    background-color: #E94E1B !important;
+    border-color: #fff !important;
+  };
+  &:disabled {
+    background-color: #7C7C7C !important;
+  }
+`;
+styled__default["default"](Menu__default["default"]) `
+  & .MuiPaper-root{
+    border-radius: 0px;
+    box-shadow: none !important;
+  }
+  ul {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+`;
+styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+  background-color: #FF4D0D !important;
+  &:hover {
+    background-color: #F5792A !important;
+  }
+`;
+
+const Container$g = styled__default["default"](Card__default["default"]) `
+  height: 100%;
+  box-shadow: none !important;
+  border: 1px solid #c4c4c4 !important;
+  box-sizing: border-box !important;
+  border-radius: 8px !important;
+  padding: 24px !important;
+`;
+const Title$6 = styled__default["default"].span `
+  font-size: 20px !important;
+  color: #ff4d0d !important;
+`;
+const TextDescription$1 = styled__default["default"].span `
+  font-size: 14px !important;
+  color: #222222 !important;
+`;
+const ContainerDescription = styled__default["default"].div `
+  padding-top: 26px !important;
+`;
+styled__default["default"].div `
+  padding-top: 35px !important;
+`;
+const CheckIconCustom = styled__default["default"](CheckIcon__default["default"]) `
+  color: white !important;
+  font-size: 19px !important;
+`;
+const LoginIconCustom = styled__default["default"](LoginIcon__default["default"]) `
+  color: white !important;
+  font-size: 20px !important;
+`;
+const FormControlSelect = styled__default["default"](FormControl__default["default"]) `
+  .MuiInputLabel-formControl {
+    color: rgba(0, 0, 0, 0.6) !important;
+    margin-top: 5px !important;
+  }
+`;
+const DropDownList$2 = styled__default["default"](Select__default["default"]) `
+  max-width: 350px !important;
+  height: 40px !important;
+  & > div {
+    border: 1px solid #e8e8e8 !important;
+  }
+  .MuiSelect-select {
+    border: none !important;
+  }
+  .MuiSelect-icon {
+    color: #000 !important; // for icon drop down icon color
+  }
+  &.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #ff4d0d !important;
+    border-width: 1px !important;
+  }
+`;
+const LabelDateStepper = styled__default["default"].label `
+  font-size: 14px !important;
+  line-height: 14px !important;
+`;
+const LabelTitleStepper = styled__default["default"].label `
+  overflow: hidden; !important;
+  display: block !important;
+  max-height: 1.33rem !important;
+;
+`;
+const ContainerStepper = styled__default["default"].div `
+  margin-top: 10px !important;
+`;
+const CustomStepper = styled__default["default"](Stepper__default["default"]) `
+  height: 100px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  box-sizing: content-box !important;
+  scroll-behavior: smooth !important;
+  padding-bottom: 30px !important;
+`;
+const CustomStep = styled__default["default"](Step__default["default"]) `
+  padding: 0px !important;
+  min-width: 150px !important;
+`;
+const BoxStepper = styled__default["default"](Box__default["default"]) `
+  width: 100% !important;
+  padding-top: 20px !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  height: 120px !important;
+`;
+const LabelTimeMentoring = styled__default["default"].label `
+  font-size: 16px !important;
+  color: #ff4d0d !important;
+  font-weight: bolder !important;
+`;
+const BoxLabelTimeMentoring = styled__default["default"].div `
+  padding-top: 30px !important;
+  padding-bottom: 16px !important;
+`;
+const LabelSchedule = styled__default["default"].span `
+  font-size: 16px !important;
+`;
+const LabelScheduleClick = styled__default["default"].span `
+  color: #0645ad !important;
+  font-size: 16px !important;
+  font-weight: bolder !important;
+  cursor: pointer !important;
+`;
+const ActionContainer = styled__default["default"](CardActions__default["default"]) `
+  padding: 0px !important;
+`;
+const ColorlibConnector = styles.styled(StepConnector__default["default"])(({ theme }) => ({
+    [`&.${StepConnector.stepConnectorClasses.alternativeLabel}`]: {
+        top: 40,
+        left: 'calc(-54% + 7px)',
+        right: 'calc(40% + 20px)',
+        [`&.MuiStepLabel-labelContainer`]: {
+            [`&.Mui-active`]: {
+                backgroundColor: 'red'
+            }
+        }
+    },
+    [`&.${StepConnector.stepConnectorClasses.active}`]: {
+        [`& .${StepConnector.stepConnectorClasses.line}`]: {
+            backgroundColor: '#ff4d0d'
+        }
+    },
+    [`&.${StepConnector.stepConnectorClasses.completed}`]: {
+        [`& .${StepConnector.stepConnectorClasses.line}`]: {
+            backgroundColor: '#000'
+        }
+    },
+    [`& .${StepConnector.stepConnectorClasses.line}`]: {
+        height: 1,
+        border: 0,
+        backgroundColor: '#ff4d0d',
+        borderRadius: 1
+    }
+}));
+const ColorlibStepIconRoot = styles.styled('div')(({ ownerState }) => ({
+    backgroundColor: '#000',
+    zIndex: 1,
+    color: '#fff',
+    display: 'flex',
+    borderRadius: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    boxShadow: 'none !important',
+    ...(ownerState.active && {
+        backgroundColor: '#ff4d0d',
+        width: 32,
+        height: 32,
+        boxShadow: 'none !important'
+    }),
+    ...(ownerState.completed && {
+        backgroundColor: '#000',
+        width: 24,
+        height: 24,
+        boxShadow: 'none !important'
+    }),
+    ...(!ownerState.active &&
+        !ownerState.completed && {
+        backgroundColor: '#ff4d0d',
+        width: 24,
+        height: 24,
+        boxShadow: 'none !important'
+    }),
+    ...(ownerState.active &&
+        ownerState.completed && {
+        backgroundColor: '#000',
+        width: 24,
+        height: 24,
+        boxShadow: 'none !important'
+    })
+}));
+
+function getStepIcon(props) {
+    const { active, completed } = props;
+    return (jsxRuntime.jsx(ColorlibStepIconRoot, { ownerState: { completed, active }, children: completed ? jsxRuntime.jsx(CheckIconCustom, {}) : active ? jsxRuntime.jsx(LoginIconCustom, {}) : jsxRuntime.jsx("div", {}) }));
+}
+function getMissedStepIcon() {
+    return (jsxRuntime.jsx(ColorlibStepIconRoot, { ownerState: { completed: true, active: true }, children: jsxRuntime.jsx("div", {}) }));
+}
+function StepsComponent(props) {
+    const { t } = reactI18next.useTranslation();
+    let { events } = props;
+    return (jsxRuntime.jsx(BoxStepper, { children: jsxRuntime.jsx(CustomStepper, { alternativeLabel: true, connector: jsxRuntime.jsx(ColorlibConnector, {}), children: events && events.length > 0 && events?.map((event) => (jsxRuntime.jsxs(CustomStep, { completed: event.completed, active: event.today, children: [jsxRuntime.jsxs(LabelDateStepper, { children: [event.day, " ", t(`calendar.monthsInitials.${event.month}`)] }), jsxRuntime.jsx(ContainerStepper, { children: jsxRuntime.jsx(material.Tooltip, { title: event.title, children: jsxRuntime.jsx(material.StepLabel, { StepIconComponent: event.completed && !event.present ? getMissedStepIcon : getStepIcon, children: jsxRuntime.jsx(LabelTitleStepper, { children: event.title }) }) }) })] }, event.id))) }) }));
+}
+/**
+ * @param {CalendarProps} props
+ */
+function CalendarCard(props) {
+    const { t } = reactI18next.useTranslation();
+    const [module, setModule] = React.useState(0);
+    const [moduleEvents, setModuleEvents] = React.useState([]);
+    const [moduleSelector, setModuleSelector] = React.useState(false);
+    const handleChange = (event) => {
+        let val = event.target?.value;
+        setModule(val);
+        if (props.trails[val].events)
+            setModuleEvents(props.trails[val].events);
+    };
+    React.useEffect(() => {
+        if (props.trails[0]) {
+            if (props.trails[0].events)
+                setModuleEvents(props.trails[0].events);
+            if (props.trails.length > 1)
+                setModuleSelector(true);
+        }
+    }, [props.trails]);
+    return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
+            jsxRuntime.jsx(Container$g, { className: 'shimmer' })
+            :
+                jsxRuntime.jsx(Container$g, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$6, { children: t('calendar.title') }), moduleSelector &&
+                                jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
+                                                    return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
+                                                }) }) })] }), moduleEvents?.length === 0 &&
+                                jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '140px', paddingBottom: '32px' }, children: [jsxRuntime.jsx(WarningIcon$1, {}), jsxRuntime.jsx("span", { style: { paddingLeft: '8px' }, children: t('calendar.notAvailable') })] }), moduleEvents && jsxRuntime.jsx(StepsComponent, { events: moduleEvents, short: props.short }), moduleEvents && moduleEvents.length > 0 &&
+                                jsxRuntime.jsx(BoxLabelTimeMentoring, { children: props.trails[module]?.nextEvent ?
+                                        jsxRuntime.jsxs(LabelTimeMentoring, { children: [t('calendar.card.mentoringSchedule'), " ", t(`calendar.weekdays.${props.trails[module].nextEvent.weekday}`), " @ ", props.trails[module]?.nextEvent.hour] })
+                                        :
+                                            jsxRuntime.jsx(LabelTimeMentoring, { children: t(`calendar.noMoreEvents`) }) }), jsxRuntime.jsxs(ActionContainer, { children: [props.short &&
+                                        jsxRuntime.jsxs(LabelSchedule, { children: [jsxRuntime.jsx(LabelScheduleClick, { onClick: props.showFullPageAction, children: t('globals.clickHere') }), ' ', t('calendar.card.fullSchedule')] }), props.trails[module]?.joinEventAction &&
+                                        jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
+}
+
+var css_248z$h = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
+var style$g = {"container":"TextIcon-module_container__c5xjY"};
+styleInject(css_248z$h);
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function TextIcon(props) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$g.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
+}
+
+var css_248z$g = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
+var style$f = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
+styleInject(css_248z$g);
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function StarIcon(props) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "30", height: "30", viewBox: "0 0 30 30", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.0989 0.872803C14.4623 0.117576 15.5377 0.117574 15.9011 0.872801L19.7145 8.7983C19.8581 9.09663 20.14 9.30458 20.4674 9.35367L29.0382 10.6388C29.8501 10.7606 30.1775 11.7548 29.5967 12.3352L23.3644 18.5625C23.1358 18.791 23.0316 19.1159 23.085 19.4348L24.5511 28.2045C24.6883 29.025 23.8221 29.6445 23.09 29.2495L15.4748 25.1411C15.1785 24.9812 14.8215 24.9812 14.5252 25.1411L6.91 29.2495C6.17789 29.6445 5.31171 29.025 5.44888 28.2045L6.91505 19.4348C6.96835 19.1159 6.86424 18.791 6.63556 18.5625L0.403279 12.3352C-0.17751 11.7548 0.149858 10.7606 0.961814 10.6388L9.53263 9.35367C9.86003 9.30458 10.1419 9.09663 10.2855 8.79831L14.0989 0.872803Z", fill: props.color }) }) }));
+}
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function Rating$1(props) {
+    const MapColorStar = [
+        '#FFC200',
+        '#000000',
+        '#FFFFFF',
+    ];
+    const MapColorNumberStar = [
+        '#FFFFFF',
+        '#FFFFFF',
+        '#FFC200',
+        '#FF4D0D',
+    ];
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$f.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$f.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$f.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$f.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$f.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
+}
+
+var css_248z$f = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
+var style$e = {"container":"RatingCurtidas-module_container__Ns11t"};
+styleInject(css_248z$f);
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function RocketButtonIcon(props) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { style: { display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 25, background: props.colorSecundaria ? props.colorSecundaria : '#FF4D0D', width: 32, height: 32, margin: 0 }, children: jsxRuntime.jsxs("svg", { width: "28", height: "28", viewBox: "0 0 28 28", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.15625 16.9915C6.89922 17.3907 6.69141 17.82 6.54102 18.2657H8.85977V15.2771C8.18164 15.72 7.60195 16.3024 7.15625 16.9915ZM19.141 15.2771V18.2657H21.4598C21.3094 17.82 21.1016 17.3907 20.8445 16.9915C20.4037 16.3065 19.8232 15.7222 19.141 15.2771ZM17.391 8.71729L14.0004 4.69775L10.6098 8.71729V18.2657H17.391V8.71729ZM14.0004 12.2501C13.6569 12.2431 13.3299 12.1017 13.0895 11.8563C12.8491 11.611 12.7144 11.2811 12.7144 10.9376C12.7144 10.5941 12.8491 10.2642 13.0895 10.0188C13.3299 9.77347 13.6569 9.63211 14.0004 9.6251C14.3438 9.63211 14.6709 9.77347 14.9113 10.0188C15.1517 10.2642 15.2864 10.5941 15.2864 10.9376C15.2864 11.2811 15.1517 11.611 14.9113 11.8563C14.6709 12.1017 14.3438 12.2431 14.0004 12.2501Z", fill: props.colorPrimaria ? props.colorPrimaria : '#FFF', fillOpacity: "0.35" }), jsxRuntime.jsx("path", { d: "M23.625 20.125C23.625 17.0734 21.8367 14.4375 19.25 13.2098V8.67617C19.25 8.26328 19.1051 7.86406 18.8371 7.54961L14.6699 2.60859C14.4949 2.40078 14.2461 2.29688 14 2.29688C13.7539 2.29688 13.5051 2.40078 13.3301 2.60859L9.16289 7.54961C8.89674 7.86471 8.7505 8.26372 8.75 8.67617V13.2098C6.16328 14.4375 4.375 17.0734 4.375 20.125H8.6543C8.59141 20.3219 8.55859 20.5352 8.55859 20.7758C8.55859 21.3801 8.76641 21.9707 9.14375 22.4383C9.45175 22.8207 9.85968 23.1103 10.3223 23.275C10.9539 24.7516 12.3895 25.7031 14 25.7031C14.7957 25.7031 15.5668 25.468 16.2258 25.025C16.8711 24.593 17.3715 23.9887 17.675 23.275C18.1374 23.1113 18.5454 22.8226 18.8535 22.441C19.2314 21.9692 19.4377 21.383 19.4387 20.7785C19.4387 20.5488 19.4086 20.3301 19.3539 20.1277L23.625 20.125ZM8.85938 18.2656H6.54062C6.69102 17.8199 6.89883 17.3906 7.15586 16.9914C7.60156 16.3023 8.18125 15.7199 8.85938 15.277V18.2656ZM10.6094 13.2098V8.71719L14 4.69766L17.3906 8.71719V18.2656H10.6094V13.2098ZM17.1746 21.443C17.0324 21.525 16.8684 21.5578 16.707 21.5359L16.1738 21.4703L16.0973 22.0008C15.9496 23.0371 15.0473 23.8191 14 23.8191C12.9527 23.8191 12.0504 23.0371 11.9027 22.0008L11.8262 21.4676L11.293 21.5359C11.1309 21.5553 10.9669 21.5217 10.8254 21.4402C10.5875 21.3035 10.4398 21.0492 10.4398 20.773C10.4398 20.4832 10.6012 20.2426 10.8391 20.1223H17.1637C17.4043 20.2453 17.5629 20.4859 17.5629 20.773C17.5602 21.052 17.4125 21.309 17.1746 21.443ZM19.1406 18.2656V15.277C19.8228 15.7221 20.4033 16.3064 20.8441 16.9914C21.1012 17.3906 21.309 17.8199 21.4594 18.2656H19.1406V18.2656Z", fill: props.colorPrimaria ? props.colorPrimaria : '#FFF' }), jsxRuntime.jsx("path", { d: "M12.6875 10.9375C12.6875 11.2856 12.8258 11.6194 13.0719 11.8656C13.3181 12.1117 13.6519 12.25 14 12.25C14.3481 12.25 14.6819 12.1117 14.9281 11.8656C15.1742 11.6194 15.3125 11.2856 15.3125 10.9375C15.3125 10.5894 15.1742 10.2556 14.9281 10.0094C14.6819 9.76328 14.3481 9.625 14 9.625C13.6519 9.625 13.3181 9.76328 13.0719 10.0094C12.8258 10.2556 12.6875 10.5894 12.6875 10.9375Z", fill: props.colorPrimaria ? props.colorPrimaria : '#FFF' })] }) }) }));
+}
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function RocketButton(props) {
+    const MapColorPrimaria = [
+        '#FF4D0D',
+        '#FFFFFF',
+        '#FFFFFF',
+        '#222222'
+    ];
+    const MapColorSecundaria = [
+        '#FFFFFF',
+        '#FF4D0D',
+        '#CCCCCC',
+        '#FFFFFF'
+    ];
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { children: jsxRuntime.jsx(RocketButtonIcon, { colorPrimaria: MapColorPrimaria[props.tipoBotao - 1], colorSecundaria: MapColorSecundaria[props.tipoBotao - 1] }) }) }));
+}
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente
+ */
+function RatingCurtidas(props) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
+}
+
+var css_248z$e = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
+var style$d = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
+styleInject(css_248z$e);
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
+ */
+function Steps(props) {
+    const TypeStep = [
+        'https://api-motor.s3.amazonaws.com/marte.png',
+        'https://api-motor.s3.amazonaws.com/jupter.png',
+        'https://api-motor.s3.amazonaws.com/saturno.png',
+        'https://api-motor.s3.amazonaws.com/urano.png',
+        'https://api-motor.s3.amazonaws.com/netuno.png',
+    ];
+    const TypeStepNamePTBR = [
+        'Marte',
+        'Júpiter',
+        'Saturno',
+        'Urano',
+        'Netuno',
+    ];
+    const TypeStepNamePT = [
+        'Marte',
+        'Júpiter',
+        'Saturno',
+        'Urano',
+        'Netuno',
+    ];
+    const TypeStepNameEN = [
+        'Mars',
+        'Jupiter',
+        'Saturn',
+        'Uranus',
+        'Neptune',
+    ];
+    const TypeStepNameES = [
+        'Marte',
+        'Júpiter',
+        'Saturno',
+        'Urano',
+        'Netuno',
+    ];
+    const mapTraducao = new Map();
+    mapTraducao.set("pt-BR", TypeStepNamePTBR);
+    mapTraducao.set("pt-PT", TypeStepNamePT);
+    mapTraducao.set("en-US", TypeStepNameEN);
+    mapTraducao.set("es", TypeStepNameES);
+    const [Idioma, setIdioma] = React.useState(props.idioma ? props.idioma : 'pt-BR');
+    React.useEffect(() => {
+        setIdioma(props.idioma ? props.idioma : 'pt-BR');
+    }, [props.idioma]);
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, onClick: () => {
+                if (props.status !== 'B') {
+                    props.onClick();
+                }
+            }, children: [jsxRuntime.jsx("img", { src: TypeStep[props.step - 1], className: props.status === "A" ?
+                        style$d.imgAtive
+                        : props.status === "I" ?
+                            style$d.imgInative
+                            : style$d.imgBlocked }), jsxRuntime.jsx("div", { className: style$d.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
+                    jsxRuntime.jsx("div", { className: style$d.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
+}
+
+///-----------------------------------------
+/// Componente
+/**
+ *
+ * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
+ */
+function MissionSteps(props) {
+    const traducaoPTBR = {
+        next: "Ver missão seguinte >",
+        nextShort: "Próx. >",
+        previous: "< Ver missão anterior",
+        previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
+    };
+    const traducaoES = {
+        next: "Ver misión siguiente >",
+        nextShort: "Próx. >",
+        previous: "< Ver misión anterior",
+        previousShort: "< Ant.",
+        continueChallenge: "Continuar desafío"
+    };
+    const traducaoENUS = {
+        next: "View next mission >",
+        nextShort: "Next >",
+        previous: "< View previous mission",
+        previousShort: "< Previous",
+        continueChallenge: "Continue challenge"
+    };
+    const traducaoPT = {
+        next: "Ver missão seguinte >",
+        nextShort: "Próx. >",
+        previous: "< Ver missão anterior",
+        previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
+    };
+    const mapTraducao = new Map();
+    mapTraducao.set("pt-BR", traducaoPTBR);
+    mapTraducao.set("es", traducaoES);
+    mapTraducao.set("en-US", traducaoENUS);
+    mapTraducao.set("pt-PT", traducaoPT);
+    const [stepLiberado, setstepLiberado] = React.useState(props.stepProblem);
+    const [stepActive, setStepActive] = React.useState(props.stepActive);
+    const [Idioma, setIdioma] = React.useState(props.idioma ? props.idioma : 'pt-BR');
+    const setStep = (step) => {
+        setStepActive(step);
+        props.onSelected(step);
+    };
+    React.useEffect(() => {
+        setIdioma(props.idioma ? props.idioma : 'pt-BR');
+    }, [props.idioma]);
+    React.useEffect(() => {
+        setstepLiberado(props.stepProblem);
+    }, [props.stepProblem]);
+    // Função para pegar o width da tela
+    const [size, setSize] = React.useState([0, 0]);
+    React.useLayoutEffect(() => {
+        function updateSize() {
+            setSize([window.innerWidth, window.innerHeight]);
+        }
+        window.addEventListener('resize', updateSize);
+        updateSize();
+        return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    const BREAKWIDTH = 475;
+    const leftButtonStyle = {
+        position: 'absolute',
+        top: 20,
+        left: 0,
+        cursor: 'pointer'
+    };
+    const rightButtonStyle = {
+        ...leftButtonStyle,
+        right: 0,
+        left: 'auto'
+    };
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white', marginTop: '10px' }, children: [stepActive > 1 ?
+                    size[0] >= BREAKWIDTH ?
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
+                        :
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$d.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
+                    : null, stepActive < stepLiberado ?
+                    size[0] >= BREAKWIDTH ?
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
+                        :
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$d.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
+                    : props.stepProblem < 5 &&
+                        props.onClickContinue &&
+                        jsxRuntime.jsx("span", { className: style$d.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$2, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
+                                setStep(1);
+                            } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
+                                setStep(2);
+                            } }), jsxRuntime.jsx(Steps, { step: 3, idioma: Idioma, status: stepLiberado >= 3 ? stepActive === 3 ? "A" : "I" : "B", onClick: () => {
+                                setStep(3);
+                            } }), jsxRuntime.jsx(Steps, { step: 4, idioma: Idioma, status: stepLiberado >= 4 ? stepActive === 4 ? "A" : "I" : "B", onClick: () => {
+                                setStep(4);
+                            } }), jsxRuntime.jsx(Steps, { step: 5, idioma: Idioma, status: stepLiberado >= 5 ? stepActive === 5 ? "A" : "I" : "B", onClick: () => {
+                                setStep(5);
+                            } })] })] }) }));
+}
+
+var css_248z$d = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
+var style$c = {"container":"avatarWithInfo-module_container__Y-yUf"};
+styleInject(css_248z$d);
+
 const AvatarImg$1 = styled__default["default"].img `
     width: ${props => props.size || '120px'};
     height: ${props => props.size || '120px'};
@@ -1323,7 +1960,7 @@ function Vector(props) {
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
 function AvatarWithInfo(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
 }
 
 const LinkButton$1 = styled__default["default"].a `
@@ -1682,9 +2319,9 @@ function Button$2({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$3, { ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
 }
 
-var css_248z$b = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N {\n  margin-bottom: 20px;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
-var style$a = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
-styleInject(css_248z$b);
+var css_248z$c = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
+var style$b = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
+styleInject(css_248z$c);
 
 const SpanHeaderTag = styled__default["default"].span `
     display: flex;
@@ -1791,8 +2428,8 @@ function BannerProblem(props) {
         return title;
     };
     const MOBILEWIDTH = 650;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.container, style: { ...props.style }, children: [props.topHeaderTagText &&
-                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$a.titleProblem, children: [showChallengeTitle(), props.isVerified &&
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.container, style: { ...props.style }, children: [props.topHeaderTagText &&
+                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$b.titleProblem, children: [showChallengeTitle(), props.isVerified &&
                                     jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', height: '54px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
                             jsxRuntime.jsx(Button$2, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
@@ -1816,7 +2453,7 @@ function BannerProblem(props) {
                                 wordBreak: 'break-word',
                             }, children: TituloProblema }) })
                     :
-                        jsxRuntime.jsx("h1", { className: style$a.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC', paddingBottom: 16 }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8 } }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
+                        jsxRuntime.jsx("h1", { className: style$b.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC' }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', width: 'fit-content', paddingTop: '16px' }, children: [jsxRuntime.jsx("span", { className: style$b.created, children: props.dataCriacao }), jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8, marginTop: 24 } })] }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { style: { width: '80%' }, description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
                                         jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textTrailLabel ? props.textTrailLabel : 'Deseja vincular este novo problema a uma Trilha de Aprendizagem?' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: props.trilhaData ? props.trilhaData : [], value: props.trilhaData.filter(function (temp) { return temp.value === TrilhaId; }), placeholder: props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha', onChange: e => {
                                                             setTrilhaId(e.value);
                                                             setTrilhaDescricaoSelecionada(e.label);
@@ -1825,16 +2462,17 @@ function BannerProblem(props) {
                                             jsxRuntime.jsx(jsxRuntime.Fragment, { children: TrilhaBanner === '' ?
                                                     jsxRuntime.jsx(TextIcon, { description: props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
                                                     :
-                                                        jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 16, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$a.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
+                                                        jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 26, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$b.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, style: { color: '#000 !important', marginRight: 8, marginTop: 8 }, color: "#E4E1FF", selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                                     jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 }, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
-                                        : null, props.showButtonInvite &&
-                                        jsxRuntime.jsx("div", { className: style$a.goal_invite, children: jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textGoalInviteBtn, startIcon: jsxRuntime.jsx(GoalInviteIcon, {}), handleClick: props.onClickMessage }) }), jsxRuntime.jsx("span", { className: style$a.created, children: props.dataCriacao })] }), size[0] > MOBILEWIDTH && Edit === false ?
-                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
+                                        : null, jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '32px' }, children: [props.showButtonInvite &&
+                                                jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textGoalInviteBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '26px', marginBottom: '-2px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalInviteIcon, { width: '26px', height: '26px' }) }), handleClick: props.onClickMessage, style: { paddingTop: '0px', paddingBottom: '16px' } }), props.showButtonViews &&
+                                                jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textGoalViewsBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '20px', marginBottom: '-1px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalViewsIcon, { width: '20px' }) }), handleClick: props.onClickViewsBtn, style: { paddingTop: '0px', paddingBottom: '16px' } })] })] }), size[0] > MOBILEWIDTH && Edit === false ?
+                                jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, id: 'avaliations-banner-problem', children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
                                 : null] }) }), jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onClickContinue: hasContinueProps ? props.onClickContinue : null, onSelected: (step) => {
                         props.onSelectedStep(step);
@@ -1862,9 +2500,9 @@ ${email.slice(indexBreak)}`;
     }
 }
 
-var css_248z$a = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
-var style$9 = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
-styleInject(css_248z$a);
+var css_248z$b = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
+var style$a = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
+styleInject(css_248z$b);
 
 ///-----------------------------------------
 /// Componente
@@ -1918,23 +2556,33 @@ function MessageBox(props) {
         jsxRuntime.jsx(SaveIcon, { fill: 'red' })
     ];
     return (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsxs("div", { className: props.hasHover ?
-                    `${props.tipoVisualizacao === 1 ? style$9.success
-                        : props.tipoVisualizacao === 2 ? style$9.warning
-                            : props.tipoVisualizacao === 3 ? style$9.error
-                                : props.tipoVisualizacao === 4 ? style$9.notificacao
-                                    : props.tipoVisualizacao === 5 ? style$9.notificacaoErro
-                                        : ''} ${style$9.container}`
+                    `${props.tipoVisualizacao === 1 ? style$a.success
+                        : props.tipoVisualizacao === 2 ? style$a.warning
+                            : props.tipoVisualizacao === 3 ? style$a.error
+                                : props.tipoVisualizacao === 4 ? style$a.notificacao
+                                    : props.tipoVisualizacao === 5 ? style$a.notificacaoErro
+                                        : ''} ${style$a.container}`
                     :
-                        `${props.tipoVisualizacao === 1 ? style$9.successNoHover
-                            : props.tipoVisualizacao === 2 ? style$9.warningNoHover
-                                : props.tipoVisualizacao === 3 ? style$9.errorNoHover
-                                    : props.tipoVisualizacao === 4 ? style$9.notificacaoNoHover
-                                        : props.tipoVisualizacao === 5 ? style$9.notificacaoErroNoHover
-                                            : ''} ${style$9.container}`, style: {
+                        `${props.tipoVisualizacao === 1 ? style$a.successNoHover
+                            : props.tipoVisualizacao === 2 ? style$a.warningNoHover
+                                : props.tipoVisualizacao === 3 ? style$a.errorNoHover
+                                    : props.tipoVisualizacao === 4 ? style$a.notificacaoNoHover
+                                        : props.tipoVisualizacao === 5 ? style$a.notificacaoErroNoHover
+                                            : ''} ${style$a.container}`, style: {
                     cursor: props.onClick ? 'pointer' : 'default',
                     ...props.style
-                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$9.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
-                jsxRuntime.jsxs("div", { style: { display: 'inline-flex', position: 'absolute', right: 0, top: 0, marginRight: 32, marginTop: 16, cursor: 'pointer' }, onClick: props.onClickExit, children: [" ", jsxRuntime.jsx(CloseIcon, {}), " "] })] }));
+                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$a.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
+                jsxRuntime.jsxs("div", { style: {
+                        display: 'inline-flex',
+                        position: 'absolute',
+                        width: '40px',
+                        height: '100%',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        right: 0,
+                        top: 0,
+                        cursor: 'pointer'
+                    }, onClick: props.onClickExit, children: [" ", jsxRuntime.jsx(CloseIcon, { width: '9' }), " "] })] }));
 }
 
 const ButtonGroupWrapper = styled__default["default"].div `
@@ -2396,7 +3044,7 @@ const CommentPrivate = styled__default["default"].div `
     letter-spacing: -0.02em;
     margin-left: 8px;
 `;
-const Position$1 = styled__default["default"].div `
+const Position$2 = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 500;
@@ -2770,7 +3418,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
     return (jsxRuntime.jsx("div", { style: { width: 'auto', ...styles }, children: jsxRuntime.jsxs(SpeechBubble$1, { className: className, highlight: onEditing, children: [jsxRuntime.jsxs(HeaderWrapper$1, { children: [jsxRuntime.jsxs(IdentificationWrapper, { children: [jsxRuntime.jsxs(NameWrapper, { children: [jsxRuntime.jsxs(Name$1, { children: [" ", size[0] > WIDTH_MOBILE ? name : buildShortName(name), " "] }), isMe &&
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsxs(IsMe, { children: [" ", textYou, " "] })] }), size[0] > WIDTH_MOBILE ?
                                             ((isPrivateAuthor || isPrivateMe) &&
-                                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position$1, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
+                                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position$2, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
                                     jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }), hasDropdown && (isAuthor || isMe) &&
                                     jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isMe && !isAuthor &&
@@ -2784,9 +3432,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsxs(LikesStatistics, { children: [isLiked ?
                                                     jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px' })
                                                     :
-                                                        jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px', customColor_1: "#CCCCCC" }), jsxRuntime.jsx(TextTotalLikes, { children: totalLikes })] }), jsxRuntime.jsxs(IterationsButtonsWrapper, { children: [isLiked ?
-                                                    jsxRuntime.jsxs(LinkButton, { onClick: actionLike, children: [" ", textUnliked, " "] }) :
-                                                    jsxRuntime.jsxs(LinkButton, { onClick: actionLike, children: [" ", textLiked, " "] }), hasAnswer &&
+                                                        jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px', customColor_1: "#CCCCCC" }), jsxRuntime.jsx(TextTotalLikes, { children: totalLikes })] }), jsxRuntime.jsxs(IterationsButtonsWrapper, { children: [actionLike && (jsxRuntime.jsx(LinkButton, { onClick: actionLike, children: isLiked ? textLiked : textUnliked })), hasAnswer &&
                                                     jsxRuntime.jsxs(LinkButton, { onClick: actionAnswer, children: ["  ", textAnswer, "  "] })] })] })] })] }) }));
 }
 
@@ -3653,7 +4299,7 @@ const ModalCloseButton = styled__default["default"].span `
   cursor: pointer;
 `;
 
-function Modal({ children, width, headerContent, open = false, mobileFullPage = false, showCloseButton = false, showHeader = false, style, onClose, onOpen, closeOnClickOutside = true, animation }) {
+function Modal({ children, width, headerContent, open = false, mobileFullPage = false, showCloseButton = false, showHeader = false, style, onClose, onOpen, closeOnClickOutside = true, animation, handleCloseOnIcon }) {
     const ModalWrapperRef = React.useRef(null);
     const ModalContentRef = React.useRef(null);
     const AnimationType = animation.toLowerCase();
@@ -3668,9 +4314,9 @@ function Modal({ children, width, headerContent, open = false, mobileFullPage = 
                     setActive(false);
             }
         }
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [ModalWrapperRef, active, closeOnClickOutside, onClose]);
     React.useEffect(() => {
@@ -3690,9 +4336,8 @@ function Modal({ children, width, headerContent, open = false, mobileFullPage = 
         if (onClose)
             onClose(e);
     };
-    return (jsxRuntime.jsx(ModalWrapper, { open: active, ref: ModalWrapperRef, children: jsxRuntime.jsxs(ModalContent, { style: style, width: width, mobileFullPage: mobileFullPage, ref: ModalContentRef, animation: AnimationType, children: [showHeader === true || showCloseButton === true &&
-                    jsxRuntime.jsx(ModalHeader, { children: showCloseButton === true &&
-                            jsxRuntime.jsxs(ModalCloseButton, { onClick: (e) => handleClose(e), children: [headerContent && headerContent, jsxRuntime.jsx(CloseIcon, {})] }) }), children && children] }) }));
+    return (jsxRuntime.jsx(ModalWrapper, { open: active, ref: ModalWrapperRef, children: jsxRuntime.jsxs(ModalContent, { style: style, width: width, mobileFullPage: mobileFullPage, ref: ModalContentRef, animation: AnimationType, children: [showHeader === true ||
+                    (showCloseButton === true && (jsxRuntime.jsx(ModalHeader, { children: showCloseButton === true && (jsxRuntime.jsxs(ModalCloseButton, { onClick: (e) => handleClose(e), children: [headerContent && headerContent, jsxRuntime.jsx("span", { onClick: (e) => (handleCloseOnIcon ? handleCloseOnIcon() : handleClose(e)), children: jsxRuntime.jsx(CloseIcon, {}) })] })) }))), children && children] }) }));
 }
 
 const container = styled__default["default"].div `
@@ -3768,7 +4413,7 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const Container$c = styled__default["default"].div `
+const Container$f = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -3859,7 +4504,7 @@ const ButtonAction$1 = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$c, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$f, { className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label &&
                     jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [" ", label, " "] }), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon &&
                             jsxRuntime.jsxs(ContainerIcon$2, { children: [" ", jsxRuntime.jsx(SearchIcon, {}), " "] }), jsxRuntime.jsx(InputText$1, { placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
                                 if (event.key === "Enter") {
@@ -4160,19 +4805,19 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-var css_248z$9 = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
-var style$8 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
-styleInject(css_248z$9);
+var css_248z$a = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
+var style$9 = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
+styleInject(css_248z$a);
 
 var problemaFRST = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAyZSURBVHgB7Z1PbBTXHcd/b3ZdVbUNmwu5hTWXXCCYSlUjNRWG5ED5Y+CWkAO2RKXQi91TG3LAHEKTU+0eaKVGtakC9FJhDKQ5BLBFIjVqJUzg0lbCm0g9wKUbbKo29s7L+86bx87Ozu7O7s6fN8v7SOPd+bMz6/nO7/d+773fe8uoB+AjhQINbAyTzYpk8WFifDNx8Z6JRVJwFz8l4rwsXtVy11lnbJnW8stssVymjMMog/CDAyNCCCEk2y2WYbGpSPGAB2BZLEsQnV1bW6SMkQmBHQvtXx8TN/mwK2iB0qEsxF4km18hu7LIPv5fiTRHW4F9oo6Qjkixz+sstnYCO+6XmBCWDlN6ltoJc0Lw87q5cW0ElsLSaW2tNSwos20+wz56MkcakLrAjrDMmhXvitRblKhin0lb6NQE7hmLbQ0i8fG0XHfiAvN9hSLlN2afAWH9zNH6+pmkg7FEBeaH+ieJrNOUreApSlDNmhbWfIYSIhGBn2GrbURJWPOeJKzZophxrLavcseIW0OR+vru8APwaPESmwU7DRWDG8Ids9j/iWwjXPbVtZ9TTMQisHTJ9mXR6D9MhjDE5rIjF5jv7x+mXO5yD9Zr4yYWkSMtg/lPBo9QzrplxO0IWS7jHkZIZBbMR/uPE7fmyNA9zB5jC0/OUwREIrARNwYiErlrgY24MRKByF0J7JQXebpMhvjYoKPsL6vz1CEdC+xUhdCA8ew2OyZFWfRK7RG9UsvUAR1F0VJcW0TLRtwEKIiayWW+77tF6oDOqkmOuKYqlCCi4eg7l53WwTZpW2B+aODXRtwUQKug0/TbHm0JLLv7TNtyerDJdjsoQgdZJqjShrJo0twVtkkzvAWboEoXCpTvmw17cCiB+ejAaVPuagSjkbCuuqWLNq5ZW0K56tYWnK9MkRFXR0K56qYWLHOW2S0y6Avne5ql5Da3YCch3aA3rGnduKHAfP/gmAmsMgACLjmIIJDGFpxjbbeaGFKCsYaeNlBgY72Zo9jIioMt2OITZMgYwR63TmA3cjbprlmjQVkcYMFsjAzZhLHjdZu8K26r1QoZskqZVnND3tmBai3YqoyQIcvIeU085Gt25/hxjedlSZb+zUSvHiMaeonoyddENy4QPfpKblsT6zcvkpYwC3ObTD9dVW9Sc88/PEC07aX67fduE93/lFLjlBDw5YPV9emTRANC9BPvyfWJHxGt3CMtWc09p9x01YLTcs+4ia++Wb/9jbeJHn5J9M4BaTlJAutV4p7YLq+PbVtekKLCorHoinTTjhVXBc5RpGNi2gYW+yfXOnAjIfDzW6UlTb5SfzyOAY3EhyBYGonRbD+2K9T5cQzEheV2cr0k8bjpqsCMdhOn9MCNhMgKvP/gvnTf21+puutDwlUeE+L3uz2YsPIPfkn0+XW5DuEnfku048fVcz34gmjmpBQIIuCh8e7HOc4ek/vxYGFRLDyWr5d+Jb/T2Y/k+ugm+Yrz4Xped47r4XxJex4Fo6ftGE4ULed+1KzP1yu4unmvCyF/+j45ocPCORn4wMrfuSQfAnD2uhQPDwREwTF4SE68L/ejDMX+B/fk/r9eq3oKgO3qYQE3LsrlQYPy9t3r8vup86nrzXxW6wmSpaAaPaQFOwO1NYyelQWoG/WaW1bDOpT4OAYWh5sMUbdslds/+bAa6WI7hAQQDy4UD4gqW/FZiAzr/1wct/KFDP7AzFvV77PdV1RgfZsbZZ99o/p9cR48RKM/k6KnAXcG3y+6LtoaIR0Z8FiAE+S44k2cq90OVCQO4XFzJ38nrP09aVmwKgWExjEQ52Uh4naPq4bI7bhVdU24du/n8EDhOwztoNSwrBHxd9oVmO2kVAvgBqgbpMpOxb3P6o999KV8RdSNqBwLPo8bjQWiYt/eY1J4lOFOMRBBVex7DVzxQKql3k78yfMjhQJVKkXSDZS3ymJhdRADrhBC3/iwGnTBHWJR63td962sFm5SlbtABWio1968ID+LxotOQDAFnn+hGkED5crV/nQoYqhLnjY2MLE2pQ5uyrtucLNtRzVKRhmm3B/eQyxErSoQgpvFgwDBUHbCNQPV8qRu9kNVnheqn2PCa+311MFR7rYjCh4qVSRMfyrLfFwP67jewjlKlYGN4dzUi32i/sv2UVogwEFZBneGMhDL+v+J/vl3WbXxlp//+Jt8xfHff43oxR+QExz+cYro4z+IpvZHUlScA/txo/EeQiAIgoX956HcjnPg2nD/t/8st+F8d27I42D5wBskOdb+Zu12nBvWq4oCdT0EZ//+F6WKzZeYCKenhAVnLz1HuW9V9vpxGh7EQ/OkHNzwgM9796njG52vFa2ulwacz+Qz27nfSohWLUr+z3fbAqVj8yXjm0VDB0+tNm6IGW4NWdq1YBmig9FWYcHWc2ToWSzhp7eSoVcpxD6dsCFVjMC9jhG4xzEC9zgiyKLM/8KmoTF5stnXIpJOry6M9l2k5oQFbc1IhGv1eTQZoi8Y6TzNsh9Veiz6hdHJ8bQJ1HedZtfq9LvHTylPvQrahdH4j9SZi2erCX1eIBhSfLb0aE2R8bJw0XbvD1U5dqo+3QYg1adXxQXCO4umStZh90nGCMq99mZC9iIivhIuGj9xnmKHP8ollYIa1eeDUme974HKY/aClB6VzBeUEdntd00azpctYcYdzUOsNRACyQLN8Avoz8tup+sPDxTyp9XSTSAWJRxlsMVLZEgzhzk+GBMWnM/3ngWDgRaCBQ1XgVtPM9U1atbyyxabL5d7LtCCWK+/XbttzScoBPbnQCMQQ7Xq0ldypMPoyeoYqKzBqIQRhmpkA6w4+foCqi6oqvgDoCAaNRKEbXxYCciWRNbjiYD6MerQiLCxYMgLMi3RYJLmcNZ24XQXL25btL1ISaJSZDGQK4y4URA0hAQCQ7hWoxmQgYnvGlSX1hVbaioF5glH0shdTkpY4M2t9uNY8XY53gnvm1mpSqXNAkxq6rhoTGbJRwfLieVnYaRCEjcLyee/OVlb/aEm30kNUEMZDqtF0OUtg4NmItCTspqgtNpdyCk5K1Y3Uo3y86IaE/xLo0Z6dfyp/fX7MKRkrYPOMnwvPBRB58wGS+qNpz/YvkJJseKOpYVoUQ3vgGsNOhei4V6s4zbFnlfvqgLn+uYoKWAhEDjqRHEETH53jKEk/ipTGPBQ7PUNSlvTeF4OL7nKonr7tLsQ9WF+aBA7RijLoInSP7r+sCjv79+uHbnvJ0x1678ZEJjTEpuvTvPvS9lJ0E3HBcrk6bfqt0cRIH1ygbSH2XPe1VqB4aZ7IYUHluotj+G6u51KAWX8zQwI7HHPoCajw3HTBwevCJGPU9aBoLDa3/+iswnL1GCye66wYapa6TPndc+griPY/BBHhgn4gY7Ann4RbEHgETJkB9GfwBbWdvk3B+dFc36GDNmC85mgzQ1zdfjophXxoSIZ9AddgwurQ0G7Go9ssO1xMmQDbjf0uM1/+cyUxfrTxHpB87FJpizWH5s39bRNBXZD7kUy6Mpcs98tBK1HF+Zy42aAmoZAk9x6Sw/bUmDRulUizoyr1g2bzfhbrYIIPaTBBFwa0SKw8hJ+ALhx1XoADaz1PWEPDy2wcdWaIDQI45oVbY86E50R06IzYoIMySOaI0XUPNnOR9oXGPNL2/Ytd8p4Q1K0Ue56aXsSFmeoi2UdFVZcIkMyCHHbKXdrP9oh/Ej/MNnWLTPXZczIoGpXO+Wul46nUWLzT5bJJtMhETfiHncqLuhqnix2bRX5t0bk+Bh373HHRDJ3g2gEGRMvs2SIknF2dXWOuiSyyTmMyJESibgg0tlX+MHBI8Lpz5rAq0MQUNndu+XaU0aMqCcX3XpykQzhcapC9lEneI30tDFgRG4TjOW1vjnaTbTciFhmm0W7NVt4PNQo08/gAffIsvbEIS6IfQY0fmjTJDF+2pTLPlDeouPg6uNpipFEprgzLruOJcqtj8VltV4SncOQj26aEn8nnllrTshqay+ZMI41b1SmemKAW3skZrVeUpuF1BnkZlmzz4DbXhL/41Sr7Me4SP13ZZ0WMPw4Zq8JjXqtzcfTErb6NTTBbepEtsJOyjapWqwfbQRWOK6b2FimymgneKJ5Iex5XYRVaCewwgnGKpUR8XZMLLtJT5acKYtyfXNOpouGaCuwF4/YR8Q33p1aNUta6l3dRfWSCYH9yGkmkPRnYbqJnbEFaJhm2ZmJ117EfJ66ud8wZFJgP06m58bGsCM6ZwX3V80LzuKsB/zCqtM1x+TEV4yXhGWWnN+vwE8cYBb8fH45Cxbaim8BADv613K+UEgAAAAASUVORK5CYII=";
 
 function ApprovesItem(props) {
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { className: style$8.containerItem, children: [jsxRuntime.jsx("div", { className: style$8.avatar, style: { width: props.size }, children: jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.avatarSize }) }), props.statusApprove === 'reviewed' ?
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { className: style$9.containerItem, children: [jsxRuntime.jsx("div", { className: style$9.avatar, style: { width: props.size }, children: jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.avatarSize }) }), props.statusApprove === 'reviewed' ?
                         jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaSawBadgeIcon, {}) })
                         : props.statusApprove === 'adjustments' ?
                             jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaEdit, {}) })
                             :
-                                jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaSendIcon, {}) }), jsxRuntime.jsx("div", { style: { width: props.size }, className: style$8.status_logo, children: jsxRuntime.jsx(Avatar, { src: problemaFRST, size: props.avatarSize }) })] }), jsxRuntime.jsx("div", { className: style$8.containerItem, style: { marginTop: '8px' }, children: jsxRuntime.jsxs("div", { className: style$8.containerData, style: { width: props.size }, children: [jsxRuntime.jsx("span", { className: style$8.name, children: props.nomeAvatar }), jsxRuntime.jsx("span", { className: style$8.sub_title, children: props.dataAvatar })] }) })] }));
+                                jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaSendIcon, {}) }), jsxRuntime.jsx("div", { style: { width: props.size }, className: style$9.status_logo, children: jsxRuntime.jsx(Avatar, { src: problemaFRST, size: props.avatarSize }) })] }), jsxRuntime.jsx("div", { className: style$9.containerItem, style: { marginTop: '8px' }, children: jsxRuntime.jsxs("div", { className: style$9.containerData, style: { width: props.size }, children: [jsxRuntime.jsx("span", { className: style$9.name, children: props.nomeAvatar }), jsxRuntime.jsx("span", { className: style$9.sub_title, children: props.dataAvatar })] }) })] }));
 }
 function ModalStatusProblema(props) {
     // Função para pegar o width da tela
@@ -4186,15 +4831,15 @@ function ModalStatusProblema(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 500;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$8.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { avatarSize: (size[0] >= BREAKWIDTH) ? '120px' : '100px', size: (size[0] >= BREAKWIDTH) ? '160px' : '120px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsxs("div", { className: style$8.modal_controls_wrapper, children: [jsxRuntime.jsx("div", { className: style$8.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, entendi', handleClick: props.handleClose, style: { width: '100%', minWidth: '140px' } }) })] })] }) }));
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$9.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { avatarSize: (size[0] >= BREAKWIDTH) ? '120px' : '100px', size: (size[0] >= BREAKWIDTH) ? '160px' : '120px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto }, index))) }), jsxRuntime.jsxs("div", { className: style$9.modal_controls_wrapper, children: [jsxRuntime.jsx("div", { className: style$9.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, entendi', handleClick: props.handleClose, style: { width: '100%', minWidth: '140px' } }) })] })] }) }));
 }
 
-var css_248z$8 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
-var style$7 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
-styleInject(css_248z$8);
+var css_248z$9 = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
+var style$8 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
+styleInject(css_248z$9);
 
 function ModalLearningTech(props) {
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$7.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$7.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$7.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$7.container, children: props.children }), jsxRuntime.jsx("div", { className: style$7.conclusao, children: props.confirmationButton ?
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$8.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$8.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$8.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$8.container, children: props.children }), jsxRuntime.jsx("div", { className: style$8.conclusao, children: props.confirmationButton ?
                         props.cancelButton ?
                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$2, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$2, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
                             :
@@ -4203,9 +4848,9 @@ function ModalLearningTech(props) {
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
 }
 
-var css_248z$7 = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
-var style$6 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
-styleInject(css_248z$7);
+var css_248z$8 = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
+var style$7 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
+styleInject(css_248z$8);
 
 const WrapperStars = styled__default["default"].div `
     display: flex;
@@ -4318,22 +4963,22 @@ function ModalVideo(props) {
             setCurrentRating(props.rating);
         }
     }, [props.rating]);
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$6.modalBox, style: {
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { id: `modal-video${(props.title ? props.title : '').replace(/( )+/g, '')}`, className: style$7.modalBox, style: {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 height: props.showRating ? '80%' : '400px',
                 maxHeight: props.showRating ? '620px' : '400px',
                 overflowY: 'auto'
-            }, children: [jsxRuntime.jsxs(material.Stack, { flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between", px: 3, children: [jsxRuntime.jsx(material.Box, { textAlign: "left", style: { paddingLeft: 6, }, children: props.title }), jsxRuntime.jsx(material.Box, { className: style$6.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) })] }), jsxRuntime.jsxs(material.Box, { p: 3, children: [props.videoUrl && (jsxRuntime.jsx(material.Box, { width: "100%", children: jsxRuntime.jsx(Video, { videoId: IdVideo, privateHash: HashVideo, autoplay: 1, controls: 1, keyboard: 1, timeStart: convertTimeToString(props.timeBegin), showSpeedControl: 1, width: 620, height: 400 }) })), props.showRating && (jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsxs(material.Box, { style: { maxWidth: 240 }, children: [jsxRuntime.jsx("p", { style: { textAlign: 'left', fontSize: 14, fontWeight: 400 }, children: props.ratingDescription }), jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: true, marginStars: "3.5px", orientation: "horizontal", qtdStars: 5, rating: currentRating, sizeStars: 25, handleRating: (e) => {
+            }, children: [jsxRuntime.jsxs(material.Stack, { flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between", px: 3, children: [jsxRuntime.jsx(material.Box, { textAlign: "left", style: { paddingLeft: 6, }, children: props.title }), jsxRuntime.jsx(material.Box, { className: style$7.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) })] }), jsxRuntime.jsxs(material.Box, { p: 3, children: [props.videoUrl && (jsxRuntime.jsx(material.Box, { width: "100%", children: jsxRuntime.jsx(Video, { videoId: IdVideo, privateHash: HashVideo, autoplay: 1, controls: 1, keyboard: 1, timeStart: convertTimeToString(props.timeBegin), showSpeedControl: 1, width: 620, height: 400 }) })), props.showRating && (jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsxs(material.Box, { style: { maxWidth: 240 }, children: [jsxRuntime.jsx("p", { style: { textAlign: 'left', fontSize: 14, fontWeight: 400 }, children: props.ratingDescription }), jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: true, marginStars: "3.5px", orientation: "horizontal", qtdStars: 5, rating: currentRating, sizeStars: 25, handleRating: (e) => {
                                                 setCurrentRating(e);
                                                 props.handleChangeRating(props.recommendationId, e);
                                             }, disabled: false }) })] }) }))] })] }) }));
 }
 
-var css_248z$6 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
-var style$5 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
-styleInject(css_248z$6);
+var css_248z$7 = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
+var style$6 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
+styleInject(css_248z$7);
 
 /**
  * @param {CardProblemGestorProps} props
@@ -4341,16 +4986,16 @@ styleInject(css_248z$6);
 function CardProblemGestor(props) {
     const statusBg = props.statusBackgroundColor || '#757575';
     const statusColor = props.statusColor || '#FFFFFF';
-    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName }), jsxRuntime.jsxs("div", { className: style$5.contentCard, children: [jsxRuntime.jsxs("div", { className: style$5.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$5.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
-                        jsxRuntime.jsx("div", { className: style$5.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
-                        jsxRuntime.jsx("div", { className: style$5.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$5.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] }), props.lastUpdated &&
+    return (jsxRuntime.jsxs("div", { className: style$6.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [jsxRuntime.jsx("div", { className: style$6.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName }), jsxRuntime.jsxs("div", { className: style$6.contentCard, children: [jsxRuntime.jsxs("div", { className: style$6.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$6.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
+                        jsxRuntime.jsx("div", { className: style$6.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
+                        jsxRuntime.jsx("div", { className: style$6.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), props.ratingImpacto &&
+                        jsxRuntime.jsxs("div", { className: style$6.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] }), props.lastUpdated &&
                         jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] })] })] }));
 }
 
-var css_248z$5 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 48px;\n    padding-left: 48px;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    \n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 30px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n    \n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_avaliacao__kyzgs {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n   \n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 30px;\n    margin-right: 30px;\n}";
-var style$4 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","avaliacao":"cardProblem-module_avaliacao__kyzgs","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
-styleInject(css_248z$5);
+var css_248z$6 = ".cardProblem-module_container__eYX3j {\n    width: 100%;\n    border-radius: 10px;\n    padding-right: 24px;\n    padding-left: 48px;\n    padding-top: 40px;\n    padding-bottom: 24px;\n\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n    box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n    cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    border-top-right-radius: 5px;\n\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 17px;\n    padding-left: 16px;\n\n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblem-module_contentCard__oBqoN {\n\n    margin-left: 8px;\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n    margin-bottom: 24px;\n    \n\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 16px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n\n    margin-top: 4px;\n    margin-bottom: 8px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-break: break-all;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    font-weight: 600;\n\n    margin-bottom: 26px;\n    margin-right: 30px;\n}";
+var style$5 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
+styleInject(css_248z$6);
 
 const translate = {
     "pt-BR": {
@@ -4370,6 +5015,8 @@ const translate = {
         'waitingApproval': 'Aguardando aprovação',
         'linkedTrail': 'Vinculado à trilha',
         'notLinkedTrail': 'Ainda não está vinculado a uma trilha',
+        'verifiedChallenge': 'Desafio verificado',
+        'challenge': 'Desafio',
         'viewMore': 'Ver mais',
     },
     'en-US': {
@@ -4389,6 +5036,8 @@ const translate = {
         'waitingApproval': 'Waiting for approval',
         'linkedTrail': 'Linked to trail',
         'notLinkedTrail': 'Not yet linked to a trail',
+        'verifiedChallenge': 'Verified Challenge',
+        'challenge': 'Challenge',
         'viewMore': 'View more',
     },
     "es-ES": {
@@ -4408,6 +5057,8 @@ const translate = {
         'waitingApproval': 'Aguardando aprobación',
         'linkedTrail': 'Vinculado a sendero',
         'notLinkedTrail': 'Aún no vinculado a un sendero',
+        'verifiedChallenge': 'Desafío verificado',
+        'challenge': 'Desafío',
         'viewMore': 'Ver más',
     }
 };
@@ -4464,28 +5115,26 @@ function CardProblem(props) {
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    const BREAKWIDTH = 450;
-    return (jsxRuntime.jsxs("div", { className: style$4.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$4.tagStatusProblem, style: { background: statusColor, color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$4.checkBox, onClick: () => {
+    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { border: '1px solid ', borderColor: statusColor, backgroundColor: selected ? '#FF4D0D' : '#FFF', color: selected ? '#FFF' : '#000' }, children: [jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.checkBox, onClick: () => {
                     props.handleSelect(props.problemID);
-                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$4.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$4.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$4.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle &&
-                        jsxRuntime.jsx("div", { className: style$4.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), props.tags &&
-                        jsxRuntime.jsx("div", { className: style$4.tagsContainer, children: props.tags.map((item, index) => (item &&
-                                jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) }), size[0] > BREAKWIDTH &&
-                        props.ratingImpacto &&
-                        jsxRuntime.jsxs("div", { className: style$4.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: translate[languageSlected]['impact'], tipoVisualizacao: selected ? 3 : 2 }), jsxRuntime.jsx(Rating$1, { nomeAvaliacao: translate[languageSlected]['evaluation'], nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: translate[languageSlected]['relevance'], tipoVisualizacao: selected ? 3 : 2 })] }), statusName !== translate[languageSlected][6] ?
+                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$5.contentCard, onClick: () => { props.onClick(props.problemID); }, children: [jsxRuntime.jsxs("div", { className: style$5.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [" ", jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), " "] }), jsxRuntime.jsxs("div", { className: style$5.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.isVerified ?
+                        jsxRuntime.jsxs("div", { style: { textAlign: 'center', display: 'flex' }, children: [jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['verifiedChallenge'] }) }), jsxRuntime.jsx(SawBadgeIcon, {})] })
+                        :
+                            jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['challenge'] }) }), props.cardTitle &&
+                        jsxRuntime.jsx("div", { className: style$5.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) }), statusName !== translate[languageSlected][6] ?
                         props.trilhaVinculada ?
                             jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                             :
                                 jsxRuntime.jsx(TextIcon, { description: translate[languageSlected]['notLinkedTrail'], svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}), props.lastUpdated &&
-                        jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }), props.isButtonVerMais &&
-                        jsxRuntime.jsx("div", { className: style$4.buttonVerMais, children: jsxRuntime.jsx(Button$2, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
+                        jsxRuntime.jsxs("div", { style: { color: '#000', fontSize: 12, fontWeight: 400, marginTop: 40 }, children: [props.lastUpdated, " "] }), props.isButtonVerMais &&
+                        jsxRuntime.jsx("div", { className: style$5.buttonVerMais, children: jsxRuntime.jsx(Button$2, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
 }
 
-var css_248z$4 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
-var style$3 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagStatusProblem":"cardDefinicaoProblema-module_tagStatusProblem__FoQ12","headerContainer":"cardDefinicaoProblema-module_headerContainer__UXFIi","descriptionContainer":"cardDefinicaoProblema-module_descriptionContainer__Z7yo8","footerContainer":"cardDefinicaoProblema-module_footerContainer__6EjXg","footerContainerType2":"cardDefinicaoProblema-module_footerContainerType2__v2sGa"};
-styleInject(css_248z$4);
+var css_248z$5 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
+var style$4 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagStatusProblem":"cardDefinicaoProblema-module_tagStatusProblem__FoQ12","headerContainer":"cardDefinicaoProblema-module_headerContainer__UXFIi","descriptionContainer":"cardDefinicaoProblema-module_descriptionContainer__Z7yo8","footerContainer":"cardDefinicaoProblema-module_footerContainer__6EjXg","footerContainerType2":"cardDefinicaoProblema-module_footerContainerType2__v2sGa"};
+styleInject(css_248z$5);
 
 /**
  * @param {CardDefinicaoProblemaTranslateProps} props
@@ -4519,13 +5168,13 @@ function CardDefinicaoProblema(props) {
                 break;
         }
     }, [props.problemStatus]);
-    return (jsxRuntime.jsxs("div", { className: style$3.container, children: [props.typeButton !== 1 &&
-                jsxRuntime.jsx("div", { className: style$3.tagStatusProblem, style: { background: statusColor, color: statusName === (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$3.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$3.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$3.footerContainer} ${props.typeButton === 2 && style$3.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue : 'Continuar'), startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
+    return (jsxRuntime.jsxs("div", { className: style$4.container, children: [props.typeButton !== 1 &&
+                jsxRuntime.jsx("div", { className: style$4.tagStatusProblem, style: { background: statusColor, color: statusName === (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$4.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$4.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$4.footerContainer} ${props.typeButton === 2 && style$4.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$2, { variant: 'link', label: props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$2, { variant: 'link', label: props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue : 'Continuar'), startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
 }
 
-var css_248z$3 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
-var style$2 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
-styleInject(css_248z$3);
+var css_248z$4 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
+var style$3 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
+styleInject(css_248z$4);
 
 var Conquista = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAxCAYAAACYq/ofAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAdKSURBVHgB7VrNThtXFD7njm0idRHnCTI8QZxdF00YngDyBMCiFaBKgWWgEUYJidRNiNQCUheYJwh5AgzpojvME9Q8QSaLSomx7+137p1x7MnYzGCMqNRPgvF47s859/yfMVNGLD/e2jbMD+imoent7oe1w8uGKcoIYYKJKmyIb+yPKGAy5Sz0FSgjsOgk2DncOVlfoBvASlAtt0zpo8nISGaJ3DS269VQrsycTSJLU6+ORIR0W8G8sTz1amPoGEPHBXelJhtzMHAc89RNM+tUy9JWB23HAwcyz8mlgJHnsCpfa11XnrefOpYok3ivE59poqxAnDgYEOunjblg86RoaEaTCZPG7pMx7zE9TE4CszMQzSRdAaK+u8dr03nmKNJle4SQRpIexXQfkgomSJXBhA9DPy7AvTUxYY4KhSYmiSwP4bdryYURRw7BzX3KieVgax5rBouPtub3PqzXss7TbV2GhpBSavu3+rN677OlR69mWVHwhXRYJOsMQoWRTeqegPCR7u6iU8mvYoatobLijTzTmD27lxCb8tiXf15Ms+EGpKIb9qbD8jDkAfroJEepzwbBSkPmsNmEkvg/PXq5knUuImJFrt/RRTPlmQ+KQ2q7e8/jsFDCwBaV7EScegOMTKWuLJKD6i1+X/X3/qo2BxEg3uZz26vgRCsQ41NxjTvH61XYyVQBUoFaYJlO406h04hjxQBUhNi0MTbLMHQGtQvkvkBfGioa2LAu1pgzWUCI+XZdJzkulippxItBw99/lGgM3T6CDr/Bo7JWrXm3eWdT5Crfy3MZJ+OXp7ZSPSXouYt/Z2l7uVBgLM1Cu/DgIjs8A1SnYhTX5bbVKc4mFyh1Raz95DNZqM1mFR/t6RlNq5p5cud47d5e3Ulvr/68LvfEhYdQNZvmwLWEmi82KQUxscnvW+RoE1rtmCjGWEa00sguYf0dS2QTg+bSiMXlHKcQpG38R329AeLFxTZZmY1OZIhJaOqE4gAkCBtuTceM9mLxhxeBJda4g+2D4ac2gEdOCep12GVETksiKL6diQwzWApezH67iDmED0+3IbvOs6ZjhkMEqqPFoOr3Phe1UMYcGUtPOhMCa18yxmv1SSRyHhWjzWZ8GLFrVl8nmwNhoN0xZZcWqP0kIe6EuLwYuBMbxAxU662M61CxTyqRVMuwxfeDmCBH1Qz+N3rHLAav/Zh45dmvfMtQd0qEnfp6TRgQzxIZZsim1HeqE16rThJ8tJqlIYjdo7jOxcdbSPq2TiUgRo+beogbF4LlQI3W3dzvx2Cr8lWSnYUoNjV6A2xfGg/9X7CexXj7GhNYBpjiaez/5USxWAND5mgIxD1KAIVnOlXMVazISvE+PNvfdtMhlSYCc2DX8NpW95ewd9FwlwkF2uSz5taT/nk9ELVAIjbNVvyOGajT+4JSb4QIMcJIWkPVy1aSNm+jcxA9/fvxWkWu7B6L/vvpLp5cJoDYQ23PtyUG9sb9GbziE2ECI8ryOama3xRW4n0iZiAN9c4YUxd3ae8lPhjPpRzRNYmYQK3Nws7JWhAbo1zhficj19v8h4p+cu7XTIAe2L3AtKxjjD6MpSK0CY3JuakVYuxKJdKLSkAqG1oMyzHkW0agx4OkUuLW5KAEUWxRGEpLPeK8zALeU1QJOdpcLBXxdGlMRPQMh8te7Qa+9f1gCC5YagTrzye49fCSVCMTxBaEYGRB24gRn+JiLt7zssz5UkaohyE2vIKF+wxVNt49WVulESCeSrwSOWm7LBt2oo2pZU39MzMSYzn4FQGpvcIuMPryHXR4fvfklwO6AqJuySnFTKDklmidrEEuQ25GevFz8DrAqUlyWLkqMy5p5HkN+9urZy+8khiJEUF0oqIWFTBV3TtZ38w674spvbOJHwwbTqBKI2BkRrpE6dI2u0DZ0J3O6t6fz+uDxkcORCSJwGZWR5FEjGthJEbSw+HaiGocQRme6H7UVnLGjFplaM6VA9fKSAzLkOZ5SsmU4eUOPMW1vMZ8GcbCSAxUgOhlmLcanRCl9TZizwMb3ceAm+j9hpLDkVW1bA3pq+Amm9ghEf/3GIGduCoPPSe3k+ufSReGxoCxMRL1yWzPSa5aSmnZsFgMaAwYn2oxzUqVGHunyE7CtMbGdWBsjES5WP+7P3gwiSMDi6oRMBZG4gJJserLvUrqYluuLV3M3DrNimuJI0uPX86hKhcic5/0sP5WHozMiPS/UPa+s3U2oSzOTYHYjCmj4/hwFGYyv9UdSIfx3siporgK6ApAUVVThk6VU7crq1xuiUgnBYXPLGbeRU0vDeXZqEfboCtD2rA26jvngO6LVhe1PBLKJRHXKGOpPSQ2fIpO4RyE3MN1mkYCf+qugVdraA6Km86cl+VipKhJJEG2qz5GLAev0R8w+5e9i+nFrf3BQF78z8htQy4bQSYbyk925CdPFL2dGgfQppXmHN25k32PXIzgtUINTQa86OSnNEawJJesV/N0MP8F5hSqQY4bC0cAAAAASUVORK5CYII=";
 
@@ -4548,10 +5197,10 @@ function CardResultConquista(props) {
     React.useEffect(() => {
         setBtnViewMore(props.textMoreDetails);
     }, [props.textMoreDetails]);
-    return (jsxRuntime.jsxs("div", { className: style$2.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
+    return (jsxRuntime.jsxs("div", { className: style$3.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
             props.onClick(props.problemId);
             setIsPressed(true);
-        }, children: [jsxRuntime.jsxs("div", { className: style$2.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
+        }, children: [jsxRuntime.jsxs("div", { className: style$3.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
                         isPressed ?
                             jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })
                             :
@@ -4560,10 +5209,10 @@ function CardResultConquista(props) {
                             isPressed ?
                                 jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })
                                 :
-                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$2.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$2.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
+                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$3.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$3.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
 }
 
-const WrapperCard$5 = styled__default["default"].div `
+const WrapperCard$6 = styled__default["default"].div `
     width: 343px;
     min-height: 136px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey4};
@@ -4593,7 +5242,7 @@ const WrapperButton$2 = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$5, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$2, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$2, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$6, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$2, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$2, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
 function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
@@ -4619,11 +5268,11 @@ styled__default["default"].div `
   align-items: center;
   justify-content: center;
 `;
-const ProgressContainer = styled__default["default"].div `
+const ProgressContainer$1 = styled__default["default"].div `
   position: relative;
   padding-left: 75px;
 `;
-const Progress = styled__default["default"].ul `
+const Progress$1 = styled__default["default"].ul `
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -4743,7 +5392,7 @@ const ProgressItemSubtitle = styled__default["default"].p `
 `;
 
 function Stepper({ children, }) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer, { children: jsxRuntime.jsx(Progress, { children: children && children }) }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ProgressContainer$1, { children: jsxRuntime.jsx(Progress$1, { children: children && children }) }) }));
 }
 
 function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
@@ -4754,7 +5403,7 @@ function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
                 jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
 }
 
-const WrapperCard$4 = styled__default["default"].div `
+const WrapperCard$5 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -4788,7 +5437,7 @@ const WrapperDescription = styled__default["default"].div `
 `;
 
 function ObjectiveStep({ description, number }) {
-    return (jsxRuntime.jsxs(WrapperCard$4, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
+    return (jsxRuntime.jsxs(WrapperCard$5, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
 const Wrapper$4 = styled__default["default"].div `
@@ -4796,7 +5445,7 @@ const Wrapper$4 = styled__default["default"].div `
     flex-direction: column;
     max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '400px'};
 `;
-const Title$4 = styled__default["default"].p `
+const Title$5 = styled__default["default"].p `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -4881,7 +5530,7 @@ const WrapperButtons = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$4, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$4, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$4, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$2, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -4995,7 +5644,7 @@ const Wrapper$3 = styled__default["default"].div `
     width: 100%;
     flex-direction: column;
 `;
-const Title$3 = styled__default["default"].p ` 
+const Title$4 = styled__default["default"].p ` 
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -5057,7 +5706,7 @@ function TrailList({ title, trails, style }) {
     React.useEffect(() => {
         setTrailsList(trails);
     }, [trails]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$3, { style: { ...style }, children: [jsxRuntime.jsx(Title$3, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$3, { style: { ...style }, children: [jsxRuntime.jsx(Title$4, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
                         jsxRuntime.jsx("div", { style: {
                                 display: 'flex',
                                 flexDirection: 'column'
@@ -5085,6 +5734,325 @@ function TrailList({ title, trails, style }) {
                                                         gridTemplateColumns: windowSize[0] > 1400 ? '1fr 1fr 1fr' :
                                                             windowSize[0] > 900 ? '1fr 1fr' : '1fr'
                                                     }, children: renderTrails() }) })] }) }));
+}
+
+const SFavorite = styled__default["default"].div `
+  padding: 12px 20px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  cursor: pointer;
+
+  &.disable {
+    cursor: not-allowed;
+  }
+`;
+
+function Favorite({ variant, disable = false, action }) {
+    const types = {
+        default: {
+            name: 'default',
+            fill: '#E0E0E0',
+            stroke: '#BDBDBD'
+        },
+        pressed: {
+            name: 'pressed',
+            fill: '#FFD600',
+            stroke: '#FDAE15'
+        },
+        disabled: {
+            name: 'disabled',
+            fill: '#757575',
+            stroke: '#BDBDBD'
+        }
+    };
+    const [status, setStatus] = React.useState(types[variant]);
+    function handleSetStatus() {
+        const newStatus = status.name === 'default' ? 'pressed' : 'default';
+        setStatus(types[newStatus]);
+        action();
+    }
+    React.useEffect(() => {
+        setStatus(types[!disable ? variant : 'disabled']);
+    }, [disable]);
+    return (jsxRuntime.jsx(SFavorite, { onClick: !disable && handleSetStatus, className: disable && 'disable', children: jsxRuntime.jsx(StarFavorite, { fill: status.fill, stroke: status.stroke }) }));
+}
+
+const Container$e = styled__default["default"].div `
+  width: auto;
+  height: 218px;
+  min-width: 720px;
+  padding: 25px 26px 20px 26px;
+  background: #ffffff;
+  border: 1px solid #bdbdbd;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 14px;
+  cursor: pointer;
+  &.selected {
+    background: #fce4cc;
+    border: 1px solid #ff8a15;
+  }
+  :hover {
+    background: #fcf3eb;
+    border: 1px solid #ff8a15;
+  }
+`;
+const Thumbnail = styled__default["default"].section `
+  height: 100%;
+  width: 88px;
+  border-radius: 8px;
+
+  > img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border-radius: 8px;
+  }
+`;
+const Content$2 = styled__default["default"].section `
+  width: calc(100% - 88px - 14px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`;
+const Article = styled__default["default"].article `
+  width: 100%;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+`;
+const Options = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+const Title$3 = styled__default["default"].h3 `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  color: #6a3f86;
+`;
+const Description$2 = styled__default["default"].p `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  color: #757575;
+  width: 60%;
+`;
+const SkillsList = styled__default["default"].ul `
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0;
+  gap: 8px;
+
+  > .title {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #757575;
+  }
+`;
+const Skill = styled__default["default"].li `
+  text-decoration: none;
+  list-style: none;
+  text-transform: capitalize;
+  padding: 2px 4px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+  background: #6a3f86;
+  border-radius: 4px;
+`;
+const ContentBarProgess = styled__default["default"].div `
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  > p {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    color: #222222;
+  }
+`;
+const BarProgress = styled__default["default"].div `
+  width: 160px;
+  height: 20px;
+  padding: 2px;
+  border: 1px solid #9c9c9c;
+  border-radius: 100px;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+const Progress = styled__default["default"].span `
+  height: 100%;
+  background-color: #ff4d0d;
+  width: ${(p) => p.progress}%;
+  z-index: 2;
+  border-radius: 100px;
+`;
+
+const Tooltip$1 = styled__default["default"].div `
+    position: relative;
+    display: inline-block;
+    
+    &:after #tooltipinfo {
+        content: "";
+        position: absolute;
+
+        ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'top: 100%; left: 50%;';
+        case 'bottom':
+            return 'bottom: 100%; left: 50%;';
+        case 'right':
+            return 'top: 50%; right: 100%;';
+        case 'left':
+            return 'top: 50%; left: 100%;';
+    }
+}}
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: black transparent transparent transparent;
+    }
+
+    &:hover #tooltipinfo {
+        visibility: visible;
+    }
+
+    &:hover {
+        visibility: visible;
+    }
+`;
+const Tooltiptext = styled__default["default"].div `
+    visibility: hidden;
+    width: 156px;
+    background-color: #fff;
+    border: solid 1px #BDBDBD;
+
+    padding: 8px! important;
+    padding-bottom: 4px;
+
+    word-wrap: break-word;
+
+    color: #757575;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'bottom: 160%; left: 50%;';
+        case 'bottom':
+            return 'top: 160%; left: 50%;';
+        case 'right':
+            return 'top: -5px; left: 220%;';
+        case 'left':
+            return 'top: -5px; right: 120%;';
+    }
+}}
+
+    margin-left: -70px;
+
+    -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+    -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+    box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        
+        ${({ position }) => {
+    switch (position) {
+        case 'top':
+            return 'left: 48%; bottom: -6px;';
+        case 'bottom':
+            return 'left: 48%; top: -6px;';
+        case 'right':
+            return 'top: 35%; left: -6px; border: 5px solid #fff !important;';
+        case 'left':
+            return 'top: 35%; right: -6px; border: 5px solid #fff !important;';
+    }
+}}
+        position: absolute;
+    
+        border: 6px solid #fff;
+        transform: rotate(135deg);
+        transition: border 0.3s ease-in-out;
+      }
+`;
+
+function Tooltip(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
+}
+
+function ContentCycle({ title, description, selected, listSkils, urlPhoto, urlVideo, titleVideo, progress, started, stepContent, onSelect, typeContent, id }) {
+    const [openModal, setOpenModal] = React.useState(false);
+    const defaultImage = {
+        video: 'https://lxp-cdn.frstfalconi.cloud/upload_content_video.png',
+        podcast: ' https://lxp-cdn.frstfalconi.cloud/upload_content_podcast.png',
+        text: 'https://lxp-cdn.frstfalconi.cloud/upload_content_text.png'
+    };
+    return (jsxRuntime.jsxs(Container$e, { className: selected && 'selected', onClick: () => onSelect(), id: id, children: [jsxRuntime.jsx(Thumbnail, { children: jsxRuntime.jsx("img", { src: urlPhoto ? urlPhoto : defaultImage[typeContent], alt: title }) }), jsxRuntime.jsxs(Content$2, { children: [jsxRuntime.jsxs(Article, { children: [jsxRuntime.jsxs(Options, { children: [jsxRuntime.jsx(Title$3, { children: title }), stepContent && (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: "Remover", children: jsxRuntime.jsx(Trash, {}) }))] }), jsxRuntime.jsx(Description$2, { children: description })] }), jsxRuntime.jsxs(SkillsList, { children: [jsxRuntime.jsx("p", { className: "title", children: "Competencias: " }), listSkils.map((skill, index) => {
+                                return (jsxRuntime.jsx(Skill, { id: skill, children: skill }, index));
+                            })] }), started ? (jsxRuntime.jsxs(ContentBarProgess, { children: [jsxRuntime.jsx(BarProgress, { children: jsxRuntime.jsx(Progress, { progress: progress }) }), jsxRuntime.jsxs("p", { children: [progress, "%"] })] })) : (jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(PlayLineIcon, { fill: "#0645AD" }), variant: "link", label: "Ver Teaser", handleClick: () => setOpenModal(true), sizeIcon: "24px" }))] }), jsxRuntime.jsx(ModalVideo, { timeBegin: 0, open: openModal, handleClose: () => setOpenModal(false), videoUrl: urlVideo, nameVideo: titleVideo, title: titleVideo })] }));
+}
+
+const Container$d = styled__default["default"].div `
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  flex-direction: column;
+`;
+
+function ListContentCycle({ stepContentCompleted = false, listContent, onSelect }) {
+    return (jsxRuntime.jsx(Container$d, { children: listContent.map((content, index) => {
+            return (jsxRuntime.jsx(ContentCycle, { id: content.id, description: content.description, onSelect: () => onSelect(index), selected: content.selected, title: content.title, listSkils: content.listSkils, urlPhoto: content.urlPhoto, urlVideo: content.urlVideo, titleVideo: content.titleVideo, progress: content.progress, started: content.started, stepContent: stepContentCompleted, typeContent: content.typeContent }, content.id));
+        }) }));
 }
 
 const ContainerGeral$1 = styled__default["default"].div `
@@ -5696,7 +6664,7 @@ function ButtonContent({ variant, label, disabled, startIcon, style, handleClick
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ButtonStartIcon, { style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, children: [startIcon, label] }) }));
 }
 
-const Container$b = styled__default["default"].span `
+const Container$c = styled__default["default"].span `
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -5737,7 +6705,7 @@ const Container$b = styled__default["default"].span `
 `;
 
 const ColorPicker = props => {
-    return (jsxRuntime.jsxs(Container$b, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
+    return (jsxRuntime.jsxs(Container$c, { children: [jsxRuntime.jsx("input", { type: "text", ...props }), jsxRuntime.jsx("input", { type: "color", ...props })] }));
 };
 function Colorpicker({ width, height, color, }) {
     const [state, updateState] = React.useState(color);
@@ -5748,7 +6716,7 @@ function Colorpicker({ width, height, color, }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ColorPicker, { onChange: handleInput, value: state, width: width, height: height }) }));
 }
 
-const Container$a = styled__default["default"].div `
+const Container$b = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -5840,10 +6808,10 @@ const ContentSwitcherSelected = styled__default["default"].button `
 `;
 
 function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, startIconSelected, isActive, idButtonSwitcher }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$a, { sizeIcon: sizeIcon, style: { ...style }, children: !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, id: idButtonSwitcher, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, id: idButtonSwitcher, children: [startIconSelected, label] })) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Container$b, { sizeIcon: sizeIcon, style: { ...style }, children: !isActive ? (jsxRuntime.jsxs(ContentSwitcher$1, { onClick: handleClick, id: idButtonSwitcher, children: [startIcon, label] })) : (jsxRuntime.jsxs(ContentSwitcherSelected, { sizeIcon: sizeIcon, onClick: handleClick, id: idButtonSwitcher, children: [startIconSelected, label] })) }) }));
 }
 
-const Container$9 = styled__default["default"].div `
+const Container$a = styled__default["default"].div `
     width: 270px;
     min-height: 409px;
     background-color: ${({ theme }) => theme.colors.primary2};
@@ -5871,7 +6839,7 @@ const Content$1 = styled__default["default"].div `
     width: 100%;
     margin-top: 20px;
 `;
-const Typography$2 = styled__default["default"].p `     
+const Typography$3 = styled__default["default"].p `     
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -6054,7 +7022,7 @@ var typeContent;
 function ContentThumbnails({ label, contentList, variant, src, disabled, icon, onChange, handleClick, handleReloadItens, title, removeContentList, onChangeOrder, isOpen }) {
     const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png';
     const iconList = [
-        jsxRuntime.jsx(Content$2, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(Content$3, { fill: '#EE4C15' }),
         jsxRuntime.jsx(Video$1, { fill: '#EE4C15' }),
         jsxRuntime.jsx(PodCast, { fill: '#EE4C15' }),
         jsxRuntime.jsx(QuizSucessError, { fill: '#EE4C15' }),
@@ -6091,7 +7059,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
                         return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs("div", { onClick: () => { handleClick(item); }, style: { display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer' }, children: [iconList[item.type], jsxRuntime.jsx(Title$2, { children: item.title })] }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: () => { removeContentList(item); }, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
                     }) })) }) }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$9, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), jsxRuntime.jsx("div", { children: up ? (jsxRuntime.jsx(Exibir, {})) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$2, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$a, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), jsxRuntime.jsx("div", { children: up ? (jsxRuntime.jsx(Exibir, {})) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
 }
 
 const LandscapeContainer = styled__default["default"].label `
@@ -6192,33 +7160,42 @@ function FileUpload({ variant, src, alt, disabled, startIcon, style, handleClick
                 : null }));
 }
 
-const BorderLinearProgress = styles$1.withStyles((theme) => ({
-    root: {
-        width: 289,
-        height: 19,
-        borderRadius: 8,
-    },
-    colorPrimary: {
-        backgroundColor: 'rgba(0,0,0,0.6)',
-        border: '1px solid #9c9c9c',
-    },
-    bar: {
-        borderRadius: 8,
-        backgroundColor: '#ff4d0d',
-    },
-}))(LinearProgress__default["default"]);
-function ProgressBar$1({ value, label }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', color: '#FFF' }, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex' }, children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
+const ProgressContainer = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  span {
+    margin-bottom: 0.3rem;
+  }
+`;
+const ValueAndProgress = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+const BorderLinearProgress = styled__default["default"](LinearProgress__default["default"]) `
+  width: 100%;
+  height: 8px !important;
+  border-radius: 8px;
+  background: rgba(255, 77, 13, 0.3) !important;
+
+  .MuiLinearProgress-bar {
+    background: #ff4d0d !important;
+  }
+`;
+
+function ProgressBar$1({ value, label, style }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ProgressContainer, { style: style, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs(ValueAndProgress, { children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
-const Container$8 = styled__default["default"].div `
+const Container$9 = styled__default["default"].div `
   display: flex;
   position: relative;
 `;
 const HeaderImage$1 = styled__default["default"].div `
   display: flex;
   justify-content: flex-start;
-  height: 80vh;
+  height: 200;
   align-items: flex-start;
   flex-direction: column;
   position: relative;
@@ -6237,7 +7214,7 @@ const HeaderImage$1 = styled__default["default"].div `
       }
     `}
   @media (max-width: 834px) {
-    height: 72vh;
+    height: 450px;
     ${(props) => props.tmnDescription >= 134 &&
     styled.css `
         section {
@@ -6252,15 +7229,15 @@ const HeaderImage$1 = styled__default["default"].div `
         styled.css ` width: 0px;`}
 
   @media (max-width: 414px) {
-    height: 65vh;
+    height: 450px;
   }
   @media (max-width: 320px) {
-    height: 87vh;
+    height: 450px;
   }
 `;
 const Content = styled__default["default"].div `
   width: 100%;
-  height: 100%;
+  height: 450px;
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
   
@@ -6340,6 +7317,9 @@ const Description$1 = styled__default["default"].div `
 const SpaceProgressAndButton = styled__default["default"].div `
   margin-top: 68px;
   display: flex;
+  height: 50px;
+  gap: 28px;
+  align-items: center;
   margin-bottom: 2rem;
   cursor: pointer;
   @media (max-width: 414px) {
@@ -6350,7 +7330,7 @@ const SpaceProgressAndButton = styled__default["default"].div `
     font-size: 14px;
   }
 `;
-const SpaceButtonLeft = styled__default["default"].div `
+styled__default["default"].div `
   margin-left: 24px;
   margin-bottom: 2rem;
 
@@ -6424,10 +7404,10 @@ function HeaderContent(props) {
         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$2, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsx(SpaceButtonTop, { onClick: item.onClick, children: jsxRuntime.jsx(Button$2, { label: item.labelButton, variant: "primary" }) })] }));
     }
     function InProgressHeader(item) {
-        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$2, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel }), jsxRuntime.jsx(SpaceButtonLeft, { onClick: item.onClick, children: jsxRuntime.jsx(Button$2, { label: item.labelButton, variant: "primary" }) })] })] }));
+        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$2, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel, style: { width: 200 } }), jsxRuntime.jsx(Button$2, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
-                    return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$9, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
+                    return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
                 }), jsxRuntime.jsx(ListCounters, { children: Array.from({ length: props.listaRecomendacao.length }).map((_, index) => jsxRuntime.jsx(Counters, { selected: index === selectedContent, onClick: () => setSelectedContent(index) }, index)) })] }) }));
 }
 
@@ -6617,7 +7597,7 @@ function PopOver({ variant, children, element, onClosePopover, anchorOrigin, tra
                                                     : null, jsxRuntime.jsx("div", { style: { zIndex: 9 }, children: children })] }) }) }) }));
 }
 
-const Container$7 = styled__default["default"].div `
+const Container$8 = styled__default["default"].div `
   display: grid;
   grid-template-columns: 0.11fr 1fr;
   height: 120px;
@@ -6637,14 +7617,14 @@ const Image$2 = styled__default["default"].div `
   background-size: cover;
   background-position: center;
 `;
-const Title = styled__default["default"].text `
+const Title = styled__default["default"].p `
   
   margin-bottom: 12px;
   color: ${({ theme }) => theme.colors.linkOnfocus};
   font-size: 16px;
   font-weight: 700;
 `;
-const Description = styled__default["default"].text `
+const Description = styled__default["default"].p `
   
   font-weight: 400;
   font-size: 16px;
@@ -6678,14 +7658,14 @@ const skillTag = styled__default["default"].div `
 `;
 
 function SearchResults({ src, title, description, textSkills, skills, style, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$7, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$2, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$2, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
                             jsxRuntime.jsxs(skillSets, { children: [textSkills, ":", skills.map(item => {
                                         return (jsxRuntime.jsx(skillTag, { children: item }));
                                     })] })
                             : null] })] }) }));
 }
 
-const WrapperCard$3 = styled__default["default"].div `
+const WrapperCard$4 = styled__default["default"].div `
     width: 244px;
     min-height: 31px;
     display: flex;
@@ -6696,15 +7676,15 @@ const WrapperCard$3 = styled__default["default"].div `
 `;
 
 function StarMetric({ disabled, onChange }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard$3, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard$4, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
 }
 
-var css_248z$2 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
-var style$1 = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
-styleInject(css_248z$2);
+var css_248z$3 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
+var style$2 = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
+styleInject(css_248z$3);
 
-var css_248z$1 = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
-styleInject(css_248z$1);
+var css_248z$2 = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
+styleInject(css_248z$2);
 
 const defineds = {
     startOfWeek: dateFns.startOfWeek(new Date()),
@@ -6791,7 +7771,7 @@ function CalendarLxp(props) {
         }
     ]);
     locale.pt.options.weekStartsOn = 0;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$1.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$1.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$1.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$1.btnSubmit, children: jsxRuntime.jsx(Button$2, { label: 'Aplicar', variant: 'primary', handleClick: () => {
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$2.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$2.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$2.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$2.btnSubmit, children: jsxRuntime.jsx(Button$2, { label: 'Aplicar', variant: 'primary', handleClick: () => {
                             props.onSave([newRange[0].startDate, newRange[0].endDate]);
                         } }) })] }) }));
 }
@@ -6974,7 +7954,7 @@ const itemFrstSocials = styled__default["default"].button `
   cursor: pointer;
 `;
 
-const Container$6 = styled__default["default"].div `
+const Container$7 = styled__default["default"].div `
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -7118,6 +8098,20 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     const [isOpenDrop, setIsOpenDrop] = React.useState(false);
     const [ValueSearch, setValueSearch] = React.useState('');
     const [Loading, setLoading] = React.useState(loading);
+    const [resultList, setResultList] = React.useState([]);
+    React.useEffect(() => {
+        if (listResults && listResults.length > 0) {
+            setResultList(listResults);
+            setIsOpenDrop(true);
+        }
+        if (labeledResultList && labeledResultList.length > 0) {
+            setResultList(labeledResultList);
+            setIsOpenDrop(true);
+        }
+    }, [listResults, labeledResultList]);
+    React.useEffect(() => {
+        setLoading(loading);
+    }, [loading]);
     React.useEffect(() => {
         setFieldSearchIsOpen(openSearchFieldMobile);
     }, []);
@@ -7132,39 +8126,30 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
     // Handle Open list results
     const handleFocusUp = () => {
         setInputOnFocus(true);
-        // setIsOpenDrop(true)
+        setIsOpenDrop(true);
         if (historicResults) {
             setIsOpenDrop(historicResults.length > 0);
         }
-        else if (listResults) {
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
-        }
-        else if (labeledResultList) {
-            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0);
+        else {
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0);
         }
     };
     const handleFocusDown = () => {
-        // setInputOnFocus(false)
         setIsOpenDrop(actionAreaInput);
     };
     React.useEffect(() => {
         const delayDebounceFn = setTimeout(() => {
             onFilter(ValueSearch);
-            if (listResults) {
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && listResults && listResults.length > 0);
-            }
-            else if (labeledResultList) {
-                setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && labeledResultList && labeledResultList.length > 0);
-            }
+            setIsOpenDrop(ValueSearch && ValueSearch.length > 0 && resultList && resultList.length > 0);
         }, 500);
         return () => clearTimeout(delayDebounceFn);
     }, [ValueSearch]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, children: variant == 'LXP' ?
-                jsxRuntime.jsxs(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: !openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon$1, { onClick: () => isMobile && setOpenSearchFieldMobile(!openSearchFieldMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, id: 'bar-search-global-menu', children: variant == 'LXP' ?
+                jsxRuntime.jsxs(Container$7, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => handleFocusUp(), onBlur: () => handleFocusDown(), children: [jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, isMobile: !openSearchFieldMobile, style: { ...style }, children: [jsxRuntime.jsx(ContainerIcon$1, { onClick: () => isMobile && setOpenSearchFieldMobile(!openSearchFieldMobile), children: jsxRuntime.jsx(SearchIcon, { fill: '#fff' }) }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: (e) => {
                                         setIsOpenDrop(false);
                                         setValueSearch(e.target.value);
-                                    }, disabled: loading, value: ValueSearch })] }), Loading &&
-                            jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) }), labeledResultList && labeledResultList.length > 0 && inputOnFocus && isLabeledResult &&
+                                    }, value: ValueSearch })] }), Loading &&
+                            jsxRuntime.jsx(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: true, children: jsxRuntime.jsx(ItemResult, { style: { cursor: 'default' }, children: jsxRuntime.jsx(TextItem, { isLastItem: true, style: { color: '#999' }, children: textLoading ? textLoading : 'Carregando...' }) }) }), labeledResultList && labeledResultList.length > 0 && inputOnFocus && isLabeledResult &&
                             jsxRuntime.jsxs(WrapperResults, { style: { ...style, marginTop: 8 }, isVisibleResults: isOpenDrop, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), children: [ValueSearch.length === 0 && inputOnFocus && historicResults && historicResults.length > 0 &&
                                         historicResults.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
@@ -7172,7 +8157,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                                     return item.onClick(item.id);
                                                 }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [jsxRuntime.jsx(Clock, {}), " ", item.label] }) }, item.id);
                                         }), ValueSearch.length > 0 &&
-                                        labeledResultList.map((item, index) => (jsxRuntime.jsxs("div", { style: { width: '100%', marginTop: 16 }, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5 }, children: item.label }), item.listResult.map(item => (jsxRuntime.jsx(ItemResult, { onClick: () => {
+                                        resultList.map((item, index) => (jsxRuntime.jsxs("div", { style: { width: '100%', marginTop: 16 }, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'PT Sans', fontSize: 14, fontWeight: 400, color: '#757575', paddingLeft: 16, marginLeft: 5, marginRight: 5 }, children: item.label }), item.listResult.map(item => (jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                         setIsOpenDrop(false);
                                                         return item.onClick(item.id);
                                                     }, children: jsxRuntime.jsx(TextItem, { isLastItem: false , children: item.label }) }, item.id)))] }, index))), hasOptionSeeAll && labeledResultList.length > 0 && ValueSearch.length > 0 &&
@@ -7187,7 +8172,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                                     return item.onClick(item.id);
                                                 }, children: jsxRuntime.jsxs(TextItem, { isLastItem: false , children: [jsxRuntime.jsx(Clock, {}), " ", item.label] }) }, item.id);
                                         }), ValueSearch.length > 0 &&
-                                        listResults.map(item => {
+                                        resultList.map(item => {
                                             return jsxRuntime.jsx(ItemResult, { onClick: () => {
                                                     setIsOpenDrop(false);
                                                     return item.onClick(item.id);
@@ -7198,7 +8183,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                                                 return seeAll.onClick(e);
                                             }, children: seeAll.label })] })] })
                 :
-                    jsxRuntime.jsx(Container$6, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
+                    jsxRuntime.jsx(Container$7, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
 }
 
 const Wrapper$2 = styled__default["default"].button `
@@ -7388,7 +8373,7 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
                     }) })] }) }));
 }
 
-const Container$5 = styled__default["default"].div `
+const Container$6 = styled__default["default"].div `
   width: auto;
   height: auto;
 `;
@@ -7565,7 +8550,7 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
         setAnchorSub(event.currentTarget);
         setSubMenu(subItens);
     };
-    return (jsxRuntime.jsx(Container$5, { style: { ...style }, children: variant == 'LXP' ?
+    return (jsxRuntime.jsx(Container$6, { style: { ...style }, children: variant == 'LXP' ?
             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$2, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
@@ -7796,6 +8781,12 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
     const [isTabletVersion, setIsTabletVersion] = React.useState(false);
     const [HideHambMenu, setHideHambMenu] = React.useState(false);
     React.useEffect(() => {
+        setValueListSearch(search.listEntry);
+    }, [search.listEntry]);
+    React.useEffect(() => {
+        setLoadingSearch(search.isloading);
+    }, [search.loading]);
+    React.useEffect(() => {
         function updateSize() {
             setWindowSize([window.innerWidth, window.innerHeight]);
             setIsMobileVersion(window.innerWidth < 700);
@@ -7866,14 +8857,14 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
                                 paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 ...style
-                            }, children: [isMobileVersion && !HideHambMenu && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isMobileVersion && HideHambMenu && (jsxRuntime.jsx(ArrowButton, { onClick: () => setControlExpandedSearchMobile(false), children: jsxRuntime.jsx(BackArrow, { fill: FRSTTheme['colors'].selectItens }) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleSideMenu(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: isTabletVersion && 32 }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%', justifyContent: 'space-between' }, children: [!isMobileVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, setFieldSearchIsOpen: setControlExpandedSearchMobile, fieldSearchIsOpen: controlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                            }, children: [isMobileVersion && !HideHambMenu && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isMobileVersion && HideHambMenu && (jsxRuntime.jsx(ArrowButton, { onClick: () => setControlExpandedSearchMobile(false), children: jsxRuntime.jsx(BackArrow, { fill: FRSTTheme['colors'].selectItens }) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleSideMenu(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: isTabletVersion && 32 }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%', justifyContent: 'space-between' }, children: [!isMobileVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, textLoading: search.textLoading, setFieldSearchIsOpen: setControlExpandedSearchMobile, fieldSearchIsOpen: controlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                 width: windowSize[0] < 830 ? '230px' : windowSize[0] > 1500 ? '428px' : '332px'
                                             } })), jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                                                 height: '100%',
                                                 paddingLeft: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
                                                 paddingRight: isMobileVersion ? '0' : windowSize[0] * 0.03 + 'px',
                                                 justifyContent: isMobileVersion ? 'space-between' : 'flex-end'
-                                            }, children: [isMobileVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                            }, children: [isMobileVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                         width: isMobileVersion ? '180px' : '332px'
                                                         // marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                                     } })), !isMobileVersion &&
@@ -7905,12 +8896,12 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
                             paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
                             paddingLeft: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
                             ...style
-                        }, children: [isMobileVersion && (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 0 }, onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && !isTabletVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && !isTabletVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                        }, children: [isMobileVersion && (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 0 }, onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && !isTabletVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && !isTabletVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                         width: isMobileVersion ? '190px' : '332px'
-                                    } })) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                    } })) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                             width: isMobileVersion ? '180px' : '332px',
                                             marginLeft: controlExpandedSearchMobile ? '-15px' : '-30px'
-                                        } })), isTabletVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                                        } })), isTabletVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                             width: isMobileVersion ? '180px' : '332px',
                                             marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
                                         } })), !isMobileVersion && !isTabletVersion && notification && (jsxRuntime.jsxs(WrapperIconNotification, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), newNotification.length ? (jsxRuntime.jsx("div", { style: { marginLeft: '-12px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, ' ', "\u00A0 ", textNotification] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })), isMobileVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
@@ -8020,9 +9011,9 @@ function HasNotificationIcon() {
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { width: "10", height: "10", rx: "5", fill: "#FF4D0D" }) }) }));
 }
 
-var css_248z = ".extraContent-module_container__tV2ud {\n    background-color: #E0E0E0;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    font-family: 'PT Sans';\n    padding: 20px;\n}\n\n.extraContent-module_contentInfo__TGKPS {\n    padding: 32px 20px;\n}\n\n.extraContent-module_notes__I6JnG {\n    display: flex;\n    flex-direction: column;\n}\n\n.extraContent-module_saveNotes__DHETt {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    margin-top: 24px;\n}";
-var style = {"container":"extraContent-module_container__tV2ud","contentInfo":"extraContent-module_contentInfo__TGKPS","notes":"extraContent-module_notes__I6JnG","saveNotes":"extraContent-module_saveNotes__DHETt"};
-styleInject(css_248z);
+var css_248z$1 = ".extraContent-module_container__tV2ud {\n    background-color: #E0E0E0;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    font-family: 'PT Sans';\n    padding: 20px;\n}\n\n.extraContent-module_contentInfo__TGKPS {\n    padding: 32px 20px;\n}\n\n.extraContent-module_notes__I6JnG {\n    display: flex;\n    flex-direction: column;\n}\n\n.extraContent-module_saveNotes__DHETt {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    margin-top: 24px;\n}";
+var style$1 = {"container":"extraContent-module_container__tV2ud","contentInfo":"extraContent-module_contentInfo__TGKPS","notes":"extraContent-module_notes__I6JnG","saveNotes":"extraContent-module_saveNotes__DHETt"};
+styleInject(css_248z$1);
 
 function AdminExtraContent(props) {
     const [valueTabs, setValueTabs] = React.useState(0);
@@ -8035,7 +9026,7 @@ function AdminExtraContent(props) {
         let bookInfo;
         return (jsxRuntime.jsxs("div", { style: { marginTop: 16 }, children: [jsxRuntime.jsx(TextField, { label: "Nome do livro", onChange: (e) => bookInfo.name = e.target.value }), jsxRuntime.jsx(TextField, { label: "Nome do autor", onChange: (e) => bookInfo.autor = e.target.value }), jsxRuntime.jsx(TextField, { label: "Link para compra", onChange: (e) => bookInfo.link = e.target.value }), jsxRuntime.jsx("div", { style: { marginBottom: 8 }, children: jsxRuntime.jsx("span", { children: " Fa\u00E7a upload da capa do livro abaixo" }) }), jsxRuntime.jsx(FileUpload, { variant: "landscape" })] }));
     }
-    return (jsxRuntime.jsxs("div", { className: style.container, children: [jsxRuntime.jsx("span", { style: { fontSize: 18, fontWeight: 700 }, children: "Material extra" }), jsxRuntime.jsx("div", { className: style.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
+    return (jsxRuntime.jsxs("div", { className: style$1.container, children: [jsxRuntime.jsx("span", { style: { fontSize: 18, fontWeight: 700 }, children: "Material extra" }), jsxRuntime.jsx("div", { className: style$1.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
                         '& .Mui-selected ': {
                             color: '#FF4D0D !important',
                             fontWeight: '700 !important'
@@ -8048,7 +9039,7 @@ function AdminExtraContent(props) {
                         '& .MuiTabs-indicator': {
                             backgroundColor: '#FF5427 !important',
                         }
-                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Livros', value: 2 })] }) }), jsxRuntime.jsxs("div", { className: style.contentInfo, children: [valueTabs === 0 &&
+                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Livros', value: 2 })] }) }), jsxRuntime.jsxs("div", { className: style$1.contentInfo, children: [valueTabs === 0 &&
                         jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Para ajudar as pessoas com algum problema auditivo ou que somente desejam revisar de forma r\u00E1pida o conte\u00FAdo, transcreva abaixo o que foi dito durante o v\u00EDdeo." }) }), jsxRuntime.jsx(Textarea, { label: "Transcri\u00E7\u00E3o", style: { marginTop: 24 }, height: '150px', onChange: (e) => {
                                         setTranscriptionText(e.target.value);
                                     } })] }), valueTabs === 1 &&
@@ -8260,7 +9251,7 @@ function StudentExtraContent(props) {
     const handleComments = (e) => {
         setComments(e.target.value);
     };
-    return (jsxRuntime.jsxs("div", { className: style.container, children: [jsxRuntime.jsx("div", { className: style.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
+    return (jsxRuntime.jsxs("div", { className: style$1.container, children: [jsxRuntime.jsx("div", { className: style$1.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
                         '& .Mui-selected ': {
                             color: '#FF4D0D !important',
                             fontWeight: '700 !important'
@@ -8273,8 +9264,8 @@ function StudentExtraContent(props) {
                         '& .MuiTabs-indicator': {
                             backgroundColor: '#FF5427 !important',
                         }
-                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Anota\u00E7\u00F5es', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Livros recomendados', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 2 }), jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 3 }), jsxRuntime.jsx(material.Tab, { label: 'Coment\u00E1rios', value: 4 })] }) }), jsxRuntime.jsxs("div", { className: style.contentInfo, children: [valueTabs === 0 &&
-                        jsxRuntime.jsxs("div", { className: style.notes, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000' }, children: " Escreva e fa\u00E7a suas anota\u00E7\u00F5es aqui para rever depois, este espa\u00E7o \u00E9 seu." }), jsxRuntime.jsx("div", { style: { marginTop: 12 }, children: jsxRuntime.jsx(RichTextExample, {}) }), jsxRuntime.jsx("div", { className: style.saveNotes, children: jsxRuntime.jsx(Button$2, { label: "Salvar", variant: "primary", handleClick: () => { } }) })] }), valueTabs === 1 &&
+                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Anota\u00E7\u00F5es', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Livros recomendados', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 2 }), jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 3 }), jsxRuntime.jsx(material.Tab, { label: 'Coment\u00E1rios', value: 4 })] }) }), jsxRuntime.jsxs("div", { className: style$1.contentInfo, children: [valueTabs === 0 &&
+                        jsxRuntime.jsxs("div", { className: style$1.notes, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000' }, children: " Escreva e fa\u00E7a suas anota\u00E7\u00F5es aqui para rever depois, este espa\u00E7o \u00E9 seu." }), jsxRuntime.jsx("div", { style: { marginTop: 12 }, children: jsxRuntime.jsx(RichTextExample, {}) }), jsxRuntime.jsx("div", { className: style$1.saveNotes, children: jsxRuntime.jsx(Button$2, { label: "Salvar", variant: "primary", handleClick: () => { } }) })] }), valueTabs === 1 &&
                         jsxRuntime.jsx(material.Grid, { container: true, spacing: 0, children: props.bookList?.map((item, index) => {
                                 return (jsxRuntime.jsxs(material.Grid, { item: true, style: { position: 'relative', width: 200, height: 310, backgroundColor: '#FFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '16px 32px 8px 32px', border: '1px solid #BDBDBD', cursor: 'pointer' }, onClick: () => { props.onClickBook(item.id); }, children: [jsxRuntime.jsx("img", { src: item.img, width: 130, height: 185 }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, color: '#000', marginTop: 12 }, children: [" ", item.title, " "] }), jsxRuntime.jsxs("span", { style: { fontSize: 12, fontWeight: 400, color: '#000', position: 'absolute', bottom: 0, marginBottom: 8 }, children: [" ", item.autor, " "] })] }, index));
                             }) }), valueTabs === 2 &&
@@ -8297,7 +9288,7 @@ function ExtraContent(props) {
 
 const isColorBlack = ({ theme }) => theme.colors.shadeBlack;
 const isColorError = ({ theme }) => theme.colors.linkError;
-const Container$4 = styled__default["default"].div `
+const Container$5 = styled__default["default"].div `
   width: 100%;
   max-width: 445px;
   min-height: 509px;
@@ -8694,11 +9685,11 @@ function Login(props) {
         setError(props.isError);
         setMsgInput2(props.isError ? 'E-mail ou senhas incorretos.' : '');
     }, [props.isError]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$4, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerInputAndLink, { children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmail, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerPassword, { isError: error, children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { style: { paddingTop: '78px' }, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerEmailAndTypeRecoverRecover, { children: [jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerInputAndLink, { children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmail, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerPassword, { isError: error, children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { style: { paddingTop: '78px' }, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerEmailAndTypeRecoverRecover, { children: [jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
                                         ? props.textEmailCadastro
                                         : 'Digite seu e-mail de cadastro abaixo e clique em enviar.' }), jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro2
                                         ? props.textEmailCadastro2
-                                        : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$4, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
+                                        : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$2, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$2, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
                         ? props.textNewPasswordInformacao
                         : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { isError: error, children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, placeholder: props.textNewPasswordInputEmailPlaceholder
                                         ? props.textNewPasswordInputEmailPlaceholder
@@ -8995,7 +9986,7 @@ const ContainerMain = styled__default["default"].div `
     position: relative;
     align-items: center;
 `;
-const Typography$1 = styled__default["default"].div `
+const Typography$2 = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
@@ -9124,7 +10115,7 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ?
                             jsxRuntime.jsxs(LoadingContainer, { children: [jsxRuntime.jsx(LoadingImage, {}), jsxRuntime.jsx(LoadingContent, {}), jsxRuntime.jsx(LoadingContent, { style: { width: '50%' } })] })
                             :
-                                jsxRuntime.jsxs(ContainerThumbnails, { showSwitchIndividual: showSwitch, className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsx(ContainerButton, { onMouseOut: handleHoverImageOut, className: 'buttonVisible', active: showModules, children: jsxRuntime.jsx(Button$2, { label: txtButtonLabel ? txtButtonLabel : 'Ver conteúdo', variant: 'primary', handleClick: handleClickCourse }) }), jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: ativo }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$1, { style: { color: ativo ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
+                                jsxRuntime.jsxs(ContainerThumbnails, { showSwitchIndividual: showSwitch, className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsx(ContainerButton, { onMouseOut: handleHoverImageOut, className: 'buttonVisible', active: showModules, children: jsxRuntime.jsx(Button$2, { label: txtButtonLabel ? txtButtonLabel : 'Ver conteúdo', variant: 'primary', handleClick: handleClickCourse }) }), jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: ativo }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
                                                         setElementPopover(element.currentTarget);
                                                     }, children: jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), showSwitch &&
                                             jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: ativo, style: { fontWeight: ativo ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: ativo, height: 16, width: 35, checkedIcon: false, uncheckedIcon: false, handleDiameter: 20, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#ebebeb', activeBoxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }) })
@@ -9575,7 +10566,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
                     }, handleSwitchAtivarConteudo: setActiveContent, handleSwitchAtivar: handleSwitchAtivar, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, isLoading: isLoading, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails })) }) }) }));
 }
 
-const Container$3 = styled__default["default"].div `
+const Container$4 = styled__default["default"].div `
     width: 24.188rem;    
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -9681,7 +10672,7 @@ function ManageLearningCicles({ variant, label, disabled, style, handleClick, ha
             setCounterRender(1);
         }
     }, [isOpen]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$3, { isOpen: isOpen, children: [jsxRuntime.jsx(TypographyDefinition, { children: label }), jsxRuntime.jsx(Date$1, { children: dateAtual }), jsxRuntime.jsx(ContetsName, { children: individualContent.length !== 0 ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$4, { isOpen: isOpen, children: [jsxRuntime.jsx(TypographyDefinition, { children: label }), jsxRuntime.jsx(Date$1, { children: dateAtual }), jsxRuntime.jsx(ContetsName, { children: individualContent.length !== 0 ?
                         individualContent.map((item, index) => jsxRuntime.jsx(TypographyContentsName, { children: item.title }, index))
                         : jsxRuntime.jsx(TypographyContentsName, { children: "Introdu\u00E7\u00E3o a blockchain" }) }), jsxRuntime.jsxs(ContainerIcon, { children: [jsxRuntime.jsx("p", { children: jsxRuntime.jsx(DropdownIconWhite, { fill: '#000000' }) }), jsxRuntime.jsx(SelectIcon, { onChange: handleChange, children: listTrails.map((item, index) => jsxRuntime.jsx("option", { value: item.id, children: item.name }, index)) })] }), jsxRuntime.jsxs(GroupName, { isOpen: isOpen, children: [jsxRuntime.jsx("p", { children: "Group name" }), jsxRuntime.jsx("div", { onClick: handleClickCheck, children: jsxRuntime.jsx(MoreHorizontal, {}) })] })] }) }));
 }
@@ -9955,7 +10946,7 @@ styled__default["default"].div `
   }
 `;
 
-function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
+function ParticipantThumbnails(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [itemSelected, setItemSelected] = React.useState(null);
     const handleClose = () => {
@@ -9963,13 +10954,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
     };
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ScrollContainer, { type: 'horizontal', stepMove: 100, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 80, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '-5rem', className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
-                    return (jsxRuntime.jsxs(CardThumbnails, { theme: FRSTTheme, onClick: item.handleFunctionThumbnail, onMouseOver: (event) => {
-                            setAnchorEl(event.currentTarget);
-                            setItemSelected(item);
-                            item.handleFunctionThumbnail;
-                        }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: item.imgThumbnails ? item.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsx("h1", { children: item.titleThumbnail })] }, index));
-                }) }), isVisibleControlsButtons && (jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
                     vertical: 'center',
                     horizontal: 'center'
                 }, transformOrigin: {
@@ -9977,7 +10962,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
                     horizontal: 'center'
                 }, PaperProps: {
                     style: {
-                        backgroundColor: 'transparent',
+                        backgroundColor: '#FFF',
                         boxShadow: 'none',
                         borderRadius: 8,
                         marginTop: '-1rem'
@@ -9987,9 +10972,19 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
                 }, children: jsxRuntime.jsx(CardThumbnailsHove, { onMouseLeave: (event) => {
                         setAnchorEl(null);
                         setItemSelected(null);
-                    }, children: itemSelected && (jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: itemSelected.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: itemSelected.imgThumbnails ? itemSelected.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: itemSelected.titleThumbnail }), jsxRuntime.jsx("p", { children: itemSelected.descpThumbnail })] })] })) }) }))] }));
+                    }, children: jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: props.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("h2", { children: props.titleThumbnail }), jsxRuntime.jsx("p", { children: props.descpThumbnail })] })] }) }) }), jsxRuntime.jsxs(CardThumbnails, { theme: FRSTTheme, onClick: props.handleFunctionThumbnail, onMouseOver: (event) => {
+                    setAnchorEl(event.currentTarget);
+                    setItemSelected(props);
+                    props.handleFunctionThumbnail;
+                }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsx("h1", { children: props.titleThumbnail })] })] }));
 }
-function ParticipantThumbnails({ listThumbnails }) {
+
+function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ScrollContainer, { type: 'horizontal', stepMove: 100, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 80, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '-5rem', className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
+                return (jsxRuntime.jsx(ParticipantThumbnails, { imgThumbnails: item.imgThumbnails, titleThumbnail: item.titleThumbnail, descpThumbnail: item.descpThumbnail, handleFunctionThumbnail: item.handleFunctionThumbnail }));
+            }) }) }));
+}
+function ParticipantThumbnailsList({ listThumbnails }) {
     const [width, setWidth] = React.useState(typeof window !== "undefined" && window.innerWidth);
     function handleWindowSizeChange() {
         setWidth(typeof window !== "undefined" && window.innerWidth);
@@ -10168,7 +11163,7 @@ function CardTrailCarousel({ objectCards, marginsArrowButton, move, isVisibleBut
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: move ? move : 380, isVisibleControlsButtons: isVisibleButtons, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
 }
 
-const WrapperCard$2 = styled__default["default"].div `
+const WrapperCard$3 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     width: 282px;
@@ -10508,7 +11503,7 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
             setActiveClick(false);
         }, 700);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$3, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
                             jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, textEdit: label.edit, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), handleEdit: () => onClickEdit(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
@@ -10516,7 +11511,7 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
                                 jsxRuntime.jsx(DescriptionSRG$1, { onClick: () => handleClick(), children: label.srgDecription }), jsxRuntime.jsxs(ButtonActionWrapper, { children: [jsxRuntime.jsx(ButtonAction, { onClick: () => handleClick(), variant: variant, children: variant == 'srg' ?
                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Plus, {}), jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.newProject })] })
                                         :
-                                            label.view }), variant !== 'srg' && variant !== 'completed' &&
+                                            label.view }), variant !== 'srg' && variant !== 'completed' && onClickContinue &&
                                     jsxRuntime.jsx(ButtonAction, { onClick: () => onClickContinue(), variant: variant, children: jsxRuntime.jsx("span", { style: { marginLeft: '12px' }, children: label.continue }) })] })] })] }) }));
 }
 const resumeString = (str, limit) => {
@@ -10654,14 +11649,14 @@ function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, 
                         jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
 }
 
-const Container$2 = styled__default["default"].div `
+const Container$3 = styled__default["default"].div `
     width: 100%;
     min-height: 127px;
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     border-radius: 8px;
 `;
-const Typography = styled__default["default"].div `
+const Typography$1 = styled__default["default"].div `
     font-family: Work Sans;
     font-size: 20px;
     font-weight: 500;
@@ -10675,10 +11670,10 @@ const ContainerSearch = styled__default["default"].div `
 `;
 
 function SearchBox(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, children: [jsxRuntime.jsx(Typography, { children: props.textTitle ? props.textTitle : props.textTitle }), jsxRuntime.jsx(ContainerSearch, { children: jsxRuntime.jsx(SearchField, { hasSearchIcon: true, textButton: props.textButton ? props.textButton : '', placeholder: props.textPlaceholder ? props.textPlaceholder : '', handleClickButton: props.handleClickSearchButton, onChange: props.onChange }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$3, { style: { ...props.style }, children: [jsxRuntime.jsx(Typography$1, { children: props.textTitle ? props.textTitle : props.textTitle }), jsxRuntime.jsx(ContainerSearch, { children: jsxRuntime.jsx(SearchField, { hasSearchIcon: true, textButton: props.textButton ? props.textButton : '', placeholder: props.textPlaceholder ? props.textPlaceholder : '', handleClickButton: props.handleClickSearchButton, onChange: props.onChange }) })] }) }));
 }
 
-const WrapperCard$1 = styled__default["default"].div `
+const WrapperCard$2 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10872,7 +11867,7 @@ function LateralMenu$1({ label, onClick, button, beginComponent, activeBeginIcon
 }
 
 function LateralMenu({ variant, hiddenButtonHeader, avatar, name, channel, button, listOptions, style }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { style: { ...style }, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Avatar, { src: avatar.src, alt: avatar.alt ? avatar.alt : 'Image profile avatar', size: avatar.size ? avatar.size : '80px' }), jsxRuntime.jsx(NameProfile, { children: name }), channel &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Avatar, { src: avatar.src, alt: avatar.alt ? avatar.alt : 'Image profile avatar', size: avatar.size ? avatar.size : '80px' }), jsxRuntime.jsx(NameProfile, { children: name }), channel &&
                             jsxRuntime.jsx(Channel, { children: channel }), !hiddenButtonHeader &&
                             jsxRuntime.jsx(WrapperButton$1, { children: !channel ?
                                     jsxRuntime.jsx(Button$2, { variant: 'primary', label: button.label, handleClick: (e) => button.onClick(e) })
@@ -11217,7 +12212,7 @@ const topHeaderTag = styled__default["default"].span `
 
 `;
 
-const Container$1 = styled__default["default"].div `
+const Container$2 = styled__default["default"].div `
     padding: 1px 24px 0px 24px;
     display: flex;
     flex-direction: column;
@@ -11240,12 +12235,31 @@ const infoContent = styled__default["default"].div `
     padding: 12px;
     padding-top: 24px;
 `;
+const infoContentWithView = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    font-family: 'Work Sans';
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 12px;
+`;
 const info = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     position: absolute;
+    margin-bottom: 12px;
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
+`;
+const infoWithView = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     margin-bottom: 12px;
     ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular};
 `;
@@ -11363,13 +12377,14 @@ function FeedInteraction(props) {
         setCommentData('');
         setFocusComment(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$1, { style: { ...props.style }, id: props.id, children: [props.qtdLikes || props.qtdComments ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || props.qtdComments) ?
                     jsxRuntime.jsxs(infoContent, { children: [props.qtdLikes ?
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
                                 : null, props.qtdComments ?
                                 jsxRuntime.jsx(info, { style: { right: 0 }, children: props.qtdComments })
                                 : null] })
-                    : null, jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
+                    : jsxRuntime.jsx(jsxRuntime.Fragment, { children: (props.textTotalView || props.qtdLikes || props.qtdComments) &&
+                            jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && props.qtdComments && jsxRuntime.jsx("div", { children: "\u2022" }), props.qtdComments && jsxRuntime.jsxs(infoWithView, { children: [" ", props.qtdComments, " "] })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }) }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
                             jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textDeslike, variant: 'link', handleClick: props.handleLikeClick }) })
                             :
                                 jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$2, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textLikes, variant: 'link', handleClick: props.handleLikeClick }) }), isVisibleComments &&
@@ -11398,7 +12413,7 @@ function BannerProblemFeed(props) {
     React.useEffect(() => {
         setStateLatestComment(props.latestComment);
     }, [props.latestComment]);
-    const CustomSlider = styles$2.withStyles({
+    const CustomSlider = styles$1.withStyles({
         root: {
             color: "#FF4D0D",
             height: 3,
@@ -11463,7 +12478,7 @@ function BannerProblemFeed(props) {
                             jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
                                 props.onSelectedStep(step);
                                 setSelectedStep(step);
-                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar })] }));
+                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$2, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews })] }));
 }
 
 const ButtonSessionFilters = styled__default["default"].button `
@@ -11606,7 +12621,7 @@ function SessionFilters(props) {
                     : null] }) }));
 }
 
-const Container = styled__default["default"].div `
+const Container$1 = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11638,7 +12653,7 @@ const Button = styled__default["default"].div `
 `;
 
 function SmallSRGBanner(props) {
-    return (jsxRuntime.jsx(Container, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: 'https://i.gyazo.com/eb084ab35cbd9ad52b24148afba59950.png', alt: 'SRG Logo' }) }), jsxRuntime.jsx(Button, { children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFF' }) }) })] }) }));
+    return (jsxRuntime.jsx(Container$1, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: 'https://i.gyazo.com/eb084ab35cbd9ad52b24148afba59950.png', alt: 'SRG Logo' }) }), jsxRuntime.jsx(Button, { children: jsxRuntime.jsx(Button$2, { variant: 'primary', label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFF' }) }) })] }) }));
 }
 
 const Wrapper = styled__default["default"].div `
@@ -11820,7 +12835,7 @@ const TooltipCard = styled__default["default"].div `
 `;
 
 function PostFeed(props) {
-    const FRSTAvatar = 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png';
+    const FRSTAvatar = 'https://api-deimos-cdn.frstfalconi.cloud/logo_first.png';
     const [isVisibleComments, setIsVisibleComments] = React.useState(props.isVisibleComments);
     const [actionArea, setActionArea] = React.useState(false);
     React.useEffect(() => {
@@ -11851,6 +12866,193 @@ function PostFeed(props) {
 }
 function IconPin({ fill }) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) });
+}
+
+// <{image, notstarted}>
+const Container = styled__default["default"](material.Box) `
+    background-color: #FFF;
+    width: 488px !important;
+    max-width: 80%;
+    height: 488px !important;
+    max-height: 80%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+
+    border-radius: 16px;
+
+    font-family: 'Work Sans';
+    overflow: hidden;
+`;
+const Typography = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+
+    /* neutrals/neutral_1 */
+
+    color: ${({ theme }) => theme.colors.neutral_1};
+    margin-left: 25px;
+`;
+const CloseButton = styled__default["default"].div `
+    cursor: pointer;    
+    align-self: flex-end;
+    width: 20px;
+    margin-top: 20px;
+    margin-right: 15px;
+`;
+const HeaderDiv = styled__default["default"].div `
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    border-bottom: 1px solid #BDBDBD;
+    padding-bottom: 24px;
+`;
+const ContentDiv = styled__default["default"].div `
+    width: 100%;
+    heigth: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #0000;
+        border-radius: 10px;
+        margin: 16px;
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #BDBDBD; 
+        border-radius: 10px;
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #888; 
+    }
+
+`;
+styled__default["default"].div `
+    position: relative;
+`;
+const ContentScroll = styled__default["default"].div `
+    width: 100%;
+    heigth: fit-content;
+`;
+const CardItemUser = styled__default["default"].div `
+    width: calc(100% + 10px);
+    height: 86px;
+    border-bottom: 1px solid #BDBDBD;
+    padding: 16px;
+    padding-left: 24px;
+
+    display: flex;
+    flex-direction: row;
+`;
+const UserInfoContainer = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 16px;
+`;
+const NameUser$2 = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 110%;
+    /* or 18px */
+
+    display: flex;
+    align-items: center;
+
+    /* neutrals/neutral_1 */
+
+    color: #222222;
+`;
+const PositionUser = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 110%;
+    /* or 18px */
+
+    display: flex;
+    align-items: center;
+
+    /* neutrals/neutral_1 */
+
+    color: #222222;
+
+`;
+const OrgUser = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 110%;
+    /* or 18px */
+
+    display: flex;
+    align-items: center;
+
+    /* neutrals/neutral_1 */
+
+    color: #222222;
+`;
+
+function InteractionsModal({ textTitle, textSubtitle, listUsers, isOpen, handleClickClose, newListUsers, checkScrollEnd, trackClick, style }) {
+    const scrollContainerRef = React.useRef(null);
+    const handleScroll = (e) => {
+        const { scrollTop, scrollHeight, clientHeight } = e.target;
+        if (scrollTop + clientHeight >= scrollHeight) {
+            if (checkScrollEnd)
+                checkScrollEnd();
+        }
+    };
+    React.useEffect(() => {
+        const scrollContainer = scrollContainerRef.current;
+        if (scrollContainer) {
+            scrollContainer.addEventListener('scroll', handleScroll);
+        }
+        return () => {
+            if (scrollContainer) {
+                scrollContainer.removeEventListener('scroll', handleScroll);
+            }
+        };
+    }, []);
+    const [listUsersState, setListUsersState] = React.useState(listUsers);
+    React.useEffect(() => {
+        if (newListUsers) {
+            setListUsersState((listUsersState) => [...listUsersState, ...newListUsers]);
+        }
+    }, [newListUsers]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(material.Modal, { open: isOpen, onClose: () => handleClickClose(), children: jsxRuntime.jsxs(Container, { style: {
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    ...style
+                }, children: [jsxRuntime.jsxs(HeaderDiv, { children: [jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(CloseButton, { onClick: () => handleClickClose(), children: jsxRuntime.jsx(CloseIcon, { width: '11' }) }) }), jsxRuntime.jsx(Typography, { children: textTitle }), jsxRuntime.jsx(Typography, { children: textSubtitle })] }), jsxRuntime.jsx(ContentDiv, { ref: scrollContainerRef, onScroll: handleScroll, onClick: trackClick ? () => trackClick() : () => { }, children: jsxRuntime.jsx(ContentScroll, { children: listUsersState && listUsersState.map((item) => {
+                                return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(CardItemUser, { children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar }), jsxRuntime.jsxs(UserInfoContainer, { children: [jsxRuntime.jsxs(NameUser$2, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] }, item?.id) }));
+                            }) }) })] }) }) }));
 }
 
 const containerPagination = styled__default["default"].div `
@@ -11985,116 +13187,188 @@ function Pagination(props) {
 }
 
 const containerThumbContent = styled__default["default"].div `
-    display: grid;
-    grid-template-columns: 0.75fr 1fr;
-    position: relative;
-    min-width: 250px;
-    height: auto;
-    cursor: pointer;
-
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+  display: grid;
+  grid-template-columns: 0.75fr 1fr;
+  position: relative;
+  min-width: 250px;
+  height: auto;
+  cursor: pointer;
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
 `;
 const loadingImageThumb = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
-    -webkit-animation-duration: 4s;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-name: placeholderShimmer;
-    -webkit-animation-timing-function: linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+`;
+const iconsThumbAndProgress = styled__default["default"].div `
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #ee8736;
+  flex-direction: column;
 `;
 const iconsThumb = styled__default["default"].div `
+  display: flex;
+  height: 100%;
+  min-height: 144px;
+  background-color: #ee8736;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+const imageThumbContent = styled__default["default"].div `
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+const loadingThumbContent = styled__default["default"].div `
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 16px 16px 16px 16px;
+  gap: 4px;
+`;
+const loadingContent = styled__default["default"].div `
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  color: transparent;
+  border-radius: 16px;
+  width: 100%;
+  height: 0.45em;
+
+  -webkit-animation-duration: 4s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+
+  &:first-child {
+    width: 50%;
+    margin-bottom: 8px;
+  }
+  &:last-child {
+    width: 30%;
+  }
+`;
+const infoThumbContent = styled__default["default"].div `
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 16px;
+  padding: 0px 0px 32px 0px;
+  gap: 4px;
+  font-family: 'PT Sans';
+  word-wrap: break-word;
+  span {
+    color: ${({ theme }) => theme.colors.primary1};
+    font-size: 16px;
+    font-weight: 700;
+    padding-top: ${(props) => (props.tagVisualized === 'notVisualized' ? '16px' : '0px')};
+    padding-right: 16px;
+    padding-bottom: 0px;
+    padding-left: 16px;
+  }
+`;
+const tagThumbContentContainer = styled__default["default"].div `
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+`;
+const tagThumbContent = styled__default["default"].div `
+  height: 24px;
+  background: ${(props) => (props.tagVisualized === 'vizualized' ? '#2ca92a' : '#851F41')};
+  width: 91px;
+  border-radius: 0px 0px 0px 8px;
+  color: #ffff;
+  text-align: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const descriptionThumbContent = styled__default["default"].div `
+  font-size: 14px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.shadeBlack};
+  padding: 0px 16px 0px 16px;
+
+  overflow: hidden;
+  text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
+  display: ${(props) => (props.showText ? 'flex' : '-webkit-box')};
+  -webkit-line-clamp: ${(props) => (props.showText ? 'none' : 3)};
+  -webkit-box-orient: ${(props) => (props.showText ? 'none' : 'vertical')};
+`;
+const viewMoreContent$1 = styled__default["default"].div `
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0px 16px 12px 0px;
+  user-select: none;
+`;
+const shadedThumb = styled__default["default"].div `
+  position: relative;  
+  height: 100%;
+  :after {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    background-color: ${({ theme }) => theme.colors.primary1};
-`;
-const imageThumbContent = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-    background-repeat: no-repeat ;
-    background-size: cover;
-    background-position: center;
-`;
-const loadingThumbContent = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-
-    padding: 16px 16px 16px 16px;
-    gap: 4px;
-`;
-const loadingContent = styled__default["default"].div `
-    background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #D9D9D9;
-    color: transparent;
-    border-radius: 16px;
-    width: 100%;
-    height: 0.45em;
-    
-    -webkit-animation-duration: 4s;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-name: placeholderShimmer;
-    -webkit-animation-timing-function: linear;
-
-    &:first-child{
-        width: 50%;
-        margin-bottom: 8px;
-    }
-    &:last-child{
-        width: 30%;
-    }
-`;
-const infoThumbContent = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-
-    padding: 16px 16px 32px 16px;
-    gap: 4px;
-    font-family: 'PT Sans';
-    word-wrap: break-word;
-`;
-const descriptionThumbContent = styled__default["default"].div `
-    font-size: 12px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.colors.shadeBlack};
-
-    overflow: hidden;
-    text-overflow: ${props => props.showText ? 'none' : 'ellipsis'};
-    display: ${props => props.showText ? 'flex' : '-webkit-box'};
-    -webkit-line-clamp: ${props => props.showText ? 'none' : 3};
-    -webkit-box-orient: ${props => props.showText ? 'none' : 'vertical'};
-`;
-const viewMoreContent$1 = styled__default["default"].div `
-    position: absolute;
+    top: 0;
     right: 0;
     bottom: 0;
-    margin: 0px 16px 12px 0px;
-    user-select: none;
+    left: 0;
+    content: '';
+    background: linear-gradient(360deg, #2d2c2c 7.86%, rgba(117, 117, 117, 0) 61.43%);
+    z-index: 1;
+  }
+`;
+const ProgressAndImg = styled__default["default"].div `
+  padding: 0.3rem 0.5rem;
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+`;
+const ProgressIcon = styled__default["default"].div `
+  position: absolute;
+  bottom: 2px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  z-index: 999;
+  padding-bottom: 0.3rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+`;
+const IconAndProgress = styled__default["default"].div `
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 `;
 
 function ThumbListContent(props) {
     const [showMore, setShowMore] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ?
-            jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title &&
-                                jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })
-            :
-                jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ?
-                            jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb })
-                            :
-                                jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(PlayLineIcon, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null, props.typeThumbContent === 'podcast' ? jsxRuntime.jsx(PodCast, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(QuizSucessError, { fill: FRSTTheme['colors'].shadeWhite, width: '48', height: '48' }) : null] }), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, children: [props.title ?
-                                    jsxRuntime.jsxs("span", { style: { color: FRSTTheme['colors'].primary1, fontSize: 16, fontWeight: 700 }, children: [" ", props.title, " "] })
-                                    : null, jsxRuntime.jsxs(descriptionThumbContent, { showText: showMore, children: [" ", props.description, " "] })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$2, { variant: 'link', label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12 } }) })] }) }));
+    const [tagVisualized, setTagVisualized] = React.useState(props.valueProgress);
+    React.useEffect(() => {
+        setTagVisualized(props.valueProgress);
+    }, [props.valueProgress]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ? (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title && jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })) : (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ? (tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsx(ProgressAndImg, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) }) }) })) : (jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb }))) : tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsxs(iconsThumbAndProgress, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx(IconAndProgress, { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, props.typeThumbContent === 'textual' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, jsxRuntime.jsx(ProgressIcon, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) })] }) })) : (jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) }) : null, props.typeThumbContent === 'podcast' ? jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) }) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) }) : null, props.typeThumbContent === 'textual' ? jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) }) : null] })), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, tagVisualized: props.tagValue, children: [props.tagValue !== 'notVisualized' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.tagValue === 'vizualized' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressVisualized }) })) : null, props.tagValue === 'inProgress' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressInProgress }) })) : null] })) : null, props.title ? jsxRuntime.jsx("span", { children: props.title }) : null, jsxRuntime.jsxs(descriptionThumbContent, { showText: showMore, children: [" ", props.description, " "] })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$2, { variant: "link", label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12 } }) })] })) }));
 }
 
 const containerList = styled__default["default"].div `
@@ -12170,7 +13444,7 @@ function ListSelector(props) {
                     : null] }) }));
 }
 
-const WrapperCard = styled__default["default"].div `
+const WrapperCard$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     width: 282px;
@@ -12188,16 +13462,16 @@ styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
-const UserInfo = styled__default["default"].div `
+const UserInfo$1 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
 `;
-const DescriptionUser = styled__default["default"].div `
+const DescriptionUser$1 = styled__default["default"].div `
         display: flex;
         flex-direction: column;
         margin-left: 13px;
     `;
-const NameUser = styled__default["default"].div `
+const NameUser$1 = styled__default["default"].div `
             font-family: 'PT Sans';
             font-style: normal;
             font-weight: 700;
@@ -12219,7 +13493,7 @@ const NameUser = styled__default["default"].div `
             word-wrap: break-word;
 
         `;
-const EmailUser = styled__default["default"].div `
+const EmailUser$1 = styled__default["default"].div `
             font-family: 'PT Sans';
             font-style: normal;
             font-weight: 700;
@@ -12242,12 +13516,12 @@ const EmailUser = styled__default["default"].div `
             -webkit-box-orient: vertical;
             word-wrap: break-word;
         `;
-const UserAdditionalInfo = styled__default["default"].div `
+const UserAdditionalInfo$1 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     margin-top: 15px;
 `;
-const Area = styled__default["default"].div `
+const Area$1 = styled__default["default"].div `
         font-family: 'PT Sans';
         font-style: normal;
         font-weight: 700;
@@ -12271,7 +13545,7 @@ const Area = styled__default["default"].div `
         -webkit-box-orient: vertical;
         word-wrap: break-word;
     `;
-const Position = styled__default["default"].div `
+const Position$1 = styled__default["default"].div `
         font-family: 'PT Sans';
         font-style: normal;
         font-weight: 400;
@@ -12373,112 +13647,7 @@ const ButtonSuccess = styled__default["default"].div `
     color: #222222;
 `;
 
-const Tooltip$1 = styled__default["default"].div `
-    position: relative;
-    display: inline-block;
-    
-    &:after #tooltipinfo {
-        content: "";
-        position: absolute;
-
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'top: 100%; left: 50%;';
-        case 'bottom':
-            return 'bottom: 100%; left: 50%;';
-        case 'right':
-            return 'top: 50%; right: 100%;';
-        case 'left':
-            return 'top: 50%; left: 100%;';
-    }
-}}
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: black transparent transparent transparent;
-    }
-
-    &:hover #tooltipinfo {
-        visibility: visible;
-    }
-
-    &:hover {
-        visibility: visible;
-    }
-`;
-const Tooltiptext = styled__default["default"].div `
-    visibility: hidden;
-    width: 156px;
-    background-color: #fff;
-    border: solid 1px #BDBDBD;
-
-    padding: 8px! important;
-    padding-bottom: 4px;
-
-    word-wrap: break-word;
-
-    color: #757575;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'bottom: 160%; left: 50%;';
-        case 'bottom':
-            return 'top: 160%; left: 50%;';
-        case 'right':
-            return 'top: -5px; left: 220%;';
-        case 'left':
-            return 'top: -5px; right: 120%;';
-    }
-}}
-
-    margin-left: -70px;
-
-    -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-    box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
-
-    &:after {
-        content: "";
-        width: 0;
-        height: 0;
-        
-        ${({ position }) => {
-    switch (position) {
-        case 'top':
-            return 'left: 48%; bottom: -6px;';
-        case 'bottom':
-            return 'left: 48%; top: -6px;';
-        case 'right':
-            return 'top: 35%; left: -6px; border: 5px solid #fff !important;';
-        case 'left':
-            return 'top: 35%; right: -6px; border: 5px solid #fff !important;';
-    }
-}}
-        position: absolute;
-    
-        border: 6px solid #fff;
-        transform: rotate(135deg);
-        transition: border 0.3s ease-in-out;
-      }
-`;
-
-function Tooltip(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Tooltip$1, { position: props.position, children: [props?.children, jsxRuntime.jsx(Tooltiptext, { id: "tooltipinfo", position: props.position, children: props?.textTooltip })] }) }));
-}
-
-function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
+function ParticipantCardOld({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
     const [userName, setUserName] = React.useState(userInfo?.name);
     const [userEmail, setUserEmail] = React.useState(userInfo?.email);
     const [area, setArea] = React.useState(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
@@ -12495,25 +13664,303 @@ function ParticipantCard({ userInfo, labels, successfullInvite, style, handleSen
         setStatusSend('success');
         handleSendInvitation(userInfo?.id);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { style: { ...style }, children: [jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [userName && userName?.length > 25 ?
-                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser, { children: userName }) })
-                                    :
-                                        jsxRuntime.jsx(NameUser, { children: userName }), userEmail && userEmail?.length > 30 ?
-                                    jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser, { children: userEmail }) })
-                                    :
-                                        jsxRuntime.jsx(EmailUser, { children: userEmail })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [area && area?.length > 31 ?
-                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area, { children: area }) })
-                            :
-                                jsxRuntime.jsx(Area, { children: area }), position && position?.length > 33 ?
-                            jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position, { children: position }) })
-                            :
-                                jsxRuntime.jsx(Position, { children: position })] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ?
-                                        jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })
-                                        : null, handleClickRemove ?
-                                        jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })
-                                        : null] }) : null, statusSend == 'success' ?
-                            jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: '14' }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) }) : null] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$1, { style: { ...style }, children: [jsxRuntime.jsxs(UserInfo$1, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser$1, { children: [userName && userName?.length > 25 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser$1, { children: userName }) })) : (jsxRuntime.jsx(NameUser$1, { children: userName })), userEmail && userEmail?.length > 30 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser$1, { children: userEmail }) })) : (jsxRuntime.jsx(EmailUser$1, { children: userEmail }))] })] }), jsxRuntime.jsxs(UserAdditionalInfo$1, { children: [area && area?.length > 31 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area$1, { children: area }) })) : (jsxRuntime.jsx(Area$1, { children: area })), position && position?.length > 33 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position$1, { children: position }) })) : (jsxRuntime.jsx(Position$1, { children: position }))] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ? (jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })) : null, handleClickRemove ? (jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })) : null] })) : null, statusSend == 'success' ? (jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: "14" }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) })) : null] })] }) }));
+}
+
+const activeStatus = 'Cadastrado';
+const inactiveStatus = 'Inativado';
+const WrapperCard = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+
+  background: ${(props) => (props.status == activeStatus ? '#fff' : '#BDBDBD')};
+
+  border-radius: 10px;
+  padding-bottom: ${(props) => (props.status == inactiveStatus ? '30px' : '7px')};
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+const TagArea = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 8px 0px 5px;
+`;
+const ClickArea = styled__default["default"].div `
+  background-color: ${(props) => props.status !== inactiveStatus && props.isPressed && '#FCE4CC'};
+  border-radius: 10px 10px 0px 0px;
+  padding-bottom: 10px;
+  min-height: 150px;
+`;
+const TagStatus = styled__default["default"].div `
+  background-color: ${(props) => (props.isPressed && props.status === activeStatus && '#2CA92A') ||
+    (props.status === activeStatus && '#398787') ||
+    (props.status === inactiveStatus && '#222222')};
+  color: ${(props) => (props.status !== inactiveStatus && '#fff') || '#D3D3D3'};
+  font-weight: 300;
+  border-radius: 4px;
+  max-width: 120px !important;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const AccordionList = styled__default["default"].div `
+  .css-1elwnq4-MuiPaper-root-MuiAccordion-root {
+    box-shadow: none !important;
+    border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border-radius: 0px !important;
+    padding: 0px 10px;
+  }
+
+  #panel1bh-content {
+    margin-top: -5px;
+  }
+
+  .Mui-expanded {
+    margin: 0px !important;
+    background-color: #f7f9fc !important;
+  }
+`;
+const AccortionTitle = styled__default["default"].span `
+  color: #0645ad;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  svg {
+    margin-right: 5px;
+  }
+`;
+styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+const UserInfo = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  padding: 0px 25px;
+`;
+const DescriptionUser = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  margin-left: 13px;
+`;
+const NameUser = styled__default["default"].div `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 110%;
+
+  display: flex;
+  align-items: center;
+
+  color: #222222;
+  word-break: normal;
+
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+`;
+const EmailUser = styled__default["default"].div `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+
+  color: #9c9c9c;
+  word-break: normal;
+
+  max-width: 100%;
+
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+`;
+const UserAdditionalInfo = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  padding: 0px 25px;
+`;
+const Area = styled__default["default"].div `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 110%;
+  /* or 18px */
+
+  display: flex;
+  align-items: center;
+
+  /* neutrals/grey_1 */
+
+  color: #222222;
+  max-width: 100%;
+
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+`;
+const Position = styled__default["default"].div `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 110%;
+  /* or 18px */
+
+  display: flex;
+  align-items: center;
+
+  /* neutrals/grey_1 */
+
+  color: #222222;
+
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+`;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  margin-top: 15px;
+  justify-content: space-around;
+  align-items: center;
+`;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 0px;
+  padding: 4px 16px;
+  gap: 8px;
+
+  width: 149px;
+  height: 32px;
+
+  /* primary_1 */
+
+  background: ${({ theme }) => theme.colors.primary1};
+  border-radius: 8px;
+
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+  cursor: pointer;
+  margin-left: -13px;
+`;
+styled__default["default"].div `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  color: #0645ad;
+  cursor: pointer;
+`;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 16px;
+  gap: 8px;
+
+  width: 159px;
+  height: 32px;
+
+  /* message/success_2 */
+
+  background: #d1f6d1;
+  /* message/success_1 */
+
+  border: 1px solid #1ba853;
+  border-radius: 8px;
+
+  width: 163px;
+  height: 32px;
+  cursor: default;
+  white-space: nowrap;
+
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height */
+
+  display: flex;
+  align-items: center;
+
+  /* neutrals/grey_1 */
+
+  color: #222222;
+`;
+const DataList = styled__default["default"].ul `
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0 !important;
+  line-height: 25px;
+`;
+const DataListItem = styled__default["default"].li `
+  list-style-type: none;
+  margin: 0;
+  font-weight: 400;
+`;
+
+function ParticipantCard({ userInfo, labels, competencesList, modulesList, disabled, style }) {
+    const [selectedItem, setSelectedItem] = React.useState(null);
+    const [typeDetails, setTypeDetails] = React.useState(null);
+    const [isAccordionOpen, setIsAccordionOpen] = React.useState(false);
+    const [isPressed, setIsPressed] = React.useState(false);
+    const [accordionState, setAccordionState] = React.useState({
+        competences: false,
+        modules: false
+    });
+    const IS_TYPE_COMPETENCES = typeDetails === 'competences';
+    const IS_TYPE_MODULES = typeDetails === 'modules';
+    const handleSelectedItem = (id, type) => {
+        setIsAccordionOpen(!isAccordionOpen);
+        setSelectedItem(id);
+        setTypeDetails(type);
+        handleAccordionState(type, !accordionState[type]);
+    };
+    const handleAccordionState = (type, value) => {
+        setAccordionState({
+            ...accordionState,
+            [type]: value
+        });
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { status: labels?.tag, style: { ...style }, children: [jsxRuntime.jsxs(ClickArea, { status: labels?.tag, isPressed: isPressed, onClick: () => setIsPressed(true), children: [jsxRuntime.jsx(TagArea, { children: jsxRuntime.jsx(TagStatus, { isPressed: isPressed, status: labels?.tag, children: labels?.tag }) }), jsxRuntime.jsxs(UserInfo, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser, { children: [jsxRuntime.jsx(NameUser, { children: userInfo?.name }), jsxRuntime.jsx(EmailUser, { children: userInfo?.email })] })] }), jsxRuntime.jsxs(UserAdditionalInfo, { children: [jsxRuntime.jsx(Area, { children: `${labels?.area}: ${userInfo?.area}` }), jsxRuntime.jsx(Position, { children: `${labels?.position}: ${userInfo?.position}` })] })] }), !disabled && (jsxRuntime.jsxs(AccordionList, { children: [jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'competences'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel1bh-content", id: "panel1bh-header", children: jsxRuntime.jsxs(AccortionTitle, { children: [jsxRuntime.jsx(IconGaps, {}), labels?.competences] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList, { children: competencesList?.map((item, index) => (jsxRuntime.jsx(DataListItem, { children: item.name }, index))) }) })] }), jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen, onChange: () => handleSelectedItem(userInfo?.id, 'modules'), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel2bh-content", id: "panel2bh-header", children: jsxRuntime.jsxs(AccortionTitle, { children: [jsxRuntime.jsx(IconModules, {}), labels?.modules] }) }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList, { children: modulesList?.map((item, index) => (jsxRuntime.jsx(DataListItem, { children: item.name }, index))) }) })] })] }))] }) }));
 }
 
 const Div = styled__default["default"].div `
@@ -12621,9 +14068,68 @@ function HeaderChallenge({ firstLine, secondLine, desktopBackground, mobileBackg
     return (jsxRuntime.jsx(Div, { desktopBackgroundProps: desktopBackground, mobileBackgroundProps: mobileBackground, children: jsxRuntime.jsxs("h1", { children: [firstLine, jsxRuntime.jsx("br", {}), " ", secondLine] }) }));
 }
 
+var css_248z = "\n.logoFRST-module_containerLight__WYpD6 img{\n    margin-bottom: 10px;\n}\n\n.logoFRST-module_containerLight__WYpD6 p {\n    font-family: PT Sans;\n    font-size: 12px;\n    font-weight: 400;\n    line-height: 16px;\n    letter-spacing: 0em;\n    text-align: left;\n    color: #fff\n}\n\n.logoFRST-module_containerDark__9V-x- img{\n    margin-bottom: 10px;\n}\n\n.logoFRST-module_containerDark__9V-x- p {\n    font-family: PT Sans;\n    font-size: 12px;\n    font-weight: 400;\n    line-height: 16px;\n    letter-spacing: 0em;\n    text-align: left;\n}\n";
+var style = {"containerLight":"logoFRST-module_containerLight__WYpD6","containerDark":"logoFRST-module_containerDark__9V-x-"};
+styleInject(css_248z);
+
+function LogoFRST(props) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'light' ? (jsxRuntime.jsxs("div", { className: style.containerLight, children: [jsxRuntime.jsx("img", { src: "https://api-deimos-cdn.frstfalconi.cloud/frst_branco_1.png", alt: 'LogoFRST', width: 198, height: 64 }), jsxRuntime.jsx("p", { children: props.title1Logo ? props.title1Logo : 'Pessoas transformam o jogo,' }), jsxRuntime.jsx("p", { children: props.title2Logo ? props.title2Logo : 'Resultados transformam as pessoas.' })] }))
+            : props.variant === 'dark' ? (jsxRuntime.jsxs("div", { className: style.containerDark, children: [jsxRuntime.jsx("img", { src: "https://api-deimos-cdn.frstfalconi.cloud/logofrst_black.png", alt: 'LogoFRST', width: 198, height: 64 }), jsxRuntime.jsx("p", { children: props.title1Logo ? props.title1Logo : 'Pessoas transformam o jogo,' }), jsxRuntime.jsx("p", { children: props.title2Logo ? props.title2Logo : 'Resultados transformam as pessoas.' })] }))
+                : null }));
+}
+
+const ContainerStepController = styled__default["default"].div `
+  width: 100%;
+  height: 51px;
+  background: #efeded;
+  padding: 10px;
+  position: relative;
+  top: 25px;
+  display: flex;
+  justify-content: space-between;
+  color: #272727;
+  font-weight: lighter;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid #bdbdbd;
+  font-size: 14px;
+  font-weight: 600;
+  > div {
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: inline-flex;
+    vertical-align: text-bottom;
+    box-sizing: inherit;
+    text-align: center;
+    align-items: center;
+  }
+`;
+const StepControllerArrow = styled__default["default"].span `
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #272727;
+  transition: all 0.2s;
+  margin: 5px;
+
+  :hover {
+    opacity: 0.5;
+    background-color: #272727;
+    color: #bdbdbd;
+  }
+`;
+
+function StepController({ top = '25px', numberCurrentStep, numberTotalSteps, labelHome, labelContact, prevStep, nextStep, goToStart, goToContact }) {
+    return (jsxRuntime.jsxs(ContainerStepController, { style: { top: top }, children: [jsxRuntime.jsxs("div", { onClick: goToStart, children: [jsxRuntime.jsx(ComputerIcon__default["default"], { sx: { color: '#242424', fontSize: '0.9rem', marginRight: '8px' } }), labelHome] }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(StepControllerArrow, { onClick: prevStep, children: jsxRuntime.jsx(ArrowBackIosIcon__default["default"], { sx: { fontSize: '0.8rem', marginLeft: '2px' } }) }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberCurrentStep }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: "de" }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberTotalSteps }), jsxRuntime.jsx(StepControllerArrow, { onClick: nextStep, children: jsxRuntime.jsx(ArrowForwardIosIcon__default["default"], { sx: { fontSize: '0.8rem' } }) })] }), jsxRuntime.jsxs("div", { onClick: goToContact, children: [jsxRuntime.jsx(PersonAddIcon__default["default"], { sx: { color: 'inherit', fontSize: '0.8rem', marginRight: '8px' } }), labelContact] })] }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
+exports.AudioPlayer = AudioPlayer;
 exports.Avatar = Avatar;
 exports.AvatarAssociatedChannel = AvatarAssociatedChannel;
 exports.AvatarChannel = AvatarChannel$1;
@@ -12655,7 +14161,8 @@ exports.Checkmark = Checkmark;
 exports.ColorPicker = Colorpicker;
 exports.CommentaryBox = CommentaryBox;
 exports.ConquistaCarrossel = ConquistaCarrossel;
-exports.Content = Content$2;
+exports.Content = Content$3;
+exports.ContentCycle = ContentCycle;
 exports.ContentSwitcher = ContentSwitcher;
 exports.ContentThumbnails = ContentThumbnails;
 exports.Diamond = Diamond;
@@ -12664,6 +14171,7 @@ exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
 exports.ExtraContent = ExtraContent;
 exports.EyeOff = EyeOff;
+exports.Favorite = Favorite;
 exports.FeedInteraction = FeedInteraction;
 exports.FileUpload = FileUpload;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
@@ -12676,14 +14184,17 @@ exports.HomeLineIcon = HomeLineIcon;
 exports.IconNotification = IconNotification;
 exports.InputComment = InputComment;
 exports.InstagramIcon = InstagramIcon;
+exports.InteractionsModal = InteractionsModal;
 exports.LampFilledIcon = LampFilledIcon;
 exports.LampLineIcon = LampLineIcon;
 exports.LateralMenu = LateralMenu;
 exports.LearningSteps = LearningSteps;
 exports.LinkedinIcon = LinkedinIcon;
+exports.ListContentCycle = ListContentCycle;
 exports.ListSelector = ListSelector;
 exports.Loading = Loading;
 exports.LoginLxp = Login;
+exports.LogoFRST = LogoFRST;
 exports.ManageLearningCicles = ManageLearningCicles;
 exports.MedalFilledIcon = MedalFilledIcon;
 exports.MedalLineIcon = MedalLineIcon;
@@ -12698,8 +14209,10 @@ exports.NotificationPopOver = NotificationPopOver;
 exports.ObjectiveStep = ObjectiveStep;
 exports.OpenedEye = OpenedEye;
 exports.Pagination = Pagination;
-exports.ParticipantCard = ParticipantCard;
+exports.ParticipantCard = ParticipantCardOld;
+exports.ParticipantCardNew = ParticipantCard;
 exports.ParticipantThumbnails = ParticipantThumbnails;
+exports.ParticipantThumbnailsList = ParticipantThumbnailsList;
 exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
@@ -12709,6 +14222,7 @@ exports.PopOver = PopOver;
 exports.PopOverLXP = PopOverLXP;
 exports.PostFeed = PostFeed;
 exports.ProgressBar = ProgressBar$1;
+exports.QuantidadeDesafios = QuantidadeDesafios;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;
 exports.SearchBox = SearchBox;
@@ -12721,12 +14235,14 @@ exports.SiteIcon = SiteIcon;
 exports.SmallSRGBanner = SmallSRGBanner;
 exports.SpecialistContact = SpecialistContact;
 exports.SpotifyIcon = SpotifyIcon;
+exports.StarFavorite = StarFavorite;
 exports.StarMetric = StarMetric;
 exports.StepCheckInCicle = StepCheckInCicle;
 exports.StepCicleFour = StepCicleFour;
 exports.StepCicleOne = StepCicleOne;
 exports.StepCicleThree = StepCicleThree;
 exports.StepCicleTwo = StepCicleTwo;
+exports.StepController = StepController;
 exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Steps = Steps;

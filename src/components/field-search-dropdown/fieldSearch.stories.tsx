@@ -14,8 +14,8 @@ const Template = (args) => <FieldSearch {...args} />
 export const labeledResult = Template.bind({})
 labeledResult.args = {
     variant: 'LXP',
-    loading: false,
-    textLoading: 'Carregando...',
+    loading: true,
+    textLoading: 'Buscando...',
     placeholder: 'O que você busca?', 
     value: 'Default to show options',
     hasListResult: true, 
@@ -82,7 +82,7 @@ normal.args = {
         {id: '2', label: 'pesquisa 2', onClick: (e) => alert(e)},
         {id: '3', label: 'pesquisa 3', onClick: (e) => alert(e)}
     ],
-    isMobileVersion: false,
+    isMobileVersion: true,
     hasOptionSeeAll: true, 
     setFieldSearchIsOpen: (e) => console.log("setFieldSearchIsOpen", e), 
     fieldSearchIsOpen: false,

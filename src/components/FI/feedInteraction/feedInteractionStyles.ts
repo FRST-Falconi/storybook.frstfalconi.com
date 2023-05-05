@@ -24,6 +24,17 @@ export const infoContent = styled.div`
     padding: 12px;
     padding-top: 24px;
 `
+export const infoContentWithView = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    font-family: 'Work Sans';
+    font-size: 16px;
+    font-weight: 400;
+    padding-top: 12px;
+`
 
 export const info = styled.div`
     display: flex;
@@ -31,6 +42,15 @@ export const info = styled.div`
     align-items: center;
     flex-direction: row;
     position: absolute;
+    margin-bottom: 12px;
+    ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
+`
+
+export const infoWithView = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
     margin-bottom: 12px;
     ${({theme}) => theme.fonts.textMessageComponentsBodyRegular};
 `

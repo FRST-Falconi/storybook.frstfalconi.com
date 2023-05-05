@@ -30,17 +30,6 @@ hipoteseLevantada.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aguardando',
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022',
@@ -59,17 +48,6 @@ finalizado.args = {
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
 
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aprovado',
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022'
@@ -88,17 +66,6 @@ proxPassos.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'revisar',
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022'
@@ -117,17 +84,6 @@ resultadosAprendizados.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aprovado',
     
     lastUpdated: 'Atualizado 30 de Abr. 2022'
@@ -146,21 +102,32 @@ testesRealizados.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
-    
     trilhaVinculada: 'Digital Business Mindset',
     lastUpdated: 'Atualizado 30 de Abr. 2022'
 }
+
+export const verificado = Template.bind({}) 
+verificado.args = {
+    
+    selected: false,
+    language: 'pt-BR',
+    
+    problemID: "bla-blu-fla",
+    userName: "Roberto Lima",
+    
+    problemStatus: "hipoteseLevantada",
+    
+    userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
+    cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
+    statusProblema: 'aguardando',
+    trilhaVinculada: 'Digital Business Mindset',
+    lastUpdated: 'Atualizado 30 de Abr. 2022',
+    isButtonVerMais: true,
+    onClick: (problemID) => { alert(problemID)},
+    isVerified: true,
+
+}
+
 
 export const problemaDefinido = Template.bind({})
 problemaDefinido.args = {
@@ -175,21 +142,11 @@ problemaDefinido.args = {
     
     userCargo: "Tecnologia da informação (Estudante/Universitário(a))",
     cardTitle: "Aumentar o engajamento dos alunos na plataforma D2L",
-    tags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
-    ratingImpacto:{
-        nota: 4.6,
-        qtdeAvaliacao: 19,
-        description: 'Ótimo'
-    },
-    ratingRelevancia:{
-        nota: 3.8,
-        qtdeAvaliacao: 23,
-        description: 'Bom'
-    },
     statusProblema: 'aguardando',
     
     lastUpdated: 'Atualizado 30 de Abr. 2022'
 }
+
 
 export const naoIniciou = Template.bind({})
 naoIniciou.args = {

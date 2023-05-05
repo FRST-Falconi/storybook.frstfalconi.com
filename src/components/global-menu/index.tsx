@@ -69,6 +69,14 @@ export default function GlobalMenu({
   const [HideHambMenu, setHideHambMenu] = useState(false)
 
   useEffect(() => {
+    setValueListSearch(search.listEntry)
+  }, [search.listEntry]);
+
+  useEffect(() => {
+    setLoadingSearch(search.isloading)
+  }, [search.loading]);
+
+  useEffect(() => {
     function updateSize() {
       setWindowSize([window.innerWidth, window.innerHeight])
       setIsMobileVersion(window.innerWidth < 700)
@@ -216,8 +224,10 @@ export default function GlobalMenu({
                     placeholder={search.label}
                     onFilter={search.onFilter}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
+                    isLabeledResult={search.isLabeledResult}
                     listResults={search.isLabeledResult ? null : valueListSearch}
                     labeledResultList={search.isLabeledResult ? valueListSearch : null}
                     historicResults={search.historicResults}
@@ -247,8 +257,10 @@ export default function GlobalMenu({
                       placeholder={search.label}
                       onFilter={search.onFilter}
                       loading={loadingSearch}
+                      textLoading={search.textLoading}
                       fieldSearchIsOpen={controlExpandedSearchMobile}
                       setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                      isLabeledResult={search.isLabeledResult}
                       listResults={search.isLabeledResult ? null : valueListSearch}
                       labeledResultList={search.isLabeledResult ? valueListSearch : null}
                       historicResults={search.historicResults}
@@ -491,6 +503,7 @@ export default function GlobalMenu({
                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                     placeholder={search.label}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
                     isLabeledResult={search.isLabeledResult}
@@ -516,8 +529,10 @@ export default function GlobalMenu({
                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                     placeholder={search.label}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                    isLabeledResult={search.isLabeledResult}
                     listResults={search.isLabeledResult ? null : valueListSearch}
                     labeledResultList={search.isLabeledResult ? valueListSearch : null}
                     historicResults={search.historicResults}
@@ -538,8 +553,10 @@ export default function GlobalMenu({
                     onChange={(e) => handleChangeValueSearch(e.target.value)}
                     placeholder={search.label}
                     loading={loadingSearch}
+                    textLoading={search.textLoading}
                     fieldSearchIsOpen={controlExpandedSearchMobile}
                     setFieldSearchIsOpen={setControlExpandedSearchMobile}
+                    isLabeledResult={search.isLabeledResult}
                     listResults={search.isLabeledResult ? null : valueListSearch}
                     labeledResultList={search.isLabeledResult ? valueListSearch : null}
                     historicResults={search.historicResults}

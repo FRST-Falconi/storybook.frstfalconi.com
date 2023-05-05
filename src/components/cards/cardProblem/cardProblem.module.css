@@ -1,12 +1,12 @@
 .container {
     width: 100%;
     border-radius: 10px;
-    padding-right: 48px;
+    padding-right: 24px;
     padding-left: 48px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 24px;
 
-    
+
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row;
@@ -36,14 +36,14 @@
 }
 
 .checkBox {
-    
+
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     height: 100%;
-    padding-top: 20px;
-    padding-left: 30px;
-    
+    padding-top: 17px;
+    padding-left: 16px;
+
 
     position: absolute;
     left: 0;
@@ -51,7 +51,7 @@
 }
 
 .contentCard {
-    
+
     margin-left: 8px;
     display: flex;
     justify-content: center;
@@ -64,6 +64,9 @@
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 24px;
+    
+
 }
 
 .infoUser {
@@ -71,36 +74,29 @@
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
-    margin-left: 4px;
+    margin-left: 16px;
 }
 
 .tituloCard {
-    
+
     margin-top: 4px;
+    margin-bottom: 8px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 
     font-weight: 600;
     font-size: 18px;
-    word-wrap: break-word;
+    word-break: break-all;
 }
 
 .tagsContainer {
-    
-    
+
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.avaliacao {
-
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-   
 }
 
 .buttonVerMais {
@@ -113,6 +109,6 @@
     right: 0;
     font-weight: 600;
 
-    margin-bottom: 30px;
+    margin-bottom: 26px;
     margin-right: 30px;
 }

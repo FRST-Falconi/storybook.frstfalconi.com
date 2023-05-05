@@ -7,7 +7,7 @@ export default {
   component: HeaderContent
 }
 
-const Template = (args) => <HeaderContent {...args} />
+const Template = (args) => <HeaderContent {...args}/>
 
 export const InProgress = Template.bind({})
 InProgress.args = {
@@ -25,7 +25,7 @@ InProgress.args = {
       onClick: () => {
         alert('Continuar o Curso')
       },
-      channel: 'XP Investimentos',
+      // channel: 'XP Investimentos',
       labelButton: 'Continuar curso'
     },
     {
