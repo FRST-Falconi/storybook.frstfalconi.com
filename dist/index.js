@@ -8995,7 +8995,7 @@ const ContainerMain = styled__default["default"].div `
     position: relative;
     align-items: center;
 `;
-const Typography$1 = styled__default["default"].p `
+const Typography$1 = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
@@ -9052,15 +9052,18 @@ const ContainerEllipse = styled__default["default"].button `
     cursor: pointer;
     padding-top: 5px;
 `;
-const TypographyAdd = styled__default["default"].p `
+const TypographyAdd = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
+    width: 140px;
+    height: 60px;    
     line-height: 19px;     
     color: ${({ theme }) => theme.colors.neutralsGrey4};
     text-align: center;
-    word-wrap: break-word;      
+    word-wrap: break-all !important;     
+    white-space:pre-wrap; 
 `;
 
 ///-----------------------------------------
@@ -9129,7 +9132,7 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
                         jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ?
                                 jsxRuntime.jsxs(LoadingContainer, { children: [jsxRuntime.jsx(LoadingImage, {}), jsxRuntime.jsx(LoadingContent, {}), jsxRuntime.jsx(LoadingContent, { style: { width: '50%' } })] })
                                 :
-                                    jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsxs(TypographyAdd, { children: [txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo', jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo' })] })] }) })
+                                    jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo' })] }) })
                         : null, jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                         setElementPopover(null);
                     }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo", onClick: () => {
@@ -9300,7 +9303,8 @@ function ContentCoursesTrails(props) {
                                             }
                                         } }) }) }), props.showButtonActive &&
                         jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$2, { id: `btnPublish${props.id}`, handleMount: (element) => {
-                                                setElementPopoverPublish(document.getElementById(element));
+                                                let el = document.getElementById(element);
+                                                setElementPopoverPublish(el ? el : null);
                                             }, handleClick: () => {
                                                 setCanPublishing(false);
                                                 setPublishing(true);
@@ -9368,7 +9372,7 @@ function AccordionTrack(props) {
                                                                                 props.handleDeleteCourse(el.id);
                                                                             }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `content${contentIndex}`) }));
                                                                 })] }) }) }), provided.placeholder] }));
-                            } })] }), !IsLoading &&
+                            } }, MEUS_CONTEUDOS_CONTENT)] }), !IsLoading &&
                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Conteúdo individual', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
                                 // if (props.handleSwitchActiveTrail) {
                                 //   props.handleSwitchActiveTrail(trailIndex, bActive)
@@ -9390,7 +9394,7 @@ function AccordionTrack(props) {
                                                                     props.handleDeleteCourseTrail(individual.id);
                                                                 }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `contentTrails${1}_individual${individualIndex}`) }));
                                                     }) }) }), provided.placeholder] }));
-                                } }) }) }), !IsLoading &&
+                                } }, CONTEUDO_INDIVIDUAL_CONTENT) }) }), !IsLoading &&
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyMyTrails, { style: { marginTop: 20 }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), trails && trails.map((trail, trailIndex) => {
                                 return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { showButtonActive: true, id: `${3000}${trailIndex}`, TrailName: trail.name, ativo: trail.active, handleChangeCheck: (bActive) => {
                                             if (props.handleSwitchActiveTrail) {
@@ -9415,7 +9419,7 @@ function AccordionTrack(props) {
                                                                                     props.handleDeleteCourseTrail(el.course.id);
                                                                                 }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }) }));
                                                                     }) }) }), provided.placeholder] }, `contentTrailsDrop${trailIndex}`));
-                                                } }) }, `contentTrails${trailIndex}`) }));
+                                                } }, trailIndex + 2) }, `contentTrails${trailIndex}`) }));
                             })] })] }) }));
 }
 
