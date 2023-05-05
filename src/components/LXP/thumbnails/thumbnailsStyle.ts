@@ -12,7 +12,7 @@ interface IContainerThumbnails {
 export const ContainerThumbnails = styled.div<IContainerThumbnails>`
     width: 180px;
     min-width: 180px;
-    height: ${( props ) => `${props.showSwitchIndividual ? '352px' : '320px'}`};
+    height: ${( props ) => `${props.showSwitchIndividual ? '352px' : '300px'}`};
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
     background-color: ${({ theme }) => theme.colors.shadeWhite};
@@ -110,7 +110,7 @@ export const ContainerMain = styled.div`
     position: relative;
     align-items: center;
 `
-export const Typography = styled.p`
+export const Typography = styled.div`
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
@@ -130,9 +130,8 @@ export const IconVertical = styled.div`
 `
 export const ContainerAtivar = styled.div`
     display: flex;
-    gap: 5px;
+    gap: 6px;
     margin-top: 45px;
-    margin-left: 24px;
     position: absolute;
 `
 export const TypographyAtivar = styled.span<IImageBackground>`
@@ -141,7 +140,8 @@ export const TypographyAtivar = styled.span<IImageBackground>`
     font-size: 16px;
     line-height: 21px;
     text-align: right;
-    color: ${({ theme }) => theme.colors.shadeBlack};        
+    width: 120px;
+    color: ${({ theme }) => theme.colors.shadeBlack};
 `
 /* ################addNew############################ */
 
@@ -168,13 +168,16 @@ export const ContainerEllipse = styled.button`
     cursor: pointer;
     padding-top: 5px;
 `
-export const TypographyAdd = styled.p`
+export const TypographyAdd = styled.div`
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
+    width: 140px;
+    height: 60px;    
     line-height: 19px;     
     color: ${({ theme }) => theme.colors.neutralsGrey4};
     text-align: center;
-    word-wrap: break-word;      
+    word-wrap: break-all !important;     
+    white-space:pre-wrap; 
 `

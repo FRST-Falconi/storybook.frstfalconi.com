@@ -1,19 +1,118 @@
+import React, { useRef } from 'react'
 import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
 import * as Styles from './accordionTrackStyle'
 import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
+import Button from '@components/buttons'
 import Switch from 'react-switch';
 import PopOver, { PopOverItem } from '../popOver'
+import Loading from '@components/DS/loading'
+
+import {
+  Box,
+  ClickAwayListener,
+  Fade,
+  makeStyles,
+  Paper,
+  Popper,
+} from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => {
+  const color = theme.palette.background.paper; // Feel free to customise this like they do in Tooltip
+  return {
+    popoverRoot: {
+      backgroundColor: color,
+      maxWidth: 200,      
+    },
+    content: {
+      padding: theme.spacing(2),
+      textAlign: 'center'
+    },
+    // Stolen from https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/Tooltip/Tooltip.js and https://github.com/mui-org/material-ui/blob/4f2a07e140c954b478a6670c009c23a59ec3e2d4/docs/src/pages/components/popper/ScrollPlayground.js
+    popper: {
+      zIndex: 2000,
+      margin: 12,
+      '&[x-placement*="bottom"] $arrow': {
+        top: 0,
+        left: 0,
+        marginTop: "-0.71em",
+        marginLeft: 4,
+        marginRight: 4,
+        "&::before": {
+          transformOrigin: "0 100%"
+        }
+      },
+      '&[x-placement*="top"] $arrow': {
+        bottom: 0,
+        left: 0,
+        marginBottom: "-0.71em",
+        marginLeft: 4,
+        marginRight: 4,
+        "&::before": {
+          transformOrigin: "100% 0"
+        }
+      },
+      '&[x-placement*="right"] $arrow': {
+        left: 0,
+        marginLeft: "-0.71em",
+        height: "1em",
+        width: "0.71em",
+        marginTop: 4,
+        marginBottom: 4,
+        "&::before": {
+          transformOrigin: "100% 100%"
+        }
+      },
+      '&[x-placement*="left"] $arrow': {
+        right: 0,
+        marginRight: "-0.71em",
+        height: "1em",
+        width: "0.71em",
+        marginTop: 4,
+        marginBottom: 4,
+        "&::before": {
+          transformOrigin: "0 0"
+        }
+      }
+    },
+    // Stolen from https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/Tooltip/Tooltip.js
+    arrow: {
+      overflow: "hidden",
+      position: "absolute",
+      width: "1em",
+      height: "0.71em" /* = width / sqrt(2) = (length of the hypotenuse) */,
+      boxSizing: "border-box",
+      color,
+      "&::before": {
+        content: '""',
+        margin: "auto",
+        display: "block",
+        width: "100%",
+        height: "100%",
+        boxShadow: theme.shadows[2],
+        backgroundColor: "currentColor",
+        transform: "rotate(45deg)"
+      },
+
+    }
+  };
+});
 
 export default function ContentCoursesTrails(props: any) {
-
+  
   const [checked, setChecked] = useState(true)
   const [up, setUp] = useState(true)
   const [ElementPopover, setElementPopover] = useState(null);
+  const [ElementPopoverPublish, setElementPopoverPublish] = useState(null);
   const [active, setActive] = useState(false)
   const [nameTrail, setNameTrail] = useState('')  
+  const [Publishing, setPublishing] = useState<boolean>(false);
+  const [CanPublishing, setCanPublishing] = useState<boolean>(true);
+  const [arrowRef, setArrowRef] = React.useState<HTMLElement | null>(null);
+  const classes = useStyles();
+  // const refContainer = useRef(null);
 
   const handleChange = (checkedValue) => {
     setChecked(checkedValue)
@@ -39,7 +138,7 @@ export default function ContentCoursesTrails(props: any) {
       return setActive(false)
     } else{      
       setActive(true)
-     }   
+     }
   }
 
   return (
@@ -52,7 +151,7 @@ export default function ContentCoursesTrails(props: any) {
               <Styles.TypographyTrailName>{props.TrailName}</Styles.TypographyTrailName>
               <Styles.Select onClick={changeSelect}>
                 {props.show ? <VectorUp /> : <VectorDown />}
-              </Styles.Select>              
+              </Styles.Select>
             </>
             :
             <Styles.ContainerInputNameTrail>
@@ -66,7 +165,7 @@ export default function ContentCoursesTrails(props: any) {
                   if(event.key === 'Enter'){
                     if (nameTrail) {
                       setActive(false)
-                      props.handleChangeTrailName(nameTrail)                    
+                      props.handleChangeTrailName(nameTrail)
                     }
                   }                  
                 }}
@@ -74,78 +173,132 @@ export default function ContentCoursesTrails(props: any) {
             </Styles.ContainerInputNameTrail>
           }          
         </Styles.ContentTrailName>
-
-        <Styles.ContentActiveHeader>
-          <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
-            {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
-            <Switch
-              onChange={handleChange}
-              checked={props.ativo}
-              height={16}
-              width={40}
-              checkedIcon={false}
-              uncheckedIcon={false}
-              handleDiameter={24}
-              onHandleColor='#ffffff'
-              offHandleColor='#ffffff'
-              onColor='#FF4D0D'
-              offColor='#757575'
-              activeBoxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-              boxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-            />
-          </Styles.TypographyActiveHeader>
-          <Styles.IconVerticalHeader
-            onClick={(element: any) => {
-              setElementPopover(element.currentTarget)
+        
+        {
+          props.showButtonActive &&
+            <Styles.ContentActiveHeader>
+              <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
+                {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
+                <Switch
+                  onChange={handleChange}
+                  checked={props.ativo}
+                  height={16}
+                  width={40}
+                  checkedIcon={false}
+                  uncheckedIcon={false}
+                  handleDiameter={24}
+                  onHandleColor='#ffffff'
+                  offHandleColor='#ffffff'
+                  onColor='#FF4D0D'
+                  offColor='#757575'
+                  activeBoxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                  boxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                />
+              </Styles.TypographyActiveHeader>
+              <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
+                <Button 
+                  id={`btnPublish${props.id}`}
+                  handleMount={(element) => {
+                    let el = document.getElementById(element)
+                    setElementPopoverPublish(el ? el : null)
+                  }}
+                  handleClick={() => {
+                    setCanPublishing(false)
+                    setPublishing(true)     
+                    props.handlePublicarTrilha(props)              
+                  }} 
+                  startIcon={Publishing &&  <Loading sizeLoading='small' loadColor='#bdbdbd' style={{width: 40}}/>}
+                  label={Publishing ? 'Publicando...' : 'Publicar'} 
+                  variant='secondary'
+                  disabled={!CanPublishing}
+                />
+                {/* ToDo: Migrar um novo componente */}
+                <Popper 
+                  id={CanPublishing ? `btnPublishPopper${props.id}` : undefined} 
+                  open={CanPublishing} 
+                  anchorEl={ElementPopoverPublish} 
+                  placement={'top'} 
+                  className={classes.popper}
+                  transition
+                  modifiers={{
+                      preventOverflow: {
+                        enabled: true,
+                        boundariesElement: "window"
+                      },
+                      arrow: {
+                        enabled: true,
+                        element: arrowRef
+                      }
+                  }}
+                >
+                  {({ TransitionProps }) => (                  
+                    <Fade {...TransitionProps} timeout={350}>
+                      <Paper>
+                        <ClickAwayListener onClickAway={() => {}}>
+                          <Paper className={classes.popoverRoot}>
+                              <span className={classes.arrow} ref={setArrowRef} />
+                            <Box className={classes.content}>Após realizar todas as alterações na trilha, é necessário clicar em publicar para que o conteúdo editado esteja disponível</Box>
+                          </Paper>
+                        </ClickAwayListener>
+                      </Paper>
+                    </Fade>
+                  )}
+                </Popper>                
+                                            
+              </Styles.TypographyActiveHeader>              
+              <Styles.IconVerticalHeader
+                onClick={(element: any) => {
+                  setElementPopover(element.currentTarget)
+                }}
+              >
+                <div style={{ marginRight: 8 }}>
+                  <Icons.MoreVertical
+                    fill={props.ativo ? '#000000' : '#bdbdbd'}
+                  />
+                </div>
+              </Styles.IconVerticalHeader>
+            </Styles.ContentActiveHeader>
+        }        
+        <>
+          <PopOver
+            element={ElementPopover}
+            onClosePopover={() => {
+              setElementPopover(null)
             }}
+            variant={'upRight'}
           >
-            <div style={{ marginRight: 8 }}>
-              <Icons.MoreVertical
-                fill={props.ativo ? '#000000' : '#bdbdbd'}
+            <div style={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
+              <PopOverItem
+                label={props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha"}
+                onClick={() => {
+                  //props.handlePopOverTrailEdit(props.id)
+                  handleClickActiveNameTrail()
+                  setElementPopover(null)                  
+                }}
+              />
+              {/* <PopOverItem 
+                  label={props.txtTrailsPopOverDuplicar ? props.txtTrailsPopOverDuplicar : "Duplicar trilha"}
+                  onClick={() => {
+                    props.handlePopOverDuplicate
+                  }}
+                /> */}
+              <PopOverItem
+                label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
+                onClick={() => {
+                  props.handlePopOverTrailDelete(props.id)
+                  setElementPopover(null)
+                }}
+                icon={<Icons.Trash fill='#C00F00' />}
+                noBorder={true}
+                isFontBold={true}
+                color={'#C00F00'}
               />
             </div>
-          </Styles.IconVerticalHeader>
-        </Styles.ContentActiveHeader>
+          </PopOver>      
+        </>        
       </Styles.ContainerHeader>
-
-      <PopOver
-        element={ElementPopover}
-        onClosePopover={() => {
-          setElementPopover(null)
-        }}
-        variant={'upRight'}
-      >
-        <div style={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
-          <PopOverItem
-            label={props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha"}
-            onClick={() => {
-              //props.handlePopOverTrailEdit(props.id)
-              handleClickActiveNameTrail()
-              setElementPopover(null)
-              
-            }}
-          />
-          {/* <PopOverItem 
-              label={props.txtTrailsPopOverDuplicar ? props.txtTrailsPopOverDuplicar : "Duplicar trilha"}
-              onClick={() => {
-                props.handlePopOverDuplicate
-              }}
-            /> */}
-          <PopOverItem
-            label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
-            onClick={() => {
-              props.handlePopOverTrailDelete(props.id)
-              setElementPopover(null)
-            }}
-            icon={<Icons.Trash fill='#C00F00' />}
-            noBorder={true}
-            isFontBold={true}
-            color={'#C00F00'}
-          />
-        </div>
-      </PopOver>
-
-      {props.children}
+      
+      { up && props.children}
     </>
   )
 }

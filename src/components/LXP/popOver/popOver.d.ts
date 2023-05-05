@@ -12,12 +12,11 @@ export interface IPopOver {
    * @prop {React.ReactNode} children: valor de exibição dentro do componente popOver
    */
   children?: React.ReactNode
-
   element: any
-
   onClosePopover: () => void
-
   style?: React.CSSProperties
+  anchorOrigin?: any
+  transformOrigin?: any
 }
 
 export interface IPopOverItems {

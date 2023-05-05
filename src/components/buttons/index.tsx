@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
@@ -18,7 +19,10 @@ interface buttonProps {
     value?: any,
     active?: boolean
     style?: React.CSSProperties,
-    length?: number
+    length?: number,
+    id?: string,
+    ref?: any,
+    handleMount?: (e:any) => void
 }
 
 export default function Button({
@@ -33,39 +37,49 @@ export default function Button({
     active,
     style,
     value,
-    length
+    length,
+    id,
+    ref,
+    handleMount
 }: buttonProps) {
+
+    useEffect(() => {
+        if (handleMount && id) {
+            handleMount(id)
+        }
+    }, [id])
+
     return (
         <ThemeProvider theme={{...FRSTTheme, type: type }}>
             { startIcon ?
                 (variant === 'link') ?
-                    <Styles.LinkButtonStartIcon style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.LinkButtonStartIcon ref={ref} style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {startIcon}
                         {label}                        
                     </Styles.LinkButtonStartIcon>
                 :
-                    <Styles.ButtonStartIcon style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.ButtonStartIcon ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {startIcon}
                         {label}
                     </Styles.ButtonStartIcon>
             : endIcon ?
                 (variant === 'link') ?
-                    <Styles.LinkButtonEndIcon style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.LinkButtonEndIcon ref={ref} style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {label} 
                         {endIcon}                       
                     </Styles.LinkButtonEndIcon>
                 :
-                    <Styles.ButtonEndIcon style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon}>
+                    <Styles.ButtonEndIcon ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {label}
                         {endIcon}
                     </Styles.ButtonEndIcon>
             :
                 (variant === 'link') ?
-                    <Styles.LinkButton style={{...style}} disabled={disabled} onClick={handleClick}>
+                    <Styles.LinkButton ref={ref} style={{...style}} disabled={disabled} onClick={handleClick} id={id}>
                         {label}                       
                     </Styles.LinkButton>
                 :
-                    <Styles.Button style={{...style}} length={length} active={active} value={value} variant={variant} disabled={disabled} onClick={handleClick}>
+                    <Styles.Button ref={ref} style={{...style}} length={length} active={active} value={value} variant={variant} disabled={disabled} onClick={handleClick} id={id}>
                         {label}
                     </Styles.Button>
                     
