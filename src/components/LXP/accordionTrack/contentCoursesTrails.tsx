@@ -199,7 +199,8 @@ export default function ContentCoursesTrails(props: any) {
                 <Button 
                   id={`btnPublish${props.id}`}
                   handleMount={(element) => {
-                    setElementPopoverPublish(document.getElementById(element))
+                    let el = document.getElementById(element)
+                    setElementPopoverPublish(el ? el : null)
                   }}
                   handleClick={() => {
                     setCanPublishing(false)

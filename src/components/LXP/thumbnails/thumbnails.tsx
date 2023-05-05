@@ -184,10 +184,7 @@ export default function Thumbnails({
                   <VectorCross />
                 </Styles.ContainerEllipse>
                 <Styles.TypographyAdd >
-                  {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo'}
-                <Styles.TypographyAdd >
-                  {txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo'}
-                </Styles.TypographyAdd>
+                  {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo'}
                 </Styles.TypographyAdd>
               </Styles.ContainerThumbnailsAdd>
             }

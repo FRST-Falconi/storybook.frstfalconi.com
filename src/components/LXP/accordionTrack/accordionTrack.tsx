@@ -75,7 +75,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         </div>
         
         {/* Meus conteúdos */}
-        <Droppable droppableId={MEUS_CONTEUDOS_CONTENT} direction="horizontal">
+        <Droppable droppableId={MEUS_CONTEUDOS_CONTENT} direction="horizontal" key={MEUS_CONTEUDOS_CONTENT}>
           {(provided) => {
             return (
               <Styles.ContainerTrailsEmpty>
@@ -154,8 +154,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
                                   txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                                                                  
                                 />                          
-                              </>
-                              
+                              </>                              
                             )
                           })
                         }
@@ -168,7 +167,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             )
           }}
         </Droppable>
-      </ContentCourses> 
+      </ContentCourses>
 
       {
       /* ---------------------------------------------------------
@@ -206,7 +205,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             handlePopOverTrailDelete={(id: string) => { props.handlePopOverTrailDelete(id) }}
           >
             {              
-              <Droppable droppableId={CONTEUDO_INDIVIDUAL_CONTENT} direction="horizontal">
+              <Droppable droppableId={CONTEUDO_INDIVIDUAL_CONTENT} direction="horizontal" key={CONTEUDO_INDIVIDUAL_CONTENT}>
                 {(provided) => {
                   return (
                     <Styles.ContainerTrailsNormal style={{}}>
@@ -320,7 +319,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   >
                     {
                       ShowTrail.length === 0 || ShowTrail[trailIndex] &&                  
-                      <Droppable droppableId={(trailIndex+2).toString()} direction="horizontal">
+                      <Droppable droppableId={(trailIndex+2).toString()} direction="horizontal" key={trailIndex+2}>
                         {(provided) => {
                           return (
                             <Styles.ContainerTrailsNormal

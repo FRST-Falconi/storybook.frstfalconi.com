@@ -110,7 +110,7 @@ export const ContainerMain = styled.div`
     position: relative;
     align-items: center;
 `
-export const Typography = styled.p`
+export const Typography = styled.div`
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
@@ -168,13 +168,16 @@ export const ContainerEllipse = styled.button`
     cursor: pointer;
     padding-top: 5px;
 `
-export const TypographyAdd = styled.p`
+export const TypographyAdd = styled.div`
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
+    width: 140px;
+    height: 60px;    
     line-height: 19px;     
     color: ${({ theme }) => theme.colors.neutralsGrey4};
     text-align: center;
-    word-wrap: break-word;      
+    word-wrap: break-all !important;     
+    white-space:pre-wrap; 
 `
