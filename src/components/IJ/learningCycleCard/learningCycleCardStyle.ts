@@ -119,7 +119,7 @@ export const CycleName = styled.div`
   display: flex;
   flex-direction: row;
   padding-top: 10px;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 25px;
   color: #222222;
 `
