@@ -396,7 +396,7 @@ function GoalInviteIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '25', height: height ? height : '25', viewBox: "0 0 25 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M7.02656 9.04883H5.82656C4.94291 9.04883 4.22656 9.67563 4.22656 10.4488V18.8488C4.22656 19.622 4.94291 20.2488 5.82656 20.2488H18.6266C19.5102 20.2488 20.2266 19.622 20.2266 18.8488V10.4488C20.2266 9.67563 19.5102 9.04883 18.6266 9.04883H17.4266", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M20.2266 10.6484L13.0506 15.2084C12.8036 15.3632 12.518 15.4452 12.2266 15.4452C11.9351 15.4452 11.6495 15.3632 11.4026 15.2084L4.22656 10.6484", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M7.02637 12.6486V7.84863C7.02637 6.74406 7.9218 5.84863 9.02637 5.84863H15.4264C16.5309 5.84863 17.4264 6.74406 17.4264 7.84863V12.6486", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5" }), jsxRuntime.jsx("path", { d: "M15.4264 13.8487C14.6264 11.8487 13.4264 11.4487 12.2264 11.4487C11.0264 11.4487 9.82637 11.8487 9.02637 13.8487", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5" }), jsxRuntime.jsx("circle", { cx: "12.2265", cy: "9.04873", r: "0.85", stroke: fill ? fill : '#0645AD', "stroke-width": "1.5" })] }));
 }
 function GoalViewsIcon({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "18", y: "2.25", width: "3.75", height: "19.5", rx: "1.875", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("rect", { x: "10.125", y: "8.25", width: "3.75", height: "13.5", rx: "1.875", stroke: fill ? fill : "#0645AD", strokeWidth: "2" }), jsxRuntime.jsx("rect", { x: "2.25", y: "15", width: "3.75", height: "6.75", rx: "1.875", stroke: fill ? fill : "#0645AD", strokeWidth: "2" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "18", y: "2.25", width: "3.75", height: "19.5", rx: "1.875", stroke: fill ? fill : '#0645AD', strokeWidth: "2" }), jsxRuntime.jsx("rect", { x: "10.125", y: "8.25", width: "3.75", height: "13.5", rx: "1.875", stroke: fill ? fill : '#0645AD', strokeWidth: "2" }), jsxRuntime.jsx("rect", { x: "2.25", y: "15", width: "3.75", height: "6.75", rx: "1.875", stroke: fill ? fill : '#0645AD', strokeWidth: "2" })] }));
 }
 function StatusProblemaSawBadgeIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#D1F6D1" }), jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_482_14529)", children: [jsxRuntime.jsx("path", { d: "M26.2923 14.6469C25.2206 12.9765 22.7794 12.9765 21.7077 14.6469C21.2886 15.3 20.4848 15.5926 19.744 15.3616C17.8492 14.7709 15.9792 16.34 16.2319 18.3086C16.3307 19.0783 15.903 19.8191 15.187 20.1183C13.3559 20.8837 12.932 23.2878 14.3909 24.6334C14.9613 25.1595 15.1099 26.0019 14.7538 26.6913C13.843 28.4547 15.0636 30.5688 17.0461 30.6618C17.8213 30.6981 18.4765 31.248 18.6469 32.005C19.0828 33.9413 21.3767 34.7762 22.9551 33.5731C23.5723 33.1027 24.4277 33.1027 25.0449 33.5731C26.6233 34.7762 28.9172 33.9413 29.3531 32.005C29.5235 31.248 30.1787 30.6981 30.9539 30.6618C32.9364 30.5688 34.157 28.4547 33.2462 26.6913C32.8901 26.0019 33.0387 25.1595 33.6091 24.6334C35.068 23.2878 34.6441 20.8837 32.813 20.1183C32.097 19.8191 31.6693 19.0783 31.7681 18.3086C32.0208 16.34 30.1508 14.7709 28.256 15.3616C27.5152 15.5926 26.7114 15.3 26.2923 14.6469Z", stroke: "#222222" }), jsxRuntime.jsx("path", { d: "M19.5 24.5L23 27.5L29 21", stroke: "#222222", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_482_14529", children: jsxRuntime.jsx("rect", { width: "24", height: "24", fill: "white", transform: "translate(12 12)" }) }) })] }));
@@ -445,6 +445,9 @@ function IconGaps({ fill, width, height }) {
 }
 function IconModules({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21.6079 4.5C21.6079 5.54426 20.7522 6.4 19.6853 6.4C18.6184 6.4 17.7627 5.54426 17.7627 4.5C17.7627 3.45574 18.6184 2.6 19.6853 2.6C20.7522 2.6 21.6079 3.45574 21.6079 4.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 12.5C21.6079 13.5443 20.7522 14.4 19.6853 14.4C18.6184 14.4 17.7627 13.5443 17.7627 12.5C17.7627 11.4557 18.6184 10.6 19.6853 10.6C20.7522 10.6 21.6079 11.4557 21.6079 12.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 19.5C21.6079 20.5443 20.7522 21.4 19.6853 21.4C18.6184 21.4 17.7627 20.5443 17.7627 19.5C17.7627 18.4557 18.6184 17.6 19.6853 17.6C20.7522 17.6 21.6079 18.4557 21.6079 19.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M14.1356 12L17.1627 12", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 16H15.8654L18.1718 18", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 8H15.8654L18.1718 6", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.03613 15L5.05421 15", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1085 10L10.0995 10", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.0361 10H5.99596C6.39957 10 7.07227 9.25 7.07227 8.49999C7.07227 7 7.07227 8.8377 7.07227 7", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1084 15H8.14858C7.74496 15 7.07227 15.5 7.07227 16C7.07227 17 7.07227 15.7749 7.07227 17", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.9344 4.41895L10.977 4.47036L11.0298 4.51117C11.1053 4.56956 11.5175 5.03708 11.5175 6V18C11.5175 18.1873 11.4114 18.8808 10.9187 19.5999C10.708 19.8492 10.4509 20.0482 10.1646 20.1854C9.87158 20.3259 9.55413 20.3987 9.23347 20.4H8.51448C6.96145 20.3982 5.46746 19.7556 4.36173 18.605C3.2553 17.4537 2.62893 15.8878 2.6271 14.2497V9.75031C2.62893 8.11221 3.2553 6.5463 4.36173 5.39496C5.46737 4.24444 6.96122 3.60189 8.51413 3.6H9.23343C9.5541 3.60126 9.87157 3.67412 10.1646 3.8146C10.458 3.95526 10.7209 4.16085 10.9344 4.41895Z", stroke: "#0645AD", "stroke-width": "1.2" })] }));
+}
+function CheckIconSimple({ width = '15', height = '12', fill = '#2CA92A' }) {
+    return (jsxRuntime.jsx("svg", { width: width, height: height, viewBox: "0 0 15 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M4.59 8.58002L1.77231 5.76233C1.57753 5.56756 1.26191 5.567 1.06645 5.76108L0.356057 6.46647C0.160106 6.66105 0.158987 6.97763 0.353558 7.17358L0.354805 7.17483L4.23645 11.0565C4.43171 11.2517 4.74829 11.2517 4.94355 11.0565L14.2364 1.76358C14.4317 1.56831 14.4317 1.25173 14.2364 1.05647L13.5336 0.353577L13.5333 0.353783C13.3382 0.158601 13.0217 0.158509 12.8264 0.353577L4.59 8.58002Z", fill: fill }) }));
 }
 
 function styleInject(css, ref) {
@@ -6053,6 +6056,203 @@ function ListContentCycle({ stepContentCompleted = false, listContent, onSelect 
     return (jsxRuntime.jsx(Container$d, { children: listContent.map((content, index) => {
             return (jsxRuntime.jsx(ContentCycle, { id: content.id, description: content.description, onSelect: () => onSelect(index), selected: content.selected, title: content.title, listSkils: content.listSkils, urlPhoto: content.urlPhoto, urlVideo: content.urlVideo, titleVideo: content.titleVideo, progress: content.progress, started: content.started, stepContent: stepContentCompleted, typeContent: content.typeContent }, content.id));
         }) }));
+}
+
+const ContainerStepLearningCycle = styled__default["default"].div `
+  background: #f7f9fc;
+  border-bottom: 1px solid #bdbdbd;
+  justify-content: space-between;
+
+  &&.row {
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &&.column {
+    width: 18.5rem;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+  }
+`;
+const StepCycle = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+
+  > p {
+    max-width: 250px;
+    margin-left: 15%;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    color: #444444;
+  }
+
+  &&.finished {
+    color: #444444;
+  }
+
+  &&.inProgress {
+    color: #000000;
+  }
+  &&.waiting {
+    color: #9c9c9c;
+  }
+`;
+const StepCycleArticle = styled__default["default"].article `
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  color: inherit;
+  > h2 {
+    margin: 0;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    color: inherit;
+  }
+`;
+const IconStatus = styled__default["default"].span `
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 500;
+  cursor: pointer;
+
+  &&.finished {
+    border: 2px solid #2ca92a;
+    background: #d1f6d1;
+  }
+
+  &&.inProgress {
+    border: 2px solid #0645ad;
+
+    color: #0645ad;
+  }
+  &&.waiting {
+    border: 2px solid rgba(138, 153, 168, 0.5);
+
+    color: rgba(0, 0, 0, 0.65);
+  }
+`;
+
+function StepLearningCycle({ listSteps, direction = 'row', size = 'medium', completed = false }) {
+    const [stepsList, setStepsList] = React.useState(listSteps);
+    React.useEffect(() => {
+        if (completed) {
+            const newSteps = listSteps.map((step) => {
+                return {
+                    ...step,
+                    status: 'finished'
+                };
+            });
+            setStepsList(newSteps);
+        }
+    }, [completed]);
+    const handleChangeStep = (id) => {
+        const newListStep = stepsList.map((step, index) => {
+            if (index < id) {
+                return {
+                    ...step,
+                    status: 'finished'
+                };
+            }
+            else if (index === id) {
+                return {
+                    ...step,
+                    status: 'inProgress'
+                };
+            }
+            else {
+                return {
+                    ...step,
+                    status: 'waiting'
+                };
+            }
+        });
+        setStepsList(newListStep);
+    };
+    const variantsChek = {
+        large: {
+            width: '14.17px',
+            heigth: '11px'
+        },
+        medium: {
+            width: '9.45px',
+            heigth: '7.33px'
+        },
+        small: {
+            width: '8px',
+            heigth: '6px'
+        }
+    };
+    const variantsSize = {
+        large: {
+            icon: {
+                width: '46px',
+                height: '36px',
+                fontSize: '18px'
+            },
+            title: {
+                fontWeight: 700,
+                fontSize: '24px',
+                lineHeight: '130%'
+            },
+            description: {
+                fontSize: '16px',
+                marginLeft: '51px'
+            }
+        },
+        medium: {
+            icon: {
+                width: '29px',
+                height: '24px',
+                fontSize: '16px',
+                lineHeight: '19px'
+            },
+            title: {
+                fontWeight: 500,
+                fontSize: '18px',
+                lineHeight: '21px'
+            },
+            description: {
+                fontSize: '14px',
+                marginLeft: '39px'
+            }
+        },
+        small: {
+            icon: {
+                width: '20px',
+                height: '17px',
+                fontSize: '1px'
+            },
+            title: {
+                fontWeight: 500,
+                fontSize: '16px',
+                lineHeight: '19px'
+            },
+            description: {
+                display: 'none'
+            }
+        }
+    };
+    return (jsxRuntime.jsx(ContainerStepLearningCycle, { className: direction, children: stepsList &&
+            stepsList.map((step, i) => {
+                return (jsxRuntime.jsxs(StepCycle, { className: step.status, children: [jsxRuntime.jsxs(StepCycleArticle, { children: [jsxRuntime.jsx(IconStatus, { className: step.status, style: variantsSize[size].icon, onClick: () => handleChangeStep(i), children: step.status === 'finished' ? (jsxRuntime.jsx(CheckIconSimple, { height: variantsChek[size].heigth, width: variantsChek[size].width })) : (i + 1) }), jsxRuntime.jsx("h2", { style: variantsSize[size].title, children: step.title })] }), step.status === 'inProgress' && step.description && (jsxRuntime.jsx("p", { style: variantsSize[size].description, children: step.description }))] }, i + 1));
+            }) }));
 }
 
 const ContainerGeral$1 = styled__default["default"].div `
@@ -14156,6 +14356,7 @@ exports.Challenge = Challenge;
 exports.ChallengeCard = ChallengeCard;
 exports.ChangeAccount = ChangeAccount;
 exports.Channel = Channel$3;
+exports.CheckIconSimple = CheckIconSimple;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.ColorPicker = Colorpicker;
@@ -14243,6 +14444,7 @@ exports.StepCicleOne = StepCicleOne;
 exports.StepCicleThree = StepCicleThree;
 exports.StepCicleTwo = StepCicleTwo;
 exports.StepController = StepController;
+exports.StepLearningCycle = StepLearningCycle;
 exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Steps = Steps;
