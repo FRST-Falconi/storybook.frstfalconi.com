@@ -60,4 +60,6 @@ export interface IGlobalMenu {
   style: React.CSSProperties
   showSearchField: boolean
   marginTopSubMenu?: boolean
+
+  customMenuOptions?: any
 }

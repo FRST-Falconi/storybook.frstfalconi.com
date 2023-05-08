@@ -28,6 +28,7 @@ export declare function WhiteFilter({ fill, width, height }: IconsProps): JSX.El
 export declare function CheckboxChecked({ fill, width, height }: IconsProps): JSX.Element;
 export declare function CheckboxEmpty({ fill, stroke, width, height, active }: IconsProps): JSX.Element;
 export declare function Trash({ fill, width, height }: IconsProps): JSX.Element;
+export declare function TrashDelete({ fill, width, height }: IconsProps): JSX.Element;
 export declare function AlertCicle({ fill, width, height }: IconsProps): JSX.Element;
 export declare function DoubleCheck({ fill, width, height }: IconsProps): JSX.Element;
 export declare function WithoutTrail({ fill, width, height }: IconsProps): JSX.Element;
