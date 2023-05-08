@@ -70,11 +70,11 @@ export default function GlobalMenu({
 
   useEffect(() => {
     setValueListSearch(search.listEntry)
-  }, [search.listEntry]);
+  }, [search.listEntry])
 
   useEffect(() => {
     setLoadingSearch(search.isloading)
-  }, [search.loading]);
+  }, [search.loading])
 
   useEffect(() => {
     function updateSize() {
@@ -302,6 +302,7 @@ export default function GlobalMenu({
                         icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
                         style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
                       />
+
                       {newNotification.length ? (
                         <div style={{ position: 'absolute', marginLeft: '50%', marginTop: '-54px' }}>
                           <HasNotificationIcon />

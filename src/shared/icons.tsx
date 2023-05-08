@@ -369,6 +369,33 @@ export function Trash({ fill, width, height }: IconsProps) {
   )
 }
 
+export function TrashDelete({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ?? '25'}
+      height={height ?? '24'}
+      viewBox={`0 0 ${width ?? '25'} ${height ?? '24'}`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4.36035 7.33398H6.13813H20.3604"
+        stroke={fill ?? '#923534'}
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M18.9054 7.5V18.4C18.9054 18.8243 18.7083 19.2313 18.3576 19.5314C18.0069 19.8314 17.5312 20 17.0352 20H7.68458C7.18859 20 6.71292 19.8314 6.3622 19.5314C6.01148 19.2313 5.81445 18.8243 5.81445 18.4V7.5M8.61965 7.2V5.6C8.61965 5.17565 8.81668 4.76869 9.1674 4.46863C9.51811 4.16857 9.99379 4 10.4898 4H14.23C14.726 4 15.2017 4.16857 15.5524 4.46863C15.9031 4.76869 16.1002 5.17565 16.1002 5.6V7.2"
+        stroke={fill ?? '#923534'}
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  )
+}
+
 export function AlertCicle({ fill, width, height }: IconsProps) {
   return (
     <svg
@@ -2805,14 +2832,26 @@ export function GoalInviteIcon({ fill, width, height }: IconsProps) {
   )
 }
 
-
 export function GoalViewsIcon({ fill, width, height }: IconsProps) {
-
   return (
-    <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="18" y="2.25" width="3.75" height="19.5" rx="1.875" stroke={fill ? fill : "#0645AD"} strokeWidth="2"/>
-      <rect x="10.125" y="8.25" width="3.75" height="13.5" rx="1.875" stroke={fill ? fill : "#0645AD"}  strokeWidth="2"/>
-      <rect x="2.25" y="15" width="3.75" height="6.75" rx="1.875" stroke={fill ? fill : "#0645AD"}  strokeWidth="2"/>
+    <svg
+      width={width ? width : '24'}
+      height={height ? height : '24'}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="18" y="2.25" width="3.75" height="19.5" rx="1.875" stroke={fill ? fill : '#0645AD'} strokeWidth="2" />
+      <rect
+        x="10.125"
+        y="8.25"
+        width="3.75"
+        height="13.5"
+        rx="1.875"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="2"
+      />
+      <rect x="2.25" y="15" width="3.75" height="6.75" rx="1.875" stroke={fill ? fill : '#0645AD'} strokeWidth="2" />
     </svg>
   )
 }

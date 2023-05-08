@@ -158,6 +158,7 @@ export { default as ThumbListContent } from './src/components/IJ/thumbListConten
 export { default as ListSelector } from './src/components/IJ/listSelector'
 export { default as ParticipantCard } from './src/components/IJ/participantCardOld'
 export { default as ParticipantCardNew } from './src/components/IJ/participantCard'
+export { default as LearningCycleCard } from './src/components/IJ/learningCycleCard'
 
 // TP
 export { default as HeaderChallenge } from './src/components/headerChallenge'
