@@ -2805,14 +2805,26 @@ export function GoalInviteIcon({ fill, width, height }: IconsProps) {
   )
 }
 
-
 export function GoalViewsIcon({ fill, width, height }: IconsProps) {
-
   return (
-    <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="18" y="2.25" width="3.75" height="19.5" rx="1.875" stroke={fill ? fill : "#0645AD"} strokeWidth="2"/>
-      <rect x="10.125" y="8.25" width="3.75" height="13.5" rx="1.875" stroke={fill ? fill : "#0645AD"}  strokeWidth="2"/>
-      <rect x="2.25" y="15" width="3.75" height="6.75" rx="1.875" stroke={fill ? fill : "#0645AD"}  strokeWidth="2"/>
+    <svg
+      width={width ? width : '24'}
+      height={height ? height : '24'}
+      viewBox="0 0 24 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="18" y="2.25" width="3.75" height="19.5" rx="1.875" stroke={fill ? fill : '#0645AD'} strokeWidth="2" />
+      <rect
+        x="10.125"
+        y="8.25"
+        width="3.75"
+        height="13.5"
+        rx="1.875"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="2"
+      />
+      <rect x="2.25" y="15" width="3.75" height="6.75" rx="1.875" stroke={fill ? fill : '#0645AD'} strokeWidth="2" />
     </svg>
   )
 }
@@ -3448,6 +3460,17 @@ export function IconModules({ fill, width, height }: IconsProps) {
         d="M10.9344 4.41895L10.977 4.47036L11.0298 4.51117C11.1053 4.56956 11.5175 5.03708 11.5175 6V18C11.5175 18.1873 11.4114 18.8808 10.9187 19.5999C10.708 19.8492 10.4509 20.0482 10.1646 20.1854C9.87158 20.3259 9.55413 20.3987 9.23347 20.4H8.51448C6.96145 20.3982 5.46746 19.7556 4.36173 18.605C3.2553 17.4537 2.62893 15.8878 2.6271 14.2497V9.75031C2.62893 8.11221 3.2553 6.5463 4.36173 5.39496C5.46737 4.24444 6.96122 3.60189 8.51413 3.6H9.23343C9.5541 3.60126 9.87157 3.67412 10.1646 3.8146C10.458 3.95526 10.7209 4.16085 10.9344 4.41895Z"
         stroke="#0645AD"
         stroke-width="1.2"
+      />
+    </svg>
+  )
+}
+
+export function CheckIconSimple({ width = '15', height = '12', fill = '#2CA92A' }: IconsProps) {
+  return (
+    <svg width={width} height={height} viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M4.59 8.58002L1.77231 5.76233C1.57753 5.56756 1.26191 5.567 1.06645 5.76108L0.356057 6.46647C0.160106 6.66105 0.158987 6.97763 0.353558 7.17358L0.354805 7.17483L4.23645 11.0565C4.43171 11.2517 4.74829 11.2517 4.94355 11.0565L14.2364 1.76358C14.4317 1.56831 14.4317 1.25173 14.2364 1.05647L13.5336 0.353577L13.5333 0.353783C13.3382 0.158601 13.0217 0.158509 12.8264 0.353577L4.59 8.58002Z"
+        fill={fill}
       />
     </svg>
   )

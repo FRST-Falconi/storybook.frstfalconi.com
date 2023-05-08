@@ -313,3 +313,6 @@ MuteIcon.args = Icons.MuteIcon({})
 
 export const StarFavorite = Template.bind({})
 StarFavorite.args = Icons.MuteIcon({})
+
+export const CheckIconSimple = Template.bind({})
+CheckIconSimple.args = Icons.CheckIconSimple({})
