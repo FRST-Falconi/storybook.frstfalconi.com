@@ -14,7 +14,7 @@ export interface LearningCycleCardI {
   }
   modulesList: [{ id: number | string; name: string }]
   disabled?: boolean
-  handleClick: () => void
+  handleClick: (id: string | number) => void
   handleFavorite: (favorite: boolean) => void
   menuOptions: [
     {

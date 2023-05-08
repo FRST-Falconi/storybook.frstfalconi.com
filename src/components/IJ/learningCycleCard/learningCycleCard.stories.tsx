@@ -23,7 +23,7 @@ normal.args = {
     actionButton: 'Editar grupo'
   },
   disabled: false,
-  handleClick: () => alert('click'),
+  handleClick: (id) => alert(`click: ${id}`),
   handleFavorite: (favorite) => alert(`favorite: ${favorite}`),
 
   menuOptions: [
@@ -91,7 +91,7 @@ favorite.args = {
     groupsQuantityDescription: 'nesse plano de conteúdo',
     actionButton: 'Editar grupo'
   },
-  handleClick: () => alert('click'),
+  handleClick: (id) => alert(`click: ${id}`),
   handleFavorite: (favorite) => alert(`favorite: ${favorite}`),
   menuOptions: [
     {
@@ -171,7 +171,7 @@ disabled.args = {
     groupsQuantityDescription: 'nesse plano de conteúdo',
     actionButton: 'Editar grupo'
   },
-  handleClick: () => alert('click'),
+  handleClick: (id) => alert(`click: ${id}`),
   handleFavorite: (favorite) => alert(`favorite: ${favorite}`),
   menuOptions: [
     {

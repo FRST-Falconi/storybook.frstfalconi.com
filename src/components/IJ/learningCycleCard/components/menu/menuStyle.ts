@@ -1,13 +1,27 @@
+import { Padding } from '@mui/icons-material'
 import styled from 'styled-components'
 
 export const MenuIconOpen = styled.div`
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid black;
-  border-bottom: none;
-  border-top-width: 1px;
-  border-left-width: 1px;
+  width: 13.64px;
+  height: 13.64px;
+  position: fixed;
+  margin: -7px 0 32px 27px;
+
+  top: 71px;
+  right: 40px;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border: 1px solid #9c9c9c;
+  border-right-color: rgb(156, 156, 156);
+  border-right-style: solid;
   border-right-width: 1px;
+  border-bottom-color: rgb(156, 156, 156);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom: none;
+  border-right: none;
+  -webkit-transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+  -ms-transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+  transform: matrix(0.71, 0.97, -0.51, 0.91, 0, 0);
+  z-index: 999999;
 `

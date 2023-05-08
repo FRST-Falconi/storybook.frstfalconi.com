@@ -46,20 +46,23 @@ export default function CardMenu({ id, menuOptions }) {
             PaperProps={{
               style: {
                 width: '300px',
-                position: 'relative'
+                position: 'relative',
+                marginTop: '10px'
               }
             }}
             sx={{
               '& .MuiMenu-paper': {
-                '&::before': {
-                  content: '""',
-                  position: 'absolute',
-                  top: '-20px',
-                  right: '10px',
-                  borderWidth: '10px',
-                  borderStyle: 'solid',
-                  borderColor: 'transparent transparent #fff transparent',
-                  zIndex: '9999'
+                padding: '1px',
+                border: '1px solid #BDBDBD',
+                borderRadius: '10px',
+                '& ul': {
+                  padding: '0px',
+                  position: 'relative'
+                },
+
+                '& li': {
+                  padding: '10px 10px 0px 20px',
+                  fontFamily: 'pt sans'
                 }
               }
             }}
@@ -73,6 +76,7 @@ export default function CardMenu({ id, menuOptions }) {
                   }}
                   sx={{
                     color: option?.type === 'delete' ? '#923534' : '#000000',
+                    fontWeight: option?.type === 'delete' ? 600 : 400,
                     '&:hover': {
                       backgroundColor: 'transparent'
                     }
@@ -81,7 +85,12 @@ export default function CardMenu({ id, menuOptions }) {
                   {option?.type === 'delete' ? <TrashDelete fill="#923534" width="30px" /> : option?.icon}{' '}
                   {option?.label}
                 </MenuItem>
-                <Divider />
+                <Divider
+                  sx={{
+                    marginTop: '5px',
+                    marginBottom: '0px!important'
+                  }}
+                />
               </>
             ))}
           </Menu>

@@ -84,7 +84,7 @@ export default function LearningCycleCard({
               </Styles.DataList>
             </AccordionDetails>
             {isAccordionOpen && <Divider sx={{ marginTop: '5px' }} />}
-            <Styles.Button onClick={handleClick}>{labels?.actionButton}</Styles.Button>
+            <Styles.Button onClick={() => handleClick(id)}>{labels?.actionButton}</Styles.Button>
           </Accordion>
         </Styles.AccordionList>
       </Styles.WrapperCard>
