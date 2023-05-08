@@ -42,7 +42,8 @@ export {
   ChangeAccount,
   EyeOff,
   OpenedEye,
-  StarFavorite
+  StarFavorite,
+  CheckIconSimple
 } from './src/shared/icons'
 
 // Base
@@ -106,6 +107,7 @@ export { default as TrailList } from './src/components/EBR/trail-list'
 export { default as Favorite } from './src/components/IJ/favorite'
 export { default as ContentCycle } from './src/components/IJ/ContentCycle'
 export { default as ListContentCycle } from './src/components/IJ/ListContentCycle'
+export { default as StepLearningCycle } from './src/components/IJ/StepLearningCycle'
 
 // LXP
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel'

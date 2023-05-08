@@ -453,6 +453,9 @@ function IconGaps({ fill, width, height }) {
 function IconModules({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21.6079 4.5C21.6079 5.54426 20.7522 6.4 19.6853 6.4C18.6184 6.4 17.7627 5.54426 17.7627 4.5C17.7627 3.45574 18.6184 2.6 19.6853 2.6C20.7522 2.6 21.6079 3.45574 21.6079 4.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 12.5C21.6079 13.5443 20.7522 14.4 19.6853 14.4C18.6184 14.4 17.7627 13.5443 17.7627 12.5C17.7627 11.4557 18.6184 10.6 19.6853 10.6C20.7522 10.6 21.6079 11.4557 21.6079 12.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 19.5C21.6079 20.5443 20.7522 21.4 19.6853 21.4C18.6184 21.4 17.7627 20.5443 17.7627 19.5C17.7627 18.4557 18.6184 17.6 19.6853 17.6C20.7522 17.6 21.6079 18.4557 21.6079 19.5Z", stroke: "#0645AD", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M14.1356 12L17.1627 12", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 16H15.8654L18.1718 18", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M14.1356 8H15.8654L18.1718 6", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.03613 15L5.05421 15", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1085 10L10.0995 10", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M3.0361 10H5.99596C6.39957 10 7.07227 9.25 7.07227 8.49999C7.07227 7 7.07227 8.8377 7.07227 7", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M11.1084 15H8.14858C7.74496 15 7.07227 15.5 7.07227 16C7.07227 17 7.07227 15.7749 7.07227 17", stroke: "#0645AD", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.9344 4.41895L10.977 4.47036L11.0298 4.51117C11.1053 4.56956 11.5175 5.03708 11.5175 6V18C11.5175 18.1873 11.4114 18.8808 10.9187 19.5999C10.708 19.8492 10.4509 20.0482 10.1646 20.1854C9.87158 20.3259 9.55413 20.3987 9.23347 20.4H8.51448C6.96145 20.3982 5.46746 19.7556 4.36173 18.605C3.2553 17.4537 2.62893 15.8878 2.6271 14.2497V9.75031C2.62893 8.11221 3.2553 6.5463 4.36173 5.39496C5.46737 4.24444 6.96122 3.60189 8.51413 3.6H9.23343C9.5541 3.60126 9.87157 3.67412 10.1646 3.8146C10.458 3.95526 10.7209 4.16085 10.9344 4.41895Z", stroke: "#0645AD", "stroke-width": "1.2" })] }));
 }
+function CheckIconSimple({ width = '15', height = '12', fill = '#2CA92A' }) {
+    return (jsxRuntime.jsx("svg", { width: width, height: height, viewBox: "0 0 15 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M4.59 8.58002L1.77231 5.76233C1.57753 5.56756 1.26191 5.567 1.06645 5.76108L0.356057 6.46647C0.160106 6.66105 0.158987 6.97763 0.353558 7.17358L0.354805 7.17483L4.23645 11.0565C4.43171 11.2517 4.74829 11.2517 4.94355 11.0565L14.2364 1.76358C14.4317 1.56831 14.4317 1.25173 14.2364 1.05647L13.5336 0.353577L13.5333 0.353783C13.3382 0.158601 13.0217 0.158509 12.8264 0.353577L4.59 8.58002Z", fill: fill }) }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -6060,6 +6063,203 @@ function ListContentCycle({ stepContentCompleted = false, listContent, onSelect 
     return (jsxRuntime.jsx(Container$d, { children: listContent.map((content, index) => {
             return (jsxRuntime.jsx(ContentCycle, { id: content.id, description: content.description, onSelect: () => onSelect(index), selected: content.selected, title: content.title, listSkils: content.listSkils, urlPhoto: content.urlPhoto, urlVideo: content.urlVideo, titleVideo: content.titleVideo, progress: content.progress, started: content.started, stepContent: stepContentCompleted, typeContent: content.typeContent }, content.id));
         }) }));
+}
+
+const ContainerStepLearningCycle = styled__default["default"].div `
+  background: #f7f9fc;
+  border-bottom: 1px solid #bdbdbd;
+  justify-content: space-between;
+
+  &&.row {
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  &&.column {
+    width: 18.5rem;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+  }
+`;
+const StepCycle = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+
+  > p {
+    max-width: 250px;
+    margin-left: 15%;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    color: #444444;
+  }
+
+  &&.finished {
+    color: #444444;
+  }
+
+  &&.inProgress {
+    color: #000000;
+  }
+  &&.waiting {
+    color: #9c9c9c;
+  }
+`;
+const StepCycleArticle = styled__default["default"].article `
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px;
+  color: inherit;
+  > h2 {
+    margin: 0;
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    color: inherit;
+  }
+`;
+const IconStatus = styled__default["default"].span `
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-weight: 500;
+  cursor: pointer;
+
+  &&.finished {
+    border: 2px solid #2ca92a;
+    background: #d1f6d1;
+  }
+
+  &&.inProgress {
+    border: 2px solid #0645ad;
+
+    color: #0645ad;
+  }
+  &&.waiting {
+    border: 2px solid rgba(138, 153, 168, 0.5);
+
+    color: rgba(0, 0, 0, 0.65);
+  }
+`;
+
+function StepLearningCycle({ listSteps, direction = 'row', size = 'medium', completed = false }) {
+    const [stepsList, setStepsList] = React.useState(listSteps);
+    React.useEffect(() => {
+        if (completed) {
+            const newSteps = listSteps.map((step) => {
+                return {
+                    ...step,
+                    status: 'finished'
+                };
+            });
+            setStepsList(newSteps);
+        }
+    }, [completed]);
+    const handleChangeStep = (id) => {
+        const newListStep = stepsList.map((step, index) => {
+            if (index < id) {
+                return {
+                    ...step,
+                    status: 'finished'
+                };
+            }
+            else if (index === id) {
+                return {
+                    ...step,
+                    status: 'inProgress'
+                };
+            }
+            else {
+                return {
+                    ...step,
+                    status: 'waiting'
+                };
+            }
+        });
+        setStepsList(newListStep);
+    };
+    const variantsChek = {
+        large: {
+            width: '14.17px',
+            heigth: '11px'
+        },
+        medium: {
+            width: '9.45px',
+            heigth: '7.33px'
+        },
+        small: {
+            width: '8px',
+            heigth: '6px'
+        }
+    };
+    const variantsSize = {
+        large: {
+            icon: {
+                width: '46px',
+                height: '36px',
+                fontSize: '18px'
+            },
+            title: {
+                fontWeight: 700,
+                fontSize: '24px',
+                lineHeight: '130%'
+            },
+            description: {
+                fontSize: '16px',
+                marginLeft: '51px'
+            }
+        },
+        medium: {
+            icon: {
+                width: '29px',
+                height: '24px',
+                fontSize: '16px',
+                lineHeight: '19px'
+            },
+            title: {
+                fontWeight: 500,
+                fontSize: '18px',
+                lineHeight: '21px'
+            },
+            description: {
+                fontSize: '14px',
+                marginLeft: '39px'
+            }
+        },
+        small: {
+            icon: {
+                width: '20px',
+                height: '17px',
+                fontSize: '1px'
+            },
+            title: {
+                fontWeight: 500,
+                fontSize: '16px',
+                lineHeight: '19px'
+            },
+            description: {
+                display: 'none'
+            }
+        }
+    };
+    return (jsxRuntime.jsx(ContainerStepLearningCycle, { className: direction, children: stepsList &&
+            stepsList.map((step, i) => {
+                return (jsxRuntime.jsxs(StepCycle, { className: step.status, children: [jsxRuntime.jsxs(StepCycleArticle, { children: [jsxRuntime.jsx(IconStatus, { className: step.status, style: variantsSize[size].icon, onClick: () => handleChangeStep(i), children: step.status === 'finished' ? (jsxRuntime.jsx(CheckIconSimple, { height: variantsChek[size].heigth, width: variantsChek[size].width })) : (i + 1) }), jsxRuntime.jsx("h2", { style: variantsSize[size].title, children: step.title })] }), step.status === 'inProgress' && step.description && (jsxRuntime.jsx("p", { style: variantsSize[size].description, children: step.description }))] }, i + 1));
+            }) }));
 }
 
 const ContainerGeral$1 = styled__default["default"].div `
@@ -14408,6 +14608,7 @@ exports.Challenge = Challenge;
 exports.ChallengeCard = ChallengeCard;
 exports.ChangeAccount = ChangeAccount;
 exports.Channel = Channel$3;
+exports.CheckIconSimple = CheckIconSimple;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.ColorPicker = Colorpicker;
@@ -14496,6 +14697,7 @@ exports.StepCicleOne = StepCicleOne;
 exports.StepCicleThree = StepCicleThree;
 exports.StepCicleTwo = StepCicleTwo;
 exports.StepController = StepController;
+exports.StepLearningCycle = StepLearningCycle;
 exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Steps = Steps;

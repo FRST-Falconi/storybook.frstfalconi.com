@@ -1,4 +1,4 @@
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour, Books, Diamond, Challenge, ChangeAccount, EyeOff, OpenedEye, StarFavorite } from './src/shared/icons';
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour, Books, Diamond, Challenge, ChangeAccount, EyeOff, OpenedEye, StarFavorite, CheckIconSimple } from './src/shared/icons';
 export { default as Tag } from './src/components/tag';
 export { default as BaseCard } from './src/components/cards/base';
 export { default as AudioPlayer } from './src/components/audio-player';
@@ -45,6 +45,7 @@ export { default as TrailList } from './src/components/EBR/trail-list';
 export { default as Favorite } from './src/components/IJ/favorite';
 export { default as ContentCycle } from './src/components/IJ/ContentCycle';
 export { default as ListContentCycle } from './src/components/IJ/ListContentCycle';
+export { default as StepLearningCycle } from './src/components/IJ/StepLearningCycle';
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel';
 export { default as AvatarAssociatedChannel } from './src/components/LXP/avatarAssociatedChannel';
 export { default as BannerLxp } from './src/components/LXP/bannerLxp';
