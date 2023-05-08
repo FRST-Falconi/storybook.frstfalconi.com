@@ -1,4 +1,5 @@
 // EXPORT COMPONENTS HERE
+// EXPORT COMPONENTS HERE
 
 // Icons
 export {
@@ -129,9 +130,11 @@ export { default as LoginLxp } from './src/components/LXP/login'
 export { default as AccordionTrackList } from './src/components/LXP/accordionTrack/accordionTrackList'
 export { default as ManageLearningCicles } from './src/components/LXP/manageLerningCicles'
 export { default as ThumbnailsDraggable } from './src/components/LXP/thumbnails/thumbnailsDraggable'
+
+export { default as Thumbnails } from './src/components/LXP/thumbnails/thumbnails'
 export { default as SelectLXP } from './src/components/LXP/selectLXP'
 export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails'
-export { default as participantThumbnailsList } from './src/components/LXP/participantThumbnailsList'
+export { default as ParticipantThumbnailsList } from './src/components/LXP/participantThumbnailsList'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI

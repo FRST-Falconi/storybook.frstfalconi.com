@@ -2,7 +2,8 @@ import '../../../shared/global.css'
 import { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
-import { DragDropContext } from 'react-beautiful-dnd'
+import { DragDropContext } from '@hello-pangea/dnd'
+// import { DragDropContext } from 'react-beautiful-dnd'
 import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 
@@ -19,7 +20,7 @@ export default function AccordionTrackList({
   handlePopOverTrailDelete,
   handleSwitchActiveTrail,
   onSetNameTrail,
-  handleSwitchAtivarIndividual,
+  handleSwitchAtivar,
   handleDeleteCourse,
   handleDeleteCourseTrail,
   handleMessageError,
@@ -34,10 +35,16 @@ export default function AccordionTrackList({
   txtAtivarCurso,
   txtButtonLabel,
   txtCriarNovoCurso,
-  txtAtivarTrilha
+  txtAtivarTrilha,
+  isLoading
 }: IAccordionTranslate) {
   const [trails, setTrails] = useState(trailsData)
+  const [courses, setCourses] = useState(courseData)
+  const [ConteudoIndividual, setConteudoIndividual] = useState([])
+  const [MeusConteudosData, setMeusConteudosData] = useState([])
   const [updateScrollSize, setUpdateScrollSize] = useState(0)
+  const MEUS_CONTEUDOS_CONTENT = '0'
+  const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
   const create_UUID = () => {
     var dt = new Date().getTime()
@@ -51,11 +58,16 @@ export default function AccordionTrackList({
 
   useEffect(() => {
     if (handleChange) {
-      handleChange({ courses: courseData, trails: trails })
+      handleChange({ courses: courses, trails: trails })
     }
   }, [trails])
 
   useEffect(() => {
+    setMeusConteudosData(courses ? courses.filter(item => !item.active_individual) : [])
+    setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : [])
+  }, [courses])
+
+  useEffect(() => {   
     setTrails(trailsData)
   }, [trailsData])
 
@@ -68,24 +80,32 @@ export default function AccordionTrackList({
       return
     }
 
-    if (destination.droppableId === '0') {
+    if ((destination.droppableId === MEUS_CONTEUDOS_CONTENT) && (source.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT)) {
       if (handleMessageError) {
         handleMessageError('ERROR_COPY_TO_CONTENTS')
       }
       return
     }
 
-    if (destination.droppableId !== source.droppableId) {
+    if (
+      (destination.droppableId !== source.droppableId) && 
+      ((destination.droppableId !== MEUS_CONTEUDOS_CONTENT) && (destination.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT))
+    ){
       let idVerification = 0
-      if (source.droppableId === '0') {
-        idVerification = courseData[source.index].id
+      if ((source.droppableId === MEUS_CONTEUDOS_CONTENT) || (source.droppableId === CONTEUDO_INDIVIDUAL_CONTENT)) {
+        let uuidConteudo = source.droppableId === MEUS_CONTEUDOS_CONTENT ? MeusConteudosData[source.index].uuid : ConteudoIndividual[source.index].uuid
+        let indexTrail = courses.findIndex(item => item.uuid === uuidConteudo)
+        
+        idVerification = courseData[indexTrail].id
+
       } else {
-        idVerification = trails[source.droppableId - 1].trail_course[source.index].course.id
+        idVerification = trails[source.droppableId-2].trail_course[source.index].course.id
       }
 
-      let filterCourses = trails[destination.droppableId - 1].trail_course.find(
+      let filterCourses = trails[destination.droppableId-2].trail_course.find(
         (element) => element.course.id === idVerification
       )
+
       if (filterCourses !== undefined) {
         if (handleMessageError) {
           handleMessageError('ERROR_DUPLICATE_CONTENTS')
@@ -94,43 +114,64 @@ export default function AccordionTrackList({
       }
     }
 
-    var itemCopy
-    if (source.droppableId === '0') {
-      itemCopy = { ...courseData[source.index] }
-    } else {
-      itemCopy = { ...trails[source.droppableId - 1].trail_course[source.index].course }
+    /// Copiando do Meus conteúdos para Individual ou Individual para conteúdos
+    if (
+        ((source.droppableId === MEUS_CONTEUDOS_CONTENT) && (destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT)) ||
+        ((source.droppableId === CONTEUDO_INDIVIDUAL_CONTENT) && (destination.droppableId === MEUS_CONTEUDOS_CONTENT))
+      ) {
+
+      /// Selecionando o UUID do conteúdo (se é individual ou não)
+      let uuidConteudo = source.droppableId === MEUS_CONTEUDOS_CONTENT ? MeusConteudosData[source.index].uuid : ConteudoIndividual[source.index].uuid
+      let indexTrail = courses.findIndex(item => item.uuid === uuidConteudo)
+      
+      if (indexTrail >= 0) {
+        setCourses((prev) => {
+          prev = [ ...prev ]
+          prev[indexTrail].active_individual = destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT
+          return prev
+        })
+      }      
     }
+    else {
+      var itemCopy
+      if (source.droppableId === MEUS_CONTEUDOS_CONTENT) {
+        itemCopy = { ...MeusConteudosData[source.index] }
+      } else if (source.droppableId === CONTEUDO_INDIVIDUAL_CONTENT) {
+        itemCopy = { ...ConteudoIndividual[source.index] }
+      } else {
+        itemCopy = { ...trails[source.droppableId-2].trail_course[source.index].course }
+      }
+  
+      let trailId = trails[destination.droppableId - 2].id
+  
+      itemCopy = {
+        id: create_UUID(),
+        trail_id: trailId,
+        course: itemCopy,
+        course_id: itemCopy.id,
+        order: 0
+      }
+  
+      setTrails((prev) => {
+        prev = [ ...prev ]
+  
+        /// Armazendo o dado da trilha que será deletada
+        let deletedItem = null
+        if (source.droppableId !== MEUS_CONTEUDOS_CONTENT && source.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT && source.droppableId !== destination.droppableId) {
+          deletedItem = prev[source.droppableId - 2].trail_course[source.index]
+        }
+  
+        /// Verificando se a movimentação vai ser do conteúdo ou das trilhas
+        if (source.droppableId !== MEUS_CONTEUDOS_CONTENT && source.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT) {
+          prev[source.droppableId - 2].trail_course.splice(source.index, 1)
+        }
+        prev[destination.droppableId - 2].trail_course.splice(destination.index, 0, itemCopy)
 
-    let trailId = trails[destination.droppableId - 1].id
-
-    itemCopy = {
-      id: create_UUID(),
-      trail_id: trailId,
-      course: itemCopy,
-      course_id: itemCopy.id,
-      order: 0
+        /// Atualizando a saida
+        handleUpdateTrail(deletedItem, itemCopy, prev[destination.droppableId - 2])
+        return prev
+      })
     }
-
-    setTrails((prev) => {
-      prev = { ...prev }
-
-      /// Armazendo o dado da trilha que será deletada
-      let deletedItem = null
-      if (source.droppableId !== '0' && source.droppableId !== destination.droppableId) {
-        deletedItem = prev[source.droppableId - 1].trail_course[source.index]
-      }
-
-      /// Verificando se a movimentação vai ser do conteúdo ou das trilhas
-      if (source.droppableId !== '0') {
-        prev[source.droppableId - 1].trail_course.splice(source.index, 1)
-      }
-      prev[destination.droppableId - 1].trail_course.splice(destination.index, 0, itemCopy)
-
-      /// Atualizando a saida
-      handleUpdateTrail(deletedItem, itemCopy, prev[destination.droppableId - 1])
-
-      return prev
-    })
 
     setUpdateScrollSize(updateScrollSize + 1)
   }
@@ -139,9 +180,17 @@ export default function AccordionTrackList({
     setTrails((prev) => {
       prev = { ...prev }
       prev[index].active = active!
-
       handleSwitchActiveTrail(prev[index].id, active!)
+      return prev
+    })
+  }
 
+  const setActiveContent = (id, active) => {
+    let indexTrail = courses.findIndex(item => item.id === id)      
+    setCourses((prev) => {
+      prev = [ ...prev ]
+      prev[indexTrail].active = active!
+      handleSwitchAtivar(id, active!)
       return prev
     })
   }
@@ -164,7 +213,8 @@ export default function AccordionTrackList({
             {trails && (
               <AccordionTrack
                 trailsData={trails}
-                courseData={courseData}
+                courseData={MeusConteudosData}
+                courseIndividualData={ConteudoIndividual}
                 handleSwitchActiveTrail={(index, active) => {
                   setActiveTrail(index, active)
                 }}
@@ -176,7 +226,8 @@ export default function AccordionTrackList({
                     onNewTrail()
                   }
                 }}
-                handleSwitchAtivarIndividual={handleSwitchAtivarIndividual}
+                handleSwitchAtivarConteudo={setActiveContent}
+                handleSwitchAtivar={handleSwitchAtivar}
                 handleEditCourse={handleEditCourse}
                 textMeusConteudos={textMeusConteudos}
                 textTotalDe={textTotalDe}
@@ -186,6 +237,7 @@ export default function AccordionTrackList({
                 txtAtivarTrilha={txtAtivarTrilha}
                 txtButtonLabel={txtButtonLabel}
                 txtCriarNovoCurso={txtCriarNovoCurso}
+                isLoading={isLoading}
                 updateScrollSize={updateScrollSize}
                 handleDeleteCourse={handleDeleteCourse}
                 handleDeleteCourseTrail={handleDeleteCourseTrail}

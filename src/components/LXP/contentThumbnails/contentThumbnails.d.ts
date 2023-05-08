@@ -9,13 +9,13 @@ export interface IContentThumbnails {
   src?: string
   disabled?: boolean
   icon?: any
-  handleClick?: () => void
+  handleClick?: (item) => void
   onChange?: () => void
   handleReloadItens?: () => void
   contentList?: []
   variant?: enumVariant
   title?: string
   isOpen?: boolean
-  removeContentList?: () => void
+  removeContentList?: (item) => void
   onChangeOrder?: (listOrder) => void
 }

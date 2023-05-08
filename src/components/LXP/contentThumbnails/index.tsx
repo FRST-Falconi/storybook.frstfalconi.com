@@ -8,7 +8,8 @@ import VectorUp from './vectorUp'
 import VectorEllipse from './vectorEllipse'
 import { useEffect, useState } from 'react'
 import * as Icons from '../../../shared/icons'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
+// import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 export enum typeContent {
   Content,
@@ -142,11 +143,11 @@ export default function ContentThumbnails({
                           <VectorEllipse />
                           <VectorEllipse />
                         </Styles.Thumbnails>
-                        <div onClick={handleClick} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer'}}>
+                        <div onClick={() => {handleClick(item)}} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer'}}>
                           {iconList[item.type]}
                           <Styles.Title >{item.title}</Styles.Title>
                         </div>
-                        <Styles.IconTrash className="trash" onClick={removeContentList}>
+                        <Styles.IconTrash className="trash" onClick={() => {removeContentList(item)}} >
                           <Icons.TrashIcon fill={'#C00F00'} />
                         </Styles.IconTrash>
                       </Styles.ContainerCard>

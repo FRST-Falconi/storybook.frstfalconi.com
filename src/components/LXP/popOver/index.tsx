@@ -39,9 +39,13 @@ export function PopOverItem(props: IPopOverItems) {
     )
 }
 
-export default function PopOver({ variant, children, element, onClosePopover }: IPopOver) {
+export default function PopOver({ variant, children, element, onClosePopover, anchorOrigin, transformOrigin }: IPopOver) {
 
     const [anchorEl, setAnchorEl] = useState(null);
+    const [AnchorVertical, setAnchorVertical] = useState('');
+    const [AnchorHorizontal, setAnchorHorizontal] = useState(anchorOrigin ? anchorOrigin : {vertical: 'bottom', horizontal: 'right'});
+    const [TransformVertical, setTransformVertical] = useState(transformOrigin ? transformOrigin : {vertical: 'top', horizontal: 'right'});
+    const [Horizontal, setHorizontal] = useState('');
 
     useEffect(() => {
         setAnchorEl(element);
@@ -62,26 +66,20 @@ export default function PopOver({ variant, children, element, onClosePopover }: 
                 open={open}
                 anchorEl={anchorEl}
                 onClose={handleClose}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'right',
-                }}
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                }}
+                anchorOrigin={AnchorHorizontal}
+                transformOrigin={TransformVertical}
                 PaperProps={{
                     style: {
                       backgroundColor: "transparent",
                       boxShadow: "none",
-                      borderRadius: 8
+                      borderRadius: 8,
                     }
                 }}
                 style={{
                     borderRadius: 8
                 }}
             >
-                <div style={{marginTop: 12}}>
+                <div style={{marginTop: variant.search('up') === -1? 0 : 12, marginBottom: variant.search('low') === -1? 0 : 20}}>
                 <Styles.PopOver>
                     {
                         variant === 'upLeft' ?        
@@ -93,7 +91,9 @@ export default function PopOver({ variant, children, element, onClosePopover }: 
                         : variant === 'lowRight' ?
                             <Styles.RectangleLowRight variant={variant = 'lowRight'} />
                         : variant === 'lowLeft' ?
-                            <Styles.RectangleLowLeft variant={variant = 'lowLeft'} />
+                            <Styles.RectangleLowLeft variant={variant = 'lowLeft'} />                        
+                            : variant === 'lowCenter' ?
+                            <Styles.RectangleLowCenter variant={variant = 'lowCenter'} />
                         : variant === 'sideLeft' ?
                             <Styles.RectangleLeft variant={variant = 'sideLeft'} />
                         : variant === 'sideRight' ?

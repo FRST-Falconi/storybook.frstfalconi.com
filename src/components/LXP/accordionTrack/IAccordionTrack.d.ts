@@ -10,16 +10,20 @@ export interface IAccordionTrack {
      */
     courseData?: any    
     /**
+     * @prop {any} courseIndividualData: Informações referente aos Cursos Individuais
+     */
+    courseIndividualData?: any        
+    /**
      * @prop {() => {})} onNewTrail: Callback para adicionar novo conteúdo
      */
-    onNewTrail?: () => void,
-
+    isLoading?: boolean
     TrailName?: string
     key?: number
     index?: number
     data?: any
     updateScrollSize?: number
     src?: string
+    onNewTrail?: () => void
     handleChange?: (trails: any) => void
     handleClickSelect?: () => void,
     handleClickContent?: () => void     
@@ -36,17 +40,13 @@ export interface IAccordionTrack {
 	 * @prop {(idCourse: string, idTrail: string) => {}} handleDeleteCourseTrail: Callback para deletar o vinculo do curso com a trilha
 	 */
     handleDeleteCourseTrail?: (idTrailCourse: string) => void
-	/**
-	 * @prop {(idCourse: string, idTrail: string) => {}} handleDeleteCourseTrail: Callback para deletar o vinculo do curso com a trilha
-	 */    
-    handleSwitchAtivarIndividual? (idCourse: string, checked: boolean)
+    handleSwitchAtivar? (idCourse: string, checked: boolean)
+    handleSwitchAtivarConteudo? (idCourse: string, checked: boolean)
+    handleSwitchAtivarTrail? (idTrailCourse: string, checked: boolean)
     /**
      * @prop {(errorCode: number) => {}} handleMessageError: Callback para mensagem de erro
      */    
-    handleMessageError? (errorCode: string) 
-    /**
-     * @prop {(errorCode: number) => {}} handleMessageError: Callback para mensagem de erro
-     */           
+    handleMessageError? (errorCode: string)   
     handleSwitchActiveTrail?: (idTrail, active) => void     
     /**
      * @prop {(errorCode: number) => {}} handleUpdateTrail: Callback atualizar ordenação, exclusão e inserção de cursos nas trilahs
@@ -55,6 +55,7 @@ export interface IAccordionTrack {
     handlePopOverDuplicate?: (id: string) => void
     handlePopOverTrailEdit?: (id: string) => void
     handlePopOverTrailDelete?: (id: string) => void
+    handlePopOverRemoveIndividual?: (id: string) => void
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
@@ -74,5 +75,6 @@ export interface IAccordionTranslate extends IAccordionTrack {
     txtTrailsPopOverDuplicar?: string
     txtTrailsPopOverDelete?: string
     txtPlacerolderInputNameTrail?: string
+    txtCursoIndividual?: string
 }
 

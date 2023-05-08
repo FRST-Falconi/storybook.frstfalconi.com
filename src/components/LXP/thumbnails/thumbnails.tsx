@@ -9,15 +9,18 @@ import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
 import Switch from 'react-switch'
 import Button from '../../buttons'
+import { styled } from '@mui/material/styles';
+// import Tooltip from '@components/LXP/tooltip'
 import  PopOver,{ PopOverItem } from '../popOver'
+import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip';
 
 export default function Thumbnails({ 
   variant, 
   src, 
-  showSwitchIndividual,
+  showSwitch,
   handleClickCourse, 
   handleClickNew, 
-  handleSwitchAtivarIndividual,
+  handleSwitchAtivar,
   handleClickPopOverDelete,
   handleClickPopOverEdit,
   title, 
@@ -31,18 +34,17 @@ export default function Thumbnails({
   txtPopOverDeleteContent,
   txtPopOverMoveToTrails,
   txtPopOverEditContent,
-  isIndividual
+  isActive
 }: IThumbnailsTranslate) {
 
   const defaultImg = "https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png"
-  const [ativo, setAtivo] = useState<boolean>(!isDisabled)
-  const [individual, setIndividual] = useState<boolean>(isIndividual ? isIndividual : false)
+  const [ativo, setAtivo] = useState<boolean>(isDisabled)
   const [showModules, setShowModules] = useState<boolean>(false)
   const [ElementPopover, setElementPopover] = useState(null);
   const [Loading, setLoading] = useState(isLoading);
 
   useEffect (() => {
-    setAtivo(!isDisabled)
+    setAtivo(isDisabled)
   }, [isDisabled])
 
   useEffect(() => {
@@ -50,8 +52,8 @@ export default function Thumbnails({
   }, [isLoading]);
 
   const handleChangeCheck = (checkedValue: boolean) => {
-    setIndividual(checkedValue)
-    handleSwitchAtivarIndividual(checkedValue)
+    setAtivo(checkedValue)
+    handleSwitchAtivar(checkedValue)
   };
 
   const handleHoverImage = () => {
@@ -66,6 +68,17 @@ export default function Thumbnails({
     }
   }
 
+  const LightTooltip = styled(({ className, ...props }: TooltipProps) => (
+    <Tooltip {...props} classes={{ popper: className }} />
+  ))(({ theme }) => ({
+    [`& .${tooltipClasses.tooltip}`]: {
+      backgroundColor: theme.palette.common.white,
+      color: 'rgba(0, 0, 0, 0.87)',
+      boxShadow: theme.shadows[1],
+      fontSize: 11,
+    },
+  }));
+
   return (
     <>    
       <ThemeProvider theme={FRSTTheme}>
@@ -74,11 +87,11 @@ export default function Thumbnails({
             {Loading ?
               <Styles.LoadingContainer>
                 <Styles.LoadingImage/>
-                <Styles.LoadingContent />
+                <Styles.LoadingContent/>
                 <Styles.LoadingContent style={{width: '50%'}} />
               </Styles.LoadingContainer>
               :
-              <Styles.ContainerThumbnails showSwitchIndividual={showSwitchIndividual} className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
+              <Styles.ContainerThumbnails showSwitchIndividual={showSwitch} className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
                 <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
                   <Button label={txtButtonLabel ? txtButtonLabel : 'Ver conteúdo'} variant='primary' handleClick={handleClickCourse} />
                 </Styles.ContainerButton>
@@ -121,35 +134,37 @@ export default function Thumbnails({
                   </Styles.Thumbnails>
                 </Styles.GeralThumbnails>
                 <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={ativo} />
-                <Styles.ContainerMain>
-                  <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
+                <Styles.ContainerMain>                  
+                  <LightTooltip title={title}>
+                    <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
+                  </LightTooltip> 
                   <Styles.IconVertical onClick={(element: any) => {
                     setElementPopover(element.currentTarget)
                   }}>
                     <Icons.MoreVertical fill={ativo ? '#000000' : '#bdbdbd'} />
                   </Styles.IconVertical>
-                </Styles.ContainerMain >
+                </Styles.ContainerMain>
                 {
-                  showSwitchIndividual &&
+                  showSwitch &&
                   <Styles.ContainerAtivar>
                     <Styles.TypographyAtivar active={ativo} style={{ fontWeight: ativo ? 700 : 400 }}>
-                      {txtAtivarCurso ? txtAtivarCurso : 'Ativar Indiv.'}
+                      {txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso'}
                     </Styles.TypographyAtivar>
                     <Switch
                       onChange={handleChangeCheck}
-                      checked={individual}
+                      checked={ativo}
                       height={16}
-                      width={40}
+                      width={35}
                       checkedIcon={false}
                       uncheckedIcon={false}
-                      handleDiameter={24}
+                      handleDiameter={20}
                       onHandleColor='#ffffff'
                       offHandleColor='#ffffff'
                       onColor='#FF4D0D'
                       offColor='#ebebeb'
                       activeBoxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                       boxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                      />
+                    />
                   </Styles.ContainerAtivar>                
                 }              
               </Styles.ContainerThumbnails>
@@ -169,10 +184,7 @@ export default function Thumbnails({
                   <VectorCross />
                 </Styles.ContainerEllipse>
                 <Styles.TypographyAdd >
-                  {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo'}
-                <Styles.TypographyAdd >
-                  {txtCriarNovoCurso2 ? txtCriarNovoCurso2 : 'conteúdo'}
-                </Styles.TypographyAdd>
+                  {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo'}
                 </Styles.TypographyAdd>
               </Styles.ContainerThumbnailsAdd>
             }

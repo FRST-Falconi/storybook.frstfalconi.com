@@ -10,6 +10,9 @@ export declare const RectangleLowRight: import("styled-components").StyledCompon
 export declare const RectangleLowLeft: import("styled-components").StyledComponent<"div", any, {
     variant: string;
 }, never>;
+export declare const RectangleLowCenter: import("styled-components").StyledComponent<"div", any, {
+    variant: string;
+}, never>;
 export declare const RectangleLeft: import("styled-components").StyledComponent<"div", any, {
     variant: string;
 }, never>;

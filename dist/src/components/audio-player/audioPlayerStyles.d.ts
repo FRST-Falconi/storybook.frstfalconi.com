@@ -1,6 +1,6 @@
 export declare const container: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const containerMask: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const thumb: import("styled-components").StyledComponent<"img", any, {}, never>;
+export declare const thumb: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const content: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const title: import("styled-components").StyledComponent<"p", any, {}, never>;
 export declare const description: import("styled-components").StyledComponent<"p", any, {}, never>;
