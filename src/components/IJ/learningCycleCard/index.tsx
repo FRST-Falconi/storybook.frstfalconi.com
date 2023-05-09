@@ -75,7 +75,7 @@ export default function LearningCycleCard({
                 {labels?.groupsQuantityDescription}
               </Styles.AccortionTitle>
             </AccordionSummary>
-            {!disabled && isAccordionOpen && <Divider sx={{ marginBottom: '5px' }} />}
+            {!disabled && isAccordionOpen && <Divider sx={{ margin: '5px 10px 0px 10px' }} />}
             <AccordionDetails>
               <Styles.DataList>
                 {modulesList?.map((item, index) => (
@@ -83,7 +83,7 @@ export default function LearningCycleCard({
                 ))}
               </Styles.DataList>
             </AccordionDetails>
-            {isAccordionOpen && <Divider sx={{ marginTop: '5px' }} />}
+            {isAccordionOpen && <Divider sx={{ margin: '5px 10px 0px 10px' }} />}
             <Styles.Button onClick={() => handleClick(id)}>{labels?.actionButton}</Styles.Button>
           </Accordion>
         </Styles.AccordionList>

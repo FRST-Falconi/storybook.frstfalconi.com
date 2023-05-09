@@ -22,7 +22,7 @@ export const WrapperCard = styled.div<ILearningCycleCard>`
 
   border-radius: 10px;
 
-  padding: 20px;
+  padding: 20px 20px 8px 20px;
 
   :hover {
     cursor: pointer;
@@ -153,6 +153,7 @@ export const DataListItem = styled.li`
   list-style-type: none;
   margin: 0;
   font-weight: 400;
+  padding: 0px 10px;
 `
 
 export const Button = styled.button`
