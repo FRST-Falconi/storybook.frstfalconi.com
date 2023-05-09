@@ -41,6 +41,7 @@ export const ConfigContainer = styled.div`
   flex-direction: column;
   right: 0;
   margin-right: 83px;
+  top: 72px;
 `
 
 export const EnableText = styled.div`

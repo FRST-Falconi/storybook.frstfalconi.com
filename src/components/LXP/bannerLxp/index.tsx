@@ -45,10 +45,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   const [anchor, setAnchor] = useState(null)
 
   const handleOpenConfig = () => setOpenConfig(true)
-  const handleCloseConfig = () => {
-    setOpenConfig(false)
-    // props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage])
-  }
+
   const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined
   const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined
 
@@ -58,6 +55,12 @@ export default function BannerLxp(props: BannerLxpParams) {
   }
 
   const onCancell = () => {
+    setBackgroundColor(props.bgColor ?? '')
+    setBackgroundImage(props.bgSrc ?? '')
+    setTitleText(props.title ?? '')
+    setColorTitle(props.titleColor ?? '')
+    setDisableText(props.isDisabledTitle ?? false)
+
     setOpenConfig(false)
   }
 
