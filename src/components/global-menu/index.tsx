@@ -27,6 +27,7 @@ import NotificationPopOver from '@components/FI/notificationPopOver'
 export default function GlobalMenu({
   variant,
   menu,
+  customMenu,
   user,
   search,
   notification,
@@ -167,6 +168,7 @@ export default function GlobalMenu({
             onClickYoutube={onClickYoutube}
             onClickSpotify={onClickSpotify}
             onClickPodCast={onClickPodCast}
+            customMenu={customMenu}
           />
           <SideMenu
             onClickExit={onClickExit}
@@ -181,6 +183,7 @@ export default function GlobalMenu({
             onClickYoutube={onClickYoutube}
             onClickSpotify={onClickSpotify}
             onClickPodCast={onClickPodCast}
+            customMenu={customMenu}
           />
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <Styles.MenuContainer
@@ -291,6 +294,7 @@ export default function GlobalMenu({
                         />
                       )
                     })}
+
                   {!isMobileVersion && !isTabletVersion && notification && (
                     <div style={{ position: 'relative' }}>
                       <ItemGlobalMenu
@@ -301,6 +305,7 @@ export default function GlobalMenu({
                         handleOnClick={() => onClickNotification}
                         icon={<IconNotification fill={FRSTTheme['colors'].shadeWhite} />}
                         style={{ paddingRight: '10px', paddingLeft: '10px', height: '100%' }}
+                        customMenu={customMenu}
                       />
 
                       {newNotification.length ? (
@@ -398,6 +403,24 @@ export default function GlobalMenu({
                     marginRight: isMobileVersion ? '0px' : '5px'
                   }}
                 />
+                {customMenu?.map((item, index) => (
+                  <ItemGlobalMenu
+                    label={isMobileVersion ? '' : item.label}
+                    key={item.id ? item.id : index}
+                    variant="LXP"
+                    type="menu"
+                    pressed={item.id === SelectedItem || item.active}
+                    icon={item.iconBegin}
+                    handleOnClick={() => handleClickItem(item)}
+                    customMenu={customMenu}
+                    style={{
+                      paddingRight: '10px',
+                      paddingLeft: '10px',
+                      height: '100%',
+                      flexDirection: 'inherit'
+                    }}
+                  />
+                ))}
                 {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
                   <LanguagesDropdown
                     variant="LXP"
@@ -465,6 +488,7 @@ export default function GlobalMenu({
             onClickYoutube={onClickYoutube}
             onClickSpotify={onClickSpotify}
             onClickPodCast={onClickPodCast}
+            customMenu={customMenu}
           />
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
             <Styles.MenuContainer
@@ -571,33 +595,53 @@ export default function GlobalMenu({
                   />
                 )}
                 {!isMobileVersion && !isTabletVersion && notification && (
-                  <Styles.WrapperIconNotification onClick={onClickNotification}>
-                    <span
-                      style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }}
-                      onClick={handleOpenNotification}
-                    >
-                      <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
-                      {newNotification.length ? (
-                        <div style={{ marginLeft: '-12px' }}>
-                          <HasNotificationIcon />
-                        </div>
-                      ) : null}{' '}
-                      &nbsp; {textNotification}
-                    </span>
-                    <NotificationPopOver
-                      handleClickMarkRead={notification.handleClickMarkRead}
-                      isOpen={openNotification}
-                      anchor={anchorNotification}
-                      textEmptyState={notification.textEmptyState}
-                      notificationList={notification.notificationList}
-                      textMarkAllAsRead={notification.textMarkAllAsRead}
-                      textNotification={notification.textNotification}
-                      isMobile={false}
-                      setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
-                      textBack={notification.textBack}
-                      handleClickBack={() => handleCloseNotification()}
-                    />
-                  </Styles.WrapperIconNotification>
+                  <>
+                    {customMenu?.map((item, index) => (
+                      <ItemGlobalMenu
+                        label={isMobileVersion ? '' : item.label}
+                        key={item.id ? item.id : index}
+                        variant="LXP"
+                        type="menu"
+                        pressed={item.id === SelectedItem || item.active}
+                        icon={item.iconBegin}
+                        handleOnClick={() => handleClickItem(item)}
+                        customMenu={customMenu}
+                        style={{
+                          paddingRight: '10px',
+                          paddingLeft: '10px',
+                          height: '100%',
+                          flexDirection: 'inherit'
+                        }}
+                      />
+                    ))}
+                    <Styles.WrapperIconNotification onClick={onClickNotification}>
+                      <span
+                        style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }}
+                        onClick={handleOpenNotification}
+                      >
+                        <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
+                        {newNotification.length ? (
+                          <div style={{ marginLeft: '-12px' }}>
+                            <HasNotificationIcon />
+                          </div>
+                        ) : null}{' '}
+                        &nbsp; {textNotification}
+                      </span>
+                      <NotificationPopOver
+                        handleClickMarkRead={notification.handleClickMarkRead}
+                        isOpen={openNotification}
+                        anchor={anchorNotification}
+                        textEmptyState={notification.textEmptyState}
+                        notificationList={notification.notificationList}
+                        textMarkAllAsRead={notification.textMarkAllAsRead}
+                        textNotification={notification.textNotification}
+                        isMobile={false}
+                        setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
+                        textBack={notification.textBack}
+                        handleClickBack={() => handleCloseNotification()}
+                      />
+                    </Styles.WrapperIconNotification>
+                  </>
                 )}
                 {isMobileVersion && notification && (
                   <Styles.WrapperIconNotificationMobile
@@ -773,7 +817,8 @@ export function MenuMobile({
   onClickInstagram,
   onClickYoutube,
   onClickSpotify,
-  onClickPodCast
+  onClickPodCast,
+  customMenu
 }) {
   const [optionsSubMenu, setOptionsSubmenu] = useState({})
   const [subMenuIsVisible, setSubMenuIsVisible] = useState(false)
@@ -798,9 +843,10 @@ export function MenuMobile({
         onClickYoutube={onClickYoutube}
         onClickSpotify={onClickSpotify}
         onClickPodCast={onClickPodCast}
+        customMenu={customMenu}
       />
       <Styles.MenuMobile isVisible={isVisible}>
-        {variant === 'LXP' ? (
+        {variant === 'LXP' || variant === 'custom' ? (
           <>
             <div>
               <Styles.ItemMenuMobile onClick={() => setVisible(false)}>
@@ -901,6 +947,13 @@ export function MenuMobile({
                     </Styles.ItemMenuMobile>
                   )
                 })}
+              {customMenu?.map((item, index) => (
+                <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                  <span style={{ marginRight: customMenu ? 2 : 0 }}>{item.iconBegin}</span>
+                  &nbsp;
+                  {item.label}
+                </Styles.ItemMenuMobile>
+              ))}
             </div>
             <Styles.footerMenuMobile>
               <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()}>
@@ -960,7 +1013,8 @@ export function SubMenuMobile({
   onClickInstagram,
   onClickYoutube,
   onClickSpotify,
-  onClickPodCast
+  onClickPodCast,
+  customMenu
 }) {
   const [options, setOptions] = useState(items)
   useEffect(() => {
@@ -1018,6 +1072,13 @@ export function SubMenuMobile({
                   </Styles.ItemMenuMobile>
                 )
               })}
+            {customMenu?.map((item, index) => (
+              <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                {item.iconBegin}
+                &nbsp;
+                {item.label}
+              </Styles.ItemMenuMobile>
+            ))}
           </div>
           <Styles.footerMenuMobile>
             <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()}>
@@ -1076,7 +1137,8 @@ export function SideMenu({
   onClickInstagram,
   onClickYoutube,
   onClickSpotify,
-  onClickPodCast
+  onClickPodCast,
+  customMenu
 }) {
   const [optionsSubMenu, setOptionsSubmenu] = useState({})
   const [subMenuIsVisible, setSubMenuIsVisible] = useState(false)
@@ -1190,6 +1252,13 @@ export function SideMenu({
                     </Styles.ItemMenuMobile>
                   )
                 })}
+              {customMenu?.map((item, index) => (
+                <Styles.ItemMenuMobile onClick={(e) => item.onClick(e)} key={index}>
+                  {item.iconBegin}
+                  &nbsp;
+                  {item.label}
+                </Styles.ItemMenuMobile>
+              ))}
             </div>
             <Styles.footerMenuMobile>
               <Styles.ItemMenuMobile style={{}} onClick={() => onClickExit()}>

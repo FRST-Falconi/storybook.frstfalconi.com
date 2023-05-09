@@ -1,6 +1,6 @@
 import React from 'react'
 
-export type enumVariant = 'default' | 'LXP'
+export type enumVariant = 'default' | 'LXP' | 'custom'
 export type enumLanguages = 'pt-BR' | 'es' | 'en-US' | 'pt-PT'
 
 export type itemClick = {
@@ -34,6 +34,7 @@ export interface IGlobalMenu {
   variant?: enumVariant
 
   menu?: Array<itemClick>
+  customMenu?: Array<itemClick>
   user?: typeUser
   search?: IFieldSearch
 

@@ -12,4 +12,5 @@ export interface IItemMenuGlobal {
   wrapText?: boolean
   pressed?: boolean
   icon?: any
+  customMenu?: any
 }
