@@ -19,20 +19,15 @@ export const BannerContainer = styled.div<BannerLxp>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  :hover .configButton {
-    display: block;
-  }
 `
 export const ConfigButton = styled.div`
   position: absolute;
   right: 0;
   margin-right: 83px;
-  display: none;
 `
 export const ConfigContainer = styled.div`
   width: 350px;
-  height: 420px;
+  height: 490px;
   border-radius: 8px;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);
@@ -103,4 +98,43 @@ export const FixImage = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-top: 4px;
+`
+
+export const ActionButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 16px;
+  align-items: center;
+
+  button {
+    color: #0b0080;
+    font-family: 'PT Sans', 'PTSans-Bold';
+    font-size: 16px;
+    font-weight: 700;
+    background: none;
+    border: none;
+
+    :last-child {
+      justify-content: center;
+      padding: 9px 16px;
+      height: 48px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      box-shadow: none;
+      background-color: #ff4d0d;
+      color: #ffffff;
+    }
+
+    :hover {
+      cursor: pointer;
+    }
+  }
 `

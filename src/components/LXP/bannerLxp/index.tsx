@@ -14,6 +14,7 @@ interface BannerLxpParams {
   bgColor?: string
   isDisabledTitle?: boolean
   style?: React.CSSProperties
+  showBannerConfigs?: boolean
   /**
    * @prop {object} selectedFile: função de callback que retorna o arquivo selecionado pelo componente
    */
@@ -46,10 +47,19 @@ export default function BannerLxp(props: BannerLxpParams) {
   const handleOpenConfig = () => setOpenConfig(true)
   const handleCloseConfig = () => {
     setOpenConfig(false)
-    props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage])
+    // props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage])
   }
   const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined
   const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined
+
+  const onSave = () => {
+    setOpenConfig(false)
+    props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage])
+  }
+
+  const onCancell = () => {
+    setOpenConfig(false)
+  }
 
   const handleOpenTitleColorPicker = (event: React.MouseEvent<HTMLButtonElement>) => {
     setDisplayTitleColorPicker(!displayTitleColorPicker)
@@ -106,11 +116,14 @@ export default function BannerLxp(props: BannerLxpParams) {
       }}
     >
       {!disableText ? <span style={{ color: colorTitle, fontSize: 40, fontWeight: 700 }}>{titleText}</span> : ''}
-      <Styles.ConfigButton className="configButton">
-        <Button variant="primary" label="Configuração de capa" handleClick={handleOpenConfig} />
-      </Styles.ConfigButton>
 
-      <Modal open={openConfig} onClose={handleCloseConfig}>
+      {props?.showBannerConfigs && (
+        <Styles.ConfigButton className="configButton">
+          <Button variant="primary" label="Configuração de capa" handleClick={handleOpenConfig} />
+        </Styles.ConfigButton>
+      )}
+
+      <Modal open={openConfig} onClose={onCancell}>
         <Styles.ConfigContainer style={{ ...props.style }}>
           <span style={{ fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }}>Título</span>
 
@@ -224,6 +237,11 @@ export default function BannerLxp(props: BannerLxpParams) {
               }}
             />
           </Styles.FixImage>
+          <Styles.ActionButtons>
+            <button onClick={onCancell}>Cancelar</button>
+            <span>ou</span>
+            <button onClick={onSave}>Salvar</button>
+          </Styles.ActionButtons>
         </Styles.ConfigContainer>
       </Modal>
     </Styles.BannerContainer>
