@@ -161,7 +161,7 @@ export const Button = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px auto;
+  margin: 15px auto 5px;
 
   border: none;
   font-size: 16px;
