@@ -43,7 +43,8 @@ export {
   EyeOff,
   OpenedEye,
   StarFavorite,
-  CheckIconSimple
+  CheckIconSimple,
+  IconContent
 } from './src/shared/icons'
 
 // Base

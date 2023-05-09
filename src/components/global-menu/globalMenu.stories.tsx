@@ -10,7 +10,7 @@ export default {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'LXP']
+      options: ['default', 'LXP', 'custom']
     },
     languageSelected: {
       control: 'select',
@@ -340,8 +340,8 @@ normal.args = {
   style: { display: 'flex' }
 }
 
-export const customOptions = Template.bind({})
-customOptions.args = {
+export const customMenu = Template.bind({})
+customMenu.args = {
   variant: 'default',
   textNotification: 'Notificações',
   onClickProfileMenuText: () => alert('Clicked Profile'),
@@ -432,6 +432,7 @@ customOptions.args = {
       onClick: (e) => alert('Hall de projetos')
     }
   ],
+  customMenu: [{ id: '1', label: 'Conteúdos', iconBegin: <Icons.IconContent />, onClick: (e) => alert('Conteúdos') }],
   notification: {
     textBack: 'Voltar',
     textNotification: 'Notificações',
