@@ -50,6 +50,7 @@ export default function StepLearningCycle({
     })
 
     setStepsList(newListStep)
+    setListSteps(newListStep)
   }
 
   const variantsChek = {
