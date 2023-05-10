@@ -22,3 +22,16 @@ Normal.args = {
   onSaveInfo: (nome) => alert(nome),
   bgColor: ''
 }
+
+export const bannerConfigs = Template.bind({})
+bannerConfigs.args = {
+  title: 'Nome do seu KnowHub',
+  titleColor: '#FFF',
+  isDisabledTitle: false,
+  bgSrc:
+    'https://media.itpro.co.uk/image/upload/s--X-WVjvBW--/f_auto,t_content-image-full-desktop@1/v1570815813/itpro/2018/01/shutterstock_712558591.jpg',
+  handleChangeBanner: (file) => console.log('imgBannerResp:', file),
+  onSaveInfo: (nome) => alert(nome),
+  bgColor: '',
+  showBannerConfigs: true
+}
