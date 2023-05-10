@@ -33,11 +33,11 @@ interface BannerLxpParams {
 
 export default function BannerLxp(props: BannerLxpParams) {
   const [openConfig, setOpenConfig] = useState(false)
-  const [disableText, setDisableText] = useState(props.isDisabledTitle)
-  const [titleText, setTitleText] = useState(props.title ? props.title : '')
-  const [colorTitle, setColorTitle] = useState(props.titleColor ? props.titleColor : '#FFF')
-  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')
-  const [backgroundImage, setBackgroundImage] = useState(props.bgSrc || '')
+  const [disableText, setDisableText] = useState(false)
+  const [titleText, setTitleText] = useState('')
+  const [colorTitle, setColorTitle] = useState('')
+  const [backgroundColor, setBackgroundColor] = useState('')
+  const [backgroundImage, setBackgroundImage] = useState('')
   const [fixImage, setFixImage] = useState(false)
   const [selectedFile, setSelectedFile] = useState({})
   const [displayTitleColorPicker, setDisplayTitleColorPicker] = useState(false)
@@ -95,30 +95,22 @@ export default function BannerLxp(props: BannerLxpParams) {
   }
 
   useEffect(() => {
-    setBackgroundColor(props.bgColor)
-  }, [props.bgColor])
-
-  useEffect(() => {
-    setBackgroundImage(props.bgSrc)
-  }, [props.bgSrc])
-
-  useEffect(() => {
-    setTitleText(props.title)
-  }, [props.title])
-
-  useEffect(() => {
-    setColorTitle(props.titleColor)
-  }, [props.titleColor])
+    setTitleText(props?.title)
+    setDisableText(props?.isDisabledTitle)
+    setBackgroundImage(props?.bgSrc)
+  }, [props])
 
   return (
     <Styles.BannerContainer
-      backgroundBanner={backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`}
+      backgroundBanner={props?.bgColor || `url(${props?.bgSrc})`}
       style={{
         ...props.style,
         objectFit: fixImage ? 'fill' : 'none'
       }}
     >
-      {!disableText ? <span style={{ color: colorTitle, fontSize: 40, fontWeight: 700 }}>{titleText}</span> : ''}
+      {!props?.isDisabledTitle && (
+        <span style={{ color: props?.titleColor, fontSize: 40, fontWeight: 700 }}>{props?.title}</span>
+      )}
 
       {props?.showBannerConfigs && (
         <Styles.ConfigButton className="configButton">
@@ -134,6 +126,7 @@ export default function BannerLxp(props: BannerLxpParams) {
             label="Alterar título do KnowHub"
             placeholder="Digite seu título aqui"
             style={{ width: '100%' }}
+            value={titleText ?? props?.title}
             onChange={(e) => setTitleText(e.target.value)}
           />
           <Styles.EnableText>
@@ -176,7 +169,7 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
               <PopOverLXP variant="upRight">
-                <SketchPicker color={colorTitle} onChangeComplete={handleChangeTitleColor} />
+                <SketchPicker color={props?.titleColor} onChangeComplete={handleChangeTitleColor} />
               </PopOverLXP>
             </Popover>
           </Styles.InputTextColor>
@@ -205,7 +198,7 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
               <PopOverLXP variant="upRight">
-                <SketchPicker color={backgroundColor} onChangeComplete={handleChangeBackgroundColor} />
+                <SketchPicker color={props?.bgColor} onChangeComplete={handleChangeBackgroundColor} />
               </PopOverLXP>
             </Popover>
           </Styles.InputBgColor>
