@@ -46,6 +46,7 @@ export { default as Favorite } from './src/components/IJ/favorite';
 export { default as ContentCycle } from './src/components/IJ/ContentCycle';
 export { default as ListContentCycle } from './src/components/IJ/ListContentCycle';
 export { default as StepLearningCycle } from './src/components/IJ/StepLearningCycle';
+export { default as DateRangePicker } from './src/components/IJ/StepLearningCycle';
 export { default as AvatarChannel } from './src/components/LXP/avatarChannel';
 export { default as AvatarAssociatedChannel } from './src/components/LXP/avatarAssociatedChannel';
 export { default as BannerLxp } from './src/components/LXP/bannerLxp';
