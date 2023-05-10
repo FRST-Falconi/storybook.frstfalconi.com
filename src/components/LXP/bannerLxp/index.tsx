@@ -14,6 +14,7 @@ interface BannerLxpParams {
   bgColor?: string
   isDisabledTitle?: boolean
   style?: React.CSSProperties
+  showBannerConfigs?: boolean
   /**
    * @prop {object} selectedFile: função de callback que retorna o arquivo selecionado pelo componente
    */
@@ -32,11 +33,11 @@ interface BannerLxpParams {
 
 export default function BannerLxp(props: BannerLxpParams) {
   const [openConfig, setOpenConfig] = useState(false)
-  const [disableText, setDisableText] = useState(props.isDisabledTitle)
-  const [titleText, setTitleText] = useState(props.title ? props.title : '')
-  const [colorTitle, setColorTitle] = useState(props.titleColor ? props.titleColor : '#FFF')
-  const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')
-  const [backgroundImage, setBackgroundImage] = useState(props.bgSrc || '')
+  const [disableText, setDisableText] = useState(false)
+  const [titleText, setTitleText] = useState('')
+  const [colorTitle, setColorTitle] = useState('')
+  const [backgroundColor, setBackgroundColor] = useState('')
+  const [backgroundImage, setBackgroundImage] = useState('')
   const [fixImage, setFixImage] = useState(false)
   const [selectedFile, setSelectedFile] = useState({})
   const [displayTitleColorPicker, setDisplayTitleColorPicker] = useState(false)
@@ -44,12 +45,24 @@ export default function BannerLxp(props: BannerLxpParams) {
   const [anchor, setAnchor] = useState(null)
 
   const handleOpenConfig = () => setOpenConfig(true)
-  const handleCloseConfig = () => {
+
+  const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined
+  const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined
+
+  const onSave = () => {
     setOpenConfig(false)
     props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage])
   }
-  const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined
-  const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined
+
+  const onCancell = () => {
+    setBackgroundColor(props.bgColor ?? '')
+    setBackgroundImage(props.bgSrc ?? '')
+    setTitleText(props.title ?? '')
+    setColorTitle(props.titleColor ?? '')
+    setDisableText(props.isDisabledTitle ?? false)
+
+    setOpenConfig(false)
+  }
 
   const handleOpenTitleColorPicker = (event: React.MouseEvent<HTMLButtonElement>) => {
     setDisplayTitleColorPicker(!displayTitleColorPicker)
@@ -82,35 +95,30 @@ export default function BannerLxp(props: BannerLxpParams) {
   }
 
   useEffect(() => {
-    setBackgroundColor(props.bgColor)
-  }, [props.bgColor])
-
-  useEffect(() => {
-    setBackgroundImage(props.bgSrc)
-  }, [props.bgSrc])
-
-  useEffect(() => {
-    setTitleText(props.title)
-  }, [props.title])
-
-  useEffect(() => {
-    setColorTitle(props.titleColor)
-  }, [props.titleColor])
+    setTitleText(props?.title)
+    setDisableText(props?.isDisabledTitle)
+    setBackgroundImage(props?.bgSrc)
+  }, [props])
 
   return (
     <Styles.BannerContainer
-      backgroundBanner={backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`}
+      backgroundBanner={props?.bgColor || `url(${props?.bgSrc})`}
       style={{
         ...props.style,
         objectFit: fixImage ? 'fill' : 'none'
       }}
     >
-      {!disableText ? <span style={{ color: colorTitle, fontSize: 40, fontWeight: 700 }}>{titleText}</span> : ''}
-      <Styles.ConfigButton className="configButton">
-        <Button variant="primary" label="Configuração de capa" handleClick={handleOpenConfig} />
-      </Styles.ConfigButton>
+      {!props?.isDisabledTitle && (
+        <span style={{ color: props?.titleColor, fontSize: 40, fontWeight: 700 }}>{props?.title}</span>
+      )}
 
-      <Modal open={openConfig} onClose={handleCloseConfig}>
+      {props?.showBannerConfigs && (
+        <Styles.ConfigButton className="configButton">
+          <Button variant="primary" label="Configuração de capa" handleClick={handleOpenConfig} />
+        </Styles.ConfigButton>
+      )}
+
+      <Modal open={openConfig} onClose={onCancell}>
         <Styles.ConfigContainer style={{ ...props.style }}>
           <span style={{ fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }}>Título</span>
 
@@ -118,6 +126,7 @@ export default function BannerLxp(props: BannerLxpParams) {
             label="Alterar título do KnowHub"
             placeholder="Digite seu título aqui"
             style={{ width: '100%' }}
+            value={titleText ?? props?.title}
             onChange={(e) => setTitleText(e.target.value)}
           />
           <Styles.EnableText>
@@ -160,7 +169,7 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
               <PopOverLXP variant="upRight">
-                <SketchPicker color={colorTitle} onChangeComplete={handleChangeTitleColor} />
+                <SketchPicker color={props?.titleColor} onChangeComplete={handleChangeTitleColor} />
               </PopOverLXP>
             </Popover>
           </Styles.InputTextColor>
@@ -189,7 +198,7 @@ export default function BannerLxp(props: BannerLxpParams) {
               anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             >
               <PopOverLXP variant="upRight">
-                <SketchPicker color={backgroundColor} onChangeComplete={handleChangeBackgroundColor} />
+                <SketchPicker color={props?.bgColor} onChangeComplete={handleChangeBackgroundColor} />
               </PopOverLXP>
             </Popover>
           </Styles.InputBgColor>
@@ -224,6 +233,11 @@ export default function BannerLxp(props: BannerLxpParams) {
               }}
             />
           </Styles.FixImage>
+          <Styles.ActionButtons>
+            <button onClick={onCancell}>Cancelar</button>
+            <span>ou</span>
+            <button onClick={onSave}>Salvar</button>
+          </Styles.ActionButtons>
         </Styles.ConfigContainer>
       </Modal>
     </Styles.BannerContainer>

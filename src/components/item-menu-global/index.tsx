@@ -15,7 +15,8 @@ export default function ItemGlobalMenu({
   wrapText,
   pressed,
   style,
-  icon
+  icon,
+  customMenu
 }: IItemMenuGlobal) {
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -27,8 +28,8 @@ export default function ItemGlobalMenu({
         style={{ ...style }}
         onClick={handleOnClick}
       >
-        {icon}
-        {label}
+        <span style={{ marginRight: customMenu ? 10 : 0 }}>{icon}</span>
+        <span style={{ marginTop: customMenu ? -8 : 0 }}>{label}</span>
       </Styles.Wrapper>
     </ThemeProvider>
   )

@@ -456,6 +456,9 @@ function IconModules({ fill, width, height }) {
 function CheckIconSimple({ width = '15', height = '12', fill = '#2CA92A' }) {
     return (jsxRuntime.jsx("svg", { width: width, height: height, viewBox: "0 0 15 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M4.59 8.58002L1.77231 5.76233C1.57753 5.56756 1.26191 5.567 1.06645 5.76108L0.356057 6.46647C0.160106 6.66105 0.158987 6.97763 0.353558 7.17358L0.354805 7.17483L4.23645 11.0565C4.43171 11.2517 4.74829 11.2517 4.94355 11.0565L14.2364 1.76358C14.4317 1.56831 14.4317 1.25173 14.2364 1.05647L13.5336 0.353577L13.5333 0.353783C13.3382 0.158601 13.0217 0.158509 12.8264 0.353577L4.59 8.58002Z", fill: fill }) }));
 }
+function IconContent({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.2884 10.4968L10.1 13.038V7.10845L15.2884 10.4968Z", stroke: "white", "stroke-width": "1.2", "stroke-linejoin": "round" }), jsxRuntime.jsx("rect", { x: "1.6", y: "2.6", width: "20.8", height: "14.8", rx: "1.4", stroke: "white", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M6 21.5H18", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -6630,20 +6633,15 @@ const BannerContainer = styled__default["default"].div `
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  :hover .configButton {
-    display: block;
-  }
 `;
 const ConfigButton = styled__default["default"].div `
   position: absolute;
   right: 0;
   margin-right: 83px;
-  display: none;
 `;
 const ConfigContainer = styled__default["default"].div `
   width: 350px;
-  height: 420px;
+  height: 490px;
   border-radius: 8px;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);
@@ -6657,6 +6655,7 @@ const ConfigContainer = styled__default["default"].div `
   flex-direction: column;
   right: 0;
   margin-right: 83px;
+  top: 72px;
 `;
 const EnableText = styled__default["default"].div `
   width: 100%;
@@ -6712,26 +6711,72 @@ const FixImage = styled__default["default"].div `
   align-items: center;
   margin-top: 4px;
 `;
+const ActionButtons = styled__default["default"].div `
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 16px;
+  align-items: center;
+
+  button {
+    color: #0b0080;
+    font-family: 'PT Sans', 'PTSans-Bold';
+    font-size: 16px;
+    font-weight: 700;
+    background: none;
+    border: none;
+
+    :last-child {
+      justify-content: center;
+      padding: 9px 16px;
+      height: 48px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      box-shadow: none;
+      background-color: #ff4d0d;
+      color: #ffffff;
+    }
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+`;
 
 function BannerLxp(props) {
     const [openConfig, setOpenConfig] = React.useState(false);
-    const [disableText, setDisableText] = React.useState(props.isDisabledTitle);
-    const [titleText, setTitleText] = React.useState(props.title ? props.title : '');
-    const [colorTitle, setColorTitle] = React.useState(props.titleColor ? props.titleColor : '#FFF');
-    const [backgroundColor, setBackgroundColor] = React.useState(props.bgColor ? props.bgColor : '');
-    const [backgroundImage, setBackgroundImage] = React.useState(props.bgSrc || '');
+    const [disableText, setDisableText] = React.useState(false);
+    const [titleText, setTitleText] = React.useState('');
+    const [colorTitle, setColorTitle] = React.useState('');
+    const [backgroundColor, setBackgroundColor] = React.useState('');
+    const [backgroundImage, setBackgroundImage] = React.useState('');
     const [fixImage, setFixImage] = React.useState(false);
     const [selectedFile, setSelectedFile] = React.useState({});
     const [displayTitleColorPicker, setDisplayTitleColorPicker] = React.useState(false);
     const [displayBackgroundColorPicker, setDisplayBackgroundColorPicker] = React.useState(false);
     const [anchor, setAnchor] = React.useState(null);
     const handleOpenConfig = () => setOpenConfig(true);
-    const handleCloseConfig = () => {
+    const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined;
+    const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined;
+    const onSave = () => {
         setOpenConfig(false);
         props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage]);
     };
-    const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined;
-    const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined;
+    const onCancell = () => {
+        setBackgroundColor(props.bgColor ?? '');
+        setBackgroundImage(props.bgSrc ?? '');
+        setTitleText(props.title ?? '');
+        setColorTitle(props.titleColor ?? '');
+        setDisableText(props.isDisabledTitle ?? false);
+        setOpenConfig(false);
+    };
     const handleOpenTitleColorPicker = (event) => {
         setDisplayTitleColorPicker(!displayTitleColorPicker);
         setAnchor(event.currentTarget);
@@ -6760,21 +6805,14 @@ function BannerLxp(props) {
         return file;
     };
     React.useEffect(() => {
-        setBackgroundColor(props.bgColor);
-    }, [props.bgColor]);
-    React.useEffect(() => {
-        setBackgroundImage(props.bgSrc);
-    }, [props.bgSrc]);
-    React.useEffect(() => {
-        setTitleText(props.title);
-    }, [props.title]);
-    React.useEffect(() => {
-        setColorTitle(props.titleColor);
-    }, [props.titleColor]);
-    return (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`, style: {
+        setTitleText(props?.title);
+        setDisableText(props?.isDisabledTitle);
+        setBackgroundImage(props?.bgSrc);
+    }, [props]);
+    return (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: props?.bgColor || `url(${props?.bgSrc})`, style: {
             ...props.style,
             objectFit: fixImage ? 'fill' : 'none'
-        }, children: [!disableText ? jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText }) : '', jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$3, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: handleCloseConfig, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: "Alterar t\u00EDtulo do KnowHub", placeholder: "Digite seu t\u00EDtulo aqui", style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs(EnableText, { children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
+        }, children: [!props?.isDisabledTitle && (jsxRuntime.jsx("span", { style: { color: props?.titleColor, fontSize: 40, fontWeight: 700 }, children: props?.title })), props?.showBannerConfigs && (jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$3, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) })), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: onCancell, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: "Alterar t\u00EDtulo do KnowHub", placeholder: "Digite seu t\u00EDtulo aqui", style: { width: '100%' }, value: titleText ?? props?.title, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs(EnableText, { children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF'
                                         },
@@ -6789,14 +6827,14 @@ function BannerLxp(props) {
                                         borderRadius: 8,
                                         border: '1px solid #BDBDBD',
                                         backgroundColor: colorTitle
-                                    }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: colorTitle, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs(InputBgColor, { className: "inputBgColor", children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: {
+                                    }, onClick: handleOpenTitleColorPicker }), jsxRuntime.jsx(material.Popover, { id: idTitle, open: displayTitleColorPicker, onClose: handleCloseTitleColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: props?.titleColor, onChangeComplete: handleChangeTitleColor }) }) })] }), jsxRuntime.jsx("span", { style: { marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }, children: "Background" }), jsxRuntime.jsxs(InputBgColor, { className: "inputBgColor", children: [jsxRuntime.jsx("span", { children: "Cor de fundo" }), jsxRuntime.jsx("button", { "aria-describedby": idBg, style: {
                                         cursor: 'pointer',
                                         width: 23,
                                         height: 23,
                                         borderRadius: 8,
                                         border: '1px solid #BDBDBD',
                                         backgroundColor: backgroundColor
-                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: backgroundColor, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs(BgInput, { children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar", ' '] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs(FixImage, { children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
+                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: props?.bgColor, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs(BgInput, { children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', jsxRuntime.jsx(UploadIcon, {}), " \u00A0 Selecionar", ' '] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs(FixImage, { children: [jsxRuntime.jsx("span", { children: " Ajustar a imagem " }), jsxRuntime.jsx(material.Switch, { checked: fixImage, onChange: () => setFixImage(!fixImage), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF'
                                         },
@@ -6804,7 +6842,7 @@ function BannerLxp(props) {
                                             backgroundColor: '#FF4D0D !important',
                                             opacity: 1
                                         }
-                                    } })] })] }) })] }));
+                                    } })] }), jsxRuntime.jsxs(ActionButtons, { children: [jsxRuntime.jsx("button", { onClick: onCancell, children: "Cancelar" }), jsxRuntime.jsx("span", { children: "ou" }), jsxRuntime.jsx("button", { onClick: onSave, children: "Salvar" })] })] }) })] }));
 }
 
 const variantStyles = (variant = 'contained') => ({
@@ -8464,8 +8502,8 @@ styled__default["default"].button `
     }
 `;
 
-function ItemGlobalMenu({ variant, type, label, handleOnClick, wrapText, pressed, style, icon }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [icon, label] }) }));
+function ItemGlobalMenu({ variant, type, label, handleOnClick, wrapText, pressed, style, icon, customMenu }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 10 : 0 }, children: icon }), jsxRuntime.jsx("span", { style: { marginTop: customMenu ? -8 : 0 }, children: label })] }) }));
 }
 
 styled__default["default"].button `
@@ -8969,7 +9007,7 @@ function NotificationPopOver(props) {
                             }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
 
-function GlobalMenu({ variant, menu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, onClickLogo }) {
+function GlobalMenu({ variant, menu, customMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, onClickLogo }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -9060,7 +9098,7 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
     const newNotification = notification.notificationList
         ? notification.notificationList.filter((notification) => notification.isNewNotification)
         : [];
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx(SideMenu, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleSideMenu, setVisible: (e) => setIsVisibleSideMenu(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx(SideMenu, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'LXP', items: menu, isVisible: isVisibleSideMenu, setVisible: (e) => setIsVisibleSideMenu(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                                 paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 ...style
@@ -9080,7 +9118,7 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
                                                     menu.length > 0 &&
                                                     menu.map((item, index) => {
                                                         return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "LXP", type: "menu", pressed: item.id === SelectedItem || item.active, icon: item.iconBegin, handleOnClick: () => handleClickItem(item), style: { paddingRight: '10px', paddingLeft: '10px', height: '100%' } }, item.id ? item.id : index));
-                                                    }), !isMobileVersion && !isTabletVersion && notification && (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(ItemGlobalMenu, { label: textNotification, variant: "LXP", type: "menu", pressed: false, handleOnClick: () => onClickNotification, icon: jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), style: { paddingRight: '10px', paddingLeft: '10px', height: '100%' } }), newNotification.length ? (jsxRuntime.jsx("div", { style: { position: 'absolute', marginLeft: '50%', marginTop: '-54px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })), isMobileVersion && notification && (jsxRuntime.jsx(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
+                                                    }), !isMobileVersion && !isTabletVersion && notification && (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(ItemGlobalMenu, { label: textNotification, variant: "LXP", type: "menu", pressed: false, handleOnClick: () => onClickNotification, icon: jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), style: { paddingRight: '10px', paddingLeft: '10px', height: '100%' }, customMenu: customMenu }), newNotification.length ? (jsxRuntime.jsx("div", { style: { position: 'absolute', marginLeft: '50%', marginTop: '-54px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })), isMobileVersion && notification && (jsxRuntime.jsx(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
                                                         borderBottom: openNotificationMobile && windowSize[0] <= 650
                                                             ? `4px solid ${FRSTTheme['colors'].primary1}`
                                                             : '',
@@ -9093,13 +9131,18 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
                                                     }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', newNotification.length ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] >= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] }))] })] }), jsxRuntime.jsxs(WrapperRightInfo, { children: [jsxRuntime.jsx(DropdownProfileMenu, { variant: "LXP", user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, style: {
                                                 marginLeft: isMobileVersion ? '0px' : '5px',
                                                 marginRight: isMobileVersion ? '0px' : '5px'
-                                            } }), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }), SubMenu && SubMenu.length > 0 && (jsxRuntime.jsx(SubMenuContainer, { variant: variant, marginTop: marginTopSubMenu, style: {
+                                            } }), customMenu?.map((item, index) => (jsxRuntime.jsx(ItemGlobalMenu, { label: isMobileVersion ? '' : item.label, variant: "LXP", type: "menu", pressed: item.id === SelectedItem || item.active, icon: item.iconBegin, handleOnClick: () => handleClickItem(item), customMenu: customMenu, style: {
+                                                paddingRight: '10px',
+                                                paddingLeft: '10px',
+                                                height: '100%',
+                                                flexDirection: 'inherit'
+                                            } }, item.id ? item.id : index))), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }), SubMenu && SubMenu.length > 0 && (jsxRuntime.jsx(SubMenuContainer, { variant: variant, marginTop: marginTopSubMenu, style: {
                                 paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
                                 ...style
                             }, children: SubMenu.map((item, index) => {
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "LXP", type: "submenu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
-                            }) }))] }), openNotificationMobile && windowSize[0] < 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })) : variant === 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
+                            }) }))] }), openNotificationMobile && windowSize[0] < 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })) : variant === 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                             paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
                             paddingLeft: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
                             ...style
@@ -9111,7 +9154,12 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
                                         } })), isTabletVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                             width: isMobileVersion ? '180px' : '332px',
                                             marginLeft: controlExpandedSearchMobile ? '-25px' : '-50px'
-                                        } })), !isMobileVersion && !isTabletVersion && notification && (jsxRuntime.jsxs(WrapperIconNotification, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), newNotification.length ? (jsxRuntime.jsx("div", { style: { marginLeft: '-12px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, ' ', "\u00A0 ", textNotification] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })), isMobileVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
+                                        } })), !isMobileVersion && !isTabletVersion && notification && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [customMenu?.map((item, index) => (jsxRuntime.jsx(ItemGlobalMenu, { label: isMobileVersion ? '' : item.label, variant: "LXP", type: "menu", pressed: item.id === SelectedItem || item.active, icon: item.iconBegin, handleOnClick: () => handleClickItem(item), customMenu: customMenu, style: {
+                                                    paddingRight: '10px',
+                                                    paddingLeft: '10px',
+                                                    height: '100%',
+                                                    flexDirection: 'inherit'
+                                                } }, item.id ? item.id : index))), jsxRuntime.jsxs(WrapperIconNotification, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), newNotification.length ? (jsxRuntime.jsx("div", { style: { marginLeft: '-12px' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, ' ', "\u00A0 ", textNotification] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: notification.notificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })] })), isMobileVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
                                             borderBottom: openNotificationMobile && windowSize[0] <= 650
                                                 ? `4px solid ${FRSTTheme['colors'].primary1}`
                                                 : '',
@@ -9130,14 +9178,14 @@ function GlobalMenu({ variant, menu, user, search, notification, languages, lang
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "default", type: "menu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
                             }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: "default", user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText }) }), languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "default", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' }))] }) })) }));
 }
-function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, customMenu }) {
     const [optionsSubMenu, setOptionsSubmenu] = React.useState({});
     const [subMenuIsVisible, setSubMenuIsVisible] = React.useState(false);
     const newOptionsSubMenu = (items) => {
         setOptionsSubmenu(items);
         setTimeout(() => setSubMenuIsVisible(true), 200);
     };
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SubMenuMobile, { onClickExit: onClickExit, items: optionsSubMenu, isVisible: subMenuIsVisible, setVisible: setSubMenuIsVisible, variant: variant, languageSelected: languageSelected, onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast }), jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(SubMenuMobile, { onClickExit: onClickExit, items: optionsSubMenu, isVisible: subMenuIsVisible, setVisible: setSubMenuIsVisible, variant: variant, languageSelected: languageSelected, onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx(MenuMobile$1, { isVisible: isVisible, children: variant === 'LXP' || variant === 'custom' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(ItemMenuMobile, { onClick: () => setVisible(false), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(BackArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Back' : 'Voltar'] }) }), items &&
                                     items.length > 0 &&
                                     items.map((item, index) => {
                                         if (item.label == 'Criar conteúdo')
@@ -9155,11 +9203,11 @@ function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, o
                                         if (item.onClick == null)
                                             return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: [item.iconBegin, "\u00A0", item.label] }, index));
                                         return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
-                                    })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                                    }), customMenu?.map((item, index) => (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 2 : 0 }, children: item.iconBegin }), "\u00A0", item.label] }, index)))] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
                                         ? 'Visit our channel and social networks'
                                         : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) })] }));
 }
-function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, customMenu }) {
     const [options, setOptions] = React.useState(items);
     React.useEffect(() => {
         setOptions(items);
@@ -9178,11 +9226,11 @@ function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected
                                 if (item.onClick == null)
                                     return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
                                 return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
-                            })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                            }), customMenu?.map((item, index) => (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index)))] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
                                 ? 'Visit our channel and social networks'
                                 : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) }));
 }
-function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }) {
+function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, customMenu }) {
     const [optionsSubMenu, setOptionsSubmenu] = React.useState({});
     const [subMenuIsVisible, setSubMenuIsVisible] = React.useState(false);
     const newOptionsSubMenu = (items) => {
@@ -9207,7 +9255,7 @@ function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onC
                                     if (item.onClick == null)
                                         return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: () => newOptionsSubMenu(item.subItens), children: [item.iconBegin, "\u00A0", item.label] }, index));
                                     return (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index));
-                                })] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
+                                }), customMenu?.map((item, index) => (jsxRuntime.jsxs(ItemMenuMobile, { onClick: (e) => item.onClick(e), children: [item.iconBegin, "\u00A0", item.label] }, index)))] }), jsxRuntime.jsxs(footerMenuMobile, { children: [jsxRuntime.jsx(ItemMenuMobile, { style: {}, onClick: () => onClickExit(), children: jsxRuntime.jsxs("span", { children: [' ', jsxRuntime.jsx(ExitArrow, { fill: "white" }), " \u00A0 ", languageSelected === 'en-US' ? 'Logout' : 'Sair'] }) }), jsxRuntime.jsx("span", { style: { marginTop: 24 }, children: languageSelected === 'en-US'
                                     ? 'Visit our channel and social networks'
                                     : 'Visite nossos canais e redes sociais' }), jsxRuntime.jsxs(frstSocials, { children: [jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSite, children: [' ', jsxRuntime.jsx(SiteIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickLinkedin, children: [' ', jsxRuntime.jsx(LinkedinIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickInstagram, children: [' ', jsxRuntime.jsx(InstagramIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickYoutube, children: [' ', jsxRuntime.jsx(YoutubeIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickSpotify, children: [' ', jsxRuntime.jsx(SpotifyIcon, {}), ' '] }), jsxRuntime.jsxs(itemFrstSocials, { onClick: onClickPodCast, children: [' ', jsxRuntime.jsx(PodCastIcon, {}), ' '] })] })] })] })) }) }));
 }
@@ -14180,7 +14228,7 @@ const WrapperCard = styled__default["default"].div `
 
   border-radius: 10px;
 
-  padding: 20px;
+  padding: 20px 20px 8px 20px;
 
   :hover {
     cursor: pointer;
@@ -14302,13 +14350,14 @@ const DataListItem = styled__default["default"].li `
   list-style-type: none;
   margin: 0;
   font-weight: 400;
+  padding: 0px 10px;
 `;
 const Button = styled__default["default"].button `
   background: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px auto;
+  margin: 15px auto 5px;
 
   border: none;
   font-size: 16px;
@@ -14360,21 +14409,14 @@ function CardMenu({ id, menuOptions }) {
                             style: {
                                 width: '300px',
                                 position: 'relative',
-                                marginTop: '10px'
+                                marginTop: '10px',
+                                padding: '10px'
                             }
                         }, sx: {
                             '& .MuiMenu-paper': {
                                 padding: '1px',
                                 border: '1px solid #BDBDBD',
-                                borderRadius: '10px',
-                                '& ul': {
-                                    padding: '0px',
-                                    position: 'relative'
-                                },
-                                '& li': {
-                                    padding: '10px 10px 0px 20px',
-                                    fontFamily: 'pt sans'
-                                }
+                                borderRadius: '10px'
                             }
                         }, children: menuOptions?.map((option, index) => (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(MenuItem__default["default"], { onClick: () => {
                                         handleClose(option);
@@ -14385,8 +14427,7 @@ function CardMenu({ id, menuOptions }) {
                                             backgroundColor: 'transparent'
                                         }
                                     }, children: [option?.type === 'delete' ? jsxRuntime.jsx(TrashDelete, { fill: "#923534", width: "30px" }) : option?.icon, ' ', option?.label] }, index), jsxRuntime.jsx(material.Divider, { sx: {
-                                        marginTop: '5px',
-                                        marginBottom: '0px!important'
+                                        margin: '5px 10px 0px 10px'
                                     } })] }))) })] }))] }));
 }
 
@@ -14412,7 +14453,7 @@ function LearningCycleCard({ id, tag, name, favorite, labels, modulesList, handl
                 handleFavorite(!isFavorite);
             } }));
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { disabled: disabled, status: tag, style: { ...style }, children: [jsxRuntime.jsxs(TagArea, { children: [jsxRuntime.jsx(TagStatus, { disabled: disabled, children: tag }), jsxRuntime.jsxs(Actions, { children: [jsxRuntime.jsx(FavoriteStar, {}), jsxRuntime.jsx(CardMenu, { id: id, menuOptions: menuOptions })] })] }), jsxRuntime.jsx(CycleName, { children: name }), jsxRuntime.jsx(AccordionList, { disabled: disabled, children: jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === id && isAccordionOpen, onChange: () => handleSelectedItem(id), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel1bh-content", id: "panel1bh-header", children: jsxRuntime.jsxs(AccortionTitle, { children: [jsxRuntime.jsx("span", { children: handleQuantityGroups(modulesList?.length) }), " ", jsxRuntime.jsxs("span", { children: [" ", labels?.groupsLabel, " "] }), labels?.groupsQuantityDescription] }) }), !disabled && isAccordionOpen && jsxRuntime.jsx(material.Divider, { sx: { marginBottom: '5px' } }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList, { children: modulesList?.map((item, index) => (jsxRuntime.jsx(DataListItem, { children: item.name }, index))) }) }), isAccordionOpen && jsxRuntime.jsx(material.Divider, { sx: { marginTop: '5px' } }), jsxRuntime.jsx(Button, { onClick: () => handleClick(id), children: labels?.actionButton })] }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard, { disabled: disabled, status: tag, style: { ...style }, children: [jsxRuntime.jsxs(TagArea, { children: [jsxRuntime.jsx(TagStatus, { disabled: disabled, children: tag }), jsxRuntime.jsxs(Actions, { children: [jsxRuntime.jsx(FavoriteStar, {}), jsxRuntime.jsx(CardMenu, { id: id, menuOptions: menuOptions })] })] }), jsxRuntime.jsx(CycleName, { children: name }), jsxRuntime.jsx(AccordionList, { disabled: disabled, children: jsxRuntime.jsxs(material.Accordion, { expanded: selectedItem === id && isAccordionOpen, onChange: () => handleSelectedItem(id), children: [jsxRuntime.jsx(material.AccordionSummary, { expandIcon: jsxRuntime.jsx(IconUp, {}), "aria-controls": "panel1bh-content", id: "panel1bh-header", children: jsxRuntime.jsxs(AccortionTitle, { children: [jsxRuntime.jsx("span", { children: handleQuantityGroups(modulesList?.length) }), " ", jsxRuntime.jsxs("span", { children: [" ", labels?.groupsLabel, " "] }), labels?.groupsQuantityDescription] }) }), !disabled && isAccordionOpen && jsxRuntime.jsx(material.Divider, { sx: { margin: '5px 10px 0px 10px' } }), jsxRuntime.jsx(material.AccordionDetails, { children: jsxRuntime.jsx(DataList, { children: modulesList?.map((item, index) => (jsxRuntime.jsx(DataListItem, { children: item.name }, index))) }) }), isAccordionOpen && jsxRuntime.jsx(material.Divider, { sx: { margin: '5px 10px 0px 10px' } }), jsxRuntime.jsx(Button, { onClick: () => handleClick(id), children: labels?.actionButton })] }) })] }) }));
 }
 
 const Div = styled__default["default"].div `
@@ -14634,6 +14675,7 @@ exports.HeaderChallenge = HeaderChallenge;
 exports.HeaderContent = HeaderContent;
 exports.HomeFilledIcon = HomeFilledIcon;
 exports.HomeLineIcon = HomeLineIcon;
+exports.IconContent = IconContent;
 exports.IconNotification = IconNotification;
 exports.InputComment = InputComment;
 exports.InstagramIcon = InstagramIcon;

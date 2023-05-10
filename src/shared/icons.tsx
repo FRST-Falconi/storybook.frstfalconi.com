@@ -3503,10 +3503,17 @@ export function CheckIconSimple({ width = '15', height = '12', fill = '#2CA92A' 
   )
 }
 
-export function ArrowDown({ width = '12', height = '6', fill = '#000000' }: IconsProps) {
+export function IconContent({ fill, width, height }: IconsProps) {
   return (
-    <svg width={width} height={height} viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M11.5 0H0L5.5 6L11.5 0Z" fill={fill} />
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M15.2884 10.4968L10.1 13.038V7.10845L15.2884 10.4968Z"
+        stroke="white"
+        stroke-width="1.2"
+        stroke-linejoin="round"
+      />
+      <rect x="1.6" y="2.6" width="20.8" height="14.8" rx="1.4" stroke="white" stroke-width="1.2" />
+      <path d="M6 21.5H18" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
   )
 }

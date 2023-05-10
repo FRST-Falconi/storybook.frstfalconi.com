@@ -6,6 +6,7 @@ interface BannerLxpParams {
     bgColor?: string;
     isDisabledTitle?: boolean;
     style?: React.CSSProperties;
+    showBannerConfigs?: boolean;
     /**
      * @prop {object} selectedFile: função de callback que retorna o arquivo selecionado pelo componente
      */

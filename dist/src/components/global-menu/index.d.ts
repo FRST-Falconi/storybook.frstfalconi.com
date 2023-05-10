@@ -1,8 +1,8 @@
 /// <reference types="react" />
 import '../../shared/global.css';
 import { IGlobalMenu } from './globalMenu';
-export default function GlobalMenu({ variant, menu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, onClickLogo }: IGlobalMenu): JSX.Element;
-export declare function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }: {
+export default function GlobalMenu({ variant, menu, customMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, onClickLogo }: IGlobalMenu): JSX.Element;
+export declare function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, customMenu }: {
     items: any;
     isVisible: any;
     setVisible: any;
@@ -15,8 +15,9 @@ export declare function MenuMobile({ items, isVisible, setVisible, variant, lang
     onClickYoutube: any;
     onClickSpotify: any;
     onClickPodCast: any;
+    customMenu: any;
 }): JSX.Element;
-export declare function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }: {
+export declare function SubMenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, customMenu }: {
     items: any;
     isVisible: any;
     setVisible: any;
@@ -29,8 +30,9 @@ export declare function SubMenuMobile({ items, isVisible, setVisible, variant, l
     onClickYoutube: any;
     onClickSpotify: any;
     onClickPodCast: any;
+    customMenu: any;
 }): JSX.Element;
-export declare function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast }: {
+export declare function SideMenu({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, customMenu }: {
     items: any;
     isVisible: any;
     setVisible: any;
@@ -43,6 +45,7 @@ export declare function SideMenu({ items, isVisible, setVisible, variant, langua
     onClickYoutube: any;
     onClickSpotify: any;
     onClickPodCast: any;
+    customMenu: any;
 }): JSX.Element;
 export declare function IconHamburgerMenu(): JSX.Element;
 export declare function HasNotificationIcon(): JSX.Element;

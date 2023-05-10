@@ -47,23 +47,15 @@ export default function CardMenu({ id, menuOptions }) {
               style: {
                 width: '300px',
                 position: 'relative',
-                marginTop: '10px'
+                marginTop: '10px',
+                padding: '10px'
               }
             }}
             sx={{
               '& .MuiMenu-paper': {
                 padding: '1px',
                 border: '1px solid #BDBDBD',
-                borderRadius: '10px',
-                '& ul': {
-                  padding: '0px',
-                  position: 'relative'
-                },
-
-                '& li': {
-                  padding: '10px 10px 0px 20px',
-                  fontFamily: 'pt sans'
-                }
+                borderRadius: '10px'
               }
             }}
           >
@@ -87,8 +79,7 @@ export default function CardMenu({ id, menuOptions }) {
                 </MenuItem>
                 <Divider
                   sx={{
-                    marginTop: '5px',
-                    marginBottom: '0px!important'
+                    margin: '5px 10px 0px 10px'
                   }}
                 />
               </>
