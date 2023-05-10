@@ -33,11 +33,6 @@ interface BannerLxpParams {
 
 export default function BannerLxp(props: BannerLxpParams) {
   const [openConfig, setOpenConfig] = useState(false)
-  // const [disableText, setDisableText] = useState(props.isDisabledTitle)
-  // const [titleText, setTitleText] = useState(props.title ? props.title : '')
-  // const [colorTitle, setColorTitle] = useState(props.titleColor ? props.titleColor : '#FFF')
-  // const [backgroundColor, setBackgroundColor] = useState(props.bgColor ? props.bgColor : '')
-  // const [backgroundImage, setBackgroundImage] = useState(props.bgSrc || '')
   const [disableText, setDisableText] = useState(false)
   const [titleText, setTitleText] = useState('')
   const [colorTitle, setColorTitle] = useState('')
