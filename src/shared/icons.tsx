@@ -3502,3 +3502,11 @@ export function CheckIconSimple({ width = '15', height = '12', fill = '#2CA92A' 
     </svg>
   )
 }
+
+export function ArrowDown({ width = '12', height = '6', fill = '#000000' }: IconsProps) {
+  return (
+    <svg width={width} height={height} viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M11.5 0H0L5.5 6L11.5 0Z" fill={fill} />
+    </svg>
+  )
+}

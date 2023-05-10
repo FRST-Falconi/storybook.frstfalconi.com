@@ -12,7 +12,7 @@ export type StepLearningCycle = {
   /**
    * @prop {string} status: Status do step
    */
-  status: 'finished' | 'inProgress' | 'waiting'
+  status: string
 }
 
 export type StepsLearningCycle = {
@@ -24,6 +24,10 @@ export type StepsLearningCycle = {
    * @prop {StepLearningCycle[]} listSteps: Lista com os steps
    */
   listSteps: StepLearningCycle[]
+  /**
+   * @prop {()=>void} setListSteps: Lista com os steps
+   */
+  setListSteps: (listSteps: StepLearningCycle[]) => void
   /**
    * @prop {string} direction: Orientação da lista (Vertical ou horizontal)
    */
