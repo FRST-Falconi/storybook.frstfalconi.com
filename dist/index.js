@@ -6198,6 +6198,7 @@ function StepLearningCycle({ listSteps, setListSteps, direction = 'row', size = 
             }
         });
         setStepsList(newListStep);
+        setListSteps(newListStep);
     };
     const variantsChek = {
         large: {
