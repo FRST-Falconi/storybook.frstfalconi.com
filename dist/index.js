@@ -6633,20 +6633,15 @@ const BannerContainer = styled__default["default"].div `
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-
-  :hover .configButton {
-    display: block;
-  }
 `;
 const ConfigButton = styled__default["default"].div `
   position: absolute;
   right: 0;
   margin-right: 83px;
-  display: none;
 `;
 const ConfigContainer = styled__default["default"].div `
   width: 350px;
-  height: 420px;
+  height: 490px;
   border-radius: 8px;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);
@@ -6660,6 +6655,7 @@ const ConfigContainer = styled__default["default"].div `
   flex-direction: column;
   right: 0;
   margin-right: 83px;
+  top: 72px;
 `;
 const EnableText = styled__default["default"].div `
   width: 100%;
@@ -6715,6 +6711,44 @@ const FixImage = styled__default["default"].div `
   align-items: center;
   margin-top: 4px;
 `;
+const ActionButtons = styled__default["default"].div `
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 16px;
+  align-items: center;
+
+  button {
+    color: #0b0080;
+    font-family: 'PT Sans', 'PTSans-Bold';
+    font-size: 16px;
+    font-weight: 700;
+    background: none;
+    border: none;
+
+    :last-child {
+      justify-content: center;
+      padding: 9px 16px;
+      height: 48px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-family: 'Work Sans';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      box-shadow: none;
+      background-color: #ff4d0d;
+      color: #ffffff;
+    }
+
+    :hover {
+      cursor: pointer;
+    }
+  }
+`;
 
 function BannerLxp(props) {
     const [openConfig, setOpenConfig] = React.useState(false);
@@ -6729,12 +6763,20 @@ function BannerLxp(props) {
     const [displayBackgroundColorPicker, setDisplayBackgroundColorPicker] = React.useState(false);
     const [anchor, setAnchor] = React.useState(null);
     const handleOpenConfig = () => setOpenConfig(true);
-    const handleCloseConfig = () => {
+    const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined;
+    const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined;
+    const onSave = () => {
         setOpenConfig(false);
         props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage]);
     };
-    const idBg = displayBackgroundColorPicker ? 'simple-popover' : undefined;
-    const idTitle = displayTitleColorPicker ? 'simple-popover' : undefined;
+    const onCancell = () => {
+        setBackgroundColor(props.bgColor ?? '');
+        setBackgroundImage(props.bgSrc ?? '');
+        setTitleText(props.title ?? '');
+        setColorTitle(props.titleColor ?? '');
+        setDisableText(props.isDisabledTitle ?? false);
+        setOpenConfig(false);
+    };
     const handleOpenTitleColorPicker = (event) => {
         setDisplayTitleColorPicker(!displayTitleColorPicker);
         setAnchor(event.currentTarget);
@@ -6777,7 +6819,7 @@ function BannerLxp(props) {
     return (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: backgroundImage === '' ? backgroundColor : props.bgSrc && `url(${props.bgSrc})`, style: {
             ...props.style,
             objectFit: fixImage ? 'fill' : 'none'
-        }, children: [!disableText ? jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText }) : '', jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$3, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: handleCloseConfig, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: "Alterar t\u00EDtulo do KnowHub", placeholder: "Digite seu t\u00EDtulo aqui", style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs(EnableText, { children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
+        }, children: [!disableText ? jsxRuntime.jsx("span", { style: { color: colorTitle, fontSize: 40, fontWeight: 700 }, children: titleText }) : '', props?.showBannerConfigs && (jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$3, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) })), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: onCancell, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }, children: "T\u00EDtulo" }), jsxRuntime.jsx(TextField, { label: "Alterar t\u00EDtulo do KnowHub", placeholder: "Digite seu t\u00EDtulo aqui", style: { width: '100%' }, onChange: (e) => setTitleText(e.target.value) }), jsxRuntime.jsxs(EnableText, { children: [jsxRuntime.jsx("span", { children: "Mostrar texto" }), jsxRuntime.jsx(material.Switch, { checked: !disableText, onChange: () => setDisableText(!disableText), sx: {
                                         '& .MuiSwitch-switchBase.Mui-checked': {
                                             color: '#FFF'
                                         },
@@ -6807,7 +6849,7 @@ function BannerLxp(props) {
                                             backgroundColor: '#FF4D0D !important',
                                             opacity: 1
                                         }
-                                    } })] })] }) })] }));
+                                    } })] }), jsxRuntime.jsxs(ActionButtons, { children: [jsxRuntime.jsx("button", { onClick: onCancell, children: "Cancelar" }), jsxRuntime.jsx("span", { children: "ou" }), jsxRuntime.jsx("button", { onClick: onSave, children: "Salvar" })] })] }) })] }));
 }
 
 const variantStyles = (variant = 'contained') => ({
