@@ -5,6 +5,7 @@ import * as S from './StepLearningCycleStyle'
 import * as Icons from '../../../shared/icons'
 export default function StepLearningCycle({
   listSteps,
+  setListSteps,
   direction = 'row',
   size = 'medium',
   completed = false
@@ -20,8 +21,13 @@ export default function StepLearningCycle({
         }
       })
       setStepsList(newSteps)
+      setListSteps(newSteps)
     }
   }, [completed])
+
+  useEffect(() => {
+    setStepsList(listSteps)
+  }, [listSteps])
 
   const handleChangeStep = (id: number) => {
     const newListStep = stepsList.map((step, index) => {
@@ -44,6 +50,7 @@ export default function StepLearningCycle({
     })
 
     setStepsList(newListStep)
+    setListSteps(newListStep)
   }
 
   const variantsChek = {

@@ -6159,7 +6159,7 @@ const IconStatus = styled__default["default"].span `
   }
 `;
 
-function StepLearningCycle({ listSteps, direction = 'row', size = 'medium', completed = false }) {
+function StepLearningCycle({ listSteps, setListSteps, direction = 'row', size = 'medium', completed = false }) {
     const [stepsList, setStepsList] = React.useState(listSteps);
     React.useEffect(() => {
         if (completed) {
@@ -6170,8 +6170,12 @@ function StepLearningCycle({ listSteps, direction = 'row', size = 'medium', comp
                 };
             });
             setStepsList(newSteps);
+            setListSteps(newSteps);
         }
     }, [completed]);
+    React.useEffect(() => {
+        setStepsList(listSteps);
+    }, [listSteps]);
     const handleChangeStep = (id) => {
         const newListStep = stepsList.map((step, index) => {
             if (index < id) {
@@ -6194,6 +6198,7 @@ function StepLearningCycle({ listSteps, direction = 'row', size = 'medium', comp
             }
         });
         setStepsList(newListStep);
+        setListSteps(newListStep);
     };
     const variantsChek = {
         large: {
@@ -14674,6 +14679,7 @@ exports.Content = Content$3;
 exports.ContentCycle = ContentCycle;
 exports.ContentSwitcher = ContentSwitcher;
 exports.ContentThumbnails = ContentThumbnails;
+exports.DateRangePicker = StepLearningCycle;
 exports.Diamond = Diamond;
 exports.DoubleCheck = DoubleCheck;
 exports.ExclusiveClassCard = ExclusiveClassCard;
