@@ -10605,9 +10605,11 @@ function AccordionTrack(props) {
         setIsLoading(props.isLoading);
     }, [props.isLoading]);
     React.useEffect(() => {
+        console.log("Atualizou props em accordionTrack courseData", props.courseData);
         setCourseData(props.courseData);
     }, [props.courseData]);
     React.useEffect(() => {
+        console.log("Atualizou props em accordionTrack courseIndividualData", props.courseIndividualData);
         setCourseIndividualData(props.courseIndividualData);
     }, [props.courseIndividualData]);
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(React__default["default"].StrictMode, { children: [jsxRuntime.jsxs(ContentCourses, { TrailName: '', children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsx("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: IsLoading ?
@@ -10702,10 +10704,12 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
         }
     }, [trails]);
     React.useEffect(() => {
+        console.log("Atualizou em accordionTrackList", courses);
         setMeusConteudosData(courses ? courses.filter(item => !item.active_individual) : []);
         setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : []);
     }, [courses]);
     React.useEffect(() => {
+        console.log("Atualizou props em accordionTrackList", courseData);
         setCourses(courseData);
     }, [courseData]);
     React.useEffect(() => {
@@ -10821,15 +10825,15 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
         });
         onSetNameTrail(name, trails[id].id);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(dnd.DragDropContext, { onDragEnd: handleDragEnd, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: trails && (jsxRuntime.jsx(AccordionTrack, { trailsData: trails, courseData: MeusConteudosData, courseIndividualData: ConteudoIndividual, handleSwitchActiveTrail: (index, active) => {
-                        setActiveTrail(index, active);
-                    }, onSetNameTrail: (name, id) => {
-                        setNameTrail(name, id);
-                    }, onNewTrail: () => {
-                        if (onNewTrail) {
-                            onNewTrail();
-                        }
-                    }, handleSwitchAtivarConteudo: setActiveContent, handleSwitchAtivar: handleSwitchAtivar, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, isLoading: isLoading, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails })) }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(dnd.DragDropContext, { onDragEnd: handleDragEnd, children: jsxRuntime.jsx(AccordionTrack, { trailsData: trails, courseData: MeusConteudosData, courseIndividualData: ConteudoIndividual, handleSwitchActiveTrail: (index, active) => {
+                    setActiveTrail(index, active);
+                }, onSetNameTrail: (name, id) => {
+                    setNameTrail(name, id);
+                }, onNewTrail: () => {
+                    if (onNewTrail) {
+                        onNewTrail();
+                    }
+                }, handleSwitchAtivarConteudo: setActiveContent, handleSwitchAtivar: handleSwitchAtivar, handleEditCourse: handleEditCourse, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, isLoading: isLoading, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails }) }) }));
 }
 
 const Container$4 = styled__default["default"].div `
