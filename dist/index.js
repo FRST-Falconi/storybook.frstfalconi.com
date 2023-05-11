@@ -10706,6 +10706,9 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
         setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : []);
     }, [courses]);
     React.useEffect(() => {
+        setCourses(courseData);
+    }, [courseData]);
+    React.useEffect(() => {
         setTrails(trailsData);
     }, [trailsData]);
     const handleDragEnd = ({ destination, source }) => {

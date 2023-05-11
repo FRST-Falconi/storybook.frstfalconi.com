@@ -67,6 +67,10 @@ export default function AccordionTrackList({
     setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : [])
   }, [courses])
 
+  useEffect(() => {
+    setCourses(courseData)
+  }, [courseData])
+
   useEffect(() => {   
     setTrails(trailsData)
   }, [trailsData])

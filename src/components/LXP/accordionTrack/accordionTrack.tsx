@@ -17,7 +17,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   const [courseData, setCourseData] = useState(props.courseData)
   const [courseIndividualData, setCourseIndividualData] = useState(props.courseIndividualData)
 
-
   const [ShowTrail, setShowTrail] = useState([]);
   const [ShowIndividual, setShowIndividual] = useState<boolean>(true);
   const [IsLoading, setIsLoading] = useState<boolean>(props.isLoading);
