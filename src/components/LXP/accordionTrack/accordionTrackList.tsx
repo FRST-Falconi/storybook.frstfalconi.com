@@ -6,6 +6,7 @@ import { DragDropContext } from '@hello-pangea/dnd'
 // import { DragDropContext } from 'react-beautiful-dnd'
 import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
+import { Course } from '@shared/icons'
 
 export default function AccordionTrackList({
   trailsData,
@@ -63,11 +64,13 @@ export default function AccordionTrackList({
   }, [trails])
 
   useEffect(() => {
+    console.log("Atualizou em accordionTrackList", courses)
     setMeusConteudosData(courses ? courses.filter(item => !item.active_individual) : [])
     setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : [])
   }, [courses])
 
   useEffect(() => {
+    console.log("Atualizou props em accordionTrackList", courseData)
     setCourses(courseData)
   }, [courseData])
 
@@ -213,48 +216,44 @@ export default function AccordionTrackList({
     <ThemeProvider theme={FRSTTheme}>
       <DragDropContext onDragEnd={handleDragEnd}>
         {
-          <>
-            {trails && (
-              <AccordionTrack
-                trailsData={trails}
-                courseData={MeusConteudosData}
-                courseIndividualData={ConteudoIndividual}
-                handleSwitchActiveTrail={(index, active) => {
-                  setActiveTrail(index, active)
-                }}
-                onSetNameTrail={(name, id) => {
-                  setNameTrail(name, id)
-                }}
-                onNewTrail={() => {
-                  if (onNewTrail) {
-                    onNewTrail()
-                  }
-                }}
-                handleSwitchAtivarConteudo={setActiveContent}
-                handleSwitchAtivar={handleSwitchAtivar}
-                handleEditCourse={handleEditCourse}
-                textMeusConteudos={textMeusConteudos}
-                textTotalDe={textTotalDe}
-                textRegistros={textRegistros}
-                textMinhasTrihas={textMinhasTrihas}
-                txtAtivarCurso={txtAtivarCurso}
-                txtAtivarTrilha={txtAtivarTrilha}
-                txtButtonLabel={txtButtonLabel}
-                txtCriarNovoCurso={txtCriarNovoCurso}
-                isLoading={isLoading}
-                updateScrollSize={updateScrollSize}
-                handleDeleteCourse={handleDeleteCourse}
-                handleDeleteCourseTrail={handleDeleteCourseTrail}
-                handlePopOverEdit={handlePopOverEdit}
-                handlePopOverTrailDelete={handlePopOverTrailDelete}
-                handlePopOverTrailEdit={handlePopOverTrailEdit}
-                handlePopOverMove={handlePopOverMove}
-                txtPopOverDeleteContent={txtPopOverDeleteContent}
-                txtPopOverEditContent={txtPopOverEditContent}
-                txtPopOverMoveToTrails={txtPopOverMoveToTrails}
-              />
-            )}
-          </>
+          <AccordionTrack
+            trailsData={trails}
+            courseData={MeusConteudosData}
+            courseIndividualData={ConteudoIndividual}
+            handleSwitchActiveTrail={(index, active) => {
+              setActiveTrail(index, active)
+            }}
+            onSetNameTrail={(name, id) => {
+              setNameTrail(name, id)
+            }}
+            onNewTrail={() => {
+              if (onNewTrail) {
+                onNewTrail()
+              }
+            }}
+            handleSwitchAtivarConteudo={setActiveContent}
+            handleSwitchAtivar={handleSwitchAtivar}
+            handleEditCourse={handleEditCourse}
+            textMeusConteudos={textMeusConteudos}
+            textTotalDe={textTotalDe}
+            textRegistros={textRegistros}
+            textMinhasTrihas={textMinhasTrihas}
+            txtAtivarCurso={txtAtivarCurso}
+            txtAtivarTrilha={txtAtivarTrilha}
+            txtButtonLabel={txtButtonLabel}
+            txtCriarNovoCurso={txtCriarNovoCurso}
+            isLoading={isLoading}
+            updateScrollSize={updateScrollSize}
+            handleDeleteCourse={handleDeleteCourse}
+            handleDeleteCourseTrail={handleDeleteCourseTrail}
+            handlePopOverEdit={handlePopOverEdit}
+            handlePopOverTrailDelete={handlePopOverTrailDelete}
+            handlePopOverTrailEdit={handlePopOverTrailEdit}
+            handlePopOverMove={handlePopOverMove}
+            txtPopOverDeleteContent={txtPopOverDeleteContent}
+            txtPopOverEditContent={txtPopOverEditContent}
+            txtPopOverMoveToTrails={txtPopOverMoveToTrails}
+          />
         }
       </DragDropContext>
     </ThemeProvider>

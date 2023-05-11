@@ -50,10 +50,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   }, [props.isLoading])
 
   useEffect(() => {
+    console.log("Atualizou props em accordionTrack courseData", props.courseData)
     setCourseData(props.courseData)
   }, [props.courseData])
 
   useEffect(() => {
+    console.log("Atualizou props em accordionTrack courseIndividualData", props.courseIndividualData)
     setCourseIndividualData(props.courseIndividualData)
   }, [props.courseIndividualData])
 
