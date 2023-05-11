@@ -13,6 +13,10 @@ import React from 'react'
 export default function AccordionTrack(props: IAccordionTranslate) {
 
   const [trails, setTrail] = useState(props.trailsData)
+
+  const [courseData, setCourseData] = useState(props.courseData)
+  const [courseIndividualData, setCourseIndividualData] = useState(props.courseIndividualData)
+
   const [ShowTrail, setShowTrail] = useState([]);
   const [ShowIndividual, setShowIndividual] = useState<boolean>(true);
   const [IsLoading, setIsLoading] = useState<boolean>(props.isLoading);
@@ -44,6 +48,16 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   useEffect(() => {
     setIsLoading(props.isLoading)
   }, [props.isLoading])
+
+  useEffect(() => {
+    console.log("Atualizou props em accordionTrack courseData", props.courseData)
+    setCourseData(props.courseData)
+  }, [props.courseData])
+
+  useEffect(() => {
+    console.log("Atualizou props em accordionTrack courseIndividualData", props.courseIndividualData)
+    setCourseIndividualData(props.courseIndividualData)
+  }, [props.courseIndividualData])
 
   return (
     <>
@@ -125,7 +139,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                           <Thumbnails variant='add' isDisabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} />
                         </div>
                         {
-                          props.courseData.map((el, contentIndex) => {
+                          courseData && courseData.map((el, contentIndex) => {
                             return (
                               <>
                                 <ThumbnailsDraggable
@@ -218,10 +232,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                         refreshResize={props.updateScrollSize}
                         styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                       >
-
                         <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                           {
-                            props.courseIndividualData.map((individual, individualIndex) => {
+                            courseIndividualData && courseIndividualData.map((individual, individualIndex) => {
                               return (
                                 <>
                                   <ThumbnailsDraggable
