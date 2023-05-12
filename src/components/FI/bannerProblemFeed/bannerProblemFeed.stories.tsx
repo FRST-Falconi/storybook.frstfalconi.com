@@ -19,7 +19,7 @@ Normal.args = {
     userPosition: 'Tecnologia da Informação',
     userCompany: 'FRST Falconi',
     problemTitle: 'Aumentar a venda de produto adicional na loja física',
-    topHeaderTagText: 'Convite recebido para aprovação',
+    topHeaderTagText: 'Convite para revisão',
     problemTags: ['Customer Success', 'Experiência do usuário', 'CSAT'],
     lastUpdated: 'Atualizado hoje',
     lastUpdatedStep: 'Missão 3: Saturno - Testes realizados',

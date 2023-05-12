@@ -116,11 +116,14 @@ export const topHeaderTag = styled.span<{ background: string, color: string }>`
     align-items: center;
     padding: 4px 16px;
     gap: 10px;
+    align-self: flex-end;
+    position: relative;
+    
+    width: fit-content;
+    height: 27px;
+    max-height: 27px;
 
-    position: absolute;
-    right: -1px;
-    top: -1px;
-
+    margin-bottom: -27px;
     background: ${({background}) => background || '#940059'};
     color: ${({color}) => color || '#FFFFFF'};
     border-radius: 0px 8px;
