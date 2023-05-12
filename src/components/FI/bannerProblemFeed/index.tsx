@@ -280,14 +280,14 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     }
 
     return(
-        <ThemeProvider theme={FRSTTheme}>
-            { props.mainAchievementValue || props.mainLearningValue ?
-                <div style={{display: 'flex', flexDirection: 'column'}}>
-                    {props.topHeaderTagText &&
-                        <Styles.topHeaderTag background={props.topHeaderTagBgColor} color={props.topHeaderTagColor}>
-                            {props.topHeaderTagText}
-                        </Styles.topHeaderTag>
-                    }
+        <ThemeProvider theme={FRSTTheme}>                
+            <div style={{display: 'flex', flexDirection: 'column'}}>
+                {props.topHeaderTagText &&
+                    <Styles.topHeaderTag background={props.topHeaderTagBgColor} color={props.topHeaderTagColor}>
+                        {props.topHeaderTagText}aaa
+                    </Styles.topHeaderTag>
+                }
+                { props.mainAchievementValue || props.mainLearningValue ?
                     <Styles.achievementHeader style={{backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }} >
                         <img
                             src={props.mainAchievementValue ? achievementIcon : learningIcon} 
@@ -298,9 +298,9 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                             {props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue}
                         </span>
                     </Styles.achievementHeader>
-                </div>
-                : null
-            }
+                    : null
+                }
+            </div>
             <Styles.bannerContainer style={{borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8}}>
                 <Styles.headerContent>
                     <Avatar size="54px" src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />

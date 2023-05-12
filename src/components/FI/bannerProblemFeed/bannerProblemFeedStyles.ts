@@ -122,7 +122,7 @@ export const topHeaderTag = styled.span<{ background: string, color: string }>`
     width: fit-content;
     height: 27px;
     max-height: 27px;
-
+    z-index: 1;
     margin-bottom: -27px;
     background: ${({background}) => background || '#940059'};
     color: ${({color}) => color || '#FFFFFF'};
