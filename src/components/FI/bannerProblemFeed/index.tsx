@@ -284,7 +284,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
             <div style={{display: 'flex', flexDirection: 'column'}}>
                 {props.topHeaderTagText &&
                     <Styles.topHeaderTag background={props.topHeaderTagBgColor} color={props.topHeaderTagColor}>
-                        {props.topHeaderTagText}aaa
+                        {props.topHeaderTagText}
                     </Styles.topHeaderTag>
                 }
                 { props.mainAchievementValue || props.mainLearningValue ?
