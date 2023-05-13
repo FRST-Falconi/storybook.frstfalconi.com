@@ -250,7 +250,7 @@ Opened.args = {
     handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
     handleSwitchAtivar: (idCourse, checked) => {
       alert(`Alterando conteúudo ${idCourse}: ${checked}`)
-    },
+    },    
     handleDeleteCourse: (idCourse) => {
       alert(`Deletando o Curso: ${idCourse}`)
     },
