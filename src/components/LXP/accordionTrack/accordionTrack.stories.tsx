@@ -265,6 +265,9 @@ Opened.args = {
       console.log(`deletedItem`, deletedItem)
       console.log(`insertItem`, insertItem)
       console.log(`trailCoursesList`, trailCoursesList)
+    },    
+    changeCourses: (course) => {
+      console.log(`course`, course)
     },
     handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)},
     textMeusConteudos: "Meus Conteúdos",

@@ -38,7 +38,8 @@ export default function AccordionTrackList({
   txtCriarNovoCurso,
   txtAtivarTrilha,
   isLoading,
-  handlePublicarTrilha
+  handlePublicarTrilha,
+  changeCourses
 }: IAccordionTranslate) {
   const [trails, setTrails] = useState(trailsData)
   const [courses, setCourses] = useState(courseData)
@@ -133,6 +134,11 @@ export default function AccordionTrackList({
       let indexTrail = courses.findIndex(item => item.uuid === uuidConteudo)
       
       if (indexTrail >= 0) {
+
+        let changedCourse = courses[indexTrail]
+        changedCourse.active_individual = destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT
+        changeCourses(changedCourse)
+
         setCourses((prev) => {
           prev = [ ...prev ]
           prev[indexTrail].active_individual = destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT
@@ -160,6 +166,8 @@ export default function AccordionTrackList({
         order: 0
       }
   
+      changeCourses
+
       setTrails((prev) => {
         prev = [ ...prev ]
   
