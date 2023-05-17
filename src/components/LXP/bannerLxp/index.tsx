@@ -99,8 +99,12 @@ export default function BannerLxp(props: BannerLxpParams) {
   useEffect(() => {
     setTitleText(props?.title)
     setDisableText(props?.isDisabledTitle)
-    setBackgroundImage(props?.bgSrc)
-  }, [props])
+    // setBackgroundImage(props?.bgSrc);
+  }, [])
+
+  useEffect(() => {
+    if (props?.bgSrc) setBackgroundImage(props?.bgSrc)
+  }, [props?.bgSrc])
 
   return (
     <Styles.BannerContainer
@@ -122,7 +126,16 @@ export default function BannerLxp(props: BannerLxpParams) {
 
       <Modal open={openConfig} onClose={onCancell}>
         <Styles.ConfigContainer style={{ ...props.style }}>
-          <span style={{ fontWeight: 700, fontSize: 16, color: '#000000', marginBottom: 24 }}>Título</span>
+          <span
+            style={{
+              fontWeight: 700,
+              fontSize: 16,
+              color: '#000000',
+              marginBottom: 24
+            }}
+          >
+            Título
+          </span>
 
           <TextField
             label="Alterar título do KnowHub"
@@ -176,7 +189,16 @@ export default function BannerLxp(props: BannerLxpParams) {
             </Popover>
           </Styles.InputTextColor>
 
-          <span style={{ marginTop: 24, fontWeight: 700, fontSize: 16, color: '#000000' }}>Background</span>
+          <span
+            style={{
+              marginTop: 24,
+              fontWeight: 700,
+              fontSize: 16,
+              color: '#000000'
+            }}
+          >
+            Background
+          </span>
 
           <Styles.InputBgColor className="inputBgColor">
             <span>Cor de fundo</span>
@@ -209,7 +231,8 @@ export default function BannerLxp(props: BannerLxpParams) {
             <span>Imagem de fundo</span>
             <label htmlFor="backgroundSelector">
               {' '}
-              <UploadIcon /> &nbsp; Selecionar{' '}
+              {/* <UploadIcon /> &nbsp; Selecionar{" "} */}
+              &nbsp; Selecionar
             </label>
             <input
               type="file"
