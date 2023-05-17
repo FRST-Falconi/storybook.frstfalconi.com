@@ -323,11 +323,13 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                         return prev
                       })                  
                     }}
+                    
                     showButtonPublish={true}
-                    handlePublicarTrilha={props.handlePublicarTrilha}
+                    handlePublicarTrilha={() => {props.handlePublicarTrilha(trail.id) }}
+                    handlePublicarTrilhaCheck={() => {props.handlePublicarTrilha(trail.id) }}
                     txtAtivarTrilha={props.txtAtivarTrilha}
-                    handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
-                    handlePopOverTrailDelete={(id: string) => { props.handlePopOverTrailDelete(id) }}
+                    handlePopOverTrailEdit={() => { props.handlePopOverTrailEdit(trail.id) }}
+                    handlePopOverTrailDelete={() => { props.handlePopOverTrailDelete(trail.id) }}
                   >
                     {
                       ShowTrail.length === 0 || ShowTrail[trailIndex] &&                  
@@ -369,7 +371,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                             handleClickPopOverEdit={() => {props.handlePopOverEdit(el.course.id)}}
                                             handleClickPopOverMove={() => {props.handlePopOverMove(el.course.id)}}
                                             handleClickPopOverDelete={() => {
-                                              props.handleDeleteCourseTrail(el.course.id)
+                                              props.handleDeleteCourseTrail(el.id)
                                             }}                                        
                                             txtPopOverEditContent={props.txtPopOverEditContent}
                                             txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}

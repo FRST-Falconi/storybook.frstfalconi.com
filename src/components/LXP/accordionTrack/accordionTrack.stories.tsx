@@ -13,74 +13,74 @@ const Template = (args) => {
   // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
   const [Course, setCourse] = useState([
     {
-    "id":63,
-    "uuid":"1b7179d4-b264-44ea-ae09-8c8b38994a4d",
-    "title":"Curso de HTML 5",
-    "language":"pt-br",
-    "desc":"Description content",
-    "tags":{
-        "custom":"#tag",
-        "category":[
-          "Gestão",
-          "Liderança"
-        ]
-    },
-    "settings":{
-        "cover_full_url":"",
-        "cover_thumb_url":"",
-        "cover_video_url":""
-    },
-    "excluded":false,
-    "private":false,
-    "active":true,
-    "active_individual":true,
-    "channel":104
-    },
-    {
-    "id":82,
-    "uuid":"63552d66-468e-4c44-87f8-7dca992d9dd9",
-    "title":"Entendendo funções recursivas",
-    "language":"pt-br",
-    "desc":"descrição",
-    "tags":{
-        "custom":"#tags",
-        "category":[
-          "Gestão"
-        ]
-    },
-    "settings":{
-        "cover_full_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
-        "cover_thumb_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
-        "cover_video_url":""
-    },
-    "excluded":false,
-    "private":false,
-    "active":true,
-    "active_individual":false,
-    "channel":104
+      "id":63,
+      "uuid":"1b7179d4-b264-44ea-ae09-8c8b38994a4d",
+      "title":"Curso de HTML 5",
+      "language":"pt-br",
+      "desc":"Description content",
+      "tags":{
+          "custom":"#tag",
+          "category":[
+            "Gestão",
+            "Liderança"
+          ]
+      },
+      "settings":{
+          "cover_full_url":"",
+          "cover_thumb_url":"",
+          "cover_video_url":""
+      },
+      "excluded":false,
+      "private":false,
+      "active":true,
+      "active_individual":true,
+      "channel":104
     },
     {
-    "id":87,
-    "uuid":"89f06dc7-82b7-475f-aae0-f3d6b02bc9dc",
-    "title":"Conteúdo para deletar",
-    "language":"pt-br",
-    "desc":"teste",
-    "tags":{
-        "custom":"#a",
-        "category":[
-          "Gestão"
-        ]
+      "id":82,
+      "uuid":"63552d66-468e-4c44-87f8-7dca992d9dd9",
+      "title":"Entendendo funções recursivas",
+      "language":"pt-br",
+      "desc":"descrição",
+      "tags":{
+          "custom":"#tags",
+          "category":[
+            "Gestão"
+          ]
+      },
+      "settings":{
+          "cover_full_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
+          "cover_thumb_url":"https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png",
+          "cover_video_url":""
+      },
+      "excluded":false,
+      "private":false,
+      "active":true,
+      "active_individual":false,
+      "channel":104
     },
-    "settings":{
-        "cover_full_url":"",
-        "cover_thumb_url":"",
-        "cover_video_url":""
-    },
-    "excluded":false,
-    "private":false,
-    "active":false,
-    "active_individual":false,
-    "channel":104
+    {
+      "id":87,
+      "uuid":"89f06dc7-82b7-475f-aae0-f3d6b02bc9dc",
+      "title":"Conteúdo para deletar",
+      "language":"pt-br",
+      "desc":"teste",
+      "tags":{
+          "custom":"#a",
+          "category":[
+            "Gestão"
+          ]
+      },
+      "settings":{
+          "cover_full_url":"",
+          "cover_thumb_url":"",
+          "cover_video_url":""
+      },
+      "excluded":false,
+      "private":false,
+      "active":false,
+      "active_individual":false,
+      "channel":104
     }
   ])
 
@@ -89,13 +89,14 @@ const Template = (args) => {
     "id": 174,
     "uuid": "10e6c506-9d66-4312-bda6-3552de5c4a56",
     "name": "O Líder que bate Metas",
+    "publish_status": "pending",
     "excluded": false,
     "active": true,
     "channel": 110,
     "trail_course": [
       {
         "id":32,
-        "trail_id":174,
+        "trail_id":174,        
         "course":{
             "id":44,
             "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
@@ -124,7 +125,7 @@ const Template = (args) => {
       },
       {
         "id":33,
-        "trail_id":174,
+        "trail_id":174,        
         "course":{
             "id":32,
             "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
@@ -159,6 +160,7 @@ const Template = (args) => {
     "name": "Liderança que inspira",
     "excluded": false,
     "active": true,
+    "publish_status": "processing",
     "channel": 110,
     "trail_course": [
       {
