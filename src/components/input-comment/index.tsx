@@ -48,7 +48,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
 
     function inputInChanging(e: any) {
         setStringValueTextArea(e.target.value)
-        onChange(e)
+        onChange(e.target.value)
     }
     
     const onEmojiClick = (emojiObject: any) => {
@@ -61,6 +61,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
 
             setNewEmojiIncluded(true)
             setStringValueTextArea(newStringWithEmoji)
+            onChange(newStringWithEmoji)
         }
     };
     

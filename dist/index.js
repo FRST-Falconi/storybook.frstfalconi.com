@@ -3022,7 +3022,7 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
     }, [value]);
     function inputInChanging(e) {
         setStringValueTextArea(e.target.value);
-        onChange(e);
+        onChange(e.target.value);
     }
     const onEmojiClick = (emojiObject) => {
         let textAreaRef = document.getElementById(iDInputComment);
@@ -3032,6 +3032,7 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
             let newStringWithEmoji = handleStringToIncluedEmoji(currentPositonCursorTextArea, emojiObject.native, textAreaRef.innerHTML);
             setNewEmojiIncluded(true);
             setStringValueTextArea(newStringWithEmoji);
+            onChange(newStringWithEmoji);
         }
     };
     const verifyClick = () => {
