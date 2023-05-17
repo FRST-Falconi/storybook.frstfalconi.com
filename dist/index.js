@@ -23,6 +23,16 @@ var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
 var Select$4 = require('react-select');
+var data = require('@emoji-mart/data');
+var emojiMart = require('emoji-mart');
+var de = require('@emoji-mart/data/i18n/de.json');
+var en = require('@emoji-mart/data/i18n/en.json');
+var fr = require('@emoji-mart/data/i18n/fr.json');
+var it = require('@emoji-mart/data/i18n/it.json');
+var pl = require('@emoji-mart/data/i18n/pl.json');
+var pt = require('@emoji-mart/data/i18n/pt.json');
+var ru = require('@emoji-mart/data/i18n/ru.json');
+var zh = require('@emoji-mart/data/i18n/zh.json');
 var reactColor = require('react-color');
 var dnd = require('@hello-pangea/dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
@@ -93,6 +103,15 @@ var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
 var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
+var data__default = /*#__PURE__*/_interopDefaultLegacy(data);
+var de__namespace = /*#__PURE__*/_interopNamespace(de);
+var en__namespace = /*#__PURE__*/_interopNamespace(en);
+var fr__namespace = /*#__PURE__*/_interopNamespace(fr);
+var it__namespace = /*#__PURE__*/_interopNamespace(it);
+var pl__namespace = /*#__PURE__*/_interopNamespace(pl);
+var pt__namespace = /*#__PURE__*/_interopNamespace(pt);
+var ru__namespace = /*#__PURE__*/_interopNamespace(ru);
+var zh__namespace = /*#__PURE__*/_interopNamespace(zh);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Popover__default = /*#__PURE__*/_interopDefaultLegacy(Popover);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
@@ -192,6 +211,9 @@ function WithTrail({ fill, width, height }) {
 function EyeOff({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '16', viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.41335 9.41319C9.23026 9.60969 9.00945 9.76729 8.76412 9.8766C8.51879 9.98591 8.25396 10.0447 7.98541 10.0494C7.71687 10.0542 7.45013 10.0048 7.20109 9.90418C6.95206 9.80359 6.72583 9.65387 6.53592 9.46396C6.346 9.27404 6.19628 9.04782 6.09569 8.79878C5.9951 8.54975 5.9457 8.283 5.95044 8.01446C5.95518 7.74592 6.01396 7.48108 6.12327 7.23575C6.23258 6.99042 6.39019 6.76962 6.58669 6.58652M11.96 11.9599C10.8204 12.8285 9.43276 13.3098 8.00002 13.3332C3.33335 13.3332 0.666687 7.99985 0.666687 7.99985C1.49595 6.45445 2.64611 5.10426 4.04002 4.03985L11.96 11.9599ZM6.60002 2.82652C7.05891 2.71911 7.52873 2.66541 8.00002 2.66652C12.6667 2.66652 15.3334 7.99985 15.3334 7.99985C14.9287 8.75693 14.4461 9.46968 13.8934 10.1265L6.60002 2.82652Z", stroke: fill ?? '#FFF', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M0.666687 0.666504L15.3334 15.3332", stroke: fill ?? '#FFF', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function SmileOutlined({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '22', height: height ? height : '22', viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M5.75 8.86719C5.75 9.16556 5.86853 9.4517 6.0795 9.66268C6.29048 9.87366 6.57663 9.99219 6.875 9.99219C7.17337 9.99219 7.45952 9.87366 7.6705 9.66268C7.88147 9.4517 8 9.16556 8 8.86719C8 8.56882 7.88147 8.28267 7.6705 8.07169C7.45952 7.86071 7.17337 7.74219 6.875 7.74219C6.57663 7.74219 6.29048 7.86071 6.0795 8.07169C5.86853 8.28267 5.75 8.56882 5.75 8.86719ZM14 8.86719C14 9.16556 14.1185 9.4517 14.3295 9.66268C14.5405 9.87366 14.8266 9.99219 15.125 9.99219C15.4234 9.99219 15.7095 9.87366 15.9205 9.66268C16.1315 9.4517 16.25 9.16556 16.25 8.86719C16.25 8.56882 16.1315 8.28267 15.9205 8.07169C15.7095 7.86071 15.4234 7.74219 15.125 7.74219C14.8266 7.74219 14.5405 7.86071 14.3295 8.07169C14.1185 8.28267 14 8.56882 14 8.86719ZM11 0.5C5.20156 0.5 0.5 5.20156 0.5 11C0.5 16.7984 5.20156 21.5 11 21.5C16.7984 21.5 21.5 16.7984 21.5 11C21.5 5.20156 16.7984 0.5 11 0.5ZM17.1641 17.1641C16.3625 17.9656 15.4297 18.5938 14.3914 19.0344C13.3203 19.4891 12.1789 19.7188 11 19.7188C9.82109 19.7188 8.67969 19.4891 7.60625 19.0344C6.56954 18.5965 5.62785 17.9613 4.83359 17.1641C4.03203 16.3625 3.40391 15.4297 2.96328 14.3914C2.51094 13.3203 2.28125 12.1789 2.28125 11C2.28125 9.82109 2.51094 8.67969 2.96562 7.60625C3.40346 6.56954 4.03868 5.62785 4.83594 4.83359C5.6375 4.03203 6.57031 3.40391 7.60859 2.96328C8.67969 2.51094 9.82109 2.28125 11 2.28125C12.1789 2.28125 13.3203 2.51094 14.3937 2.96562C15.4305 3.40346 16.3721 4.03868 17.1664 4.83594C17.968 5.6375 18.5961 6.57031 19.0367 7.60859C19.4891 8.67969 19.7188 9.82109 19.7188 11C19.7188 12.1789 19.4891 13.3203 19.0344 14.3937C18.5971 15.4301 17.9618 16.3711 17.1641 17.1641ZM14.5625 11.4922H13.4352C13.3367 11.4922 13.2523 11.5672 13.2453 11.6656C13.1562 12.8258 12.1836 13.7422 11 13.7422C9.81641 13.7422 8.84141 12.8258 8.75469 11.6656C8.74766 11.5672 8.66328 11.4922 8.56484 11.4922H7.4375C7.41207 11.4922 7.3869 11.4973 7.36351 11.5073C7.34013 11.5173 7.31903 11.532 7.30149 11.5504C7.28395 11.5688 7.27034 11.5906 7.26149 11.6144C7.25264 11.6383 7.24873 11.6637 7.25 11.6891C7.35313 13.6648 8.99609 15.2422 11 15.2422C13.0039 15.2422 14.6469 13.6648 14.75 11.6891C14.7513 11.6637 14.7474 11.6383 14.7385 11.6144C14.7297 11.5906 14.716 11.5688 14.6985 11.5504C14.681 11.532 14.6599 11.5173 14.6365 11.5073C14.6131 11.4973 14.5879 11.4922 14.5625 11.4922Z", fill: fill ?? '#FFF' }) }));
+}
 function SaveIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '22', height: height ? height : '22', viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "22", height: "22", fill: fill ? fill : '#757575' }), jsxRuntime.jsx("path", { d: "M15.6667 17H6.33333C5.97971 17 5.64057 16.8595 5.39052 16.6095C5.14048 16.3594 5 16.0203 5 15.6667V6.33333C5 5.97971 5.14048 5.64057 5.39052 5.39052C5.64057 5.14048 5.97971 5 6.33333 5H13.6667L17 8.33333V15.6667C17 16.0203 16.8595 16.3594 16.6095 16.6095C16.3594 16.8595 16.0203 17 15.6667 17Z", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14.3327 17.0003V11.667H7.66602V17.0003", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.66602 5V8.33333H12.9993", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
@@ -212,6 +234,9 @@ function Bullseye({ fill, stroke, customColor_1, width, height }) {
 }
 function TrashIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ?? '14', height: height ?? '20', viewBox: "0 0 14 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M3.66602 5.00002V3.33335C3.66602 2.89133 3.84161 2.4674 4.15417 2.15484C4.46673 1.84228 4.89066 1.66669 5.33268 1.66669H8.66602C9.10804 1.66669 9.53197 1.84228 9.84453 2.15484C10.1571 2.4674 10.3327 2.89133 10.3327 3.33335V5.00002M12.8327 5.00002V16.6667C12.8327 17.1087 12.6571 17.5326 12.3445 17.8452C12.032 18.1578 11.608 18.3334 11.166 18.3334H2.83268C2.39065 18.3334 1.96673 18.1578 1.65417 17.8452C1.34161 17.5326 1.16602 17.1087 1.16602 16.6667V5.00002H12.8327Z", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+}
+function TrashIconNew({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ?? '19', height: height ?? '19', viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M0.833252 4.33325H2.61103H16.8333", stroke: fill ? fill : '#0645AD', strokeWidth: "1.3", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.3786 4.5V15.4C15.3786 15.8243 15.1816 16.2313 14.8309 16.5314C14.4802 16.8314 14.0045 17 13.5085 17H4.15785C3.66186 17 3.18619 16.8314 2.83547 16.5314C2.48475 16.2313 2.28772 15.8243 2.28772 15.4V4.5M5.09291 4.2V2.6C5.09291 2.17565 5.28995 1.76869 5.64066 1.46863C5.99138 1.16857 6.46706 1 6.96304 1H10.7033C11.1993 1 11.675 1.16857 12.0257 1.46863C12.3764 1.76869 12.5734 2.17565 12.5734 2.6V4.2", stroke: fill ? fill : '#0645AD', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function SearchIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '28', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z", fill: fill ?? 'black' }) }));
@@ -2867,7 +2892,7 @@ const InputText$2 = styled__default["default"].textarea `
     margin: 14px;
     border: none;    
 `;
-styled__default["default"].div `
+const SmileIcon = styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2903,19 +2928,62 @@ const HelperText$1 = styled__default["default"].span `
     margin-top: 8px;
     margin-left: 13px;
 `;
-styled__default["default"].div `
-    width: 310px;
-    height: 432px;
+const EmojiWindow = styled__default["default"].div `
+    width: 375px;
+    height: 332px;
     overflow: hidden;
     display:${({ visible }) => visible ? 'flex' : 'none'};
     justify-content: center;
     top: ${({ positionEmojiWindow }) => positionEmojiWindow};
-    right: 25px;
+    right: -16px;
     background-color:  ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
     position: absolute;
+
+    
+    & > div:nth-child(1) > em-emoji-picker:nth-child(1) {
+        padding: 10px;
+        padding-top: 5px;
+        height: 332px;
+    }
 `;
 // transform: scale(0.845);
+
+function EmojiPicker(props) {
+    const ref = React.useRef();
+    React.useEffect(() => {
+        let title = 'FRST FALCONI';
+        let emojiSize = props.emojiSize;
+        let perLine = props.emojiPerLine;
+        let SheetSize = props.sheetSize;
+        let i18n = choseLanguage(props.language);
+        // let filteredEmoji = excludeEmojiCode();
+        new emojiMart.Picker({ ...props, title, data: data__default["default"], ref, i18n, emojiSize, perLine, SheetSize });
+    }, [props.language]);
+    return jsxRuntime.jsx("div", { ref: ref });
+}
+function choseLanguage(props) {
+    switch (props) {
+        case 'de':
+            return de__namespace;
+        case 'en':
+            return en__namespace;
+        case 'fr':
+            return fr__namespace;
+        case 'it':
+            return it__namespace;
+        case 'pl':
+            return pl__namespace;
+        case 'pt':
+            return pt__namespace;
+        case 'ru':
+            return ru__namespace;
+        case 'zh':
+            return zh__namespace;
+        default:
+            return en__namespace;
+    }
+}
 
 function randID$3() {
     return Math.random()
@@ -2933,11 +3001,12 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
     const [newEmojiIncluded, setNewEmojiIncluded] = React.useState(false);
     const [lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea] = React.useState({});
     const [lenghtLastEmoji, setLenghtLastEmoji] = React.useState();
+    React.useRef();
     // TextArea states
     const [stringValueTextArea, setStringValueTextArea] = React.useState(value);
     // IDs
     const [iDInputComment, setIDInputComment] = React.useState(IDInput ? IDInput : `InputComment-${randID$3()}`);
-    React.useState(IDInput ? IDInput : `IDEmojiButton-${randID$3()}`);
+    const [iDEmojiButton, setIDEmojiButton] = React.useState(IDInput ? IDInput : `IDEmojiButton-${randID$3()}`);
     // Emoji window actions
     React.useEffect(() => {
         (isVisibleEmojiWindow) ? configsWhenOpenWindowEmoji() : configsWhenCloseWindowEmoji();
@@ -2955,18 +3024,29 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         setStringValueTextArea(e.target.value);
         onChange(e);
     }
+    const onEmojiClick = (emojiObject) => {
+        let textAreaRef = document.getElementById(iDInputComment);
+        // @ts-ignore
+        if (textAreaRef.innerHTML.length < limit || textAreaRef.selectionStart != textAreaRef.selectionEnd) {
+            let currentPositonCursorTextArea = getAndSavePositionsInTextArea(textAreaRef, emojiObject.native);
+            let newStringWithEmoji = handleStringToIncluedEmoji(currentPositonCursorTextArea, emojiObject.native, textAreaRef.innerHTML);
+            setNewEmojiIncluded(true);
+            setStringValueTextArea(newStringWithEmoji);
+        }
+    };
     const verifyClick = () => {
         if (!actionAreaEmojiButton)
             setIsVisibleEmojiWindow(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsx(InputWrapper, { focus: focus, children: jsxRuntime.jsx(InputText$2, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }) }), showCharacterCounter &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsxs(InputWrapper, { focus: focus, children: [jsxRuntime.jsx(InputText$2, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }), hasEmoji &&
+                            jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(EmojiWindow, { visible: isVisibleEmojiWindow, positionEmojiWindow: heightPositionWindowEmoji, onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), children: jsxRuntime.jsx(EmojiPicker, { language: emojiWindowlanguage, onEmojiSelect: onEmojiClick, emojiPerLine: 10, sheetSize: 8 }) }), jsxRuntime.jsx(SmileIcon, { id: iDEmojiButton, onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), onClick: () => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), children: jsxRuntime.jsx(SmileOutlined, { fill: colorEmojiButton }) })] })] }), showCharacterCounter &&
                     jsxRuntime.jsxs(HelperText$1, { children: [limit - remain, "/", limit] })] }) }));
     function resizeTextArea() {
         let tx = document.getElementById(iDInputComment);
         const txResize = (tx) => {
             tx.style.height = '20px';
             tx.style.height = tx.scrollHeight + 'px';
-            setHeightPositionWindowEmoji(tx.scrollHeight - 440 + 'px');
+            setHeightPositionWindowEmoji(tx.scrollHeight - 350 + 'px');
         };
         {
             tx && tx.style && txResize(tx);
@@ -2981,6 +3061,28 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         setColorEmojiButton(FRSTTheme['colors'].neutralsGrey2);
         // document.body.removeEventListener("click", (e: any) => verifyClick(), true);
         // document.getElementById(iDEmojiButton).addEventListener("click", (e: any) => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), false);
+    }
+    function getAndSavePositionsInTextArea(textAreaRef, emoji) {
+        let positionsCursorText = [textAreaRef.selectionStart, textAreaRef.selectionEnd];
+        setLenghtLastEmoji(emoji.length);
+        setLastPositionCursorTextTextArea(positionsCursorText);
+        return positionsCursorText;
+    }
+    function handleStringToIncluedEmoji(pos, emojiObject, stringValueTextArea) {
+        if (stringValueTextArea) {
+            if (pos[0] == pos[1]) {
+                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1]);
+            }
+            else if (pos[0] < pos[1]) {
+                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length);
+            }
+            else {
+                return stringValueTextArea + emojiObject;
+            }
+        }
+        else {
+            return emojiObject;
+        }
     }
     function repositionCursorAfterNewEmojiInTextArea() {
         let tx = document.getElementById(iDInputComment);
@@ -3075,7 +3177,7 @@ const Date$2 = styled__default["default"].div `
     margin-right: 11px;
     color: ${({ theme }) => theme.colors.neutralsGrey2};
 `;
-const ButtonMore$1 = styled__default["default"].div `
+const ButtonMore$2 = styled__default["default"].div `
     display: flex;
     cursor: pointer;
     height: 14px;
@@ -3433,7 +3535,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                             ((isPrivateAuthor || isPrivateMe) &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position$2, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
                                     jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }), hasDropdown && (isAuthor || isMe) &&
-                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
+                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore$2, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isMe && !isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(!isPrivateAuthor) &&
                                                                     jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isAuthor && !isMe &&
@@ -3753,7 +3855,7 @@ const AvatarInternal = styled__default["default"].div `
     text-align: center;
 
 `;
-const ButtonMore = styled__default["default"].div `
+const ButtonMore$1 = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -3766,7 +3868,7 @@ const ButtonMore = styled__default["default"].div `
 `;
 
 function StepCard({ title, onClick, numberPeople, textButtonMore, active, src, width }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader$2, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$3, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore, { children: textButtonMore })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardWrapper$2, { active: active, onClick: onClick, width: width, children: [jsxRuntime.jsxs(WrapperHeader$2, { children: [jsxRuntime.jsx(Bullseye, {}), jsxRuntime.jsx(TitleCard$3, { children: title })] }), jsxRuntime.jsxs(WrapperFooter, { children: [jsxRuntime.jsxs(WrapperAvatar, { children: [numberPeople > 0 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '1', margin: '0 0 0 0px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[0] : null }) })) : (null), numberPeople > 1 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '2', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[1] : null }) })) : (null), numberPeople > 2 ? (jsxRuntime.jsx(AvatarInternal, { size: '30px', zIndex: '3', margin: '0 0 0 -10px', children: jsxRuntime.jsx(Avatar, { size: '28px', src: src && src.length > 0 ? src[2] : null }) })) : (null), (numberPeople - 3) > 0 ? (jsxRuntime.jsxs(AvatarInternal, { size: '30px', zIndex: '4', margin: '0 0 0 -10px', backgroundColor: '#E8E8E8', padding: '2px 0 0 0', children: ["+", numberPeople - 3 > 99 ? 99 : numberPeople - 3] })) : (null)] }), jsxRuntime.jsx(ButtonMore$1, { children: textButtonMore })] })] }) }));
 }
 
 function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTitle, marginRightClear, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, textClearFilter, textViewMore }) {
@@ -8718,7 +8820,7 @@ const AvatarCustomUser = styled__default["default"](Avatar__default["default"]) 
   height: 32px;
   width: 32px;
 `;
-const MenuCustom$1 = styled__default["default"](Menu__default["default"]) `
+const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
   & .MuiPaper-root{
     border-radius: 0px;
     ${({ variantstyle }) => variantstyle == 'LXP' && `border-bottom-left-radius: 8px;
@@ -8741,7 +8843,7 @@ styled__default["default"](Menu__default["default"]) `
     padding-bottom: 0px;
   }
 `;
-const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]) `
+const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
   color: white !important;
   border: 0;
 
@@ -8801,25 +8903,25 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
         setSubMenu(subItens);
     };
     return (jsxRuntime.jsx(Container$6, { style: { ...style }, children: variant == 'LXP' ?
-            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$3, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), !isMobileVersion && jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] })] }), jsxRuntime.jsxs(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png", style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$3, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) })] })] }), menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
-                                        return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
+                                        return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                                 }
                                 else
-                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                            })] }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
+                            })] }), jsxRuntime.jsx(MenuCustom$2, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
                             return jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'LXP', children: item.label }, item.id);
                         }) })] })
             :
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || "https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png" }), jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center', }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems && menuItems.length > 0 && menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
-                                        return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
+                                        return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                                 }
                                 else
-                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                            }) }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
+                            }) }), jsxRuntime.jsx(MenuCustom$2, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right', }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu && subMenu.map((item, index) => {
                                 return jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'default', children: item.label }, item.id);
                             }) })] }) }));
 }
@@ -11684,7 +11786,7 @@ styled__default["default"].p `
   padding-left: 5px;
   font-size: 16px;
 `;
-const MenuCustom = styled__default["default"](Menu__default["default"]) `
+const MenuCustom$1 = styled__default["default"](Menu__default["default"]) `
   margin-left: ${({ step }) => step == 'completed' ? '-64px' : '-84px'} ;
   margin-top: 10px;
 
@@ -11724,7 +11826,7 @@ const MenuCustom = styled__default["default"](Menu__default["default"]) `
     overflow: hidden;
   }
 `;
-const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
+const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]) `
   background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
   margin: 1px !important;
 
@@ -11749,7 +11851,7 @@ styled__default["default"](MenuItem__default["default"]) `
     background-color: #FD9350 !important;
   }
 `;
-const TextOption = styled__default["default"].div `
+const TextOption$1 = styled__default["default"].div `
   margin-left: 10px;
   padding-top: 1px;
   font-family: 'PT Sans';
@@ -11918,8 +12020,8 @@ function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, 
                     padding: 0,
                     display: 'flex',
                     justifyContent: 'center'
-                }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant !== 'completed' &&
-                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
+                }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant !== 'completed' &&
+                        jsxRuntime.jsxs(MenuItemCustom$1, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption$1, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom$1, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption$1, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom$1, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption$1, { children: textDelete })] })] })] }));
 }
 
 const Container$3 = styled__default["default"].div `
@@ -14637,6 +14739,136 @@ function StepController({ top = '25px', numberCurrentStep, numberTotalSteps, lab
     return (jsxRuntime.jsxs(ContainerStepController, { style: { top: top }, children: [jsxRuntime.jsxs("div", { onClick: goToStart, children: [jsxRuntime.jsx(ComputerIcon__default["default"], { sx: { color: '#242424', fontSize: '0.9rem', marginRight: '8px' } }), labelHome] }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(StepControllerArrow, { onClick: prevStep, children: jsxRuntime.jsx(ArrowBackIosIcon__default["default"], { sx: { fontSize: '0.8rem', marginLeft: '2px' } }) }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberCurrentStep }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: "de" }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberTotalSteps }), jsxRuntime.jsx(StepControllerArrow, { onClick: nextStep, children: jsxRuntime.jsx(ArrowForwardIosIcon__default["default"], { sx: { fontSize: '0.8rem' } }) })] }), jsxRuntime.jsxs("div", { onClick: goToContact, children: [jsxRuntime.jsx(PersonAddIcon__default["default"], { sx: { color: 'inherit', fontSize: '0.8rem', marginRight: '8px' } }), labelContact] })] }));
 }
 
+styled__default["default"].p `
+  color: white;
+  padding-left: 5px;
+  font-size: 16px;
+`;
+const ButtonMore = styled__default["default"](Button__default["default"]) `
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    height: 30px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    display: flex !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+
+    &:hover {
+        background-color: #FFF9 !important;
+    }
+
+`;
+const MenuCustom = styled__default["default"](Menu__default["default"]) `
+  margin-top: 10px;
+  margin-left: 30px;
+  overflow: hidden;
+  border-radius: 8px;
+
+  & .MuiPaper-root {
+    border-radius: 0px;
+    box-shadow: none !important;
+    overflow: visible;
+    background: #00000000;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid #EBEBEB;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+    }
+  
+    &:after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid #FFF;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+    }
+  }
+  ul {
+    box-shadow:  0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px solid #EBEBEB !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    background: #FFF;
+    width: 160px;
+
+
+  li {
+    padding-left: 25px;
+  }
+  }
+`;
+const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
+  background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
+  padding-right: 45px !important;
+  margin: 1px !important;
+  transition: none !important;
+  animation: none !important;
+  &:hover {
+    background-color: #F7F9FC !important;
+  }
+  &:active {    
+    background-color: #FCF3EB !important;
+  }
+
+  
+`;
+styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+  background-color: #F5792A !important;
+
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    background-color: #FD9350 !important;
+  }
+`;
+const TextOption = styled__default["default"].div `
+  margin-left: 10px;
+  padding-top: 1px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+`;
+const IconOption = styled__default["default"].div `
+  width: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+function MenuMore({ iconButton, options, style }) {
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, {}) }), options && options?.length > 0 &&
+                    jsxRuntime.jsx(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: options.map((itemOption, index) => {
+                            return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(MenuItemCustom, { onClick: () => itemOption?.onClick(), style: { borderBottom: ((options?.length - 1) == index) ? '' : '1px solid #EBEBEB',
+                                        color: itemOption?.color ? itemOption?.color : '#222'
+                                    }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon && itemOption.startIcon }), jsxRuntime.jsx(TextOption, { children: itemOption?.description })] }, index) });
+                        }) })] }) }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
@@ -14713,6 +14945,7 @@ exports.LogoFRST = LogoFRST;
 exports.ManageLearningCicles = ManageLearningCicles;
 exports.MedalFilledIcon = MedalFilledIcon;
 exports.MedalLineIcon = MedalLineIcon;
+exports.MenuMore = MenuMore;
 exports.MessageBox = MessageBox;
 exports.Modal = Modal;
 exports.ModalLearningTech = ModalLearningTech;
@@ -14773,6 +15006,7 @@ exports.Tooltip = Tooltip$2;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
 exports.TrashIcon = TrashIcon;
+exports.TrashIconNew = TrashIconNew;
 exports.UserCard = CalendarCard$1;
 exports.Video = Video;
 exports.YoutubeIcon = YoutubeIcon;

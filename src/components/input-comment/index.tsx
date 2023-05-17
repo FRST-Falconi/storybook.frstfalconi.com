@@ -6,7 +6,7 @@ import * as Styles from './inputCommentStyles'
 import { IInputComment } from './inputComment'
 
 import { SmileOutlined } from '@shared/icons'
-// import EmojiPicker from '@components/emoji-picker'
+import EmojiPicker from '@components/emoji-picker'
 
 import { randID } from './inputComment.utils'
 
@@ -21,6 +21,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
     const [ newEmojiIncluded, setNewEmojiIncluded ] = useState(false)
     const [ lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea ] = useState({})
     const [ lenghtLastEmoji, setLenghtLastEmoji ] = useState()
+    const refEmojiPicker = useRef()
 
     // TextArea states
     const [ stringValueTextArea, setStringValueTextArea ] = useState(value)
@@ -82,18 +83,18 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                     maxLength={limit}
                     disabled={disabled}
                 />
-                {/* { hasEmoji && 
-                    <>
+                { hasEmoji && 
+                    <div style={{position: 'relative'}}>
                         <Styles.EmojiWindow 
                             visible={isVisibleEmojiWindow} 
                             positionEmojiWindow={heightPositionWindowEmoji}
                             onMouseOver={() => setActionAreaEmojiButton(true)}
                             onMouseOut={() => setActionAreaEmojiButton(false)}
-                        >                            
+                        >
                             <EmojiPicker 
                                 language={emojiWindowlanguage} 
                                 onEmojiSelect={onEmojiClick}
-                                emojiPerLine={8}
+                                emojiPerLine={10}
                                 sheetSize={8}
                             />
                         </Styles.EmojiWindow>
@@ -105,8 +106,8 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                         >
                             <SmileOutlined fill={colorEmojiButton}/>
                         </Styles.SmileIcon>
-                    </>
-                } */}
+                    </div>
+                }
             </Styles.InputWrapper>
             { showCharacterCounter &&
                 <Styles.HelperText>
@@ -123,7 +124,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         const txResize = (tx) => {   
             tx.style.height = '20px';
             tx.style.height = tx.scrollHeight + 'px';
-            setHeightPositionWindowEmoji(tx.scrollHeight - 440 + 'px')
+            setHeightPositionWindowEmoji(tx.scrollHeight - 350 + 'px')
         }  
 
         { tx && tx.style && txResize(tx) }

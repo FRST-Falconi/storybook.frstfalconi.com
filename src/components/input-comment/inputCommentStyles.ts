@@ -102,15 +102,22 @@ export const HelperText = styled.span`
 `
 
 export const EmojiWindow = styled.div<IEmojiWindow>`
-    width: 310px;
-    height: 432px;
+    width: 375px;
+    height: 332px;
     overflow: hidden;
     display:${({ visible }) => visible ? 'flex' : 'none'};
     justify-content: center;
     top: ${({ positionEmojiWindow }) => positionEmojiWindow};
-    right: 25px;
+    right: -16px;
     background-color:  ${({ theme }) => theme.colors.shadeWhite};
     border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
     position: absolute;
+
+    
+    & > div:nth-child(1) > em-emoji-picker:nth-child(1) {
+        padding: 10px;
+        padding-top: 5px;
+        height: 332px;
+    }
 `;
 // transform: scale(0.845);

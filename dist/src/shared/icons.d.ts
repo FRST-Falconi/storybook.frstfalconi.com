@@ -50,6 +50,7 @@ export declare function ArrowScrollRight({ fill, stroke, customColor_1, width, h
 export declare function ArrowScrollLeft({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function Bullseye({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function TrashIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function TrashIconNew({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function SearchIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function ErrorInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function WarningInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;

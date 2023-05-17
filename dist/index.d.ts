@@ -1,4 +1,4 @@
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour, Books, Diamond, Challenge, ChangeAccount, EyeOff, OpenedEye, StarFavorite, CheckIconSimple, IconContent } from './src/shared/icons';
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, TrashIconNew, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour, Books, Diamond, Challenge, ChangeAccount, EyeOff, OpenedEye, StarFavorite, CheckIconSimple, IconContent } from './src/shared/icons';
 export { default as Tag } from './src/components/tag';
 export { default as BaseCard } from './src/components/cards/base';
 export { default as AudioPlayer } from './src/components/audio-player';
@@ -96,4 +96,5 @@ export { default as LearningCycleCard } from './src/components/IJ/learningCycleC
 export { default as HeaderChallenge } from './src/components/headerChallenge';
 export { default as LogoFRST } from './src/components/LogoFRST';
 export { default as StepController } from './src/components/demo/stepController';
+export { default as MenuMore } from './src/components/menu-more';
 //# sourceMappingURL=index.d.ts.map
