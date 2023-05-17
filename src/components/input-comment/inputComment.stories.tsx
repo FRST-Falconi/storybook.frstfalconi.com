@@ -21,5 +21,6 @@ normal.args = {
     className: null,
     hasEmoji: true,
     showCharacterCounter: true,
-    emojiWindowlanguage: 'pt'
+    emojiWindowlanguage: 'pt',
+    styles: {margin: '200px'}
 }
