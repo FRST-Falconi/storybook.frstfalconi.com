@@ -3,9 +3,9 @@ import MenuMore from './index'
 
 
 import {
-    MoreDotsVertical,
+    MoreDotsHorizontal,
     EditIcon,
-    TrashIcon,
+    TrashIconNew,
     CheckInCicle,
     Plus,
     FowardArrow
@@ -22,7 +22,6 @@ const Template = (args) => <MenuMore {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    iconButton: <MoreDotsVertical/>,
     options: [
         {
             description: 'Continuar',
@@ -36,7 +35,7 @@ normal.args = {
         },
         {
             description: 'Excluir',
-            startIcon: <TrashIcon fill='#C1341A'/>,
+            startIcon: <TrashIconNew fill='#C1341A'/>,
             onClick: (e) => alert('click delete'),
             color: '#C1341A'
         },
@@ -46,7 +45,6 @@ normal.args = {
 
 export const twoItems = Template.bind({})
 twoItems.args = {
-    iconButton: <MoreDotsVertical/>,
     options: [
         {
             description: 'Editar',
@@ -55,22 +53,24 @@ twoItems.args = {
         },
         {
             description: 'Excluir',
-            startIcon: <TrashIcon fill='#C1341A'/>,
+            startIcon: <TrashIconNew fill='#C1341A'/>,
             onClick: (e) => alert('click delete'),
             color: '#C1341A'
         },
     ],
+    style: {marginLeft: '200px'}
 }
 
 export const oneItem = Template.bind({})
 oneItem.args = {
-    iconButton: <MoreDotsVertical/>,
+    iconButton: <MoreDotsHorizontal fill='#222'/>,
     options: [
         {
             description: 'Excluir',
-            startIcon: <TrashIcon fill='#C1341A'/>,
+            startIcon: <TrashIconNew fill='#C1341A'/>,
             onClick: (e) => alert('click delete'),
             color: '#C1341A'
         },
     ],
+    style: {marginLeft: '200px'}
 }

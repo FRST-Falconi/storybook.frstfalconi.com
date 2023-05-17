@@ -8,6 +8,7 @@ export {
   MoreDotsHorizontal,
   CheckInCicle,
   TrashIcon,
+  TrashIconNew,
   HomeLineIcon,
   HomeFilledIcon,
   CalendarLineIcon,

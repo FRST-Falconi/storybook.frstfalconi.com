@@ -28,9 +28,9 @@ export const ButtonMore = styled(Button)`
 
 export const MenuCustom = styled(Menu)`
   margin-top: 10px;
-  margin-left: 40px;
+  margin-left: 30px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 8px;
 
   & .MuiPaper-root {
     border-radius: 0px;
@@ -39,35 +39,41 @@ export const MenuCustom = styled(Menu)`
     background: #00000000;
 
     &:before {
-      content: "";
-      position: absolute;
-      top: -17px;
-      right: 19.5px;
-      border-top: 7px solid transparent;
-      border-bottom: 10px solid #EBEBEB;
-      border-left: 7px solid transparent;
-      border-right: 7px solid transparent;
+        content: "";
+        position: absolute;
+        top: -15px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid #EBEBEB;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
     }
   
     &:after {
         content: "";
         position: absolute;
-        top: -16px;
-        right: 19.5px;
-        border-top: 7px solid transparent;
+        top: -14px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
         border-bottom: 10px solid #FFF;
-        border-left: 7px solid transparent;
-        border-right: 7px solid transparent;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
     }
   }
   ul {
-    box-shadow: -3px 16px 12px -12px #BDBDBD;
+    box-shadow:  0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);;
     padding-top: 0px;
     padding-bottom: 0px;
     border: 1px solid #EBEBEB !important;
     border-radius: 8px !important;
     overflow: hidden;
     background: #FFF;
+    width: 160px;
+
+
+  li {
+    padding-left: 25px;
+  }
   }
 `
 
@@ -81,7 +87,7 @@ export const MenuItemCustom = styled(MenuItem)`
     background-color: #F7F9FC !important;
   }
   &:active {    
-    background-color: #FBF3EC !important;
+    background-color: #FCF3EB !important;
   }
 
   

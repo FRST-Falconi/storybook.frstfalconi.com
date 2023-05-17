@@ -3,6 +3,10 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import '../../shared/global.css'
 
+import {
+    MoreDotsVertical,
+} from './../../shared/icons'
+
 import { 
     ButtonMore,
     MenuCustom,
@@ -14,7 +18,6 @@ import { IMenuMore } from './menuMore'
 
 export default function MenuMore({iconButton, options, style}: IMenuMore) {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-    const [activeClick, setActiveClick] = useState([false, false])
     const open = Boolean(anchorEl)
     
     const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
@@ -34,7 +37,7 @@ export default function MenuMore({iconButton, options, style}: IMenuMore) {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-            {iconButton}
+            {iconButton ? iconButton : <MoreDotsVertical/>}
         </ButtonMore>
         {options && options?.length > 0 && 
             <MenuCustom
