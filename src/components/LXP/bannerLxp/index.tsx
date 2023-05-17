@@ -91,6 +91,8 @@ export default function BannerLxp(props: BannerLxpParams) {
     reader.readAsDataURL(file)
     props.handleChangeBanner(file)
     setBackgroundImage(props.bgSrc)
+    setColorTitle(props?.titleColor)
+    setBackgroundColor(props?.bgColor)
     return file
   }
 
