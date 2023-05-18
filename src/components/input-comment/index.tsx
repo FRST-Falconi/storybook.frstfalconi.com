@@ -14,23 +14,17 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
     const [ focus, setFocus ] = useState(false)
 
     // Emoji Window States
-    const [ isVisibleEmojiWindow, setIsVisibleEmojiWindow ] = useState(false)
-    const [ actionAreaEmojiButton, setActionAreaEmojiButton] = useState(false)
-    const [ colorEmojiButton, setColorEmojiButton ] = useState('')
-    const [ heightPositionWindowEmoji, setHeightPositionWindowEmoji ] = useState('')
-    const [ newEmojiIncluded, setNewEmojiIncluded ] = useState(false)
-    const [ lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea ] = useState({})
-    const [ lenghtLastEmoji, setLenghtLastEmoji ] = useState()
-    const refEmojiPicker = useRef()
+    const [ isVisibleEmojiWindow, setIsVisibleEmojiWindow ] = useState(false);
+    const [ actionAreaEmojiButton, setActionAreaEmojiButton] = useState(false);
+    const [ colorEmojiButton, setColorEmojiButton ] = useState('');
+    const [ heightPositionWindowEmoji, setHeightPositionWindowEmoji ] = useState('');
+    const [ newEmojiIncluded, setNewEmojiIncluded ] = useState(false);
+    const [ lenghtLastEmoji, setLenghtLastEmoji ] = useState();
+    const refInput = useRef(null)
 
     // TextArea states
-    const [ stringValueTextArea, setStringValueTextArea ] = useState(value)
-    
-    // IDs
-    const [ iDInputComment , setIDInputComment ] = 
-            useState(IDInput ? IDInput : `InputComment-${randID()}`);
-    const [ iDEmojiButton , setIDEmojiButton ] = 
-        useState(IDInput ? IDInput : `IDEmojiButton-${randID()}`);
+    const [ stringValueTextArea, setStringValueTextArea ] = useState(value);
+    const [ lastPositionCursor, setLastPositionCursor ] = useState([0,0])
     
     // Emoji window actions
     useEffect(() => {
@@ -39,29 +33,22 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
     
     useEffect(() => {
         {newEmojiIncluded && repositionCursorAfterNewEmojiInTextArea()}
-        resizeTextArea()
+        resizeTextArea(refInput)
     }, [stringValueTextArea]);
 
     useEffect(() => {
         onChange(stringValueTextArea)
     }, [stringValueTextArea]);
-
-    useEffect(() => {
-        setStringValueTextArea(value)
-    }, [value]);
-
-    function inputInChanging(e: any) {
-        setStringValueTextArea(e.target.value)
-    }
     
     const onEmojiClick = (emojiObject: any) => {
-        let textAreaRef = document.getElementById(iDInputComment)
-        
-        // @ts-ignore
-        if(textAreaRef.innerHTML.length < limit || textAreaRef.selectionStart != textAreaRef.selectionEnd) {
-            let currentPositonCursorTextArea = getAndSavePositionsInTextArea(textAreaRef, emojiObject.native)
-            let newStringWithEmoji = handleStringToIncluedEmoji(currentPositonCursorTextArea, emojiObject.native, textAreaRef.innerHTML)
-
+        setLenghtLastEmoji(emojiObject.native.length)
+        if(refInput.current.innerHTML.length < limit || refInput.current.selectionStart != refInput.current.selectionEnd) {            
+            let newStringWithEmoji = 
+                handleStringToIncluedEmoji(
+                    [refInput.current.selectionStart, refInput.current.selectionEnd], 
+                    emojiObject.native, 
+                    refInput.current.innerHTML
+                )
             setNewEmojiIncluded(true)
             setStringValueTextArea(newStringWithEmoji)
         }
@@ -77,10 +64,12 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         <div style={{...styles}} onClick={verifyClick}>
             <Styles.InputWrapper focus={focus}>
                 <Styles.InputText
-                    id={iDInputComment}
+                    ref={refInput}
                     onFocus={() => setFocus(true)}
-                    onBlur={() => setFocus(false)}
-                    onChange={inputInChanging}
+                    onBlur={() => {
+                        setFocus(false)
+                    }}
+                    onChange={(e) => setStringValueTextArea(e.target.value)}
                     value={stringValueTextArea}
                     placeholder={placeholder}
                     maxLength={limit}
@@ -96,16 +85,17 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                         >
                             <EmojiPicker 
                                 language={emojiWindowlanguage} 
-                                onEmojiSelect={onEmojiClick}
+                                onEmojiSelect={(e) => onEmojiClick(e)}
                                 emojiPerLine={10}
                                 sheetSize={8}
                             />
                         </Styles.EmojiWindow>
                         <Styles.SmileIcon 
-                            id={iDEmojiButton}
                             onMouseOver={() => setActionAreaEmojiButton(true)}
                             onMouseOut={() => setActionAreaEmojiButton(false)}
-                            onClick={() => setIsVisibleEmojiWindow(!isVisibleEmojiWindow)}
+                            onClick={() => {
+                                setIsVisibleEmojiWindow(!isVisibleEmojiWindow)
+                            }}
                         >
                             <SmileOutlined fill={colorEmojiButton}/>
                         </Styles.SmileIcon>
@@ -121,16 +111,15 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         </ThemeProvider>
     )
 
-    function resizeTextArea() {
-        let tx = document.getElementById(iDInputComment);
-        
+    function resizeTextArea(refInput) {
+
         const txResize = (tx) => {   
             tx.style.height = '20px';
             tx.style.height = tx.scrollHeight + 'px';
             setHeightPositionWindowEmoji(tx.scrollHeight - 350 + 'px')
         }  
 
-        { tx && tx.style && txResize(tx) }
+        { refInput.current && refInput.current.style && txResize(refInput.current) }
     }
 
     function configsWhenOpenWindowEmoji() {
@@ -145,15 +134,8 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         // document.getElementById(iDEmojiButton).addEventListener("click", (e: any) => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), false);
     }
 
-    function getAndSavePositionsInTextArea(textAreaRef: any, emoji: any) {
-        let positionsCursorText = [textAreaRef.selectionStart, textAreaRef.selectionEnd];
-
-        setLenghtLastEmoji(emoji.length);
-        setLastPositionCursorTextTextArea(positionsCursorText);
-        return positionsCursorText;
-    }
-
     function handleStringToIncluedEmoji(pos, emojiObject, stringValueTextArea) {
+        setLastPositionCursor(pos)
         if(stringValueTextArea) {
             if(pos[0] == pos[1]) {
                 return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1])
@@ -167,16 +149,14 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         }
     }
 
-    function repositionCursorAfterNewEmojiInTextArea() {            
-        let tx = document.getElementById(iDInputComment);
-
-        if(lastPositionCursorTextTextArea[1] != lastPositionCursorTextTextArea[0]) { // Cursor in multiple chars selected
-            // @ts-ignore
-            tx.selectionEnd = lastPositionCursorTextTextArea[0] + lenghtLastEmoji;
+    function repositionCursorAfterNewEmojiInTextArea() {     
+        let newPos = 0
+        if(lastPositionCursor[0] != lastPositionCursor[1]) { // Cursor in multiple chars selected
+            newPos = lastPositionCursor[0]   + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         } else { // Cursor text in specific point
-            // @ts-ignore
-            tx.selectionEnd = lastPositionCursorTextTextArea[1] + lenghtLastEmoji;
+            newPos = lastPositionCursor[1]  + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
+        refInput.current.setSelectionRange(newPos, newPos)
         setNewEmojiIncluded(false);
     }
 }

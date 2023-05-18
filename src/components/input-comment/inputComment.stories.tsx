@@ -17,7 +17,7 @@ normal.args = {
     disabled: false,
     remain: 20,
     limit: 1000,
-    onChange: (e : any) => { console.log(e) },
+    onChange: (e : any) => {  },
     className: null,
     hasEmoji: true,
     showCharacterCounter: true,

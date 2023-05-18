@@ -2985,12 +2985,6 @@ function choseLanguage(props) {
     }
 }
 
-function randID$3() {
-    return Math.random()
-        .toString(36)
-        .substr(2, 9);
-}
-
 function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage }) {
     const [focus, setFocus] = React.useState(false);
     // Emoji Window States
@@ -2999,14 +2993,11 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
     const [colorEmojiButton, setColorEmojiButton] = React.useState('');
     const [heightPositionWindowEmoji, setHeightPositionWindowEmoji] = React.useState('');
     const [newEmojiIncluded, setNewEmojiIncluded] = React.useState(false);
-    const [lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea] = React.useState({});
     const [lenghtLastEmoji, setLenghtLastEmoji] = React.useState();
-    React.useRef();
+    const refInput = React.useRef(null);
     // TextArea states
     const [stringValueTextArea, setStringValueTextArea] = React.useState(value);
-    // IDs
-    const [iDInputComment, setIDInputComment] = React.useState(IDInput ? IDInput : `InputComment-${randID$3()}`);
-    const [iDEmojiButton, setIDEmojiButton] = React.useState(IDInput ? IDInput : `IDEmojiButton-${randID$3()}`);
+    const [lastPositionCursor, setLastPositionCursor] = React.useState([0, 0]);
     // Emoji window actions
     React.useEffect(() => {
         (isVisibleEmojiWindow) ? configsWhenOpenWindowEmoji() : configsWhenCloseWindowEmoji();
@@ -3015,23 +3006,15 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         {
             newEmojiIncluded && repositionCursorAfterNewEmojiInTextArea();
         }
-        resizeTextArea();
+        resizeTextArea(refInput);
     }, [stringValueTextArea]);
     React.useEffect(() => {
         onChange(stringValueTextArea);
     }, [stringValueTextArea]);
-    React.useEffect(() => {
-        setStringValueTextArea(value);
-    }, [value]);
-    function inputInChanging(e) {
-        setStringValueTextArea(e.target.value);
-    }
     const onEmojiClick = (emojiObject) => {
-        let textAreaRef = document.getElementById(iDInputComment);
-        // @ts-ignore
-        if (textAreaRef.innerHTML.length < limit || textAreaRef.selectionStart != textAreaRef.selectionEnd) {
-            let currentPositonCursorTextArea = getAndSavePositionsInTextArea(textAreaRef, emojiObject.native);
-            let newStringWithEmoji = handleStringToIncluedEmoji(currentPositonCursorTextArea, emojiObject.native, textAreaRef.innerHTML);
+        setLenghtLastEmoji(emojiObject.native.length);
+        if (refInput.current.innerHTML.length < limit || refInput.current.selectionStart != refInput.current.selectionEnd) {
+            let newStringWithEmoji = handleStringToIncluedEmoji([refInput.current.selectionStart, refInput.current.selectionEnd], emojiObject.native, refInput.current.innerHTML);
             setNewEmojiIncluded(true);
             setStringValueTextArea(newStringWithEmoji);
         }
@@ -3040,18 +3023,21 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         if (!actionAreaEmojiButton)
             setIsVisibleEmojiWindow(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsxs(InputWrapper, { focus: focus, children: [jsxRuntime.jsx(InputText$2, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }), hasEmoji &&
-                            jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(EmojiWindow, { visible: isVisibleEmojiWindow, positionEmojiWindow: heightPositionWindowEmoji, onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), children: jsxRuntime.jsx(EmojiPicker, { language: emojiWindowlanguage, onEmojiSelect: onEmojiClick, emojiPerLine: 10, sheetSize: 8 }) }), jsxRuntime.jsx(SmileIcon, { id: iDEmojiButton, onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), onClick: () => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), children: jsxRuntime.jsx(SmileOutlined, { fill: colorEmojiButton }) })] })] }), showCharacterCounter &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsxs(InputWrapper, { focus: focus, children: [jsxRuntime.jsx(InputText$2, { ref: refInput, onFocus: () => setFocus(true), onBlur: () => {
+                                setFocus(false);
+                            }, onChange: (e) => setStringValueTextArea(e.target.value), value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }), hasEmoji &&
+                            jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(EmojiWindow, { visible: isVisibleEmojiWindow, positionEmojiWindow: heightPositionWindowEmoji, onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), children: jsxRuntime.jsx(EmojiPicker, { language: emojiWindowlanguage, onEmojiSelect: (e) => onEmojiClick(e), emojiPerLine: 10, sheetSize: 8 }) }), jsxRuntime.jsx(SmileIcon, { onMouseOver: () => setActionAreaEmojiButton(true), onMouseOut: () => setActionAreaEmojiButton(false), onClick: () => {
+                                            setIsVisibleEmojiWindow(!isVisibleEmojiWindow);
+                                        }, children: jsxRuntime.jsx(SmileOutlined, { fill: colorEmojiButton }) })] })] }), showCharacterCounter &&
                     jsxRuntime.jsxs(HelperText$1, { children: [limit - remain, "/", limit] })] }) }));
-    function resizeTextArea() {
-        let tx = document.getElementById(iDInputComment);
+    function resizeTextArea(refInput) {
         const txResize = (tx) => {
             tx.style.height = '20px';
             tx.style.height = tx.scrollHeight + 'px';
             setHeightPositionWindowEmoji(tx.scrollHeight - 350 + 'px');
         };
         {
-            tx && tx.style && txResize(tx);
+            refInput.current && refInput.current.style && txResize(refInput.current);
         }
     }
     function configsWhenOpenWindowEmoji() {
@@ -3064,13 +3050,8 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         // document.body.removeEventListener("click", (e: any) => verifyClick(), true);
         // document.getElementById(iDEmojiButton).addEventListener("click", (e: any) => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), false);
     }
-    function getAndSavePositionsInTextArea(textAreaRef, emoji) {
-        let positionsCursorText = [textAreaRef.selectionStart, textAreaRef.selectionEnd];
-        setLenghtLastEmoji(emoji.length);
-        setLastPositionCursorTextTextArea(positionsCursorText);
-        return positionsCursorText;
-    }
     function handleStringToIncluedEmoji(pos, emojiObject, stringValueTextArea) {
+        setLastPositionCursor(pos);
         if (stringValueTextArea) {
             if (pos[0] == pos[1]) {
                 return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1]);
@@ -3087,15 +3068,14 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         }
     }
     function repositionCursorAfterNewEmojiInTextArea() {
-        let tx = document.getElementById(iDInputComment);
-        if (lastPositionCursorTextTextArea[1] != lastPositionCursorTextTextArea[0]) { // Cursor in multiple chars selected
-            // @ts-ignore
-            tx.selectionEnd = lastPositionCursorTextTextArea[0] + lenghtLastEmoji;
+        let newPos = 0;
+        if (lastPositionCursor[0] != lastPositionCursor[1]) { // Cursor in multiple chars selected
+            newPos = lastPositionCursor[0] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
         else { // Cursor text in specific point
-            // @ts-ignore
-            tx.selectionEnd = lastPositionCursorTextTextArea[1] + lenghtLastEmoji;
+            newPos = lastPositionCursor[1] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
+        refInput.current.setSelectionRange(newPos, newPos);
         setNewEmojiIncluded(false);
     }
 }
