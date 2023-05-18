@@ -1,6 +1,6 @@
 FROM docker.io/node:16.13.2-alpine3.14 as DEPS
 
-ENV NPM_AUTH_TOKEN=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
+ENV NPM_AUTH_TOKEN=
 ENV APP_VERSION=0.17.2
 ENV BUILD_ENV=development
 
