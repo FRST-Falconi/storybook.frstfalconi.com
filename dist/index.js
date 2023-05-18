@@ -3073,7 +3073,7 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
             newPos = lastPositionCursor[0] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
         else { // Cursor text in specific point
-            newPos = lastPositionCursor[1] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
+            newPos = lastPositionCursor[0] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
         refInput.current.setSelectionRange(newPos, newPos);
         setNewEmojiIncluded(false);

@@ -154,7 +154,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         if(lastPositionCursor[0] != lastPositionCursor[1]) { // Cursor in multiple chars selected
             newPos = lastPositionCursor[0]   + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         } else { // Cursor text in specific point
-            newPos = lastPositionCursor[1]  + (lenghtLastEmoji ? lenghtLastEmoji : 0);
+            newPos = lastPositionCursor[0]  + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
         refInput.current.setSelectionRange(newPos, newPos)
         setNewEmojiIncluded(false);
