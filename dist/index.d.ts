@@ -97,4 +97,6 @@ export { default as HeaderChallenge } from './src/components/headerChallenge';
 export { default as LogoFRST } from './src/components/LogoFRST';
 export { default as StepController } from './src/components/demo/stepController';
 export { default as MenuMore } from './src/components/menu-more';
+export { default as EmojiPicker } from './src/components/emoji-picker';
+export { default as InputCommentV2 } from './src/components/input-comment-v2';
 //# sourceMappingURL=index.d.ts.map
