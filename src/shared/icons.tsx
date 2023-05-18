@@ -3517,3 +3517,28 @@ export function IconContent({ fill, width, height }: IconsProps) {
     </svg>
   )
 }
+
+export function TrashIconNew({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+  <svg 
+    width={width ?? '19'}
+    height={height ?? '19'}
+    viewBox="0 0 18 18" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path 
+      d="M0.833252 4.33325H2.61103H16.8333" 
+      stroke={fill ? fill : '#0645AD'}
+      strokeWidth="1.3" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"/>
+    <path 
+      d="M15.3786 4.5V15.4C15.3786 15.8243 15.1816 16.2313 14.8309 16.5314C14.4802 16.8314 14.0045 17 13.5085 17H4.15785C3.66186 17 3.18619 16.8314 2.83547 16.5314C2.48475 16.2313 2.28772 15.8243 2.28772 15.4V4.5M5.09291 4.2V2.6C5.09291 2.17565 5.28995 1.76869 5.64066 1.46863C5.99138 1.16857 6.46706 1 6.96304 1H10.7033C11.1993 1 11.675 1.16857 12.0257 1.46863C12.3764 1.76869 12.5734 2.17565 12.5734 2.6V4.2" 
+      stroke={fill ? fill : '#0645AD'}
+      strokeWidth="1.2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"/>
+  </svg>
+  )
+}
