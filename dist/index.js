@@ -3052,14 +3052,24 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
     }
     function handleStringToIncluedEmoji(pos, emojiObject, stringValueTextArea) {
         setLastPositionCursor(pos);
+        console.log('\ndebug - emoji ', emojiObject);
+        console.log('debug - str ', stringValueTextArea);
+        console.log('debug - strleng ', stringValueTextArea.lenght);
+        console.log('debug - pos ', pos);
         if (stringValueTextArea) {
             if (pos[0] == pos[1]) {
+                console.log('debug - case 1 ');
+                console.log('debug - rtxn ', stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1]));
                 return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.lenght);
             }
             else if (pos[0] < pos[1]) {
+                console.log('debug - case 2 ');
+                console.log('debug - rtxn ', stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length));
                 return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length);
             }
             else {
+                console.log('debug - case 3 ');
+                console.log('debug - rtxn ', stringValueTextArea + emojiObject);
                 return stringValueTextArea + emojiObject;
             }
         }
@@ -3069,12 +3079,14 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
     }
     function repositionCursorAfterNewEmojiInTextArea() {
         let newPos = 0;
+        console.log('debug - las ', lastPositionCursor);
         if (lastPositionCursor[0] != lastPositionCursor[1]) { // Cursor in multiple chars selected
             newPos = lastPositionCursor[0] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
         else { // Cursor text in specific point
-            newPos = lastPositionCursor[0] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
+            newPos = lastPositionCursor[1] + (lenghtLastEmoji ? lenghtLastEmoji : 0);
         }
+        console.log('debug - newPos ', newPos);
         refInput.current.setSelectionRange(newPos, newPos);
         setNewEmojiIncluded(false);
     }
