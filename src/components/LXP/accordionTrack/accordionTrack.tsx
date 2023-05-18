@@ -30,16 +30,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   const MEUS_CONTEUDOS_CONTENT = '0'
   const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
-  const create_UUID = () => {
-    var dt = new Date().getTime()
-    var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = (dt + Math.random() * 16) % 16 | 0
-      dt = Math.floor(dt / 16)
-      return (c == 'x' ? r : (r & 0x3) | 0x8).toString(16)
-    })
-    return uuid
-  }
-  
   useEffect(()=>{
     if (Array.isArray(props.trailsData)) {
       setTrail(props.trailsData)
@@ -86,7 +76,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
               </>
               :
               <>
-                {props.textTotalDe ? props.textTotalDe : 'Total de'} {props.courseData.length} {props.textRegistros ? props.textRegistros : 'registros'}
+                {props.textTotalDe ? props.textTotalDe : 'Total de'} {courseData.length} {props.textRegistros ? props.textRegistros : 'registros'}
               </>
             }            
           </h2>
@@ -311,6 +301,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             trails && trails.map((trail, trailIndex) => {
               return (
                 <>              
+                  {/* {console.log('trailMap', trail)} */}
                   <ContentCoursesTrails
                     showButtonActive={true}
                     trailId={trail.id}

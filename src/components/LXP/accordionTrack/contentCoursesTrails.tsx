@@ -113,27 +113,17 @@ export default function ContentCoursesTrails(props: any) {
   const classes = useStyles();
   // const refContainer = useRef(null);
 
-  // useEffect(() => {
-  //   async () => {
-  //     console.log(' --- Publishing', props.trailId, Publishing)
-  //     if (Publishing === 'processing') {
-  //       console.log(' --- Checking', props.trailId, Publishing)
-  //       await checkStatusPublish()
-  //     }
-  //   }
-
-  // }, [Publishing])
-
   useEffect(() => {
     setPublishing(props.publishStatus)
   }, [props.publishStatus])
 
   useEffect(() => {
-    setTimeout(() => {
-      if (props.publishStatus && props.publishStatus === "processing") {
-        checkStatusPublish()
-      }
-    }, 5000)
+    if (props.publishStatus && props.publishStatus === "processing") {
+      console.log(" . --- Startando Verificacao Publicacao", props.trailId)
+      setTimeout(() => {
+          checkStatusPublish()
+        }, 5000)
+    }
   }, [])
 
   const handleChange = (checkedValue) => {
@@ -164,6 +154,7 @@ export default function ContentCoursesTrails(props: any) {
   }
 
   const checkStatusPublish = async () => {
+    console.log("check atualização ", props.trailId)
     let publicacao = await props.handlePublicarCheck(props.trailId)
     console.log(props.trailId, 'publicacao', publicacao)
     setPublishing(publicacao)

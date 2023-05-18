@@ -45,8 +45,8 @@ export default function AccordionTrackList({
   handleClickPopOverEditActivity
 }: IAccordionTranslate) {
 
-  const [trails, setTrails] = useState(trailsData)
-  const [courses, setCourses] = useState(courseData)
+  const [trails, setTrails] = useState([])
+  const [courses, setCourses] = useState([])
   const [ConteudoIndividual, setConteudoIndividual] = useState([])
   const [MeusConteudosData, setMeusConteudosData] = useState([])
   const [updateScrollSize, setUpdateScrollSize] = useState(0)
@@ -65,12 +65,6 @@ export default function AccordionTrackList({
   }
 
   useEffect(() => {
-    if (handleChange) {
-      handleChange({ courses: courses, trails: trails })
-    }
-  }, [trails])
-
-  useEffect(() => {
     console.log("Atualizou em accordionTrackList", courses)
     setMeusConteudosData(courses ? courses.filter(item => !item.active_individual) : [])
     setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : [])
@@ -78,11 +72,17 @@ export default function AccordionTrackList({
 
   useEffect(() => {
     console.log("Atualizou props em accordionTrackList", courseData)
-    setCourses(courseData)
+    if (JSON.stringify(courseData) !== JSON.stringify(courses)) {
+      console.log("Acessando os registros de Cursos")
+      setCourses(courseData)
+    }
   }, [courseData])
 
   useEffect(() => {   
-    setTrails(trailsData)
+    if (JSON.stringify(trailsData) !== JSON.stringify(trails)) {
+      console.log("Acessando os registros de trilhas")
+      setTrails(trailsData)
+    }
   }, [trailsData])
 
   const handleDragEnd = ({ destination, source }) => {

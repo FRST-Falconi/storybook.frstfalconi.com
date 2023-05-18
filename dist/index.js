@@ -10529,24 +10529,16 @@ function ContentCoursesTrails(props) {
     const [arrowRef, setArrowRef] = React__default["default"].useState(null);
     const classes = useStyles();
     // const refContainer = useRef(null);
-    // useEffect(() => {
-    //   async () => {
-    //     console.log(' --- Publishing', props.trailId, Publishing)
-    //     if (Publishing === 'processing') {
-    //       console.log(' --- Checking', props.trailId, Publishing)
-    //       await checkStatusPublish()
-    //     }
-    //   }
-    // }, [Publishing])
     React.useEffect(() => {
         setPublishing(props.publishStatus);
     }, [props.publishStatus]);
     React.useEffect(() => {
-        setTimeout(() => {
-            if (props.publishStatus && props.publishStatus === "processing") {
+        if (props.publishStatus && props.publishStatus === "processing") {
+            console.log(" . --- Startando Verificacao Publicacao", props.trailId);
+            setTimeout(() => {
                 checkStatusPublish();
-            }
-        }, 5000);
+            }, 5000);
+        }
     }, []);
     const handleChange = (checkedValue) => {
         setChecked(checkedValue);
@@ -10574,6 +10566,7 @@ function ContentCoursesTrails(props) {
         }
     };
     const checkStatusPublish = async () => {
+        console.log("check atualização ", props.trailId);
         let publicacao = await props.handlePublicarCheck(props.trailId);
         console.log(props.trailId, 'publicacao', publicacao);
         setPublishing(publicacao);
@@ -10688,7 +10681,7 @@ function AccordionTrack(props) {
     return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContentCourses, { TrailName: '', children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsx("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: IsLoading ?
                                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(LoadingContent$1, { style: { width: 200, height: 20 } }) })
                                     :
-                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", props.courseData.length, " ", props.textRegistros ? props.textRegistros : 'registros'] }) })] }), jsxRuntime.jsx(dnd.Droppable, { droppableId: MEUS_CONTEUDOS_CONTENT, direction: "horizontal", children: (provided) => {
+                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", courseData.length, " ", props.textRegistros ? props.textRegistros : 'registros'] }) })] }), jsxRuntime.jsx(dnd.Droppable, { droppableId: MEUS_CONTEUDOS_CONTENT, direction: "horizontal", children: (provided) => {
                             return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: props.updateScrollSize, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: IsLoading ?
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] })
                                                 :
@@ -10764,8 +10757,8 @@ function AccordionTrack(props) {
 function AccordionTrackList({ trailsData, courseData, handleChange, onNewTrail, handleEditCourse, 
 // handlePopOverDelete,
 handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivar, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha, isLoading, handlePublicarTrilha, changeCourses, handlePublicarCheck, handleClickPopOverEditActivity }) {
-    const [trails, setTrails] = React.useState(trailsData);
-    const [courses, setCourses] = React.useState(courseData);
+    const [trails, setTrails] = React.useState([]);
+    const [courses, setCourses] = React.useState([]);
     const [ConteudoIndividual, setConteudoIndividual] = React.useState([]);
     const [MeusConteudosData, setMeusConteudosData] = React.useState([]);
     const [updateScrollSize, setUpdateScrollSize] = React.useState(0);
@@ -10781,21 +10774,22 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
         return uuid;
     };
     React.useEffect(() => {
-        if (handleChange) {
-            handleChange({ courses: courses, trails: trails });
-        }
-    }, [trails]);
-    React.useEffect(() => {
         console.log("Atualizou em accordionTrackList", courses);
         setMeusConteudosData(courses ? courses.filter(item => !item.active_individual) : []);
         setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : []);
     }, [courses]);
     React.useEffect(() => {
         console.log("Atualizou props em accordionTrackList", courseData);
-        setCourses(courseData);
+        if (JSON.stringify(courseData) !== JSON.stringify(courses)) {
+            console.log("Acessando os registros de Cursos");
+            setCourses(courseData);
+        }
     }, [courseData]);
     React.useEffect(() => {
-        setTrails(trailsData);
+        if (JSON.stringify(trailsData) !== JSON.stringify(trails)) {
+            console.log("Acessando os registros de trilhas");
+            setTrails(trailsData);
+        }
     }, [trailsData]);
     const handleDragEnd = ({ destination, source }) => {
         if (!destination) {
