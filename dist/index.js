@@ -10519,7 +10519,9 @@ const useStyles = core.makeStyles((theme) => {
     };
 });
 function ContentCoursesTrails(props) {
+    const [OpenPopper, setOpenPopper] = React.useState(false);
     const [checked, setChecked] = React.useState(true);
+    const [checkedPrivate, setCheckedPrivate] = React.useState(true);
     const [up, setUp] = React.useState(true);
     const [ElementPopover, setElementPopover] = React.useState(null);
     const [ElementPopoverPublish, setElementPopoverPublish] = React.useState(null);
@@ -10531,6 +10533,7 @@ function ContentCoursesTrails(props) {
     // const refContainer = useRef(null);
     React.useEffect(() => {
         setPublishing(props.publishStatus);
+        setOpenPopper(props.publishStatus === "pending");
     }, [props.publishStatus]);
     React.useEffect(() => {
         if (props.publishStatus && props.publishStatus === "processing") {
@@ -10543,6 +10546,10 @@ function ContentCoursesTrails(props) {
     const handleChange = (checkedValue) => {
         setChecked(checkedValue);
         props.handleChangeCheck(checkedValue);
+    };
+    const handleChangePrivate = (checkedValue) => {
+        setCheckedPrivate(checkedValue);
+        props.handleChangePrivate(checkedValue);
     };
     const changeSelect = () => {
         {
@@ -10591,13 +10598,14 @@ function ContentCoursesTrails(props) {
                                                 }
                                             }
                                         } }) }) }), props.showButtonActive &&
-                        jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$3, { id: `btnPublish${props.id}`, handleMount: (element) => {
+                        jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Trilha privada', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangePrivate, checked: props.private, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$3, { id: `btnPublish${props.id}`, handleMount: (element) => {
                                                 let el = document.getElementById(element);
                                                 setElementPopoverPublish(el ? el : null);
-                                            }, handleClick: () => {
-                                                props.handlePublicarTrilha(props);
+                                            }, handleClick: async () => {
+                                                setPublishing('processing');
+                                                await props.handlePublicarTrilha(props);
                                                 checkStatusPublish();
-                                            }, startIcon: Publishing === 'processing' && jsxRuntime.jsx(Loading, { sizeLoading: 'small', loadColor: '#a5a5a5', style: { width: 40 } }), label: Publishing === 'pending' ? "Publicar" : Publishing === 'complete' ? "Publicado" : "Publicando...", variant: 'secondary', disabled: Publishing === 'pending' ? false : true }), jsxRuntime.jsx(core.Popper, { id: Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined, open: Publishing === 'pending', anchorEl: ElementPopoverPublish ? ElementPopoverPublish : null, placement: 'top', className: classes.popper, transition: true, modifiers: {
+                                            }, startIcon: Publishing === 'processing' && jsxRuntime.jsx(Loading, { sizeLoading: 'small', loadColor: '#a5a5a5', style: { width: 40 } }), label: Publishing === 'pending' ? "Publicar" : Publishing === 'complete' ? "Publicado" : "Publicando...", variant: 'secondary', disabled: Publishing === 'pending' ? false : true }), jsxRuntime.jsx(core.Popper, { id: Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined, open: OpenPopper, anchorEl: ElementPopoverPublish ? ElementPopoverPublish : null, placement: 'top', className: classes.popper, transition: true, modifiers: {
                                                 preventOverflow: {
                                                     enabled: true,
                                                     boundariesElement: "window"
@@ -10606,7 +10614,7 @@ function ContentCoursesTrails(props) {
                                                     enabled: true,
                                                     element: arrowRef
                                                 }
-                                            }, children: ({ TransitionProps }) => (jsxRuntime.jsx(core.Fade, { ...TransitionProps, timeout: 350, children: jsxRuntime.jsx(core.Paper, { children: jsxRuntime.jsx(core.ClickAwayListener, { onClickAway: () => { }, children: jsxRuntime.jsxs(core.Paper, { className: classes.popoverRoot, children: [jsxRuntime.jsx("span", { className: classes.arrow, ref: setArrowRef }), jsxRuntime.jsx(core.Box, { className: classes.content, children: "Ap\u00F3s realizar todas as altera\u00E7\u00F5es na trilha, \u00E9 necess\u00E1rio clicar em publicar para que o conte\u00FAdo editado esteja dispon\u00EDvel" })] }) }) }) })) }, props)] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
+                                            }, children: ({ TransitionProps }) => (jsxRuntime.jsx(core.Fade, { ...TransitionProps, timeout: 350, children: jsxRuntime.jsx(core.Paper, { children: jsxRuntime.jsx(core.ClickAwayListener, { onClickAway: () => { setOpenPopper(false); }, children: jsxRuntime.jsxs(core.Paper, { className: classes.popoverRoot, children: [jsxRuntime.jsx("span", { className: classes.arrow, ref: setArrowRef }), jsxRuntime.jsx(core.Box, { className: classes.content, children: "Ap\u00F3s realizar todas as altera\u00E7\u00F5es na trilha, \u00E9 necess\u00E1rio clicar em publicar para que o conte\u00FAdo editado esteja dispon\u00EDvel" })] }) }) }) })) }, props)] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
                                         setElementPopover(element.currentTarget);
                                     }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: props.ativo ? '#000000' : '#bdbdbd' }) }) })] }), jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                                 setElementPopover(null);
@@ -10720,7 +10728,11 @@ function AccordionTrack(props) {
                                                 }) }) }), provided.placeholder] }));
                             } }, CONTEUDO_INDIVIDUAL_CONTENT) }) }), !IsLoading &&
                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyMyTrails, { style: { marginTop: 20 }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), trails && trails.map((trail, trailIndex) => {
-                            return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { showButtonActive: true, trailId: trail.id, id: `${3000}${trailIndex}`, TrailName: trail.name, ativo: trail.active, publishStatus: trail.publish_status, handleChangeCheck: (bActive) => {
+                            return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { showButtonActive: true, trailId: trail.id, id: `${3000}${trailIndex}`, TrailName: trail.name, private: trail.private, handleChangePrivate: (bPrivate) => {
+                                        if (props.handleSwitchPrivateTrail) {
+                                            props.handleSwitchPrivateTrail(trailIndex, bPrivate);
+                                        }
+                                    }, ativo: trail.active, publishStatus: trail.publish_status, handleChangeCheck: (bActive) => {
                                         if (props.handleSwitchActiveTrail) {
                                             props.handleSwitchActiveTrail(trailIndex, bActive);
                                         }
@@ -10756,7 +10768,7 @@ function AccordionTrack(props) {
 
 function AccordionTrackList({ trailsData, courseData, handleChange, onNewTrail, handleEditCourse, 
 // handlePopOverDelete,
-handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivar, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha, isLoading, handlePublicarTrilha, changeCourses, handlePublicarCheck, handleClickPopOverEditActivity }) {
+handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivar, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha, isLoading, handlePublicarTrilha, changeCourses, handlePublicarCheck, handleClickPopOverEditActivity, handleSwitchPrivateTrail }) {
     const [trails, setTrails] = React.useState([]);
     const [courses, setCourses] = React.useState([]);
     const [ConteudoIndividual, setConteudoIndividual] = React.useState([]);
@@ -10886,6 +10898,14 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
             return prev;
         });
     };
+    const setPrivateTrail = (index, bPrivate) => {
+        setTrails((prev) => {
+            prev = { ...prev };
+            prev[index].private = bPrivate;
+            handleSwitchPrivateTrail(prev[index].id, bPrivate);
+            return prev;
+        });
+    };
     const setActiveContent = (id, active) => {
         let indexTrail = courses.findIndex(item => item.id === id);
         setCourses((prev) => {
@@ -10906,6 +10926,8 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(dnd.DragDropContext, { onDragEnd: handleDragEnd, children: jsxRuntime.jsx(AccordionTrack, { trailsData: trails, courseData: MeusConteudosData, courseIndividualData: ConteudoIndividual, handleSwitchActiveTrail: (index, active) => {
                     setActiveTrail(index, active);
+                }, handleSwitchPrivateTrail: (index, active) => {
+                    setPrivateTrail(index, active);
                 }, onSetNameTrail: (name, id) => {
                     setNameTrail(name, id);
                 }, onNewTrail: () => {

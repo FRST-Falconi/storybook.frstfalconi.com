@@ -61,6 +61,7 @@ export interface IAccordionTrack {
     handlePublicarCheck?: (id: string) => string
 
     handleClickPopOverEditActivity?: (id: string) => string
+    handleSwitchPrivateTrail?: (idTrailCourse: string, checked: boolean) => void
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
@@ -70,6 +71,7 @@ export interface IAccordionTranslate extends IAccordionTrack {
     textMinhasTrihas?: string
     txtAtivarCurso?: string
     txtAtivarTrilha?: string
+    txtPrivateTrilha?: string
     txtButtonLabel?: string
     txtCriarNovoCurso?: string
     txtCriarNovoCurso2?: string

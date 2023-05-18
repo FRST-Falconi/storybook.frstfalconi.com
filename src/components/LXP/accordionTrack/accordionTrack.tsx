@@ -308,6 +308,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                     key={`contentTrails${trailIndex}`}
                     id={`${3000}${trailIndex}`}
                     TrailName={trail.name}
+                    private={trail.private}
+                    handleChangePrivate={(bPrivate: boolean) => {
+                      if (props.handleSwitchPrivateTrail) {
+                        props.handleSwitchPrivateTrail(trailIndex, bPrivate)
+                      }
+                    }}
                     ativo={trail.active}
                     publishStatus={trail.publish_status}
                     handleChangeCheck={(bActive: boolean) => {

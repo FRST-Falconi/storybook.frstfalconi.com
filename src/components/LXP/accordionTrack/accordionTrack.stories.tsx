@@ -93,6 +93,7 @@ const Template = (args) => {
     "publish_status": "pending",
     "excluded": false,
     "active": true,
+    "private": true,
     "channel": 110,
     "trail_course": [
       {
@@ -161,7 +162,9 @@ const Template = (args) => {
     "name": "Liderança que inspira",
     "excluded": false,
     "active": true,
-    "publish_status": "processing",
+    "private": true,
+    // "publish_status": "processing",
+    "publish_status": "pending",
     "channel": 110,
     "trail_course": [
       {
@@ -279,7 +282,6 @@ Opened.args = {
     handlePublicarTrilha: (idTrilha) => {
       alert(`Publicando trilha ${idTrilha}`)
     },    
-  
     handleDeleteCourse: (idCourse) => {
       alert(`Deletando o Curso: ${idCourse}`)
     },
@@ -289,6 +291,9 @@ Opened.args = {
     handleSwitchActiveTrail: (idTrail, active) => {
       alert(`Mudando status de Ativo da trilha ID: ${idTrail} para ${active}`)
     },
+    handleSwitchPrivateTrail: (idTrail, active) => {
+      alert(`Mudando status de privado da trilha ID: ${idTrail} para ${active}`)
+    },    
     onSetNameTrail: (idTrail, name) => { alert(`TrailName: ${idTrail} ${name}`) },
     handleUpdateTrail: (deletedItem, insertItem, trailCoursesList) => {
       console.log(`deletedItem`, deletedItem)

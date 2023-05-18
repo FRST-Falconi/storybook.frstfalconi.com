@@ -42,7 +42,8 @@ export default function AccordionTrackList({
   handlePublicarTrilha,
   changeCourses,
   handlePublicarCheck,
-  handleClickPopOverEditActivity
+  handleClickPopOverEditActivity,
+  handleSwitchPrivateTrail
 }: IAccordionTranslate) {
 
   const [trails, setTrails] = useState([])
@@ -204,6 +205,15 @@ export default function AccordionTrackList({
     })
   }
 
+  const setPrivateTrail = (index, bPrivate) => {
+    setTrails((prev) => {
+      prev = { ...prev }
+      prev[index].private = bPrivate!
+      handleSwitchPrivateTrail(prev[index].id, bPrivate!)
+      return prev
+    })
+  }
+
   const setActiveContent = (id, active) => {
     let indexTrail = courses.findIndex(item => item.id === id)      
     setCourses((prev) => {
@@ -234,6 +244,9 @@ export default function AccordionTrackList({
             courseIndividualData={ConteudoIndividual}
             handleSwitchActiveTrail={(index, active) => {
               setActiveTrail(index, active)
+            }}            
+            handleSwitchPrivateTrail={(index, active) => {
+              setPrivateTrail(index, active)
             }}
             onSetNameTrail={(name, id) => {
               setNameTrail(name, id)
