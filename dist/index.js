@@ -3054,7 +3054,7 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
         setLastPositionCursor(pos);
         if (stringValueTextArea) {
             if (pos[0] == pos[1]) {
-                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1]);
+                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.lenght);
             }
             else if (pos[0] < pos[1]) {
                 return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length);

@@ -138,7 +138,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         setLastPositionCursor(pos)
         if(stringValueTextArea) {
             if(pos[0] == pos[1]) {
-                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1])
+                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.lenght)
             } else if(pos[0] < pos[1]) {
                 return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length);
             } else {
