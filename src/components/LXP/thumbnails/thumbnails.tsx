@@ -150,21 +150,6 @@ export default function Thumbnails({
                     <Styles.TypographyAtivar active={ativo} style={{ fontWeight: ativo ? 700 : 400 }}>
                       {txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso'}
                     </Styles.TypographyAtivar>
-                    <Switch
-                      onChange={handleChangeCheck}
-                      checked={ativo}
-                      height={16}
-                      width={35}
-                      checkedIcon={false}
-                      uncheckedIcon={false}
-                      handleDiameter={20}
-                      onHandleColor='#ffffff'
-                      offHandleColor='#ffffff'
-                      onColor='#FF4D0D'
-                      offColor='#ebebeb'
-                      activeBoxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                      boxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                    />
                   </Styles.ContainerAtivar>                
                 }              
               </Styles.ContainerThumbnails>
