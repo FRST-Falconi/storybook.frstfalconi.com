@@ -27,7 +27,11 @@ export default function ThumbnailsDraggable({
    txtPopOverDeleteContent,
    txtPopOverEditContent,
    isActive,
-   txtPopOverMoveToTrails 
+   isTrail,
+   txtPopOverMoveToTrails,
+   txtPopOverDeleteTrail,
+   txtPopOverEditContentActivity
+
   }: IThumbnailsTranslate) {
 
   return (
@@ -52,7 +56,8 @@ export default function ThumbnailsDraggable({
               isActive={isActive}
               isLoading={isLoading}
               showSwitch={showSwitch}
-              index={index}    
+              index={index}  
+              isTrail={isTrail}  
               provided={provided}
               txtButtonLabel={txtButtonLabel}
               txtAtivarCurso={txtAtivarCurso}
@@ -64,6 +69,8 @@ export default function ThumbnailsDraggable({
               txtPopOverDeleteContent={txtPopOverDeleteContent}
               txtPopOverEditContent={txtPopOverEditContent}
               txtPopOverMoveToTrails={txtPopOverMoveToTrails}
+              txtPopOverDeleteTrail={txtPopOverDeleteTrail}
+              txtPopOverEditContentActivity={txtPopOverEditContentActivity}
             />
           )}
         }

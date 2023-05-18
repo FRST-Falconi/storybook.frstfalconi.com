@@ -56,7 +56,9 @@ export interface IAccordionTrack {
     handlePopOverTrailEdit?: (id: string) => void
     handlePopOverTrailDelete?: (id: string) => void
     changeCourses?: (course: any) => void
+
     handlePublicarTrilha?: (id: string) => void
+    handlePublicarCheck?: (id: string) => string
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {

@@ -9,6 +9,7 @@ import { Droppable } from '@hello-pangea/dnd'
 import ContentCoursesTrails from './contentCoursesTrails'
 import ContentCourses from './contentCourses'
 import React from 'react'
+import ModalLXP from '../../modal/modalLXP/Modal'
 
 export default function AccordionTrack(props: IAccordionTranslate) {
 
@@ -20,6 +21,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   const [ShowTrail, setShowTrail] = useState([]);
   const [ShowIndividual, setShowIndividual] = useState<boolean>(true);
   const [IsLoading, setIsLoading] = useState<boolean>(props.isLoading);
+
+  const [ModalDeleteConteudo, setModalDeleteConteudo] = useState(false);
+  const [ModalDeleteTrilha, setModalDeleteTrilha] = useState(false);
+  const [ModalDeleteTrilhaConteudo, setModalDeleteTrilhaConteudo] = useState(false);
+  const [IdDelete, setIdDelete] = useState('0');
+
   const MEUS_CONTEUDOS_CONTENT = '0'
   const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
@@ -64,7 +71,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         Meus Conteúdos
       --------------------------------------------------------- */
       }   
-      <React.StrictMode>
       <ContentCourses TrailName={''}>
         <div>
           <Styles.TypographyMyContents>
@@ -152,6 +158,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   }}
                                   isActive={el.active_individual}
                                   showSwitch
+                                  isTrail={false}
                                   src={el.settings.cover_thumb_url}
                                   txtButtonLabel={props.txtButtonLabel}
                                   txtAtivarCurso={props.txtAtivarCurso}
@@ -160,7 +167,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
                                   handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
                                   handleClickPopOverDelete={() => {
-                                    props.handleDeleteCourse(el.id)
+                                    setIdDelete(el.id)
+                                    setModalDeleteConteudo(true)
                                   }}
                                   txtPopOverEditContent={props.txtPopOverEditContent}
                                   txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
@@ -214,7 +222,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             }}
             txtAtivarTrilha={props.txtAtivarTrilha}
             handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
-            handlePopOverTrailDelete={(id: string) => { props.handlePopOverTrailDelete(id) }}
           >
             {              
               <Droppable droppableId={CONTEUDO_INDIVIDUAL_CONTENT} direction="horizontal" key={CONTEUDO_INDIVIDUAL_CONTENT}>
@@ -249,6 +256,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                     handleSwitchAtivar={(checked) => {
                                       props.handleSwitchAtivarConteudo(individual.id, checked)
                                     }}
+                                    isTrail={false}
                                     src={individual.settings.cover_thumb_url}
                                     txtButtonLabel={props.txtButtonLabel}
                                     txtAtivarCurso={props.txtAtivarCurso}
@@ -256,7 +264,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                     handleClickPopOverEdit={() => {props.handlePopOverEdit(individual.id)}}
                                     handleClickPopOverMove={() => {props.handlePopOverMove(individual.id)}}
                                     handleClickPopOverDelete={() => {
-                                      props.handleDeleteCourseTrail(individual.id)
+                                      setIdDelete(individual.id)
+                                      setModalDeleteConteudo(true)
                                     }}                                        
                                     txtPopOverEditContent={props.txtPopOverEditContent}
                                     txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
@@ -302,10 +311,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                 <>              
                   <ContentCoursesTrails
                     showButtonActive={true}
+                    trailId={trail.id}
                     key={`contentTrails${trailIndex}`}
                     id={`${3000}${trailIndex}`}
                     TrailName={trail.name}
                     ativo={trail.active}
+                    publishStatus={trail.publish_status}
                     handleChangeCheck={(bActive: boolean) => {
                       if (props.handleSwitchActiveTrail) {
                         props.handleSwitchActiveTrail(trailIndex, bActive)
@@ -322,14 +333,17 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                         prev[trailIndex] = bShow
                         return prev
                       })                  
-                    }}
-                    
+                    }}                    
                     showButtonPublish={true}
                     handlePublicarTrilha={() => {props.handlePublicarTrilha(trail.id) }}
-                    handlePublicarTrilhaCheck={() => {props.handlePublicarTrilha(trail.id) }}
+                    handlePublicarCheck={props.handlePublicarCheck}
                     txtAtivarTrilha={props.txtAtivarTrilha}
                     handlePopOverTrailEdit={() => { props.handlePopOverTrailEdit(trail.id) }}
-                    handlePopOverTrailDelete={() => { props.handlePopOverTrailDelete(trail.id) }}
+                    handlePopOverTrailDelete={(id: string) => { 
+                      setIdDelete(trail.id)
+                      setModalDeleteTrilha(true)
+                    }}        
+                                
                   >
                     {
                       ShowTrail.length === 0 || ShowTrail[trailIndex] &&                  
@@ -338,6 +352,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                           return (
                             <Styles.ContainerTrailsNormal
                               key={`contentTrailsDrop${trailIndex}`}
+                              style={{height: 350 }}
                             >
                               <ScrollContainer
                                 stepMove={380}
@@ -348,7 +363,6 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 refreshResize={props.updateScrollSize}
                                 styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                               >
-
                                 <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                                   {
                                     trail.trail_course && trail.trail_course.map((el, courseTrailIndex) => {
@@ -363,16 +377,18 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                             handleClickCourse={() => {
                                               props.handleEditCourse(el.course.id)
                                             }}
-                                            showSwitch={true}
+                                            isTrail={true}
+                                            showSwitch={false}
                                             src={el.course.settings.cover_thumb_url}
                                             txtButtonLabel={props.txtButtonLabel}
                                             txtAtivarCurso={props.txtAtivarCurso}
                                             txtCriarNovoCurso={props.txtCriarNovoCurso}
                                             handleClickPopOverEdit={() => {props.handlePopOverEdit(el.course.id)}}
                                             handleClickPopOverMove={() => {props.handlePopOverMove(el.course.id)}}
-                                            handleClickPopOverDelete={() => {
-                                              props.handleDeleteCourseTrail(el.id)
-                                            }}                                        
+                                            handleClickPopOverDelete={() => {                                              
+                                              setIdDelete(el.id)
+                                              setModalDeleteTrilhaConteudo(true)
+                                            }}                                      
                                             txtPopOverEditContent={props.txtPopOverEditContent}
                                             txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
                                             txtPopOverDeleteContent={props.txtPopOverDeleteContent}
@@ -397,8 +413,50 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             })
           }
         </>        
-      }        
-      </React.StrictMode>
+      }  
+      <ModalLXP
+        open={ModalDeleteConteudo}
+        handleClose={() => {setModalDeleteConteudo(false)}}
+        handleConfirmation={() => {props.handleDeleteCourse(IdDelete)}}
+
+        title={"Você tem certeza?"}
+        style={{width: 600}}
+        confirmationButton={"Sim, confirmar"}
+        cancelButton={"Não, confirmar"}
+      >
+        <div>
+          Você realmente quer deletar este conteúdo? Você irá perder todas as atividades criadas.
+        </div>
+      </ModalLXP>
+      <ModalLXP
+        open={ModalDeleteTrilha}
+        handleClose={() => {setModalDeleteTrilha(false)}}
+        handleConfirmation={() => {
+          console.log("Passou aqui")
+          props.handlePopOverTrailDelete(IdDelete)}
+        }
+        title={"Você tem certeza?"}
+        style={{width: 600}}
+        confirmationButton={"Sim, confirmar"}
+        cancelButton={"Não, confirmar"}
+      >
+        <div>
+          Você realmente quer deletar esta trilha?
+        </div>
+      </ModalLXP>   
+      <ModalLXP
+        open={ModalDeleteTrilhaConteudo}
+        handleClose={() => {setModalDeleteTrilhaConteudo(false)}}
+        handleConfirmation={() => {props.handleDeleteCourseTrail(IdDelete)}}
+        title={"Você tem certeza?"}
+        style={{width: 600}}
+        confirmationButton={"Sim, confirmar"}
+        cancelButton={"Não, confirmar"}
+      >
+        <div>
+          Você realmente quer remover o conteúdo desta trilha?
+        </div>
+      </ModalLXP>        
     </>
   )
 }

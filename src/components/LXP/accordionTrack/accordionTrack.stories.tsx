@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { v4 } from 'uuid'
 import AccordionTrackList from './accordionTrackList'
+import { count } from 'console'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -224,6 +225,13 @@ const Template = (args) => {
     ]}  
   ])
 
+  const [Count, setCount] = useState([
+    0,
+    0
+  ]);
+
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+
   return <>
     <AccordionTrackList  
       // handleChange={(trailsChange) => { 
@@ -232,6 +240,21 @@ const Template = (args) => {
       // }}
       trailsData={Trail}
       courseData={Course}
+      handlePublicarCheck={async (idTrilha) => {   
+        await sleep(5 * 1000);     
+        let idx = idTrilha == '174' ? 0 : 1
+        let value = Count
+
+        if (value[idx] === 6) {
+          return 'complete'
+        }
+        else {
+          console.log(idTrilha, 'Checando novamente...', Count, idx)
+          value[idx] = value[idx] + 1
+          setCount(value)
+          return 'processing'
+        }
+      }} 
       {...args} 
     />
   </>
@@ -252,7 +275,11 @@ Opened.args = {
     handlePopOverTrailDelete: (id) => {alert(`Trail Deleted id: ${id}`)},
     handleSwitchAtivar: (idCourse, checked) => {
       alert(`Alterando conteúudo ${idCourse}: ${checked}`)
+    },   
+    handlePublicarTrilha: (idTrilha) => {
+      alert(`Publicando trilha ${idTrilha}`)
     },    
+  
     handleDeleteCourse: (idCourse) => {
       alert(`Deletando o Curso: ${idCourse}`)
     },
@@ -270,22 +297,23 @@ Opened.args = {
     },    
     changeCourses: (course) => {
       console.log(`course`, course)
-    },
+    }, 
     handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)},
     textMeusConteudos: "Meus Conteúdos",
     textTotalDe: "Total de",
     textRegistros: "registros",
     textMinhasTrihas: "Minhas Trilhas",
-    txtAtivarCurso: "Ativar conteúdo",
+    txtAtivarCurso: "Ativar",
     txtAtivarTrilha: "Ativar trilha",
     txtCriarNovoCurso: "Criar novo Conteúdo",
-    txtPopOverEditContent: "Edit content",
+    txtPopOverEditContent: "Editar Conteúdo",
     txtPopOverMoveToTrails: "Move to Trails",
-    txtPopOverDeleteContent:"Delete content",
+    txtPopOverDeleteContent:"Deletar Conteúdo",
     txtTrailsPopOverEdit: "Editar nome da trilha",
     txtTrailsPopOverDuplicar: "Duplicar trilha",
     txtTrailsPopOverDelete: "Excluir trilha",
-    txtPlacerolderInputNameTrail: 'Enter track name'
+    txtPlacerolderInputNameTrail: 'Enter track name',
+    txtPopOverEditContentActivity: 'Editar da Trilha'
 }
 
 export const Loading = Template.bind({})

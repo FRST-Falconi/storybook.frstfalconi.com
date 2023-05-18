@@ -7,6 +7,7 @@ import { DragDropContext } from '@hello-pangea/dnd'
 import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 import { Course } from '@shared/icons'
+import ModalLXP from '../../modal/modalLXP/Modal'
 
 export default function AccordionTrackList({
   trailsData,
@@ -39,13 +40,16 @@ export default function AccordionTrackList({
   txtAtivarTrilha,
   isLoading,
   handlePublicarTrilha,
-  changeCourses
+  changeCourses,
+  handlePublicarCheck
 }: IAccordionTranslate) {
+
   const [trails, setTrails] = useState(trailsData)
   const [courses, setCourses] = useState(courseData)
   const [ConteudoIndividual, setConteudoIndividual] = useState([])
   const [MeusConteudosData, setMeusConteudosData] = useState([])
   const [updateScrollSize, setUpdateScrollSize] = useState(0)
+
   const MEUS_CONTEUDOS_CONTENT = '0'
   const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
@@ -165,8 +169,6 @@ export default function AccordionTrackList({
         course_id: itemCopy.id,
         order: 0
       }
-  
-      changeCourses
 
       setTrails((prev) => {
         prev = [ ...prev ]
@@ -244,6 +246,7 @@ export default function AccordionTrackList({
             handleSwitchAtivar={handleSwitchAtivar}
             handleEditCourse={handleEditCourse}
             handlePublicarTrilha={handlePublicarTrilha}
+            handlePublicarCheck={handlePublicarCheck}
             textMeusConteudos={textMeusConteudos}
             textTotalDe={textTotalDe}
             textRegistros={textRegistros}
@@ -254,17 +257,17 @@ export default function AccordionTrackList({
             txtCriarNovoCurso={txtCriarNovoCurso}
             isLoading={isLoading}
             updateScrollSize={updateScrollSize}
-            handleDeleteCourse={handleDeleteCourse}
-            handleDeleteCourseTrail={handleDeleteCourseTrail}
+            handleDeleteCourse={handleDeleteCourse}            
+            handleDeleteCourseTrail={handleDeleteCourseTrail}            
+            handlePopOverTrailDelete={handlePopOverTrailDelete}  
             handlePopOverEdit={handlePopOverEdit}
-            handlePopOverTrailDelete={handlePopOverTrailDelete}
             handlePopOverTrailEdit={handlePopOverTrailEdit}
             handlePopOverMove={handlePopOverMove}
             txtPopOverDeleteContent={txtPopOverDeleteContent}
             txtPopOverEditContent={txtPopOverEditContent}
             txtPopOverMoveToTrails={txtPopOverMoveToTrails}
           />
-        }
+        }        
       </DragDropContext>
     </ThemeProvider>
   )

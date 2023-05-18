@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
@@ -108,11 +108,33 @@ export default function ContentCoursesTrails(props: any) {
   const [ElementPopoverPublish, setElementPopoverPublish] = useState(null);
   const [active, setActive] = useState(false)
   const [nameTrail, setNameTrail] = useState('')  
-  const [Publishing, setPublishing] = useState<boolean>(false);
-  const [CanPublishing, setCanPublishing] = useState<boolean>(true);
+  const [Publishing, setPublishing] = useState<string>(props.publishStatus);
   const [arrowRef, setArrowRef] = React.useState<HTMLElement | null>(null);
   const classes = useStyles();
   // const refContainer = useRef(null);
+
+  // useEffect(() => {
+  //   async () => {
+  //     console.log(' --- Publishing', props.trailId, Publishing)
+  //     if (Publishing === 'processing') {
+  //       console.log(' --- Checking', props.trailId, Publishing)
+  //       await checkStatusPublish()
+  //     }
+  //   }
+
+  // }, [Publishing])
+
+  useEffect(() => {
+    setPublishing(props.publishStatus)
+  }, [props.publishStatus])
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (props.publishStatus && props.publishStatus === "processing") {
+        checkStatusPublish()
+      }
+    }, 5000)
+  }, [])
 
   const handleChange = (checkedValue) => {
     setChecked(checkedValue)
@@ -141,10 +163,22 @@ export default function ContentCoursesTrails(props: any) {
      }
   }
 
+  const checkStatusPublish = async () => {
+    let publicacao = await props.handlePublicarCheck(props.trailId)
+    console.log(props.trailId, 'publicacao', publicacao)
+    setPublishing(publicacao)
+    if (publicacao) {
+      if (publicacao === "processing") {
+        setTimeout(() => {
+          checkStatusPublish()
+        }, 5000)
+      }
+    }
+  }
+
   return (
     <>
       <Styles.ContainerHeader className={"opened"} active={props.ativo}>
-
         <Styles.ContentTrailName active={active}>
           {!active ?
             <>
@@ -202,21 +236,20 @@ export default function ContentCoursesTrails(props: any) {
                     let el = document.getElementById(element)
                     setElementPopoverPublish(el ? el : null)
                   }}
-                  handleClick={() => {
-                    setCanPublishing(false)
-                    setPublishing(true)     
+                  handleClick={() => {                    
                     props.handlePublicarTrilha(props)              
+                    checkStatusPublish()
                   }} 
-                  startIcon={Publishing &&  <Loading sizeLoading='small' loadColor='#bdbdbd' style={{width: 40}}/>}
-                  label={Publishing ? 'Publicando...' : 'Publicar'} 
+                  startIcon={Publishing === 'processing' &&  <Loading sizeLoading='small' loadColor='#a5a5a5' style={{width: 40}}/>}
+                  label={Publishing === 'pending' ? "Publicar" : Publishing === 'complete' ? "Publicado" : "Publicando..."}             
                   variant='secondary'
-                  disabled={!CanPublishing}
+                  disabled={Publishing === 'pending' ? false : true}
                 />
-                {/* ToDo: Migrar um novo componente */}
                 <Popper 
-                  id={CanPublishing ? `btnPublishPopper${props.id}` : undefined} 
-                  open={CanPublishing} 
-                  anchorEl={ElementPopoverPublish} 
+                  key={props}
+                  id={Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined} 
+                  open={Publishing === 'pending'} 
+                  anchorEl={ElementPopoverPublish ? ElementPopoverPublish : null} 
                   placement={'top'} 
                   className={classes.popper}
                   transition
@@ -285,8 +318,10 @@ export default function ContentCoursesTrails(props: any) {
               <PopOverItem
                 label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
                 onClick={() => {
-                  props.handlePopOverTrailDelete(props.id)
                   setElementPopover(null)
+                  setTimeout(() => {
+                    props.handlePopOverTrailDelete(props.id)
+                  }, 500)
                 }}
                 icon={<Icons.Trash fill='#C00F00' />}
                 noBorder={true}
@@ -295,7 +330,7 @@ export default function ContentCoursesTrails(props: any) {
               />
             </div>
           </PopOver>      
-        </>        
+        </>
       </Styles.ContainerHeader>
       
       { up && props.children}
