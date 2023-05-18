@@ -23,6 +23,7 @@ export default function ThumbnailsDraggable({
    txtCriarNovoCurso2,
    handleClickPopOverDelete,
    handleClickPopOverEdit,
+   handleClickPopOverEditActivity,
    handleClickPopOverMove,
    txtPopOverDeleteContent,
    txtPopOverEditContent,
@@ -63,6 +64,7 @@ export default function ThumbnailsDraggable({
               txtAtivarCurso={txtAtivarCurso}
               txtCriarNovoCurso={txtCriarNovoCurso}
               txtCriarNovoCurso2={txtCriarNovoCurso2}
+              handleClickPopOverEditActivity={handleClickPopOverEditActivity}
               handleClickPopOverDelete={handleClickPopOverDelete}
               handleClickPopOverEdit={handleClickPopOverEdit}
               handleClickPopOverMove={handleClickPopOverMove}

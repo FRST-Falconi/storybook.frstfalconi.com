@@ -41,7 +41,8 @@ export default function AccordionTrackList({
   isLoading,
   handlePublicarTrilha,
   changeCourses,
-  handlePublicarCheck
+  handlePublicarCheck,
+  handleClickPopOverEditActivity
 }: IAccordionTranslate) {
 
   const [trails, setTrails] = useState(trailsData)
@@ -264,8 +265,9 @@ export default function AccordionTrackList({
             handlePopOverTrailEdit={handlePopOverTrailEdit}
             handlePopOverMove={handlePopOverMove}
             txtPopOverDeleteContent={txtPopOverDeleteContent}
-            txtPopOverEditContent={txtPopOverEditContent}
             txtPopOverMoveToTrails={txtPopOverMoveToTrails}
+            txtPopOverEditContent={txtPopOverEditContent}
+            handleClickPopOverEditActivity={handleClickPopOverEditActivity}
           />
         }        
       </DragDropContext>

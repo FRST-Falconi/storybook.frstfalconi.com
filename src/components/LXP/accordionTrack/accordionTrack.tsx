@@ -166,6 +166,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   handleClickCourse={() => {props.handleEditCourse(el.id)}}
                                   handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
                                   handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
+                                  handleClickPopOverEditActivity={() => {props.handleClickPopOverEditActivity(el.id)}}
                                   handleClickPopOverDelete={() => {
                                     setIdDelete(el.id)
                                     setModalDeleteConteudo(true)
@@ -263,6 +264,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                     txtCriarNovoCurso={props.txtCriarNovoCurso}
                                     handleClickPopOverEdit={() => {props.handlePopOverEdit(individual.id)}}
                                     handleClickPopOverMove={() => {props.handlePopOverMove(individual.id)}}
+                                    handleClickPopOverEditActivity={() => {props.handleClickPopOverEditActivity(individual.id)}}
                                     handleClickPopOverDelete={() => {
                                       setIdDelete(individual.id)
                                       setModalDeleteConteudo(true)

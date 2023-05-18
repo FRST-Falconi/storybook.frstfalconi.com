@@ -297,6 +297,9 @@ Opened.args = {
     },    
     changeCourses: (course) => {
       console.log(`course`, course)
+    },   
+    handleClickPopOverEditActivity: (id) => {
+      alert(`handleClickPopOverEditActivity ${id}`)
     }, 
     handlePopOverDuplicate: (id) => {alert(`Selected id: ${id}`)},
     textMeusConteudos: "Meus Conteúdos",

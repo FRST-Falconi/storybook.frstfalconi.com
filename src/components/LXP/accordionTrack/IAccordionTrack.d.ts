@@ -59,6 +59,8 @@ export interface IAccordionTrack {
 
     handlePublicarTrilha?: (id: string) => void
     handlePublicarCheck?: (id: string) => string
+
+    handleClickPopOverEditActivity?: (id: string) => string
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
