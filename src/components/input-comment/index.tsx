@@ -42,7 +42,9 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
     
     const onEmojiClick = (emojiObject: any) => {
         setLenghtLastEmoji(emojiObject.native.length)
-        if(refInput.current.innerHTML.length < limit || refInput.current.selectionStart != refInput.current.selectionEnd) {            
+        console.log('\ndebug - 00')
+        console.log('debug - ', emojiObject)
+        // if(refInput.current.innerHTML.length < limit || refInput.current.selectionStart != refInput.current.selectionEnd) {            
             let newStringWithEmoji = 
                 handleStringToIncluedEmoji(
                     [refInput.current.selectionStart, refInput.current.selectionEnd], 
@@ -51,7 +53,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                 )
             setNewEmojiIncluded(true)
             setStringValueTextArea(newStringWithEmoji)
-        }
+        // }
     };
     
     const verifyClick = () => {
@@ -136,15 +138,15 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
 
     function handleStringToIncluedEmoji(pos, emojiObject, stringValueTextArea) {
         setLastPositionCursor(pos)
-        console.log('\ndebug - emoji ', emojiObject)
+        console.log('debug - emoji ', emojiObject)
         console.log('debug - str ',  stringValueTextArea)
-        console.log('debug - strleng ',  stringValueTextArea.lenght)
+        console.log('debug - strleng ',  stringValueTextArea.length)
         console.log('debug - pos ', pos)
         if(stringValueTextArea) {
             if(pos[0] == pos[1]) {
                 console.log('debug - case 1 ')
                 console.log('debug - rtxn ', stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1]))
-                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.lenght)
+                return stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length)
             } else if(pos[0] < pos[1]) {
                 console.log('debug - case 2 ')
                 console.log('debug - rtxn ', stringValueTextArea.substr(0, pos[0]) + emojiObject + stringValueTextArea.substr(pos[1], stringValueTextArea.length))
