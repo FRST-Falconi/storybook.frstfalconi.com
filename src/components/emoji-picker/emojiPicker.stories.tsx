@@ -13,8 +13,13 @@ const Template = (args) => <EmojiPicker {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    language: '',
-    emojiSize: '24',
-    emojiPerLine: 8,
-    sheetSize: 16,
+    isOpenPicker:true,
+    setIsOpenPicker: () => {},
+    onEmojiSelect: () => {},
+    configPicker: {
+        title: 'FRST FALCONI',
+        perLine: 10,
+        sheetSize: 8,
+        language: 'pt'
+    }
 }

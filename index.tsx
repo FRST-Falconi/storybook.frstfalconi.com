@@ -8,6 +8,7 @@ export {
   MoreDotsHorizontal,
   CheckInCicle,
   TrashIcon,
+  TrashIconNew,
   HomeLineIcon,
   HomeFilledIcon,
   CalendarLineIcon,
@@ -172,3 +173,8 @@ export { default as LogoFRST } from './src/components/LogoFRST'
 
 //Demo
 export { default as StepController } from './src/components/demo/stepController'
+
+//Brainstorm
+export { default as MenuMore } from './src/components/menu-more'
+export { default as EmojiPicker } from './src/components/emoji-picker'
+export { default as InputCommentV2 } from './src/components/input-comment-v2'
