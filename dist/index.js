@@ -10549,7 +10549,7 @@ function ContentCoursesTrails(props) {
     };
     const handleChangePrivate = (checkedValue) => {
         setCheckedPrivate(checkedValue);
-        props.handleChangePrivate(checkedValue);
+        props.handleChangePrivate(!checkedValue);
     };
     const changeSelect = () => {
         {
@@ -10573,7 +10573,6 @@ function ContentCoursesTrails(props) {
         }
     };
     const checkStatusPublish = async () => {
-        console.log("check atualização ", props.trailId);
         let publicacao = await props.handlePublicarCheck(props.trailId);
         console.log(props.trailId, 'publicacao', publicacao);
         setPublishing(publicacao);
@@ -10598,7 +10597,7 @@ function ContentCoursesTrails(props) {
                                                 }
                                             }
                                         } }) }) }), props.showButtonActive &&
-                        jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Trilha privada', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangePrivate, checked: props.private, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$3, { id: `btnPublish${props.id}`, handleMount: (element) => {
+                        jsxRuntime.jsxs(ContentActiveHeader, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Tornar a Trilha Pública', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangePrivate, checked: !props.private, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$3, { id: `btnPublish${props.id}`, handleMount: (element) => {
                                                 let el = document.getElementById(element);
                                                 setElementPopoverPublish(el ? el : null);
                                             }, handleClick: async () => {

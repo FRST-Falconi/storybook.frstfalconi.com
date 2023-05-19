@@ -136,7 +136,7 @@ export default function ContentCoursesTrails(props: any) {
 
   const handleChangePrivate = (checkedValue) => {
     setCheckedPrivate(checkedValue)
-    props.handleChangePrivate(checkedValue)
+    props.handleChangePrivate(!checkedValue)
   };
 
   const changeSelect = () => {
@@ -162,7 +162,6 @@ export default function ContentCoursesTrails(props: any) {
   }
 
   const checkStatusPublish = async () => {
-    console.log("check atualização ", props.trailId)
     let publicacao = await props.handlePublicarCheck(props.trailId)
     console.log(props.trailId, 'publicacao', publicacao)
     setPublishing(publicacao)
@@ -211,10 +210,10 @@ export default function ContentCoursesTrails(props: any) {
           props.showButtonActive &&
             <Styles.ContentActiveHeader>             
               <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
-                {props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Trilha privada'}
+                {props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Tornar a Trilha Pública'}
                 <Switch
                   onChange={handleChangePrivate}
-                  checked={props.private}
+                  checked={!props.private}
                   height={16}
                   width={40}
                   checkedIcon={false}

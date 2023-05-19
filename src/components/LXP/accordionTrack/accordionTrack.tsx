@@ -321,7 +321,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                         props.handleSwitchActiveTrail(trailIndex, bActive)
                       }
                     }}
-                    handleChangeTrailName={(name: boolean) => {
+                    handleChangeTrailName={(name) => {
                       if (props.onSetNameTrail) {
                         props.onSetNameTrail(name, trailIndex)
                       }
