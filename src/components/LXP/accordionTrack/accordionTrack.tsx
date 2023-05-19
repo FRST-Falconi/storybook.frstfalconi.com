@@ -186,7 +186,84 @@ export default function AccordionTrack(props: IAccordionTranslate) {
       --------------------------------------------------------- */
       }           
       {
-        !IsLoading &&
+        IsLoading ?
+          <>
+            {/* 
+            //----------------------------------------------------------------------------
+            // Carregamento de trilhas
+            //---------------------------------------------------------------------------- 
+            */}
+            <ContentCoursesTrails
+              TrailName={props.txtCursoIndividual ? props.txtCursoIndividual : 'Conteúdo individual'}
+              ativo={true}
+              show={ShowIndividual}
+              handleChangeCheck={(bActive: boolean) => {
+                // if (props.handleSwitchActiveTrail) {
+                //   props.handleSwitchActiveTrail(trailIndex, bActive)
+                // }
+              }}
+              handleChangeTrailName={(name: boolean) => {
+                // if (props.onSetNameTrail) {
+                //   props.onSetNameTrail(name, trailIndex)
+                // }
+              }}
+              handleChangeShow={(bShow) => {
+                console.log(bShow)
+                setShowIndividual(bShow)           
+              }}
+              txtAtivarTrilha={props.txtAtivarTrilha}
+              handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
+            >
+              {              
+                <Droppable droppableId={CONTEUDO_INDIVIDUAL_CONTENT} direction="horizontal" key={CONTEUDO_INDIVIDUAL_CONTENT}>
+                  {(provided) => {
+                    return (
+                      <Styles.ContainerTrailsNormal style={{}}>
+                        <ScrollContainer
+                          stepMove={380}
+                          isVisibleControlsButtons
+                          sizeArrowButton={80}
+                          marginsArrowButton={10}
+                          horizontalMarginInternScroll={'5px'}
+                          refreshResize={props.updateScrollSize}
+                          styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
+                        >
+                          <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
+                          <>
+                            <Thumbnails 
+                                variant='default'
+                                isDisabled={false}
+                                isLoading
+                            />
+                            <Thumbnails 
+                                variant='default'
+                                isDisabled={false}
+                                isLoading
+                            />
+                            <Thumbnails 
+                                variant='default'
+                                isDisabled={false}
+                                isLoading
+                            />        
+                            <Thumbnails 
+                                variant='default'
+                                isDisabled={false}
+                                isLoading
+                            />                                                                   
+                          </>                            
+
+                          </Styles.ContainerCard>
+                        </ScrollContainer>
+                        {provided.placeholder}
+                      </Styles.ContainerTrailsNormal>
+                    )
+                  }
+                  }
+                </Droppable>
+              }
+            </ContentCoursesTrails>                
+          </>  
+        :
         <>
           {/* 
           //----------------------------------------------------------------------------
