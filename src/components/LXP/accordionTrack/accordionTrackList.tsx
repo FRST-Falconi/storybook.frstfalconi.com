@@ -198,7 +198,7 @@ export default function AccordionTrackList({
 
   const setActiveTrail = (index, active) => {
     setTrails((prev) => {
-      prev = { ...prev }
+      prev = [ ...prev ]
       prev[index].active = active!
       handleSwitchActiveTrail(prev[index].id, active!)
       return prev
@@ -207,7 +207,7 @@ export default function AccordionTrackList({
 
   const setPrivateTrail = (index, bPrivate) => {
     setTrails((prev) => {
-      prev = { ...prev }
+      prev = [ ...prev ]
       prev[index].private = bPrivate!
       handleSwitchPrivateTrail(prev[index].id, bPrivate!)
       return prev
@@ -227,7 +227,7 @@ export default function AccordionTrackList({
   const setNameTrail = (name, id) => {
     const itemCopy = { ...trails[id] }
     setTrails((prev) => {
-      prev = { ...prev }
+      prev = [ ...prev ]
       prev[id].name = name
       return prev
     })
