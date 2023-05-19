@@ -151,5 +151,6 @@ export declare function IconGaps({ fill, width, height }: IconsProps): JSX.Eleme
 export declare function IconModules({ fill, width, height }: IconsProps): JSX.Element;
 export declare function CheckIconSimple({ width, height, fill }: IconsProps): JSX.Element;
 export declare function IconContent({ fill, width, height }: IconsProps): JSX.Element;
+export declare function TrashIconNew({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

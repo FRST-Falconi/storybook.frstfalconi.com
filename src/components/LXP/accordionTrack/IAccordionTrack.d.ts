@@ -55,8 +55,13 @@ export interface IAccordionTrack {
     handlePopOverDuplicate?: (id: string) => void
     handlePopOverTrailEdit?: (id: string) => void
     handlePopOverTrailDelete?: (id: string) => void
-    handlePopOverRemoveIndividual?: (id: string) => void
+    changeCourses?: (course: any) => void
+
     handlePublicarTrilha?: (id: string) => void
+    handlePublicarCheck?: (id: string) => string
+
+    handleClickPopOverEditActivity?: (id: string) => string
+    handleSwitchPrivateTrail?: (idTrailCourse: string, checked: boolean) => void
 }
 
 export interface IAccordionTranslate extends IAccordionTrack {
@@ -66,6 +71,7 @@ export interface IAccordionTranslate extends IAccordionTrack {
     textMinhasTrihas?: string
     txtAtivarCurso?: string
     txtAtivarTrilha?: string
+    txtPrivateTrilha?: string
     txtButtonLabel?: string
     txtCriarNovoCurso?: string
     txtCriarNovoCurso2?: string
@@ -77,5 +83,6 @@ export interface IAccordionTranslate extends IAccordionTrack {
     txtTrailsPopOverDelete?: string
     txtPlacerolderInputNameTrail?: string
     txtCursoIndividual?: string
+    txtLoadingTrilhas?: any
 }
 

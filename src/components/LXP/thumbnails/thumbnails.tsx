@@ -23,6 +23,8 @@ export default function Thumbnails({
   handleSwitchAtivar,
   handleClickPopOverDelete,
   handleClickPopOverEdit,
+  handleClickPopOverEditActivity,
+  handleClickPopOverDeleteTrail,
   title, 
   provided, 
   isDisabled,
@@ -34,7 +36,10 @@ export default function Thumbnails({
   txtPopOverDeleteContent,
   txtPopOverMoveToTrails,
   txtPopOverEditContent,
-  isActive
+  isActive,
+  isTrail,
+  txtPopOverDeleteTrail,
+  txtPopOverEditContentActivity
 }: IThumbnailsTranslate) {
 
   const defaultImg = "https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png"
@@ -92,9 +97,6 @@ export default function Thumbnails({
               </Styles.LoadingContainer>
               :
               <Styles.ContainerThumbnails showSwitchIndividual={showSwitch} className={variant = 'default'} ref={provided ? provided.innerRef : null} {...provided ? provided.draggableProps : null}>
-                <Styles.ContainerButton onMouseOut={handleHoverImageOut} className='buttonVisible' active={showModules}>
-                  <Button label={txtButtonLabel ? txtButtonLabel : 'Ver conteúdo'} variant='primary' handleClick={handleClickCourse} />
-                </Styles.ContainerButton>
                 <Styles.GeralThumbnails ref={provided ? provided.innerRef : null} {...provided ? provided.dragHandleProps : null}>
                   <Styles.Thumbnails>
                     <VectorEllipse />
@@ -198,32 +200,67 @@ export default function Thumbnails({
           }}
           variant={'upRight'}
         >
-          <div style={{display: 'flex', flexDirection: 'column', padding: 0}}>            
-            <PopOverItem 
-              label={txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo"}
-              onClick={() => {
-                handleClickPopOverEdit()
-                setElementPopover(null)
-              }}
-              style={{
-                borderBottom: '1px black solid'
-              }}
-            />
-            {/* <PopOverItem 
-              label={txtPopOverMoveToTrails ? txtPopOverMoveToTrails : "Mover para Trilhas"}
-              onClick={handleClickPopOverMove}
-            /> */}
-            <PopOverItem 
-              label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
-              onClick={() => {
-                handleClickPopOverDelete()
-                setElementPopover(null)
-              }}
-              icon={<Icons.Trash fill='#C00F00'/>}
-              noBorder={true}
-              isFontBold={true}
-              color={'#C00F00'}
-            />
+          <div style={{display: 'flex', flexDirection: 'column', padding: 0}}> 
+          {
+            isTrail ?
+            <>
+              <PopOverItem 
+                label={txtPopOverDeleteTrail ? txtPopOverDeleteTrail : "Excluir da Trilha"}
+                onClick={() => {
+                  setElementPopover(null)
+                  /// timeout para corrigir o bug de scroll na tela
+                  setTimeout(() => {
+                    handleClickPopOverDelete()
+                  }, 500)
+                }}
+                isFontBold={true}
+                noBorder={true}
+                color={'#C00F00'}
+                icon={<Icons.Trash fill='#C00F00'/>}
+                style={{
+                  borderBottom: '1px black solid',
+                  width: 100
+                }}
+              />          
+            </>
+            :
+            <>
+              <PopOverItem 
+                label={txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo"}
+                onClick={() => {
+                  setElementPopover(null)
+                  handleClickPopOverEdit()
+                }}
+                style={{
+                  borderBottom: '1px black solid'
+                }}
+              />
+              <PopOverItem 
+                label={txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar Atividades"}
+                onClick={() => {
+                  setElementPopover(null)
+                  handleClickPopOverEditActivity()
+                }}
+                style={{
+                  borderBottom: '1px black solid'
+                }}
+              />
+              <PopOverItem 
+                label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
+                onClick={() => {
+                  setElementPopover(null)
+                  /// timeout para corrigir o bug de scroll na tela
+                  setTimeout(() => {
+                    handleClickPopOverDelete()
+                  }, 500)
+                }}
+                icon={<Icons.Trash fill='#C00F00'/>}
+                noBorder={true}
+                isFontBold={true}
+                color={'#C00F00'}                
+              />                 
+            </>
+          }           
           </div>
         </PopOver>       
       </ThemeProvider>

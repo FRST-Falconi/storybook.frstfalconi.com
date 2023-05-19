@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../../../shared/global.css'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
@@ -102,21 +102,41 @@ const useStyles = makeStyles((theme) => {
 
 export default function ContentCoursesTrails(props: any) {
   
+  const [OpenPopper, setOpenPopper] = useState<boolean>(false);
   const [checked, setChecked] = useState(true)
+  const [checkedPrivate, setCheckedPrivate] = useState(true)
   const [up, setUp] = useState(true)
   const [ElementPopover, setElementPopover] = useState(null);
   const [ElementPopoverPublish, setElementPopoverPublish] = useState(null);
   const [active, setActive] = useState(false)
   const [nameTrail, setNameTrail] = useState('')  
-  const [Publishing, setPublishing] = useState<boolean>(false);
-  const [CanPublishing, setCanPublishing] = useState<boolean>(true);
+  const [Publishing, setPublishing] = useState<string>(props.publishStatus);
   const [arrowRef, setArrowRef] = React.useState<HTMLElement | null>(null);
   const classes = useStyles();
   // const refContainer = useRef(null);
 
+  useEffect(() => {
+    setPublishing(props.publishStatus)
+    setOpenPopper(props.publishStatus === "pending")
+  }, [props.publishStatus])
+
+  useEffect(() => {
+    if (props.publishStatus && props.publishStatus === "processing") {
+      console.log(" . --- Startando Verificacao Publicacao", props.trailId)
+      setTimeout(() => {
+          checkStatusPublish()
+        }, 5000)
+    }
+  }, [])
+
   const handleChange = (checkedValue) => {
     setChecked(checkedValue)
     props.handleChangeCheck(checkedValue)
+  };
+
+  const handleChangePrivate = (checkedValue) => {
+    setCheckedPrivate(checkedValue)
+    props.handleChangePrivate(!checkedValue)
   };
 
   const changeSelect = () => {
@@ -141,16 +161,28 @@ export default function ContentCoursesTrails(props: any) {
      }
   }
 
+  const checkStatusPublish = async () => {
+    let publicacao = await props.handlePublicarCheck(props.trailId)
+    console.log(props.trailId, 'publicacao', publicacao)
+    setPublishing(publicacao)
+    if (publicacao) {
+      if (publicacao === "processing") {
+        setTimeout(() => {
+          checkStatusPublish()
+        }, 5000)
+      }
+    }
+  }
+
   return (
     <>
       <Styles.ContainerHeader className={"opened"} active={props.ativo}>
-
         <Styles.ContentTrailName active={active}>
           {!active ?
             <>
               <Styles.TypographyTrailName>{props.TrailName}</Styles.TypographyTrailName>
               <Styles.Select onClick={changeSelect}>
-                {props.show ? <VectorUp /> : <VectorDown />}
+                {props.show ? props.show === true ? <VectorUp /> : <VectorDown /> : null}
               </Styles.Select>
             </>
             :
@@ -176,7 +208,25 @@ export default function ContentCoursesTrails(props: any) {
         
         {
           props.showButtonActive &&
-            <Styles.ContentActiveHeader>
+            <Styles.ContentActiveHeader>             
+              <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
+                {props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Tornar a Trilha Pública'}
+                <Switch
+                  onChange={handleChangePrivate}
+                  checked={!props.private}
+                  height={16}
+                  width={40}
+                  checkedIcon={false}
+                  uncheckedIcon={false}
+                  handleDiameter={24}
+                  onHandleColor='#ffffff'
+                  offHandleColor='#ffffff'
+                  onColor='#FF4D0D'
+                  offColor='#757575'
+                  activeBoxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                  boxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                />
+              </Styles.TypographyActiveHeader>
               <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
                 {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
                 <Switch
@@ -194,7 +244,7 @@ export default function ContentCoursesTrails(props: any) {
                   activeBoxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                   boxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                 />
-              </Styles.TypographyActiveHeader>
+              </Styles.TypographyActiveHeader>               
               <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
                 <Button 
                   id={`btnPublish${props.id}`}
@@ -202,21 +252,21 @@ export default function ContentCoursesTrails(props: any) {
                     let el = document.getElementById(element)
                     setElementPopoverPublish(el ? el : null)
                   }}
-                  handleClick={() => {
-                    setCanPublishing(false)
-                    setPublishing(true)     
-                    props.handlePublicarTrilha(props)              
+                  handleClick={async () => {    
+                    setPublishing('processing')                
+                    await props.handlePublicarTrilha(props)              
+                    checkStatusPublish()
                   }} 
-                  startIcon={Publishing &&  <Loading sizeLoading='small' loadColor='#bdbdbd' style={{width: 40}}/>}
-                  label={Publishing ? 'Publicando...' : 'Publicar'} 
+                  startIcon={Publishing === 'processing' &&  <Loading sizeLoading='small' loadColor='#a5a5a5' style={{width: 40}}/>}
+                  label={Publishing === 'pending' ? "Publicar" : Publishing === 'complete' ? "Publicado" : "Publicando..."}             
                   variant='secondary'
-                  disabled={!CanPublishing}
+                  disabled={Publishing === 'pending' ? false : true}
                 />
-                {/* ToDo: Migrar um novo componente */}
                 <Popper 
-                  id={CanPublishing ? `btnPublishPopper${props.id}` : undefined} 
-                  open={CanPublishing} 
-                  anchorEl={ElementPopoverPublish} 
+                  key={props}
+                  id={Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined} 
+                  open={OpenPopper} 
+                  anchorEl={ElementPopoverPublish ? ElementPopoverPublish : null} 
                   placement={'top'} 
                   className={classes.popper}
                   transition
@@ -234,7 +284,7 @@ export default function ContentCoursesTrails(props: any) {
                   {({ TransitionProps }) => (                  
                     <Fade {...TransitionProps} timeout={350}>
                       <Paper>
-                        <ClickAwayListener onClickAway={() => {}}>
+                        <ClickAwayListener onClickAway={() => {setOpenPopper(false)}}>
                           <Paper className={classes.popoverRoot}>
                               <span className={classes.arrow} ref={setArrowRef} />
                             <Box className={classes.content}>Após realizar todas as alterações na trilha, é necessário clicar em publicar para que o conteúdo editado esteja disponível</Box>
@@ -285,8 +335,10 @@ export default function ContentCoursesTrails(props: any) {
               <PopOverItem
                 label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
                 onClick={() => {
-                  props.handlePopOverTrailDelete(props.id)
                   setElementPopover(null)
+                  setTimeout(() => {
+                    props.handlePopOverTrailDelete(props.id)
+                  }, 500)
                 }}
                 icon={<Icons.Trash fill='#C00F00' />}
                 noBorder={true}
@@ -295,7 +347,7 @@ export default function ContentCoursesTrails(props: any) {
               />
             </div>
           </PopOver>      
-        </>        
+        </>
       </Styles.ContainerHeader>
       
       { up && props.children}

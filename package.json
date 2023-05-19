@@ -1,8 +1,8 @@
 {
   "name": "frst-components",
   "homepage": "http://FRST-Falconi.github.io/storybook.frstfalconi.com",
-  "version": "0.16.8",
-  "private": true,
+  "version": "0.20.3",
+  "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -12,6 +12,11 @@
     "build-sb": "rimraf storybook-static && build-storybook -s public",
     "deploy-sb": "gh-pages -d storybook-static"
   },
+  "files": [
+    "dist",
+    "public",
+    "pacakge.json"
+  ],
   "dependencies": {
     "@emoji-mart/data": "^1.0.2",
     "@emotion/css": "^11.10.0",
@@ -26,7 +31,6 @@
     "date-fns": "^2.29.3",
     "drag-react": "^1.1.0",
     "emoji-mart": "^5.1.0",
-    "frst-components": "github:FRST-Falconi/storybook.frstfalconi.com#0.3.84",
     "i18next": "^21.6.12",
     "i18next-browser-languagedetector": "^6.1.3",
     "markdown-to-jsx": "^7.1.8",
@@ -79,5 +83,15 @@
     "storybook-react-i18next": "^1.0.17",
     "typescript": "^4.5.5",
     "webpack": "^5.69.1"
+  },
+  "description": "<p align=\"center\">   <a href=\"https://frst-falconi.github.io/storybook.frstfalconi.com\">     <img alt=\"Chromatic\" src=\"https://frstfalconi.com/wp-content/themes/frst-theme/img/logo-frst-completo2x.png\" width=\"320\" />   </a> </p>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FRST-Falconi/storybook.frstfalconi.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FRST-Falconi/storybook.frstfalconi.com/issues"
   }
 }
