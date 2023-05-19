@@ -10,6 +10,7 @@ import ContentCoursesTrails from './contentCoursesTrails'
 import ContentCourses from './contentCourses'
 import React from 'react'
 import ModalLXP from '../../modal/modalLXP/Modal'
+import Loading from '@components/DS/loading'
 
 export default function AccordionTrack(props: IAccordionTranslate) {
 
@@ -194,23 +195,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             //---------------------------------------------------------------------------- 
             */}
             <ContentCoursesTrails
-              TrailName={props.txtCursoIndividual ? props.txtCursoIndividual : 'Conteúdo individual'}
+              TrailName={props.txtLoadingTrilhas ? props.txtLoadingTrilhas : <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-start', width: 400}}>Carregando Trilhas <Loading sizeLoading='small' loadColor='#ff4d0d' style={{width: 40, marginLeft: 8}}/></div>}
               ativo={true}
-              show={ShowIndividual}
-              handleChangeCheck={(bActive: boolean) => {
-                // if (props.handleSwitchActiveTrail) {
-                //   props.handleSwitchActiveTrail(trailIndex, bActive)
-                // }
-              }}
-              handleChangeTrailName={(name: boolean) => {
-                // if (props.onSetNameTrail) {
-                //   props.onSetNameTrail(name, trailIndex)
-                // }
-              }}
-              handleChangeShow={(bShow) => {
-                console.log(bShow)
-                setShowIndividual(bShow)           
-              }}
               txtAtivarTrilha={props.txtAtivarTrilha}
               handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
             >

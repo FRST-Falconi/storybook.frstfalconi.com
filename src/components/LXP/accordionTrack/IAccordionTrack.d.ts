@@ -83,5 +83,6 @@ export interface IAccordionTranslate extends IAccordionTrack {
     txtTrailsPopOverDelete?: string
     txtPlacerolderInputNameTrail?: string
     txtCursoIndividual?: string
+    txtLoadingTrilhas?: any
 }
 

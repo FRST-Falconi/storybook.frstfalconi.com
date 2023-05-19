@@ -10585,7 +10585,7 @@ function ContentCoursesTrails(props) {
         }
     };
     return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: "opened", active: props.ativo, children: [jsxRuntime.jsx(ContentTrailName, { active: active, children: !active ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyTrailName, { children: props.TrailName }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: props.show ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyTrailName, { children: props.TrailName }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: props.show ? props.show === true ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) : null })] })
                             :
                                 jsxRuntime.jsx(ContainerInputNameTrail, { children: jsxRuntime.jsx("input", { placeholder: props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha', value: nameTrail, onChange: (e) => {
                                             setNameTrail(e.target.value);
@@ -10703,18 +10703,7 @@ function AccordionTrack(props) {
                                                                         }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `content${contentIndex}`) }));
                                                             })] }) }) }), provided.placeholder] }));
                         } }, MEUS_CONTEUDOS_CONTENT)] }), IsLoading ?
-                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Conteúdo individual', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
-                            // if (props.handleSwitchActiveTrail) {
-                            //   props.handleSwitchActiveTrail(trailIndex, bActive)
-                            // }
-                        }, handleChangeTrailName: (name) => {
-                            // if (props.onSetNameTrail) {
-                            //   props.onSetNameTrail(name, trailIndex)
-                            // }
-                        }, handleChangeShow: (bShow) => {
-                            console.log(bShow);
-                            setShowIndividual(bShow);
-                        }, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
+                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtLoadingTrilhas ? props.txtLoadingTrilhas : jsxRuntime.jsxs("div", { style: { display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-start', width: 400 }, children: ["Carregando Trilhas ", jsxRuntime.jsx(Loading, { sizeLoading: 'small', loadColor: '#ff4d0d', style: { width: 40, marginLeft: 8 } })] }), ativo: true, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
                                 return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] }) }) }), provided.placeholder] }));
                             } }, CONTEUDO_INDIVIDUAL_CONTENT) }) })
                 :

@@ -182,7 +182,7 @@ export default function ContentCoursesTrails(props: any) {
             <>
               <Styles.TypographyTrailName>{props.TrailName}</Styles.TypographyTrailName>
               <Styles.Select onClick={changeSelect}>
-                {props.show ? <VectorUp /> : <VectorDown />}
+                {props.show ? props.show === true ? <VectorUp /> : <VectorDown /> : null}
               </Styles.Select>
             </>
             :
