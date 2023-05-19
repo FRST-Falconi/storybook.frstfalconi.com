@@ -23,11 +23,16 @@ export default function ThumbnailsDraggable({
    txtCriarNovoCurso2,
    handleClickPopOverDelete,
    handleClickPopOverEdit,
+   handleClickPopOverEditActivity,
    handleClickPopOverMove,
    txtPopOverDeleteContent,
    txtPopOverEditContent,
    isActive,
-   txtPopOverMoveToTrails 
+   isTrail,
+   txtPopOverMoveToTrails,
+   txtPopOverDeleteTrail,
+   txtPopOverEditContentActivity
+
   }: IThumbnailsTranslate) {
 
   return (
@@ -52,18 +57,22 @@ export default function ThumbnailsDraggable({
               isActive={isActive}
               isLoading={isLoading}
               showSwitch={showSwitch}
-              index={index}    
+              index={index}  
+              isTrail={isTrail}  
               provided={provided}
               txtButtonLabel={txtButtonLabel}
               txtAtivarCurso={txtAtivarCurso}
               txtCriarNovoCurso={txtCriarNovoCurso}
               txtCriarNovoCurso2={txtCriarNovoCurso2}
+              handleClickPopOverEditActivity={handleClickPopOverEditActivity}
               handleClickPopOverDelete={handleClickPopOverDelete}
               handleClickPopOverEdit={handleClickPopOverEdit}
               handleClickPopOverMove={handleClickPopOverMove}
               txtPopOverDeleteContent={txtPopOverDeleteContent}
               txtPopOverEditContent={txtPopOverEditContent}
               txtPopOverMoveToTrails={txtPopOverMoveToTrails}
+              txtPopOverDeleteTrail={txtPopOverDeleteTrail}
+              txtPopOverEditContentActivity={txtPopOverEditContentActivity}
             />
           )}
         }

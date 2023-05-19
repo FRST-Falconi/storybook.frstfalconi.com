@@ -17,9 +17,12 @@ export interface IThumbnails {
     handleClickPopOverEdit?: () => void,
     handleClickPopOverMove?: () => void,
     handleClickPopOverDelete?: () => void,   
+    handleClickPopOverDeleteTrail?: () => void,   
+    handleClickPopOverEditActivity?: () => void,   
     variant?: enumVariant,
     title?: string   
     id?: string,
+    isTrail?: boolean,
     index?: string,
     provided?: any
 }
@@ -32,5 +35,7 @@ export interface IThumbnailsTranslate extends IThumbnails {
     txtPopOverEditContent?: string
     txtPopOverMoveToTrails?: string
     txtPopOverDeleteContent?: string
+    txtPopOverDeleteTrail?: string
+    txtPopOverEditContentActivity?: string
 }
 

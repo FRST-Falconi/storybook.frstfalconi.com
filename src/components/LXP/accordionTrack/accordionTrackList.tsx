@@ -7,6 +7,7 @@ import { DragDropContext } from '@hello-pangea/dnd'
 import { IAccordionTranslate } from './IAccordionTrack'
 import AccordionTrack from './accordionTrack'
 import { Course } from '@shared/icons'
+import ModalLXP from '../../modal/modalLXP/Modal'
 
 export default function AccordionTrackList({
   trailsData,
@@ -38,13 +39,19 @@ export default function AccordionTrackList({
   txtCriarNovoCurso,
   txtAtivarTrilha,
   isLoading,
-  handlePublicarTrilha
+  handlePublicarTrilha,
+  changeCourses,
+  handlePublicarCheck,
+  handleClickPopOverEditActivity,
+  handleSwitchPrivateTrail
 }: IAccordionTranslate) {
-  const [trails, setTrails] = useState(trailsData)
-  const [courses, setCourses] = useState(courseData)
+
+  const [trails, setTrails] = useState([])
+  const [courses, setCourses] = useState([])
   const [ConteudoIndividual, setConteudoIndividual] = useState([])
   const [MeusConteudosData, setMeusConteudosData] = useState([])
   const [updateScrollSize, setUpdateScrollSize] = useState(0)
+
   const MEUS_CONTEUDOS_CONTENT = '0'
   const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
@@ -59,12 +66,6 @@ export default function AccordionTrackList({
   }
 
   useEffect(() => {
-    if (handleChange) {
-      handleChange({ courses: courses, trails: trails })
-    }
-  }, [trails])
-
-  useEffect(() => {
     console.log("Atualizou em accordionTrackList", courses)
     setMeusConteudosData(courses ? courses.filter(item => !item.active_individual) : [])
     setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : [])
@@ -72,11 +73,17 @@ export default function AccordionTrackList({
 
   useEffect(() => {
     console.log("Atualizou props em accordionTrackList", courseData)
-    setCourses(courseData)
+    if (JSON.stringify(courseData) !== JSON.stringify(courses)) {
+      console.log("Acessando os registros de Cursos")
+      setCourses(courseData)
+    }
   }, [courseData])
 
   useEffect(() => {   
-    setTrails(trailsData)
+    if (JSON.stringify(trailsData) !== JSON.stringify(trails)) {
+      console.log("Acessando os registros de trilhas")
+      setTrails(trailsData)
+    }
   }, [trailsData])
 
   const handleDragEnd = ({ destination, source }) => {
@@ -133,6 +140,11 @@ export default function AccordionTrackList({
       let indexTrail = courses.findIndex(item => item.uuid === uuidConteudo)
       
       if (indexTrail >= 0) {
+
+        let changedCourse = courses[indexTrail]
+        changedCourse.active_individual = destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT
+        changeCourses(changedCourse)
+
         setCourses((prev) => {
           prev = [ ...prev ]
           prev[indexTrail].active_individual = destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT
@@ -159,7 +171,7 @@ export default function AccordionTrackList({
         course_id: itemCopy.id,
         order: 0
       }
-  
+
       setTrails((prev) => {
         prev = [ ...prev ]
   
@@ -189,6 +201,15 @@ export default function AccordionTrackList({
       prev = { ...prev }
       prev[index].active = active!
       handleSwitchActiveTrail(prev[index].id, active!)
+      return prev
+    })
+  }
+
+  const setPrivateTrail = (index, bPrivate) => {
+    setTrails((prev) => {
+      prev = { ...prev }
+      prev[index].private = bPrivate!
+      handleSwitchPrivateTrail(prev[index].id, bPrivate!)
       return prev
     })
   }
@@ -223,6 +244,9 @@ export default function AccordionTrackList({
             courseIndividualData={ConteudoIndividual}
             handleSwitchActiveTrail={(index, active) => {
               setActiveTrail(index, active)
+            }}            
+            handleSwitchPrivateTrail={(index, active) => {
+              setPrivateTrail(index, active)
             }}
             onSetNameTrail={(name, id) => {
               setNameTrail(name, id)
@@ -236,6 +260,7 @@ export default function AccordionTrackList({
             handleSwitchAtivar={handleSwitchAtivar}
             handleEditCourse={handleEditCourse}
             handlePublicarTrilha={handlePublicarTrilha}
+            handlePublicarCheck={handlePublicarCheck}
             textMeusConteudos={textMeusConteudos}
             textTotalDe={textTotalDe}
             textRegistros={textRegistros}
@@ -246,17 +271,18 @@ export default function AccordionTrackList({
             txtCriarNovoCurso={txtCriarNovoCurso}
             isLoading={isLoading}
             updateScrollSize={updateScrollSize}
-            handleDeleteCourse={handleDeleteCourse}
-            handleDeleteCourseTrail={handleDeleteCourseTrail}
+            handleDeleteCourse={handleDeleteCourse}            
+            handleDeleteCourseTrail={handleDeleteCourseTrail}            
+            handlePopOverTrailDelete={handlePopOverTrailDelete}  
             handlePopOverEdit={handlePopOverEdit}
-            handlePopOverTrailDelete={handlePopOverTrailDelete}
             handlePopOverTrailEdit={handlePopOverTrailEdit}
             handlePopOverMove={handlePopOverMove}
             txtPopOverDeleteContent={txtPopOverDeleteContent}
-            txtPopOverEditContent={txtPopOverEditContent}
             txtPopOverMoveToTrails={txtPopOverMoveToTrails}
+            txtPopOverEditContent={txtPopOverEditContent}
+            handleClickPopOverEditActivity={handleClickPopOverEditActivity}
           />
-        }
+        }        
       </DragDropContext>
     </ThemeProvider>
   )
