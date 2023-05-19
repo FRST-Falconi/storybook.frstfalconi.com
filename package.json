@@ -1,7 +1,7 @@
 {
-  "name": "@frst-falconi/frst-components",
+  "name": "frst-components",
   "homepage": "http://FRST-Falconi.github.io/storybook.frstfalconi.com",
-  "version": "0.17.0",
+  "version": "0.20.3",
   "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -12,6 +12,11 @@
     "build-sb": "rimraf storybook-static && build-storybook -s public",
     "deploy-sb": "gh-pages -d storybook-static"
   },
+  "files": [
+    "dist",
+    "public",
+    "pacakge.json"
+  ],
   "dependencies": {
     "@emoji-mart/data": "^1.0.2",
     "@emotion/css": "^11.10.0",
