@@ -195,7 +195,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             //---------------------------------------------------------------------------- 
             */}
             <ContentCoursesTrails
-              TrailName={props.txtLoadingTrilhas ? props.txtLoadingTrilhas : <div style={{display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-start', width: 400}}>Carregando Trilhas <Loading sizeLoading='small' loadColor='#ff4d0d' style={{width: 40, marginLeft: 8}}/></div>}
+              TrailName={props.txtLoadingTrilhas ? props.txtLoadingTrilhas : 'Carregando Trilhas...'}
               ativo={true}
               txtAtivarTrilha={props.txtAtivarTrilha}
               handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
