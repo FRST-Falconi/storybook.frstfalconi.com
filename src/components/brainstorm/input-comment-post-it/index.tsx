@@ -187,8 +187,6 @@ export default function InputCommentPostIt({
 
     function repositionCursorAfterNewEmojiInTextArea(pos, lenghtEmoji) {     
         let newPos = 0
-        console.log('lenghtEmoji ', lenghtEmoji)
-        console.log('pos ', pos)
         if(pos[0] != pos[1]) { // Cursor in multiple chars selected
             newPos = pos[0]   + (lenghtEmoji ? lenghtEmoji : 0);
         } else { // Cursor text in specific point
