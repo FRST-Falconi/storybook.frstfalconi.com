@@ -10933,7 +10933,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
     };
     const setActiveTrail = (index, active) => {
         setTrails((prev) => {
-            prev = { ...prev };
+            prev = [...prev];
             prev[index].active = active;
             handleSwitchActiveTrail(prev[index].id, active);
             return prev;
@@ -10941,7 +10941,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
     };
     const setPrivateTrail = (index, bPrivate) => {
         setTrails((prev) => {
-            prev = { ...prev };
+            prev = [...prev];
             prev[index].private = bPrivate;
             handleSwitchPrivateTrail(prev[index].id, bPrivate);
             return prev;
@@ -10959,7 +10959,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
     const setNameTrail = (name, id) => {
         ({ ...trails[id] });
         setTrails((prev) => {
-            prev = { ...prev };
+            prev = [...prev];
             prev[id].name = name;
             return prev;
         });
