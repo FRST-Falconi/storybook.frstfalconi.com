@@ -27,7 +27,7 @@ import * as ru from '@emoji-mart/data/i18n/ru.json'
 import * as zh from '@emoji-mart/data/i18n/zh.json'
 
 
-export default function EmojiPicker({isOpenPicker, setIsOpenPicker, onEmojiSelect, configPicker}) {
+export default function EmojiPicker({isOpenPicker, setIsOpenPicker, onEmojiSelect, configPicker, styles}) {
     const ref = useRef()
     
     const [ actionAreaEmojiButton, setActionAreaEmojiButton] = useState(false);
@@ -68,6 +68,7 @@ export default function EmojiPicker({isOpenPicker, setIsOpenPicker, onEmojiSelec
                     visible={isOpenPicker} 
                     onMouseOver={() => setActionAreaEmojiButton(true)}
                     onMouseOut={() => setActionAreaEmojiButton(false)}
+                    style={{...styles}}
                 >
                     <ButtonClose onClick={() => setIsOpenPicker(false)}>
                         <XIcon/>
