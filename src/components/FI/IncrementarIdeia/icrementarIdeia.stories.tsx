@@ -16,5 +16,6 @@ icrementarIdeia.args = {
   textPlaceholderGestor: 'Como melhorar essa ideia?',
   textPlaceholderAluno: 'Deseja comentar algo?',
   imgComentario: '/bg1.png',
-  limitTexto: 250
+  limitTexto: 250,
+  txtError: 'Reduza seu texto para 350 caracteres.'
 }

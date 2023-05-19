@@ -2,8 +2,9 @@ import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import * as Styles from './icrementarIdeiaStyles'
 import Avatar from '@components/avatar'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { ErrorAlert, ErrorInCicleIcon } from '@shared/icons'
+import useAutosizeTextArea from './useAutosizeTextArea'
 
 interface PropsIcrementarIdeia {
   user: 'userAdmin' | 'user'
@@ -11,22 +12,22 @@ interface PropsIcrementarIdeia {
   textPlaceholderAluno: string
   imgComentario?: string
   limitTexto?: number
+  txtError: string
 }
 
 export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
   const [activeComentario, setActiveComentario] = useState(false)
-  let [textRows, setTextRows] = useState(5)
   const [textCount, setTextCount] = useState(0)
   const [isError, setIsError] = useState(false)
+  const [value, setValue] = useState('')
+  const textAreaRef = useRef<HTMLTextAreaElement>(null)
 
-  function handleHeigthTextArea() {
-    let objTextArea = document.getElementById('txtTextArea')
-    if (objTextArea.scrollHeight > objTextArea.offsetHeight) {
-      setTextRows((textRows += 1))
-    }
-  }
+  useAutosizeTextArea(textAreaRef.current, value)
 
-  function handleCounTexto(texto) {
+  const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const texto = evt.target?.value
+    setValue(texto)
+
     const txList = texto.split('')
     setTextCount(txList.length)
     if (props.limitTexto) {
@@ -37,7 +38,7 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
       }
     } else if (txList.length > 350) {
       setIsError(true)
-    } else if (txList < 350) {
+    } else if (txList.length < 350) {
       setIsError(false)
     }
   }
@@ -57,11 +58,12 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
             onClick={() => setActiveComentario(true)}
             activeComentario={activeComentario}
             cols={30}
-            rows={textRows}
+            rows={5}
             error={isError}
             id="txtTextArea"
-            onKeyDown={() => handleHeigthTextArea()}
-            onChange={(e) => handleCounTexto(e.target.value)}
+            ref={textAreaRef}
+            value={value}
+            onChange={handleChange}
             placeholder={props.user === 'user' ? props.textPlaceholderAluno : props.textPlaceholderGestor}
           />
         </Styles.imagemAndIput>
@@ -77,7 +79,7 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
       {isError && (
         <Styles.containerError>
           <ErrorAlert />
-          <p>Reduza seu texto para 350 caracteres.</p>
+          <p>{props.txtError}</p>
         </Styles.containerError>
       )}
     </ThemeProvider>
