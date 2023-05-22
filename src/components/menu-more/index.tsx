@@ -43,7 +43,7 @@ export default function MenuMore({iconButton, options, style}: IMenuMore) {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-            {iconButton ? iconButton : <MoreDotsVertical/>}
+            {iconButton ? iconButton : <MoreDotsVertical fill='#444'/>}
         </ButtonMore>
         {listOptions && listOptions?.length > 0 && 
             <MenuCustom

@@ -480,14 +480,14 @@ export function MoreDotsVertical({ fill, width, height }: IconsProps) {
     >
       <path
         d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z"
-        stroke="black"
+        stroke={fill ? fill : 'black'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z"
-        stroke="black"
+        stroke={fill ? fill : 'black'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
