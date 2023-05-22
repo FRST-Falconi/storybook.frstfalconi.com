@@ -17,5 +17,7 @@ icrementarIdeia.args = {
   textPlaceholderAluno: 'Deseja comentar algo?',
   imgComentario: '/bg1.png',
   limitTexto: 250,
-  txtError: 'Reduza seu texto para 350 caracteres.'
+  txtError: 'Reduza seu texto para 350 caracteres.',
+  hasEmoji: true,
+  limit: 1000
 }

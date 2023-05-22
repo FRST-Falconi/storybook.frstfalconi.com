@@ -106,8 +106,6 @@ export const valueCount = styled.div`
 `
 
 export const valueEmoji = styled.div`
-  background: green;
-  width: 3rem;
   padding-bottom: 0.5rem;
   padding-right: 0.5rem;
 `
