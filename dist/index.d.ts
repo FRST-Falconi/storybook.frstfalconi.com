@@ -100,4 +100,5 @@ export { default as MenuMore } from './src/components/menu-more';
 export { default as EmojiPicker } from './src/components/emoji-picker';
 export { default as InputCommentV2 } from './src/components/input-comment-v2';
 export { default as MiniButton } from './src/components/mini-button';
+export { default as CounterLike } from './src/components/counter-like';
 //# sourceMappingURL=index.d.ts.map

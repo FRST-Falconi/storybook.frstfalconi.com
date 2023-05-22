@@ -478,6 +478,12 @@ function CheckIconSimple({ width = '15', height = '12', fill = '#2CA92A' }) {
 function IconContent({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.2884 10.4968L10.1 13.038V7.10845L15.2884 10.4968Z", stroke: "white", strokeWidth: "1.2", strokeLinejoin: "round" }), jsxRuntime.jsx("rect", { x: "1.6", y: "2.6", width: "20.8", height: "14.8", rx: "1.4", stroke: "white", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M6 21.5H18", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function IconLikeLine({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_8980_33733)", children: [jsxRuntime.jsx("path", { d: "M9.33337 3.33334V6.00001H13.1067C13.3 5.99782 13.4914 6.03768 13.6678 6.11682C13.8441 6.19596 14.0011 6.3125 14.1279 6.45835C14.2548 6.60421 14.3484 6.77589 14.4023 6.96151C14.4562 7.14713 14.469 7.34225 14.44 7.53334L13.52 13.5333C13.4718 13.8513 13.3103 14.1411 13.0653 14.3493C12.8203 14.5576 12.5083 14.6703 12.1867 14.6667H4.66671H2.66671C2.31309 14.6667 1.97395 14.5262 1.7239 14.2762C1.47385 14.0261 1.33337 13.687 1.33337 13.3333V8.66668C1.33337 8.31306 1.47385 7.97392 1.7239 7.72387C1.97395 7.47382 2.31309 7.33334 2.66671 7.33334H4.66671L7.33337 1.33334C7.86381 1.33334 8.37252 1.54406 8.74759 1.91913C9.12266 2.2942 9.33337 2.80291 9.33337 3.33334Z", stroke: fill ? fill : "#444444", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4.66675 7.33334L4.66675 14.6667", stroke: fill ? fill : "#444444", strokeWidth: "1.2" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_8980_33733", children: jsxRuntime.jsx("rect", { width: width ? width : "16", height: height ? height : "16", fill: stroke ? stroke : "white" }) }) })] }));
+}
+function IconLikeFilled({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "16", height: height ? height : "16", viewBox: "0 0 14 15", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("mask", { id: "path-1-inside-1_9175_678", fill: "white", children: jsxRuntime.jsx("path", { d: "M8.33337 2.83331V5.49998H12.1067C12.3 5.49779 12.4914 5.53765 12.6678 5.61679C12.8441 5.69593 13.0011 5.81247 13.1279 5.95832C13.2548 6.10418 13.3484 6.27586 13.4023 6.46148C13.4562 6.6471 13.469 6.84222 13.44 7.03331L12.52 13.0333C12.4718 13.3513 12.3103 13.6411 12.0653 13.8493C11.8203 14.0576 11.5083 14.1703 11.1867 14.1666H3.66671H1.66671C1.31309 14.1666 0.973947 14.0262 0.723898 13.7761C0.47385 13.5261 0.333374 13.1869 0.333374 12.8333V8.16665C0.333374 7.81302 0.47385 7.47389 0.723898 7.22384C0.973947 6.97379 1.31309 6.83331 1.66671 6.83331H3.66671L6.33337 0.833313C6.86381 0.833313 7.37252 1.04403 7.74759 1.4191C8.12266 1.79417 8.33337 2.30288 8.33337 2.83331Z" }) }), jsxRuntime.jsx("path", { d: "M8.33337 2.83331V5.49998H12.1067C12.3 5.49779 12.4914 5.53765 12.6678 5.61679C12.8441 5.69593 13.0011 5.81247 13.1279 5.95832C13.2548 6.10418 13.3484 6.27586 13.4023 6.46148C13.4562 6.6471 13.469 6.84222 13.44 7.03331L12.52 13.0333C12.4718 13.3513 12.3103 13.6411 12.0653 13.8493C11.8203 14.0576 11.5083 14.1703 11.1867 14.1666H3.66671H1.66671C1.31309 14.1666 0.973947 14.0262 0.723898 13.7761C0.47385 13.5261 0.333374 13.1869 0.333374 12.8333V8.16665C0.333374 7.81302 0.47385 7.47389 0.723898 7.22384C0.973947 6.97379 1.31309 6.83331 1.66671 6.83331H3.66671L6.33337 0.833313C6.86381 0.833313 7.37252 1.04403 7.74759 1.4191C8.12266 1.79417 8.33337 2.30288 8.33337 2.83331Z", fill: fill ? fill : "#F26818", stroke: "#F26818", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round", mask: "url(#path-1-inside-1_9175_678)" }), jsxRuntime.jsx("path", { d: "M3.33337 6.5L3.33337 14.1667", stroke: "white", strokeWidth: "1.5" })] }));
+}
 function TrashIconNew({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ?? '19', height: height ?? '19', viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M0.833252 4.33325H2.61103H16.8333", stroke: fill ? fill : '#0645AD', strokeWidth: "1.3", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.3786 4.5V15.4C15.3786 15.8243 15.1816 16.2313 14.8309 16.5314C14.4802 16.8314 14.0045 17 13.5085 17H4.15785C3.66186 17 3.18619 16.8314 2.83547 16.5314C2.48475 16.2313 2.28772 15.8243 2.28772 15.4V4.5M5.09291 4.2V2.6C5.09291 2.17565 5.28995 1.76869 5.64066 1.46863C5.99138 1.16857 6.46706 1 6.96304 1H10.7033C11.1993 1 11.675 1.16857 12.0257 1.46863C12.3764 1.76869 12.5734 2.17565 12.5734 2.6V4.2", stroke: fill ? fill : '#0645AD', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
@@ -5267,7 +5273,7 @@ const WrapperTitle = styled__default["default"].div `
 const TitleCard$1 = styled__default["default"].p `
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
 `;
-const WrapperButton$2 = styled__default["default"].div `
+const WrapperButton$3 = styled__default["default"].div `
     margin-top: 26px;
     margin-left: 26px;
     display: flex;
@@ -5277,7 +5283,7 @@ const WrapperButton$2 = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$7, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$2, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$4, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$7, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$3, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$4, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
 function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
@@ -12136,7 +12142,7 @@ const Channel = styled__default["default"].span `
 
     margin-top: 4px;
 `;
-const WrapperButton$1 = styled__default["default"].div `
+const WrapperButton$2 = styled__default["default"].div `
 margin-top: 10px;
 
 `;
@@ -12187,7 +12193,7 @@ const WrapperComponent = styled__default["default"].div `
 // & > path {
 //     fill: ${({ theme, active }) => active ? theme.colors.primary1 : theme.colors.neutralsGrey1};
 // }
-const WrapperButton = styled__default["default"].div `
+const WrapperButton$1 = styled__default["default"].div `
     margin-right: 8px;
     
     & > button {
@@ -12268,20 +12274,20 @@ function LateralMenu$1({ label, onClick, button, beginComponent, activeBeginIcon
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: subItems && subItems.length > 0 ?
             jsxRuntime.jsxs(WrapperCompound, { isOpen: isActive, style: { ...style, maxHeight: isActive ? getSizeCompound() : '40px' }, children: [jsxRuntime.jsxs(WrapperItem, { active: isActive, onClick: (e) => setIsActive(!isActive), style: { ...style, margin: 0, padding: 0, justifyContent: 'space-between' }, children: [jsxRuntime.jsxs(WrapperItem, { style: { background: 'transparent', width: '100%' }, children: [beginComponent &&
                                         jsxRuntime.jsx(WrapperComponent, { active: isActive, children: isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent }), jsxRuntime.jsx(WrapperMainLabel, { active: isActive, style: { marginLeft: beginComponent ? '8px' : '0px' }, children: label })] }), button && button?.label &&
-                                jsxRuntime.jsx(WrapperButton, { children: jsxRuntime.jsx(Button$4, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) }), !hiddenIconDropArrow &&
+                                jsxRuntime.jsx(WrapperButton$1, { children: jsxRuntime.jsx(Button$4, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) }), !hiddenIconDropArrow &&
                                 jsxRuntime.jsx(WrapperIconDrop, { isOpen: isActive, children: jsxRuntime.jsx(DropdownIconLine, { fill: '#000' }) })] }), jsxRuntime.jsx(WrapperSubItems, { isOpen: isActive, children: subItems.map((item, index) => {
                             return jsxRuntime.jsx(SubItem, { onClick: () => item.onClick(item.id), children: item.label }, index);
                         }) })] })
             :
                 jsxRuntime.jsxs(WrapperItem, { active: isActive, style: { ...style, margin: 0, padding: 0, justifyContent: 'space-between' }, children: [jsxRuntime.jsxs(WrapperItem, { style: { background: 'transparent', width: '100%' }, onClick: (e) => onClick(e), children: [beginComponent &&
                                     jsxRuntime.jsx(WrapperComponent, { active: isActive, children: isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent }), jsxRuntime.jsx(WrapperMainLabel, { active: isActive, style: { marginLeft: beginComponent ? '8px' : '0px' }, children: label })] }), button && button?.label &&
-                            jsxRuntime.jsx(WrapperButton, { children: jsxRuntime.jsx(Button$4, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) })] }) }));
+                            jsxRuntime.jsx(WrapperButton$1, { children: jsxRuntime.jsx(Button$4, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) })] }) }));
 }
 
 function LateralMenu({ variant, hiddenButtonHeader, avatar, name, channel, button, listOptions, style }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$3, { style: { ...style }, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Avatar, { src: avatar.src, alt: avatar.alt ? avatar.alt : 'Image profile avatar', size: avatar.size ? avatar.size : '80px' }), jsxRuntime.jsx(NameProfile, { children: name }), channel &&
                             jsxRuntime.jsx(Channel, { children: channel }), !hiddenButtonHeader &&
-                            jsxRuntime.jsx(WrapperButton$1, { children: !channel ?
+                            jsxRuntime.jsx(WrapperButton$2, { children: !channel ?
                                     jsxRuntime.jsx(Button$4, { variant: 'primary', label: button.label, handleClick: (e) => button.onClick(e) })
                                     :
                                         jsxRuntime.jsx(Button$4, { variant: 'link', label: button.label, handleClick: (e) => button.onClick(e) }) }), jsxRuntime.jsx(HR, {})] }), listOptions && listOptions.length > 0 && listOptions.map((item, index) => {
@@ -15260,6 +15266,40 @@ function MiniButton({ variant, label, disabled, onClick, styles }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme }, children: jsxRuntime.jsx(Button, { onClick: (e) => !disabled && onClick(e), disabled: disabled, variant: variant, style: { ...styles }, children: label }) }));
 }
 
+const WrapperButton = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    cursor: pointer;
+    gap: 6px;
+`;
+const Counter = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: ${({ isLiked }) => isLiked ? '700' : '400'};
+    font-size: 14px;
+    line-height: 120%;
+
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    color: ${({ theme, active }) => active ? theme.colors.linkOnfocus : theme.colors.neutralsGrey2};
+
+    text-decoration: ${({ active }) => active ? 'underline' : 'none'};
+`;
+
+function CounterLike({ isLiked, onClick, total, styles }) {
+    const [actionArea, setActionArea] = React.useState(false);
+    const [counter, setCounter] = React.useState(0);
+    React.useEffect(() => {
+        setCounter(total);
+    }, [total]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperButton, { onClick: () => onClick(), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), style: { ...styles }, children: [jsxRuntime.jsx(jsxRuntime.Fragment, { children: isLiked ?
+                        jsxRuntime.jsx(IconLikeFilled, {})
+                        : jsxRuntime.jsx(IconLikeLine, { fill: actionArea ? '#F26818' : '#444444' }) }), counter >= 1 && jsxRuntime.jsx(Counter, { active: actionArea, isLiked: isLiked, children: counter })] }) }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
@@ -15300,6 +15340,7 @@ exports.Content = Content$3;
 exports.ContentCycle = ContentCycle;
 exports.ContentSwitcher = ContentSwitcher;
 exports.ContentThumbnails = ContentThumbnails;
+exports.CounterLike = CounterLike;
 exports.DateRangePicker = StepLearningCycle;
 exports.Diamond = Diamond;
 exports.DoubleCheck = DoubleCheck;
