@@ -13,7 +13,7 @@ const Template = (args) => <CounterLike {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    active: true,
+    isLiked: true,
     total: 12,
     onClick: () => alert('click')
 }

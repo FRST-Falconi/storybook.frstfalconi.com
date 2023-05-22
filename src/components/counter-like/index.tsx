@@ -6,7 +6,7 @@ import { WrapperButton, Counter } from './counterLikeStyles'
 import { IConterLike } from './counterLike'
 import { IconLikeLine, IconLikeFilled } from '@shared/icons'
 
-export default function CounterLike({ active, onClick, total, size }: IConterLike) {
+export default function CounterLike({ isLiked, onClick, total, styles }: IConterLike) {
     const [ actionArea, setActionArea] = useState(false)
     const [ counter, setCounter ] = useState(0)
 
@@ -19,21 +19,17 @@ export default function CounterLike({ active, onClick, total, size }: IConterLik
             <WrapperButton
                 onClick={() => onClick()}
                 onMouseOver={() => setActionArea(true)}
-                onMouseOut={() => setActionArea(false)}
+                onMouseOut={() => setActionArea(false)}                
+                style={{...styles}}
             >   
                 <>
-                    { active ? 
-                        <IconLikeFilled
-                            width={size}
-                        />
-                    : <IconLikeLine 
-                        width={size}
-                        fill={actionArea ? '#F26818' : '#444444'}
-                    /> }
+                    { isLiked ? 
+                      <IconLikeFilled />
+                    : <IconLikeLine  fill={actionArea ? '#F26818' : '#444444'} /> }
                 </>
-                    { counter && counter > 0 && <Counter
+                    { counter >= 1 && <Counter
                         active={actionArea}
-                        isLiked={active}
+                        isLiked={isLiked}
                     >
                         {counter}
                     </Counter> }

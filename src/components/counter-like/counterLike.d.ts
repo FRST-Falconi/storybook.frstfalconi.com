@@ -1,8 +1,8 @@
 import React from "react"
 
 export interface IConterLike {
-    active?: boolean,
+    isLiked?: boolean,
     total?: number,
-    size?: 'string',
+    styles?: React.CSSProperties,
     onClick?: () => void
 }
