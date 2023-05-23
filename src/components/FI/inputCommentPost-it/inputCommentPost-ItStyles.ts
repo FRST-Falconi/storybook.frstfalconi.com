@@ -34,7 +34,7 @@ export const InputWrapper = styled.div<Wrapper>`
     width: 100%;
     height: 40px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey9};
-    border: 1px solid ${({ theme }) => theme.colors.error1};
+    border: 1px solid ${({ theme }) => '#BDBDBD'};
     border-radius: 24px;
     ${({ isError }) => isError &&  
         `

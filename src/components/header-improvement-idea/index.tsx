@@ -8,7 +8,7 @@ import HeaderUser from './../header-user'
 import MenuMore from './../menu-more'
 import CounterLike from './../counter-like'
 
-export default function HeaderImprovementIdea({ user, like, menuMore }: IHeaderImprovementIdea) {
+export default function HeaderImprovementIdea({ user, like, menuMore, styles }: IHeaderImprovementIdea) {
     const [ userState, setUserState ] = useState(user);
     const [ likeState, setLikeState ] = useState(like);
     const [ menuMoreState, setMenuMoreState ] = useState(menuMore);
@@ -21,7 +21,7 @@ export default function HeaderImprovementIdea({ user, like, menuMore }: IHeaderI
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Wrapper>
+            <Wrapper style={{...styles}}>
                 <HeaderUser 
                     avatar={user?.avatar} 
                     name={user?.name}

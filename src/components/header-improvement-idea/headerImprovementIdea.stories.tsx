@@ -44,4 +44,5 @@ normal.args = {
             color: '#C1341A'
         },
     ],
+    styles: {width: '250px'}
 }

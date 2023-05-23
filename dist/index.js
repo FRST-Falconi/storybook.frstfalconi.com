@@ -15355,7 +15355,7 @@ const InputWrapper = styled__default["default"].div `
     width: 100%;
     height: 40px;
     background-color: ${({ theme }) => theme.colors.neutralsGrey9};
-    border: 1px solid ${({ theme }) => theme.colors.error1};
+    border: 1px solid ${({ theme }) => '#BDBDBD'};
     border-radius: 24px;
     ${({ isError }) => isError &&
     `
@@ -15596,7 +15596,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
                                             language: 'pt',
                                             emojiSize: 20
                                         }, styles: { width: '318px' } })] })] }), isErrorManyChars &&
-                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancel(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
+                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancel(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px', color: '#000' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
                                     if (stringValueTextArea?.length > 0 && !isErrorManyChars)
                                         onClickPublish(stringValueTextArea);
                                 }, disabled: !(stringValueTextArea?.length > 0) || isErrorManyChars })] }) })] }) }));
@@ -15644,8 +15644,7 @@ const Wrapper = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     width: fit-content;
-    gap: 12px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 `;
 const WrapperActions = styled__default["default"].div `
@@ -15653,9 +15652,10 @@ const WrapperActions = styled__default["default"].div `
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-left: 12px;
 `;
 
-function HeaderImprovementIdea({ user, like, menuMore }) {
+function HeaderImprovementIdea({ user, like, menuMore, styles }) {
     const [userState, setUserState] = React.useState(user);
     const [likeState, setLikeState] = React.useState(like);
     const [menuMoreState, setMenuMoreState] = React.useState(menuMore);
@@ -15664,7 +15664,7 @@ function HeaderImprovementIdea({ user, like, menuMore }) {
         setLikeState(like);
         setMenuMoreState(menuMore);
     }, [user, like, menuMore]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { children: [jsxRuntime.jsx(HeaderUser, { avatar: user?.avatar, name: user?.name, text: user?.text }), jsxRuntime.jsxs(WrapperActions, { children: [jsxRuntime.jsx(CounterLike, { total: like?.total, onClick: () => like?.onClick() }), menuMore && menuMore?.length > 0 &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { style: { ...styles }, children: [jsxRuntime.jsx(HeaderUser, { avatar: user?.avatar, name: user?.name, text: user?.text }), jsxRuntime.jsxs(WrapperActions, { children: [jsxRuntime.jsx(CounterLike, { total: like?.total, onClick: () => like?.onClick() }), menuMore && menuMore?.length > 0 &&
                             jsxRuntime.jsx(MenuMore, { options: menuMore })] })] }) }));
 }
 

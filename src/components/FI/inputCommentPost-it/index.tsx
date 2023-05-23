@@ -142,7 +142,7 @@ export default function InputCommentPostIt({
                         onClick={(e) => onClickCancel()}
                         disabled={false} 
                     />
-                    <div style={{marginLeft: '8px', marginRight: '8px'}}>
+                    <div style={{marginLeft: '8px', marginRight: '8px', color: '#000'}}>
                         {labels?.or}
                     </div>
                     <MiniButton 
