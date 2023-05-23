@@ -3570,3 +3570,11 @@ export function TrashIconNew({ fill, stroke, customColor_1, width, height }: Ico
   </svg>
   )
 }
+
+export function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width : "12"} height={height ? height : "6"} viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 6L11.5 6L6 4.80825e-07L0 6Z" fill={fill ? fill : "#444444"}/>
+    </svg>
+  )
+}
