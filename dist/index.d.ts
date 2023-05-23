@@ -106,4 +106,5 @@ export { default as InputCommentPostIt } from './src/components/FI/inputCommentP
 export { default as HeaderImprovementIdea } from './src/components/header-improvement-idea';
 export { default as ShowMore } from './src/components/show-more';
 export { default as IcrementarIdeia } from './src/components/FI/IncrementarIdeia';
+export { default as CommentPost } from './src/components/comment-post';
 //# sourceMappingURL=index.d.ts.map
