@@ -16,8 +16,9 @@ interface PropsIcrementarIdeia {
   txtError: string
   hasEmoji: boolean
   limit: number
-  onChange: () => void
+  onChange: (e) => void
   value?: string
+  styles: React.CSSProperties
 }
 
 export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
@@ -35,7 +36,6 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
   const [listaTexto, setListaTexto] = useState('')
 
   useEffect(() => {
-    console.log('lista para contar ', listaTexto)
     const txList = listaTexto.split('')
     setTextCount(txList.length)
     if (props.limitTexto) {
@@ -50,6 +50,10 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
       setIsError(false)
     }
   }, [stringValueTextArea, listaTexto])
+
+  useEffect(() => {
+    props.onChange(stringValueTextArea)
+  }, [stringValueTextArea])
 
   const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     const texto = evt.target?.value
@@ -81,6 +85,7 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
         onClick={() => setActiveComentario(true)}
         activeComentario={activeComentario}
         error={isError}
+        style={{...props?.styles}}
       >
         <Styles.imagemAndIput activeComentario={activeComentario}>
           <Styles.imagemComentario activeComentario={activeComentario}>

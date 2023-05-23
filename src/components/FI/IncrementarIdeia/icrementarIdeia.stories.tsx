@@ -19,5 +19,7 @@ icrementarIdeia.args = {
   limitTexto: 250,
   txtError: 'Reduza seu texto para 350 caracteres.',
   hasEmoji: true,
-  limit: 1000
+  limit: 1000,
+  onChange: (e) => console.log(e),
+  styles: {width: '200px'}
 }

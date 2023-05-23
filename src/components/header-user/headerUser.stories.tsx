@@ -18,5 +18,6 @@ normal.args = {
         alt: ''
     },
     name: 'Camila Valadão',
-    text: 'Empresa Há • 2 dias'
+    text: 'Empresa • Há 2 dias',
+    large: true,
 }
