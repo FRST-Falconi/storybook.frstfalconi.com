@@ -34,5 +34,6 @@ normal.args = {
         marginTop: '100px',
         width: '250px'
     },
-    onClickPublish: (e) => alert(e)
+    onClickPublish: (e) => alert(e),
+    onClickCancel: () => alert('cancel')
 }

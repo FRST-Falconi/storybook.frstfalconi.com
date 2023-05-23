@@ -8,7 +8,7 @@ interface ILike {
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
-    width: fit-content;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 `;
