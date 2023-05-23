@@ -15545,14 +15545,14 @@ function recalcRemain(string, limit) {
 //     return {count, length};
 // }
 
-function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEmoji, labels, styles, disabled, onClickPublish }) {
+function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEmoji, labels, styles, disabled, onClickPublish, onClickCancel }) {
     const [focus, setFocus] = React.useState(false);
     const [isActiveEdit, setIsActiveEdit] = React.useState(false);
     const [isErrorManyChars, setErrorManyChars] = React.useState(false);
     const [isAllowPusblish, setIsAllowPublish] = React.useState(false);
     const refInput = React.useRef(null);
     const [isOpenPicker, setIsOpenPicker] = React.useState(false);
-    const [stringValueTextArea, setStringValueTextArea] = React.useState(value || '');
+    const [stringValueTextArea, setStringValueTextArea] = React.useState('');
     const [isChangedInput, setIsChangedInput] = React.useState(false);
     const [remain, setRemain] = React.useState(0);
     React.useEffect(() => {
@@ -15565,6 +15565,12 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
         setErrorManyChars(newRemain < 0);
         setIsAllowPublish(stringValueTextArea?.length > 0);
     }, [stringValueTextArea]);
+    React.useEffect(() => {
+        setStringValueTextArea(value);
+        if (value?.length > 0) {
+            setIsActiveEdit(true);
+        }
+    }, [value]);
     const onEmojiClick = (emojiObject) => {
         setIsOpenPicker(false);
         let lastPositionStart = refInput.current.selectionStart;
@@ -15576,11 +15582,12 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
             repositionCursorAfterNewEmojiInTextArea([lastPositionStart, lastPositionEnd], emojiObject?.native?.length);
         }
     };
-    const onClickCancel = () => {
+    const onClickCancelIntern = () => {
         setStringValueTextArea('');
         onChange('');
         setErrorManyChars(false);
         setIsActiveEdit(false);
+        onClickCancel();
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, children: [jsxRuntime.jsxs(InputWrapper, { active: isActiveEdit, isOnEditing: isChangedInput, isError: isErrorManyChars, children: [!isActiveEdit &&
                             jsxRuntime.jsx("div", { style: { alignSelf: 'center', marginLeft: '4px' }, children: jsxRuntime.jsx(Avatar, { ...avatar, size: '32px' }) }), jsxRuntime.jsx(InputText, { ref: refInput, onFocus: () => {
@@ -15596,7 +15603,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
                                             language: 'pt',
                                             emojiSize: 20
                                         }, styles: { width: '318px' } })] })] }), isErrorManyChars &&
-                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancel(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px', color: '#000' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
+                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancelIntern(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px', color: '#000' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
                                     if (stringValueTextArea?.length > 0 && !isErrorManyChars)
                                         onClickPublish(stringValueTextArea);
                                 }, disabled: !(stringValueTextArea?.length > 0) || isErrorManyChars })] }) })] }) }));
@@ -15643,7 +15650,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
 const Wrapper = styled__default["default"].div `
     display: flex;
     flex-direction: row;
-    width: fit-content;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 `;
