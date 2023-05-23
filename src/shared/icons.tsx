@@ -3228,27 +3228,9 @@ export function ThumbTexto({ fill, width, height }: IconsProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M87.7701 32.8398H58.8801"
-        stroke="white"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M87.7701 40.2197H58.8801"
-        stroke="white"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M87.7701 47.5898H58.8801"
-        stroke="white"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M87.7701 32.8398H58.8801" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M87.7701 40.2197H58.8801" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M87.7701 47.5898H58.8801" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
       <mask id="mask0_8643_48376" maskUnits="userSpaceOnUse" x="75" y="37" width="57" height="54">
         <path
           d="M102 37.8999L125.24 38.1599C128.48 38.1599 131.11 40.7899 131.11 44.0299V72.3999C131.11 75.6399 128.48 78.2699 125.24 78.2699H120.16V87.1599C120.16 88.6999 119.18 90.1499 117.69 90.5499C116.48 90.8799 115.27 90.5399 114.41 89.6799C114.38 89.6499 114.36 89.6299 114.33 89.5999L104.34 78.2699L83 80.8899C79.76 80.8899 75 76.1299 75 72.8899V61.8899H96C98.84 61.8899 102 58.7299 102 55.8899V37.8899V37.8999Z"
@@ -3256,27 +3238,9 @@ export function ThumbTexto({ fill, width, height }: IconsProps) {
         />
       </mask>
       <g mask="url(#mask0_8643_48376)">
-        <path
-          d="M89.55 51.1199H118.44"
-          stroke="white"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M89.55 58.4998H118.44"
-          stroke="white"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-        <path
-          d="M89.55 65.8699H118.44"
-          stroke="white"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
+        <path d="M89.55 51.1199H118.44" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M89.55 58.4998H118.44" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M89.55 65.8699H118.44" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
         <path
           d="M83.08 40.22H124.9C127.15 40.22 129 42.06 129 44.32V72.69C129 74.94 127.16 76.79 124.9 76.79H118.04V87.6C118.04 89.01 116.33 89.72 115.33 88.72L104.81 76.79H83.09C80.84 76.79 78.99 74.95 78.99 72.69V44.32C78.99 42.07 80.83 40.22 83.09 40.22H83.08Z"
           stroke="white"
@@ -3305,13 +3269,7 @@ export function ThumbPodcast({ fill, width, height }: IconsProps) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path
-        d="M111.29 119.85H1.29004"
-        stroke="white"
-        strokeWidth="2.57"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M111.29 119.85H1.29004" stroke="white" strokeWidth="2.57" strokeLinecap="round" strokeLinejoin="round" />
       <path
         d="M50.4299 132.27H62.1399"
         stroke="white"
@@ -3518,6 +3476,26 @@ export function IconContent({ fill, width, height }: IconsProps) {
   )
 }
 
+export function ErrorAlert({ fill, width, height }: IconsProps) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
+        stroke="#C00F00"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M8.99683 5.57147L8.99683 9.68576"
+        stroke="#C00F00"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <ellipse cx="8.99821" cy="12.4283" rx="0.685714" ry="0.685145" fill="#C00F00" />
+    </svg>
+  )
+}
 export function IconLikeLine({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "16"} height={height ? height : "16"} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3541,33 +3519,35 @@ export function IconLikeFilled({ fill, stroke, customColor_1, width, height }: I
       <path d="M8.33337 2.83331V5.49998H12.1067C12.3 5.49779 12.4914 5.53765 12.6678 5.61679C12.8441 5.69593 13.0011 5.81247 13.1279 5.95832C13.2548 6.10418 13.3484 6.27586 13.4023 6.46148C13.4562 6.6471 13.469 6.84222 13.44 7.03331L12.52 13.0333C12.4718 13.3513 12.3103 13.6411 12.0653 13.8493C11.8203 14.0576 11.5083 14.1703 11.1867 14.1666H3.66671H1.66671C1.31309 14.1666 0.973947 14.0262 0.723898 13.7761C0.47385 13.5261 0.333374 13.1869 0.333374 12.8333V8.16665C0.333374 7.81302 0.47385 7.47389 0.723898 7.22384C0.973947 6.97379 1.31309 6.83331 1.66671 6.83331H3.66671L6.33337 0.833313C6.86381 0.833313 7.37252 1.04403 7.74759 1.4191C8.12266 1.79417 8.33337 2.30288 8.33337 2.83331Z"/>
     </mask>
     <path d="M8.33337 2.83331V5.49998H12.1067C12.3 5.49779 12.4914 5.53765 12.6678 5.61679C12.8441 5.69593 13.0011 5.81247 13.1279 5.95832C13.2548 6.10418 13.3484 6.27586 13.4023 6.46148C13.4562 6.6471 13.469 6.84222 13.44 7.03331L12.52 13.0333C12.4718 13.3513 12.3103 13.6411 12.0653 13.8493C11.8203 14.0576 11.5083 14.1703 11.1867 14.1666H3.66671H1.66671C1.31309 14.1666 0.973947 14.0262 0.723898 13.7761C0.47385 13.5261 0.333374 13.1869 0.333374 12.8333V8.16665C0.333374 7.81302 0.47385 7.47389 0.723898 7.22384C0.973947 6.97379 1.31309 6.83331 1.66671 6.83331H3.66671L6.33337 0.833313C6.86381 0.833313 7.37252 1.04403 7.74759 1.4191C8.12266 1.79417 8.33337 2.30288 8.33337 2.83331Z" fill={fill ? fill : "#F26818"} stroke="#F26818" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" mask="url(#path-1-inside-1_9175_678)"/>
-    <path d="M3.33337 6.5L3.33337 14.1667" stroke="white" strokeWidth="1.5"/>
+    <path d="M3.33337 6.5L3.33337 14.1667" stroke="white" strokeWidth="1.5"/>''
   </svg>
   )
 }
 
 export function TrashIconNew({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
-  <svg 
-    width={width ?? '19'}
-    height={height ?? '19'}
-    viewBox="0 0 18 18" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path 
-      d="M0.833252 4.33325H2.61103H16.8333" 
-      stroke={fill ? fill : '#0645AD'}
-      strokeWidth="1.3" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"/>
-    <path 
-      d="M15.3786 4.5V15.4C15.3786 15.8243 15.1816 16.2313 14.8309 16.5314C14.4802 16.8314 14.0045 17 13.5085 17H4.15785C3.66186 17 3.18619 16.8314 2.83547 16.5314C2.48475 16.2313 2.28772 15.8243 2.28772 15.4V4.5M5.09291 4.2V2.6C5.09291 2.17565 5.28995 1.76869 5.64066 1.46863C5.99138 1.16857 6.46706 1 6.96304 1H10.7033C11.1993 1 11.675 1.16857 12.0257 1.46863C12.3764 1.76869 12.5734 2.17565 12.5734 2.6V4.2" 
-      stroke={fill ? fill : '#0645AD'}
-      strokeWidth="1.2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"/>
-  </svg>
+    <svg
+      width={width ?? '19'}
+      height={height ?? '19'}
+      viewBox="0 0 18 18"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0.833252 4.33325H2.61103H16.8333"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M15.3786 4.5V15.4C15.3786 15.8243 15.1816 16.2313 14.8309 16.5314C14.4802 16.8314 14.0045 17 13.5085 17H4.15785C3.66186 17 3.18619 16.8314 2.83547 16.5314C2.48475 16.2313 2.28772 15.8243 2.28772 15.4V4.5M5.09291 4.2V2.6C5.09291 2.17565 5.28995 1.76869 5.64066 1.46863C5.99138 1.16857 6.46706 1 6.96304 1H10.7033C11.1993 1 11.675 1.16857 12.0257 1.46863C12.3764 1.76869 12.5734 2.17565 12.5734 2.6V4.2"
+        stroke={fill ? fill : '#0645AD'}
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
   )
 }
 
