@@ -15525,7 +15525,7 @@ const AlertManyChars = styled__default["default"].div `
     gap: 8px;
     
 `;
-styled__default["default"].div `
+const Or = styled__default["default"].div `
     margin-left: 8px;
     margin-right: 8px;
     color: #000;
@@ -15614,7 +15614,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
                                             language: 'pt',
                                             emojiSize: 20
                                         }, styles: { width: '318px' } })] })] }), isErrorManyChars &&
-                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancelIntern(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px', color: '#000' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
+                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancelIntern(), disabled: false }), jsxRuntime.jsx(Or, { children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
                                     if (stringValueTextArea?.length > 0 && !isErrorManyChars)
                                         onClickPublish(stringValueTextArea);
                                 }, disabled: !(stringValueTextArea?.length > 0) || isErrorManyChars })] }) })] }) }));
