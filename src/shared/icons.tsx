@@ -480,14 +480,14 @@ export function MoreDotsVertical({ fill, width, height }: IconsProps) {
     >
       <path
         d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z"
-        stroke="black"
+        stroke={fill ? fill : 'black'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z"
-        stroke="black"
+        stroke={fill ? fill : 'black'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -3476,7 +3476,6 @@ export function IconContent({ fill, width, height }: IconsProps) {
   )
 }
 
-<<<<<<< HEAD
 export function ErrorAlert({ fill, width, height }: IconsProps) {
   return (
     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3497,7 +3496,6 @@ export function ErrorAlert({ fill, width, height }: IconsProps) {
     </svg>
   )
 }
-=======
 export function IconLikeLine({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
     <svg width={width ? width : "16"} height={height ? height : "16"} viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3521,12 +3519,11 @@ export function IconLikeFilled({ fill, stroke, customColor_1, width, height }: I
       <path d="M8.33337 2.83331V5.49998H12.1067C12.3 5.49779 12.4914 5.53765 12.6678 5.61679C12.8441 5.69593 13.0011 5.81247 13.1279 5.95832C13.2548 6.10418 13.3484 6.27586 13.4023 6.46148C13.4562 6.6471 13.469 6.84222 13.44 7.03331L12.52 13.0333C12.4718 13.3513 12.3103 13.6411 12.0653 13.8493C11.8203 14.0576 11.5083 14.1703 11.1867 14.1666H3.66671H1.66671C1.31309 14.1666 0.973947 14.0262 0.723898 13.7761C0.47385 13.5261 0.333374 13.1869 0.333374 12.8333V8.16665C0.333374 7.81302 0.47385 7.47389 0.723898 7.22384C0.973947 6.97379 1.31309 6.83331 1.66671 6.83331H3.66671L6.33337 0.833313C6.86381 0.833313 7.37252 1.04403 7.74759 1.4191C8.12266 1.79417 8.33337 2.30288 8.33337 2.83331Z"/>
     </mask>
     <path d="M8.33337 2.83331V5.49998H12.1067C12.3 5.49779 12.4914 5.53765 12.6678 5.61679C12.8441 5.69593 13.0011 5.81247 13.1279 5.95832C13.2548 6.10418 13.3484 6.27586 13.4023 6.46148C13.4562 6.6471 13.469 6.84222 13.44 7.03331L12.52 13.0333C12.4718 13.3513 12.3103 13.6411 12.0653 13.8493C11.8203 14.0576 11.5083 14.1703 11.1867 14.1666H3.66671H1.66671C1.31309 14.1666 0.973947 14.0262 0.723898 13.7761C0.47385 13.5261 0.333374 13.1869 0.333374 12.8333V8.16665C0.333374 7.81302 0.47385 7.47389 0.723898 7.22384C0.973947 6.97379 1.31309 6.83331 1.66671 6.83331H3.66671L6.33337 0.833313C6.86381 0.833313 7.37252 1.04403 7.74759 1.4191C8.12266 1.79417 8.33337 2.30288 8.33337 2.83331Z" fill={fill ? fill : "#F26818"} stroke="#F26818" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" mask="url(#path-1-inside-1_9175_678)"/>
-    <path d="M3.33337 6.5L3.33337 14.1667" stroke="white" strokeWidth="1.5"/>
+    <path d="M3.33337 6.5L3.33337 14.1667" stroke="white" strokeWidth="1.5"/>''
   </svg>
   )
 }
 
->>>>>>> develop
 export function TrashIconNew({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
     <svg
@@ -3550,6 +3547,14 @@ export function TrashIconNew({ fill, stroke, customColor_1, width, height }: Ico
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+    </svg>
+  )
+}
+
+export function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width={width ? width : "12"} height={height ? height : "6"} viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 6L11.5 6L6 4.80825e-07L0 6Z" fill={fill ? fill : "#444444"}/>
     </svg>
   )
 }

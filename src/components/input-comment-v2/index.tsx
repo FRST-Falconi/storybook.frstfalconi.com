@@ -65,6 +65,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                             sheetSize: 8,
                             language: 'pt'
                         }}
+                        styles={{}}
                     />
                 }
             </Styles.InputWrapper>

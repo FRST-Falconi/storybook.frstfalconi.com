@@ -9,7 +9,7 @@ export interface IOptionItem {
 }
 
 export interface IMenuMore {
-    iconButton: any
+    iconButton?: any
     options:  Array<IOptionItem>
     style?: React.CSSProperties;
 }

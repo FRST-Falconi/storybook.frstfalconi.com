@@ -1,18 +1,22 @@
 import React from 'react'
 
-import CounterLike from './index'
+import HeaderUser from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'FI/CounterLike',
-    component: CounterLike,
+    title: 'FI/Header User',
+    component: HeaderUser,
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <CounterLike {...args} />
+const Template = (args) => <HeaderUser {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    total: 12,
-    onClick: () => alert('click')
+    avatar: {
+        src: '',
+        alt: ''
+    },
+    name: 'Camila Valadão',
+    text: 'Empresa Há • 2 dias'
 }
