@@ -24,5 +24,5 @@ export interface IHeaderImprovementIdea {
         styles?: React.CSSProperties
     },
     menuMore: Array<IOptionItem>,
-    styles: React.CSSProperties
+    styles?: React.CSSProperties
 }

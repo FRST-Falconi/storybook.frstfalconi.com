@@ -5487,7 +5487,7 @@ function ObjectiveStep({ description, number }) {
     return (jsxRuntime.jsxs(WrapperCard$6, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
-const Wrapper$6 = styled__default["default"].div `
+const Wrapper$7 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '400px'};
@@ -5577,7 +5577,7 @@ const WrapperButtons = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$6, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$7, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -5686,7 +5686,7 @@ function TotalizerCard({ objectStatistics, loading, hasShadow, styles }) {
                                                 }, children: renderObjectStatistics(false) }) }) }));
 }
 
-const Wrapper$5 = styled__default["default"].div `
+const Wrapper$6 = styled__default["default"].div `
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -5753,7 +5753,7 @@ function TrailList({ title, trails, style }) {
     React.useEffect(() => {
         setTrailsList(trails);
     }, [trails]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$5, { style: { ...style }, children: [jsxRuntime.jsx(Title$4, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$6, { style: { ...style }, children: [jsxRuntime.jsx(Title$4, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
                         jsxRuntime.jsx("div", { style: {
                                 display: 'flex',
                                 flexDirection: 'column'
@@ -8486,7 +8486,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                     jsxRuntime.jsx(Container$7, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText$2, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
 }
 
-const Wrapper$4 = styled__default["default"].button `
+const Wrapper$5 = styled__default["default"].button `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8558,7 +8558,7 @@ styled__default["default"].button `
 `;
 
 function ItemGlobalMenu({ variant, type, label, handleOnClick, wrapText, pressed, style, icon, customMenu }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$4, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 10 : 0 }, children: icon }), jsxRuntime.jsx("span", { style: { marginTop: customMenu ? -8 : 0 }, children: label })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$5, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 10 : 0 }, children: icon }), jsxRuntime.jsx("span", { style: { marginTop: customMenu ? -8 : 0 }, children: label })] }) }));
 }
 
 styled__default["default"].button `
@@ -8592,7 +8592,7 @@ styled__default["default"].button `
         font-weight: 700;
     }
 `;
-const Wrapper$3 = styled__default["default"].div `
+const Wrapper$4 = styled__default["default"].div `
     width: 50px;
     object-fit: contain;
     display: flex;
@@ -8661,7 +8661,7 @@ function LanguagesDropdown({ variant, languages, selected, onSelect, style, dist
         setIsOpenDrop(false);
         setActiveArea(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$3, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image$1, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$4, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image$1, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
                         return (jsxRuntime.jsx("div", { children: item == 'pt-BR' ?
                                 jsxRuntime.jsx(Image$1, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
                                 : item == 'en-US' ?
@@ -13080,7 +13080,7 @@ function SmallSRGBanner(props) {
     return (jsxRuntime.jsx(Container$1, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: 'https://i.gyazo.com/eb084ab35cbd9ad52b24148afba59950.png', alt: 'SRG Logo' }) }), jsxRuntime.jsx(Button$2, { children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFF' }) }) })] }) }));
 }
 
-const Wrapper$2 = styled__default["default"].div `
+const Wrapper$3 = styled__default["default"].div `
   opacity: ${({ isCompletePost }) => isCompletePost ? '0' : '1'};
   transition: opacity 0.5s ease-in-out;
 `;
@@ -13265,7 +13265,7 @@ function PostFeed(props) {
     React.useEffect(() => {
         setIsVisibleComments(props.isVisibleComments);
     }, [props.isVisibleComments]);
-    return (jsxRuntime.jsx(Wrapper$2, { isCompletePost: props.isCompletePost, children: jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { style: { width: '100%', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { width: props?.fixPostButton && props?.fixPostButton?.isVisibleButton ? '105px' : '0px' } }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsxs("div", { style: { marginRight: 16, paddingTop: '18px' }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1, paddingTop: '18px' }, children: " FRST Falconi " })] }), props?.fixPostButton && props?.fixPostButton?.isVisibleButton ?
+    return (jsxRuntime.jsx(Wrapper$3, { isCompletePost: props.isCompletePost, children: jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(postContainer, { style: { ...props.style }, children: [jsxRuntime.jsxs(postHeader, { style: { width: '100%', justifyContent: 'space-between' }, children: [jsxRuntime.jsx("div", { style: { width: props?.fixPostButton && props?.fixPostButton?.isVisibleButton ? '105px' : '0px' } }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsxs("div", { style: { marginRight: 16, paddingTop: '18px' }, children: [" ", jsxRuntime.jsx(Avatar, { src: FRSTAvatar, size: '40px' }), " "] }), jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontWeight: 600, fontSize: 20, color: FRSTTheme['colors'].neutralsGrey1, paddingTop: '18px' }, children: " FRST Falconi " })] }), props?.fixPostButton && props?.fixPostButton?.isVisibleButton ?
                                     jsxRuntime.jsxs(TooltipCard, { children: [jsxRuntime.jsx(TooltipText, { children: jsxRuntime.jsxs("div", { onClick: () => props?.fixPostButton?.actionClick(), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), style: {
                                                         width: '105px',
                                                         fontSize: '18px',
@@ -15314,7 +15314,7 @@ function CounterLike({ onClick, total, styles }) {
                         : jsxRuntime.jsx(IconLikeLine, { fill: actionArea ? '#F26818' : '#444444' }) }), counter >= 1 && jsxRuntime.jsx(Counter, { active: actionArea, isLiked: isPressed, children: counter })] }) }));
 }
 
-const Wrapper$1 = styled__default["default"].div `
+const Wrapper$2 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -15345,7 +15345,7 @@ const WrapperText = styled__default["default"].div `
 `;
 
 function HeaderUser({ avatar, name, text, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$1, { onClick: () => onClick(), children: [jsxRuntime.jsx(Avatar, { size: '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { children: [jsxRuntime.jsx(Name, { children: name }), jsxRuntime.jsx(Text, { children: text })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { onClick: () => onClick(), children: [jsxRuntime.jsx(Avatar, { size: '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { children: [jsxRuntime.jsx(Name, { children: name }), jsxRuntime.jsx(Text, { children: text })] })] }) }));
 }
 
 const InputWrapper = styled__default["default"].div `
@@ -15545,14 +15545,14 @@ function recalcRemain(string, limit) {
 //     return {count, length};
 // }
 
-function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEmoji, labels, styles, disabled, onClickPublish }) {
+function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEmoji, labels, styles, disabled, onClickPublish, onClickCancel }) {
     const [focus, setFocus] = React.useState(false);
     const [isActiveEdit, setIsActiveEdit] = React.useState(false);
     const [isErrorManyChars, setErrorManyChars] = React.useState(false);
     const [isAllowPusblish, setIsAllowPublish] = React.useState(false);
     const refInput = React.useRef(null);
     const [isOpenPicker, setIsOpenPicker] = React.useState(false);
-    const [stringValueTextArea, setStringValueTextArea] = React.useState(value || '');
+    const [stringValueTextArea, setStringValueTextArea] = React.useState('');
     const [isChangedInput, setIsChangedInput] = React.useState(false);
     const [remain, setRemain] = React.useState(0);
     React.useEffect(() => {
@@ -15565,6 +15565,12 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
         setErrorManyChars(newRemain < 0);
         setIsAllowPublish(stringValueTextArea?.length > 0);
     }, [stringValueTextArea]);
+    React.useEffect(() => {
+        setStringValueTextArea(value);
+        if (value?.length > 0) {
+            setIsActiveEdit(true);
+        }
+    }, [value]);
     const onEmojiClick = (emojiObject) => {
         setIsOpenPicker(false);
         let lastPositionStart = refInput.current.selectionStart;
@@ -15576,11 +15582,12 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
             repositionCursorAfterNewEmojiInTextArea([lastPositionStart, lastPositionEnd], emojiObject?.native?.length);
         }
     };
-    const onClickCancel = () => {
+    const onClickCancelIntern = () => {
         setStringValueTextArea('');
         onChange('');
         setErrorManyChars(false);
         setIsActiveEdit(false);
+        onClickCancel();
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, children: [jsxRuntime.jsxs(InputWrapper, { active: isActiveEdit, isOnEditing: isChangedInput, isError: isErrorManyChars, children: [!isActiveEdit &&
                             jsxRuntime.jsx("div", { style: { alignSelf: 'center', marginLeft: '4px' }, children: jsxRuntime.jsx(Avatar, { ...avatar, size: '32px' }) }), jsxRuntime.jsx(InputText, { ref: refInput, onFocus: () => {
@@ -15596,7 +15603,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
                                             language: 'pt',
                                             emojiSize: 20
                                         }, styles: { width: '318px' } })] })] }), isErrorManyChars &&
-                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancel(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px', color: '#000' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
+                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancelIntern(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px', color: '#000' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
                                     if (stringValueTextArea?.length > 0 && !isErrorManyChars)
                                         onClickPublish(stringValueTextArea);
                                 }, disabled: !(stringValueTextArea?.length > 0) || isErrorManyChars })] }) })] }) }));
@@ -15640,10 +15647,10 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
     }
 }
 
-const Wrapper = styled__default["default"].div `
+const Wrapper$1 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
-    width: fit-content;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
 `;
@@ -15664,7 +15671,7 @@ function HeaderImprovementIdea({ user, like, menuMore, styles }) {
         setLikeState(like);
         setMenuMoreState(menuMore);
     }, [user, like, menuMore]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper, { style: { ...styles }, children: [jsxRuntime.jsx(HeaderUser, { avatar: user?.avatar, name: user?.name, text: user?.text }), jsxRuntime.jsxs(WrapperActions, { children: [jsxRuntime.jsx(CounterLike, { total: like?.total, onClick: () => like?.onClick() }), menuMore && menuMore?.length > 0 &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$1, { style: { ...styles }, children: [jsxRuntime.jsx(HeaderUser, { avatar: user?.avatar, name: user?.name, text: user?.text }), jsxRuntime.jsxs(WrapperActions, { children: [jsxRuntime.jsx(CounterLike, { total: like?.total, onClick: () => like?.onClick() }), menuMore && menuMore?.length > 0 &&
                             jsxRuntime.jsx(MenuMore, { options: menuMore })] })] }) }));
 }
 
@@ -15913,6 +15920,33 @@ function IcrementarIdeia(props) {
     }
 }
 
+const Wrapper = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+`;
+const WrapperValue = styled__default["default"].div `
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+
+    display: flex;
+    align-items: center;
+
+    color:  ${({ theme }) => theme.colors.neutralsGrey1};
+    margin: 8px;
+`;
+
+function CommentPost({ user, like, menuMore, valueComment, onChangeValueComment, isActiveEdit, inputEdit, styles }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Wrapper, { style: { ...styles }, children: isActiveEdit ?
+                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(InputCommentPostIt, { value: valueComment, avatar: user?.avatar, onChange: (e) => { }, placeholder: inputEdit?.placeholder, limit: inputEdit?.limit, hasEmoji: inputEdit?.hasEmoji, onClickPublish: (e) => inputEdit?.onClickPublish(e), onClickCancel: () => inputEdit?.onClickCancel(), labels: inputEdit?.labels }) })
+                :
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(HeaderImprovementIdea, { user: user, like: like, menuMore: menuMore }), jsxRuntime.jsx(WrapperValue, { children: valueComment })] }) }) }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
@@ -15947,6 +15981,7 @@ exports.CheckIconSimple = CheckIconSimple;
 exports.CheckInCicle = CheckInCicle;
 exports.Checkmark = Checkmark;
 exports.ColorPicker = Colorpicker;
+exports.CommentPost = CommentPost;
 exports.CommentaryBox = CommentaryBox;
 exports.ConquistaCarrossel = ConquistaCarrossel;
 exports.Content = Content$3;

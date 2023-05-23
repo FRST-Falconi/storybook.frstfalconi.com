@@ -22,7 +22,8 @@ export default function InputCommentPostIt({
     labels,
     styles, 
     disabled,
-    onClickPublish
+    onClickPublish,
+    onClickCancel
  }: IInputComment) {
 
     const [ focus, setFocus ] = useState(false);
@@ -33,7 +34,7 @@ export default function InputCommentPostIt({
     const refInput = useRef(null)    
     const [ isOpenPicker, setIsOpenPicker ] = useState(false);
 
-    const [ stringValueTextArea, setStringValueTextArea ] = useState(value || '');
+    const [ stringValueTextArea, setStringValueTextArea ] = useState('');
     const [ isChangedInput, setIsChangedInput ] = useState(false);
 
     const [ remain, setRemain ] = useState(0);
@@ -51,6 +52,12 @@ export default function InputCommentPostIt({
         setIsAllowPublish(stringValueTextArea?.length > 0)
     }, [stringValueTextArea]);
 
+    useEffect(() => {
+        setStringValueTextArea(value)
+        if(value?.length > 0) {
+            setIsActiveEdit(true)
+        } 
+    },[value])
 
     const onEmojiClick = (emojiObject: any) => {
         setIsOpenPicker(false)
@@ -72,11 +79,12 @@ export default function InputCommentPostIt({
 
     };
 
-    const onClickCancel = () => {
+    const onClickCancelIntern = () => {
         setStringValueTextArea('')
         onChange('')
         setErrorManyChars(false)
         setIsActiveEdit(false)
+        onClickCancel()
     }
 
     return (
@@ -139,7 +147,7 @@ export default function InputCommentPostIt({
                     <MiniButton 
                         label={labels?.cancel}
                         variant='secondary'
-                        onClick={(e) => onClickCancel()}
+                        onClick={(e) => onClickCancelIntern()}
                         disabled={false} 
                     />
                     <div style={{marginLeft: '8px', marginRight: '8px', color: '#000'}}>
