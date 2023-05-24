@@ -1,7 +1,7 @@
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import * as Styles from './thumbListContentStyles'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ThumbPodcast, ThumbTexto, ThumbVideo } from '@shared/icons'
 import Button from '@components/buttons'
 import ProgressBar from '@components/LXP/progressBar'
@@ -22,15 +22,21 @@ interface IThumbListContent {
   textProgressInProgress?: string
   valueProgress?: number
   tagValue: 'vizualized' | 'inProgress' | 'notVisualized'
+  isSelected?: boolean
 }
 
 export default function ThumbListContent(props: IThumbListContent) {
   const [showMore, setShowMore] = useState(false)
   const [tagVisualized, setTagVisualized] = useState(props.valueProgress)
+  const [isSelected, setIsSelected] = useState(props?.isSelected)
 
   useEffect(() => {
     setTagVisualized(props.valueProgress)
   }, [props.valueProgress])
+
+  useMemo(() => {
+    if (props.isSelected) setIsSelected(props?.isSelected)
+  }, [props.isSelected])
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -66,8 +72,8 @@ export default function ThumbListContent(props: IThumbListContent) {
               ></Styles.imageThumbContent>
             )
           ) : tagVisualized > 0 ? (
-            <Styles.shadedThumb>
-              <Styles.iconsThumbAndProgress onClick={props.onClickThumb}>
+            <Styles.shadedThumb onClick={props.onClickThumb}>
+              <Styles.iconsThumbAndProgress>
                 {props.typeThumbContent === 'video' ? <ThumbVideo width="74" height="74" /> : null}
                 {props.typeThumbContent === 'podcast' ? (
                   <Styles.IconAndProgress>
@@ -83,25 +89,45 @@ export default function ThumbListContent(props: IThumbListContent) {
             </Styles.shadedThumb>
           ) : (
             <Styles.iconsThumb onClick={props.onClickThumb}>
-              {props.typeThumbContent === 'video' ? <div><ThumbVideo width="74" height="74" /></div> : null}
-              {props.typeThumbContent === 'podcast' ? <div><ThumbPodcast width="74" height="74" /></div> : null}
-              {props.typeThumbContent === 'question' ? <div><ThumbTexto width="74" height="74" /></div> : null}
-              {props.typeThumbContent === 'textual' ? <div><ThumbTexto width="74" height="74" /></div> : null}
+              {props.typeThumbContent === 'video' ? (
+                <div>
+                  <ThumbVideo width="74" height="74" />
+                </div>
+              ) : null}
+              {props.typeThumbContent === 'podcast' ? (
+                <div>
+                  <ThumbPodcast width="74" height="74" />
+                </div>
+              ) : null}
+              {props.typeThumbContent === 'question' ? (
+                <div>
+                  <ThumbTexto width="74" height="74" />
+                </div>
+              ) : null}
+              {props.typeThumbContent === 'textual' ? (
+                <div>
+                  <ThumbTexto width="74" height="74" />
+                </div>
+              ) : null}
             </Styles.iconsThumb>
           )}
-          <Styles.infoThumbContent onClick={props.onClickThumb} tagVisualized={props.tagValue}>
+          <Styles.infoThumbContent
+            onClick={props.onClickThumb}
+            tagVisualized={props.tagValue}
+            isSelected={props?.isSelected}
+          >
             {props.tagValue !== 'notVisualized' ? (
               <>
                 {props.tagValue === 'vizualized' ? (
                   <Styles.tagThumbContentContainer>
-                    <Styles.tagThumbContent tagVisualized={props.tagValue}>
+                    <Styles.tagThumbContent tagVisualized={props.tagValue} isSelected={props?.isSelected}>
                       {props.textProgressVisualized}
                     </Styles.tagThumbContent>
                   </Styles.tagThumbContentContainer>
                 ) : null}
                 {props.tagValue === 'inProgress' ? (
                   <Styles.tagThumbContentContainer>
-                    <Styles.tagThumbContent tagVisualized={props.tagValue}>
+                    <Styles.tagThumbContent tagVisualized={props.tagValue} isSelected={props?.isSelected}>
                       {props.textProgressInProgress}
                     </Styles.tagThumbContent>
                   </Styles.tagThumbContentContainer>
@@ -110,14 +136,16 @@ export default function ThumbListContent(props: IThumbListContent) {
             ) : null}
 
             {props.title ? <span>{props.title}</span> : null}
-            <Styles.descriptionThumbContent showText={showMore}> {props.description} </Styles.descriptionThumbContent>
+            <Styles.descriptionThumbContent showText={showMore} isSelected={props?.isSelected}>
+              {props.description}
+            </Styles.descriptionThumbContent>
           </Styles.infoThumbContent>
           <Styles.viewMoreContent>
             <Button
               variant="link"
               label={showMore ? props.textViewLessButton : props.textViewMoreButton}
               handleClick={() => setShowMore(!showMore)}
-              style={{ fontSize: 12 }}
+              style={{ fontSize: 12, color: props?.isSelected ? '#E5E7EB' : '#444444' }}
             />
           </Styles.viewMoreContent>
         </Styles.containerThumbContent>
