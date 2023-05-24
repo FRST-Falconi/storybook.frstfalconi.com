@@ -187,3 +187,4 @@ export { default as HeaderImprovementIdea } from './src/components/header-improv
 export { default as ShowMore } from './src/components/show-more'
 export { default as IcrementarIdeia } from './src/components/IncrementarIdeia'
 export { default as CommentPost } from './src/components/comment-post'
+export { default as ExpandButton } from './src/components/expand-button'
