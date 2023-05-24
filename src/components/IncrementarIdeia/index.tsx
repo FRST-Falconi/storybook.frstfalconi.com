@@ -15,11 +15,7 @@ interface PropsIcrementarIdeia {
   limitTexto?: number
   txtError: string
   hasEmoji: boolean
-<<<<<<< HEAD:src/components/IncrementarIdeia/index.tsx
-=======
-  limit: number
   onChange: (e) => void
->>>>>>> develop:src/components/FI/IncrementarIdeia/index.tsx
   value?: string
   styles: React.CSSProperties
 }
@@ -86,7 +82,7 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
         onClick={() => setActiveComentario(true)}
         activeComentario={activeComentario}
         error={isError}
-        style={{...props?.styles}}
+        style={{ ...props?.styles }}
       >
         <Styles.imagemAndIput activeComentario={activeComentario}>
           <Styles.imagemComentario activeComentario={activeComentario}>
