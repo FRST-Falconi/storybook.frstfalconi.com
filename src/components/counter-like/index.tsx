@@ -6,30 +6,40 @@ import { WrapperButton, Counter } from './counterLikeStyles'
 import { IConterLike } from './counterLike'
 import { IconLikeLine, IconLikeFilled } from '@shared/icons'
 
-export default function CounterLike({ isLiked, onClick, total, styles }: IConterLike) {
+export default function CounterLike({ onClick, total, styles }: IConterLike) {
     const [ actionArea, setActionArea] = useState(false)
     const [ counter, setCounter ] = useState(0)
+    const [ isPressed, setIsPressed ] = useState(false)
 
     useEffect(() => {
         setCounter(total)
     }, [total])
 
+    const handleClick = () => {
+        setIsPressed(true);
+        onClick();
+
+        setTimeout(() => {
+            setIsPressed(false);
+        }, 1000)
+    }
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             <WrapperButton
-                onClick={() => onClick()}
+                onClick={() => handleClick()}
                 onMouseOver={() => setActionArea(true)}
                 onMouseOut={() => setActionArea(false)}                
                 style={{...styles}}
             >   
                 <>
-                    { isLiked ? 
+                    { isPressed ? 
                       <IconLikeFilled />
                     : <IconLikeLine  fill={actionArea ? '#F26818' : '#444444'} /> }
                 </>
                     { counter >= 1 && <Counter
                         active={actionArea}
-                        isLiked={isLiked}
+                        isLiked={isPressed}
                     >
                         {counter}
                     </Counter> }

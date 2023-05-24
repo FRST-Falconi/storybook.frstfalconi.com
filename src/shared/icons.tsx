@@ -480,14 +480,14 @@ export function MoreDotsVertical({ fill, width, height }: IconsProps) {
     >
       <path
         d="M13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12Z"
-        stroke="black"
+        stroke={fill ? fill : 'black'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5Z"
-        stroke="black"
+        stroke={fill ? fill : 'black'}
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -3546,6 +3546,7 @@ export function IconLikeFilled({ fill, stroke, customColor_1, width, height }: I
         mask="url(#path-1-inside-1_9175_678)"
       />
       <path d="M3.33337 6.5L3.33337 14.1667" stroke="white" strokeWidth="1.5" />
+      ''
     </svg>
   )
 }
@@ -3620,6 +3621,20 @@ export function VotarIconPressed({ fill, stroke, customColor_1, width, height }:
         stroke-linejoin="round"
       />
       <path d="M11 15.5V6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
+
+export function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '12'}
+      height={height ? height : '6'}
+      viewBox="0 0 12 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M0 6L11.5 6L6 4.80825e-07L0 6Z" fill={fill ? fill : '#444444'} />
     </svg>
   )
 }

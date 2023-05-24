@@ -7,5 +7,5 @@ export interface IMiniButton {
     label: string
     disabled?: boolean
     onClick: (e) => void
-    styles: React.CSSProperties
+    styles?: React.CSSProperties
 }

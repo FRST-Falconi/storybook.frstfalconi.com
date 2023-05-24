@@ -111,6 +111,7 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
                     sheetSize: 8,
                     language: 'pt'
                   }}
+                  styles={{}}
                 />
               )}
             </Styles.valueEmoji>
