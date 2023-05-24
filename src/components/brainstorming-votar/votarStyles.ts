@@ -71,6 +71,17 @@ export const QuantidadeVotos = styled.div<PropsVotar>`
   line-height: 140%;
   color: #444444;
   margin: 0;
+  cursor: pointer;
+
+  :hover {
+    text-decoration-line: underline;
+    color: #0645ad;
+  }
+  :active {
+    text-decoration-line: underline;
+    color: #0645ad;
+    font-weight: 700;
+  }
 
   ${(props) =>
     props.user === 'userAutor' &&
