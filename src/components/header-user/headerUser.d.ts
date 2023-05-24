@@ -7,5 +7,6 @@ export interface IHeaderUser{
     },
     name?: string,
     text?: string,
-    onClick?: () => void
+    onClick?: () => void,
+    large?: boolean
 }

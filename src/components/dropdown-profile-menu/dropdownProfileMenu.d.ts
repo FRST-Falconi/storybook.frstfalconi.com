@@ -1,28 +1,28 @@
-import React from "react"
-import { typeUser } from "../global-menu/globalMenu";
+import React from 'react'
+import { typeUser } from '../global-menu/globalMenu'
 
-
-export type enumVariant = 'default' | 'LXP';
+export type enumVariant = 'default' | 'LXP'
 
 export type typeSubItens = {
-    id: string, 
-    label: string, 
-    onClick: (e) => void
+  id: string
+  label: string
+  onClick: (e) => void
 }
 
 export type typeMenuItens = {
-    label: string, 
-    iconBegin?: any,
-    onClick?: (e) => void,
-    subItens?: Array<typeSubItens>
+  label: string
+  iconBegin?: any
+  onClick?: (e) => void
+  subItens?: Array<typeSubItens>
 }
 
 export interface IDropdownProfileMenu {
-    variant?: enumVariant,
-    user?: typeUser,
-    isMobileVersion: boolean,
-    profileMenuText: string,
-    handleProfileMenuClick ?: () => void,
-    menuItems?: Array<typeMenuItens>,
-    style?: React.CSSProperties
+  variant?: enumVariant
+  user?: typeUser
+  isMobileVersion: boolean
+  profileMenuText: string
+  hiddenProfileMenu?: boolean
+  handleProfileMenuClick?: () => void
+  menuItems?: Array<typeMenuItens>
+  style?: React.CSSProperties
 }

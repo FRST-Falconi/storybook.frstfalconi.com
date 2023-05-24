@@ -26,6 +26,7 @@ export default function HeaderImprovementIdea({ user, like, menuMore, styles }: 
                     avatar={user?.avatar} 
                     name={user?.name}
                     text={user?.text}
+                    onClick={user?.onClick}
                 />
                 <WrapperActions>
                     <CounterLike

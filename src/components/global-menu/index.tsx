@@ -47,6 +47,7 @@ export default function GlobalMenu({
   profileMenuText,
   showSearchField,
   marginTopSubMenu,
+  hiddenProfileMenu,
   onClickLogo
 }: IGlobalMenu) {
   const [valueSearch, setValueSearch] = useState(search.value)
@@ -398,6 +399,7 @@ export default function GlobalMenu({
                   handleProfileMenuClick={onClickProfileMenuText}
                   menuItems={user && user.menuItems}
                   isMobileVersion={isMobileVersion}
+                  hiddenProfileMenu={hiddenProfileMenu}
                   style={{
                     marginLeft: isMobileVersion ? '0px' : '5px',
                     marginRight: isMobileVersion ? '0px' : '5px'
@@ -724,6 +726,7 @@ export default function GlobalMenu({
                   handleProfileMenuClick={onClickProfileMenuText}
                   menuItems={user && user.menuItems}
                   isMobileVersion={isMobileVersion}
+                  hiddenProfileMenu={hiddenProfileMenu}
                   style={{
                     marginLeft: isMobileVersion ? '0px' : '5px',
                     marginRight: isMobileVersion ? '0px' : '5px'
@@ -785,6 +788,7 @@ export default function GlobalMenu({
                 user={user}
                 menuItems={user && user.menuItems}
                 isMobileVersion={isMobileVersion}
+                hiddenProfileMenu={hiddenProfileMenu}
                 profileMenuText={profileMenuText}
                 handleProfileMenuClick={onClickProfileMenuText}
               />

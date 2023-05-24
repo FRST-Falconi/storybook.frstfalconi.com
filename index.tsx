@@ -45,7 +45,8 @@ export {
   OpenedEye,
   StarFavorite,
   CheckIconSimple,
-  IconContent
+  IconContent,
+  EditIcon
 } from './src/shared/icons'
 
 // Base
