@@ -74,7 +74,7 @@ export const ButtonDigiteIdeia = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 28px;
+  padding: 28px 40px;
   width: 242px;
   height: 96px;
   border: 1px solid #69a9e1;
@@ -87,4 +87,16 @@ export const ButtonDigiteIdeia = styled.div`
   font-size: 16px;
   line-height: 140%;
   color: #9c9c9c;
+  text-align: center;
+`
+
+export const TextAreaDigite = styled.textarea`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px;
+  width: 242px;
+  height: 96px;
+  border: 1px solid #549fe4;
 `

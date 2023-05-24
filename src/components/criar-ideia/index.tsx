@@ -28,7 +28,7 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
           <Styles.CriarIdeia>
             {digiteIdeia ? (
               <>
-                <div>hello</div>
+                <Styles.TextAreaDigite></Styles.TextAreaDigite>
                 <button
                   onClick={() => {
                     setDigiteIdeia(false)
