@@ -135,7 +135,7 @@ export const tagThumbContent = styled.div<content>`
 export const descriptionThumbContent = styled.div<content>`
   font-size: 14px;
   font-weight: 400;
-  color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#FF4D0D')};
+  color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#222222')};
   padding: 0px 16px 0px 16px;
   overflow: hidden;
   text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
