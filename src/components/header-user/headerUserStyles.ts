@@ -9,21 +9,21 @@ export const Wrapper = styled.div`
     user-select: none;
 `;
 
-export const Name = styled.div`
+export const Name = styled.div<{large}>`
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: ${({ large }) => large ? '20px' : '16px'};
     line-height: 110%;
 
     color:  ${({ theme }) => theme.colors.neutralsGrey1};
 `
 
-export const Text = styled.div`
+export const Text = styled.div<{large}>`
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: ${({ large }) => large ? '16px' : '12px'};
     line-height: 16px;
 
     color:  ${({ theme }) => theme.colors.neutralsGrey3};

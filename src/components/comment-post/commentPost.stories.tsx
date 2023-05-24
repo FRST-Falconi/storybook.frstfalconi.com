@@ -44,11 +44,10 @@ normal.args = {
             color: '#C00F00'
         },
     ],
-    
+
     isActiveEdit: false,
     
     inputEdit: {
-        onChange: (value: any) => alert(value),
         limit: 350,
         hasEmoji: true,
     

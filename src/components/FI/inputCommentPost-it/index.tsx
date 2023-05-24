@@ -40,16 +40,18 @@ export default function InputCommentPostIt({
     const [ remain, setRemain ] = useState(0);
 
     useEffect(() => {
-        resizeTextArea(refInput)
-        onChange(stringValueTextArea)
+        if(stringValueTextArea) {
+            resizeTextArea(refInput)
+            onChange(stringValueTextArea)
 
-        if(stringValueTextArea?.length > 0) setIsChangedInput(true)
+            if(stringValueTextArea?.length > 0) setIsChangedInput(true)
 
-        let newRemain = recalcRemain(stringValueTextArea, limit)
-        setRemain(newRemain)
-        setErrorManyChars(newRemain < 0)
+            let newRemain = recalcRemain(stringValueTextArea, limit)
+            setRemain(newRemain)
+            setErrorManyChars(newRemain < 0)
 
-        setIsAllowPublish(stringValueTextArea?.length > 0)
+            setIsAllowPublish(stringValueTextArea?.length > 0)
+        }
     }, [stringValueTextArea]);
 
     useEffect(() => {
@@ -150,9 +152,9 @@ export default function InputCommentPostIt({
                         onClick={(e) => onClickCancelIntern()}
                         disabled={false} 
                     />
-                    <div style={{marginLeft: '8px', marginRight: '8px', color: '#000'}}>
+                    <Styles.Or>
                         {labels?.or}
-                    </div>
+                    </Styles.Or>
                     <MiniButton 
                         label={ stringValueTextArea?.length > 0 ? labels?.save : labels?.publish}
                         variant='primary'

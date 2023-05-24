@@ -15324,7 +15324,7 @@ const Name = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
+    font-size: ${({ large }) => large ? '20px' : '16px'};
     line-height: 110%;
 
     color:  ${({ theme }) => theme.colors.neutralsGrey1};
@@ -15333,7 +15333,7 @@ const Text = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: ${({ large }) => large ? '16px' : '12px'};
     line-height: 16px;
 
     color:  ${({ theme }) => theme.colors.neutralsGrey3};
@@ -15344,8 +15344,8 @@ const WrapperText = styled__default["default"].div `
     width: fit-content;
 `;
 
-function HeaderUser({ avatar, name, text, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { onClick: () => onClick(), children: [jsxRuntime.jsx(Avatar, { size: '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { children: [jsxRuntime.jsx(Name, { children: name }), jsxRuntime.jsx(Text, { children: text })] })] }) }));
+function HeaderUser({ avatar, name, text, onClick, large }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { onClick: () => !!(onClick) ? onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: large ? '56px' : '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { style: { justifyContent: 'space-around' }, children: [jsxRuntime.jsx(Name, { large: large, children: name }), jsxRuntime.jsx(Text, { large: large, children: text })] })] }) }));
 }
 
 const InputWrapper = styled__default["default"].div `
@@ -15525,6 +15525,15 @@ const AlertManyChars = styled__default["default"].div `
     gap: 8px;
     
 `;
+const Or = styled__default["default"].div `
+    margin-left: 8px;
+    margin-right: 8px;
+    color: #000;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+`;
 
 function recalcRemain(string, limit) {
     if (string)
@@ -15556,14 +15565,16 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
     const [isChangedInput, setIsChangedInput] = React.useState(false);
     const [remain, setRemain] = React.useState(0);
     React.useEffect(() => {
-        resizeTextArea(refInput);
-        onChange(stringValueTextArea);
-        if (stringValueTextArea?.length > 0)
-            setIsChangedInput(true);
-        let newRemain = recalcRemain(stringValueTextArea, limit);
-        setRemain(newRemain);
-        setErrorManyChars(newRemain < 0);
-        setIsAllowPublish(stringValueTextArea?.length > 0);
+        if (stringValueTextArea) {
+            resizeTextArea(refInput);
+            onChange(stringValueTextArea);
+            if (stringValueTextArea?.length > 0)
+                setIsChangedInput(true);
+            let newRemain = recalcRemain(stringValueTextArea, limit);
+            setRemain(newRemain);
+            setErrorManyChars(newRemain < 0);
+            setIsAllowPublish(stringValueTextArea?.length > 0);
+        }
     }, [stringValueTextArea]);
     React.useEffect(() => {
         setStringValueTextArea(value);
@@ -15603,7 +15614,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
                                             language: 'pt',
                                             emojiSize: 20
                                         }, styles: { width: '318px' } })] })] }), isErrorManyChars &&
-                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancelIntern(), disabled: false }), jsxRuntime.jsx("div", { style: { marginLeft: '8px', marginRight: '8px', color: '#000' }, children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
+                    jsxRuntime.jsxs(AlertManyChars, { children: [jsxRuntime.jsx(AlertCicle, { fill: '#923534' }), labels?.errorManyChars] }), isActiveEdit && jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(WrapperBtn, { children: [jsxRuntime.jsx(MiniButton, { label: labels?.cancel, variant: 'secondary', onClick: (e) => onClickCancelIntern(), disabled: false }), jsxRuntime.jsx(Or, { children: labels?.or }), jsxRuntime.jsx(MiniButton, { label: stringValueTextArea?.length > 0 ? labels?.save : labels?.publish, variant: 'primary', onClick: () => {
                                     if (stringValueTextArea?.length > 0 && !isErrorManyChars)
                                         onClickPublish(stringValueTextArea);
                                 }, disabled: !(stringValueTextArea?.length > 0) || isErrorManyChars })] }) })] }) }));
@@ -15671,7 +15682,7 @@ function HeaderImprovementIdea({ user, like, menuMore, styles }) {
         setLikeState(like);
         setMenuMoreState(menuMore);
     }, [user, like, menuMore]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$1, { style: { ...styles }, children: [jsxRuntime.jsx(HeaderUser, { avatar: user?.avatar, name: user?.name, text: user?.text }), jsxRuntime.jsxs(WrapperActions, { children: [jsxRuntime.jsx(CounterLike, { total: like?.total, onClick: () => like?.onClick() }), menuMore && menuMore?.length > 0 &&
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$1, { style: { ...styles }, children: [jsxRuntime.jsx(HeaderUser, { avatar: user?.avatar, name: user?.name, text: user?.text, onClick: user?.onClick }), jsxRuntime.jsxs(WrapperActions, { children: [jsxRuntime.jsx(CounterLike, { total: like?.total, onClick: () => like?.onClick() }), menuMore && menuMore?.length > 0 &&
                             jsxRuntime.jsx(MenuMore, { options: menuMore })] })] }) }));
 }
 
@@ -15710,7 +15721,7 @@ function ShowMore({ labels, disabled, isOpen, total, onClick }) {
 }
 
 const ContainerComentario = styled__default["default"].div `
-  width: 250px;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -15845,7 +15856,6 @@ function IcrementarIdeia(props) {
     useAutosizeTextArea(textAreaRef.current, stringValueTextArea);
     const [listaTexto, setListaTexto] = React.useState('');
     React.useEffect(() => {
-        console.log('lista para contar ', listaTexto);
         const txList = listaTexto.split('');
         setTextCount(txList.length);
         if (props.limitTexto) {
@@ -15863,6 +15873,9 @@ function IcrementarIdeia(props) {
             setIsError(false);
         }
     }, [stringValueTextArea, listaTexto]);
+    React.useEffect(() => {
+        props.onChange(stringValueTextArea);
+    }, [stringValueTextArea]);
     const handleChange = (evt) => {
         const texto = evt.target?.value;
         setStringValueTextArea(texto);
@@ -15879,7 +15892,7 @@ function IcrementarIdeia(props) {
             repositionCursorAfterNewEmojiInTextArea([lastPositionStart, lastPositionEnd], emojiObject?.native?.length);
         }
     }
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(ContainerComentario, { onClick: () => setActiveComentario(true), activeComentario: activeComentario, error: isError, children: [jsxRuntime.jsxs(imagemAndIput, { activeComentario: activeComentario, children: [jsxRuntime.jsx(imagemComentario, { activeComentario: activeComentario, children: jsxRuntime.jsx(Avatar, { src: props.imgComentario, size: '34px' }) }), jsxRuntime.jsx(IpuntComentario, { onClick: () => setActiveComentario(true), activeComentario: activeComentario, cols: 30, rows: 5, error: isError, id: "txtTextArea", ref: textAreaRef, value: stringValueTextArea, onChange: handleChange, placeholder: props.user === 'user' ? props.textPlaceholderAluno : props.textPlaceholderGestor })] }), activeComentario && (jsxRuntime.jsxs(containerCountAndEmojis, { children: [jsxRuntime.jsxs(valueCount, { children: [textCount, "/", props.limitTexto ? props.limitTexto : 350] }), jsxRuntime.jsx(valueEmoji, { children: props.hasEmoji && (jsxRuntime.jsx(EmojiPicker, { isOpenPicker: isOpenPicker, setIsOpenPicker: setIsOpenPicker, onEmojiSelect: (emoji) => onEmojiClick(emoji), configPicker: {
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(ContainerComentario, { onClick: () => setActiveComentario(true), activeComentario: activeComentario, error: isError, style: { ...props?.styles }, children: [jsxRuntime.jsxs(imagemAndIput, { activeComentario: activeComentario, children: [jsxRuntime.jsx(imagemComentario, { activeComentario: activeComentario, children: jsxRuntime.jsx(Avatar, { src: props.imgComentario, size: '34px' }) }), jsxRuntime.jsx(IpuntComentario, { onClick: () => setActiveComentario(true), activeComentario: activeComentario, cols: 30, rows: 5, error: isError, id: "txtTextArea", ref: textAreaRef, value: stringValueTextArea, onChange: handleChange, placeholder: props.user === 'user' ? props.textPlaceholderAluno : props.textPlaceholderGestor })] }), activeComentario && (jsxRuntime.jsxs(containerCountAndEmojis, { children: [jsxRuntime.jsxs(valueCount, { children: [textCount, "/", props.limitTexto ? props.limitTexto : 350] }), jsxRuntime.jsx(valueEmoji, { children: props.hasEmoji && (jsxRuntime.jsx(EmojiPicker, { isOpenPicker: isOpenPicker, setIsOpenPicker: setIsOpenPicker, onEmojiSelect: (emoji) => onEmojiClick(emoji), configPicker: {
                                         title: 'FRST FALCONI',
                                         perLine: 10,
                                         sheetSize: 8,
@@ -15942,7 +15955,7 @@ const WrapperValue = styled__default["default"].div `
 
 function CommentPost({ user, like, menuMore, valueComment, onChangeValueComment, isActiveEdit, inputEdit, styles }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Wrapper, { style: { ...styles }, children: isActiveEdit ?
-                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(InputCommentPostIt, { value: valueComment, avatar: user?.avatar, onChange: (e) => { }, placeholder: inputEdit?.placeholder, limit: inputEdit?.limit, hasEmoji: inputEdit?.hasEmoji, onClickPublish: (e) => inputEdit?.onClickPublish(e), onClickCancel: () => inputEdit?.onClickCancel(), labels: inputEdit?.labels }) })
+                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(InputCommentPostIt, { value: valueComment, avatar: user?.avatar, onChange: (e) => onChangeValueComment(e), placeholder: inputEdit?.placeholder, limit: inputEdit?.limit, hasEmoji: inputEdit?.hasEmoji, onClickPublish: (e) => inputEdit?.onClickPublish(e), onClickCancel: () => inputEdit?.onClickCancel(), labels: inputEdit?.labels }) })
                 :
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(HeaderImprovementIdea, { user: user, like: like, menuMore: menuMore }), jsxRuntime.jsx(WrapperValue, { children: valueComment })] }) }) }));
 }
@@ -15992,6 +16005,7 @@ exports.CounterLike = CounterLike;
 exports.DateRangePicker = StepLearningCycle;
 exports.Diamond = Diamond;
 exports.DoubleCheck = DoubleCheck;
+exports.EditIcon = EditIcon;
 exports.EmojiPicker = EmojiPicker;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
