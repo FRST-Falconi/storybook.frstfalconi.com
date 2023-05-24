@@ -6,7 +6,7 @@ interface PropsComentario {
 }
 
 export const ContainerComentario = styled.div<PropsComentario>`
-  width: 250px;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

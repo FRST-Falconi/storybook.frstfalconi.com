@@ -217,3 +217,13 @@ export const AlertManyChars = styled.div`
     gap: 8px;
     
 `
+
+export const Or = styled.div`
+    margin-left: 8px;
+    margin-right: 8px;
+    color: #000;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+`

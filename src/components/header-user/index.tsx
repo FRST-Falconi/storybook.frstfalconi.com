@@ -6,19 +6,23 @@ import { Wrapper, WrapperText, Name, Text } from './headerUserStyles'
 import { IHeaderUser } from './headerUser'
 import Avatar from './../avatar'
 
-export default function HeaderUser({ avatar, name, text, onClick }: IHeaderUser) {
+export default function HeaderUser({ avatar, name, text, onClick, large }: IHeaderUser) {
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Wrapper onClick={() => onClick()}>
+            <Wrapper 
+                onClick={() => !!(onClick)? onClick() : {}}
+            >
                 <Avatar 
-                    size='32px'
+                    size={large ? '56px' : '32px'}
                     src={avatar?.src} 
                     alt={avatar?.alt}
                 />
-                <WrapperText>
-                    <Name>{name}</Name>
-                    <Text>{text}</Text>
+                <WrapperText
+                    style={{justifyContent: 'space-around'}}
+                >
+                    <Name large={large}>{name}</Name>
+                    <Text large={large}>{text}</Text>
                 </WrapperText>
             </Wrapper>
         </ThemeProvider>

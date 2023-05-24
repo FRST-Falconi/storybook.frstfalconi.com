@@ -25,7 +25,7 @@ export default function CommentPost({
                     <InputCommentPostIt
                         value={valueComment}
                         avatar={user?.avatar}
-                        onChange={(e) => {}}
+                        onChange={(e) => onChangeValueComment(e)}
                         placeholder={inputEdit?.placeholder}
                         limit={inputEdit?.limit}
                         hasEmoji={inputEdit?.hasEmoji}
