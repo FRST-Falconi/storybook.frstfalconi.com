@@ -18,12 +18,7 @@ icrementarIdeia.args = {
   imgComentario: '/bg1.png',
   limitTexto: 250,
   txtError: 'Reduza seu texto para 350 caracteres.',
-<<<<<<< HEAD:src/components/IncrementarIdeia/icrementarIdeia.stories.tsx
-  hasEmoji: true
-=======
   hasEmoji: true,
-  limit: 1000,
   onChange: (e) => console.log(e),
-  styles: {width: '200px'}
->>>>>>> develop:src/components/FI/IncrementarIdeia/icrementarIdeia.stories.tsx
+  styles: { width: '200px' }
 }
