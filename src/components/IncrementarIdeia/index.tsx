@@ -1,4 +1,4 @@
-import { FRSTTheme } from '../../../theme'
+import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 import * as Styles from './icrementarIdeiaStyles'
 import Avatar from '@components/avatar'
@@ -8,15 +8,13 @@ import useAutosizeTextArea from './useAutosizeTextArea'
 import EmojiPicker from '@components/emoji-picker'
 
 interface PropsIcrementarIdeia {
-  user: 'userAdmin' | 'user'
+  user: 'userAutor' | 'user'
   textPlaceholderGestor: string
   textPlaceholderAluno: string
   imgComentario?: string
   limitTexto?: number
   txtError: string
   hasEmoji: boolean
-  limit: number
-  onChange: () => void
   value?: string
 }
 
@@ -24,10 +22,8 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
   const [activeComentario, setActiveComentario] = useState(false)
   const [textCount, setTextCount] = useState(0)
   const [isError, setIsError] = useState(false)
-  // const [value, setValue] = useState('')
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const [isOpenPicker, setIsOpenPicker] = useState()
-  // const refInput = useRef(null)
   const [stringValueTextArea, setStringValueTextArea] = useState('')
 
   useAutosizeTextArea(textAreaRef.current, stringValueTextArea)
@@ -35,7 +31,6 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
   const [listaTexto, setListaTexto] = useState('')
 
   useEffect(() => {
-    console.log('lista para contar ', listaTexto)
     const txList = listaTexto.split('')
     setTextCount(txList.length)
     if (props.limitTexto) {
@@ -60,7 +55,7 @@ export default function IcrementarIdeia(props: PropsIcrementarIdeia) {
   function onEmojiClick(emojiObject: any) {
     const valueTextarea = document.getElementById('txtTextArea').innerHTML
 
-    if (!valueTextarea || valueTextarea?.length < props.limit) {
+    if (!valueTextarea || valueTextarea?.length < props.limitTexto) {
       let lastPositionStart = textAreaRef.current.selectionStart
       let lastPositionEnd = textAreaRef.current.selectionEnd
       let newStringWithEmoji = handleStringToIncluedEmoji(
