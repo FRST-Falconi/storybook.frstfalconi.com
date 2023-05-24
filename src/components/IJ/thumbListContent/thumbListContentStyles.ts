@@ -3,6 +3,7 @@ import styled from 'styled-components'
 interface content {
   showText?: boolean
   tagVisualized?: string
+  isSelected?: boolean
 }
 
 export const containerThumbContent = styled.div`
@@ -97,8 +98,9 @@ export const infoThumbContent = styled.div<content>`
   gap: 4px;
   font-family: 'PT Sans';
   word-wrap: break-word;
+  background: ${(props) => props?.isSelected && '#F26818'};
   span {
-    color: ${({ theme }) => theme.colors.primary1};
+    color: ${(props) => (props?.isSelected ? '#F8FAFC' : '#F26818')};
     font-size: 16px;
     font-weight: 700;
     padding-top: ${(props) => (props.tagVisualized === 'notVisualized' ? '16px' : '0px')};
@@ -127,14 +129,14 @@ export const tagThumbContent = styled.div<content>`
   display: flex;
   justify-content: center;
   align-items: center;
+  display: ${(props) => props?.isSelected && 'none'};
 `
 
 export const descriptionThumbContent = styled.div<content>`
   font-size: 14px;
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.shadeBlack};
+  color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#FF4D0D')};
   padding: 0px 16px 0px 16px;
-
   overflow: hidden;
   text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
   display: ${(props) => (props.showText ? 'flex' : '-webkit-box')};
@@ -151,7 +153,7 @@ export const viewMoreContent = styled.div`
 `
 
 export const shadedThumb = styled.div`
-  position: relative;  
+  position: relative;
   height: 100%;
   :after {
     position: absolute;
