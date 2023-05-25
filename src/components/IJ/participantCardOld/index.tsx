@@ -166,7 +166,7 @@ function FooterButtonDefault({statusSend, clickSendInvitation, labels, handleCli
 
 function LetterEnvelopLineIcon() {
   return (
-    <div style={{height: '12px', borderRadius: '2px', overflow: 'hidden', marginRight: '8px'}} >
+    <div style={{height: '12px', borderRadius: '2px', overflow: 'hidden', marginRight: '8px', marginLeft:'8px'}} >
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12"  viewBox="1 1 16.4 12">
         <path strokeWidth="1" fill='#0645ad' d="m3.2,0C1.43,0,0,1.43,0,3.2h2.4c0-.44.36-.8.8-.8V0Zm12,2.4c.44,0,.8.36.8.8h2.4c0-1.77-1.43-3.2-3.2-3.2v2.4Zm.8,8.8c0,.44-.36.8-.8.8v2.4c1.77,0,3.2-1.43,3.2-3.2h-2.4Zm-12.8.8c-.44,0-.8-.36-.8-.8H0c0,1.77,1.43,3.2,3.2,3.2v-2.4Zm-.8-.8V3.2H0v8h2.4Zm12.8.8H3.2v2.4h12v-2.4Zm.8-8.8v8h2.4V3.2h-2.4Zm-12.8-.8h12V0H3.2v2.4Zm4.48,4.44c.91.66,2.14.66,3.05,0l-.7-.97c-.49.35-1.15.35-1.64,0l-.7.97Zm3.05,0l6.43-4.65-.7-.97-6.43,4.65.7.97ZM1.25,2.19l6.43,4.65.7-.97L1.95,1.21l-.7.97Zm9.12,4.17l-.35-.49.35.49Zm-2.35,0l-.35.49.35-.49Z"/>
     </svg>

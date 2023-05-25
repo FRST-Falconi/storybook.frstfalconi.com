@@ -217,7 +217,7 @@ function SmileOutlined({ fill, width, height }) {
 function SaveIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '22', height: height ? height : '22', viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "22", height: "22", fill: fill ? fill : '#757575' }), jsxRuntime.jsx("path", { d: "M15.6667 17H6.33333C5.97971 17 5.64057 16.8595 5.39052 16.6095C5.14048 16.3594 5 16.0203 5 15.6667V6.33333C5 5.97971 5.14048 5.64057 5.39052 5.39052C5.64057 5.14048 5.97971 5 6.33333 5H13.6667L17 8.33333V15.6667C17 16.0203 16.8595 16.3594 16.6095 16.6095C16.3594 16.8595 16.0203 17 15.6667 17Z", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14.3327 17.0003V11.667H7.66602V17.0003", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M7.66602 5V8.33333H12.9993", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function CheckInCicle({ fill, stroke, customColor_1, width, height }) {
+function CheckInCicle$1({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ?? '21', height: height ?? '20', viewBox: "0 0 21 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M20 10C20 15.5176 15.5281 20 10.0001 20C4.47195 20 0 15.5176 0 10C0 4.48239 4.47195 0 10.0001 0C15.5281 0 20 4.48239 20 10Z", fill: customColor_1 ?? '#222' }), jsxRuntime.jsx("path", { d: "M19.7557 10C19.7557 15.2417 15.4598 19.5 10.1494 19.5C4.83889 19.5 0.542969 15.2417 0.542969 10C0.542969 4.75827 4.83889 0.5 10.1494 0.5C15.4598 0.5 19.7557 4.75827 19.7557 10Z", stroke: stroke ?? '#FFF' }), jsxRuntime.jsx("path", { d: "M14.05 5L15.39 5.94L9.58 14.32H8.24L5 9.78L6.34 8.53L8.91 10.93L14.05 5Z", fill: fill ?? '#FFF' })] }));
 }
 function CloseInCicle({ fill, stroke, customColor_1, width, height }) {
@@ -3521,7 +3521,7 @@ function Checkmark({ type, subtitle, active, handleClick, className, disabled, s
         }
     }, [active, type, disabled]);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { ...styles }, className: className, children: type == 'checked' ?
-                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(ButtonCheckmark, { onClick: handleClick, children: [jsxRuntime.jsx(CheckInCicle, { ...colorsIcon }), jsxRuntime.jsx(Subtitle, { disabled: disabled, children: subtitle })] }) })
+                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(ButtonCheckmark, { onClick: handleClick, children: [jsxRuntime.jsx(CheckInCicle$1, { ...colorsIcon }), jsxRuntime.jsx(Subtitle, { disabled: disabled, children: subtitle })] }) })
                 :
                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: type == 'unchecked' &&
                             jsxRuntime.jsxs(ButtonCheckmark, { onClick: handleClick, children: [jsxRuntime.jsx(CloseInCicle, { ...colorsIcon }), jsxRuntime.jsx(Subtitle, { disabled: disabled, children: subtitle })] }) }) }) }));
@@ -11955,7 +11955,7 @@ function ChallengeCard({ variant, description, language, onClickView, onClickNew
         }, 700);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$4, { style: { ...style }, active: activeClick, children: [jsxRuntime.jsxs(TagStep, { onClick: () => handleClick(), variant: variant, children: [jsxRuntime.jsx(TagText, { children: label.tagStep[variant] }), variant == 'completed' &&
-                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
+                            jsxRuntime.jsx("span", { style: { marginLeft: '10px', height: '100%' }, children: jsxRuntime.jsx(CheckInCicle$1, { customColor_1: "transparent", height: '16', width: '16' }) })] }), jsxRuntime.jsxs(WrapperBanner, { onClick: () => handleClick(), children: [jsxRuntime.jsx(BannerCard, { src: BannersSRC[variant] }), jsxRuntime.jsx(StepName, { variant: variant, children: label.nameStep[variant] })] }), jsxRuntime.jsxs(ContentCard, { children: [jsxRuntime.jsxs(WrapperHeader$1, { children: [jsxRuntime.jsx(TitleProject, { onClick: () => handleClick(), children: variant == 'srg' ? 'Space Race Game' : label.project }), variant != 'srg' && onClickContinue && onClickDelete &&
                                     jsxRuntime.jsx(Dots, { children: jsxRuntime.jsx(MoreVerticalMenu, { textContinue: label.continue, textDelete: label.delete, textEdit: label.edit, handleContinue: () => onClickContinue(), handleDelete: () => onClickDelete(), handleEdit: () => onClickEdit(), variant: variant }) })] }), variant != 'srg' ?
                             jsxRuntime.jsx(DescriptionProject, { onClick: () => handleClick(), children: resumeString(description, 73) })
                             :
@@ -13757,7 +13757,7 @@ const tagThumbContent = styled__default["default"].div `
 const descriptionThumbContent = styled__default["default"].div `
   font-size: 14px;
   font-weight: 400;
-  color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#FF4D0D')};
+  color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#222222')};
   padding: 0px 16px 0px 16px;
   overflow: hidden;
   text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
@@ -13906,13 +13906,16 @@ const WrapperCard$2 = styled__default["default"].div `
     flex-direction: column;
     width: 282px;
     height: fit-content;
-
+    min-height: ${({ variant }) => variant == 'brainstorm' ? '169px' : ''};
+    justify-content: space-around;
     padding: 17px;
     padding-top: 14px;
 
     background: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border: 1px solid ${({ theme, variant }) => variant != 'brainstorm' ? theme.colors.borderPrimary : 'none'};
     border-radius: 8px;
+
+    box-shadow: 0px 0px 5px ${({ variant }) => variant == 'brainstorm' ? 'rgba(0, 0, 0, 0.2)' : '#0000000'};
 `;
 styled__default["default"].div `
     width: 100%;
@@ -13981,7 +13984,7 @@ const UserAdditionalInfo$1 = styled__default["default"].div `
 const Area$1 = styled__default["default"].div `
         font-family: 'PT Sans';
         font-style: normal;
-        font-weight: 700;
+        font-weight: ${({ variant }) => variant == 'brainstorm' ? '400' : '700'};
         font-size: 16px;
         line-height: 110%;
         /* or 18px */
@@ -14056,6 +14059,8 @@ const ButtonSend = styled__default["default"].div `
     color: ${({ theme }) => theme.colors.shadeWhite};
     cursor: pointer;
     margin-left: -13px;
+
+
 `;
 const ButtonRemove = styled__default["default"].div `
     font-family: 'Work Sans';
@@ -14064,6 +14069,58 @@ const ButtonRemove = styled__default["default"].div `
     font-size: 12px;
     line-height: 14px;
     color: #0645AD;
+    cursor: pointer;
+`;
+const ButtonSendV2 = styled__default["default"].div `
+    width: fit-content;
+    height: 14px;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+
+    display: flex;
+    align-items: center;
+
+    color: #0645AD;
+    cursor: pointer;
+
+`;
+const ButtonRemoveV2 = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 110%;
+
+    text-align: right;
+
+    /* neutrals/neutral_2 */
+
+    color: #444444;
+    cursor: pointer;
+
+    &:hover {
+        color: ${({ theme }) => theme.colors.neutralsGrey1};
+    }
+    &:active {
+        color: ${({ theme }) => theme.colors.neutralsGrey3};
+    }
+`;
+const ButtonOrV2 = styled__default["default"].div `
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 110%;
+    /* or 13px */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
     cursor: pointer;
 `;
 const ButtonSuccess = styled__default["default"].div `
@@ -14103,8 +14160,23 @@ const ButtonSuccess = styled__default["default"].div `
 
     color: #222222;
 `;
+const ButtonSuccessV2 = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
 
-function ParticipantCardOld({ userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
+    color: #000000;
+    gap: 8px;
+    margin-left: 8px;
+
+`;
+
+function ParticipantCardOld({ variant, userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
     const [userName, setUserName] = React.useState(userInfo?.name);
     const [userEmail, setUserEmail] = React.useState(userInfo?.email);
     const [area, setArea] = React.useState(`${labels?.area ? labels?.area : 'Área'}: ${userInfo?.area}`);
@@ -14121,7 +14193,22 @@ function ParticipantCardOld({ userInfo, labels, successfullInvite, style, handle
         setStatusSend('success');
         handleSendInvitation(userInfo?.id);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { style: { ...style }, children: [jsxRuntime.jsxs(UserInfo$1, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser$1, { children: [userName && userName?.length > 25 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser$1, { children: userName }) })) : (jsxRuntime.jsx(NameUser$1, { children: userName })), userEmail && userEmail?.length > 30 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser$1, { children: userEmail }) })) : (jsxRuntime.jsx(EmailUser$1, { children: userEmail }))] })] }), jsxRuntime.jsxs(UserAdditionalInfo$1, { children: [area && area?.length > 31 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area$1, { children: area }) })) : (jsxRuntime.jsx(Area$1, { children: area })), position && position?.length > 33 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position$1, { children: position }) })) : (jsxRuntime.jsx(Position$1, { children: position }))] }), jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ? (jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })) : null, handleClickRemove ? (jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })) : null] })) : null, statusSend == 'success' ? (jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: "14" }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) })) : null] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { variant: variant, style: { ...style }, children: [jsxRuntime.jsxs(UserInfo$1, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser$1, { children: [userName && userName?.length > 25 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser$1, { children: userName }) })) : (jsxRuntime.jsx(NameUser$1, { children: userName })), userEmail && userEmail?.length > 30 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser$1, { children: userEmail }) })) : (jsxRuntime.jsx(EmailUser$1, { children: userEmail }))] })] }), jsxRuntime.jsxs(UserAdditionalInfo$1, { children: [area && area?.length > 31 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area$1, { variant: variant, children: area }) })) : (jsxRuntime.jsx(Area$1, { variant: variant, children: area })), position && position?.length > 33 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position$1, { children: position }) })) : (jsxRuntime.jsx(Position$1, { children: position }))] }), variant == 'brainstorm' ?
+                    jsxRuntime.jsx(FooterButtonBrainstorm, { statusSend: statusSend, clickSendInvitation: clickSendInvitation, handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo })
+                    :
+                        jsxRuntime.jsx(FooterButtonDefault, { statusSend: statusSend, clickSendInvitation: clickSendInvitation, handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo })] }) }));
+}
+function FooterButtonBrainstorm({ statusSend, clickSendInvitation, handleClickRemove, labels, userInfo }) {
+    return (jsxRuntime.jsxs(FooterButton, { style: { justifyContent: 'flex-start', gap: '4px', alignItems: 'center' }, children: [statusSend == 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ? (jsxRuntime.jsxs(ButtonSendV2, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(LetterEnvelopLineIcon, {}) }), labels?.sendInvitation ? labels?.sendInvitation : 'Convidar'] })) : null, jsxRuntime.jsx(ButtonOrV2, { children: labels.or }), handleClickRemove ? (jsxRuntime.jsx(ButtonRemoveV2, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })) : null] })) : null, statusSend == 'success' ? (jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccessV2, { children: [jsxRuntime.jsx(CheckInCicle, {}), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) })) : null] }));
+}
+function FooterButtonDefault({ statusSend, clickSendInvitation, labels, handleClickRemove, userInfo }) {
+    return (jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ? (jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })) : null, handleClickRemove ? (jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })) : null] })) : null, statusSend == 'success' ? (jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: "14" }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) })) : null] }));
+}
+function LetterEnvelopLineIcon() {
+    return (jsxRuntime.jsx("div", { style: { height: '12px', borderRadius: '2px', overflow: 'hidden', marginRight: '8px', marginLeft: '8px' }, children: jsxRuntime.jsx("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "12", viewBox: "1 1 16.4 12", children: jsxRuntime.jsx("path", { strokeWidth: "1", fill: '#0645ad', d: "m3.2,0C1.43,0,0,1.43,0,3.2h2.4c0-.44.36-.8.8-.8V0Zm12,2.4c.44,0,.8.36.8.8h2.4c0-1.77-1.43-3.2-3.2-3.2v2.4Zm.8,8.8c0,.44-.36.8-.8.8v2.4c1.77,0,3.2-1.43,3.2-3.2h-2.4Zm-12.8.8c-.44,0-.8-.36-.8-.8H0c0,1.77,1.43,3.2,3.2,3.2v-2.4Zm-.8-.8V3.2H0v8h2.4Zm12.8.8H3.2v2.4h12v-2.4Zm.8-8.8v8h2.4V3.2h-2.4Zm-12.8-.8h12V0H3.2v2.4Zm4.48,4.44c.91.66,2.14.66,3.05,0l-.7-.97c-.49.35-1.15.35-1.64,0l-.7.97Zm3.05,0l6.43-4.65-.7-.97-6.43,4.65.7.97ZM1.25,2.19l6.43,4.65.7-.97L1.95,1.21l-.7.97Zm9.12,4.17l-.35-.49.35.49Zm-2.35,0l-.35.49.35-.49Z" }) }) }));
+}
+function CheckInCicle() {
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "16", height: "16", rx: "8", fill: "#1BA853" }), jsxRuntime.jsx("path", { d: "M11.8806 5.09106L6.54729 10.4244L4.12305 8.00016", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
 
 const activeStatus = 'Cadastrado';
@@ -15596,7 +15683,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
     const [isOpenPicker, setIsOpenPicker] = React.useState(false);
     const [stringValueTextArea, setStringValueTextArea] = React.useState('');
     const [isChangedInput, setIsChangedInput] = React.useState(false);
-    const [remain, setRemain] = React.useState(0);
+    const [remain, setRemain] = React.useState(limit);
     React.useEffect(() => {
         if (stringValueTextArea) {
             resizeTextArea(refInput);
@@ -15631,6 +15718,7 @@ function InputCommentPostIt({ placeholder, avatar, value, onChange, limit, hasEm
         onChange('');
         setErrorManyChars(false);
         setIsActiveEdit(false);
+        setRemain(limit);
         onClickCancel();
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, children: [jsxRuntime.jsxs(InputWrapper, { active: isActiveEdit, isOnEditing: isChangedInput, isError: isErrorManyChars, children: [!isActiveEdit &&
@@ -16081,7 +16169,7 @@ exports.ChallengeCard = ChallengeCard;
 exports.ChangeAccount = ChangeAccount;
 exports.Channel = Channel$3;
 exports.CheckIconSimple = CheckIconSimple;
-exports.CheckInCicle = CheckInCicle;
+exports.CheckInCicle = CheckInCicle$1;
 exports.Checkmark = Checkmark;
 exports.ColorPicker = Colorpicker;
 exports.CommentPost = CommentPost;

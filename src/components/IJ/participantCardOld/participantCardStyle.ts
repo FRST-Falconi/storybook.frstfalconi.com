@@ -277,7 +277,6 @@ export const ButtonSuccess = styled.div`
     color: #222222;
 `
 
-
 export const ButtonSuccessV2 = styled.div`
     display: flex;
     flex-direction: row;
@@ -290,5 +289,6 @@ export const ButtonSuccessV2 = styled.div`
 
     color: #000000;
     gap: 8px;
+    margin-left: 8px;
 
 `
