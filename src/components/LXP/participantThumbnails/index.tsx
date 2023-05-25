@@ -12,7 +12,7 @@ interface ParticipantThumbnails {
 }
 
 export default function ParticipantThumbnails(props: ParticipantThumbnails) {
-  const [anchorEl, setAnchorEl] = useState()
+  const [anchorEl, setAnchorEl] = useState(null)
   const [itemSelected, setItemSelected] = useState(null)
 
   const handleClose = () => {
