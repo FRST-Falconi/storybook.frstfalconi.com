@@ -14,6 +14,7 @@ interface IThumbListContent {
     textProgressInProgress?: string;
     valueProgress?: number;
     tagValue: 'vizualized' | 'inProgress' | 'notVisualized';
+    isSelected?: boolean;
 }
 export default function ThumbListContent(props: IThumbListContent): JSX.Element;
 export {};
