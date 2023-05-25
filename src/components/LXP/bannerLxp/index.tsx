@@ -111,7 +111,7 @@ export default function BannerLxp(props: BannerLxpParams) {
       backgroundBanner={props?.bgColor || `url(${props?.bgSrc})`}
       style={{
         ...props.style,
-        objectFit: fixImage ? 'fill' : 'none'
+        objectFit: 'fill'
       }}
     >
       {!props?.isDisabledTitle && (
@@ -241,23 +241,7 @@ export default function BannerLxp(props: BannerLxpParams) {
               onChange={(e) => handleFileSelected(e.target.files[0])}
             />
           </Styles.BgInput>
-
-          <Styles.FixImage>
-            <span> Ajustar a imagem </span>
-            <Switch
-              checked={fixImage}
-              onChange={() => setFixImage(!fixImage)}
-              sx={{
-                '& .MuiSwitch-switchBase.Mui-checked': {
-                  color: '#FFF'
-                },
-                '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                  backgroundColor: '#FF4D0D !important',
-                  opacity: 1
-                }
-              }}
-            />
-          </Styles.FixImage>
+          
           <Styles.ActionButtons>
             <button onClick={onCancell}>Cancelar</button>
             <span>ou</span>

@@ -53,7 +53,7 @@ export const ButtonControll = styled.div<IButtonContoll>`
 
   border-radius: 50%;
 
-  ${({ sizeButton, isLeftButton, marginsArrowButton }) => {
+  /* ${({ sizeButton, isLeftButton, marginsArrowButton }) => {
     let result = ''
     if (sizeButton >= 80) {
       result = isLeftButton
@@ -66,7 +66,7 @@ export const ButtonControll = styled.div<IButtonContoll>`
     }
 
     return result
-  }}
+  }} */
 
   &:hover {
     background: ${({ theme }) => theme.colors.primary1} !important;

@@ -22,7 +22,8 @@ export default function ScrollContainer({
   sizeArrowButton,
   marginsArrowButton,
   horizontalMarginInternScroll,
-  refreshResize
+  refreshResize,
+  widthProtectClick
 }: IScrollContainer) {
   const [actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
   const [actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
@@ -83,12 +84,13 @@ export default function ScrollContainer({
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <div style={{ ...styles }} className={className}>
+      <div style={{ ...styles, position: 'relative'}} className={className}>
         <WrapperHorizontal>
           {isVisibleControlsButtons && positionArrowButton != 'bottom' && (
             <ButtonArrow
               isLeftButton={true}
               onClick={scrollToLeft}
+              widthProtectClick={widthProtectClick}
               onActionArea={setActionAreaButtonLeft}
               actionArea={actionAreaButtonLeft}
               sizeButton={sizeArrowButton}
@@ -108,6 +110,7 @@ export default function ScrollContainer({
             <ButtonArrow
               isLeftButton={false}
               onClick={scrollToRight}
+              widthProtectClick={widthProtectClick}
               onActionArea={setActionAreaButtonRight}
               actionArea={actionAreaButtonRight}
               sizeButton={sizeArrowButton}
@@ -136,6 +139,7 @@ export default function ScrollContainer({
                 isVisible={isVisibleArrowButtonLeft}
                 margin={marginsArrowButton ? marginsArrowButton + 'px' : '10px'}
                 ArrowScroll={ArrowScrollLeft}
+                widthProtectClick={widthProtectClick}
                 marginTopArrrowButton={marginTopArrrowButton}
               />
               <ButtonArrow
@@ -147,6 +151,7 @@ export default function ScrollContainer({
                 isVisible={isVisibleArrowButtonRight}
                 margin={marginsArrowButton ? marginsArrowButton + 'px' : '10px'}
                 ArrowScroll={ArrowScrollRight}
+                widthProtectClick={widthProtectClick}
                 marginTopArrrowButton={marginTopArrrowButton}
               />
             </div>
@@ -166,24 +171,44 @@ function ButtonArrow({
   isVisible,
   margin,
   ArrowScroll,
-  marginTopArrrowButton
+  marginTopArrrowButton,
+  widthProtectClick
 }) {
   return (
-    <ButtonControll
-      isLeftButton={isLeftButton}
-      onClick={onClick}
-      onMouseOver={() => onActionArea(true)}
-      onMouseOut={() => onActionArea(false)}
-      sizeButton={sizeButton ? sizeButton : 80}
-      visibility={isVisible ? 'visible' : 'hidden'}
-      marginsArrowButton={margin}
-      marginTopArrrowButton={marginTopArrrowButton}
+    <div
+      style={{
+        height: '100%',
+        width: widthProtectClick ? widthProtectClick : 100,
+        zIndex: 10,
+        position: 'absolute',
+        left: isLeftButton ? 0 : 'none',
+        right: !isLeftButton ? 0 : 'none',
+        paddingLeft: isLeftButton ? 24 : 0,
+        paddingRight: !isLeftButton ? 24 : 0,
+        display: 'flex',
+        bottom: 0,
+        top: 0,
+        justifyContent: isLeftButton ? 'flex-start' : 'flex-end',
+        alignItems: 'center',
+        visibility: isVisible ? 'visible' : 'hidden'
+      }}
     >
-      <ArrowScroll
-        fill={actionArea ? '#fff' : '#000'}
-        height={sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34'}
-        width={sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18'}
-      />
-    </ButtonControll>
+      <ButtonControll
+        isLeftButton={isLeftButton}
+        onClick={onClick}
+        onMouseOver={() => onActionArea(true)}
+        onMouseOut={() => onActionArea(false)}
+        sizeButton={sizeButton ? sizeButton : 80}
+        visibility={isVisible ? 'visible' : 'hidden'}
+        marginsArrowButton={margin}
+        marginTopArrrowButton={marginTopArrrowButton}
+      >
+        <ArrowScroll
+          fill={actionArea ? '#fff' : '#000'}
+          height={sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34'}
+          width={sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18'}
+        />
+      </ButtonControll>
+    </div>
   )
 }

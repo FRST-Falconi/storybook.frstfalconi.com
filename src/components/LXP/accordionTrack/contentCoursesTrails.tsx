@@ -105,11 +105,11 @@ export default function ContentCoursesTrails(props: any) {
   const [OpenPopper, setOpenPopper] = useState<boolean>(false);
   const [checked, setChecked] = useState(true)
   const [checkedPrivate, setCheckedPrivate] = useState(true)
-  const [up, setUp] = useState(true)
+  const [show, setShow] = useState(true)
   const [ElementPopover, setElementPopover] = useState(null);
   const [ElementPopoverPublish, setElementPopoverPublish] = useState(null);
   const [active, setActive] = useState(false)
-  const [nameTrail, setNameTrail] = useState('')  
+  const [nameTrail, setNameTrail] = useState(props.TrailName)  
   const [Publishing, setPublishing] = useState<string>(props.publishStatus);
   const [arrowRef, setArrowRef] = React.useState<HTMLElement | null>(null);
   const classes = useStyles();
@@ -119,6 +119,12 @@ export default function ContentCoursesTrails(props: any) {
     setPublishing(props.publishStatus)
     setOpenPopper(props.publishStatus === "pending")
   }, [props.publishStatus])
+
+
+  useEffect(() => {
+    setNameTrail(props.TrailName)
+    console.log('props.TrailName', props.TrailName)
+  }, [props.TrailName])
 
   useEffect(() => {
     if (props.publishStatus && props.publishStatus === "processing") {
@@ -140,20 +146,12 @@ export default function ContentCoursesTrails(props: any) {
   };
 
   const changeSelect = () => {
-    {
-      if (up) {
-        setUp(false)
-        props.handleChangeShow(false)
-      }
-      else {
-        setUp(true)
-        props.handleChangeShow(true)
-      }
-    }
+    setShow(!show)  
   }
 
+  
+
   const handleClickActiveNameTrail = () => { 
-    setNameTrail('')   
     if(active) {
       return setActive(false)
     } else{      
@@ -180,9 +178,9 @@ export default function ContentCoursesTrails(props: any) {
         <Styles.ContentTrailName active={active}>
           {!active ?
             <>
-              <Styles.TypographyTrailName>{props.TrailName}</Styles.TypographyTrailName>
+              <Styles.TypographyTrailName>{nameTrail}</Styles.TypographyTrailName>
               <Styles.Select onClick={changeSelect}>
-                {props.show ? props.show === true ? <VectorUp /> : <VectorDown /> : null}
+                {show === true ? <VectorUp /> : <VectorDown />}
               </Styles.Select>
             </>
             :
@@ -192,7 +190,7 @@ export default function ContentCoursesTrails(props: any) {
                 value={nameTrail}
                 onChange={(e) =>{                  
                   setNameTrail(e.target.value)                  
-                }} 
+                }}                 
                 onKeyPress={(event) => {
                   if(event.key === 'Enter'){
                     if (nameTrail) {
@@ -201,7 +199,23 @@ export default function ContentCoursesTrails(props: any) {
                     }
                   }                  
                 }}
+              />       
+              <Button 
+                handleClick={async () => {    
+                  setActive(false)
+                }} 
+                label={"Cancelar"}             
+                variant='link'
+              />                     
+              <Button 
+                handleClick={async () => {                      
+                  setActive(false)
+                  props.handleChangeTrailName(nameTrail)
+                }} 
+                label={"Salvar"}             
+                variant='primary'
               />
+
             </Styles.ContainerInputNameTrail>
           }          
         </Styles.ContentTrailName>
@@ -209,42 +223,46 @@ export default function ContentCoursesTrails(props: any) {
         {
           props.showButtonActive &&
             <Styles.ContentActiveHeader>             
-              <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
-                {props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Tornar a Trilha Pública'}
-                <Switch
-                  onChange={handleChangePrivate}
-                  checked={!props.private}
-                  height={16}
-                  width={40}
-                  checkedIcon={false}
-                  uncheckedIcon={false}
-                  handleDiameter={24}
-                  onHandleColor='#ffffff'
-                  offHandleColor='#ffffff'
-                  onColor='#FF4D0D'
-                  offColor='#757575'
-                  activeBoxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                  boxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                />
-              </Styles.TypographyActiveHeader>
-              <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
-                {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
-                <Switch
-                  onChange={handleChange}
-                  checked={props.ativo}
-                  height={16}
-                  width={40}
-                  checkedIcon={false}
-                  uncheckedIcon={false}
-                  handleDiameter={24}
-                  onHandleColor='#ffffff'
-                  offHandleColor='#ffffff'
-                  onColor='#FF4D0D'
-                  offColor='#757575'
-                  activeBoxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                  boxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                />
-              </Styles.TypographyActiveHeader>               
+              {!active &&
+              <>
+                <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
+                  {props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Tornar a Trilha Pública'}
+                  <Switch
+                    onChange={handleChangePrivate}
+                    checked={!props.private}
+                    height={16}
+                    width={40}
+                    checkedIcon={false}
+                    uncheckedIcon={false}
+                    handleDiameter={24}
+                    onHandleColor='#ffffff'
+                    offHandleColor='#ffffff'
+                    onColor='#FF4D0D'
+                    offColor='#757575'
+                    activeBoxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                    boxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                  />
+                </Styles.TypographyActiveHeader>
+                <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
+                  {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
+                  <Switch
+                    onChange={handleChange}
+                    checked={props.ativo}
+                    height={16}
+                    width={40}
+                    checkedIcon={false}
+                    uncheckedIcon={false}
+                    handleDiameter={24}
+                    onHandleColor='#ffffff'
+                    offHandleColor='#ffffff'
+                    onColor='#FF4D0D'
+                    offColor='#757575'
+                    activeBoxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                    boxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
+                  />
+                </Styles.TypographyActiveHeader>  
+                </>
+              }             
               <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
                 <Button 
                   id={`btnPublish${props.id}`}
@@ -350,7 +368,7 @@ export default function ContentCoursesTrails(props: any) {
         </>
       </Styles.ContainerHeader>
       
-      { up && props.children}
+      { show && props.children}
     </>
   )
 }

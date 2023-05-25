@@ -172,7 +172,7 @@ export const shadedThumb = styled.div`
 
 export const ProgressAndImg = styled.div`
   padding: 0.3rem 0.5rem;
-  z-index: 9999;
+  z-index: 99;
   position: absolute;
   width: 100%;
 `
@@ -183,7 +183,7 @@ export const ProgressIcon = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
-  z-index: 999;
+  z-index: 10;
   padding-bottom: 0.3rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;

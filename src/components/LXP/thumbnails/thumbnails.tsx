@@ -135,7 +135,7 @@ export default function Thumbnails({
                     <VectorEllipse />
                   </Styles.Thumbnails>
                 </Styles.GeralThumbnails>
-                <Styles.Image onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={ativo} />
+                <Styles.Image  ref={provided ? provided.innerRef : null} {...provided ? provided.dragHandleProps : null} onMouseEnter={handleHoverImage} className='imageHover' src={src || defaultImg} active={ativo} />
                 <Styles.ContainerMain>                  
                   <LightTooltip title={title}>
                     <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>{title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}</Styles.Typography>
@@ -205,7 +205,7 @@ export default function Thumbnails({
             isTrail ?
             <>
               <PopOverItem 
-                label={txtPopOverDeleteTrail ? txtPopOverDeleteTrail : "Excluir da Trilha"}
+                label={txtPopOverDeleteTrail ? txtPopOverDeleteTrail : "Excluir da trilha"}
                 onClick={() => {
                   setElementPopover(null)
                   /// timeout para corrigir o bug de scroll na tela
@@ -226,7 +226,7 @@ export default function Thumbnails({
             :
             <>
               <PopOverItem 
-                label={txtPopOverEditContent ? txtPopOverEditContent : "Editar Conteúdo"}
+                label={txtPopOverEditContent ? txtPopOverEditContent : "Editar conteúdo"}
                 onClick={() => {
                   setElementPopover(null)
                   handleClickPopOverEdit()
@@ -236,7 +236,7 @@ export default function Thumbnails({
                 }}
               />
               <PopOverItem 
-                label={txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar Atividades"}
+                label={txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar atividades"}
                 onClick={() => {
                   setElementPopover(null)
                   handleClickPopOverEditActivity()
@@ -246,7 +246,7 @@ export default function Thumbnails({
                 }}
               />
               <PopOverItem 
-                label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir Conteúdo"}
+                label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir conteúdo"}
                 onClick={() => {
                   setElementPopover(null)
                   /// timeout para corrigir o bug de scroll na tela
