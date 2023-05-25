@@ -14,7 +14,8 @@ export default function ExpandButton( {
     startIcon
     }: IExpandButton) {
 
-    const [actionArea, setActionArea] = useState(false)
+    const [actionArea, setActionArea] = useState(false);
+    const [timeoutId, setTimeoutId] = useState(null);
 
     return (
         <ThemeProvider theme={{...FRSTTheme }}>
@@ -22,8 +23,17 @@ export default function ExpandButton( {
                 onClick={(e) => !disabled && onClick(e)}
                 disabled={disabled}
                 style={{...styles}}
-                onMouseOut={() => setActionArea(false)}
-                onMouseOver={() => setActionArea(true)}
+                onMouseOut={() => {
+                    clearTimeout(timeoutId); // Cancela o timeout anterior
+                    const newTimeoutId = setTimeout(() => {
+                      setActionArea(false);
+                    }, 5000);
+                    setTimeoutId(newTimeoutId); // Armazena o ID do novo timeout
+                  }}
+                  onMouseOver={() => {
+                    clearTimeout(timeoutId); // Cancela o timeout anterior
+                    setActionArea(true);
+                  }}
             >   
                 <div style={{width: '20px'}}>
                     {startIcon}

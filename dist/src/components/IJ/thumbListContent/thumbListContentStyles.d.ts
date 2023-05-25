@@ -1,6 +1,7 @@
 interface content {
     showText?: boolean;
     tagVisualized?: string;
+    isSelected?: boolean;
 }
 export declare const containerThumbContent: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const loadingImageThumb: import("styled-components").StyledComponent<"div", any, {}, never>;

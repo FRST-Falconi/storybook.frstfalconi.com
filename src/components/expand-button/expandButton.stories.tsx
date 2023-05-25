@@ -19,5 +19,5 @@ primary.args = {
     label: 'Button text',
     disabled: false,
     onClick: () => { alert('Click') },
-    startIcon: <TrashIconNew/>
+    startIcon: <TrashIconNew width='30px'/>
 }
