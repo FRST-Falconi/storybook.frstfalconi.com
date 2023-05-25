@@ -5,13 +5,6 @@ interface AvatarI {
   src?: any
   disabled?: boolean
   color?: string
-  variant?: string
-}
-
-interface AvatarImage {
-  size?: string
-  src?: any
-  disabled?: boolean
   image: any
   variant?: string
 }
@@ -28,42 +21,19 @@ export const ContainerGeral = styled.div<PropsPopOver>`
     display: block;
   }
   &:hover .hide {
-    display: block;
+    visibility: visible;
   }
 `
 export const AvatarChannel = styled.div<AvatarI>`
   width: ${(props) => props.size || '80px'};
   height: ${(props) => props.size || '80px'};
   border-radius: 50%;
-  background-color: ${(props) => props.color || '#6a3f86'};
   position: relative;
-  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
-  cursor: pointer;
-  ${(props) =>
-    props.variant === 'sideRight' &&
-    css`
-      margin-left: 8.5rem;
-    `}
-
-  img {
-    border-radius: 50%;
-  }
-
-  ${({ disabled }) =>
-    disabled === true &&
-    `
-        filter: grayscale(100%);
-    `}
-`
-export const AvatarChannelImage = styled.div<AvatarImage>`
-  width: ${(props) => props.size || '80px'};
-  height: ${(props) => props.size || '80px'};
-  border-radius: 50%;
-  background-image: ${(props) => `url(${props.image})`};
+  background: ${(props) => props.image ? `url(${props.image})` : '#6a3f86'};
   background-repeat: no-repeat;
-  background-size: ${(props) => props.size || '80px'};
-  position: relative;
-  margin-top: ${(props) => (props.variant === 'lowLeft' || props.variant === 'lowRight' ? '62px' : '0px')};
+  background-size: cover;
+  background-position: center center;  
+  margin-top: 62px;
   cursor: pointer;
   ${(props) =>
     props.variant === 'sideRight' &&
@@ -81,6 +51,7 @@ export const AvatarChannelImage = styled.div<AvatarImage>`
         filter: grayscale(100%);
     `}
 `
+
 export const Channel = styled.span`
   position: absolute;
   display: flex;
@@ -95,21 +66,26 @@ export const Channel = styled.span`
   font-weight: 700;
   line-height: 130%;
 `
-export const AvatarCircle = styled.div<AvatarI>`
+export const AvatarCircle = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: absolute;  
+  justify-content: center;
+  align-items: center;  
+  visibility: hidden;
+`
+export const AvatarCam = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50px;
+  margin: 0;
   background-color: ${({ theme }) => theme.colors.shadeWhite};
-  position: absolute;
-  margin: 26.25% 25% 26.25% 25%;
   box-shadow: 0px 18px 40px -15px #d3d3d3;
-  display: none;
-`
-export const AvatarCam = styled.div<AvatarI>`
-  width: 33px;
-  height: 31px;
-  position: absolute;
-  margin: 15% 9% 12.5% 18%;
+  display: flex;  
+  justify-content: center;
+  align-items: center;  
+  z-index: 999;
 `
 export const ContainerPopOver = styled.div<PropsPopOver>`
   white-space: nowrap;
