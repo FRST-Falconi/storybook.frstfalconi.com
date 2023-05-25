@@ -12,7 +12,7 @@ interface ParticipantThumbnails {
 }
 
 export default function ParticipantThumbnails(props: ParticipantThumbnails) {
-  const [anchorEl, setAnchorEl] = useState(null)
+  const [anchorEl, setAnchorEl] = useState()
   const [itemSelected, setItemSelected] = useState(null)
 
   const handleClose = () => {
@@ -60,13 +60,13 @@ export default function ParticipantThumbnails(props: ParticipantThumbnails) {
               img={props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png'}
             />
             <styleThumbnails.DescriptionThumbnails theme={FRSTTheme}>
-              <h2>{props.titleThumbnail}</h2>
+              <div className='title'>{props.titleThumbnail}</div>
               <p>{props.descpThumbnail}</p>
             </styleThumbnails.DescriptionThumbnails>
           </styleThumbnails.CardThumbnailsHove>
         </styleThumbnails.CardThumbnailsHove>
       </Popover>
-      <styleThumbnails.CardThumbnails
+      <styleThumbnails.CardThumbnails id="teste"
         theme={FRSTTheme}
         onClick={props.handleFunctionThumbnail}
         onMouseOver={(event) => {

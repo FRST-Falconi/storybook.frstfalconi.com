@@ -225,6 +225,412 @@ const Template = (args) => {
         "course_id":75,
         "order":0
       },
+      {
+        "id":36,
+        "trail_id":179,
+        "course":{
+            "id":65,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Educação Financeira",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":35,
+        "trail_id":179,
+        "course":{
+            "id":75,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Curso de Bitcoin",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":36,
+        "trail_id":179,
+        "course":{
+            "id":65,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Educação Financeira",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":35,
+        "trail_id":179,
+        "course":{
+            "id":75,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Curso de Bitcoin",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":36,
+        "trail_id":179,
+        "course":{
+            "id":65,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Educação Financeira",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":35,
+        "trail_id":179,
+        "course":{
+            "id":75,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Curso de Bitcoin",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      }, 
+      {
+        "id":36,
+        "trail_id":179,
+        "course":{
+            "id":65,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Educação Financeira",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":35,
+        "trail_id":179,
+        "course":{
+            "id":75,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Curso de Bitcoin",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":36,
+        "trail_id":179,
+        "course":{
+            "id":65,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Educação Financeira",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":35,
+        "trail_id":179,
+        "course":{
+            "id":75,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Curso de Bitcoin",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },     
+      {
+        "id":36,
+        "trail_id":179,
+        "course":{
+            "id":65,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Educação Financeira",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":35,
+        "trail_id":179,
+        "course":{
+            "id":75,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Curso de Bitcoin",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":36,
+        "trail_id":179,
+        "course":{
+            "id":65,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Educação Financeira",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },
+      {
+        "id":35,
+        "trail_id":179,
+        "course":{
+            "id":75,
+            "uuid":"ff58113f-9cf0-4b65-873c-68bd7624af48",
+            "title":"Curso de Bitcoin",
+            "language":"pt-br",
+            "desc":"Test description",
+            "tags":{
+              "custom":"",
+              "category":[
+                
+              ]
+            },
+            "settings":{
+              "cover_full_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_thumb_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+              "cover_video_url": 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png',
+            },
+            "excluded":true,
+            "private":true,
+            "active":true,
+            "active_individual":false,
+            "channel":104
+        },
+        "course_id":75,
+        "order":0
+      },                                    
     ]}  
   ])
 

@@ -34,5 +34,5 @@ sourceImage.args = {
     console.log('avatar:', file)
   },
   variantPopOver: 'lowLeft',
-  sourceImage: 'https://lxp-cdn.dev.frstfalconi.cloud/logo-frst.png'
+  sourceImage: 'https://cdn.discordapp.com/attachments/1001105882358226955/1058104301844693122/image.png'
 }

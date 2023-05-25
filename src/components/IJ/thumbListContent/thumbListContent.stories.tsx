@@ -76,6 +76,20 @@ videoSemFoto.args = {
   tagValue: 'notVisualized'
 }
 
+export const podcast = Template.bind({})
+podcast.args = {
+  imageSrc: '',
+  typeThumbContent: 'podcast',
+  title: 'Label',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
+  textViewMoreButton: 'Ver mais',
+  textViewLessButton: 'Ver menos',
+  onClickThumb: () => alert('clicado'),
+  isLoading: false,
+  style: { width: 375 },
+}
+
 export const podcastComProgresso = Template.bind({})
 podcastComProgresso.args = {
   imageSrc: '',
