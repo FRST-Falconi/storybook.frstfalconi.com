@@ -45,35 +45,36 @@ export const ThumbnailHeaderImage = styled.div<HeaderThumbnailsProps>`
 `
 export const CardThumbnailsHove = styled.div`
   cursor: pointer;
-  width: 17rem;
-  height: 27.3rem;
+  width: 240px;
+  height: 380px;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
 `
 
 export const ThumbnailImageHover = styled.div<HeaderThumbnailsProps>`
-  width: 17rem;
-  height: 14.9rem;
+  width: 240px;
+  height: 140px;
   background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: center center;
   border-radius: 8px 8px 0px 0px;
   box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
 `
 
 export const DescriptionThumbnails = styled.div`
-  width: 17.8rem;
-  height: 15.1rem;
+  width: 240px;
+  height: 250px;
   background-color: #000;
   border-radius: 0px 0px 8px 8px;
   display: flex;
   flex-direction: column;
+  /* text-align: justify; */
   margin-top: -1px;
-  padding: 8px 16px 16px 16px;
+  padding: 12px;
 
-  h2 {
+  .title {
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};
     font-weight: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontWeight};
     font-size: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontSize};
@@ -82,17 +83,40 @@ export const DescriptionThumbnails = styled.div`
     white-space: normal;
     color: ${({ theme }) => theme.colors.shadeWhite};
     padding-bottom: 8px;
+    width: 240px;
   }
   p {
     color: ${({ theme }) => theme.colors.shadeWhite};
     font-weight: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontWeight};
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
-    padding-right: 16px;
+    /* padding-right: 16px; */
     word-break: break-word;
     font-family: 'PT Sans';
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontFamily};
     white-space: normal;
+    overflow: auto;
+  }
+
+  p::-webkit-scrollbar {
+  width: 10px;
+  }
+
+  /* Track */
+  p::-webkit-scrollbar-track {
+    background: #88888860;
+    border-radius: 10px;
+  }
+
+  /* Handle */
+  p::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  p::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 `
 

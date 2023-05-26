@@ -155,6 +155,8 @@ export declare function ErrorAlert({ fill, width, height }: IconsProps): JSX.Ele
 export declare function IconLikeLine({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function IconLikeFilled({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function TrashIconNew({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function VotarIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function VotarIconPressed({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

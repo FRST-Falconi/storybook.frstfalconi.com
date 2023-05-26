@@ -483,8 +483,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
         title={"Você tem certeza?"}
         style={{width: 600}}
-        confirmationButton={"Sim, confirmar"}
-        cancelButton={"Não, confirmar"}
+        confirmationButton={"Sim, excluir"}
+        cancelButton={"Cancelar"}
       >
         <div>
           Você realmente quer deletar este conteúdo? Você irá perder todas as atividades criadas.
@@ -499,8 +499,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         }
         title={"Você tem certeza?"}
         style={{width: 600}}
-        confirmationButton={"Sim, confirmar"}
-        cancelButton={"Não, confirmar"}
+        confirmationButton={"Sim, excluir"}
+        cancelButton={"Cancelar"}
       >
         <div>
           Você realmente quer deletar esta trilha?
@@ -512,8 +512,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         handleConfirmation={() => {props.handleDeleteCourseTrail(IdDelete)}}
         title={"Você tem certeza?"}
         style={{width: 600}}
-        confirmationButton={"Sim, confirmar"}
-        cancelButton={"Não, confirmar"}
+        confirmationButton={"Sim, excluir"}
+        cancelButton={"Cancelar"}
       >
         <div>
           Você realmente quer remover o conteúdo desta trilha?

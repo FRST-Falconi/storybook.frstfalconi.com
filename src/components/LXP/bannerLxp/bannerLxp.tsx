@@ -27,7 +27,7 @@ export const ConfigButton = styled.div`
 `
 export const ConfigContainer = styled.div`
   width: 350px;
-  height: 490px;
+  height: 448px;
   border-radius: 8px;
   border: 1px solid #bdbdbd;
   box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.15);

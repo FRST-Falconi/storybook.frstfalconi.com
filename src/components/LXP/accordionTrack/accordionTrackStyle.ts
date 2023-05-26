@@ -141,6 +141,10 @@ export const ContainerCard = styled.div`
     gap: 20px;       
 `
 export const ContainerInputNameTrail = styled.div`
+    display: inline-flex;
+    flex-direction: row;
+    gap: 18px;
+
     input{
         border: 1px solid #BDBDBD;
         border-radius: 8px;

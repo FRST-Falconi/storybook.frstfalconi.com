@@ -18,13 +18,13 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
   return (
     <>
       <ScrollContainer
-        type={'horizontal'}
-        stepMove={100}
+        stepMove={600}
         isVisibleControlsButtons={isVisibleControlsButtons}
         sizeArrowButton={80}
         marginsArrowButton={1}
         horizontalMarginInternScroll={'0'}
         marginTopArrrowButton={'-5rem'}
+        widthProtectClick={200}
         className={'scrollThumbnail'}
       >
         {listThumbnails.map((item, index) => {
