@@ -1,6 +1,9 @@
 import React from "react"
 
+type enumVariant = 'primary' | 'secondary' 
+
 export interface ParticipantCardI {
+    variant?: enumVariant,
     userInfo: {
         id: string,
         name: string,
@@ -12,9 +15,10 @@ export interface ParticipantCardI {
     labels?: {
         sendInvitation: string,
         invitationSuccess: string,        
-        remove: 'Remover',
-        area: 'Área',
-        position: 'Cargo',
+        remove: string,
+        area: string,
+        position: string,
+        or?: string
     },
     successfullInvite ?: boolean
     style: React.CSSProperties

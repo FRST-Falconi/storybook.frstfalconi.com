@@ -7,18 +7,21 @@ interface ParticipantCardI {
 }
 
 
-export const WrapperCard = styled.div`
+export const WrapperCard = styled.div<{variant}>`
     display: flex;
     flex-direction: column;
     width: 282px;
     height: fit-content;
-
+    min-height: ${({variant}) =>  variant == 'brainstorm' ? '169px': ''};
+    justify-content: space-around;
     padding: 17px;
     padding-top: 14px;
 
     background: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    border: 1px solid ${({ theme, variant }) => variant != 'brainstorm' ? theme.colors.borderPrimary : 'none'};
     border-radius: 8px;
+
+    box-shadow: 0px 0px 5px ${({ variant }) => variant == 'brainstorm' ? 'rgba(0, 0, 0, 0.2)' : '#0000000'};
 `
 
 export const WrapperUserInfo = styled.div`
@@ -87,10 +90,10 @@ export const UserAdditionalInfo = styled.div`
     flex-direction: column;
     margin-top: 15px;
 `
-    export const Area = styled.div`
+    export const Area = styled.div<{variant}>`
         font-family: 'PT Sans';
         font-style: normal;
-        font-weight: 700;
+        font-weight: ${({variant}) => variant == 'brainstorm' ? '400' : '700'};
         font-size: 16px;
         line-height: 110%;
         /* or 18px */
@@ -167,6 +170,8 @@ export const ButtonSend = styled.div`
     color: ${({ theme }) => theme.colors.shadeWhite};
     cursor: pointer;
     margin-left: -13px;
+
+
 `
 
 export const ButtonRemove = styled.div`
@@ -176,6 +181,72 @@ export const ButtonRemove = styled.div`
     font-size: 12px;
     line-height: 14px;
     color: #0645AD;
+    cursor: pointer;
+`
+
+
+export const ButtonSendV2 = styled.div`
+    width: fit-content;
+    height: 14px;
+
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+
+    display: flex;
+    align-items: center;
+
+    color: #0645AD;
+    cursor: pointer;
+
+`
+
+export const WrapperButtons = styled.div<{status}>`
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: ${({status}) => status == 'success' ? '0' : '1'};
+
+    transition: all 1s ease-in-out;
+`
+
+export const ButtonRemoveV2 = styled.div`
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 110%;
+
+    text-align: right;
+
+    /* neutrals/neutral_2 */
+
+    color: #444444;
+    cursor: pointer;
+
+    &:hover {
+        color: ${({theme}) => theme.colors.neutralsGrey1};
+    }
+    &:active {
+        color: ${({theme}) => theme.colors.neutralsGrey3};
+    }
+`
+export const ButtonOrV2 = styled.div`
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 110%;
+    /* or 13px */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
     cursor: pointer;
 `
 
@@ -215,4 +286,24 @@ export const ButtonSuccess = styled.div`
     /* neutrals/grey_1 */
 
     color: #222222;
+`
+
+export const ButtonSuccessV2 = styled.div<{status}>`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #000000;
+    gap: 8px;
+    margin-left: 8px;
+    margin-bottom: 7px;
+
+    opacity: ${({status}) => status == 'success' ? '1' : '0'};
+
+    transition: all 1s ease-in-out;
 `
