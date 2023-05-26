@@ -3581,21 +3581,21 @@ export function TrashIconNew({ fill, stroke, customColor_1, width, height }: Ico
 export function VotarIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
   return (
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 12L12 8L8 12" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M12 16V8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M16 12L12 8L8 12" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M12 16V8" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       <path
         d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         stroke="#444444"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M16.5 12L12 7.5L7.5 12"
         stroke="#444444"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path d="M12 16.5V7.5" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
     </svg>
@@ -3609,18 +3609,12 @@ export function VotarIconPressed({ fill, stroke, customColor_1, width, height }:
         d="M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z"
         fill="#9C9C9C"
         stroke="#9C9C9C"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <path
-        d="M15.5 11L11 6.5L6.5 11"
-        stroke="white"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
-      <path d="M11 15.5V6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M15.5 11L11 6.5L6.5 11" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M11 15.5V6.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -3635,6 +3629,23 @@ export function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M0 6L11.5 6L6 4.80825e-07L0 6Z" fill={fill ? fill : '#444444'} />
+    </svg>
+  )
+}
+
+export function IconCriarIdeia({ fill, stroke, customColor_1, width, height }: IconsProps) {
+  return (
+    <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M28.0001 51.3333C40.8867 51.3333 51.3334 40.8866 51.3334 28C51.3334 15.1133 40.8867 4.66666 28.0001 4.66666C15.1134 4.66666 4.66675 15.1133 4.66675 28C4.66675 40.8866 15.1134 51.3333 28.0001 51.3333Z"
+        fill="white"
+        stroke="#222222"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M28 18.6667V37.3333" stroke="#222222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M18.6667 28H37.3334" stroke="#222222" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
