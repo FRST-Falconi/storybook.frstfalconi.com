@@ -52,7 +52,7 @@ export default function ThumbListContent(props: IThumbListContent) {
           </Styles.loadingThumbContent>
         </Styles.containerThumbContent>
       ) : (
-        <Styles.containerThumbContent style={{ ...props.style }}>
+        <Styles.containerThumbContent style={{ ...props.style }} onClick={props.onClickThumb}>
           {props.imageSrc ? (
             tagVisualized > 0 ? (
               <Styles.shadedThumb>

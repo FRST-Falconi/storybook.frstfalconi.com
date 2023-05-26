@@ -37,7 +37,7 @@ export default function InputCommentPostIt({
     const [ stringValueTextArea, setStringValueTextArea ] = useState('');
     const [ isChangedInput, setIsChangedInput ] = useState(false);
 
-    const [ remain, setRemain ] = useState(0);
+    const [ remain, setRemain ] = useState(limit);
 
     useEffect(() => {
         if(stringValueTextArea) {
@@ -86,6 +86,7 @@ export default function InputCommentPostIt({
         onChange('')
         setErrorManyChars(false)
         setIsActiveEdit(false)
+        setRemain(limit)
         onClickCancel()
     }
 

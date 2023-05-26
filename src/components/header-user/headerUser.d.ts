@@ -8,5 +8,8 @@ export interface IHeaderUser{
     name?: string,
     text?: string,
     onClick?: () => void,
-    large?: boolean
+    large?: boolean,
+    showHandleButtons?: boolean,
+    onClickEdit?: () => void,
+    onClickDelete?: () => void
 }

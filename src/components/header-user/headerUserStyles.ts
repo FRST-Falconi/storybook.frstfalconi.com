@@ -34,3 +34,21 @@ export const WrapperText = styled.div`
     flex-direction: column;
     width: fit-content;
 `;
+
+export const WrapperHandle = styled.div<{large}>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: ${({large}) => large ? '32px' : '20px'};
+    width: ${({large}) => large ? '32px' : '20px'};
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    margin-left: 8px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    padding: ${({large}) => large ? '7px' : '5px'};
+
+    &:hover{
+        background: rgba(255, 255, 255, 0.7);
+    }
+`;

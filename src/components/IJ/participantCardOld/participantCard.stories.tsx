@@ -32,3 +32,27 @@ normal.args = {
   handleSendInvitation: (id: any) => alert(`Send: ${id}`),
   handleClickRemove: (id: any) => alert(`Remove: ${id}`)
 }
+
+export const brainstorm = Template.bind({})
+brainstorm.args = {
+  variant: 'secondary',
+  userInfo: {
+    id: 'id-user-00128-idasd',
+    name: 'Karen Gisele da Silva dos Santos Silvero',
+    avatar: null,
+    email: 'nome@empresa.com.br',
+    area: 'Tecnologia da Informação e Computação',
+    position: 'Estudante/Universitário(a)'
+  },
+  labels: {
+    sendInvitation: 'Convidar',
+    invitationSuccess: 'Convite enviado',
+    remove: 'Remover',
+    area: 'Área',
+    position: 'Cargo',
+    or: 'ou',
+  },
+  successfullInvite: false,
+  handleSendInvitation: (id: any) => alert(`Send: ${id}`),
+  handleClickRemove: (id: any) => alert(`Remove: ${id}`)
+}
