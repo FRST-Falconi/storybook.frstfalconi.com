@@ -67,42 +67,47 @@ export default function ParticipantCard({
         </Styles.ClickArea>
         {!disabled && (
           <Styles.AccordionList>
-            <Accordion
-              expanded={selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen}
-              onChange={() => handleSelectedItem(userInfo?.id, 'competences')}
-            >
-              <AccordionSummary expandIcon={<IconUp />} aria-controls="panel1bh-content" id="panel1bh-header">
-                <Styles.AccortionTitle>
-                  <IconGaps />
-                  {labels?.competences}
-                </Styles.AccortionTitle>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Styles.DataList>
-                  {competencesList?.map((item, index) => (
-                    <Styles.DataListItem key={index}>{item.name}</Styles.DataListItem>
-                  ))}
-                </Styles.DataList>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion
-              expanded={selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen}
-              onChange={() => handleSelectedItem(userInfo?.id, 'modules')}
-            >
-              <AccordionSummary expandIcon={<IconUp />} aria-controls="panel2bh-content" id="panel2bh-header">
-                <Styles.AccortionTitle>
-                  <IconModules />
-                  {labels?.modules}
-                </Styles.AccortionTitle>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Styles.DataList>
-                  {modulesList?.map((item, index) => (
-                    <Styles.DataListItem key={index}>{item.name}</Styles.DataListItem>
-                  ))}
-                </Styles.DataList>
-              </AccordionDetails>
-            </Accordion>
+            {competencesList && (
+              <Accordion
+                expanded={selectedItem === userInfo?.id && IS_TYPE_COMPETENCES && isAccordionOpen}
+                onChange={() => handleSelectedItem(userInfo?.id, 'competences')}
+              >
+                <AccordionSummary expandIcon={<IconUp />} aria-controls="panel1bh-content" id="panel1bh-header">
+                  <Styles.AccortionTitle>
+                    <IconGaps />
+                    {labels?.competences}
+                  </Styles.AccortionTitle>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Styles.DataList>
+                    {competencesList?.map((item, index) => (
+                      <Styles.DataListItem key={index}>{item.name}</Styles.DataListItem>
+                    ))}
+                  </Styles.DataList>
+                </AccordionDetails>
+              </Accordion>
+            )}
+
+            {modulesList && (
+              <Accordion
+                expanded={selectedItem === userInfo?.id && IS_TYPE_MODULES && isAccordionOpen}
+                onChange={() => handleSelectedItem(userInfo?.id, 'modules')}
+              >
+                <AccordionSummary expandIcon={<IconUp />} aria-controls="panel2bh-content" id="panel2bh-header">
+                  <Styles.AccortionTitle>
+                    <IconModules />
+                    {labels?.modules}
+                  </Styles.AccortionTitle>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Styles.DataList>
+                    {modulesList?.map((item, index) => (
+                      <Styles.DataListItem key={index}>{item.name}</Styles.DataListItem>
+                    ))}
+                  </Styles.DataList>
+                </AccordionDetails>
+              </Accordion>
+            )}
           </Styles.AccordionList>
         )}
       </Styles.WrapperCard>
