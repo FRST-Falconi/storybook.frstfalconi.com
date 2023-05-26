@@ -25,5 +25,6 @@ normal.args = {
   textPublicarButton: 'Publicar',
   textOuButton: 'ou',
   txtError: 'Reduza a ideia para 350 caracteres.',
-  onClickButtonPublicar: () => alert('clicou no botão publicar')
+  onClickButtonPublicar: () => alert('clicou no botão publicar'),
+  onClickCancelar: () => alert('clicou para cancelar')
 }

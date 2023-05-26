@@ -21,6 +21,7 @@ interface PropsCriarIdeia {
   textOuButton?: string
   txtError?: string
   onClickButtonPublicar?: (e) => void
+  onClickCancelar?: (e) => void
 }
 
 export default function CriarIdeia(props: PropsCriarIdeia) {
@@ -95,9 +96,7 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
                   variant={'secondary'}
                   label={props.textCancelarButton}
                   disabled={false}
-                  onClick={() => {
-                    setCriarIdeia(false)
-                  }}
+                  onClick={props.onClickCancelar}
                 />
                 <p>{props.textOuButton}</p>
                 <MiniButton
