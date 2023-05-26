@@ -72,7 +72,7 @@ export const DescriptionThumbnails = styled.div`
   flex-direction: column;
   /* text-align: justify; */
   margin-top: -1px;
-  padding: 12px;
+  padding: 16px;
 
   .title {
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};

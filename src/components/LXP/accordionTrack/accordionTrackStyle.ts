@@ -138,7 +138,8 @@ export const ContainerCard = styled.div`
     justify-items: center;
     width: 100%;
     min-height: 300px;
-    gap: 20px;       
+    gap: 20px;    
+    padding-left: 24px;    
 `
 export const ContainerInputNameTrail = styled.div`
     display: inline-flex;

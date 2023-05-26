@@ -66,7 +66,7 @@ export default function ParticipantThumbnails(props: ParticipantThumbnails) {
           </styleThumbnails.CardThumbnailsHove>
         </styleThumbnails.CardThumbnailsHove>
       </Popover>
-      <styleThumbnails.CardThumbnails id="teste"
+      <styleThumbnails.CardThumbnails
         theme={FRSTTheme}
         onClick={props.handleFunctionThumbnail}
         onMouseOver={(event) => {
