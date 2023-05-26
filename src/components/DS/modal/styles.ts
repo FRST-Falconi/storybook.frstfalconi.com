@@ -17,7 +17,9 @@ export const ModalWrapper = styled.div<ModalProps>`
   display: none;
 
   ${({ open }) => open && `
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `}
 `
 

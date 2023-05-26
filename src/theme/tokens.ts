@@ -30,7 +30,7 @@ export const DesignTokens = {
     neutralsGrey8: '#ebeded',
     neutralsGrey9: '#f2f2f2',
     disabledLabelGray: '#D3D3D3',
-    primary1: '#ff4d0d',
+    primary1: '#F26818',
     primary2: '#ee4c15',
     primary3: '#d14211',
     secondary1: '#6a3f86',
