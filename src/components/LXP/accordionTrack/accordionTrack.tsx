@@ -28,6 +28,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
   const [ModalDeleteTrilhaConteudo, setModalDeleteTrilhaConteudo] = useState(false);
   const [IdDelete, setIdDelete] = useState('0');
 
+  const [RefreshResize, setRefreshResize] = useState(0);
+  
+
   const MEUS_CONTEUDOS_CONTENT = '0'
   const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
@@ -49,6 +52,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
   useEffect(() => {
     setCourseData(props.courseData)
+    setRefreshResize(RefreshResize+1)
   }, [props.courseData])
 
   useEffect(() => {
@@ -95,7 +99,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   marginsArrowButton={10}
                   horizontalMarginInternScroll={'5px'}
                   styles={{ justifyContent: 'flex-start', width: '100%' }}
-                  refreshResize={props.updateScrollSize}
+                  refreshResize={RefreshResize}
                 >
 
                   <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
@@ -211,7 +215,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                           sizeArrowButton={80}
                           marginsArrowButton={10}
                           horizontalMarginInternScroll={'5px'}
-                          refreshResize={props.updateScrollSize}
+                          refreshResize={RefreshResize}
                           styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                         >
                           <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
@@ -288,7 +292,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                         sizeArrowButton={80}
                         marginsArrowButton={10}
                         horizontalMarginInternScroll={'5px'}
-                        refreshResize={props.updateScrollSize}
+                        refreshResize={RefreshResize}
                         styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                       >
                         <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
@@ -330,6 +334,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               )
                             })
                           }
+
+                          <div style={{width: 24}}></div>
 
                         </Styles.ContainerCard>
                       </ScrollContainer>
@@ -459,6 +465,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                       )
                                     })
                                   }
+
 
                                 </Styles.ContainerCard>
                               </ScrollContainer>
