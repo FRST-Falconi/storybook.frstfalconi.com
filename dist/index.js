@@ -5582,7 +5582,7 @@ const Name$1 = styled__default["default"].p `
         margin-bottom: 8px;
         margin-top:${({ mobileVersion }) => mobileVersion ? '24px' : '0px'};
     `;
-const WrapperButtons = styled__default["default"].div `
+const WrapperButtons$1 = styled__default["default"].div `
     display:flex;
     justify-content: space-between;
     width: 100%;
@@ -5592,7 +5592,7 @@ const WrapperButtons = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$7, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons, { children: [jsxRuntime.jsx(Button$5, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$7, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons$1, { children: [jsxRuntime.jsx(Button$5, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -14108,6 +14108,16 @@ const ButtonSendV2 = styled__default["default"].div `
     cursor: pointer;
 
 `;
+const WrapperButtons = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: ${({ status }) => status == 'success' ? '0' : '1'};
+
+    transition: all 1s ease-in-out;
+`;
 const ButtonRemoveV2 = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
@@ -14193,7 +14203,11 @@ const ButtonSuccessV2 = styled__default["default"].div `
     color: #000000;
     gap: 8px;
     margin-left: 8px;
+    margin-bottom: 7px;
 
+    opacity: ${({ status }) => status == 'success' ? '1' : '0'};
+
+    transition: all 1s ease-in-out;
 `;
 
 function ParticipantCardOld({ variant, userInfo, labels, successfullInvite, style, handleSendInvitation, handleClickRemove }) {
@@ -14213,13 +14227,20 @@ function ParticipantCardOld({ variant, userInfo, labels, successfullInvite, styl
         setStatusSend('success');
         handleSendInvitation(userInfo?.id);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { variant: variant, style: { ...style }, children: [jsxRuntime.jsxs(UserInfo$1, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser$1, { children: [userName && userName?.length > 25 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser$1, { children: userName }) })) : (jsxRuntime.jsx(NameUser$1, { children: userName })), userEmail && userEmail?.length > 30 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser$1, { children: userEmail }) })) : (jsxRuntime.jsx(EmailUser$1, { children: userEmail }))] })] }), jsxRuntime.jsxs(UserAdditionalInfo$1, { children: [area && area?.length > 31 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area$1, { variant: variant, children: area }) })) : (jsxRuntime.jsx(Area$1, { variant: variant, children: area })), position && position?.length > 33 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position$1, { children: position }) })) : (jsxRuntime.jsx(Position$1, { children: position }))] }), variant == 'brainstorm' ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$2, { variant: variant, style: { ...style }, children: [jsxRuntime.jsxs(UserInfo$1, { children: [jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo?.avatar }), jsxRuntime.jsxs(DescriptionUser$1, { children: [userName && userName?.length > 25 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userName, children: jsxRuntime.jsx(NameUser$1, { children: userName }) })) : (jsxRuntime.jsx(NameUser$1, { children: userName })), userEmail && userEmail?.length > 30 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userEmail, children: jsxRuntime.jsx(EmailUser$1, { children: userEmail }) })) : (jsxRuntime.jsx(EmailUser$1, { children: userEmail }))] })] }), jsxRuntime.jsxs(UserAdditionalInfo$1, { children: [area && area?.length > 31 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.area, children: jsxRuntime.jsx(Area$1, { variant: variant, children: area }) })) : (jsxRuntime.jsx(Area$1, { variant: variant, children: area })), position && position?.length > 33 ? (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: userInfo?.position, children: jsxRuntime.jsx(Position$1, { children: position }) })) : (jsxRuntime.jsx(Position$1, { children: position }))] }), variant == 'secondary' ?
                     jsxRuntime.jsx(FooterButtonBrainstorm, { statusSend: statusSend, clickSendInvitation: clickSendInvitation, handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo })
                     :
                         jsxRuntime.jsx(FooterButtonDefault, { statusSend: statusSend, clickSendInvitation: clickSendInvitation, handleClickRemove: handleClickRemove, labels: labels, userInfo: userInfo })] }) }));
 }
 function FooterButtonBrainstorm({ statusSend, clickSendInvitation, handleClickRemove, labels, userInfo }) {
-    return (jsxRuntime.jsxs(FooterButton, { style: { justifyContent: 'flex-start', gap: '4px', alignItems: 'center' }, children: [statusSend == 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ? (jsxRuntime.jsxs(ButtonSendV2, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(LetterEnvelopLineIcon, {}) }), labels?.sendInvitation ? labels?.sendInvitation : 'Convidar'] })) : null, jsxRuntime.jsx(ButtonOrV2, { children: labels.or }), handleClickRemove ? (jsxRuntime.jsx(ButtonRemoveV2, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })) : null] })) : null, statusSend == 'success' ? (jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccessV2, { children: [jsxRuntime.jsx(CheckInCicle, {}), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) })) : null] }));
+    const [status, setStatus] = React.useState(statusSend);
+    React.useEffect(() => {
+        setStatus(statusSend);
+    }, [statusSend]);
+    return (jsxRuntime.jsxs(FooterButton, { style: { justifyContent: 'flex-start', gap: '4px', alignItems: 'center' }, children: [status == 'default' ? (jsxRuntime.jsxs(WrapperButtons, { status: status, children: [jsxRuntime.jsxs(ButtonSendV2, { onClick: () => {
+                            setStatus('success');
+                            // clickSendInvitation()
+                        }, children: [jsxRuntime.jsx(LetterEnvelopLineIcon, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Convidar'] }), jsxRuntime.jsx(ButtonOrV2, { children: labels.or }), jsxRuntime.jsx(ButtonRemoveV2, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })] })) : null, jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccessV2, { status: status, children: [jsxRuntime.jsx(CheckInCicle, {}), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) })] }));
 }
 function FooterButtonDefault({ statusSend, clickSendInvitation, labels, handleClickRemove, userInfo }) {
     return (jsxRuntime.jsxs(FooterButton, { children: [statusSend == 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [clickSendInvitation ? (jsxRuntime.jsxs(ButtonSend, { onClick: () => clickSendInvitation(), children: [jsxRuntime.jsx(AddPeople, {}), labels?.sendInvitation ? labels?.sendInvitation : 'Enviar convite'] })) : null, handleClickRemove ? (jsxRuntime.jsx(ButtonRemove, { onClick: () => handleClickRemove(userInfo?.id), children: labels?.remove ? labels?.remove : 'Remover' })) : null] })) : null, statusSend == 'success' ? (jsxRuntime.jsx("div", { style: { width: '100%', justifyContent: 'flex-start' }, children: jsxRuntime.jsxs(ButtonSuccess, { children: [jsxRuntime.jsx(MessageCheckLine, { width: "14" }), labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'] }) })) : null] }));

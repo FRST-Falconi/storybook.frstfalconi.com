@@ -15,8 +15,13 @@ export declare const FooterButton: import("styled-components").StyledComponent<"
 export declare const ButtonSend: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ButtonRemove: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ButtonSendV2: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const WrapperButtons: import("styled-components").StyledComponent<"div", any, {
+    status: any;
+}, never>;
 export declare const ButtonRemoveV2: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ButtonOrV2: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const ButtonSuccess: import("styled-components").StyledComponent<"div", any, {}, never>;
-export declare const ButtonSuccessV2: import("styled-components").StyledComponent<"div", any, {}, never>;
+export declare const ButtonSuccessV2: import("styled-components").StyledComponent<"div", any, {
+    status: any;
+}, never>;
 //# sourceMappingURL=participantCardStyle.d.ts.map
