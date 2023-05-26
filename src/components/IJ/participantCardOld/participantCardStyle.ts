@@ -203,6 +203,17 @@ export const ButtonSendV2 = styled.div`
 
 `
 
+export const WrapperButtons = styled.div<{status}>`
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    opacity: ${({status}) => status == 'success' ? '0' : '1'};
+
+    transition: all 1s ease-in-out;
+`
+
 export const ButtonRemoveV2 = styled.div`
     font-family: 'PT Sans';
     font-style: normal;
@@ -277,7 +288,7 @@ export const ButtonSuccess = styled.div`
     color: #222222;
 `
 
-export const ButtonSuccessV2 = styled.div`
+export const ButtonSuccessV2 = styled.div<{status}>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -290,5 +301,9 @@ export const ButtonSuccessV2 = styled.div`
     color: #000000;
     gap: 8px;
     margin-left: 8px;
+    margin-bottom: 7px;
 
+    opacity: ${({status}) => status == 'success' ? '1' : '0'};
+
+    transition: all 1s ease-in-out;
 `

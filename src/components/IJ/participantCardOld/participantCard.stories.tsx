@@ -35,7 +35,7 @@ normal.args = {
 
 export const brainstorm = Template.bind({})
 brainstorm.args = {
-  variant: 'brainstorm',
+  variant: 'secondary',
   userInfo: {
     id: 'id-user-00128-idasd',
     name: 'Karen Gisele da Silva dos Santos Silvero',

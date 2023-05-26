@@ -77,7 +77,7 @@ export default function ParticipantCardOld({
             <Styles.Position>{position}</Styles.Position>
           )}
         </Styles.UserAdditionalInfo>
-        {variant =='brainstorm' ? 
+        {variant =='secondary' ? 
             <FooterButtonBrainstorm
               statusSend={statusSend}
               clickSendInvitation={clickSendInvitation}
@@ -101,34 +101,40 @@ export default function ParticipantCardOld({
 
 
 function FooterButtonBrainstorm({statusSend, clickSendInvitation, handleClickRemove, labels, userInfo}) {
+  const [status, setStatus] = useState(statusSend)
+
+  useEffect(() => {
+    setStatus(statusSend)
+  }, [statusSend])
+
   return (
     <Styles.FooterButton style={{ justifyContent: 'flex-start', gap: '4px', alignItems: 'center'}}>
-      {statusSend == 'default' ? (
-        <>
-          {clickSendInvitation ? (
-            <Styles.ButtonSendV2 onClick={() => clickSendInvitation()}>
-              <div>
-                <LetterEnvelopLineIcon />
-              </div>
-              {labels?.sendInvitation ? labels?.sendInvitation : 'Convidar'}
-            </Styles.ButtonSendV2>
-          ) : null}
+      {status == 'default' ? (
+        <Styles.WrapperButtons 
+        status={status}>
+          <Styles.ButtonSendV2
+            onClick={() => {
+            setStatus('success')
+            // clickSendInvitation()
+            }}
+          >
+              <LetterEnvelopLineIcon />
+            {labels?.sendInvitation ? labels?.sendInvitation : 'Convidar'}
+          </Styles.ButtonSendV2>
           <Styles.ButtonOrV2>{labels.or}</Styles.ButtonOrV2>
-          {handleClickRemove ? (
-            <Styles.ButtonRemoveV2 onClick={() => handleClickRemove(userInfo?.id)}>
-              {labels?.remove ? labels?.remove : 'Remover'}
-            </Styles.ButtonRemoveV2>
-          ) : null}
-        </>
+          <Styles.ButtonRemoveV2 onClick={() => handleClickRemove(userInfo?.id)}>
+            {labels?.remove ? labels?.remove : 'Remover'}
+          </Styles.ButtonRemoveV2>
+        </Styles.WrapperButtons>
       ) : null }
-      {statusSend == 'success' ? (
         <div style={{ width: '100%', justifyContent: 'flex-start' }}>
-          <Styles.ButtonSuccessV2>
+          <Styles.ButtonSuccessV2
+            status={status}
+          >
             <CheckInCicle/>
             {labels?.invitationSuccess ? labels?.invitationSuccess : 'Convite enviado'}
           </Styles.ButtonSuccessV2>
         </div>
-      ) : null}
     </Styles.FooterButton>
   )
 }
