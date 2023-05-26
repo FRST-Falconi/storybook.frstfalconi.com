@@ -3646,9 +3646,9 @@ export function IconCriarIdeia({ fill, stroke, customColor_1, width, height }: I
         d="M28.0001 51.3333C40.8867 51.3333 51.3334 40.8866 51.3334 28C51.3334 15.1133 40.8867 4.66666 28.0001 4.66666C15.1134 4.66666 4.66675 15.1133 4.66675 28C4.66675 40.8866 15.1134 51.3333 28.0001 51.3333Z"
         fill="white"
         stroke="#222222"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path d="M28 18.6667V37.3333" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
       <path d="M18.6667 28H37.3334" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
