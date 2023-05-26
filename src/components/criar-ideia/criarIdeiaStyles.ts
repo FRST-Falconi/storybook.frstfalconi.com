@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface PropsCriarideia {
+  isErro?: boolean
+}
+
 export const ButtonCriarIdeia = styled.div`
   width: 282px;
   height: 196px;
@@ -24,13 +28,13 @@ export const ContainerCriarIdeia = styled.div`
   flex-direction: row;
 `
 
-export const CriarIdeia = styled.div`
+export const CriarIdeia = styled.div<PropsCriarideia>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 20px 20px 24px;
   width: 282px;
-  background: #fff2cc;
+  background: ${(props) => (props.isErro ? '#FFE0E0' : '#fff2cc')};
 `
 
 export const DivisaoTextoEmpresaDate = styled.div`
@@ -83,14 +87,14 @@ export const ButtonDigiteIdeia = styled.div`
   text-align: center;
 `
 
-export const TextAreaDigite = styled.textarea`
+export const TextAreaDigite = styled.textarea<PropsCriarideia>`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 4px;
   width: 242px;
   border: 1px solid #549fe4;
-  background: #fff2cc;
+  background: ${(props) => (props.isErro ? '#FFE0E0' : '#fff2cc')};
   margin-bottom: 16px;
   font-family: 'Work Sans';
   font-style: normal;
@@ -111,4 +115,40 @@ export const CountCaracter = styled.div`
   align-items: center;
   color: #757575;
   margin-bottom: 16px;
+`
+
+export const ButtonPublicarAndCancelar = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110%;
+    color: #000000;
+    margin-right: 1rem;
+  }
+  div {
+    margin-right: 1rem;
+  }
+`
+
+export const containerError = styled.div`
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  svg {
+    margin-right: 0.5rem;
+  }
+  p {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #923534;
+  }
 `

@@ -2,9 +2,10 @@ import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import * as Styles from './criarIdeiaStyles'
-import { IconCriarIdeia } from '@shared/icons'
+import { ErrorAlert, IconCriarIdeia } from '@shared/icons'
 import { useEffect, useRef, useState } from 'react'
 import useAutosizeTextArea from './useAutosizeTextArea'
+import MiniButton from '@components/mini-button'
 
 interface PropsCriarIdeia {
   textoCriar?: string
@@ -15,6 +16,11 @@ interface PropsCriarIdeia {
   valueMaxTexto?: number
   textoValueMax?: string
   onChange?: (e) => void
+  textCancelarButton?: string
+  textPublicarButton?: string
+  textOuButton?: string
+  txtError?: string
+  onClickButtonPublicar?: (e) => void
 }
 
 export default function CriarIdeia(props: PropsCriarIdeia) {
@@ -24,12 +30,19 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
   const [stringValueTextArea, setStringValueTextArea] = useState('')
 
   useAutosizeTextArea(textAreaRef.current, stringValueTextArea)
-  const [listaTexto, setListaTexto] = useState('')
   const [textCount, setTextCount] = useState(0)
+  const [buttonDisabled, setButtonDisabled] = useState(false)
   const [isError, setIsError] = useState(false)
 
   useEffect(() => {
-    const txList = listaTexto.split('')
+    const txList = stringValueTextArea.split('')
+
+    if (txList.length === 0) {
+      setButtonDisabled(true)
+    } else {
+      setButtonDisabled(false)
+    }
+
     setTextCount(txList.length)
     if (props.valueMaxTexto) {
       if (txList.length > props.valueMaxTexto) {
@@ -42,7 +55,7 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
     } else if (txList.length < 350) {
       setIsError(false)
     }
-  }, [stringValueTextArea, listaTexto])
+  }, [stringValueTextArea])
 
   useEffect(() => {
     props.onChange(stringValueTextArea)
@@ -51,13 +64,12 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
   const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     const texto = evt.target?.value
     setStringValueTextArea(texto)
-    setListaTexto(texto)
   }
 
   return (
     <ThemeProvider theme={FRSTTheme}>
       {criarIdeia ? (
-        <Styles.CriarIdeia>
+        <Styles.CriarIdeia isErro={isError}>
           {digiteIdeia ? (
             <>
               <Styles.TextAreaDigite
@@ -67,18 +79,34 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
                 ref={textAreaRef}
                 value={stringValueTextArea}
                 onChange={handleChange}
+                isErro={isError}
               />
               <Styles.CountCaracter>
                 {textCount}/{props.valueMaxTexto} {props.textoValueMax}
               </Styles.CountCaracter>
-              <button
-                onClick={() => {
-                  setCriarIdeia(false)
-                  setDigiteIdeia(false)
-                }}
-              >
-                cancela
-              </button>
+              {isError && (
+                <Styles.containerError>
+                  <ErrorAlert />
+                  <p>{props.txtError}</p>
+                </Styles.containerError>
+              )}
+              <Styles.ButtonPublicarAndCancelar>
+                <MiniButton
+                  variant={'secondary'}
+                  label={props.textCancelarButton}
+                  disabled={false}
+                  onClick={() => {
+                    setCriarIdeia(false)
+                  }}
+                />
+                <p>{props.textOuButton}</p>
+                <MiniButton
+                  variant={'primary'}
+                  label={props.textPublicarButton}
+                  disabled={isError ? true : buttonDisabled}
+                  onClick={props.onClickButtonPublicar}
+                />
+              </Styles.ButtonPublicarAndCancelar>
             </>
           ) : (
             <>
@@ -89,13 +117,14 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
               >
                 {props.textoDigitarIdeia}
               </Styles.ButtonDigiteIdeia>
-              <button
+              <MiniButton
+                variant={'secondary'}
+                label={props.textCancelarButton}
+                disabled={false}
                 onClick={() => {
                   setCriarIdeia(false)
                 }}
-              >
-                Cancelar
-              </button>
+              />
             </>
           )}
         </Styles.CriarIdeia>

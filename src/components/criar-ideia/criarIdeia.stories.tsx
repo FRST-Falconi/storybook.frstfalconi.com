@@ -20,5 +20,10 @@ normal.args = {
   textoDigitarIdeia: 'Clique aqui e digite sua ideia',
   valueMaxTexto: 350,
   textoValueMax: 'caracteres',
-  onChange: (e) => console.log(e)
+  onChange: (e) => console.log(e),
+  textCancelarButton: 'Cancelar',
+  textPublicarButton: 'Publicar',
+  textOuButton: 'ou',
+  txtError: 'Reduza a ideia para 350 caracteres.',
+  onClickButtonPublicar: () => alert('clicou no botão publicar')
 }
