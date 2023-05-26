@@ -17,5 +17,8 @@ normal.args = {
   nomeUser: 'Nome Sobrenome',
   nameEmpresa: 'Empresa',
   dateCriarIdeia: 'Hoje',
-  textoDigitarIdeia: 'Clique aqui e digite sua ideia'
+  textoDigitarIdeia: 'Clique aqui e digite sua ideia',
+  valueMaxTexto: 350,
+  textoValueMax: 'caracteres',
+  onChange: (e) => console.log(e)
 }

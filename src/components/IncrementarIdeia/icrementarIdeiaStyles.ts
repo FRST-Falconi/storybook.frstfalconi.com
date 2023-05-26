@@ -16,8 +16,6 @@ export const ContainerComentario = styled.div<PropsComentario>`
   background: #f2f2f2;
   border: ${(props) => (props.activeComentario ? '2px solid #757575' : '1px solid #bdbdbd')};
   border-radius: ${(props) => (props.activeComentario ? '16px' : '100px')};
-  order: 1;
-  flex-grow: 0;
   padding: 0.5rem;
   font-family: 'Work Sans';
   font-style: normal;

@@ -1,11 +1,5 @@
 import styled from 'styled-components'
 
-interface AvatarI {
-  size?: string
-  src?: any
-  disabled?: boolean
-}
-
 export const ButtonCriarIdeia = styled.div`
   width: 282px;
   height: 196px;
@@ -36,7 +30,6 @@ export const CriarIdeia = styled.div`
   align-items: flex-start;
   padding: 20px 20px 24px;
   width: 282px;
-  height: 198px;
   background: #fff2cc;
 `
 
@@ -91,12 +84,31 @@ export const ButtonDigiteIdeia = styled.div`
 `
 
 export const TextAreaDigite = styled.textarea`
-  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   padding: 4px;
   width: 242px;
-  height: 96px;
   border: 1px solid #549fe4;
+  background: #fff2cc;
+  margin-bottom: 16px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #222222;
+  overflow: hidden;
+  resize: none;
+`
+
+export const CountCaracter = styled.div`
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #757575;
+  margin-bottom: 16px;
 `
