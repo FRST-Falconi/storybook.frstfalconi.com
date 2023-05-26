@@ -15504,9 +15504,26 @@ const WrapperText = styled__default["default"].div `
     flex-direction: column;
     width: fit-content;
 `;
+const WrapperHandle = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: ${({ large }) => large ? '32px' : '20px'};
+    width: ${({ large }) => large ? '32px' : '20px'};
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    margin-left: 8px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    padding: ${({ large }) => large ? '7px' : '5px'};
 
-function HeaderUser({ avatar, name, text, onClick, large }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { onClick: () => !!(onClick) ? onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: large ? '56px' : '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { style: { justifyContent: 'space-around' }, children: [jsxRuntime.jsx(Name, { large: large, children: name }), jsxRuntime.jsx(Text, { large: large, children: text })] })] }) }));
+    &:hover{
+        background: rgba(255, 255, 255, 0.7);
+    }
+`;
+
+function HeaderUser({ avatar, name, text, onClick, large, showHandleButtons, onClickEdit, onClickDelete, }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$2, { onClick: () => !!(onClick) ? onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: large ? '56px' : '32px', src: avatar?.src, alt: avatar?.alt }), jsxRuntime.jsxs(WrapperText, { style: { justifyContent: 'space-around' }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsx(Name, { large: large, children: name }), showHandleButtons ? jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(WrapperHandle, { onClick: () => onClickEdit ? onClickEdit() : {}, large: large, children: jsxRuntime.jsx(EditIcon, { fill: '#444444' }) }), jsxRuntime.jsx(WrapperHandle, { onClick: () => onClickDelete ? onClickDelete() : {}, large: large, children: jsxRuntime.jsx(TrashIconNew, { fill: '#444444' }) })] }) : null] }), jsxRuntime.jsx(Text, { large: large, children: text })] })] }) }));
 }
 
 const InputWrapper = styled__default["default"].div `
