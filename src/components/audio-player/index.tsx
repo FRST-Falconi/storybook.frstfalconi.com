@@ -21,6 +21,7 @@ interface IAudioPlayer {
     volume ?: number
     onProgress ?: (data) => void
     onEnded ?: () => void
+    exitSound? : number 
     style ?: React.CSSProperties
 }
 
@@ -39,7 +40,6 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
     const [audioVolume, setAudioVolume] = useState(props.volume ? props.volume : 0.5);
     const [play, { pause, duration, sound }] = useSound(props.audio, {volume : audioVolume, 
         onend : () => {
-            console.log("Passou aqui 3")
             setIsPlaying(false)
             props.onEnded()
         }})
@@ -53,12 +53,12 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
     }, [props.volume]);
 
     useEffect(() => {
-        console.log('isPlaying', isPlaying)
-    }, [isPlaying]);
+        setIsPlaying(false);
+        pause();
+    }, [props.exitSound]);
 
     useEffect(() => {
         if (props.onProgress) {
-            console.log(isPlaying)
             if (isPlaying) {
                 props.onProgress({
                     loadedSeconds: duration / 1000,
@@ -94,7 +94,6 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
                     sec
                 });
 
-
                 setPercentagePlaytime(calcCurrentInputPercentage(0, duration/1000, sound.seek([])))
             }
         }, 1000);
@@ -103,19 +102,16 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
 
     const playingButton = () => {
         if (isPlaying) {
-            console.log("Passou aqui")
             setIsPlaying(false);
             pause();
         } else {
-            console.log("Passou aqui 2")
             setIsPlaying(true);
             play();
         }
     };
 
     // função para calcular a porcentagem que foi percorrida a musica, para fazer o acompanhamento da barra
-    const calcCurrentInputPercentage = (valorMin, valorMax, valorAtual) => {
-        
+    const calcCurrentInputPercentage = (valorMin, valorMax, valorAtual) => {        
         const min = valorMin
         const max = valorMax
         const val = valorAtual

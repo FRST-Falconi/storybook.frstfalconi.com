@@ -83,7 +83,7 @@ export const DescriptionThumbnails = styled.div`
     white-space: normal;
     color: ${({ theme }) => theme.colors.shadeWhite};
     padding-bottom: 8px;
-    width: 240px;
+    width: 220px;
   }
   p {
     color: ${({ theme }) => theme.colors.shadeWhite};
@@ -96,6 +96,8 @@ export const DescriptionThumbnails = styled.div`
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontFamily};
     white-space: normal;
     overflow: auto;
+    padding-right: 8px;
+    width: 220px;
   }
 
   p::-webkit-scrollbar {

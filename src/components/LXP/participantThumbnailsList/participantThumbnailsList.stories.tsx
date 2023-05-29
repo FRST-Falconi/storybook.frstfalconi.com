@@ -13,7 +13,7 @@ export const ParticipantThumbnailsComponent = Template.bind({})
 ParticipantThumbnailsComponent.args = {
   listThumbnails: [
     {
-      titleThumbnail: 'Name of the Content',
+      titleThumbnail: 'Name of the Content 3 3 3 3 3',
       descpThumbnail:
         'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
       handleFunctionThumbnail: () => alert('voce clicou aqui :D')
