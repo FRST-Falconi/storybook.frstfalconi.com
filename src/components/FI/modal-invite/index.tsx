@@ -1,4 +1,4 @@
-import React,{ useEffect,  useState, useRef, Suspense }  from 'react'
+import React,{ useEffect,  useState }  from 'react'
 import '../../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
@@ -57,15 +57,21 @@ function ContentModalInviteMultiple({labels, onClickInvite, statusSend}) {
         setStatusSendLocal(statusSend)
     }, [statusSend])
 
-    const [ inputMultiplePerson, setInputMultiplePerson ] = useState([{
-        id: 1,
-        name: '',
-        errorName: false,
-        lastName: '',
-        errorLastName: false,
-        email: '',
-        errorEmail: false
-    }])
+    const [ inputMultiplePerson, setInputMultiplePerson ] = useState([])
+
+    useEffect(() => {
+        setTimeout(() => {
+            setInputMultiplePerson([{
+                id: 1,
+                name: '',
+                errorName: false,
+                lastName: '',
+                errorLastName: false,
+                email: '',
+                errorEmail: false
+            }])
+        }, 200)
+    }, [])
     const [ isDisabledSendInvite, setIsDisabledSendInvite ] = useState(false)
 
     const onChangeInput = ({e, type, id}) => {
@@ -164,8 +170,7 @@ function ContentModalInviteMultiple({labels, onClickInvite, statusSend}) {
                 <WrapperInputs>
                     { inputMultiplePerson?.map((inputPerson, index) => {
                         return (
-                            <WrapperInputPerson>
-                            <Suspense fallback={<div>Carregando...</div>}>
+                            <WrapperInputPerson key={index}>
                                 <CustomTextField
                                     label={labels?.name}
                                     placeholder={labels?.placeholderName}
@@ -193,7 +198,6 @@ function ContentModalInviteMultiple({labels, onClickInvite, statusSend}) {
                                     required
                                     error={inputPerson?.errorEmail}
                                 />
-                            </Suspense>
                             </WrapperInputPerson>
                         )
                     })}

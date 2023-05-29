@@ -16324,15 +16324,20 @@ function ContentModalInviteMultiple({ labels, onClickInvite, statusSend }) {
     React.useEffect(() => {
         setStatusSendLocal(statusSend);
     }, [statusSend]);
-    const [inputMultiplePerson, setInputMultiplePerson] = React.useState([{
-            id: 1,
-            name: '',
-            errorName: false,
-            lastName: '',
-            errorLastName: false,
-            email: '',
-            errorEmail: false
-        }]);
+    const [inputMultiplePerson, setInputMultiplePerson] = React.useState([]);
+    React.useEffect(() => {
+        setTimeout(() => {
+            setInputMultiplePerson([{
+                    id: 1,
+                    name: '',
+                    errorName: false,
+                    lastName: '',
+                    errorLastName: false,
+                    email: '',
+                    errorEmail: false
+                }]);
+        }, 200);
+    }, []);
     const [isDisabledSendInvite, setIsDisabledSendInvite] = React.useState(false);
     const onChangeInput = ({ e, type, id }) => {
         setInputMultiplePerson((inputMultiplePerson) => {
@@ -16409,7 +16414,7 @@ function ContentModalInviteMultiple({ labels, onClickInvite, statusSend }) {
         }
     }, [inputMultiplePerson]);
     return (jsxRuntime.jsxs(WrapperContent, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
-                            return (jsxRuntime.jsx(WrapperInputPerson, { children: jsxRuntime.jsxs(React.Suspense, { fallback: jsxRuntime.jsx("div", { children: "Carregando..." }), children: [jsxRuntime.jsx(CustomTextField, { label: labels?.name, placeholder: labels?.placeholderName, onChange: (e) => onChangeInput({ e, type: 'name', id: inputPerson.id }), type: 'text', value: inputPerson?.name, required: true, error: inputPerson?.errorName }), jsxRuntime.jsx(CustomTextField, { label: labels?.lastName, placeholder: labels.placeholderLastName, onChange: (e) => onChangeInput({ e, type: 'lastName', id: inputPerson?.id }), type: 'text', value: inputPerson?.lastName, required: true, error: inputPerson?.errorLastName }), jsxRuntime.jsx(CustomTextField, { label: labels?.email, placeholder: labels.placeholderEmail, onChange: (e) => onChangeInput({ e, type: 'email', id: inputPerson?.id }), type: 'text', value: inputPerson?.email, required: true, error: inputPerson?.errorEmail })] }) }));
+                            return (jsxRuntime.jsxs(WrapperInputPerson, { children: [jsxRuntime.jsx(CustomTextField, { label: labels?.name, placeholder: labels?.placeholderName, onChange: (e) => onChangeInput({ e, type: 'name', id: inputPerson.id }), type: 'text', value: inputPerson?.name, required: true, error: inputPerson?.errorName }), jsxRuntime.jsx(CustomTextField, { label: labels?.lastName, placeholder: labels.placeholderLastName, onChange: (e) => onChangeInput({ e, type: 'lastName', id: inputPerson?.id }), type: 'text', value: inputPerson?.lastName, required: true, error: inputPerson?.errorLastName }), jsxRuntime.jsx(CustomTextField, { label: labels?.email, placeholder: labels.placeholderEmail, onChange: (e) => onChangeInput({ e, type: 'email', id: inputPerson?.id }), type: 'text', value: inputPerson?.email, required: true, error: inputPerson?.errorEmail })] }, index));
                         }) }), inputMultiplePerson?.length > 1 &&
                         jsxRuntime.jsxs(ButtonRemove, { onClick: () => handleRemoveInput(), children: [jsxRuntime.jsx(TrashIconNew, { fill: '#444' }), labels?.delete] }), jsxRuntime.jsxs(ButtonAddNewPerson, { onClick: () => handleAddNewInput(), children: [jsxRuntime.jsx("div", { style: { width: '24px', display: 'flex', alignItems: 'center' }, children: jsxRuntime.jsx(IconPlusCicle, {}) }), jsxRuntime.jsx(LabelButtonAddPerson, { children: labels?.buttonAddMore })] })] }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '14px' }, children: [jsxRuntime.jsx(StatusSendInvite, { statusSendLocal: statusSendLocal, labels: labels, setStatusSendLocal: setStatusSendLocal }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: labels?.invite, handleClick: () => sendListInput(), disabled: isDisabledSendInvite })] })] }));
 }
