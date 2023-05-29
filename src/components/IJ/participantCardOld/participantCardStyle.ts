@@ -12,16 +12,16 @@ export const WrapperCard = styled.div<{variant}>`
     flex-direction: column;
     width: 282px;
     height: fit-content;
-    min-height: ${({variant}) =>  variant == 'brainstorm' ? '169px': ''};
+    min-height: ${({variant}) =>  variant == 'secondary' ? '169px': ''};
     justify-content: space-around;
     padding: 17px;
     padding-top: 14px;
 
     background: ${({ theme }) => theme.colors.shadeWhite};
-    border: 1px solid ${({ theme, variant }) => variant != 'brainstorm' ? theme.colors.borderPrimary : 'none'};
+    border: 1px solid ${({ theme, variant }) => variant != 'secondary' ? theme.colors.borderPrimary : 'none'};
     border-radius: 8px;
 
-    box-shadow: 0px 0px 5px ${({ variant }) => variant == 'brainstorm' ? 'rgba(0, 0, 0, 0.2)' : '#0000000'};
+    box-shadow: 0px 0px 5px ${({ variant }) => variant == 'secondary' ? 'rgba(0, 0, 0, 0.2)' : '#0000000'};
 `
 
 export const WrapperUserInfo = styled.div`
@@ -93,7 +93,7 @@ export const UserAdditionalInfo = styled.div`
     export const Area = styled.div<{variant}>`
         font-family: 'PT Sans';
         font-style: normal;
-        font-weight: ${({variant}) => variant == 'brainstorm' ? '400' : '700'};
+        font-weight: ${({variant}) => variant == 'secondary' ? '400' : '700'};
         font-size: 16px;
         line-height: 110%;
         /* or 18px */
