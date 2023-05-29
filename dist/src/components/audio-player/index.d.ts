@@ -15,6 +15,7 @@ interface IAudioPlayer {
     volume?: number;
     onProgress?: (data: any) => void;
     onEnded?: () => void;
+    exitSound?: number;
     style?: React.CSSProperties;
 }
 export default function AudioPlayer(props: IAudioPlayer): JSX.Element;

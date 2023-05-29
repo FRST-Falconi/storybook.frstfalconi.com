@@ -1056,7 +1056,6 @@ function AudioPlayer(props) {
     const [audioVolume, setAudioVolume] = React.useState(props.volume ? props.volume : 0.5);
     const [play, { pause, duration, sound }] = useSound__default["default"](props.audio, { volume: audioVolume,
         onend: () => {
-            console.log("Passou aqui 3");
             setIsPlaying(false);
             props.onEnded();
         } });
@@ -1067,11 +1066,11 @@ function AudioPlayer(props) {
         setAudioVolume(props.volume);
     }, [props.volume]);
     React.useEffect(() => {
-        console.log('isPlaying', isPlaying);
-    }, [isPlaying]);
+        setIsPlaying(false);
+        pause();
+    }, [props.exitSound]);
     React.useEffect(() => {
         if (props.onProgress) {
-            console.log(isPlaying);
             if (isPlaying) {
                 props.onProgress({
                     loadedSeconds: duration / 1000,
@@ -1110,12 +1109,10 @@ function AudioPlayer(props) {
     }, [sound]);
     const playingButton = () => {
         if (isPlaying) {
-            console.log("Passou aqui");
             setIsPlaying(false);
             pause();
         }
         else {
-            console.log("Passou aqui 2");
             setIsPlaying(true);
             play();
         }
@@ -11369,7 +11366,7 @@ const DescriptionThumbnails = styled__default["default"].div `
     white-space: normal;
     color: ${({ theme }) => theme.colors.shadeWhite};
     padding-bottom: 8px;
-    width: 240px;
+    width: 220px;
   }
   p {
     color: ${({ theme }) => theme.colors.shadeWhite};
@@ -11382,6 +11379,8 @@ const DescriptionThumbnails = styled__default["default"].div `
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontFamily};
     white-space: normal;
     overflow: auto;
+    padding-right: 8px;
+    width: 220px;
   }
 
   p::-webkit-scrollbar {
@@ -15915,8 +15914,6 @@ const ContainerComentario = styled__default["default"].div `
   background: #f2f2f2;
   border: ${(props) => (props.activeComentario ? '2px solid #757575' : '1px solid #bdbdbd')};
   border-radius: ${(props) => (props.activeComentario ? '16px' : '100px')};
-  order: 1;
-  flex-grow: 0;
   padding: 0.5rem;
   font-family: 'Work Sans';
   font-style: normal;

@@ -158,5 +158,6 @@ export declare function TrashIconNew({ fill, stroke, customColor_1, width, heigh
 export declare function VotarIcon({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function VotarIconPressed({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function IconCriarIdeia({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
