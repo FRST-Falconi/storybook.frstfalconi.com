@@ -226,7 +226,7 @@ export default function Thumbnails({
             :
             <>
               <PopOverItem 
-                label={txtPopOverEditContent ? txtPopOverEditContent : "Editar conteúdo"}
+                label={txtPopOverEditContent ? txtPopOverEditContent : "Editar módulo"}
                 onClick={() => {
                   setElementPopover(null)
                   handleClickPopOverEdit()
@@ -236,7 +236,7 @@ export default function Thumbnails({
                 }}
               />
               <PopOverItem 
-                label={txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar atividades"}
+                label={txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar conteúdos"}
                 onClick={() => {
                   setElementPopover(null)
                   handleClickPopOverEditActivity()
@@ -246,7 +246,7 @@ export default function Thumbnails({
                 }}
               />
               <PopOverItem 
-                label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir conteúdo"}
+                label={txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir módulo"}
                 onClick={() => {
                   setElementPopover(null)
                   /// timeout para corrigir o bug de scroll na tela

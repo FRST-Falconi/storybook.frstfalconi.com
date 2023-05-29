@@ -261,7 +261,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
           //---------------------------------------------------------------------------- 
           */}
           <ContentCoursesTrails
-            TrailName={props.txtCursoIndividual ? props.txtCursoIndividual : 'Conteúdo individual'}
+            TrailName={props.txtCursoIndividual ? props.txtCursoIndividual : 'Módulos'}
             ativo={true}
             show={ShowIndividual}
             handleChangeCheck={(bActive: boolean) => {
@@ -494,7 +494,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         cancelButton={"Cancelar"}
       >
         <div>
-          Você realmente quer deletar este conteúdo? Você irá perder todas as atividades criadas.
+          Você realmente quer deletar este módulo? Você irá perder todos os conteúdos criados.
         </div>
       </ModalLXP>
       <ModalLXP
@@ -523,7 +523,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         cancelButton={"Cancelar"}
       >
         <div>
-          Você realmente quer remover o conteúdo desta trilha?
+          Você realmente quer remover o módulo desta trilha?
         </div>
       </ModalLXP>        
     </>

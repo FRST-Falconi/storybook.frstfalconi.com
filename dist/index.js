@@ -10466,17 +10466,17 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
                                         width: 100
                                     } }) })
                             :
-                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : "Editar conteúdo", onClick: () => {
+                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : "Editar módulo", onClick: () => {
                                                 setElementPopover(null);
                                                 handleClickPopOverEdit();
                                             }, style: {
                                                 borderBottom: '1px black solid'
-                                            } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar atividades", onClick: () => {
+                                            } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar conteúdos", onClick: () => {
                                                 setElementPopover(null);
                                                 handleClickPopOverEditActivity();
                                             }, style: {
                                                 borderBottom: '1px black solid'
-                                            } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir conteúdo", onClick: () => {
+                                            } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir módulo", onClick: () => {
                                                 setElementPopover(null);
                                                 /// timeout para corrigir o bug de scroll na tela
                                                 setTimeout(() => {
@@ -10782,7 +10782,7 @@ function AccordionTrack(props) {
                                 return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] }) }) }), provided.placeholder] }));
                             } }, CONTEUDO_INDIVIDUAL_CONTENT) }) })
                 :
-                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Conteúdo individual', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
+                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Módulos', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
                                 // if (props.handleSwitchActiveTrail) {
                                 //   props.handleSwitchActiveTrail(trailIndex, bActive)
                                 // }
@@ -10838,10 +10838,10 @@ function AccordionTrack(props) {
                                                                             }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }) }));
                                                                 }) }) }), provided.placeholder] }, `contentTrailsDrop${trailIndex}`));
                                             } }, trailIndex + 2) }, `contentTrails${trailIndex}`) }));
-                        })] }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteConteudo, handleClose: () => { setModalDeleteConteudo(false); }, handleConfirmation: () => { props.handleDeleteCourse(IdDelete); }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar este conte\u00FAdo? Voc\u00EA ir\u00E1 perder todas as atividades criadas." }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilha, handleClose: () => { setModalDeleteTrilha(false); }, handleConfirmation: () => {
+                        })] }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteConteudo, handleClose: () => { setModalDeleteConteudo(false); }, handleConfirmation: () => { props.handleDeleteCourse(IdDelete); }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar este m\u00F3dulo? Voc\u00EA ir\u00E1 perder todos os conte\u00FAdos criados." }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilha, handleClose: () => { setModalDeleteTrilha(false); }, handleConfirmation: () => {
                     console.log("Passou aqui");
                     props.handlePopOverTrailDelete(IdDelete);
-                }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar esta trilha?" }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilhaConteudo, handleClose: () => { setModalDeleteTrilhaConteudo(false); }, handleConfirmation: () => { props.handleDeleteCourseTrail(IdDelete); }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer remover o conte\u00FAdo desta trilha?" }) })] }));
+                }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar esta trilha?" }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilhaConteudo, handleClose: () => { setModalDeleteTrilhaConteudo(false); }, handleConfirmation: () => { props.handleDeleteCourseTrail(IdDelete); }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer remover o m\u00F3dulo desta trilha?" }) })] }));
 }
 
 function AccordionTrackList({ trailsData, courseData, handleChange, onNewTrail, handleEditCourse, 
