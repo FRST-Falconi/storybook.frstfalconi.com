@@ -493,6 +493,9 @@ function TrashIconNew({ fill, stroke, customColor_1, width, height }) {
 function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '12', height: height ? height : '6', viewBox: "0 0 12 6", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M0 6L11.5 6L6 4.80825e-07L0 6Z", fill: fill ? fill : '#444444' }) }));
 }
+function IconCriarIdeia({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "56", height: "56", viewBox: "0 0 56 56", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M28.0001 51.3333C40.8867 51.3333 51.3334 40.8866 51.3334 28C51.3334 15.1133 40.8867 4.66666 28.0001 4.66666C15.1134 4.66666 4.66675 15.1133 4.66675 28C4.66675 40.8866 15.1134 51.3333 28.0001 51.3333Z", fill: "white", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M28 18.6667V37.3333", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.6667 28H37.3334", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -6752,7 +6755,7 @@ styled__default["default"].div `
 const ActionButtons = styled__default["default"].div `
   display: flex;
   justify-content: space-between;
-  width: 65%;
+  width: 220px;
   margin: 0 auto;
   margin-top: 16px;
   align-items: center;
@@ -6778,14 +6781,29 @@ const ActionButtons = styled__default["default"].div `
       font-size: 16px;
       line-height: 19px;
       box-shadow: none;
-      background-color: #ff4d0d;
+      background-color: ${(props) => (props.isLoading ? '#ebebeb' : '#ff4d0d')};
       color: #ffffff;
+
+      :hover {
+        cursor: ${(props) => (props.isLoading ? 'no-drop' : 'pointer')};
+      }
     }
 
     :hover {
       cursor: pointer;
     }
   }
+`;
+const LoadingBanner = styled__default["default"].div `
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  color: transparent;
+  height: 215px;
+  width: 100%;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
 `;
 
 function BannerLxp(props) {
@@ -6841,7 +6859,7 @@ function BannerLxp(props) {
         props.handleChangeBanner(file);
         setBackgroundImage(props.bgSrc);
         setColorTitle(props?.titleColor);
-        setBackgroundColor(props?.bgColor);
+        setBackgroundColor('');
         return file;
     };
     React.useEffect(() => {
@@ -6853,10 +6871,14 @@ function BannerLxp(props) {
         if (props?.bgSrc)
             setBackgroundImage(props?.bgSrc);
     }, [props?.bgSrc]);
-    return (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: props?.bgColor || `url(${props?.bgSrc})`, style: {
-            ...props.style,
-            objectFit: 'fill'
-        }, children: [!props?.isDisabledTitle && (jsxRuntime.jsx("span", { style: { color: props?.titleColor, fontSize: 40, fontWeight: 700 }, children: props?.title })), props?.showBannerConfigs && (jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$5, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) })), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: onCancell, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props?.isLoading ? (jsxRuntime.jsx(LoadingBanner, {})) : (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: props?.bgColor || `url(${props?.bgSrc})`, style: {
+                    ...props.style,
+                    objectFit: 'fill'
+                }, children: [!props?.isDisabledTitle && (jsxRuntime.jsx("span", { style: {
+                            color: props?.titleColor,
+                            fontSize: 40,
+                            fontWeight: 700
+                        }, children: props?.title })), props?.showBannerConfigs && (jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$5, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }))] })), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: onCancell, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: {
                                 fontWeight: 700,
                                 fontSize: 16,
                                 color: '#000000',
@@ -6888,7 +6910,7 @@ function BannerLxp(props) {
                                         borderRadius: 8,
                                         border: '1px solid #BDBDBD',
                                         backgroundColor: backgroundColor
-                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: props?.bgColor, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs(BgInput, { children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', "\u00A0 Selecionar"] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs(ActionButtons, { children: [jsxRuntime.jsx("button", { onClick: onCancell, children: "Cancelar" }), jsxRuntime.jsx("span", { children: "ou" }), jsxRuntime.jsx("button", { onClick: onSave, children: "Salvar" })] })] }) })] }));
+                                    }, onClick: handleOpenBackgroundColorPicker }), jsxRuntime.jsx(material.Popover, { id: idBg, open: displayBackgroundColorPicker, onClose: handleCloseBackgroundColorPicker, anchorEl: anchor, anchorOrigin: { vertical: 'bottom', horizontal: 'right' }, children: jsxRuntime.jsx(PopOverLXP, { variant: "upRight", children: jsxRuntime.jsx(reactColor.SketchPicker, { color: props?.bgColor, onChangeComplete: handleChangeBackgroundColor }) }) })] }), jsxRuntime.jsxs(BgInput, { children: [jsxRuntime.jsx("span", { children: "Imagem de fundo" }), jsxRuntime.jsxs("label", { htmlFor: "backgroundSelector", children: [' ', "\u00A0 Selecionar"] }), jsxRuntime.jsx("input", { type: "file", id: "backgroundSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })] }), jsxRuntime.jsxs(ActionButtons, { isLoading: props?.isLoading, children: [jsxRuntime.jsx("button", { onClick: onCancell, children: "Cancelar" }), jsxRuntime.jsx("span", { children: "ou" }), jsxRuntime.jsx("button", { onClick: onSave, disabled: props?.isLoading, children: props?.isLoading ? props?.buttonSavingLabel || 'Carregando...' : 'Salvar' })] })] }) })] }));
 }
 
 const variantStyles = (variant = 'contained') => ({
@@ -15996,7 +16018,7 @@ const valueEmoji = styled__default["default"].div `
   padding-bottom: 0.5rem;
   padding-right: 0.5rem;
 `;
-const containerError = styled__default["default"].div `
+const containerError$1 = styled__default["default"].div `
   margin-top: 1rem;
   display: flex;
   flex-direction: row;
@@ -16015,7 +16037,7 @@ const containerError = styled__default["default"].div `
   }
 `;
 
-const useAutosizeTextArea = (textAreaRef, value) => {
+const useAutosizeTextArea$1 = (textAreaRef, value) => {
     React.useEffect(() => {
         if (textAreaRef) {
             textAreaRef.style.height = '100px';
@@ -16032,7 +16054,7 @@ function IcrementarIdeia(props) {
     const textAreaRef = React.useRef(null);
     const [isOpenPicker, setIsOpenPicker] = React.useState();
     const [stringValueTextArea, setStringValueTextArea] = React.useState('');
-    useAutosizeTextArea(textAreaRef.current, stringValueTextArea);
+    useAutosizeTextArea$1(textAreaRef.current, stringValueTextArea);
     const [listaTexto, setListaTexto] = React.useState('');
     React.useEffect(() => {
         const txList = listaTexto.split('');
@@ -16076,7 +16098,7 @@ function IcrementarIdeia(props) {
                                         perLine: 10,
                                         sheetSize: 8,
                                         language: 'pt'
-                                    }, styles: {} })) })] }))] }), isError && (jsxRuntime.jsxs(containerError, { children: [jsxRuntime.jsx(ErrorAlert, {}), jsxRuntime.jsx("p", { children: props.txtError })] }))] }));
+                                    }, styles: {} })) })] }))] }), isError && (jsxRuntime.jsxs(containerError$1, { children: [jsxRuntime.jsx(ErrorAlert, {}), jsxRuntime.jsx("p", { children: props.txtError })] }))] }));
     function repositionCursorAfterNewEmojiInTextArea(pos, lenghtEmoji) {
         let newPos = 0;
         if (pos[0] != pos[1]) {
@@ -16443,6 +16465,204 @@ function validateEmail(email) {
     return regex.test(email);
 }
 
+const ButtonCriarIdeia = styled__default["default"].div `
+  width: 282px;
+  height: 196px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 24px;
+  background: #f7f9fc;
+  border: 1px dashed #9c9c9c;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 0px 0px 16px 16px;
+  cursor: pointer;
+  :hover {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+  }
+  margin-right: 2rem;
+`;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+`;
+const CriarIdeia$1 = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 20px 24px;
+  width: 282px;
+  background: ${(props) => (props.isErro ? '#FFE0E0' : '#fff2cc')};
+`;
+styled__default["default"].div `
+  width: 2px;
+  height: 2px;
+  background: #757575;
+  margin: 0 0.3rem;
+`;
+styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #757575;
+`;
+styled__default["default"].div `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 110%;
+  color: #444444;
+  margin-bottom: 4px;
+`;
+const ButtonDigiteIdeia = styled__default["default"].div `
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 40px;
+  width: 242px;
+  height: 96px;
+  border: 1px solid #69a9e1;
+  margin-bottom: 24px;
+  word-break: break-all;
+  cursor: pointer;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #9c9c9c;
+  text-align: center;
+`;
+const TextAreaDigite = styled__default["default"].textarea `
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 4px;
+  width: 242px;
+  border: 1px solid #549fe4;
+  background: ${(props) => (props.isErro ? '#FFE0E0' : '#fff2cc')};
+  margin-bottom: 16px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #222222;
+  overflow: hidden;
+  resize: none;
+`;
+const CountCaracter = styled__default["default"].div `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  display: flex;
+  align-items: center;
+  color: #757575;
+  margin-bottom: 16px;
+`;
+const ButtonPublicarAndCancelar = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 110%;
+    color: #000000;
+    margin-right: 1rem;
+  }
+  div {
+    margin-right: 1rem;
+  }
+`;
+const containerError = styled__default["default"].div `
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  svg {
+    margin-right: 0.5rem;
+  }
+  p {
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #923534;
+  }
+`;
+
+const useAutosizeTextArea = (textAreaRef, value) => {
+    React.useEffect(() => {
+        if (textAreaRef) {
+            textAreaRef.style.height = '96px';
+            const scrollHeight = textAreaRef.scrollHeight;
+            textAreaRef.style.height = scrollHeight + 'px';
+        }
+    }, [textAreaRef, value]);
+};
+
+function CriarIdeia(props) {
+    const [criarIdeia, setCriarIdeia] = React.useState(false);
+    const [digiteIdeia, setDigiteIdeia] = React.useState(false);
+    const textAreaRef = React.useRef(null);
+    const [stringValueTextArea, setStringValueTextArea] = React.useState('');
+    useAutosizeTextArea(textAreaRef.current, stringValueTextArea);
+    const [textCount, setTextCount] = React.useState(0);
+    const [buttonDisabled, setButtonDisabled] = React.useState(false);
+    const [isError, setIsError] = React.useState(false);
+    React.useEffect(() => {
+        const txList = stringValueTextArea.split('');
+        if (txList.length === 0) {
+            setButtonDisabled(true);
+        }
+        else {
+            setButtonDisabled(false);
+        }
+        setTextCount(txList.length);
+        if (props.valueMaxTexto) {
+            if (txList.length > props.valueMaxTexto) {
+                setIsError(true);
+            }
+            else {
+                setIsError(false);
+            }
+        }
+        else if (txList.length > 350) {
+            setIsError(true);
+        }
+        else if (txList.length < 350) {
+            setIsError(false);
+        }
+    }, [stringValueTextArea]);
+    React.useEffect(() => {
+        props.onChange(stringValueTextArea);
+    }, [stringValueTextArea]);
+    const handleChange = (evt) => {
+        const texto = evt.target?.value;
+        setStringValueTextArea(texto);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: criarIdeia ? (jsxRuntime.jsx(CriarIdeia$1, { isErro: isError, children: digiteIdeia ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TextAreaDigite, { cols: 30, rows: 5, id: "txtTextArea", ref: textAreaRef, value: stringValueTextArea, onChange: handleChange, isErro: isError }), jsxRuntime.jsxs(CountCaracter, { children: [textCount, "/", props.valueMaxTexto, " ", props.textoValueMax] }), isError && (jsxRuntime.jsxs(containerError, { children: [jsxRuntime.jsx(ErrorAlert, {}), jsxRuntime.jsx("p", { children: props.txtError })] })), jsxRuntime.jsxs(ButtonPublicarAndCancelar, { children: [jsxRuntime.jsx(MiniButton, { variant: 'secondary', label: props.textCancelarButton, disabled: false, onClick: props.onClickCancelar }), jsxRuntime.jsx("p", { children: props.textOuButton }), jsxRuntime.jsx(MiniButton, { variant: 'primary', label: props.textPublicarButton, disabled: isError ? true : buttonDisabled, onClick: props.onClickButtonPublicar })] })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ButtonDigiteIdeia, { onClick: () => {
+                            setDigiteIdeia(true);
+                        }, children: props.textoDigitarIdeia }), jsxRuntime.jsx(MiniButton, { variant: 'secondary', label: props.textCancelarButton, disabled: false, onClick: () => {
+                            setCriarIdeia(false);
+                        } })] })) })) : (jsxRuntime.jsxs(ButtonCriarIdeia, { onClick: () => setCriarIdeia(true), children: [jsxRuntime.jsx(IconCriarIdeia, {}), props.textoCriar] })) }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
@@ -16485,6 +16705,7 @@ exports.ContentCycle = ContentCycle;
 exports.ContentSwitcher = ContentSwitcher;
 exports.ContentThumbnails = ContentThumbnails;
 exports.CounterLike = CounterLike;
+exports.CriarIdeia = CriarIdeia;
 exports.DateRangePicker = StepLearningCycle;
 exports.Diamond = Diamond;
 exports.DoubleCheck = DoubleCheck;

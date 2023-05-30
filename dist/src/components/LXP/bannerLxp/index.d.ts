@@ -7,6 +7,8 @@ interface BannerLxpParams {
     isDisabledTitle?: boolean;
     style?: React.CSSProperties;
     showBannerConfigs?: boolean;
+    isLoading?: boolean;
+    buttonSavingLabel?: string;
     /**
      * @prop {object} selectedFile: função de callback que retorna o arquivo selecionado pelo componente
      */

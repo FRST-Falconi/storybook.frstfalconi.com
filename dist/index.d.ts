@@ -109,4 +109,5 @@ export { default as IcrementarIdeia } from './src/components/IncrementarIdeia';
 export { default as CommentPost } from './src/components/comment-post';
 export { default as ExpandButton } from './src/components/expand-button';
 export { default as ModalInvite } from './src/components/FI/modal-invite';
+export { default as CriarIdeia } from './src/components/criar-ideia';
 //# sourceMappingURL=index.d.ts.map
