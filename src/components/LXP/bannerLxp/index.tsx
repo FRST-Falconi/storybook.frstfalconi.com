@@ -16,6 +16,7 @@ interface BannerLxpParams {
   style?: React.CSSProperties
   showBannerConfigs?: boolean
   isLoading?: boolean
+  buttonSavingLabel?: string
   /**
    * @prop {object} selectedFile: função de callback que retorna o arquivo selecionado pelo componente
    */
@@ -261,7 +262,7 @@ export default function BannerLxp(props: BannerLxpParams) {
             <button onClick={onCancell}>Cancelar</button>
             <span>ou</span>
             <button onClick={onSave} disabled={props?.isLoading}>
-              {props?.isLoading ? 'Salvando...' : 'Salvar'}
+              {props?.isLoading ? props?.buttonSavingLabel || 'Carregando...' : 'Salvar'}
             </button>
           </Styles.ActionButtons>
         </Styles.ConfigContainer>
