@@ -15,6 +15,7 @@ interface BannerLxpParams {
   isDisabledTitle?: boolean
   style?: React.CSSProperties
   showBannerConfigs?: boolean
+  isLoading?: boolean
   /**
    * @prop {object} selectedFile: função de callback que retorna o arquivo selecionado pelo componente
    */
@@ -92,7 +93,8 @@ export default function BannerLxp(props: BannerLxpParams) {
     props.handleChangeBanner(file)
     setBackgroundImage(props.bgSrc)
     setColorTitle(props?.titleColor)
-    setBackgroundColor(props?.bgColor)
+    setBackgroundColor('')
+
     return file
   }
 
@@ -107,23 +109,36 @@ export default function BannerLxp(props: BannerLxpParams) {
   }, [props?.bgSrc])
 
   return (
-    <Styles.BannerContainer
-      backgroundBanner={props?.bgColor || `url(${props?.bgSrc})`}
-      style={{
-        ...props.style,
-        objectFit: 'fill'
-      }}
-    >
-      {!props?.isDisabledTitle && (
-        <span style={{ color: props?.titleColor, fontSize: 40, fontWeight: 700 }}>{props?.title}</span>
-      )}
+    <>
+      {props?.isLoading ? (
+        <Styles.LoadingBanner />
+      ) : (
+        <Styles.BannerContainer
+          backgroundBanner={props?.bgColor || `url(${props?.bgSrc})`}
+          style={{
+            ...props.style,
+            objectFit: 'fill'
+          }}
+        >
+          {!props?.isDisabledTitle && (
+            <span
+              style={{
+                color: props?.titleColor,
+                fontSize: 40,
+                fontWeight: 700
+              }}
+            >
+              {props?.title}
+            </span>
+          )}
 
-      {props?.showBannerConfigs && (
-        <Styles.ConfigButton className="configButton">
-          <Button variant="primary" label="Configuração de capa" handleClick={handleOpenConfig} />
-        </Styles.ConfigButton>
+          {props?.showBannerConfigs && (
+            <Styles.ConfigButton className="configButton">
+              <Button variant="primary" label="Configuração de capa" handleClick={handleOpenConfig} />
+            </Styles.ConfigButton>
+          )}
+        </Styles.BannerContainer>
       )}
-
       <Modal open={openConfig} onClose={onCancell}>
         <Styles.ConfigContainer style={{ ...props.style }}>
           <span
@@ -241,14 +256,16 @@ export default function BannerLxp(props: BannerLxpParams) {
               onChange={(e) => handleFileSelected(e.target.files[0])}
             />
           </Styles.BgInput>
-          
-          <Styles.ActionButtons>
+
+          <Styles.ActionButtons isLoading={props?.isLoading}>
             <button onClick={onCancell}>Cancelar</button>
             <span>ou</span>
-            <button onClick={onSave}>Salvar</button>
+            <button onClick={onSave} disabled={props?.isLoading}>
+              {props?.isLoading ? 'Salvando...' : 'Salvar'}
+            </button>
           </Styles.ActionButtons>
         </Styles.ConfigContainer>
       </Modal>
-    </Styles.BannerContainer>
+    </>
   )
 }

@@ -3,6 +3,9 @@ import styled, { css } from 'styled-components'
 interface BannerLxp {
   backgroundBanner?: any
 }
+interface IActionButtons {
+  isLoading?: boolean
+}
 
 export const BannerContainer = styled.div<BannerLxp>`
   background: ${(props) => props.backgroundBanner};
@@ -101,10 +104,10 @@ export const FixImage = styled.div`
   margin-top: 4px;
 `
 
-export const ActionButtons = styled.div`
+export const ActionButtons = styled.div<IActionButtons>`
   display: flex;
   justify-content: space-between;
-  width: 65%;
+  width: 220px;
   margin: 0 auto;
   margin-top: 16px;
   align-items: center;
@@ -130,12 +133,28 @@ export const ActionButtons = styled.div`
       font-size: 16px;
       line-height: 19px;
       box-shadow: none;
-      background-color: #ff4d0d;
+      background-color: ${(props) => (props.isLoading ? '#ebebeb' : '#ff4d0d')};
       color: #ffffff;
+
+      :hover {
+        cursor: ${(props) => (props.isLoading ? 'no-drop' : 'pointer')};
+      }
     }
 
     :hover {
       cursor: pointer;
     }
   }
+`
+
+export const LoadingBanner = styled.div`
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  color: transparent;
+  height: 215px;
+  width: 100%;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
 `
