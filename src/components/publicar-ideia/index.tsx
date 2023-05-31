@@ -71,6 +71,7 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
     setIsHouver(false)
   }
 
+
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.PublicarIdeia isErro={isError}>
@@ -80,20 +81,20 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
           </Styles.TextoPublicarIdeiaUser>
         ) : isHouver ? (
           props.userBrainstorm ? (
-            <Styles.TextoPublicarIdeiaHouver onMouseLeave={MouseOut}>
+            <Styles.TextoPublicarIdeiaHouver onMouseOver={MouseOver} onMouseLeave={MouseOut}>
               <p>{props.txUserBrainstorm}</p>
             </Styles.TextoPublicarIdeiaHouver>
           ) : props.userAutorPubli ? (
-            <Styles.TextoPublicarIdeiaHouver onMouseLeave={MouseOut}>
+            <Styles.TextoPublicarIdeiaHouver onMouseOver={MouseOver} onMouseLeave={MouseOut}>
               <p>{props.txUserAutor}</p>
             </Styles.TextoPublicarIdeiaHouver>
           ) : (
-            <Styles.TextoPublicarIdeia onMouseLeave={MouseOver}>
+            <Styles.TextoPublicarIdeia onMouseOver={MouseOver} onMouseLeave={MouseOut}>
               <p>{props.textoPublic}</p>
             </Styles.TextoPublicarIdeia>
           )
         ) : (
-          <Styles.TextoPublicarIdeia onMouseLeave={MouseOver}>
+          <Styles.TextoPublicarIdeia onMouseOver={MouseOver} onMouseLeave={MouseOut}>
             <p>{props.textoPublic}</p>
           </Styles.TextoPublicarIdeia>
         )}
