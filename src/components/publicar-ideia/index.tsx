@@ -13,6 +13,11 @@ interface PropsCriarIdeia {
   empresaNome?: string
   dataPublic?: string
   textOu?: string
+  userAutorPubli?: boolean
+  userBrainstorm?: boolean
+  user: boolean
+  txUserAutor?: string
+  txUserBrainstorm?: string
 }
 
 export default function CriarIdeia(props: PropsCriarIdeia) {
@@ -25,6 +30,7 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
   const [textCount, setTextCount] = useState(0)
   const [buttonDisabled, setButtonDisabled] = useState(false)
   const [isError, setIsError] = useState(false)
+  const [isHouver, setIsHouver] = useState(false)
 
   // useEffect(() => {
   //   const txList = stringValueTextArea.split('')
@@ -58,10 +64,39 @@ export default function CriarIdeia(props: PropsCriarIdeia) {
     setStringValueTextArea(texto)
   }
 
+  function MouseOver() {
+    setIsHouver(true)
+  }
+  function MouseOut() {
+    setIsHouver(false)
+  }
+
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.PublicarIdeia isErro={isError}>
-        <Styles.TextoPublicarIdeia>{props.textoPublic}</Styles.TextoPublicarIdeia>
+        {props.user ? (
+          <Styles.TextoPublicarIdeiaUser>
+            <p>{props.textoPublic}</p>
+          </Styles.TextoPublicarIdeiaUser>
+        ) : isHouver ? (
+          props.userBrainstorm ? (
+            <Styles.TextoPublicarIdeiaHouver onMouseLeave={MouseOut}>
+              <p>{props.txUserBrainstorm}</p>
+            </Styles.TextoPublicarIdeiaHouver>
+          ) : props.userAutorPubli ? (
+            <Styles.TextoPublicarIdeiaHouver onMouseLeave={MouseOut}>
+              <p>{props.txUserAutor}</p>
+            </Styles.TextoPublicarIdeiaHouver>
+          ) : (
+            <Styles.TextoPublicarIdeia onMouseLeave={MouseOver}>
+              <p>{props.textoPublic}</p>
+            </Styles.TextoPublicarIdeia>
+          )
+        ) : (
+          <Styles.TextoPublicarIdeia onMouseLeave={MouseOver}>
+            <p>{props.textoPublic}</p>
+          </Styles.TextoPublicarIdeia>
+        )}
         <Styles.ContainerNomeSobrenome>{props.nomeSobrenome}</Styles.ContainerNomeSobrenome>
         <Styles.ContainerEmpresaData>
           {props.empresaNome}
