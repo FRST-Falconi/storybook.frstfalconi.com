@@ -2,7 +2,7 @@ import Button from '@components/buttons'
 import TextField from '@components/form-elements/textfield'
 import { Modal, Box, Switch, Dialog, Popover } from '@mui/material'
 import { UploadIcon } from '@shared/icons'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { SketchPicker } from 'react-color'
 import PopOverLXP from '../popOverLXP-antigo'
 import * as Styles from './bannerLxp'
@@ -31,6 +31,10 @@ interface BannerLxpParams {
    * @prop {object} onSaveInfo: função de callback que retorna todos as informações do banner no final das alterações. (nesta ordem[Title, isTitledisabled, colorTitle, backgroundColor, fixImage])
    */
   onSaveInfo?: ([]) => void
+  /**
+   * @prop {object} onCancell: função de callback que adciona métodos auxiliares no botão cancelar
+   */
+  onCancell?: () => void
 }
 
 export default function BannerLxp(props: BannerLxpParams) {
@@ -39,6 +43,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   const [titleText, setTitleText] = useState('')
   const [colorTitle, setColorTitle] = useState('')
   const [backgroundColor, setBackgroundColor] = useState('')
+  const [oldBgColor, setOldBgColor] = useState('')
   const [backgroundImage, setBackgroundImage] = useState('')
   const [fixImage, setFixImage] = useState(false)
   const [selectedFile, setSelectedFile] = useState({})
@@ -57,13 +62,14 @@ export default function BannerLxp(props: BannerLxpParams) {
   }
 
   const onCancell = () => {
-    setBackgroundColor(props.bgColor ?? '')
-    setBackgroundImage(props.bgSrc ?? '')
-    setTitleText(props.title ?? '')
+    props.bgColor && setBackgroundColor(props.bgColor ?? '')
+    props.bgSrc && setBackgroundImage(props.bgSrc ?? '')
+    props.title && setTitleText(props.title ?? '')
     setColorTitle(props.titleColor ?? '')
-    setDisableText(props.isDisabledTitle ?? false)
+    setDisableText(props.isDisabledTitle)
 
     setOpenConfig(false)
+    props?.onCancell()
   }
 
   const handleOpenTitleColorPicker = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -91,23 +97,30 @@ export default function BannerLxp(props: BannerLxpParams) {
       setSelectedFile(e.target.result)
     }
     reader.readAsDataURL(file)
-    props.handleChangeBanner(file)
-    setBackgroundImage(props.bgSrc)
-    setColorTitle(props?.titleColor)
     setBackgroundColor('')
+
+    props.handleChangeBanner(file)
 
     return file
   }
 
   useEffect(() => {
-    setTitleText(props?.title)
-    setDisableText(props?.isDisabledTitle)
-    // setBackgroundImage(props?.bgSrc);
-  }, [])
+    props?.isDisabledTitle && setDisableText(props?.isDisabledTitle)
+    props?.bgColor && setBackgroundColor(props?.bgColor)
+    props?.bgColor && setOldBgColor(props?.bgColor)
+    props?.bgSrc && setBackgroundImage(props?.bgSrc)
+    props.isDisabledTitle && setDisableText(props.isDisabledTitle)
+  }, [props])
 
   useEffect(() => {
     if (props?.bgSrc) setBackgroundImage(props?.bgSrc)
   }, [props?.bgSrc])
+
+  useMemo(() => {
+    if (props?.title) {
+      setTitleText(props?.title)
+    }
+  }, [props?.title])
 
   return (
     <>
