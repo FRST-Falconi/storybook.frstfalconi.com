@@ -490,6 +490,12 @@ function IconLikeFilled({ fill, stroke, customColor_1, width, height }) {
 function TrashIconNew({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ?? '19', height: height ?? '19', viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M0.833252 4.33325H2.61103H16.8333", stroke: fill ? fill : '#0645AD', strokeWidth: "1.3", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.3786 4.5V15.4C15.3786 15.8243 15.1816 16.2313 14.8309 16.5314C14.4802 16.8314 14.0045 17 13.5085 17H4.15785C3.66186 17 3.18619 16.8314 2.83547 16.5314C2.48475 16.2313 2.28772 15.8243 2.28772 15.4V4.5M5.09291 4.2V2.6C5.09291 2.17565 5.28995 1.76869 5.64066 1.46863C5.99138 1.16857 6.46706 1 6.96304 1H10.7033C11.1993 1 11.675 1.16857 12.0257 1.46863C12.3764 1.76869 12.5734 2.17565 12.5734 2.6V4.2", stroke: fill ? fill : '#0645AD', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function VotarIcon({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M16 12L12 8L8 12", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16V8", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.5 12L12 7.5L7.5 12", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16.5V7.5", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+}
+function VotarIconPressed({ fill, stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z", fill: "#9C9C9C", stroke: "#9C9C9C", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.5 11L11 6.5L6.5 11", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11 15.5V6.5", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
 function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '12', height: height ? height : '6', viewBox: "0 0 12 6", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M0 6L11.5 6L6 4.80825e-07L0 6Z", fill: fill ? fill : '#444444' }) }));
 }
@@ -6812,6 +6818,7 @@ function BannerLxp(props) {
     const [titleText, setTitleText] = React.useState('');
     const [colorTitle, setColorTitle] = React.useState('');
     const [backgroundColor, setBackgroundColor] = React.useState('');
+    // const [oldBgColor, setOldBgColor] = useState("");
     const [backgroundImage, setBackgroundImage] = React.useState('');
     const [fixImage, setFixImage] = React.useState(false);
     const [selectedFile, setSelectedFile] = React.useState({});
@@ -6826,12 +6833,13 @@ function BannerLxp(props) {
         props.onSaveInfo([titleText, disableText, colorTitle, backgroundColor, fixImage]);
     };
     const onCancell = () => {
-        setBackgroundColor(props.bgColor ?? '');
-        setBackgroundImage(props.bgSrc ?? '');
-        setTitleText(props.title ?? '');
+        props.bgColor && setBackgroundColor(props.bgColor ?? '');
+        props.bgSrc && setBackgroundImage(props.bgSrc ?? '');
+        props.title && setTitleText(props.title ?? '');
         setColorTitle(props.titleColor ?? '');
-        setDisableText(props.isDisabledTitle ?? false);
+        setDisableText(props.isDisabledTitle);
         setOpenConfig(false);
+        props?.onCancell && props?.onCancell();
     };
     const handleOpenTitleColorPicker = (event) => {
         setDisplayTitleColorPicker(!displayTitleColorPicker);
@@ -6856,21 +6864,32 @@ function BannerLxp(props) {
             setSelectedFile(e.target.result);
         };
         reader.readAsDataURL(file);
-        props.handleChangeBanner(file);
-        setBackgroundImage(props.bgSrc);
-        setColorTitle(props?.titleColor);
         setBackgroundColor('');
+        props.handleChangeBanner(file);
         return file;
     };
     React.useEffect(() => {
-        setTitleText(props?.title);
-        setDisableText(props?.isDisabledTitle);
-        // setBackgroundImage(props?.bgSrc);
-    }, []);
+        props?.isDisabledTitle && setDisableText(props?.isDisabledTitle);
+        props?.bgColor && setBackgroundColor(props?.bgColor);
+        // props?.bgColor && setOldBgColor(props?.bgColor);
+        props?.bgSrc && setBackgroundImage(props?.bgSrc);
+        props.isDisabledTitle && setDisableText(props.isDisabledTitle);
+    }, [props]);
     React.useEffect(() => {
         if (props?.bgSrc)
             setBackgroundImage(props?.bgSrc);
     }, [props?.bgSrc]);
+    React.useMemo(() => {
+        if (props?.title) {
+            setTitleText(props?.title);
+        }
+        if (props?.titleColor) {
+            setColorTitle(props?.titleColor);
+        }
+        if (props.isDisabledTitle) {
+            setDisableText(props.isDisabledTitle);
+        }
+    }, [props?.title, props?.titleColor, props.isDisabledTitle]);
     return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props?.isLoading ? (jsxRuntime.jsx(LoadingBanner, {})) : (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: props?.bgColor || `url(${props?.bgSrc})`, style: {
                     ...props.style,
                     objectFit: 'fill'
@@ -16663,6 +16682,92 @@ function CriarIdeia(props) {
                         } })] })) })) : (jsxRuntime.jsxs(ButtonCriarIdeia, { onClick: () => setCriarIdeia(true), children: [jsxRuntime.jsx(IconCriarIdeia, {}), props.textoCriar] })) }));
 }
 
+const ContainerVotar = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+const ButtonVotar = styled__default["default"].button `
+  display: flex;
+  height: 32px;
+  width: 68px;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px;
+  position: absolute;
+  width: 68px;
+  border-radius: 8px;
+  font-family: 'PT Sans';
+  background: transparent;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+  border: none;
+  color: #444444;
+  cursor: pointer;
+  margin-right: 1rem;
+
+  :hover {
+    background: #f2f2f2;
+  }
+  :active {
+    color: #f26818;
+    svg {
+      fill: #f26818;
+      path {
+        stroke: #ffff;
+      }
+      path :nth-child(3) {
+        stroke: blue;
+      }
+    }
+  }
+  svg {
+    margin-right: 4px;
+  }
+`;
+const DivSeparador = styled__default["default"].div `
+  margin-left: 4rem;
+  width: 24px;
+  height: 0px;
+  border: 0.5px solid #bdbdbd;
+  transform: rotate(-90deg);
+`;
+const QuantidadeVotos = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 140%;
+  color: #444444;
+  margin: 0;
+  cursor: pointer;
+
+  :hover {
+    text-decoration-line: underline;
+    color: #0645ad;
+  }
+  :active {
+    text-decoration-line: underline;
+    color: #0645ad;
+    font-weight: 700;
+  }
+
+  ${(props) => props.user === 'userAutor' &&
+    styled.css `
+      margin-left: 0.5rem;
+    `}
+`;
+
+function Votar(props) {
+    return props.user === 'userAutor' ? (jsxRuntime.jsxs(ContainerVotar, { children: [jsxRuntime.jsx(VotarIconPressed, {}), jsxRuntime.jsxs(QuantidadeVotos, { user: props.user, children: [props.valueQuantidade, " ", props.textValueQuantidade] })] })) : (jsxRuntime.jsxs(ContainerVotar, { children: [jsxRuntime.jsxs(ButtonVotar, { children: [props.votado ? jsxRuntime.jsx(VotarIconPressed, {}) : jsxRuntime.jsx(VotarIcon, {}), props.textButton] }), jsxRuntime.jsx(DivSeparador, {}), jsxRuntime.jsxs(QuantidadeVotos, { user: props.user, children: [props.valueQuantidade, " ", props.textValueQuantidade] })] }));
+}
+
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
@@ -16817,4 +16922,5 @@ exports.TrashIcon = TrashIcon;
 exports.TrashIconNew = TrashIconNew;
 exports.UserCard = CalendarCard$1;
 exports.Video = Video;
+exports.Votar = Votar;
 exports.YoutubeIcon = YoutubeIcon;

@@ -6,7 +6,6 @@ import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { SketchPicker } from 'react-color'
 import PopOverLXP from '../popOverLXP-antigo'
 import * as Styles from './bannerLxp'
-
 interface BannerLxpParams {
   title: string
   titleColor?: string
@@ -31,9 +30,6 @@ interface BannerLxpParams {
    * @prop {object} onSaveInfo: função de callback que retorna todos as informações do banner no final das alterações. (nesta ordem[Title, isTitledisabled, colorTitle, backgroundColor, fixImage])
    */
   onSaveInfo?: ([]) => void
-  /**
-   * @prop {object} onCancell: função de callback que adciona métodos auxiliares no botão cancelar
-   */
   onCancell?: () => void
 }
 
@@ -43,7 +39,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   const [titleText, setTitleText] = useState('')
   const [colorTitle, setColorTitle] = useState('')
   const [backgroundColor, setBackgroundColor] = useState('')
-  const [oldBgColor, setOldBgColor] = useState('')
+  // const [oldBgColor, setOldBgColor] = useState("");
   const [backgroundImage, setBackgroundImage] = useState('')
   const [fixImage, setFixImage] = useState(false)
   const [selectedFile, setSelectedFile] = useState({})
@@ -69,7 +65,7 @@ export default function BannerLxp(props: BannerLxpParams) {
     setDisableText(props.isDisabledTitle)
 
     setOpenConfig(false)
-    props?.onCancell()
+    props?.onCancell && props?.onCancell()
   }
 
   const handleOpenTitleColorPicker = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -107,7 +103,7 @@ export default function BannerLxp(props: BannerLxpParams) {
   useEffect(() => {
     props?.isDisabledTitle && setDisableText(props?.isDisabledTitle)
     props?.bgColor && setBackgroundColor(props?.bgColor)
-    props?.bgColor && setOldBgColor(props?.bgColor)
+    // props?.bgColor && setOldBgColor(props?.bgColor);
     props?.bgSrc && setBackgroundImage(props?.bgSrc)
     props.isDisabledTitle && setDisableText(props.isDisabledTitle)
   }, [props])
@@ -120,7 +116,13 @@ export default function BannerLxp(props: BannerLxpParams) {
     if (props?.title) {
       setTitleText(props?.title)
     }
-  }, [props?.title])
+    if (props?.titleColor) {
+      setColorTitle(props?.titleColor)
+    }
+    if (props.isDisabledTitle) {
+      setDisableText(props.isDisabledTitle)
+    }
+  }, [props?.title, props?.titleColor, props.isDisabledTitle])
 
   return (
     <>
