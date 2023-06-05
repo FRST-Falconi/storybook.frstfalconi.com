@@ -10,4 +10,5 @@ export interface IAvatar {
   handleValueAvatar: (file) => void
   variantPopOver?: string
   sourceImage?: string
+  isEdit?: boolean
 }

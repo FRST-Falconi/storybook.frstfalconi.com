@@ -15,7 +15,8 @@ export default function AvatarChannel({
   color,
   handleValueAvatar,
   variantPopOver,
-  sourceImage
+  sourceImage,
+  isEdit = false
 }: IAvatar) {
   const onChange = () => {
     document.getElementById('fileSelector').click()
@@ -31,43 +32,51 @@ export default function AvatarChannel({
     return file
   }
 
+  const nameChannel = channel
+    .split(' ')
+    .filter((name, i) => i == 0 || i == channel.split(' ').length - 1)
+    .map((name, i) => name[0])
+    .join('')
+
   const [image, setImage] = useState<string | ArrayBuffer>(sourceImage)
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <Styles.ContainerGeral className="geral" variant={variantPopOver}>
+      <Styles.ContainerGeral className="geral" isEdit={isEdit} variant={variantPopOver}>
         <>
           <Styles.ContainerPopOver className="popOver" variant={variantPopOver}>
             <PopOverLXP children={'Alterar avatar'} variant={variantPopOver} element={undefined} />
           </Styles.ContainerPopOver>
           <div style={{ display: 'none' }}>
-            <input
-              type="file"
-              id="fileSelector"
-              accept=".jpg, .jpeg, .png"
-              onChange={(e) => handleFileSelected(e.target.files[0])}
-            />
+            {isEdit && (
+              <input
+                type="file"
+                id="fileSelector"
+                accept=".jpg, .jpeg, .png"
+                onChange={(e) => handleFileSelected(e.target.files[0])}
+              />
+            )}
           </div>
-            <Styles.AvatarChannel
-              size={size}
-              onClick={onChange}
-              className={className}
-              disabled={disabled}
-              variant={variantPopOver}
-              color={color ? color : '#6a3f86'}
-              image={image}
-            >
-              {
-                !image &&
-                  <Styles.Channel>{channel}</Styles.Channel>
-              }
+          <Styles.AvatarChannel
+            size={size}
+            onClick={onChange}
+            className={className}
+            disabled={disabled}
+            variant={variantPopOver}
+            color={color ? color : '#6a3f86'}
+            image={image}
+            isEdit={isEdit}
+          >
+            {!image && <Styles.Channel size={size}>{nameChannel}</Styles.Channel>}
 
+            {isEdit && (
               <Styles.AvatarCircle className="hide">
                 <Styles.AvatarCam>
                   <Icons.Cam />
                 </Styles.AvatarCam>
               </Styles.AvatarCircle>
-            </Styles.AvatarChannel>
+            )}
+          </Styles.AvatarChannel>
         </>
       </Styles.ContainerGeral>
     </ThemeProvider>
