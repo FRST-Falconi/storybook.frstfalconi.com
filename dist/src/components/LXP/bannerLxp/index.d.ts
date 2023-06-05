@@ -22,6 +22,7 @@ interface BannerLxpParams {
      * @prop {object} onSaveInfo: função de callback que retorna todos as informações do banner no final das alterações. (nesta ordem[Title, isTitledisabled, colorTitle, backgroundColor, fixImage])
      */
     onSaveInfo?: ([]: Iterable<any>) => void;
+    onCancell?: () => void;
 }
 export default function BannerLxp(props: BannerLxpParams): JSX.Element;
 export {};
