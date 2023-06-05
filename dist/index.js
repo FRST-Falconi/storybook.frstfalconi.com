@@ -6332,23 +6332,26 @@ const ContainerGeral$1 = styled__default["default"].div `
   height: 8.5rem;
   align-content: flex-end;
   &:hover .popOver {
-    display: block;
+    display: ${(p) => p.isEdit && 'block'};
   }
   &:hover .hide {
-    visibility: visible;
+    visibility: ${(p) => p.isEdit && 'visible'};
   }
 `;
 const AvatarChannel$2 = styled__default["default"].div `
   width: ${(props) => props.size || '80px'};
   height: ${(props) => props.size || '80px'};
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  background: ${(props) => props.image ? `url(${props.image})` : '#6a3f86'};
+  background: ${(props) => (props.image ? `url(${props.image})` : '#6a3f86')};
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;  
+  background-position: center center;
   margin-top: 62px;
-  cursor: pointer;
+  cursor: ${(p) => (p.isEdit ? 'pointer' : 'text')};
   ${(props) => props.variant === 'sideRight' &&
     styled.css `
       margin-left: 8.5rem;
@@ -6364,7 +6367,6 @@ const AvatarChannel$2 = styled__default["default"].div `
     `}
 `;
 const Channel$2 = styled__default["default"].span `
-  position: absolute;
   display: flex;
   align-items: center;
   text-align: center;
@@ -6376,14 +6378,15 @@ const Channel$2 = styled__default["default"].span `
   font-family: 'Work Sans';
   font-weight: 700;
   line-height: 130%;
+  text-transform: uppercase;
 `;
 const AvatarCircle = styled__default["default"].div `
   display: flex;
   width: 100%;
   height: 100%;
-  position: absolute;  
+  position: absolute;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   visibility: hidden;
 `;
 const AvatarCam = styled__default["default"].div `
@@ -6393,9 +6396,9 @@ const AvatarCam = styled__default["default"].div `
   margin: 0;
   background-color: ${({ theme }) => theme.colors.shadeWhite};
   box-shadow: 0px 18px 40px -15px #d3d3d3;
-  display: flex;  
+  display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   z-index: 999;
 `;
 const ContainerPopOver = styled__default["default"].div `
@@ -6563,7 +6566,7 @@ function PopOverLXP({ variant, children }) {
                                 : null }));
 }
 
-function AvatarChannel$1({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage }) {
+function AvatarChannel$1({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage, isEdit = false }) {
     const onChange = () => {
         document.getElementById('fileSelector').click();
     };
@@ -6576,9 +6579,13 @@ function AvatarChannel$1({ size, channel, className, disabled, color, handleValu
         handleValueAvatar(file);
         return file;
     };
+    const nameChannel = channel
+        .split(' ')
+        .filter((name, i) => i == 0 || i == channel.split(' ').length - 1)
+        .map((name, i) => name[0])
+        .join('');
     const [image, setImage] = React.useState(sourceImage);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) }) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, children: [!image &&
-                                jsxRuntime.jsx(Channel$2, { children: channel }), jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) })] })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", isEdit: isEdit, variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: isEdit && (jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, isEdit: isEdit, children: [!image && jsxRuntime.jsx(Channel$2, { size: size, children: nameChannel }), isEdit && (jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) }))] })] }) }) }));
 }
 
 const ContainerGeral = styled__default["default"].div `
