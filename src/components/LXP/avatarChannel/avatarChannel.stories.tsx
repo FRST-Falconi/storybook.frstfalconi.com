@@ -13,6 +13,7 @@ const Template = (args) => <AvatarChannel {...args} />
 export const normal = Template.bind({})
 normal.args = {
   size: '80px',
+  isEdit: false,
   channel: 'XP',
   alt: 'Alt example',
   disabled: false,
