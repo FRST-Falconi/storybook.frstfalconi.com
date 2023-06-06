@@ -81,8 +81,7 @@ export const containerTitleDesafio = styled.div`
 export const TitleDesafiosWhite = styled.div`
   width: 240px;
   height: 24px;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
   font-family: 'Work Sans';
   font-style: normal;
@@ -92,7 +91,7 @@ export const TitleDesafiosWhite = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  color: #d14211;
+  color: #1b191a;
   display: flex;
   justify-content: center;
   position: relative;
@@ -104,7 +103,6 @@ export const TitleDesafiosGrey = styled.div`
   width: 240px;
   height: 24px;
   background: rgba(255, 255, 255, 0.4);
-  border: 1px solid #d1d5db;
   border-radius: 30px;
   font-family: 'Work Sans';
   font-style: normal;
@@ -114,7 +112,7 @@ export const TitleDesafiosGrey = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  color: #d14211;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   position: relative;
