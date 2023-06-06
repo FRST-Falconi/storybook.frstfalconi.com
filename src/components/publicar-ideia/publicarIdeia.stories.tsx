@@ -20,7 +20,15 @@ normal.args = {
   dataPublic: 'Há 2 dias',
   txUserAutor: 'Clique para editar ou excluir',
   txUserBrainstorm: 'Clique para  excluir',
-  userAutorPubli: false,
-  userBrainstorm: true,
-  user: false
+  userAutorPubli: true,
+  userBrainstorm: false,
+  user: false,
+  txExcluir: 'Excluir',
+  onClickExcluir: () => alert('Excluir atividade'),
+  textCancelarButton: 'Cancela',
+  onClickCancelar: () => alert('Cancelar'),
+  textOuButton: 'ou',
+  textPublicarButton: 'Publicar',
+  onClickButtonPublicar: () => alert('Publicar'),
+  valueMaxTexto: 500
 }
