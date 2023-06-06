@@ -23,7 +23,8 @@ export default function ScrollContainer({
   marginsArrowButton,
   horizontalMarginInternScroll,
   refreshResize,
-  widthProtectClick
+  widthProtectClick,
+  hiddenHorizontalScrollBar
 }: IScrollContainer) {
   const [actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
   const [actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
@@ -84,7 +85,7 @@ export default function ScrollContainer({
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <div style={{ ...styles, position: 'relative'}} className={className}>
+      <div style={{ ...styles, position: 'relative' }} className={className}>
         <WrapperHorizontal>
           {isVisibleControlsButtons && positionArrowButton != 'bottom' && (
             <ButtonArrow
@@ -103,6 +104,7 @@ export default function ScrollContainer({
           <WrapperContent
             id={iDScroll}
             paddingIntern={horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px'}
+            hiddenHorizontalScrollBar={hiddenHorizontalScrollBar}
           >
             {children}
           </WrapperContent>

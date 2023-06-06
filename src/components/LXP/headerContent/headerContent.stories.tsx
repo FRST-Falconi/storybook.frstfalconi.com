@@ -7,13 +7,14 @@ export default {
   component: HeaderContent
 }
 
-const Template = (args) => <HeaderContent {...args}/>
+const Template = (args) => <HeaderContent {...args} />
 
 export const InProgress = Template.bind({})
 InProgress.args = {
   autoplayTime: 5000,
   textViewMore: 'Ver mais',
   textViewLess: 'Ver menos',
+  height: '365px',
   listaRecomendacao: [
     {
       title: 'Blockchain e criptomoedas',

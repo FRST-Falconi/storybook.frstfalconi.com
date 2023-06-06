@@ -81,7 +81,7 @@ export const WrapperIconNotificationMobile = styled.div`
 
 export const SubMenuContainer = styled.div<IMenuContainer>`
   width: 100%;
-  height: 32px;
+  height: 50px;
   ${(props) =>
     props.marginTop &&
     css`

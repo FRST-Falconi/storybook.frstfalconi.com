@@ -5,6 +5,7 @@ interface HeaderContentProps {
   zeroHeigthDescription?: boolean
   tmnDescription?: number
   onDisplay?: boolean
+  height?: number | string
 }
 
 export const Container = styled.div`
@@ -26,7 +27,7 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
+
   ${(props) =>
     props.tmnDescription < 164 &&
     css`
@@ -35,7 +36,7 @@ export const HeaderImage = styled.div<HeaderContentProps>`
       }
     `}
   @media (max-width: 834px) {
-    height: 450px;
+    height: ${(props) => props.height ?? '450px'};
     ${(props) =>
       props.tmnDescription >= 134 &&
       css`
@@ -46,29 +47,32 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   }
 
   ${(props) =>
-    props.onDisplay ?
-      css` width: 100%;`
-    :
-      css` width: 0px;`
-  }
+    props.onDisplay
+      ? css`
+          width: 100%;
+        `
+      : css`
+          width: 0px;
+        `}
 
   @media (max-width: 414px) {
-    height: 450px;
+    height: ${(props) => props.height ?? '450px'};
   }
   @media (max-width: 320px) {
-    height: 450px;
+    height: ${(props) => props.height ?? '450px'};
   }
 `
 export const Content = styled.div<HeaderContentProps>`
   width: 100%;
-  height: 450px;
+  height: ${(props) => props.height ?? '450px'};
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
-  
+
   ${(props) =>
     !props.onDisplay &&
-      css` display: none;`
-  }
+    css`
+      display: none;
+    `}
 
   @media (max-width: 414px) {
     padding: 2rem;
@@ -85,16 +89,15 @@ export const ListCounters = styled.div`
   margin-bottom: 36px;
   bottom: 0;
   right: 50%;
-
 `
 
-export const Counters = styled.button<{selected : boolean}>`
+export const Counters = styled.button<{ selected: boolean }>`
   width: 16px;
   height: 16px;
   box-sizing: border-box;
   border-radius: 100%;
   border: none;
-  background-color: ${({selected, theme}) => selected ? theme.colors.primary1 : theme.colors.neutralsGrey5 };
+  background-color: ${({ selected, theme }) => (selected ? theme.colors.primary1 : theme.colors.neutralsGrey5)};
 `
 
 export const Title = styled.div`
