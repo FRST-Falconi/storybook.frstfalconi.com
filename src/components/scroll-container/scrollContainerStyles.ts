@@ -17,11 +17,11 @@ export const WrapperHorizontal = styled.div`
   height: auto;
 `
 
-export const WrapperContent = styled.div<{ paddingIntern?: string }>`
+export const WrapperContent = styled.div<{ paddingIntern?: string; hiddenHorizontalScrollBar: boolean }>`
   display: flex;
   flex-direction: row;
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: ${({ hiddenHorizontalScrollBar }) => (hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
   overflow-y: hidden;
   white-space: nowrap;
 

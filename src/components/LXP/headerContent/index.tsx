@@ -15,6 +15,7 @@ interface objPropiedades {
   channel?: string
   onClick?: () => void
   labelButton?: string
+  height?: number | string
 }
 interface HeaderContentParams {
   textViewMore?: string
@@ -22,6 +23,7 @@ interface HeaderContentParams {
   autoplayTime?: number
   listaRecomendacao: Array<objPropiedades>
   style?: React.CSSProperties
+  height?: number | string
 }
 
 export default function HeaderContent(props: HeaderContentParams) {
@@ -30,11 +32,14 @@ export default function HeaderContent(props: HeaderContentParams) {
   const [textView, setTextView] = useState(props.textViewMore)
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setSelectedContent(selectedContent < (props.listaRecomendacao.length - 1) ? selectedContent + 1 : 0)
-      setzeroHeigthDescription(false)
-      setTextView(props.textViewMore)
-    }, props.autoplayTime ? props.autoplayTime : 10000)
+    const timer = setTimeout(
+      () => {
+        setSelectedContent(selectedContent < props.listaRecomendacao.length - 1 ? selectedContent + 1 : 0)
+        setzeroHeigthDescription(false)
+        setTextView(props.textViewMore)
+      },
+      props.autoplayTime ? props.autoplayTime : 10000
+    )
     return () => clearTimeout(timer)
   }, [selectedContent])
 
@@ -84,8 +89,8 @@ export default function HeaderContent(props: HeaderContentParams) {
           <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
         </styledHeaderContent.SpaceButtonTopViewMore>
         <styledHeaderContent.SpaceProgressAndButton>
-          <ProgressBar value={item.progresso} label={item.channel} style={{width: 200}}/>
-          <Button label={item.labelButton} variant="primary" handleClick={item.onClick}/>
+          <ProgressBar value={item.progresso} label={item.channel} style={{ width: 200 }} />
+          <Button label={item.labelButton} variant="primary" handleClick={item.onClick} />
         </styledHeaderContent.SpaceProgressAndButton>
       </>
     )
@@ -93,27 +98,38 @@ export default function HeaderContent(props: HeaderContentParams) {
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <styledHeaderContent.Container style={{...props.style}}>
+      <styledHeaderContent.Container style={{ ...props.style }}>
         {props.listaRecomendacao.map((item, index) => {
           return (
-            <styledHeaderContent.HeaderImage key={index} img={item.bgImg} tmnDescription={item.description.length} onDisplay={index === selectedContent} style={{...props.style}}>
+            <styledHeaderContent.HeaderImage
+              key={index}
+              img={item.bgImg}
+              tmnDescription={item.description.length}
+              onDisplay={index === selectedContent}
+              style={{ ...props.style }}
+            >
               <>
                 {item.typeOfHeader === 'inProgress' ? (
-                  <styledHeaderContent.Content onDisplay={index === selectedContent}>{InProgressHeader(item)}</styledHeaderContent.Content>
+                  <styledHeaderContent.Content height={props?.height} onDisplay={index === selectedContent}>
+                    {InProgressHeader(item)}
+                  </styledHeaderContent.Content>
                 ) : (
-                  <styledHeaderContent.Content onDisplay={index === selectedContent}>{RecomendationHeader(item)}</styledHeaderContent.Content>
+                  <styledHeaderContent.Content height={props?.height} onDisplay={index === selectedContent}>
+                    {RecomendationHeader(item)}
+                  </styledHeaderContent.Content>
                 )}
               </>
             </styledHeaderContent.HeaderImage>
           )
         })}
         <styledHeaderContent.ListCounters>
-          {Array.from({ length : props.listaRecomendacao.length}).map((_,index) =>
-            <styledHeaderContent.Counters key={index} 
+          {Array.from({ length: props.listaRecomendacao.length }).map((_, index) => (
+            <styledHeaderContent.Counters
+              key={index}
               selected={index === selectedContent}
-              onClick={() => setSelectedContent(index)}   
+              onClick={() => setSelectedContent(index)}
             />
-          )}
+          ))}
         </styledHeaderContent.ListCounters>
       </styledHeaderContent.Container>
     </ThemeProvider>
