@@ -38,7 +38,7 @@ export const AvatarChannel = styled.div<AvatarI>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  margin-top: 62px;
+  margin-top: ${(p) => p.isEdit && '62px'};
   cursor: ${(p) => (p.isEdit ? 'pointer' : 'text')};
   ${(props) =>
     props.variant === 'sideRight' &&
