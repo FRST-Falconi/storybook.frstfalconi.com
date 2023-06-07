@@ -1233,8 +1233,7 @@ const containerTitleDesafio = styled__default["default"].div `
 const TitleDesafiosWhite = styled__default["default"].div `
   width: 240px;
   height: 24px;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
   font-family: 'Work Sans';
   font-style: normal;
@@ -1244,7 +1243,7 @@ const TitleDesafiosWhite = styled__default["default"].div `
   display: flex;
   align-items: center;
   text-align: center;
-  color: #d14211;
+  color: #1b191a;
   display: flex;
   justify-content: center;
   position: relative;
@@ -1256,7 +1255,6 @@ const TitleDesafiosGrey = styled__default["default"].div `
   width: 240px;
   height: 24px;
   background: rgba(255, 255, 255, 0.4);
-  border: 1px solid #d1d5db;
   border-radius: 30px;
   font-family: 'Work Sans';
   font-style: normal;
@@ -1266,7 +1264,7 @@ const TitleDesafiosGrey = styled__default["default"].div `
   display: flex;
   align-items: center;
   text-align: center;
-  color: #d14211;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   position: relative;
@@ -3551,7 +3549,7 @@ const WrapperContent$3 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: ${({ hiddenHorizontalScrollBar }) => (hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
   overflow-y: hidden;
   white-space: nowrap;
 
@@ -3620,7 +3618,7 @@ styled__default["default"].div `
   border-radius: 20px;
 `;
 
-function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll, refreshResize, widthProtectClick }) {
+function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll, refreshResize, widthProtectClick, hiddenHorizontalScrollBar }) {
     const [actionAreaButtonLeft, setActionAreaButtonLeft] = React.useState(false);
     const [actionAreaButtonRight, setActionAreaButtonRight] = React.useState(false);
     const [iDScroll, setIDScroll] = React.useState(`iDScroll-${randID$1()}`);
@@ -3672,7 +3670,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$3, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$3, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
                             display: 'flex',
                             flexDirection: 'row',
                             marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'
@@ -6350,7 +6348,7 @@ const AvatarChannel$2 = styled__default["default"].div `
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  margin-top: 62px;
+  margin-top: ${(p) => p.isEdit && '62px'};
   cursor: ${(p) => (p.isEdit ? 'pointer' : 'text')};
   ${(props) => props.variant === 'sideRight' &&
     styled.css `
@@ -7545,7 +7543,7 @@ const HeaderImage$1 = styled__default["default"].div `
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  
+
   ${(props) => props.tmnDescription < 164 &&
     styled.css `
       section {
@@ -7553,7 +7551,7 @@ const HeaderImage$1 = styled__default["default"].div `
       }
     `}
   @media (max-width: 834px) {
-    height: 450px;
+    height: ${(props) => props.height ?? '450px'};
     ${(props) => props.tmnDescription >= 134 &&
     styled.css `
         section {
@@ -7562,26 +7560,31 @@ const HeaderImage$1 = styled__default["default"].div `
       `}
   }
 
-  ${(props) => props.onDisplay ?
-    styled.css ` width: 100%;`
-    :
-        styled.css ` width: 0px;`}
+  ${(props) => props.onDisplay
+    ? styled.css `
+          width: 100%;
+        `
+    : styled.css `
+          width: 0px;
+        `}
 
   @media (max-width: 414px) {
-    height: 450px;
+    height: ${(props) => props.height ?? '450px'};
   }
   @media (max-width: 320px) {
-    height: 450px;
+    height: ${(props) => props.height ?? '450px'};
   }
 `;
 const Content = styled__default["default"].div `
   width: 100%;
-  height: 450px;
+  height: ${(props) => props.height ?? '450px'};
   padding: 64px;
   background: linear-gradient(52deg, #111111 0%, rgba(17, 17, 17, 0) 100%);
-  
+
   ${(props) => !props.onDisplay &&
-    styled.css ` display: none;`}
+    styled.css `
+      display: none;
+    `}
 
   @media (max-width: 414px) {
     padding: 2rem;
@@ -7597,7 +7600,6 @@ const ListCounters = styled__default["default"].div `
   margin-bottom: 36px;
   bottom: 0;
   right: 50%;
-
 `;
 const Counters = styled__default["default"].button `
   width: 16px;
@@ -7605,7 +7607,7 @@ const Counters = styled__default["default"].button `
   box-sizing: border-box;
   border-radius: 100%;
   border: none;
-  background-color: ${({ selected, theme }) => selected ? theme.colors.primary1 : theme.colors.neutralsGrey5};
+  background-color: ${({ selected, theme }) => (selected ? theme.colors.primary1 : theme.colors.neutralsGrey5)};
 `;
 const Title$1 = styled__default["default"].div `
   font-size: 40px;
@@ -7723,7 +7725,7 @@ function HeaderContent(props) {
     const [textView, setTextView] = React.useState(props.textViewMore);
     React.useEffect(() => {
         const timer = setTimeout(() => {
-            setSelectedContent(selectedContent < (props.listaRecomendacao.length - 1) ? selectedContent + 1 : 0);
+            setSelectedContent(selectedContent < props.listaRecomendacao.length - 1 ? selectedContent + 1 : 0);
             setzeroHeigthDescription(false);
             setTextView(props.textViewMore);
         }, props.autoplayTime ? props.autoplayTime : 10000);
@@ -7746,8 +7748,8 @@ function HeaderContent(props) {
         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel, style: { width: 200 } }), jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$9, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
-                    return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
-                }), jsxRuntime.jsx(ListCounters, { children: Array.from({ length: props.listaRecomendacao.length }).map((_, index) => jsxRuntime.jsx(Counters, { selected: index === selectedContent, onClick: () => setSelectedContent(index) }, index)) })] }) }));
+                    return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
+                }), jsxRuntime.jsx(ListCounters, { children: Array.from({ length: props.listaRecomendacao.length }).map((_, index) => (jsxRuntime.jsx(Counters, { selected: index === selectedContent, onClick: () => setSelectedContent(index) }, index))) })] }) }));
 }
 
 const RectangleUpLeft = styled__default["default"].div `
@@ -8186,7 +8188,7 @@ const WrapperIconNotificationMobile = styled__default["default"].div `
 `;
 const SubMenuContainer = styled__default["default"].div `
   width: 100%;
-  height: 32px;
+  height: 50px;
   ${(props) => props.marginTop &&
     styled.css `
       margin-top: 4rem;

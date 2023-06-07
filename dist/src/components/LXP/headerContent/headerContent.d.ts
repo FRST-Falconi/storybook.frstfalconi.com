@@ -3,6 +3,7 @@ interface HeaderContentProps {
     zeroHeigthDescription?: boolean;
     tmnDescription?: number;
     onDisplay?: boolean;
+    height?: number | string;
 }
 export declare const Container: import("styled-components").StyledComponent<"div", any, {}, never>;
 export declare const HeaderImage: import("styled-components").StyledComponent<"div", any, HeaderContentProps, never>;

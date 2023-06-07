@@ -8,6 +8,7 @@ interface objPropiedades {
     channel?: string;
     onClick?: () => void;
     labelButton?: string;
+    height?: number | string;
 }
 interface HeaderContentParams {
     textViewMore?: string;
@@ -15,6 +16,7 @@ interface HeaderContentParams {
     autoplayTime?: number;
     listaRecomendacao: Array<objPropiedades>;
     style?: React.CSSProperties;
+    height?: number | string;
 }
 export default function HeaderContent(props: HeaderContentParams): JSX.Element;
 export {};
