@@ -146,6 +146,10 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     useEffect(() => {
         setDefinedSteps(getStepsChallenge(props.language, props.stepProblem, setSelectedStep, props.onSelectedStep))
     }, [props.language, props.stepProblem, props.onSelectedStep])
+
+    useEffect(() => {
+        setSelectedStep(props.stepActive)
+    },[props.stepActive])
     
 
     const CustomSlider = withStyles({
@@ -347,14 +351,14 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     paddingTop: 8, 
                     paddingBottom: 16, 
                     marginTop: 16, 
-                    marginBottom: 50, 
+                    marginBottom: 60, 
                     borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
                     display: 'flex', justifyContent:'center'}}
                 >
                     <div  style={{ width:'95%'}}>
                         <StepsProgress
                             definedSteps={definedSteps}
-                            stepSelected={props.stepActive}
+                            stepSelected={selectedStep}
                         />
                     </div>
                     {/* <MissionSteps
