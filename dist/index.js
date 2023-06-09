@@ -12737,6 +12737,27 @@ const topHeaderTag = styled__default["default"].span `
 
 `;
 
+// import * as Styles from './avatarStyles'
+// import { IAvatar } from './stepsProgress'
+function StepsProgress({ definedSteps, stepSelected, width = 600 }) {
+    const stepColor = definedSteps.filter(s => s.step !== 1);
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(material.Box, { sx: { display: 'flex', justifyContent: 'space-between', maxWidth: `100%`, margin: 'auto', position: 'relative' }, children: definedSteps && Array.isArray(definedSteps) ?
+                    definedSteps.map((item, index) => {
+                        if (item?.step == stepSelected) {
+                            return (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Box, { sx: { width: '50px', height: '50px', borderRadius: '150px', background: '#FFE0C2', opacity: '0.5', color: '#FFF' } }), jsxRuntime.jsx(material.Box, { onClick: item?.action, sx: { cursor: 'pointer', width: '30px', height: '30px', borderRadius: '150px', background: '#F26818', color: '#FFF', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-40px', position: 'relative', marginLeft: '10px' }, children: item?.step }), jsxRuntime.jsx(material.Box, { sx: { marginTop: '20px', width: '0px', textAlign: 'center' }, children: item?.name })] }, index));
+                        }
+                        if (!(item?.step == stepSelected) && item?.active) {
+                            return (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Box, { sx: { width: '50px', height: '50px', borderRadius: '150px', background: '#FFE0C2', opacity: '0', color: '#FFF' } }), jsxRuntime.jsx(material.Box, { onClick: item?.action, sx: { cursor: 'pointer', width: '30px', height: '30px', borderRadius: '150px', background: '#FEA852', color: '#FFF', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-40px', position: 'relative', marginLeft: '10px' }, children: item?.step }), jsxRuntime.jsx(material.Box, { sx: { marginTop: '20px', width: '0px', textAlign: 'center' }, children: item?.name })] }, index));
+                        }
+                        if (!item?.active) {
+                            return (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Box, { sx: { cursor: 'not-allowed', width: '50px', height: '50px', borderRadius: '150px', background: '#FFE0C2', opacity: '0', color: '#FFF' } }), jsxRuntime.jsx(material.Box, { sx: { width: '30px', height: '30px', borderRadius: '150px', background: '#BDBDBD', color: '#FFF', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-40px', marginLeft: '10px' }, children: item?.step }), jsxRuntime.jsx(material.Box, { sx: { marginTop: '20px', width: '0px', textAlign: 'center' }, children: item?.name })] }, index));
+                        }
+                    })
+                    : null }), jsxRuntime.jsx(material.Box, { sx: { display: 'flex', justifyContent: 'space-between', maxWidth: `calc(100% - 4%)`, margin: 'auto', marginTop: '-77px' }, children: stepColor && Array.isArray(stepColor) ?
+                    stepColor.map((item, index) => jsxRuntime.jsx(material.Box, { sx: { height: '8px', background: item?.active ? '#FEA852' : '#D9D9D9', width: `100%` } }, index))
+                    : null })] }));
+}
+
 const Container$2 = styled__default["default"].div `
     padding: 1px 24px 0px 24px;
     display: flex;
@@ -12938,6 +12959,10 @@ function BannerProblemFeed(props) {
     React.useEffect(() => {
         setStateLatestComment(props.latestComment);
     }, [props.latestComment]);
+    const [definedSteps, setDefinedSteps] = React.useState(getStepsChallenge(props.language, props.stepProblem, setSelectedStep, props.onSelectedStep) || []);
+    React.useEffect(() => {
+        setDefinedSteps(getStepsChallenge(props.language, props.stepProblem, setSelectedStep, props.onSelectedStep));
+    }, [props.language, props.stepProblem, props.onSelectedStep]);
     const CustomSlider = styles$1.withStyles({
         root: {
             color: "#FF4D0D",
@@ -13000,10 +13025,50 @@ function BannerProblemFeed(props) {
                                                         : props.language === 'pt-PT' ? 'Case de sucesso'
                                                             : null)
                                             : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
-                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: { width: '100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(MissionSteps, { stepProblem: props.stepProblem, stepActive: props.stepActive, onSelected: (step) => {
-                                props.onSelectedStep(step);
-                                setSelectedStep(step);
-                            }, idioma: props.language }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews })] }));
+                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: {
+                            width: '100%',
+                            paddingTop: 8,
+                            paddingBottom: 16,
+                            marginTop: 16,
+                            marginBottom: 50,
+                            borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
+                            display: 'flex', justifyContent: 'center'
+                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: props.stepActive }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews })] }));
+}
+function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
+    let translate = {
+        "pt-BR": ["Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos"],
+        "es": ["Definición", "Hipótesis", "Pruebas", "Resultados", "Próximos pasos"],
+        "en-US": ["Definition", "Hypotheses", "Tests", "Results", "Next Steps"],
+        "pt-PT": ["Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos"],
+    };
+    let steps = [
+        { step: 1, active: false, name: translate[language][0], action: () => {
+                onSelectedStep(1);
+                setSelectedStep(1);
+            } },
+        { step: 2, active: false, name: translate[language][1], action: () => {
+                onSelectedStep(2);
+                setSelectedStep(2);
+            } },
+        { step: 3, active: false, name: translate[language][2], action: () => {
+                onSelectedStep(3);
+                setSelectedStep(3);
+            } },
+        { step: 4, active: false, name: translate[language][3], action: () => {
+                onSelectedStep(4);
+                setSelectedStep(4);
+            } },
+        { step: 5, active: false, name: translate[language][4], action: () => {
+                onSelectedStep(5);
+                setSelectedStep(5);
+            } },
+    ];
+    let maxStep = Math.min(stepProblem, steps.length);
+    for (let i = 0; i < maxStep; i++) {
+        steps[i].active = true;
+    }
+    return steps;
 }
 
 const ButtonSessionFilters = styled__default["default"].button `
@@ -16918,6 +16983,7 @@ exports.Stepper = Stepper;
 exports.StepperItem = StepperItem;
 exports.Steps = Steps;
 exports.StepsMission = MissionSteps;
+exports.StepsProgress = StepsProgress;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;

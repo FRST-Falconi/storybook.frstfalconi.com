@@ -411,79 +411,42 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     )
 }
 
-function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
-    let translate = {
-        "pt-BR": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
-        "es":    [ "Definición", "Hipótesis", "Pruebas", "Resultados", "Próximos pasos" ],
-        "en-US": [ "Definition", "Hypotheses", "Tests", "Results", "Next Steps" ],
-        "pt-PT": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
-    };
-
-    try {
+    function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
+        let translate = {
+            "pt-BR": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
+            "es":    [ "Definición", "Hipótesis", "Pruebas", "Resultados", "Próximos pasos" ],
+            "en-US": [ "Definition", "Hypotheses", "Tests", "Results", "Next Steps" ],
+            "pt-PT": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
+        };
+    
         let steps = [
-            { step: 1, active: false, name:  translate[language][0], action: () => { 
-                onSelectedStep(1)
+            { step: 1, active: false, name: translate[language][0], action: () => { 
+                onSelectedStep(1);
                 setSelectedStep(1);
             }},
-            { step: 2, active: false, name:  translate[language][1], action: () => { 
-                onSelectedStep(2)
+            { step: 2, active: false, name: translate[language][1], action: () => { 
+                onSelectedStep(2);
                 setSelectedStep(2);
-                return;
             }},
-            { step: 3, active: false, name:  translate[language][2], action: () => { 
-                onSelectedStep(3)
+            { step: 3, active: false, name: translate[language][2], action: () => { 
+                onSelectedStep(3);
                 setSelectedStep(3);
-                return;
-            }},,
+            }},
             { step: 4, active: false, name: translate[language][3], action: () => { 
-                onSelectedStep(4)
+                onSelectedStep(4);
                 setSelectedStep(4);
-                return;
-            }},,
+            }},
             { step: 5, active: false, name: translate[language][4], action: () => { 
-                onSelectedStep(5)
+                onSelectedStep(5);
                 setSelectedStep(5);
-                return;
             }},
         ];
-
-        for (let i = 0; i < stepProblem; i++) {
+    
+        let maxStep = Math.min(stepProblem, steps.length);
+    
+        for (let i = 0; i < maxStep; i++) {
             steps[i].active = true;
         }
-
-        return steps
-    } catch(e) {
-        let steps = [
-            { step: 1, active: false, name:  translate['pt-BR'][0], action: () => { 
-                onSelectedStep(1)
-                setSelectedStep(1);
-            }},
-            { step: 2, active: false, name:  translate['pt-BR'][1], action: () => { 
-                onSelectedStep(2)
-                setSelectedStep(2);
-                return;
-            }},
-            { step: 3, active: false, name:  translate['pt-BR'][2], action: () => { 
-                onSelectedStep(3)
-                setSelectedStep(3);
-                return;
-            }},,
-            { step: 4, active: false, name: translate['pt-BR'][3], action: () => { 
-                onSelectedStep(4)
-                setSelectedStep(4);
-                return;
-            }},,
-            { step: 5, active: false, name: translate['pt-BR'][4], action: () => { 
-                onSelectedStep(5)
-                setSelectedStep(5);
-                return;
-            }},
-        ];
-
-        for (let i = 0; i < stepProblem; i++) {
-            steps[i].active = true;
-        }
-
-        return steps
+    
+        return steps;
     }
-}
