@@ -17,11 +17,10 @@ CardFaseUm.args = {
   cardTitle: 'Space Race Game',
   cardDescription:
     'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
-  faseId: '123',
   textButtonVisualizar: 'Vizualizar',
   textButtonContinue: 'Continuar',
-  handleClick: (problemId) => {
-    alert(problemId)
+  handleClickContinue: () => {
+    alert('continue')
   },
   optionsMenuMore: [
     {
@@ -53,7 +52,6 @@ CardFinalizado.args = {
   cardTitle: 'Space Race Game',
   cardDescription:
     'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
-  faseId: '456',
   textButtonVisualizar: 'Vizualizar',
   optionsMenuMore: [
     {

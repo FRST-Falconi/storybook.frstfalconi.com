@@ -5,12 +5,11 @@ import Button from '@components/buttons'
 import MenuMore from '@components/menu-more'
 
 interface CardDefinicaoFaseProps {
-  faseId: string
   cardTitle?: string
   cardDescription?: string
-  handleClick?: (faseId: string) => void
+  handleClickContinue?: () => void
   handleToView?: () => void
-  optionsMenuMore?: []
+  optionsMenuMore?: any
   titleFase?: string
   fase?: 'finalizado' | '1' | '2' | '3' | '4' | '5'
   textButtonVisualizar?: string
@@ -59,7 +58,7 @@ export default function CardDefinicaoFase(props: CardDefinicaoFaseProps) {
           <Button
             variant="link"
             label={props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar'}
-            handleClick={() => props.handleToView()}
+            handleClick={props.handleToView}
           />
         </div>
       ) : (
@@ -67,13 +66,13 @@ export default function CardDefinicaoFase(props: CardDefinicaoFaseProps) {
           <Button
             variant="link"
             label={props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar'}
-            handleClick={() => props.handleToView()}
+            handleClick={props.handleToView}
           />
           <div className={style.divisoria}></div>
           <Button
             variant="link"
             label={props.textButtonContinue ? props.textButtonContinue : 'Continuar'}
-            handleClick={() => props.handleClick(props.faseId)}
+            handleClick={props.handleClickContinue}
           />
         </div>
       )}
