@@ -378,7 +378,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     label={props.textButton} 
                     variant='expandedPrimary' 
                     handleClick={props.onClickButton} 
-                    startIcon={<Icons.AddIcon fill={FRSTTheme['colors'].shadeWhite} />} 
+                    // startIcon={<Icons.AddIcon fill={FRSTTheme['colors'].shadeWhite} />} 
                 />
 
             </Styles.bannerContainer>
