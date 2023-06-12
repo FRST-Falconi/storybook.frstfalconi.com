@@ -5348,12 +5348,12 @@ function MenuMore({ iconButton, options, style }) {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: '#444' }) }), listOptions && listOptions?.length > 0 &&
-                    jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
-                            return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => itemOption?.onClick(), style: { borderBottom: ((listOptions?.length - 1) == index) ? '' : '1px solid #EBEBEB',
-                                        color: itemOption?.color ? itemOption?.color : '#222'
-                                    }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon ? itemOption?.startIcon : '' }), jsxRuntime.jsx(TextOption$1, { children: itemOption?.description })] }, index) });
-                        }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
+                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => itemOption?.onClick(), style: {
+                                    borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
+                                    color: itemOption?.color ? itemOption?.color : '#222'
+                                }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon ? itemOption?.startIcon : '' }), jsxRuntime.jsx(TextOption$1, { children: itemOption?.description })] }) }, index));
+                    }) }))] }) }));
 }
 
 function CardDefinicaoFase(props) {
