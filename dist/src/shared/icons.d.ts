@@ -159,5 +159,11 @@ export declare function VotarIcon({ fill, stroke, customColor_1, width, height }
 export declare function VotarIconPressed({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
 export declare function IconCriarIdeia({ fill, stroke, customColor_1, width, height }: IconsProps): JSX.Element;
+export declare function FaseUm(): JSX.Element;
+export declare function FaseDois(): JSX.Element;
+export declare function FaseTres(): JSX.Element;
+export declare function FaseQuatro(): JSX.Element;
+export declare function FaseCinco(): JSX.Element;
+export declare function FaseFinalizado(): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map
