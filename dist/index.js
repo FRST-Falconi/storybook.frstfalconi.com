@@ -5348,7 +5348,7 @@ const Progress$1 = styled__default["default"].ul `
   list-style: none;
   align-items: flex-start;
 `;
-const ProgressItem = styled__default["default"].li `
+const ProgressItem$1 = styled__default["default"].li `
   width: 100%;
   min-height: 78px;
   height: auto;
@@ -5464,7 +5464,7 @@ function Stepper({ children, }) {
 }
 
 function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
-    return (jsxRuntime.jsx(ProgressItem, { active: active, children: active
+    return (jsxRuntime.jsx(ProgressItem$1, { active: active, children: active
             ?
                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button$5, { handleClick: onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
             :
@@ -7521,7 +7521,7 @@ const BorderLinearProgress = styled__default["default"](LinearProgress__default[
   }
 `;
 
-function ProgressBar$1({ value, label, style }) {
+function ProgressBar$2({ value, label, style }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ProgressContainer, { style: style, children: [jsxRuntime.jsx("span", { children: label }), jsxRuntime.jsxs(ValueAndProgress, { children: [jsxRuntime.jsx(BorderLinearProgress, { variant: "determinate", value: value }), " \u00A0", value + '%'] })] }) }));
 }
 
@@ -7745,7 +7745,7 @@ function HeaderContent(props) {
         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsx(SpaceButtonTop, { onClick: item.onClick, children: jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary" }) })] }));
     }
     function InProgressHeader(item) {
-        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel, style: { width: 200 } }), jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
+        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$2, { value: item.progresso, label: item.channel, style: { width: 200 } }), jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$9, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
                     return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
@@ -11536,7 +11536,7 @@ const ProgressBox = styled__default["default"](_.Box) `
   margin-top: 160px !important;
   position: relative !important;
 `;
-const ProgressBar = styled__default["default"](_.LinearProgress) `
+const ProgressBar$1 = styled__default["default"](_.LinearProgress) `
   width: 128px !important;
   height: 13px !important;
   border-radius: 100px !important;
@@ -11678,7 +11678,7 @@ function MentorComponent(props) {
 }
 function PercentageProgress({ progress }) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: progress && (jsxRuntime.jsx(ProgressBox, { children: jsxRuntime.jsx(_.Grid, { container: true, spacing: 0, alignItems: "center", children: progress > 0 &&
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(_.Grid, { item: true, xs: 10, children: jsxRuntime.jsx(ProgressBar, { variant: "determinate", value: progress }) }), jsxRuntime.jsx(_.Grid, { item: true, xs: 2, children: jsxRuntime.jsxs(ProgressLabel, { children: [progress, "%"] }) })] }) }) })) });
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(_.Grid, { item: true, xs: 10, children: jsxRuntime.jsx(ProgressBar$1, { variant: "determinate", value: progress }) }), jsxRuntime.jsx(_.Grid, { item: true, xs: 2, children: jsxRuntime.jsxs(ProgressLabel, { children: [progress, "%"] }) })] }) }) })) });
 }
 
 function CardTrailCarousel({ objectCards, marginsArrowButton, move, isVisibleButtons, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, label }) {
@@ -12737,25 +12737,98 @@ const topHeaderTag = styled__default["default"].span `
 
 `;
 
-// import * as Styles from './avatarStyles'
+const ProgressBar = styled__default["default"](material.Box) `
+    display: flex;
+    justify-content: space-between;
+    max-width: calc(100% - 66px);
+    margin: auto;
+    margin-bottom: -28px;    
+    
+    @media (max-width: 400px) {
+        max-width: calc(100% - 50px);
+        margin-bottom: -28px;    
+    }
+`;
+const ProgressItem = styled__default["default"](material.Box) `
+    height: 8px;
+    background: ${({ active }) => active ? '#FEA852' : '#D9D9D9'};
+    width: 100%;
+    @media (max-width: 400px) {
+        height: 5px;
+    }
+`;
+const ContainerSteps = styled__default["default"](material.Box) `
+    display: flex;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+`;
+const CicleStep = styled__default["default"](material.Box) `
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #FFE0C2;
+    color: #FFF;
+    opacity: ${({ variant }) => variant == 'selected' ? '0.5' : '0'};
+    cursor: ${({ variant }) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+    @media (max-width: 400px) {    
+        opacity: 0;
+        width: 25px;
+        height: 25px;
+    }
+`;
+const CicleStepChar = styled__default["default"](material.Box) `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #FFF;
+    margin-left: 10px;
+    margin-top: -40px;
+    background: ${({ variant }) => variant == 'disabled' ? ('#BDBDBD') : (variant == 'selected' ? '#F26818' : '#FEA852')};
+    position: ${({ variant }) => variant != 'disabled' && 'relative'};
+    cursor: ${({ variant }) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+
+    @media (max-width: 400px) {
+        width: 15px;
+        height: 15px;
+        margin-top: -8px;    
+    }
+`;
+const CicleStepName = styled__default["default"](material.Box) `
+    margin-left: -10px;
+    margin-top: 20px;
+    width: 70px;
+    text-align: center;
+    color: ${({ variant }) => variant == 'disabled' ? ('#757575') : (variant == 'selected' ? '#F26818' : '#222')};
+    font-weight: ${({ variant }) => variant == 'selected' ? '600' : '400'};
+    cursor: ${({ variant }) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+
+    @media (max-width: 400px) {        
+        font-size: 10px;
+    }
+`;
+
 // import { IAvatar } from './stepsProgress'
 function StepsProgress({ definedSteps, stepSelected, width = 600 }) {
     const stepColor = definedSteps.filter(s => s.step !== 1);
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(material.Box, { sx: { display: 'flex', justifyContent: 'space-between', maxWidth: `100%`, margin: 'auto', position: 'relative' }, children: definedSteps && Array.isArray(definedSteps) ?
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(ProgressBar, { children: stepColor && Array.isArray(stepColor) ?
+                    stepColor.map((item, index) => jsxRuntime.jsx(ProgressItem, { active: item?.active }, index))
+                    : null }), jsxRuntime.jsx(ContainerSteps, { children: definedSteps && Array.isArray(definedSteps) ?
                     definedSteps.map((item, index) => {
-                        if (item?.step == stepSelected) {
-                            return (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Box, { sx: { width: '50px', height: '50px', borderRadius: '150px', background: '#FFE0C2', opacity: '0.5', color: '#FFF' } }), jsxRuntime.jsx(material.Box, { onClick: item?.action, sx: { cursor: 'pointer', width: '30px', height: '30px', borderRadius: '150px', background: '#F26818', color: '#FFF', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-40px', position: 'relative', marginLeft: '10px' }, children: item?.step }), jsxRuntime.jsx(material.Box, { sx: { marginLeft: '-10px', marginTop: '20px', width: '70px', textAlign: 'center' }, children: item?.name })] }, index));
-                        }
-                        if (!(item?.step == stepSelected) && item?.active) {
-                            return (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Box, { sx: { width: '50px', height: '50px', borderRadius: '150px', background: '#FFE0C2', opacity: '0', color: '#FFF' } }), jsxRuntime.jsx(material.Box, { onClick: item?.action, sx: { cursor: 'pointer', width: '30px', height: '30px', borderRadius: '150px', background: '#FEA852', color: '#FFF', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-40px', position: 'relative', marginLeft: '10px' }, children: item?.step }), jsxRuntime.jsx(material.Box, { sx: { marginLeft: '-10px', marginTop: '20px', width: '70px', textAlign: 'center' }, children: item?.name })] }, index));
-                        }
-                        if (!item?.active) {
-                            return (jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(material.Box, { sx: { cursor: 'not-allowed', width: '50px', height: '50px', borderRadius: '150px', background: '#FFE0C2', opacity: '0', color: '#FFF' } }), jsxRuntime.jsx(material.Box, { sx: { width: '30px', height: '30px', borderRadius: '150px', background: '#BDBDBD', color: '#FFF', display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: '-40px', marginLeft: '10px' }, children: item?.step }), jsxRuntime.jsx(material.Box, { sx: { marginLeft: '-10px', marginTop: '20px', width: '70px', textAlign: 'center' }, children: item?.name })] }, index));
-                        }
+                        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(item?.step == stepSelected) &&
+                                    jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'selected' }), (!(item?.step == stepSelected) && item?.active) &&
+                                    jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'normal' }), (!item?.active) &&
+                                    jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'disabled' })] }));
                     })
-                    : null }), jsxRuntime.jsx(material.Box, { sx: { display: 'flex', justifyContent: 'space-between', maxWidth: `calc(100% - 4%)`, margin: 'auto', marginTop: '-77px' }, children: stepColor && Array.isArray(stepColor) ?
-                    stepColor.map((item, index) => jsxRuntime.jsx(material.Box, { sx: { height: '8px', background: item?.active ? '#FEA852' : '#D9D9D9', width: `100%` } }, index))
                     : null })] }));
+}
+function StepItem({ index, name, action, step, variant }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { variant: variant }), jsxRuntime.jsx(CicleStepChar, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
 }
 
 const Container$2 = styled__default["default"].div `
@@ -13030,10 +13103,10 @@ function BannerProblemFeed(props) {
                                             : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
                             jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: {
                             width: '100%',
-                            paddingTop: 8,
+                            paddingTop: 30,
                             paddingBottom: 16,
                             marginTop: 16,
-                            marginBottom: 60,
+                            marginBottom: 4,
                             borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
                             display: 'flex', justifyContent: 'center'
                         }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: FRSTTheme['colors'].shadeWhite }) })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews })] }));
@@ -13967,7 +14040,7 @@ function ThumbListContent(props) {
         if (props.isSelected)
             setIsSelected(props?.isSelected);
     }, [props.isSelected]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ? (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title && jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })) : (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, onClick: props.onClickThumb, children: [props.imageSrc ? (tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsx(ProgressAndImg, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) }) }) })) : (jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb }))) : tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { onClick: props.onClickThumb, children: jsxRuntime.jsxs(iconsThumbAndProgress, { children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx(IconAndProgress, { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, props.typeThumbContent === 'textual' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, jsxRuntime.jsx(ProgressIcon, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) })] }) })) : (jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'textual' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null] })), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, tagVisualized: props.tagValue, isSelected: props?.isSelected, children: [props.tagValue !== 'notVisualized' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.tagValue === 'vizualized' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, isSelected: props?.isSelected, children: props.textProgressVisualized }) })) : null, props.tagValue === 'inProgress' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, isSelected: props?.isSelected, children: props.textProgressInProgress }) })) : null] })) : null, props.title ? jsxRuntime.jsx("span", { children: props.title }) : null, jsxRuntime.jsx(descriptionThumbContent, { showText: showMore, isSelected: props?.isSelected, children: props.description })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$5, { variant: "link", label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12, color: props?.isSelected ? '#E5E7EB' : '#444444' } }) })] })) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ? (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title && jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })) : (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, onClick: props.onClickThumb, children: [props.imageSrc ? (tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsx(ProgressAndImg, { children: jsxRuntime.jsx(ProgressBar$2, { label: "", value: props.valueProgress }) }) }) })) : (jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb }))) : tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { onClick: props.onClickThumb, children: jsxRuntime.jsxs(iconsThumbAndProgress, { children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx(IconAndProgress, { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, props.typeThumbContent === 'textual' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, jsxRuntime.jsx(ProgressIcon, { children: jsxRuntime.jsx(ProgressBar$2, { label: "", value: props.valueProgress }) })] }) })) : (jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'textual' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null] })), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, tagVisualized: props.tagValue, isSelected: props?.isSelected, children: [props.tagValue !== 'notVisualized' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.tagValue === 'vizualized' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, isSelected: props?.isSelected, children: props.textProgressVisualized }) })) : null, props.tagValue === 'inProgress' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, isSelected: props?.isSelected, children: props.textProgressInProgress }) })) : null] })) : null, props.title ? jsxRuntime.jsx("span", { children: props.title }) : null, jsxRuntime.jsx(descriptionThumbContent, { showText: showMore, isSelected: props?.isSelected, children: props.description })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$5, { variant: "link", label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12, color: props?.isSelected ? '#E5E7EB' : '#444444' } }) })] })) }));
 }
 
 const containerList = styled__default["default"].div `
@@ -16958,7 +17031,7 @@ exports.PodCastIcon = PodCastIcon;
 exports.PopOver = PopOver;
 exports.PopOverLXP = PopOverLXP;
 exports.PostFeed = PostFeed;
-exports.ProgressBar = ProgressBar$1;
+exports.ProgressBar = ProgressBar$2;
 exports.QuantidadeDesafios = QuantidadeDesafios;
 exports.Rating = Rating;
 exports.ScrollContainer = ScrollContainer;

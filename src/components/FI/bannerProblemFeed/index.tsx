@@ -348,10 +348,10 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 </Styles.lastUpdatedText>
                 <div style={{
                     width:'100%', 
-                    paddingTop: 8, 
+                    paddingTop: 30, 
                     paddingBottom: 16, 
                     marginTop: 16, 
-                    marginBottom: 60, 
+                    marginBottom: 4, 
                     borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
                     display: 'flex', justifyContent:'center'}}
                 >
