@@ -4,6 +4,7 @@ import * as Styles from './bannerProblemFeedStyles'
 import Avatar from "@components/avatar";
 import Tag from "@components/tag";
 import MissionSteps from "@components/cardLT/StepsMission/StepMission";
+import StepsProgress from "@components/DS/steps-progress";
 import { useState, useEffect } from "react";
 import Slider from '@mui/material/Slider';
 import { withStyles } from '@material-ui/styles';
@@ -136,6 +137,20 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     useEffect(() => {
         setStateLatestComment(props.latestComment)
     }, [props.latestComment]);
+
+
+    const [ definedSteps, setDefinedSteps ] = useState(
+        getStepsChallenge(props.language, props.stepProblem, setSelectedStep, props.onSelectedStep) || []
+    );
+    
+    useEffect(() => {
+        setDefinedSteps(getStepsChallenge(props.language, props.stepProblem, setSelectedStep, props.onSelectedStep))
+    }, [props.language, props.stepProblem, props.onSelectedStep])
+
+    useEffect(() => {
+        setSelectedStep(props.stepActive)
+    },[props.stepActive])
+    
 
     const CustomSlider = withStyles({
         root: {
@@ -331,9 +346,22 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     <span style={{fontWeight: 700}}>{props.lastUpdated}:</span>
                     <span>&nbsp;{props.lastUpdatedStep}</span>
                 </Styles.lastUpdatedText>
-                <div style={{width:'100%', marginTop: 16, borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`}}>
-
-                    <MissionSteps
+                <div style={{
+                    width:'100%', 
+                    paddingTop: 30, 
+                    paddingBottom: 16, 
+                    marginTop: 16, 
+                    marginBottom: 4, 
+                    borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
+                    display: 'flex', justifyContent:'center'}}
+                >
+                    <div  style={{ width:'95%'}}>
+                        <StepsProgress
+                            definedSteps={definedSteps}
+                            stepSelected={selectedStep}
+                        />
+                    </div>
+                    {/* <MissionSteps
                         stepProblem={props.stepProblem}
                         stepActive={props.stepActive}
                         onSelected={(step: number) => {
@@ -341,7 +369,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                             setSelectedStep(step)
                         }} 
                         idioma={props.language}
-                    />
+                    /> */}
                 </div>
                 
                 <RenderSteps />
@@ -350,7 +378,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     label={props.textButton} 
                     variant='expandedPrimary' 
                     handleClick={props.onClickButton} 
-                    startIcon={<Icons.AddIcon fill={FRSTTheme['colors'].shadeWhite} />} 
+                    // startIcon={<Icons.AddIcon fill={FRSTTheme['colors'].shadeWhite} />} 
                 />
 
             </Styles.bannerContainer>
@@ -386,3 +414,43 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
         </ThemeProvider>
     )
 }
+
+    function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
+        let translate = {
+            "pt-BR": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
+            "es":    [ "Definición", "Hipótesis", "Pruebas", "Resultados", "Próximos pasos" ],
+            "en-US": [ "Definition", "Hypotheses", "Tests", "Results", "Next Steps" ],
+            "pt-PT": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
+        };
+    
+        let steps = [
+            { step: 1, active: false, name: translate[language][0], action: () => { 
+                onSelectedStep(1);
+                setSelectedStep(1);
+            }},
+            { step: 2, active: false, name: translate[language][1], action: () => { 
+                onSelectedStep(2);
+                setSelectedStep(2);
+            }},
+            { step: 3, active: false, name: translate[language][2], action: () => { 
+                onSelectedStep(3);
+                setSelectedStep(3);
+            }},
+            { step: 4, active: false, name: translate[language][3], action: () => { 
+                onSelectedStep(4);
+                setSelectedStep(4);
+            }},
+            { step: 5, active: false, name: translate[language][4], action: () => { 
+                onSelectedStep(5);
+                setSelectedStep(5);
+            }},
+        ];
+    
+        let maxStep = Math.min(stepProblem, steps.length);
+    
+        for (let i = 0; i < maxStep; i++) {
+            steps[i].active = true;
+        }
+    
+        return steps;
+    }
