@@ -8,6 +8,7 @@ import Select from 'react-select'
 import { Tooltip } from '../../../../index'
 
 import StepMission from '../StepsMission/StepMission'
+import StepsProgress from "./../../DS/steps-progress";
 import {
   Brain,
   Mail,
@@ -131,6 +132,19 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
     title = props.isVerified ? 'Desafio verificado' : title
     return title
   }
+
+  const [selectedStep, setSelectedStep] = useState(props?.stepActive);
+  const [ definedSteps, setDefinedSteps ] = useState(
+      getStepsChallenge(Idioma, props?.stepProblem, setSelectedStep, props?.onSelectedStep) || []
+  );
+
+  useEffect(() => {
+      setDefinedSteps(getStepsChallenge(Idioma, props?.stepProblem, setSelectedStep, props?.onSelectedStep))
+  }, [Idioma, props.stepProblem, props.onSelectedStep])
+
+  useEffect(() => {
+      setSelectedStep(props.stepActive)
+  },[props.stepActive])
 
   const MOBILEWIDTH = 650;
 
@@ -388,7 +402,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
           </div>
         </div>
         
-        <StepMission 
+        {/* <StepMission 
           stepProblem={props.stepProblem}
           stepActive={props.stepActive}
           onClickContinue={hasContinueProps ? props.onClickContinue : null}
@@ -397,7 +411,13 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
           }}
           idioma={Idioma}
           
-        />
+        /> */}
+          <div  style={{ width:'100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px'}}>
+            <StepsProgress
+                definedSteps={definedSteps}
+                stepSelected={selectedStep}
+            />
+          </div>
         <div style={{marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32}}>
           {props.children}
         </div>        
@@ -429,5 +449,45 @@ ${email.slice(indexBreak)}`
     
     return optFiltered;
   }
+
+}
+
+
+function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
+  let translate = {
+      "pt-BR": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
+      "es":    [ "Definición", "Hipótesis", "Pruebas", "Resultados", "Próximos pasos" ],
+      "en-US": [ "Definition", "Hypotheses", "Tests", "Results", "Next Steps" ],
+      "pt-PT": [ "Definição", "Hipóteses", "Testes", "Resultados", "Próximos Passos" ],
+  };
+
+  let steps = [
+      { step: 1, active: false, name: translate[language][0], action: () => { 
+          onSelectedStep(1);
+          setSelectedStep(1);
+      }},
+      { step: 2, active: false, name: translate[language][1], action: () => { 
+          onSelectedStep(2);
+          setSelectedStep(2);
+      }},
+      { step: 3, active: false, name: translate[language][2], action: () => { 
+          onSelectedStep(3);
+          setSelectedStep(3);
+      }},
+      { step: 4, active: false, name: translate[language][3], action: () => { 
+          onSelectedStep(4);
+          setSelectedStep(4);
+      }},
+      { step: 5, active: false, name: translate[language][4], action: () => { 
+          onSelectedStep(5);
+          setSelectedStep(5);
+      }},
+  ];
+  let maxStep = Math.min(stepProblem, steps.length);
+
+  for (let i = 0; i < maxStep; i++) {
+      steps[i].active = true;
+  }
+  return steps;
 
 }

@@ -16,6 +16,7 @@ export const ShowData = Template.bind({
 })
 ShowData.args = {
     onClickMessage: () => { alert('Opa!')},
+    onSelectedStep: () => { alert('onSelectedStep!')},
     onClickViewsBtn: () => { alert('Views Btn!')},
     onClickSave: (nome) => {alert(nome)},
     onClickContinue: () => { alert('Continuar desafio!')},
