@@ -89,7 +89,7 @@ export { default as ModalVideo } from './src/components/modal/modalVideo'
 
 export { default as CardProblemGestor } from './src/components/cards/cardProblemGestor'
 export { default as CardProblem } from './src/components/cards/cardProblem'
-export { default as CardDefinicaoProblema } from './src/components/cards/cardDefinicaoProblema'
+export { default as CardDefinicaoFase } from './src/components/cards/cardDefinicaoFase'
 export { default as CardResultConquista } from './src/components/cards/cardResultConquista'
 
 export { default as ExclusiveClassCard } from './src/components/exclusive-class'
