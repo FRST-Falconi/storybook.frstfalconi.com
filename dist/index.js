@@ -502,6 +502,24 @@ function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }) {
 function IconCriarIdeia({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "56", height: "56", viewBox: "0 0 56 56", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M28.0001 51.3333C40.8867 51.3333 51.3334 40.8866 51.3334 28C51.3334 15.1133 40.8867 4.66666 28.0001 4.66666C15.1134 4.66666 4.66675 15.1133 4.66675 28C4.66675 40.8866 15.1134 51.3333 28.0001 51.3333Z", fill: "white", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M28 18.6667V37.3333", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.6667 28H37.3334", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function FaseUm() {
+    return (jsxRuntime.jsx("svg", { width: "52", height: "144", viewBox: "0 0 52 144", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M27.1523 144V26.3L0.152344 42.8V16.2L27.1523 -5.72205e-06H51.7523V144H27.1523Z", fill: "#F18624" }) }));
+}
+function FaseDois() {
+    return (jsxRuntime.jsx("svg", { width: "79", height: "147", viewBox: "0 0 79 147", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M0.429688 146.8V125.8L62.0297 70.9C66.8297 66.6333 70.163 62.6 72.0297 58.8C73.8964 55 74.8297 51.3333 74.8297 47.8C74.8297 43 73.7964 38.7333 71.7297 35C69.663 31.2 66.7964 28.2 63.1297 26C59.5297 23.8 55.363 22.7 50.6297 22.7C45.6297 22.7 41.1964 23.8667 37.3297 26.2C33.5297 28.4667 30.563 31.5 28.4297 35.3C26.2964 39.1 25.2964 43.2 25.4297 47.6H0.629688C0.629688 38 2.76302 29.6333 7.02969 22.5C11.363 15.3667 17.2964 9.83333 24.8297 5.9C32.4297 1.96666 41.1964 -2.86102e-06 51.1297 -2.86102e-06C60.3297 -2.86102e-06 68.5964 2.06666 75.9297 6.19999C83.263 10.2667 89.0297 15.9333 93.2297 23.2C97.4297 30.4 99.5297 38.7 99.5297 48.1C99.5297 54.9667 98.5964 60.7333 96.7297 65.4C94.863 70.0667 92.063 74.3667 88.3297 78.3C84.663 82.2333 80.0964 86.6 74.6297 91.4L30.9297 130.1L28.7297 124.1H99.5297V146.8H0.429688Z", fill: "#F18624" }) }));
+}
+function FaseTres() {
+    return (jsxRuntime.jsx("svg", { width: "80", height: "147", viewBox: "0 0 80 147", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M48.0945 146.7C40.8945 146.7 34.0945 145.3 27.6945 142.5C21.2945 139.7 15.7279 135.733 10.9945 130.6C6.32787 125.467 2.9612 119.4 0.894532 112.4L24.1945 106.1C25.8612 111.833 28.8945 116.267 33.2945 119.4C37.7612 122.467 42.6612 123.967 47.9945 123.9C52.7279 123.9 56.9612 122.8 60.6945 120.6C64.4279 118.4 67.3612 115.433 69.4945 111.7C71.6279 107.9 72.6945 103.667 72.6945 99C72.6945 91.8667 70.3945 85.9 65.7945 81.1C61.1945 76.3 55.2612 73.9 47.9945 73.9C45.7945 73.9 43.6279 74.2 41.4945 74.8C39.4279 75.4 37.4279 76.2333 35.4945 77.3L24.4945 58.3L72.8945 16.9L74.9945 22.7H6.49453V-5.72205e-06H94.7945V22.8L55.8945 60.2L55.6945 53.1C64.4279 53.7 71.8612 56.1333 77.9945 60.4C84.1945 64.6667 88.9279 70.1667 92.1945 76.9C95.5279 83.6333 97.1945 91 97.1945 99C97.1945 108.067 94.9612 116.2 90.4945 123.4C86.0945 130.6 80.1612 136.3 72.6945 140.5C65.2945 144.633 57.0945 146.7 48.0945 146.7Z", fill: "#F18624" }) }));
+}
+function FaseQuatro() {
+    return (jsxRuntime.jsx("svg", { width: "80", height: "144", viewBox: "0 0 80 144", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M63.9602 144V120.2H0.160156V97.7L46.2602 -5.72205e-06H73.7602L27.6602 97.7H63.9602V60.2H88.3602V97.7H101.86V120.2H88.3602V144H63.9602Z", fill: "#F18624" }) }));
+}
+function FaseCinco() {
+    return (jsxRuntime.jsx("svg", { width: "78", height: "147", viewBox: "0 0 78 147", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M47.1063 147C39.7729 147 32.9396 145.5 26.6063 142.5C20.2729 139.433 14.8063 135.233 10.2063 129.9C5.67292 124.567 2.40625 118.367 0.40625 111.3L23.6063 105.1C24.5396 108.967 26.2396 112.3 28.7063 115.1C31.2396 117.9 34.1729 120.067 37.5063 121.6C40.9063 123.133 44.4063 123.9 48.0063 123.9C52.6729 123.9 56.9396 122.767 60.8063 120.5C64.6729 118.233 67.7396 115.2 70.0063 111.4C72.2729 107.533 73.4063 103.267 73.4063 98.6C73.4063 93.9333 72.2396 89.7 69.9063 85.9C67.6396 82.0333 64.5729 79 60.7063 76.8C56.8396 74.5333 52.6063 73.4 48.0063 73.4C42.4729 73.4 37.8729 74.4 34.2063 76.4C30.6063 78.4 27.8396 80.5333 25.9063 82.8L5.30625 76.2L9.70625 -5.72205e-06H87.9063V22.6H22.6063L31.6063 14.1L28.4063 67.1L24.0063 61.7C27.7396 58.3 32.0729 55.7667 37.0063 54.1C41.9396 52.4333 46.7063 51.6 51.3063 51.6C60.3063 51.6 68.2729 53.6667 75.2063 57.8C82.2063 61.8667 87.6729 67.4333 91.6063 74.5C95.6063 81.5667 97.6063 89.6 97.6063 98.6C97.6063 107.6 95.2729 115.767 90.6063 123.1C85.9396 130.367 79.7729 136.167 72.1063 140.5C64.5063 144.833 56.1729 147 47.1063 147Z", fill: "#F18624" }) }));
+}
+function FaseFinalizado() {
+    return (jsxRuntime.jsx("svg", { width: "26", height: "144", viewBox: "0 0 26 144", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M0.964845 144V121.9H25.0648V144H0.964845ZM0.964845 108V-5.72205e-06H25.0648V108H0.964845Z", fill: "#F18624" }) }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -5200,44 +5218,164 @@ function CardProblem(props) {
                         jsxRuntime.jsx("div", { className: style$6.buttonVerMais, children: jsxRuntime.jsx(Button$5, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
 }
 
-var css_248z$6 = ".cardDefinicaoProblema-module_container__zNoyg {\r\n    width: 282px;\r\n    height: 445px;\r\n\r\n    color: #222222;\r\n    background-color: #FFF;\r\n    border-radius: 10px;\r\n\r\n    justify-content: center;\r\n    align-items: center;\r\n    flex-direction: column;\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_tagStatusProblem__FoQ12 {\r\n    position: absolute;\r\n    top: 0;\r\n    right: 0;\r\n\r\n    font-size: 12px;\r\n    font-weight: 500;\r\n    padding: 8px;\r\n\r\n    border-bottom-left-radius: 10px;\r\n    border-top-right-radius: 10px;\r\n\r\n\r\n}\r\n\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi {\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    height: 200px;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_headerContainer__UXFIi img {\r\n    width: 100%;\r\n    height: 100%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_descriptionContainer__Z7yo8 {\r\n\r\n    padding: 20px;\r\n    height: 197px;\r\n\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    flex-direction: column;\r\n    flex-wrap: wrap;\r\n\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg {\r\n    height: 48px;\r\n\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n\r\n    border-top: 1px solid #E8E8E8;\r\n    border-top-left-radius: 5px;\r\n    border-top-right-radius: 5px;\r\n    padding: 15px;\r\n    gap: 32px;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa {\r\n    position: relative;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainerType2__v2sGa::after {\r\n    content: \"\";\r\n    position: absolute;\r\n    background-color: #E8E8E8;\r\n    width: 1px;\r\n    height: 100%;\r\n    left: 50%;\r\n}\r\n\r\n.cardDefinicaoProblema-module_footerContainer__6EjXg svg {\r\n    max-height: 100% !important;\r\n}\r\n";
-var style$5 = {"container":"cardDefinicaoProblema-module_container__zNoyg","tagStatusProblem":"cardDefinicaoProblema-module_tagStatusProblem__FoQ12","headerContainer":"cardDefinicaoProblema-module_headerContainer__UXFIi","descriptionContainer":"cardDefinicaoProblema-module_descriptionContainer__Z7yo8","footerContainer":"cardDefinicaoProblema-module_footerContainer__6EjXg","footerContainerType2":"cardDefinicaoProblema-module_footerContainerType2__v2sGa"};
+var css_248z$6 = ".cardDefinicaoFase-module_container__KEYns {\r\n  width: 282px;\r\n  color: #222222;\r\n  background-color: #fff;\r\n  border-radius: 10px;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  position: relative;\r\n}\r\n\r\n.cardDefinicaoFase-module_headerContainer__uxRId {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: flex-end;\r\n  background: rgba(241, 134, 36, 0.2);\r\n  height: 200px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleDescription__x7pED {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 16px;\r\n  line-height: 110%;\r\n  color: #444444;\r\n}\r\n\r\n.cardDefinicaoFase-module_description__-pzJG {\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 23px;\r\n  color: #f26818;\r\n}\r\n\r\n.cardDefinicaoFase-module_descriptionContainer__XLHCC {\r\n  padding: 20px;\r\n  height: 197px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonContainer__6u6bM {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n\r\n.cardDefinicaoFase-module_divisoria__IYAiv {\r\n  border: 1px solid #bdbdbd;\r\n  transform: rotate(360deg);\r\n}\r\n\r\n.cardDefinicaoFase-module_titleAndMenu__aqXT0 {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  width: 100%;\r\n  align-items: center;\r\n  margin-bottom: 9px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleFrase__b8v0i {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 25px;\r\n  line-height: 110%;\r\n  color: #f18624;\r\n  width: 60%;\r\n  word-break: break-word;\r\n  padding-left: 1.5rem;\r\n  padding-bottom: 2rem;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonFinalizado__V8Oas {\r\n  display: flex;\r\n  justify-content: center;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n";
+var style$5 = {"container":"cardDefinicaoFase-module_container__KEYns","headerContainer":"cardDefinicaoFase-module_headerContainer__uxRId","titleDescription":"cardDefinicaoFase-module_titleDescription__x7pED","description":"cardDefinicaoFase-module_description__-pzJG","descriptionContainer":"cardDefinicaoFase-module_descriptionContainer__XLHCC","buttonContainer":"cardDefinicaoFase-module_buttonContainer__6u6bM","divisoria":"cardDefinicaoFase-module_divisoria__IYAiv","titleAndMenu":"cardDefinicaoFase-module_titleAndMenu__aqXT0","titleFrase":"cardDefinicaoFase-module_titleFrase__b8v0i","buttonFinalizado":"cardDefinicaoFase-module_buttonFinalizado__V8Oas"};
 styleInject(css_248z$6);
 
-/**
- * @param {CardDefinicaoProblemaTranslateProps} props
- */
-function CardDefinicaoProblema(props) {
-    const [statusName, setStatusName] = React.useState((props.statusTextNaoIniciou ? props.statusTextNaoIniciou : 'Não iniciou'));
-    const [statusColor, setStatusColor] = React.useState('#757575');
+styled__default["default"].p `
+  color: white;
+  padding-left: 5px;
+  font-size: 16px;
+`;
+const ButtonMore = styled__default["default"](Button__default["default"]) `
+    width: 30px !important;
+    min-width: 30px !important;
+    max-width: 30px !important;
+    height: 30px !important;
+    margin: 0px !important;
+    padding: 0px !important;
+    display: flex !important;
+    justify-content: center !important;
+    border-radius: 12px !important;
+
+    &:hover {
+        background-color: #FFF9 !important;
+    }
+
+`;
+const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
+  margin-top: 10px;
+  margin-left: 30px;
+  overflow: hidden;
+  border-radius: 8px;
+
+  & .MuiPaper-root {
+    border-radius: 0px;
+    box-shadow: none !important;
+    overflow: visible;
+    background: #00000000;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -15px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid #EBEBEB;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+    }
+  
+    &:after {
+        content: "";
+        position: absolute;
+        top: -14px;
+        right: 8.5px;
+        border-top: 6px solid transparent;
+        border-bottom: 10px solid #FFF;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+    }
+  }
+  ul {
+    box-shadow:  0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px solid #EBEBEB !important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    background: #FFF;
+    width: 160px;
+
+
+  li {
+    padding-left: 25px;
+  }
+  }
+`;
+const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
+  background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
+  padding-right: 45px !important;
+  margin: 1px !important;
+  transition: none !important;
+  animation: none !important;
+  &:hover {
+    background-color: #F7F9FC !important;
+  }
+  &:active {    
+    background-color: #FCF3EB !important;
+  }
+
+  
+`;
+styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+  background-color: #F5792A !important;
+
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    background-color: #FD9350 !important;
+  }
+`;
+const TextOption$1 = styled__default["default"].div `
+  margin-left: 10px;
+  padding-top: 1px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+`;
+const IconOption = styled__default["default"].div `
+  width: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+function MenuMore({ iconButton, options, style }) {
+    const [listOptions, setListOptions] = React.useState(options);
     React.useEffect(() => {
-        switch (props.problemStatus) {
+        setListOptions(options);
+    }, [options]);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: '#444' }) }), listOptions && listOptions?.length > 0 &&
+                    jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
+                            return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => itemOption?.onClick(), style: { borderBottom: ((listOptions?.length - 1) == index) ? '' : '1px solid #EBEBEB',
+                                        color: itemOption?.color ? itemOption?.color : '#222'
+                                    }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon ? itemOption?.startIcon : '' }), jsxRuntime.jsx(TextOption$1, { children: itemOption?.description })] }, index) });
+                        }) })] }) }));
+}
+
+function CardDefinicaoFase(props) {
+    function handleFase() {
+        switch (props.fase) {
+            case '1':
+                return jsxRuntime.jsx(FaseUm, {});
+            case '2':
+                return jsxRuntime.jsx(FaseDois, {});
+            case '3':
+                return jsxRuntime.jsx(FaseTres, {});
+            case '4':
+                return jsxRuntime.jsx(FaseQuatro, {});
+            case '5':
+                return jsxRuntime.jsx(FaseCinco, {});
             case 'finalizado':
-                setStatusColor("#158214"), setStatusName(props.textStatusFinalizado ? props.textStatusFinalizado : "Finalizado");
-                break;
-            case 'proxPassos':
-                setStatusColor("#222222"), setStatusName(props.textStatusProximosPassos ? props.textStatusProximosPassos : "Próximos passos");
-                break;
-            case 'resultadosAprendizados':
-                setStatusColor("#AD005C"), setStatusName(props.textStatusResultadosAprendizados ? props.textStatusResultadosAprendizados : "Resultados e aprendizados");
-                break;
-            case 'testesRealizados':
-                setStatusColor("#663366"), setStatusName(props.textStatusTestesRealizados ? props.textStatusTestesRealizados : "Testes realizados");
-                break;
-            case 'hipoteseLevantada':
-                setStatusColor("#F8B911"), setStatusName(props.textStatusHipotesesLevantadas ? props.textStatusHipotesesLevantadas : "Hipóteses levantadas");
-                break;
-            case 'problemaDefinido':
-                setStatusColor("#252BB1"), setStatusName(props.textsStatusProblemaDefinido ? props.textsStatusProblemaDefinido : "Problema definido");
-                break;
-            case 'problemaCriado':
+                return (jsxRuntime.jsx("div", { style: { paddingRight: '1.5rem' }, children: jsxRuntime.jsx(FaseFinalizado, {}) }));
             default:
-                setStatusColor("#757575"), setStatusName(props.textStatusProblemaCriado ? props.textStatusProblemaCriado : "Problema criado");
-                break;
+                return jsxRuntime.jsx(FaseUm, {});
         }
-    }, [props.problemStatus]);
-    return (jsxRuntime.jsxs("div", { className: style$5.container, children: [props.typeButton !== 1 &&
-                jsxRuntime.jsx("div", { className: style$5.tagStatusProblem, style: { background: statusColor, color: statusName === (props.textHipotesesLevantadas ? props.textHipotesesLevantadas : "Hipóteses Levantadas") ? '#222222' : '#FFF' }, children: statusName }), jsxRuntime.jsx("div", { className: style$5.headerContainer, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/background-prezi.png' }) }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 500 }, children: [" ", props.cardTitle] }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, marginTop: 16 }, children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs("div", { className: `${style$5.footerContainer} ${props.typeButton === 2 && style$5.footerContainerType2}`, children: [props.typeButton === 2 && jsxRuntime.jsx(Button$5, { variant: 'link', label: props.textButtonVisualizar ? props.textButtonVisualizar : "Visualizar", startIcon: jsxRuntime.jsx(OpenedEye, {}), handleClick: () => props.handleToView() }), jsxRuntime.jsx(Button$5, { variant: 'link', label: props.typeButton === 1 ? (props.textButtonDefinirProblema ? props.textButtonDefinirProblema : 'Definir novo problema') : (props.textButtonContinue ? props.textButtonContinue : 'Continuar'), startIcon: props.typeButton === 1 ? jsxRuntime.jsx(AddIcon, {}) : jsxRuntime.jsx(EditIcon, {}), handleClick: () => props.handleClick(props.problemId) })] })] }));
+    }
+    return (jsxRuntime.jsxs("div", { className: style$5.container, children: [jsxRuntime.jsxs("div", { className: style$5.headerContainer, children: [jsxRuntime.jsx("div", { className: style$5.titleFrase, children: props.titleFase ? props.titleFase : 'Definição do objetivo' }), props.fase ? handleFase() : jsxRuntime.jsx(FaseUm, {})] }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("div", { className: style$5.titleAndMenu, children: [jsxRuntime.jsxs("span", { className: style$5.titleDescription, children: [" ", props.cardTitle] }), jsxRuntime.jsx(MenuMore, { options: props.optionsMenuMore })] }), jsxRuntime.jsxs("span", { className: style$5.description, children: [" ", props.cardDescription] })] }), props.fase === 'finalizado' ? (jsxRuntime.jsx("div", { className: style$5.buttonFinalizado, children: jsxRuntime.jsx(Button$5, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: () => props.handleToView() }) })) : (jsxRuntime.jsxs("div", { className: style$5.buttonContainer, children: [jsxRuntime.jsx(Button$5, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: () => props.handleToView() }), jsxRuntime.jsx("div", { className: style$5.divisoria }), jsxRuntime.jsx(Button$5, { variant: "link", label: props.textButtonContinue ? props.textButtonContinue : 'Continuar', handleClick: () => props.handleClick(props.faseId) })] }))] }));
 }
 
 var css_248z$5 = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
@@ -8809,7 +8947,7 @@ const AvatarCustomUser = styled__default["default"](Avatar__default["default"]) 
   height: 32px;
   width: 32px;
 `;
-const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
+const MenuCustom$1 = styled__default["default"](Menu__default["default"]) `
   & .MuiPaper-root{
     border-radius: 0px;
     ${({ variantstyle }) => variantstyle == 'LXP' && `border-bottom-left-radius: 8px;
@@ -8832,7 +8970,7 @@ styled__default["default"](Menu__default["default"]) `
     padding-bottom: 0px;
   }
 `;
-const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
+const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]) `
   color: white !important;
   border: 0;
 
@@ -8891,12 +9029,12 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
         setAnchorSub(event.currentTarget);
         setSubMenu(subItens);
     };
-    return (jsxRuntime.jsx(Container$6, { style: { ...style }, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png' }), !isMobileVersion && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }))] }), jsxRuntime.jsxs(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png', style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), !hiddenProfileMenu && (jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$5, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) }))] })] }), menuItems &&
+    return (jsxRuntime.jsx(Container$6, { style: { ...style }, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png' }), !isMobileVersion && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }))] }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png', style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), !hiddenProfileMenu && (jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$5, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) }))] })] }), menuItems &&
                             menuItems.length > 0 &&
                             menuItems.map((item, index) => {
                                 if (item.subItens) {
                                     if (item.subItens.length > 1)
-                                        return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
+                                        return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
                                                         width: '100%',
                                                         display: 'flex',
                                                         flexDirection: 'row',
@@ -8905,22 +9043,22 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
                                                     }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                                 }
                                 else
-                                    return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'LXP', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
                                                     width: '100%',
                                                     display: 'flex',
                                                     flexDirection: 'row',
                                                     alignItems: 'center',
                                                     justifyContent: 'space-between'
                                                 }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                            })] }), jsxRuntime.jsx(MenuCustom$2, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu &&
+                            })] }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu &&
                         subMenu.map((item, index) => {
                             return (jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'LXP', children: item.label }, item.id));
-                        }) })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png' }), jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems &&
+                        }) })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png' }), jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }), jsxRuntime.jsx(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'default', children: menuItems &&
                         menuItems.length > 0 &&
                         menuItems.map((item, index) => {
                             if (item.subItens) {
                                 if (item.subItens.length > 1)
-                                    return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
+                                    return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: handleSubitens(item.subItens), variantstyle: 'default', children: [item.iconBegin && item.iconBegin, item.iconBegin && jsxRuntime.jsx("span", { children: "\u00A0" }), jsxRuntime.jsxs("div", { style: {
                                                     width: '100%',
                                                     display: 'flex',
                                                     flexDirection: 'row',
@@ -8929,14 +9067,14 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
                                                 }, children: [jsxRuntime.jsx("div", { style: { marginLeft: '7px' }, children: item.label }), jsxRuntime.jsx(DropdownSideIconWhite, {})] })] }, index));
                             }
                             else
-                                return (jsxRuntime.jsxs(MenuItemCustom$2, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
+                                return (jsxRuntime.jsxs(MenuItemCustom$1, { onClick: item.onClick || handleClose, variantstyle: 'default', children: [item.iconBegin && item.iconBegin, jsxRuntime.jsx("div", { style: {
                                                 width: '100%',
                                                 display: 'flex',
                                                 flexDirection: 'row',
                                                 alignItems: 'center',
                                                 justifyContent: 'space-between'
                                             }, children: jsxRuntime.jsx("div", { style: { marginLeft: item.iconBegin ? '9px' : '0px' }, children: item.label }) })] }, index));
-                        }) }), jsxRuntime.jsx(MenuCustom$2, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu &&
+                        }) }), jsxRuntime.jsx(MenuCustom$1, { id: "sub-menu", anchorOrigin: { vertical: 'top', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorSub, open: openSub, onClose: handleClose, variantstyle: 'default', children: subMenu &&
                         subMenu.map((item, index) => {
                             return (jsxRuntime.jsx(SubMenuItemCustom, { onClick: (e) => item.onClick(e), variantstyle: 'default', children: item.label }, item.id));
                         }) })] })) }));
@@ -11936,7 +12074,7 @@ styled__default["default"].p `
   padding-left: 5px;
   font-size: 16px;
 `;
-const MenuCustom$1 = styled__default["default"](Menu__default["default"]) `
+const MenuCustom = styled__default["default"](Menu__default["default"]) `
   margin-left: ${({ step }) => step == 'completed' ? '-64px' : '-84px'} ;
   margin-top: 10px;
 
@@ -11976,7 +12114,7 @@ const MenuCustom$1 = styled__default["default"](Menu__default["default"]) `
     overflow: hidden;
   }
 `;
-const MenuItemCustom$1 = styled__default["default"](MenuItem__default["default"]) `
+const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
   background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
   margin: 1px !important;
 
@@ -12001,7 +12139,7 @@ styled__default["default"](MenuItem__default["default"]) `
     background-color: #FD9350 !important;
   }
 `;
-const TextOption$1 = styled__default["default"].div `
+const TextOption = styled__default["default"].div `
   margin-left: 10px;
   padding-top: 1px;
   font-family: 'PT Sans';
@@ -12170,8 +12308,8 @@ function MoreVerticalMenu({ textContinue, textDelete, textEdit, handleContinue, 
                     padding: 0,
                     display: 'flex',
                     justifyContent: 'center'
-                }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant !== 'completed' &&
-                        jsxRuntime.jsxs(MenuItemCustom$1, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption$1, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom$1, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption$1, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom$1, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption$1, { children: textDelete })] })] })] }));
+                }, children: jsxRuntime.jsx(MoreDotsVertical, {}) }), jsxRuntime.jsxs(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'left' }, anchorEl: anchorEl, open: open, onClose: handleClose, step: variant, children: [variant !== 'completed' &&
+                        jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([true, false, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(FowardArrow, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textContinue })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, true, false]), style: { color: activeClick[0] ? '#663366' : '#0645AD', borderBottom: '1px solid #EBEBEB' }, children: [jsxRuntime.jsx(EditIcon, { width: '16', height: '16', fill: activeClick[0] ? '#663366' : '#0645AD' }), jsxRuntime.jsx(TextOption, { children: textEdit })] }), jsxRuntime.jsxs(MenuItemCustom, { onClick: () => handleSelect([false, false, true]), style: { color: activeClick[1] ? '#C00F00' : '#FF0000' }, children: [jsxRuntime.jsx(TrashIcon, { fill: activeClick[1] ? '#C00F00' : '#FF0000', width: '13', height: '16' }), jsxRuntime.jsx(TextOption, { children: textDelete })] })] })] }));
 }
 
 const Container$3 = styled__default["default"].div `
@@ -15144,140 +15282,6 @@ function StepController({ top = '25px', numberCurrentStep, numberTotalSteps, lab
     return (jsxRuntime.jsxs(ContainerStepController, { style: { top: top }, children: [jsxRuntime.jsxs("div", { onClick: goToStart, children: [jsxRuntime.jsx(ComputerIcon__default["default"], { sx: { color: '#242424', fontSize: '0.9rem', marginRight: '8px' } }), labelHome] }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(StepControllerArrow, { onClick: prevStep, children: jsxRuntime.jsx(ArrowBackIosIcon__default["default"], { sx: { fontSize: '0.8rem', marginLeft: '2px' } }) }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberCurrentStep }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: "de" }), jsxRuntime.jsx("span", { style: { fontSize: '0.8rem', margin: '0 3px' }, children: numberTotalSteps }), jsxRuntime.jsx(StepControllerArrow, { onClick: nextStep, children: jsxRuntime.jsx(ArrowForwardIosIcon__default["default"], { sx: { fontSize: '0.8rem' } }) })] }), jsxRuntime.jsxs("div", { onClick: goToContact, children: [jsxRuntime.jsx(PersonAddIcon__default["default"], { sx: { color: 'inherit', fontSize: '0.8rem', marginRight: '8px' } }), labelContact] })] }));
 }
 
-styled__default["default"].p `
-  color: white;
-  padding-left: 5px;
-  font-size: 16px;
-`;
-const ButtonMore = styled__default["default"](Button__default["default"]) `
-    width: 30px !important;
-    min-width: 30px !important;
-    max-width: 30px !important;
-    height: 30px !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    display: flex !important;
-    justify-content: center !important;
-    border-radius: 12px !important;
-
-    &:hover {
-        background-color: #FFF9 !important;
-    }
-
-`;
-const MenuCustom = styled__default["default"](Menu__default["default"]) `
-  margin-top: 10px;
-  margin-left: 30px;
-  overflow: hidden;
-  border-radius: 8px;
-
-  & .MuiPaper-root {
-    border-radius: 0px;
-    box-shadow: none !important;
-    overflow: visible;
-    background: #00000000;
-
-    &:before {
-        content: "";
-        position: absolute;
-        top: -15px;
-        right: 8.5px;
-        border-top: 6px solid transparent;
-        border-bottom: 10px solid #EBEBEB;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-    }
-  
-    &:after {
-        content: "";
-        position: absolute;
-        top: -14px;
-        right: 8.5px;
-        border-top: 6px solid transparent;
-        border-bottom: 10px solid #FFF;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-    }
-  }
-  ul {
-    box-shadow:  0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border: 1px solid #EBEBEB !important;
-    border-radius: 8px !important;
-    overflow: hidden;
-    background: #FFF;
-    width: 160px;
-
-
-  li {
-    padding-left: 25px;
-  }
-  }
-`;
-const MenuItemCustom = styled__default["default"](MenuItem__default["default"]) `
-  background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
-  padding-right: 45px !important;
-  margin: 1px !important;
-  transition: none !important;
-  animation: none !important;
-  &:hover {
-    background-color: #F7F9FC !important;
-  }
-  &:active {    
-    background-color: #FCF3EB !important;
-  }
-
-  
-`;
-styled__default["default"](MenuItem__default["default"]) `
-  color: white !important;
-  background-color: #F5792A !important;
-
-  display: flex;
-  flex-direction: row;
-  &:hover {
-    background-color: #FD9350 !important;
-  }
-`;
-const TextOption = styled__default["default"].div `
-  margin-left: 10px;
-  padding-top: 1px;
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-`;
-const IconOption = styled__default["default"].div `
-  width: 20px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-function MenuMore({ iconButton, options, style }) {
-    const [listOptions, setListOptions] = React.useState(options);
-    React.useEffect(() => {
-        setListOptions(options);
-    }, [options]);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: '#444' }) }), listOptions && listOptions?.length > 0 &&
-                    jsxRuntime.jsx(MenuCustom, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
-                            return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(MenuItemCustom, { onClick: () => itemOption?.onClick(), style: { borderBottom: ((listOptions?.length - 1) == index) ? '' : '1px solid #EBEBEB',
-                                        color: itemOption?.color ? itemOption?.color : '#222'
-                                    }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon ? itemOption?.startIcon : '' }), jsxRuntime.jsx(TextOption, { children: itemOption?.description })] }, index) });
-                        }) })] }) }));
-}
-
 const SmileIcon = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -16938,7 +16942,7 @@ exports.CalendarCard = CalendarCard;
 exports.CalendarFilledIcon = CalendarFilledIcon;
 exports.CalendarLineIcon = CalendarLineIcon;
 exports.CalendarLxp = CalendarLxp;
-exports.CardDefinicaoProblema = CardDefinicaoProblema;
+exports.CardDefinicaoFase = CardDefinicaoFase;
 exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
