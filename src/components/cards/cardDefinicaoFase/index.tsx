@@ -9,7 +9,7 @@ interface CardDefinicaoFaseProps {
   cardDescription?: string
   handleClickContinue?: () => void
   handleToView?: () => void
-  optionsMenuMore?: any
+  optionsMenuMore?: any | any[]
   titleFase?: string
   fase?: 'finalizado' | '1' | '2' | '3' | '4' | '5'
   textButtonVisualizar?: string
