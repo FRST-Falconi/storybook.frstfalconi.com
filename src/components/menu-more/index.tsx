@@ -3,39 +3,32 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
 import '../../shared/global.css'
 
-import {
-    MoreDotsVertical,
-} from './../../shared/icons'
+import { MoreDotsVertical } from './../../shared/icons'
 
-import { 
-    ButtonMore,
-    MenuCustom,
-    MenuItemCustom,
-    TextOption,
-    IconOption } from './menuMoreStyles'
+import { ButtonMore, MenuCustom, MenuItemCustom, TextOption, IconOption } from './menuMoreStyles'
 import { IMenuMore } from './menuMore'
+import { Box } from '@mui/material'
 
+export default function MenuMore({ iconButton, options, style }: IMenuMore) {
+  const [listOptions, setListOptions] = useState(options)
 
-export default function MenuMore({iconButton, options, style}: IMenuMore) {
-    const [ listOptions, setListOptions ] = useState(options)
-    
-    useEffect(() => {
-      setListOptions(options)
-    }, [options])
+  useEffect(() => {
+    setListOptions(options)
+  }, [options])
 
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
-    const open = Boolean(anchorEl)
-    
-    const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
-      setAnchorEl(event.currentTarget)
-    }
-    const handleClose = () => {
-      setAnchorEl(null)
-    }
-    
-    return (
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
+
+  const handleClick = (event: MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
+
+  return (
     <ThemeProvider theme={FRSTTheme}>
-      <div style={{...style}}>
+      <div style={{ ...style }}>
         <ButtonMore
           id="basic-button"
           aria-controls="basic-menu"
@@ -43,37 +36,37 @@ export default function MenuMore({iconButton, options, style}: IMenuMore) {
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-            {iconButton ? iconButton : <MoreDotsVertical fill='#444'/>}
+          {iconButton ? iconButton : <MoreDotsVertical fill="#444" />}
         </ButtonMore>
-        {listOptions && listOptions?.length > 0 && 
-            <MenuCustom
-                id="basic-menu"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-            > 
-                { listOptions.map((itemOption, index)=> {
-                    return <>
-                        <MenuItemCustom 
-                            key={index}
-                            onClick={() =>  itemOption?.onClick()}
-                            style={{borderBottom: ((listOptions?.length -1) == index) ? '' : '1px solid #EBEBEB',
-                                color: itemOption?.color ? itemOption?.color : '#222'
-                            }}
-                            disableRipple
-                        >
-                            <IconOption>{itemOption?.startIcon ? itemOption?.startIcon : ''}</IconOption>
-                            <TextOption>{itemOption?.description}</TextOption>
-                        </MenuItemCustom>
-                    </>
-                  })
-                }
-            </MenuCustom>
-        }
+        {listOptions && listOptions?.length > 0 && (
+          <MenuCustom
+            id="basic-menu"
+            anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+            transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+          >
+            {listOptions.map((itemOption, index) => {
+              return (
+                <Box key={index}>
+                  <MenuItemCustom
+                    onClick={() => itemOption?.onClick()}
+                    style={{
+                      borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
+                      color: itemOption?.color ? itemOption?.color : '#222'
+                    }}
+                    disableRipple
+                  >
+                    <IconOption>{itemOption?.startIcon ? itemOption?.startIcon : ''}</IconOption>
+                    <TextOption>{itemOption?.description}</TextOption>
+                  </MenuItemCustom>
+                </Box>
+              )
+            })}
+          </MenuCustom>
+        )}
       </div>
-      </ThemeProvider>
-    )
+    </ThemeProvider>
+  )
 }
-  

@@ -431,13 +431,6 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                 stepSelected={selectedStep}
             />
           </div>
-            {/* <Button
-                handleClick={() => {}}
-                label={'Continue'}
-                variant="link"
-                // endIcon={<FowardArrow fill="#fff" />}
-                style={{ height: '40px'}}
-              /> */}
         </div>
         <div style={{marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32}}>
           {props.children}
@@ -547,7 +540,7 @@ function ButtonsProcessSteps({selectedStep, definedSteps, setSelectedStep, idiom
           style={{ height: '40px'}}/>
       </div>
     }
-    { selectedStep == definedSteps && definedSteps != 5 &&
+    { selectedStep == definedSteps && definedSteps != 5 && definedSteps != 1 &&
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between'}}>
         <Button
           handleClick={() => setSelectedStep(selectedStep - 1)}
@@ -567,6 +560,15 @@ function ButtonsProcessSteps({selectedStep, definedSteps, setSelectedStep, idiom
           handleClick={() => setSelectedStep(selectedStep - 1)}
           label={anhorsBtn.previous}
           variant="link"
+          style={{ height: '40px'}}/>
+        </div>
+    }
+    { selectedStep == definedSteps && definedSteps == 1 &&
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
+        <Button
+          handleClick={() => onClickContinue()}
+          label={anhorsBtn.continueChallenge}
+          variant="primary"
           style={{ height: '40px'}}/>
         </div>
     }
