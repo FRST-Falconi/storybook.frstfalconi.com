@@ -1,5 +1,6 @@
 .container {
-  width: 282px;
+  width: 282px !important;
+  max-width: 282px !important;
   color: #222222;
   background-color: #fff;
   border-radius: 10px;
@@ -7,6 +8,7 @@
   align-items: center;
   flex-direction: column;
   position: relative;
+  word-break: break-word !important;
 }
 
 .headerContainer {
