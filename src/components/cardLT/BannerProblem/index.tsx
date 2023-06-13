@@ -422,6 +422,7 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
                   setSelectedStep(e)
                   props?.onSelectedStep(e)
                 }}
+                hasContinueProps={props?.onClickContinue?.name !== 'actionHandler'}
                 onClickContinue={() => props.onClickContinue()}
             />
           </div>
@@ -506,8 +507,12 @@ function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedSte
 
 }
 
-function ButtonsProcessSteps({selectedStep, definedSteps, setSelectedStep, idioma, onClickContinue}) {
+function ButtonsProcessSteps({selectedStep, definedSteps, setSelectedStep, idioma, onClickContinue, hasContinueProps}) {
   const [anhorsBtn, setAnchorsBtn ] = useState(getTranslateBtnNextPrevSteps()['pt-BR']);
+  const [ hasContinuePropsState, sethasContinueProps ] = useState(false)
+  useEffect(() => {
+    sethasContinueProps(hasContinueProps)
+  }, [hasContinueProps])
 
   useEffect(() => {
     try {
@@ -547,11 +552,11 @@ function ButtonsProcessSteps({selectedStep, definedSteps, setSelectedStep, idiom
           label={anhorsBtn.previous}
           variant="link"
           style={{ height: '40px'}}/>
-        <Button
+        {hasContinuePropsState ? <Button
           handleClick={() => onClickContinue()}
           label={anhorsBtn.continueChallenge}
           variant="primary"
-          style={{ height: '40px'}}/>
+          style={{ height: '40px'}}/> : <div> </div> }
       </div>
     }
     { selectedStep == definedSteps && definedSteps == 5 &&
@@ -565,11 +570,11 @@ function ButtonsProcessSteps({selectedStep, definedSteps, setSelectedStep, idiom
     }
     { selectedStep == definedSteps && definedSteps == 1 &&
       <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
-        <Button
+      {hasContinuePropsState ? <Button
           handleClick={() => onClickContinue()}
           label={anhorsBtn.continueChallenge}
           variant="primary"
-          style={{ height: '40px'}}/>
+          style={{ height: '40px'}}/> : <div> </div> }
         </div>
     }
   </>
