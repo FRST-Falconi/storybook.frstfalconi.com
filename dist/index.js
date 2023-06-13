@@ -2481,7 +2481,7 @@ function BannerProblem(props) {
                                 : null] }) }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx("div", { style: { marginTop: '20px' }, children: jsxRuntime.jsx(ButtonsProcessSteps, { idioma: Idioma, definedSteps: props?.stepProblem, selectedStep: selectedStep, setSelectedStep: (e) => {
                                     setSelectedStep(e);
                                     props?.onSelectedStep(e);
-                                }, onClickContinue: () => props.onClickContinue() }) }), jsxRuntime.jsx("div", { style: { width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) })] }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
+                                }, hasContinueProps: props?.onClickContinue?.name !== 'actionHandler', onClickContinue: () => props.onClickContinue() }) }), jsxRuntime.jsx("div", { style: { width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) })] }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
     function adapterEmail(email, widthScreen) {
         let newEmail = email;
         if (widthScreen < 450) {
@@ -2539,8 +2539,12 @@ function getStepsChallenge$1(language, stepProblem, setSelectedStep, onSelectedS
     }
     return steps;
 }
-function ButtonsProcessSteps({ selectedStep, definedSteps, setSelectedStep, idioma, onClickContinue }) {
+function ButtonsProcessSteps({ selectedStep, definedSteps, setSelectedStep, idioma, onClickContinue, hasContinueProps }) {
     const [anhorsBtn, setAnchorsBtn] = React.useState(getTranslateBtnNextPrevSteps()['pt-BR']);
+    const [hasContinuePropsState, sethasContinueProps] = React.useState(false);
+    React.useEffect(() => {
+        sethasContinueProps(hasContinueProps);
+    }, [hasContinueProps]);
     React.useEffect(() => {
         try {
             setAnchorsBtn(getTranslateBtnNextPrevSteps()[idioma]);
@@ -2552,9 +2556,9 @@ function ButtonsProcessSteps({ selectedStep, definedSteps, setSelectedStep, idio
     return jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [selectedStep == 1 && definedSteps > 1 &&
                 jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(2), label: anhorsBtn.next, variant: "link", style: { height: '40px' } }) }), selectedStep > 1 && selectedStep < definedSteps &&
                 jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep + 1), label: anhorsBtn.next, variant: "link", style: { height: '40px' } })] }), selectedStep == definedSteps && definedSteps != 5 && definedSteps != 1 &&
-                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } })] }), selectedStep == definedSteps && definedSteps == 5 &&
+                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), hasContinuePropsState ? jsxRuntime.jsx(Button$5, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } }) : jsxRuntime.jsx("div", { children: " " })] }), selectedStep == definedSteps && definedSteps == 5 &&
                 jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-start' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }) }), selectedStep == definedSteps && definedSteps == 1 &&
-                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } }) })] });
+                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: hasContinuePropsState ? jsxRuntime.jsx(Button$5, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } }) : jsxRuntime.jsx("div", { children: " " }) })] });
 }
 function getTranslateBtnNextPrevSteps() {
     const traducaoPTBR = {
