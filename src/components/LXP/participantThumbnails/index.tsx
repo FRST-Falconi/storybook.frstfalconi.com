@@ -1,85 +1,55 @@
 import '../../../shared/global.css'
-import * as styleThumbnails from './participantThumbnails'
+import * as S from './participantThumbnails'
 import { FRSTTheme } from '../../../theme'
 import { useState } from 'react'
 import Popover from '@material-ui/core/Popover'
+import { text } from 'stream/consumers'
 
 interface ParticipantThumbnails {
   imgThumbnails?: any
   titleThumbnail?: string
   descpThumbnail?: string
   handleFunctionThumbnail?: () => void
+  author?: string
 }
 
-export default function ParticipantThumbnails(props: ParticipantThumbnails) {
-  const [anchorEl, setAnchorEl] = useState(null)
-  const [itemSelected, setItemSelected] = useState(null)
+export default function ParticipantThumbnails({
+  imgThumbnails,
+  titleThumbnail,
+  descpThumbnail,
+  handleFunctionThumbnail,
+  author
+}: ParticipantThumbnails) {
+  const [seeMore, setSeeMore] = useState(true)
 
-  const handleClose = () => {
-    setAnchorEl(null)
-  }
-
-  const open = Boolean(anchorEl)
-  const id = open ? 'simple-popover' : undefined
+  const textLarge = descpThumbnail.length >= 100
 
   return (
-    <>      
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: 'center',
-          horizontal: 'center'
+    <S.CardThumbnails
+      theme={FRSTTheme}
+      onClick={() => {
+        !textLarge && handleFunctionThumbnail()
+      }}
+      style={!textLarge ? { cursor: 'pointer' } : { cursor: 'auto' }}
+    >
+      <img
+        src={imgThumbnails}
+        alt={titleThumbnail}
+        onClick={() => {
+          textLarge && handleFunctionThumbnail()
         }}
-        transformOrigin={{
-          vertical: 'center',
-          horizontal: 'center'
-        }}
-        PaperProps={{
-          style: {
-            backgroundColor: '#FFF',
-            boxShadow: 'none',
-            borderRadius: 8,
-            marginTop: '-1rem'
-          }
-        }}
-        style={{
-          borderRadius: 8
-        }}
-      >
-        <styleThumbnails.CardThumbnailsHove
-          onMouseLeave={(event) => {
-            setAnchorEl(null)
-            setItemSelected(null)
-          }}
-        >
-          <styleThumbnails.CardThumbnailsHove theme={FRSTTheme} onClick={props.handleFunctionThumbnail}>
-            <styleThumbnails.ThumbnailImageHover
-              img={props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png'}
-            />
-            <styleThumbnails.DescriptionThumbnails theme={FRSTTheme}>
-              <div className='title'>{props.titleThumbnail}</div>
-              <p>{props.descpThumbnail}</p>
-            </styleThumbnails.DescriptionThumbnails>
-          </styleThumbnails.CardThumbnailsHove>
-        </styleThumbnails.CardThumbnailsHove>
-      </Popover>
-      <styleThumbnails.CardThumbnails
-        theme={FRSTTheme}
-        onClick={props.handleFunctionThumbnail}
-        onMouseOver={(event) => {
-          setAnchorEl(event.currentTarget)
-          setItemSelected(props)
-          props.handleFunctionThumbnail
-        }}
-      >
-        <styleThumbnails.ThumbnailHeaderImage
-          img={props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png'}
-        />
-        <h1>{props.titleThumbnail}</h1>
-      </styleThumbnails.CardThumbnails>
-    </>
+      />
+      <p className="title">{titleThumbnail}</p>
+      {author && (
+        <p className="author">
+          com <span>{author}</span>
+        </p>
+      )}
+      <S.DescriptionThumbnails theme={FRSTTheme} onClick={() => textLarge && setSeeMore((prev) => !prev)}>
+        <p className={textLarge && seeMore ? 'short' : ''}>{descpThumbnail}</p>
+
+        {textLarge && <small>{seeMore ? 'Ver mais' : 'Ver menos'}</small>}
+      </S.DescriptionThumbnails>
+    </S.CardThumbnails>
   )
 }
