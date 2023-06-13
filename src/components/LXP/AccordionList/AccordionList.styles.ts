@@ -5,6 +5,10 @@ export const StylesAccordionList = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  &.open {
+    border-radius: 8px 8px 0px 0px;
+    border: 1px solid ${({ theme }) => theme.colors.primary1};
+  }
 
   .title {
     ::selection {

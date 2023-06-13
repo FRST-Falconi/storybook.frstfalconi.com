@@ -19,7 +19,7 @@ export default function AccordionList({ title = 'Módulo', children, isOpen = fa
     setIsOpen()
   }
   return (
-    <S.StylesAccordionList theme={FRSTTheme}>
+    <S.StylesAccordionList theme={FRSTTheme} className={open ? 'open' : 'closed'}>
       <div onClick={handleSetOpen} className={open ? 'header open' : 'header closed'}>
         <p className="title">{title}</p>
         <span className={open ? 'open' : 'closed'}>
