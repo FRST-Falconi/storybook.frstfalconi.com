@@ -2478,7 +2478,10 @@ function BannerProblem(props) {
                                                 jsxRuntime.jsx(Button$5, { variant: 'link', label: props.textGoalViewsBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '20px', marginBottom: '-1px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalViewsIcon, { width: '20px' }) }), handleClick: props.onClickViewsBtn, style: { paddingTop: '0px', paddingBottom: '16px' } })] })] }), size[0] > MOBILEWIDTH && Edit === false ?
                                 jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, id: 'avaliations-banner-problem', children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
-                                : null] }) }), jsxRuntime.jsx("div", { style: { width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
+                                : null] }) }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx("div", { style: { marginTop: '20px' }, children: jsxRuntime.jsx(ButtonsProcessSteps, { idioma: Idioma, definedSteps: props?.stepProblem, selectedStep: selectedStep, setSelectedStep: (e) => {
+                                    setSelectedStep(e);
+                                    props?.onSelectedStep(e);
+                                }, onClickContinue: () => props.onClickContinue() }) }), jsxRuntime.jsx("div", { style: { width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) })] }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
     function adapterEmail(email, widthScreen) {
         let newEmail = email;
         if (widthScreen < 450) {
@@ -2535,6 +2538,58 @@ function getStepsChallenge$1(language, stepProblem, setSelectedStep, onSelectedS
         steps[i].active = true;
     }
     return steps;
+}
+function ButtonsProcessSteps({ selectedStep, definedSteps, setSelectedStep, idioma, onClickContinue }) {
+    const [anhorsBtn, setAnchorsBtn] = React.useState(getTranslateBtnNextPrevSteps()['pt-BR']);
+    React.useEffect(() => {
+        try {
+            setAnchorsBtn(getTranslateBtnNextPrevSteps()[idioma]);
+        }
+        catch (e) {
+            setAnchorsBtn(getTranslateBtnNextPrevSteps()['pt-BR']);
+        }
+    }, [idioma]);
+    return jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [selectedStep == 1 && definedSteps > 1 &&
+                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(2), label: anhorsBtn.next, variant: "link", style: { height: '40px' } }) }), selectedStep > 1 && selectedStep < definedSteps &&
+                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep + 1), label: anhorsBtn.next, variant: "link", style: { height: '40px' } })] }), selectedStep == definedSteps && definedSteps != 5 &&
+                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } })] }), selectedStep == definedSteps && definedSteps == 5 &&
+                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-start' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }) })] });
+}
+function getTranslateBtnNextPrevSteps() {
+    const traducaoPTBR = {
+        next: "Ver fase seguinte >",
+        nextShort: "Próx. >",
+        previous: "< Ver fase anterior",
+        previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
+    };
+    const traducaoES = {
+        next: "Ver fase siguiente >",
+        nextShort: "Próx. >",
+        previous: "< Ver fase anterior",
+        previousShort: "< Ant.",
+        continueChallenge: "Continuar desafío"
+    };
+    const traducaoENUS = {
+        next: "View next phase >",
+        nextShort: "Next >",
+        previous: "< View previous phase",
+        previousShort: "< Previous",
+        continueChallenge: "Continue challenge"
+    };
+    const traducaoPT = {
+        next: "Ver fase seguinte >",
+        nextShort: "Próx. >",
+        previous: "< Ver fase anterior",
+        previousShort: "< Ant.",
+        continueChallenge: "Continuar desafio"
+    };
+    return {
+        "pt-BR": traducaoPTBR,
+        "es": traducaoES,
+        "en-US": traducaoENUS,
+        "pt-PT": traducaoPT
+    };
 }
 
 var css_248z$d = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
