@@ -11,19 +11,19 @@ const Template = (args) => <ParticipantThumbnails {...args} />
 
 export const ParticipantThumbnailsNormal = Template.bind({})
 ParticipantThumbnailsNormal.args = {
-  imgThumbnails: 'https://cdn-lxp.dev.frstfalconi.cloud/8c8463ba501c84831da34466364041ca.png',
+  imgThumbnails: 'https://lxp-cdn.frstfalconi.cloud/thumbParticipant.png',
   titleThumbnail: 'Name of the Content',
-  descpThumbnail:
-    'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais. ',
-  handleFunctionThumbnail: () => alert('voce clicou aqui :D')
+  descpThumbnail: 'Empresas e profissionais precisam proteger seus dados contra ameaças digitais.',
+  handleFunctionThumbnail: () => alert('voce clicou aqui :D'),
+  author: 'Camila Bastos'
 }
 
 export const ParticipantThumbnailsWithLongText = Template.bind({})
 ParticipantThumbnailsWithLongText.args = {
-  imgThumbnails: 'https://cdn-lxp.dev.frstfalconi.cloud/8c8463ba501c84831da34466364041ca.png',
+  imgThumbnails: 'https://lxp-cdn.frstfalconi.cloud/thumbParticipant.png',
   titleThumbnail: 'Name of the Content',
   descpThumbnail:
     'Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais. Empresas e profissionais precisam proteger seus dados contra ameaças digitais. Neste curso você aprenderá sobre políticas de segurança, gerenciamento de riscos, prevenção de ataques cibernéticos, resposta a incidentes e muito mais.',
-  handleFunctionThumbnail: () => alert('voce clicou aqui :D')
+  handleFunctionThumbnail: () => alert('voce clicou aqui :D'),
+  author: ''
 }
-
