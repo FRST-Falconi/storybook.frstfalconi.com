@@ -412,12 +412,33 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
           idioma={Idioma}
           
         /> */}
+        <div  style={{ width:'100%', display: 'flex', flexDirection: 'column'}}>
+          <div style={{ marginTop:'20px'}}>
+            <ButtonsProcessSteps 
+                idioma={Idioma}
+                definedSteps={props?.stepProblem}
+                selectedStep={selectedStep}
+                setSelectedStep={(e) => {
+                  setSelectedStep(e)
+                  props?.onSelectedStep(e)
+                }}
+                onClickContinue={() => props.onClickContinue()}
+            />
+          </div>
           <div  style={{ width:'100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px'}}>
             <StepsProgress
                 definedSteps={definedSteps}
                 stepSelected={selectedStep}
             />
           </div>
+            {/* <Button
+                handleClick={() => {}}
+                label={'Continue'}
+                variant="link"
+                // endIcon={<FowardArrow fill="#fff" />}
+                style={{ height: '40px'}}
+              /> */}
+        </div>
         <div style={{marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32}}>
           {props.children}
         </div>        
@@ -490,4 +511,105 @@ function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedSte
   }
   return steps;
 
+}
+
+function ButtonsProcessSteps({selectedStep, definedSteps, setSelectedStep, idioma, onClickContinue}) {
+  const [anhorsBtn, setAnchorsBtn ] = useState(getTranslateBtnNextPrevSteps()['pt-BR']);
+
+  useEffect(() => {
+    try {
+        setAnchorsBtn(getTranslateBtnNextPrevSteps()[idioma]);
+    } catch(e) {
+      setAnchorsBtn(getTranslateBtnNextPrevSteps()['pt-BR']);
+    }
+  }, [idioma])
+  return <>
+    { selectedStep == 1 && definedSteps > 1 &&    
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
+        <Button
+          handleClick={() => setSelectedStep(2)}
+          label={anhorsBtn.next}
+          variant="link"
+          style={{ height: '40px'}}/>
+      </div>
+    }
+    { selectedStep > 1 && selectedStep < definedSteps &&
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+        <Button
+          handleClick={() => setSelectedStep(selectedStep - 1)}
+          label={anhorsBtn.previous}
+          variant="link"
+          style={{ height: '40px'}}/>
+        <Button
+          handleClick={() => setSelectedStep(selectedStep + 1)}
+          label={anhorsBtn.next}
+          variant="link"
+          style={{ height: '40px'}}/>
+      </div>
+    }
+    { selectedStep == definedSteps && definedSteps != 5 &&
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between'}}>
+        <Button
+          handleClick={() => setSelectedStep(selectedStep - 1)}
+          label={anhorsBtn.previous}
+          variant="link"
+          style={{ height: '40px'}}/>
+        <Button
+          handleClick={() => onClickContinue()}
+          label={anhorsBtn.continueChallenge}
+          variant="primary"
+          style={{ height: '40px'}}/>
+      </div>
+    }
+    { selectedStep == definedSteps && definedSteps == 5 &&
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-start'}}>
+        <Button
+          handleClick={() => setSelectedStep(selectedStep - 1)}
+          label={anhorsBtn.previous}
+          variant="link"
+          style={{ height: '40px'}}/>
+        </div>
+    }
+  </>
+}
+
+function getTranslateBtnNextPrevSteps() {
+  const traducaoPTBR = {
+    next: "Ver fase seguinte >",
+    nextShort: "Próx. >",
+    previous: "< Ver fase anterior",
+    previousShort: "< Ant.",
+    continueChallenge: "Continuar desafio"
+  }
+
+  const traducaoES = {
+    next: "Ver fase siguiente >",
+    nextShort: "Próx. >",
+    previous: "< Ver fase anterior",
+    previousShort: "< Ant.",
+    continueChallenge: "Continuar desafío"
+  }
+
+  const traducaoENUS = {
+    next: "View next phase >",
+    nextShort: "Next >",
+    previous: "< View previous phase",
+    previousShort: "< Previous",
+    continueChallenge: "Continue challenge"
+  }
+
+  const traducaoPT = {
+    next: "Ver fase seguinte >",
+    nextShort: "Próx. >",
+    previous: "< Ver fase anterior",
+    previousShort: "< Ant.",
+    continueChallenge: "Continuar desafio"
+  }
+
+  return {
+    "pt-BR": traducaoPTBR,
+    "es": traducaoES,
+    "en-US": traducaoENUS,
+    "pt-PT": traducaoPT
+  }
 }
