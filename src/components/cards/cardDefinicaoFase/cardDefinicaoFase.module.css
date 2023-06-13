@@ -10,6 +10,7 @@
   position: relative;
   word-break: break-word !important;
   word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .headerContainer {
@@ -31,6 +32,7 @@
   max-width: 250px;
   word-break: break-word !important;
   word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .description {
@@ -43,16 +45,21 @@
   max-width: 250px;
   word-break: break-word !important;
   word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .descriptionContainer {
   padding: 20px;
   height: 197px;
+  max-width: 282px !important;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   margin-bottom: 1rem;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .buttonContainer {
@@ -89,6 +96,7 @@
   padding-bottom: 2rem;
   word-break: break-word !important;
   word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .buttonFinalizado {
