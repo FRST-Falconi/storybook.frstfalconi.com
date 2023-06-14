@@ -18,6 +18,8 @@ ShowData.args = {
     onClickMessage: () => { alert('Opa!')},
     onSelectedStep: () => { alert('onSelectedStep!')},
     onClickViewsBtn: () => { alert('Views Btn!')},
+
+    hasContinueButton: true,
     onClickSave: (nome) => {alert(nome)},
     isVerified: true,
     verifiedTooltipContent: 'Este desafio consta como verificado pois o objetivo dele está alinhado às metas da empresa a qual ele pertence',

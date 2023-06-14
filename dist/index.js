@@ -2354,7 +2354,6 @@ function BannerProblem(props) {
         props.tags && props.tags.length >= 2 ? props.tags[1] : '',
         props.tags && props.tags.length >= 3 ? props.tags[2] : ''
     ]);
-    props?.onClickContinue?.name !== 'actionHandler';
     const customStyles = {
         option: (styles, { isFocused, isSelected, isDisabled }) => ({
             ...styles,
@@ -2481,7 +2480,7 @@ function BannerProblem(props) {
                                 : null] }) }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx("div", { style: { marginTop: '20px' }, children: jsxRuntime.jsx(ButtonsProcessSteps, { idioma: Idioma, definedSteps: props?.stepProblem, selectedStep: selectedStep, setSelectedStep: (e) => {
                                     setSelectedStep(e);
                                     props?.onSelectedStep(e);
-                                }, hasContinueProps: props?.onClickContinue?.name !== 'actionHandler', onClickContinue: () => props.onClickContinue() }) }), jsxRuntime.jsx("div", { style: { width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) })] }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
+                                }, hasContinueProps: props?.hasContinueButton, onClickContinue: () => props.onClickContinue() }) }), jsxRuntime.jsx("div", { style: { width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) })] }), jsxRuntime.jsx("div", { style: { marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32 }, children: props.children })] }) }));
     function adapterEmail(email, widthScreen) {
         let newEmail = email;
         if (widthScreen < 450) {
@@ -5246,7 +5245,7 @@ function CardProblem(props) {
                         jsxRuntime.jsx("div", { className: style$7.buttonVerMais, children: jsxRuntime.jsx(Button$5, { variant: 'link', label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) })] })] }));
 }
 
-var css_248z$7 = ".cardDefinicaoFase-module_container__KEYns {\r\n  width: 282px !important;\r\n  max-width: 282px !important;\r\n  color: #222222;\r\n  background-color: #fff;\r\n  border-radius: 10px;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  position: relative;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_headerContainer__uxRId {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: flex-end;\r\n  background: rgba(241, 134, 36, 0.2);\r\n  height: 200px;\r\n  max-width: 282px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleDescription__x7pED {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 16px;\r\n  line-height: 110%;\r\n  color: #444444;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_description__-pzJG {\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 23px;\r\n  color: #f26818;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_descriptionContainer__XLHCC {\r\n  padding: 20px;\r\n  height: 197px;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin-bottom: 1rem;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonContainer__6u6bM {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n\r\n.cardDefinicaoFase-module_divisoria__IYAiv {\r\n  border: 1px solid #bdbdbd;\r\n  transform: rotate(360deg);\r\n}\r\n\r\n.cardDefinicaoFase-module_titleAndMenu__aqXT0 {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  width: 100%;\r\n  align-items: center;\r\n  margin-bottom: 9px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleFrase__b8v0i {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 25px;\r\n  line-height: 110%;\r\n  color: #f18624;\r\n  max-width: 200px;\r\n  padding-left: 1.5rem;\r\n  padding-bottom: 2rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonFinalizado__V8Oas {\r\n  display: flex;\r\n  justify-content: center;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n";
+var css_248z$7 = ".cardDefinicaoFase-module_container__KEYns {\r\n  width: 282px !important;\r\n  max-width: 282px !important;\r\n  color: #222222;\r\n  background-color: #fff;\r\n  border-radius: 10px;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  position: relative;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_headerContainer__uxRId {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: flex-end;\r\n  background: rgba(241, 134, 36, 0.2);\r\n  height: 200px;\r\n  max-width: 282px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleDescription__x7pED {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 16px;\r\n  line-height: 110%;\r\n  color: #444444;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_description__-pzJG {\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 23px;\r\n  color: #f26818;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_descriptionContainer__XLHCC {\r\n  padding: 20px;\r\n  height: 197px;\r\n  max-width: 282px !important;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin-bottom: 1rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonContainer__6u6bM {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n\r\n.cardDefinicaoFase-module_divisoria__IYAiv {\r\n  border: 1px solid #bdbdbd;\r\n  transform: rotate(360deg);\r\n}\r\n\r\n.cardDefinicaoFase-module_titleAndMenu__aqXT0 {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  width: 100%;\r\n  align-items: center;\r\n  margin-bottom: 9px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleFrase__b8v0i {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 25px;\r\n  line-height: 110%;\r\n  color: #f18624;\r\n  max-width: 200px;\r\n  padding-left: 1.5rem;\r\n  padding-bottom: 2rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonFinalizado__V8Oas {\r\n  display: flex;\r\n  justify-content: center;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n";
 var style$6 = {"container":"cardDefinicaoFase-module_container__KEYns","headerContainer":"cardDefinicaoFase-module_headerContainer__uxRId","titleDescription":"cardDefinicaoFase-module_titleDescription__x7pED","description":"cardDefinicaoFase-module_description__-pzJG","descriptionContainer":"cardDefinicaoFase-module_descriptionContainer__XLHCC","buttonContainer":"cardDefinicaoFase-module_buttonContainer__6u6bM","divisoria":"cardDefinicaoFase-module_divisoria__IYAiv","titleAndMenu":"cardDefinicaoFase-module_titleAndMenu__aqXT0","titleFrase":"cardDefinicaoFase-module_titleFrase__b8v0i","buttonFinalizado":"cardDefinicaoFase-module_buttonFinalizado__V8Oas"};
 styleInject(css_248z$7);
 
@@ -11674,167 +11673,100 @@ function SelectLXP({ placeholder, valueSelect, handleValueSelect, listItems }) {
 }
 
 const CardThumbnails = styled__default["default"].div `
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  color: #000;
-  width: 11rem;
-  margin: 1rem 1.1rem;
-  position: relative;
-  transition: transform 1s;
-  border-radius: 8px;
+  color: ${({ theme }) => theme.fonts.neutralsGrey1};
+  width: 230px;
+  gap: 8px;
+  font-family: 'PT Sans';
+  font-style: normal;
 
-  h1 {
-    font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};
-    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontWeight};
-    padding-top: 0.5rem;
-    font-size: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontSize};
-    line-height: 23px;
-    word-break: break-word;
-    width: 11rem;
-    white-space: normal;
-    color: ${({ theme }) => theme.fonts.neutralsGrey1};
+  :hover {
+    > .title {
+      color: ${({ theme }) => theme.colors.primary1};
+    }
+    > img {
+      border: 2px solid ${({ theme }) => theme.colors.primary1};
+    }
   }
-`;
-const ThumbnailHeaderImage = styled__default["default"].div `
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  height: 14.9rem;
-  flex-direction: column;
-  position: relative;
-  width: 12rem;
-  color: #fff;
-  background-image: url(${(props) => props.img});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  border-radius: 8px;
-`;
-const CardThumbnailsHove = styled__default["default"].div `
-  cursor: pointer;
-  width: 240px;
-  height: 380px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-`;
-const ThumbnailImageHover = styled__default["default"].div `
-  width: 240px;
-  height: 140px;
-  background-image: url(${(props) => props.img});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  border-radius: 8px 8px 0px 0px;
-  box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.15), 0px 35px 25px -20px rgba(34, 34, 34, 0.2);
-`;
-const DescriptionThumbnails = styled__default["default"].div `
-  width: 240px;
-  height: 250px;
-  background-color: #000;
-  border-radius: 0px 0px 8px 8px;
-  display: flex;
-  flex-direction: column;
-  /* text-align: justify; */
-  margin-top: -1px;
-  padding: 16px;
 
   .title {
-    font-family: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontFamily};
-    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontWeight};
-    font-size: ${({ theme }) => theme.fonts.textMessageComponentsCardTitle.fontSize};
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
     line-height: 23px;
     word-break: break-word;
     white-space: normal;
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    padding-bottom: 8px;
-    width: 220px;
+    transition: all 0.3s;
   }
+
+  > img {
+    width: 230px;
+    height: 140px;
+    border-radius: 8px;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .author {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+
+    > span {
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+  }
+`;
+const DescriptionThumbnails = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  width: 100%;
+
   p {
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontWeight};
+    color: ${({ theme }) => theme.colors.black};
+    font-weight: ${({ theme }) => theme.fonts.textMessageComponentsBodySmall.fontWeight};
     font-size: 13px;
     line-height: 18px;
-    /* padding-right: 16px; */
-    word-break: break-word;
     font-family: 'PT Sans';
-    font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodyRegular.fontFamily};
-    white-space: normal;
-    overflow: auto;
-    padding-right: 8px;
-    width: 220px;
+    font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodySmall.fontFamily};
+    width: 100%;
+    transition: all 0.5s;
+
+    &.short {
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 
-  p::-webkit-scrollbar {
-  width: 10px;
-  }
+  > small {
+    cursor: pointer;
+    transition: all 0.3s;
 
-  /* Track */
-  p::-webkit-scrollbar-track {
-    background: #88888860;
-    border-radius: 10px;
-  }
-
-  /* Handle */
-  p::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 10px;
-  }
-
-  /* Handle on hover */
-  p::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-`;
-styled__default["default"].div `
-  display: flex;
-  height: 35vh;
-  overflow: hidden;
-  max-width: 100%;
-  cursor: grab;
-  @media (max-width: 414px) {
-    height: 45vh;
-  }
-  @media (max-width: 320px) {
-    height: 65vh;
-  }
-  .motionThumbnails {
-    display: flex;
+    :hover {
+      transform: scale(1.05);
+    }
   }
 `;
 
-function ParticipantThumbnails(props) {
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [itemSelected, setItemSelected] = React.useState(null);
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Popover__default["default"], { id: id, open: open, anchorEl: anchorEl, onClose: handleClose, anchorOrigin: {
-                    vertical: 'center',
-                    horizontal: 'center'
-                }, transformOrigin: {
-                    vertical: 'center',
-                    horizontal: 'center'
-                }, PaperProps: {
-                    style: {
-                        backgroundColor: '#FFF',
-                        boxShadow: 'none',
-                        borderRadius: 8,
-                        marginTop: '-1rem'
-                    }
-                }, style: {
-                    borderRadius: 8
-                }, children: jsxRuntime.jsx(CardThumbnailsHove, { onMouseLeave: (event) => {
-                        setAnchorEl(null);
-                        setItemSelected(null);
-                    }, children: jsxRuntime.jsxs(CardThumbnailsHove, { theme: FRSTTheme, onClick: props.handleFunctionThumbnail, children: [jsxRuntime.jsx(ThumbnailImageHover, { img: props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, children: [jsxRuntime.jsx("div", { className: 'title', children: props.titleThumbnail }), jsxRuntime.jsx("p", { children: props.descpThumbnail })] })] }) }) }), jsxRuntime.jsxs(CardThumbnails, { theme: FRSTTheme, onClick: props.handleFunctionThumbnail, onMouseOver: (event) => {
-                    setAnchorEl(event.currentTarget);
-                    setItemSelected(props);
-                    props.handleFunctionThumbnail;
-                }, children: [jsxRuntime.jsx(ThumbnailHeaderImage, { img: props.imgThumbnails ? props.imgThumbnails : '/img/NoUploaded.png' }), jsxRuntime.jsx("h1", { children: props.titleThumbnail })] })] }));
+function ParticipantThumbnails({ imgThumbnails, titleThumbnail, descpThumbnail, handleFunctionThumbnail, author }) {
+    const [seeMore, setSeeMore] = React.useState(true);
+    const textLarge = descpThumbnail.length >= 100;
+    return (jsxRuntime.jsxs(CardThumbnails, { theme: FRSTTheme, onClick: () => {
+            !textLarge && handleFunctionThumbnail();
+        }, style: !textLarge ? { cursor: 'pointer' } : { cursor: 'auto' }, children: [jsxRuntime.jsx("img", { src: imgThumbnails, alt: titleThumbnail, onClick: () => {
+                    textLarge && handleFunctionThumbnail();
+                } }), jsxRuntime.jsx("p", { className: "title", children: titleThumbnail }), author && (jsxRuntime.jsxs("p", { className: "author", children: ["com ", jsxRuntime.jsx("span", { children: author })] })), jsxRuntime.jsxs(DescriptionThumbnails, { theme: FRSTTheme, onClick: () => textLarge && setSeeMore((prev) => !prev), children: [jsxRuntime.jsx("p", { className: textLarge && seeMore ? 'short' : '', children: descpThumbnail }), textLarge && jsxRuntime.jsx("small", { children: seeMore ? 'Ver mais' : 'Ver menos' })] })] }));
 }
 
 function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
@@ -11859,6 +11791,75 @@ function ParticipantThumbnailsList({ listThumbnails }) {
     else {
         return handleThumbnails(listThumbnails, true);
     }
+}
+
+const StylesAccordionList = styled__default["default"].div `
+  width: 100%;
+  max-width: 371px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  &.open {
+    border-radius: 8px 8px 0px 0px;
+    border: 1px solid ${({ theme }) => theme.colors.primary1};
+  }
+
+  .title {
+    ::selection {
+      color: inherit;
+      background: transparent;
+    }
+  }
+
+  .header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 19px 24px;
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    &.open {
+      border-radius: 8px 8px 0px 0px;
+    }
+    &.closed {
+      border-radius: 8px;
+    }
+    cursor: pointer;
+    > span {
+      &.open {
+        animation: 0.2s open both;
+      }
+      &.closed {
+        animation: 0.2s closed both;
+      }
+    }
+  }
+
+  @keyframes open {
+    to {
+      transform: rotate(90deg);
+    }
+  }
+
+  @keyframes closed {
+    to {
+      transform: rotate(-90deg);
+    }
+  }
+
+  .listContent {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpen }) {
+    const [open, setOpen] = React.useState(isOpen);
+    const handleSetOpen = () => {
+        setOpen((prev) => !prev);
+        setIsOpen();
+    };
+    return (jsxRuntime.jsxs(StylesAccordionList, { theme: FRSTTheme, className: open ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: open ? 'header open' : 'header closed', children: [jsxRuntime.jsx("p", { className: "title", children: title }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16" }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
 }
 
 const ProgressBox = styled__default["default"](_.Box) `
@@ -17023,6 +17024,7 @@ function Votar(props) {
     return props.user === 'userAutor' ? (jsxRuntime.jsxs(ContainerVotar, { children: [jsxRuntime.jsx(VotarIconPressed, {}), jsxRuntime.jsxs(QuantidadeVotos, { user: props.user, children: [props.valueQuantidade, " ", props.textValueQuantidade] })] })) : (jsxRuntime.jsxs(ContainerVotar, { children: [jsxRuntime.jsxs(ButtonVotar, { children: [props.votado ? jsxRuntime.jsx(VotarIconPressed, {}) : jsxRuntime.jsx(VotarIcon, {}), props.textButton] }), jsxRuntime.jsx(DivSeparador, {}), jsxRuntime.jsxs(QuantidadeVotos, { user: props.user, children: [props.valueQuantidade, " ", props.textValueQuantidade] })] }));
 }
 
+exports.AccordionList = AccordionList$2;
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
 exports.AlertCicle = AlertCicle;
