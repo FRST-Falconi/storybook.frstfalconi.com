@@ -73,6 +73,7 @@ export { default as Thumbnails } from './src/components/LXP/thumbnails/thumbnail
 export { default as SelectLXP } from './src/components/LXP/selectLXP';
 export { default as ParticipantThumbnails } from './src/components/LXP/participantThumbnails';
 export { default as ParticipantThumbnailsList } from './src/components/LXP/participantThumbnailsList';
+export { default as AccordionList } from './src/components/LXP/AccordionList';
 export { default as CardTrail } from './src/components/card-trail';
 export { default as CardsTrailsCarousel } from './src/components/card-trail-carousel';
 export { default as ChallengeCard } from './src/components/challenge-cards';

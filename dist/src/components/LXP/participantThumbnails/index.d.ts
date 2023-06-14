@@ -5,7 +5,8 @@ interface ParticipantThumbnails {
     titleThumbnail?: string;
     descpThumbnail?: string;
     handleFunctionThumbnail?: () => void;
+    author?: string;
 }
-export default function ParticipantThumbnails(props: ParticipantThumbnails): JSX.Element;
+export default function ParticipantThumbnails({ imgThumbnails, titleThumbnail, descpThumbnail, handleFunctionThumbnail, author }: ParticipantThumbnails): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map
