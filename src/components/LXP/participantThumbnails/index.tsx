@@ -39,7 +39,7 @@ export default function ParticipantThumbnails({
         alt={titleThumbnail}
         onClick={() => {
           textLarge && handleFunctionThumbnail()
-        }}sssssssssssssssssssssssssss
+        }}
       />
       <p className="title">{titleThumbnail}</p>
       {author && (
