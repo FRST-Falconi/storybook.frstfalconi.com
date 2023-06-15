@@ -59,6 +59,7 @@ interface IBannerProblemParams {
     showButtonInvite?: boolean
     onClickMessage: () => void
     showButtonViews?: boolean
+    hasContinueButton?: boolean
     onClickViewsBtn: () => void
 
     /**

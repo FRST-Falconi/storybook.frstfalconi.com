@@ -1,5 +1,6 @@
 .container {
-  width: 282px;
+  width: 282px !important;
+  max-width: 282px !important;
   color: #222222;
   background-color: #fff;
   border-radius: 10px;
@@ -7,6 +8,9 @@
   align-items: center;
   flex-direction: column;
   position: relative;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .headerContainer {
@@ -15,6 +19,7 @@
   align-items: flex-end;
   background: rgba(241, 134, 36, 0.2);
   height: 200px;
+  max-width: 282px;
 }
 
 .titleDescription {
@@ -24,6 +29,10 @@
   font-size: 16px;
   line-height: 110%;
   color: #444444;
+  max-width: 250px;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .description {
@@ -34,17 +43,23 @@
   line-height: 23px;
   color: #f26818;
   max-width: 250px;
-  word-break: break-word;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .descriptionContainer {
   padding: 20px;
   height: 197px;
+  max-width: 282px !important;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   margin-bottom: 1rem;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .buttonContainer {
@@ -76,11 +91,12 @@
   font-size: 25px;
   line-height: 110%;
   color: #f18624;
-  max-width: 250px;
-  word-break: break-word;
+  max-width: 200px;
   padding-left: 1.5rem;
   padding-bottom: 2rem;
-  word-break: break-word;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .buttonFinalizado {
