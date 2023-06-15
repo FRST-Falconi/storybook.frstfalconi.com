@@ -31,7 +31,7 @@ export const CardThumbnails = styled.div`
     word-break: break-word;
     white-space: normal;
     transition: all 0.3s;
-
+  }
   > img {
     width: 220px;
     height: 140px;
@@ -42,7 +42,6 @@ export const CardThumbnails = styled.div`
     transition: all 0.3s;
     cursor: pointer;
   }
-
 
   .author {
     font-weight: 400;
@@ -73,12 +72,11 @@ export const DescriptionThumbnails = styled.div`
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodySmall.fontFamily};
     width: 100%;
     transition: all 0.5s;
-
-
+    white-space: normal;
 
     &.short {
       display: -webkit-box;
-      -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
