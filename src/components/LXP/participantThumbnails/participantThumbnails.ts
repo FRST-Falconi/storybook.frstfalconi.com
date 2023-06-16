@@ -86,7 +86,7 @@ export const DescriptionThumbnails = styled.div`
   > small {
     cursor: pointer;
     transition: all 0.3s;
-
+    margin-right: 10px;
     :hover {
       transform: scale(1.05);
     }
