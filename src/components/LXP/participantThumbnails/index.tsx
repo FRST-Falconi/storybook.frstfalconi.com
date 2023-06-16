@@ -21,8 +21,7 @@ export default function ParticipantThumbnails({
   author
 }: ParticipantThumbnails) {
   const [seeMore, setSeeMore] = useState(true)
-  const defaultImg = 'https://lxp-cdn.frstfalconi.cloud/thumbParticipant.png'
-
+  const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
 
   const textLarge = descpThumbnail.length >= 100
 
@@ -48,7 +47,7 @@ export default function ParticipantThumbnails({
         </p>
       )}
       <S.DescriptionThumbnails theme={FRSTTheme} onClick={() => textLarge && setSeeMore((prev) => !prev)}>
-        <p className={textLarge && seeMore ? 'short' : ''}>{descpThumbnail}</p>
+        <p className={textLarge && seeMore ? 'descriptionThumb short' : 'descriptionThumb'}>{descpThumbnail}</p>
 
         {textLarge && <small>{seeMore ? 'Ver mais' : 'Ver menos'}</small>}
       </S.DescriptionThumbnails>
