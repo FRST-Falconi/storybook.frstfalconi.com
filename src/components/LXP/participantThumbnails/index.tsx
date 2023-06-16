@@ -21,6 +21,8 @@ export default function ParticipantThumbnails({
   author
 }: ParticipantThumbnails) {
   const [seeMore, setSeeMore] = useState(true)
+  const defaultImg = 'https://lxp-cdn.frstfalconi.cloud/thumbParticipant.png'
+
 
   const textLarge = descpThumbnail.length >= 100
 
@@ -33,7 +35,7 @@ export default function ParticipantThumbnails({
       style={!textLarge ? { cursor: 'pointer' } : { cursor: 'auto' }}
     >
       <img
-        src={imgThumbnails}
+        src={imgThumbnails ? imgThumbnails : defaultImg}
         alt={titleThumbnail}
         onClick={() => {
           textLarge && handleFunctionThumbnail()

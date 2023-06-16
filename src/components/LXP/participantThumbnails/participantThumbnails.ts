@@ -12,6 +12,7 @@ export const CardThumbnails = styled.div`
   gap: 8px;
   font-family: 'PT Sans';
   font-style: normal;
+  padding: 5px;
 
   :hover {
     > .title {
@@ -31,9 +32,8 @@ export const CardThumbnails = styled.div`
     white-space: normal;
     transition: all 0.3s;
   }
-
   > img {
-    width: 230px;
+    width: 220px;
     height: 140px;
     border-radius: 8px;
     object-fit: cover;
@@ -72,10 +72,11 @@ export const DescriptionThumbnails = styled.div`
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodySmall.fontFamily};
     width: 100%;
     transition: all 0.5s;
+    white-space: normal;
 
     &.short {
       display: -webkit-box;
-      -webkit-line-clamp: 3; /** número de linhas que você quer exibir */
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -85,7 +86,7 @@ export const DescriptionThumbnails = styled.div`
   > small {
     cursor: pointer;
     transition: all 0.3s;
-
+    margin-right: 10px;
     :hover {
       transform: scale(1.05);
     }
