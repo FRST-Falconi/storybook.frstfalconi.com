@@ -14,10 +14,14 @@ interface ParticipantThumbnails {
 }
 
 function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
-
+  const [refesh, setRefesh] = useState(0)
+  useEffect(() => {
+    setRefesh((prev) => prev + 1)
+  }, [listThumbnails])
   return (
     <>
       <ScrollContainer
+        refreshResize={refesh}
         stepMove={600}
         isVisibleControlsButtons={isVisibleControlsButtons}
         sizeArrowButton={80}
@@ -33,25 +37,25 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
               imgThumbnails={item.imgThumbnails}
               titleThumbnail={item.titleThumbnail}
               descpThumbnail={item.descpThumbnail}
-              handleFunctionThumbnail={item.handleFunctionThumbnail}            
+              handleFunctionThumbnail={item.handleFunctionThumbnail}
             />
           )
         })}
-      </ScrollContainer>      
+      </ScrollContainer>
     </>
   )
 }
 
 export default function ParticipantThumbnailsList({ listThumbnails }: ParticipantThumbnails) {
-  const [width, setWidth] = useState<number>(typeof window !== "undefined" && window.innerWidth)
+  const [width, setWidth] = useState<number>(typeof window !== 'undefined' && window.innerWidth)
 
   function handleWindowSizeChange() {
-    setWidth(typeof window !== "undefined" && window.innerWidth)
+    setWidth(typeof window !== 'undefined' && window.innerWidth)
   }
   useEffect(() => {
-    typeof window !== "undefined" && window.addEventListener('resize', handleWindowSizeChange)
+    typeof window !== 'undefined' && window.addEventListener('resize', handleWindowSizeChange)
     return () => {
-      typeof window !== "undefined" && window.removeEventListener('resize', handleWindowSizeChange)
+      typeof window !== 'undefined' && window.removeEventListener('resize', handleWindowSizeChange)
     }
   }, [])
 
@@ -61,4 +65,3 @@ export default function ParticipantThumbnailsList({ listThumbnails }: Participan
     return handleThumbnails(listThumbnails, true)
   }
 }
-  

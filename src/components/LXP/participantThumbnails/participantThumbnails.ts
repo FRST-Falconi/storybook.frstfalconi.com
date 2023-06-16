@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 interface HeaderThumbnailsProps {
   img?: any
@@ -20,6 +20,9 @@ export const CardThumbnails = styled.div`
     }
     > img {
       border: 2px solid ${({ theme }) => theme.colors.primary1};
+    }
+    .descriptionThumb {
+      color: ${({ theme }) => theme.colors.shadeBlack};
     }
   }
 
@@ -70,8 +73,9 @@ export const DescriptionThumbnails = styled.div`
     line-height: 18px;
     font-family: 'PT Sans';
     font-family: ${({ theme }) => theme.fonts.textMessageComponentsBodySmall.fontFamily};
+    color: ${({ theme }) => theme.colors.neutralsGrey2};
     width: 100%;
-    transition: all 0.5s;
+    transition: all 0.3s;
     white-space: normal;
 
     &.short {
@@ -86,7 +90,7 @@ export const DescriptionThumbnails = styled.div`
   > small {
     cursor: pointer;
     transition: all 0.3s;
-    margin-right: 10px;
+
     :hover {
       transform: scale(1.05);
     }
