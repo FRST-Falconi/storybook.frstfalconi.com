@@ -21,7 +21,7 @@ export default function ParticipantThumbnails({
   author
 }: ParticipantThumbnails) {
   const [seeMore, setSeeMore] = useState(true)
-  const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
+  const defaultImg = 'https://lxp-cdn.frstfalconi.cloud/contentThumbnail_empty.jpg'
 
   const textLarge = descpThumbnail.length >= 100
 

@@ -12,7 +12,6 @@ export const CardThumbnails = styled.div`
   gap: 8px;
   font-family: 'PT Sans';
   font-style: normal;
-  padding: 5px;
 
   :hover {
     > .title {
