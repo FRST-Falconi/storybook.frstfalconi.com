@@ -10,14 +10,14 @@ interface CardProblemProps {
     userName: string;
     userCargo: string;
     /**
-        * @prop {string} problemStatus: Qual o status do problema: (finalizado, proxPassos, resultadosAprendizados, testesRealizados, hipoteseLevantada, problemaDefinido, problemaCriado)
-    */
+     * @prop {string} problemStatus: Qual o status do problema: (finalizado, proxPassos, resultadosAprendizados, testesRealizados, hipoteseLevantada, problemaDefinido, problemaCriado)
+     */
     problemStatus: string;
     userAvatar?: string;
     cardTitle?: string;
     /**
-        * @prop {string} statusProblema: Qual o status do problema (aprovado, revisar ou aguardando)
-    */
+     * @prop {string} statusProblema: Qual o status do problema (aprovado, revisar ou aguardando)
+     */
     statusProblema?: string;
     trilhaVinculada?: string;
     lastUpdated?: string;
