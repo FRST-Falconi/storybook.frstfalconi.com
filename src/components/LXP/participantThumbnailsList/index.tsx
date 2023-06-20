@@ -24,11 +24,11 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
         refreshResize={refesh}
         stepMove={600}
         isVisibleControlsButtons={isVisibleControlsButtons}
-        sizeArrowButton={80}
+        sizeArrowButton={40}
         marginsArrowButton={1}
         horizontalMarginInternScroll={'0'}
-        marginTopArrrowButton={'-5rem'}
-        widthProtectClick={200}
+        marginTopArrrowButton={'0rem'}
+        widthProtectClick={50}
         className={'scrollThumbnail'}
       >
         {listThumbnails.map((item, index) => {
