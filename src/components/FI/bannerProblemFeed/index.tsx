@@ -71,6 +71,9 @@ interface IBannerProblemFeed extends stepsInfo{
 
     textTotalView?: string
     handleClickTextTotalViews?: () => void
+    
+    isCommentV2?: boolean
+    childrenCommentV2?: any
 }
 
 interface stepsInfo{
@@ -410,6 +413,9 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 userAvatar={props.avatar}
                 textTotalView={props.textTotalView}
                 handleClickTextTotalViews={props.handleClickTextTotalViews}
+                
+                isCommentV2={props?.isCommentV2}
+                childrenCommentV2={props?.childrenCommentV2}
             />
         </ThemeProvider>
     )
