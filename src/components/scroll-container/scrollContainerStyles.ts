@@ -24,6 +24,7 @@ export const WrapperContent = styled.div<{ paddingIntern?: string; hiddenHorizon
   overflow-x: ${({ hiddenHorizontalScrollBar }) => (hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
   overflow-y: hidden;
   white-space: nowrap;
+  gap: 24px;
 
   scroll-behavior: smooth;
   &::-webkit-scrollbar {

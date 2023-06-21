@@ -165,5 +165,6 @@ export declare function FaseTres(): JSX.Element;
 export declare function FaseQuatro(): JSX.Element;
 export declare function FaseCinco(): JSX.Element;
 export declare function FaseFinalizado(): JSX.Element;
+export declare function CardFinished(): JSX.Element;
 export {};
 //# sourceMappingURL=icons.d.ts.map

@@ -16,4 +16,5 @@ export interface IScrollContainer {
   refreshResize?: number
   widthProtectClick?: number
   hiddenHorizontalScrollBar?: boolean
+  colorBackground?: string
 }

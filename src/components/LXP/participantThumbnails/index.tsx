@@ -21,7 +21,7 @@ export default function ParticipantThumbnails({
   author
 }: ParticipantThumbnails) {
   const [seeMore, setSeeMore] = useState(true)
-  const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
+  const defaultImg = 'https://lxp-cdn.frstfalconi.cloud/contentThumbnail_empty.jpg'
 
   const textLarge = descpThumbnail.length >= 100
 
@@ -40,7 +40,15 @@ export default function ParticipantThumbnails({
           textLarge && handleFunctionThumbnail()
         }}
       />
-      <p className="title">{titleThumbnail}</p>
+      <p
+        className="title"
+        style={textLarge ? { cursor: 'pointer' } : { cursor: 'auto' }}
+        onClick={() => {
+          textLarge && handleFunctionThumbnail()
+        }}
+      >
+        {titleThumbnail}
+      </p>
       {author && (
         <p className="author">
           com <span>{author}</span>

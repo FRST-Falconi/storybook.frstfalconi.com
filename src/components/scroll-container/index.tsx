@@ -24,7 +24,8 @@ export default function ScrollContainer({
   horizontalMarginInternScroll,
   refreshResize,
   widthProtectClick,
-  hiddenHorizontalScrollBar
+  hiddenHorizontalScrollBar,
+  colorBackground
 }: IScrollContainer) {
   const [actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
   const [actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
@@ -89,6 +90,7 @@ export default function ScrollContainer({
         <WrapperHorizontal>
           {isVisibleControlsButtons && positionArrowButton != 'bottom' && (
             <ButtonArrow
+              colorBackground={colorBackground}
               isLeftButton={true}
               onClick={scrollToLeft}
               widthProtectClick={widthProtectClick}
@@ -110,6 +112,7 @@ export default function ScrollContainer({
           </WrapperContent>
           {isVisibleControlsButtons && positionArrowButton != 'bottom' && (
             <ButtonArrow
+              colorBackground={colorBackground}
               isLeftButton={false}
               onClick={scrollToRight}
               widthProtectClick={widthProtectClick}
@@ -146,6 +149,7 @@ export default function ScrollContainer({
               />
               <ButtonArrow
                 isLeftButton={false}
+                colorBackground={colorBackground}
                 onClick={scrollToRight}
                 onActionArea={setActionAreaButtonRight}
                 actionArea={actionAreaButtonRight}
@@ -169,30 +173,30 @@ function ButtonArrow({
   onClick,
   onActionArea,
   actionArea,
-  sizeButton,
+  sizeButton = 40,
   isVisible,
   margin,
   ArrowScroll,
   marginTopArrrowButton,
-  widthProtectClick
+  widthProtectClick,
+  colorBackground = 'transparent'
 }) {
   return (
     <div
       style={{
         height: '100%',
-        width: widthProtectClick ? widthProtectClick : 100,
+        width: widthProtectClick ? widthProtectClick : 'fit-content',
         zIndex: 10,
         position: 'absolute',
         left: isLeftButton ? 0 : 'none',
         right: !isLeftButton ? 0 : 'none',
-        paddingLeft: isLeftButton ? 24 : 0,
-        paddingRight: !isLeftButton ? 24 : 0,
         display: 'flex',
         bottom: 0,
         top: 0,
         justifyContent: isLeftButton ? 'flex-start' : 'flex-end',
         alignItems: 'center',
-        visibility: isVisible ? 'visible' : 'hidden'
+        visibility: isVisible ? 'visible' : 'hidden',
+        boxShadow: `inset ${isLeftButton ? '8px' : '-8px'} 0px 8px  ${colorBackground}`
       }}
     >
       <ButtonControll
@@ -200,7 +204,7 @@ function ButtonArrow({
         onClick={onClick}
         onMouseOver={() => onActionArea(true)}
         onMouseOut={() => onActionArea(false)}
-        sizeButton={sizeButton ? sizeButton : 80}
+        sizeButton={sizeButton}
         visibility={isVisible ? 'visible' : 'hidden'}
         marginsArrowButton={margin}
         marginTopArrrowButton={marginTopArrrowButton}
