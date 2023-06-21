@@ -11,9 +11,10 @@ interface objThumbnails {
 }
 interface ParticipantThumbnails {
   listThumbnails: Array<objThumbnails>
+  colorBackground?: string
 }
 
-function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
+function handleThumbnails(listThumbnails, isVisibleControlsButtons, colorBackground) {
   const [refesh, setRefesh] = useState(0)
   useEffect(() => {
     setRefesh((prev) => prev + 1)
@@ -21,6 +22,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
   return (
     <>
       <ScrollContainer
+        colorBackground={colorBackground}
         refreshResize={refesh}
         stepMove={600}
         isVisibleControlsButtons={isVisibleControlsButtons}
@@ -46,7 +48,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons) {
   )
 }
 
-export default function ParticipantThumbnailsList({ listThumbnails }: ParticipantThumbnails) {
+export default function ParticipantThumbnailsList({ listThumbnails, colorBackground }: ParticipantThumbnails) {
   const [width, setWidth] = useState<number>(typeof window !== 'undefined' && window.innerWidth)
 
   function handleWindowSizeChange() {
@@ -60,8 +62,8 @@ export default function ParticipantThumbnailsList({ listThumbnails }: Participan
   }, [])
 
   if (width <= 834) {
-    return handleThumbnails(listThumbnails, false)
+    return handleThumbnails(listThumbnails, false, colorBackground)
   } else {
-    return handleThumbnails(listThumbnails, true)
+    return handleThumbnails(listThumbnails, true, colorBackground)
   }
 }
