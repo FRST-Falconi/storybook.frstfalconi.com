@@ -40,7 +40,15 @@ export default function ParticipantThumbnails({
           textLarge && handleFunctionThumbnail()
         }}
       />
-      <p className="title">{titleThumbnail}</p>
+      <p
+        className="title"
+        style={textLarge ? { cursor: 'pointer' } : { cursor: 'auto' }}
+        onClick={() => {
+          textLarge && handleFunctionThumbnail()
+        }}
+      >
+        {titleThumbnail}
+      </p>
       {author && (
         <p className="author">
           com <span>{author}</span>
