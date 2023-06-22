@@ -29,6 +29,8 @@ export declare const DesignTokens: {
         neutralsGrey7: string;
         neutralsGrey8: string;
         neutralsGrey9: string;
+        neutralGrey10: string;
+        incompleteGrey: string;
         disabledLabelGray: string;
         primary1: string;
         primary2: string;
@@ -81,6 +83,30 @@ export declare const DesignTokens: {
             color: string;
         };
         textMessageComponentsBodyTiny: {
+            fontFamily: string;
+            fontSize: string;
+            letterSpacing: string;
+            lineHeight: string;
+            fontWeight: number;
+            color: string;
+        };
+        textMessageComponentsRegular: {
+            fontFamily: string;
+            fontSize: string;
+            letterSpacing: string;
+            lineHeight: string;
+            fontWeight: number;
+            color: string;
+        };
+        textMessageRegular: {
+            fontFamily: string;
+            fontSize: string;
+            letterSpacing: string;
+            lineHeight: string;
+            fontWeight: number;
+            color: string;
+        };
+        textMessageComponentsBold: {
             fontFamily: string;
             fontSize: string;
             letterSpacing: string;
