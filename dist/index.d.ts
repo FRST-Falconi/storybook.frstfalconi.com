@@ -1,4 +1,4 @@
-export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, TrashIconNew, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour, Books, Diamond, Challenge, ChangeAccount, EyeOff, OpenedEye, StarFavorite, CheckIconSimple, IconContent, EditIcon } from './src/shared/icons';
+export { AlertCicle, DoubleCheck, MoreDotsHorizontal, CheckInCicle, TrashIcon, TrashIconNew, HomeLineIcon, HomeFilledIcon, CalendarLineIcon, CalendarFilledIcon, PencilLineIcon, PencilFilledIcon, LampLineIcon, LampFilledIcon, MedalLineIcon, MedalFilledIcon, PlayLineIcon, PlayFilledIcon, IconNotification, InstagramIcon, LinkedinIcon, PodCastIcon, SiteIcon, SpotifyIcon, YoutubeIcon, Content, AddIcon, Channel, ExitArrow, StepCicleOne, StepCheckInCicle, StepCicleTwo, StepCicleThree, StepCicleFour, Books, Diamond, Challenge, ChangeAccount, EyeOff, OpenedEye, StarFavorite, CheckIconSimple, IconContent, EditIcon, Tick } from './src/shared/icons';
 export { default as Tag } from './src/components/tag';
 export { default as BaseCard } from './src/components/cards/base';
 export { default as AudioPlayer } from './src/components/audio-player';
@@ -22,6 +22,7 @@ export { default as Tooltip } from './src/components/DS/tooltip';
 export { default as Select } from './src/components/DS/select';
 export { default as Modal } from './src/components/DS/modal';
 export { default as Loading } from './src/components/DS/loading';
+export { default as OnboardingProgressMenu } from './src/components/DS/onboarding-progress-menu';
 export { default as SearchField } from './src/components/search-field';
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox';
 export { default as ModalStatusProblema } from './src/components/modal/statusProblema';

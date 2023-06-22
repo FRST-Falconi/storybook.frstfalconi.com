@@ -29,6 +29,8 @@ export const DesignTokens = {
     neutralsGrey7: '#ebebeb',
     neutralsGrey8: '#ebeded',
     neutralsGrey9: '#f2f2f2',
+    neutralGrey10: '#475569',
+    incompleteGrey: '#D1D5DB',
     disabledLabelGray: '#D3D3D3',
     primary1: '#F26818',
     primary2: '#ee4c15',
@@ -89,6 +91,30 @@ export const DesignTokens = {
       fontWeight: 400,
       color: 'black'
     },
+    textMessageComponentsRegular: {
+      fontFamily: "'PT Sans', 'PTSans-Regular'",
+      fontSize: '14px',
+      letterSpacing: '0px',
+      lineHeight: '18px',
+      fontWeight: 400,
+      color: 'black'
+    },
+    textMessageRegular: {
+      fontFamily: "'PT Sans', 'PTSans-Regular'",
+      fontSize: '18px',
+      letterSpacing: '0px',
+      lineHeight: '110%',
+      fontWeight: 400,
+      color: 'black'
+    },
+    textMessageComponentsBold: {
+      fontFamily: "'PT Sans', 'PTSans-Bold'",
+      fontSize: '18px',
+      letterSpacing: '0px',
+      lineHeight: '110%',
+      fontWeight: 700,
+      color: 'black'
+    },
     textMessageComponentsCardTitle: {
       fontFamily: "'Work Sans', 'WorkSansRoman-Medium'",
       fontSize: '20px',
@@ -104,7 +130,7 @@ export const DesignTokens = {
       lineHeight: '130%',
       fontWeight: 700,
       color: 'black'
-    }
+    },
   },
 
   global: {

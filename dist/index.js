@@ -412,7 +412,7 @@ function Load({ fill, width, height }) {
 function Diamond({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00001 4H24L29.3333 12L16 29.3333L2.66667 12L8.00001 4Z", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L21.3333 12L17.3333 4", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 29.3333L10.6667 12L14.6667 4", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M2.66667 12H29.3333", stroke: fill ? fill : 'white', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function Challenge({ fill, width, height }) {
+function Challenge$1({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M6.66668 28.6666L6.13402 28.3904C6.03758 28.5764 6.04514 28.7992 6.15398 28.9783C6.26282 29.1573 6.45716 29.2666 6.66668 29.2666V28.6666ZM25.3333 28.6666V29.2666C25.5429 29.2666 25.7372 29.1573 25.846 28.9783C25.9549 28.7992 25.9624 28.5764 25.866 28.3904L25.3333 28.6666ZM30.6667 28.6666V29.2666C30.8793 29.2666 31.076 29.1541 31.1838 28.9709C31.2916 28.7876 31.2944 28.561 31.1912 28.3752L30.6667 28.6666ZM24 16.6666L24.5245 16.3752C24.4229 16.1923 24.2333 16.0755 24.0243 16.0671C23.8152 16.0586 23.6168 16.1597 23.5008 16.3338L24 16.6666ZM20.8341 20.3338C20.6503 20.6095 20.7248 20.982 21.0005 21.1658C21.2762 21.3496 21.6488 21.2751 21.8326 20.9994L20.8341 20.3338ZM1.33334 28.6666L0.808849 28.3752C0.705605 28.561 0.70841 28.7876 0.816221 28.9709C0.924032 29.1541 1.12075 29.2666 1.33334 29.2666L1.33334 28.6666ZM8.00001 16.6666L8.49924 16.3338C8.38318 16.1597 8.18481 16.0586 7.97575 16.0671C7.76668 16.0755 7.57713 16.1923 7.47552 16.3752L8.00001 16.6666ZM10.1674 20.9994C10.3513 21.2751 10.7238 21.3496 10.9995 21.1658C11.2752 20.982 11.3497 20.6095 11.1659 20.3338L10.1674 20.9994ZM14.6667 18.6666L14.2424 19.0908L14.6667 19.5151L15.0909 19.0908L14.6667 18.6666ZM16 17.3333L16.4243 16.909L16 16.4847L15.5757 16.909L16 17.3333ZM17.3333 18.6666L16.9091 19.0908L17.3333 19.5151L17.7576 19.0908L17.3333 18.6666ZM16 3.33325V2.73325C15.6686 2.73325 15.4 3.00188 15.4 3.33325H16ZM21.3333 3.33325H21.9333C21.9333 3.00188 21.6647 2.73325 21.3333 2.73325V3.33325ZM21.3333 6.66658V7.26659C21.6647 7.26659 21.9333 6.99796 21.9333 6.66658H21.3333ZM16 6.66658H15.4C15.4 6.99796 15.6686 7.26659 16 7.26659V6.66658ZM15.4674 10.3904L6.13402 28.3904L7.19933 28.9428L16.5327 10.9428L15.4674 10.3904ZM6.66668 29.2666H25.3333V28.0666H6.66668V29.2666ZM25.866 28.3904L16.5327 10.3904L15.4674 10.9428L24.8007 28.9428L25.866 28.3904ZM17.3333 29.2666H30.6667V28.0666H17.3333V29.2666ZM31.1912 28.3752L24.5245 16.3752L23.4755 16.958L30.1422 28.958L31.1912 28.3752ZM23.5008 16.3338L20.8341 20.3338L21.8326 20.9994L24.4992 16.9994L23.5008 16.3338ZM14.6667 28.0666H1.33334V29.2666H14.6667V28.0666ZM1.85784 28.958L8.5245 16.958L7.47552 16.3752L0.808849 28.3752L1.85784 28.958ZM7.50078 16.9994L10.1674 20.9994L11.1659 20.3338L8.49924 16.3338L7.50078 16.9994ZM12.2424 17.0908L14.2424 19.0908L15.0909 18.2423L13.0909 16.2423L12.2424 17.0908ZM15.0909 19.0908L16.4243 17.7575L15.5757 16.909L14.2424 18.2423L15.0909 19.0908ZM15.5757 17.7575L16.9091 19.0908L17.7576 18.2423L16.4243 16.909L15.5757 17.7575ZM17.7576 19.0908L19.7576 17.0908L18.9091 16.2423L16.9091 18.2423L17.7576 19.0908ZM16.6 10.6666V3.33325H15.4V10.6666H16.6ZM16 3.93325H21.3333V2.73325H16V3.93325ZM20.7333 3.33325V6.66658H21.9333V3.33325H20.7333ZM21.3333 6.06659H16V7.26659H21.3333V6.06659ZM16.6 6.66658V3.33325H15.4V6.66658H16.6Z", fill: fill ? fill : 'white' }) }));
 }
 function SawBadgeIcon({ fill, width, height }) {
@@ -523,6 +523,9 @@ function FaseFinalizado() {
 function CardFinished() {
     return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "7.4", stroke: "white", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M12 5L6.5 10.5L4 8", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
+function Tick({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '12', height: height ? height : '10.5', viewBox: "0 0 13 11", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M11.0964 0.390037L3.93638 7.30004L2.03638 5.27004C1.68638 4.94004 1.13638 4.92004 0.736381 5.20004C0.346381 5.49004 0.236381 6.00004 0.476381 6.41004L2.72638 10.07C2.94638 10.41 3.32638 10.62 3.75638 10.62C4.16638 10.62 4.55638 10.41 4.77638 10.07C5.13638 9.60004 12.0064 1.41004 12.0064 1.41004C12.9064 0.490037 11.8164 -0.319963 11.0964 0.380037V0.390037Z", fill: fill ? fill : 'white' }) }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -606,6 +609,8 @@ const DesignTokens = {
         neutralsGrey7: '#ebebeb',
         neutralsGrey8: '#ebeded',
         neutralsGrey9: '#f2f2f2',
+        neutralGrey10: '#475569',
+        incompleteGrey: '#D1D5DB',
         disabledLabelGray: '#D3D3D3',
         primary1: '#F26818',
         primary2: '#ee4c15',
@@ -665,6 +670,30 @@ const DesignTokens = {
             fontWeight: 400,
             color: 'black'
         },
+        textMessageComponentsRegular: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '14px',
+            letterSpacing: '0px',
+            lineHeight: '18px',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageRegular: {
+            fontFamily: "'PT Sans', 'PTSans-Regular'",
+            fontSize: '18px',
+            letterSpacing: '0px',
+            lineHeight: '110%',
+            fontWeight: 400,
+            color: 'black'
+        },
+        textMessageComponentsBold: {
+            fontFamily: "'PT Sans', 'PTSans-Bold'",
+            fontSize: '18px',
+            letterSpacing: '0px',
+            lineHeight: '110%',
+            fontWeight: 700,
+            color: 'black'
+        },
         textMessageComponentsCardTitle: {
             fontFamily: "'Work Sans', 'WorkSansRoman-Medium'",
             fontSize: '20px',
@@ -680,7 +709,7 @@ const DesignTokens = {
             lineHeight: '130%',
             fontWeight: 700,
             color: 'black'
-        }
+        },
     },
     global: {
         shadowLevel_0: {
@@ -4535,6 +4564,95 @@ function Loading(props) {
         }
     }, [props.sizeLoading]);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
+}
+
+const CardContainer$1 = styled__default["default"].div `
+    box-sizing: border-box;
+    max-width: 100%;
+    height: auto;
+    background:${({ theme }) => theme.colors.shadeWhite};
+    box-shadow: 0px 25px 18px -20px #cbcbcb;
+    border-color: ${({ theme }) => theme.colors.linkDisabled};
+    border-radius: 8px;
+    padding: 24px 36px 42px;
+`;
+const TextLevel = styled__default["default"].p `
+    ${({ theme }) => theme.fonts.textMessageComponentsBold};
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    display: block;
+`;
+const Challenge = styled__default["default"].p `
+    ${({ theme }) => theme.fonts.textMessageRegular};
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
+`;
+const Line = styled__default["default"].div `
+    border-bottom: 1.5px solid #BDBDBD;
+    width: 100%;
+    height: 1px;
+    margin-top: 14px;
+    margin-bottom: 30px;
+`;
+const ImageTextGroup = styled__default["default"].div `
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+    gap: 19px;
+    margin-left: 32px;
+`;
+const StepBox = styled__default["default"].div `
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+`;
+const StepBoxTextBlock = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+`;
+const StepBoxIconBlock = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    width: 66px;
+    align-items: center;
+`;
+const StepBar = styled__default["default"].div `
+    width: 2px;
+    flex:1;
+    border-radius: 2px;
+    background-color: ${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
+`;
+const StepBoxTitle = styled__default["default"].a `
+    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
+    color:${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : ' #344054'};
+    ${({ isComplete }) => !isComplete && 'font-weight: 500;'}
+    margin-top:2px;
+    cursor: pointer;
+    text-decoration: none;
+`;
+const StepBoxDescription = styled__default["default"].p `
+    ${({ theme }) => theme.fonts.textMessageComponentsRegular};
+    color:#475569;
+    margin-bottom: 26px;
+`;
+const CheckCircle = styled__default["default"].div `
+    box-sizing: border-box !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: ${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
+    border: 4px solid ${({ isChecked, theme }) => isChecked ? theme.colors.shadeWhite : '#F2F4F7'};
+`;
+
+function OnboardingProgressMenu(props) {
+    const { items, level, textChallenge, image, countChallenge, style } = props;
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$1, { style: { ...style }, children: [jsxRuntime.jsxs(ImageTextGroup, { children: [jsxRuntime.jsx("img", { src: image, width: 55, height: 55 }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TextLevel, { children: level }), jsxRuntime.jsxs(Challenge, { children: [countChallenge, " ", textChallenge] })] })] }), jsxRuntime.jsx(Line, {}), items.map((i, index) => (jsxRuntime.jsxs(StepBox, { children: [jsxRuntime.jsxs(StepBoxIconBlock, { children: [jsxRuntime.jsx(CheckCircle, { isComplete: i.finished || i.isCurrent, isChecked: i.finished, children: i.finished ? jsxRuntime.jsx(Tick, { width: '12' }) :
+                                        jsxRuntime.jsx(Dot, { width: '8', height: '8' }) }), items.length - 1 > index &&
+                                    jsxRuntime.jsx(StepBar, { isComplete: i.finished })] }), jsxRuntime.jsxs(StepBoxTextBlock, { children: [jsxRuntime.jsx(StepBoxTitle, { onClick: i.handleClick, isComplete: i.finished || i.isCurrent, children: i.title }), jsxRuntime.jsx(StepBoxDescription, { children: i.description })] })] })))] }) }));
 }
 
 const Container$f = styled__default["default"].div `
@@ -17102,7 +17220,7 @@ exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
 exports.CardTrail = CardTrail;
 exports.CardsTrailsCarousel = CardTrailCarousel;
-exports.Challenge = Challenge;
+exports.Challenge = Challenge$1;
 exports.ChallengeCard = ChallengeCard;
 exports.ChangeAccount = ChangeAccount;
 exports.Channel = Channel$3;
@@ -17175,6 +17293,7 @@ exports.MoreDotsHorizontal = MoreDotsHorizontal;
 exports.NotificationCard = NotificationCard;
 exports.NotificationPopOver = NotificationPopOver;
 exports.ObjectiveStep = ObjectiveStep;
+exports.OnboardingProgressMenu = OnboardingProgressMenu;
 exports.OpenedEye = OpenedEye;
 exports.Pagination = Pagination;
 exports.ParticipantCard = ParticipantCardOld;
@@ -17224,6 +17343,7 @@ exports.TextField = TextField;
 exports.ThumbListContent = ThumbListContent;
 exports.Thumbnails = Thumbnails;
 exports.ThumbnailsDraggable = ThumbnailsDraggable;
+exports.Tick = Tick;
 exports.Tooltip = Tooltip$2;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;

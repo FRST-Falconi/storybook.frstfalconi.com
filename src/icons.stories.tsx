@@ -317,5 +317,7 @@ StarFavorite.args = Icons.MuteIcon({})
 export const CheckIconSimple = Template.bind({})
 CheckIconSimple.args = Icons.CheckIconSimple({})
 
+export const Tick = Template.bind({})
+Tick.args = Icons.Tick({})
 // export const ArrowDown = Template.bind({})
 // ArrowDown.args = Icons.ArrowDown({})
