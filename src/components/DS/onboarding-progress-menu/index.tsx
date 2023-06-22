@@ -15,15 +15,14 @@ import {
     Challenge,
     CheckCircle
 } from './onboardingProgressMenuStyles'
-import Avatar from '@components/avatar'
 import { Dot, Tick } from '@shared/icons'
 import { IOnboardingProgressMenu } from './onboardingProgressMenu'
 
 export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
-    const { items, level, textChallenge, image, countChallenge } = props
+    const { items, level, textChallenge, image, countChallenge, style } = props
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <CardContainer>
+            <CardContainer style={{...style}}>
                 <ImageTextGroup>
                     <img src={image} width={55} height={55}/>
                     <div>
@@ -45,7 +44,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                             }
                         </StepBoxIconBlock>
                         <StepBoxTextBlock>
-                            <StepBoxTitle href={i.titleUrl} isComplete={i.finished || i.isCurrent}>{i.title}</StepBoxTitle>
+                            <StepBoxTitle onClick={i.handleClick} isComplete={i.finished || i.isCurrent}>{i.title}</StepBoxTitle>
                             <StepBoxDescription>{i.description}</StepBoxDescription>
                         </StepBoxTextBlock>
                     </StepBox>

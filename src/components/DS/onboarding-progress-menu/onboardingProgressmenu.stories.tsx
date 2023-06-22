@@ -14,50 +14,51 @@ normal.args = {
     level: 'Iniciante',
     countChallenge: 0,
     textChallenge: 'desafios',
+    style:{width:'288px'},
     items: [
         {
-            titleUrl: '',
+            handleClick: () => alert('boas-vindas'),
             title: 'Boas-vindas',
             description: 'Entenda a sua jornada contínua de aceleração de performance.',
             finished: true,
             isCurrent: false
         },  {
-            titleUrl: '',
+            handleClick: () => alert('Criar um desafio'),
             title: 'Criar um desafio',
             description: 'Teste ideias e encontre soluções para os seus desafios. ',
             finished: true,
             isCurrent: false
         },
         {
-            titleUrl: 'http://localhost',
+            handleClick: () => alert('Fazer mapa do Autoconhecimento'),
             title:'Fazer mapa do Autoconhecimento',
             description: 'Convide pessoas para colaborar no seu desafio.',
             finished: false,
             isCurrent: true
         },
         {
-            titleUrl: 'http://localhost',
+            handleClick: () => alert('Convidar para colaborar'),
             title:'Convidar para colaborar',
             description: 'Conheça seus pontos fortes  e entenda quais habilidades você pode evoluir.',
             finished: false,
             isCurrent: false
         },
         {
-            titleUrl: 'http://localhost',
+            handleClick: () => alert('Fazer uma sessão de Mentoria'),
             title:'Fazer uma sessão de Mentoria',
             description: 'Conheça seus pontos fortes  e entenda quais habilidades você pode evoluir.',
             finished: false,
             isCurrent: false
         },
         {
-            titleUrl: 'http://localhost',
+            handleClick: () => alert('Colaborar em um desafio'),
             title:'Colaborar em um desafio',
             description: 'Conecte-se a novas pessoas, colabore em desafios reais,e compartilhe conhecimento.  ',
             finished: false,
             isCurrent: false
         },
         {
-            titleUrl: 'http://localhost',
+            handleClick: () => alert('Completar um desafio'),
             title:'Completar um desafio',
             description: 'Complete um desafio e veja o resultado real.  ',
             finished: true,

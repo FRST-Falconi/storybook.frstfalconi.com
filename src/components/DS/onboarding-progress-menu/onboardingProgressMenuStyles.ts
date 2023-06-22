@@ -3,13 +3,13 @@ import {ICheckCircle, IComponente} from "./onboardingProgressMenu";
 
 export const CardContainer = styled.div`
     box-sizing: border-box;
-    max-width: 288px;
+    max-width: 100%;
     height: auto;
     background:${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 25px 18px -20px #cbcbcb;
     border-color: ${({ theme }) => theme.colors.linkDisabled};
     border-radius: 8px;
-    padding: 22px 36px 17px;
+    padding: 24px 36px 42px;
 `
 export const TextLevel = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsBold};

@@ -5,11 +5,12 @@ export interface IOnboardingProgressMenu {
   countChallenge: number
   textChallenge: string
   level: string
+  style?: React.CSSProperties
   items: IOnboardingProgressMenuItem[]
 }
 
 export interface IOnboardingProgressMenuItem {
-  titleUrl: string
+  handleClick: () => void
   title: string
   description: string
   finished: boolean
