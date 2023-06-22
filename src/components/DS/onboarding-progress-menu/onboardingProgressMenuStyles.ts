@@ -1,21 +1,13 @@
 import styled from "styled-components";
 import {ICheckCircle, IComponente} from "./onboardingProgressMenu";
 
-export const Progress = styled.div`
-    ${({ theme }) => theme.fonts.textMessageComponentsCardTitle};
-    color: ${({ theme }) => theme.colors.primary1};
-    height: 18px;
-    width: 279px;
-    margin-bottom:15px;
-    `
-
 export const CardContainer = styled.div`
     box-sizing: border-box;
     max-width: 288px;
     height: auto;
     background:${({ theme }) => theme.colors.shadeWhite};
-    box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+    box-shadow: 0px 25px 18px -20px #cbcbcb;
+    border-color: ${({ theme }) => theme.colors.linkDisabled};
     border-radius: 8px;
     padding: 22px 36px 17px;
 `
@@ -68,16 +60,16 @@ export const StepBar = styled.div<IComponente>`
 `
 export const StepBoxTitle = styled.a<IComponente>`
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
-    color:${({isComplete, theme}) => isComplete ? theme.colors.primary1 : 'rgba(51, 65, 85, 1)'};
-    ${({isComplete}) => !isComplete && 'font-weight: 400;'}
+    color:${({isComplete, theme}) => isComplete ? theme.colors.primary1 : ' #344054'};
+    ${({isComplete}) => !isComplete && 'font-weight: 500;'}
     margin-top:2px;
     cursor: pointer;
     text-decoration: none;
 `
 export const StepBoxDescription = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsRegular};
-    color: ${({ theme }) => theme.colors.neutralGrey10};
-    margin-bottom: 24px;
+    color:#475569;
+    margin-bottom: 26px;
 `
 export const CheckCircle = styled.div<ICheckCircle>`
     box-sizing: border-box !important;

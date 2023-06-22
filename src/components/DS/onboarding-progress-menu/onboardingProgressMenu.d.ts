@@ -2,8 +2,8 @@ import React from 'react'
 
 export interface IOnboardingProgressMenu {
   image: string
-  heading: string
-  challenge: string
+  countChallenge: number
+  textChallenge: string
   level: string
   items: IOnboardingProgressMenuItem[]
 }

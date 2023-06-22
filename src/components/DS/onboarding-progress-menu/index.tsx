@@ -5,7 +5,6 @@ import {
     CardContainer,
     ImageTextGroup,
     Line,
-    Progress,
     StepBox,
     StepBoxTextBlock,
     StepBoxIconBlock,
@@ -21,16 +20,15 @@ import { Dot, Tick } from '@shared/icons'
 import { IOnboardingProgressMenu } from './onboardingProgressMenu'
 
 export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
-    const { items, heading, level, challenge } = props
+    const { items, level, textChallenge, image, countChallenge } = props
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Progress>{heading}</Progress>
             <CardContainer>
                 <ImageTextGroup>
-                    <Avatar size="55px" src="https://picsum.photos/200/300"></Avatar>
+                    <img src={image} width={55} height={55}/>
                     <div>
                         <TextLevel>{level}</TextLevel>
-                        <Challenge>{challenge}</Challenge>
+                        <Challenge>{countChallenge} {textChallenge}</Challenge>
                     </div>
                 </ImageTextGroup>
                 <Line />
