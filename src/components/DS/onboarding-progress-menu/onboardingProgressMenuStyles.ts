@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {ICheckCircle, IComponente} from "./onboardingProgressMenu";
 
 export const Progress = styled.div`
     ${({ theme }) => theme.fonts.textMessageComponentsCardTitle};
@@ -11,7 +12,7 @@ export const Progress = styled.div`
 export const CardContainer = styled.div`
     box-sizing: border-box;
     max-width: 288px;
-    height: 560px;
+    height: auto;
     background:${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 25px 18px -20px rgba(34, 34, 34, 0.2);
     border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -47,39 +48,45 @@ export const StepBox = styled.div`
     display: flex;
     flex-direction: row;
     gap: 12px;
-    border:1px solid blue;
 `
 export const StepBoxTextBlock = styled.div`
     display: flex;
     flex-direction: column;
-    flex-grow:1;
-    border:1px solid red;
+    width: fit-content;
 `
 export const StepBoxIconBlock = styled.div`
     display: flex;
     flex-direction: column;
-    border:1px solid green;
-    width:66px;
+    width: 66px;
     align-items: center;
 `
-export const StepBar = styled.div`
+export const StepBar = styled.div<IComponente>`
     width: 2px;
     flex:1;
     border-radius: 2px;
-    background-color:${({ theme }) => theme.colors.primary1};
+    background-color: ${({isComplete, theme}) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
 `
-export const StepBoxTitle = styled.p`
+export const StepBoxTitle = styled.a<IComponente>`
     ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
-    color: ${({ theme }) => theme.colors.primary1};  
+    color:${({isComplete, theme}) => isComplete ? theme.colors.primary1 : 'rgba(51, 65, 85, 1)'};
+    ${({isComplete}) => !isComplete && 'font-weight: 400;'}
+    margin-top:2px;
+    cursor: pointer;
+    text-decoration: none;
 `
 export const StepBoxDescription = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsRegular};
     color: ${({ theme }) => theme.colors.neutralGrey10};
+    margin-bottom: 24px;
 `
-export const CheckCircle = styled.div`
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
-    background-color: orange;
-    border: 4px solid white;
+export const CheckCircle = styled.div<ICheckCircle>`
+    box-sizing: border-box !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: ${({isComplete, theme}) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
+    border: 4px solid ${({isChecked, theme}) => isChecked ? theme.colors.shadeWhite : '#F2F4F7'};
 `
