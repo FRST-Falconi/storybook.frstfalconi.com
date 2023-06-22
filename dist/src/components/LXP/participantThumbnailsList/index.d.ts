@@ -9,7 +9,8 @@ interface objThumbnails {
 }
 interface ParticipantThumbnails {
     listThumbnails: Array<objThumbnails>;
+    colorBackground?: string;
 }
-export default function ParticipantThumbnailsList({ listThumbnails }: ParticipantThumbnails): JSX.Element;
+export default function ParticipantThumbnailsList({ listThumbnails, colorBackground }: ParticipantThumbnails): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

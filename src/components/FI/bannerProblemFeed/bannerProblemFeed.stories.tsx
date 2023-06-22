@@ -122,7 +122,10 @@ Muito bom o seu projeto! No momento estou lidando com um problema bem parecido e
     onCommentChange: (e) => console.log(e.target.value),
 
     onSelectedStep: (n) => alert(n),
-    onClickButton: () => alert('Ver detalhe')
+    onClickButton: () => alert('Ver detalhe'),
+
+    isCommentV2: true,
+    childrenCommentV2: <div>children</div>
 }
 
 export const SuccessCase = Template.bind({})

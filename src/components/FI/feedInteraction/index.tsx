@@ -49,6 +49,9 @@ interface IFeedInteraction {
 
     textTotalView?: string
     handleClickTextTotalViews?: () => void
+
+    isCommentV2?: boolean
+    childrenCommentV2?: any
 }
 
 export default function FeedInteraction ( props : IFeedInteraction ) {
@@ -168,7 +171,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                         </Styles.reviewContent>
                     </Styles.reviewContainer>
                 }
-                {openComments &&
+                {openComments && !props.isCommentV2 &&
                     <Styles.commentsContainer>
                         <Styles.inputComment  >
                             <Avatar size='40px' src={props.userAvatar}  />
@@ -335,7 +338,9 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                         
                     </Styles.commentsContainer>
                 }
-                    
+                {openComments && props?.isCommentV2 &&
+                    <div>{props?.childrenCommentV2}</div>
+                }
                 
             </Styles.Container>
         </ThemeProvider>

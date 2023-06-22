@@ -47,6 +47,8 @@ interface IBannerProblemFeed extends stepsInfo {
     topHeaderTagText?: string;
     textTotalView?: string;
     handleClickTextTotalViews?: () => void;
+    isCommentV2?: boolean;
+    childrenCommentV2?: any;
 }
 interface stepsInfo {
     /**
