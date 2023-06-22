@@ -3,6 +3,9 @@ interface ISmallSRGBanner {
     style: React.CSSProperties;
     textButton: string;
     handleClick: () => void;
+    textTitleLogo?: string;
+    isTexto?: boolean;
+    traducao?: 'es-ES' | 'en-US';
 }
 export default function SmallSRGBanner(props: ISmallSRGBanner): JSX.Element;
 export {};

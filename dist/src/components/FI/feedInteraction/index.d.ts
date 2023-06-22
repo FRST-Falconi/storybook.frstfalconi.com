@@ -34,6 +34,8 @@ interface IFeedInteraction {
     hideComments?: any;
     textTotalView?: string;
     handleClickTextTotalViews?: () => void;
+    isCommentV2?: boolean;
+    childrenCommentV2?: any;
 }
 export default function FeedInteraction(props: IFeedInteraction): JSX.Element;
 export {};
