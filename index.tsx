@@ -46,7 +46,8 @@ export {
   StarFavorite,
   CheckIconSimple,
   IconContent,
-  EditIcon
+  EditIcon,
+  Tick
 } from './src/shared/icons'
 
 // Base
