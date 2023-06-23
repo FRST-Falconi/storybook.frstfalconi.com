@@ -6,6 +6,7 @@ import NotificationCard from '../notificationCard'
 import * as Styles from './notificationPopOverStyles'
 import { BackArrow } from '@shared/icons'
 import { useState } from 'react'
+import imgNotification from '../../../../public/img/Nonotification.png'
 
 type notificationCard = {
   notificationAvatar: string
@@ -38,7 +39,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
   const isNewNotification = props.notificationList
     ? props.notificationList.filter((notification) => notification.isNewNotification)
     : []
-  const emptyStateImage = 'https://i.gyazo.com/5551ed515f94a8b2502d2694d67633dc.png'
+  const emptyStateImage = imgNotification
   const notificationsLength = props?.notificationList?.length
 
   return (
