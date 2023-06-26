@@ -11028,7 +11028,7 @@ const useStyles = core.makeStyles((theme) => {
     return {
         popoverRoot: {
             backgroundColor: color,
-            maxWidth: 200,
+            maxWidth: 200
         },
         content: {
             padding: theme.spacing(2),
@@ -11041,71 +11041,71 @@ const useStyles = core.makeStyles((theme) => {
             '&[x-placement*="bottom"] $arrow': {
                 top: 0,
                 left: 0,
-                marginTop: "-0.71em",
+                marginTop: '-0.71em',
                 marginLeft: 4,
                 marginRight: 4,
-                "&::before": {
-                    transformOrigin: "0 100%"
+                '&::before': {
+                    transformOrigin: '0 100%'
                 }
             },
             '&[x-placement*="top"] $arrow': {
                 bottom: 0,
                 left: 0,
-                marginBottom: "-0.71em",
+                marginBottom: '-0.71em',
                 marginLeft: 4,
                 marginRight: 4,
-                "&::before": {
-                    transformOrigin: "100% 0"
+                '&::before': {
+                    transformOrigin: '100% 0'
                 }
             },
             '&[x-placement*="right"] $arrow': {
                 left: 0,
-                marginLeft: "-0.71em",
-                height: "1em",
-                width: "0.71em",
+                marginLeft: '-0.71em',
+                height: '1em',
+                width: '0.71em',
                 marginTop: 4,
                 marginBottom: 4,
-                "&::before": {
-                    transformOrigin: "100% 100%"
+                '&::before': {
+                    transformOrigin: '100% 100%'
                 }
             },
             '&[x-placement*="left"] $arrow': {
                 right: 0,
-                marginRight: "-0.71em",
-                height: "1em",
-                width: "0.71em",
+                marginRight: '-0.71em',
+                height: '1em',
+                width: '0.71em',
                 marginTop: 4,
                 marginBottom: 4,
-                "&::before": {
-                    transformOrigin: "0 0"
+                '&::before': {
+                    transformOrigin: '0 0'
                 }
             }
         },
         // Stolen from https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/Tooltip/Tooltip.js
         arrow: {
-            overflow: "hidden",
-            position: "absolute",
-            width: "1em",
-            height: "0.71em" /* = width / sqrt(2) = (length of the hypotenuse) */,
-            boxSizing: "border-box",
+            overflow: 'hidden',
+            position: 'absolute',
+            width: '1em',
+            height: '0.71em' /* = width / sqrt(2) = (length of the hypotenuse) */,
+            boxSizing: 'border-box',
             color,
-            "&::before": {
+            '&::before': {
                 content: '""',
-                margin: "auto",
-                display: "block",
-                width: "100%",
-                height: "100%",
+                margin: 'auto',
+                display: 'block',
+                width: '100%',
+                height: '100%',
                 boxShadow: theme.shadows[2],
-                backgroundColor: "currentColor",
-                transform: "rotate(45deg)"
-            },
+                backgroundColor: 'currentColor',
+                transform: 'rotate(45deg)'
+            }
         }
     };
 });
 function ContentCoursesTrails(props) {
     const [OpenPopper, setOpenPopper] = React.useState(false);
     const [checked, setChecked] = React.useState(true);
-    const [checkedPrivate, setCheckedPrivate] = React.useState(true);
+    React.useState(true);
     const [show, setShow] = React.useState(true);
     const [ElementPopover, setElementPopover] = React.useState(null);
     const [ElementPopoverPublish, setElementPopoverPublish] = React.useState(null);
@@ -11117,15 +11117,15 @@ function ContentCoursesTrails(props) {
     // const refContainer = useRef(null);
     React.useEffect(() => {
         setPublishing(props.publishStatus);
-        setOpenPopper(props.publishStatus === "pending");
+        setOpenPopper(props.publishStatus === 'pending');
     }, [props.publishStatus]);
     React.useEffect(() => {
         setNameTrail(props.TrailName);
         console.log('props.TrailName', props.TrailName);
     }, [props.TrailName]);
     React.useEffect(() => {
-        if (props.publishStatus && props.publishStatus === "processing") {
-            console.log(" . --- Startando Verificacao Publicacao", props.trailId);
+        if (props.publishStatus && props.publishStatus === 'processing') {
+            console.log(' . --- Startando Verificacao Publicacao', props.trailId);
             setTimeout(() => {
                 checkStatusPublish();
             }, 5000);
@@ -11135,82 +11135,67 @@ function ContentCoursesTrails(props) {
         setChecked(checkedValue);
         props.handleChangeCheck(checkedValue);
     };
-    const handleChangePrivate = (checkedValue) => {
-        setCheckedPrivate(checkedValue);
-        props.handleChangePrivate(!checkedValue);
-    };
     const changeSelect = () => {
         setShow(!show);
-    };
-    const handleClickActiveNameTrail = () => {
-        if (active) {
-            return setActive(false);
-        }
-        else {
-            setActive(true);
-        }
     };
     const checkStatusPublish = async () => {
         let publicacao = await props.handlePublicarCheck(props.trailId);
         console.log(props.trailId, 'publicacao', publicacao);
         setPublishing(publicacao);
         if (publicacao) {
-            if (publicacao === "processing") {
+            if (publicacao === 'processing') {
                 setTimeout(() => {
                     checkStatusPublish();
                 }, 5000);
             }
         }
     };
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: "opened", active: props.ativo, children: [jsxRuntime.jsx(ContentTrailName, { active: active, children: !active ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyTrailName, { children: nameTrail }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: show === true ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })
-                            :
-                                jsxRuntime.jsxs(ContainerInputNameTrail, { children: [jsxRuntime.jsx("input", { placeholder: props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha', value: nameTrail, onChange: (e) => {
-                                                setNameTrail(e.target.value);
-                                            }, onKeyPress: (event) => {
-                                                if (event.key === 'Enter') {
-                                                    if (nameTrail) {
-                                                        setActive(false);
-                                                        props.handleChangeTrailName(nameTrail);
-                                                    }
-                                                }
-                                            } }), jsxRuntime.jsx(Button$5, { handleClick: async () => {
-                                                setActive(false);
-                                            }, label: "Cancelar", variant: 'link' }), jsxRuntime.jsx(Button$5, { handleClick: async () => {
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContainerHeader, { className: 'opened', active: props.ativo, children: [jsxRuntime.jsx(ContentTrailName, { active: active, children: !active ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyTrailName, { children: nameTrail }), jsxRuntime.jsx(Select, { onClick: changeSelect, children: show === true ? jsxRuntime.jsx(VectorUp, {}) : jsxRuntime.jsx(VectorDown, {}) })] })) : (jsxRuntime.jsxs(ContainerInputNameTrail, { children: [jsxRuntime.jsx("input", { placeholder: props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha', value: nameTrail, onChange: (e) => {
+                                        setNameTrail(e.target.value);
+                                    }, onKeyPress: (event) => {
+                                        if (event.key === 'Enter') {
+                                            if (nameTrail) {
                                                 setActive(false);
                                                 props.handleChangeTrailName(nameTrail);
-                                            }, label: "Salvar", variant: 'primary' })] }) }), props.showButtonActive &&
-                        jsxRuntime.jsxs(ContentActiveHeader, { children: [!active &&
-                                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Tornar a Trilha Pública', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangePrivate, checked: !props.private, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#757575', activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$5, { id: `btnPublish${props.id}`, handleMount: (element) => {
-                                                let el = document.getElementById(element);
-                                                setElementPopoverPublish(el ? el : null);
-                                            }, handleClick: async () => {
-                                                setPublishing('processing');
-                                                await props.handlePublicarTrilha(props);
-                                                checkStatusPublish();
-                                            }, startIcon: Publishing === 'processing' && jsxRuntime.jsx(Loading, { sizeLoading: 'small', loadColor: '#a5a5a5', style: { width: 40 } }), label: Publishing === 'pending' ? "Publicar" : Publishing === 'complete' ? "Publicado" : "Publicando...", variant: 'secondary', disabled: Publishing === 'pending' ? false : true }), jsxRuntime.jsx(core.Popper, { id: Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined, open: OpenPopper, anchorEl: ElementPopoverPublish ? ElementPopoverPublish : null, placement: 'top', className: classes.popper, transition: true, modifiers: {
-                                                preventOverflow: {
-                                                    enabled: true,
-                                                    boundariesElement: "window"
-                                                },
-                                                arrow: {
-                                                    enabled: true,
-                                                    element: arrowRef
-                                                }
-                                            }, children: ({ TransitionProps }) => (jsxRuntime.jsx(core.Fade, { ...TransitionProps, timeout: 350, children: jsxRuntime.jsx(core.Paper, { children: jsxRuntime.jsx(core.ClickAwayListener, { onClickAway: () => { setOpenPopper(false); }, children: jsxRuntime.jsxs(core.Paper, { className: classes.popoverRoot, children: [jsxRuntime.jsx("span", { className: classes.arrow, ref: setArrowRef }), jsxRuntime.jsx(core.Box, { className: classes.content, children: "Ap\u00F3s realizar todas as altera\u00E7\u00F5es na trilha, \u00E9 necess\u00E1rio clicar em publicar para que o conte\u00FAdo editado esteja dispon\u00EDvel" })] }) }) }) })) }, props)] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
-                                        setElementPopover(element.currentTarget);
-                                    }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: props.ativo ? '#000000' : '#bdbdbd' }) }) })] }), jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
+                                            }
+                                        }
+                                    } }), jsxRuntime.jsx(Button$5, { handleClick: async () => {
+                                        setActive(false);
+                                    }, label: 'Cancelar', variant: "link" }), jsxRuntime.jsx(Button$5, { handleClick: async () => {
+                                        setActive(false);
+                                        props.handleChangeTrailName(nameTrail);
+                                    }, label: 'Salvar', variant: "primary" })] })) }), props.showButtonActive && (jsxRuntime.jsxs(ContentActiveHeader, { children: [!active && (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: "#ffffff", offHandleColor: "#ffffff", onColor: "#FF4D0D", offColor: "#757575", activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }) })), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$5, { id: `btnPublish${props.id}`, handleMount: (element) => {
+                                            let el = document.getElementById(element);
+                                            setElementPopoverPublish(el ? el : null);
+                                        }, handleClick: async () => {
+                                            setPublishing('processing');
+                                            await props.handlePublicarTrilha(props);
+                                            checkStatusPublish();
+                                        }, startIcon: Publishing === 'processing' && (jsxRuntime.jsx(Loading, { sizeLoading: "small", loadColor: "#a5a5a5", style: { width: 40 } })), label: Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...', variant: "secondary", disabled: Publishing === 'pending' ? false : true }), jsxRuntime.jsx(core.Popper, { id: Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined, open: OpenPopper, anchorEl: ElementPopoverPublish ? ElementPopoverPublish : null, placement: 'top', className: classes.popper, transition: true, modifiers: {
+                                            preventOverflow: {
+                                                enabled: true,
+                                                boundariesElement: 'window'
+                                            },
+                                            arrow: {
+                                                enabled: true,
+                                                element: arrowRef
+                                            }
+                                        }, children: ({ TransitionProps }) => (jsxRuntime.jsx(core.Fade, { ...TransitionProps, timeout: 350, children: jsxRuntime.jsx(core.Paper, { children: jsxRuntime.jsx(core.ClickAwayListener, { onClickAway: () => {
+                                                        setOpenPopper(false);
+                                                    }, children: jsxRuntime.jsxs(core.Paper, { className: classes.popoverRoot, children: [jsxRuntime.jsx("span", { className: classes.arrow, ref: setArrowRef }), jsxRuntime.jsx(core.Box, { className: classes.content, children: "Ap\u00F3s realizar todas as altera\u00E7\u00F5es na trilha, \u00E9 necess\u00E1rio clicar em publicar para que o conte\u00FAdo editado esteja dispon\u00EDvel" })] }) }) }) })) }, props)] }), jsxRuntime.jsx(IconVerticalHeader, { onClick: (element) => {
+                                    setElementPopover(element.currentTarget);
+                                }, children: jsxRuntime.jsx("div", { style: { marginRight: 8 }, children: jsxRuntime.jsx(MoreVertical, { fill: props.ativo ? '#000000' : '#bdbdbd' }) }) })] })), jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                                 setElementPopover(null);
-                            }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha", onClick: () => {
-                                            //props.handlePopOverTrailEdit(props.id)
-                                            handleClickActiveNameTrail();
+                            }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : 'Editar trilha', onClick: () => {
+                                            props.handlePopOverTrailEdit(props.id);
+                                            // handleClickActiveNameTrail()
                                             setElementPopover(null);
-                                        } }), jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha", onClick: () => {
+                                        } }), jsxRuntime.jsx(PopOverItem, { label: props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : 'Excluir trilha', onClick: () => {
                                             setElementPopover(null);
                                             setTimeout(() => {
                                                 props.handlePopOverTrailDelete(props.id);
                                             }, 500);
-                                        }, icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) }) })] }), show && props.children] }));
+                                        }, icon: jsxRuntime.jsx(Trash, { fill: "#C00F00" }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) }) })] }), show && props.children] }));
 }
 
 function ContentCourses(data) {
