@@ -6,25 +6,18 @@ import * as Styles from './accordionTrackStyle'
 import { useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import Button from '@components/buttons'
-import Switch from 'react-switch';
+import Switch from 'react-switch'
 import PopOver, { PopOverItem } from '../popOver'
 import Loading from '@components/DS/loading'
 
-import {
-  Box,
-  ClickAwayListener,
-  Fade,
-  makeStyles,
-  Paper,
-  Popper,
-} from "@material-ui/core";
+import { Box, ClickAwayListener, Fade, makeStyles, Paper, Popper } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => {
-  const color = theme.palette.background.paper; // Feel free to customise this like they do in Tooltip
+  const color = theme.palette.background.paper // Feel free to customise this like they do in Tooltip
   return {
     popoverRoot: {
       backgroundColor: color,
-      maxWidth: 200,      
+      maxWidth: 200
     },
     content: {
       padding: theme.spacing(2),
@@ -37,89 +30,86 @@ const useStyles = makeStyles((theme) => {
       '&[x-placement*="bottom"] $arrow': {
         top: 0,
         left: 0,
-        marginTop: "-0.71em",
+        marginTop: '-0.71em',
         marginLeft: 4,
         marginRight: 4,
-        "&::before": {
-          transformOrigin: "0 100%"
+        '&::before': {
+          transformOrigin: '0 100%'
         }
       },
       '&[x-placement*="top"] $arrow': {
         bottom: 0,
         left: 0,
-        marginBottom: "-0.71em",
+        marginBottom: '-0.71em',
         marginLeft: 4,
         marginRight: 4,
-        "&::before": {
-          transformOrigin: "100% 0"
+        '&::before': {
+          transformOrigin: '100% 0'
         }
       },
       '&[x-placement*="right"] $arrow': {
         left: 0,
-        marginLeft: "-0.71em",
-        height: "1em",
-        width: "0.71em",
+        marginLeft: '-0.71em',
+        height: '1em',
+        width: '0.71em',
         marginTop: 4,
         marginBottom: 4,
-        "&::before": {
-          transformOrigin: "100% 100%"
+        '&::before': {
+          transformOrigin: '100% 100%'
         }
       },
       '&[x-placement*="left"] $arrow': {
         right: 0,
-        marginRight: "-0.71em",
-        height: "1em",
-        width: "0.71em",
+        marginRight: '-0.71em',
+        height: '1em',
+        width: '0.71em',
         marginTop: 4,
         marginBottom: 4,
-        "&::before": {
-          transformOrigin: "0 0"
+        '&::before': {
+          transformOrigin: '0 0'
         }
       }
     },
     // Stolen from https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/Tooltip/Tooltip.js
     arrow: {
-      overflow: "hidden",
-      position: "absolute",
-      width: "1em",
-      height: "0.71em" /* = width / sqrt(2) = (length of the hypotenuse) */,
-      boxSizing: "border-box",
+      overflow: 'hidden',
+      position: 'absolute',
+      width: '1em',
+      height: '0.71em' /* = width / sqrt(2) = (length of the hypotenuse) */,
+      boxSizing: 'border-box',
       color,
-      "&::before": {
+      '&::before': {
         content: '""',
-        margin: "auto",
-        display: "block",
-        width: "100%",
-        height: "100%",
+        margin: 'auto',
+        display: 'block',
+        width: '100%',
+        height: '100%',
         boxShadow: theme.shadows[2],
-        backgroundColor: "currentColor",
-        transform: "rotate(45deg)"
-      },
-
+        backgroundColor: 'currentColor',
+        transform: 'rotate(45deg)'
+      }
     }
-  };
-});
+  }
+})
 
 export default function ContentCoursesTrails(props: any) {
-  
-  const [OpenPopper, setOpenPopper] = useState<boolean>(false);
+  const [OpenPopper, setOpenPopper] = useState<boolean>(false)
   const [checked, setChecked] = useState(true)
   const [checkedPrivate, setCheckedPrivate] = useState(true)
   const [show, setShow] = useState(true)
-  const [ElementPopover, setElementPopover] = useState(null);
-  const [ElementPopoverPublish, setElementPopoverPublish] = useState(null);
+  const [ElementPopover, setElementPopover] = useState(null)
+  const [ElementPopoverPublish, setElementPopoverPublish] = useState(null)
   const [active, setActive] = useState(false)
-  const [nameTrail, setNameTrail] = useState(props.TrailName)  
-  const [Publishing, setPublishing] = useState<string>(props.publishStatus);
-  const [arrowRef, setArrowRef] = React.useState<HTMLElement | null>(null);
-  const classes = useStyles();
+  const [nameTrail, setNameTrail] = useState(props.TrailName)
+  const [Publishing, setPublishing] = useState<string>(props.publishStatus)
+  const [arrowRef, setArrowRef] = React.useState<HTMLElement | null>(null)
+  const classes = useStyles()
   // const refContainer = useRef(null);
 
   useEffect(() => {
     setPublishing(props.publishStatus)
-    setOpenPopper(props.publishStatus === "pending")
+    setOpenPopper(props.publishStatus === 'pending')
   }, [props.publishStatus])
-
 
   useEffect(() => {
     setNameTrail(props.TrailName)
@@ -127,36 +117,34 @@ export default function ContentCoursesTrails(props: any) {
   }, [props.TrailName])
 
   useEffect(() => {
-    if (props.publishStatus && props.publishStatus === "processing") {
-      console.log(" . --- Startando Verificacao Publicacao", props.trailId)
+    if (props.publishStatus && props.publishStatus === 'processing') {
+      console.log(' . --- Startando Verificacao Publicacao', props.trailId)
       setTimeout(() => {
-          checkStatusPublish()
-        }, 5000)
+        checkStatusPublish()
+      }, 5000)
     }
   }, [])
 
   const handleChange = (checkedValue) => {
     setChecked(checkedValue)
     props.handleChangeCheck(checkedValue)
-  };
+  }
 
   const handleChangePrivate = (checkedValue) => {
     setCheckedPrivate(checkedValue)
     props.handleChangePrivate(!checkedValue)
-  };
-
-  const changeSelect = () => {
-    setShow(!show)  
   }
 
-  
+  const changeSelect = () => {
+    setShow(!show)
+  }
 
-  const handleClickActiveNameTrail = () => { 
-    if(active) {
-      return setActive(false)
-    } else{      
-      setActive(true)
-     }
+  const handleClickActiveNameTrail = () => {
+    // if (active) {
+    //   return setActive(false)
+    // } else {
+    //   setActive(true)
+    // }
   }
 
   const checkStatusPublish = async () => {
@@ -164,7 +152,7 @@ export default function ContentCoursesTrails(props: any) {
     console.log(props.trailId, 'publicacao', publicacao)
     setPublishing(publicacao)
     if (publicacao) {
-      if (publicacao === "processing") {
+      if (publicacao === 'processing') {
         setTimeout(() => {
           checkStatusPublish()
         }, 5000)
@@ -174,58 +162,56 @@ export default function ContentCoursesTrails(props: any) {
 
   return (
     <>
-      <Styles.ContainerHeader className={"opened"} active={props.ativo}>
+      <Styles.ContainerHeader className={'opened'} active={props.ativo}>
         <Styles.ContentTrailName active={active}>
-          {!active ?
+          {!active ? (
             <>
               <Styles.TypographyTrailName>{nameTrail}</Styles.TypographyTrailName>
-              <Styles.Select onClick={changeSelect}>
-                {show === true ? <VectorUp /> : <VectorDown />}
-              </Styles.Select>
+              <Styles.Select onClick={changeSelect}>{show === true ? <VectorUp /> : <VectorDown />}</Styles.Select>
             </>
-            :
+          ) : (
             <Styles.ContainerInputNameTrail>
-              <input 
-                placeholder={props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha'}        
+              <input
+                placeholder={
+                  props.txtPlacerolderInputNameTrail ? props.txtPlacerolderInputNameTrail : 'Digite o nome da trilha'
+                }
                 value={nameTrail}
-                onChange={(e) =>{                  
-                  setNameTrail(e.target.value)                  
-                }}                 
+                onChange={(e) => {
+                  setNameTrail(e.target.value)
+                }}
                 onKeyPress={(event) => {
-                  if(event.key === 'Enter'){
+                  if (event.key === 'Enter') {
                     if (nameTrail) {
                       setActive(false)
                       props.handleChangeTrailName(nameTrail)
                     }
-                  }                  
+                  }
                 }}
-              />       
-              <Button 
-                handleClick={async () => {    
+              />
+              <Button
+                handleClick={async () => {
                   setActive(false)
-                }} 
-                label={"Cancelar"}             
-                variant='link'
-              />                     
-              <Button 
-                handleClick={async () => {                      
+                }}
+                label={'Cancelar'}
+                variant="link"
+              />
+              <Button
+                handleClick={async () => {
                   setActive(false)
                   props.handleChangeTrailName(nameTrail)
-                }} 
-                label={"Salvar"}             
-                variant='primary'
+                }}
+                label={'Salvar'}
+                variant="primary"
               />
-
             </Styles.ContainerInputNameTrail>
-          }          
+          )}
         </Styles.ContentTrailName>
-        
-        {
-          props.showButtonActive &&
-            <Styles.ContentActiveHeader>             
-              {!active &&
+
+        {props.showButtonActive && (
+          <Styles.ContentActiveHeader>
+            {!active && (
               <>
-                <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
+                {/* <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
                   {props.txtPrivateTrilha ? props.txtPrivateTrilha : 'Tornar a Trilha Pública'}
                   <Switch
                     onChange={handleChangePrivate}
@@ -242,7 +228,7 @@ export default function ContentCoursesTrails(props: any) {
                     activeBoxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                     boxShadow={props.private ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                   />
-                </Styles.TypographyActiveHeader>
+                </Styles.TypographyActiveHeader> */}
                 <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
                   {props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha'}
                   <Switch
@@ -253,80 +239,90 @@ export default function ContentCoursesTrails(props: any) {
                     checkedIcon={false}
                     uncheckedIcon={false}
                     handleDiameter={24}
-                    onHandleColor='#ffffff'
-                    offHandleColor='#ffffff'
-                    onColor='#FF4D0D'
-                    offColor='#757575'
+                    onHandleColor="#ffffff"
+                    offHandleColor="#ffffff"
+                    onColor="#FF4D0D"
+                    offColor="#757575"
                     activeBoxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                     boxShadow={props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
                   />
-                </Styles.TypographyActiveHeader>  
-                </>
-              }             
-              <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
-                <Button 
-                  id={`btnPublish${props.id}`}
-                  handleMount={(element) => {
-                    let el = document.getElementById(element)
-                    setElementPopoverPublish(el ? el : null)
-                  }}
-                  handleClick={async () => {    
-                    setPublishing('processing')                
-                    await props.handlePublicarTrilha(props)              
-                    checkStatusPublish()
-                  }} 
-                  startIcon={Publishing === 'processing' &&  <Loading sizeLoading='small' loadColor='#a5a5a5' style={{width: 40}}/>}
-                  label={Publishing === 'pending' ? "Publicar" : Publishing === 'complete' ? "Publicado" : "Publicando..."}             
-                  variant='secondary'
-                  disabled={Publishing === 'pending' ? false : true}
-                />
-                <Popper 
-                  key={props}
-                  id={Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined} 
-                  open={OpenPopper} 
-                  anchorEl={ElementPopoverPublish ? ElementPopoverPublish : null} 
-                  placement={'top'} 
-                  className={classes.popper}
-                  transition
-                  modifiers={{
-                      preventOverflow: {
-                        enabled: true,
-                        boundariesElement: "window"
-                      },
-                      arrow: {
-                        enabled: true,
-                        element: arrowRef
-                      }
-                  }}
-                >
-                  {({ TransitionProps }) => (                  
-                    <Fade {...TransitionProps} timeout={350}>
-                      <Paper>
-                        <ClickAwayListener onClickAway={() => {setOpenPopper(false)}}>
-                          <Paper className={classes.popoverRoot}>
-                              <span className={classes.arrow} ref={setArrowRef} />
-                            <Box className={classes.content}>Após realizar todas as alterações na trilha, é necessário clicar em publicar para que o conteúdo editado esteja disponível</Box>
-                          </Paper>
-                        </ClickAwayListener>
-                      </Paper>
-                    </Fade>
-                  )}
-                </Popper>                
-                                            
-              </Styles.TypographyActiveHeader>              
-              <Styles.IconVerticalHeader
-                onClick={(element: any) => {
-                  setElementPopover(element.currentTarget)
+                </Styles.TypographyActiveHeader>
+              </>
+            )}
+            <Styles.TypographyActiveHeader active={props.ativo} style={{ fontWeight: props.ativo ? 700 : 400 }}>
+              <Button
+                id={`btnPublish${props.id}`}
+                handleMount={(element) => {
+                  let el = document.getElementById(element)
+                  setElementPopoverPublish(el ? el : null)
+                }}
+                handleClick={async () => {
+                  setPublishing('processing')
+                  await props.handlePublicarTrilha(props)
+                  checkStatusPublish()
+                }}
+                startIcon={
+                  Publishing === 'processing' && (
+                    <Loading sizeLoading="small" loadColor="#a5a5a5" style={{ width: 40 }} />
+                  )
+                }
+                label={
+                  Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...'
+                }
+                variant="secondary"
+                disabled={Publishing === 'pending' ? false : true}
+              />
+              <Popper
+                key={props}
+                id={Publishing === 'pending' ? `btnPublishPopper${props.id}` : undefined}
+                open={OpenPopper}
+                anchorEl={ElementPopoverPublish ? ElementPopoverPublish : null}
+                placement={'top'}
+                className={classes.popper}
+                transition
+                modifiers={{
+                  preventOverflow: {
+                    enabled: true,
+                    boundariesElement: 'window'
+                  },
+                  arrow: {
+                    enabled: true,
+                    element: arrowRef
+                  }
                 }}
               >
-                <div style={{ marginRight: 8 }}>
-                  <Icons.MoreVertical
-                    fill={props.ativo ? '#000000' : '#bdbdbd'}
-                  />
-                </div>
-              </Styles.IconVerticalHeader>
-            </Styles.ContentActiveHeader>
-        }        
+                {({ TransitionProps }) => (
+                  <Fade {...TransitionProps} timeout={350}>
+                    <Paper>
+                      <ClickAwayListener
+                        onClickAway={() => {
+                          setOpenPopper(false)
+                        }}
+                      >
+                        <Paper className={classes.popoverRoot}>
+                          <span className={classes.arrow} ref={setArrowRef} />
+                          <Box className={classes.content}>
+                            Após realizar todas as alterações na trilha, é necessário clicar em publicar para que o
+                            conteúdo editado esteja disponível
+                          </Box>
+                        </Paper>
+                      </ClickAwayListener>
+                    </Paper>
+                  </Fade>
+                )}
+              </Popper>
+            </Styles.TypographyActiveHeader>
+            <Styles.IconVerticalHeader
+              onClick={(element: any) => {
+                setElementPopover(element.currentTarget)
+              }}
+            >
+              <div style={{ marginRight: 8 }}>
+                <Icons.MoreVertical fill={props.ativo ? '#000000' : '#bdbdbd'} />
+              </div>
+            </Styles.IconVerticalHeader>
+          </Styles.ContentActiveHeader>
+        )}
         <>
           <PopOver
             element={ElementPopover}
@@ -337,11 +333,11 @@ export default function ContentCoursesTrails(props: any) {
           >
             <div style={{ display: 'flex', flexDirection: 'column', padding: 0 }}>
               <PopOverItem
-                label={props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : "Editar nome da trilha"}
+                label={props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : 'Editar trilha'}
                 onClick={() => {
-                  //props.handlePopOverTrailEdit(props.id)
+                  props.handlePopOverTrailEdit(props.id)
                   handleClickActiveNameTrail()
-                  setElementPopover(null)                  
+                  setElementPopover(null)
                 }}
               />
               {/* <PopOverItem 
@@ -351,24 +347,24 @@ export default function ContentCoursesTrails(props: any) {
                   }}
                 /> */}
               <PopOverItem
-                label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : "Excluir trilha"}
+                label={props.txtTrailsPopOverDelete ? props.txtTrailsPopOverDelete : 'Excluir trilha'}
                 onClick={() => {
                   setElementPopover(null)
                   setTimeout(() => {
                     props.handlePopOverTrailDelete(props.id)
                   }, 500)
                 }}
-                icon={<Icons.Trash fill='#C00F00' />}
+                icon={<Icons.Trash fill="#C00F00" />}
                 noBorder={true}
                 isFontBold={true}
                 color={'#C00F00'}
               />
             </div>
-          </PopOver>      
+          </PopOver>
         </>
       </Styles.ContainerHeader>
-      
-      { show && props.children}
+
+      {show && props.children}
     </>
   )
 }
