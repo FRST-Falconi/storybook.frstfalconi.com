@@ -140,11 +140,11 @@ export default function ContentCoursesTrails(props: any) {
   }
 
   const handleClickActiveNameTrail = () => {
-    // if (active) {
-    //   return setActive(false)
-    // } else {
-    //   setActive(true)
-    // }
+    if (active) {
+      return setActive(false)
+    } else {
+      setActive(true)
+    }
   }
 
   const checkStatusPublish = async () => {
@@ -336,7 +336,7 @@ export default function ContentCoursesTrails(props: any) {
                 label={props.txtTrailsPopOverEdit ? props.txtTrailsPopOverEdit : 'Editar trilha'}
                 onClick={() => {
                   props.handlePopOverTrailEdit(props.id)
-                  handleClickActiveNameTrail()
+                  // handleClickActiveNameTrail()
                   setElementPopover(null)
                 }}
               />
