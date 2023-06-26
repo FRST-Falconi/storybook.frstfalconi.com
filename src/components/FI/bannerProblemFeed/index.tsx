@@ -140,7 +140,10 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     useEffect(() => {
         setStateLatestComment(props.latestComment)
     }, [props.latestComment]);
-
+    const [stateTotalComments, setStateTotalComments] = useState(props.qtdComments)
+    useEffect(()=>{
+        setStateTotalComments(props.qtdComments)
+    }, [props.qtdComments])
 
     const [ definedSteps, setDefinedSteps ] = useState(
         getStepsChallenge(props.language, props.stepProblem, setSelectedStep, props.onSelectedStep) || []
@@ -389,7 +392,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 isChallengeReview={true}
                 id={props.id}
                 isLiked={props.isLiked}
-                qtdComments={props.qtdComments}
+                qtdComments={stateTotalComments}
                 qtdLikes={props.qtdLikes}
                 textAvaluation={props.textAvaluation}
                 textAvaluationTitle={props.textAvaluationTitle}
