@@ -72,6 +72,11 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     useEffect(() => {
         setStateLatestComment(props.latestComment)
     }, [props.latestComment]);
+    
+    const [stateTotalComments, setStateTotalComments] = useState(props.qtdComments)
+    useEffect(()=>{
+        setStateTotalComments(props.qtdComments)
+    }, [props.qtdComments])
 
     const OnReviewClick = () => {
         setOpenReview(!openReview)
@@ -102,24 +107,24 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styles.Container style={{...props.style}} id={props.id}>
-                {!props.textTotalView && (props.qtdLikes || props.qtdComments) ?
+                {!props.textTotalView && (props.qtdLikes || stateTotalComments) ?
                     <Styles.infoContent>
                         {props.qtdLikes ?
                             <Styles.info style={{left: 0}}> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.info>
                             : null
                         }
-                        {props.qtdComments ?
-                            <Styles.info style={{right: 0}}>{props.qtdComments}</Styles.info>
+                        {stateTotalComments ?
+                            <Styles.info style={{right: 0}}>{stateTotalComments}</Styles.info>
                             : null
                         }
                     </Styles.infoContent> 
                 : <>
-                    {(props.textTotalView || props.qtdLikes || props.qtdComments) &&
+                    {(props.textTotalView || props.qtdLikes || stateTotalComments) &&
                         <Styles.infoContentWithView>
                             <div style={{display: 'flex', flexDirection: 'row', gap: '5px'}}>
                                 {props.qtdLikes && <Styles.infoWithView> <Icons.ThumbsUpCovered /> &nbsp;{props.qtdLikes}</Styles.infoWithView> }
-                                {props.qtdLikes && props.qtdComments && <div>•</div>}
-                                {props.qtdComments && <Styles.infoWithView> {props.qtdComments} </Styles.infoWithView> }
+                                {props.qtdLikes && stateTotalComments && <div>•</div>}
+                                {stateTotalComments && <Styles.infoWithView> {stateTotalComments} </Styles.infoWithView> }
                             </div>
                             {props.textTotalView && <Styles.infoWithView 
                                 style={{color: '#0645AD', fontWeight: 700 , cursor: 'pointer'}}
