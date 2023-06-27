@@ -92,8 +92,8 @@ export const ListCounters = styled.div`
 `
 
 export const Counters = styled.button<{ selected: boolean }>`
-  width: 16px;
-  height: 16px;
+  width: 11px;
+  height: 11px;
   box-sizing: border-box;
   border-radius: 100%;
   border: none;
