@@ -8003,7 +8003,7 @@ const HeaderImage$1 = styled__default["default"].div `
   background-size: cover;
   background-position: center;
 
-  ${(props) => props.tmnDescription < 164 &&
+  /* ${(props) => props.tmnDescription < 164 &&
     styled.css `
       section {
         visibility: hidden;
@@ -8013,12 +8013,12 @@ const HeaderImage$1 = styled__default["default"].div `
     height: ${(props) => props.height ?? '450px'};
     ${(props) => props.tmnDescription >= 134 &&
     styled.css `
-        section {
-          visibility: inherit;
-        }
-      `}
+      section {
+        visibility: inherit;
+      }
+    `}
   }
-
+*/
   ${(props) => props.onDisplay
     ? styled.css `
           width: 100%;
@@ -8061,17 +8061,24 @@ const ListCounters = styled__default["default"].div `
   right: 50%;
 `;
 const Counters = styled__default["default"].button `
-  width: 16px;
-  height: 16px;
+  width: 11px;
+  height: 11px;
   box-sizing: border-box;
   border-radius: 100%;
   border: none;
   background-color: ${({ selected, theme }) => (selected ? theme.colors.primary1 : theme.colors.neutralsGrey5)};
 `;
-const Title$1 = styled__default["default"].div `
+const Title$1 = styled__default["default"].h2 `
   font-size: 40px;
   font-weight: 700;
-  max-width: 40rem;
+  max-width: 60vw;
+  margin-top: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @media (max-width: 320px) {
     word-break: break-word;
     font-size: 25px;
@@ -8080,51 +8087,36 @@ const Title$1 = styled__default["default"].div `
 const Description$1 = styled__default["default"].div `
   font-size: 16px;
   font-weight: 400;
-  margin-top: 32px;
   max-width: 44rem;
-  height: fit-content;
-  ${(props) => !props.zeroHeigthDescription &&
-    styled.css `
-      height: 2.4rem;
-    `}
-  overflow: hidden;
   transition: all 0.9s ease-in-out;
   display: -webkit-box;
 
   @media (max-width: 834px) {
     max-width: 34rem;
-    ${(props) => !props.zeroHeigthDescription &&
-    styled.css `
-        height: 2.4rem;
-      `}
   }
 
   @media (max-width: 414px) {
     word-break: break-word;
-    ${(props) => !props.zeroHeigthDescription &&
-    styled.css `
-        height: 2.4rem;
-      `}
   }
   @media (max-width: 320px) {
     font-size: 12px;
-    ${(props) => !props.zeroHeigthDescription &&
-    styled.css `
-        height: 2.4rem;
-      `}
+  }
+
+  &.short {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `;
 const SpaceProgressAndButton = styled__default["default"].div `
-  margin-top: 68px;
   display: flex;
-  height: 50px;
   gap: 28px;
   align-items: center;
-  margin-bottom: 2rem;
   cursor: pointer;
   @media (max-width: 414px) {
     flex-direction: column;
-    margin-top: 40px;
   }
   @media (max-width: 320px) {
     font-size: 14px;
@@ -8145,8 +8137,6 @@ styled__default["default"].div `
   }
 `;
 const SpaceButtonTop = styled__default["default"].div `
-  margin-top: 48px;
-  margin-bottom: 2rem;
   button {
     @media (max-width: 320px) {
       font-size: 14px;
@@ -8154,27 +8144,58 @@ const SpaceButtonTop = styled__default["default"].div `
   }
 `;
 const SpaceButtonTopViewMore = styled__default["default"].section `
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   display: flex;
   cursor: pointer;
-  svg {
-    rotate: 269deg;
-    margin-top: 0.2rem;
-    margin-left: 0.5rem;
-    ${(props) => !props.zeroHeigthDescription
-    ? styled.css `
-            transform: rotate(3.142rad);
-            transition: transform 0.5s;
-          `
-    : styled.css `
-            transform: rotate(360deg);
-            transition: transform 0.5s;
-          `}
+  align-items: center;
+  gap: 10px;
+
+  &.open {
+    margin-top: -10px;
+  }
+  &.closed {
+    margin-top: 0;
+  }
+
+  > span {
+    transform: rotate(90deg);
+
+    &.open {
+      animation: 0.2s open both;
+    }
+    &.closed {
+      animation: 0.2s closed both;
+    }
   }
   a {
     color: #649af3;
     font-weight: 700;
+  }
+
+  @keyframes open {
+    to {
+      transform: rotate(450deg);
+    }
+  }
+
+  @keyframes closed {
+    to {
+      transform: rotate(-90deg);
+    }
+  }
+`;
+const StyleHeaderInProgress = styled__default["default"].div `
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  > section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 `;
 
@@ -8201,10 +8222,12 @@ function HeaderContent(props) {
         }
     }
     function RecomendationHeader(item) {
-        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsx(SpaceButtonTop, { onClick: item.onClick, children: jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary" }) })] }));
+        const hasSeeMore = item.description.length >= 164;
+        return (jsxRuntime.jsxs(StyleHeaderInProgress, { children: [jsxRuntime.jsxs("section", { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { className: !zeroHeigthDescription ? 'short' : '', zeroHeigthDescription: zeroHeigthDescription, children: item.description }), hasSeeMore && (jsxRuntime.jsxs(SpaceButtonTopViewMore, { className: zeroHeigthDescription ? 'open' : 'closed', zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx("span", { className: !zeroHeigthDescription ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' }) })] }))] }), jsxRuntime.jsx(SpaceButtonTop, { onClick: item.onClick, children: jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary" }) })] }));
     }
     function InProgressHeader(item) {
-        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { zeroHeigthDescription: zeroHeigthDescription, children: item.description }), jsxRuntime.jsxs(SpaceButtonTopViewMore, { zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' })] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel, style: { width: 200 } }), jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
+        const hasSeeMore = item.description.length >= 164;
+        return (jsxRuntime.jsxs(StyleHeaderInProgress, { children: [jsxRuntime.jsxs("section", { children: [jsxRuntime.jsx(Title$1, { title: item.title, children: item.title }), jsxRuntime.jsx(Description$1, { className: !zeroHeigthDescription ? 'short' : '', zeroHeigthDescription: zeroHeigthDescription, children: item.description }), hasSeeMore && (jsxRuntime.jsxs(SpaceButtonTopViewMore, { className: zeroHeigthDescription ? 'open' : 'closed', zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx("span", { className: !zeroHeigthDescription ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' }) })] }))] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel, style: { width: 200 } }), jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$9, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
                     return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
