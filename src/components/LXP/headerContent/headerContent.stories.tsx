@@ -18,8 +18,7 @@ InProgress.args = {
   listaRecomendacao: [
     {
       title: 'Blockchain e criptomoedas Bacon ipsum dolor amet landjaeger pastrami pork belly flank',
-      description:
-        'Bacon ipsum dolor amet landjaeger pastrami pork belly flank shankle ground round. Bacon ipsum dolor amet landjaeger pastrami pork belly flank shankle ground round Bacon ipsum dolor amet landjaeger pastrami pork belly flank shankle ground round. Chicken tri-tip alcatra, pastrami buffalo pork chop shoulder drumstick ham hock landjaeger.',
+      description: 'ham hock laasdasd asd ndjaeger.',
       typeOfHeader: 'inProgress',
       progresso: 80,
       bgImg: '/bg1.png',

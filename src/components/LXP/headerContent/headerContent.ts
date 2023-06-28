@@ -28,7 +28,7 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   background-size: cover;
   background-position: center;
 
-  ${(props) =>
+  /* ${(props) =>
     props.tmnDescription < 164 &&
     css`
       section {
@@ -38,14 +38,14 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   @media (max-width: 834px) {
     height: ${(props) => props.height ?? '450px'};
     ${(props) =>
-      props.tmnDescription >= 134 &&
-      css`
-        section {
-          visibility: inherit;
-        }
-      `}
+    props.tmnDescription >= 134 &&
+    css`
+      section {
+        visibility: inherit;
+      }
+    `}
   }
-
+*/
   ${(props) =>
     props.onDisplay
       ? css`
@@ -121,40 +121,26 @@ export const Description = styled.div<HeaderContentProps>`
   font-size: 16px;
   font-weight: 400;
   max-width: 44rem;
-  height: fit-content;
-  ${(props) =>
-    !props.zeroHeigthDescription &&
-    css`
-      height: 2.4rem;
-    `}
-  overflow: hidden;
   transition: all 0.9s ease-in-out;
   display: -webkit-box;
 
   @media (max-width: 834px) {
     max-width: 34rem;
-    ${(props) =>
-      !props.zeroHeigthDescription &&
-      css`
-        height: 2.4rem;
-      `}
   }
 
   @media (max-width: 414px) {
     word-break: break-word;
-    ${(props) =>
-      !props.zeroHeigthDescription &&
-      css`
-        height: 2.4rem;
-      `}
   }
   @media (max-width: 320px) {
     font-size: 12px;
-    ${(props) =>
-      !props.zeroHeigthDescription &&
-      css`
-        height: 2.4rem;
-      `}
+  }
+
+  &.short {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `
 
@@ -199,7 +185,7 @@ export const SpaceButtonTopViewMore = styled.section<HeaderContentProps>`
   gap: 10px;
 
   &.open {
-    margin-top: -20px;
+    margin-top: -10px;
   }
   &.closed {
     margin-top: 0;
@@ -244,6 +230,6 @@ export const StyleHeaderInProgress = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
   }
 `
