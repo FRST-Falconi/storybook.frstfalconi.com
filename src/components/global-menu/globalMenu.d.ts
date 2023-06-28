@@ -64,4 +64,6 @@ export interface IGlobalMenu {
   hiddenProfileMenu?: boolean
 
   customMenuOptions?: any
+
+  showProfile: boolean
 }
