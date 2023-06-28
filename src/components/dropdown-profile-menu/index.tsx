@@ -45,7 +45,7 @@ export default function DropdownProfileMenu({
     <Styles.Container style={{ ...style }}>
       {variant == 'LXP' ? (
         <>
-          <Button
+          {/* <Button
             id="profile-dropdown"
             aria-controls="basic-menu"
             aria-haspopup="true"
@@ -63,7 +63,7 @@ export default function DropdownProfileMenu({
                 <DropdownIcon fill="white" />
               </>
             )}
-          </Button>
+          </Button> */}
           <Styles.MenuCustom
             id="basic-menu"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
@@ -153,7 +153,7 @@ export default function DropdownProfileMenu({
         </>
       ) : (
         <>
-          <Button
+          {/* <Button
             id="profile-dropdown"
             aria-controls="basic-menu"
             aria-haspopup="true"
@@ -167,7 +167,7 @@ export default function DropdownProfileMenu({
             />
             <Styles.UserName> {user.textIsMe} </Styles.UserName>
             <DropdownIcon fill="white" />
-          </Button>
+          </Button> */}
           <Styles.MenuCustom
             id="basic-menu"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
