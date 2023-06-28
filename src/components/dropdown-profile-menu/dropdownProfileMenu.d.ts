@@ -25,4 +25,5 @@ export interface IDropdownProfileMenu {
   handleProfileMenuClick?: () => void
   menuItems?: Array<typeMenuItens>
   style?: React.CSSProperties
+  showProfile: boolean
 }
