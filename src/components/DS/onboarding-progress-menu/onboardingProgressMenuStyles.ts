@@ -6,9 +6,9 @@ export const CardContainer = styled.div`
     max-width: 100%;
     height: auto;
     background:${({ theme }) => theme.colors.shadeWhite};
-    box-shadow: 0px 25px 18px -20px #cbcbcb;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme }) => theme.colors.linkDisabled};
-    border-radius: 8px;
+    border-radius: 16px;
     padding: 24px 36px 42px;
 `
 export const TextLevel = styled.p`

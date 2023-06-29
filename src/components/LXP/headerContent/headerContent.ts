@@ -28,7 +28,7 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   background-size: cover;
   background-position: center;
 
-  ${(props) =>
+  /* ${(props) =>
     props.tmnDescription < 164 &&
     css`
       section {
@@ -38,14 +38,14 @@ export const HeaderImage = styled.div<HeaderContentProps>`
   @media (max-width: 834px) {
     height: ${(props) => props.height ?? '450px'};
     ${(props) =>
-      props.tmnDescription >= 134 &&
-      css`
-        section {
-          visibility: inherit;
-        }
-      `}
+    props.tmnDescription >= 134 &&
+    css`
+      section {
+        visibility: inherit;
+      }
+    `}
   }
-
+*/
   ${(props) =>
     props.onDisplay
       ? css`
@@ -92,18 +92,25 @@ export const ListCounters = styled.div`
 `
 
 export const Counters = styled.button<{ selected: boolean }>`
-  width: 16px;
-  height: 16px;
+  width: 11px;
+  height: 11px;
   box-sizing: border-box;
   border-radius: 100%;
   border: none;
   background-color: ${({ selected, theme }) => (selected ? theme.colors.primary1 : theme.colors.neutralsGrey5)};
 `
 
-export const Title = styled.div`
+export const Title = styled.h2`
   font-size: 40px;
   font-weight: 700;
-  max-width: 40rem;
+  max-width: 60vw;
+  margin-top: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   @media (max-width: 320px) {
     word-break: break-word;
     font-size: 25px;
@@ -113,56 +120,37 @@ export const Title = styled.div`
 export const Description = styled.div<HeaderContentProps>`
   font-size: 16px;
   font-weight: 400;
-  margin-top: 32px;
   max-width: 44rem;
-  height: fit-content;
-  ${(props) =>
-    !props.zeroHeigthDescription &&
-    css`
-      height: 2.4rem;
-    `}
-  overflow: hidden;
   transition: all 0.9s ease-in-out;
   display: -webkit-box;
 
   @media (max-width: 834px) {
     max-width: 34rem;
-    ${(props) =>
-      !props.zeroHeigthDescription &&
-      css`
-        height: 2.4rem;
-      `}
   }
 
   @media (max-width: 414px) {
     word-break: break-word;
-    ${(props) =>
-      !props.zeroHeigthDescription &&
-      css`
-        height: 2.4rem;
-      `}
   }
   @media (max-width: 320px) {
     font-size: 12px;
-    ${(props) =>
-      !props.zeroHeigthDescription &&
-      css`
-        height: 2.4rem;
-      `}
+  }
+
+  &.short {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `
 
 export const SpaceProgressAndButton = styled.div`
-  margin-top: 68px;
   display: flex;
-  height: 50px;
   gap: 28px;
   align-items: center;
-  margin-bottom: 2rem;
   cursor: pointer;
   @media (max-width: 414px) {
     flex-direction: column;
-    margin-top: 40px;
   }
   @media (max-width: 320px) {
     font-size: 14px;
@@ -183,8 +171,6 @@ export const SpaceButtonLeft = styled.div`
   }
 `
 export const SpaceButtonTop = styled.div`
-  margin-top: 48px;
-  margin-bottom: 2rem;
   button {
     @media (max-width: 320px) {
       font-size: 14px;
@@ -193,27 +179,57 @@ export const SpaceButtonTop = styled.div`
 `
 
 export const SpaceButtonTopViewMore = styled.section<HeaderContentProps>`
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   display: flex;
   cursor: pointer;
-  svg {
-    rotate: 269deg;
-    margin-top: 0.2rem;
-    margin-left: 0.5rem;
-    ${(props) =>
-      !props.zeroHeigthDescription
-        ? css`
-            transform: rotate(3.142rad);
-            transition: transform 0.5s;
-          `
-        : css`
-            transform: rotate(360deg);
-            transition: transform 0.5s;
-          `}
+  align-items: center;
+  gap: 10px;
+
+  &.open {
+    margin-top: -10px;
+  }
+  &.closed {
+    margin-top: 0;
+  }
+
+  > span {
+    transform: rotate(90deg);
+
+    &.open {
+      animation: 0.2s open both;
+    }
+    &.closed {
+      animation: 0.2s closed both;
+    }
   }
   a {
     color: #649af3;
     font-weight: 700;
+  }
+
+  @keyframes open {
+    to {
+      transform: rotate(450deg);
+    }
+  }
+
+  @keyframes closed {
+    to {
+      transform: rotate(-90deg);
+    }
+  }
+`
+export const StyleHeaderInProgress = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  > section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
 `

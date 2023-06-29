@@ -54,45 +54,70 @@ export default function HeaderContent(props: HeaderContentParams) {
   }
 
   function RecomendationHeader(item) {
+    const hasSeeMore = item.description.length >= 164
     return (
-      <>
-        <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
-        <styledHeaderContent.Description zeroHeigthDescription={zeroHeigthDescription}>
-          {item.description}
-        </styledHeaderContent.Description>
-        <styledHeaderContent.SpaceButtonTopViewMore
-          zeroHeigthDescription={zeroHeigthDescription}
-          onClick={addHeigthDescription}
-        >
-          <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
-          <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
-        </styledHeaderContent.SpaceButtonTopViewMore>
+      <styledHeaderContent.StyleHeaderInProgress>
+        <section>
+          <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
+          <styledHeaderContent.Description
+            className={!zeroHeigthDescription ? 'short' : ''}
+            zeroHeigthDescription={zeroHeigthDescription}
+          >
+            {item.description}
+          </styledHeaderContent.Description>
+
+          {hasSeeMore && (
+            <styledHeaderContent.SpaceButtonTopViewMore
+              className={zeroHeigthDescription ? 'open' : 'closed'}
+              zeroHeigthDescription={zeroHeigthDescription}
+              onClick={addHeigthDescription}
+            >
+              <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+              <span className={!zeroHeigthDescription ? 'open' : 'closed'}>
+                <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
+              </span>
+            </styledHeaderContent.SpaceButtonTopViewMore>
+          )}
+        </section>
+
         <styledHeaderContent.SpaceButtonTop onClick={item.onClick}>
           <Button label={item.labelButton} variant="primary" />
         </styledHeaderContent.SpaceButtonTop>
-      </>
+      </styledHeaderContent.StyleHeaderInProgress>
     )
   }
 
   function InProgressHeader(item) {
+    const hasSeeMore = item.description.length >= 164
     return (
-      <>
-        <styledHeaderContent.Title>{item.title}</styledHeaderContent.Title>
-        <styledHeaderContent.Description zeroHeigthDescription={zeroHeigthDescription}>
-          {item.description}
-        </styledHeaderContent.Description>
-        <styledHeaderContent.SpaceButtonTopViewMore
-          zeroHeigthDescription={zeroHeigthDescription}
-          onClick={addHeigthDescription}
-        >
-          <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
-          <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
-        </styledHeaderContent.SpaceButtonTopViewMore>
+      <styledHeaderContent.StyleHeaderInProgress>
+        <section>
+          <styledHeaderContent.Title title={item.title}>{item.title}</styledHeaderContent.Title>
+          <styledHeaderContent.Description
+            className={!zeroHeigthDescription ? 'short' : ''}
+            zeroHeigthDescription={zeroHeigthDescription}
+          >
+            {item.description}
+          </styledHeaderContent.Description>
+
+          {hasSeeMore && (
+            <styledHeaderContent.SpaceButtonTopViewMore
+              className={zeroHeigthDescription ? 'open' : 'closed'}
+              zeroHeigthDescription={zeroHeigthDescription}
+              onClick={addHeigthDescription}
+            >
+              <Button label={textView} variant="link" style={{ color: '#649AF3', fontWeight: '900' }} />
+              <span className={!zeroHeigthDescription ? 'open' : 'closed'}>
+                <ArrowScrollRight fill="#649AF3" width="13px" height="13px" strokeWidth={'4'} />
+              </span>
+            </styledHeaderContent.SpaceButtonTopViewMore>
+          )}
+        </section>
         <styledHeaderContent.SpaceProgressAndButton>
           <ProgressBar value={item.progresso} label={item.channel} style={{ width: 200 }} />
           <Button label={item.labelButton} variant="primary" handleClick={item.onClick} />
         </styledHeaderContent.SpaceProgressAndButton>
-      </>
+      </styledHeaderContent.StyleHeaderInProgress>
     )
   }
 

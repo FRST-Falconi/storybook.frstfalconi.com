@@ -14,7 +14,8 @@ export default function DropdownProfileMenu({
   isMobileVersion,
   hiddenProfileMenu,
   handleProfileMenuClick,
-  style
+  style,
+  showProfile
 }: IDropdownProfileMenu) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
   const [anchorSub, setAnchorSub] = React.useState<null | HTMLElement>(null)
@@ -45,6 +46,7 @@ export default function DropdownProfileMenu({
     <Styles.Container style={{ ...style }}>
       {variant == 'LXP' ? (
         <>
+          {showProfile ?
           <Button
             id="profile-dropdown"
             aria-controls="basic-menu"
@@ -64,6 +66,8 @@ export default function DropdownProfileMenu({
               </>
             )}
           </Button>
+          : null
+          }
           <Styles.MenuCustom
             id="basic-menu"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
@@ -153,21 +157,24 @@ export default function DropdownProfileMenu({
         </>
       ) : (
         <>
-          <Button
-            id="profile-dropdown"
-            aria-controls="basic-menu"
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            style={{ background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }}
-            onClick={handleClick}
-          >
-            <Styles.AvatarCustomUser
-              alt="User Photo"
-              src={user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png'}
-            />
-            <Styles.UserName> {user.textIsMe} </Styles.UserName>
-            <DropdownIcon fill="white" />
-          </Button>
+          {showProfile ? 
+            <Button
+              id="profile-dropdown"
+              aria-controls="basic-menu"
+              aria-haspopup="true"
+              aria-expanded={open ? 'true' : undefined}
+              style={{ background: '#FF4D0D', borderRadius: '0px', padding: '5px', width: '185px', whiteSpace: 'nowrap' }}
+              onClick={handleClick}
+            >
+              <Styles.AvatarCustomUser
+                alt="User Photo"
+                src={user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png'}
+              />
+              <Styles.UserName> {user.textIsMe} </Styles.UserName>
+              <DropdownIcon fill="white" />
+            </Button>
+            : null
+          }
           <Styles.MenuCustom
             id="basic-menu"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
