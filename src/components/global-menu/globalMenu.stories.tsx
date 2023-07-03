@@ -117,6 +117,7 @@ normal.args = {
   ],
   notification: {
     textBack: 'Voltar',
+    hasNewNotification: false,
     textNotification: 'Notificações',
     textMarkAllAsRead: 'Marcar todas como lidas',
     textEmptyState: 'No momento você não tem notificações.',
@@ -322,6 +323,7 @@ normal.args = {
         handleClick: () => alert('Notificação clicada!')
       }
     ],
+    handleClickOpenPopOverNotification: () => alert('Notificação aberta'),
     handleClickMarkRead: () => alert('Marcado como lido!'),
     handleClickBack: () => alert('Voltar!')
   },

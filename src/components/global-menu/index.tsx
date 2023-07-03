@@ -71,6 +71,17 @@ export default function GlobalMenu({
   const [isTabletVersion, setIsTabletVersion] = useState(false)
   const [HideHambMenu, setHideHambMenu] = useState(false)
 
+  const [hasNewNotification, setHasNewNotification] = useState(false)
+  const [updatedNotificationList, setUpdatedNotificationList] = useState([])
+
+  useEffect(() => {
+    setHasNewNotification(!!notification?.hasNewNotification)
+  }, [notification, notification?.hasNewNotification])
+
+  useEffect(() => {
+    setUpdatedNotificationList(notification?.notificationList)
+  }, [notification, notification?.notificationList])
+
   useEffect(() => {
     setValueListSearch(search.listEntry)
   }, [search.listEntry])
@@ -128,10 +139,11 @@ export default function GlobalMenu({
     setOpenNotificationMobile(!openNotificationMobile)
   }
 
-  const handleOpenNotification = (event) => {
+  const handleOpenNotification = (event) => {// OPPA
     setOpenNotification(!openNotification)
     setOpenNotificationMobile(!openNotificationMobile)
     setAnchorNotification(event.currentTarget)
+    notification?.handleClickOpenPopOverNotification()
   }
 
   const onClickNotification = (event) => {
@@ -149,9 +161,9 @@ export default function GlobalMenu({
     else setSubMenu([])
   }
 
-  const newNotification = notification.notificationList
-    ? notification.notificationList.filter((notification) => notification.isNewNotification)
-    : []
+  // const newNotification = notification.notificationList
+  //   ? notification.notificationList.filter((notification) => notification.isNewNotification)
+  //   : []
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -310,7 +322,7 @@ export default function GlobalMenu({
                         customMenu={customMenu}
                       />
 
-                      {newNotification.length ? (
+                      {hasNewNotification ? (
                         <div style={{ position: 'absolute', marginLeft: '50%', marginTop: '-54px' }}>
                           <HasNotificationIcon />
                         </div>
@@ -320,7 +332,7 @@ export default function GlobalMenu({
                         isOpen={openNotification}
                         anchor={anchorNotification}
                         textEmptyState={notification.textEmptyState}
-                        notificationList={notification.notificationList}
+                        notificationList={updatedNotificationList}
                         textMarkAllAsRead={notification.textMarkAllAsRead}
                         textNotification={notification.textNotification}
                         isMobile={false}
@@ -343,7 +355,7 @@ export default function GlobalMenu({
                     >
                       <span style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                        {newNotification.length ? (
+                        {hasNewNotification ? (
                           <div style={{ marginLeft: '-12px' }}>
                             {' '}
                             <HasNotificationIcon />{' '}
@@ -365,7 +377,7 @@ export default function GlobalMenu({
                     >
                       <span style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                         <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                        {newNotification.length ? (
+                        {hasNewNotification ? (
                           <div style={{ marginLeft: '-12px' }}>
                             {' '}
                             <HasNotificationIcon />{' '}
@@ -378,7 +390,7 @@ export default function GlobalMenu({
                           isOpen={openNotificationMobile}
                           anchor={anchorNotification}
                           textEmptyState={notification.textEmptyState}
-                          notificationList={notification.notificationList}
+                          notificationList={updatedNotificationList}
                           textMarkAllAsRead={notification.textMarkAllAsRead}
                           textNotification={notification.textNotification}
                           isMobile={false}
@@ -467,7 +479,7 @@ export default function GlobalMenu({
               isOpen={openNotificationMobile}
               anchor={anchorNotification}
               textEmptyState={notification.textEmptyState}
-              notificationList={notification.notificationList}
+              notificationList={updatedNotificationList}
               textMarkAllAsRead={notification.textMarkAllAsRead}
               textNotification={notification.textNotification}
               isMobile={true}
@@ -624,7 +636,7 @@ export default function GlobalMenu({
                         onClick={handleOpenNotification}
                       >
                         <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
-                        {newNotification.length ? (
+                        {hasNewNotification ? (
                           <div style={{ marginLeft: '-12px' }}>
                             <HasNotificationIcon />
                           </div>
@@ -636,7 +648,7 @@ export default function GlobalMenu({
                         isOpen={openNotification}
                         anchor={anchorNotification}
                         textEmptyState={notification.textEmptyState}
-                        notificationList={notification.notificationList}
+                        notificationList={updatedNotificationList}
                         textMarkAllAsRead={notification.textMarkAllAsRead}
                         textNotification={notification.textNotification}
                         isMobile={false}
@@ -660,7 +672,7 @@ export default function GlobalMenu({
                   >
                     <span style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                       <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                      {newNotification.length ? (
+                      {hasNewNotification ? (
                         <div style={{ marginLeft: '-12px' }}>
                           {' '}
                           <HasNotificationIcon />{' '}
@@ -673,7 +685,7 @@ export default function GlobalMenu({
                         isOpen={openNotificationMobile}
                         anchor={anchorNotification}
                         textEmptyState={notification.textEmptyState}
-                        notificationList={notification.notificationList}
+                        notificationList={updatedNotificationList}
                         textMarkAllAsRead={notification.textMarkAllAsRead}
                         textNotification={notification.textNotification}
                         isMobile={false}
@@ -697,7 +709,7 @@ export default function GlobalMenu({
                   >
                     <span style={{ display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }}>
                       <IconNotification fill={FRSTTheme['colors'].shadeWhite} />{' '}
-                      {newNotification.length ? (
+                      {hasNewNotification ? (
                         <div style={{ marginLeft: '-12px' }}>
                           {' '}
                           <HasNotificationIcon />{' '}
@@ -710,7 +722,7 @@ export default function GlobalMenu({
                         isOpen={openNotificationMobile}
                         anchor={anchorNotification}
                         textEmptyState={notification.textEmptyState}
-                        notificationList={notification.notificationList}
+                        notificationList={updatedNotificationList}
                         textMarkAllAsRead={notification.textMarkAllAsRead}
                         textNotification={notification.textNotification}
                         isMobile={false}
@@ -753,7 +765,7 @@ export default function GlobalMenu({
               isOpen={openNotificationMobile}
               anchor={anchorNotification}
               textEmptyState={notification.textEmptyState}
-              notificationList={notification.notificationList}
+              notificationList={updatedNotificationList}
               textMarkAllAsRead={notification.textMarkAllAsRead}
               textNotification={notification.textNotification}
               isMobile={true}
