@@ -17256,6 +17256,10 @@ const WrapperContent = styled__default["default"].div `
   padding-right: ${({ paddingInternHorizontal }) => (paddingInternHorizontal ? paddingInternHorizontal : '150px')};
   padding-top: ${({ paddingInternVertical }) => (paddingInternVertical ? paddingInternVertical : '0px')};
   padding-bottom: ${({ paddingInternVertical }) => (paddingInternVertical ? paddingInternVertical : '0px')};
+
+  & > * {
+    all: initial;
+  }
 `;
 styled__default["default"].div `
   min-width: 350px;

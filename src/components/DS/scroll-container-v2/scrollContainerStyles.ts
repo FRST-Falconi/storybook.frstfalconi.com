@@ -46,6 +46,10 @@ export const WrapperContent = styled.div<{
   padding-right: ${({ paddingInternHorizontal }) => (paddingInternHorizontal ? paddingInternHorizontal : '150px')};
   padding-top: ${({ paddingInternVertical }) => (paddingInternVertical ? paddingInternVertical : '0px')};
   padding-bottom: ${({ paddingInternVertical }) => (paddingInternVertical ? paddingInternVertical : '0px')};
+
+  & > * {
+    all: initial;
+  }
 `
 
 export const CardTest = styled.div`
