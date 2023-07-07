@@ -20,14 +20,15 @@ export default function ScrollContainer(props) {
     stepMove,
     horizontalMarginInternScroll,
     verticalMarginInternScroll,
-    marginsArrowButton,
+    marginsArrowButtonHorizontal,
+    marginsArrowButtonVertical,
     positionArrowButton,
     className,
     styles,
     sizeArrowButton,
     hiddenHorizontalScrollBar,
   } = props
-
+  
   const {
     scrollToLeft,
     scrollToRight,
@@ -61,7 +62,11 @@ export default function ScrollContainer(props) {
                 direction="left"
                 ArrowScroll={ArrowScrollLeft}
                 sizeButton={sizeArrowButton}
-                styles={{marginLeft: marginsArrowButton}}
+                styles={{
+                  marginLeft: marginsArrowButtonHorizontal, 
+                  marginTop: positionArrowButton == 'top' ? marginsArrowButtonVertical : '0px',
+                  marginBottom: positionArrowButton == 'base' ? marginsArrowButtonVertical : '0px',
+                }}
               />
               <ButtonControll
                 onClick={scrollToRight}
@@ -70,7 +75,11 @@ export default function ScrollContainer(props) {
                 direction="right"
                 ArrowScroll={ArrowScrollRight}
                 sizeButton={sizeArrowButton}
-                styles={{marginRight: marginsArrowButton}}
+                styles={{
+                  marginRight: marginsArrowButtonHorizontal,
+                  marginTop: positionArrowButton == 'top' ? marginsArrowButtonVertical : '0px',
+                  marginBottom: positionArrowButton == 'base' ? marginsArrowButtonVertical : '0px',
+                }}
               />
             </>
           )}

@@ -16,9 +16,13 @@ export const normal = Template.bind({})
 normal.args = {
   stepMove: 100,
   isVisibleControlsButtons: true,
-  horizontalMarginInternScrroll: '100px',
+  
+  horizontalMarginInternScroll: '100px',
   verticalMarginInternScroll: '100px',
-  marginsArrowButton: '100px',
+  
+  marginsArrowButtonHorizontal: '100px',
+  marginsArrowButtonVertical: '100px',
+  
   positionArrowButton: 'mid',
   sizeArrowButton: 'large',
   handleClick: (e: any) => {
