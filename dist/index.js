@@ -11962,7 +11962,7 @@ const StylesAccordionList = styled__default["default"].div `
   flex-direction: column;
   &.open {
     border-radius: 8px 8px 0px 0px;
-    border: 1px solid ${({ theme }) => theme.colors.primary1};
+    border: ${({ theme, selectedItem }) => selectedItem && `1px solid ${theme.colors.primary1}`};
   }
 
   .title {
@@ -12014,13 +12014,20 @@ const StylesAccordionList = styled__default["default"].div `
   }
 `;
 
-function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpen }) {
+function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpen, selectedItem }) {
     const [open, setOpen] = React.useState(isOpen);
+    const [selected, setSelected] = React.useState(selectedItem);
     const handleSetOpen = () => {
         setOpen((prev) => !prev);
         setIsOpen();
     };
-    return (jsxRuntime.jsxs(StylesAccordionList, { theme: FRSTTheme, className: open ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: open ? 'header open' : 'header closed', children: [jsxRuntime.jsx("p", { className: "title", children: title }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16" }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
+    React.useEffect(() => {
+        if (selectedItem) {
+            setOpen(true);
+        }
+        setSelected(selectedItem);
+    }, [selectedItem]);
+    return (jsxRuntime.jsxs(StylesAccordionList, { theme: FRSTTheme, selectedItem: selected, className: selected ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: selected ? 'header open' : 'header closed', children: [jsxRuntime.jsx("p", { className: "title", children: title }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16" }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
 }
 
 const ProgressBox = styled__default["default"](_.Box) `
