@@ -126,3 +126,35 @@ export const topHeaderTag = styled.span<{ background: string, color: string }>`
     border-radius: 0px 8px;
 
 `
+
+
+export const ShowLikeDoubleClick = styled.div<{show}>`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: ${props => props?.show ? '1' : '0'};
+    transition: opacity 0.2s ease-in-out;
+    border-radius: 8px;
+    user-select: none;
+`
+
+export const IconLike = styled.img`
+    transform: rotate(180deg);
+    transform: scaleY(-1);
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    border-radius: 50%;
+    user-select: none;
+    padding: 1%;
+
+    // border: 0.5vw solid #0645ad;
+`

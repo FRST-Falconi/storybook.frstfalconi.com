@@ -11,6 +11,8 @@ import { withStyles } from '@material-ui/styles';
 import Button from "@components/buttons";
 import * as Icons from '@shared/icons'
 import FeedInteraction from "../feedInteraction";
+import useDoubleClick from './useDoubleClick';
+
 
 interface IBannerProblemFeed extends stepsInfo{
     id : string
@@ -74,6 +76,8 @@ interface IBannerProblemFeed extends stepsInfo{
     
     isCommentV2?: boolean
     childrenCommentV2?: any
+
+    activeDoubleClickLike?: boolean
 }
 
 interface stepsInfo{
@@ -299,9 +303,23 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
             </>
         )
     }
+    
+    const [stateShowLikeDoubleClick, setStateShowLikeDoubleClick] = useState(false);
+
+    const doubleClickHandler = useDoubleClick(() => {
+        if(!!props?.activeDoubleClickLike) {
+            setStateShowLikeDoubleClick(true);
+            props?.handleLikeClick()
+            setTimeout(() => {
+                setStateShowLikeDoubleClick(false);
+            }, 2000);  // Após 2 segundos, a div será escondida
+        }
+    });
 
     return(
         <ThemeProvider theme={FRSTTheme}>
+            <div onClick={doubleClickHandler} style={{position: 'relative'}}>  
+
             { props.mainAchievementValue || props.mainLearningValue ?
                 <Styles.achievementHeader style={{backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }} >
                     <img
@@ -420,6 +438,10 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 isCommentV2={props?.isCommentV2}
                 childrenCommentV2={props?.childrenCommentV2}
             />
+            <Styles.ShowLikeDoubleClick show={!!props?.activeDoubleClickLike && stateShowLikeDoubleClick}>
+                <Styles.IconLike src="https://gyazo.com/16f1dc400826a414deaa21dc3a79165a.gif"/>
+            </Styles.ShowLikeDoubleClick>
+        </div>
         </ThemeProvider>
     )
 }

@@ -46,14 +46,14 @@ export const ButtonControllStyled = styled.div<IButtonContoll>`
 const SIZE_BUTTON = {
     'small': '20px',
     'medium': '50px',
-    'large': '70px',
+    'large': '80px',
     'extra-large': '100px'
 }
 
 const SIZE_ARROW = {
     'small': '8px',
     'medium': '25px',
-    'large': '35px',
+    'large': '30px',
     'extra-large': '50px'
 }
 

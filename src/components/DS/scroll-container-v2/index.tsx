@@ -51,7 +51,16 @@ export default function ScrollContainer(props) {
             paddingInternVertical={verticalMarginInternScroll}
             hiddenHorizontalScrollBar={hiddenHorizontalScrollBar}
           >
-            {children}
+            <div
+            style={{
+              width: 'fit-content',
+              display: 'flex',
+              flexDirection: 'row',
+              whiteSpace: 'pre-wrap',
+              userSelect:'none'
+            }}>
+              {children}
+            </div>
           </WrapperContent>
           {isVisibleControlsButtons && (
             <>
