@@ -49,6 +49,7 @@ interface IBannerProblemFeed extends stepsInfo {
     handleClickTextTotalViews?: () => void;
     isCommentV2?: boolean;
     childrenCommentV2?: any;
+    activeDoubleClickLike?: boolean;
 }
 interface stepsInfo {
     /**
