@@ -3622,7 +3622,7 @@ function randID$1() {
         .substr(2, 9);
 }
 
-const WrapperHorizontal = styled__default["default"].div `
+const WrapperHorizontal$1 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -3630,7 +3630,7 @@ const WrapperHorizontal = styled__default["default"].div `
   width: 100%;
   height: auto;
 `;
-const WrapperContent$3 = styled__default["default"].div `
+const WrapperContent$4 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -3646,7 +3646,7 @@ const WrapperContent$3 = styled__default["default"].div `
   padding-left: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
   padding-right: ${({ paddingIntern }) => (paddingIntern ? paddingIntern : '150px')};
 `;
-const ButtonControll = styled__default["default"].div `
+const ButtonControll$1 = styled__default["default"].div `
   display: flex;
   visibility: ${({ visibility }) => visibility};
   flex-direction: column;
@@ -3704,7 +3704,7 @@ styled__default["default"].div `
   border-radius: 20px;
 `;
 
-function ScrollContainer({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll, refreshResize, widthProtectClick, hiddenHorizontalScrollBar, colorBackground }) {
+function ScrollContainer$1({ children, type, isVisibleControlsButtons, positionArrowButton, marginTopArrrowButton, stepMove, className, styles, sizeArrowButton, marginsArrowButton, horizontalMarginInternScroll, refreshResize, widthProtectClick, hiddenHorizontalScrollBar, colorBackground }) {
     const [actionAreaButtonLeft, setActionAreaButtonLeft] = React.useState(false);
     const [actionAreaButtonRight, setActionAreaButtonRight] = React.useState(false);
     const [iDScroll, setIDScroll] = React.useState(`iDScroll-${randID$1()}`);
@@ -3756,7 +3756,7 @@ function ScrollContainer({ children, type, isVisibleControlsButtons, positionArr
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$3, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal$1, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$4, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
                             display: 'flex',
                             flexDirection: 'row',
                             marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'
@@ -3777,7 +3777,7 @@ function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButt
             alignItems: 'center',
             visibility: isVisible ? 'visible' : 'hidden',
             boxShadow: `inset ${isLeftButton ? '8px' : '-8px'} 0px 8px  ${colorBackground}`
-        }, children: jsxRuntime.jsx(ButtonControll, { isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
+        }, children: jsxRuntime.jsx(ButtonControll$1, { isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
@@ -3916,7 +3916,7 @@ function LearningSteps({ title, onSelected, objectCards, widthCard, marginLeftTi
     function renderCard(item) {
         return (jsxRuntime.jsx(StepCard, { title: item.title, onClick: () => onItemSelect(item.id), numberPeople: item.numberPeople, className: null, textButtonMore: textViewMore ? textViewMore : 'Ver mais', active: itemSelected == item.id, src: item.photos, width: widthCard }, item.id));
     }
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(HeaderWrapper, { marginLeft: marginLeftTitle ? marginLeftTitle : '0px', marginRight: marginRightClear ? marginRightClear : '0px', children: [jsxRuntime.jsx(TitleComponent, { children: title }), jsxRuntime.jsxs(ClearComponent, { onClick: () => onItemSelect(-1), children: [jsxRuntime.jsx(TrashIcon, {}), jsxRuntime.jsx(TextClear, { children: textClearFilter ? textClearFilter : 'Excluir Filtro' })] })] }), jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) })] }));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(HeaderWrapper, { marginLeft: marginLeftTitle ? marginLeftTitle : '0px', marginRight: marginRightClear ? marginRightClear : '0px', children: [jsxRuntime.jsx(TitleComponent, { children: title }), jsxRuntime.jsxs(ClearComponent, { onClick: () => onItemSelect(-1), children: [jsxRuntime.jsx(TrashIcon, {}), jsxRuntime.jsx(TextClear, { children: textClearFilter ? textClearFilter : 'Excluir Filtro' })] })] }), jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, children: objectCards.map(renderCard) })] }));
 }
 
 styled__default["default"].img `
@@ -4830,7 +4830,7 @@ const TextTotalTab = styled__default["default"].div `
 const TextTitleTab = styled__default["default"].div `
     white-space: nowrap;
 `;
-const WrapperContent$2 = styled__default["default"].div `
+const WrapperContent$3 = styled__default["default"].div `
 
     background-color: transparent;
     padding-top: 30px;
@@ -4880,7 +4880,7 @@ function AccordionTabs({ titleAccordion, typeAccordion, typeButtonTab, titleTabs
         return TabComponent;
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [titleAccordion && jsxRuntime.jsxs(TitleAccordion, { children: [" ", titleAccordion, " "] }), typeAccordion == 'horizontal' ? (jsxRuntime.jsxs(WrapperHeaderTabs, { children: [jsxRuntime.jsx(ContainerTitleTabs, { id: "scrollTabsAccordion", children: titleTabs.map(renderTitles) }), hasCleanButton &&
-                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$2, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
+                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$3, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
 }
 
 const CheckBoxWrapper = styled__default["default"].div `
@@ -5610,7 +5610,7 @@ function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeA
     function renderCard(item, index) {
         return (jsxRuntime.jsx(CardResultConquista, { textMoreDetails: btnViewMore ? btnViewMore : 'Mais detalhes', description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
 }
 
 var css_248z$5 = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
@@ -11292,7 +11292,7 @@ function AccordionTrack(props) {
                                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(LoadingContent$1, { style: { width: 200, height: 20 } }) })
                                     :
                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", courseData.length, " ", props.textRegistros ? props.textRegistros : 'registros'] }) })] }), jsxRuntime.jsx(dnd.Droppable, { droppableId: MEUS_CONTEUDOS_CONTENT, direction: "horizontal", children: (provided) => {
-                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: RefreshResize, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: IsLoading ?
+                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: RefreshResize, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: IsLoading ?
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] })
                                                 :
                                                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { onClick: () => {
@@ -11307,7 +11307,7 @@ function AccordionTrack(props) {
                                                             })] }) }) }), provided.placeholder] }));
                         } }, MEUS_CONTEUDOS_CONTENT)] }), IsLoading ?
                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtLoadingTrilhas ? props.txtLoadingTrilhas : 'Carregando Trilhas...', ativo: true, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
-                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] }) }) }), provided.placeholder] }));
+                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] }) }) }), provided.placeholder] }));
                             } }, CONTEUDO_INDIVIDUAL_CONTENT) }) })
                 :
                     jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Módulos', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
@@ -11322,7 +11322,7 @@ function AccordionTrack(props) {
                                 console.log(bShow);
                                 setShowIndividual(bShow);
                             }, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
-                                    return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [courseIndividualData && courseIndividualData.map((individual, individualIndex) => {
+                                    return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [courseIndividualData && courseIndividualData.map((individual, individualIndex) => {
                                                             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: `contentTrails${1}_individual${individualIndex}`, index: `${individualIndex}`, isDisabled: individual.active === false ? false : individual.active, title: individual.title, variant: 'default', showSwitch: true, handleClickCourse: () => {
                                                                         props.handleEditCourse(individual.id);
                                                                     }, handleSwitchAtivar: (checked) => {
@@ -11357,7 +11357,7 @@ function AccordionTrack(props) {
                                         setModalDeleteTrilha(true);
                                     }, children: ShowTrail.length === 0 || ShowTrail[trailIndex] &&
                                         jsxRuntime.jsx(dnd.Droppable, { droppableId: (trailIndex + 2).toString(), direction: "horizontal", children: (provided) => {
-                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: { height: 350 }, children: [jsxRuntime.jsx(ScrollContainer, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course && trail.trail_course.map((el, courseTrailIndex) => {
+                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: { height: 350 }, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course && trail.trail_course.map((el, courseTrailIndex) => {
                                                                     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: `trail_${trailIndex}_course_${courseTrailIndex}`, index: `${courseTrailIndex}`, isDisabled: trail.active === false ? false : el.course.active, title: el.course.title, variant: 'default', handleClickCourse: () => {
                                                                                 props.handleEditCourse(el.course.id);
                                                                             }, isTrail: true, showSwitch: false, src: el.course.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.course.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.course.id); }, handleClickPopOverDelete: () => {
@@ -11927,7 +11927,7 @@ function handleThumbnails(listThumbnails, isVisibleControlsButtons, colorBackgro
     React.useEffect(() => {
         setRefesh((prev) => prev + 1);
     }, [listThumbnails]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ScrollContainer, { colorBackground: colorBackground, refreshResize: refesh, stepMove: 600, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 40, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '0rem', widthProtectClick: 50, className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ScrollContainer$1, { colorBackground: colorBackground, refreshResize: refesh, stepMove: 600, isVisibleControlsButtons: isVisibleControlsButtons, sizeArrowButton: 40, marginsArrowButton: 1, horizontalMarginInternScroll: '0', marginTopArrrowButton: '0rem', widthProtectClick: 50, className: 'scrollThumbnail', children: listThumbnails.map((item, index) => {
                 return (jsxRuntime.jsx(ParticipantThumbnails, { imgThumbnails: item.imgThumbnails, titleThumbnail: item.titleThumbnail, descpThumbnail: item.descpThumbnail, handleFunctionThumbnail: item.handleFunctionThumbnail }));
             }) }) }));
 }
@@ -11958,7 +11958,7 @@ const StylesAccordionList = styled__default["default"].div `
   flex-direction: column;
   &.open {
     border-radius: 8px 8px 0px 0px;
-    border: 1px solid ${({ theme }) => theme.colors.primary1};
+    border: ${({ theme, selectedItem }) => selectedItem && `1px solid ${theme.colors.primary1}`};
   }
 
   .title {
@@ -12010,13 +12010,20 @@ const StylesAccordionList = styled__default["default"].div `
   }
 `;
 
-function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpen }) {
+function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpen, selectedItem }) {
     const [open, setOpen] = React.useState(isOpen);
+    const [selected, setSelected] = React.useState(selectedItem);
     const handleSetOpen = () => {
         setOpen((prev) => !prev);
         setIsOpen();
     };
-    return (jsxRuntime.jsxs(StylesAccordionList, { theme: FRSTTheme, className: open ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: open ? 'header open' : 'header closed', children: [jsxRuntime.jsx("p", { className: "title", children: title }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16" }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
+    React.useEffect(() => {
+        if (selectedItem) {
+            setOpen(true);
+        }
+        setSelected(selectedItem);
+    }, [selectedItem]);
+    return (jsxRuntime.jsxs(StylesAccordionList, { theme: FRSTTheme, selectedItem: selected, className: selected ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: selected ? 'header open' : 'header closed', children: [jsxRuntime.jsx("p", { className: "title", children: title }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16" }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
 }
 
 const ProgressBox = styled__default["default"](_.Box) `
@@ -12176,7 +12183,7 @@ function CardTrailCarousel({ objectCards, marginsArrowButton, move, isVisibleBut
     function renderCard(item, index) {
         return jsxRuntime.jsx(CardTrail, { variant: item.variant, name: item.name, progress: item.progress, start: item.start, description: item.description, mentor: item.mentor, action: item.action, notStarted: item.notStarted, bannerImage: item.bannerImage, labels: label ? label : { mentor: 'Mentor(a)', dateStart: "Data de Início" } }, index);
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer, { stepMove: move ? move : 380, isVisibleControlsButtons: isVisibleButtons, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer$1, { stepMove: move ? move : 380, isVisibleControlsButtons: isVisibleButtons, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: jsxRuntime.jsx("div", { children: objectCards.map(renderCard) }) }) }));
 }
 
 const WrapperCard$4 = styled__default["default"].div `
@@ -12983,7 +12990,7 @@ const ContainerBanner = styled__default["default"].div `
         }
     }
 `;
-const WrapperContent$1 = styled__default["default"].div `
+const WrapperContent$2 = styled__default["default"].div `
     flex: 1;
     display: flex;
     justify-content: center;
@@ -13108,8 +13115,8 @@ const ItemFrstSocials = styled__default["default"].button `
 `;
 
 function BannerSRG(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent$1, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
-                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$1, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$5, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$1, { children: jsxRuntime.jsx(Button$5, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent$2, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
+                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$5, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx(Button$5, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
 }
 
 const achievementHeader = styled__default["default"].div `
@@ -13226,6 +13233,35 @@ const topHeaderTag = styled__default["default"].span `
     color: ${({ color }) => color || '#FFFFFF'};
     border-radius: 0px 8px;
 
+`;
+const ShowLikeDoubleClick = styled__default["default"].div `
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: ${props => props?.show ? '1' : '0'};
+    transition: opacity 0.2s ease-in-out;
+    border-radius: 8px;
+    user-select: none;
+`;
+const IconLike = styled__default["default"].img `
+    transform: rotate(180deg);
+    transform: scaleY(-1);
+    width: 30%;
+    background-color: rgba(255, 255, 255, 0.8);
+
+    border-radius: 50%;
+    user-select: none;
+    padding: 1%;
+
+    // border: 0.5vw solid #0645ad;
 `;
 
 const Container$2 = styled__default["default"].div `
@@ -13426,6 +13462,25 @@ function FeedInteraction(props) {
                     jsxRuntime.jsx("div", { children: props?.childrenCommentV2 })] }) }));
 }
 
+function useDoubleClick(action) {
+    const [clickTimeout, setClickTimeout] = React.useState(null);
+    const handleClick = () => {
+        if (clickTimeout !== null) {
+            // Se existe um timeout configurado, isso é um duplo clique
+            action();
+            clearTimeout(clickTimeout);
+            setClickTimeout(null);
+        }
+        else {
+            // Se não há timeout, inicia um. Se outro clique ocorrer antes do timeout expirar, será um duplo clique
+            setClickTimeout(window.setTimeout(() => {
+                setClickTimeout(null);
+            }, 250)); // 250 ms para o segundo clique
+        }
+    };
+    return handleClick;
+}
+
 function BannerProblemFeed(props) {
     const [selectedStep, setSelectedStep] = React.useState(props.stepActive);
     const learningIcon = 'https://i.gyazo.com/4e0807b581bf9780f07a27516a809a21.png';
@@ -13497,25 +13552,35 @@ function BannerProblemFeed(props) {
                                 jsxRuntime.jsxs(stepsContainer, { children: [jsxRuntime.jsx(stepsTitle, { children: props.step5Title }), jsxRuntime.jsxs(stepsLabel, { style: { color: FRSTTheme['colors'].primary1 }, children: [props.textNextSteps, ":"] }), jsxRuntime.jsx(stepsValueText, { children: props.nextStepsValue })] })
                                 : null }));
     };
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
-                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
-                : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
-                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
-                                            (props.language === 'pt-BR' ? 'Case de sucesso'
-                                                : props.language === 'en-US' ? 'Success case'
-                                                    : props.language === 'es' ? 'Caso de exito'
-                                                        : props.language === 'pt-PT' ? 'Case de sucesso'
-                                                            : null)
-                                            : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
-                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: {
-                            width: '100%',
-                            paddingTop: 30,
-                            paddingBottom: 16,
-                            marginTop: 16,
-                            marginBottom: 4,
-                            borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
-                            display: 'flex', justifyContent: 'center'
-                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 })] }));
+    const [stateShowLikeDoubleClick, setStateShowLikeDoubleClick] = React.useState(false);
+    const doubleClickHandler = useDoubleClick(() => {
+        if (!!props?.activeDoubleClickLike) {
+            setStateShowLikeDoubleClick(true);
+            props?.handleLikeClick();
+            setTimeout(() => {
+                setStateShowLikeDoubleClick(false);
+            }, 2000); // Após 2 segundos, a div será escondida
+        }
+    });
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { onClick: doubleClickHandler, style: { position: 'relative' }, children: [props.mainAchievementValue || props.mainLearningValue ?
+                    jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
+                    : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
+                            jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
+                                                (props.language === 'pt-BR' ? 'Case de sucesso'
+                                                    : props.language === 'en-US' ? 'Success case'
+                                                        : props.language === 'es' ? 'Caso de exito'
+                                                            : props.language === 'pt-PT' ? 'Case de sucesso'
+                                                                : null)
+                                                : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
+                                jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: {
+                                width: '100%',
+                                paddingTop: 30,
+                                paddingBottom: 16,
+                                marginTop: 16,
+                                marginBottom: 4,
+                                borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
+                                display: 'flex', justifyContent: 'center'
+                            }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 }), jsxRuntime.jsx(ShowLikeDoubleClick, { show: !!props?.activeDoubleClickLike && stateShowLikeDoubleClick, children: jsxRuntime.jsx(IconLike, { src: "https://gyazo.com/16f1dc400826a414deaa21dc3a79165a.gif" }) })] }) }));
 }
 function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
     let translate = {
@@ -16691,7 +16756,7 @@ function ExpandButton({ label, disabled, onClick, styles, startIcon }) {
             }, children: [jsxRuntime.jsx("div", { style: { width: '20px' }, children: startIcon }), jsxRuntime.jsx(Label, { active: actionArea, children: label })] }) }));
 }
 
-const WrapperContent = styled__default["default"].div `
+const WrapperContent$1 = styled__default["default"].div `
     width: 100%;
     min-height: 300px;
     display: flex;
@@ -16906,7 +16971,7 @@ function ContentModalInviteMultiple({ labels, onClickInvite, statusSend }) {
             }
         }
     }, [inputMultiplePerson]);
-    return (jsxRuntime.jsxs(WrapperContent, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
+    return (jsxRuntime.jsxs(WrapperContent$1, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
                             return (jsxRuntime.jsxs(WrapperInputPerson, { children: [jsxRuntime.jsx(CustomTextField, { label: labels?.name, placeholder: labels?.placeholderName, onChange: (e) => onChangeInput({ e, type: 'name', id: inputPerson.id }), type: 'text', value: inputPerson?.name, required: true, error: inputPerson?.errorName }), jsxRuntime.jsx(CustomTextField, { label: labels?.lastName, placeholder: labels.placeholderLastName, onChange: (e) => onChangeInput({ e, type: 'lastName', id: inputPerson?.id }), type: 'text', value: inputPerson?.lastName, required: true, error: inputPerson?.errorLastName }), jsxRuntime.jsx(CustomTextField, { label: labels?.email, placeholder: labels.placeholderEmail, onChange: (e) => onChangeInput({ e, type: 'email', id: inputPerson?.id }), type: 'text', value: inputPerson?.email, required: true, error: inputPerson?.errorEmail })] }, index));
                         }) }), inputMultiplePerson?.length > 1 &&
                         jsxRuntime.jsxs(ButtonRemove, { onClick: () => handleRemoveInput(), children: [jsxRuntime.jsx(TrashIconNew, { fill: '#444' }), labels?.delete] }), jsxRuntime.jsxs(ButtonAddNewPerson, { onClick: () => handleAddNewInput(), children: [jsxRuntime.jsx("div", { style: { width: '24px', display: 'flex', alignItems: 'center' }, children: jsxRuntime.jsx(IconPlusCicle, {}) }), jsxRuntime.jsx(LabelButtonAddPerson, { children: labels?.buttonAddMore })] })] }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '14px' }, children: [jsxRuntime.jsx(StatusSendInvite, { statusSendLocal: statusSendLocal, labels: labels, setStatusSendLocal: setStatusSendLocal }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: labels?.invite, handleClick: () => sendListInput(), disabled: isDisabledSendInvite })] })] }));
@@ -17220,6 +17285,251 @@ function Votar(props) {
     return props.user === 'userAutor' ? (jsxRuntime.jsxs(ContainerVotar, { children: [jsxRuntime.jsx(VotarIconPressed, {}), jsxRuntime.jsxs(QuantidadeVotos, { user: props.user, children: [props.valueQuantidade, " ", props.textValueQuantidade] })] })) : (jsxRuntime.jsxs(ContainerVotar, { children: [jsxRuntime.jsxs(ButtonVotar, { children: [props.votado ? jsxRuntime.jsx(VotarIconPressed, {}) : jsxRuntime.jsx(VotarIcon, {}), props.textButton] }), jsxRuntime.jsx(DivSeparador, {}), jsxRuntime.jsxs(QuantidadeVotos, { user: props.user, children: [props.valueQuantidade, " ", props.textValueQuantidade] })] }));
 }
 
+const POSITION_ARROW = {
+    'top': 'flex-start',
+    'mid': 'center',
+    'base': 'flex-end',
+};
+const WrapperHorizontal = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: ${({ position }) => (position ? POSITION_ARROW[position] : 'center')};;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+`;
+const WrapperContent = styled__default["default"].div `
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: fit-content;
+  overflow-x: ${({ hiddenHorizontalScrollBar }) => (hiddenHorizontalScrollBar ? 'hidden' : 'scroll')};
+  overflow-y: hidden;
+  white-space: nowrap;
+  gap: 24px;
+
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  padding-left: ${({ paddingInternHorizontal }) => (paddingInternHorizontal ? paddingInternHorizontal : '150px')};
+  padding-right: ${({ paddingInternHorizontal }) => (paddingInternHorizontal ? paddingInternHorizontal : '150px')};
+  padding-top: ${({ paddingInternVertical }) => (paddingInternVertical ? paddingInternVertical : '0px')};
+  padding-bottom: ${({ paddingInternVertical }) => (paddingInternVertical ? paddingInternVertical : '0px')};
+
+  & > * {
+    all: initial;
+  }
+`;
+styled__default["default"].div `
+  min-width: 350px;
+  min-height: 300px;
+  margin: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: #0f0;
+  z-index: 1;
+  border-radius: 20px;
+`;
+
+const ButtonControllStyled = styled__default["default"].div `  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    background: ${({ theme }) => theme.colors.shadeWhite};
+    border: 1px solid #e8e8e8;
+
+    width: ${({ sizeButton }) => sizeButton ? SIZE_BUTTON[sizeButton] : '50px'};
+    height: ${({ sizeButton }) => sizeButton ? SIZE_BUTTON[sizeButton] : '50px'};
+  
+    min-width: ${({ sizeButton }) => sizeButton ? SIZE_BUTTON[sizeButton] : '50px'};
+    min-height: ${({ sizeButton }) => sizeButton ? SIZE_BUTTON[sizeButton] : '50px'};
+
+    border-radius: 50%;
+    padding: ${({ sizeButton, direction }) => (sizeButton && direction) ? PADDING_SIZE_BUTTON[direction][sizeButton] : '3px'} !important;
+    
+    svg {
+        width: ${({ sizeButton }) => SIZE_ARROW[sizeButton]} !important;
+        height: ${({ sizeButton }) => SIZE_ARROW[sizeButton]} !important;
+    }
+    &:hover {
+        background: ${({ theme }) => theme.colors.primary1} !important;
+        border: 0px solid #e8e8e8;
+        path {
+            stroke: #fff;
+        }
+    }
+
+    box-shadow: 8px 21px 8px 0 rgb(34 34 34 / 30%) !important;
+    z-index: 9;
+    transition: all 0.2s ease-in-out;
+`;
+const SIZE_BUTTON = {
+    'small': '20px',
+    'medium': '50px',
+    'large': '80px',
+    'extra-large': '100px'
+};
+const SIZE_ARROW = {
+    'small': '8px',
+    'medium': '25px',
+    'large': '30px',
+    'extra-large': '50px'
+};
+const PADDING_SIZE_BUTTON = {
+    'right': {
+        'small': '0px 0px 0px 1px',
+        'medium': '0px 0px 0px 5px',
+        'large': '0px 0px 0px 7px',
+        'extra-large': '0px 0px 0px 10px'
+    },
+    'left': {
+        'small': '0px 1px 0px 0px',
+        'medium': '0px 5px 0px 0px',
+        'large': '0px 7px 0px 0px',
+        'extra-large': '0px 10px 0px 0px'
+    }
+};
+
+function useLongPress(callback = () => { }, ms = 2000) {
+    const [startLongPress, setStartLongPress] = React.useState(false);
+    React.useEffect(() => {
+        let timerId;
+        if (startLongPress) {
+            timerId = setTimeout(callback, ms);
+        }
+        else {
+            clearTimeout(timerId);
+        }
+        return () => {
+            clearTimeout(timerId);
+        };
+    }, [callback, ms, startLongPress]);
+    return {
+        onMouseDown: () => setStartLongPress(true),
+        onMouseUp: () => setStartLongPress(false),
+        onMouseLeave: () => setStartLongPress(false),
+        onTouchStart: () => setStartLongPress(true),
+        onTouchEnd: () => setStartLongPress(false),
+    };
+}
+
+function ButtonControll({ onClick, onClickLongPress, isVisible, direction, ArrowScroll, sizeButton, styles }) {
+    const longPressEvent = useLongPress(() => {
+        onClickLongPress();
+    }, 500);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ButtonControllStyled, { onClick: onClick, ...longPressEvent, style: {
+                visibility: isVisible ? 'visible' : 'hidden',
+                position: 'absolute',
+                [direction]: 0,
+                ...styles
+            }, sizeButton: sizeButton, direction: direction, children: jsxRuntime.jsx(ArrowScroll, {}) }) }));
+}
+
+// @ts-nocheck
+const useScroll = (stepMove) => {
+    const scrollRef = React.useRef();
+    const [isVisibleLeft, setIsVisibleLeft] = React.useState(false);
+    const [isVisibleRight, setIsVisibleRight] = React.useState(false);
+    const scrollToLeft = () => {
+        const scrollElement = scrollRef.current;
+        scrollElement.scrollLeft - stepMove <= 0 ? setIsVisibleLeft(false) : setIsVisibleLeft(true);
+        setIsVisibleRight(true);
+        scrollElement.scrollLeft = scrollElement.scrollLeft - stepMove;
+    };
+    const scrollToRight = () => {
+        const scrollElement = scrollRef.current;
+        scrollElement.scrollLeft + stepMove <= 0 ? setIsVisibleLeft(false) : setIsVisibleLeft(true);
+        scrollElement.offsetWidth + scrollElement.scrollLeft + stepMove >= scrollElement.scrollWidth
+            ? setIsVisibleRight(false)
+            : setIsVisibleRight(true);
+        scrollElement.scrollLeft = scrollElement.scrollLeft + stepMove;
+    };
+    const onClickLongPress = (direction) => {
+        let stepMoveLocal = 999999;
+        if (direction == 'right') {
+            const scrollElement = scrollRef.current;
+            scrollElement.scrollLeft + stepMoveLocal <= 0 ? setIsVisibleLeft(false) : setIsVisibleLeft(true);
+            scrollElement.offsetWidth + scrollElement.scrollLeft + stepMoveLocal >= scrollElement.scrollWidth
+                ? setIsVisibleRight(false)
+                : setIsVisibleRight(true);
+            scrollElement.scrollLeft = scrollElement.scrollLeft + stepMoveLocal;
+        }
+        else {
+            const scrollElement = scrollRef.current;
+            scrollElement.scrollLeft - stepMoveLocal <= 0 ? setIsVisibleLeft(false) : setIsVisibleLeft(true);
+            setIsVisibleRight(true);
+            scrollElement.scrollLeft = scrollElement.scrollLeft - stepMoveLocal;
+        }
+    };
+    React.useEffect(() => {
+        const scrollElement = scrollRef.current;
+        if (scrollElement && scrollElement.clientWidth && scrollElement.clientWidth < scrollElement.scrollWidth)
+            setIsVisibleRight(true);
+        else
+            setIsVisibleRight(false);
+    }, []);
+    React.useEffect(() => {
+        const scrollElement = scrollRef.current;
+        scrollElement.offsetWidth + scrollElement.scrollLeft >= scrollElement.scrollWidth
+            ? setIsVisibleRight(false)
+            : setIsVisibleRight(true);
+        scrollElement.scrollLeft - stepMove <= 0 ? setIsVisibleLeft(false) : setIsVisibleLeft(true);
+        if (scrollElement && scrollElement.clientWidth && scrollElement.clientWidth < scrollElement.scrollWidth)
+            setIsVisibleRight(true);
+        else
+            setIsVisibleRight(false);
+    }, [stepMove]);
+    React.useEffect(() => {
+        const updateSize = () => {
+            const scrollElement = scrollRef.current;
+            if (scrollElement.offsetWidth + scrollElement.scrollLeft >= scrollElement.scrollWidth)
+                setIsVisibleRight(false);
+            else
+                setIsVisibleRight(true);
+            scrollElement.scrollLeft - stepMove <= 0 ? setIsVisibleLeft(false) : setIsVisibleLeft(true);
+            if (scrollElement && scrollElement.clientWidth && scrollElement.clientWidth < scrollElement.scrollWidth)
+                setIsVisibleRight(true);
+            else
+                setIsVisibleRight(false);
+        };
+        window.addEventListener('resize', updateSize);
+        return () => window.removeEventListener('resize', updateSize);
+    }, [stepMove]);
+    return {
+        scrollToLeft,
+        scrollToRight,
+        onClickLongPress,
+        isVisibleLeft,
+        isVisibleRight,
+        scrollRef
+    };
+};
+
+function ScrollContainer(props) {
+    const { children, isVisibleControlsButtons, stepMove, horizontalMarginInternScroll, verticalMarginInternScroll, marginsArrowButtonHorizontal, marginsArrowButtonVertical, positionArrowButton, className, styles, sizeArrowButton, hiddenHorizontalScrollBar, } = props;
+    const { scrollToLeft, scrollToRight, onClickLongPress, isVisibleLeft, isVisibleRight, scrollRef } = useScroll(stepMove);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { position: positionArrowButton, style: { ...styles }, children: [jsxRuntime.jsx(WrapperContent, { ref: scrollRef, paddingInternHorizontal: horizontalMarginInternScroll, paddingInternVertical: verticalMarginInternScroll, hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: jsxRuntime.jsx("div", { style: {
+                                width: 'fit-content',
+                                display: 'flex',
+                                flexDirection: 'row',
+                                whiteSpace: 'pre-wrap',
+                                userSelect: 'none'
+                            }, children: children }) }), isVisibleControlsButtons && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ButtonControll, { onClick: scrollToLeft, onClickLongPress: () => onClickLongPress('left'), isVisible: isVisibleLeft, direction: "left", ArrowScroll: ArrowScrollLeft, sizeButton: sizeArrowButton, styles: {
+                                    marginLeft: marginsArrowButtonHorizontal,
+                                    marginTop: positionArrowButton == 'top' ? marginsArrowButtonVertical : '0px',
+                                    marginBottom: positionArrowButton == 'base' ? marginsArrowButtonVertical : '0px',
+                                } }), jsxRuntime.jsx(ButtonControll, { onClick: scrollToRight, onClickLongPress: () => onClickLongPress('right'), isVisible: isVisibleRight, direction: "right", ArrowScroll: ArrowScrollRight, sizeButton: sizeArrowButton, styles: {
+                                    marginRight: marginsArrowButtonHorizontal,
+                                    marginTop: positionArrowButton == 'top' ? marginsArrowButtonVertical : '0px',
+                                    marginBottom: positionArrowButton == 'base' ? marginsArrowButtonVertical : '0px',
+                                } })] }))] }) }) }));
+}
+
 exports.AccordionList = AccordionList$2;
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
@@ -17338,7 +17648,8 @@ exports.PostFeed = PostFeed;
 exports.ProgressBar = ProgressBar$1;
 exports.QuantidadeDesafios = QuantidadeDesafios;
 exports.Rating = Rating;
-exports.ScrollContainer = ScrollContainer;
+exports.ScrollContainer = ScrollContainer$1;
+exports.ScrollContainerV2 = ScrollContainer;
 exports.SearchBox = SearchBox;
 exports.SearchField = SearchField;
 exports.SearchResults = SearchResults;

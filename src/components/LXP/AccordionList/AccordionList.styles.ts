@@ -1,5 +1,9 @@
 import styled from 'styled-components'
-export const StylesAccordionList = styled.div`
+interface IProps {
+  selectedItem: boolean
+}
+
+export const StylesAccordionList = styled.div<IProps>`
   width: 100%;
   max-width: 371px;
   display: flex;
@@ -7,7 +11,7 @@ export const StylesAccordionList = styled.div`
   flex-direction: column;
   &.open {
     border-radius: 8px 8px 0px 0px;
-    border: 1px solid ${({ theme }) => theme.colors.primary1};
+    border: ${({ theme, selectedItem }) => selectedItem && `1px solid ${theme.colors.primary1}`};
   }
 
   .title {

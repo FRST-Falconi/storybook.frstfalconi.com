@@ -13,4 +13,8 @@ export declare const topHeaderTag: import("styled-components").StyledComponent<"
     background: string;
     color: string;
 }, never>;
+export declare const ShowLikeDoubleClick: import("styled-components").StyledComponent<"div", any, {
+    show: any;
+}, never>;
+export declare const IconLike: import("styled-components").StyledComponent<"img", any, {}, never>;
 //# sourceMappingURL=bannerProblemFeedStyles.d.ts.map
