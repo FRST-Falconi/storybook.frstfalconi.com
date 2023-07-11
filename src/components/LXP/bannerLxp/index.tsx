@@ -101,11 +101,11 @@ export default function BannerLxp(props: BannerLxpParams) {
   }
 
   useEffect(() => {
-    props?.isDisabledTitle && setDisableText(props?.isDisabledTitle)
-    props?.bgColor && setBackgroundColor(props?.bgColor)
+    setDisableText(props?.isDisabledTitle)
+    setBackgroundColor(props?.bgColor)
     // props?.bgColor && setOldBgColor(props?.bgColor);
-    props?.bgSrc && setBackgroundImage(props?.bgSrc)
-    props.isDisabledTitle && setDisableText(props.isDisabledTitle)
+    setBackgroundImage(props?.bgSrc)
+    setDisableText(props.isDisabledTitle)
   }, [props])
 
   useEffect(() => {
