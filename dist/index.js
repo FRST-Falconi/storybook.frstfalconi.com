@@ -7340,15 +7340,9 @@ function BannerLxp(props) {
             setBackgroundImage(props?.bgSrc);
     }, [props?.bgSrc]);
     React.useMemo(() => {
-        if (props?.title) {
-            setTitleText(props?.title);
-        }
-        if (props?.titleColor) {
-            setColorTitle(props?.titleColor);
-        }
-        if (props.isDisabledTitle) {
-            setDisableText(props.isDisabledTitle);
-        }
+        setTitleText(props?.title);
+        setColorTitle(props?.titleColor);
+        setDisableText(props.isDisabledTitle);
     }, [props?.title, props?.titleColor, props.isDisabledTitle]);
     return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props?.isLoading ? (jsxRuntime.jsx(LoadingBanner, {})) : (jsxRuntime.jsxs(BannerContainer, { backgroundBanner: props?.bgColor || `url(${props?.bgSrc})`, style: {
                     ...props.style,
