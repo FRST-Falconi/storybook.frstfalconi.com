@@ -13547,7 +13547,7 @@ function BannerProblemFeed(props) {
                                 : null }));
     };
     const [stateShowLikeDoubleClick, setStateShowLikeDoubleClick] = React.useState(false);
-    const doubleClickHandler = useDoubleClick(() => {
+    useDoubleClick(() => {
         if (!!props?.activeDoubleClickLike) {
             setStateShowLikeDoubleClick(true);
             props?.handleLikeClick();
@@ -13556,25 +13556,25 @@ function BannerProblemFeed(props) {
             }, 2000); // Após 2 segundos, a div será escondida
         }
     });
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { onClick: doubleClickHandler, style: { position: 'relative' }, children: [props.mainAchievementValue || props.mainLearningValue ?
-                    jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
-                    : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
-                            jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
-                                                (props.language === 'pt-BR' ? 'Case de sucesso'
-                                                    : props.language === 'en-US' ? 'Success case'
-                                                        : props.language === 'es' ? 'Caso de exito'
-                                                            : props.language === 'pt-PT' ? 'Case de sucesso'
-                                                                : null)
-                                                : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
-                                jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: {
-                                width: '100%',
-                                paddingTop: 30,
-                                paddingBottom: 16,
-                                marginTop: 16,
-                                marginBottom: 4,
-                                borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
-                                display: 'flex', justifyContent: 'center'
-                            }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: props.onClickButton })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 }), jsxRuntime.jsx(ShowLikeDoubleClick, { show: !!props?.activeDoubleClickLike && stateShowLikeDoubleClick, children: jsxRuntime.jsx(IconLike, { src: "https://gyazo.com/16f1dc400826a414deaa21dc3a79165a.gif" }) })] }) }));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
+                jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
+                : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
+                        jsxRuntime.jsx(topHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs(headerContent, { children: [jsxRuntime.jsx(Avatar, { size: "54px", src: props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar }), jsxRuntime.jsxs(userInfo, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 600, fontSize: 20 }, children: props.isSuccessCase ?
+                                            (props.language === 'pt-BR' ? 'Case de sucesso'
+                                                : props.language === 'en-US' ? 'Success case'
+                                                    : props.language === 'es' ? 'Caso de exito'
+                                                        : props.language === 'pt-PT' ? 'Case de sucesso'
+                                                            : null)
+                                            : props.userName }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userPosition }), jsxRuntime.jsx("span", { style: { fontWeight: 400, fontSize: 16 }, children: props.userCompany })] })] }), jsxRuntime.jsxs(problemTitle, { children: [" ", props.problemTitle, " "] }), jsxRuntime.jsx(tagContent, { children: props.problemTags?.map((item, index) => (item &&
+                            jsxRuntime.jsx(Tag, { style: { color: '#000 !important' }, title: item, color: "#E4E1FF", selected: false, inverted: false }, index))) }), jsxRuntime.jsxs(lastUpdatedText, { children: [jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.lastUpdated, ":"] }), jsxRuntime.jsxs("span", { children: ["\u00A0", props.lastUpdatedStep] })] }), jsxRuntime.jsx("div", { style: {
+                            width: '100%',
+                            paddingTop: 30,
+                            paddingBottom: 16,
+                            marginTop: 16,
+                            marginBottom: 4,
+                            borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
+                            display: 'flex', justifyContent: 'center'
+                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: () => props.onClickButton() })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 }), jsxRuntime.jsx(ShowLikeDoubleClick, { show: !!props?.activeDoubleClickLike && stateShowLikeDoubleClick, children: jsxRuntime.jsx(IconLike, { src: "https://gyazo.com/16f1dc400826a414deaa21dc3a79165a.gif" }) })] }));
 }
 function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
     let translate = {

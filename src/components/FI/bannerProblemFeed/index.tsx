@@ -318,8 +318,6 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
 
     return(
         <ThemeProvider theme={FRSTTheme}>
-            <div onClick={doubleClickHandler} style={{position: 'relative'}}>  
-
             { props.mainAchievementValue || props.mainLearningValue ?
                 <Styles.achievementHeader style={{backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }} >
                     <img
@@ -401,7 +399,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 <Button
                     label={props.textButton} 
                     variant='expandedPrimary' 
-                    handleClick={props.onClickButton} 
+                    handleClick={() => props.onClickButton()} 
                     // startIcon={<Icons.AddIcon fill={FRSTTheme['colors'].shadeWhite} />} 
                 />
 
@@ -441,7 +439,6 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
             <Styles.ShowLikeDoubleClick show={!!props?.activeDoubleClickLike && stateShowLikeDoubleClick}>
                 <Styles.IconLike src="https://gyazo.com/16f1dc400826a414deaa21dc3a79165a.gif"/>
             </Styles.ShowLikeDoubleClick>
-        </div>
         </ThemeProvider>
     )
 }
