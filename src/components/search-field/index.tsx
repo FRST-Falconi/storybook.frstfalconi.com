@@ -6,43 +6,55 @@ import { Container, ContainerIcon, LabelField, InputSearchWrapper, InputText, Bu
 import { ISearchField } from './searchField'
 import { SearchIcon } from '@shared/icons'
 
-export default function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton }: ISearchField) {
-    const [actionAreaInput, setActionAreaInput] = useState(false);
-    const [inputOnFocus, setInputOnFocus] = useState(false);
+export default function SearchField({
+  label,
+  hasSearchIcon,
+  placeholder,
+  value,
+  onChange,
+  textButton,
+  className,
+  handleClickButton,
+  isButton
+}: ISearchField) {
+  const [actionAreaInput, setActionAreaInput] = useState(false)
+  const [inputOnFocus, setInputOnFocus] = useState(false)
 
-    return (
-        <ThemeProvider theme={FRSTTheme}>
-            <Container
-                className={className}
-                onMouseOver={() => setActionAreaInput(true)}
-                onMouseOut={() => setActionAreaInput(false)}
-                onFocus={() => setInputOnFocus(true)}
-                onBlur={() => setInputOnFocus(false)}
-            >
-                {label &&
-                    <LabelField isHover={actionAreaInput} isOnFocus={inputOnFocus}> {label} </LabelField>
-                }
-                <InputSearchWrapper isHover={actionAreaInput} isOnFocus={inputOnFocus}>
-                    {hasSearchIcon &&
-                        <ContainerIcon> <SearchIcon /> </ContainerIcon>}
-                    <InputText
-                    placeholder={placeholder} 
-                    onChange={onChange} 
-                    value={value}
-                    onKeyDown={(event) => {                        
-                        if (event.key === "Enter") {
-                            handleClickButton()
-                        }
-                    }}
-                    />
-                    <ButtonAction
-                        onClick={() => handleClickButton()}
-                    >
-                        {textButton}
-
-                    </ButtonAction>            
-                </InputSearchWrapper>
-            </Container>
-        </ThemeProvider>
-    )
+  return (
+    <ThemeProvider theme={FRSTTheme}>
+      <Container
+        className={className}
+        onMouseOver={() => setActionAreaInput(true)}
+        onMouseOut={() => setActionAreaInput(false)}
+        onFocus={() => setInputOnFocus(true)}
+        onBlur={() => setInputOnFocus(false)}
+      >
+        {label && (
+          <LabelField isHover={actionAreaInput} isOnFocus={inputOnFocus}>
+            {' '}
+            {label}{' '}
+          </LabelField>
+        )}
+        <InputSearchWrapper isHover={actionAreaInput} isOnFocus={inputOnFocus}>
+          {hasSearchIcon && (
+            <ContainerIcon>
+              {' '}
+              <SearchIcon />{' '}
+            </ContainerIcon>
+          )}
+          <InputText
+            placeholder={placeholder}
+            onChange={onChange}
+            value={value}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                handleClickButton()
+              }
+            }}
+          />
+          {!isButton && <ButtonAction onClick={() => handleClickButton()}>{textButton}</ButtonAction>}
+        </InputSearchWrapper>
+      </Container>
+    </ThemeProvider>
+  )
 }
