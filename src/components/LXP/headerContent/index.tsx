@@ -81,7 +81,7 @@ export default function HeaderContent(props: HeaderContentParams) {
         </section>
 
         <styledHeaderContent.SpaceButtonTop onClick={item.onClick}>
-          <Button label={item.labelButton} variant="primary" />
+          {item.labelButton && <Button label={item.labelButton} variant="primary" />}
         </styledHeaderContent.SpaceButtonTop>
       </styledHeaderContent.StyleHeaderInProgress>
     )
@@ -115,7 +115,7 @@ export default function HeaderContent(props: HeaderContentParams) {
         </section>
         <styledHeaderContent.SpaceProgressAndButton>
           <ProgressBar value={item.progresso} label={item.channel} style={{ width: 200 }} />
-          <Button label={item.labelButton} variant="primary" handleClick={item.onClick} />
+          {item.labelButton && <Button label={item.labelButton} variant="primary" handleClick={item.onClick} />}
         </styledHeaderContent.SpaceProgressAndButton>
       </styledHeaderContent.StyleHeaderInProgress>
     )
