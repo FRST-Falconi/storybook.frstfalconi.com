@@ -13228,7 +13228,7 @@ const topHeaderTag = styled__default["default"].span `
     border-radius: 0px 8px;
 
 `;
-const ShowLikeDoubleClick = styled__default["default"].div `
+styled__default["default"].div `
     position: absolute;
     top: 0;
     left: 0;
@@ -13245,7 +13245,7 @@ const ShowLikeDoubleClick = styled__default["default"].div `
     border-radius: 8px;
     user-select: none;
 `;
-const IconLike = styled__default["default"].img `
+styled__default["default"].img `
     transform: rotate(180deg);
     transform: scaleY(-1);
     width: 30%;
@@ -13350,14 +13350,14 @@ const reviewContent = styled__default["default"].div `
     margin-top: 16px;
     margin-bottom: 32px;
 `;
-const commentsContainer = styled__default["default"].div `
+styled__default["default"].div `
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding-bottom: 32px;
 `;
-const comment = styled__default["default"].div `
+styled__default["default"].div `
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -13365,7 +13365,7 @@ const comment = styled__default["default"].div `
     width: 100%;
     margin-top: 28px;
 `;
-const inputComment = styled__default["default"].div `
+styled__default["default"].div `
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -13373,12 +13373,12 @@ const inputComment = styled__default["default"].div `
     width: 100%;
     margin-top: 12px;
 `;
-const submitButton = styled__default["default"].div `
+styled__default["default"].div `
     border: none;
     background: none;
     margin-left: 8px;
 `;
-const commentList = styled__default["default"].div `
+styled__default["default"].div `
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -13390,18 +13390,18 @@ const commentList = styled__default["default"].div `
 function FeedInteraction(props) {
     const [openReview, setOpenReview] = React.useState(false);
     const [openComments, setOpenComments] = React.useState(false);
-    const [loadCommentsText, setLoadCommentsText] = React.useState(props.commentList?.length < 2 ? false : true);
-    const [showMoreComments, setShowMoreComments] = React.useState(false);
-    const [focusComment, setFocusComment] = React.useState(false);
-    const [commentData, setCommentData] = React.useState('');
+    // const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
+    // const [showMoreComments, setShowMoreComments] = useState(false);
+    // const [focusComment, setFocusComment] = useState(false);
+    // const [commentData, setCommentData] = useState('');
     const [isVisibleComments, setIsVisibleComments] = React.useState(!props?.hideComments);
     React.useEffect(() => {
         setIsVisibleComments(!props?.hideComments);
     }, [props?.hideComments]);
-    const [stateLatestComment, setStateLatestComment] = React.useState(props.latestComment);
-    React.useEffect(() => {
-        setStateLatestComment(props.latestComment);
-    }, [props.latestComment]);
+    // const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
+    // useEffect(() => {
+    //     setStateLatestComment(props.latestComment)
+    // }, [props.latestComment]);
     const [stateTotalComments, setStateTotalComments] = React.useState(props.qtdComments);
     React.useEffect(() => {
         setStateTotalComments(props.qtdComments);
@@ -13414,19 +13414,19 @@ function FeedInteraction(props) {
         setOpenComments(!openComments);
         setOpenReview(false);
     };
-    const OnLoadCommentsClick = () => {
-        setLoadCommentsText(false);
-        setShowMoreComments(true);
-    };
-    const OnChangeComment = (e) => {
-        setCommentData(e.target.value);
-        setFocusComment(true);
-    };
-    const HandleSaveComment = () => {
-        props.handleSaveCommentBtn(commentData);
-        setCommentData('');
-        setFocusComment(false);
-    };
+    // const OnLoadCommentsClick = () => {
+    //     setLoadCommentsText(false)
+    //     setShowMoreComments(true)
+    // }
+    // const OnChangeComment = (e) => {
+    //     setCommentData(e.target.value)
+    //     setFocusComment(true)
+    // }
+    // const HandleSaveComment = () => {
+    //     props.handleSaveCommentBtn(commentData)
+    //     setCommentData('')
+    //     setFocusComment(false)
+    // }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || stateTotalComments) ?
                     jsxRuntime.jsxs(infoContent, { children: [props.qtdLikes ?
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
@@ -13442,47 +13442,18 @@ function FeedInteraction(props) {
                     jsxRuntime.jsxs(reviewContainer, { children: [props.textAvaluationTitle, jsxRuntime.jsxs(reviewContent, { children: [props.isChallengeReview &&
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingImpacto, handleRating: props?.handleImpactoChange }), jsxRuntime.jsx("span", { children: props.textImpacto })] }), props.isChallengeReview &&
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column', marginLeft: 24 }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingRelevancia, handleRating: props?.handleRelevanciaChange }), jsxRuntime.jsx("span", { children: props.textRelevancia })] }), props.isPostReview &&
-                                        jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingPostReview, handleRating: props?.handlePostReviewChange }) })] })] }), openComments && !props.isCommentV2 &&
-                    jsxRuntime.jsxs(commentsContainer, { children: [jsxRuntime.jsxs(inputComment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginLeft: 8 }, IDInput: 'userComment', showCharacterCounter: false, className: 'userComment', hasEmoji: true, emojiWindowlanguage: 'pt', placeholder: props.userCommentPlaceholder ? props.userCommentPlaceholder : '', onChange: OnChangeComment, value: commentData }), jsxRuntime.jsx(submitButton, { style: { display: focusComment ? 'block' : 'none' }, children: jsxRuntime.jsx(Button$5, { variant: 'primary', label: props.textSaveCommentBtn, handleClick: HandleSaveComment }) })] }), props.isChallengeReview ?
-                                stateLatestComment ?
-                                    jsxRuntime.jsxs(commentList, { children: [props.textLatestComment, jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: stateLatestComment.avatar }), jsxRuntime.jsx(CommentaryBox, { styles: { width: '100%', marginLeft: 8 }, name: stateLatestComment.name, date: stateLatestComment.date, position: stateLatestComment.position, value: stateLatestComment.value, className: stateLatestComment.className, onChange: stateLatestComment.onChange, actionLike: stateLatestComment.actionLike, textLiked: stateLatestComment.textLike, textUnliked: stateLatestComment.textDeslike, isLiked: stateLatestComment.isLiked, totalLikes: stateLatestComment.totalLikes, hasDropdown: stateLatestComment.hasDropdown, isAuthor: stateLatestComment.isAuthor, isMe: stateLatestComment.isMe, actionDeleteComment: stateLatestComment.actionDeleteComment, actionEditComment: stateLatestComment.actionEditComment, actionAnswer: stateLatestComment.actionAnswer, actionMakePrivate: stateLatestComment.actionMakePrivate, actionUpdateValue: stateLatestComment.actionUpdateValue, detectLinks: stateLatestComment.detectLinks, hasAnswer: stateLatestComment.hasAnswer, isPrivateAuthor: stateLatestComment.isPrivateAuthor, isPrivateMe: stateLatestComment.isPrivateMe, idTextComment: stateLatestComment.idTextComment, textAnswer: stateLatestComment.textAnswer, textCancelButton: stateLatestComment.textCancelButton, textDeleteComment: stateLatestComment.textDeleteComment, textEditComment: stateLatestComment.textEditComment, textEdited: stateLatestComment.textEdited, textMakePrivate: stateLatestComment.textMakePrivate, textMakePublic: stateLatestComment.textMakePublic, textPrivateComment: stateLatestComment.textPrivateComment, textSaveButton: stateLatestComment.textSaveButton, textSaveButtonMobile: stateLatestComment.textSaveButtonMobile, textYou: stateLatestComment.textYou, wasEdited: stateLatestComment.wasEdited })] })] })
-                                    : null
-                                :
-                                    props.commentList ?
-                                        jsxRuntime.jsxs(commentList, { children: [jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.commentList[0].avatar }), jsxRuntime.jsx(CommentaryBox, { styles: { width: '100%' }, name: props.commentList[0].name, date: props.commentList[0].date, position: props.commentList[0].position, value: props.commentList[0].value, className: props.commentList[0].className, onChange: props.commentList[0].onChange, actionLike: props.commentList[0].actionLike, textLiked: props.commentList[0].textLike, textUnliked: props.commentList[0].textDeslike, isLiked: props.commentList[0].isLiked, totalLikes: props.commentList[0].totalLikes, hasDropdown: props.commentList[0].hasDropdown, isAuthor: props.commentList[0].isAuthor, isMe: props.commentList[0].isMe, actionDeleteComment: props.commentList[0].actionDeleteComment, actionEditComment: props.commentList[0].actionEditComment, actionAnswer: props.commentList[0].actionAnswer, actionMakePrivate: props.commentList[0].actionMakePrivate, actionUpdateValue: props.commentList[0].actionUpdateValue, detectLinks: props.commentList[0].detectLinks, hasAnswer: props.commentList[0].hasAnswer, isPrivateAuthor: props.commentList[0].isPrivateAuthor, isPrivateMe: props.commentList[0].isPrivateMe, idTextComment: props.commentList[0].idTextComment, textAnswer: props.commentList[0].textAnswer, textCancelButton: props.commentList[0].textCancelButton, textDeleteComment: props.commentList[0].textDeleteComment, textEditComment: props.commentList[0].textEditComment, textEdited: props.commentList[0].textEdited, textMakePrivate: props.commentList[0].textMakePrivate, textMakePublic: props.commentList[0].textMakePublic, textPrivateComment: props.commentList[0].textPrivateComment, textSaveButton: props.commentList[0].textSaveButton, textSaveButtonMobile: props.commentList[0].textSaveButtonMobile, textYou: props.commentList[0].textYou, wasEdited: props.commentList[0].wasEdited })] }), loadCommentsText &&
-                                                    jsxRuntime.jsx("span", { style: { color: FRSTTheme['colors'].linkOnfocus, marginTop: 12, cursor: 'pointer' }, onClick: OnLoadCommentsClick, children: props.textLoadMoreComments }), showMoreComments &&
-                                                    jsxRuntime.jsxs(comment, { children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.commentList[1].avatar }), jsxRuntime.jsx(CommentaryBox, { styles: { width: '100%' }, name: props.commentList[1].name, date: props.commentList[1].date, position: props.commentList[1].position, value: props.commentList[1].value, className: props.commentList[1].className, onChange: props.commentList[1].onChange, actionLike: props.commentList[1].actionLike, textLiked: props.commentList[1].textLike, textUnliked: props.commentList[1].textDeslike, isLiked: props.commentList[1].isLiked, totalLikes: props.commentList[1].totalLikes, hasDropdown: props.commentList[1].hasDropdown, isAuthor: props.commentList[1].isAuthor, isMe: props.commentList[1].isMe, actionDeleteComment: props.commentList[1].actionDeleteComment, actionEditComment: props.commentList[1].actionEditComment, actionAnswer: props.commentList[1].actionAnswer, actionMakePrivate: props.commentList[1].actionMakePrivate, actionUpdateValue: props.commentList[1].actionUpdateValue, detectLinks: props.commentList[1].detectLinks, hasAnswer: props.commentList[1].hasAnswer, isPrivateAuthor: props.commentList[1].isPrivateAuthor, isPrivateMe: props.commentList[1].isPrivateMe, idTextComment: props.commentList[1].idTextComment, textAnswer: props.commentList[1].textAnswer, textCancelButton: props.commentList[1].textCancelButton, textDeleteComment: props.commentList[1].textDeleteComment, textEditComment: props.commentList[1].textEditComment, textEdited: props.commentList[1].textEdited, textMakePrivate: props.commentList[1].textMakePrivate, textMakePublic: props.commentList[1].textMakePublic, textPrivateComment: props.commentList[1].textPrivateComment, textSaveButton: props.commentList[1].textSaveButton, textSaveButtonMobile: props.commentList[1].textSaveButtonMobile, textYou: props.commentList[1].textYou, wasEdited: props.commentList[1].wasEdited })] })] })
-                                        : null] }), openComments && props?.isCommentV2 &&
+                                        jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingPostReview, handleRating: props?.handlePostReviewChange }) })] })] }), openComments && props?.isCommentV2 &&
                     jsxRuntime.jsx("div", { children: props?.childrenCommentV2 })] }) }));
-}
-
-function useDoubleClick(action) {
-    const [clickTimeout, setClickTimeout] = React.useState(null);
-    const handleClick = () => {
-        if (clickTimeout !== null) {
-            // Se existe um timeout configurado, isso é um duplo clique
-            action();
-            clearTimeout(clickTimeout);
-            setClickTimeout(null);
-        }
-        else {
-            // Se não há timeout, inicia um. Se outro clique ocorrer antes do timeout expirar, será um duplo clique
-            setClickTimeout(window.setTimeout(() => {
-                setClickTimeout(null);
-            }, 250)); // 250 ms para o segundo clique
-        }
-    };
-    return handleClick;
 }
 
 function BannerProblemFeed(props) {
     const [selectedStep, setSelectedStep] = React.useState(props.stepActive);
     const learningIcon = 'https://i.gyazo.com/4e0807b581bf9780f07a27516a809a21.png';
     const achievementIcon = 'https://i.gyazo.com/9b192733f4947946a3f47080ae12727f.png';
-    const [stateLatestComment, setStateLatestComment] = React.useState(props.latestComment);
-    React.useEffect(() => {
-        setStateLatestComment(props.latestComment);
-    }, [props.latestComment]);
+    // const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
+    // useEffect(() => {
+    //     setStateLatestComment(props.latestComment)
+    // }, [props.latestComment]);
     const [stateTotalComments, setStateTotalComments] = React.useState(props.qtdComments);
     React.useEffect(() => {
         setStateTotalComments(props.qtdComments);
@@ -13546,16 +13517,6 @@ function BannerProblemFeed(props) {
                                 jsxRuntime.jsxs(stepsContainer, { children: [jsxRuntime.jsx(stepsTitle, { children: props.step5Title }), jsxRuntime.jsxs(stepsLabel, { style: { color: FRSTTheme['colors'].primary1 }, children: [props.textNextSteps, ":"] }), jsxRuntime.jsx(stepsValueText, { children: props.nextStepsValue })] })
                                 : null }));
     };
-    const [stateShowLikeDoubleClick, setStateShowLikeDoubleClick] = React.useState(false);
-    useDoubleClick(() => {
-        if (!!props?.activeDoubleClickLike) {
-            setStateShowLikeDoubleClick(true);
-            props?.handleLikeClick();
-            setTimeout(() => {
-                setStateShowLikeDoubleClick(false);
-            }, 2000); // Após 2 segundos, a div será escondida
-        }
-    });
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [props.mainAchievementValue || props.mainLearningValue ?
                 jsxRuntime.jsxs(achievementHeader, { style: { backgroundColor: props.isSuccessCase ? '#444' : '#4B2961' }, children: [jsxRuntime.jsx("img", { src: props.mainAchievementValue ? achievementIcon : learningIcon, width: '56', height: '56' }), jsxRuntime.jsx("span", { style: { marginLeft: 16, wordBreak: 'break-word', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }, children: props.mainAchievementValue ? props.mainAchievementValue : props.mainLearningValue })] })
                 : null, jsxRuntime.jsxs(bannerContainer, { style: { borderTopLeftRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8, borderTopRightRadius: props.mainAchievementValue || props.mainLearningValue ? 0 : 8 }, children: [props.topHeaderTagText &&
@@ -13574,7 +13535,16 @@ function BannerProblemFeed(props) {
                             marginBottom: 4,
                             borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
                             display: 'flex', justifyContent: 'center'
-                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: () => props.onClickButton() })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, latestComment: stateLatestComment, textLatestComment: props.textLatestComment, textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, userCommentPlaceholder: props.userCommentPlaceholder, onCommentChange: props.onCommentChange, handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, textSaveCommentBtn: props.textSaveCommentBtn, handleSaveCommentBtn: props.handleSaveCommentBtn, userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 }), jsxRuntime.jsx(ShowLikeDoubleClick, { show: !!props?.activeDoubleClickLike && stateShowLikeDoubleClick, children: jsxRuntime.jsx(IconLike, { src: "https://gyazo.com/16f1dc400826a414deaa21dc3a79165a.gif" }) })] }));
+                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: () => props.onClickButton() })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, 
+                // latestComment={stateLatestComment}
+                // textLatestComment={props.textLatestComment} 
+                textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, 
+                // userCommentPlaceholder={props.userCommentPlaceholder}
+                // onCommentChange={props.onCommentChange}
+                handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, 
+                // textSaveCommentBtn={props.textSaveCommentBtn}
+                // handleSaveCommentBtn={props.handleSaveCommentBtn}
+                userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 })] }));
 }
 function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
     let translate = {
@@ -14023,7 +13993,15 @@ function PostFeed(props) {
                                         jsxRuntime.jsx("iframe", { src: `https://player.vimeo.com/video/${props.postVideoId}?autoplay=0`, width: props.videoWidth ? props.videoWidth : '100%', height: props.videoHeight ? props.videoHeight : 430, allow: "autoplay; fullscreen" })] })
                             : null, props.handlePostButtonClick ?
                             jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%', paddingLeft: '24px', paddingRight: '24px' }, children: jsxRuntime.jsx(Button$5, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
-                            : null] }), jsxRuntime.jsx(FeedInteraction, { hideComments: isVisibleComments, isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, commentList: props.commentList, userCommentPlaceholder: props.userCommentPlaceholder, textLoadMoreComments: props.textLoadMoreComments, textSaveCommentBtn: props.textSaveCommentBtn, ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, handleSaveCommentBtn: props.handleSaveCommentBtn, onCommentChange: props.onCommentChange, isDisabledAvaluation: props.isDisabledAvaluation })] }) }));
+                            : null] }), jsxRuntime.jsx(FeedInteraction, { hideComments: isVisibleComments, isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, 
+                    // commentList={props.commentList}
+                    // userCommentPlaceholder={props.userCommentPlaceholder}
+                    textLoadMoreComments: props.textLoadMoreComments, 
+                    // textSaveCommentBtn={props.textSaveCommentBtn}
+                    ratingPostReview: props.ratingPostReview, handleLikeClick: props.handleLikeClick, handlePostReviewChange: props.handlePostReviewChange, 
+                    // handleSaveCommentBtn={props.handleSaveCommentBtn}
+                    // onCommentChange={props.onCommentChange}
+                    isDisabledAvaluation: props.isDisabledAvaluation, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 })] }) }));
 }
 function IconPin({ fill }) {
     return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: "18", height: "13", viewBox: "0 0 18 13", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17 1L6 12L1 7", stroke: "#0645AD", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }) });
