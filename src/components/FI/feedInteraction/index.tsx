@@ -8,6 +8,12 @@ import Avatar from '@components/avatar'
 import InputComment from '@components/input-comment'
 import CommentaryBox from '@components/commentary-box'
 import Button from '@components/buttons'
+                // latestComment={stateLatestComment}
+                // textLatestComment={props.textLatestComment} 
+                // userCommentPlaceholder={props.userCommentPlaceholder}
+                // onCommentChange={props.onCommentChange}
+                // textSaveCommentBtn={props.textSaveCommentBtn}
+                // handleSaveCommentBtn={props.handleSaveCommentBtn}
 
 interface IFeedInteraction {
     id: string
@@ -27,19 +33,19 @@ interface IFeedInteraction {
     isPostReview ?: boolean
     ratingPostReview ?: number
 
-    textLatestComment ?: string
+    // textLatestComment ?: string
     userAvatar ?: string 
-    userCommentPlaceholder?: string
-    latestComment ?: any
-    commentList ?: any[]
+    // userCommentPlaceholder?: string
+    // latestComment ?: any
+    // commentList ?: any[]
     textLoadMoreComments ?: string
-    textSaveCommentBtn ?: string
-    handleSaveCommentBtn ?: (comment) => void
+    // textSaveCommentBtn ?: string
+    // handleSaveCommentBtn ?: (comment) => void
 
     isDisabledAvaluation ?: boolean
 
     style ?: React.CSSProperties
-    onCommentChange ?: (e) => void
+    // onCommentChange ?: (e) => void
     handleLikeClick ?: () => void
     handleImpactoChange?: any
     handleRelevanciaChange?: any
@@ -57,10 +63,10 @@ interface IFeedInteraction {
 export default function FeedInteraction ( props : IFeedInteraction ) {
     const [openReview, setOpenReview] = useState(false);
     const [openComments, setOpenComments] = useState(false);
-    const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
-    const [showMoreComments, setShowMoreComments] = useState(false);
-    const [focusComment, setFocusComment] = useState(false);
-    const [commentData, setCommentData] = useState('');
+    // const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
+    // const [showMoreComments, setShowMoreComments] = useState(false);
+    // const [focusComment, setFocusComment] = useState(false);
+    // const [commentData, setCommentData] = useState('');
 
     const [isVisibleComments, setIsVisibleComments] = useState(!props?.hideComments)
 
@@ -68,10 +74,10 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
         setIsVisibleComments(!props?.hideComments)
     }, [props?.hideComments])
 
-    const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
-    useEffect(() => {
-        setStateLatestComment(props.latestComment)
-    }, [props.latestComment]);
+    // const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
+    // useEffect(() => {
+    //     setStateLatestComment(props.latestComment)
+    // }, [props.latestComment]);
     
     const [stateTotalComments, setStateTotalComments] = useState(props.qtdComments)
     useEffect(()=>{
@@ -88,20 +94,20 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
         setOpenReview(false)
     }
 
-    const OnLoadCommentsClick = () => {
-        setLoadCommentsText(false)
-        setShowMoreComments(true)
-    }
-    const OnChangeComment = (e) => {
-        setCommentData(e.target.value)
-        setFocusComment(true)
-    }
+    // const OnLoadCommentsClick = () => {
+    //     setLoadCommentsText(false)
+    //     setShowMoreComments(true)
+    // }
+    // const OnChangeComment = (e) => {
+    //     setCommentData(e.target.value)
+    //     setFocusComment(true)
+    // }
 
-    const HandleSaveComment = () => {
-        props.handleSaveCommentBtn(commentData)
-        setCommentData('')
-        setFocusComment(false)
-    }
+    // const HandleSaveComment = () => {
+    //     props.handleSaveCommentBtn(commentData)
+    //     setCommentData('')
+    //     setFocusComment(false)
+    // }
 
 
     return (
@@ -176,7 +182,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                         </Styles.reviewContent>
                     </Styles.reviewContainer>
                 }
-                {openComments && !props.isCommentV2 &&
+                {/* {openComments && !props.isCommentV2 &&
                     <Styles.commentsContainer>
                         <Styles.inputComment  >
                             <Avatar size='40px' src={props.userAvatar}  />
@@ -342,7 +348,7 @@ export default function FeedInteraction ( props : IFeedInteraction ) {
                         
                         
                     </Styles.commentsContainer>
-                }
+                } */}
                 {openComments && props?.isCommentV2 &&
                     <div>{props?.childrenCommentV2}</div>
                 }
