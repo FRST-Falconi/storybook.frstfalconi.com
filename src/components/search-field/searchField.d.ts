@@ -1,13 +1,14 @@
-import React from "react"
+import React from 'react'
 
-export interface ISearchField{
-    label?: string,
-    hasSearchIcon?: boolean,
-    placeholder?: string,
-    value?: string,
-    onChange?: () => void,
-    textButton?: string,
-    handleClickButton: () => void,
-    className?: string,
-    handleKeyPress?: (e) => void,
+export interface ISearchField {
+  label?: string
+  hasSearchIcon?: boolean
+  placeholder?: string
+  value?: string
+  onChange?: (e) => void
+  textButton?: string
+  handleClickButton: (e) => void
+  className?: string
+  handleKeyPress?: (e) => void
+  isButton?: boolean
 }
