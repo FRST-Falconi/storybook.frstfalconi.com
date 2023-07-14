@@ -40,10 +40,5 @@ normal.args = {
     title: 'Próximos Passos',
     count: 555,
     percentage: '50%'
-  },
-  finalizados: {
-    title: 'finalizados',
-    count: 777,
-    percentage: '70%'
   }
 }
