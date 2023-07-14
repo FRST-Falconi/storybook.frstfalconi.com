@@ -22,7 +22,7 @@ normal.args = {
   textButtonClear: 'Desmarcar todos',
   textBusca: 'Buscar...',
   listItems: [
-    { name: 'Australia' },
+    { name: 'Australiaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa' },
     { name: 'Brazil' },
     { name: 'China' },
     { name: 'Egypt' },

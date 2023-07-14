@@ -86,6 +86,17 @@
 }
 
 /* ##Items wrapper  */
+
+.p-multiselect-panel .p-multiselect-items-wrapper .p-multiselect-items .p-multiselect-item{
+  word-break: break-all;;
+  white-space: normal;
+}
+
+.p-multiselect-panel .p-multiselect-items-wrapper{
+  width: 300px;
+  align-items: center;
+}
+
 .p-multiselect-panel .p-multiselect-items-wrapper .p-checkbox .p-checkbox-box {
   background: #ebeded;
   border-radius: 2px;
@@ -114,14 +125,13 @@
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-component .p-multiselect-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
 }
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-component .p-multiselect-item .p-checkbox {
-  display: flex;
-  justify-content: flex-start;
-  margin-right: 1rem;
+  margin-right: 16px;
+  width: fit-content;
 }
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-checkbox .p-checkbox-box.p-highlight span {

@@ -56,21 +56,21 @@ export default function FiltroGaleriaDesafios({
   const handleTemplateHeader = () => {
     const selectedItems = selectedListItems
     const lengthList = selectedItems ? selectedItems.length : 0
-    if (lengthList >= 1) {
-      return listItems.length >= maxListItems ? (
-        <div style={{ display: 'flex', padding: '1rem', flexDirection: 'column' }}>
-          <div style={{ marginBottom: '1rem' }}>
-            <SearchField
-              placeholder={textBusca}
-              className={null}
-              handleClickButton={null}
-              isButton
-              hasSearchIcon={true}
-              onChange={(e: any) => {
-                setTextFilter(e.target.value)
-              }}
-            />
-          </div>
+    return listItems.length >= maxListItems ? (
+      <div style={{ display: 'flex', padding: '1rem', flexDirection: 'column' }}>
+        <div style={{ marginBottom: '1rem' }}>
+          <SearchField
+            placeholder={textBusca}
+            className={null}
+            handleClickButton={null}
+            isButton
+            hasSearchIcon={true}
+            onChange={(e: any) => {
+              setTextFilter(e.target.value)
+            }}
+          />
+        </div>
+        {lengthList >= 1 ? (
           <Button
             variant={'link'}
             label={textButtonClear}
@@ -79,22 +79,24 @@ export default function FiltroGaleriaDesafios({
               setSelectedListItems(null)
             }}
           />
-        </div>
-      ) : (
-        <div style={{ display: 'flex', padding: '1rem', flexDirection: 'column' }}>
-          <Button
-            variant={'link'}
-            label={textButtonClear}
-            disabled={false}
-            handleClick={() => {
-              setSelectedListItems(null)
-            }}
-          />
-        </div>
-      )
-    } else {
-      return <div></div>
-    }
+        ) : (
+          <div></div>
+        )}
+      </div>
+    ) : lengthList >= 1 ? (
+      <div style={{ display: 'flex', padding: '1rem', flexDirection: 'column' }}>
+        <Button
+          variant={'link'}
+          label={textButtonClear}
+          disabled={false}
+          handleClick={() => {
+            setSelectedListItems(null)
+          }}
+        />
+      </div>
+    ) : (
+      <div></div>
+    )
   }
 
   const handleDropdownIcon = () => {
@@ -117,7 +119,6 @@ export default function FiltroGaleriaDesafios({
           className="multiselect-custom"
           panelStyle={selectItemsCss}
           selectedItemsLabel={selectedCountriesTemplate()}
-          filterPlaceholder={placeholderFilter ? placeholderFilter : 'Pesquisar'}
           disabled={isDisabled}
           maxSelectedLabels={0}
           filter={false}
