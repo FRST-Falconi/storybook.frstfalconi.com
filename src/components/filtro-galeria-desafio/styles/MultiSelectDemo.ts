@@ -1,6 +1,4 @@
 import styled, { css } from 'styled-components'
-import ArrowIcon from './icons/arrowCarrosselDown.png'
-import ArrowIconLaranja from './icons/arrowCarrosselDownLaranja.png'
 
 interface PropsFilter {
   onClickFilter?: boolean
@@ -160,4 +158,10 @@ export const textCountSelectNumber = styled.b`
   align-items: center;
   margin-left: 5px;
   color: #000000;
+`
+
+export const searchAndButton = styled.div`
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
 `

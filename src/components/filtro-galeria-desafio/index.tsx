@@ -31,7 +31,7 @@ export default function FiltroGaleriaDesafios({
   useEffect(() => {
     setLazyItems(Array.from({ length: 100000 }))
     setLazyLoading(false)
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [])
 
   const selectedCountriesTemplate = () => {
     const selectedItems = selectedListItems
@@ -57,7 +57,7 @@ export default function FiltroGaleriaDesafios({
     const selectedItems = selectedListItems
     const lengthList = selectedItems ? selectedItems.length : 0
     return listItems.length >= maxListItems ? (
-      <div style={{ display: 'flex', padding: '1rem', flexDirection: 'column' }}>
+      <StylesFiltro.searchAndButton>
         <div style={{ marginBottom: '1rem' }}>
           <SearchField
             placeholder={textBusca}
@@ -82,9 +82,9 @@ export default function FiltroGaleriaDesafios({
         ) : (
           <div></div>
         )}
-      </div>
+      </StylesFiltro.searchAndButton>
     ) : lengthList >= 1 ? (
-      <div style={{ display: 'flex', padding: '1rem', flexDirection: 'column' }}>
+      <StylesFiltro.searchAndButton>
         <Button
           variant={'link'}
           label={textButtonClear}
@@ -93,7 +93,7 @@ export default function FiltroGaleriaDesafios({
             setSelectedListItems(null)
           }}
         />
-      </div>
+      </StylesFiltro.searchAndButton>
     ) : (
       <div></div>
     )
