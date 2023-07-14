@@ -34,20 +34,22 @@ interface IPostFeed{
     textComments?: string
     textLikes?: string
     textDeslike?: string
-    userCommentPlaceholder?: string
+    // userCommentPlaceholder?: string
     textLoadMoreComments?: string
-    textSaveCommentBtn?: string
+    // textSaveCommentBtn?: string
     isDisabledAvaluation?: boolean
     ratingPostReview?: number
-    commentList?: any
+    // commentList?: any
     handleLikeClick?: () => void
     handlePostReviewChange?: () => void
-    handleSaveCommentBtn?: (comment) => void
-    onCommentChange?: (e) => void,
+    // handleSaveCommentBtn?: (comment) => void
+    // onCommentChange?: (e) => void,
     isVisibleComments?: boolean,
     videoSource?: string,
     fixPostButton?: any,
     isCompletePost?: boolean,
+    isCommentV2?: boolean,
+    childrenCommentV2?: any
 }
 
 export default function PostFeed( props : IPostFeed ){
@@ -163,16 +165,19 @@ export default function PostFeed( props : IPostFeed ){
                 textComments={props.textComments}
                 textDeslike={props.textDeslike}
                 textLikes={props.textLikes}
-                commentList={props.commentList}
-                userCommentPlaceholder={props.userCommentPlaceholder}
+                // commentList={props.commentList}
+                // userCommentPlaceholder={props.userCommentPlaceholder}
                 textLoadMoreComments={props.textLoadMoreComments}
-                textSaveCommentBtn={props.textSaveCommentBtn}
+                // textSaveCommentBtn={props.textSaveCommentBtn}
                 ratingPostReview={props.ratingPostReview}
                 handleLikeClick={props.handleLikeClick}
                 handlePostReviewChange={props.handlePostReviewChange}
-                handleSaveCommentBtn={props.handleSaveCommentBtn}
-                onCommentChange={props.onCommentChange}
+                // handleSaveCommentBtn={props.handleSaveCommentBtn}
+                // onCommentChange={props.onCommentChange}
                 isDisabledAvaluation={props.isDisabledAvaluation}
+
+                isCommentV2={props?.isCommentV2}
+                childrenCommentV2={props?.childrenCommentV2}
             />
         </ThemeProvider>
         </Styles.Wrapper>

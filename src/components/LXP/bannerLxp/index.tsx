@@ -101,11 +101,11 @@ export default function BannerLxp(props: BannerLxpParams) {
   }
 
   useEffect(() => {
-    props?.isDisabledTitle && setDisableText(props?.isDisabledTitle)
-    props?.bgColor && setBackgroundColor(props?.bgColor)
+    setDisableText(props?.isDisabledTitle)
+    setBackgroundColor(props?.bgColor)
     // props?.bgColor && setOldBgColor(props?.bgColor);
-    props?.bgSrc && setBackgroundImage(props?.bgSrc)
-    props.isDisabledTitle && setDisableText(props.isDisabledTitle)
+    setBackgroundImage(props?.bgSrc)
+    setDisableText(props.isDisabledTitle)
   }, [props])
 
   useEffect(() => {
@@ -113,15 +113,9 @@ export default function BannerLxp(props: BannerLxpParams) {
   }, [props?.bgSrc])
 
   useMemo(() => {
-    if (props?.title) {
-      setTitleText(props?.title)
-    }
-    if (props?.titleColor) {
-      setColorTitle(props?.titleColor)
-    }
-    if (props.isDisabledTitle) {
-      setDisableText(props.isDisabledTitle)
-    }
+    setTitleText(props?.title)
+    setColorTitle(props?.titleColor)
+    setDisableText(props.isDisabledTitle)    
   }, [props?.title, props?.titleColor, props.isDisabledTitle])
 
   return (

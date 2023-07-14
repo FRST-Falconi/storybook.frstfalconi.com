@@ -12,6 +12,7 @@ import Button from "@components/buttons";
 import * as Icons from '@shared/icons'
 import FeedInteraction from "../feedInteraction";
 
+
 interface IBannerProblemFeed extends stepsInfo{
     id : string
     userAvatar ?: string
@@ -52,15 +53,15 @@ interface IBannerProblemFeed extends stepsInfo{
     textImpacto: string
     ratingRelevancia: number
     textRelevancia: string
-    userCommentPlaceholder: string
-    textLatestComment: string
-    latestComment: any
-    textSaveCommentBtn: string
-    handleSaveCommentBtn?: () => any
+    // userCommentPlaceholder: string
+    // textLatestComment: string
+    // latestComment: any
+    // textSaveCommentBtn: string
+    // handleSaveCommentBtn?: () => any
 
     isDisabledAvaluation ?: boolean,
 
-    onCommentChange ?: () => void
+    // onCommentChange ?: () => void
     handleLikeClick ?: () => void
     handleImpactoChange?: any
     handleRelevanciaChange?: any,
@@ -136,10 +137,10 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
     const learningIcon = 'https://i.gyazo.com/4e0807b581bf9780f07a27516a809a21.png'
     const achievementIcon = 'https://i.gyazo.com/9b192733f4947946a3f47080ae12727f.png'
 
-    const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
-    useEffect(() => {
-        setStateLatestComment(props.latestComment)
-    }, [props.latestComment]);
+    // const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
+    // useEffect(() => {
+    //     setStateLatestComment(props.latestComment)
+    // }, [props.latestComment]);
     const [stateTotalComments, setStateTotalComments] = useState(props.qtdComments)
     useEffect(()=>{
         setStateTotalComments(props.qtdComments)
@@ -299,7 +300,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
             </>
         )
     }
-
+    
     return(
         <ThemeProvider theme={FRSTTheme}>
             { props.mainAchievementValue || props.mainLearningValue ?
@@ -383,7 +384,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 <Button
                     label={props.textButton} 
                     variant='expandedPrimary' 
-                    handleClick={props.onClickButton} 
+                    handleClick={() => props.onClickButton()} 
                     // startIcon={<Icons.AddIcon fill={FRSTTheme['colors'].shadeWhite} />} 
                 />
 
@@ -400,19 +401,19 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 textComments={props.textComments}
                 textDeslike={props.textDeslike}
                 textLikes={props.textLikes}
-                latestComment={stateLatestComment}
-                textLatestComment={props.textLatestComment} 
+                // latestComment={stateLatestComment}
+                // textLatestComment={props.textLatestComment} 
                 textImpacto={props.textImpacto}
                 ratingImpacto={props.ratingImpacto}
                 textRelevancia={props.textRelevancia}
                 ratingRelevancia={props.ratingRelevancia}
-                userCommentPlaceholder={props.userCommentPlaceholder}
-                onCommentChange={props.onCommentChange}
+                // userCommentPlaceholder={props.userCommentPlaceholder}
+                // onCommentChange={props.onCommentChange}
                 handleLikeClick={props.handleLikeClick}
                 handleImpactoChange={props.handleImpactoChange}
                 handleRelevanciaChange={props.handleRelevanciaChange}
-                textSaveCommentBtn={props.textSaveCommentBtn}
-                handleSaveCommentBtn={props.handleSaveCommentBtn}
+                // textSaveCommentBtn={props.textSaveCommentBtn}
+                // handleSaveCommentBtn={props.handleSaveCommentBtn}
                 userAvatar={props.avatar}
                 textTotalView={props.textTotalView}
                 handleClickTextTotalViews={props.handleClickTextTotalViews}

@@ -196,3 +196,5 @@ export { default as CriarIdeia } from './src/components/criar-ideia'
 export { default as Votar } from './src/components/brainstorming-votar'
 
 export { default as StepsProgress } from './src/components/DS/steps-progress'
+
+export { default as ScrollContainerV2 } from './src/components/DS/scroll-container-v2'

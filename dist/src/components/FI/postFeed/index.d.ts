@@ -22,20 +22,17 @@ interface IPostFeed {
     textComments?: string;
     textLikes?: string;
     textDeslike?: string;
-    userCommentPlaceholder?: string;
     textLoadMoreComments?: string;
-    textSaveCommentBtn?: string;
     isDisabledAvaluation?: boolean;
     ratingPostReview?: number;
-    commentList?: any;
     handleLikeClick?: () => void;
     handlePostReviewChange?: () => void;
-    handleSaveCommentBtn?: (comment: any) => void;
-    onCommentChange?: (e: any) => void;
     isVisibleComments?: boolean;
     videoSource?: string;
     fixPostButton?: any;
     isCompletePost?: boolean;
+    isCommentV2?: boolean;
+    childrenCommentV2?: any;
 }
 export default function PostFeed(props: IPostFeed): JSX.Element;
 export {};

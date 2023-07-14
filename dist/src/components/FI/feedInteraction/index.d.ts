@@ -16,17 +16,10 @@ interface IFeedInteraction {
     textRelevancia?: string;
     isPostReview?: boolean;
     ratingPostReview?: number;
-    textLatestComment?: string;
     userAvatar?: string;
-    userCommentPlaceholder?: string;
-    latestComment?: any;
-    commentList?: any[];
     textLoadMoreComments?: string;
-    textSaveCommentBtn?: string;
-    handleSaveCommentBtn?: (comment: any) => void;
     isDisabledAvaluation?: boolean;
     style?: React.CSSProperties;
-    onCommentChange?: (e: any) => void;
     handleLikeClick?: () => void;
     handleImpactoChange?: any;
     handleRelevanciaChange?: any;
