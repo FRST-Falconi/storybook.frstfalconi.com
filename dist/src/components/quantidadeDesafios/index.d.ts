@@ -12,9 +12,8 @@ interface ObjQuantidadeDesafio {
     testes: ObjItemDesafio;
     resultados: ObjItemDesafio;
     proximosPassos: ObjItemDesafio;
-    finalizados: ObjItemDesafio;
     languagem?: string;
 }
-export default function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, finalizados, languagem }: ObjQuantidadeDesafio): JSX.Element;
+export default function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, languagem }: ObjQuantidadeDesafio): JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

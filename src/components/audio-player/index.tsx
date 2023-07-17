@@ -1,9 +1,11 @@
+import '../../shared/global.css'
 import { useEffect, useState } from 'react';
 import { FRSTTheme } from '../../theme';
 import { ThemeProvider } from 'styled-components';
 import * as Styles from './audioPlayerStyles'
 import useSound from 'use-sound'
 import { Back15, Foward15, PlayIcon, PauseIcon, VolumeIcon, MuteIcon } from '@shared/icons';
+import { Box, Skeleton } from '@mui/material';
 
 interface IAudioPlayer {
     audio: any
@@ -35,7 +37,7 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
     const [currTime, setCurrTime] = useState({
         min: 0,
         sec: 0
-    });
+    });    
     const [seconds, setSeconds] = useState(0);
     const [audioVolume, setAudioVolume] = useState(props.volume ? props.volume : 0.5);
     const [play, { pause, duration, sound }] = useSound(props.audio, {volume : audioVolume, 
@@ -43,6 +45,8 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
             setIsPlaying(false)
             props.onEnded()
         }})
+    
+    const [Loading, setLoading] = useState(true);
     
     //porcentagem percorrida da musica
     const [percentagePlaytime, setPercentagePlaytime] = useState(0);
@@ -56,6 +60,12 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
         setIsPlaying(false);
         pause();
     }, [props.exitSound]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false)
+        }, 8000)
+    }, []);
 
     useEffect(() => {
         if (props.onProgress) {
@@ -122,84 +132,94 @@ export default function AudioPlayer ( props : IAudioPlayer ) {
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.container style={{...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : ''}} >
-                <Styles.containerMask></Styles.containerMask>
-                <Styles.thumb style={{...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})`}}/>
-                <Styles.content style={{width: '100%'}}>
-                    <Styles.title> {props.title} </Styles.title>
-                    <Styles.description> {props.description} </Styles.description>
-                    <Styles.date> {props.date} </Styles.date>
-                    <Styles.controls>
-                        <Styles.navigationButton onClick={ () => {
-                            sound.seek([seconds ? seconds - 15 : 0])
-                        }} >
-                            <Back15 fill='currentColor' />
-                        </Styles.navigationButton>
-                        {!isPlaying ?
-                            <Styles.playButton onClick={playingButton}>
-                                <PlayIcon customColor_1='currentColor' />
-                            </Styles.playButton>
-                            :
-                            <Styles.playButton onClick={playingButton}>
-                                <PauseIcon customColor_1='currentColor' />
-                            </Styles.playButton>
-                        }
-                        <Styles.navigationButton onClick={ () => {
-                            sound.seek([seconds ? seconds + 15 : 15])
-                        }}>
-                            <Foward15 fill='currentColor' />
-                        </Styles.navigationButton>
-                        <Styles.volumeControl>
-                            {audioVolume === 0 ?
-                                <Styles.volume onClick={() => {
-                                    setAudioVolume(0.1)
+            {
+                <>
+                    {
+                        Loading &&
+                        <Styles.loadingContent />                        
+                    }
+                    <Styles.container style={{...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : ''}} >
+                        <Styles.containerMask></Styles.containerMask>
+                        <Styles.thumb style={{...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})`}}/>
+                        <Styles.content style={{width: '100%'}}>
+                            <Styles.title> {props.title} </Styles.title>
+                            <Styles.description> {props.description} </Styles.description>
+                            <Styles.date> {props.date} </Styles.date>
+                            <Styles.controls>
+                                <Styles.navigationButton onClick={ () => {
+                                    sound.seek([seconds ? seconds - 15 : 0])
+                                }} >
+                                    <Back15 fill='currentColor' />
+                                </Styles.navigationButton>
+                                {!isPlaying ?
+                                    <Styles.playButton onClick={playingButton}>
+                                        <PlayIcon customColor_1='currentColor' />
+                                    </Styles.playButton>
+                                    :
+                                    <Styles.playButton onClick={playingButton}>
+                                        <PauseIcon customColor_1='currentColor' />
+                                    </Styles.playButton>
+                                }
+                                <Styles.navigationButton onClick={ () => {
+                                    sound.seek([seconds ? seconds + 15 : 15])
                                 }}>
-                                    <MuteIcon />
-                                </Styles.volume>
-                                :
-                                <Styles.volume>
-                                    <div onClick={() => {
-                                        setAudioVolume(0)
-                                    }}>
-                                        <VolumeIcon />
-                                    </div>
-                                    <Styles.volumeBar
-                                        type='range'
-                                        min='0'
-                                        max='1'
-                                        value = {audioVolume}
-                                        className='volumeBar'
-                                        step='0.1'
+                                    <Foward15 fill='currentColor' />
+                                </Styles.navigationButton>
+                                <Styles.volumeControl>
+                                    {audioVolume === 0 ?
+                                        <Styles.volume onClick={() => {
+                                            setAudioVolume(0.1)
+                                        }}>
+                                            <MuteIcon />
+                                        </Styles.volume>
+                                        :
+                                        <Styles.volume>
+                                            <div onClick={() => {
+                                                setAudioVolume(0)
+                                            }}>
+                                                <VolumeIcon />
+                                            </div>
+                                            <Styles.volumeBar
+                                                type='range'
+                                                min='0'
+                                                max='1'
+                                                value = {audioVolume}
+                                                className='volumeBar'
+                                                step='0.1'
+                                                onChange={(e) => {
+                                                    setAudioVolume(Number(e.target.value))
+                                                }} 
+                                                currentInputValue={calcCurrentInputPercentage(0, 1, audioVolume)}
+                                            />
+                                        </Styles.volume>
+                                    }
+                                </Styles.volumeControl>
+                            </Styles.controls>
+                            <Styles.audioTimeline>
+                                    <Styles.timeText>
+                                        {currTime.min.toString().padStart(2, '0')}:{currTime.sec.toString().padStart(2, '0')}
+                                    </Styles.timeText>
+                                    <Styles.timeline
+                                        type="range"
+                                        min="0"
+                                        max={duration / 1000}
+                                        value={seconds}
+                                        className="timeline"
                                         onChange={(e) => {
-                                            setAudioVolume(Number(e.target.value))
-                                        }} 
-                                        currentInputValue={calcCurrentInputPercentage(0, 1, audioVolume)}
+                                            sound.seek([e.target.value]);
+                                        }}
+                                        currentInputValue={percentagePlaytime}
                                     />
-                                </Styles.volume>
-                            }
-                        </Styles.volumeControl>
-                    </Styles.controls>
-                    <Styles.audioTimeline>
-                            <Styles.timeText>
-                                {currTime.min.toString().padStart(2, '0')}:{currTime.sec.toString().padStart(2, '0')}
-                            </Styles.timeText>
-                            <Styles.timeline
-                                type="range"
-                                min="0"
-                                max={duration / 1000}
-                                value={seconds}
-                                className="timeline"
-                                onChange={(e) => {
-                                    sound.seek([e.target.value]);
-                                }}
-                                currentInputValue={percentagePlaytime}
-                            />
-                            <Styles.timeText>
-                                {time.min.toString().padStart(2, '0')}:{time.sec.toString().padStart(2, '0')}
-                            </Styles.timeText>
-                    </Styles.audioTimeline>                    
-                </Styles.content>
-            </Styles.container>
+                                    <Styles.timeText>
+                                        {time.min.toString().padStart(2, '0')}:{time.sec.toString().padStart(2, '0')}
+                                    </Styles.timeText>
+                            </Styles.audioTimeline>                    
+                        </Styles.content>
+                    </Styles.container>
+                </>
+
+            }
+            
         </ThemeProvider>
     )
 }

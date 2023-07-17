@@ -48,11 +48,11 @@ export default function SearchField({
             value={value}
             onKeyDown={(event) => {
               if (event.key === 'Enter') {
-                handleClickButton()
+                handleClickButton(event)
               }
             }}
           />
-          {!isButton && <ButtonAction onClick={() => handleClickButton()}>{textButton}</ButtonAction>}
+          {!isButton && <ButtonAction onClick={(event) => handleClickButton(event)}>{textButton}</ButtonAction>}
         </InputSearchWrapper>
       </Container>
     </ThemeProvider>

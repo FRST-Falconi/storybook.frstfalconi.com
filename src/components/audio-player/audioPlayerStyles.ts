@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 
 export const container = styled.div`
@@ -15,6 +15,38 @@ export const container = styled.div`
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+`
+
+const placeholderShimmer = keyframes`
+    0% { background-position: -468px 0;}
+    100% { background-position: 468px 0;}
+`;
+
+export const loadingContent = styled.div`
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  color: transparent;
+  border-radius: 16px;
+  width: 100%;
+  /* height: 0.45em; */
+  position: absolute;
+  z-index: 9;
+  width: 814px;
+  height: 240px;
+  border-radius: 8px;
+
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+
+  &:first-child {
+    width: 50%;
+    margin-bottom: 8px;
+  }
+  &:last-child {
+    width: 30%;
+  }
 `
 
 export const containerMask = styled.div`

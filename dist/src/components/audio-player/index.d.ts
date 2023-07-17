@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import '../../shared/global.css';
 interface IAudioPlayer {
     audio: any;
     /**
