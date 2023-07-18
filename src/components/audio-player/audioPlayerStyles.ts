@@ -23,10 +23,13 @@ const placeholderShimmer = keyframes`
 `;
 
 export const loadingContent = styled.div`
-  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+    /* background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%); */
+  /* background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);
+  background-repeat: no-repeat; */
+  /* background-size: 100% 100%; */
   color: transparent;
   border-radius: 16px;
-  width: 100%;
+  /* width: 100%; */
   /* height: 0.45em; */
   position: absolute;
   z-index: 9;
@@ -40,13 +43,7 @@ export const loadingContent = styled.div`
   -webkit-animation-name: placeholderShimmer;
   -webkit-animation-timing-function: linear;
 
-  &:first-child {
-    width: 50%;
-    margin-bottom: 8px;
-  }
-  &:last-child {
-    width: 30%;
-  }
+
 `
 
 export const containerMask = styled.div`
