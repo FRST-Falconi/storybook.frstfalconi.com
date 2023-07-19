@@ -3,6 +3,7 @@
   border-radius: 8px;
   box-shadow: 4px 4px 15px 0px #00000040;
   width: fit-content;
+  margin-top:10px ;
 }
 .p-multiselect-panel .p-multiselect-header {
   border-radius: 8px 8px 0px 0px;

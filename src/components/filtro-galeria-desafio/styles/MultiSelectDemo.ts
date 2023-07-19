@@ -11,6 +11,7 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
     height: 37px;
     border-radius: 16px;
     border: 2px #f26818 solid;
+    box-shadow: 2px 2px 15px 0px #00000040;
 
     :hover {
       border: 2px #f26818 solid !important;
