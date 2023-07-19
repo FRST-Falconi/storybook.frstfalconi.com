@@ -39,7 +39,7 @@ export const CardThumbnails = styled.div`
     height: 140px;
     border-radius: 8px;
     object-fit: cover;
-    object-position: center;
+    object-position: top;
     border: 2px solid transparent;
     transition: all 0.3s;
     cursor: pointer;
