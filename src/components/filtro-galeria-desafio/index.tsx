@@ -34,14 +34,16 @@ export default function FiltroGaleriaDesafios({
   }, [])
 
   const selectedCountriesTemplate = () => {
-    const selectedItems = selectedListItems
-    const length = selectedItems ? selectedItems.length : 0
-    return (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <StylesFiltro.textCountSelect onClickFilter={onClickFilter}>{placeholderSelect}</StylesFiltro.textCountSelect>
-        <StylesFiltro.textCountSelectNumber>{length}</StylesFiltro.textCountSelectNumber>
-      </div>
-    )
+    // const selectedItems = selectedListItems
+    // const length = selectedItems ? selectedItems.length : 0
+
+    // const formatHmtl = (
+    //   <div style={{ display: 'flex', alignItems: 'center' }}>
+    //     <StylesFiltro.textCountSelect onClickFilter={onClickFilter}>{placeholderSelect}</StylesFiltro.textCountSelect>
+    //     <StylesFiltro.textCountSelectNumber>{length}</StylesFiltro.textCountSelectNumber>
+    //   </div>
+    // )
+    return `${placeholderSelect} ${length}`
   }
 
   const handleSelectItems = (items) => {
@@ -107,28 +109,39 @@ export default function FiltroGaleriaDesafios({
     return <i className="pi pi-spin pi-spinner" style={{ color: 'red' }}></i>
   }
 
+  const selectedItems = selectedListItems
+  const length = selectedItems ? selectedItems.length : 0
+
   return (
     <>
-      <StylesFiltro.FiltroPrimeReact onClickFilter={onClickFilter}>
-        <MultiSelect
-          value={selectedListItems}
-          options={listFilterSearch}
-          onChange={(e) => handleSelectItems(e.value)}
-          optionLabel={optionLabel}
-          placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
-          className="multiselect-custom"
-          panelStyle={selectItemsCss}
-          selectedItemsLabel={selectedCountriesTemplate()}
-          disabled={isDisabled}
-          maxSelectedLabels={0}
-          filter={false}
-          showSelectAll={false}
-          onClick={() => (onClickFilter ? setOnClickFilter(false) : setOnClickFilter(true))}
-          panelHeaderTemplate={handleTemplateHeader()}
-          removeIcon={handleRemoveIcon}
-          dropdownIcon={handleDropdownIcon}
-        />
-      </StylesFiltro.FiltroPrimeReact>
+      <StylesFiltro.containerFiltro>
+        {length >= 1 && (
+          <StylesFiltro.countSelect>
+            <StylesFiltro.textCountSelectNumber>{length}</StylesFiltro.textCountSelectNumber>
+          </StylesFiltro.countSelect>
+        )}
+        <StylesFiltro.FiltroPrimeReact onClickFilter={onClickFilter}>
+          <MultiSelect
+            value={selectedListItems}
+            options={listFilterSearch}
+            onChange={(e) => handleSelectItems(e.value)}
+            optionLabel={optionLabel}
+            placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
+            className="multiselect-custom"
+            panelStyle={selectItemsCss}
+            // selectedItemTemplate={selectedCountriesTemplate()}
+            selectedItemsLabel={placeholderSelect}
+            disabled={isDisabled}
+            maxSelectedLabels={0}
+            filter={false}
+            showSelectAll={false}
+            onClick={() => (onClickFilter ? setOnClickFilter(false) : setOnClickFilter(true))}
+            panelHeaderTemplate={handleTemplateHeader()}
+            removeIcon={handleRemoveIcon}
+            dropdownIcon={handleDropdownIcon}
+          />
+        </StylesFiltro.FiltroPrimeReact>
+      </StylesFiltro.containerFiltro>
     </>
   )
 }

@@ -7,7 +7,7 @@ export interface ISearchField {
   value?: string
   onChange?: (e) => void
   textButton?: string
-  handleClickButton: (e) => void
+  handleClickButton: () => void
   className?: string
   handleKeyPress?: (e) => void
   isButton?: boolean

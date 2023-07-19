@@ -33,6 +33,9 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
       p {
         color: #ffffff !important;
       }
+      .p-multiselect-items-label {
+        color: #ffffff;
+      }
     }
 
     .p-placeholder {
@@ -73,6 +76,10 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    color: #f26818;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 10px;
   }
 
   .country-item-value {
@@ -164,4 +171,19 @@ export const searchAndButton = styled.div`
   display: flex;
   padding: 1rem;
   flex-direction: column;
+`
+
+export const containerFiltro = styled.div`
+  display: flex;
+  width: fit-content;
+  flex-direction: row-reverse;
+`
+
+export const countSelect = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  margin-right: 35px;
+  margin-top: 10px;
+  z-index: 999;
 `
