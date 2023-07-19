@@ -10,6 +10,7 @@ interface IAudioPlayer {
     title?: string;
     description?: string;
     date?: string;
+    longLoading?: boolean;
     /**
      * @prop {number} volume: valor do volume (minimo 0 - máximo 1)
     */

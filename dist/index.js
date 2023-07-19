@@ -868,6 +868,14 @@ const thumb = styled__default["default"].div `
     background-position: center;
     background-size: cover;
 `;
+const thumbLoading = styled__default["default"].div `
+    border-radius: 8px;
+    width: 194px;
+    max-width: 194px;
+    height: 194px;
+    z-index: 2;
+    background-color: red;
+`;
 const content = styled__default["default"].div `
     display: flex;
     flex-direction: column;
@@ -1217,28 +1225,31 @@ function AudioPlayer(props) {
         let result = (val - min) * 100 / (max - min);
         return result;
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ?
-                jsxRuntime.jsx(container$1, { style: { ...props.style, backgroundColor: '#717171' }, children: jsxRuntime.jsx(material.Skeleton, { height: 390, width: '100%', style: { position: 'absolute', zIndex: 9, background: '#FFF', marginLeft: -20, marginTop: -107, borderRadius: 16, } }) })
-                :
-                    jsxRuntime.jsxs(container$1, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : '' }, children: [jsxRuntime.jsx(containerMask, {}), jsxRuntime.jsx(thumb, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})` } }), jsxRuntime.jsxs(content, { style: { width: '100%' }, children: [jsxRuntime.jsxs(title, { children: [" ", props.title, " "] }), jsxRuntime.jsxs(description, { children: [" ", props.description, " "] }), jsxRuntime.jsxs(date, { children: [" ", props.date, " "] }), jsxRuntime.jsxs(controls, { children: [jsxRuntime.jsx(navigationButton, { onClick: () => {
-                                                    sound.seek([seconds ? seconds - 15 : 0]);
-                                                }, children: jsxRuntime.jsx(Back15, { fill: 'currentColor' }) }), !isPlaying ?
-                                                jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PlayIcon, { customColor_1: 'currentColor' }) })
-                                                :
-                                                    jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PauseIcon, { customColor_1: 'currentColor' }) }), jsxRuntime.jsx(navigationButton, { onClick: () => {
-                                                    sound.seek([seconds ? seconds + 15 : 15]);
-                                                }, children: jsxRuntime.jsx(Foward15, { fill: 'currentColor' }) }), jsxRuntime.jsx(volumeControl, { children: audioVolume === 0 ?
-                                                    jsxRuntime.jsx(volume, { onClick: () => {
-                                                            setAudioVolume(0.1);
-                                                        }, children: jsxRuntime.jsx(MuteIcon, {}) })
-                                                    :
-                                                        jsxRuntime.jsxs(volume, { children: [jsxRuntime.jsx("div", { onClick: () => {
-                                                                        setAudioVolume(0);
-                                                                    }, children: jsxRuntime.jsx(VolumeIcon, {}) }), jsxRuntime.jsx(volumeBar, { type: 'range', min: '0', max: '1', value: audioVolume, className: 'volumeBar', step: '0.1', onChange: (e) => {
-                                                                        setAudioVolume(Number(e.target.value));
-                                                                    }, currentInputValue: calcCurrentInputPercentage(0, 1, audioVolume) })] }) })] }), jsxRuntime.jsxs(audioTimeline, { children: [jsxRuntime.jsxs(timeText, { children: [currTime.min.toString().padStart(2, '0'), ":", currTime.sec.toString().padStart(2, '0')] }), jsxRuntime.jsx(timeline, { type: "range", min: "0", max: duration / 1000, value: seconds, className: "timeline", onChange: (e) => {
-                                                    sound.seek([e.target.value]);
-                                                }, currentInputValue: percentagePlaytime }), jsxRuntime.jsxs(timeText, { children: [time.min.toString().padStart(2, '0'), ":", time.sec.toString().padStart(2, '0')] })] })] })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(container$1, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : '' }, children: [jsxRuntime.jsx(containerMask, {}), Loading ?
+                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(thumbLoading, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})` } }) })
+                        :
+                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(thumb, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})` } }) }), jsxRuntime.jsxs(content, { style: { width: '100%' }, children: [jsxRuntime.jsxs(title, { children: [" ", props.title, " "] }), jsxRuntime.jsxs(description, { children: [" ", props.description, " "] }), jsxRuntime.jsxs(date, { children: [" ", props.date, " "] }), props.longLoading && Loading ?
+                                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { justifyContent: 'center', alignItems: 'center', width: '100%', children: [jsxRuntime.jsx(material.Skeleton, { height: 48, width: 150, sx: { marginLeft: 24 } }), jsxRuntime.jsx(material.Skeleton, { height: 24 })] }) })
+                                :
+                                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(controls, { children: [jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                                            sound.seek([seconds ? seconds - 15 : 0]);
+                                                        }, children: jsxRuntime.jsx(Back15, { fill: 'currentColor' }) }), !isPlaying ?
+                                                        jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PlayIcon, { customColor_1: 'currentColor' }) })
+                                                        :
+                                                            jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PauseIcon, { customColor_1: 'currentColor' }) }), jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                                            sound.seek([seconds ? seconds + 15 : 15]);
+                                                        }, children: jsxRuntime.jsx(Foward15, { fill: 'currentColor' }) }), jsxRuntime.jsx(volumeControl, { children: audioVolume === 0 ?
+                                                            jsxRuntime.jsx(volume, { onClick: () => {
+                                                                    setAudioVolume(0.1);
+                                                                }, children: jsxRuntime.jsx(MuteIcon, {}) })
+                                                            :
+                                                                jsxRuntime.jsxs(volume, { children: [jsxRuntime.jsx("div", { onClick: () => {
+                                                                                setAudioVolume(0);
+                                                                            }, children: jsxRuntime.jsx(VolumeIcon, {}) }), jsxRuntime.jsx(volumeBar, { type: 'range', min: '0', max: '1', value: audioVolume, className: 'volumeBar', step: '0.1', onChange: (e) => {
+                                                                                setAudioVolume(Number(e.target.value));
+                                                                            }, currentInputValue: calcCurrentInputPercentage(0, 1, audioVolume) })] }) })] }), jsxRuntime.jsxs(audioTimeline, { children: [jsxRuntime.jsxs(timeText, { children: [currTime.min.toString().padStart(2, '0'), ":", currTime.sec.toString().padStart(2, '0')] }), jsxRuntime.jsx(timeline, { type: "range", min: "0", max: duration / 1000, value: seconds, className: "timeline", onChange: (e) => {
+                                                            sound.seek([e.target.value]);
+                                                        }, currentInputValue: percentagePlaytime }), jsxRuntime.jsxs(timeText, { children: [time.min.toString().padStart(2, '0'), ":", time.sec.toString().padStart(2, '0')] })] })] })] })] }) }) }));
 }
 
 const ContainerDesafios = styled__default["default"].div `
