@@ -11,9 +11,7 @@ import SearchField from '@components/search-field'
 
 export default function FiltroGaleriaDesafios({
   placeholderSelect,
-  placeholderFilter,
   handleValueSelect,
-  labelSelect,
   optionLabel,
   listItems,
   isDisabled,
@@ -32,19 +30,6 @@ export default function FiltroGaleriaDesafios({
     setLazyItems(Array.from({ length: 100000 }))
     setLazyLoading(false)
   }, [])
-
-  const selectedCountriesTemplate = () => {
-    // const selectedItems = selectedListItems
-    // const length = selectedItems ? selectedItems.length : 0
-
-    // const formatHmtl = (
-    //   <div style={{ display: 'flex', alignItems: 'center' }}>
-    //     <StylesFiltro.textCountSelect onClickFilter={onClickFilter}>{placeholderSelect}</StylesFiltro.textCountSelect>
-    //     <StylesFiltro.textCountSelectNumber>{length}</StylesFiltro.textCountSelectNumber>
-    //   </div>
-    // )
-    return `${placeholderSelect} ${length}`
-  }
 
   const handleSelectItems = (items) => {
     setSelectedListItems(items)
