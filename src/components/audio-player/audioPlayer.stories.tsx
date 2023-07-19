@@ -20,6 +20,7 @@ normal.args = {
     description: 'FIRST THINGS FRST - Gente que transforma o futuro',
     date: '10/05/2023',
     volume: 0.7,
+    longLoading: true, 
     onProgress: (e) => console.log('onProgress: ', e),
     onEnded: (e) => console.log('onEnded: ', 'Fim'),
     style: {width: 814},

@@ -70,6 +70,14 @@ export const thumb = styled.div`
     background-position: center;
     background-size: cover;
 `
+export const thumbLoading = styled.div`
+    border-radius: 8px;
+    width: 194px;
+    max-width: 194px;
+    height: 194px;
+    z-index: 2;
+    background-color: red;
+`
 
 export const content = styled.div`
     display: flex;
