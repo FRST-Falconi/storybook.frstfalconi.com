@@ -314,6 +314,9 @@ MuteIcon.args = Icons.MuteIcon({})
 export const StarFavorite = Template.bind({})
 StarFavorite.args = Icons.MuteIcon({})
 
+export const EmptyAvatar = Template.bind({})
+EmptyAvatar.args = Icons.EmptyAvatar({})
+
 export const CheckIconSimple = Template.bind({})
 CheckIconSimple.args = Icons.CheckIconSimple({})
 
