@@ -14662,7 +14662,7 @@ const EmailUser$1 = styled__default["default"].div `
             font-family: 'PT Sans';
             font-style: normal;
             font-weight: 700;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 16px;
             display: flex;
             align-items: center;
@@ -14759,7 +14759,7 @@ const ButtonSend = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
     color: ${({ theme }) => theme.colors.shadeWhite};
     cursor: pointer;
@@ -14771,7 +14771,7 @@ const ButtonRemove$1 = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
     color: #0645AD;
     cursor: pointer;
@@ -14783,7 +14783,7 @@ const ButtonSendV2 = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
 
     display: flex;
@@ -14796,7 +14796,7 @@ const ButtonSendV2 = styled__default["default"].div `
 const WrapperButtons = styled__default["default"].div `
     display: flex;
     flex-direction: row;
-    gap: 4px;
+    gap: 6px;
     justify-content: flex-start;
     align-items: center;
     opacity: ${({ status }) => status == 'success' ? '0' : '1'};
@@ -14807,7 +14807,7 @@ const ButtonRemoveV2 = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 110%;
 
     text-align: right;
@@ -14828,7 +14828,7 @@ const ButtonOrV2 = styled__default["default"].div `
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 110%;
     /* or 13px */
 
@@ -14864,7 +14864,7 @@ const ButtonSuccess = styled__default["default"].div `
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
     /* identical to box height */
 
