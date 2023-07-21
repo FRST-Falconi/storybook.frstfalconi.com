@@ -65,7 +65,6 @@ var pt = require('@emoji-mart/data/i18n/pt.json');
 var ru = require('@emoji-mart/data/i18n/ru.json');
 var zh = require('@emoji-mart/data/i18n/zh.json');
 var multiselect = require('primereact/multiselect');
-require('primeicons/primeicons.css');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
