@@ -17518,7 +17518,9 @@ function ScrollContainer(props) {
                                 } })] }))] }) }) }));
 }
 
-var ArrowIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAlCAYAAAAqXEs9AAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACZSURBVHgB7ZHBCcAgDEWlE3QE97/UDewmztAJrAUFkdJGTeLlPwh4MD/PaAwAAAAAZIkx2lRHKv+cDTPd+fliIXBKZZlQ5bv2zvbSd1Vnm4plUznD58zCTmpsXjG9qelMTim2LI4g9m3PBEaBrx8OFpMZGSAu0zNITYYyUF2GIKUv8yO1RoYgpS/zIbVOppE6U7nlMgAAwMAN8Jd85Y4qu00AAAAASUVORK5CYII=";
+var ArrowIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAlCAYAAAAqXEs9AAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAEDSURBVHgB7ZLNDYJAEEa/FUk8WgKl6M2jJWgHdqIdaAkevdEKJejNhD8nTKIEWGB39uBhXkICy8zLCwFQFEVRFCUopntQ79YJlsWZbtcoiqN5vDMEZMq/6G3ExRXG7OnaII7TerdKEDImrtKW/9Kd6QfBvFoPSaiobwzq5HdIX2kyKIpOVJ8hYNRgjEGGZX7ozppBwZ4EFQnqlgAkyPOt6z9ljVmQ6953GasoQJRrDL8eEwqifGJ4ZAKfKN8YHpuBS5QkhkdnMidKGsPjDoxFAStIY3jFEWtUo5LF8JoHlihIY3jVE2uUIIbXBfSihDGsENJEleWNbp+I8pMkRlEU5R/4AAUW8eBuzqq8AAAAAElFTkSuQmCC";
+
+var ArrowIconWhite = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAlCAYAAAAqXEs9AAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACZSURBVHgB7ZHBCcAgDEWlE3QE97/UDewmztAJrAUFkdJGTeLlPwh4MD/PaAwAAAAAZIkx2lRHKv+cDTPd+fliIXBKZZlQ5bv2zvbSd1Vnm4plUznD58zCTmpsXjG9qelMTim2LI4g9m3PBEaBrx8OFpMZGSAu0zNITYYyUF2GIKUv8yO1RoYgpS/zIbVOppE6U7nlMgAAwMAN8Jd85Y4qu00AAAAASUVORK5CYII=";
 
 const FiltroPrimeReact = styled__default["default"].div `
   .multiselect-custom {
@@ -17553,6 +17555,15 @@ const FiltroPrimeReact = styled__default["default"].div `
       .p-multiselect-items-label {
         color: #ffffff;
       }
+      .p-multiselect-trigger {
+        i {
+          background-image: url(${ArrowIconWhite});
+          background-size: 1rem;
+          width: 15px;
+          height: 15px;
+          background-repeat: no-repeat;
+        }
+      }
     }
 
     .p-placeholder {
@@ -17586,16 +17597,15 @@ const FiltroPrimeReact = styled__default["default"].div `
           color: #ffffff !important;
         }
       `}
-    .p-multiselect .p-multiselect-trigger {
-      span {
-        background-image: url(${ArrowIcon});
-        background-size: 1rem;
-        width: 20px;
-        height: 20px;
-        background-repeat: no-repeat;
-        margin-top: 0.6rem;
-        margin-left: 0.2rem;
-      }
+  }
+
+  .p-multiselect .p-multiselect-trigger {
+    i {
+      background-image: url(${ArrowIcon});
+      background-size: 1rem;
+      width: 15px;
+      height: 15px;
+      background-repeat: no-repeat;
     }
   }
 
