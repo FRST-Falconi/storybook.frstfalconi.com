@@ -4299,7 +4299,7 @@ const SelectedOption$1 = styled__default["default"]('p') `
   color: #222222 !important;
 `;
 
-function ArrowIcon$1() {
+function ArrowIcon$2() {
     return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
 }
 function Select$2({ placeholder, defaultValue, children, onChange, loading, isError, style }) {
@@ -4339,7 +4339,7 @@ function Select$2({ placeholder, defaultValue, children, onChange, loading, isEr
         onChange(e);
         toggle();
     };
-    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer$1, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay$1, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader$1, { error: isError, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption$1, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon$1, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon$1, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer$1, { children: jsxRuntime.jsx(DropDownList$1, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer$1, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay$1, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader$1, { error: isError, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption$1, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon$1, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon$2, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer$1, { children: jsxRuntime.jsx(DropDownList$1, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
 }
 
 const ListItem$1 = styled__default["default"]("li") `
@@ -11745,7 +11745,7 @@ const SelectedOption = styled__default["default"]('p') `
   line-height: 19px;
   color: #222222 !important;
 `;
-function ArrowIcon() {
+function ArrowIcon$1() {
     return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
 }
 function SelectLXP$1({ placeholder, defaultValue, children, onChange, loading }) {
@@ -11786,7 +11786,7 @@ function SelectLXP$1({ placeholder, defaultValue, children, onChange, loading })
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsxs(DropDownContainer, { ref: wrapperRef, children: [jsxRuntime.jsx(EventOverlay, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader, { children: [loading ?
                             jsxRuntime.jsx("p", { children: "Carregando dados..." })
                             :
-                                selectedOption ? jsxRuntime.jsx(SelectedOption, { children: selectedOption }) : jsxRuntime.jsx("p", { children: placeholder }), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectLXPContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+                                selectedOption ? jsxRuntime.jsx(SelectedOption, { children: selectedOption }) : jsxRuntime.jsx("p", { children: placeholder }), jsxRuntime.jsx(DropDownHeaderIcon, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon$1, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer, { children: jsxRuntime.jsx(DropDownList, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectLXPContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
 }
 
 const ListItem = styled__default["default"]("li") `
@@ -17518,6 +17518,8 @@ function ScrollContainer(props) {
                                 } })] }))] }) }) }));
 }
 
+var ArrowIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAlCAYAAAAqXEs9AAAACXBIWXMAACE4AAAhOAFFljFgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACZSURBVHgB7ZHBCcAgDEWlE3QE97/UDewmztAJrAUFkdJGTeLlPwh4MD/PaAwAAAAAZIkx2lRHKv+cDTPd+fliIXBKZZlQ5bv2zvbSd1Vnm4plUznD58zCTmpsXjG9qelMTim2LI4g9m3PBEaBrx8OFpMZGSAu0zNITYYyUF2GIKUv8yO1RoYgpS/zIbVOppE6U7nlMgAAwMAN8Jd85Y4qu00AAAAASUVORK5CYII=";
+
 const FiltroPrimeReact = styled__default["default"].div `
   .multiselect-custom {
     width: fit-content;
@@ -17584,6 +17586,17 @@ const FiltroPrimeReact = styled__default["default"].div `
           color: #ffffff !important;
         }
       `}
+    .p-multiselect .p-multiselect-trigger {
+      span {
+        background-image: url(${ArrowIcon});
+        background-size: 1rem;
+        width: 20px;
+        height: 20px;
+        background-repeat: no-repeat;
+        margin-top: 0.6rem;
+        margin-left: 0.2rem;
+      }
+    }
   }
 
   .p-multiselect-items-label {
