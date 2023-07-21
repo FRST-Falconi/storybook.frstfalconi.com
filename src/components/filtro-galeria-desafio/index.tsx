@@ -5,7 +5,7 @@ import selectItemsCss from './styles/MultiSelectItems.css'
 import './styles/theme.css'
 import './styles/primereact.css'
 import './styles/primeflex.css'
-import 'primeicons/primeicons.css'
+// import 'primeicons/primeicons.css'
 import Button from '@components/buttons'
 import SearchField from '@components/search-field'
 
