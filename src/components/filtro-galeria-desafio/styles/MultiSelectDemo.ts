@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components'
+import ArrowIcon from './icons/arrow_carrossel_down.png'
+import ArrowIconWhite from './icons/arrowCarrosselDown.png'
 
 interface PropsFilter {
   onClickFilter?: boolean
@@ -37,6 +39,15 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
       .p-multiselect-items-label {
         color: #ffffff;
       }
+      .p-multiselect-trigger {
+        i {
+          background-image: url(${ArrowIconWhite});
+          background-size: 1rem;
+          width: 15px;
+          height: 15px;
+          background-repeat: no-repeat;
+        }
+      }
     }
 
     .p-placeholder {
@@ -71,6 +82,16 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
           color: #ffffff !important;
         }
       `}
+  }
+
+  .p-multiselect .p-multiselect-trigger {
+    i {
+      background-image: url(${ArrowIcon});
+      background-size: 1rem;
+      width: 15px;
+      height: 15px;
+      background-repeat: no-repeat;
+    }
   }
 
   .p-multiselect-items-label {
