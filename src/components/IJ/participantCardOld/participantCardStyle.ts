@@ -189,7 +189,7 @@ export const ButtonSendV2 = styled.div`
     width: fit-content;
     height: 14px;
 
-    font-family: 'Work Sans';
+    font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
