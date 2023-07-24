@@ -16,11 +16,13 @@ normal.args = {
     textHeader4: 'Excluir',
     items:[{
         checked: true,
-        group: 'Time de Produto'
+        group: 'Time de Produto',
+        adms: ['aasd', '123']
     },
     {
         checked: false,
-        group: 'Time de Dados e de Desenvolvimento'
+        group: 'Time de Dados e de Desenvolvimento',
+        adms: ['aasd', '123']
     }
 ]
 }

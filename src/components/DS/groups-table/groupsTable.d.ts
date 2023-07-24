@@ -6,9 +6,12 @@ export interface IGroupsTable {
     textHeader3: string
     textHeader4: string
     items:IGroupsTableItems[]
+    textTooltipAdd: string;
+    textTooltipCount: string;
 }
 
 export interface IGroupsTableItems {
     checked: boolean
     group: string
+    adms: string[]
 }
