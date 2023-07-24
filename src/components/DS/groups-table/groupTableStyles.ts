@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const ContainerSelected = styled.div`
+
+`
+
 export const TableContainer = styled.div`
     width: 100%;
     /* background-color: rgba(255, 255, 255, 1); */
