@@ -49,6 +49,7 @@ export default function GroupsTable(props: IGroupsTable) {
 		onDeleteClick,
 		onEditClick,
 		onDeleteAllSelected,
+		AdmMoreClick,
 		onShowMoreClick
 	} = props
 
@@ -71,7 +72,7 @@ export default function GroupsTable(props: IGroupsTable) {
 		})
 		setIsAllChecked(false)
 	}
-    
+
 	function handleDeleteAllSelected() {
 		onDeleteAllSelected(internalItems.filter(i => i.checked).map(i => i.id))
 	}
@@ -80,22 +81,22 @@ export default function GroupsTable(props: IGroupsTable) {
 		setInternalItems(items.map(i => ({ ...i, checked: false })))
 	}, [items])
 
-	const selectedItems = useMemo(()=> {
+	const selectedItems = useMemo(() => {
 		return internalItems.filter(i => i.checked).length
-	},[internalItems])
+	}, [internalItems])
 
 	const maxAdmToShow = 3
 
 	return (
 		<ThemeProvider theme={FRSTTheme}>
 			<ContainerSelected> <div>{selected} {selectedItems}</div>
-			{selectedItems > 1 && <span onClick={handleDeleteAllSelected}><Trash fill='rgba(165, 0, 0, 1)'/>{deleted}</span>}
+				{selectedItems > 1 && <span onClick={handleDeleteAllSelected}><Trash fill='rgba(165, 0, 0, 1)' />{deleted}</span>}
 			</ContainerSelected>
 			<TableContainer>
 				<Table>
 					<tr>
-						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px', display:'flex', alignItems:'center' }}>
-							<Checkbox isChecked={isAllChecked} label='' handleCheck={handleToggleSelectAll} color='rgba(67, 159, 159, 1)'/>
+						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }}>
+							<Checkbox isChecked={isAllChecked} label='' handleCheck={handleToggleSelectAll} color='rgba(67, 159, 159, 1)' />
 							<span>{textHeader}</span>
 						</TableHeader>
 						<TableHeader>{textHeader2}</TableHeader>
@@ -106,17 +107,17 @@ export default function GroupsTable(props: IGroupsTable) {
 						{internalItems.map((i, index) => (
 							<TableRow key={index}>
 								<TableChecked>
-										<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)}  isChecked={i.checked}/>
+									<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)} isChecked={i.checked} />
 								</TableChecked>
 								<TableAdm>
-								<div> 
-								<AdmButton variant={'add'} count={0} textTooltip={textTooltipAdd} />
-								{i.adms.length > maxAdmToShow && <AdmButton onClick={() => onShowMoreClick(i.id)} variant={'count'} count={i.adms.length - maxAdmToShow} textTooltip={textTooltipCount} />}
+									<div>
+										<AdmButton variant={'add'} onClick={() => AdmMoreClick(i.id)} textTooltip={textTooltipAdd} />
+										{i.adms.length > maxAdmToShow && <AdmButton onClick={() => onShowMoreClick(i.id)} variant={'count'} count={i.adms.length - maxAdmToShow} textTooltip={textTooltipCount} />}
 
-									{i.adms.filter((a,aIndex) => aIndex < maxAdmToShow).map((adm) => {
-										return <AdmButton key={adm.id} image={adm.image} variant={'image'} textTooltip={adm.name} />
-									})}
-								</div>
+										{i.adms.filter((a, aIndex) => aIndex < maxAdmToShow).map((adm) => {
+											return <AdmButton key={adm.id} image={adm.image} variant={'image'} textTooltip={adm.name} />
+										})}
+									</div>
 								</TableAdm>
 								<TdEditButtom onClick={() => onEditClick(i.id)} />
 								<TdTrashButton onClick={() => onDeleteClick(i.id, index)} />

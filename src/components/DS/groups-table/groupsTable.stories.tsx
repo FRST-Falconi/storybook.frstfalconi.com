@@ -20,6 +20,7 @@ normal.args = {
     onDeleteClick: (id, index) => alert('tem certeza que quer excluir? id: ' + id + ' index: ' + index),
     onDeleteAllSelected: (id) => alert('apagar grupos selecionados?'),
     onShowMoreClick: (id) => alert('ver mais administradores?'),
+    AdmMoreClick: (id) => alert('ir para adiconar mais administradores?'),
     items: [{
         id: 'e02d4dc0-2a5b-11ee-aadb-6dc2421ab697',
         group: 'Time de Produto',
