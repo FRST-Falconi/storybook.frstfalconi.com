@@ -9,6 +9,7 @@ export default function AdmButton({ variant, count, textTooltip, image, onClick 
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Tooltip
+                delay={500}
                 trigger={'hover'}
                 content={textTooltip}
                 direction={'bottom'}

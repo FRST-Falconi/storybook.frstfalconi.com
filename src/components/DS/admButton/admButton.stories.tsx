@@ -24,12 +24,12 @@ count.args = {
 export const noImage =  Template.bind({})
 noImage.args = {
     variant: 'image',
-    textTooltip: 'Adicionar'
+    textTooltip: 'Nome sobrenome'
 }
 
 export const image =  Template.bind({})
 image.args = {
     image: 'https://picsum.photos/200',
     variant: 'image',
-    textTooltip: 'Adicionar'
+    textTooltip: 'Nome sobrenome'
 }

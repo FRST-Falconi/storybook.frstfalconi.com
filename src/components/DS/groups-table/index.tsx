@@ -6,7 +6,6 @@ import { IGroupsTable } from './groupsTable'
 import { EditIcon, Trash } from '@shared/icons'
 import AdmButton from '../admButton'
 import Checkbox from '@components/form-elements/checkbox'
-import Avatar from '@components/avatar'
 
 const TdTrashButton = ({ onClick }) => {
 	const [isHover, setIsHover] = useState(false)
