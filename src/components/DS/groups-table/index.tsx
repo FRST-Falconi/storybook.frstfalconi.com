@@ -1,11 +1,20 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
-import { Table, TableRow, TableContainer, TableHeader, TableChecked, ContainerSelected, TableAdm } from './groupTableStyles'
+import {
+	Table,
+	TableRow,
+	TableContainer,
+	TableHeader,
+	TableChecked,
+	ContainerSelected,
+	TableAdm
+} from './groupTableStyles'
 import { IGroupsTable } from './groupsTable'
 import { EditIcon, Trash } from '@shared/icons'
 import AdmButton from '../admButton'
 import Checkbox from '@components/form-elements/checkbox'
+import Tooltip from '../tooltip'
 
 const TdTrashButton = ({ onClick }) => {
 	const [isHover, setIsHover] = useState(false)
@@ -50,7 +59,8 @@ export default function GroupsTable(props: IGroupsTable) {
 		onEditClick,
 		onDeleteAllSelected,
 		AdmMoreClick,
-		onShowMoreClick
+		onShowMoreClick,
+		textTooltipAllSelected
 	} = props
 
 	const [isAllChecked, setIsAllChecked] = useState(false)
@@ -59,13 +69,13 @@ export default function GroupsTable(props: IGroupsTable) {
 	function handleToggleSelectAll() {
 		const value = !isAllChecked
 		setIsAllChecked(value)
-		setInternalItems(prev => {
-			return prev.map(i => ({ ...i, checked: value }))
+		setInternalItems((prev) => {
+			return prev.map((i) => ({ ...i, checked: value }))
 		})
 	}
 
 	function handleToggleSelectRow(index: number) {
-		setInternalItems(prev => {
+		setInternalItems((prev) => {
 			const newData = [...prev]
 			newData[index].checked = !newData[index].checked
 			return newData
@@ -74,34 +84,62 @@ export default function GroupsTable(props: IGroupsTable) {
 	}
 
 	function handleDeleteAllSelected() {
-		onDeleteAllSelected(internalItems.filter(i => i.checked).map(i => i.id))
+		onDeleteAllSelected(internalItems.filter((i) => i.checked).map((i) => i.id))
 	}
 
 	useEffect(() => {
-		setInternalItems(items.map(i => ({ ...i, checked: false })))
+		setInternalItems(items.map((i) => ({ ...i, checked: false })))
 	}, [items])
 
 	const selectedItems = useMemo(() => {
-		return internalItems.filter(i => i.checked).length
+		return internalItems.filter((i) => i.checked).length
 	}, [internalItems])
 
 	const maxAdmToShow = 3
 
 	return (
 		<ThemeProvider theme={FRSTTheme}>
-			<ContainerSelected> <div>{selected} {selectedItems}</div>
-				{selectedItems > 1 && <span onClick={handleDeleteAllSelected}><Trash fill='rgba(165, 0, 0, 1)' />{deleted}</span>}
+			<ContainerSelected>
+				{' '}
+				<div>
+					{selected} {selectedItems}
+				</div>
+				{selectedItems > 1 && (
+					<span onClick={handleDeleteAllSelected} style={{cursor:'pointer'}}>
+						<Trash fill="rgba(165, 0, 0, 1)" />
+						{deleted}
+					</span>
+				)}
 			</ContainerSelected>
 			<TableContainer>
 				<Table>
 					<tr>
 						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }}>
-							<Checkbox isChecked={isAllChecked} label='' handleCheck={handleToggleSelectAll} color='rgba(67, 159, 159, 1)' />
+							<Tooltip
+								style={{
+									width: '116px',
+									height: '31px',
+									top: '10px',
+									left: '3px',
+									display: 'flex',
+									justifyContent: 'center'
+								}}
+								direction={'bottom'}
+								content={textTooltipAllSelected}
+								delay={500}
+							>
+								<Checkbox
+									isChecked={isAllChecked}
+									label=""
+									handleCheck={handleToggleSelectAll}
+									color="rgba(67, 159, 159, 1)"
+								/>
+							</Tooltip>
 							<span>{textHeader}</span>
 						</TableHeader>
-						<TableHeader>{textHeader2}</TableHeader>
-						<TableHeader style={{ width: '180px' }}>{textHeader3}</TableHeader>
-						<TableHeader style={{ width: '180px' }}>{textHeader4}</TableHeader>
+						<TableHeader style={{ width: '90px' }}>{textHeader2}</TableHeader>
+						<TableHeader style={{ width: '90px' }}>{textHeader3}</TableHeader>
+						<TableHeader style={{ width: '90px' }}>{textHeader4}</TableHeader>
 					</tr>
 					<tbody>
 						{internalItems.map((i, index) => (
@@ -112,11 +150,20 @@ export default function GroupsTable(props: IGroupsTable) {
 								<TableAdm>
 									<div>
 										<AdmButton variant={'add'} onClick={() => AdmMoreClick(i.id)} textTooltip={textTooltipAdd} />
-										{i.adms.length > maxAdmToShow && <AdmButton onClick={() => onShowMoreClick(i.id)} variant={'count'} count={i.adms.length - maxAdmToShow} textTooltip={textTooltipCount} />}
+										{i.adms.length > maxAdmToShow && (
+											<AdmButton
+												onClick={() => onShowMoreClick(i.id)}
+												variant={'count'}
+												count={i.adms.length - maxAdmToShow}
+												textTooltip={textTooltipCount}
+											/>
+										)}
 
-										{i.adms.filter((a, aIndex) => aIndex < maxAdmToShow).map((adm) => {
-											return <AdmButton key={adm.id} image={adm.image} variant={'image'} textTooltip={adm.name} />
-										})}
+										{i.adms
+											.filter((a, aIndex) => aIndex < maxAdmToShow)
+											.map((adm) => {
+												return <AdmButton key={adm.id} image={adm.image} variant={'image'} textTooltip={adm.name} />
+											})}
 									</div>
 								</TableAdm>
 								<TdEditButtom onClick={() => onEditClick(i.id)} />

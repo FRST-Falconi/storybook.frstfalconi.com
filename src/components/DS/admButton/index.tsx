@@ -16,7 +16,14 @@ export default function AdmButton({ variant, count, textTooltip, image, onClick 
                 style={{
                     fontFamily: 'PT Sans',
                     fontWeight: 400,
-                    color: 'rgba(117, 117, 117, 1)'
+                    color: 'rgba(117, 117, 117, 1)',
+                    width:'116px',
+                    height:'31px',
+                    top:'10px',
+                    left:'3px',
+                    display:'flex',
+                    justifyContent: 'center'
+
                 }}
             >
                 <AvatarContent onClick={onClick} background={variant != 'count' ? '#E0E0E0' :

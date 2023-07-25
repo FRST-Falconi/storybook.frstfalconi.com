@@ -8,8 +8,9 @@ export interface IGroupsTable {
     textHeader3: string
     textHeader4: string
     items:IGroupsTableItems[]
-    textTooltipAdd: string;
-    textTooltipCount: string;
+    textTooltipAdd: string
+    textTooltipCount: string
+    textTooltipAllSelected: string
     deleted: string;
     onDeleteAllSelected: (selecteds: string[]) => void
     onDeleteClick: (id:string, index:index) => void
