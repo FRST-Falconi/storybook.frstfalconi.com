@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { MultiSelect } from 'primereact/multiselect'
 import * as StylesFiltro from './styles/MultiSelectDemo'
-import selectItemsCss from './styles/MultiSelectItems.css'
+// import selectItemsCss from './styles/MultiSelectItems.css'
 // import './styles/theme.css'
 // import './styles/primereact.css'
 // import './styles/primeflex.css'
@@ -113,7 +113,7 @@ export default function FiltroGaleriaDesafios({
             optionLabel={optionLabel}
             placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
             className="multiselect-custom"
-            panelStyle={selectItemsCss}
+            // panelStyle={selectItemsCss}
             // selectedItemTemplate={selectedCountriesTemplate()}
             selectedItemsLabel={placeholderSelect}
             disabled={isDisabled}
