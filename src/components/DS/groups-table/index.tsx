@@ -3,8 +3,9 @@ import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import { Table, TableRow, TableContainer, TableHeader, TableChecked, ContainerSelected } from './groupTableStyles'
 import { IGroupsTable } from './groupsTable'
-import { CheckboxChecked, CheckboxEmpty, EditIcon, Trash } from '@shared/icons'
+import { EditIcon, Trash } from '@shared/icons'
 import AdmButton from '../admButton'
+import Checkbox from '@components/form-elements/checkbox'
 
 const TdTrashButton = ({ onClick }) => {
 	const [isHover, setIsHover] = useState(false)
@@ -46,7 +47,8 @@ export default function GroupsTable(props: IGroupsTable) {
 		textTooltipCount,
 		deleted,
 		onDeleteClick,
-		onEditClick
+		onEditClick,
+		onDeleteAllSelected
 	} = props
 
 	const [isAllChecked, setIsAllChecked] = useState(false)
@@ -68,7 +70,10 @@ export default function GroupsTable(props: IGroupsTable) {
 		})
 		setIsAllChecked(false)
 	}
-
+    
+	function handleDeleteAllSelected() {
+		onDeleteAllSelected(internalItems.filter(i => i.checked).map(i => i.id))
+	}
 
 	useEffect(() => {
 		setInternalItems(items.map(i => ({ ...i, checked: false })))
@@ -80,15 +85,15 @@ export default function GroupsTable(props: IGroupsTable) {
 
 	return (
 		<ThemeProvider theme={FRSTTheme}>
-			<ContainerSelected> <div>{selected}{selectedItems}</div>
-			{selectedItems > 1 && <span><Trash fill='rgba(165, 0, 0, 1)'/>{deleted}</span>}
+			<ContainerSelected> <div>{selected} {selectedItems}</div>
+			{selectedItems > 1 && <span onClick={handleDeleteAllSelected}><Trash fill='rgba(165, 0, 0, 1)'/>{deleted}</span>}
 			</ContainerSelected>
 			<TableContainer>
 				<Table>
 					<tr>
-						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px' }}>
-							<span onClick={handleToggleSelectAll}>{isAllChecked ? <CheckboxChecked fill='rgba(67, 159, 159, 1)'/> : <CheckboxEmpty/>}</span>
-							{textHeader}
+						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px', display:'flex', alignItems:'center' }}>
+							<Checkbox isChecked={isAllChecked} label='' handleCheck={handleToggleSelectAll} color='rgba(67, 159, 159, 1)'/>
+							<span>{textHeader}</span>
 						</TableHeader>
 						<TableHeader>{textHeader2}</TableHeader>
 						<TableHeader style={{ width: '180px' }}>{textHeader3}</TableHeader>
@@ -98,10 +103,7 @@ export default function GroupsTable(props: IGroupsTable) {
 						{internalItems.map((i, index) => (
 							<TableRow>
 								<TableChecked>
-									<span onClick={() => handleToggleSelectRow(index)} style={{ marginRight: '16px' }}>
-										{i.checked ? <CheckboxChecked /> : <CheckboxEmpty />}
-									</span>
-									<span style={{fontWeight: i.checked ? 700 : 400}}>{i.group}</span>
+										<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)}  isChecked={i.checked}/>
 								</TableChecked>
 								<td> 
 									{i.adms.map((adm) => {

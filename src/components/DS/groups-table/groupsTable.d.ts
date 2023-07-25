@@ -11,6 +11,7 @@ export interface IGroupsTable {
     textTooltipAdd: string;
     textTooltipCount: string;
     deleted: string;
+    onDeleteAllSelected: (selecteds: string[]) => void
     onDeleteClick: (id:string, index:index) => void
     onEditClick: (id:string) => void
 }

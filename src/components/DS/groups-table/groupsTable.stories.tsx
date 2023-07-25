@@ -18,6 +18,7 @@ normal.args = {
     textHeader4: 'Excluir',
     onEditClick: (id) => alert('editar grupo'),
     onDeleteClick: (id, index) => alert('tem certeza que quer excluir? id: '+ id +' index: '+ index),
+    onDeleteAllSelected: (id) => alert('apagar grupos selecionados?'),
     items:[{
         id:'e02d4dc0-2a5b-11ee-aadb-6dc2421ab697',
         checked: true,

@@ -22,7 +22,7 @@ export default function Checkbox({label, isChecked, handleCheck, color = FRSTThe
                                 <CheckboxChecked fill={color} stroke={color}/>
                             ) : (
                                 actionAreaCheckIcon ? 
-                                <CheckboxEmpty stroke={FRSTTheme['colors'].primary1}/> : 
+                                <CheckboxEmpty stroke={color}/> : 
                                 <CheckboxEmpty stroke={FRSTTheme['colors'].neutralsGrey4}/> )
                         }
                     </CheckButton>

@@ -24,9 +24,9 @@ export const CheckButton = styled.button`
   align-items: center;
   background-color: transparent;
   border-width: 0px;
-  :focus {
+  /* :focus {
     background-color: ${({ theme }) => theme.colors.selectItens};
-  }
+  } */
 `
 
 export const Label = styled.div<{ isChecked: boolean }>`

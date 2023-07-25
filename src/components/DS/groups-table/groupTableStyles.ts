@@ -28,10 +28,10 @@ export const TableContainer = styled.div`
 `
 export const Table = styled.table`
     border-collapse: collapse;
+    width:100%;
 `
 export const TableHeader = styled.th`
     background-color: rgba(69, 160, 160, 0.4);
-    width: 846px;
     height:54px;
     font-family: PT Sans;
     font-weight: 700;
