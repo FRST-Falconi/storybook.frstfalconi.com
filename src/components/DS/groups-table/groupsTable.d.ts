@@ -14,10 +14,17 @@ export interface IGroupsTable {
     onDeleteAllSelected: (selecteds: string[]) => void
     onDeleteClick: (id:string, index:index) => void
     onEditClick: (id:string) => void
+    onShowMoreClick: (id:string) => void
+}
+
+export interface IAdmItem {
+    id: string
+    image: string
+    name: string
 }
 
 export interface IGroupsTableItems {
     id: string
     group: string
-    adms: string[]
+    adms: IAdmItem[]
 }

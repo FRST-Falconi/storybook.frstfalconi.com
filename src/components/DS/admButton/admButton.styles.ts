@@ -11,12 +11,12 @@ export const AvatarContent = styled.div<IAvatarContent>`
     border: 2px solid rgba(255, 255, 255, 1);
     display: flex;
     justify-content: end;
-    padding-right: 6px;
     align-items: center;
     position: relative;
     font-size: 10px;
     font-family:'PT Sans';
     box-sizing: border-box;
+    cursor: pointer;
 `
 export const PlusButton = styled.div`
     width: 12px;
@@ -36,4 +36,19 @@ export const ImageAvatarContent = styled.div`
     position: absolute;
     bottom: -3px;
     right: 3px;
+`
+export const ImageContent = styled.div`
+    width:32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* padding-right: -12px;
+        border-radius: 50%;
+        width: 32px; */
+    }
+    
 `

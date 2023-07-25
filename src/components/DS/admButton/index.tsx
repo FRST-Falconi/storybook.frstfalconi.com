@@ -1,11 +1,11 @@
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
-import { AvatarContent, PlusButton, ImageAvatarContent } from './admButton.styles'
+import { AvatarContent, PlusButton, ImageAvatarContent, ImageContent } from './admButton.styles'
 import { EmptyAvatar } from '@shared/icons'
 import Tooltip from '@components/DS/tooltip'
 import { IAdmButton } from './admButton'
 
-export default function AdmButton({ variant, count, textTooltip }: IAdmButton) {
+export default function AdmButton({ variant, count, textTooltip, image, onClick }: IAdmButton) {
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Tooltip
@@ -18,9 +18,9 @@ export default function AdmButton({ variant, count, textTooltip }: IAdmButton) {
                     color: 'rgba(117, 117, 117, 1)'
                 }}
             >
-                <AvatarContent background={variant == 'add' ? '#E0E0E0' :
+                <AvatarContent onClick={onClick} background={variant != 'count' ? '#E0E0E0' :
                     'rgba(68, 68, 68, 1)'}>
-                    {variant == 'count' && <div>+{count}</div>}
+                    {variant == 'count' && <div style={{paddingRight: '6px'}}>+{count}</div>}
                     {variant == 'add' && (
                         <>
                             <ImageAvatarContent>
@@ -29,7 +29,15 @@ export default function AdmButton({ variant, count, textTooltip }: IAdmButton) {
 
                             <PlusButton>+</PlusButton>
                         </>
+                        
+                    )} {variant == 'image' && (
+                        <>{image ? <ImageContent><img src={image} alt="" /></ImageContent> : <ImageAvatarContent><EmptyAvatar/></ImageAvatarContent>}
+                            
+                                
+                            
+                        </>
                     )}
+
                 </AvatarContent>
             </Tooltip>
         </ThemeProvider>

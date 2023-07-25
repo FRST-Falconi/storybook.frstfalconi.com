@@ -15,7 +15,6 @@ export const ContainerSelected = styled.div`
         gap: 4px;
         font-family: 'PT Sans';
         padding-left: 24px;
-        cursor: pointer;
         font-weight: 700;
         color:rgba(165, 0, 0, 1);
         line-height: 17.6px;
@@ -37,7 +36,6 @@ export const TableHeader = styled.th`
     font-weight: 700;
     span{
         margin-right: 16px;
-        cursor: pointer;
     }
 `
 export const TableRow = styled.tr`
@@ -56,9 +54,22 @@ export const TableChecked = styled.td`
     padding-left: 18px;
     text-align: left;
     width: 40%;
-    cursor: pointer;
     span{
         font-family:'PT Sans';
         color:'rgba(34, 34, 34, 1)';
     }
+`
+export const TableAdm = styled.td`
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 11px;
+    div{
+        flex-direction: row-reverse;
+        display: flex;
+        :nth-child(1n){
+        margin-left: -4px;
+    }
+    }
+
 `

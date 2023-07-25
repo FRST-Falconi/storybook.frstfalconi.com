@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react'
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
-import { Table, TableRow, TableContainer, TableHeader, TableChecked, ContainerSelected } from './groupTableStyles'
+import { Table, TableRow, TableContainer, TableHeader, TableChecked, ContainerSelected, TableAdm } from './groupTableStyles'
 import { IGroupsTable } from './groupsTable'
 import { EditIcon, Trash } from '@shared/icons'
 import AdmButton from '../admButton'
 import Checkbox from '@components/form-elements/checkbox'
+import Avatar from '@components/avatar'
 
 const TdTrashButton = ({ onClick }) => {
 	const [isHover, setIsHover] = useState(false)
@@ -48,7 +49,8 @@ export default function GroupsTable(props: IGroupsTable) {
 		deleted,
 		onDeleteClick,
 		onEditClick,
-		onDeleteAllSelected
+		onDeleteAllSelected,
+		onShowMoreClick
 	} = props
 
 	const [isAllChecked, setIsAllChecked] = useState(false)
@@ -83,6 +85,8 @@ export default function GroupsTable(props: IGroupsTable) {
 		return internalItems.filter(i => i.checked).length
 	},[internalItems])
 
+	const maxAdmToShow = 3
+
 	return (
 		<ThemeProvider theme={FRSTTheme}>
 			<ContainerSelected> <div>{selected} {selectedItems}</div>
@@ -101,15 +105,20 @@ export default function GroupsTable(props: IGroupsTable) {
 					</tr>
 					<tbody>
 						{internalItems.map((i, index) => (
-							<TableRow>
+							<TableRow key={index}>
 								<TableChecked>
 										<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)}  isChecked={i.checked}/>
 								</TableChecked>
-								<td> 
-									{i.adms.map((adm) => {
-										return <AdmButton variant={'count'} count={0} textTooltip={textTooltipCount} />
+								<TableAdm>
+								<div> 
+								<AdmButton variant={'add'} count={0} textTooltip={textTooltipAdd} />
+								{i.adms.length > maxAdmToShow && <AdmButton onClick={() => onShowMoreClick(i.id)} variant={'count'} count={i.adms.length - maxAdmToShow} textTooltip={textTooltipCount} />}
+
+									{i.adms.filter((a,aIndex) => aIndex < maxAdmToShow).map((adm) => {
+										return <AdmButton key={adm.id} image={adm.image} variant={'image'} textTooltip={adm.name} />
 									})}
-								</td>
+								</div>
+								</TableAdm>
 								<TdEditButtom onClick={() => onEditClick(i.id)} />
 								<TdTrashButton onClick={() => onDeleteClick(i.id, index)} />
 							</TableRow>

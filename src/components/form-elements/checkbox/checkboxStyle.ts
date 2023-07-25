@@ -24,6 +24,7 @@ export const CheckButton = styled.button`
   align-items: center;
   background-color: transparent;
   border-width: 0px;
+  cursor:pointer;
   /* :focus {
     background-color: ${({ theme }) => theme.colors.selectItens};
   } */
