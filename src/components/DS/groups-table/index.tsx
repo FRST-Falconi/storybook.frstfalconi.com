@@ -87,7 +87,7 @@ export default function GroupsTable(props: IGroupsTable) {
 				<Table>
 					<tr>
 						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px' }}>
-							<span onClick={handleToggleSelectAll}>{isAllChecked ? <CheckboxChecked /> : <CheckboxEmpty />}</span>
+							<span onClick={handleToggleSelectAll}>{isAllChecked ? <CheckboxChecked fill='rgba(67, 159, 159, 1)'/> : <CheckboxEmpty/>}</span>
 							{textHeader}
 						</TableHeader>
 						<TableHeader>{textHeader2}</TableHeader>
@@ -101,9 +101,9 @@ export default function GroupsTable(props: IGroupsTable) {
 									<span onClick={() => handleToggleSelectRow(index)} style={{ marginRight: '16px' }}>
 										{i.checked ? <CheckboxChecked /> : <CheckboxEmpty />}
 									</span>
-									<span>{i.group}</span>
+									<span style={{fontWeight: i.checked ? 700 : 400}}>{i.group}</span>
 								</TableChecked>
-								<td>
+								<td> 
 									{i.adms.map((adm) => {
 										return <AdmButton variant={'count'} count={0} textTooltip={textTooltipCount} />
 									})}

@@ -37,6 +37,7 @@ export const TableHeader = styled.th`
     font-weight: 700;
     span{
         margin-right: 16px;
+        cursor: pointer;
     }
 `
 export const TableRow = styled.tr`
@@ -55,7 +56,7 @@ export const TableChecked = styled.td`
     padding-left: 18px;
     text-align: left;
     width: 40%;
-
+    cursor: pointer;
     span{
         font-family:'PT Sans';
         color:'rgba(34, 34, 34, 1)';

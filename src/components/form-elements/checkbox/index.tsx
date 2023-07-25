@@ -6,7 +6,7 @@ import { CheckboxChecked, CheckboxEmpty } from '@shared/icons'
 import { CheckBoxWrapper, CheckButton, Label } from './checkboxStyle'
 import { useState } from 'react'
 
-export default function Checkbox({label, isChecked, handleCheck}) {
+export default function Checkbox({label, isChecked, handleCheck, color = FRSTTheme['colors'].primary1}) {
     const [ actionAreaCheckIcon, setActionAreaCheckIcon ] = useState(false);
 
     return (
@@ -19,7 +19,7 @@ export default function Checkbox({label, isChecked, handleCheck}) {
                     <CheckButton>
                         {
                             isChecked ? (          
-                                <CheckboxChecked/>
+                                <CheckboxChecked fill={color} stroke={color}/>
                             ) : (
                                 actionAreaCheckIcon ? 
                                 <CheckboxEmpty stroke={FRSTTheme['colors'].primary1}/> : 

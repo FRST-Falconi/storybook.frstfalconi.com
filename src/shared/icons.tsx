@@ -327,16 +327,17 @@ export function WhiteFilter({ fill, width, height }: IconsProps) {
   )
 }
 
-export function CheckboxChecked({ fill, width, height }: IconsProps) {
+export function CheckboxChecked({ fill, stroke, width, height }: IconsProps) {
   return (
     <svg
       width={width ? width : '16'}
       height={height ? height : '16'}
       viewBox="0 0 16 16"
-      fill="none"
+      fill={fill || '#F35F24'}
+      stroke={ stroke || '#F35F24'}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="#F35F24" stroke="#F35F24" />
+      <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="current" stroke="current" />
       <path d="M13 4L6.125 11L3 7.81818" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
