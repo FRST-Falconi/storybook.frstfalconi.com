@@ -2,6 +2,7 @@ import React from 'react'
 
 export interface IGroupsTable {
     selected: string
+    totalChecked: number
     textHeader: string
     textHeader2: string
     textHeader3: string
@@ -9,11 +10,12 @@ export interface IGroupsTable {
     items:IGroupsTableItems[]
     textTooltipAdd: string;
     textTooltipCount: string;
+    deleted: string;
     onDeleteClick: (id:string, index:index) => void
+    onEditClick: (id:string) => void
 }
 
 export interface IGroupsTableItems {
-    checked: boolean
     id: string
     group: string
     adms: string[]

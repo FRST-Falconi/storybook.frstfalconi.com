@@ -1,7 +1,25 @@
 import styled from 'styled-components'
 
 export const ContainerSelected = styled.div`
-
+    display:flex;
+    margin-bottom: 15px;
+    div{
+        font-family: 'PT Sans';
+        font-weight: 700;
+        line-height: 17.6px;
+    }
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        font-family: 'PT Sans';
+        padding-left: 24px;
+        cursor: pointer;
+        font-weight: 700;
+        color:rgba(165, 0, 0, 1);
+        line-height: 17.6px;
+    }
 `
 
 export const TableContainer = styled.div`
@@ -17,6 +35,9 @@ export const TableHeader = styled.th`
     height:54px;
     font-family: PT Sans;
     font-weight: 700;
+    span{
+        margin-right: 16px;
+    }
 `
 export const TableRow = styled.tr`
     background-color: rgba(255, 255, 255, 1);
@@ -31,11 +52,11 @@ export const TableRow = styled.tr`
 
 export const TableChecked = styled.td`
     vertical-align:middle;
-    padding: 18px;
+    padding-left: 18px;
     text-align: left;
     width: 40%;
+
     span{
-        margin-left:19px;
         font-family:'PT Sans';
         color:'rgba(34, 34, 34, 1)';
     }
