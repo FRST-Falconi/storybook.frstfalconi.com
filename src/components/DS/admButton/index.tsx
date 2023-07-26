@@ -2,30 +2,11 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import { AvatarContent, PlusButton, ImageAvatarContent, ImageContent } from './admButton.styles'
 import { EmptyAvatar } from '@shared/icons'
-import Tooltip from '@components/DS/tooltip'
 import { IAdmButton } from './admButton'
 
-export default function AdmButton({ variant, count, textTooltip, image, onClick }: IAdmButton) {
+export default function AdmButton({ variant, count, image, onClick }: IAdmButton) {
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Tooltip
-                delay={500}
-                trigger={'hover'}
-                content={textTooltip}
-                direction={'bottom'}
-                style={{
-                    fontFamily: 'PT Sans',
-                    fontWeight: 400,
-                    color: 'rgba(117, 117, 117, 1)',
-                    width:'116px',
-                    height:'31px',
-                    top:'10px',
-                    left:'3px',
-                    display:'flex',
-                    justifyContent: 'center'
-
-                }}
-            >
                 <AvatarContent onClick={onClick} background={variant != 'count' ? '#E0E0E0' :
                     'rgba(68, 68, 68, 1)'}>
                     {variant == 'count' && <div style={{paddingRight: '6px'}}>+{count}</div>}
@@ -47,7 +28,6 @@ export default function AdmButton({ variant, count, textTooltip, image, onClick 
                     )}
 
                 </AvatarContent>
-            </Tooltip>
         </ThemeProvider>
     )
 }

@@ -10,26 +10,22 @@ const Template = (args) => <AdmButton {...args}/>
 
 export const add =  Template.bind({})
 add.args = {
-    variant: 'add',
-    textTooltip: 'Adicionar'
+    variant: 'add'
 }
 
 export const count =  Template.bind({})
 count.args = {
     variant: 'count',
-    count: 9,
-    textTooltip: 'Ver Todos'
+    count: 9
 }
 
 export const noImage =  Template.bind({})
 noImage.args = {
-    variant: 'image',
-    textTooltip: 'Nome sobrenome'
+    variant: 'image'
 }
 
 export const image =  Template.bind({})
 image.args = {
     image: 'https://picsum.photos/200',
-    variant: 'image',
-    textTooltip: 'Nome sobrenome'
+    variant: 'image'
 }

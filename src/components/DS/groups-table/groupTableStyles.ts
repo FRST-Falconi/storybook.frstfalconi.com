@@ -31,6 +31,9 @@ export const Table = styled.table`
         tbody{
             tr:nth-child(even){
                 background:${({ theme }) => theme.colors.neutralsGrey8};
+                :hover{
+                    background: rgba(223, 226, 226, 1);
+                }
         }
     }
 `

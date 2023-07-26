@@ -8,7 +8,7 @@ export const AvatarContent = styled.div<IAvatarContent>`
     background-color: ${props => props.background};
     color: rgba(255, 255, 255, 1);
     font-weight:700;
-    border: 2px solid rgba(255, 255, 255, 1);
+    border: 2px solid ${({ theme }) => theme.colors.shadeWhite};
     display: flex;
     justify-content: end;
     align-items: center;
@@ -46,9 +46,6 @@ export const ImageContent = styled.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* padding-right: -12px;
-        border-radius: 50%;
-        width: 32px; */
     }
     
 `

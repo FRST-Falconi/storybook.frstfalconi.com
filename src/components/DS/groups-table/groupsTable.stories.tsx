@@ -29,7 +29,7 @@ normal.args = {
         id: 'e02d4dc0-2a5b-11ee-aadb-6dc2421ab697',
         group: 'Time de Produto',
         adms: [{
-            id: 'a2cd4922-2f78-4c89-ac24-cf1b5830e4f5', image: 'https://xsgames.co/randomusers/avatar.php?g=male', name: 'Joaquim Ribeiro'
+            id: 'a2cd4922-2f78-4c89-ac24-cf1b5830e4f5', image: 'https://xsgames.co/randomusers/avatar.php?g=male', name: 'Joaquim Ribeiro Santos'
         }
         ]
     },

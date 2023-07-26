@@ -21,7 +21,7 @@ const TdTrashButton = ({ onClick }) => {
 	return (
 		<div
 			onClick={onClick}
-			style={{ cursor: 'pointer'}}
+			style={{ cursor: 'pointer' }}
 			onMouseLeave={() => setIsHover(false)}
 			onMouseEnter={() => setIsHover(true)}
 		>
@@ -39,7 +39,7 @@ const TdEditButtom = ({ onClick }) => {
 			onMouseLeave={() => setIsHover(false)}
 			onMouseEnter={() => setIsHover(true)}
 		>
-			<EditIcon width="18px" height="18px"  fill={isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) '} />
+			<EditIcon width="18px" height="18px" fill={isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) '} />
 		</div>
 	)
 }
@@ -110,7 +110,7 @@ export default function GroupsTable(props: IGroupsTable) {
 					{selected} {selectedItems}
 				</div>
 				{selectedItems > 1 && (
-					<span onClick={handleDeleteAllSelected} style={{cursor:'pointer'}}>
+					<span onClick={handleDeleteAllSelected} style={{ cursor: 'pointer' }}>
 						<Trash fill="rgba(165, 0, 0, 1)" />
 						{deleted}
 					</span>
@@ -124,10 +124,11 @@ export default function GroupsTable(props: IGroupsTable) {
 								style={{
 									width: '116px',
 									height: '31px',
-									top: '10px',
-									left: '3px',
+									top: '8px',
+									left: '8px',
 									display: 'flex',
-									justifyContent: 'center'
+									justifyContent: 'center',
+									boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 								}}
 								direction={'bottom'}
 								content={textTooltipAllSelected}
@@ -143,9 +144,9 @@ export default function GroupsTable(props: IGroupsTable) {
 							<span>{textHeader}</span>
 						</TableHeader>
 						<TableHeader></TableHeader>
-						<TableHeader style={{width: '180px'}}>{textHeader2}</TableHeader>
-						<TableHeader style={{paddingRight:'52px', paddingLeft:'44px', width: '220px'}}>
-							<div style={{display: 'flex', alignItems: 'center', gap: '44px'}}>
+						<TableHeader style={{ width: '180px' }}>{textHeader2}</TableHeader>
+						<TableHeader style={{ paddingRight: '52px', paddingLeft: '44px', width: '220px' }}>
+							<div style={{ display: 'flex', alignItems: 'center', gap: '44px' }}>
 								<div>{textHeader3}</div>
 								<div >{textHeader4}</div>
 							</div>
@@ -160,25 +161,81 @@ export default function GroupsTable(props: IGroupsTable) {
 								<td></td>
 								<TableAdm>
 									<div>
-										<AdmButton variant={'add'} onClick={() => AdmMoreClick(i.id)} textTooltip={textTooltipAdd} />
+										<Tooltip
+											content={textTooltipAdd}
+											delay={500}
+											direction={'bottom'}
+											style={{
+												fontFamily: 'PT Sans',
+												fontWeight: 400,
+												fontSize: '14px',
+												color: 'rgba(117, 117, 117, 1)',
+												width: '73px',
+												height: '31px',
+												top: '8px',
+												left: '4px',
+												display: 'flex',
+												justifyContent: 'center',
+												boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+											}}
+										>
+											<AdmButton variant={'add'} onClick={() => AdmMoreClick(i.id)} />
+										</Tooltip>
+
 										{i.adms.length > maxAdmToShow && (
-											<AdmButton
-												onClick={() => onShowMoreClick(i.id)}
-												variant={'count'}
-												count={i.adms.length - maxAdmToShow}
-												textTooltip={textTooltipCount}
-											/>
+											<Tooltip
+												content={textTooltipCount}
+												delay={500}
+												direction={'bottom'}
+												style={{
+													fontFamily: 'PT Sans',
+													fontWeight: 400,
+													fontSize: '14px',
+													color: 'rgba(117, 117, 117, 1)',
+													width: '73px',
+													height: '31px',
+													top: '8px',
+													left: '4px',
+													boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+												}}
+											>
+												<AdmButton
+													onClick={() => onShowMoreClick(i.id)}
+													variant={'count'}
+													count={i.adms.length - maxAdmToShow}
+												/>
+											</Tooltip>
+
+
 										)}
 
 										{i.adms
 											.filter((a, aIndex) => aIndex < maxAdmToShow)
 											.map((adm) => {
-												return <AdmButton key={adm.id} image={adm.image} variant={'image'} textTooltip={adm.name} />
+												return <Tooltip
+													content={adm.name}
+													direction={'bottom'}
+													delay={500}
+													style={{
+														fontFamily: 'PT Sans',
+														fontWeight: 400,
+														fontSize: '14px',
+														color: 'rgba(117, 117, 117, 1)',
+														width: 'fit-content',
+														height: '31px',
+														top: '8px',
+														left: '4px',
+														whiteSpace: 'nowrap',
+														boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+													}}
+												>
+													<AdmButton key={adm.id} image={adm.image} variant={'image'} />
+												</Tooltip>
 											})}
 									</div>
 								</TableAdm>
 								<td>
-									<div style={{display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px', margin: 'auto' }}>
+									<div style={{ display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px',paddingLeft: '54px'}}>
 										<TdEditButtom onClick={() => onEditClick(i.id)} />
 										<TdTrashButton onClick={() => onDeleteClick(i.id, index)} />
 									</div>
