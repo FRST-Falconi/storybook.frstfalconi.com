@@ -6355,7 +6355,6 @@ input.p-dropdown-label {
 }
 
 .p-multiselect-panel .p-multiselect-header .p-checkbox .p-checkbox-box.p-highlight span {
-  background: url('./icons/vector.png') no-repeat center center;
   width: 15px;
   height: 12px;
   -webkit-background-size: cover;
@@ -6423,7 +6422,7 @@ input.p-dropdown-label {
 /* ##Items wrapper  */
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-multiselect-items .p-multiselect-item{
-  word-break: break-all;;
+  word-break: break-all;
   white-space: normal;
 }
 
@@ -6470,7 +6469,6 @@ input.p-dropdown-label {
 }
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-checkbox .p-checkbox-box.p-highlight span {
-  background: url('./icons/vector.png') no-repeat center center;
   width: 15px;
   height: 12px;
   -webkit-background-size: cover;

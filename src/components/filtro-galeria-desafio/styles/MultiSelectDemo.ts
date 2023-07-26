@@ -51,7 +51,7 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
     }
 
     .p-placeholder {
-      color: #f26818;
+      color: #f26818 !important;
       font-family: 'PT Sans';
       font-weight: 700;
       padding: 0.5rem 0rem 0.5rem 1rem;
