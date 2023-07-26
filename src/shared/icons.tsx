@@ -292,6 +292,21 @@ export function BackArrow({ fill, width, height }: IconsProps) {
   )
 }
 
+export function EmptyAvatar({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '22'}
+      height={height ? height : '20'}
+      viewBox="0 0 23 25"
+      fill={fill ?? '#BDBDBD'}
+      xmlns="http://www.w3.org/2000/svg">
+      <path d="M23 18C23 20 17.5 24.5 11 24.5C5.5 24.5 0 21 0 18C0 17 3.8203 12 11 12C18.1797 12 23 17 23 18Z"
+        fill="current" />
+      <circle cx="11" cy="5" r="5" fill="current" />
+    </svg>
+  )
+}
+
 export function WhiteFilter({ fill, width, height }: IconsProps) {
   return (
     <svg
@@ -312,16 +327,17 @@ export function WhiteFilter({ fill, width, height }: IconsProps) {
   )
 }
 
-export function CheckboxChecked({ fill, width, height }: IconsProps) {
+export function CheckboxChecked({ fill, stroke, width, height }: IconsProps) {
   return (
     <svg
       width={width ? width : '16'}
       height={height ? height : '16'}
       viewBox="0 0 16 16"
-      fill="none"
+      fill={fill || '#F35F24'}
+      stroke={ stroke || '#F35F24'}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="#F35F24" stroke="#F35F24" />
+      <rect x="0.5" y="0.5" width="15" height="15" rx="1.5" fill="current" stroke="current" />
       <path d="M13 4L6.125 11L3 7.81818" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
@@ -369,12 +385,14 @@ export function Trash({ fill, width, height }: IconsProps) {
   )
 }
 
+
+
 export function TrashDelete({ fill, width, height }: IconsProps) {
   return (
     <svg
-      width={width ?? '25'}
+      width={width ?? '24'}
       height={height ?? '24'}
-      viewBox={`0 0 ${width ?? '25'} ${height ?? '24'}`}
+      viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -3722,17 +3740,17 @@ export function CardFinished() {
 
 export function Tick({ fill, width, height }: IconsProps) {
   return (
-      <svg
-          width={width ? width : '12'}
-          height={height ? height : '10.5'}
-          viewBox="0 0 13 11"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width={width ? width : '12'}
+      height={height ? height : '10.5'}
+      viewBox="0 0 13 11"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
       <path fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M11.0964 0.390037L3.93638 7.30004L2.03638 5.27004C1.68638 4.94004 1.13638 4.92004 0.736381 5.20004C0.346381 5.49004 0.236381 6.00004 0.476381 6.41004L2.72638 10.07C2.94638 10.41 3.32638 10.62 3.75638 10.62C4.16638 10.62 4.55638 10.41 4.77638 10.07C5.13638 9.60004 12.0064 1.41004 12.0064 1.41004C12.9064 0.490037 11.8164 -0.319963 11.0964 0.380037V0.390037Z"
-          fill={fill ? fill : 'white'}
-          />
+        clip-rule="evenodd"
+        d="M11.0964 0.390037L3.93638 7.30004L2.03638 5.27004C1.68638 4.94004 1.13638 4.92004 0.736381 5.20004C0.346381 5.49004 0.236381 6.00004 0.476381 6.41004L2.72638 10.07C2.94638 10.41 3.32638 10.62 3.75638 10.62C4.16638 10.62 4.55638 10.41 4.77638 10.07C5.13638 9.60004 12.0064 1.41004 12.0064 1.41004C12.9064 0.490037 11.8164 -0.319963 11.0964 0.380037V0.390037Z"
+        fill={fill ? fill : 'white'}
+      />
     </svg>
   )
 }

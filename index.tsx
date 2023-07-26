@@ -40,6 +40,7 @@ export {
   Books,
   Diamond,
   Challenge,
+  EmptyAvatar,
   ChangeAccount,
   EyeOff,
   OpenedEye,
@@ -79,6 +80,8 @@ export { default as TotalizerCard } from './src/components/totalizer-card'
 export { default as Tooltip } from './src/components/DS/tooltip'
 export { default as Select } from './src/components/DS/select'
 export { default as Modal } from './src/components/DS/modal'
+export { default as GroupsTable} from './src/components/DS/groups-table'
+export { default as AdmButton} from './src/components/DS/admButton'
 export { default as Loading } from './src/components/DS/loading'
 export { default as OnboardingProgressMenu } from './src/components/DS/onboarding-progress-menu'
 
