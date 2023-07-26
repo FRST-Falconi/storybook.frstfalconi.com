@@ -65,7 +65,7 @@ export const UserInfo = styled.div`
             font-family: 'PT Sans';
             font-style: normal;
             font-weight: 700;
-            font-size: 12px;
+            font-size: 14px;
             line-height: 16px;
             display: flex;
             align-items: center;
@@ -165,7 +165,7 @@ export const ButtonSend = styled.div`
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
     color: ${({ theme }) => theme.colors.shadeWhite};
     cursor: pointer;
@@ -178,7 +178,7 @@ export const ButtonRemove = styled.div`
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
     color: #0645AD;
     cursor: pointer;
@@ -189,10 +189,10 @@ export const ButtonSendV2 = styled.div`
     width: fit-content;
     height: 14px;
 
-    font-family: 'Work Sans';
+    font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
 
     display: flex;
@@ -206,7 +206,7 @@ export const ButtonSendV2 = styled.div`
 export const WrapperButtons = styled.div<{status}>`
     display: flex;
     flex-direction: row;
-    gap: 4px;
+    gap: 6px;
     justify-content: flex-start;
     align-items: center;
     opacity: ${({status}) => status == 'success' ? '0' : '1'};
@@ -218,7 +218,7 @@ export const ButtonRemoveV2 = styled.div`
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 110%;
 
     text-align: right;
@@ -239,7 +239,7 @@ export const ButtonOrV2 = styled.div`
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 110%;
     /* or 13px */
 
@@ -276,7 +276,7 @@ export const ButtonSuccess = styled.div`
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     line-height: 14px;
     /* identical to box height */
 

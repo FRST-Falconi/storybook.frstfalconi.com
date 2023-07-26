@@ -120,14 +120,14 @@ export default function ThumbListContent(props: IThumbListContent) {
               <>
                 {props.tagValue === 'vizualized' ? (
                   <Styles.tagThumbContentContainer>
-                    <Styles.tagThumbContent tagVisualized={props.tagValue} isSelected={props?.isSelected}>
+                    <Styles.tagThumbContent tagVisualized={props.tagValue}>
                       {props.textProgressVisualized}
                     </Styles.tagThumbContent>
                   </Styles.tagThumbContentContainer>
                 ) : null}
                 {props.tagValue === 'inProgress' ? (
                   <Styles.tagThumbContentContainer>
-                    <Styles.tagThumbContent tagVisualized={props.tagValue} isSelected={props?.isSelected}>
+                    <Styles.tagThumbContent tagVisualized={props.tagValue}>
                       {props.textProgressInProgress}
                     </Styles.tagThumbContent>
                   </Styles.tagThumbContentContainer>

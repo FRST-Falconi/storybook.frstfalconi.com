@@ -5,15 +5,13 @@ import selectItemsCss from './styles/MultiSelectItems.css'
 import './styles/theme.css'
 import './styles/primereact.css'
 import './styles/primeflex.css'
-import 'primeicons/primeicons.css'
+// import 'primeicons/primeicons.css'
 import Button from '@components/buttons'
 import SearchField from '@components/search-field'
 
 export default function FiltroGaleriaDesafios({
   placeholderSelect,
-  placeholderFilter,
   handleValueSelect,
-  labelSelect,
   optionLabel,
   listItems,
   isDisabled,
@@ -32,17 +30,6 @@ export default function FiltroGaleriaDesafios({
     setLazyItems(Array.from({ length: 100000 }))
     setLazyLoading(false)
   }, [])
-
-  const selectedCountriesTemplate = () => {
-    const selectedItems = selectedListItems
-    const length = selectedItems ? selectedItems.length : 0
-    return (
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <StylesFiltro.textCountSelect onClickFilter={onClickFilter}>{placeholderSelect}</StylesFiltro.textCountSelect>
-        <StylesFiltro.textCountSelectNumber>{length}</StylesFiltro.textCountSelectNumber>
-      </div>
-    )
-  }
 
   const handleSelectItems = (items) => {
     setSelectedListItems(items)
@@ -107,28 +94,39 @@ export default function FiltroGaleriaDesafios({
     return <i className="pi pi-spin pi-spinner" style={{ color: 'red' }}></i>
   }
 
+  const selectedItems = selectedListItems
+  const length = selectedItems ? selectedItems.length : 0
+
   return (
     <>
-      <StylesFiltro.FiltroPrimeReact onClickFilter={onClickFilter}>
-        <MultiSelect
-          value={selectedListItems}
-          options={listFilterSearch}
-          onChange={(e) => handleSelectItems(e.value)}
-          optionLabel={optionLabel}
-          placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
-          className="multiselect-custom"
-          panelStyle={selectItemsCss}
-          selectedItemsLabel={selectedCountriesTemplate()}
-          disabled={isDisabled}
-          maxSelectedLabels={0}
-          filter={false}
-          showSelectAll={false}
-          onClick={() => (onClickFilter ? setOnClickFilter(false) : setOnClickFilter(true))}
-          panelHeaderTemplate={handleTemplateHeader()}
-          removeIcon={handleRemoveIcon}
-          dropdownIcon={handleDropdownIcon}
-        />
-      </StylesFiltro.FiltroPrimeReact>
+      <StylesFiltro.containerFiltro>
+        {length >= 1 && (
+          <StylesFiltro.countSelect>
+            <StylesFiltro.textCountSelectNumber>{length}</StylesFiltro.textCountSelectNumber>
+          </StylesFiltro.countSelect>
+        )}
+        <StylesFiltro.FiltroPrimeReact onClickFilter={onClickFilter}>
+          <MultiSelect
+            value={selectedListItems}
+            options={listFilterSearch}
+            onChange={(e) => handleSelectItems(e.value)}
+            optionLabel={optionLabel}
+            placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
+            className="multiselect-custom"
+            panelStyle={selectItemsCss}
+            // selectedItemTemplate={selectedCountriesTemplate()}
+            selectedItemsLabel={placeholderSelect}
+            disabled={isDisabled}
+            maxSelectedLabels={0}
+            filter={false}
+            showSelectAll={false}
+            onClick={() => (onClickFilter ? setOnClickFilter(false) : setOnClickFilter(true))}
+            panelHeaderTemplate={handleTemplateHeader()}
+            removeIcon={handleRemoveIcon}
+            dropdownIcon={handleDropdownIcon}
+          />
+        </StylesFiltro.FiltroPrimeReact>
+      </StylesFiltro.containerFiltro>
     </>
   )
 }

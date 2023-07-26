@@ -1,7 +1,6 @@
 import React from 'react'
 
 import FiltroGaleriaDesafio from './index'
-import { Trash } from '../../shared/icons'
 
 export default {
   title: 'GaleriaDesafios/FiltroGaleriaDesafio',
@@ -13,8 +12,6 @@ const Template = (args) => <FiltroGaleriaDesafio {...args} />
 export const normal = Template.bind({})
 normal.args = {
   placeholderSelect: 'Convites',
-  labelSelect: 'Selecione as Opções',
-  placeholderFilter: 'Pesquisar',
   handleValueSelect: (e) => console.log(e),
   isDisabled: false,
   optionLabel: 'name',
