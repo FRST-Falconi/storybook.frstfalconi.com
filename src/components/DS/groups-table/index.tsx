@@ -11,7 +11,7 @@ import {
 	TableAdm
 } from './groupTableStyles'
 import { IGroupsTable } from './groupsTable'
-import { EditIcon, Trash } from '@shared/icons'
+import { EditIcon, Trash, TrashDelete } from '@shared/icons'
 import AdmButton from '../admButton'
 import Checkbox from '@components/form-elements/checkbox'
 import Tooltip from '../tooltip'
@@ -19,28 +19,28 @@ import Tooltip from '../tooltip'
 const TdTrashButton = ({ onClick }) => {
 	const [isHover, setIsHover] = useState(false)
 	return (
-		<td
+		<div
 			onClick={onClick}
-			style={{ cursor: 'pointer' }}
+			style={{ cursor: 'pointer'}}
 			onMouseLeave={() => setIsHover(false)}
 			onMouseEnter={() => setIsHover(true)}
 		>
-			<Trash width="24" height="24" fill={isHover ? 'rgba(165, 0, 0, 1)' : 'rgba(68, 68, 68, 1) '} />
-		</td>
+			<TrashDelete width="24px" height="24px" fill={isHover ? 'rgba(165, 0, 0, 1)' : 'rgba(68, 68, 68, 1) '} />
+		</div>
 	)
 }
 
 const TdEditButtom = ({ onClick }) => {
 	const [isHover, setIsHover] = useState(false)
 	return (
-		<td
+		<div
 			onClick={onClick}
-			style={{ width: 2, cursor: 'pointer' }}
+			style={{ cursor: 'pointer' }}
 			onMouseLeave={() => setIsHover(false)}
 			onMouseEnter={() => setIsHover(true)}
 		>
-			<EditIcon width="24" height="24" fill={isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) '} />
-		</td>
+			<EditIcon width="18px" height="18px"  fill={isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) '} />
+		</div>
 	)
 }
 
@@ -60,11 +60,16 @@ export default function GroupsTable(props: IGroupsTable) {
 		onDeleteAllSelected,
 		AdmMoreClick,
 		onShowMoreClick,
-		textTooltipAllSelected
+		textTooltipAllSelected,
+		onSelected
 	} = props
 
 	const [isAllChecked, setIsAllChecked] = useState(false)
 	const [internalItems, setInternalItems] = useState([])
+
+	useEffect(() => {
+		onSelected(internalItems.filter((i) => i.checked))
+	}, [internalItems])
 
 	function handleToggleSelectAll() {
 		const value = !isAllChecked
@@ -137,9 +142,14 @@ export default function GroupsTable(props: IGroupsTable) {
 							</Tooltip>
 							<span>{textHeader}</span>
 						</TableHeader>
-						<TableHeader style={{ width: '90px' }}>{textHeader2}</TableHeader>
-						<TableHeader style={{ width: '90px' }}>{textHeader3}</TableHeader>
-						<TableHeader style={{ width: '90px' }}>{textHeader4}</TableHeader>
+						<TableHeader></TableHeader>
+						<TableHeader style={{width: '180px'}}>{textHeader2}</TableHeader>
+						<TableHeader style={{paddingRight:'52px', paddingLeft:'44px', width: '220px'}}>
+							<div style={{display: 'flex', alignItems: 'center', gap: '44px'}}>
+								<div>{textHeader3}</div>
+								<div >{textHeader4}</div>
+							</div>
+						</TableHeader>
 					</tr>
 					<tbody>
 						{internalItems.map((i, index) => (
@@ -147,6 +157,7 @@ export default function GroupsTable(props: IGroupsTable) {
 								<TableChecked>
 									<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)} isChecked={i.checked} />
 								</TableChecked>
+								<td></td>
 								<TableAdm>
 									<div>
 										<AdmButton variant={'add'} onClick={() => AdmMoreClick(i.id)} textTooltip={textTooltipAdd} />
@@ -166,8 +177,12 @@ export default function GroupsTable(props: IGroupsTable) {
 											})}
 									</div>
 								</TableAdm>
-								<TdEditButtom onClick={() => onEditClick(i.id)} />
-								<TdTrashButton onClick={() => onDeleteClick(i.id, index)} />
+								<td>
+									<div style={{display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px', margin: 'auto' }}>
+										<TdEditButtom onClick={() => onEditClick(i.id)} />
+										<TdTrashButton onClick={() => onDeleteClick(i.id, index)} />
+									</div>
+								</td>
 							</TableRow>
 						))}
 					</tbody>

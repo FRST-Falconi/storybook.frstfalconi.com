@@ -17,6 +17,7 @@ export interface IGroupsTable {
     onEditClick: (id:string) => void
     onShowMoreClick: (id:string) => void
     AdmMoreClick: (id:string) => void
+    onSelected: (selecteds: any[]) => void
 }
 
 export interface IAdmItem {

@@ -23,23 +23,24 @@ export const ContainerSelected = styled.div`
 
 export const TableContainer = styled.div`
     width: 100%;
-    /* background-color: rgba(255, 255, 255, 1); */
 `
 export const Table = styled.table`
     border-collapse: collapse;
     width:100%;
+    background:${({ theme }) => theme.colors.shadeWhite};
+        tbody{
+            tr:nth-child(even){
+                background:${({ theme }) => theme.colors.neutralsGrey8};
+        }
+    }
 `
 export const TableHeader = styled.th`
     background-color: rgba(69, 160, 160, 0.4);
     height:54px;
     font-family: PT Sans;
     font-weight: 700;
-    span{
-        margin-right: 16px;
-    }
 `
 export const TableRow = styled.tr`
-    background-color: rgba(255, 255, 255, 1);
     height: 54px;
     border-top: 1px solid rgba(189, 189, 189, 1);
     border-bottom:  1px solid rgba(189, 189, 189, 1);
@@ -63,7 +64,7 @@ export const TableAdm = styled.td`
     align-items: center;
     justify-content: center;
     display: flex;
-    margin-top: 11px;
+    margin-top: 11px;               
     div{
         flex-direction: row-reverse;
         display: flex;
