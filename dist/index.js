@@ -11614,6 +11614,8 @@ function AccordionTrack(props) {
                                                                                     props.handleEditCourse(el.course.id);
                                                                                 }, isTrail: true, showSwitch: false, src: el.course.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => {
                                                                                     props.handlePopOverEdit(el.course.id);
+                                                                                }, handleClickPopOverEditActivity: () => {
+                                                                                    props.handleClickPopOverEditActivity(el.course.id);
                                                                                 }, handleClickPopOverMove: () => {
                                                                                     props.handlePopOverMove(el.course.id);
                                                                                 }, handleClickPopOverDelete: () => {
