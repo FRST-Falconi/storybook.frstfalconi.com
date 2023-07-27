@@ -8,6 +8,7 @@ import './styles/primeflex.css'
 // import 'primeicons/primeicons.css'
 import Button from '@components/buttons'
 import SearchField from '@components/search-field'
+import iconT from './styles/icons/vector.png'
 
 export default function FiltroGaleriaDesafios({
   placeholderSelect,
@@ -124,6 +125,7 @@ export default function FiltroGaleriaDesafios({
             panelHeaderTemplate={handleTemplateHeader()}
             removeIcon={handleRemoveIcon}
             dropdownIcon={handleDropdownIcon}
+            // itemCheckboxIcon={iconT}
           />
         </StylesFiltro.FiltroPrimeReact>
       </StylesFiltro.containerFiltro>
