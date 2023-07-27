@@ -11619,7 +11619,9 @@ function AccordionTrack(props) {
                                                                                 }, handleClickPopOverDelete: () => {
                                                                                     setIdDelete(el.id);
                                                                                     setModalDeleteTrilhaConteudo(true);
-                                                                                }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent, txtPopOverEditContentActivity: props.txtPopOverEditContentActivity }) }));
+                                                                                }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent, txtPopOverEditContentActivity: props.txtPopOverEditContentActivity, handleClickPopOverMoveToTrail: () => {
+                                                                                    props.handleClickPopOverMoveToTrail(el.id);
+                                                                                } }) }));
                                                                     }) }) }), provided.placeholder] }, `contentTrailsDrop${trailIndex}`));
                                             } }, trailIndex + 2))) }, `contentTrails${trailIndex}`) }));
                         })] })), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteConteudo, handleClose: () => {

@@ -451,6 +451,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                               txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
                                               txtPopOverDeleteContent={props.txtPopOverDeleteContent}
                                               txtPopOverEditContentActivity={props.txtPopOverEditContentActivity}
+                                              handleClickPopOverMoveToTrail={() => {
+                                                props.handleClickPopOverMoveToTrail(el.id)
+                                              }}
                                             />
                                           </>
                                         )
