@@ -167,8 +167,11 @@ function ExitArrow({ fill, width, height }) {
 function BackArrow({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '17', height: height ? height : '14', viewBox: "0 0 17 14", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M15.332 8C15.8843 8 16.332 7.55228 16.332 7C16.332 6.44772 15.8843 6 15.332 6L3.40622 6L7.68046 1.70543C8.07006 1.31398 8.06856 0.680815 7.67711 0.291218C7.28566 -0.098379 6.65249 -0.0968769 6.2629 0.294573L0.291298 6.29457C0.175179 6.41124 0.0937843 6.54942 0.0471172 6.69624C0.0298405 6.75049 0.017067 6.80676 0.00923729 6.86459C-0.00297165 6.95442 -0.00297165 7.04558 0.00923729 7.13541C0.0170536 7.19315 0.0298004 7.24933 0.0470371 7.30351C0.0936909 7.45042 0.175112 7.58869 0.291298 7.70543L6.2629 13.7054C6.65249 14.0969 7.28566 14.0984 7.67711 13.7088C8.06856 13.3192 8.07006 12.686 7.68046 12.2946L3.40622 8H15.332Z", fill: fill ?? '#0645AD' }) }));
 }
-function CheckboxChecked({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '16', viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.5", y: "0.5", width: "15", height: "15", rx: "1.5", fill: "#F35F24", stroke: "#F35F24" }), jsxRuntime.jsx("path", { d: "M13 4L6.125 11L3 7.81818", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+function EmptyAvatar({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '22', height: height ? height : '20', viewBox: "0 0 23 25", fill: fill ?? '#BDBDBD', xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M23 18C23 20 17.5 24.5 11 24.5C5.5 24.5 0 21 0 18C0 17 3.8203 12 11 12C18.1797 12 23 17 23 18Z", fill: "current" }), jsxRuntime.jsx("circle", { cx: "11", cy: "5", r: "5", fill: "current" })] }));
+}
+function CheckboxChecked({ fill, stroke, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '16', viewBox: "0 0 16 16", fill: fill || '#F35F24', stroke: stroke || '#F35F24', xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.5", y: "0.5", width: "15", height: "15", rx: "1.5", fill: "current", stroke: "current" }), jsxRuntime.jsx("path", { d: "M13 4L6.125 11L3 7.81818", stroke: "white", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function CheckboxEmpty({ fill, stroke, width, height, active }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '16', height: height ? height : '16', viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "1.4", fill: fill ?? 'white', stroke: stroke ?? '#A6A6A6', strokeWidth: "1.2" }) }));
@@ -177,7 +180,7 @@ function Trash({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '14', height: height ? height : '16', viewBox: "0 0 14 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M5.43064 2.09763C5.49315 2.03512 5.57794 2 5.66634 2H8.33301C8.42141 2 8.5062 2.03512 8.56871 2.09763C8.63122 2.16014 8.66634 2.24493 8.66634 2.33333V2.66667H5.33301V2.33333C5.33301 2.24493 5.36813 2.16014 5.43064 2.09763ZM10.6663 2.33333V2.66667H11.6663C11.6674 2.66667 11.6685 2.66667 11.6695 2.66667H13C13.5523 2.66667 14 3.11439 14 3.66667C14 4.21896 13.5523 4.66667 13 4.66667H12.6663V13C12.6663 13.6188 12.4205 14.2123 11.9829 14.6499C11.5453 15.0875 10.9518 15.3333 10.333 15.3333H3.66634C3.0475 15.3333 2.45401 15.0875 2.01643 14.6499C1.57884 14.2123 1.33301 13.6188 1.33301 13V4.66667H1C0.447715 4.66667 0 4.21896 0 3.66667C0 3.11439 0.447715 2.66667 1 2.66667H2.32981C2.33087 2.66667 2.33194 2.66667 2.33301 2.66667H3.33301V2.33333C3.33301 1.71449 3.57884 1.121 4.01643 0.683417C4.45401 0.245833 5.0475 0 5.66634 0H8.33301C8.95185 0 9.54534 0.245833 9.98292 0.683417C10.4205 1.121 10.6663 1.71449 10.6663 2.33333ZM3.33301 4.66667V13C3.33301 13.0884 3.36813 13.1732 3.43064 13.2357C3.49315 13.2982 3.57794 13.3333 3.66634 13.3333H10.333C10.4214 13.3333 10.5062 13.2982 10.5687 13.2357C10.6312 13.1732 10.6663 13.0884 10.6663 13V4.66667L3.33301 4.66667Z", fill: fill ? fill : '#0645AD' }) }));
 }
 function TrashDelete({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ?? '25', height: height ?? '24', viewBox: `0 0 ${width ?? '25'} ${height ?? '24'}`, fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.36035 7.33398H6.13813H20.3604", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.9054 7.5V18.4C18.9054 18.8243 18.7083 19.2313 18.3576 19.5314C18.0069 19.8314 17.5312 20 17.0352 20H7.68458C7.18859 20 6.71292 19.8314 6.3622 19.5314C6.01148 19.2313 5.81445 18.8243 5.81445 18.4V7.5M8.61965 7.2V5.6C8.61965 5.17565 8.81668 4.76869 9.1674 4.46863C9.51811 4.16857 9.99379 4 10.4898 4H14.23C14.726 4 15.2017 4.16857 15.5524 4.46863C15.9031 4.76869 16.1002 5.17565 16.1002 5.6V7.2", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ?? '24', height: height ?? '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.36035 7.33398H6.13813H20.3604", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.9054 7.5V18.4C18.9054 18.8243 18.7083 19.2313 18.3576 19.5314C18.0069 19.8314 17.5312 20 17.0352 20H7.68458C7.18859 20 6.71292 19.8314 6.3622 19.5314C6.01148 19.2313 5.81445 18.8243 5.81445 18.4V7.5M8.61965 7.2V5.6C8.61965 5.17565 8.81668 4.76869 9.1674 4.46863C9.51811 4.16857 9.99379 4 10.4898 4H14.23C14.726 4 15.2017 4.16857 15.5524 4.46863C15.9031 4.76869 16.1002 5.17565 16.1002 5.6V7.2", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function AlertCicle({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '16', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: fill ?? '#FF0000', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 8V12", stroke: fill ?? '#FF0000', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16H12.01", stroke: fill ?? '#FF0000', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -4511,6 +4514,264 @@ function Modal({ children, width, headerContent, open = false, mobileFullPage = 
                     (showCloseButton === true && (jsxRuntime.jsx(ModalHeader, { children: showCloseButton === true && (jsxRuntime.jsxs(ModalCloseButton, { onClick: (e) => handleClose(e), children: [headerContent && headerContent, jsxRuntime.jsx("span", { onClick: (e) => (handleCloseOnIcon ? handleCloseOnIcon() : handleClose(e)), children: jsxRuntime.jsx(CloseIcon, {}) })] })) }))), children && children] }) }));
 }
 
+const ContainerSelected = styled__default["default"].div `
+    display:flex;
+    margin-bottom: 15px;
+    div{
+        font-family: 'PT Sans';
+        font-weight: 700;
+        line-height: 17.6px;
+    }
+    span{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+        font-family: 'PT Sans';
+        padding-left: 24px;
+        font-weight: 700;
+        color:rgba(165, 0, 0, 1);
+        line-height: 17.6px;
+    }
+`;
+const TableContainer = styled__default["default"].div `
+    width: 100%;
+`;
+const Table = styled__default["default"].table `
+    border-collapse: collapse;
+    width:100%;
+    background:${({ theme }) => theme.colors.shadeWhite};
+        tbody{
+            tr:nth-child(even){
+                background:${({ theme }) => theme.colors.neutralsGrey8};
+                :hover{
+                    background: rgba(223, 226, 226, 1);
+                }
+        }
+    }
+`;
+const TableHeader = styled__default["default"].th `
+    background-color: rgba(69, 160, 160, 0.4);
+    height:54px;
+    font-family: PT Sans;
+    font-weight: 700;
+`;
+const TableRow = styled__default["default"].tr `
+    height: 54px;
+    border-top: 1px solid rgba(189, 189, 189, 1);
+    border-bottom:  1px solid rgba(189, 189, 189, 1);
+    text-align: center;
+    &:hover {
+        background-color:rgba(248, 248, 248, 1) 
+    }
+`;
+const TableChecked = styled__default["default"].td `
+    vertical-align:middle;
+    padding-left: 18px;
+    text-align: left;
+    width: 40%;
+    span{
+        font-family:'PT Sans';
+        color:'rgba(34, 34, 34, 1)';
+    }
+`;
+const TableAdm = styled__default["default"].td `
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 11px;               
+    div{
+        flex-direction: row-reverse;
+        display: flex;
+        :nth-child(1n){
+        margin-left: -4px;
+    }
+    }
+
+`;
+
+const AvatarContent = styled__default["default"].div `
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
+    background-color: ${props => props.background};
+    color: rgba(255, 255, 255, 1);
+    font-weight:700;
+    border: 2px solid ${({ theme }) => theme.colors.shadeWhite};
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    font-size: 10px;
+    font-family:'PT Sans';
+    box-sizing: border-box;
+    cursor: pointer;
+`;
+const PlusButton = styled__default["default"].div `
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    font-size: 13px;
+    background-color: rgba(242, 104, 24, 1);
+    position: absolute;
+    bottom: -2px;
+    right: 0px;
+    line-height: 13px;
+`;
+const ImageAvatarContent = styled__default["default"].div `
+    position: absolute;
+    bottom: -3px;
+    right: 3px;
+`;
+const ImageContent = styled__default["default"].div `
+    width:32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+`;
+
+function AdmButton({ variant, count, image, onClick }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(AvatarContent, { onClick: onClick, background: variant != 'count' ? '#E0E0E0' :
+                'rgba(68, 68, 68, 1)', children: [variant == 'count' && jsxRuntime.jsxs("div", { style: { paddingRight: '6px' }, children: ["+", count] }), variant == 'add' && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ImageAvatarContent, { children: jsxRuntime.jsx(EmptyAvatar, {}) }), jsxRuntime.jsx(PlusButton, { children: "+" })] })), " ", variant == 'image' && (jsxRuntime.jsx(jsxRuntime.Fragment, { children: image ? jsxRuntime.jsx(ImageContent, { children: jsxRuntime.jsx("img", { src: image, alt: "" }) }) : jsxRuntime.jsx(ImageAvatarContent, { children: jsxRuntime.jsx(EmptyAvatar, {}) }) }))] }) }));
+}
+
+const CheckBoxWrapper = styled__default["default"].div `
+  min-height: 16px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  width: fit-content;
+  align-items: center;
+`;
+const CheckButton = styled__default["default"].button `
+  min-height: 16px;
+  min-width: 16px;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-width: 0px;
+  cursor:pointer;
+  /* :focus {
+    background-color: ${({ theme }) => theme.colors.selectItens};
+  } */
+`;
+const Label$1 = styled__default["default"].div `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: ${({ isChecked }) => (isChecked ? 700 : 400)};
+  font-size: 16px;
+  line-height: 21px;
+
+  padding-left: 8px;
+`;
+
+function Checkbox({ label, isChecked, handleCheck, color = FRSTTheme['colors'].primary1 }) {
+    const [actionAreaCheckIcon, setActionAreaCheckIcon] = React.useState(false);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CheckBoxWrapper, { onClick: handleCheck, onMouseOver: () => setActionAreaCheckIcon(true), onMouseOut: () => setActionAreaCheckIcon(false), children: [jsxRuntime.jsx(CheckButton, { children: isChecked ? (jsxRuntime.jsx(CheckboxChecked, { fill: color, stroke: color })) : (actionAreaCheckIcon ?
+                        jsxRuntime.jsx(CheckboxEmpty, { stroke: color }) :
+                        jsxRuntime.jsx(CheckboxEmpty, { stroke: FRSTTheme['colors'].neutralsGrey4 })) }), jsxRuntime.jsxs(Label$1, { isChecked: isChecked, children: [" ", label, " "] })] }) }));
+}
+
+const TdTrashButton = ({ onClick }) => {
+    const [isHover, setIsHover] = React.useState(false);
+    return (jsxRuntime.jsx("div", { onClick: onClick, style: { cursor: 'pointer' }, onMouseLeave: () => setIsHover(false), onMouseEnter: () => setIsHover(true), children: jsxRuntime.jsx(TrashDelete, { width: "24px", height: "24px", fill: isHover ? 'rgba(165, 0, 0, 1)' : 'rgba(68, 68, 68, 1) ' }) }));
+};
+const TdEditButtom = ({ onClick }) => {
+    const [isHover, setIsHover] = React.useState(false);
+    return (jsxRuntime.jsx("div", { onClick: onClick, style: { cursor: 'pointer' }, onMouseLeave: () => setIsHover(false), onMouseEnter: () => setIsHover(true), children: jsxRuntime.jsx(EditIcon, { width: "18px", height: "18px", fill: isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) ' }) }));
+};
+function GroupsTable(props) {
+    const { textHeader, textHeader2, textHeader3, textHeader4, items, selected, textTooltipAdd, textTooltipCount, deleted, onDeleteClick, onEditClick, onDeleteAllSelected, AdmMoreClick, onShowMoreClick, textTooltipAllSelected, onSelected } = props;
+    const [isAllChecked, setIsAllChecked] = React.useState(false);
+    const [internalItems, setInternalItems] = React.useState([]);
+    React.useEffect(() => {
+        onSelected(internalItems.filter((i) => i.checked));
+    }, [internalItems]);
+    function handleToggleSelectAll() {
+        const value = !isAllChecked;
+        setIsAllChecked(value);
+        setInternalItems((prev) => {
+            return prev.map((i) => ({ ...i, checked: value }));
+        });
+    }
+    function handleToggleSelectRow(index) {
+        setInternalItems((prev) => {
+            const newData = [...prev];
+            newData[index].checked = !newData[index].checked;
+            return newData;
+        });
+        setIsAllChecked(false);
+    }
+    function handleDeleteAllSelected() {
+        onDeleteAllSelected(internalItems.filter((i) => i.checked).map((i) => i.id));
+    }
+    React.useEffect(() => {
+        setInternalItems(items.map((i) => ({ ...i, checked: false })));
+    }, [items]);
+    const selectedItems = React.useMemo(() => {
+        return internalItems.filter((i) => i.checked).length;
+    }, [internalItems]);
+    const maxAdmToShow = 3;
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(ContainerSelected, { children: [' ', jsxRuntime.jsxs("div", { children: [selected, " ", selectedItems] }), selectedItems > 1 && (jsxRuntime.jsxs("span", { onClick: handleDeleteAllSelected, style: { cursor: 'pointer' }, children: [jsxRuntime.jsx(Trash, { fill: "rgba(165, 0, 0, 1)" }), deleted] }))] }), jsxRuntime.jsx(TableContainer, { children: jsxRuntime.jsxs(Table, { children: [jsxRuntime.jsxs("tr", { children: [jsxRuntime.jsxs(TableHeader, { style: { textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }, children: [jsxRuntime.jsx(Tooltip$2, { style: {
+                                                width: '116px',
+                                                height: '31px',
+                                                top: '8px',
+                                                left: '8px',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                            }, direction: 'bottom', content: textTooltipAllSelected, delay: 500, children: jsxRuntime.jsx(Checkbox, { isChecked: isAllChecked, label: "", handleCheck: handleToggleSelectAll, color: "rgba(67, 159, 159, 1)" }) }), jsxRuntime.jsx("span", { children: textHeader })] }), jsxRuntime.jsx(TableHeader, {}), jsxRuntime.jsx(TableHeader, { style: { width: '180px' }, children: textHeader2 }), jsxRuntime.jsx(TableHeader, { style: { paddingRight: '52px', paddingLeft: '44px', width: '220px' }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', alignItems: 'center', gap: '44px' }, children: [jsxRuntime.jsx("div", { children: textHeader3 }), jsxRuntime.jsx("div", { children: textHeader4 })] }) })] }), jsxRuntime.jsx("tbody", { children: internalItems.map((i, index) => (jsxRuntime.jsxs(TableRow, { children: [jsxRuntime.jsx(TableChecked, { children: jsxRuntime.jsx(Checkbox, { label: i.group, handleCheck: () => handleToggleSelectRow(index), isChecked: i.checked }) }), jsxRuntime.jsx("td", {}), jsxRuntime.jsx(TableAdm, { children: jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Tooltip$2, { content: textTooltipAdd, delay: 500, direction: 'bottom', style: {
+                                                        fontFamily: 'PT Sans',
+                                                        fontWeight: 400,
+                                                        fontSize: '14px',
+                                                        color: 'rgba(117, 117, 117, 1)',
+                                                        width: '73px',
+                                                        height: '31px',
+                                                        top: '8px',
+                                                        left: '4px',
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                    }, children: jsxRuntime.jsx(AdmButton, { variant: 'add', onClick: () => AdmMoreClick(i.id) }) }), i.adms.length > maxAdmToShow && (jsxRuntime.jsx(Tooltip$2, { content: textTooltipCount, delay: 500, direction: 'bottom', style: {
+                                                        fontFamily: 'PT Sans',
+                                                        fontWeight: 400,
+                                                        fontSize: '14px',
+                                                        color: 'rgba(117, 117, 117, 1)',
+                                                        width: '73px',
+                                                        height: '31px',
+                                                        top: '8px',
+                                                        left: '4px',
+                                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                    }, children: jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreClick(i.id), variant: 'count', count: i.adms.length - maxAdmToShow }) })), i.adms
+                                                    .filter((a, aIndex) => aIndex < maxAdmToShow)
+                                                    .map((adm) => {
+                                                    return jsxRuntime.jsx(Tooltip$2, { content: adm.name, direction: 'bottom', delay: 500, style: {
+                                                            fontFamily: 'PT Sans',
+                                                            fontWeight: 400,
+                                                            fontSize: '14px',
+                                                            color: 'rgba(117, 117, 117, 1)',
+                                                            width: 'fit-content',
+                                                            height: '31px',
+                                                            top: '8px',
+                                                            left: '4px',
+                                                            whiteSpace: 'nowrap',
+                                                            boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                        }, children: jsxRuntime.jsx(AdmButton, { image: adm.image, variant: 'image' }, adm.id) });
+                                                })] }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px', paddingLeft: '54px' }, children: [jsxRuntime.jsx(TdEditButtom, { onClick: () => onEditClick(i.id) }), jsxRuntime.jsx(TdTrashButton, { onClick: () => onDeleteClick(i.id, index) })] }) })] }, index))) })] }) })] }));
+}
+
 const container = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -4897,45 +5158,6 @@ function AccordionTabs({ titleAccordion, typeAccordion, typeButtonTab, titleTabs
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [titleAccordion && jsxRuntime.jsxs(TitleAccordion, { children: [" ", titleAccordion, " "] }), typeAccordion == 'horizontal' ? (jsxRuntime.jsxs(WrapperHeaderTabs, { children: [jsxRuntime.jsx(ContainerTitleTabs, { id: "scrollTabsAccordion", children: titleTabs.map(renderTitles) }), hasCleanButton &&
                                 jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$3, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
-}
-
-const CheckBoxWrapper = styled__default["default"].div `
-  min-height: 16px;
-  display: flex;
-  flex-direction: row;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  width: fit-content;
-  align-items: center;
-`;
-const CheckButton = styled__default["default"].button `
-  min-height: 16px;
-  min-width: 16px;
-  padding: 0.3rem;
-  display: flex;
-  align-items: center;
-  background-color: transparent;
-  border-width: 0px;
-  :focus {
-    background-color: ${({ theme }) => theme.colors.selectItens};
-  }
-`;
-const Label$1 = styled__default["default"].div `
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: ${({ isChecked }) => (isChecked ? 700 : 400)};
-  font-size: 16px;
-  line-height: 21px;
-
-  padding-left: 8px;
-`;
-
-function Checkbox({ label, isChecked, handleCheck }) {
-    const [actionAreaCheckIcon, setActionAreaCheckIcon] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CheckBoxWrapper, { onClick: handleCheck, onMouseOver: () => setActionAreaCheckIcon(true), onMouseOut: () => setActionAreaCheckIcon(false), children: [jsxRuntime.jsx(CheckButton, { children: isChecked ? (jsxRuntime.jsx(CheckboxChecked, {})) : (actionAreaCheckIcon ?
-                        jsxRuntime.jsx(CheckboxEmpty, { stroke: FRSTTheme['colors'].primary1 }) :
-                        jsxRuntime.jsx(CheckboxEmpty, { stroke: FRSTTheme['colors'].neutralsGrey4 })) }), jsxRuntime.jsxs(Label$1, { isChecked: isChecked, children: [" ", label, " "] })] }) }));
 }
 
 function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
@@ -17773,6 +17995,7 @@ function FiltroGaleriaDesafios({ placeholderSelect, handleValueSelect, optionLab
 exports.AccordionList = AccordionList$2;
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
+exports.AdmButton = AdmButton;
 exports.AlertCicle = AlertCicle;
 exports.AudioPlayer = AudioPlayer;
 exports.Avatar = Avatar;
@@ -17819,6 +18042,7 @@ exports.Diamond = Diamond;
 exports.DoubleCheck = DoubleCheck;
 exports.EditIcon = EditIcon;
 exports.EmojiPicker = EmojiPicker;
+exports.EmptyAvatar = EmptyAvatar;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
 exports.ExpandButton = ExpandButton;
@@ -17831,6 +18055,7 @@ exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
 exports.FiltroGaleriaDesafios = FiltroGaleriaDesafios;
 exports.GlobalMenu = GlobalMenu;
 exports.GroupStatistics = TotalizerCard;
+exports.GroupsTable = GroupsTable;
 exports.HeaderChallenge = HeaderChallenge;
 exports.HeaderContent = HeaderContent;
 exports.HeaderImprovementIdea = HeaderImprovementIdea;
