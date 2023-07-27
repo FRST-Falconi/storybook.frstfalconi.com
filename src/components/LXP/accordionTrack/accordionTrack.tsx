@@ -440,6 +440,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                               handleClickPopOverEdit={() => {
                                                 props.handlePopOverEdit(el.course.id)
                                               }}
+                                              handleClickPopOverEditActivity={() => {
+                                                props.handleClickPopOverEditActivity(el.course.id)
+                                              }}
                                               handleClickPopOverMove={() => {
                                                 props.handlePopOverMove(el.course.id)
                                               }}
