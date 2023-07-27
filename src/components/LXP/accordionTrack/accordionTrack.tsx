@@ -13,38 +13,35 @@ import ModalLXP from '../../modal/modalLXP/Modal'
 import Loading from '@components/DS/loading'
 
 export default function AccordionTrack(props: IAccordionTranslate) {
-
   const [trails, setTrail] = useState(props.trailsData)
 
   const [courseData, setCourseData] = useState(props.courseData)
   const [courseIndividualData, setCourseIndividualData] = useState(props.courseIndividualData)
 
-  const [ShowTrail, setShowTrail] = useState([]);
-  const [ShowIndividual, setShowIndividual] = useState<boolean>(true);
-  const [IsLoading, setIsLoading] = useState<boolean>(props.isLoading);
+  const [ShowTrail, setShowTrail] = useState([])
+  const [ShowIndividual, setShowIndividual] = useState<boolean>(true)
+  const [IsLoading, setIsLoading] = useState<boolean>(props.isLoading)
 
-  const [ModalDeleteConteudo, setModalDeleteConteudo] = useState(false);
-  const [ModalDeleteTrilha, setModalDeleteTrilha] = useState(false);
-  const [ModalDeleteTrilhaConteudo, setModalDeleteTrilhaConteudo] = useState(false);
-  const [IdDelete, setIdDelete] = useState('0');
+  const [ModalDeleteConteudo, setModalDeleteConteudo] = useState(false)
+  const [ModalDeleteTrilha, setModalDeleteTrilha] = useState(false)
+  const [ModalDeleteTrilhaConteudo, setModalDeleteTrilhaConteudo] = useState(false)
+  const [IdDelete, setIdDelete] = useState('0')
 
-  const [RefreshResize, setRefreshResize] = useState(0);
-  
+  const [RefreshResize, setRefreshResize] = useState(0)
 
   const MEUS_CONTEUDOS_CONTENT = '0'
   const CONTEUDO_INDIVIDUAL_CONTENT = '1'
 
-  useEffect(()=>{
+  useEffect(() => {
     if (Array.isArray(props.trailsData)) {
       setTrail(props.trailsData)
-      let showHideTrail = []    
+      let showHideTrail = []
       props.trailsData.map((item) => {
         showHideTrail.push(true)
-      })    
+      })
       setShowTrail(showHideTrail)
-    }    
-  },[props.trailsData])
-
+    }
+  }, [props.trailsData])
 
   useEffect(() => {
     setIsLoading(props.isLoading)
@@ -52,7 +49,7 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
   useEffect(() => {
     setCourseData(props.courseData)
-    setRefreshResize(RefreshResize+1)
+    setRefreshResize(RefreshResize + 1)
   }, [props.courseData])
 
   useEffect(() => {
@@ -61,32 +58,28 @@ export default function AccordionTrack(props: IAccordionTranslate) {
 
   return (
     <>
-      {
-      /* ---------------------------------------------------------
+      {/* ---------------------------------------------------------
         Meus Conteúdos
-      --------------------------------------------------------- */
-      }   
+      --------------------------------------------------------- */}
       <ContentCourses TrailName={''}>
         <div>
           <Styles.TypographyMyContents>
             {props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos'}
           </Styles.TypographyMyContents>
-          <h2
-            style={{ fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }}
-          >
-            {
-              IsLoading ?
+          <h2 style={{ fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }}>
+            {IsLoading ? (
               <>
-                <Styles.LoadingContent style={{width: 200, height: 20}}></Styles.LoadingContent>
+                <Styles.LoadingContent style={{ width: 200, height: 20 }}></Styles.LoadingContent>
               </>
-              :
+            ) : (
               <>
-                {props.textTotalDe ? props.textTotalDe : 'Total de'} {courseData.length} {props.textRegistros ? props.textRegistros : 'registros'}
+                {props.textTotalDe ? props.textTotalDe : 'Total de'} {courseData.length}{' '}
+                {props.textRegistros ? props.textRegistros : 'registros'}
               </>
-            }            
+            )}
           </h2>
         </div>
-        
+
         {/* Meus conteúdos */}
         <Droppable droppableId={MEUS_CONTEUDOS_CONTENT} direction="horizontal" key={MEUS_CONTEUDOS_CONTENT}>
           {(provided) => {
@@ -101,44 +94,25 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                   styles={{ justifyContent: 'flex-start', width: '100%' }}
                   refreshResize={RefreshResize}
                 >
-
                   <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                    {
-                      IsLoading ?
+                    {IsLoading ? (
                       <>
-                        <Thumbnails 
-                            variant='default'
-                            isDisabled={false}
-                            isLoading
-                        />
-                        <Thumbnails 
-                            variant='default'
-                            isDisabled={false}
-                            isLoading
-                        />
-                        <Thumbnails 
-                            variant='default'
-                            isDisabled={false}
-                            isLoading
-                        />        
-                        <Thumbnails 
-                            variant='default'
-                            isDisabled={false}
-                            isLoading
-                        />                                                                   
+                        {new Array(4).fill('').map((item, k) => {
+                          return <Thumbnails key={k} variant="default" isDisabled={false} isLoading />
+                        })}
                       </>
-                      :
+                    ) : (
                       <>
-                        <div 
-                          onClick={() => { 
-                            props.onNewTrail && props.onNewTrail() 
-                          }} 
-                          style={{wordWrap: 'break-word'}}
+                        <div
+                          onClick={() => {
+                            props.onNewTrail && props.onNewTrail()
+                          }}
+                          style={{ wordWrap: 'break-word' }}
                         >
-                          <Thumbnails variant='add' isDisabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} />
+                          <Thumbnails variant="add" isDisabled={false} txtCriarNovoCurso={props.txtCriarNovoCurso} />
                         </div>
-                        {
-                          courseData && courseData.map((el, contentIndex) => {
+                        {courseData &&
+                          courseData.map((el, contentIndex) => {
                             return (
                               <>
                                 <ThumbnailsDraggable
@@ -158,24 +132,35 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                   txtButtonLabel={props.txtButtonLabel}
                                   txtAtivarCurso={props.txtAtivarCurso}
                                   txtCriarNovoCurso={props.txtCriarNovoCurso}
-                                  handleClickCourse={() => {props.handleEditCourse(el.id)}}
-                                  handleClickPopOverEdit={() => {props.handlePopOverEdit(el.id)}}
-                                  handleClickPopOverMove={() => {props.handlePopOverMove(el.id)}}
-                                  handleClickPopOverEditActivity={() => {props.handleClickPopOverEditActivity(el.id)}}
+                                  handleClickCourse={() => {
+                                    props.handleEditCourse(el.id)
+                                  }}
+                                  handleClickPopOverEdit={() => {
+                                    props.handlePopOverEdit(el.id)
+                                  }}
+                                  handleClickPopOverMove={() => {
+                                    props.handlePopOverMove(el.id)
+                                  }}
+                                  handleClickPopOverEditActivity={() => {
+                                    props.handleClickPopOverEditActivity(el.id)
+                                  }}
                                   handleClickPopOverDelete={() => {
                                     setIdDelete(el.id)
                                     setModalDeleteConteudo(true)
                                   }}
+                                  txtPopOverEditContentActivity={props.txtPopOverEditContentActivity}
                                   txtPopOverEditContent={props.txtPopOverEditContent}
                                   txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
-                                  txtPopOverDeleteContent={props.txtPopOverDeleteContent}                                                                                  
-                                />                          
-                              </>                              
+                                  txtPopOverDeleteContent={props.txtPopOverDeleteContent}
+                                  handleClickPopOverMoveToTrail={() => {
+                                    props.handleClickPopOverMoveToTrail(el.id)
+                                  }}
+                                />
+                              </>
                             )
-                          })
-                        }
+                          })}
                       </>
-                    }                  
+                    )}
                   </Styles.ContainerCard>
                 </ScrollContainer>
                 {provided.placeholder}
@@ -185,75 +170,59 @@ export default function AccordionTrack(props: IAccordionTranslate) {
         </Droppable>
       </ContentCourses>
 
-      {
-      /* ---------------------------------------------------------
+      {/* ---------------------------------------------------------
         Curso Individual
-      --------------------------------------------------------- */
-      }           
-      {
-        IsLoading ?
-          <>
-            {/* 
+      --------------------------------------------------------- */}
+      {IsLoading ? (
+        <>
+          {/* 
             //----------------------------------------------------------------------------
             // Carregamento de trilhas
             //---------------------------------------------------------------------------- 
             */}
-            <ContentCoursesTrails
-              TrailName={props.txtLoadingTrilhas ? props.txtLoadingTrilhas : 'Carregando Trilhas...'}
-              ativo={true}
-              txtAtivarTrilha={props.txtAtivarTrilha}
-              handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
-            >
-              {              
-                <Droppable droppableId={CONTEUDO_INDIVIDUAL_CONTENT} direction="horizontal" key={CONTEUDO_INDIVIDUAL_CONTENT}>
-                  {(provided) => {
-                    return (
-                      <Styles.ContainerTrailsNormal style={{}}>
-                        <ScrollContainer
-                          stepMove={380}
-                          isVisibleControlsButtons
-                          sizeArrowButton={80}
-                          marginsArrowButton={10}
-                          horizontalMarginInternScroll={'5px'}
-                          refreshResize={RefreshResize}
-                          styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
-                        >
-                          <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
+          <ContentCoursesTrails
+            TrailName={props.txtLoadingTrilhas ? props.txtLoadingTrilhas : 'Carregando Trilhas...'}
+            ativo={true}
+            txtAtivarTrilha={props.txtAtivarTrilha}
+            handlePopOverTrailEdit={(id: string) => {
+              props.handlePopOverTrailEdit(id)
+            }}
+          >
+            {
+              <Droppable
+                droppableId={CONTEUDO_INDIVIDUAL_CONTENT}
+                direction="horizontal"
+                key={CONTEUDO_INDIVIDUAL_CONTENT}
+              >
+                {(provided) => {
+                  return (
+                    <Styles.ContainerTrailsNormal style={{}}>
+                      <ScrollContainer
+                        stepMove={380}
+                        isVisibleControlsButtons
+                        sizeArrowButton={80}
+                        marginsArrowButton={10}
+                        horizontalMarginInternScroll={'5px'}
+                        refreshResize={RefreshResize}
+                        styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
+                      >
+                        <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
                           <>
-                            <Thumbnails 
-                                variant='default'
-                                isDisabled={false}
-                                isLoading
-                            />
-                            <Thumbnails 
-                                variant='default'
-                                isDisabled={false}
-                                isLoading
-                            />
-                            <Thumbnails 
-                                variant='default'
-                                isDisabled={false}
-                                isLoading
-                            />        
-                            <Thumbnails 
-                                variant='default'
-                                isDisabled={false}
-                                isLoading
-                            />                                                                   
-                          </>                            
-
-                          </Styles.ContainerCard>
-                        </ScrollContainer>
-                        {provided.placeholder}
-                      </Styles.ContainerTrailsNormal>
-                    )
-                  }
-                  }
-                </Droppable>
-              }
-            </ContentCoursesTrails>                
-          </>  
-        :
+                            {new Array(4).fill('').map((item, k) => {
+                              return <Thumbnails key={k} variant="default" isDisabled={false} isLoading />
+                            })}
+                          </>
+                        </Styles.ContainerCard>
+                      </ScrollContainer>
+                      {provided.placeholder}
+                    </Styles.ContainerTrailsNormal>
+                  )
+                }}
+              </Droppable>
+            }
+          </ContentCoursesTrails>
+        </>
+      ) : (
         <>
           {/* 
           //----------------------------------------------------------------------------
@@ -276,13 +245,19 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             }}
             handleChangeShow={(bShow) => {
               console.log(bShow)
-              setShowIndividual(bShow)           
+              setShowIndividual(bShow)
             }}
             txtAtivarTrilha={props.txtAtivarTrilha}
-            handlePopOverTrailEdit={(id: string) => { props.handlePopOverTrailEdit(id) }}
+            handlePopOverTrailEdit={(id: string) => {
+              props.handlePopOverTrailEdit(id)
+            }}
           >
-            {              
-              <Droppable droppableId={CONTEUDO_INDIVIDUAL_CONTENT} direction="horizontal" key={CONTEUDO_INDIVIDUAL_CONTENT}>
+            {
+              <Droppable
+                droppableId={CONTEUDO_INDIVIDUAL_CONTENT}
+                direction="horizontal"
+                key={CONTEUDO_INDIVIDUAL_CONTENT}
+              >
                 {(provided) => {
                   return (
                     <Styles.ContainerTrailsNormal style={{}}>
@@ -296,13 +271,13 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                         styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
                       >
                         <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                          {
-                            courseIndividualData && courseIndividualData.map((individual, individualIndex) => {
+                          {courseIndividualData &&
+                            courseIndividualData.map((individual, individualIndex) => {
                               return (
                                 <>
                                   <ThumbnailsDraggable
-                                    key={`contentTrails${1}_individual${individualIndex}`}                                        
-                                    id={`contentTrails${1}_individual${individualIndex}`}                                
+                                    key={`contentTrails${1}_individual${individualIndex}`}
+                                    id={`contentTrails${1}_individual${individualIndex}`}
                                     index={`${individualIndex}`}
                                     isDisabled={individual.active === false ? false : individual.active}
                                     title={individual.title}
@@ -319,46 +294,50 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                     txtButtonLabel={props.txtButtonLabel}
                                     txtAtivarCurso={props.txtAtivarCurso}
                                     txtCriarNovoCurso={props.txtCriarNovoCurso}
-                                    handleClickPopOverEdit={() => {props.handlePopOverEdit(individual.id)}}
-                                    handleClickPopOverMove={() => {props.handlePopOverMove(individual.id)}}
-                                    handleClickPopOverEditActivity={() => {props.handleClickPopOverEditActivity(individual.id)}}
+                                    handleClickPopOverEdit={() => {
+                                      props.handlePopOverEdit(individual.id)
+                                    }}
+                                    handleClickPopOverMove={() => {
+                                      props.handlePopOverMove(individual.id)
+                                    }}
+                                    handleClickPopOverEditActivity={() => {
+                                      props.handleClickPopOverEditActivity(individual.id)
+                                    }}
                                     handleClickPopOverDelete={() => {
                                       setIdDelete(individual.id)
                                       setModalDeleteConteudo(true)
-                                    }}                                        
+                                    }}
+                                    txtPopOverEditContentActivity={props.txtPopOverEditContentActivity}
                                     txtPopOverEditContent={props.txtPopOverEditContent}
                                     txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
                                     txtPopOverDeleteContent={props.txtPopOverDeleteContent}
+                                    handleClickPopOverMoveToTrail={() => {
+                                      props.handleClickPopOverMoveToTrail(individual.id)
+                                    }}
                                   />
                                 </>
                               )
-                            })
-                          }
+                            })}
 
-                          <div style={{width: 24}}></div>
-
+                          <div style={{ width: 24 }}></div>
                         </Styles.ContainerCard>
                       </ScrollContainer>
                       {provided.placeholder}
                     </Styles.ContainerTrailsNormal>
                   )
-                }
-                }
+                }}
               </Droppable>
             }
-          </ContentCoursesTrails>                
-        </>        
-      }
+          </ContentCoursesTrails>
+        </>
+      )}
 
-      {
-      /* ---------------------------------------------------------
+      {/* ---------------------------------------------------------
         Trilhas 
-      --------------------------------------------------------- */
-      }           
-      {
-        !IsLoading &&
+      --------------------------------------------------------- */}
+      {!IsLoading && (
         <>
-          <Styles.TypographyMyTrails style={{marginTop: 20}}>
+          <Styles.TypographyMyTrails style={{ marginTop: 20 }}>
             {props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas'}
           </Styles.TypographyMyTrails>
           {/* 
@@ -366,10 +345,10 @@ export default function AccordionTrack(props: IAccordionTranslate) {
           // Carregamento de trilhas
           //---------------------------------------------------------------------------- 
           */}
-          {
-            trails && trails.map((trail, trailIndex) => {
+          {trails &&
+            trails.map((trail, trailIndex) => {
               return (
-                <>              
+                <>
                   {/* {console.log('trailMap', trail)} */}
                   <ContentCoursesTrails
                     showButtonActive={true}
@@ -395,137 +374,147 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                         props.onSetNameTrail(name, trailIndex)
                       }
                     }}
-                    handleChangeShow={(bShow) => {                      
+                    handleChangeShow={(bShow) => {
                       setShowTrail((prev) => {
-                        prev = { ...prev }       
+                        prev = { ...prev }
                         prev[trailIndex] = bShow
                         return prev
-                      })                  
-                    }}                    
+                      })
+                    }}
                     showButtonPublish={true}
-                    handlePublicarTrilha={() => {props.handlePublicarTrilha(trail.id) }}
+                    handlePublicarTrilha={() => {
+                      props.handlePublicarTrilha(trail.id)
+                    }}
                     handlePublicarCheck={props.handlePublicarCheck}
                     txtAtivarTrilha={props.txtAtivarTrilha}
-                    handlePopOverTrailEdit={() => { props.handlePopOverTrailEdit(trail.id) }}
-                    handlePopOverTrailDelete={(id: string) => { 
+                    handlePopOverTrailEdit={() => {
+                      props.handlePopOverTrailEdit(trail.id)
+                    }}
+                    handlePopOverTrailDelete={(id: string) => {
                       setIdDelete(trail.id)
                       setModalDeleteTrilha(true)
-                    }}        
-                                
+                    }}
                   >
-                    {
-                      ShowTrail.length === 0 || ShowTrail[trailIndex] &&                  
-                      <Droppable droppableId={(trailIndex+2).toString()} direction="horizontal" key={trailIndex+2}>
-                        {(provided) => {
-                          return (
-                            <Styles.ContainerTrailsNormal
-                              key={`contentTrailsDrop${trailIndex}`}
-                              style={{height: 350 }}
-                            >
-                              <ScrollContainer
-                                stepMove={380}
-                                isVisibleControlsButtons
-                                sizeArrowButton={80}
-                                marginsArrowButton={10}
-                                horizontalMarginInternScroll={'5px'}
-                                refreshResize={props.updateScrollSize}
-                                styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
+                    {ShowTrail.length === 0 ||
+                      (ShowTrail[trailIndex] && (
+                        <Droppable
+                          droppableId={(trailIndex + 2).toString()}
+                          direction="horizontal"
+                          key={trailIndex + 2}
+                        >
+                          {(provided) => {
+                            return (
+                              <Styles.ContainerTrailsNormal
+                                key={`contentTrailsDrop${trailIndex}`}
+                                style={{ height: 350 }}
                               >
-                                <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
-                                  {
-                                    trail.trail_course && trail.trail_course.map((el, courseTrailIndex) => {
-                                      return (
-                                        <>
-                                          <ThumbnailsDraggable
-                                            id={`trail_${trailIndex}_course_${courseTrailIndex}`}                                                               
-                                            index={`${courseTrailIndex}`}                                          
-                                            isDisabled={trail.active === false ? false : el.course.active}
-                                            title={el.course.title}
-                                            variant={'default'}
-                                            handleClickCourse={() => {
-                                              props.handleEditCourse(el.course.id)
-                                            }}
-                                            isTrail={true}
-                                            showSwitch={false}
-                                            src={el.course.settings.cover_thumb_url}
-                                            txtButtonLabel={props.txtButtonLabel}
-                                            txtAtivarCurso={props.txtAtivarCurso}
-                                            txtCriarNovoCurso={props.txtCriarNovoCurso}
-                                            handleClickPopOverEdit={() => {props.handlePopOverEdit(el.course.id)}}
-                                            handleClickPopOverMove={() => {props.handlePopOverMove(el.course.id)}}
-                                            handleClickPopOverDelete={() => {                                              
-                                              setIdDelete(el.id)
-                                              setModalDeleteTrilhaConteudo(true)
-                                            }}                                      
-                                            txtPopOverEditContent={props.txtPopOverEditContent}
-                                            txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
-                                            txtPopOverDeleteContent={props.txtPopOverDeleteContent}
-                                          />
-                                        </>
-                                      )
-                                    })
-                                  }
-
-
-                                </Styles.ContainerCard>
-                              </ScrollContainer>
-                              {provided.placeholder}
-                            </Styles.ContainerTrailsNormal>
-                          )
-                        }
-                        }
-                      </Droppable>
-                    }
+                                <ScrollContainer
+                                  stepMove={380}
+                                  isVisibleControlsButtons
+                                  sizeArrowButton={80}
+                                  marginsArrowButton={10}
+                                  horizontalMarginInternScroll={'5px'}
+                                  refreshResize={props.updateScrollSize}
+                                  styles={{ backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }}
+                                >
+                                  <Styles.ContainerCard ref={provided.innerRef} {...provided.droppableProps}>
+                                    {trail.trail_course &&
+                                      trail.trail_course.map((el, courseTrailIndex) => {
+                                        return (
+                                          <>
+                                            <ThumbnailsDraggable
+                                              id={`trail_${trailIndex}_course_${courseTrailIndex}`}
+                                              index={`${courseTrailIndex}`}
+                                              isDisabled={trail.active === false ? false : el.course.active}
+                                              title={el.course.title}
+                                              variant={'default'}
+                                              handleClickCourse={() => {
+                                                props.handleEditCourse(el.course.id)
+                                              }}
+                                              isTrail={true}
+                                              showSwitch={false}
+                                              src={el.course.settings.cover_thumb_url}
+                                              txtButtonLabel={props.txtButtonLabel}
+                                              txtAtivarCurso={props.txtAtivarCurso}
+                                              txtCriarNovoCurso={props.txtCriarNovoCurso}
+                                              handleClickPopOverEdit={() => {
+                                                props.handlePopOverEdit(el.course.id)
+                                              }}
+                                              handleClickPopOverMove={() => {
+                                                props.handlePopOverMove(el.course.id)
+                                              }}
+                                              handleClickPopOverDelete={() => {
+                                                setIdDelete(el.id)
+                                                setModalDeleteTrilhaConteudo(true)
+                                              }}
+                                              txtPopOverEditContent={props.txtPopOverEditContent}
+                                              txtPopOverMoveToTrails={props.txtPopOverMoveToTrails}
+                                              txtPopOverDeleteContent={props.txtPopOverDeleteContent}
+                                              txtPopOverEditContentActivity={props.txtPopOverEditContentActivity}
+                                            />
+                                          </>
+                                        )
+                                      })}
+                                  </Styles.ContainerCard>
+                                </ScrollContainer>
+                                {provided.placeholder}
+                              </Styles.ContainerTrailsNormal>
+                            )
+                          }}
+                        </Droppable>
+                      ))}
                   </ContentCoursesTrails>
                 </>
               )
-            })
-          }
-        </>        
-      }  
+            })}
+        </>
+      )}
       <ModalLXP
         open={ModalDeleteConteudo}
-        handleClose={() => {setModalDeleteConteudo(false)}}
-        handleConfirmation={() => {props.handleDeleteCourse(IdDelete)}}
-
-        title={"Você tem certeza?"}
-        style={{width: 600}}
-        confirmationButton={"Sim, excluir"}
-        cancelButton={"Cancelar"}
+        handleClose={() => {
+          setModalDeleteConteudo(false)
+        }}
+        handleConfirmation={() => {
+          props.handleDeleteCourse(IdDelete)
+        }}
+        title={'Você tem certeza?'}
+        style={{ width: 600 }}
+        confirmationButton={'Sim, excluir'}
+        cancelButton={'Cancelar'}
       >
-        <div>
-          Você realmente quer deletar este módulo? Você irá perder todos os conteúdos criados.
-        </div>
+        <div>Você realmente quer deletar este módulo? Você irá perder todos os conteúdos criados.</div>
       </ModalLXP>
       <ModalLXP
         open={ModalDeleteTrilha}
-        handleClose={() => {setModalDeleteTrilha(false)}}
+        handleClose={() => {
+          setModalDeleteTrilha(false)
+        }}
         handleConfirmation={() => {
-          console.log("Passou aqui")
-          props.handlePopOverTrailDelete(IdDelete)}
-        }
-        title={"Você tem certeza?"}
-        style={{width: 600}}
-        confirmationButton={"Sim, excluir"}
-        cancelButton={"Cancelar"}
+          console.log('Passou aqui')
+          props.handlePopOverTrailDelete(IdDelete)
+        }}
+        title={'Você tem certeza?'}
+        style={{ width: 600 }}
+        confirmationButton={'Sim, excluir'}
+        cancelButton={'Cancelar'}
       >
-        <div>
-          Você realmente quer deletar esta trilha?
-        </div>
-      </ModalLXP>   
+        <div>Você realmente quer deletar esta trilha?</div>
+      </ModalLXP>
       <ModalLXP
         open={ModalDeleteTrilhaConteudo}
-        handleClose={() => {setModalDeleteTrilhaConteudo(false)}}
-        handleConfirmation={() => {props.handleDeleteCourseTrail(IdDelete)}}
-        title={"Você tem certeza?"}
-        style={{width: 600}}
-        confirmationButton={"Sim, excluir"}
-        cancelButton={"Cancelar"}
+        handleClose={() => {
+          setModalDeleteTrilhaConteudo(false)
+        }}
+        handleConfirmation={() => {
+          props.handleDeleteCourseTrail(IdDelete)
+        }}
+        title={'Você tem certeza?'}
+        style={{ width: 600 }}
+        confirmationButton={'Sim, excluir'}
+        cancelButton={'Cancelar'}
       >
-        <div>
-          Você realmente quer remover o módulo desta trilha?
-        </div>
-      </ModalLXP>        
+        <div>Você realmente quer remover o módulo desta trilha?</div>
+      </ModalLXP>
     </>
   )
 }
