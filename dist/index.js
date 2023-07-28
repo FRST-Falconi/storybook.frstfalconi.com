@@ -4772,6 +4772,128 @@ function GroupsTable(props) {
                                                 })] }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px', paddingLeft: '54px' }, children: [jsxRuntime.jsx(TdEditButtom, { onClick: () => onEditClick(i.id) }), jsxRuntime.jsx(TdTrashButton, { onClick: () => onDeleteClick(i.id, index) })] }) })] }, index))) })] }) })] }));
 }
 
+const PeopleContainer = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 144px;
+    border-radius: 12px;
+    background: ${({ theme, isChecked }) => isChecked ? '#FDF3E9' : theme.colors.shadeWhite};
+    border: 1px solid ${({ theme, isChecked }) => isChecked ? 'rgba(241, 134, 36, 1)' : theme.colors.shadeWhite};
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    :hover{
+        border: 1px solid rgba(241, 134, 36, 1);
+    }
+`;
+const PeopleInfo = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+`;
+const DescriptionPeople = styled__default["default"].div `
+    padding-left: 12px;
+`;
+const PeopleName = styled__default["default"].div `
+    font-weight: 600;
+    max-width: 188px;
+    line-height: 18.77px;
+    padding-top: 26px;
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    top: 26px;
+    left: 100px;
+`;
+const PeopleEmail = styled__default["default"].div `
+    font-size: 12px;
+    color: rgba(117, 117, 117, 1);
+    font-weight: 500;
+    line-height: 14.8px;
+    max-width: 188px;
+    margin-top: 4px;
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+`;
+const PositionContainer = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    padding-right: 25px;
+    padding-left: ${({ hiddenCheckbox }) => hiddenCheckbox ? '16' : '48'}px;
+    padding-bottom: 24px;
+`;
+const DataBlock = styled__default["default"].div `
+    display: flex;
+    font-size: 14px;
+    line-height: 16.8px;
+    font-weight: 600;
+    margin-top: 4px;
+    span{
+        font-weight: 400;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 188px;
+        padding-right: 2px;
+    }
+`;
+
+function CardPeople({ labels, userInfo, isChecked, onChecked, hiddenCheckbox, style }) {
+    const handleChecked = () => {
+        onChecked({
+            ...userInfo, isChecked: !isChecked
+        });
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(PeopleContainer, { isChecked: isChecked, style: { ...style }, children: [jsxRuntime.jsxs(PeopleInfo, { children: [jsxRuntime.jsxs("div", { style: { paddingTop: '24px', display: 'flex', paddingLeft: '16px' }, children: [jsxRuntime.jsx("div", { style: { paddingTop: '12px' }, children: hiddenCheckbox ? jsxRuntime.jsx("div", {}) : jsxRuntime.jsx(Checkbox, { label: "", isChecked: isChecked, handleCheck: handleChecked }) }), jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo.avatar })] }), jsxRuntime.jsxs(DescriptionPeople, { children: [userInfo.name && userInfo.name.length > 19 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo.name, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: jsxRuntime.jsx(PeopleName, { style: { cursor: 'pointer' }, children: userInfo.name }) })) : (jsxRuntime.jsx(PeopleName, { children: userInfo.name })), userInfo.email && userInfo.email.length > 24 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo.email, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: jsxRuntime.jsx(PeopleEmail, { style: { cursor: 'pointer' }, children: userInfo.email }) })) : (jsxRuntime.jsx(PeopleEmail, { children: userInfo.email }))] })] }), jsxRuntime.jsxs(PositionContainer, { hiddenCheckbox: hiddenCheckbox, children: [jsxRuntime.jsxs(DataBlock, { children: [jsxRuntime.jsxs("div", { style: { paddingRight: '2px' }, children: [labels?.area, ":"] }), userInfo.area && userInfo.area.length > 25 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo.area, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: jsxRuntime.jsx("span", { style: { cursor: 'pointer' }, children: userInfo.area }) })) :
+                                    (jsxRuntime.jsx("span", { children: userInfo.area }))] }), jsxRuntime.jsxs(DataBlock, { children: [jsxRuntime.jsxs("div", { style: { paddingRight: '2px' }, children: [labels?.position, ":"] }), userInfo?.position && userInfo?.position.length > 24 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo?.position, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(29, 15, 15, 0.2)'
+                                    }, children: jsxRuntime.jsx("span", { style: { cursor: 'pointer' }, children: userInfo?.position }) })) : (jsxRuntime.jsx("span", { children: userInfo?.position }))] })] })] }) }));
+}
+
 const container = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -18060,6 +18182,7 @@ exports.CalendarFilledIcon = CalendarFilledIcon;
 exports.CalendarLineIcon = CalendarLineIcon;
 exports.CalendarLxp = CalendarLxp;
 exports.CardDefinicaoFase = CardDefinicaoFase;
+exports.CardPeople = CardPeople;
 exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
