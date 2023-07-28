@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useState } from 'react'
 import { MultiSelect } from 'primereact/multiselect'
 import * as StylesFiltro from './styles/MultiSelectDemo'
-import selectItemsCss from './styles/MultiSelectItems.css'
+// import selectItemsCss from './styles/MultiSelectItems.css'
 import './styles/theme.css'
 import './styles/primereact.css'
 import './styles/primeflex.css'
 // import 'primeicons/primeicons.css'
 import Button from '@components/buttons'
 import SearchField from '@components/search-field'
+import iconT from './styles/icons/vector.png'
 
 export default function FiltroGaleriaDesafios({
   placeholderSelect,
@@ -113,7 +114,7 @@ export default function FiltroGaleriaDesafios({
             optionLabel={optionLabel}
             placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
             className="multiselect-custom"
-            panelStyle={selectItemsCss}
+            // panelStyle={selectItemsCss}
             // selectedItemTemplate={selectedCountriesTemplate()}
             selectedItemsLabel={placeholderSelect}
             disabled={isDisabled}
@@ -124,6 +125,7 @@ export default function FiltroGaleriaDesafios({
             panelHeaderTemplate={handleTemplateHeader()}
             removeIcon={handleRemoveIcon}
             dropdownIcon={handleDropdownIcon}
+            // itemCheckboxIcon={iconT}
           />
         </StylesFiltro.FiltroPrimeReact>
       </StylesFiltro.containerFiltro>

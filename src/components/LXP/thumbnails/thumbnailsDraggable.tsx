@@ -5,46 +5,41 @@ import { Draggable } from '@hello-pangea/dnd'
 // import { Draggable } from 'react-beautiful-dnd'
 
 export default function ThumbnailsDraggable({
-   variant, 
-   src, 
-   handleClickCourse, 
-   handleClickNew, 
-   handleClickContent, 
-   handleSwitchAtivar, 
-   title, 
-   id, 
-   index, 
-   isDisabled, 
-   isLoading, 
-   txtButtonLabel, 
-   txtAtivarCurso, 
-   showSwitch,
-   txtCriarNovoCurso,
-   txtCriarNovoCurso2,
-   handleClickPopOverDelete,
-   handleClickPopOverEdit,
-   handleClickPopOverEditActivity,
-   handleClickPopOverMove,
-   txtPopOverDeleteContent,
-   txtPopOverEditContent,
-   isActive,
-   isTrail,
-   txtPopOverMoveToTrails,
-   txtPopOverDeleteTrail,
-   txtPopOverEditContentActivity
-
-  }: IThumbnailsTranslate) {
-
+  variant,
+  src,
+  handleClickCourse,
+  handleClickNew,
+  handleClickContent,
+  handleSwitchAtivar,
+  title,
+  id,
+  index,
+  isDisabled,
+  isLoading,
+  txtButtonLabel,
+  txtAtivarCurso,
+  showSwitch,
+  txtCriarNovoCurso,
+  txtCriarNovoCurso2,
+  handleClickPopOverDelete,
+  handleClickPopOverEdit,
+  handleClickPopOverEditActivity,
+  handleClickPopOverMove,
+  handleClickPopOverMoveToTrail,
+  txtPopOverDeleteContent,
+  txtPopOverEditContent,
+  isActive,
+  isTrail,
+  txtPopOverMoveToTrails,
+  txtPopOverDeleteTrail,
+  txtPopOverEditContentActivity
+}: IThumbnailsTranslate) {
   return (
-    <>    
-      <Draggable
-        key={id}
-        index={parseInt(index)}
-        draggableId={id}
-      >
+    <>
+      <Draggable key={id} index={parseInt(index)} draggableId={id}>
         {(provided) => {
           return (
-            <Thumbnails 
+            <Thumbnails
               src={src}
               isDisabled={isDisabled}
               handleClickCourse={handleClickCourse}
@@ -57,8 +52,8 @@ export default function ThumbnailsDraggable({
               isActive={isActive}
               isLoading={isLoading}
               showSwitch={showSwitch}
-              index={index}  
-              isTrail={isTrail}  
+              index={index}
+              isTrail={isTrail}
               provided={provided}
               txtButtonLabel={txtButtonLabel}
               txtAtivarCurso={txtAtivarCurso}
@@ -73,9 +68,10 @@ export default function ThumbnailsDraggable({
               txtPopOverMoveToTrails={txtPopOverMoveToTrails}
               txtPopOverDeleteTrail={txtPopOverDeleteTrail}
               txtPopOverEditContentActivity={txtPopOverEditContentActivity}
+              handleClickPopOverMoveToTrail={handleClickPopOverMoveToTrail}
             />
-          )}
-        }
+          )
+        }}
       </Draggable>
     </>
   )
