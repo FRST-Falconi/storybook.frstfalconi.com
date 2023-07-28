@@ -49,9 +49,9 @@ export const PeopleEmail = styled.div`
 export const PositionContainer = styled.div<IPositionContainer>`
     display: flex;
     flex-direction: column;
-    margin-top: 17px;
+    margin-top: 16px;
     padding-right: 25px;
-    padding-left: ${({hiddenCheckbox}) => hiddenCheckbox ? '27' : '48' }px;
+    padding-left: ${({hiddenCheckbox}) => hiddenCheckbox ? '16' : '48' }px;
     padding-bottom: 24px;
 `
 export const DataBlock = styled.div`
