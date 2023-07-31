@@ -1987,9 +1987,9 @@ const AvatarWrapper = styled__default["default"].div `
     height: ${props => props.size || '120px'};
 `;
 
-function Avatar({ size, src, alt, className, disabled }) {
+function Avatar({ size, src, alt, className, disabled, onClick }) {
     const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
 }
 
 ///-----------------------------------------
@@ -5913,19 +5913,16 @@ function CardResultConquista(props) {
     React.useEffect(() => {
         setBtnViewMore(props.textMoreDetails);
     }, [props.textMoreDetails]);
-    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
-            props.onClick(props.problemId);
-            setIsPressed(true);
-        }, children: [jsxRuntime.jsxs("div", { className: style$5.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
-                        isPressed ?
-                            jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })
-                            :
-                                jsxRuntime.jsx("img", { src: Conquista, alt: "Icone de conquista" })
-                        :
-                            isPressed ?
-                                jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })
-                                :
-                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$5.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$5.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
+    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, children: [jsxRuntime.jsxs("div", { className: style$5.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: "50px", src: props.userAvatar, onClick: props.onClickAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ? (isPressed ? (jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })) : (jsxRuntime.jsx("img", { src: Conquista, alt: "Icone de conquista" }))) : isPressed ? (jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })) : (jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" }))] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, onClick: props.onClickName, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$5.description, style: {
+                    color: isPressed ? '#FFD600' : '#FF4D0D',
+                    fontWeight: 500,
+                    fontSize: 16,
+                    textAlign: 'center',
+                    marginTop: 12
+                }, children: props.description }), jsxRuntime.jsx("div", { onClick: () => {
+                    props.onClick(props.problemId);
+                    setIsPressed(true);
+                }, className: style$5.verMais, children: btnViewMore ? btnViewMore : 'Mais detalhes' })] }));
 }
 
 const WrapperCard$7 = styled__default["default"].div `
@@ -5961,14 +5958,14 @@ function ExclusiveClassCard({ titleClass, labelButton, className, handleClick })
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$7, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$3, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$5, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
-function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
+function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails, onClickAvatar, onClickName }) {
     React.useState(-1);
     const [btnViewMore, setBtnViewMore] = React.useState('');
     React.useEffect(() => {
         setBtnViewMore(textMoreDetails);
     }, [textMoreDetails]);
     function renderCard(item, index) {
-        return (jsxRuntime.jsx(CardResultConquista, { textMoreDetails: btnViewMore ? btnViewMore : 'Mais detalhes', description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
+        return (jsxRuntime.jsx(CardResultConquista, { textMoreDetails: btnViewMore ? btnViewMore : 'Mais detalhes', description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' }, onClickAvatar: onClickAvatar, onClickName: onClickName }, index));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
 }
