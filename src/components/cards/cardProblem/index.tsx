@@ -20,6 +20,8 @@ interface CardProblemProps {
   isButtonVerMais: boolean
   handleSelect?: (id: string) => void
   onClick?: (problemID: string) => void
+  onClickAvatar?: () => void
+  onClickName?: () => void
   problemID: string
   userName: string
   userCargo: string
@@ -201,19 +203,16 @@ export default function CardProblem(props: CardProblemProps) {
       >
         {selected ? <CheckboxChecked /> : <CheckboxEmpty />}
       </div>
-      <div
-        className={style.contentCard}
-        onClick={() => {
-          props.onClick(props.problemID)
-        }}
-      >
+      <div className={style.contentCard}>
         <div className={style.avatarInfoUser}>
           <div>
             {' '}
-            <Avatar size="40px" src={props.userAvatar} />{' '}
+            <Avatar size="40px" src={props.userAvatar} onClick={props.onClickAvatar} />{' '}
           </div>
           <div className={style.infoUser}>
-            <span style={{ fontSize: 16, fontWeight: 600 }}>{props.userName}</span>
+            <span style={{ fontSize: 16, fontWeight: 600, cursor: 'pointer' }} onClick={props.onClickName}>
+              {props.userName}
+            </span>
             <span style={{ fontSize: 14, fontWeight: 400 }}>{props.userCargo}</span>
           </div>
         </div>
