@@ -54,6 +54,7 @@ export interface IGlobalMenu {
   onClickSpotify?: () => void
   onClickPodCast?: () => void
   onClickProfileMenuText?: () => void
+  onClickMenuHamburger?: () => void
 
   profileMenuText?: string
   textNotification?: string

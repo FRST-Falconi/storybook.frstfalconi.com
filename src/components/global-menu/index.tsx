@@ -49,6 +49,7 @@ export default function GlobalMenu({
   marginTopSubMenu,
   hiddenProfileMenu,
   onClickLogo,
+  onClickMenuHamburger,
   showProfile = true
 }: IGlobalMenu) {
   const [valueSearch, setValueSearch] = useState(search.value)
@@ -209,7 +210,7 @@ export default function GlobalMenu({
               }}
             >
               {isMobileVersion && !HideHambMenu && (
-                <Styles.HamburgerButton onClick={() => setIsVisibleMenuMobile(true)}>
+                <Styles.HamburgerButton onClick={() => onClickMenuHamburger()}>
                   <IconHamburgerMenu />
                 </Styles.HamburgerButton>
               )}
@@ -219,7 +220,7 @@ export default function GlobalMenu({
                 </Styles.ArrowButton>
               )}
               {isTabletVersion && (
-                <Styles.HamburgerButton onClick={() => setIsVisibleSideMenu(true)}>
+                <Styles.HamburgerButton onClick={() => onClickMenuHamburger()}>
                   <IconHamburgerMenu />
                 </Styles.HamburgerButton>
               )}
@@ -516,12 +517,12 @@ export default function GlobalMenu({
               }}
             >
               {isMobileVersion && (
-                <Styles.HamburgerButton style={{ marginLeft: 0 }} onClick={() => setIsVisibleMenuMobile(true)}>
+                <Styles.HamburgerButton style={{ marginLeft: 0 }} onClick={() => onClickMenuHamburger()}>
                   <IconHamburgerMenu />
                 </Styles.HamburgerButton>
               )}
               {isTabletVersion && (
-                <Styles.HamburgerButton onClick={() => setIsVisibleMenuMobile(true)}>
+                <Styles.HamburgerButton onClick={() => onClickMenuHamburger()}>
                   <IconHamburgerMenu />
                 </Styles.HamburgerButton>
               )}

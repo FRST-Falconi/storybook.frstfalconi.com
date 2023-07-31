@@ -30,7 +30,7 @@ normal.args = {
   onClickProfileMenuText: () => alert('Clicked Profile'),
   profileMenuText: 'Ver Perfil',
   onClickLogo: () => alert('Redirect to home'),
-
+  onClickMenuHamburger: () => alert('Click hamburger'),
   user: {
     name: 'Student name',
     avatar:
