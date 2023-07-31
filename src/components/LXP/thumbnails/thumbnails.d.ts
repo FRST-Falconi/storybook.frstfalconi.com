@@ -38,4 +38,6 @@ export interface IThumbnailsTranslate extends IThumbnails {
   txtPopOverDeleteContent?: string
   txtPopOverDeleteTrail?: string
   txtPopOverEditContentActivity?: string
+  txtHideContent?: string
+  txtShowContent?: string
 }
