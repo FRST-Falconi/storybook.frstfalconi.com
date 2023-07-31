@@ -16,5 +16,6 @@ Normal.args = {
     label: 'Checkbox label',
     isChecked: false,
     disabled: false,
-    handleCheck: (e: boolean) => alert(e)
+    handleCheck: (e: boolean) => alert(e),
+    color: '#F35F24'
 }

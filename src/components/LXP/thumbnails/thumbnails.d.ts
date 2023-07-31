@@ -1,41 +1,41 @@
-import React from "react"
+import React from 'react'
 //import * as Icons from '../../shared/icons'
 //mport { content } from '../../shared/icons'
 
-type enumVariant =  'default' | 'add' 
+type enumVariant = 'default' | 'add'
 
 export interface IThumbnails {
-    src?: string,
-    isDisabled: boolean,    
-    isActive?: boolean, 
-    isLoading?: boolean
-    showSwitch?: boolean,  
-    handleClickCourse?: () => void,
-    handleSwitchAtivar?: (checkedValue: boolean) => void,
-    handleClickNew?: () => void,
-    handleClickContent?: () => void, 
-    handleClickPopOverEdit?: () => void,
-    handleClickPopOverMove?: () => void,
-    handleClickPopOverDelete?: () => void,   
-    handleClickPopOverDeleteTrail?: () => void,   
-    handleClickPopOverEditActivity?: () => void,   
-    variant?: enumVariant,
-    title?: string   
-    id?: string,
-    isTrail?: boolean,
-    index?: string,
-    provided?: any
+  src?: string
+  isDisabled: boolean
+  isActive?: boolean
+  isLoading?: boolean
+  showSwitch?: boolean
+  handleClickCourse?: () => void
+  handleSwitchAtivar?: (checkedValue: boolean) => void
+  handleClickNew?: () => void
+  handleClickContent?: () => void
+  handleClickPopOverEdit?: () => void
+  handleClickPopOverMove?: () => void
+  handleClickPopOverDelete?: () => void
+  handleClickPopOverDeleteTrail?: () => void
+  handleClickPopOverEditActivity?: () => void
+  handleClickPopOverMoveToTrail?: () => void
+  variant?: enumVariant
+  title?: string
+  id?: string
+  isTrail?: boolean
+  index?: string
+  provided?: any
 }
 
 export interface IThumbnailsTranslate extends IThumbnails {
-    txtButtonLabel?: string
-    txtAtivarCurso?: string
-    txtCriarNovoCurso?: string
-    txtCriarNovoCurso2?: string
-    txtPopOverEditContent?: string
-    txtPopOverMoveToTrails?: string
-    txtPopOverDeleteContent?: string
-    txtPopOverDeleteTrail?: string
-    txtPopOverEditContentActivity?: string
+  txtButtonLabel?: string
+  txtAtivarCurso?: string
+  txtCriarNovoCurso?: string
+  txtCriarNovoCurso2?: string
+  txtPopOverEditContent?: string
+  txtPopOverMoveToTrails?: string
+  txtPopOverDeleteContent?: string
+  txtPopOverDeleteTrail?: string
+  txtPopOverEditContentActivity?: string
 }
-
