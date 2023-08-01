@@ -6,7 +6,7 @@ import { IThumbnails, IThumbnailsTranslate } from './thumbnails.d'
 import VectorEllipse from './vectorEllipse'
 import HeaderVectorElipses from './headerVectorElipses'
 import { LoadingThumbnails } from './loadingThumbnails'
-
+import Loading from '@components/DS/loading'
 import VectorCross from './vectorCross'
 import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
@@ -141,6 +141,20 @@ export default function Thumbnails({
                   label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
                   variant="expandedSecondary"
                   style={{ marginTop: '16px', height: '32px' }}
+                  handleClick={async () => {
+                    // setPublishing('processing')
+                    // await props.handlePublicarTrilha(props)
+                    // checkStatusPublish()
+                  }}
+                  // startIcon={
+                  //   // Publishing === 'processing' && (
+                  //   //   <Loading sizeLoading="small" loadColor="#a5a5a5" style={{ width: 40 }} />
+                  //   // )
+                  // }
+                  // label={
+                  //   Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...'
+                  // }
+                  // disabled={Publishing === 'pending' ? false : true}
                 />
               </Styles.CardDragAndDrop>
             )}

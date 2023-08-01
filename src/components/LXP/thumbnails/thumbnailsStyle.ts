@@ -48,6 +48,7 @@ export const ContainerMain = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 8px;
 `
 export const Typography = styled.div`
   font-family: 'PT Sans';
@@ -126,11 +127,11 @@ export const CardDragAndDrop = styled.div<IImageBackground>`
   width: 195px;
   min-width: 195px;
   padding: 8px;
-  height: 250px;
+  height: 273px;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
+  /* justify-content: space-between; */
+  gap: 8px;
   border-radius: 8px;
   background: #fff;
   user-select: none;
@@ -150,7 +151,7 @@ export const CardDragAndDrop = styled.div<IImageBackground>`
 
   > .thumbnails_img {
     width: 100%;
-    height: 50%;
+    height: 162px;
     border-radius: 4px;
     object-position: center;
     object-fit: cover;
@@ -183,7 +184,7 @@ export const LoadingContainer = styled.div`
 
   &.loading_img {
     width: 100%;
-    height: 50%;
+    height: 162px;
     border-radius: 4px;
   }
   &.loading_text {
