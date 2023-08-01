@@ -4694,8 +4694,7 @@ const TdEditButtom = ({ onClick }) => {
     const [isHover, setIsHover] = React.useState(false);
     return (jsxRuntime.jsx("div", { onClick: onClick, style: { cursor: 'pointer' }, onMouseLeave: () => setIsHover(false), onMouseEnter: () => setIsHover(true), children: jsxRuntime.jsx(EditIcon, { width: "18px", height: "18px", fill: isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) ' }) }));
 };
-function GroupsTable(props) {
-    const { textHeader, textHeader2, textHeader3, textHeader4, items, selected, textTooltipAdd, textTooltipCount, deleted, onDeleteClick, onEditClick, onDeleteAllSelected, AdmMoreClick, onShowMoreClick, textTooltipAllSelected, onSelected } = props;
+function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items, selected, textTooltipAdd, textTooltipCount, deleted, onDeleteClick, onEditClick, onDeleteAllSelected, AdmMoreClick, onShowMoreClick, textTooltipAllSelected, onSelected }) {
     const [isAllChecked, setIsAllChecked] = React.useState(false);
     const [internalItems, setInternalItems] = React.useState([]);
     React.useEffect(() => {
