@@ -82,6 +82,7 @@ export { default as Select } from './src/components/DS/select'
 export { default as Modal } from './src/components/DS/modal'
 export { default as GroupsTable} from './src/components/DS/groups-table'
 export { default as AdmButton} from './src/components/DS/admButton'
+export {default as CardPeople } from './src/components/DS/cardPeople'
 export { default as Loading } from './src/components/DS/loading'
 export { default as OnboardingProgressMenu } from './src/components/DS/onboarding-progress-menu'
 

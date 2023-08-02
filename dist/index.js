@@ -1973,23 +1973,25 @@ var style$e = {"container":"avatarWithInfo-module_container__Y-yUf"};
 styleInject(css_248z$i);
 
 const AvatarImg$1 = styled__default["default"].img `
-    width: ${props => props.size || '120px'};
-    height: ${props => props.size || '120px'};
-    border-radius: 50%;
-    object-fit: cover;
+  width: ${(props) => props.size || '120px'};
+  height: ${(props) => props.size || '120px'};
+  border-radius: 50%;
+  object-fit: cover;
 
-    ${({ disabled }) => disabled === true && `
+  ${({ disabled }) => disabled === true &&
+    `
         filter: grayscale(100%);
     `}
 `;
 const AvatarWrapper = styled__default["default"].div `
-    width: ${props => props.size || '120px'};
-    height: ${props => props.size || '120px'};
+  width: ${(props) => props.size || '120px'};
+  height: ${(props) => props.size || '120px'};
+  cursor: pointer;
 `;
 
-function Avatar({ size, src, alt, className, disabled }) {
+function Avatar({ size, src, alt, className, disabled, onClick }) {
     const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
 }
 
 ///-----------------------------------------
@@ -4692,8 +4694,7 @@ const TdEditButtom = ({ onClick }) => {
     const [isHover, setIsHover] = React.useState(false);
     return (jsxRuntime.jsx("div", { onClick: onClick, style: { cursor: 'pointer' }, onMouseLeave: () => setIsHover(false), onMouseEnter: () => setIsHover(true), children: jsxRuntime.jsx(EditIcon, { width: "18px", height: "18px", fill: isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) ' }) }));
 };
-function GroupsTable(props) {
-    const { textHeader, textHeader2, textHeader3, textHeader4, items, selected, textTooltipAdd, textTooltipCount, deleted, onDeleteClick, onEditClick, onDeleteAllSelected, AdmMoreClick, onShowMoreClick, textTooltipAllSelected, onSelected } = props;
+function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items, selected, textTooltipAdd, textTooltipCount, deleted, onDeleteClick, onEditClick, onDeleteAllSelected, AdmMoreClick, onShowMoreClick, textTooltipAllSelected, onSelected }) {
     const [isAllChecked, setIsAllChecked] = React.useState(false);
     const [internalItems, setInternalItems] = React.useState([]);
     React.useEffect(() => {
@@ -4770,6 +4771,128 @@ function GroupsTable(props) {
                                                             boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
                                                         }, children: jsxRuntime.jsx(AdmButton, { image: adm.image, variant: 'image' }, adm.id) });
                                                 })] }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px', paddingLeft: '54px' }, children: [jsxRuntime.jsx(TdEditButtom, { onClick: () => onEditClick(i.id) }), jsxRuntime.jsx(TdTrashButton, { onClick: () => onDeleteClick(i.id, index) })] }) })] }, index))) })] }) })] }));
+}
+
+const PeopleContainer = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: 144px;
+    border-radius: 12px;
+    background: ${({ theme, isChecked }) => isChecked ? '#FDF3E9' : theme.colors.shadeWhite};
+    border: 1px solid ${({ theme, isChecked }) => isChecked ? 'rgba(241, 134, 36, 1)' : theme.colors.shadeWhite};
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    :hover{
+        border: 1px solid rgba(241, 134, 36, 1);
+    }
+`;
+const PeopleInfo = styled__default["default"].div `
+    display: flex;
+    flex-direction: row;
+`;
+const DescriptionPeople = styled__default["default"].div `
+    padding-left: 12px;
+`;
+const PeopleName = styled__default["default"].div `
+    font-weight: 600;
+    max-width: 188px;
+    line-height: 18.77px;
+    padding-top: 26px;
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    top: 26px;
+    left: 100px;
+`;
+const PeopleEmail = styled__default["default"].div `
+    font-size: 12px;
+    color: rgba(117, 117, 117, 1);
+    font-weight: 500;
+    line-height: 14.8px;
+    max-width: 188px;
+    margin-top: 4px;
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+`;
+const PositionContainer = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    padding-right: 25px;
+    padding-left: ${({ hiddenCheckbox }) => hiddenCheckbox ? '16' : '48'}px;
+    padding-bottom: 24px;
+`;
+const DataBlock = styled__default["default"].div `
+    display: flex;
+    font-size: 14px;
+    line-height: 16.8px;
+    font-weight: 600;
+    margin-top: 4px;
+    span{
+        font-weight: 400;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 188px;
+        padding-right: 2px;
+    }
+`;
+
+function CardPeople({ labels, userInfo, isChecked, onChecked, hiddenCheckbox, style }) {
+    const handleChecked = () => {
+        onChecked({
+            ...userInfo, isChecked: !isChecked
+        });
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(PeopleContainer, { isChecked: isChecked, style: { ...style }, children: [jsxRuntime.jsxs(PeopleInfo, { children: [jsxRuntime.jsxs("div", { style: { paddingTop: '24px', display: 'flex', paddingLeft: '16px' }, children: [jsxRuntime.jsx("div", { style: { paddingTop: '12px' }, children: hiddenCheckbox ? jsxRuntime.jsx("div", {}) : jsxRuntime.jsx(Checkbox, { label: "", isChecked: isChecked, handleCheck: handleChecked }) }), jsxRuntime.jsx(Avatar, { size: "40px", src: userInfo.avatar })] }), jsxRuntime.jsxs(DescriptionPeople, { children: [userInfo.name && userInfo.name.length > 19 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo.name, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: jsxRuntime.jsx(PeopleName, { style: { cursor: 'pointer' }, children: userInfo.name }) })) : (jsxRuntime.jsx(PeopleName, { children: userInfo.name })), userInfo.email && userInfo.email.length > 24 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo.email, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: jsxRuntime.jsx(PeopleEmail, { style: { cursor: 'pointer' }, children: userInfo.email }) })) : (jsxRuntime.jsx(PeopleEmail, { children: userInfo.email }))] })] }), jsxRuntime.jsxs(PositionContainer, { hiddenCheckbox: hiddenCheckbox, children: [jsxRuntime.jsxs(DataBlock, { children: [jsxRuntime.jsxs("div", { style: { paddingRight: '2px' }, children: [labels?.area, ":"] }), userInfo.area && userInfo.area.length > 25 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo.area, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: jsxRuntime.jsx("span", { style: { cursor: 'pointer' }, children: userInfo.area }) })) :
+                                    (jsxRuntime.jsx("span", { children: userInfo.area }))] }), jsxRuntime.jsxs(DataBlock, { children: [jsxRuntime.jsxs("div", { style: { paddingRight: '2px' }, children: [labels?.position, ":"] }), userInfo?.position && userInfo?.position.length > 24 ? (jsxRuntime.jsx(Tooltip$2, { content: userInfo?.position, direction: 'bottom', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(29, 15, 15, 0.2)'
+                                    }, children: jsxRuntime.jsx("span", { style: { cursor: 'pointer' }, children: userInfo?.position }) })) : (jsxRuntime.jsx("span", { children: userInfo?.position }))] })] })] }) }));
 }
 
 const container = styled__default["default"].div `
@@ -5469,8 +5592,8 @@ function CardProblemGestor(props) {
     return (jsxRuntime.jsxs("div", { className: style$8.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [props.problemStatus !== 'problemaCriado' && (jsxRuntime.jsx("div", { className: style$8.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName })), jsxRuntime.jsxs("div", { className: style$8.contentCard, children: [jsxRuntime.jsxs("div", { className: style$8.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$8.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle && (jsxRuntime.jsx("div", { className: style$8.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), props.tags && (jsxRuntime.jsx("div", { className: style$8.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) })), props.ratingImpacto && (jsxRuntime.jsxs("div", { className: style$8.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] })), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }))] })] }));
 }
 
-var css_248z$b = ".cardProblem-module_container__eYX3j {\n  width: 100%;\n  border-radius: 10px;\n  padding-right: 24px;\n  padding-left: 48px;\n  padding-top: 40px;\n  padding-bottom: 24px;\n\n  justify-content: flex-start;\n  align-items: flex-start;\n  flex-direction: row;\n  position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n.cardProblem-module_contentCard__oBqoN:hover {\n  cursor: pointer;\n}\n\n.cardProblem-module_tagStatusProblem__11NQe {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: flex;\n  font-size: 12px;\n  font-weight: 500;\n  padding: 8px;\n  border-bottom-left-radius: 8px;\n  border-top-right-radius: 5px;\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n  display: flex;\n  justify-content: flex-start;\n  align-items: flex-start;\n  height: 100%;\n  padding-top: 17px;\n  padding-left: 16px;\n\n  position: absolute;\n  left: 0;\n}\n\n.cardProblem-module_contentCard__oBqoN {\n  margin-left: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: row;\n  margin-bottom: 24px;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n  margin-left: 16px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n  margin-top: 4px;\n  margin-bottom: 8px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  font-weight: 600;\n  font-size: 18px;\n  word-break: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  font-weight: 600;\n\n  margin-bottom: 26px;\n  margin-right: 30px;\n}\n";
-var style$7 = {"container":"cardProblem-module_container__eYX3j","contentCard":"cardProblem-module_contentCard__oBqoN","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
+var css_248z$b = ".cardProblem-module_container__eYX3j {\n  width: 100%;\n  border-radius: 10px;\n  padding-right: 24px;\n  padding-left: 48px;\n  padding-top: 40px;\n  padding-bottom: 24px;\n\n  justify-content: flex-start;\n  align-items: flex-start;\n  flex-direction: row;\n  position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n\n\n.cardProblem-module_tagStatusProblem__11NQe {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: flex;\n  font-size: 12px;\n  font-weight: 500;\n  padding: 8px;\n  border-bottom-left-radius: 8px;\n  border-top-right-radius: 5px;\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n  display: flex;\n  justify-content: flex-start;\n  align-items: flex-start;\n  height: 100%;\n  padding-top: 17px;\n  padding-left: 16px;\n\n  position: absolute;\n  left: 0;\n}\n\n.cardProblem-module_contentCard__oBqoN {\n  margin-left: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: row;\n  margin-bottom: 24px;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n  margin-left: 16px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n  margin-top: 4px;\n  margin-bottom: 8px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  font-weight: 600;\n  font-size: 18px;\n  word-break: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  font-weight: 600;\n\n  margin-bottom: 26px;\n  margin-right: 30px;\n}\n";
+var style$7 = {"container":"cardProblem-module_container__eYX3j","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","contentCard":"cardProblem-module_contentCard__oBqoN","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
 styleInject(css_248z$b);
 
 const translate = {
@@ -5601,9 +5724,7 @@ function CardProblem(props) {
                     color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF'
                 }, children: [statusName, statusName === translate[languageSlected]['finished'] && (jsxRuntime.jsx("div", { style: { marginLeft: '0.5rem' }, children: jsxRuntime.jsx(CardFinished, {}) }))] }), jsxRuntime.jsx("div", { className: style$7.checkBox, onClick: () => {
                     props.handleSelect(props.problemID);
-                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$7.contentCard, onClick: () => {
-                    props.onClick(props.problemID);
-                }, children: [jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.isVerified ? (jsxRuntime.jsxs("div", { style: { textAlign: 'center', display: 'flex' }, children: [jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['verifiedChallenge'] }) }), jsxRuntime.jsx(SawBadgeIcon, {})] })) : (jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['challenge'] }) })), props.cardTitle && (jsxRuntime.jsx("div", { className: style$7.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), statusName !== translate[languageSlected][6] ? (props.trilhaVinculada ? (jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })) : (jsxRuntime.jsx(TextIcon, { description: translate[languageSlected]['notLinkedTrail'], svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } }))) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#000', fontSize: 12, fontWeight: 400, marginTop: 40 }, children: [props.lastUpdated, " "] })), props.isButtonVerMais && (jsxRuntime.jsx("div", { className: style$7.buttonVerMais, children: jsxRuntime.jsx(Button$5, { variant: "link", label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) }))] })] }));
+                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$7.contentCard, children: [jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar, onClick: props.onClickAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600, cursor: 'pointer' }, onClick: props.onClickName, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.isVerified ? (jsxRuntime.jsxs("div", { style: { textAlign: 'center', display: 'flex' }, children: [jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['verifiedChallenge'] }) }), jsxRuntime.jsx(SawBadgeIcon, {})] })) : (jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['challenge'] }) })), props.cardTitle && (jsxRuntime.jsx("div", { className: style$7.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), statusName !== translate[languageSlected][6] ? (props.trilhaVinculada ? (jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })) : (jsxRuntime.jsx(TextIcon, { description: translate[languageSlected]['notLinkedTrail'], svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } }))) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#000', fontSize: 12, fontWeight: 400, marginTop: 40 }, children: [props.lastUpdated, " "] })), props.isButtonVerMais && (jsxRuntime.jsx("div", { className: style$7.buttonVerMais, children: jsxRuntime.jsx(Button$5, { variant: "link", label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) }))] })] }));
 }
 
 var css_248z$a = ".cardDefinicaoFase-module_container__KEYns {\r\n  width: 282px !important;\r\n  max-width: 282px !important;\r\n  color: #222222;\r\n  background-color: #fff;\r\n  border-radius: 10px;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  position: relative;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_headerContainer__uxRId {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: flex-end;\r\n  background: rgba(241, 134, 36, 0.2);\r\n  height: 200px;\r\n  max-width: 282px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleDescription__x7pED {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 16px;\r\n  line-height: 110%;\r\n  color: #444444;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_description__-pzJG {\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 23px;\r\n  color: #f26818;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_descriptionContainer__XLHCC {\r\n  padding: 20px;\r\n  height: 197px;\r\n  max-width: 282px !important;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin-bottom: 1rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonContainer__6u6bM {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n\r\n.cardDefinicaoFase-module_divisoria__IYAiv {\r\n  border: 1px solid #bdbdbd;\r\n  transform: rotate(360deg);\r\n}\r\n\r\n.cardDefinicaoFase-module_titleAndMenu__aqXT0 {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  width: 100%;\r\n  align-items: center;\r\n  margin-bottom: 9px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleFrase__b8v0i {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 25px;\r\n  line-height: 110%;\r\n  color: #f18624;\r\n  max-width: 200px;\r\n  padding-left: 1.5rem;\r\n  padding-bottom: 2rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonFinalizado__V8Oas {\r\n  display: flex;\r\n  justify-content: center;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n";
@@ -5791,19 +5912,16 @@ function CardResultConquista(props) {
     React.useEffect(() => {
         setBtnViewMore(props.textMoreDetails);
     }, [props.textMoreDetails]);
-    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, onClick: () => {
-            props.onClick(props.problemId);
-            setIsPressed(true);
-        }, children: [jsxRuntime.jsxs("div", { className: style$5.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: props.userAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ?
-                        isPressed ?
-                            jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })
-                            :
-                                jsxRuntime.jsx("img", { src: Conquista, alt: "Icone de conquista" })
-                        :
-                            isPressed ?
-                                jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })
-                                :
-                                    jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" })] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$5.description, style: { color: isPressed ? '#FFD600' : '#FF4D0D', fontWeight: 500, fontSize: 16, textAlign: 'center', marginTop: 12 }, children: props.description }), jsxRuntime.jsx("div", { className: style$5.verMais, children: btnViewMore ? btnViewMore : "Mais detalhes" })] }));
+    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, children: [jsxRuntime.jsxs("div", { className: style$5.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: "50px", src: props.userAvatar, onClick: props.onClickAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ? (isPressed ? (jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })) : (jsxRuntime.jsx("img", { src: Conquista, alt: "Icone de conquista" }))) : isPressed ? (jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })) : (jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" }))] }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, onClick: props.onClickName, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$5.description, style: {
+                    color: isPressed ? '#FFD600' : '#FF4D0D',
+                    fontWeight: 500,
+                    fontSize: 16,
+                    textAlign: 'center',
+                    marginTop: 12
+                }, children: props.description }), jsxRuntime.jsx("div", { onClick: () => {
+                    props.onClick(props.problemId);
+                    setIsPressed(true);
+                }, className: style$5.verMais, children: btnViewMore ? btnViewMore : 'Mais detalhes' })] }));
 }
 
 const WrapperCard$7 = styled__default["default"].div `
@@ -5839,14 +5957,14 @@ function ExclusiveClassCard({ titleClass, labelButton, className, handleClick })
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$7, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$3, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$5, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
-function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails }) {
+function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails, onClickAvatar, onClickName }) {
     React.useState(-1);
     const [btnViewMore, setBtnViewMore] = React.useState('');
     React.useEffect(() => {
         setBtnViewMore(textMoreDetails);
     }, [textMoreDetails]);
     function renderCard(item, index) {
-        return (jsxRuntime.jsx(CardResultConquista, { textMoreDetails: btnViewMore ? btnViewMore : 'Mais detalhes', description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' } }, index));
+        return (jsxRuntime.jsx(CardResultConquista, { textMoreDetails: btnViewMore ? btnViewMore : 'Mais detalhes', description: item.description, problemId: item.problemId, statusCard: item.statusCard, userArea: item.userArea, userName: item.userName, userAvatar: item.userAvatar, onClick: () => onSelected(item.problemId), style: { marginRight: '24px', whiteSpace: 'pre-wrap' }, onClickAvatar: onClickAvatar, onClickName: onClickName }, index));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
 }
@@ -9846,7 +9964,7 @@ function NotificationPopOver(props) {
                             }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
 
-function GlobalMenu({ variant, menu, customMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, hiddenProfileMenu, onClickLogo, showProfile = true }) {
+function GlobalMenu({ variant, menu, customMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, hiddenProfileMenu, onClickLogo, onClickMenuHamburger, showProfile = true }) {
     const [valueSearch, setValueSearch] = React.useState(search.value);
     const [valueListSearch, setValueListSearch] = React.useState(search.listEntry);
     const [loadingSearch, setLoadingSearch] = React.useState(search.loading);
@@ -9950,7 +10068,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                 paddingRight: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : isMobileVersion ? '12px' : '35px',
                                 ...style
-                            }, children: [isMobileVersion && !HideHambMenu && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isMobileVersion && HideHambMenu && (jsxRuntime.jsx(ArrowButton, { onClick: () => setControlExpandedSearchMobile(false), children: jsxRuntime.jsx(BackArrow, { fill: FRSTTheme['colors'].selectItens }) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleSideMenu(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: isTabletVersion && 32 }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%', justifyContent: 'space-between' }, children: [!isMobileVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, textLoading: search.textLoading, setFieldSearchIsOpen: setControlExpandedSearchMobile, fieldSearchIsOpen: controlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                            }, children: [isMobileVersion && !HideHambMenu && (jsxRuntime.jsx(HamburgerButton, { onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isMobileVersion && HideHambMenu && (jsxRuntime.jsx(ArrowButton, { onClick: () => setControlExpandedSearchMobile(false), children: jsxRuntime.jsx(BackArrow, { fill: FRSTTheme['colors'].selectItens }) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: isTabletVersion && 32 }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsxs(WrapperMenu, { style: { height: '100%', justifyContent: 'space-between' }, children: [!isMobileVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, placeholder: search.label, onFilter: search.onFilter, loading: loadingSearch, textLoading: search.textLoading, setFieldSearchIsOpen: setControlExpandedSearchMobile, fieldSearchIsOpen: controlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                                 width: windowSize[0] < 830 ? '230px' : windowSize[0] > 1500 ? '428px' : '332px'
                                             } })), jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
                                                 height: '100%',
@@ -9994,7 +10112,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                             paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
                             paddingLeft: windowSize[0] > 1400 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
                             ...style
-                        }, children: [isMobileVersion && (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 0 }, onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => setIsVisibleMenuMobile(true), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && !isTabletVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && !isTabletVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
+                        }, children: [isMobileVersion && (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 0 }, onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && !isTabletVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && !isTabletVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                         width: isMobileVersion ? '190px' : '332px'
                                     } })) }), jsxRuntime.jsxs(WrapperRightInfo, { children: [isMobileVersion && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                             width: isMobileVersion ? '180px' : '332px',
@@ -11185,8 +11303,8 @@ function VectorCross(props) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.2051 1.53845V22.8718", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.53809 12.2051H22.8714", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 
-function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNew, handleSwitchAtivar, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverDeleteTrail, title, provided, isDisabled, isLoading, txtButtonLabel, txtCriarNovoCurso, txtCriarNovoCurso2, txtAtivarCurso, txtPopOverDeleteContent, txtPopOverMoveToTrails, txtPopOverEditContent, isActive, isTrail, txtPopOverDeleteTrail, txtPopOverEditContentActivity }) {
-    const defaultImg = "https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png";
+function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNew, handleSwitchAtivar, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMoveToTrail, handleClickPopOverDeleteTrail, title, provided, isDisabled, isLoading, txtButtonLabel, txtCriarNovoCurso, txtCriarNovoCurso2, txtAtivarCurso, txtPopOverDeleteContent, txtPopOverMoveToTrails, txtPopOverEditContent, isActive, isTrail, txtPopOverDeleteTrail, txtPopOverEditContentActivity }) {
+    const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png';
     const [ativo, setAtivo] = React.useState(isDisabled);
     const [showModules, setShowModules] = React.useState(false);
     const [ElementPopover, setElementPopover] = React.useState(null);
@@ -11211,59 +11329,55 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
             backgroundColor: theme.palette.common.white,
             color: 'rgba(0, 0, 0, 0.87)',
             boxShadow: theme.shadows[1],
-            fontSize: 11,
-        },
+            fontSize: 11
+        }
     }));
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [variant === 'default' ?
-                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ?
-                            jsxRuntime.jsxs(LoadingContainer, { children: [jsxRuntime.jsx(LoadingImage, {}), jsxRuntime.jsx(LoadingContent, {}), jsxRuntime.jsx(LoadingContent, { style: { width: '50%' } })] })
-                            :
-                                jsxRuntime.jsxs(ContainerThumbnails, { showSwitchIndividual: showSwitch, className: variant = 'default', ref: provided ? provided.innerRef : null, ...provided ? provided.draggableProps : null, children: [jsxRuntime.jsxs(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, children: [jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] }), jsxRuntime.jsxs(Thumbnails$1, { children: [jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {}), jsxRuntime.jsx(VectorEllipse, {})] })] }), jsxRuntime.jsx(Image, { ref: provided ? provided.innerRef : null, ...provided ? provided.dragHandleProps : null, onMouseEnter: handleHoverImage, className: 'imageHover', src: src || defaultImg, active: ativo }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
-                                                        setElementPopover(element.currentTarget);
-                                                    }, children: jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), showSwitch &&
-                                            jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: ativo, style: { fontWeight: ativo ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: ativo, height: 16, width: 35, checkedIcon: false, uncheckedIcon: false, handleDiameter: 20, onHandleColor: '#ffffff', offHandleColor: '#ffffff', onColor: '#FF4D0D', offColor: '#ebebeb', activeBoxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] })] }) })
-                    : variant === 'add' ?
-                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ?
-                                jsxRuntime.jsxs(LoadingContainer, { children: [jsxRuntime.jsx(LoadingImage, {}), jsxRuntime.jsx(LoadingContent, {}), jsxRuntime.jsx(LoadingContent, { style: { width: '50%' } })] })
-                                :
-                                    jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo' })] }) })
-                        : null, jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [variant === 'default' ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ? (jsxRuntime.jsxs(LoadingContainer, { children: [jsxRuntime.jsx(LoadingImage, {}), jsxRuntime.jsx(LoadingContent, {}), jsxRuntime.jsx(LoadingContent, { style: { width: '50%' } })] })) : (jsxRuntime.jsxs(ContainerThumbnails, { showSwitchIndividual: showSwitch, className: (variant = 'default'), ref: provided ? provided.innerRef : null, ...(provided ? provided.draggableProps : null), children: [jsxRuntime.jsx(GeralThumbnails, { ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), children: [1, 2, 3].map((thumb) => {
+                                    const arr = new Array(10).fill('');
+                                    return (jsxRuntime.jsx(Thumbnails$1, { children: arr.map((item, i) => {
+                                            return jsxRuntime.jsx(VectorEllipse, {}, i);
+                                        }) }, thumb));
+                                }) }), jsxRuntime.jsx(Image, { ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), onMouseEnter: handleHoverImage, className: "imageHover", src: src || defaultImg, active: ativo }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
+                                            setElementPopover(element.currentTarget);
+                                        }, children: jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), showSwitch && (jsxRuntime.jsxs(ContainerAtivar, { children: [jsxRuntime.jsx(TypographyAtivar, { active: ativo, style: { fontWeight: ativo ? 700 : 400 }, children: txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso' }), jsxRuntime.jsx(Switch__default["default"], { onChange: handleChangeCheck, checked: ativo, height: 16, width: 35, checkedIcon: false, uncheckedIcon: false, handleDiameter: 20, onHandleColor: "#ffffff", offHandleColor: "#ffffff", onColor: "#FF4D0D", offColor: "#ebebeb", activeBoxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }))] })) })) : variant === 'add' ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading ? (jsxRuntime.jsxs(LoadingContainer, { children: [jsxRuntime.jsx(LoadingImage, {}), jsxRuntime.jsx(LoadingContent, {}), jsxRuntime.jsx(LoadingContent, { style: { width: '50%' } })] })) : (jsxRuntime.jsxs(ContainerThumbnailsAdd, { children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo' })] })) })) : null, jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                         setElementPopover(null);
-                    }, variant: 'upRight', children: jsxRuntime.jsx("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: isTrail ?
-                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteTrail ? txtPopOverDeleteTrail : "Excluir da trilha", onClick: () => {
+                    }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : 'Editar módulo', onClick: () => {
+                                    setElementPopover(null);
+                                    handleClickPopOverEdit();
+                                }, style: {
+                                    borderBottom: '1px black solid'
+                                } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContentActivity ? txtPopOverEditContentActivity : 'Editar conteúdo', onClick: () => {
+                                    setElementPopover(null);
+                                    handleClickPopOverEditActivity();
+                                }, style: {
+                                    borderBottom: '1px black solid'
+                                } }), isTrail ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteTrail ? txtPopOverDeleteTrail : 'Excluir da trilha', onClick: () => {
                                         setElementPopover(null);
                                         /// timeout para corrigir o bug de scroll na tela
                                         setTimeout(() => {
                                             handleClickPopOverDelete();
                                         }, 500);
-                                    }, isFontBold: true, noBorder: true, color: '#C00F00', icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), style: {
+                                    }, isFontBold: true, noBorder: true, color: '#C00F00', icon: jsxRuntime.jsx(Trash, { fill: "#C00F00" }), style: {
                                         borderBottom: '1px black solid',
                                         width: 100
-                                    } }) })
-                            :
-                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : "Editar módulo", onClick: () => {
-                                                setElementPopover(null);
-                                                handleClickPopOverEdit();
-                                            }, style: {
-                                                borderBottom: '1px black solid'
-                                            } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContentActivity ? txtPopOverEditContentActivity : "Editar conteúdos", onClick: () => {
-                                                setElementPopover(null);
-                                                handleClickPopOverEditActivity();
-                                            }, style: {
-                                                borderBottom: '1px black solid'
-                                            } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteContent ? txtPopOverDeleteContent : "Excluir módulo", onClick: () => {
-                                                setElementPopover(null);
-                                                /// timeout para corrigir o bug de scroll na tela
-                                                setTimeout(() => {
-                                                    handleClickPopOverDelete();
-                                                }, 500);
-                                            }, icon: jsxRuntime.jsx(Trash, { fill: '#C00F00' }), noBorder: true, isFontBold: true, color: '#C00F00' })] }) }) })] }) }));
+                                    } }) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverMoveToTrails ? txtPopOverMoveToTrails : 'Mover para tilha', onClick: () => {
+                                            setElementPopover(null);
+                                            handleClickPopOverMoveToTrail();
+                                        }, style: {
+                                            borderBottom: '1px black solid'
+                                        } }), jsxRuntime.jsx(PopOverItem, { label: txtPopOverDeleteContent ? txtPopOverDeleteContent : 'Excluir módulo', onClick: () => {
+                                            setElementPopover(null);
+                                            /// timeout para corrigir o bug de scroll na tela
+                                            setTimeout(() => {
+                                                handleClickPopOverDelete();
+                                            }, 500);
+                                        }, icon: jsxRuntime.jsx(Trash, { fill: "#C00F00" }), noBorder: true, isFontBold: true, color: '#C00F00' })] }))] }) })] }) }));
 }
 
 // import { Draggable } from 'react-beautiful-dnd'
-function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleSwitchAtivar, title, id, index, isDisabled, isLoading, txtButtonLabel, txtAtivarCurso, showSwitch, txtCriarNovoCurso, txtCriarNovoCurso2, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMove, txtPopOverDeleteContent, txtPopOverEditContent, isActive, isTrail, txtPopOverMoveToTrails, txtPopOverDeleteTrail, txtPopOverEditContentActivity }) {
+function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleSwitchAtivar, title, id, index, isDisabled, isLoading, txtButtonLabel, txtAtivarCurso, showSwitch, txtCriarNovoCurso, txtCriarNovoCurso2, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMove, handleClickPopOverMoveToTrail, txtPopOverDeleteContent, txtPopOverEditContent, isActive, isTrail, txtPopOverMoveToTrails, txtPopOverDeleteTrail, txtPopOverEditContentActivity }) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(dnd.Draggable, { index: parseInt(index), draggableId: id, children: (provided) => {
-                return (jsxRuntime.jsx(Thumbnails, { src: src, isDisabled: isDisabled, handleClickCourse: handleClickCourse, handleSwitchAtivar: handleSwitchAtivar, handleClickNew: handleClickNew, handleClickContent: handleClickContent, variant: variant, title: title, id: id, isActive: isActive, isLoading: isLoading, showSwitch: showSwitch, index: index, isTrail: isTrail, provided: provided, txtButtonLabel: txtButtonLabel, txtAtivarCurso: txtAtivarCurso, txtCriarNovoCurso: txtCriarNovoCurso, txtCriarNovoCurso2: txtCriarNovoCurso2, handleClickPopOverEditActivity: handleClickPopOverEditActivity, handleClickPopOverDelete: handleClickPopOverDelete, handleClickPopOverEdit: handleClickPopOverEdit, handleClickPopOverMove: handleClickPopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails, txtPopOverDeleteTrail: txtPopOverDeleteTrail, txtPopOverEditContentActivity: txtPopOverEditContentActivity }));
+                return (jsxRuntime.jsx(Thumbnails, { src: src, isDisabled: isDisabled, handleClickCourse: handleClickCourse, handleSwitchAtivar: handleSwitchAtivar, handleClickNew: handleClickNew, handleClickContent: handleClickContent, variant: variant, title: title, id: id, isActive: isActive, isLoading: isLoading, showSwitch: showSwitch, index: index, isTrail: isTrail, provided: provided, txtButtonLabel: txtButtonLabel, txtAtivarCurso: txtAtivarCurso, txtCriarNovoCurso: txtCriarNovoCurso, txtCriarNovoCurso2: txtCriarNovoCurso2, handleClickPopOverEditActivity: handleClickPopOverEditActivity, handleClickPopOverDelete: handleClickPopOverDelete, handleClickPopOverEdit: handleClickPopOverEdit, handleClickPopOverMove: handleClickPopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails, txtPopOverDeleteTrail: txtPopOverDeleteTrail, txtPopOverEditContentActivity: txtPopOverEditContentActivity, handleClickPopOverMoveToTrail: handleClickPopOverMoveToTrail }));
             } }, id) }));
 }
 
@@ -11520,52 +11634,71 @@ function AccordionTrack(props) {
     React.useEffect(() => {
         setCourseIndividualData(props.courseIndividualData);
     }, [props.courseIndividualData]);
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContentCourses, { TrailName: '', children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsx("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: IsLoading ?
-                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(LoadingContent$1, { style: { width: 200, height: 20 } }) })
-                                    :
-                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", courseData.length, " ", props.textRegistros ? props.textRegistros : 'registros'] }) })] }), jsxRuntime.jsx(dnd.Droppable, { droppableId: MEUS_CONTEUDOS_CONTENT, direction: "horizontal", children: (provided) => {
-                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: RefreshResize, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: IsLoading ?
-                                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] })
-                                                :
-                                                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { onClick: () => {
-                                                                    props.onNewTrail && props.onNewTrail();
-                                                                }, style: { wordWrap: 'break-word' }, children: jsxRuntime.jsx(Thumbnails, { variant: 'add', isDisabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), courseData && courseData.map((el, contentIndex) => {
-                                                                return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { isDisabled: el.active, id: `content${contentIndex}`, index: contentIndex, title: el.title, variant: 'default', handleSwitchAtivar: (checked) => {
-                                                                            props.handleSwitchAtivarConteudo(el.id, checked);
-                                                                        }, isActive: el.active_individual, showSwitch: true, isTrail: false, src: el.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => { props.handleEditCourse(el.id); }, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.id); }, handleClickPopOverEditActivity: () => { props.handleClickPopOverEditActivity(el.id); }, handleClickPopOverDelete: () => {
-                                                                            setIdDelete(el.id);
-                                                                            setModalDeleteConteudo(true);
-                                                                        }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `content${contentIndex}`) }));
-                                                            })] }) }) }), provided.placeholder] }));
-                        } }, MEUS_CONTEUDOS_CONTENT)] }), IsLoading ?
-                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtLoadingTrilhas ? props.txtLoadingTrilhas : 'Carregando Trilhas...', ativo: true, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
-                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true }), jsxRuntime.jsx(Thumbnails, { variant: 'default', isDisabled: false, isLoading: true })] }) }) }), provided.placeholder] }));
-                            } }, CONTEUDO_INDIVIDUAL_CONTENT) }) })
-                :
-                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Módulos', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
-                                // if (props.handleSwitchActiveTrail) {
-                                //   props.handleSwitchActiveTrail(trailIndex, bActive)
-                                // }
-                            }, handleChangeTrailName: (name) => {
-                                // if (props.onSetNameTrail) {
-                                //   props.onSetNameTrail(name, trailIndex)
-                                // }
-                            }, handleChangeShow: (bShow) => {
-                                console.log(bShow);
-                                setShowIndividual(bShow);
-                            }, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => { props.handlePopOverTrailEdit(id); }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
-                                    return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [courseIndividualData && courseIndividualData.map((individual, individualIndex) => {
-                                                            return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: `contentTrails${1}_individual${individualIndex}`, index: `${individualIndex}`, isDisabled: individual.active === false ? false : individual.active, title: individual.title, variant: 'default', showSwitch: true, handleClickCourse: () => {
-                                                                        props.handleEditCourse(individual.id);
-                                                                    }, handleSwitchAtivar: (checked) => {
-                                                                        props.handleSwitchAtivarConteudo(individual.id, checked);
-                                                                    }, isTrail: false, src: individual.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => { props.handlePopOverEdit(individual.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(individual.id); }, handleClickPopOverEditActivity: () => { props.handleClickPopOverEditActivity(individual.id); }, handleClickPopOverDelete: () => {
-                                                                        setIdDelete(individual.id);
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ContentCourses, { TrailName: '', children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TypographyMyContents, { children: props.textMeusConteudos ? props.textMeusConteudos : 'Meus Conteúdos' }), jsxRuntime.jsx("h2", { style: { fontFamily: 'PT Sans', fontWeight: 700, fontSize: 16, color: '#000000' }, children: IsLoading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(LoadingContent$1, { style: { width: 200, height: 20 } }) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.textTotalDe ? props.textTotalDe : 'Total de', " ", courseData.length, ' ', props.textRegistros ? props.textRegistros : 'registros'] })) })] }), jsxRuntime.jsx(dnd.Droppable, { droppableId: MEUS_CONTEUDOS_CONTENT, direction: "horizontal", children: (provided) => {
+                            return (jsxRuntime.jsxs(ContainerTrailsEmpty, { children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', styles: { justifyContent: 'flex-start', width: '100%' }, refreshResize: RefreshResize, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: IsLoading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: new Array(4).fill('').map((item, k) => {
+                                                    return jsxRuntime.jsx(Thumbnails, { variant: "default", isDisabled: false, isLoading: true }, k);
+                                                }) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("div", { onClick: () => {
+                                                            props.onNewTrail && props.onNewTrail();
+                                                        }, style: { wordWrap: 'break-word' }, children: jsxRuntime.jsx(Thumbnails, { variant: "add", isDisabled: false, txtCriarNovoCurso: props.txtCriarNovoCurso }) }), courseData &&
+                                                        courseData.map((el, contentIndex) => {
+                                                            return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { isDisabled: el.active, id: `content${contentIndex}`, index: contentIndex, title: el.title, variant: 'default', handleSwitchAtivar: (checked) => {
+                                                                        props.handleSwitchAtivarConteudo(el.id, checked);
+                                                                    }, isActive: el.active_individual, showSwitch: true, isTrail: false, src: el.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickCourse: () => {
+                                                                        props.handleEditCourse(el.id);
+                                                                    }, handleClickPopOverEdit: () => {
+                                                                        props.handlePopOverEdit(el.id);
+                                                                    }, handleClickPopOverMove: () => {
+                                                                        props.handlePopOverMove(el.id);
+                                                                    }, handleClickPopOverEditActivity: () => {
+                                                                        props.handleClickPopOverEditActivity(el.id);
+                                                                    }, handleClickPopOverDelete: () => {
+                                                                        setIdDelete(el.id);
                                                                         setModalDeleteConteudo(true);
-                                                                    }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }, `contentTrails${1}_individual${individualIndex}`) }));
-                                                        }), jsxRuntime.jsx("div", { style: { width: 24 } })] }) }), provided.placeholder] }));
-                                } }, CONTEUDO_INDIVIDUAL_CONTENT) }) }), !IsLoading &&
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyMyTrails, { style: { marginTop: 20 }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), trails && trails.map((trail, trailIndex) => {
+                                                                    }, txtPopOverEditContentActivity: props.txtPopOverEditContentActivity, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent, handleClickPopOverMoveToTrail: () => {
+                                                                        props.handleClickPopOverMoveToTrail(el.id);
+                                                                    } }, `content${contentIndex}`) }));
+                                                        })] })) }) }), provided.placeholder] }));
+                        } }, MEUS_CONTEUDOS_CONTENT)] }), IsLoading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtLoadingTrilhas ? props.txtLoadingTrilhas : 'Carregando Trilhas...', ativo: true, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => {
+                        props.handlePopOverTrailEdit(id);
+                    }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
+                            return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: new Array(4).fill('').map((item, k) => {
+                                                    return jsxRuntime.jsx(Thumbnails, { variant: "default", isDisabled: false, isLoading: true }, k);
+                                                }) }) }) }), provided.placeholder] }));
+                        } }, CONTEUDO_INDIVIDUAL_CONTENT) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { TrailName: props.txtCursoIndividual ? props.txtCursoIndividual : 'Módulos', ativo: true, show: ShowIndividual, handleChangeCheck: (bActive) => {
+                        // if (props.handleSwitchActiveTrail) {
+                        //   props.handleSwitchActiveTrail(trailIndex, bActive)
+                        // }
+                    }, handleChangeTrailName: (name) => {
+                        // if (props.onSetNameTrail) {
+                        //   props.onSetNameTrail(name, trailIndex)
+                        // }
+                    }, handleChangeShow: (bShow) => {
+                        console.log(bShow);
+                        setShowIndividual(bShow);
+                    }, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: (id) => {
+                        props.handlePopOverTrailEdit(id);
+                    }, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: CONTEUDO_INDIVIDUAL_CONTENT, direction: "horizontal", children: (provided) => {
+                            return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: {}, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: RefreshResize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsxs(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: [courseIndividualData &&
+                                                    courseIndividualData.map((individual, individualIndex) => {
+                                                        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: `contentTrails${1}_individual${individualIndex}`, index: `${individualIndex}`, isDisabled: individual.active === false ? false : individual.active, title: individual.title, variant: 'default', showSwitch: true, handleClickCourse: () => {
+                                                                    props.handleEditCourse(individual.id);
+                                                                }, handleSwitchAtivar: (checked) => {
+                                                                    props.handleSwitchAtivarConteudo(individual.id, checked);
+                                                                }, isTrail: false, src: individual.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => {
+                                                                    props.handlePopOverEdit(individual.id);
+                                                                }, handleClickPopOverMove: () => {
+                                                                    props.handlePopOverMove(individual.id);
+                                                                }, handleClickPopOverEditActivity: () => {
+                                                                    props.handleClickPopOverEditActivity(individual.id);
+                                                                }, handleClickPopOverDelete: () => {
+                                                                    setIdDelete(individual.id);
+                                                                    setModalDeleteConteudo(true);
+                                                                }, txtPopOverEditContentActivity: props.txtPopOverEditContentActivity, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent, handleClickPopOverMoveToTrail: () => {
+                                                                    props.handleClickPopOverMoveToTrail(individual.id);
+                                                                } }, `contentTrails${1}_individual${individualIndex}`) }));
+                                                    }), jsxRuntime.jsx("div", { style: { width: 24 } })] }) }), provided.placeholder] }));
+                        } }, CONTEUDO_INDIVIDUAL_CONTENT) }) })), !IsLoading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TypographyMyTrails, { style: { marginTop: 20 }, children: props.textMinhasTrihas ? props.textMinhasTrihas : 'Minhas Trilhas' }), trails &&
+                        trails.map((trail, trailIndex) => {
                             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ContentCoursesTrails, { showButtonActive: true, trailId: trail.id, id: `${3000}${trailIndex}`, TrailName: trail.name, private: trail.private, handleChangePrivate: (bPrivate) => {
                                         if (props.handleSwitchPrivateTrail) {
                                             props.handleSwitchPrivateTrail(trailIndex, bPrivate);
@@ -11584,29 +11717,52 @@ function AccordionTrack(props) {
                                             prev[trailIndex] = bShow;
                                             return prev;
                                         });
-                                    }, showButtonPublish: true, handlePublicarTrilha: () => { props.handlePublicarTrilha(trail.id); }, handlePublicarCheck: props.handlePublicarCheck, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: () => { props.handlePopOverTrailEdit(trail.id); }, handlePopOverTrailDelete: (id) => {
+                                    }, showButtonPublish: true, handlePublicarTrilha: () => {
+                                        props.handlePublicarTrilha(trail.id);
+                                    }, handlePublicarCheck: props.handlePublicarCheck, txtAtivarTrilha: props.txtAtivarTrilha, handlePopOverTrailEdit: () => {
+                                        props.handlePopOverTrailEdit(trail.id);
+                                    }, handlePopOverTrailDelete: (id) => {
                                         setIdDelete(trail.id);
                                         setModalDeleteTrilha(true);
-                                    }, children: ShowTrail.length === 0 || ShowTrail[trailIndex] &&
-                                        jsxRuntime.jsx(dnd.Droppable, { droppableId: (trailIndex + 2).toString(), direction: "horizontal", children: (provided) => {
-                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: { height: 350 }, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course && trail.trail_course.map((el, courseTrailIndex) => {
-                                                                    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: `trail_${trailIndex}_course_${courseTrailIndex}`, index: `${courseTrailIndex}`, isDisabled: trail.active === false ? false : el.course.active, title: el.course.title, variant: 'default', handleClickCourse: () => {
-                                                                                props.handleEditCourse(el.course.id);
-                                                                            }, isTrail: true, showSwitch: false, src: el.course.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => { props.handlePopOverEdit(el.course.id); }, handleClickPopOverMove: () => { props.handlePopOverMove(el.course.id); }, handleClickPopOverDelete: () => {
-                                                                                setIdDelete(el.id);
-                                                                                setModalDeleteTrilhaConteudo(true);
-                                                                            }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent }) }));
-                                                                }) }) }), provided.placeholder] }, `contentTrailsDrop${trailIndex}`));
-                                            } }, trailIndex + 2) }, `contentTrails${trailIndex}`) }));
-                        })] }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteConteudo, handleClose: () => { setModalDeleteConteudo(false); }, handleConfirmation: () => { props.handleDeleteCourse(IdDelete); }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar este m\u00F3dulo? Voc\u00EA ir\u00E1 perder todos os conte\u00FAdos criados." }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilha, handleClose: () => { setModalDeleteTrilha(false); }, handleConfirmation: () => {
-                    console.log("Passou aqui");
+                                    }, children: ShowTrail.length === 0 ||
+                                        (ShowTrail[trailIndex] && (jsxRuntime.jsx(dnd.Droppable, { droppableId: (trailIndex + 2).toString(), direction: "horizontal", children: (provided) => {
+                                                return (jsxRuntime.jsxs(ContainerTrailsNormal, { style: { height: 350 }, children: [jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: 80, marginsArrowButton: 10, horizontalMarginInternScroll: '5px', refreshResize: props.updateScrollSize, styles: { backgroundColor: '#ebebeb', justifyContent: 'flex-start', width: '100%' }, children: jsxRuntime.jsx(ContainerCard, { ref: provided.innerRef, ...provided.droppableProps, children: trail.trail_course &&
+                                                                    trail.trail_course.map((el, courseTrailIndex) => {
+                                                                        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(ThumbnailsDraggable, { id: `trail_${trailIndex}_course_${courseTrailIndex}`, index: `${courseTrailIndex}`, isDisabled: trail.active === false ? false : el.course.active, title: el.course.title, variant: 'default', handleClickCourse: () => {
+                                                                                    props.handleEditCourse(el.course.id);
+                                                                                }, isTrail: true, showSwitch: false, src: el.course.settings.cover_thumb_url, txtButtonLabel: props.txtButtonLabel, txtAtivarCurso: props.txtAtivarCurso, txtCriarNovoCurso: props.txtCriarNovoCurso, handleClickPopOverEdit: () => {
+                                                                                    props.handlePopOverEdit(el.course.id);
+                                                                                }, handleClickPopOverEditActivity: () => {
+                                                                                    props.handleClickPopOverEditActivity(el.course.id);
+                                                                                }, handleClickPopOverMove: () => {
+                                                                                    props.handlePopOverMove(el.course.id);
+                                                                                }, handleClickPopOverDelete: () => {
+                                                                                    setIdDelete(el.id);
+                                                                                    setModalDeleteTrilhaConteudo(true);
+                                                                                }, txtPopOverEditContent: props.txtPopOverEditContent, txtPopOverMoveToTrails: props.txtPopOverMoveToTrails, txtPopOverDeleteContent: props.txtPopOverDeleteContent, txtPopOverEditContentActivity: props.txtPopOverEditContentActivity, handleClickPopOverMoveToTrail: () => {
+                                                                                    props.handleClickPopOverMoveToTrail(el.id);
+                                                                                } }) }));
+                                                                    }) }) }), provided.placeholder] }, `contentTrailsDrop${trailIndex}`));
+                                            } }, trailIndex + 2))) }, `contentTrails${trailIndex}`) }));
+                        })] })), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteConteudo, handleClose: () => {
+                    setModalDeleteConteudo(false);
+                }, handleConfirmation: () => {
+                    props.handleDeleteCourse(IdDelete);
+                }, title: 'Você tem certeza?', style: { width: 600 }, confirmationButton: 'Sim, excluir', cancelButton: 'Cancelar', children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar este m\u00F3dulo? Voc\u00EA ir\u00E1 perder todos os conte\u00FAdos criados." }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilha, handleClose: () => {
+                    setModalDeleteTrilha(false);
+                }, handleConfirmation: () => {
+                    console.log('Passou aqui');
                     props.handlePopOverTrailDelete(IdDelete);
-                }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar esta trilha?" }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilhaConteudo, handleClose: () => { setModalDeleteTrilhaConteudo(false); }, handleConfirmation: () => { props.handleDeleteCourseTrail(IdDelete); }, title: "Você tem certeza?", style: { width: 600 }, confirmationButton: "Sim, excluir", cancelButton: "Cancelar", children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer remover o m\u00F3dulo desta trilha?" }) })] }));
+                }, title: 'Você tem certeza?', style: { width: 600 }, confirmationButton: 'Sim, excluir', cancelButton: 'Cancelar', children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer deletar esta trilha?" }) }), jsxRuntime.jsx(ModalLXP, { open: ModalDeleteTrilhaConteudo, handleClose: () => {
+                    setModalDeleteTrilhaConteudo(false);
+                }, handleConfirmation: () => {
+                    props.handleDeleteCourseTrail(IdDelete);
+                }, title: 'Você tem certeza?', style: { width: 600 }, confirmationButton: 'Sim, excluir', cancelButton: 'Cancelar', children: jsxRuntime.jsx("div", { children: "Voc\u00EA realmente quer remover o m\u00F3dulo desta trilha?" }) })] }));
 }
 
 function AccordionTrackList({ trailsData, courseData, handleChange, onNewTrail, handleEditCourse, 
 // handlePopOverDelete,
-handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivar, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha, isLoading, handlePublicarTrilha, changeCourses, handlePublicarCheck, handleClickPopOverEditActivity, handleSwitchPrivateTrail }) {
+handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivar, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverEditContentActivity, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha, isLoading, handlePublicarTrilha, changeCourses, handlePublicarCheck, handleClickPopOverEditActivity, handleSwitchPrivateTrail, handleClickPopOverMoveToTrail }) {
     const [trails, setTrails] = React.useState([]);
     const [courses, setCourses] = React.useState([]);
     const [ConteudoIndividual, setConteudoIndividual] = React.useState([]);
@@ -11624,20 +11780,20 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
         return uuid;
     };
     React.useEffect(() => {
-        console.log("Atualizou em accordionTrackList", courses);
-        setMeusConteudosData(courses ? courses.filter(item => !item.active_individual) : []);
-        setConteudoIndividual(courses ? courses.filter(item => item.active_individual) : []);
+        console.log('Atualizou em accordionTrackList', courses);
+        setMeusConteudosData(courses ? courses.filter((item) => !item.active_individual) : []);
+        setConteudoIndividual(courses ? courses.filter((item) => item.active_individual) : []);
     }, [courses]);
     React.useEffect(() => {
-        console.log("Atualizou props em accordionTrackList", courseData);
+        console.log('Atualizou props em accordionTrackList', courseData);
         if (JSON.stringify(courseData) !== JSON.stringify(courses)) {
-            console.log("Acessando os registros de Cursos");
+            console.log('Acessando os registros de Cursos');
             setCourses(courseData);
         }
     }, [courseData]);
     React.useEffect(() => {
         if (JSON.stringify(trailsData) !== JSON.stringify(trails)) {
-            console.log("Acessando os registros de trilhas");
+            console.log('Acessando os registros de trilhas');
             setTrails(trailsData);
         }
     }, [trailsData]);
@@ -11648,18 +11804,21 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
         if (destination.index === source.index && destination.droppableId === source.droppableId) {
             return;
         }
-        if ((destination.droppableId === MEUS_CONTEUDOS_CONTENT) && (source.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT)) {
+        if (destination.droppableId === MEUS_CONTEUDOS_CONTENT && source.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT) {
             if (handleMessageError) {
                 handleMessageError('ERROR_COPY_TO_CONTENTS');
             }
             return;
         }
-        if ((destination.droppableId !== source.droppableId) &&
-            ((destination.droppableId !== MEUS_CONTEUDOS_CONTENT) && (destination.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT))) {
+        if (destination.droppableId !== source.droppableId &&
+            destination.droppableId !== MEUS_CONTEUDOS_CONTENT &&
+            destination.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT) {
             let idVerification = 0;
-            if ((source.droppableId === MEUS_CONTEUDOS_CONTENT) || (source.droppableId === CONTEUDO_INDIVIDUAL_CONTENT)) {
-                let uuidConteudo = source.droppableId === MEUS_CONTEUDOS_CONTENT ? MeusConteudosData[source.index].uuid : ConteudoIndividual[source.index].uuid;
-                let indexTrail = courses.findIndex(item => item.uuid === uuidConteudo);
+            if (source.droppableId === MEUS_CONTEUDOS_CONTENT || source.droppableId === CONTEUDO_INDIVIDUAL_CONTENT) {
+                let uuidConteudo = source.droppableId === MEUS_CONTEUDOS_CONTENT
+                    ? MeusConteudosData[source.index].uuid
+                    : ConteudoIndividual[source.index].uuid;
+                let indexTrail = courses.findIndex((item) => item.uuid === uuidConteudo);
                 idVerification = courseData[indexTrail].id;
             }
             else {
@@ -11674,11 +11833,13 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
             }
         }
         /// Copiando do Meus conteúdos para Individual ou Individual para conteúdos
-        if (((source.droppableId === MEUS_CONTEUDOS_CONTENT) && (destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT)) ||
-            ((source.droppableId === CONTEUDO_INDIVIDUAL_CONTENT) && (destination.droppableId === MEUS_CONTEUDOS_CONTENT))) {
+        if ((source.droppableId === MEUS_CONTEUDOS_CONTENT && destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT) ||
+            (source.droppableId === CONTEUDO_INDIVIDUAL_CONTENT && destination.droppableId === MEUS_CONTEUDOS_CONTENT)) {
             /// Selecionando o UUID do conteúdo (se é individual ou não)
-            let uuidConteudo = source.droppableId === MEUS_CONTEUDOS_CONTENT ? MeusConteudosData[source.index].uuid : ConteudoIndividual[source.index].uuid;
-            let indexTrail = courses.findIndex(item => item.uuid === uuidConteudo);
+            let uuidConteudo = source.droppableId === MEUS_CONTEUDOS_CONTENT
+                ? MeusConteudosData[source.index].uuid
+                : ConteudoIndividual[source.index].uuid;
+            let indexTrail = courses.findIndex((item) => item.uuid === uuidConteudo);
             if (indexTrail >= 0) {
                 let changedCourse = courses[indexTrail];
                 changedCourse.active_individual = destination.droppableId === CONTEUDO_INDIVIDUAL_CONTENT;
@@ -11713,7 +11874,9 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
                 prev = [...prev];
                 /// Armazendo o dado da trilha que será deletada
                 let deletedItem = null;
-                if (source.droppableId !== MEUS_CONTEUDOS_CONTENT && source.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT && source.droppableId !== destination.droppableId) {
+                if (source.droppableId !== MEUS_CONTEUDOS_CONTENT &&
+                    source.droppableId !== CONTEUDO_INDIVIDUAL_CONTENT &&
+                    source.droppableId !== destination.droppableId) {
                     deletedItem = prev[source.droppableId - 2].trail_course[source.index];
                 }
                 /// Verificando se a movimentação vai ser do conteúdo ou das trilhas
@@ -11745,7 +11908,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
         });
     };
     const setActiveContent = (id, active) => {
-        let indexTrail = courses.findIndex(item => item.id === id);
+        let indexTrail = courses.findIndex((item) => item.id === id);
         setCourses((prev) => {
             prev = [...prev];
             prev[indexTrail].active = active;
@@ -11772,7 +11935,7 @@ handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrail
                     if (onNewTrail) {
                         onNewTrail();
                     }
-                }, handleSwitchAtivarConteudo: setActiveContent, handleSwitchAtivar: handleSwitchAtivar, handleEditCourse: handleEditCourse, handlePublicarTrilha: handlePublicarTrilha, handlePublicarCheck: handlePublicarCheck, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, isLoading: isLoading, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails, txtPopOverEditContent: txtPopOverEditContent, handleClickPopOverEditActivity: handleClickPopOverEditActivity }) }) }));
+                }, handleSwitchAtivarConteudo: setActiveContent, handleSwitchAtivar: handleSwitchAtivar, handleEditCourse: handleEditCourse, handlePublicarTrilha: handlePublicarTrilha, handlePublicarCheck: handlePublicarCheck, textMeusConteudos: textMeusConteudos, textTotalDe: textTotalDe, textRegistros: textRegistros, textMinhasTrihas: textMinhasTrihas, txtAtivarCurso: txtAtivarCurso, txtAtivarTrilha: txtAtivarTrilha, txtButtonLabel: txtButtonLabel, txtCriarNovoCurso: txtCriarNovoCurso, isLoading: isLoading, updateScrollSize: updateScrollSize, handleDeleteCourse: handleDeleteCourse, handleDeleteCourseTrail: handleDeleteCourseTrail, handlePopOverTrailDelete: handlePopOverTrailDelete, handlePopOverEdit: handlePopOverEdit, handlePopOverTrailEdit: handlePopOverTrailEdit, handlePopOverMove: handlePopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails, txtPopOverEditContent: txtPopOverEditContent, handleClickPopOverEditActivity: handleClickPopOverEditActivity, handleClickPopOverMoveToTrail: handleClickPopOverMoveToTrail, txtPopOverEditContentActivity: txtPopOverEditContentActivity }) }) }));
 }
 
 const Container$4 = styled__default["default"].div `
@@ -18015,6 +18178,7 @@ exports.CalendarFilledIcon = CalendarFilledIcon;
 exports.CalendarLineIcon = CalendarLineIcon;
 exports.CalendarLxp = CalendarLxp;
 exports.CardDefinicaoFase = CardDefinicaoFase;
+exports.CardPeople = CardPeople;
 exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
