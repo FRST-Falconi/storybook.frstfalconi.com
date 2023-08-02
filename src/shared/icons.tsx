@@ -371,7 +371,7 @@ export function Trash({ fill, width, height }: IconsProps) {
     <svg
       width={width ? width : '14'}
       height={height ? height : '16'}
-      viewBox="0 0 14 16"
+      viewBox={`0 0 ${width ? width :'14'} ${height ? height : '16'}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
