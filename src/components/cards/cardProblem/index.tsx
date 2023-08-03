@@ -22,6 +22,7 @@ interface CardProblemProps {
   onClick?: (problemID: string) => void
   onClickAvatar?: () => void
   onClickName?: () => void
+  isActiveClickProfile?: boolean
   problemID: string
   userName: string
   userCargo: string
@@ -207,10 +208,10 @@ export default function CardProblem(props: CardProblemProps) {
         <div className={style.avatarInfoUser}>
           <div>
             {' '}
-            <Avatar size="40px" src={props.userAvatar} onClick={props.onClickAvatar} />{' '}
+            <Avatar size="40px" src={props.userAvatar} onClick={props.onClickAvatar} isActiveClick={props?.isActiveClickProfile}/>{' '}
           </div>
           <div className={style.infoUser}>
-            <span style={{ fontSize: 16, fontWeight: 600, cursor: 'pointer' }} onClick={props.onClickName}>
+            <span style={{ fontSize: 16, fontWeight: 600, cursor: props?.isActiveClickProfile ? 'pointer': 'auto' }} onClick={props.onClickName}>
               {props.userName}
             </span>
             <span style={{ fontSize: 14, fontWeight: 400 }}>{props.userCargo}</span>
