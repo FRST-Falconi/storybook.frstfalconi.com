@@ -3,14 +3,28 @@ import styled, { css } from 'styled-components'
 export const Container = styled.div`
   width: 270px;
   height: fit-content;
-  background-color: ${({ theme }) => theme.colors.primary2};
+  background: linear-gradient(180deg, #ee4c15 0%, #cc362d 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   box-sizing: border-box;
-  padding: 32px 8px 16px 8px;
+  padding-top: 16px;
+
+  > .frame {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    background: #f18624;
+    padding: 8px;
+    padding-bottom: 16px;
+  }
 `
 export const Image = styled.img`
   height: 189px;
