@@ -144,6 +144,7 @@ export const FooterButton = styled.div`
     margin-top: 15px;
     justify-content: space-around;
     align-items: center;
+    white-space: nowrap;
 `
 
 export const ButtonSend = styled.div`
