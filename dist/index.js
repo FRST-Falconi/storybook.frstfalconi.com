@@ -7956,14 +7956,28 @@ function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, start
 const Container$a = styled__default["default"].div `
   width: 270px;
   height: fit-content;
-  background-color: ${({ theme }) => theme.colors.primary2};
+  background: linear-gradient(180deg, #ee4c15 0%, #cc362d 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   box-sizing: border-box;
-  padding: 32px 8px 16px 8px;
+  padding-top: 16px;
+
+  > .frame {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    background: #f18624;
+    padding: 8px;
+    padding-bottom: 16px;
+  }
 `;
 const Image$3 = styled__default["default"].img `
   height: 189px;
@@ -8196,10 +8210,20 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
     };
     function Exibir() {
         return (jsxRuntime.jsx(dnd.DragDropContext, { onDragEnd: onDragEnd, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: "contentListData", children: (provided) => (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '100vh', width: 270 }, ref: provided.innerRef, children: contentListData?.map((item, index) => {
-                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs("div", { onClick: () => { handleClick(item); }, style: { display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer' }, children: [iconList[item.type], jsxRuntime.jsx(Title$2, { children: item.title })] }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: () => { removeContentList(item); }, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
+                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs("div", { onClick: () => {
+                                            handleClick(item);
+                                        }, style: {
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            alignItems: 'center',
+                                            height: '100%',
+                                            cursor: 'pointer'
+                                        }, children: [iconList[item.type], jsxRuntime.jsx(Title$2, { children: item.title })] }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: () => {
+                                            removeContentList(item);
+                                        }, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
                     }) })) }) }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$a, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), jsxRuntime.jsx("div", { children: up ? (jsxRuntime.jsx(Exibir, {})) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Container$a, { className: (variant = 'individualCourse'), children: jsxRuntime.jsxs("div", { className: "frame", children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }) }), jsxRuntime.jsx("div", { children: up ? jsxRuntime.jsx(Exibir, {}) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
 }
 
 const LandscapeContainer = styled__default["default"].label `
