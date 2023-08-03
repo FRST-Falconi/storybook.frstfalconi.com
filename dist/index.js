@@ -7954,171 +7954,183 @@ function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, start
 }
 
 const Container$a = styled__default["default"].div `
-    width: 270px;
-    min-height: 409px;
-    background-color: ${({ theme }) => theme.colors.primary2};
+  width: 270px;
+  height: fit-content;
+  background: linear-gradient(180deg, #ee4c15 0%, #cc362d 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  padding-top: 16px;
+
+  > .frame {
+    width: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
     position: relative;
     box-sizing: border-box;
-    padding: 16px 16px 24px 16px;
+    background: #f18624;
+    padding: 8px;
+    padding-bottom: 16px;
+  }
 `;
 const Image$3 = styled__default["default"].img `
-    width: 236px;
-    height: 310px;
-    border-radius: 8px;
-    object-fit: cover;
-    object-position: center;
+  height: 189px;
+  width: 100%;
+  border-radius: 8px;
+  object-position: center;
+  object-fit: cover;
 `;
 const Content$1 = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    width: 100%;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
 `;
-const Typography$3 = styled__default["default"].p `     
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 23px;
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    word-wrap: break-word;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
-    white-space: pre-wrap;
-    text-overflow: ellipsis;
+const Typography$3 = styled__default["default"].p `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
 `;
 const Select$1 = styled__default["default"].div `
-    background: none;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
+  background: none;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
 
-    &:hover {
-        opacity: 0.5;
-    }
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 const ContainerCard$1 = styled__default["default"].div `
-    width: 270px;
-    height: 76px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  width: 270px;
+  height: 76px;
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
 
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey9};
-    }
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+  }
 
-    &:active {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey6};
-    }
-    
-    &:hover .trash {
-        right: 15px;       
-    }
+  &:active {
+    background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+  }
+
+  &:hover .trash {
+    right: 15px;
+  }
 `;
 const Thumbnails$2 = styled__default["default"].div `
-    width: 17.29px;
-    height: 51px;    
-    margin-left: -11px;       
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
+  width: 17.29px;
+  height: 51px;
+  margin-left: -11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const Title$2 = styled__default["default"].div `
-    width: 166px;
-    margin-left: 12px;
-    word-wrap: break-word;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
-    white-space: pre-wrap;
-    text-overflow: ellipsis;
+  width: 166px;
+  margin-left: 12px;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
 `;
 const IconTrash = styled__default["default"].div `
-    cursor: pointer;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    right: -15px;
-    position: absolute;
-    transition: all .5s linear;
-    
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  right: -15px;
+  position: absolute;
+  transition: all 0.5s linear;
 `;
 // ##############TRILHA##############
 const ContainerTrilha = styled__default["default"].div `
-    width: 270px;
-    height: 499px;
-    background-color: ${({ theme }) => theme.colors.primary2};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;       
-
+  width: 270px;
+  height: 499px;
+  background-color: ${({ theme }) => theme.colors.primary2};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 `;
 const ContainerChoice = styled__default["default"].div `
-    width: 232px;
-    height: 75px;
-    position: absolute;
-    top: 0;
-    margin: 20px;    
+  width: 232px;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  margin: 20px;
 `;
-const TypographyChoice = styled__default["default"].p `            
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
-        color: #ffffff;
-        padding-bottom: 8px;
-        white-space: nowrap;    
+const TypographyChoice = styled__default["default"].p `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
+  padding-bottom: 8px;
+  white-space: nowrap;
 `;
-const SelectChoice = styled__default["default"].select `    
-        width: 232px;
-        height: 48px;
-        border-radius: 8px;
-        border: 1px solid #E0E0E0;
-        color: #9c9c9c;
-        padding-left: 10px;
+const SelectChoice = styled__default["default"].select `
+  width: 232px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  color: #9c9c9c;
+  padding-left: 10px;
 `;
 const ImageChoice = styled__default["default"].img `
-    width: 232px;
-    height: 310px;
-    margin-bottom: 70px;
-    border-radius: 8px;
-    position: absolute;
-    object-fit: cover;
-    bottom: 0;    
+  width: 232px;
+  height: 310px;
+  margin-bottom: 70px;
+  border-radius: 8px;
+  position: absolute;
+  object-fit: cover;
+  bottom: 0;
 `;
 const ContentChoice = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    position: absolute ;
-    margin-top: 425px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 425px;
 `;
 const OptionChoice = styled__default["default"].option `
-    color: #9c9c9c;
+  color: #9c9c9c;
 `;
 
 ///-----------------------------------------
@@ -8198,10 +8210,20 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
     };
     function Exibir() {
         return (jsxRuntime.jsx(dnd.DragDropContext, { onDragEnd: onDragEnd, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: "contentListData", children: (provided) => (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '100vh', width: 270 }, ref: provided.innerRef, children: contentListData?.map((item, index) => {
-                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs("div", { onClick: () => { handleClick(item); }, style: { display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer' }, children: [iconList[item.type], jsxRuntime.jsx(Title$2, { children: item.title })] }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: () => { removeContentList(item); }, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
+                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$2, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs("div", { onClick: () => {
+                                            handleClick(item);
+                                        }, style: {
+                                            display: 'flex',
+                                            flexDirection: 'row',
+                                            alignItems: 'center',
+                                            height: '100%',
+                                            cursor: 'pointer'
+                                        }, children: [iconList[item.type], jsxRuntime.jsx(Title$2, { children: item.title })] }), jsxRuntime.jsx(IconTrash, { className: "trash", onClick: () => {
+                                            removeContentList(item);
+                                        }, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
                     }) })) }) }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(Container$a, { className: (variant = 'individualCourse'), children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), jsxRuntime.jsx("div", { children: up ? (jsxRuntime.jsx(Exibir, {})) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Container$a, { className: (variant = 'individualCourse'), children: jsxRuntime.jsxs("div", { className: "frame", children: [jsxRuntime.jsx(Image$3, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }) }), jsxRuntime.jsx("div", { children: up ? jsxRuntime.jsx(Exibir, {}) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
 }
 
 const LandscapeContainer = styled__default["default"].label `
