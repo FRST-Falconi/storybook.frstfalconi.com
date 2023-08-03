@@ -4642,8 +4642,12 @@ const ImageContent = styled__default["default"].div `
 `;
 
 function AdmButton({ variant, count, image, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(AvatarContent, { onClick: onClick, background: variant != 'count' ? '#E0E0E0' :
-                'rgba(68, 68, 68, 1)', children: [variant == 'count' && jsxRuntime.jsxs("div", { style: { paddingRight: '6px' }, children: ["+", count] }), variant == 'add' && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ImageAvatarContent, { children: jsxRuntime.jsx(EmptyAvatar, {}) }), jsxRuntime.jsx(PlusButton, { children: "+" })] })), " ", variant == 'image' && (jsxRuntime.jsx(jsxRuntime.Fragment, { children: image ? jsxRuntime.jsx(ImageContent, { children: jsxRuntime.jsx("img", { src: image, alt: "" }) }) : jsxRuntime.jsx(ImageAvatarContent, { children: jsxRuntime.jsx(EmptyAvatar, {}) }) }))] }) }));
+    const backgroudVariant = React.useMemo(() => {
+        if (variant === 'count' || variant === 'countMore')
+            return 'rgba(68, 68, 68, 1)';
+        return '#E0E0E0';
+    }, [variant]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(AvatarContent, { onClick: onClick, background: backgroudVariant, children: [variant == 'count' && jsxRuntime.jsxs("div", { style: { paddingRight: '6px' }, children: ["+", count] }), variant == 'countMore' && jsxRuntime.jsxs("div", { style: { paddingRight: '6px' }, children: [count, "+"] }), variant == 'add' && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ImageAvatarContent, { children: jsxRuntime.jsx(EmptyAvatar, {}) }), jsxRuntime.jsx(PlusButton, { children: "+" })] })), " ", variant == 'image' && (jsxRuntime.jsx(jsxRuntime.Fragment, { children: image ? jsxRuntime.jsx(ImageContent, { children: jsxRuntime.jsx("img", { src: image, alt: "" }) }) : jsxRuntime.jsx(ImageAvatarContent, { children: jsxRuntime.jsx(EmptyAvatar, {}) }) }))] }) }));
 }
 
 const CheckBoxWrapper = styled__default["default"].div `
@@ -4755,7 +4759,10 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items,
                                                         top: '8px',
                                                         left: '4px',
                                                         boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                                    }, children: jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreClick(i.id), variant: 'count', count: i.adms.length - maxAdmToShow }) })), i.adms
+                                                    }, children: i.adms.length < 9 ?
+                                                        jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreClick(i.id), variant: 'count', count: i.adms.length - maxAdmToShow })
+                                                        :
+                                                            jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreClick(i.id), variant: 'countMore', count: 9 }) })), i.adms
                                                     .filter((a, aIndex) => aIndex < maxAdmToShow)
                                                     .map((adm) => {
                                                     return jsxRuntime.jsx(Tooltip$2, { content: adm.name, direction: 'bottom', delay: 500, style: {
