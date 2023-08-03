@@ -7970,12 +7970,13 @@ const Container$a = styled__default["default"].div `
     height: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     position: relative;
     box-sizing: border-box;
     background: #f18624;
     padding: 8px;
+    gap: 7.75px;
+
     padding-bottom: 16px;
   }
 `;
@@ -7993,7 +7994,6 @@ const Content$1 = styled__default["default"].div `
   justify-content: flex-start;
   position: relative;
   width: 100%;
-  margin-top: 20px;
 `;
 const Typography$3 = styled__default["default"].p `
   font-family: 'Work Sans';
