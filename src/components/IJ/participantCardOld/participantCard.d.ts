@@ -1,6 +1,6 @@
 import React from "react"
 
-type enumVariant = 'primary' | 'secondary' 
+type enumVariant = 'primary' | 'secondary' | 'tertiary'
 
 export interface ParticipantCardI {
     variant?: enumVariant,
