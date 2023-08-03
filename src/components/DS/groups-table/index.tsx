@@ -198,11 +198,20 @@ export default function GroupsTable({
 													boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 												}}
 											>
+												{i.adms.length < 9 ? 	
 												<AdmButton
 													onClick={() => onShowMoreClick(i.id)}
 													variant={'count'}
 													count={i.adms.length - maxAdmToShow}
+												/> 
+												:
+												<AdmButton
+													onClick={() => onShowMoreClick(i.id)}
+													variant={'countMore'}
+													count={9}
 												/>
+												}
+											
 											</Tooltip>
 
 
