@@ -25,7 +25,8 @@ export default function ScrollContainer({
   refreshResize,
   widthProtectClick,
   hiddenHorizontalScrollBar,
-  colorBackground
+  colorBackground,
+  paddingLeft
 }: IScrollContainer) {
   const [actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
   const [actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
@@ -196,7 +197,9 @@ function ButtonArrow({
         justifyContent: isLeftButton ? 'flex-start' : 'flex-end',
         alignItems: 'center',
         visibility: isVisible ? 'visible' : 'hidden',
-        boxShadow: `inset ${isLeftButton ? '8px' : '-8px'} 0px 8px  ${colorBackground}`
+        background: !isLeftButton
+          ? `linear-gradient(270deg, ${colorBackground} 15%, rgba(243, 243, 243, 0.00) 100%)`
+          : `linear-gradient(90deg, ${colorBackground} 15%, rgba(235, 235, 235, 0.00) 100%)`
       }}
     >
       <ButtonControll

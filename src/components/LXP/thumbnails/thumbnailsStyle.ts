@@ -175,7 +175,7 @@ export const LoadingContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #d9d9d9;
+  background: linear-gradient(90deg, rgba(123, 129, 136, 0) 6.43%, rgba(123, 129, 136, 0.2) 22.38%), #e9eaea;
   -webkit-animation-duration: 4s;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-iteration-count: infinite;

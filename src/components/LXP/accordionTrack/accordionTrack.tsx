@@ -86,11 +86,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             return (
               <Styles.ContainerTrailsEmpty>
                 <ScrollContainer
+                  colorBackground="#ebebeb"
                   stepMove={380}
                   isVisibleControlsButtons
-                  sizeArrowButton={80}
-                  marginsArrowButton={10}
-                  horizontalMarginInternScroll={'5px'}
+                  sizeArrowButton={48}
+                  marginsArrowButton={5}
+                  horizontalMarginInternScroll={'-10px'}
                   styles={{ justifyContent: 'flex-start', width: '100%' }}
                   refreshResize={RefreshResize}
                 >
@@ -199,8 +200,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                     <Styles.ContainerTrailsNormal style={{}}>
                       <ScrollContainer
                         stepMove={380}
+                        colorBackground="#ebebeb"
                         isVisibleControlsButtons
-                        sizeArrowButton={80}
+                        sizeArrowButton={40}
                         marginsArrowButton={10}
                         horizontalMarginInternScroll={'5px'}
                         refreshResize={RefreshResize}
@@ -264,7 +266,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                       <ScrollContainer
                         stepMove={380}
                         isVisibleControlsButtons
-                        sizeArrowButton={80}
+                        sizeArrowButton={40}
+                        colorBackground="#ebebeb"
                         marginsArrowButton={10}
                         horizontalMarginInternScroll={'5px'}
                         refreshResize={RefreshResize}
@@ -411,7 +414,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 <ScrollContainer
                                   stepMove={380}
                                   isVisibleControlsButtons
-                                  sizeArrowButton={80}
+                                  sizeArrowButton={40}
+                                  colorBackground="#ebebeb"
                                   marginsArrowButton={10}
                                   horizontalMarginInternScroll={'5px'}
                                   refreshResize={props.updateScrollSize}
