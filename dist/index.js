@@ -7954,171 +7954,169 @@ function ContentSwitcher({ label, handleClick, style, sizeIcon, startIcon, start
 }
 
 const Container$a = styled__default["default"].div `
-    width: 270px;
-    min-height: 409px;
-    background-color: ${({ theme }) => theme.colors.primary2};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; 
-    position: relative;
-    box-sizing: border-box;
-    padding: 16px 16px 24px 16px;
+  width: 270px;
+  height: fit-content;
+  background-color: ${({ theme }) => theme.colors.primary2};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  padding: 32px 8px 16px 8px;
 `;
 const Image$3 = styled__default["default"].img `
-    width: 236px;
-    height: 310px;
-    border-radius: 8px;
-    object-fit: cover;
-    object-position: center;
+  height: 189px;
+  width: 100%;
+  border-radius: 8px;
+  object-position: center;
+  object-fit: cover;
 `;
 const Content$1 = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    position: relative;
-    width: 100%;
-    margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
 `;
-const Typography$3 = styled__default["default"].p `     
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 23px;
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    word-wrap: break-word;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
-    white-space: pre-wrap;
-    text-overflow: ellipsis;
+const Typography$3 = styled__default["default"].p `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
 `;
 const Select$1 = styled__default["default"].div `
-    background: none;
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    cursor: pointer;
+  background: none;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
 
-    &:hover {
-        opacity: 0.5;
-    }
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 const ContainerCard$1 = styled__default["default"].div `
-    width: 270px;
-    height: 76px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-    display: flex;
-    align-items: center;
-    padding: 8px;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  width: 270px;
+  height: 76px;
+  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
 
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey9};
-    }
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+  }
 
-    &:active {
-        background-color: ${({ theme }) => theme.colors.neutralsGrey6};
-    }
-    
-    &:hover .trash {
-        right: 15px;       
-    }
+  &:active {
+    background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+  }
+
+  &:hover .trash {
+    right: 15px;
+  }
 `;
 const Thumbnails$2 = styled__default["default"].div `
-    width: 17.29px;
-    height: 51px;    
-    margin-left: -11px;       
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;    
+  width: 17.29px;
+  height: 51px;
+  margin-left: -11px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 const Title$2 = styled__default["default"].div `
-    width: 166px;
-    margin-left: 12px;
-    word-wrap: break-word;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
-    white-space: pre-wrap;
-    text-overflow: ellipsis;
+  width: 166px;
+  margin-left: 12px;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* start showing ellipsis when 3rd line is reached */
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
 `;
 const IconTrash = styled__default["default"].div `
-    cursor: pointer;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    right: -15px;
-    position: absolute;
-    transition: all .5s linear;
-    
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  right: -15px;
+  position: absolute;
+  transition: all 0.5s linear;
 `;
 // ##############TRILHA##############
 const ContainerTrilha = styled__default["default"].div `
-    width: 270px;
-    height: 499px;
-    background-color: ${({ theme }) => theme.colors.primary2};
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;       
-
+  width: 270px;
+  height: 499px;
+  background-color: ${({ theme }) => theme.colors.primary2};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 `;
 const ContainerChoice = styled__default["default"].div `
-    width: 232px;
-    height: 75px;
-    position: absolute;
-    top: 0;
-    margin: 20px;    
+  width: 232px;
+  height: 75px;
+  position: absolute;
+  top: 0;
+  margin: 20px;
 `;
-const TypographyChoice = styled__default["default"].p `            
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
-        color: #ffffff;
-        padding-bottom: 8px;
-        white-space: nowrap;    
+const TypographyChoice = styled__default["default"].p `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  color: #ffffff;
+  padding-bottom: 8px;
+  white-space: nowrap;
 `;
-const SelectChoice = styled__default["default"].select `    
-        width: 232px;
-        height: 48px;
-        border-radius: 8px;
-        border: 1px solid #E0E0E0;
-        color: #9c9c9c;
-        padding-left: 10px;
+const SelectChoice = styled__default["default"].select `
+  width: 232px;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  color: #9c9c9c;
+  padding-left: 10px;
 `;
 const ImageChoice = styled__default["default"].img `
-    width: 232px;
-    height: 310px;
-    margin-bottom: 70px;
-    border-radius: 8px;
-    position: absolute;
-    object-fit: cover;
-    bottom: 0;    
+  width: 232px;
+  height: 310px;
+  margin-bottom: 70px;
+  border-radius: 8px;
+  position: absolute;
+  object-fit: cover;
+  bottom: 0;
 `;
 const ContentChoice = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    position: absolute ;
-    margin-top: 425px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin-top: 425px;
 `;
 const OptionChoice = styled__default["default"].option `
-    color: #9c9c9c;
+  color: #9c9c9c;
 `;
 
 ///-----------------------------------------
