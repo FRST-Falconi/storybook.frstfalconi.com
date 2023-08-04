@@ -4,6 +4,7 @@ interface AvatarI {
   size?: string
   src?: any
   disabled?: boolean
+  isActiveClick?: boolean
 }
 
 export const AvatarImg = styled.img<AvatarI>`
@@ -22,5 +23,5 @@ export const AvatarImg = styled.img<AvatarI>`
 export const AvatarWrapper = styled.div<AvatarI>`
   width: ${(props) => props.size || '120px'};
   height: ${(props) => props.size || '120px'};
-  cursor: pointer;
+  cursor: ${({isActiveClick}) => isActiveClick ? 'pointer' : 'auto'} ;
 `

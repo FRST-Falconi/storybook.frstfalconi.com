@@ -44,25 +44,24 @@ const TdEditButtom = ({ onClick }) => {
 	)
 }
 
-export default function GroupsTable(props: IGroupsTable) {
-	const {
-		textHeader,
-		textHeader2,
-		textHeader3,
-		textHeader4,
-		items,
-		selected,
-		textTooltipAdd,
-		textTooltipCount,
-		deleted,
-		onDeleteClick,
-		onEditClick,
-		onDeleteAllSelected,
-		AdmMoreClick,
-		onShowMoreClick,
-		textTooltipAllSelected,
-		onSelected
-	} = props
+export default function GroupsTable({
+	textHeader,
+	textHeader2,
+	textHeader3,
+	textHeader4,
+	items,
+	selected,
+	textTooltipAdd,
+	textTooltipCount,
+	deleted,
+	onDeleteClick,
+	onEditClick,
+	onDeleteAllSelected,
+	AdmMoreClick,
+	onShowMoreClick,
+	textTooltipAllSelected,
+	onSelected
+} : IGroupsTable) {
 
 	const [isAllChecked, setIsAllChecked] = useState(false)
 	const [internalItems, setInternalItems] = useState([])
@@ -199,11 +198,20 @@ export default function GroupsTable(props: IGroupsTable) {
 													boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 												}}
 											>
+												{i.adms.length < 9 ? 	
 												<AdmButton
 													onClick={() => onShowMoreClick(i.id)}
 													variant={'count'}
 													count={i.adms.length - maxAdmToShow}
+												/> 
+												:
+												<AdmButton
+													onClick={() => onShowMoreClick(i.id)}
+													variant={'countMore'}
+													count={9}
 												/>
+												}
+											
 											</Tooltip>
 
 

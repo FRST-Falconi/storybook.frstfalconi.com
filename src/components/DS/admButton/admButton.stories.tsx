@@ -19,6 +19,12 @@ count.args = {
     count: 9
 }
 
+export const countMore=  Template.bind({})
+countMore.args = {
+    variant: 'countMore',
+    count: 9
+}
+
 export const noImage =  Template.bind({})
 noImage.args = {
     variant: 'image'

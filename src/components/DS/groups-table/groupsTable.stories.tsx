@@ -97,7 +97,24 @@ normal.args = {
         {
             id: '66a00307-deae-41e3-86cf-29251204d995', image: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d996', image: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d990', image: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d998', image: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d997', image: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+
         }
+
 
         ]
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export interface IAdmButton {
-    variant: 'count' | 'add'| 'image'
+    variant: 'count' | 'add'| 'image'| 'countMore'
     count?: number
     image?: string 
     onClick?: () => void   

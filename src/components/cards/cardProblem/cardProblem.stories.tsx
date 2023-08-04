@@ -36,12 +36,16 @@ hipoteseLevantada.args = {
   onClick: (problemID) => {
     alert(problemID)
   },
-  onClickAvatar: () => {
-    alert('clicou no avatar')
+  handleSelect: (problemID) => {
+    alert(`Select ${problemID}`)
   },
-  onClickName: () => {
-    alert('clicou no name')
-  }
+  isActiveClickProfile: false,
+  // onClickAvatar: () => {
+  //   alert('clicou no avatar')
+  // },
+  // onClickName: () => {
+  //   alert('clicou no name')
+  // }
 }
 
 export const finalizado = Template.bind({})

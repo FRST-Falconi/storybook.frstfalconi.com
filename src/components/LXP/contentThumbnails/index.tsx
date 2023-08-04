@@ -35,8 +35,7 @@ export default function ContentThumbnails({
   onChangeOrder,
   isOpen
 }: IContentThumbnails) {
-  const defaultImg =
-    'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
+  const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
 
   const iconList = [
     <Icons.Content fill={'#EE4C15'} />,
@@ -78,12 +77,14 @@ export default function ContentThumbnails({
   }
 
   function Exibir() {
-
     return (
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="contentListData">
           {(provided: any) => (
-            <div style={{backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '100vh', width: 270}} ref={provided.innerRef}>
+            <div
+              style={{ backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '100vh', width: 270 }}
+              ref={provided.innerRef}
+            >
               {contentListData?.map((item, index) => {
                 return (
                   <Draggable draggableId={item.title} index={index} key={index}>
@@ -143,11 +144,27 @@ export default function ContentThumbnails({
                           <VectorEllipse />
                           <VectorEllipse />
                         </Styles.Thumbnails>
-                        <div onClick={() => {handleClick(item)}} style={{display: 'flex', flexDirection: 'row', alignItems: 'center', height: '100%', cursor: 'pointer'}}>
+                        <div
+                          onClick={() => {
+                            handleClick(item)
+                          }}
+                          style={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            height: '100%',
+                            cursor: 'pointer'
+                          }}
+                        >
                           {iconList[item.type]}
-                          <Styles.Title >{item.title}</Styles.Title>
+                          <Styles.Title>{item.title}</Styles.Title>
                         </div>
-                        <Styles.IconTrash className="trash" onClick={() => {removeContentList(item)}} >
+                        <Styles.IconTrash
+                          className="trash"
+                          onClick={() => {
+                            removeContentList(item)
+                          }}
+                        >
                           <Icons.TrashIcon fill={'#C00F00'} />
                         </Styles.IconTrash>
                       </Styles.ContainerCard>
@@ -167,18 +184,16 @@ export default function ContentThumbnails({
       {variant === 'individualCourse' ? (
         <div>
           <Styles.Container className={(variant = 'individualCourse')}>
-            <Styles.Image src={src || defaultImg} />
-            <Styles.Content>
-              <Styles.Typography>{title}</Styles.Typography>
-              <Styles.Select onClick={change}>{up ? <VectorUp /> : <VectorDown />}</Styles.Select>
-            </Styles.Content>
+            <div className="frame">
+              <Styles.Image src={src || defaultImg} />
+              <Styles.Content>
+                <Styles.Typography>{title}</Styles.Typography>
+                <Styles.Select onClick={change}>{up ? <VectorUp /> : <VectorDown />}</Styles.Select>
+              </Styles.Content>
+            </div>
           </Styles.Container>
 
-          <div >
-          {up ? (
-            <Exibir />
-          ) : null}
-          </div>
+          <div>{up ? <Exibir /> : null}</div>
         </div>
       ) : variant === 'trilha' ? (
         <div>
@@ -197,7 +212,7 @@ export default function ContentThumbnails({
           </Styles.ContainerTrilha>
 
           {up ? (
-            <div style={{backgroundColor: '#D1D5DB', width: 270}}>
+            <div style={{ backgroundColor: '#D1D5DB', width: 270 }}>
               <Exibir />
             </div>
           ) : null}

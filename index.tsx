@@ -203,3 +203,4 @@ export { default as StepsProgress } from './src/components/DS/steps-progress'
 
 export { default as ScrollContainerV2 } from './src/components/DS/scroll-container-v2'
 export { default as FiltroGaleriaDesafios } from './src/components/filtro-galeria-desafio'
+export { default as DropdownMultiselect } from './src/components/DS/dropdown-Multiselect'
