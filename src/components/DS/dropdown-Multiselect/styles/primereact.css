@@ -131,6 +131,7 @@
 
 .p-connected-overlay-enter-done {
   transform: none;
+  z-index: 9999 !important;
 }
 
 .p-connected-overlay-exit {
