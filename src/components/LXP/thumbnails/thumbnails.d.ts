@@ -10,6 +10,7 @@ export interface IThumbnails {
   isActive?: boolean
   isLoading?: boolean
   showSwitch?: boolean
+  publishContentStatus?: string
   handleClickCourse?: () => void
   handleSwitchAtivar?: (checkedValue: boolean) => void
   handleClickNew?: () => void
@@ -20,6 +21,8 @@ export interface IThumbnails {
   handleClickPopOverDeleteTrail?: () => void
   handleClickPopOverEditActivity?: () => void
   handleClickPopOverMoveToTrail?: () => void
+  handlePublicarCourse?: any
+  handlePublicarContentCheck?: any
   variant?: enumVariant
   title?: string
   id?: string
@@ -38,4 +41,6 @@ export interface IThumbnailsTranslate extends IThumbnails {
   txtPopOverDeleteContent?: string
   txtPopOverDeleteTrail?: string
   txtPopOverEditContentActivity?: string
+  txtHideContent?: string
+  txtShowContent?: string
 }

@@ -86,11 +86,12 @@ export default function AccordionTrack(props: IAccordionTranslate) {
             return (
               <Styles.ContainerTrailsEmpty>
                 <ScrollContainer
+                  colorBackground="#ebebeb"
                   stepMove={380}
                   isVisibleControlsButtons
-                  sizeArrowButton={80}
-                  marginsArrowButton={10}
-                  horizontalMarginInternScroll={'5px'}
+                  sizeArrowButton={48}
+                  marginsArrowButton={5}
+                  horizontalMarginInternScroll={'-10px'}
                   styles={{ justifyContent: 'flex-start', width: '100%' }}
                   refreshResize={RefreshResize}
                 >
@@ -116,6 +117,11 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                             return (
                               <>
                                 <ThumbnailsDraggable
+                                  handlePublicarCourse={() => {
+                                    props.handlePublicarCourse(el.id)
+                                  }}
+                                  handlePublicarContentCheck={() => props.handlePublicarContentCheck(el.id)}
+                                  publishContentStatus={el.publishContentStatus}
                                   isDisabled={el.active}
                                   key={`content${contentIndex}`}
                                   id={`content${contentIndex}`}
@@ -199,8 +205,9 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                     <Styles.ContainerTrailsNormal style={{}}>
                       <ScrollContainer
                         stepMove={380}
+                        colorBackground="#ebebeb"
                         isVisibleControlsButtons
-                        sizeArrowButton={80}
+                        sizeArrowButton={40}
                         marginsArrowButton={10}
                         horizontalMarginInternScroll={'5px'}
                         refreshResize={RefreshResize}
@@ -264,7 +271,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                       <ScrollContainer
                         stepMove={380}
                         isVisibleControlsButtons
-                        sizeArrowButton={80}
+                        sizeArrowButton={40}
+                        colorBackground="#ebebeb"
                         marginsArrowButton={10}
                         horizontalMarginInternScroll={'5px'}
                         refreshResize={RefreshResize}
@@ -276,6 +284,11 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               return (
                                 <>
                                   <ThumbnailsDraggable
+                                    handlePublicarCourse={() => {
+                                      props.handlePublicarCourse(individual.id)
+                                    }}
+                                    handlePublicarContentCheck={() => props.handlePublicarContentCheck(individual.id)}
+                                    publishContentStatus={individual.publish_status}
                                     key={`contentTrails${1}_individual${individualIndex}`}
                                     id={`contentTrails${1}_individual${individualIndex}`}
                                     index={`${individualIndex}`}
@@ -411,7 +424,8 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                 <ScrollContainer
                                   stepMove={380}
                                   isVisibleControlsButtons
-                                  sizeArrowButton={80}
+                                  sizeArrowButton={40}
+                                  colorBackground="#ebebeb"
                                   marginsArrowButton={10}
                                   horizontalMarginInternScroll={'5px'}
                                   refreshResize={props.updateScrollSize}
@@ -423,6 +437,13 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                         return (
                                           <>
                                             <ThumbnailsDraggable
+                                              handlePublicarContentCheck={() =>
+                                                props.handlePublicarContentCheck(el.course.id)
+                                              }
+                                              handlePublicarCourse={() => {
+                                                props.handlePublicarCourse(el.course.id)
+                                              }}
+                                              publishContentStatus={el.course.publish_status}
                                               id={`trail_${trailIndex}_course_${courseTrailIndex}`}
                                               index={`${courseTrailIndex}`}
                                               isDisabled={trail.active === false ? false : el.course.active}

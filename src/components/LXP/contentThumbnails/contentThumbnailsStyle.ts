@@ -21,18 +21,17 @@ export const Container = styled.div`
     position: relative;
     box-sizing: border-box;
     background: #f18624;
-    padding: 8px;
+    padding: 8px 12px 16px 8px;
     gap: 7.75px;
-
-    padding-bottom: 16px;
   }
 `
 export const Image = styled.img`
   height: 189px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 6.56px;
   object-position: center;
   object-fit: cover;
+  box-shadow: 0px 14.760848999023438px 32.801883697509766px -12.300708770751953px #cc362d;
 `
 export const Content = styled.div`
   display: flex;

@@ -4,6 +4,9 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './thumbnailsStyle'
 import { IThumbnails, IThumbnailsTranslate } from './thumbnails.d'
 import VectorEllipse from './vectorEllipse'
+import HeaderVectorElipses from './headerVectorElipses'
+import { LoadingThumbnails } from './loadingThumbnails'
+import * as LoadingComponent from '@components/DS/loading'
 import VectorCross from './vectorCross'
 import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
@@ -26,6 +29,9 @@ export default function Thumbnails({
   handleClickPopOverEditActivity,
   handleClickPopOverMoveToTrail,
   handleClickPopOverDeleteTrail,
+  handlePublicarCourse,
+  handlePublicarContentCheck,
+  publishContentStatus,
   title,
   provided,
   isDisabled,
@@ -40,7 +46,9 @@ export default function Thumbnails({
   isActive,
   isTrail,
   txtPopOverDeleteTrail,
-  txtPopOverEditContentActivity
+  txtPopOverEditContentActivity,
+  txtHideContent,
+  txtShowContent
 }: IThumbnailsTranslate) {
   const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
   const [ativo, setAtivo] = useState<boolean>(isDisabled)
@@ -48,17 +56,39 @@ export default function Thumbnails({
   const [ElementPopover, setElementPopover] = useState(null)
   const [Loading, setLoading] = useState(isLoading)
 
+  const optionShowContent = txtShowContent ? txtShowContent : 'Desocultar módulo'
+  const optionHideContent = txtHideContent ? txtHideContent : 'Ocultar módulo'
+  const [textShowOrHiddenContent, settextShowOrHiddenContent] = useState(ativo ? optionHideContent : optionShowContent)
+  const [Publishing, setPublishing] = useState<string>(publishContentStatus)
   useEffect(() => {
     setAtivo(isDisabled)
   }, [isDisabled])
 
   useEffect(() => {
+    settextShowOrHiddenContent(ativo ? optionHideContent : optionShowContent)
+  }, [ativo])
+
+  useEffect(() => {
     setLoading(isLoading)
   }, [isLoading])
 
+  //ATIVAR E DESATIVAR CONTEUDO
   const handleChangeCheck = (checkedValue: boolean) => {
     setAtivo(checkedValue)
     handleSwitchAtivar(checkedValue)
+  }
+
+  const checkStatusPublish = async () => {
+    let publicacao = await handlePublicarContentCheck()
+    console.log('publicacao', publicacao)
+    setPublishing(publicacao)
+    if (publicacao) {
+      if (publicacao === 'processing') {
+        setTimeout(() => {
+          checkStatusPublish()
+        }, 5000)
+      }
+    }
   }
 
   const handleHoverImage = () => {
@@ -90,44 +120,27 @@ export default function Thumbnails({
         {variant === 'default' ? (
           <>
             {Loading ? (
-              <Styles.LoadingContainer>
-                <Styles.LoadingImage />
-                <Styles.LoadingContent />
-                <Styles.LoadingContent style={{ width: '50%' }} />
-              </Styles.LoadingContainer>
+              <LoadingThumbnails provided={provided} />
             ) : (
-              <Styles.ContainerThumbnails
-                showSwitchIndividual={showSwitch}
+              <Styles.CardDragAndDrop
+                active={ativo}
                 className={(variant = 'default')}
                 ref={provided ? provided.innerRef : null}
                 {...(provided ? provided.draggableProps : null)}
               >
-                <Styles.GeralThumbnails
-                  ref={provided ? provided.innerRef : null}
-                  {...(provided ? provided.dragHandleProps : null)}
-                >
-                  {[1, 2, 3].map((thumb) => {
-                    const arr = new Array(10).fill('')
-                    return (
-                      <Styles.Thumbnails key={thumb}>
-                        {arr.map((item, i) => {
-                          return <VectorEllipse key={i} />
-                        })}
-                      </Styles.Thumbnails>
-                    )
-                  })}
-                </Styles.GeralThumbnails>
-                <Styles.Image
+                <HeaderVectorElipses provided={provided} />
+                <img
+                  className="thumbnails_img"
                   ref={provided ? provided.innerRef : null}
                   {...(provided ? provided.dragHandleProps : null)}
                   onMouseEnter={handleHoverImage}
-                  className="imageHover"
+                  // className="imageHover"
                   src={src || defaultImg}
-                  active={ativo}
                 />
+
                 <Styles.ContainerMain>
                   <LightTooltip title={title}>
-                    <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd' }}>
+                    <Styles.Typography style={{ color: ativo ? '#000000' : '#bdbdbd', textAlign: 'start' }}>
                       {title && title?.length > 17 ? `${title.substring(0, 17)}...` : title}
                     </Styles.Typography>
                   </LightTooltip>
@@ -139,48 +152,42 @@ export default function Thumbnails({
                     <Icons.MoreVertical fill={ativo ? '#000000' : '#bdbdbd'} />
                   </Styles.IconVertical>
                 </Styles.ContainerMain>
-                {showSwitch && (
-                  <Styles.ContainerAtivar>
-                    <Styles.TypographyAtivar active={ativo} style={{ fontWeight: ativo ? 700 : 400 }}>
-                      {txtAtivarCurso ? txtAtivarCurso : 'Ativar Curso'}
-                    </Styles.TypographyAtivar>
-                    <Switch
-                      onChange={handleChangeCheck}
-                      checked={ativo}
-                      height={16}
-                      width={35}
-                      checkedIcon={false}
-                      uncheckedIcon={false}
-                      handleDiameter={20}
-                      onHandleColor="#ffffff"
-                      offHandleColor="#ffffff"
-                      onColor="#FF4D0D"
-                      offColor="#ebebeb"
-                      activeBoxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                      boxShadow={ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575'}
-                    />
-                  </Styles.ContainerAtivar>
-                )}
-              </Styles.ContainerThumbnails>
+
+                <Button
+                  // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
+                  variant="expandedSecondary"
+                  style={{ marginTop: '16px', height: '32px' }}
+                  handleClick={async () => {
+                    setPublishing('processing')
+                    await handlePublicarCourse()
+                    checkStatusPublish()
+                  }}
+                  startIcon={
+                    Publishing === 'processing' && (
+                      <LoadingComponent.default sizeLoading="small" loadColor="#a5a5a5" style={{ width: 40 }} />
+                    )
+                  }
+                  label={
+                    Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...'
+                  }
+                  disabled={Publishing === 'pending' ? false : true}
+                />
+              </Styles.CardDragAndDrop>
             )}
           </>
         ) : variant === 'add' ? (
           <>
             {Loading ? (
-              <Styles.LoadingContainer>
-                <Styles.LoadingImage />
-                <Styles.LoadingContent />
-                <Styles.LoadingContent style={{ width: '50%' }} />
-              </Styles.LoadingContainer>
+              <LoadingThumbnails provided={provided} />
             ) : (
-              <Styles.ContainerThumbnailsAdd>
+              <Styles.CardDragAndDrop className="add">
                 <Styles.ContainerEllipse onClick={handleClickNew}>
                   <VectorCross />
                 </Styles.ContainerEllipse>
                 <Styles.TypographyAdd>
                   {txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo'}
                 </Styles.TypographyAdd>
-              </Styles.ContainerThumbnailsAdd>
+              </Styles.CardDragAndDrop>
             )}
           </>
         ) : null}
@@ -207,6 +214,17 @@ export default function Thumbnails({
               onClick={() => {
                 setElementPopover(null)
                 handleClickPopOverEditActivity()
+              }}
+              style={{
+                borderBottom: '1px black solid'
+              }}
+            />
+
+            <PopOverItem
+              label={textShowOrHiddenContent}
+              onClick={() => {
+                setElementPopover(null)
+                handleChangeCheck(!ativo)
               }}
               style={{
                 borderBottom: '1px black solid'

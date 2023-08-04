@@ -26,6 +26,9 @@ export default function ThumbnailsDraggable({
   handleClickPopOverEditActivity,
   handleClickPopOverMove,
   handleClickPopOverMoveToTrail,
+  handlePublicarCourse,
+  handlePublicarContentCheck,
+  publishContentStatus,
   txtPopOverDeleteContent,
   txtPopOverEditContent,
   isActive,
@@ -69,6 +72,9 @@ export default function ThumbnailsDraggable({
               txtPopOverDeleteTrail={txtPopOverDeleteTrail}
               txtPopOverEditContentActivity={txtPopOverEditContentActivity}
               handleClickPopOverMoveToTrail={handleClickPopOverMoveToTrail}
+              handlePublicarContentCheck={handlePublicarContentCheck}
+              publishContentStatus={publishContentStatus}
+              handlePublicarCourse={handlePublicarCourse}
             />
           )
         }}

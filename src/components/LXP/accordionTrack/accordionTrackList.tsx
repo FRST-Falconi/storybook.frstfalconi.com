@@ -40,6 +40,8 @@ export default function AccordionTrackList({
   txtCriarNovoCurso,
   txtAtivarTrilha,
   isLoading,
+  handlePublicarContentCheck,
+  handlePublicarCourse,
   handlePublicarTrilha,
   changeCourses,
   handlePublicarCheck,
@@ -268,6 +270,7 @@ export default function AccordionTrackList({
             handleSwitchAtivar={handleSwitchAtivar}
             handleEditCourse={handleEditCourse}
             handlePublicarTrilha={handlePublicarTrilha}
+            handlePublicarCourse={handlePublicarCourse}
             handlePublicarCheck={handlePublicarCheck}
             textMeusConteudos={textMeusConteudos}
             textTotalDe={textTotalDe}
@@ -291,6 +294,7 @@ export default function AccordionTrackList({
             handleClickPopOverEditActivity={handleClickPopOverEditActivity}
             handleClickPopOverMoveToTrail={handleClickPopOverMoveToTrail}
             txtPopOverEditContentActivity={txtPopOverEditContentActivity}
+            handlePublicarContentCheck={handlePublicarContentCheck}
           />
         }
       </DragDropContext>
