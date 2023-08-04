@@ -6,7 +6,7 @@ import { IThumbnails, IThumbnailsTranslate } from './thumbnails.d'
 import VectorEllipse from './vectorEllipse'
 import HeaderVectorElipses from './headerVectorElipses'
 import { LoadingThumbnails } from './loadingThumbnails'
-import Loading from '@components/DS/loading'
+import * as LoadingComponent from '@components/DS/loading'
 import VectorCross from './vectorCross'
 import React, { useState, useEffect } from 'react'
 import * as Icons from '../../../shared/icons'
@@ -29,6 +29,9 @@ export default function Thumbnails({
   handleClickPopOverEditActivity,
   handleClickPopOverMoveToTrail,
   handleClickPopOverDeleteTrail,
+  handlePublicarCourse,
+  handlePublicarContentCheck,
+  publishContentStatus,
   title,
   provided,
   isDisabled,
@@ -56,7 +59,7 @@ export default function Thumbnails({
   const optionShowContent = txtShowContent ? txtShowContent : 'Desocultar módulo'
   const optionHideContent = txtHideContent ? txtHideContent : 'Ocultar módulo'
   const [textShowOrHiddenContent, settextShowOrHiddenContent] = useState(ativo ? optionHideContent : optionShowContent)
-
+  const [Publishing, setPublishing] = useState<string>(publishContentStatus)
   useEffect(() => {
     setAtivo(isDisabled)
   }, [isDisabled])
@@ -73,6 +76,19 @@ export default function Thumbnails({
   const handleChangeCheck = (checkedValue: boolean) => {
     setAtivo(checkedValue)
     handleSwitchAtivar(checkedValue)
+  }
+
+  const checkStatusPublish = async () => {
+    let publicacao = await handlePublicarContentCheck()
+    console.log('publicacao', publicacao)
+    setPublishing(publicacao)
+    if (publicacao) {
+      if (publicacao === 'processing') {
+        setTimeout(() => {
+          checkStatusPublish()
+        }, 5000)
+      }
+    }
   }
 
   const handleHoverImage = () => {
@@ -138,23 +154,23 @@ export default function Thumbnails({
                 </Styles.ContainerMain>
 
                 <Button
-                  label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
+                  // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
                   variant="expandedSecondary"
                   style={{ marginTop: '16px', height: '32px' }}
                   handleClick={async () => {
-                    // setPublishing('processing')
-                    // await props.handlePublicarTrilha(props)
-                    // checkStatusPublish()
+                    setPublishing('processing')
+                    await handlePublicarCourse()
+                    checkStatusPublish()
                   }}
-                  // startIcon={
-                  //   // Publishing === 'processing' && (
-                  //   //   <Loading sizeLoading="small" loadColor="#a5a5a5" style={{ width: 40 }} />
-                  //   // )
-                  // }
-                  // label={
-                  //   Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...'
-                  // }
-                  // disabled={Publishing === 'pending' ? false : true}
+                  startIcon={
+                    Publishing === 'processing' && (
+                      <LoadingComponent.default sizeLoading="small" loadColor="#a5a5a5" style={{ width: 40 }} />
+                    )
+                  }
+                  label={
+                    Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...'
+                  }
+                  disabled={Publishing === 'pending' ? false : true}
                 />
               </Styles.CardDragAndDrop>
             )}

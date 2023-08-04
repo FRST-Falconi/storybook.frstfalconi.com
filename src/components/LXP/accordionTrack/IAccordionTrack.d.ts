@@ -23,6 +23,7 @@ export interface IAccordionTrack {
   data?: any
   updateScrollSize?: number
   src?: string
+  handlePublicarContentCheck?: any
   onNewTrail?: () => void
   handleChange?: (trails: any) => void
   handleClickSelect?: () => void
@@ -58,6 +59,7 @@ export interface IAccordionTrack {
   changeCourses?: (course: any) => void
 
   handlePublicarTrilha?: (id: string) => void
+  handlePublicarCourse?: (id: string) => void
   handlePublicarCheck?: (id: string) => string
 
   handleClickPopOverEditActivity?: (id: string) => string

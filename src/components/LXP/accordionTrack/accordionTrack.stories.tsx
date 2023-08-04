@@ -15,6 +15,7 @@ const Template = (args) => {
   const [Course, setCourse] = useState([
     {
       id: 63,
+      publish_status: 'pending',
       uuid: '1b7179d4-b264-44ea-ae09-8c8b38994a4d',
       title: 'Curso de HTML 5',
       language: 'pt-br',
@@ -35,6 +36,7 @@ const Template = (args) => {
       channel: 104
     },
     {
+      publish_status: 'pending',
       id: 82,
       uuid: '63552d66-468e-4c44-87f8-7dca992d9dd9',
       title: 'Entendendo funções recursivas',
@@ -56,6 +58,7 @@ const Template = (args) => {
       channel: 104
     },
     {
+      publish_status: 'pending',
       id: 87,
       uuid: '89f06dc7-82b7-475f-aae0-f3d6b02bc9dc',
       title: 'Conteúdo para deletar',
@@ -848,6 +851,20 @@ const Template = (args) => {
         // }}
         trailsData={Trail}
         courseData={Course}
+        handlePublicarContentCheck={async (idCourse) => {
+          await sleep(5 * 1000)
+          let idx = idCourse == '174' ? 0 : 1
+          let value = Count
+
+          if (value[idx] === 6) {
+            return 'complete'
+          } else {
+            console.log(idCourse, 'Checando novamente...', Count, idx)
+            value[idx] = value[idx] + 1
+            setCount(value)
+            return 'processing'
+          }
+        }}
         handlePublicarCheck={async (idTrilha) => {
           await sleep(5 * 1000)
           let idx = idTrilha == '174' ? 0 : 1
@@ -905,6 +922,9 @@ Opened.args = {
   },
   handlePublicarTrilha: (idTrilha) => {
     alert(`Publicando trilha ${idTrilha}`)
+  },
+  handlePublicarCourse: (idCourse) => {
+    alert(`Publicando curso ${idCourse}`)
   },
   handleDeleteCourse: (idCourse) => {
     alert(`Deletando o Curso: ${idCourse}`)

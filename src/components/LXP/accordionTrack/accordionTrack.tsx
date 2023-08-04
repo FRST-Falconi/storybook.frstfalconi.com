@@ -117,6 +117,11 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                             return (
                               <>
                                 <ThumbnailsDraggable
+                                  handlePublicarCourse={() => {
+                                    props.handlePublicarCourse(el.id)
+                                  }}
+                                  handlePublicarContentCheck={() => props.handlePublicarContentCheck(el.id)}
+                                  publishContentStatus={el.publishContentStatus}
                                   isDisabled={el.active}
                                   key={`content${contentIndex}`}
                                   id={`content${contentIndex}`}
@@ -279,6 +284,11 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                               return (
                                 <>
                                   <ThumbnailsDraggable
+                                    handlePublicarCourse={() => {
+                                      props.handlePublicarCourse(individual.id)
+                                    }}
+                                    handlePublicarContentCheck={() => props.handlePublicarContentCheck(individual.id)}
+                                    publishContentStatus={individual.publish_status}
                                     key={`contentTrails${1}_individual${individualIndex}`}
                                     id={`contentTrails${1}_individual${individualIndex}`}
                                     index={`${individualIndex}`}
@@ -427,6 +437,13 @@ export default function AccordionTrack(props: IAccordionTranslate) {
                                         return (
                                           <>
                                             <ThumbnailsDraggable
+                                              handlePublicarContentCheck={() =>
+                                                props.handlePublicarContentCheck(el.course.id)
+                                              }
+                                              handlePublicarCourse={() => {
+                                                props.handlePublicarCourse(el.course.id)
+                                              }}
+                                              publishContentStatus={el.course.publish_status}
                                               id={`trail_${trailIndex}_course_${courseTrailIndex}`}
                                               index={`${courseTrailIndex}`}
                                               isDisabled={trail.active === false ? false : el.course.active}
