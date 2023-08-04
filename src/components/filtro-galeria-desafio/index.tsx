@@ -38,7 +38,7 @@ export default function FiltroGaleriaDesafios({
   }
 
   const listFilterSearch = useMemo(() => {
-    return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
+    return listItemsFilter.filter((resp) => resp?.name?.toLowerCase()?.includes(textFilter))
   }, [textFilter])
 
   const handleTemplateHeader = () => {

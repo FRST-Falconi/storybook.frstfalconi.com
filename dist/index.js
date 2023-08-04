@@ -18236,7 +18236,7 @@ function FiltroGaleriaDesafios({ placeholderSelect, handleValueSelect, optionLab
         return handleValueSelect(items);
     };
     const listFilterSearch = React.useMemo(() => {
-        return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter));
+        return listItemsFilter.filter((resp) => resp?.name?.toLowerCase()?.includes(textFilter));
     }, [textFilter]);
     const handleTemplateHeader = () => {
         const selectedItems = selectedListItems;
