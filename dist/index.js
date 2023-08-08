@@ -45,6 +45,7 @@ var Tooltip$3 = require('@mui/material/Tooltip');
 var Switch = require('react-switch');
 var core = require('@material-ui/core');
 var moment = require('moment');
+var ReactPlayer = require('react-player');
 var _ = require('@mui/material/');
 var Slider = require('@mui/material/Slider');
 var styles$1 = require('@material-ui/styles');
@@ -114,6 +115,7 @@ var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip$3);
 var Switch__default = /*#__PURE__*/_interopDefaultLegacy(Switch);
 var moment__default = /*#__PURE__*/_interopDefaultLegacy(moment);
+var ReactPlayer__default = /*#__PURE__*/_interopDefaultLegacy(ReactPlayer);
 var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
 var IconButton__default = /*#__PURE__*/_interopDefaultLegacy(IconButton);
 var MoreVertIcon__default = /*#__PURE__*/_interopDefaultLegacy(MoreVertIcon);
@@ -12516,6 +12518,179 @@ function AccordionList$2({ title = 'Módulo', children, isOpen = false, setIsOpe
     return (jsxRuntime.jsxs(StylesAccordionList, { theme: FRSTTheme, selectedItem: selected, className: selected ? 'open' : 'closed', children: [jsxRuntime.jsxs("div", { onClick: handleSetOpen, className: selected ? 'header open' : 'header closed', children: [jsxRuntime.jsx("p", { className: "title", children: title }), jsxRuntime.jsx("span", { className: open ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollLeft, { height: "16", width: "16" }) })] }), open && jsxRuntime.jsx("div", { className: "listContent", children: children })] }));
 }
 
+const ModalNewFeaturesContainer = styled__default["default"].div `
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #00000075;
+  top: 0;
+  left: 0;
+`;
+const ModalNewFeaturesContent = styled__default["default"].div `
+  border-radius: 8px;
+  background: #f8fafc;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  height: 560px;
+  width: 963px;
+  display: flex;
+`;
+const AssideNewFeatures = styled__default["default"].aside `
+  box-sizing: border-box;
+  width: 192px;
+  height: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  > .list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 60px;
+  }
+`;
+const Text$1 = styled__default["default"].p `
+  font-family: PT Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  color: #222;
+
+  /* max-width: 83ch; */
+  max-height: 69px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.title {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: 0.24px;
+  }
+
+  &.subtitle {
+    max-height: 24px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  &.topic {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+  }
+`;
+const ListTopics = styled__default["default"].ul `
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  gap: 16px;
+`;
+const Topic = styled__default["default"].li `
+  list-style: none;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110%;
+  border-left: 1px solid transparent;
+  padding-left: 8px;
+  cursor: pointer;
+
+  &.active {
+    font-weight: 700;
+    border-left: 1px solid #000;
+  }
+`;
+const MidiaContent = styled__default["default"].div `
+  width: 100%;
+  height: 100%;
+  padding: 8px !important;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  background: #fff;
+  border-radius: 8px;
+`;
+const Midia = styled__default["default"].div `
+  width: 100%;
+  height: 380px;
+  background: rgba(191, 186, 186, 0.2);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row-reverse;
+
+  > .close {
+    width: 30px;
+    padding: 8px;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  > .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px !important;
+
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+`;
+const ContentDescription = styled__default["default"].div `
+  display: flex;
+  height: 139px;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+`;
+
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, steps }) => {
+    const [numberCurrentStep, setNumberCurrentStep] = React.useState(0);
+    const [currentTopic, setCurrentTopic] = React.useState(steps[numberCurrentStep]);
+    const isLastStep = currentTopic === steps[steps.length - 1];
+    const labelButton = isLastStep ? 'Entendi' : 'Próximo';
+    const handleClickButtonNext = () => {
+        if (isLastStep)
+            onClose();
+        else {
+            setCurrentTopic(steps[numberCurrentStep + 1]);
+            setNumberCurrentStep((prev) => prev + 1);
+        }
+    };
+    const handleClickTopic = (id) => {
+        const [topic] = steps.filter((item, i) => i === id);
+        setCurrentTopic(topic);
+        setNumberCurrentStep(id);
+    };
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: open && (jsxRuntime.jsx(ModalNewFeaturesContainer, { id: "container-modal", onClick: (e) => {
+                const target = e.target;
+                target.id === 'container-modal' && onClose();
+            }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
+                                            return (jsxRuntime.jsx(Topic, { className: currentTopic.topicName === topic.topicName ? 'active' : '', onClick: () => handleClickTopic(i), children: topic.topicName }));
+                                        }) })] }), jsxRuntime.jsx(Button$5, { label: labelButton, variant: "secondary", handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsxs(Midia, { children: [jsxRuntime.jsx("div", { className: "close", onClick: onClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) })] }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { children: currentTopic.description })] })] })] }) })) }));
+};
+
 const ProgressBox = styled__default["default"](_.Box) `
   z-index: 1 !important;
   float: right !important;
@@ -18643,6 +18818,7 @@ exports.MiniButton = MiniButton;
 exports.Modal = Modal;
 exports.ModalInvite = ModalInvite;
 exports.ModalLearningTech = ModalLearningTech;
+exports.ModalNewFeatures = modalNewFeatures;
 exports.ModalStatusProblema = ModalStatusProblema;
 exports.ModalVideo = ModalVideo;
 exports.MoreDotsHorizontal = MoreDotsHorizontal;
