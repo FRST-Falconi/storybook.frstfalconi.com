@@ -7,17 +7,19 @@ import { CloseIcon, DropdownIcon, Trash } from "@shared/icons";
 import SearchField from "@components/search-field";
 import Avatar from "@components/avatar";
 import { IconButton, Modal } from "@mui/material";
-import './styles/primereact.css' 
+import './styles/primereact.css'
 import './styles/primeflex.css'
 import './styles/theme.css'
 import Tooltip from "../tooltip";
 import Button from "@components/buttons";
-    
+
 
 interface IDropdownMultiselect {
-    listItems?: any
+    listItems?: ISelectedValue
     selectPlaceholder?: string
     searchSelectPlaceholder?: string
+    people: string
+    person: string
     maxSelectedShow?: number
     isDisabled?: boolean
     removeItemsToolTip?: string
@@ -27,10 +29,20 @@ interface IDropdownMultiselect {
     getSelectedItems?: (selectedItems) => void
     style?: React.CSSProperties
     optionLayout?: (options) => void
+    selectedDefault?:ISelectedValue
+
 }
 
-export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
-    const [selectedValues, setSelectedValues] = useState<any>([]);
+type ISelectedValue = {
+    id: string
+    avatar: string
+    name: string
+    description: string
+}[]
+
+
+export default function DropdownMultiselect(props: IDropdownMultiselect) {
+    const [selectedValues, setSelectedValues] = useState<ISelectedValue>([]);
     const [textFilter, setTextFilter] = useState('')
     const [listItemsFilter, setListItemsFilter] = useState(props.listItems)
     const [showModal, setShowModal] = useState(false);
@@ -38,6 +50,10 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
     const listFilterSearch = useMemo(() => {
         return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
     }, [textFilter])
+
+    useEffect(() => {
+        setSelectedValues(props?.selectedDefault)
+    }, [props?.selectedDefault]);
 
     useEffect(() => {
         setListItemsFilter(props.listItems)
@@ -48,10 +64,10 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
     }, [selectedValues]);
 
     const removeSelectedValue = (id) => {
-        
+
         setSelectedValues((prev) => {
             prev = [...prev]
-            const index = prev.map( value => value.id ).indexOf(id)
+            const index = prev.map(value => value.id).indexOf(id)
             prev.splice(index, 1)
             return prev
         })
@@ -61,9 +77,9 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
         return (
             <S.selectItem>
                 <Avatar src={item.avatar} size='24px' />
-                <div style={{display: 'flex', gap: '6px'}}>
-                    <p> {item.name}  
-                    <span style={{color: '#757575'}}> ({item.description}) </span>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                    <p> {item.name}
+                        <span style={{ color: '#757575' }}> ({item.description}) </span>
                     </p>
                 </div>
             </S.selectItem>
@@ -73,28 +89,28 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
     const selectTemplate = (option) => {
         const pessoasAMais = selectedValues?.length - props.maxSelectedShow
         if (option) {
-            return(
+            return (
                 <>
-                    {option.map ((item, index) => {
-                        if(index < props.maxSelectedShow){
+                    {option.map((item, index) => {
+                        if (index < props.maxSelectedShow) {
                             return (
                                 props.optionLayout ?
                                     props.optionLayout(item)
-                                :
-                                <S.selectTag key={index}>
-                                    <Avatar src={item.avatar} size="24px" />
-                                    <p> {item.name} </p>
-                                    <IconButton onClick= { () => removeSelectedValue(item.id) }>
-                                        <CloseIcon width="8" height="8" fill="#FFFFFF" />
-                                    </IconButton>
-                                </S.selectTag>
+                                    :
+                                    <S.selectTag key={index}>
+                                        <Avatar src={item.avatar} size="24px" />
+                                        <p> {item.name} </p>
+                                        <IconButton onClick={() => removeSelectedValue(item.id)}>
+                                            <CloseIcon width="8" height="8" fill="#FFFFFF" />
+                                        </IconButton>
+                                    </S.selectTag>
                             )
                         }
-                        else if( index === props.maxSelectedShow){
+                        else if (index === props.maxSelectedShow) {
                             return (
                                 <S.overShowInfo key={index} onClick={() => setShowModal(true)} >
-                                    <p> 
-                                        {`+ ${pessoasAMais} ${pessoasAMais > 1 ? 'pessoas' : 'pessoa'}`}
+                                    <p>
+                                        {`+ ${pessoasAMais} ${pessoasAMais > 1 ? props.people : props.person}`}
                                     </p>
                                 </S.overShowInfo>
                             )
@@ -106,7 +122,7 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
             return <></>
         }
     }
-    
+
     const handleTemplateHeader = () => {
         const selectedItems = selectedValues
         const lengthList = selectedItems ? selectedItems?.length : 0
@@ -144,22 +160,22 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
             >
                 <S.modalContainer>
                     <S.modalHeader>
-                        <p> {props.modalTitle ? props.modalTitle : 'Este grupo é administrado por'} {selectedValues.length} {selectedValues.length > 1 ? 'pessoas' : 'pessoa'} </p>
+                        <p> {props.modalTitle ? props.modalTitle : 'Este grupo é administrado por'} {selectedValues.length} {selectedValues.length > 1 ? props.people : props.person} </p>
                     </S.modalHeader>
                     <S.modalContent>
-                        {selectedValues.map( (item, index) => {
+                        {selectedValues.map((item, index) => {
                             return (
-                                <S.modalCards style={{background: index % 2 === 0 ? '#F2F2F2' : '#FFF' }} key={index}>
-                                    <div style={{display: "flex", gap: '12px'}}>
+                                <S.modalCards style={{ background: index % 2 === 0 ? '#F2F2F2' : '#FFF' }} key={index}>
+                                    <div style={{ display: "flex", gap: '12px' }}>
                                         <Avatar src={item.avatar} size="50px" />
-                                        <div style={{display: 'flex', flexDirection: 'column', gap: '4px'}} >
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }} >
                                             <S.cardTitle> {item.name} </S.cardTitle>
                                             <S.cardDescription> {item.description} </S.cardDescription>
                                         </div>
                                     </div>
-                                    <div style={{display: 'flex', cursor: 'pointer'}} onClick={() => removeSelectedValue(item.id)}>
+                                    <div style={{ display: 'flex', cursor: 'pointer' }} onClick={() => removeSelectedValue(item.id)}>
                                         <Trash fill="#A50000" width="24" height="24" />
-                                        <S.cardTitle style={{color: '#A50000'}} > {props.removeModalText ? props.removeModalText : 'Remover'} </S.cardTitle>
+                                        <S.cardTitle style={{ color: '#A50000' }} > {props.removeModalText ? props.removeModalText : 'Remover'} </S.cardTitle>
                                     </div>
                                 </S.modalCards>
                             )
@@ -177,22 +193,22 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <S.containerSelect style={{...props.style}}>
-                
+            <S.containerSelect style={{ ...props.style }}>
+
                 {selectedValues?.length > 0 &&
                     <S.headerSelect>
-                        
+
                         {selectTemplate(selectedValues)}
 
                         {selectedValues?.length > 1 &&
-                            <div  style={{zIndex: 999, position: 'absolute', right: 40}}>
+                            <div style={{ zIndex: 999, position: 'absolute', right: 40 }}>
                                 <Tooltip
                                     content={props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos'}
                                     direction="bottom"
                                     trigger="hover"
-                                    style={{height: 'auto'}}
+                                    style={{ height: 'auto' }}
                                 >
-                                    <IconButton onClick={ () => setSelectedValues([])} >
+                                    <IconButton onClick={() => setSelectedValues([])} >
                                         <Trash fill="#9C9C9C" />
                                     </IconButton>
                                 </Tooltip>
@@ -202,10 +218,10 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
                 }
                 <S.customSelect >
                     <MultiSelect
-                        value={selectedValues} 
+                        value={selectedValues}
                         options={listFilterSearch}
-                        onChange={(e) => setSelectedValues(e.value)} 
-                        placeholder={ props.selectPlaceholder ? props.selectPlaceholder : "Selecione aqui" }
+                        onChange={(e) => setSelectedValues(e.value)}
+                        placeholder={props.selectPlaceholder ? props.selectPlaceholder : "Selecione aqui"}
                         className="custom-multiselect"
                         dropdownIcon={<DropdownIcon fill={FRSTTheme['colors'].shadeBlack} />}
                         panelHeaderTemplate={handleTemplateHeader()}
@@ -213,7 +229,7 @@ export default function DropdownMultiselect ( props : IDropdownMultiselect ) {
                         disabled={props.isDisabled}
                         maxSelectedLabels={0}
                         selectedItemsLabel=" "
-                        style={{border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}`}}
+                        style={{ border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }}
                     />
                 </S.customSelect>
                 {selectValuesModal()}
