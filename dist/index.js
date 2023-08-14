@@ -18664,6 +18664,9 @@ function DropdownMultiselect(props) {
         return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter));
     }, [textFilter]);
     React.useEffect(() => {
+        setSelectedValues(props?.selectedDefault);
+    }, [props?.selectedDefault]);
+    React.useEffect(() => {
         setListItemsFilter(props.listItems);
     }, [props.listItems]);
     React.useEffect(() => {
@@ -18691,7 +18694,7 @@ function DropdownMultiselect(props) {
                                 jsxRuntime.jsxs(selectTag, { children: [jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsxs("p", { children: [" ", item.name, " "] }), jsxRuntime.jsx(material.IconButton, { onClick: () => removeSelectedValue(item.id), children: jsxRuntime.jsx(CloseIcon, { width: "8", height: "8", fill: "#FFFFFF" }) })] }, index));
                     }
                     else if (index === props.maxSelectedShow) {
-                        return (jsxRuntime.jsx(overShowInfo, { onClick: () => setShowModal(true), children: jsxRuntime.jsx("p", { children: `+ ${pessoasAMais} ${pessoasAMais > 1 ? 'pessoas' : 'pessoa'}` }) }, index));
+                        return (jsxRuntime.jsx(overShowInfo, { onClick: () => setShowModal(true), children: jsxRuntime.jsx("p", { children: `+ ${pessoasAMais} ${pessoasAMais > 1 ? props.people : props.person}` }) }, index));
                     }
                 }) }));
         }
@@ -18709,7 +18712,7 @@ function DropdownMultiselect(props) {
                     } })] })) : jsxRuntime.jsx(jsxRuntime.Fragment, {});
     };
     const selectValuesModal = () => {
-        return (jsxRuntime.jsx(material.Modal, { open: showModal, onClose: () => setShowModal(false), children: jsxRuntime.jsxs(modalContainer, { children: [jsxRuntime.jsx(modalHeader, { children: jsxRuntime.jsxs("p", { children: [" ", props.modalTitle ? props.modalTitle : 'Este grupo é administrado por', " ", selectedValues.length, " ", selectedValues.length > 1 ? 'pessoas' : 'pessoa', " "] }) }), jsxRuntime.jsx(modalContent, { children: selectedValues.map((item, index) => {
+        return (jsxRuntime.jsx(material.Modal, { open: showModal, onClose: () => setShowModal(false), children: jsxRuntime.jsxs(modalContainer, { children: [jsxRuntime.jsx(modalHeader, { children: jsxRuntime.jsxs("p", { children: [" ", props.modalTitle ? props.modalTitle : 'Este grupo é administrado por', " ", selectedValues.length, " ", selectedValues.length > 1 ? props.people : props.person, " "] }) }), jsxRuntime.jsx(modalContent, { children: selectedValues.map((item, index) => {
                             return (jsxRuntime.jsxs(modalCards, { style: { background: index % 2 === 0 ? '#F2F2F2' : '#FFF' }, children: [jsxRuntime.jsxs("div", { style: { display: "flex", gap: '12px' }, children: [jsxRuntime.jsx(Avatar, { src: item.avatar, size: "50px" }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', gap: '4px' }, children: [jsxRuntime.jsxs(cardTitle, { children: [" ", item.name, " "] }), jsxRuntime.jsxs(cardDescription, { children: [" ", item.description, " "] })] })] }), jsxRuntime.jsxs("div", { style: { display: 'flex', cursor: 'pointer' }, onClick: () => removeSelectedValue(item.id), children: [jsxRuntime.jsx(Trash, { fill: "#A50000", width: "24", height: "24" }), jsxRuntime.jsxs(cardTitle, { style: { color: '#A50000' }, children: [" ", props.removeModalText ? props.removeModalText : 'Remover', " "] })] })] }, index));
                         }) }), jsxRuntime.jsx(closeModal, { children: jsxRuntime.jsx(material.IconButton, { onClick: () => setShowModal(false), children: jsxRuntime.jsx(CloseIcon, {}) }) })] }) }));
     };
