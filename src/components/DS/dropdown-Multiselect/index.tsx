@@ -29,7 +29,7 @@ interface IDropdownMultiselect {
     getSelectedItems?: (selectedItems) => void
     style?: React.CSSProperties
     optionLayout?: (options) => void
-    selectedDefault?:ISelectedValue
+    selectedDefault?: ISelectedValue
 
 }
 
@@ -46,9 +46,15 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const [textFilter, setTextFilter] = useState('')
     const [listItemsFilter, setListItemsFilter] = useState(props.listItems)
     const [showModal, setShowModal] = useState(false);
+    const [listFilterSearch, setListFilterSearch] = useState<any>();
 
-    const listFilterSearch = useMemo(() => {
-        return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
+    useEffect(() => {
+        setListFilterSearch(props.listItems)
+    }, [props.listItems])
+
+    useEffect(() => {
+        let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
+        setListFilterSearch(temp)
     }, [textFilter])
 
     useEffect(() => {

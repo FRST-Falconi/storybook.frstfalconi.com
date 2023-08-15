@@ -18660,8 +18660,13 @@ function DropdownMultiselect(props) {
     const [textFilter, setTextFilter] = React.useState('');
     const [listItemsFilter, setListItemsFilter] = React.useState(props.listItems);
     const [showModal, setShowModal] = React.useState(false);
-    const listFilterSearch = React.useMemo(() => {
-        return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter));
+    const [listFilterSearch, setListFilterSearch] = React.useState();
+    React.useEffect(() => {
+        setListFilterSearch(props.listItems);
+    }, [props.listItems]);
+    React.useEffect(() => {
+        let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter));
+        setListFilterSearch(temp);
     }, [textFilter]);
     React.useEffect(() => {
         setSelectedValues(props?.selectedDefault);
