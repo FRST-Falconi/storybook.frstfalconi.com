@@ -4,12 +4,14 @@ import {ICheckCircle, IComponente} from "./onboardingProgressMenu";
 export const CardContainer = styled.div`
     box-sizing: border-box;
     max-width: 100%;
-    height: auto;
+    height: 680px;
     background:${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme }) => theme.colors.linkDisabled};
     border-radius: 16px;
-    padding: 24px 36px 42px;
+    padding-right: 13px;
+    padding-top: 27px;
+    padding-bottom: 29px;
 `
 export const TextLevel = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsBold};
@@ -20,19 +22,28 @@ export const Challenge = styled.p`
     ${({ theme }) => theme.fonts.textMessageRegular};
     color: ${({ theme }) => theme.colors.neutralsGrey1};
 `
-export const Line = styled.div`
-    border-bottom: 1.5px solid #BDBDBD;
-    width: 100%;
-    height: 1px;
-    margin-top: 14px;
-    margin-bottom: 30px;
-`
+
 export const ImageTextGroup = styled.div`
+    padding-left: 15px;
     display: flex;
     flex-direction:row;
     align-items:center;
-    gap: 19px;
-    margin-left: 32px;
+    gap: 11.83px;
+    padding-bottom:30.35px; 
+`
+export const ScroollableContent = styled.div`
+    display: block;
+    width: 100%;
+    scroll-behavior: smooth;
+    overflow-y:auto;
+    max-height: 560px;
+    padding-right: 17px;
+    &::-webkit-scrollbar-button:vertical:increment {
+        display: none !important;
+    };
+    &::-webkit-scrollbar-button:vertical:decrement {
+        display: none !important;
+    };
 `
 export const StepBox = styled.div`
     width: 100%;
@@ -79,6 +90,6 @@ export const CheckCircle = styled.div<ICheckCircle>`
     width: 32px;
     height: 32px;
     border-radius: 16px;
-    background-color: ${({isComplete, theme}) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
-    border: 4px solid ${({isChecked, theme}) => isChecked ? theme.colors.shadeWhite : '#F2F4F7'};
+    background-color: ${({isComplete, theme}) => isComplete ? theme.colors.primary1 : theme.colors.primary1 };
+    border: 4px solid ${({isChecked, theme}) => isChecked ? theme.colors.shadeWhite : theme.colors.shadeWhite};
 `

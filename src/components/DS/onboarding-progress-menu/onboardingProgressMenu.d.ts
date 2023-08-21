@@ -14,7 +14,6 @@ export interface IOnboardingProgressMenuItem {
   title: string
   description: string
   finished: boolean
-  isCurrent: boolean
 }
 
 export interface IComponente{
