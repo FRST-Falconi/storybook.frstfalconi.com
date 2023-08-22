@@ -22,40 +22,76 @@ normal.args = {
             description: 'Entenda a sua jornada contínua de aceleração de performance.',
             finished: true
         },  {
-            handleClick: () => alert('Criar um desafio'),
-            title: 'Criar um desafio',
+            handleClick: () => alert('Complete seu perfil'),
+            title: 'Complete seu perfil',
+            description: 'Para aumentar sua visibilidade e facilitar novas conexões.',
+            finished: false,
+        },      
+        {
+            handleClick: () => alert('Identifique desafios'),
+            title:'Identifique desafios',
+            description: 'Entenda como transformar desafios em resultados e aprendizados reais.',
+            finished: false,
+        },
+        {
+            handleClick: () => alert('Crie desafios'),
+            title:'Crie desafios',
             description: 'Teste ideias e encontre soluções para os seus desafios. ',
-            finished: true,
-        },
-        {
-            handleClick: () => alert('Fazer mapa do Autoconhecimento'),
-            title:'Fazer mapa do Autoconhecimento',
-            description: 'Convide pessoas para colaborar no seu desafio.',
             finished: false,
         },
         {
-            handleClick: () => alert('Convidar para colaborar'),
-            title:'Convidar para colaborar',
-            description: 'Conheça seus pontos fortes  e entenda quais habilidades você pode evoluir.',
-            finished: false,
-        },
-        {
-            handleClick: () => alert('Fazer uma sessão de Mentoria'),
-            title:'Fazer uma sessão de Mentoria',
-            description: 'Conheça seus pontos fortes  e entenda quais habilidades você pode evoluir.',
+            handleClick: () => alert('Convide para colaborar'),
+            title:'Convide para colaborar',
+            description: 'Receba ajuda nos seus desafios e enxergue-os por outras perspectivas.',
             finished: false,
         },
         {
             handleClick: () => alert('Colaborar em um desafio'),
-            title:'Colaborar em um desafio',
-            description: 'Conecte-se a novas pessoas, colabore em desafios reais,e compartilhe conhecimento.  ',
+            title:'Colabore em desafios',
+            description: 'Compartilhe conhecimento e contribua no alcance de resultados impactantes.',
             finished: false,
+        },
+        {
+            handleClick: () => alert('sessões de colaboração'),
+            title:'Inscreva-se em sessões de colaboração',
+            description: 'Acelere sua performance com o apoio de especialistas.',
+            finished: false
         },
         {
             handleClick: () => alert('Completar um desafio'),
             title:'Completar um desafio',
             description: 'Complete um desafio e veja o resultado real.  ',
-            finished: true
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
         }
     ]
 }

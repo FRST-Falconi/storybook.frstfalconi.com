@@ -9,9 +9,10 @@ export const CardContainer = styled.div`
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme }) => theme.colors.linkDisabled};
     border-radius: 16px;
-    padding-right: 13px;
+    padding-right: 23px;
     padding-top: 27px;
-    padding-bottom: 29px;
+    padding-left: 23px;
+    padding-bottom: 27px;
 `
 export const TextLevel = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsBold};
@@ -24,7 +25,7 @@ export const Challenge = styled.p`
 `
 
 export const ImageTextGroup = styled.div`
-    padding-left: 15px;
+    padding-left: 3px;
     display: flex;
     flex-direction:row;
     align-items:center;
@@ -34,16 +35,16 @@ export const ImageTextGroup = styled.div`
 export const ScroollableContent = styled.div`
     display: block;
     width: 100%;
-    scroll-behavior: smooth;
     overflow-y:auto;
-    max-height: 560px;
+    max-height: 540px;
     padding-right: 17px;
-    &::-webkit-scrollbar-button:vertical:increment {
-        display: none !important;
+    &::-webkit-scrollbar{
+        width:7px;
+        background-color: #e2e8f0;
     };
-    &::-webkit-scrollbar-button:vertical:decrement {
-        display: none !important;
-    };
+    &::-webkit-scrollbar-thumb{
+        background-color: #64748b;
+    };  
 `
 export const StepBox = styled.div`
     width: 100%;
@@ -80,7 +81,7 @@ export const StepBoxTitle = styled.a<IComponente>`
 export const StepBoxDescription = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsRegular};
     color:#475569;
-    margin-bottom: 26px;
+    margin-bottom: 18px;
 `
 export const CheckCircle = styled.div<ICheckCircle>`
     box-sizing: border-box !important;
