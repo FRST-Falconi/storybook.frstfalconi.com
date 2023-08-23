@@ -1,19 +1,12 @@
 /// <reference types="react" />
-import '../../shared/global.css';
 interface IAudioPlayer {
-    audio: any;
-    /**
-     * @prop {number} startAt: o tempo em que o audio deve começar (em segundos)
-    */
+    audio: string;
     startAt?: number;
     coverImage?: string;
     title?: string;
     description?: string;
     date?: string;
     longLoading?: boolean;
-    /**
-     * @prop {number} volume: valor do volume (minimo 0 - máximo 1)
-    */
     volume?: number;
     onProgress?: (data: any) => void;
     onEnded?: () => void;
