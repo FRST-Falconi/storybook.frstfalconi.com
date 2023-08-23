@@ -1,7 +1,7 @@
 import React from 'react'
 
 export interface IOnboardingProgressMenu {
-  image: string
+  avatar: string
   countChallenge: number
   textChallenge: string
   level: string
@@ -11,6 +11,7 @@ export interface IOnboardingProgressMenu {
 
 export interface IOnboardingProgressMenuItem {
   handleClick: () => void
+  id: number
   title: string
   description: string
   finished: boolean

@@ -13,6 +13,7 @@ export const CardContainer = styled.div`
     padding-top: 27px;
     padding-left: 23px;
     padding-bottom: 27px;
+    position:relative;
 `
 export const TextLevel = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsBold};
@@ -25,19 +26,20 @@ export const Challenge = styled.p`
 `
 
 export const ImageTextGroup = styled.div`
-    padding-left: 3px;
     display: flex;
     flex-direction:row;
     align-items:center;
     gap: 11.83px;
-    padding-bottom:30.35px; 
+    padding-bottom:20.35px; 
 `
+
 export const ScroollableContent = styled.div`
     display: block;
     width: 100%;
     overflow-y:auto;
     max-height: 540px;
     padding-right: 17px;
+    position:relative;
     &::-webkit-scrollbar{
         width:7px;
         background-color: #e2e8f0;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import {
@@ -17,44 +17,96 @@ import {
 } from './onboardingProgressMenuStyles'
 import { Dot, Tick } from '@shared/icons'
 import { IOnboardingProgressMenu } from './onboardingProgressMenu'
+import { useEventListener } from 'usehooks-ts'
+
 
 export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
-    const { items, level, textChallenge, image, countChallenge, style } = props
+    const { items, level, textChallenge, avatar, countChallenge, style } = props
+    const [internalItems, setInternalItems] = useState(items)
+    const [isScrollInTop, setIsScrollInTop] = useState(true);
+    const [isScrollInBottom, setIsScrollInBottom] = useState(false);
+
+    useEffect(() => {
+        setInternalItems(items)
+    }, [items])
+
+    const scrollRef = useRef(null)
+    
+
+    const handleScroll = (event) =>{
+        if (scrollRef.current) {
+            const container = scrollRef.current;
+            const isScrolledToBottom = container.scrollTop + container.clientHeight >= container.scrollHeight;
+
+            const isScrolledToTop = container.scrollTop === 0;
+
+            setIsScrollInBottom(isScrolledToBottom)
+            setIsScrollInTop(isScrolledToTop)
+
+        }    
+    }
+
+    useEventListener('scroll', handleScroll, scrollRef)
+
 
     return (
         <ThemeProvider theme={FRSTTheme}>
             <CardContainer style={{ ...style }}>
                 {
                     <ImageTextGroup>
-                        <img src={image} width={55} height={55} />
+                        <img src={avatar} width={55} height={55} />
                         <div>
                             <TextLevel>{level}</TextLevel>
-                            <Challenge>{countChallenge} {textChallenge}</Challenge>
+                            <Challenge>
+                                {countChallenge} {textChallenge}
+                            </Challenge>
                         </div>
                     </ImageTextGroup>
                 }
-                <ScroollableContent>
-                    {items.map((i, index) => (
 
+                {internalItems.length >= 7 && !isScrollInTop && (
+                    <div
+                        style={{
+                            background: 'linear-gradient(#ffffff, #ffffff19)',
+                            height: '35px',
+                            position: 'absolute',
+                            top: 100,
+                            right: 36,
+                            width: '230px',
+                            zIndex: 10
+                        }}
+                    ></div>
+                )}
+                <ScroollableContent ref={scrollRef}>
+                    {internalItems.map((i, index) => (
                         <StepBox>
                             <StepBoxIconBlock>
                                 <CheckCircle isComplete={i.finished} isChecked={i.finished}>
-                                    {i.finished ? <Tick width='12' /> :
-                                        <Dot width='16' height='16' />}
+                                    {i.finished ? <Tick width="12" /> : <Dot width="16" height="16" />}
                                 </CheckCircle>
-                                {
-                                    items.length - 1 > index &&
-                                    <StepBar isComplete={i.finished} />
-                                }
+                                {items.length - 1 > index && <StepBar isComplete={i.finished} />}
                             </StepBoxIconBlock>
                             <StepBoxTextBlock>
-                                <StepBoxTitle onClick={i.handleClick} isComplete={i.finished}>{i.title}</StepBoxTitle>
+                                <StepBoxTitle onClick={i.handleClick} isComplete={i.finished}>
+                                    {i.title}
+                                </StepBoxTitle>
                                 <StepBoxDescription>{i.description}</StepBoxDescription>
                             </StepBoxTextBlock>
                         </StepBox>
-
                     ))}
                 </ScroollableContent>
+                {internalItems.length >= 7 && !isScrollInBottom && (
+                    <div
+                        style={{
+                            background: 'linear-gradient(#ffffff19, #ffffff)',
+                            height: '35px',
+                            position: 'absolute',
+                            bottom: 38,
+                            right: 36,
+                            width: '230px'
+                        }}
+                    ></div>
+                )}
             </CardContainer>
         </ThemeProvider>
     )
