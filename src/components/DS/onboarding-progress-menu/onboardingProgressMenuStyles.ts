@@ -4,12 +4,16 @@ import {ICheckCircle, IComponente} from "./onboardingProgressMenu";
 export const CardContainer = styled.div`
     box-sizing: border-box;
     max-width: 100%;
-    height: auto;
+    height: 680px;
     background:${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme }) => theme.colors.linkDisabled};
     border-radius: 16px;
-    padding: 24px 36px 42px;
+    padding-right: 23px;
+    padding-top: 27px;
+    padding-left: 23px;
+    padding-bottom: 27px;
+    position:relative;
 `
 export const TextLevel = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsBold};
@@ -20,19 +24,29 @@ export const Challenge = styled.p`
     ${({ theme }) => theme.fonts.textMessageRegular};
     color: ${({ theme }) => theme.colors.neutralsGrey1};
 `
-export const Line = styled.div`
-    border-bottom: 1.5px solid #BDBDBD;
-    width: 100%;
-    height: 1px;
-    margin-top: 14px;
-    margin-bottom: 30px;
-`
+
 export const ImageTextGroup = styled.div`
     display: flex;
     flex-direction:row;
     align-items:center;
-    gap: 19px;
-    margin-left: 32px;
+    gap: 11.83px;
+    padding-bottom:20.35px; 
+`
+
+export const ScroollableContent = styled.div`
+    display: block;
+    width: 100%;
+    overflow-y:auto;
+    max-height: 540px;
+    padding-right: 17px;
+    position:relative;
+    &::-webkit-scrollbar{
+        width:7px;
+        background-color: #e2e8f0;
+    };
+    &::-webkit-scrollbar-thumb{
+        background-color: #64748b;
+    };  
 `
 export const StepBox = styled.div`
     width: 100%;
@@ -68,8 +82,8 @@ export const StepBoxTitle = styled.a<IComponente>`
 `
 export const StepBoxDescription = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsRegular};
-    color:#475569;
-    margin-bottom: 26px;
+    color:#6a7585;
+    margin-bottom: 18px;
 `
 export const CheckCircle = styled.div<ICheckCircle>`
     box-sizing: border-box !important;
@@ -79,6 +93,6 @@ export const CheckCircle = styled.div<ICheckCircle>`
     width: 32px;
     height: 32px;
     border-radius: 16px;
-    background-color: ${({isComplete, theme}) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
-    border: 4px solid ${({isChecked, theme}) => isChecked ? theme.colors.shadeWhite : '#F2F4F7'};
+    background-color: ${({isComplete, theme}) => isComplete ? theme.colors.primary1 : theme.colors.primary1 };
+    border: 4px solid ${({isChecked, theme}) => isChecked ? theme.colors.shadeWhite : theme.colors.shadeWhite};
 `

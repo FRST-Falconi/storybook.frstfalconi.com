@@ -10,59 +10,101 @@ const Template = (args) => <OnboardingProgressMenu {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    image: 'https://i.gyazo.com/fa91ceb67f13f94a3ca725fe6363c44c.png',
+    avatar: 'https://cdn-images.frstfalconi.cloud/iniciante.png',
     level: 'Iniciante',
     countChallenge: 0,
-    textChallenge: 'desafios',
-    style:{width:'288px'},
+    textChallenge: 'desafios finalizados',
+    style:{width:'300px'},
     items: [
         {
             handleClick: () => alert('boas-vindas'),
+            id: 1,
             title: 'Boas-vindas',
             description: 'Entenda a sua jornada contínua de aceleração de performance.',
-            finished: true,
-            isCurrent: false
+            finished: true
         },  {
-            handleClick: () => alert('Criar um desafio'),
-            title: 'Criar um desafio',
-            description: 'Teste ideias e encontre soluções para os seus desafios. ',
+            handleClick: () => alert('Complete seu perfil'),
+            id: 2,
+            title: 'Complete seu perfil',
+            description: 'Para aumentar sua visibilidade e facilitar novas conexões.',
+            finished: false,
+        },      
+        {
+            handleClick: () => alert('Identifique desafios'),
+            id: 3,
+            title:'Identifique desafios',
+            description: 'Entenda como transformar desafios em resultados e aprendizados reais.',
             finished: true,
-            isCurrent: false
         },
         {
-            handleClick: () => alert('Fazer mapa do Autoconhecimento'),
-            title:'Fazer mapa do Autoconhecimento',
-            description: 'Convide pessoas para colaborar no seu desafio.',
+            handleClick: () => alert('Crie desafios'),
+            id: 4,
+            title:'Crie desafios',
+            description: 'Teste ideias e encontre soluções para os seus desafios. ',
             finished: false,
-            isCurrent: true
         },
         {
-            handleClick: () => alert('Convidar para colaborar'),
-            title:'Convidar para colaborar',
-            description: 'Conheça seus pontos fortes  e entenda quais habilidades você pode evoluir.',
+            handleClick: () => alert('Convide para colaborar'),
+            id: 5,
+            title:'Convide para colaborar',
+            description: 'Receba ajuda nos seus desafios e enxergue-os por outras perspectivas.',
             finished: false,
-            isCurrent: false
-        },
-        {
-            handleClick: () => alert('Fazer uma sessão de Mentoria'),
-            title:'Fazer uma sessão de Mentoria',
-            description: 'Conheça seus pontos fortes  e entenda quais habilidades você pode evoluir.',
-            finished: false,
-            isCurrent: false
         },
         {
             handleClick: () => alert('Colaborar em um desafio'),
-            title:'Colaborar em um desafio',
-            description: 'Conecte-se a novas pessoas, colabore em desafios reais,e compartilhe conhecimento.  ',
+            id: 6,
+            title:'Colabore em desafios',
+            description: 'Compartilhe conhecimento e contribua no alcance de resultados impactantes.',
             finished: false,
-            isCurrent: false
+        },
+        {
+            handleClick: () => alert('sessões de colaboração'),
+            id: 7,
+            title:'Inscreva-se em sessões de colaboração',
+            description: 'Acelere sua performance com o apoio de especialistas.',
+            finished: false
         },
         {
             handleClick: () => alert('Completar um desafio'),
+            id: 8,
             title:'Completar um desafio',
             description: 'Complete um desafio e veja o resultado real.  ',
-            finished: true,
-            isCurrent: false
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 9,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 10,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 11,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 12,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 13,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
         }
     ]
 }
