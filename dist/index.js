@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var jsxRuntime = require('react/jsx-runtime');
 var React = require('react');
 var styled = require('styled-components');
-var useSound = require('use-sound');
+var ReactPlayer = require('react-player');
 var material = require('@mui/material');
 var reactI18next = require('react-i18next');
 var Button$7 = require('@mui/material/Button');
@@ -45,7 +45,6 @@ var Tooltip$3 = require('@mui/material/Tooltip');
 var Switch = require('react-switch');
 var core = require('@material-ui/core');
 var moment = require('moment');
-var ReactPlayer = require('react-player');
 var _ = require('@mui/material/');
 var Slider = require('@mui/material/Slider');
 var styles$1 = require('@material-ui/styles');
@@ -90,7 +89,7 @@ function _interopNamespace(e) {
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
-var useSound__default = /*#__PURE__*/_interopDefaultLegacy(useSound);
+var ReactPlayer__default = /*#__PURE__*/_interopDefaultLegacy(ReactPlayer);
 var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$7);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu$1);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
@@ -115,7 +114,6 @@ var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip$3);
 var Switch__default = /*#__PURE__*/_interopDefaultLegacy(Switch);
 var moment__default = /*#__PURE__*/_interopDefaultLegacy(moment);
-var ReactPlayer__default = /*#__PURE__*/_interopDefaultLegacy(ReactPlayer);
 var Slider__default = /*#__PURE__*/_interopDefaultLegacy(Slider);
 var IconButton__default = /*#__PURE__*/_interopDefaultLegacy(IconButton);
 var MoreVertIcon__default = /*#__PURE__*/_interopDefaultLegacy(MoreVertIcon);
@@ -810,26 +808,26 @@ const FRSTTheme = {
 };
 
 const container$1 = styled__default["default"].div `
-    display: flex;
-    position: relative;
-    gap: 20px;
-    height: 234px;
-    padding: 20px;
-    border-radius: 16px;
-    border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-    background-color: #E2E8F0;
-    z-index: 1;
+  display: flex;
+  position: relative;
+  gap: 20px;
+  height: 234px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid ${({ theme }) => theme.colors.borderPrimary};
+  background-color: #e2e8f0;
+  z-index: 1;
 
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 styled.keyframes `
     0% { background-position: -468px 0;}
     100% { background-position: 468px 0;}
 `;
 styled__default["default"].div `
-    /* background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%); */
+  /* background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%); */
   /* background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);
   background-repeat: no-repeat; */
   /* background-size: 100% 100%; */
@@ -848,414 +846,383 @@ styled__default["default"].div `
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-name: placeholderShimmer;
   -webkit-animation-timing-function: linear;
-
-
 `;
 const containerMask = styled__default["default"].div `
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 16px;
-    z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 16px;
+  z-index: 1;
 `;
 const thumb = styled__default["default"].div `
-    border-radius: 8px;
-    width: 194px;
-    max-width: 194px;
-    height: 194px;
-    z-index: 2;
-    /* background-color: red; */
+  border-radius: 8px;
+  width: 194px;
+  max-width: 194px;
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+  z-index: 2;
+  /* background-color: red; */
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 `;
 const thumbLoading = styled__default["default"].div `
-    border-radius: 8px;
-    width: 194px;
-    max-width: 194px;
-    height: 194px;
-    z-index: 2;
-    background-color: red;
+  border-radius: 8px;
+  width: 194px;
+  max-width: 194px;
+  height: 194px;
+  z-index: 2;
 `;
 const content = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
 `;
 const title = styled__default["default"].p `
-    font-family: 'Work Sans';
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 21px;
-    color: #222222;
+  font-family: 'Work Sans';
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  color: #222222;
 
-    margin-top: 12px;
+  margin-top: 12px;
 `;
 const description = styled__default["default"].p `
-    font-family: 'PT Sans';
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-    color: #222222;   
+  font-family: 'PT Sans';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #222222;
 `;
 const date = styled__default["default"].p `
-    font-family: 'PT Sans';
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16px;
-    color: #222222;
+  font-family: 'PT Sans';
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: #222222;
 `;
 const controls = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    gap: 24px;
-    width: 100%;
-    margin-top: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 24px;
+  width: 100%;
+  // margin-top: 24px;
 `;
 const navigationButton = styled__default["default"].button `
-    border: none;
-    background: none;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+  border: none;
+  background: none;
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
 
-    &:hover{
-        color: ${({ theme }) => theme.colors.primary1};
-    }
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary1};
+  }
 
-    &:active{
-        color: ${({ theme }) => theme.colors.primary3};
-    }
+  &:active {
+    color: ${({ theme }) => theme.colors.primary3};
+  }
 `;
 const playButton = styled__default["default"].button `
-    border: none;
-    background: none;
-    color: ${({ theme }) => theme.colors.primary2};
-    &:hover{
-        color: ${({ theme }) => theme.colors.primary1};
-    }
+  border: none;
+  background: none;
+  color: ${({ theme }) => theme.colors.primary2};
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary1};
+  }
 
-    &:active{
-        color: ${({ theme }) => theme.colors.primary3};
-    }
+  &:active {
+    color: ${({ theme }) => theme.colors.primary3};
+  }
 `;
 const volumeControl = styled__default["default"].div `
-    position: absolute;
-    right: 0;
+  position: absolute;
+  right: 0;
 `;
 const volume = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 `;
 const volumeBar = styled__default["default"].input `
-    appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  border-radius: 1px;
+  box-sizing: border-box;
+  width: 32px;
+  height: 2px;
+  margin: 0px;
+  background: ${({ theme }) => theme.colors.neutralsGrey1};
+  background-image: linear-gradient(#ee4c15, #ee4c15);
+  background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
+  background-repeat: no-repeat;
+
+  &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    display: block;
-    border-radius: 1px;
-    box-sizing: border-box;
-    width: 32px;
-    height: 2px;
-    margin: 0px;
-    background: ${({ theme }) => theme.colors.neutralsGrey1};
-    background-image: linear-gradient(#ee4c15, #ee4c15);
-    background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
-    background-repeat: no-repeat;
+    appearance: none;
+  }
 
-    &::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-    }
+  &::-ms-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
-    &::-ms-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-    }
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
-    &::-moz-range-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-    }
+  &:hover::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 5px;
+    border: none;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary2};
+  }
 
-    &:hover::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 5px;
-        height: 5px;
-        border: none;
-        border-radius: 50%;
-        background: ${({ theme }) => theme.colors.primary2};
-    }
+  &:hover::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 5px;
+    border: none;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary2};
+  }
 
-    &:hover::-moz-range-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 5px;
-        height: 5px;
-        border: none;
-        border-radius: 50%;
-        background: ${({ theme }) => theme.colors.primary2};
-    }
+  &:hover::-ms-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 5px;
+    height: 5px;
+    border: none;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary2};
+  }
 
-    &:hover::-ms-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 5px;
-        height: 5px;
-        border: none;
-        border-radius: 50%;
-        background: ${({ theme }) => theme.colors.primary2};
-    }
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
 
-    &::-webkit-slider-runnable-track{
-        -webkit-appearance: none;
-        appearance: none;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
+  &::-moz-range-track {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
 
-    &::-moz-range-track{
-        -webkit-appearance: none;
-        appearance: none;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
-
-    &::-ms-track{
-        -webkit-appearance: none;
-        appearance: none;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
-
+  &::-ms-track {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
 `;
 const audioTimeline = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
 `;
 const timeText = styled__default["default"].p `
-    font-family: 'PT Sans';
-    font-size: 10px;
-    font-weight: 700;
-    line-height: 13px;
-    color: #222222;
-
+  font-family: 'PT Sans';
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 13px;
+  color: #222222;
 `;
 const timeline = styled__default["default"].input `
-    appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  display: block;
+  border-radius: 2px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 4px;
+  margin: 0px;
+  background: ${({ theme }) => theme.colors.neutralsGrey1};
+  background-image: linear-gradient(#ee4c15, #ee4c15);
+  background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
+  background-repeat: no-repeat;
+
+  &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    display: block;
-    border-radius: 2px;
-    box-sizing: border-box;
-    width: 100%;
-    height: 4px;
-    margin: 0px;
-    background: ${({ theme }) => theme.colors.neutralsGrey1};
-    background-image: linear-gradient(#ee4c15, #ee4c15);
-    background-size: ${({ currentInputValue }) => currentInputValue}% 100%;
-    background-repeat: no-repeat;
+    appearance: none;
+  }
 
-    &::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-    }
+  &::-ms-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
-    &::-ms-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-    }
+  &::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 
-    &::-moz-range-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-    }
+  &:hover::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary2};
+  }
 
-    &:hover::-webkit-slider-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 10px;
-        height: 10px;
-        border: none;
-        border-radius: 50%;
-        background: ${({ theme }) => theme.colors.primary2};
-    }
+  &:hover::-moz-range-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary2};
+  }
 
-    &:hover::-moz-range-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 10px;
-        height: 10px;
-        border: none;
-        border-radius: 50%;
-        background: ${({ theme }) => theme.colors.primary2};
-    }
+  &:hover::-ms-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: ${({ theme }) => theme.colors.primary2};
+  }
 
-    &:hover::-ms-thumb{
-        -webkit-appearance: none;
-        appearance: none;
-        width: 10px;
-        height: 10px;
-        border: none;
-        border-radius: 50%;
-        background: ${({ theme }) => theme.colors.primary2};
-    }
+  &::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
 
-    &::-webkit-slider-runnable-track{
-        -webkit-appearance: none;
-        appearance: none;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
+  &::-moz-range-track {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
 
-    &::-moz-range-track{
-        -webkit-appearance: none;
-        appearance: none;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
-
-    &::-ms-track{
-        -webkit-appearance: none;
-        appearance: none;
-        border: none;
-        box-shadow: none;
-        background: transparent;
-    }
-
+  &::-ms-track {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
 `;
 
 function AudioPlayer(props) {
     const [isPlaying, setIsPlaying] = React.useState(false);
-    React.useState();
-    const [time, setTime] = React.useState({
-        min: 0,
-        sec: 0
-    });
-    const [currTime, setCurrTime] = React.useState({
-        min: 0,
-        sec: 0
-    });
-    const [seconds, setSeconds] = React.useState(0);
-    const [audioVolume, setAudioVolume] = React.useState(props.volume ? props.volume : 0.5);
-    const [play, { pause, duration, sound }] = useSound__default["default"](props.audio, { volume: audioVolume,
-        onend: () => {
-            setIsPlaying(false);
-            props.onEnded();
-        } });
-    const [Loading, setLoading] = React.useState(true);
-    //porcentagem percorrida da musica
-    const [percentagePlaytime, setPercentagePlaytime] = React.useState(0);
+    const [playedSeconds, setPlayedSeconds] = React.useState(0);
+    const [duration, setDuration] = React.useState(0); // Added duration state
+    const playerRef = React.useRef(null);
+    const [loading, setLoading] = React.useState(true);
+    const [audioVolume, setAudioVolume] = React.useState(props?.volume ?? 0.5);
     const defaultThumb = 'https://i.gyazo.com/f201e5ef302347108c31a2129104adc1.png';
     React.useEffect(() => {
-        setAudioVolume(props.volume);
-    }, [props.volume]);
-    React.useEffect(() => {
-        setIsPlaying(false);
-        pause();
-    }, [props.exitSound]);
-    React.useEffect(() => {
-        setTimeout(() => {
-            setLoading(false);
-        }, 8000);
-    }, []);
-    React.useEffect(() => {
-        if (props.onProgress) {
-            if (isPlaying) {
-                props.onProgress({
-                    loadedSeconds: duration / 1000,
-                    playedSeconds: sound.seek([])
-                });
-            }
-        }
-    }, [seconds]);
-    React.useEffect(() => {
-        if (duration) {
-            const sec = duration / 1000;
-            const min = Math.floor(sec / 60);
-            const secRemain = Math.floor(sec % 60);
-            setTime({
-                min: min,
-                sec: secRemain
-            });
-        }
-        const interval = setInterval(() => {
-            if (sound) {
-                if (!isPlaying && props.startAt && sound.seek([]) === 0) {
-                    setSeconds(props.startAt);
-                    sound.seek([props.startAt]);
-                }
-                setSeconds(sound.seek([]));
-                const min = Math.floor(sound.seek([]) / 60);
-                const sec = Math.floor(sound.seek([]) % 60);
-                setCurrTime({
-                    min,
-                    sec
-                });
-                setPercentagePlaytime(calcCurrentInputPercentage(0, duration / 1000, sound.seek([])));
-            }
-        }, 1000);
-        return () => clearInterval(interval);
-    }, [sound]);
-    const playingButton = () => {
-        if (isPlaying) {
+        if (props.exitSound) {
             setIsPlaying(false);
-            pause();
+            if (playerRef.current) {
+                playerRef.current.seekTo(0);
+            }
         }
-        else {
-            setIsPlaying(true);
-            play();
+    }, [props.exitSound]);
+    const onProgress = (data) => {
+        if (props.onProgress && isPlaying) {
+            props.onProgress(data);
+        }
+        setPlayedSeconds(data.playedSeconds); // Update the playedSeconds state
+    };
+    const onVolumeChange = (newVolume) => {
+        setAudioVolume(newVolume); // Atualize o estado interno
+        if (playerRef.current) {
+            const internalPlayer = playerRef.current.getInternalPlayer();
+            if (internalPlayer) {
+                internalPlayer.volume = newVolume; // Atualize o volume diretamente no player interno
+            }
         }
     };
-    // função para calcular a porcentagem que foi percorrida a musica, para fazer o acompanhamento da barra
-    const calcCurrentInputPercentage = (valorMin, valorMax, valorAtual) => {
-        const min = valorMin;
-        const max = valorMax;
-        const val = valorAtual;
-        let result = (val - min) * 100 / (max - min);
-        return result;
+    const onDuration = (duration) => {
+        setDuration(duration); // Store the duration when it's available
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(container$1, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : '' }, children: [jsxRuntime.jsx(containerMask, {}), Loading ?
-                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(thumbLoading, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})` } }) })
-                        :
-                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(thumb, { style: { ...props.style, backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})` } }) }), jsxRuntime.jsxs(content, { style: { width: '100%' }, children: [jsxRuntime.jsxs(title, { children: [" ", props.title, " "] }), jsxRuntime.jsxs(description, { children: [" ", props.description, " "] }), jsxRuntime.jsxs(date, { children: [" ", props.date, " "] }), props.longLoading && Loading ?
-                                jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { justifyContent: 'center', alignItems: 'center', width: '100%', children: [jsxRuntime.jsx(material.Skeleton, { height: 48, width: 150, sx: { marginLeft: 24 } }), jsxRuntime.jsx(material.Skeleton, { height: 24 })] }) })
-                                :
-                                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(controls, { children: [jsxRuntime.jsx(navigationButton, { onClick: () => {
-                                                            sound.seek([seconds ? seconds - 15 : 0]);
-                                                        }, children: jsxRuntime.jsx(Back15, { fill: 'currentColor' }) }), !isPlaying ?
-                                                        jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PlayIcon, { customColor_1: 'currentColor' }) })
-                                                        :
-                                                            jsxRuntime.jsx(playButton, { onClick: playingButton, children: jsxRuntime.jsx(PauseIcon, { customColor_1: 'currentColor' }) }), jsxRuntime.jsx(navigationButton, { onClick: () => {
-                                                            sound.seek([seconds ? seconds + 15 : 15]);
-                                                        }, children: jsxRuntime.jsx(Foward15, { fill: 'currentColor' }) }), jsxRuntime.jsx(volumeControl, { children: audioVolume === 0 ?
-                                                            jsxRuntime.jsx(volume, { onClick: () => {
-                                                                    setAudioVolume(0.1);
-                                                                }, children: jsxRuntime.jsx(MuteIcon, {}) })
-                                                            :
-                                                                jsxRuntime.jsxs(volume, { children: [jsxRuntime.jsx("div", { onClick: () => {
-                                                                                setAudioVolume(0);
-                                                                            }, children: jsxRuntime.jsx(VolumeIcon, {}) }), jsxRuntime.jsx(volumeBar, { type: 'range', min: '0', max: '1', value: audioVolume, className: 'volumeBar', step: '0.1', onChange: (e) => {
-                                                                                setAudioVolume(Number(e.target.value));
-                                                                            }, currentInputValue: calcCurrentInputPercentage(0, 1, audioVolume) })] }) })] }), jsxRuntime.jsxs(audioTimeline, { children: [jsxRuntime.jsxs(timeText, { children: [currTime.min.toString().padStart(2, '0'), ":", currTime.sec.toString().padStart(2, '0')] }), jsxRuntime.jsx(timeline, { type: "range", min: "0", max: duration / 1000, value: seconds, className: "timeline", onChange: (e) => {
-                                                            sound.seek([e.target.value]);
-                                                        }, currentInputValue: percentagePlaytime }), jsxRuntime.jsxs(timeText, { children: [time.min.toString().padStart(2, '0'), ":", time.sec.toString().padStart(2, '0')] })] })] })] })] }) }) }));
+    const onEnded = () => {
+        setIsPlaying(false);
+        if (props.onEnded) {
+            props.onEnded();
+        }
+    };
+    React.useEffect(() => {
+        if (props.audio)
+            setLoading(false);
+    }, [props.audio]);
+    function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(container$1, { style: {
+                    ...props.style,
+                    backgroundImage: props.coverImage ? `url(${props.coverImage})` : ''
+                }, children: [jsxRuntime.jsx(containerMask, {}), loading ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(thumbLoading, { style: {
+                                ...props.style,
+                                backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})`
+                            } }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(thumb, { style: {
+                                ...props.style,
+                                backgroundImage: props.coverImage ? `url(${props.coverImage})` : `url(${defaultThumb})`
+                            } }) })), jsxRuntime.jsxs(content, { style: { width: '100%' }, children: [jsxRuntime.jsxs(title, { children: [" ", props.title, " "] }), jsxRuntime.jsxs(description, { children: [" ", props.description, " "] }), jsxRuntime.jsxs(date, { children: [" ", props.date, " "] }), props.longLoading && loading ? (jsxRuntime.jsxs(material.Box, { justifyContent: 'center', alignItems: 'center', width: '100%', children: [jsxRuntime.jsx(material.Skeleton, { height: 48, width: 150, sx: { marginLeft: 24 } }), jsxRuntime.jsx(material.Skeleton, { height: 24 })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(controls, { children: [jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                                    const newTime = playedSeconds - 15;
+                                                    setPlayedSeconds(newTime >= 0 ? newTime : 0);
+                                                    if (playerRef.current) {
+                                                        playerRef.current.seekTo(newTime >= 0 ? newTime : 0);
+                                                    }
+                                                }, children: jsxRuntime.jsx(Back15, { fill: "currentColor" }) }), !isPlaying ? (jsxRuntime.jsx(playButton, { onClick: () => setIsPlaying(true), children: jsxRuntime.jsx(PlayIcon, { customColor_1: "currentColor" }) })) : (jsxRuntime.jsx(playButton, { onClick: () => setIsPlaying(false), children: jsxRuntime.jsx(PauseIcon, { customColor_1: "currentColor" }) })), jsxRuntime.jsx(navigationButton, { onClick: () => {
+                                                    const newTime = playedSeconds + 15;
+                                                    setPlayedSeconds(newTime <= duration ? newTime : duration);
+                                                    if (playerRef.current) {
+                                                        playerRef.current.seekTo(newTime <= duration ? newTime : duration);
+                                                    }
+                                                }, children: jsxRuntime.jsx(Foward15, { fill: "currentColor" }) }), jsxRuntime.jsx(volumeControl, { children: audioVolume === 0 ? (jsxRuntime.jsx(volume, { onClick: () => onVolumeChange(0.1), children: jsxRuntime.jsx(MuteIcon, {}) })) : (jsxRuntime.jsxs(volume, { children: [jsxRuntime.jsx("div", { onClick: () => onVolumeChange(0), children: jsxRuntime.jsx(VolumeIcon, {}) }), jsxRuntime.jsx(volumeBar, { type: "range", min: "0", max: "1", value: audioVolume, className: "volumeBar", step: "0.1", onChange: (e) => onVolumeChange(Number(e.target.value)), currentInputValue: (audioVolume / 1) * 100 })] })) })] }), jsxRuntime.jsx(thumb, { style: {
+                                            ...props.style,
+                                            backgroundImage: `url(${props.coverImage})` ?? `url(${defaultThumb})`
+                                        } }), jsxRuntime.jsxs(audioTimeline, { children: [jsxRuntime.jsx(timeText, { children: formatTime(playedSeconds) }), jsxRuntime.jsx(timeline, { type: "range", min: "0", max: duration, value: playedSeconds, className: "timeline", onChange: (e) => {
+                                                    setPlayedSeconds(Number(e.target.value));
+                                                }, onMouseUp: (e) => {
+                                                    const newPlayedSeconds = Number(e.target.value);
+                                                    setPlayedSeconds(newPlayedSeconds);
+                                                    const seekTime = (newPlayedSeconds / duration) * duration;
+                                                    if (playerRef.current) {
+                                                        playerRef.current.seekTo(seekTime);
+                                                    }
+                                                }, onTouchEnd: (e) => {
+                                                    const newPlayedSeconds = Number(e.target.value);
+                                                    setPlayedSeconds(newPlayedSeconds);
+                                                    const seekTime = (newPlayedSeconds / duration) * duration;
+                                                    if (playerRef.current) {
+                                                        playerRef.current.seekTo(seekTime);
+                                                    }
+                                                }, currentInputValue: (playedSeconds / duration) * 100 }), jsxRuntime.jsx(timeText, { children: formatTime(duration) })] }), jsxRuntime.jsx(ReactPlayer__default["default"], { ref: playerRef, url: props.audio, playing: isPlaying, onProgress: onProgress, onDuration: onDuration, onEnded: onEnded, volume: audioVolume, hidden: true })] }))] })] }) }) }));
 }
 
 const ContainerDesafios = styled__default["default"].div `
