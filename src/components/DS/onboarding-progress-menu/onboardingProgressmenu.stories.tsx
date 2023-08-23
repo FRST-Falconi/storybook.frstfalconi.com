@@ -34,7 +34,7 @@ normal.args = {
             id: 3,
             title:'Identifique desafios',
             description: 'Entenda como transformar desafios em resultados e aprendizados reais.',
-            finished: false,
+            finished: true,
         },
         {
             handleClick: () => alert('Crie desafios'),

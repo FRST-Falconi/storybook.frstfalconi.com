@@ -77,7 +77,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                     <div
                         style={{
                             background: 'linear-gradient(#ffffff, #ffffff19)',
-                            height: '35px',
+                            height: '50px',
                             position: 'absolute',
                             top: 100,
                             right: 36,
@@ -108,7 +108,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                     <div
                         style={{
                             background: 'linear-gradient(#ffffff19, #ffffff)',
-                            height: '35px',
+                            height: '50px',
                             position: 'absolute',
                             bottom: 38,
                             right: 36,

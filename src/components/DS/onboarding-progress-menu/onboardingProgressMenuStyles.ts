@@ -82,7 +82,7 @@ export const StepBoxTitle = styled.a<IComponente>`
 `
 export const StepBoxDescription = styled.p`
     ${({ theme }) => theme.fonts.textMessageComponentsRegular};
-    color:#475569;
+    color:#6a7585;
     margin-bottom: 18px;
 `
 export const CheckCircle = styled.div<ICheckCircle>`
