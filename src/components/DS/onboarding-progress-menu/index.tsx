@@ -27,13 +27,22 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
     const [isScrollInBottom, setIsScrollInBottom] = useState(false);
 
     useEffect(() => {
-        setInternalItems(items)
+        const sortedData = [...items].sort((a, b) => {
+            if (a.finished && !b.finished) {
+                return -1;
+            }
+            if (!a.finished && b.finished) {
+                return 1;
+            }
+            return 0;
+        });
+        setInternalItems(sortedData)
     }, [items])
 
     const scrollRef = useRef(null)
-    
 
-    const handleScroll = (event) =>{
+
+    const handleScroll = (event) => {
         if (scrollRef.current) {
             const container = scrollRef.current;
             const isScrolledToBottom = container.scrollTop + container.clientHeight >= container.scrollHeight;
@@ -43,7 +52,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
             setIsScrollInBottom(isScrolledToBottom)
             setIsScrollInTop(isScrolledToTop)
 
-        }    
+        }
     }
 
     useEventListener('scroll', handleScroll, scrollRef)
@@ -72,7 +81,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                             position: 'absolute',
                             top: 100,
                             right: 36,
-                            width: '230px',
+                            width: 'calc(100% - 46px)',
                             zIndex: 10
                         }}
                     ></div>
@@ -103,7 +112,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                             position: 'absolute',
                             bottom: 38,
                             right: 36,
-                            width: '230px'
+                            width: 'calc(100% - 46px)',
                         }}
                     ></div>
                 )}

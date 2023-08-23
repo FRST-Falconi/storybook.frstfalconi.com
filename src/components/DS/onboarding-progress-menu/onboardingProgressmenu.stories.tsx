@@ -64,47 +64,47 @@ normal.args = {
             description: 'Acelere sua performance com o apoio de especialistas.',
             finished: false
         },
-        // {
-        //     handleClick: () => alert('Completar um desafio'),
-        //     id: 8,
-        //     title:'Completar um desafio',
-        //     description: 'Complete um desafio e veja o resultado real.  ',
-        //     finished: false
-        // },
-        // {
-        //     handleClick: () => alert('Completar um desafio'),
-        //     id: 9,
-        //     title:'Completar um desafio',
-        //     description: 'Complete um desafio e veja o resultado real.  ',
-        //     finished: false
-        // },
-        // {
-        //     handleClick: () => alert('Completar um desafio'),
-        //     id: 10,
-        //     title:'Completar um desafio',
-        //     description: 'Complete um desafio e veja o resultado real.  ',
-        //     finished: false
-        // },
-        // {
-        //     handleClick: () => alert('Completar um desafio'),
-        //     id: 11,
-        //     title:'Completar um desafio',
-        //     description: 'Complete um desafio e veja o resultado real.  ',
-        //     finished: false
-        // },
-        // {
-        //     handleClick: () => alert('Completar um desafio'),
-        //     id: 12,
-        //     title:'Completar um desafio',
-        //     description: 'Complete um desafio e veja o resultado real.  ',
-        //     finished: false
-        // },
-        // {
-        //     handleClick: () => alert('Completar um desafio'),
-        //     id: 13,
-        //     title:'Completar um desafio',
-        //     description: 'Complete um desafio e veja o resultado real.  ',
-        //     finished: false
-        // }
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 8,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 9,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 10,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 11,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 12,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        },
+        {
+            handleClick: () => alert('Completar um desafio'),
+            id: 13,
+            title:'Completar um desafio',
+            description: 'Complete um desafio e veja o resultado real.  ',
+            finished: false
+        }
     ]
 }
