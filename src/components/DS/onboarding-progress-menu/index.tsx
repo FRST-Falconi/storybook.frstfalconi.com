@@ -18,7 +18,6 @@ import {
 import { Dot, Tick } from '@shared/icons'
 import { IOnboardingProgressMenu } from './onboardingProgressMenu'
 import { useEventListener } from 'usehooks-ts'
-import { avatarClasses } from '@mui/material'
 
 
 export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
@@ -47,12 +46,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
         if (scrollRef.current) {
             const container = scrollRef.current;
             const isScrolledToBottom = container.scrollTop + container.clientHeight >= container.scrollHeight;
-            console.log('isScrolledToBottom',isScrolledToBottom)
             const isScrolledToTop = container.scrollTop === 0;
-            console.log('isScrolledToTop', isScrolledToTop)
-            console.log('container.scrollTop', container.scrollTop )
-            console.log('container.clientHeight',container.clientHeight )
-            console.log('container.scrollHeight',container.scrollHeight)
             setIsScrollInBottom(isScrolledToBottom)
             setIsScrollInTop(isScrolledToTop)
 
