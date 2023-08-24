@@ -4950,7 +4950,7 @@ function Loading(props) {
 const CardContainer$1 = styled__default["default"].div `
     box-sizing: border-box;
     max-width: 100%;
-    height: 680px;
+    height: auto;
     background:${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme }) => theme.colors.linkDisabled};
@@ -5042,10 +5042,10 @@ const CheckCircle = styled__default["default"].div `
 `;
 
 function OnboardingProgressMenu(props) {
-    const { items, level, textChallenge, avatar, countChallenge, style } = props;
+    const { items, level, textChallenge, countChallenge, style } = props;
     const [internalItems, setInternalItems] = React.useState(items);
     const [isScrollInTop, setIsScrollInTop] = React.useState(true);
-    const [isScrollInBottom, setIsScrollInBottom] = React.useState(false);
+    const [isScrollInBottom, setIsScrollInBottom] = React.useState(true);
     React.useEffect(() => {
         const sortedData = [...items].sort((a, b) => {
             if (a.finished && !b.finished) {
@@ -5069,7 +5069,7 @@ function OnboardingProgressMenu(props) {
         }
     };
     usehooksTs.useEventListener('scroll', handleScroll, scrollRef);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$1, { style: { ...style }, children: [jsxRuntime.jsxs(ImageTextGroup, { children: [jsxRuntime.jsx("img", { src: avatar, width: 55, height: 55 }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TextLevel, { children: level }), jsxRuntime.jsxs(Challenge, { children: [countChallenge, " ", textChallenge] })] })] }), internalItems.length >= 7 && !isScrollInTop && (jsxRuntime.jsx("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$1, { style: { ...style }, children: [jsxRuntime.jsxs(ImageTextGroup, { children: [jsxRuntime.jsx("img", { src: level.avatar, width: 55, height: 55 }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TextLevel, { children: level.name }), jsxRuntime.jsxs(Challenge, { children: [countChallenge, " ", textChallenge] })] })] }), !isScrollInTop && (jsxRuntime.jsx("div", { style: {
                         background: 'linear-gradient(#ffffff, #ffffff19)',
                         height: '50px',
                         position: 'absolute',
@@ -5077,13 +5077,14 @@ function OnboardingProgressMenu(props) {
                         right: 36,
                         width: 'calc(100% - 46px)',
                         zIndex: 10
-                    } })), jsxRuntime.jsx(ScroollableContent, { ref: scrollRef, children: internalItems.map((i, index) => (jsxRuntime.jsxs(StepBox, { children: [jsxRuntime.jsxs(StepBoxIconBlock, { children: [jsxRuntime.jsx(CheckCircle, { isComplete: i.finished, isChecked: i.finished, children: i.finished ? jsxRuntime.jsx(Tick, { width: "12" }) : jsxRuntime.jsx(Dot, { width: "16", height: "16" }) }), items.length - 1 > index && jsxRuntime.jsx(StepBar, { isComplete: i.finished })] }), jsxRuntime.jsxs(StepBoxTextBlock, { children: [jsxRuntime.jsx(StepBoxTitle, { onClick: i.handleClick, isComplete: i.finished, children: i.title }), jsxRuntime.jsx(StepBoxDescription, { children: i.description })] })] }))) }), internalItems.length >= 7 && !isScrollInBottom && (jsxRuntime.jsx("div", { style: {
+                    } })), jsxRuntime.jsx(ScroollableContent, { ref: scrollRef, children: internalItems.map((i, index) => (jsxRuntime.jsxs(StepBox, { children: [jsxRuntime.jsxs(StepBoxIconBlock, { children: [jsxRuntime.jsx(CheckCircle, { isComplete: i.finished, isChecked: i.finished, children: i.finished ? jsxRuntime.jsx(Tick, { width: "12" }) : jsxRuntime.jsx(Dot, { width: "16", height: "16" }) }), items.length - 1 > index && jsxRuntime.jsx(StepBar, { isComplete: i.finished })] }), jsxRuntime.jsxs(StepBoxTextBlock, { children: [jsxRuntime.jsx(StepBoxTitle, { onClick: i.handleClick, isComplete: i.finished, children: i.title }), jsxRuntime.jsx(StepBoxDescription, { children: i.description })] })] }))) }), !isScrollInBottom && (jsxRuntime.jsx("div", { style: {
                         background: 'linear-gradient(#ffffff19, #ffffff)',
                         height: '50px',
                         position: 'absolute',
-                        bottom: 38,
+                        bottom: 27,
                         right: 36,
                         width: 'calc(100% - 46px)',
+                        zIndex: 10
                     } }))] }) }));
 }
 
