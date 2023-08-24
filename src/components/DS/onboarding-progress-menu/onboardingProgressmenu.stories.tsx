@@ -10,8 +10,11 @@ const Template = (args) => <OnboardingProgressMenu {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-    avatar: 'https://cdn-images.frstfalconi.cloud/iniciante.png',
-    level: 'Iniciante',
+    level:{
+        id:1,
+        name: 'Iniciante',
+        avatar: 'https://cdn-images.frstfalconi.cloud/iniciante.png'
+    },
     countChallenge: 0,
     textChallenge: 'desafios finalizados',
     style:{width:'300px'},

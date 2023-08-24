@@ -4,7 +4,7 @@ import {ICheckCircle, IComponente} from "./onboardingProgressMenu";
 export const CardContainer = styled.div`
     box-sizing: border-box;
     max-width: 100%;
-    height: 680px;
+    height: auto;
     background:${({ theme }) => theme.colors.shadeWhite};
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme }) => theme.colors.linkDisabled};
