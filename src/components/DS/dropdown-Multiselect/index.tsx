@@ -38,6 +38,7 @@ type ISelectedValue = {
     avatar: string
     name: string
     description: string
+    subDescription?: string
 }[]
 
 
@@ -177,6 +178,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }} >
                                             <S.cardTitle> {item.name} </S.cardTitle>
                                             <S.cardDescription> {item.description} </S.cardDescription>
+                                            <S.cardDescription> {item.subDescription} </S.cardDescription>
                                         </div>
                                     </div>
                                     <div style={{ display: 'flex', cursor: 'pointer' }} onClick={() => removeSelectedValue(item.id)}>
