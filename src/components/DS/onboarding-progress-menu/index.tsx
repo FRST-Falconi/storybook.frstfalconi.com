@@ -21,10 +21,10 @@ import { useEventListener } from 'usehooks-ts'
 
 
 export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
-    const { items, level, textChallenge, avatar, countChallenge, style } = props
+    const { items, level, textChallenge,countChallenge, style } = props
     const [internalItems, setInternalItems] = useState(items)
     const [isScrollInTop, setIsScrollInTop] = useState(true);
-    const [isScrollInBottom, setIsScrollInBottom] = useState(false);
+    const [isScrollInBottom, setIsScrollInBottom] = useState(true);
 
     useEffect(() => {
         const sortedData = [...items].sort((a, b) => {
@@ -46,9 +46,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
         if (scrollRef.current) {
             const container = scrollRef.current;
             const isScrolledToBottom = container.scrollTop + container.clientHeight >= container.scrollHeight;
-
             const isScrolledToTop = container.scrollTop === 0;
-
             setIsScrollInBottom(isScrolledToBottom)
             setIsScrollInTop(isScrolledToTop)
 
@@ -63,9 +61,9 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
             <CardContainer style={{ ...style }}>
                 {
                     <ImageTextGroup>
-                        <img src={avatar} width={55} height={55} />
+                        <img src={level.avatar} width={55} height={55} />
                         <div>
-                            <TextLevel>{level}</TextLevel>
+                            <TextLevel>{level.name}</TextLevel>
                             <Challenge>
                                 {countChallenge} {textChallenge}
                             </Challenge>
@@ -73,7 +71,7 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                     </ImageTextGroup>
                 }
 
-                {internalItems.length >= 7 && !isScrollInTop && (
+                {!isScrollInTop && (
                     <div
                         style={{
                             background: 'linear-gradient(#ffffff, #ffffff19)',
@@ -104,15 +102,16 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                         </StepBox>
                     ))}
                 </ScroollableContent>
-                {internalItems.length >= 7 && !isScrollInBottom && (
+                {!isScrollInBottom && (
                     <div
                         style={{
                             background: 'linear-gradient(#ffffff19, #ffffff)',
                             height: '50px',
                             position: 'absolute',
-                            bottom: 38,
+                            bottom: 27,
                             right: 36,
                             width: 'calc(100% - 46px)',
+                            zIndex: 10
                         }}
                     ></div>
                 )}
