@@ -78,7 +78,9 @@ export const ContainerCard = styled.div`
   background-color: ${({ theme }) => theme.colors.shadeWhite};
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 8px;
+  gap: 8px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -92,7 +94,8 @@ export const ContainerCard = styled.div`
   }
 
   &:hover .trash {
-    right: 15px;
+    display: inline-block;
+    /* background-color: red; */
   }
 `
 export const Thumbnails = styled.div`
@@ -117,12 +120,11 @@ export const Title = styled.div`
 `
 export const IconTrash = styled.div`
   cursor: pointer;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  right: -15px;
-  position: absolute;
-  transition: all 0.5s linear;
+  height: fit-content;
+   transition: all 0.2s  ;
+  display: none;
+  align-self: center;
+  align-content: flex-end;
 `
 // ##############TRILHA##############
 

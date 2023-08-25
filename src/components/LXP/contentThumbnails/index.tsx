@@ -5,10 +5,10 @@ import * as Styles from './contentThumbnailsStyle'
 import { IContentThumbnails } from './contentThumbnails'
 import VectorDown from './vectorDown'
 import VectorUp from './vectorUp'
-import VectorEllipse from './vectorEllipse'
 import { useEffect, useState } from 'react'
 import * as Icons from '../../../shared/icons'
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd'
+import HeaderVectorElipses from '../thumbnails/headerVectorElipses'
 // import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 export enum typeContent {
@@ -90,60 +90,8 @@ export default function ContentThumbnails({
                   <Draggable draggableId={item.title} index={index} key={index}>
                     {(provided: any) => (
                       <Styles.ContainerCard ref={provided.innerRef} {...provided.draggableProps}>
-                        <Styles.Thumbnails
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                        >
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                        </Styles.Thumbnails>
-                        <Styles.Thumbnails
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                        >
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                        </Styles.Thumbnails>
-                        <Styles.Thumbnails
-                          ref={provided.innerRef}
-                          {...provided.draggableProps}
-                          {...provided.dragHandleProps}
-                        >
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                          <VectorEllipse />
-                        </Styles.Thumbnails>
+                        <HeaderVectorElipses provided={provided} direction='column' />
+                        
                         <div
                           onClick={() => {
                             handleClick(item)

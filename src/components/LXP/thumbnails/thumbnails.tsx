@@ -3,7 +3,6 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './thumbnailsStyle'
 import { IThumbnails, IThumbnailsTranslate } from './thumbnails.d'
-import VectorEllipse from './vectorEllipse'
 import HeaderVectorElipses from './headerVectorElipses'
 import { LoadingThumbnails } from './loadingThumbnails'
 import * as LoadingComponent from '@components/DS/loading'
@@ -128,7 +127,7 @@ export default function Thumbnails({
                 ref={provided ? provided.innerRef : null}
                 {...(provided ? provided.draggableProps : null)}
               >
-                <HeaderVectorElipses provided={provided} />
+                <HeaderVectorElipses provided={provided} direction='row' />
                 <img
                   className="thumbnails_img"
                   ref={provided ? provided.innerRef : null}
