@@ -7434,7 +7434,10 @@ function AvatarChannel$1({ size, channel, className, disabled, color, handleValu
         .map((name, i) => name[0])
         .join('');
     const [image, setImage] = React.useState(sourceImage);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", isEdit: isEdit, variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: isEdit && (jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, isEdit: isEdit, children: [!image && jsxRuntime.jsx(Channel$2, { size: size, children: nameChannel }), isEdit && (jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) }))] })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", isEdit: isEdit, variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: isEdit && (jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => {
+                                console.log(e);
+                                handleFileSelected(e.target.files[0]);
+                            } })) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, isEdit: isEdit, children: [!image && jsxRuntime.jsx(Channel$2, { size: size, children: nameChannel }), isEdit && (jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) }))] })] }) }) }));
 }
 
 const ContainerGeral = styled__default["default"].div `
@@ -8071,7 +8074,9 @@ const ContainerCard$1 = styled__default["default"].div `
   background-color: ${({ theme }) => theme.colors.shadeWhite};
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 8px;
+  gap: 8px;
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
@@ -8085,10 +8090,11 @@ const ContainerCard$1 = styled__default["default"].div `
   }
 
   &:hover .trash {
-    right: 15px;
+    display: inline-block;
+    /* background-color: red; */
   }
 `;
-const Thumbnails$1 = styled__default["default"].div `
+styled__default["default"].div `
   width: 17.29px;
   height: 51px;
   margin-left: -11px;
@@ -8110,12 +8116,11 @@ const Title$2 = styled__default["default"].div `
 `;
 const IconTrash = styled__default["default"].div `
   cursor: pointer;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  right: -15px;
-  position: absolute;
-  transition: all 0.5s linear;
+  height: fit-content;
+   transition: all 0.2s  ;
+  display: none;
+  align-self: center;
+  align-content: flex-end;
 `;
 // ##############TRILHA##############
 const ContainerTrilha = styled__default["default"].div `
@@ -8198,9 +8203,18 @@ function VectorUp$1(props) {
  *
  * @componente
  */
-function VectorEllipse$1(props) {
+function VectorEllipse(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "5", height: "5", viewBox: "0 0 5 5", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint0_angular_4285_2572)" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint1_radial_4285_2572)", fillOpacity: "0.6" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", stroke: "#BDBDBD", strokeWidth: "0.1" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("radialGradient", { id: "paint0_angular_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { stopColor: "#757575" }), jsxRuntime.jsx("stop", { offset: "0.526042", stopColor: "#757575", stopOpacity: "0" })] }), jsxRuntime.jsxs("radialGradient", { id: "paint1_radial_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { offset: "0.380208", stopColor: "white" }), jsxRuntime.jsx("stop", { offset: "1", stopColor: "#EBEBEB", stopOpacity: "0" })] })] })] }) }));
 }
+
+const HeaderVectorElipses = ({ provided, direction }) => {
+    return (jsxRuntime.jsx("div", { ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), style: { display: 'flex', width: 'fit-content', height: 'fit-content', flexDirection: direction ? 'row' : 'column' }, children: [1, 2, 3].map((thumb) => {
+            const arr = new Array(10).fill('');
+            return (jsxRuntime.jsx("div", { style: { width: 'fit-content', display: 'flex', justifyContent: 'center', cursor: 'pointer', flexDirection: !direction ? 'row' : 'column' }, children: arr.map((i, k) => {
+                    return jsxRuntime.jsx(VectorEllipse, {}, k);
+                }) }, thumb));
+        }) }));
+};
 
 // import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 var typeContent;
@@ -8249,7 +8263,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
     };
     function Exibir() {
         return (jsxRuntime.jsx(dnd.DragDropContext, { onDragEnd: onDragEnd, children: jsxRuntime.jsx(dnd.Droppable, { droppableId: "contentListData", children: (provided) => (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', height: contentListData.length > 0 ? 'auto' : '100vh', width: 270 }, ref: provided.innerRef, children: contentListData?.map((item, index) => {
-                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsxs(Thumbnails$1, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$1, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs(Thumbnails$1, { ref: provided.innerRef, ...provided.draggableProps, ...provided.dragHandleProps, children: [jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {}), jsxRuntime.jsx(VectorEllipse$1, {})] }), jsxRuntime.jsxs("div", { onClick: () => {
+                        return (jsxRuntime.jsx(dnd.Draggable, { draggableId: item.title, index: index, children: (provided) => (jsxRuntime.jsxs(ContainerCard$1, { ref: provided.innerRef, ...provided.draggableProps, children: [jsxRuntime.jsx(HeaderVectorElipses, { provided: provided, direction: 'column' }), jsxRuntime.jsxs("div", { onClick: () => {
                                             handleClick(item);
                                         }, style: {
                                             display: 'flex',
@@ -11360,27 +11374,8 @@ const LoadingContainer = styled__default["default"].div `
   }
 `;
 
-///-----------------------------------------
-/// Componente
-/**
- *
- * @componente
- */
-function VectorEllipse(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { width: "5", height: "5", viewBox: "0 0 5 5", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint0_angular_4285_2572)" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", fill: "url(#paint1_radial_4285_2572)", fillOpacity: "0.6" }), jsxRuntime.jsx("ellipse", { cx: "2.57143", cy: "2.35", rx: "1.65", ry: "1.57143", transform: "rotate(-90 2.57143 2.35)", stroke: "#BDBDBD", strokeWidth: "0.1" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("radialGradient", { id: "paint0_angular_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { stopColor: "#757575" }), jsxRuntime.jsx("stop", { offset: "0.526042", stopColor: "#757575", stopOpacity: "0" })] }), jsxRuntime.jsxs("radialGradient", { id: "paint1_radial_4285_2572", cx: "0", cy: "0", r: "1", gradientUnits: "userSpaceOnUse", gradientTransform: "translate(2.57143 2.35) rotate(90) scale(1.57143 1.65)", children: [jsxRuntime.jsx("stop", { offset: "0.380208", stopColor: "white" }), jsxRuntime.jsx("stop", { offset: "1", stopColor: "#EBEBEB", stopOpacity: "0" })] })] })] }) }));
-}
-
-const HeaderVectorElipses = ({ provided }) => {
-    return (jsxRuntime.jsx("div", { ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), children: [1, 2, 3].map((thumb) => {
-            const arr = new Array(10).fill('');
-            return (jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', cursor: 'pointer' }, children: arr.map((i, k) => {
-                    return jsxRuntime.jsx(VectorEllipse, {}, k);
-                }) }, thumb));
-        }) }));
-};
-
 const LoadingThumbnails = ({ provided }) => {
-    return (jsxRuntime.jsxs(CardDragAndDrop, { className: "loading", children: [jsxRuntime.jsx(HeaderVectorElipses, { provided: provided }), jsxRuntime.jsx(LoadingContainer, { className: "loading_img" }), jsxRuntime.jsx(LoadingContainer, { className: "loading_text" }), jsxRuntime.jsx(LoadingContainer, { className: "loading_text loading_button" })] }));
+    return (jsxRuntime.jsxs(CardDragAndDrop, { className: "loading", children: [jsxRuntime.jsx(HeaderVectorElipses, { provided: provided, direction: 'row' }), jsxRuntime.jsx(LoadingContainer, { className: "loading_img" }), jsxRuntime.jsx(LoadingContainer, { className: "loading_text" }), jsxRuntime.jsx(LoadingContainer, { className: "loading_text loading_button" })] }));
 };
 
 ///-----------------------------------------
@@ -11442,7 +11437,7 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
             fontSize: 11
         }
     }));
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [variant === 'default' ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading$1 ? (jsxRuntime.jsx(LoadingThumbnails, { provided: provided })) : (jsxRuntime.jsxs(CardDragAndDrop, { active: ativo, className: (variant = 'default'), ref: provided ? provided.innerRef : null, ...(provided ? provided.draggableProps : null), children: [jsxRuntime.jsx(HeaderVectorElipses, { provided: provided }), jsxRuntime.jsx("img", { className: "thumbnails_img", ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), onMouseEnter: handleHoverImage, 
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [variant === 'default' ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading$1 ? (jsxRuntime.jsx(LoadingThumbnails, { provided: provided })) : (jsxRuntime.jsxs(CardDragAndDrop, { active: ativo, className: (variant = 'default'), ref: provided ? provided.innerRef : null, ...(provided ? provided.draggableProps : null), children: [jsxRuntime.jsx(HeaderVectorElipses, { provided: provided, direction: 'row' }), jsxRuntime.jsx("img", { className: "thumbnails_img", ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), onMouseEnter: handleHoverImage, 
                                 // className="imageHover"
                                 src: src || defaultImg }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd', textAlign: 'start' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
                                             setElementPopover(element.currentTarget);
