@@ -7434,10 +7434,7 @@ function AvatarChannel$1({ size, channel, className, disabled, color, handleValu
         .map((name, i) => name[0])
         .join('');
     const [image, setImage] = React.useState(sourceImage);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", isEdit: isEdit, variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: isEdit && (jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => {
-                                console.log(e);
-                                handleFileSelected(e.target.files[0]);
-                            } })) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, isEdit: isEdit, children: [!image && jsxRuntime.jsx(Channel$2, { size: size, children: nameChannel }), isEdit && (jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) }))] })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", isEdit: isEdit, variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: isEdit && (jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, isEdit: isEdit, children: [!image && jsxRuntime.jsx(Channel$2, { size: size, children: nameChannel }), isEdit && (jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) }))] })] }) }) }));
 }
 
 const ContainerGeral = styled__default["default"].div `
@@ -8208,9 +8205,9 @@ function VectorEllipse(props) {
 }
 
 const HeaderVectorElipses = ({ provided, direction }) => {
-    return (jsxRuntime.jsx("div", { ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), style: { display: 'flex', width: 'fit-content', height: 'fit-content', flexDirection: direction ? 'row' : 'column' }, children: [1, 2, 3].map((thumb) => {
+    return (jsxRuntime.jsx("div", { ref: provided ? provided.innerRef : null, ...(provided ? provided.dragHandleProps : null), style: { display: 'flex', width: 'fit-content', height: 'fit-content', flexDirection: direction === 'column' ? 'row' : 'column' }, children: [1, 2, 3].map((thumb) => {
             const arr = new Array(10).fill('');
-            return (jsxRuntime.jsx("div", { style: { width: 'fit-content', display: 'flex', justifyContent: 'center', cursor: 'pointer', flexDirection: !direction ? 'row' : 'column' }, children: arr.map((i, k) => {
+            return (jsxRuntime.jsx("div", { style: { width: 'fit-content', display: 'flex', justifyContent: 'center', cursor: 'pointer', flexDirection: direction === 'column' ? 'column' : 'row' }, children: arr.map((i, k) => {
                     return jsxRuntime.jsx(VectorEllipse, {}, k);
                 }) }, thumb));
         }) }));
