@@ -676,8 +676,8 @@ const DesignTokens = {
             color: 'black'
         },
         textMessageComponentsRegular: {
-            fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '14px',
+            fontFamily: "'Work Sans', 'WorkSans-Regular'",
+            fontSize: '12px',
             letterSpacing: '0px',
             lineHeight: '18px',
             fontWeight: 400,
@@ -685,15 +685,15 @@ const DesignTokens = {
         },
         textMessageRegular: {
             fontFamily: "'PT Sans', 'PTSans-Regular'",
-            fontSize: '18px',
+            fontSize: '14.54px',
             letterSpacing: '0px',
             lineHeight: '110%',
             fontWeight: 400,
             color: 'black'
         },
         textMessageComponentsBold: {
-            fontFamily: "'PT Sans', 'PTSans-Bold'",
-            fontSize: '18px',
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '14.54px',
             letterSpacing: '0px',
             lineHeight: '110%',
             fontWeight: 700,
@@ -712,6 +712,14 @@ const DesignTokens = {
             fontSize: '40px',
             letterSpacing: '0.4px',
             lineHeight: '130%',
+            fontWeight: 700,
+            color: 'black'
+        },
+        MessageComponentsBodyBold: {
+            fontFamily: "'Work Sans', 'WorkSans-Bold'",
+            fontSize: '14px',
+            letterSpacing: '0px',
+            lineHeight: '100%',
             fontWeight: 700,
             color: 'black'
         },
@@ -4974,6 +4982,7 @@ const ImageTextGroup = styled__default["default"].div `
     display: flex;
     flex-direction:row;
     align-items:center;
+    justify-content: center;
     gap: 11.83px;
     padding-bottom:20.35px; 
 `;
@@ -4981,7 +4990,7 @@ const ScroollableContent = styled__default["default"].div `
     display: block;
     width: 100%;
     overflow-y:auto;
-    max-height: 540px;
+    max-height: 520px;
     padding-right: 17px;
     position:relative;
     &::-webkit-scrollbar{
@@ -5017,10 +5026,10 @@ const StepBar = styled__default["default"].div `
     background-color: ${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
 `;
 const StepBoxTitle = styled__default["default"].a `
-    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
+    ${({ theme }) => theme.fonts.MessageComponentsBodyBold};
     color:${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : ' #344054'};
     ${({ isComplete }) => !isComplete && 'font-weight: 500;'}
-    margin-top:2px;
+    margin-top:7px;
     cursor: pointer;
     text-decoration: none;
 `;
@@ -5069,15 +5078,15 @@ function OnboardingProgressMenu(props) {
         }
     };
     usehooksTs.useEventListener('scroll', handleScroll, scrollRef);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$1, { style: { ...style }, children: [jsxRuntime.jsxs(ImageTextGroup, { children: [jsxRuntime.jsx("img", { src: level.avatar, width: 55, height: 55 }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TextLevel, { children: level.name }), jsxRuntime.jsxs(Challenge, { children: [countChallenge, " ", textChallenge] })] })] }), !isScrollInTop && (jsxRuntime.jsx("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(CardContainer$1, { style: { ...style }, children: [jsxRuntime.jsxs(ImageTextGroup, { children: [jsxRuntime.jsx("img", { src: level.avatar, width: 85, height: 85 }), jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TextLevel, { children: level.name }), jsxRuntime.jsxs(Challenge, { children: [countChallenge, " ", textChallenge] })] })] }), !isScrollInTop && (jsxRuntime.jsx("div", { style: {
                         background: 'linear-gradient(#ffffff, #ffffff19)',
                         height: '50px',
                         position: 'absolute',
-                        top: 100,
+                        top: 120,
                         right: 36,
                         width: 'calc(100% - 46px)',
                         zIndex: 10
-                    } })), jsxRuntime.jsx(ScroollableContent, { ref: scrollRef, children: internalItems.map((i, index) => (jsxRuntime.jsxs(StepBox, { children: [jsxRuntime.jsxs(StepBoxIconBlock, { children: [jsxRuntime.jsx(CheckCircle, { isComplete: i.finished, isChecked: i.finished, children: i.finished ? jsxRuntime.jsx(Tick, { width: "12" }) : jsxRuntime.jsx(Dot, { width: "16", height: "16" }) }), items.length - 1 > index && jsxRuntime.jsx(StepBar, { isComplete: i.finished })] }), jsxRuntime.jsxs(StepBoxTextBlock, { children: [jsxRuntime.jsx(StepBoxTitle, { onClick: i.handleClick, isComplete: i.finished, children: i.title }), jsxRuntime.jsx(StepBoxDescription, { children: i.description })] })] }))) }), !isScrollInBottom && (jsxRuntime.jsx("div", { style: {
+                    } })), jsxRuntime.jsx(ScroollableContent, { ref: scrollRef, children: internalItems.map((i, index) => (jsxRuntime.jsxs(StepBox, { children: [jsxRuntime.jsxs(StepBoxIconBlock, { children: [jsxRuntime.jsx(CheckCircle, { isComplete: i.finished, isChecked: i.finished, children: i.finished ? jsxRuntime.jsx(Tick, { width: "12" }) : jsxRuntime.jsx(Dot, { width: "16", height: "16" }) }), items.length + 1 > index && jsxRuntime.jsx(StepBar, { isComplete: i.finished })] }), jsxRuntime.jsxs(StepBoxTextBlock, { children: [jsxRuntime.jsx(StepBoxTitle, { onClick: i.handleClick, isComplete: i.finished, children: i.title }), jsxRuntime.jsx(StepBoxDescription, { children: i.description })] })] }))) }), !isScrollInBottom && (jsxRuntime.jsx("div", { style: {
                         background: 'linear-gradient(#ffffff19, #ffffff)',
                         height: '50px',
                         position: 'absolute',
