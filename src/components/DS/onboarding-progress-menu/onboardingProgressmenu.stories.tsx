@@ -13,11 +13,11 @@ normal.args = {
     level:{
         id:1,
         name: 'Iniciante',
-        avatar: 'https://cdn-images.frstfalconi.cloud/iniciante.png'
+        avatar: 'https://cdn-images.frstfalconi.cloud/top01%201.png'
     },
     countChallenge: 0,
     textChallenge: 'desafios finalizados',
-    style:{width:'300px'},
+    style:{width:'299px'},
     items: [
         {
             handleClick: () => alert('boas-vindas'),
@@ -37,14 +37,14 @@ normal.args = {
             id: 3,
             title:'Identifique desafios',
             description: 'Entenda como transformar desafios em resultados e aprendizados reais.',
-            finished: true,
+            finished: false,
         },
         {
             handleClick: () => alert('Crie desafios'),
             id: 4,
             title:'Crie desafios',
             description: 'Teste ideias e encontre soluções para os seus desafios. ',
-            finished: false,
+            finished: true,
         },
         {
             handleClick: () => alert('Convide para colaborar'),

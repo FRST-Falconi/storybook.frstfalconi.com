@@ -29,6 +29,7 @@ export const ImageTextGroup = styled.div`
     display: flex;
     flex-direction:row;
     align-items:center;
+    justify-content: center;
     gap: 11.83px;
     padding-bottom:20.35px; 
 `
@@ -37,7 +38,7 @@ export const ScroollableContent = styled.div`
     display: block;
     width: 100%;
     overflow-y:auto;
-    max-height: 540px;
+    max-height: 520px;
     padding-right: 17px;
     position:relative;
     &::-webkit-scrollbar{
@@ -73,10 +74,10 @@ export const StepBar = styled.div<IComponente>`
     background-color: ${({isComplete, theme}) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
 `
 export const StepBoxTitle = styled.a<IComponente>`
-    ${({ theme }) => theme.fonts.textMessageComponentsBodyBold};
+    ${({ theme }) => theme.fonts.MessageComponentsBodyBold};
     color:${({isComplete, theme}) => isComplete ? theme.colors.primary1 : ' #344054'};
     ${({isComplete}) => !isComplete && 'font-weight: 500;'}
-    margin-top:2px;
+    margin-top:7px;
     cursor: pointer;
     text-decoration: none;
 `

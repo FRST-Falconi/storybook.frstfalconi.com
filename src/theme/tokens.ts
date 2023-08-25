@@ -92,8 +92,8 @@ export const DesignTokens = {
       color: 'black'
     },
     textMessageComponentsRegular: {
-      fontFamily: "'PT Sans', 'PTSans-Regular'",
-      fontSize: '14px',
+      fontFamily: "'Work Sans', 'WorkSans-Regular'",
+      fontSize: '12px',
       letterSpacing: '0px',
       lineHeight: '18px',
       fontWeight: 400,
@@ -101,15 +101,15 @@ export const DesignTokens = {
     },
     textMessageRegular: {
       fontFamily: "'PT Sans', 'PTSans-Regular'",
-      fontSize: '18px',
+      fontSize: '14.54px',
       letterSpacing: '0px',
       lineHeight: '110%',
       fontWeight: 400,
       color: 'black'
     },
     textMessageComponentsBold: {
-      fontFamily: "'PT Sans', 'PTSans-Bold'",
-      fontSize: '18px',
+      fontFamily: "'Work Sans', 'WorkSans-Bold'",
+      fontSize: '14.54px',
       letterSpacing: '0px',
       lineHeight: '110%',
       fontWeight: 700,
@@ -128,6 +128,14 @@ export const DesignTokens = {
       fontSize: '40px',
       letterSpacing: '0.4px',
       lineHeight: '130%',
+      fontWeight: 700,
+      color: 'black'
+    },
+    MessageComponentsBodyBold: {
+      fontFamily: "'Work Sans', 'WorkSans-Bold'",
+      fontSize: '14px',
+      letterSpacing: '0px',
+      lineHeight: '100%',
       fontWeight: 700,
       color: 'black'
     },
