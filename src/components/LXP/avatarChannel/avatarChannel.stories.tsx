@@ -21,7 +21,8 @@ normal.args = {
   handleValueAvatar: (file) => {
     console.log('avatar:', file)
   },
-  variantPopOver: 'lowLeft'
+  variantPopOver: 'lowLeft',
+  isLink: false
 }
 
 export const sourceImage = Template.bind({})

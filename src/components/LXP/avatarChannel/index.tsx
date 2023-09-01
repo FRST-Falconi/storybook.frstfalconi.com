@@ -16,6 +16,7 @@ export default function AvatarChannel({
   handleValueAvatar,
   variantPopOver,
   sourceImage,
+  isLink = false,
   isEdit = false
 }: IAvatar) {
   const onChange = () => {
@@ -42,7 +43,7 @@ export default function AvatarChannel({
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <Styles.ContainerGeral className="geral" isEdit={isEdit} variant={variantPopOver}>
+      <Styles.ContainerGeral className="geral" isEdit={isEdit}  variant={variantPopOver}>
         <>
           <Styles.ContainerPopOver className="popOver" variant={variantPopOver}>
             <PopOverLXP children={'Alterar avatar'} variant={variantPopOver} element={undefined} />
@@ -66,6 +67,7 @@ export default function AvatarChannel({
             color={color ? color : '#6a3f86'}
             image={image}
             isEdit={isEdit}
+            isLink={isLink}
           >
             {!image && <Styles.Channel size={size}>{nameChannel}</Styles.Channel>}
 
