@@ -11,4 +11,5 @@ export interface IAvatar {
   variantPopOver?: string
   sourceImage?: string
   isEdit?: boolean
+  isLink?: boolean
 }

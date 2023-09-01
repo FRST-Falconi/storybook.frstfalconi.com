@@ -7200,7 +7200,7 @@ const AvatarChannel$2 = styled__default["default"].div `
   background-size: cover;
   background-position: center center;
   margin-top: ${(p) => p.isEdit && '62px'};
-  cursor: ${(p) => (p.isEdit ? 'pointer' : 'text')};
+  cursor: ${(p) => (p.isEdit || p.isLink ? 'pointer' : 'text')};
   ${(props) => props.variant === 'sideRight' &&
     styled.css `
       margin-left: 8.5rem;
@@ -7415,7 +7415,7 @@ function PopOverLXP({ variant, children }) {
                                 : null }));
 }
 
-function AvatarChannel$1({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage, isEdit = false }) {
+function AvatarChannel$1({ size, channel, className, disabled, color, handleValueAvatar, variantPopOver, sourceImage, isLink = false, isEdit = false }) {
     const onChange = () => {
         document.getElementById('fileSelector').click();
     };
@@ -7434,7 +7434,7 @@ function AvatarChannel$1({ size, channel, className, disabled, color, handleValu
         .map((name, i) => name[0])
         .join('');
     const [image, setImage] = React.useState(sourceImage);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", isEdit: isEdit, variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: isEdit && (jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, isEdit: isEdit, children: [!image && jsxRuntime.jsx(Channel$2, { size: size, children: nameChannel }), isEdit && (jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) }))] })] }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerGeral$1, { className: "geral", isEdit: isEdit, variant: variantPopOver, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ContainerPopOver, { className: "popOver", variant: variantPopOver, children: jsxRuntime.jsx(PopOverLXP, { children: 'Alterar avatar', variant: variantPopOver, element: undefined }) }), jsxRuntime.jsx("div", { style: { display: 'none' }, children: isEdit && (jsxRuntime.jsx("input", { type: "file", id: "fileSelector", accept: ".jpg, .jpeg, .png", onChange: (e) => handleFileSelected(e.target.files[0]) })) }), jsxRuntime.jsxs(AvatarChannel$2, { size: size, onClick: onChange, className: className, disabled: disabled, variant: variantPopOver, color: color ? color : '#6a3f86', image: image, isEdit: isEdit, isLink: isLink, children: [!image && jsxRuntime.jsx(Channel$2, { size: size, children: nameChannel }), isEdit && (jsxRuntime.jsx(AvatarCircle, { className: "hide", children: jsxRuntime.jsx(AvatarCam, { children: jsxRuntime.jsx(Cam, {}) }) }))] })] }) }) }));
 }
 
 const ContainerGeral = styled__default["default"].div `
@@ -11311,8 +11311,9 @@ const CardDragAndDrop = styled__default["default"].div `
   &.add {
     align-items: center;
     justify-content: center;
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border-radius: 8px;
+border: 1px dashed  #BDBDBD;
+background: #E0E0E0;
   }
 
   &.loading {

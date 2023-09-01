@@ -8,6 +8,7 @@ interface AvatarI {
   image?: any
   variant?: string
   isEdit?: boolean
+  isLink?: boolean
 }
 
 interface PropsPopOver {
@@ -39,7 +40,7 @@ export const AvatarChannel = styled.div<AvatarI>`
   background-size: cover;
   background-position: center center;
   margin-top: ${(p) => p.isEdit && '62px'};
-  cursor: ${(p) => (p.isEdit ? 'pointer' : 'text')};
+  cursor: ${(p) => (p.isEdit || p.isLink ? 'pointer' : 'text')};
   ${(props) =>
     props.variant === 'sideRight' &&
     css`
