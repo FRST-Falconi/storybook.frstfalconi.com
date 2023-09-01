@@ -140,8 +140,9 @@ export const CardDragAndDrop = styled.div<IImageBackground>`
   &.add {
     align-items: center;
     justify-content: center;
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey5};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    border-radius: 8px;
+border: 1px dashed  #BDBDBD;
+background: #E0E0E0;
   }
 
   &.loading {
