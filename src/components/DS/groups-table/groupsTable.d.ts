@@ -7,6 +7,7 @@ export interface IGroupsTable {
     textHeader2: string
     textHeader3: string
     textHeader4: string
+    textHeaderVisit: string
     items:IGroupsTableItems[]
     textTooltipAdd: string
     textTooltipCount: string
@@ -16,7 +17,9 @@ export interface IGroupsTable {
     onDeleteClick: (id:string, index:index) => void
     onEditClick: (id:string) => void
     onShowMoreClick: (id:string) => void
+    onShowMoreVisitorsClick: (id:string) => void
     AdmMoreClick: (id:string) => void
+    visitMoreClick: (id:string) => void
     onSelected: (selecteds: any[]) => void
 }
 
@@ -26,8 +29,17 @@ export interface IAdmItem {
     name: string
 }
 
+export interface IVisitors {
+    id: string
+    avatar: string
+    name: string
+}
+
 export interface IGroupsTableItems {
     id: string
     group: string
+    textRoot: string
     adms: IAdmItem[]
+    visitors: IVisitors[]
+    isRoot: boolean
 }

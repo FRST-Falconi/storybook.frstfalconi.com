@@ -4522,12 +4522,12 @@ const TableContainer = styled__default["default"].div `
 const Table = styled__default["default"].table `
     border-collapse: collapse;
     width:100%;
-    background:${({ theme }) => theme.colors.shadeWhite};
+    background:${({ theme }) => theme.colors.neutralsGrey8};
         tbody{
             tr:nth-child(even){
-                background:${({ theme }) => theme.colors.neutralsGrey8};
+                background:${({ theme }) => theme.colors.shadeWhite};
                 :hover{
-                    background: rgba(223, 226, 226, 1);
+                    background: rgba(248, 248, 248, 1);
                 }
         }
     }
@@ -4544,8 +4544,9 @@ const TableRow = styled__default["default"].tr `
     border-bottom:  1px solid rgba(189, 189, 189, 1);
     text-align: center;
     &:hover {
-        background-color:rgba(248, 248, 248, 1) 
+        background-color:rgba(223, 226, 226, 1);
     }
+    background-color: ${({ isRoot }) => isRoot ? '#FFEFE1 !important' : ''}; ;
 `;
 const TableChecked = styled__default["default"].td `
     vertical-align:middle;
@@ -4569,6 +4570,21 @@ const TableAdm = styled__default["default"].td `
         margin-left: -4px;
     }
     }
+
+`;
+const TableVisit = styled__default["default"].td ``;
+const TableVisitContent = styled__default["default"].div `
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 8px;               
+    div{
+        flex-direction: row-reverse;
+        display: flex;
+        :nth-child(1n){
+        margin-left: -4px;
+    }
+}
 
 `;
 
@@ -4672,13 +4688,13 @@ function Checkbox({ label, isChecked, handleCheck, color = FRSTTheme['colors'].p
 
 const TdTrashButton = ({ onClick }) => {
     const [isHover, setIsHover] = React.useState(false);
-    return (jsxRuntime.jsx("div", { onClick: onClick, style: { cursor: 'pointer' }, onMouseLeave: () => setIsHover(false), onMouseEnter: () => setIsHover(true), children: jsxRuntime.jsx(TrashDelete, { width: "24px", height: "24px", fill: isHover ? 'rgba(165, 0, 0, 1)' : 'rgba(68, 68, 68, 1) ' }) }));
+    return (jsxRuntime.jsx("div", { onClick: onClick, style: { cursor: 'pointer ' }, onMouseLeave: () => setIsHover(false), onMouseEnter: () => setIsHover(true), children: jsxRuntime.jsx(TrashDelete, { width: "24px", height: "24px", fill: isHover ? 'rgba(165, 0, 0, 1)' : 'rgba(68, 68, 68, 1) ' }) }));
 };
 const TdEditButtom = ({ onClick }) => {
     const [isHover, setIsHover] = React.useState(false);
     return (jsxRuntime.jsx("div", { onClick: onClick, style: { cursor: 'pointer' }, onMouseLeave: () => setIsHover(false), onMouseEnter: () => setIsHover(true), children: jsxRuntime.jsx(EditIcon, { width: "18px", height: "18px", fill: isHover ? 'rgba(6, 69, 173, 1)' : 'rgba(68, 68, 68, 1) ' }) }));
 };
-function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items, selected, textTooltipAdd, textTooltipCount, deleted, onDeleteClick, onEditClick, onDeleteAllSelected, AdmMoreClick, onShowMoreClick, textTooltipAllSelected, onSelected }) {
+function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, textHeaderVisit, items, selected, textTooltipAdd, textTooltipCount, deleted, onDeleteClick, onEditClick, onDeleteAllSelected, AdmMoreClick, onShowMoreClick, textTooltipAllSelected, onSelected, visitMoreClick, onShowMoreVisitorsClick, }) {
     const [isAllChecked, setIsAllChecked] = React.useState(false);
     const [internalItems, setInternalItems] = React.useState([]);
     React.useEffect(() => {
@@ -4688,7 +4704,14 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items,
         const value = !isAllChecked;
         setIsAllChecked(value);
         setInternalItems((prev) => {
-            return prev.map((i) => ({ ...i, checked: value }));
+            return prev.map((i) => {
+                if (!i.isRoot) {
+                    return { ...i, checked: value };
+                }
+                else {
+                    return { ...i };
+                }
+            });
         });
     }
     function handleToggleSelectRow(index) {
@@ -4709,7 +4732,7 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items,
         return internalItems.filter((i) => i.checked).length;
     }, [internalItems]);
     const maxAdmToShow = 3;
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(ContainerSelected, { children: [' ', jsxRuntime.jsxs("div", { children: [selected, " ", selectedItems] }), selectedItems > 1 && (jsxRuntime.jsxs("span", { onClick: handleDeleteAllSelected, style: { cursor: 'pointer' }, children: [jsxRuntime.jsx(Trash, { fill: "rgba(165, 0, 0, 1)" }), deleted] }))] }), jsxRuntime.jsx(TableContainer, { children: jsxRuntime.jsxs(Table, { children: [jsxRuntime.jsxs("tr", { children: [jsxRuntime.jsxs(TableHeader, { style: { textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }, children: [jsxRuntime.jsx(Tooltip$2, { style: {
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(ContainerSelected, { children: [' ', jsxRuntime.jsxs("div", { children: [selected, " ", selectedItems] }), selectedItems > 1 && (jsxRuntime.jsxs("span", { onClick: handleDeleteAllSelected, style: { cursor: 'pointer' }, children: [jsxRuntime.jsx(Trash, { fill: "rgba(165, 0, 0, 1)" }), deleted] }))] }), jsxRuntime.jsx(TableContainer, { children: jsxRuntime.jsxs(Table, { children: [jsxRuntime.jsxs("thead", { children: [jsxRuntime.jsxs(TableHeader, { style: { textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }, children: [jsxRuntime.jsx(Tooltip$2, { style: {
                                                 width: '116px',
                                                 height: '31px',
                                                 top: '8px',
@@ -4717,7 +4740,10 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items,
                                                 display: 'flex',
                                                 justifyContent: 'center',
                                                 boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                            }, direction: 'bottom', content: textTooltipAllSelected, delay: 500, children: jsxRuntime.jsx(Checkbox, { isChecked: isAllChecked, label: "", handleCheck: handleToggleSelectAll, color: "rgba(67, 159, 159, 1)" }) }), jsxRuntime.jsx("span", { children: textHeader })] }), jsxRuntime.jsx(TableHeader, {}), jsxRuntime.jsx(TableHeader, { style: { width: '180px' }, children: textHeader2 }), jsxRuntime.jsx(TableHeader, { style: { paddingRight: '52px', paddingLeft: '44px', width: '220px' }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', alignItems: 'center', gap: '44px' }, children: [jsxRuntime.jsx("div", { children: textHeader3 }), jsxRuntime.jsx("div", { children: textHeader4 })] }) })] }), jsxRuntime.jsx("tbody", { children: internalItems.map((i, index) => (jsxRuntime.jsxs(TableRow, { children: [jsxRuntime.jsx(TableChecked, { children: jsxRuntime.jsx(Checkbox, { label: i.group, handleCheck: () => handleToggleSelectRow(index), isChecked: i.checked }) }), jsxRuntime.jsx("td", {}), jsxRuntime.jsx(TableAdm, { children: jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Tooltip$2, { content: textTooltipAdd, delay: 500, direction: 'bottom', style: {
+                                            }, direction: 'bottom', content: textTooltipAllSelected, delay: 500, children: jsxRuntime.jsx(Checkbox, { isChecked: isAllChecked, label: "", handleCheck: handleToggleSelectAll, color: "rgba(67, 159, 159, 1)" }) }), jsxRuntime.jsx("span", { children: textHeader })] }), jsxRuntime.jsx(TableHeader, { children: textHeader2 }), jsxRuntime.jsx(TableHeader, { children: textHeaderVisit }), jsxRuntime.jsx(TableHeader, { style: { paddingRight: '40px', paddingLeft: '44px', width: '220px' }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', alignItems: 'center', gap: '40px' }, children: [jsxRuntime.jsx("div", { children: textHeader3 }), jsxRuntime.jsx("div", { children: textHeader4 })] }) })] }), jsxRuntime.jsx("tbody", { children: internalItems.map((i, index) => (jsxRuntime.jsxs(TableRow, { isRoot: i.isRoot, children: [jsxRuntime.jsx(TableChecked, { children: !i.isRoot ?
+                                            jsxRuntime.jsx(Checkbox, { label: i.group, handleCheck: () => handleToggleSelectRow(index), isChecked: i.checked })
+                                            :
+                                                jsxRuntime.jsxs("p", { style: { fontFamily: 'PT Sans', fontWeight: 400, fontSize: '16px', paddingLeft: '32px', lineHeight: '21px', fontStyle: 'normal' }, children: [i.textRoot, " (", i.group, ")"] }) }), jsxRuntime.jsx(TableAdm, { children: jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Tooltip$2, { content: textTooltipAdd, delay: 500, direction: 'bottom', style: {
                                                         fontFamily: 'PT Sans',
                                                         fontWeight: 400,
                                                         fontSize: '14px',
@@ -4729,7 +4755,8 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items,
                                                         display: 'flex',
                                                         justifyContent: 'center',
                                                         boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                                    }, children: jsxRuntime.jsx(AdmButton, { variant: 'add', onClick: () => AdmMoreClick(i.id) }) }), i.adms.length > maxAdmToShow && (jsxRuntime.jsx(Tooltip$2, { content: textTooltipCount, delay: 500, direction: 'bottom', style: {
+                                                    }, children: !i.isRoot &&
+                                                        jsxRuntime.jsx(AdmButton, { variant: 'add', onClick: () => AdmMoreClick(i.id) }) }), i.adms.length > maxAdmToShow && (jsxRuntime.jsx(Tooltip$2, { content: textTooltipCount, delay: 500, direction: 'bottom', style: {
                                                         fontFamily: 'PT Sans',
                                                         fontWeight: 400,
                                                         fontSize: '14px',
@@ -4757,7 +4784,48 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, items,
                                                             whiteSpace: 'nowrap',
                                                             boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
                                                         }, children: jsxRuntime.jsx(AdmButton, { image: adm.image, variant: 'image' }, adm.id) });
-                                                })] }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px', paddingLeft: '54px' }, children: [jsxRuntime.jsx(TdEditButtom, { onClick: () => onEditClick(i.id) }), jsxRuntime.jsx(TdTrashButton, { onClick: () => onDeleteClick(i.id, index) })] }) })] }, index))) })] }) })] }));
+                                                })] }) }), jsxRuntime.jsx(TableVisit, { children: jsxRuntime.jsx(TableVisitContent, { children: jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Tooltip$2, { content: textTooltipAdd, delay: 500, direction: 'bottom', style: {
+                                                            fontFamily: 'PT Sans',
+                                                            fontWeight: 400,
+                                                            fontSize: '14px',
+                                                            color: 'rgba(117, 117, 117, 1)',
+                                                            width: '73px',
+                                                            height: '31px',
+                                                            top: '8px',
+                                                            left: '4px',
+                                                            display: 'flex',
+                                                            justifyContent: 'center',
+                                                            boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                        }, children: jsxRuntime.jsx(AdmButton, { variant: 'add', onClick: () => visitMoreClick(i.id) }) }), i.visitors?.length > maxAdmToShow && (jsxRuntime.jsx(Tooltip$2, { content: textTooltipCount, delay: 500, direction: 'bottom', style: {
+                                                            fontFamily: 'PT Sans',
+                                                            fontWeight: 400,
+                                                            fontSize: '14px',
+                                                            color: 'rgba(117, 117, 117, 1)',
+                                                            width: '73px',
+                                                            height: '31px',
+                                                            top: '8px',
+                                                            left: '4px',
+                                                            boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                        }, children: i.visitors.length < 9 ?
+                                                            jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreVisitorsClick(i.id), variant: 'count', count: i.visitors.length - maxAdmToShow })
+                                                            :
+                                                                jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreVisitorsClick(i.id), variant: 'countMore', count: 9 }) })), i.visitors
+                                                        ?.filter((a, aIndex) => aIndex < maxAdmToShow)
+                                                        .map((visit) => {
+                                                        return jsxRuntime.jsx(Tooltip$2, { content: visit.name, direction: 'bottom', delay: 500, style: {
+                                                                fontFamily: 'PT Sans',
+                                                                fontWeight: 400,
+                                                                fontSize: '14px',
+                                                                color: 'rgba(117, 117, 117, 1)',
+                                                                width: 'fit-content',
+                                                                height: '31px',
+                                                                top: '8px',
+                                                                left: '4px',
+                                                                whiteSpace: 'nowrap',
+                                                                boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                            }, children: jsxRuntime.jsx(AdmButton, { image: visit.avatar, variant: 'image' }, visit.id) });
+                                                    })] }) }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsx("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }, children: !i.isRoot &&
+                                                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TdEditButtom, { onClick: () => !i.isRoot && onEditClick(i.id) }), jsxRuntime.jsx(TdTrashButton, { onClick: () => !i.isRoot && onDeleteClick(i.id, index) })] }) }) })] }, index))) })] }) })] }));
 }
 
 const PeopleContainer = styled__default["default"].div `

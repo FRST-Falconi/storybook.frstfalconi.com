@@ -27,12 +27,12 @@ export const TableContainer = styled.div`
 export const Table = styled.table`
     border-collapse: collapse;
     width:100%;
-    background:${({ theme }) => theme.colors.shadeWhite};
+    background:${({ theme }) => theme.colors.neutralsGrey8};
         tbody{
             tr:nth-child(even){
-                background:${({ theme }) => theme.colors.neutralsGrey8};
+                background:${({ theme }) => theme.colors.shadeWhite};
                 :hover{
-                    background: rgba(223, 226, 226, 1);
+                    background: rgba(248, 248, 248, 1);
                 }
         }
     }
@@ -43,14 +43,21 @@ export const TableHeader = styled.th`
     font-family: PT Sans;
     font-weight: 700;
 `
-export const TableRow = styled.tr`
+
+export interface TableRowProps {
+    isRoot: boolean
+}
+
+
+export const TableRow = styled.tr<TableRowProps>`
     height: 54px;
     border-top: 1px solid rgba(189, 189, 189, 1);
     border-bottom:  1px solid rgba(189, 189, 189, 1);
     text-align: center;
     &:hover {
-        background-color:rgba(248, 248, 248, 1) 
+        background-color:rgba(223, 226, 226, 1);
     }
+    background-color: ${({isRoot}) => isRoot ? '#FFEFE1 !important' : '' }; ;
 `
 
 export const TableChecked = styled.td`
@@ -75,5 +82,22 @@ export const TableAdm = styled.td`
         margin-left: -4px;
     }
     }
+
+`
+
+export const TableVisit = styled.td``
+
+export const TableVisitContent = styled.div`
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 8px;               
+    div{
+        flex-direction: row-reverse;
+        display: flex;
+        :nth-child(1n){
+        margin-left: -4px;
+    }
+}
 
 `
