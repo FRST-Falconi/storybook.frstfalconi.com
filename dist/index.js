@@ -18683,6 +18683,9 @@ function DropdownMultiselect(props) {
     const [listItemsFilter, setListItemsFilter] = React.useState(props.listItems);
     const [showModal, setShowModal] = React.useState(false);
     const [listFilterSearch, setListFilterSearch] = React.useState();
+    const [lazyLoading, setLazyLoading] = React.useState(false);
+    const [lazyItems, setLazyItems] = React.useState([]);
+    const loadLazyTimeout = React.useRef(null);
     React.useEffect(() => {
         setListFilterSearch(props.listItems);
     }, [props.listItems]);
@@ -18691,7 +18694,9 @@ function DropdownMultiselect(props) {
         setListFilterSearch(temp);
     }, [textFilter]);
     React.useEffect(() => {
-        setSelectedValues(props?.selectedDefault);
+        if (props.selectedDefault) {
+            setSelectedValues(props?.selectedDefault);
+        }
     }, [props?.selectedDefault]);
     React.useEffect(() => {
         setListItemsFilter(props.listItems);
@@ -18743,9 +18748,28 @@ function DropdownMultiselect(props) {
                             return (jsxRuntime.jsxs(modalCards, { style: { background: index % 2 === 0 ? '#F2F2F2' : '#FFF' }, children: [jsxRuntime.jsxs("div", { style: { display: "flex", gap: '12px' }, children: [jsxRuntime.jsx(Avatar, { src: item.avatar, size: "50px" }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', gap: '4px' }, children: [jsxRuntime.jsxs(cardTitle, { children: [" ", item.name, " "] }), jsxRuntime.jsxs(cardDescription, { children: [" ", item.description, " "] }), jsxRuntime.jsxs(cardDescription, { children: [" ", item.subDescription, " "] })] })] }), jsxRuntime.jsxs("div", { style: { display: 'flex', cursor: 'pointer' }, onClick: () => removeSelectedValue(item.id), children: [jsxRuntime.jsx(Trash, { fill: "#A50000", width: "24", height: "24" }), jsxRuntime.jsxs(cardTitle, { style: { color: '#A50000' }, children: [" ", props.removeModalText ? props.removeModalText : 'Remover', " "] })] })] }, index));
                         }) }), jsxRuntime.jsx(closeModal, { children: jsxRuntime.jsx(material.IconButton, { onClick: () => setShowModal(false), children: jsxRuntime.jsx(CloseIcon, {}) }) })] }) }));
     };
+    const onLazyLoad = (event) => {
+        setLazyLoading(true);
+        if (loadLazyTimeout.current) {
+            clearTimeout(loadLazyTimeout.current);
+        }
+        //imitate delay of a backend call
+        loadLazyTimeout.current = setTimeout(() => {
+            const { first, last } = event;
+            const _lazyItems = [...lazyItems];
+            for (let i = first; i < last; i++) {
+                _lazyItems[i] = { label: `Item #${i}`, value: i };
+            }
+            setLazyItems(_lazyItems);
+            setLazyLoading(false);
+        }, Math.random() * 500 + 250);
+    };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, children: [selectedValues?.length > 0 &&
                     jsxRuntime.jsxs(headerSelect, { children: [selectTemplate(selectedValues), selectedValues?.length > 1 &&
-                                jsxRuntime.jsx("div", { style: { zIndex: 999, position: 'absolute', right: 40 }, children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: "#9C9C9C" }) }) }) })] }), jsxRuntime.jsx(customSelect, { children: jsxRuntime.jsx(multiselect.MultiSelect, { value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : "Selecione aqui", className: "custom-multiselect", dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: { border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` } }) }), selectValuesModal()] }) }));
+                                jsxRuntime.jsx("div", { style: { zIndex: 999, position: 'absolute', right: 40 }, children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: "#9C9C9C" }) }) }) })] }), jsxRuntime.jsx(customSelect, { children: jsxRuntime.jsx(multiselect.MultiSelect, { value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : "Selecione aqui", className: "custom-multiselect", dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: { border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }, virtualScrollerOptions: !props.activeLazyLoad ? null : { lazy: true, onLazyLoad: onLazyLoad, itemSize: 50, showLoader: true, loading: lazyLoading, delay: 100, loadingTemplate: (option) => {
+                                return (jsxRuntime.jsx("div", { style: { display: 'flex', alignItems: 'center', padding: 2, height: '50px' }, children: jsxRuntime.jsx(material.Skeleton, { width: option.even ? '70%' : '60%', height: '2rem' }) }));
+                            }
+                        } }) }), selectedValues && selectValuesModal()] }) }));
 }
 
 exports.AccordionList = AccordionList$2;
