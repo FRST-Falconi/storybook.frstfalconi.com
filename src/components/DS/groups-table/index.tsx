@@ -8,7 +8,9 @@ import {
 	TableHeader,
 	TableChecked,
 	ContainerSelected,
-	TableAdm
+	TableAdm,
+	TableVisit,
+	TableVisitContent
 } from './groupTableStyles'
 import { IGroupsTable } from './groupsTable'
 import { EditIcon, Trash, TrashDelete } from '@shared/icons'
@@ -16,12 +18,12 @@ import AdmButton from '../admButton'
 import Checkbox from '@components/form-elements/checkbox'
 import Tooltip from '../tooltip'
 
-const TdTrashButton = ({ onClick }) => {
+const TdTrashButton = ({ onClick}) => {
 	const [isHover, setIsHover] = useState(false)
 	return (
 		<div
 			onClick={onClick}
-			style={{ cursor: 'pointer' }}
+			style={{ cursor:'pointer '}}
 			onMouseLeave={() => setIsHover(false)}
 			onMouseEnter={() => setIsHover(true)}
 		>
@@ -30,12 +32,12 @@ const TdTrashButton = ({ onClick }) => {
 	)
 }
 
-const TdEditButtom = ({ onClick }) => {
+const TdEditButtom = ({ onClick}) => {
 	const [isHover, setIsHover] = useState(false)
 	return (
 		<div
 			onClick={onClick}
-			style={{ cursor: 'pointer' }}
+			style={{ cursor: 'pointer'}}
 			onMouseLeave={() => setIsHover(false)}
 			onMouseEnter={() => setIsHover(true)}
 		>
@@ -49,6 +51,7 @@ export default function GroupsTable({
 	textHeader2,
 	textHeader3,
 	textHeader4,
+	textHeaderVisit,
 	items,
 	selected,
 	textTooltipAdd,
@@ -60,8 +63,10 @@ export default function GroupsTable({
 	AdmMoreClick,
 	onShowMoreClick,
 	textTooltipAllSelected,
-	onSelected
-} : IGroupsTable) {
+	onSelected,
+	visitMoreClick,
+	onShowMoreVisitorsClick,
+}: IGroupsTable) {
 
 	const [isAllChecked, setIsAllChecked] = useState(false)
 	const [internalItems, setInternalItems] = useState([])
@@ -74,7 +79,13 @@ export default function GroupsTable({
 		const value = !isAllChecked
 		setIsAllChecked(value)
 		setInternalItems((prev) => {
-			return prev.map((i) => ({ ...i, checked: value }))
+			return prev.map((i) => {
+				if (!i.isRoot) {
+					return { ...i, checked: value }
+				}else{
+					return {...i}
+				}
+			})
 		})
 	}
 
@@ -101,6 +112,7 @@ export default function GroupsTable({
 
 	const maxAdmToShow = 3
 
+
 	return (
 		<ThemeProvider theme={FRSTTheme}>
 			<ContainerSelected>
@@ -117,7 +129,7 @@ export default function GroupsTable({
 			</ContainerSelected>
 			<TableContainer>
 				<Table>
-					<tr>
+					<thead>
 						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }}>
 							<Tooltip
 								style={{
@@ -127,7 +139,7 @@ export default function GroupsTable({
 									left: '8px',
 									display: 'flex',
 									justifyContent: 'center',
-									boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+									boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 								}}
 								direction={'bottom'}
 								content={textTooltipAllSelected}
@@ -142,22 +154,28 @@ export default function GroupsTable({
 							</Tooltip>
 							<span>{textHeader}</span>
 						</TableHeader>
-						<TableHeader></TableHeader>
-						<TableHeader style={{ width: '180px' }}>{textHeader2}</TableHeader>
-						<TableHeader style={{ paddingRight: '52px', paddingLeft: '44px', width: '220px' }}>
-							<div style={{ display: 'flex', alignItems: 'center', gap: '44px' }}>
+
+						<TableHeader>{textHeader2}</TableHeader>
+						<TableHeader >{textHeaderVisit}</TableHeader>
+						<TableHeader style={{ paddingRight: '40px', paddingLeft: '44px', width: '220px' }}>
+							<div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
 								<div>{textHeader3}</div>
 								<div >{textHeader4}</div>
 							</div>
 						</TableHeader>
-					</tr>
+					</thead>
 					<tbody>
 						{internalItems.map((i, index) => (
-							<TableRow key={index}>
+							<TableRow isRoot={i.isRoot} key={index}>
 								<TableChecked>
-									<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)} isChecked={i.checked} />
+									{!i.isRoot ?
+										<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)} isChecked={i.checked} />
+										:
+										<p style={{fontFamily:'PT Sans', fontWeight:400, fontSize:'16px', paddingLeft:'32px', lineHeight:'21px', fontStyle:'normal'}}>{i.textRoot} ({i.group})</p>
+									}
 								</TableChecked>
-								<td></td>
+
+
 								<TableAdm>
 									<div>
 										<Tooltip
@@ -175,10 +193,13 @@ export default function GroupsTable({
 												left: '4px',
 												display: 'flex',
 												justifyContent: 'center',
-												boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+												boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 											}}
 										>
-											<AdmButton variant={'add'} onClick={() => AdmMoreClick(i.id)} />
+											{
+												!i.isRoot &&
+												<AdmButton variant={'add'} onClick={() => AdmMoreClick(i.id)} />
+											}
 										</Tooltip>
 
 										{i.adms.length > maxAdmToShow && (
@@ -195,23 +216,24 @@ export default function GroupsTable({
 													height: '31px',
 													top: '8px',
 													left: '4px',
-													boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+													boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 												}}
 											>
-												{i.adms.length < 9 ? 	
-												<AdmButton
-													onClick={() => onShowMoreClick(i.id)}
-													variant={'count'}
-													count={i.adms.length - maxAdmToShow}
-												/> 
-												:
-												<AdmButton
-													onClick={() => onShowMoreClick(i.id)}
-													variant={'countMore'}
-													count={9}
-												/>
+												
+												{i.adms.length < 9 ?
+													<AdmButton
+														onClick={() => onShowMoreClick(i.id)}
+														variant={'count'}
+														count={i.adms.length - maxAdmToShow}
+													/>
+													:
+													<AdmButton
+														onClick={() => onShowMoreClick(i.id)}
+														variant={'countMore'}
+														count={9}
+													/>
 												}
-											
+
 											</Tooltip>
 
 
@@ -234,7 +256,7 @@ export default function GroupsTable({
 														top: '8px',
 														left: '4px',
 														whiteSpace: 'nowrap',
-														boxShadow:' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+														boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
 													}}
 												>
 													<AdmButton key={adm.id} image={adm.image} variant={'image'} />
@@ -242,10 +264,106 @@ export default function GroupsTable({
 											})}
 									</div>
 								</TableAdm>
+
+
+								<TableVisit>
+
+									<TableVisitContent>
+										<div>
+											<Tooltip
+												content={textTooltipAdd}
+												delay={500}
+												direction={'bottom'}
+												style={{
+													fontFamily: 'PT Sans',
+													fontWeight: 400,
+													fontSize: '14px',
+													color: 'rgba(117, 117, 117, 1)',
+													width: '73px',
+													height: '31px',
+													top: '8px',
+													left: '4px',
+													display: 'flex',
+													justifyContent: 'center',
+													boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+												}}
+											>
+												<AdmButton variant={'add'} onClick={() => visitMoreClick(i.id)} />
+											</Tooltip>
+
+											{i.visitors?.length > maxAdmToShow && (
+												<Tooltip
+													content={textTooltipCount}
+													delay={500}
+													direction={'bottom'}
+													style={{
+														fontFamily: 'PT Sans',
+														fontWeight: 400,
+														fontSize: '14px',
+														color: 'rgba(117, 117, 117, 1)',
+														width: '73px',
+														height: '31px',
+														top: '8px',
+														left: '4px',
+														boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+													}}
+												>
+													{i.visitors.length < 9 ?
+														<AdmButton
+															onClick={() => onShowMoreVisitorsClick(i.id)}
+															variant={'count'}
+															count={i.visitors.length - maxAdmToShow}
+														/>
+														:
+														<AdmButton
+															onClick={() => onShowMoreVisitorsClick(i.id)}
+															variant={'countMore'}
+															count={9}
+														/>
+													}
+
+												</Tooltip>
+
+
+											)}
+
+											{i.visitors
+												?.filter((a, aIndex) => aIndex < maxAdmToShow)
+												.map((visit) => {
+													return <Tooltip
+														content={visit.name}
+														direction={'bottom'}
+														delay={500}
+														style={{
+															fontFamily: 'PT Sans',
+															fontWeight: 400,
+															fontSize: '14px',
+															color: 'rgba(117, 117, 117, 1)',
+															width: 'fit-content',
+															height: '31px',
+															top: '8px',
+															left: '4px',
+															whiteSpace: 'nowrap',
+															boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+														}}
+													>
+														<AdmButton key={visit.id} image={visit.avatar} variant={'image'} />
+													</Tooltip>
+												})}
+										</div>
+									</TableVisitContent>
+
+								</TableVisit>
+
 								<td>
-									<div style={{ display: 'flex', width: 'fit-content', alignItems: 'center', gap: '64px',paddingLeft: '54px'}}>
-										<TdEditButtom onClick={() => onEditClick(i.id)} />
-										<TdTrashButton onClick={() => onDeleteClick(i.id, index)} />
+									<div style={{ display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }}>
+										{ !i.isRoot &&
+											<>
+											<TdEditButtom   onClick={() => !i.isRoot && onEditClick(i.id)} />
+											<TdTrashButton  onClick={() => !i.isRoot && onDeleteClick(i.id, index)} />
+											</>
+										}
+										
 									</div>
 								</td>
 							</TableRow>
