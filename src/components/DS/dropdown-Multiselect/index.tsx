@@ -1,12 +1,12 @@
 import { FRSTTheme } from "../../../theme";
 import { ThemeProvider } from "styled-components";
 import { MultiSelect } from 'primereact/multiselect';
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as S from './styles/multiselectStyles'
 import { CloseIcon, DropdownIcon, Trash } from "@shared/icons";
 import SearchField from "@components/search-field";
 import Avatar from "@components/avatar";
-import { IconButton, Modal } from "@mui/material";
+import { IconButton, Modal, Skeleton } from "@mui/material";
 import './styles/primereact.css'
 import './styles/primeflex.css'
 import './styles/theme.css'
@@ -30,7 +30,7 @@ interface IDropdownMultiselect {
     style?: React.CSSProperties
     optionLayout?: (options) => void
     selectedDefault?: ISelectedValue
-
+    activeLazyLoad?: boolean
 }
 
 type ISelectedValue = {
@@ -48,6 +48,9 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const [listItemsFilter, setListItemsFilter] = useState(props.listItems)
     const [showModal, setShowModal] = useState(false);
     const [listFilterSearch, setListFilterSearch] = useState<any>();
+    const [lazyLoading, setLazyLoading] = useState(false);
+    const [lazyItems, setLazyItems] = useState([]);
+    const loadLazyTimeout = useRef(null)
 
     useEffect(() => {
         setListFilterSearch(props.listItems)
@@ -59,7 +62,9 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     }, [textFilter])
 
     useEffect(() => {
-        setSelectedValues(props?.selectedDefault)
+        if(props.selectedDefault){
+            setSelectedValues(props?.selectedDefault)
+        }
     }, [props?.selectedDefault]);
 
     useEffect(() => {
@@ -199,6 +204,27 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         )
     }
 
+    const onLazyLoad = (event) => {
+        setLazyLoading(true);
+
+        if (loadLazyTimeout.current) {
+            clearTimeout(loadLazyTimeout.current);
+        }
+
+        //imitate delay of a backend call
+        loadLazyTimeout.current = setTimeout(() => {
+            const { first, last } = event;
+            const _lazyItems = [...lazyItems];
+
+            for (let i = first; i < last; i++) {
+                _lazyItems[i] = { label: `Item #${i}`, value: i };
+            }
+
+            setLazyItems(_lazyItems);
+            setLazyLoading(false);
+        }, Math.random() * 500 + 250);
+    }
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             <S.containerSelect style={{ ...props.style }}>
@@ -238,9 +264,16 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         maxSelectedLabels={0}
                         selectedItemsLabel=" "
                         style={{ border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }}
+                        virtualScrollerOptions={ !props.activeLazyLoad ? null : {lazy: true, onLazyLoad: onLazyLoad, itemSize: 50, showLoader: true, loading: lazyLoading, delay: 100, loadingTemplate: (option) => {
+                            return (
+                                <div style={{display: 'flex', alignItems: 'center', padding: 2, height: '50px'}}>
+                                    <Skeleton width={option.even ? '70%' : '60%'} height={'2rem'}/>
+                                </div>
+                            )}
+                        }}
                     />
                 </S.customSelect>
-                {selectValuesModal()}
+                { selectedValues && selectValuesModal()}
             </S.containerSelect>
         </ThemeProvider>
     )
