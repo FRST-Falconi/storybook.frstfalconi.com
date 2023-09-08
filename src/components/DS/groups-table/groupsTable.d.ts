@@ -29,17 +29,17 @@ export interface IAdmItem {
     name: string
 }
 
-export interface IVisitors {
-    id: string
-    avatar: string
-    name: string
-}
+// export interface IVisitors {
+//     id: string
+//     avatar: string
+//     name: string
+// }
 
 export interface IGroupsTableItems {
     id: string
     group: string
     textRoot: string
     adms: IAdmItem[]
-    visitors: IVisitors[]
+    // visitors: IVisitors[]
     isRoot: boolean
 }

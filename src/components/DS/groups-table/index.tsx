@@ -156,7 +156,7 @@ export default function GroupsTable({
 						</TableHeader>
 
 						<TableHeader>{textHeader2}</TableHeader>
-						<TableHeader >{textHeaderVisit}</TableHeader>
+						{/* <TableHeader >{textHeaderVisit}</TableHeader> */}
 						<TableHeader style={{ paddingRight: '40px', paddingLeft: '44px', width: '220px' }}>
 							<div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
 								<div>{textHeader3}</div>
@@ -266,7 +266,7 @@ export default function GroupsTable({
 								</TableAdm>
 
 
-								<TableVisit>
+								{/* <TableVisit>
 
 									<TableVisitContent>
 										<div>
@@ -353,7 +353,7 @@ export default function GroupsTable({
 										</div>
 									</TableVisitContent>
 
-								</TableVisit>
+								</TableVisit> */}
 
 								<td>
 									<div style={{ display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }}>
