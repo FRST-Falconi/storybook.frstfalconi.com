@@ -8,7 +8,14 @@ export default function Tooltip(props) {
         <ThemeProvider theme={FRSTTheme}>
         <Styles.Tooltip position={props.position}>
             {props?.children}
-            <Styles.Tooltiptext id="tooltipinfo" position={props.position}>{props?.textTooltip}</Styles.Tooltiptext>
+            <Styles.Tooltiptext 
+                id="tooltipinfo"
+                position={props.position}
+                customWidth={props?.customWidth ? props?.customWidth : '156px'}
+                customMarginLeft={props?.customMarginLeft ? props?.customMarginLeft : '-70px'}
+            >
+                {props?.textTooltip}
+            </Styles.Tooltiptext>
         </Styles.Tooltip>
         </ThemeProvider>
     )
