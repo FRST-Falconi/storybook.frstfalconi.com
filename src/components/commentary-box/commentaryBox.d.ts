@@ -38,4 +38,6 @@ interface ICommentaryBox{
     textDeleteComment?: string
     isPrivateMe?: boolean
     isPrivateAuthor?: boolean
+
+    onClickUserInfo?: () => void
 }

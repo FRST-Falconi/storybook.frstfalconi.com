@@ -20,7 +20,7 @@ export default function CommentaryBox({
     actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue,
     detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textSaveButton, textSaveButtonMobile,
     textCancelButton, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
-    textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor }: ICommentaryBox) {
+    textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor, onClickUserInfo }: ICommentaryBox) {
     
 
     // Identify Screen Resizing
@@ -120,7 +120,10 @@ export default function CommentaryBox({
         <SpeechBubble className={ className } highlight={ onEditing } >
 
             <Styles.HeaderWrapper>
-                <Styles.IdentificationWrapper>
+                <Styles.IdentificationWrapper 
+                    onClick={() => onClickUserInfo ? onClickUserInfo() : {}}
+                    style={{ cursor: onClickUserInfo ? 'pointer' : 'auto'}}
+                >
                     <Styles.NameWrapper>
                         <Styles.Name> { size[0] > WIDTH_MOBILE ? name : buildShortName(name)} </Styles.Name>
                         { isMe && 
@@ -234,12 +237,14 @@ export default function CommentaryBox({
                     <Styles.CommentaryContent id={iDCommentPosted}>{ value }</Styles.CommentaryContent>
                     <Styles.IterationsWrapper>
                         <Styles.LikesStatistics>
-                            {isLiked ? 
+                            {!isLiked ? 
                                 <ThumbsUpCovered width='16px' height='16px'/> 
                                 : 
-                                <ThumbsUpCovered width='16px' height='16px' customColor_1="#CCCCCC"/>
+                                <> { totalLikes > 0 && 
+                                    <ThumbsUpCovered width='16px' height='16px' customColor_1="#CCCCCC"/>
+                                }</>
                             }
-                            <Styles.TextTotalLikes>{ totalLikes }</Styles.TextTotalLikes>
+                            <> { totalLikes > 0 && <Styles.TextTotalLikes>{ totalLikes }</Styles.TextTotalLikes>}</>
                         </Styles.LikesStatistics>
                         <Styles.IterationsButtonsWrapper>
                             {actionLike && (
