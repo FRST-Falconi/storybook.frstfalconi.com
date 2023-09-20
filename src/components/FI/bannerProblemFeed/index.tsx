@@ -11,10 +11,13 @@ import { withStyles } from '@material-ui/styles';
 import Button from "@components/buttons";
 import * as Icons from '@shared/icons'
 import FeedInteraction from "../feedInteraction";
+import Tooltip from "@components/DS/tooltip";
 
 
 interface IBannerProblemFeed extends stepsInfo{
     id : string
+    onClickUserInfo?: () => void
+    textVisitProfile ?: string
     userAvatar ?: string
     userName : string
     userPosition : string
@@ -323,22 +326,63 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                     </Styles.topHeaderTag>
                 }
                 <Styles.headerContent>
-                    <Avatar size="54px" src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />
-                    <Styles.userInfo>
-                        <span style={{fontWeight: 600, fontSize: 20}}>
-                            {props.isSuccessCase ?   
-                                (props.language === 'pt-BR' ?  'Case de sucesso'
-                                    : props.language === 'en-US' ? 'Success case'
-                                        : props.language === 'es' ? 'Caso de exito'
-                                            : props.language === 'pt-PT' ? 'Case de sucesso'
-                                                : null
-                                )
-                                : props.userName
-                            }
-                        </span>
-                        <span style={{fontWeight: 400, fontSize: 16}}>{props.userPosition}</span>
-                        <span style={{fontWeight: 400, fontSize: 16}}>{props.userCompany}</span>
-                    </Styles.userInfo>
+                    { props.onClickUserInfo ? 
+                        <Tooltip
+                            direction="bottom"
+                            content={props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil'}
+                            trigger='hover'
+                            width='101px'
+                            height='32px'
+                            style={{ top: '10px', textAlign: 'center' }}
+                        >
+                            <Avatar 
+                                isActiveClick={true}
+                                onClick={() => props.onClickUserInfo ? props.onClickUserInfo() : {} }
+                                size="54px" 
+                                src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar}
+                            />
+                            <Styles.userInfo 
+                                onClick={() => props.onClickUserInfo ? props.onClickUserInfo() : {} }
+                                style={{cursor: 'pointer'}}
+                            >
+                                <span style={{fontWeight: 600, fontSize: 20}}>
+                                    {props.isSuccessCase ?   
+                                        (props.language === 'pt-BR' ?  'Case de sucesso'
+                                            : props.language === 'en-US' ? 'Success case'
+                                                : props.language === 'es' ? 'Caso de exito'
+                                                    : props.language === 'pt-PT' ? 'Case de sucesso'
+                                                        : null
+                                        )
+                                        : props.userName
+                                    }
+                                </span>
+                                <span style={{fontWeight: 400, fontSize: 16}}>{props.userPosition}</span>
+                                <span style={{fontWeight: 400, fontSize: 16}}>{props.userCompany}</span>
+                            </Styles.userInfo>
+                        </Tooltip>
+                    :
+                        <>
+                            <Avatar 
+                                size="54px" 
+                                src={props.isSuccessCase ? 'https://i.gyazo.com/e9608cb76d36242de07661bee9da60dd.png' : props.userAvatar} />
+                            <Styles.userInfo>
+                                <span style={{fontWeight: 600, fontSize: 20}}>
+                                    {props.isSuccessCase ?   
+                                        (props.language === 'pt-BR' ?  'Case de sucesso'
+                                            : props.language === 'en-US' ? 'Success case'
+                                                : props.language === 'es' ? 'Caso de exito'
+                                                    : props.language === 'pt-PT' ? 'Case de sucesso'
+                                                        : null
+                                        )
+                                        : props.userName
+                                    }
+                                </span>
+                                <span style={{fontWeight: 400, fontSize: 16}}>{props.userPosition}</span>
+                                <span style={{fontWeight: 400, fontSize: 16}}>{props.userCompany}</span>
+                            </Styles.userInfo>
+                        </>
+                    }
+
                 </Styles.headerContent>
                 <Styles.problemTitle> {props.problemTitle} </Styles.problemTitle>
                 <Styles.tagContent>
