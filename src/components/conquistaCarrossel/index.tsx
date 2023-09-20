@@ -16,8 +16,6 @@ export default function ConquistaCarrossel({
   positionArrowButton,
   marginTopArrrowButton,
   textMoreDetails,
-  onClickAvatar,
-  onClickName
 }: IConquistaCarrossel) {
   const [itemSelected, setItemSelected] = useState(-1)
 
@@ -44,8 +42,9 @@ export default function ConquistaCarrossel({
         userAvatar={item.userAvatar}
         onClick={() => onSelected(item.problemId)}
         style={{ marginRight: '24px', whiteSpace: 'pre-wrap' }}
-        onClickAvatar={onClickAvatar}
-        onClickName={onClickName}
+        onClickAvatar={item.onClickUserInfo}
+        onClickName={item.onClickUserInfo}
+        textVisitProfile={item.textVisitProfile}
       />
     )
   }
