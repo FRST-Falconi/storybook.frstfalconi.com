@@ -17,6 +17,8 @@ type notificationCard = {
   textNew: string
 
   handleClick: () => void
+  onClickUserInfo?: () => void
+  textVisitProfile?: string
 }
 interface INotificationPopOver {
   notificationList?: Array<notificationCard>
@@ -75,6 +77,8 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                     <div style={{ borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }}>
                       <NotificationCard
                         style={{ width: '100%' }}
+                        onClickUserInfo={item.onClickUserInfo}
+                        textVisitProfile={item.textVisitProfile}
                         notificationAvatar={item.notificationAvatar}
                         notificationDescription={item.notificationDescription}
                         notificationDate={item.notificationDate}
@@ -137,8 +141,8 @@ export default function NotificationPopOver(props: INotificationPopOver) {
 
           <Styles.notificationContainer>
             <Styles.notificationHeader
-              onMouseOver={() => props?.setOnAreaPopOver(true)}
-              onMouseOut={() => props?.setOnAreaPopOver(false)}
+              onMouseOver={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}}
+              onMouseOut={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false): {}}
             >
               <span
                 style={{ fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }}
@@ -158,11 +162,13 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                   return (
                     <div
                       style={{ borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }}
-                      onMouseOver={() => props?.setOnAreaPopOver(true)}
-                      onMouseOut={() => props?.setOnAreaPopOver(false)}
+                      onMouseOver={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}}
+                      onMouseOut={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false): {}}
                       key={index}
                     >
                       <NotificationCard
+                        onClickUserInfo={item.onClickUserInfo}
+                        textVisitProfile={item.textVisitProfile}
                         notificationAvatar={item.notificationAvatar}
                         notificationDescription={item.notificationDescription}
                         notificationDate={item.notificationDate}

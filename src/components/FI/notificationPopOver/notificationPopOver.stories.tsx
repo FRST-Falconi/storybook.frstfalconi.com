@@ -31,7 +31,9 @@ normal.args = {
       isNewNotification: true,
       textNew: 'Nova',
       notificationDate: 'Hoje',
-
+      
+      onClickUserInfo: () => alert('perfil clicado - 1'),
+      textVisitProfile: 'Visit profile',
       handleClick: () => alert('Notificação clicada!')
     },
     {
@@ -42,6 +44,7 @@ normal.args = {
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
+      // onClickUserInfo: () => alert('perfil clicado  - 2'),
       handleClick: () => alert('Notificação clicada!')
     },
     {
@@ -52,6 +55,8 @@ normal.args = {
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
+      onClickUserInfo: () => alert('perfil clicado - 3'),
+      textVisitProfile: 'Visit profile',
       handleClick: () => alert('Notificação clicada!')
     },
     {
@@ -62,6 +67,7 @@ normal.args = {
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
+      onClickUserInfo: () => alert('perfil clicado - 4'),
       handleClick: () => alert('Notificação clicada!')
     },
     {
@@ -72,6 +78,7 @@ normal.args = {
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
+      onClickUserInfo: () => alert('perfil clicado - 5'),
       handleClick: () => alert('Notificação clicada!')
     },
     {
@@ -82,6 +89,7 @@ normal.args = {
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
+      onClickUserInfo: () => alert('perfil clicado - 6'),
       handleClick: () => alert('Notificação clicada!')
     },
     {
@@ -92,6 +100,7 @@ normal.args = {
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
+      onClickUserInfo: () => alert('perfil clicado - '),
       handleClick: () => alert('Notificação clicada!')
     },
     {
@@ -102,6 +111,7 @@ normal.args = {
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
+      onClickUserInfo: () => alert('perfil clicado - '),
       handleClick: () => alert('Notificação clicada!')
     }
   ]

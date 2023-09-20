@@ -4,17 +4,20 @@ import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './notificationCardStyles'
+import Tooltip from '@components/LXP/tooltip'
 
 interface INotificationCard {
     notificationAvatar: string
     notificationDescription: string
     isNewNotification: boolean
     notificationDate: string
+    textVisitProfile?: string
 
     textNew: string
     style?: React.CSSProperties
 
     handleClick: () => void
+    onClickUserInfo?: () => void
 }
 
 const Divider = () => {
@@ -32,6 +35,11 @@ export default function NotificationCard ( props : INotificationCard ) {
         setDescriptionNotification(props.notificationDescription)
     }, [props.notificationDescription])
 
+    const handleChildClick = (event: any) => {
+        event.stopPropagation();
+        props.onClickUserInfo && props.onClickUserInfo()
+    }
+
     return (
         <ThemeProvider theme={FRSTTheme} >
             
@@ -39,8 +47,20 @@ export default function NotificationCard ( props : INotificationCard ) {
                 onClick={props.handleClick}
                 style={{...props.style, backgroundColor: props.isNewNotification ? '#FEF0D0' : FRSTTheme['colors'].shadeWhite}} 
             >
-                
-                <Avatar src={props.notificationAvatar} size='40px' />
+                {!!props?.onClickUserInfo ? 
+                    <Tooltip 
+                        position="right" 
+                        textTooltip={props?.textVisitProfile ? props?.textVisitProfile : 'Visitar Perfil'} 
+                        customWidth={'106px'}
+                        customMarginLeft={'-30px'}
+                    >
+                        <div onClick={(e) => handleChildClick(e)}>
+                            <Avatar src={props.notificationAvatar} size='40px' isActiveClick={true}/>
+                        </div>
+                    </Tooltip>
+                :
+                    <Avatar src={props.notificationAvatar} size='40px' isActiveClick={false} />
+                }
                 <Styles.notificationInfo>    
                     <Styles.notificationDescription>
                         <Markdown>
