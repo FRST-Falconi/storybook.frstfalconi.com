@@ -16,7 +16,8 @@ export default function ParticipantCardOld({
   successfullInvite,
   style,
   handleSendInvitation,
-  handleClickRemove
+  handleClickRemove,
+  onClickUserInfo
 }: ParticipantCardI) {
   const [userName, setUserName] = useState(userInfo?.name)
   const [userEmail, setUserEmail] = useState(userInfo?.email)
@@ -41,8 +42,8 @@ export default function ParticipantCardOld({
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.WrapperCard variant={variant} style={{ ...style }}>
-        <Styles.UserInfo>
-          <Avatar size="40px" src={userInfo?.avatar} />
+        <Styles.UserInfo onClick={() => onClickUserInfo ? onClickUserInfo() : {}}>
+          <Avatar size="40px" src={userInfo?.avatar} isActiveClick={true}/>
           <Styles.DescriptionUser>
             {userName && userName?.length > 25 ? (
               <Tooltip position="top" textTooltip={userName}>

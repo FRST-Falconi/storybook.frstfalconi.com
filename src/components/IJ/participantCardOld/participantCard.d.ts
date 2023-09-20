@@ -4,6 +4,7 @@ type enumVariant = 'primary' | 'secondary' | 'tertiary'
 
 export interface ParticipantCardI {
     variant?: enumVariant,
+    onClickUserInfo?: () => void;
     userInfo: {
         id: string,
         name: string,

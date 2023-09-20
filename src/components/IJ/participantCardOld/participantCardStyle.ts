@@ -33,6 +33,7 @@ export const WrapperUserInfo = styled.div`
 export const UserInfo = styled.div`
     display: flex;
     flex-direction: row;
+    cursor: pointer !important;
 `
     export const DescriptionUser = styled.div`
         display: flex;
