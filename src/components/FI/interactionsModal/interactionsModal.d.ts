@@ -6,6 +6,8 @@ export interface IUser {
     position: string
     organization: string
     avatar: string
+    onClickUserInfo?: () => void
+    textVisitProfile?: string
 }
 
 export interface IInteractionsModal {
