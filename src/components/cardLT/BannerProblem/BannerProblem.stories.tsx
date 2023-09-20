@@ -26,6 +26,8 @@ ShowData.args = {
     problema: "Aumentar o engajamento dos alunos na plataforma",
     company: "FRST Falconi",
     topHeaderTagText: 'Convite recebido para aprovação',
+    onClickUserInfo: () => alert('visitar perfil'),
+    textVisitProfile: 'Visit profile',
     nome: "Avatar",
     avatar: "https://observatoriodocinema.uol.com.br/wp-content/uploads/2019/07/neytiri_in_avatar_2-wide-do-we-really-need-avatar-2.jpeg",
     cargo: "Estudante/Universitário",

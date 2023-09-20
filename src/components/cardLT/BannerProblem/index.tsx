@@ -5,7 +5,7 @@ import MessageBox from '../MessageBox/index'
 import Rating from '../Rating/index'
 import RatingCurtidas from '../RatingCurtidas/index'
 import Select from 'react-select'
-import { Tooltip } from '../../../../index'
+import Tooltip from './../../DS/tooltip'
 
 import StepMission from '../StepsMission/StepMission'
 import StepsProgress from "./../../DS/steps-progress";
@@ -225,7 +225,26 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
             <div style={{width:'100%', maxWidth: 600}}>
               <div style={{display: 'flex', flexDirection: 'column', width: 'fit-content', paddingTop: '16px'}}>
                 <span className={style.created}>{props.dataCriacao}</span>
-                <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8, marginTop:24}} />
+                {props.onClickUserInfo ?
+                  <Tooltip
+                    direction="bottom"
+                    content={props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil'}
+                    trigger='hover'
+                    width='101px'
+                    height='32px'
+                    style={{ top: '10px', textAlign: 'center' }}
+                  >
+                    <AvatarWithInfo 
+                      cargo={props.cargo} 
+                      nomeCompleto={props.nome} 
+                      fotoAvatar={props.avatar} 
+                      style={{marginBottom: 8, marginTop:24, cursor: props.onClickUserInfo ? 'pointer' : 'auto'}}                      
+                      onClick={() => props.onClickUserInfo ? props.onClickUserInfo() : {}}  
+                    />
+                  </Tooltip>
+                : 
+                  <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8, marginTop:24}} />
+                }
               </div>
               <TextIcon description={props.area} svg={<Brain />}/>
               
