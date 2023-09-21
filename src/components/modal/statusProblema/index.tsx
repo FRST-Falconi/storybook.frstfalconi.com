@@ -30,6 +30,7 @@ interface ApprovesItemProps{
     dataAvatar: string,
     statusApprove: enumStatus,
     size: string
+    onClickUserInfo?: () => void,
     avatarSize: string
 }
 
@@ -37,9 +38,14 @@ function ApprovesItem(props: ApprovesItemProps){
 
         return (
             <>
-                <div className={style.containerItem}>
-                    <div className={style.avatar} style={{width: props.size}}>
-                        <Avatar src={props.avatar} size={props.avatarSize} />
+                <div 
+                    className={style.containerItem}
+                >
+                    <div 
+                        className={style.avatar} style={{width: props.size, cursor: props.onClickUserInfo ? 'pointer' : 'auto'}}
+                        onClick={() => props.onClickUserInfo ? props.onClickUserInfo() : {}}
+                    >
+                        <Avatar src={props.avatar} size={props.avatarSize} isActiveClick={!!props.onClickUserInfo}/>
                     </div>
                     {
                         props.statusApprove === 'reviewed' ?
@@ -57,7 +63,11 @@ function ApprovesItem(props: ApprovesItemProps){
                         <Avatar src={problemaFRST} size={props.avatarSize}  />
                     </div>
                 </div>
-                <div className={style.containerItem} style={{ marginTop: '8px' }}>
+                <div 
+                    className={style.containerItem} 
+                    style={{ marginTop: '8px', cursor: props.onClickUserInfo ? 'pointer' : 'auto' }}
+                    onClick={() => props.onClickUserInfo ? props.onClickUserInfo() : {}}
+                >
                     <div className={style.containerData} style={{ width: props.size }}>
                         <span className={style.name}>{props.nomeAvatar}</span>
                         <span className={style.sub_title}>{props.dataAvatar}</span>
@@ -65,7 +75,6 @@ function ApprovesItem(props: ApprovesItemProps){
                 </div>
             </>
         )
-    
 }
 
 export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
@@ -101,6 +110,7 @@ export default function ModalStatusProblema(props: ModalStatusProblemaProps) {
                             dataAvatar={item.data}
                             statusApprove={item.approve}
                             avatar={item.avatarFoto}
+                            onClickUserInfo={item?.onClickUserInfo}
                             key={index}
                         />
                     ))}
