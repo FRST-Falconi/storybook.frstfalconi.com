@@ -45,7 +45,10 @@ problemaDefinido.args = {
         likes: 'Curtidas',
         evaluation: 'Avaliação',
         likesDescription: 'Pessoas',
-    }
+    },
+
+    onClickUserInfo: () => alert('redirect profile'),
+    textVisitProfile: 'Visit profile'
 }
 
 export const hipoteseLevantada = Template.bind({})
