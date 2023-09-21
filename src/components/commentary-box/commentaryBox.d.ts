@@ -39,5 +39,6 @@ interface ICommentaryBox{
     isPrivateMe?: boolean
     isPrivateAuthor?: boolean
 
+    showStatusLike?: boolean
     onClickUserInfo?: () => void
 }

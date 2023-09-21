@@ -20,7 +20,7 @@ export default function CommentaryBox({
     actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue,
     detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textSaveButton, textSaveButtonMobile,
     textCancelButton, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, 
-    textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor, onClickUserInfo }: ICommentaryBox) {
+    textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor, onClickUserInfo, showStatusLike }: ICommentaryBox) {
     
 
     // Identify Screen Resizing
@@ -236,7 +236,7 @@ export default function CommentaryBox({
                 <>
                     <Styles.CommentaryContent id={iDCommentPosted}>{ value }</Styles.CommentaryContent>
                     <Styles.IterationsWrapper>
-                        <Styles.LikesStatistics>
+                        {showStatusLike ? <Styles.LikesStatistics>
                             {!isLiked ? 
                                 <ThumbsUpCovered width='16px' height='16px'/> 
                                 : 
@@ -245,7 +245,8 @@ export default function CommentaryBox({
                                 }</>
                             }
                             <> { totalLikes > 0 && <Styles.TextTotalLikes>{ totalLikes }</Styles.TextTotalLikes>}</>
-                        </Styles.LikesStatistics>
+                        </Styles.LikesStatistics> :
+                        <Styles.LikesStatistics></Styles.LikesStatistics>}
                         <Styles.IterationsButtonsWrapper>
                             {actionLike && (
                                 <Styles.LinkButton onClick={ actionLike }>

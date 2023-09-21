@@ -3663,7 +3663,7 @@ function buildShortName(name) {
 }
 
 const WIDTH_MOBILE = 550;
-function CommentaryBox({ name, className, styles, position, value, date, actionLike, actionAnswer, isMe, isAuthor, actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue, detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textSaveButton, textSaveButtonMobile, textCancelButton, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor, onClickUserInfo }) {
+function CommentaryBox({ name, className, styles, position, value, date, actionLike, actionAnswer, isMe, isAuthor, actionDeleteComment, actionEditComment, actionMakePrivate, actionUpdateValue, detectLinks, idTextComment, wasEdited, hasAnswer, hasDropdown, isLiked, totalLikes, textSaveButton, textSaveButtonMobile, textCancelButton, textYou, textPrivateComment, textEdited, textLiked, textUnliked, textAnswer, textMakePrivate, textMakePublic, textEditComment, textDeleteComment, isPrivateMe, isPrivateAuthor, onClickUserInfo, showStatusLike }) {
     // Identify Screen Resizing
     const [size, setSize] = React.useState([0, 0]);
     React.useLayoutEffect(() => {
@@ -3747,11 +3747,12 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                 jsxRuntime.jsx("div", { style: { marginRight: '10px' }, children: jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }) }), jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] })] }), onEditing ?
                     jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button$5, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile, disabled: !enableSaveEdit, variant: "primary", style: { marginRight: '20px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => { cancelEditComment(); }, label: textCancelButton, variant: "secondary" })] })] })
                     :
-                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }), jsxRuntime.jsxs(IterationsWrapper, { children: [jsxRuntime.jsxs(LikesStatistics, { children: [!isLiked ?
+                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }), jsxRuntime.jsxs(IterationsWrapper, { children: [showStatusLike ? jsxRuntime.jsxs(LikesStatistics, { children: [!isLiked ?
                                                     jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px' })
                                                     :
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [" ", totalLikes > 0 &&
-                                                                    jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px', customColor_1: "#CCCCCC" })] }), jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [" ", totalLikes > 0 && jsxRuntime.jsx(TextTotalLikes, { children: totalLikes })] })] }), jsxRuntime.jsxs(IterationsButtonsWrapper, { children: [actionLike && (jsxRuntime.jsx(LinkButton, { onClick: actionLike, children: isLiked ? textLiked : textUnliked })), hasAnswer &&
+                                                                    jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px', customColor_1: "#CCCCCC" })] }), jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [" ", totalLikes > 0 && jsxRuntime.jsx(TextTotalLikes, { children: totalLikes })] })] }) :
+                                            jsxRuntime.jsx(LikesStatistics, {}), jsxRuntime.jsxs(IterationsButtonsWrapper, { children: [actionLike && (jsxRuntime.jsx(LinkButton, { onClick: actionLike, children: isLiked ? textLiked : textUnliked })), hasAnswer &&
                                                     jsxRuntime.jsxs(LinkButton, { onClick: actionAnswer, children: ["  ", textAnswer, "  "] })] })] })] })] }) }));
 }
 
