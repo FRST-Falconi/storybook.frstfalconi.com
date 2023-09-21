@@ -18707,7 +18707,7 @@ styleInject(css_248z);
 
 function DropdownMultiselect(props) {
     const [selectedValues, setSelectedValues] = React.useState([]);
-    const [textFilter, setTextFilter] = React.useState('');
+    // const [textFilter, setTextFilter] = useState('')
     const [listItemsFilter, setListItemsFilter] = React.useState(props.listItems);
     const [showModal, setShowModal] = React.useState(false);
     const [listFilterSearch, setListFilterSearch] = React.useState();
@@ -18717,10 +18717,10 @@ function DropdownMultiselect(props) {
     React.useEffect(() => {
         setListFilterSearch(props.listItems);
     }, [props.listItems]);
-    React.useEffect(() => {
-        let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter));
-        setListFilterSearch(temp);
-    }, [textFilter]);
+    // useEffect(() => {
+    //     let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
+    //     setListFilterSearch(temp)
+    // }, [textFilter])
     React.useEffect(() => {
         if (props.selectedDefault) {
             setSelectedValues(props?.selectedDefault);
@@ -18766,7 +18766,7 @@ function DropdownMultiselect(props) {
         const selectedItems = selectedValues;
         const lengthList = selectedItems ? selectedItems?.length : 0;
         return props.listItems.length >= lengthList ? (jsxRuntime.jsxs(searchAndButton, { children: [jsxRuntime.jsx("div", { style: { marginBottom: '1rem' }, children: jsxRuntime.jsx(SearchField, { placeholder: props.searchSelectPlaceholder ? props.searchSelectPlaceholder : 'Buscar', className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, onChange: (e) => {
-                            setTextFilter(e.target.value);
+                            props.onSearch(e.target.value);
                         } }) }), jsxRuntime.jsx(Button$5, { variant: 'link', label: props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos', disabled: false, handleClick: () => {
                         setSelectedValues(listItemsFilter);
                     } })] })) : jsxRuntime.jsx(jsxRuntime.Fragment, {});
