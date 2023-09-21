@@ -27,6 +27,7 @@ normal.args = {
   people:'pessoas',
   person:'pessoa',
   getSelectedItems: (item) => console.log("Selecionado: ", item),
+  onSearch: (searchTerm) => console.log("Pesquisa: ", searchTerm),
   listItems: [
     { id: 1, name: 'Australia', description: 'Tecnologia da Informação', avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg', subDescription: 'Analista' },
     { id: 2, name: 'Brazil', description: 'Tecnologia da Informação', avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg', subDescription: 'Analista' },

@@ -31,6 +31,7 @@ interface IDropdownMultiselect {
     optionLayout?: (options) => void
     selectedDefault?: ISelectedValue
     activeLazyLoad?: boolean
+    onSearch?: (searchTerm) => void
 }
 
 type ISelectedValue = {
@@ -44,7 +45,7 @@ type ISelectedValue = {
 
 export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const [selectedValues, setSelectedValues] = useState<ISelectedValue>([]);
-    const [textFilter, setTextFilter] = useState('')
+    // const [textFilter, setTextFilter] = useState('')
     const [listItemsFilter, setListItemsFilter] = useState(props.listItems)
     const [showModal, setShowModal] = useState(false);
     const [listFilterSearch, setListFilterSearch] = useState<any>();
@@ -56,10 +57,10 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         setListFilterSearch(props.listItems)
     }, [props.listItems])
 
-    useEffect(() => {
-        let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
-        setListFilterSearch(temp)
-    }, [textFilter])
+    // useEffect(() => {
+    //     let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
+    //     setListFilterSearch(temp)
+    // }, [textFilter])
 
     useEffect(() => {
         if(props.selectedDefault){
@@ -148,7 +149,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         isButton
                         hasSearchIcon={true}
                         onChange={(e: any) => {
-                            setTextFilter(e.target.value)
+                            props.onSearch(e.target.value)
                         }}
                     />
                 </div>
