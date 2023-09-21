@@ -29,6 +29,7 @@ normal.args = {
     area: 'Área',
     position: 'Cargo'
   },
+  textVisitProfile: 'Visit profile',
   successfullInvite: false,
   handleSendInvitation: (id: any) => alert(`Send: ${id}`),
   handleClickRemove: (id: any) => alert(`Remove: ${id}`)
