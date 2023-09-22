@@ -39,3 +39,12 @@ export const notificationDate = styled.div`
     font-weight: 400;
     color: ${({theme}) => theme.colors.neutralsGrey3};
 `
+
+export const PopOverVisitProfile = styled.div`
+    display: none;
+    position: absolute;
+    border: 1px solid black;
+    background-color: #fff;
+    padding: 10px;
+    z-index: 1000;
+`

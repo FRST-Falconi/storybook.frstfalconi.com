@@ -19,6 +19,8 @@ interface IBannerProblemParams {
     avatar: string
     area: string
     email: string
+    onClickUserInfo?: () => void
+    textVisitProfile?: string
     tags?: string[]
     typeMessagem: number
     message: string

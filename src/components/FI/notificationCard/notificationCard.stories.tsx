@@ -17,7 +17,9 @@ newNotification.args = {
     notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
     isNewNotification : true,
     textNew: 'Nova',
+    textVisitProfile: 'Visitar Perfil',
     notificationDate: 'Hoje',
+    onClickUserInfo: () => alert('clique perfil'),
 
     handleClick: () => alert('Notificação clicada!')
 }
@@ -28,7 +30,9 @@ oldNotification.args = {
     notificationDescription : `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
     isNewNotification : false,
     textNew: 'Nova',
+    textVisitProfile: 'Visitar Perfil',
     notificationDate: 'Hoje',
+    onClickUserInfo: () => alert('clique perfil'),
 
     handleClick: () => alert('Notificação clicada!')
 }

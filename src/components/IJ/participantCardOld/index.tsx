@@ -4,8 +4,10 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './participantCardStyle'
 import { ParticipantCardI } from './participantCard'
 
-import Avatar from '@components/avatar'
-import Tooltip from '@components/LXP/tooltip'
+import Avatar from '@components/avatar';
+import Tooltip from '@components/LXP/tooltip';
+import TooltipV2 from '@components/DS/tooltip';
+
 import { AddPeople, MessageCheckLine } from '@shared/icons'
 import { useEffect, useState } from 'react'
 
@@ -16,7 +18,9 @@ export default function ParticipantCardOld({
   successfullInvite,
   style,
   handleSendInvitation,
-  handleClickRemove
+  handleClickRemove,
+  onClickUserInfo,
+  textVisitProfile
 }: ParticipantCardI) {
   const [userName, setUserName] = useState(userInfo?.name)
   const [userEmail, setUserEmail] = useState(userInfo?.email)
@@ -41,8 +45,17 @@ export default function ParticipantCardOld({
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.WrapperCard variant={variant} style={{ ...style }}>
-        <Styles.UserInfo>
-          <Avatar size="40px" src={userInfo?.avatar} />
+        <Styles.UserInfo onClick={() => onClickUserInfo ? onClickUserInfo() : {}}>
+          <TooltipV2
+                direction="top"
+                content={textVisitProfile ? textVisitProfile : 'Visitar perfil'}
+                trigger='hover'
+                width='101px'
+                height='32px'
+                style={{ top: '-10px', textAlign: 'center' }}
+            >
+            <Avatar size="40px" src={userInfo?.avatar} isActiveClick={true}/>
+          </TooltipV2>
           <Styles.DescriptionUser>
             {userName && userName?.length > 25 ? (
               <Tooltip position="top" textTooltip={userName}>

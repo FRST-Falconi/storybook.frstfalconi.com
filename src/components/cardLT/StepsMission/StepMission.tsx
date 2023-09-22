@@ -8,7 +8,7 @@ import React, {
 
 import style from './Planet.module.css'
 import Steps from './Steps'
-import { Button } from '../../../../index'
+import Button from './../../buttons'
 import { FowardArrow } from '../../../shared/icons'
 
 ///-----------------------------------------

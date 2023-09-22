@@ -24,6 +24,8 @@ interface AvatarWithInfoParams {
    * @prop {React.CSSProperties} style: Styles de CSS adicional
    */  
   style?: React.CSSProperties;
+
+  onClick?: () => void
   
 }
 
@@ -42,9 +44,9 @@ export default function AvatarWithInfo(props: AvatarWithInfoParams) {
   return (
 
     <>    
-      <div className={style.container} style={{...props.style }}>
+      <div className={style.container} style={{...props.style }} onClick={() => props?.onClick ? props.onClick() : {}}>
 
-        <Avatar size='40px' src={props.fotoAvatar}/>
+        <Avatar size='40px' src={props.fotoAvatar} isActiveClick={!!props?.onClick}/>
         <span style={{fontWeight:600, marginLeft: 8, marginRight: 4}}>{props.nomeCompleto}</span> {props.cargo ? <Vector /> : ''} <span style={{fontWeight:400, marginLeft: 4, marginRight: 8, textAlign: 'center'}}>{props.cargo}</span>
                
       </div>

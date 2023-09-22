@@ -15,12 +15,12 @@ normal.args = {
   onSelected: (e: any) => {
     alert('Item Selecionado: ' + e)
   },
-  onClickAvatar: () => {
-    alert('voce clicou no avatar do card')
-  },
-  onClickName: () => {
-    alert('voce clicou no Nome')
-  },
+  // onClickAvatar: () => {
+  //   alert('voce clicou no avatar do card')
+  // },
+  // onClickName: () => {
+  //   alert('voce clicou no Nome')
+  // },
   objectCards: [
     {
       description:
@@ -28,14 +28,17 @@ normal.args = {
       problemId: '123',
       statusCard: 1,
       userArea: 'Customer Experience',
-      userName: 'Érika Heim'
+      userName: 'Érika Heim',
+      onClickUserInfo: () => alert('visitar perfil 1'),
+      textVisitProfile: 'visit profile'
     },
     {
       description: 'Descobri fatores que estão contribuindo negativamente para que os alunos não engajem na plataforma',
       problemId: '1234',
       statusCard: 2,
       userArea: 'Customer Experience',
-      userName: 'Érika Heim'
+      userName: 'Érika Heim',
+      onClickUserInfo: () => alert('visitar perfil 2')
     },
     {
       description:
@@ -43,7 +46,8 @@ normal.args = {
       problemId: '1234',
       statusCard: 1,
       userArea: 'Customer Experience',
-      userName: 'Érika Heim'
+      userName: 'Érika Heim',
+      onClickUserInfo: () => alert('visitar perfil 3')
     },
     {
       description:

@@ -13,6 +13,7 @@ const Template = (args) => <ParticipantCardOld {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
+  onClickUserInfo:() => alert('redirect profile'),
   userInfo: {
     id: 'id-user-00128-idasd',
     name: 'Karen Gisele da Silva dos Santos Silvero',
@@ -28,6 +29,7 @@ normal.args = {
     area: 'Área',
     position: 'Cargo'
   },
+  textVisitProfile: 'Visit profile',
   successfullInvite: false,
   handleSendInvitation: (id: any) => alert(`Send: ${id}`),
   handleClickRemove: (id: any) => alert(`Remove: ${id}`)
@@ -35,6 +37,7 @@ normal.args = {
 
 export const brainstorm = Template.bind({})
 brainstorm.args = {
+  onClickUserInfo:() => alert('redirect profile'),
   variant: 'secondary',
   userInfo: {
     id: 'id-user-00128-idasd',
@@ -59,6 +62,7 @@ brainstorm.args = {
 
 export const profile = Template.bind({})
 profile.args = {
+  onClickUserInfo:() => alert('redirect profile'),
   variant: 'tertiary',
   userInfo: {
     id: 'id-user-00128-idasd',

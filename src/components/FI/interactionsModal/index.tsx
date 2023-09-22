@@ -18,6 +18,7 @@ import {
     OrgUser } from './InteractionsModalStyles'
 import { CloseIcon } from '@shared/icons'
 import Avatar from '@components/avatar'
+import Tooltip from '@components/DS/tooltip'
 
 export default function InteractionsModal({
     textTitle, 
@@ -87,12 +88,42 @@ export default function InteractionsModal({
                                 { listUsersState && listUsersState.map((item: IUser) => {
                                         return (<>
                                             <CardItemUser key={item?.id}>
-                                                <Avatar size='50px' src={item?.avatar}/>
-                                                <UserInfoContainer>
-                                                    <NameUser> {item?.name} </NameUser>
-                                                    <PositionUser> {item?.position}  </PositionUser>
-                                                    <OrgUser> {item?.organization} </OrgUser>
-                                                </UserInfoContainer>
+                                                {item?.onClickUserInfo ?
+                                                    <Tooltip
+                                                        direction="bottom"
+                                                        content={item.textVisitProfile ? item.textVisitProfile : 'Visitar perfil'}
+                                                        trigger='hover'
+                                                        width='101px'
+                                                        height='32px'
+                                                        style={{ top: '10px', textAlign: 'center' }}
+                                                    >
+                                                        <Avatar 
+                                                            size='50px' 
+                                                            src={item?.avatar} 
+                                                            isActiveClick={true}
+                                                            onClick={() => item?.onClickUserInfo ? item?.onClickUserInfo() : {}}
+                                                        />
+                                                        <UserInfoContainer 
+                                                            onClick={() => item?.onClickUserInfo ? item?.onClickUserInfo() : {}}
+                                                            style={{ cursor: item?.onClickUserInfo ? 'pointer' : 'auto'}}
+                                                        >
+                                                            <NameUser> {item?.name} </NameUser>
+                                                            <PositionUser> {item?.position}  </PositionUser>
+                                                            <OrgUser> {item?.organization} </OrgUser>
+                                                        </UserInfoContainer>
+                                                    </Tooltip>
+                                                :<>
+                                                    <Avatar size='50px' src={item?.avatar}/>
+                                                    <UserInfoContainer 
+                                                        onClick={() => item?.onClickUserInfo ? item?.onClickUserInfo() : {}}
+                                                        style={{ cursor: item?.onClickUserInfo ? 'pointer' : 'auto'}}
+                                                    >
+                                                        <NameUser> {item?.name} </NameUser>
+                                                        <PositionUser> {item?.position}  </PositionUser>
+                                                        <OrgUser> {item?.organization} </OrgUser>
+                                                    </UserInfoContainer>
+                                                </>
+                                                }
                                             </CardItemUser>
                                         </>)
                                     })

@@ -5,6 +5,7 @@ import Avatar from '../../avatar/index'
 
 import Rating from '@components/cardLT/Rating'
 import RatingCurtidas from '@components/cardLT/RatingCurtidas'
+import Tooltip from '@components/DS/tooltip'
 
 interface CardProblemGestorProps {
   problemID: string
@@ -27,6 +28,8 @@ interface CardProblemGestorProps {
   statusColor?: string
   statusBackgroundColor?: string
   locales?: any
+  onClickUserInfo?: () => void
+  textVisitProfile?: string
 }
 
 /**
@@ -35,6 +38,11 @@ interface CardProblemGestorProps {
 export default function CardProblemGestor(props: CardProblemGestorProps) {
   const statusBg = props.statusBackgroundColor || '#757575'
   const statusColor = props.statusColor || '#FFFFFF'
+
+  const handleChildClick = (event: any) => {
+    event.stopPropagation();
+    props.onClickUserInfo && props.onClickUserInfo()
+  }
 
   return (
     <div
@@ -49,6 +57,27 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
       )}
 
       <div className={style.contentCard}>
+      {!!props?.onClickUserInfo ? 
+        <Tooltip
+            direction="bottom"
+            content={props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil'}
+            trigger='hover'
+            width='101px'
+            height='32px'
+            style={{ top: '10px', textAlign: 'center' }}
+        >
+          <div className={style.avatarInfoUser} onClick={handleChildClick}>
+            <div>
+              {' '}
+              <Avatar size="40px" src={props.userAvatar} />{' '}
+            </div>
+            <div className={style.infoUser}>
+              <span style={{ fontSize: 16, fontWeight: 600 }}>{props.userName}</span>
+              <span style={{ fontSize: 14, fontWeight: 400 }}>{props.userCargo}</span>
+            </div>
+          </div>
+        </Tooltip>
+        :
         <div className={style.avatarInfoUser}>
           <div>
             {' '}
@@ -58,7 +87,8 @@ export default function CardProblemGestor(props: CardProblemGestorProps) {
             <span style={{ fontSize: 16, fontWeight: 600 }}>{props.userName}</span>
             <span style={{ fontSize: 14, fontWeight: 400 }}>{props.userCargo}</span>
           </div>
-        </div>
+        </div> }
+
         {props.cardTitle && (
           <div className={style.tituloCard} style={{ color: '#FF4D0D', width: '100%' }}>
             <span>{props.cardTitle}</span>

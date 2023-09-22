@@ -40,6 +40,8 @@ hipoteseLevantada.args = {
     alert(`Select ${problemID}`)
   },
   isActiveClickProfile: false,
+  onClickUserInfo: () => alert('visitar perfil'),
+  textVisitProfile: 'visit profile'
   // onClickAvatar: () => {
   //   alert('clicou no avatar')
   // },

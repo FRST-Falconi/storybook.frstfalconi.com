@@ -21,21 +21,25 @@ Default.args = {
             name: 'Carol Rodrigues',
             position: 'Tecnologia da Informação',
             organization: 'FRST Falconi',
-            avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png'
+            avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png',
+            onClickUserInfo: () => alert('visitar perfil - 1'),
+            textVisitProfile: 'visit profile'
         },
         {
             id: '2',
             name: 'Luciana Souza',
             position: 'Tecnologia da Informação',
             organization: 'FRST Falconi',
-            avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png'
+            avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png',
+            onClickUserInfo: () => alert('visitar perfil - 2')
         },
         {
             id: '3',
             name: 'Ricardo Barbosa',
             position: 'Tecnologia da Informação',
             organization: 'FRST Falconi',
-            avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png'
+            avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png',
+            onClickUserInfo: () => alert('visitar perfil - 3')
         },
         {
             id: '4',

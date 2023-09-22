@@ -9,6 +9,4 @@ export interface IConquistaCarrossel {
   positionArrowButton?: string
   marginTopArrrowButton?: string
   textMoreDetails?: string
-  onClickAvatar?: () => void
-  onClickName?: () => void
 }

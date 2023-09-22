@@ -13,6 +13,7 @@ import style from './cardProblem.module.css'
 import Avatar from '../../avatar/index'
 import TextIcon from '@components/cardLT/TextIcon'
 import Button from '@components/buttons'
+import Tooltip from '@components/DS/tooltip'
 
 interface CardProblemProps {
   selected: boolean
@@ -20,9 +21,9 @@ interface CardProblemProps {
   isButtonVerMais: boolean
   handleSelect?: (id: string) => void
   onClick?: (problemID: string) => void
-  onClickAvatar?: () => void
-  onClickName?: () => void
   isActiveClickProfile?: boolean
+  onClickUserInfo?: () => void
+  textVisitProfile?: string
   problemID: string
   userName: string
   userCargo: string
@@ -205,18 +206,46 @@ export default function CardProblem(props: CardProblemProps) {
         {selected ? <CheckboxChecked /> : <CheckboxEmpty />}
       </div>
       <div className={style.contentCard}>
+        { props.onClickUserInfo ?
+          <Tooltip
+            direction="bottom"
+            content={props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil'}
+            trigger='hover'
+            width='101px'
+            height='32px'
+            style={{ top: '-10px', textAlign: 'center' }}
+          >
+          <div 
+            className={style.avatarInfoUser} 
+            onClick={ () => props.onClickUserInfo ? props.onClickUserInfo() : {}}
+            style={{cursor: 'pointer'}}
+          >
+            <div>
+              {' '}
+              <Avatar size="40px" src={props.userAvatar} isActiveClick={true}/>{' '}
+            </div>
+            <div className={style.infoUser}>
+              <span style={{ fontSize: 16, fontWeight: 600, cursor: 'pointer' }}>
+                {props.userName}
+              </span>
+              <span style={{ fontSize: 14, fontWeight: 400 }}>{props.userCargo}</span>
+            </div>
+          </div>
+        </Tooltip>
+        :
         <div className={style.avatarInfoUser}>
           <div>
             {' '}
-            <Avatar size="40px" src={props.userAvatar} onClick={props.onClickAvatar} isActiveClick={props?.isActiveClickProfile}/>{' '}
+            <Avatar size="40px" src={props.userAvatar}/>{' '}
           </div>
           <div className={style.infoUser}>
-            <span style={{ fontSize: 16, fontWeight: 600, cursor: props?.isActiveClickProfile ? 'pointer': 'auto' }} onClick={props.onClickName}>
+            <span style={{ fontSize: 16, fontWeight: 600, cursor: 'auto' }}>
               {props.userName}
             </span>
             <span style={{ fontSize: 14, fontWeight: 400 }}>{props.userCargo}</span>
           </div>
         </div>
+        }
 
         {props.isVerified ? (
           <div style={{ textAlign: 'center', display: 'flex' }}>

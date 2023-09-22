@@ -8,6 +8,7 @@ import Aprendizado from './Icons/Aprendizado.png'
 import AprendizadoPressed from './Icons/AprendizadoPressed.png'
 import { ApiRounded } from '@mui/icons-material'
 import { useEffect, useState } from 'react'
+import Tooltip from '@components/DS/tooltip'
 
 interface CardResultConquistaProps {
   userAvatar?: string
@@ -25,6 +26,7 @@ interface CardResultConquistaProps {
   onClickName?: () => void
 
   textMoreDetails?: string
+  textVisitProfile?: string
   style?: React.CSSProperties
 }
 
@@ -46,10 +48,10 @@ export default function CardResultConquista(props: CardResultConquistaProps) {
   return (
     <div
       className={style.container}
-      style={{ ...props.style, cursor: 'pointer', backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }}
+      style={{ ...props.style, backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }}
     >
       <div className={style.cardAvatar}>
-        <Avatar size="50px" src={props.userAvatar} onClick={props.onClickAvatar} />
+        <Avatar size="50px" src={props.userAvatar} onClick={props.onClickAvatar} isActiveClick={!!props.onClickAvatar} />
         <span>&nbsp;&nbsp;</span>
         {props.statusCard === 1 ? (
           isPressed ? (
@@ -63,13 +65,30 @@ export default function CardResultConquista(props: CardResultConquistaProps) {
           <img src={Aprendizado} alt="Icone de aprendizado" />
         )}
       </div>
-
-      <span
-        style={{ color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }}
-        onClick={props.onClickName}
-      >
-        {props.userName}
-      </span>
+      {props.onClickName ? 
+        <Tooltip
+            direction="bottom"
+            content={props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil'}
+            trigger='hover'
+            width='101px'
+            height='32px'
+            style={{ top: '10px', textAlign: 'center' }}
+        >
+          <span
+            style={{ color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12, cursor: props.onClickName ? 'pointer' : 'auto' }}
+            onClick={props.onClickName}
+          >
+            {props.userName}
+          </span>
+        </Tooltip>
+      : 
+        <span
+          style={{ color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }}
+          onClick={props.onClickName}
+        >
+          {props.userName}
+        </span>
+      }
       <span style={{ color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }}>
         {props.userArea}
       </span>
@@ -92,6 +111,7 @@ export default function CardResultConquista(props: CardResultConquistaProps) {
           setIsPressed(true)
         }}
         className={style.verMais}
+        style={{cursor: 'pointer'}}
       >
         {btnViewMore ? btnViewMore : 'Mais detalhes'}
       </div>

@@ -10,6 +10,7 @@ interface ParticipantCardI {
 export const Tooltip = styled.div<{position}>`
     position: relative;
     display: inline-block;
+    z-index: 999;
     
     &:after #tooltipinfo {
         content: "";
@@ -46,9 +47,9 @@ export const Tooltip = styled.div<{position}>`
 `
 
 
-export const Tooltiptext = styled.div<{position}>`
+export const Tooltiptext = styled.div<{position, customWidth, customMarginLeft}>`
     visibility: hidden;
-    width: 156px;
+    width: ${({customWidth}) => customWidth ? customWidth : '156px'};
     background-color: #fff;
     border: solid 1px #BDBDBD;
 
@@ -82,7 +83,7 @@ export const Tooltiptext = styled.div<{position}>`
         }
     }}
 
-    margin-left: -70px;
+    margin-left: ${({customMarginLeft}) => customMarginLeft ? customMarginLeft : '-70px'};
 
     -webkit-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
     -moz-box-shadow: 10px 35px 40px -8px rgba(0,0,0,0.31);
@@ -110,5 +111,31 @@ export const Tooltiptext = styled.div<{position}>`
         border: 6px solid #fff;
         transform: rotate(135deg);
         transition: border 0.3s ease-in-out;
+      }
+
+      &:before {
+        content: "";
+        width: 0;
+        height: 0;
+        
+        ${({position}) => {
+            switch(position) {
+                case 'top':
+                    return 'left: 48%; bottom: -6px;'
+                case 'bottom':
+                    return 'left: 48%; top: -6px;'
+                case 'right':
+                    return `
+                    top: 35%; left: -7px; border: 5px solid rgba(0,0,0,0.31)!important;                    
+                    position: absolute;    
+                    border: 6px solid #fff;
+                    transform: rotate(135deg);
+                    transition: border 0.3s ease-in-out;`
+                case 'left':
+                    return 'top: 35%; right: -6px; border: 5px solid rgba(0,0,0,0.31)!important;'
+                default:
+                     return ''
+            }
+        }}
       }
 `

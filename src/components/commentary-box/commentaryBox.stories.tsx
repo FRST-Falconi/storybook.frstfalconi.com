@@ -54,4 +54,5 @@ normal.args = {
 
     className: null,
     idTextComment: '',
+    onClickUserInfo: () => alert('visitar perfil')
 }

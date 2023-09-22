@@ -26,7 +26,8 @@ Normal.args = {
     stepProblem: 5,
     stepActive: 1,
     textButton: 'Mais detalhes',
-
+    onClickUserInfo: () => alert('Redirect profile'),
+    textVisitProfile: 'visit profile',
     language: 'pt-BR',
 
     step1Title: 'Missão 1: Marte - Definição do Problema',
