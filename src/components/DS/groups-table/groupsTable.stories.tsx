@@ -16,7 +16,7 @@ normal.args = {
     textHeader2: 'Administrado por',
     textHeader3: 'Editar',
     textHeader4: 'Excluir',
-    // textHeaderVisit: 'Visitantes',
+    textHeaderVisit: 'Visitantes',
     textTooltipCount: 'Ver Todos',
     textTooltipAdd: 'Adicionar',
     textTooltipAllSelected: 'Selecionar todos',
@@ -37,57 +37,57 @@ normal.args = {
             id: 'a2cd4922-2f78-4c89-ac24-cf1b5830e4f5', image: 'https://xsgames.co/randomusers/avatar.php?g=male', name: 'Joaquim Ribeiro Santos'
         }
         ],
-        // visitors: [{
-        //     id: 'a2cd4922-2f78-4c89-ac24-cf1b5830e4f8', avatar: 'https://xsgames.co/randomusers/avatar.php?g=male', name: 'Joaquim Ribeiro Santos'
-        // },
-        // {
-        //     id: '1247a15e-8ef0-4b22-83b1-204e24c4694a', avatar: 'https://xsgames.co/randomusers/avatar.php?g=male', name: 'Joaquim Ribeiro'
-        // },
-        // {
-        //     id: 'e5df9c2-c6da-4fa7-9995-fde5b121236ef', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        visitors: [{
+            id: 'a2cd4922-2f78-4c89-ac24-cf1b5830e4f8', avatar: 'https://xsgames.co/randomusers/avatar.php?g=male', name: 'Joaquim Ribeiro Santos'
+        },
+        {
+            id: '1247a15e-8ef0-4b22-83b1-204e24c4694a', avatar: 'https://xsgames.co/randomusers/avatar.php?g=male', name: 'Joaquim Ribeiro'
+        },
+        {
+            id: 'e5df9c2-c6da-4fa7-9995-fde5b121236ef', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '898df992-d2b6-44f7-8cb0-bb51202933dc', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '898df992-d2b6-44f7-8cb0-bb51202933dc', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '393ef6fa-b994-4419-a448-46ccdba3e04e', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '393ef6fa-b994-4419-a448-46ccdba3e04e', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '14e866fe-1ff1-4e46-a986-1b4e90ce3420', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '14e866fe-1ff1-4e46-a986-1b4e90ce3420', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '656a4745-ed9b-4990-a45a-42349892ea5d', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '656a4745-ed9b-4990-a45a-42349892ea5d', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '166b5e4a-82b5-46ec-b52f-8c4325180322', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '166b5e4a-82b5-46ec-b52f-8c4325180322', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '66a00307-deae-41e3-86cf-29251204d995', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '66a00307-deae-41e3-86cf-29251204d995', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '46a00307-deae-41e3-86cf-29251204d996', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d996', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '46a00307-deae-41e3-86cf-29251204d990', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d990', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '46a00307-deae-41e3-86cf-29251204d998', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d998', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // },
-        // {
-        //     id: '46a00307-deae-41e3-86cf-29251204d997', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
+        },
+        {
+            id: '46a00307-deae-41e3-86cf-29251204d997', avatar: 'https://xsgames.co/randomusers/avatar.php?g=female', name: 'Joana  Silva'
 
-        // }
-        // ]
+        }
+        ]
     },
     {
         id: 'a02d4dc0-2a5b-11ee-aadb-6dc2421ab698',

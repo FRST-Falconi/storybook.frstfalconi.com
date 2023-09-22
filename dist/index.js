@@ -4577,8 +4577,8 @@ const TableAdm = styled__default["default"].td `
     }
 
 `;
-styled__default["default"].td ``;
-styled__default["default"].div `
+const TableVisit = styled__default["default"].td ``;
+const TableVisitContent = styled__default["default"].div `
     align-items: center;
     justify-content: center;
     display: flex;
@@ -4745,7 +4745,7 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, textHe
                                                 display: 'flex',
                                                 justifyContent: 'center',
                                                 boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                            }, direction: 'bottom', content: textTooltipAllSelected, delay: 500, children: jsxRuntime.jsx(Checkbox, { isChecked: isAllChecked, label: "", handleCheck: handleToggleSelectAll, color: "rgba(67, 159, 159, 1)" }) }), jsxRuntime.jsx("span", { children: textHeader })] }), jsxRuntime.jsx(TableHeader, { children: textHeader2 }), jsxRuntime.jsx(TableHeader, { style: { paddingRight: '40px', paddingLeft: '44px', width: '220px' }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', alignItems: 'center', gap: '40px' }, children: [jsxRuntime.jsx("div", { children: textHeader3 }), jsxRuntime.jsx("div", { children: textHeader4 })] }) })] }), jsxRuntime.jsx("tbody", { children: internalItems.map((i, index) => (jsxRuntime.jsxs(TableRow, { isRoot: i.isRoot, children: [jsxRuntime.jsx(TableChecked, { children: !i.isRoot ?
+                                            }, direction: 'bottom', content: textTooltipAllSelected, delay: 500, children: jsxRuntime.jsx(Checkbox, { isChecked: isAllChecked, label: "", handleCheck: handleToggleSelectAll, color: "rgba(67, 159, 159, 1)" }) }), jsxRuntime.jsx("span", { children: textHeader })] }), jsxRuntime.jsx(TableHeader, { children: textHeader2 }), jsxRuntime.jsx(TableHeader, { children: textHeaderVisit }), jsxRuntime.jsx(TableHeader, { style: { paddingRight: '40px', paddingLeft: '44px', width: '220px' }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', alignItems: 'center', gap: '40px' }, children: [jsxRuntime.jsx("div", { children: textHeader3 }), jsxRuntime.jsx("div", { children: textHeader4 })] }) })] }), jsxRuntime.jsx("tbody", { children: internalItems.map((i, index) => (jsxRuntime.jsxs(TableRow, { isRoot: i.isRoot, children: [jsxRuntime.jsx(TableChecked, { children: !i.isRoot ?
                                             jsxRuntime.jsx(Checkbox, { label: i.group, handleCheck: () => handleToggleSelectRow(index), isChecked: i.checked })
                                             :
                                                 jsxRuntime.jsxs("p", { style: { fontFamily: 'PT Sans', fontWeight: 400, fontSize: '16px', paddingLeft: '32px', lineHeight: '21px', fontStyle: 'normal' }, children: [i.textRoot, " (", i.group, ")"] }) }), jsxRuntime.jsx(TableAdm, { children: jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Tooltip$2, { content: textTooltipAdd, delay: 500, direction: 'bottom', style: {
@@ -4789,7 +4789,47 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, textHe
                                                             whiteSpace: 'nowrap',
                                                             boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
                                                         }, children: jsxRuntime.jsx(AdmButton, { image: adm.image, variant: 'image' }, adm.id) });
-                                                })] }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsx("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }, children: !i.isRoot &&
+                                                })] }) }), jsxRuntime.jsx(TableVisit, { children: jsxRuntime.jsx(TableVisitContent, { children: jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Tooltip$2, { content: textTooltipAdd, delay: 500, direction: 'bottom', style: {
+                                                            fontFamily: 'PT Sans',
+                                                            fontWeight: 400,
+                                                            fontSize: '14px',
+                                                            color: 'rgba(117, 117, 117, 1)',
+                                                            width: '73px',
+                                                            height: '31px',
+                                                            top: '8px',
+                                                            left: '4px',
+                                                            display: 'flex',
+                                                            justifyContent: 'center',
+                                                            boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                        }, children: jsxRuntime.jsx(AdmButton, { variant: 'add', onClick: () => visitMoreClick(i.id) }) }), i.visitors?.length > maxAdmToShow && (jsxRuntime.jsx(Tooltip$2, { content: textTooltipCount, delay: 500, direction: 'bottom', style: {
+                                                            fontFamily: 'PT Sans',
+                                                            fontWeight: 400,
+                                                            fontSize: '14px',
+                                                            color: 'rgba(117, 117, 117, 1)',
+                                                            width: '73px',
+                                                            height: '31px',
+                                                            top: '8px',
+                                                            left: '4px',
+                                                            boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                        }, children: i.visitors.length < 9 ?
+                                                            jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreVisitorsClick(i.id), variant: 'count', count: i.visitors.length - maxAdmToShow })
+                                                            :
+                                                                jsxRuntime.jsx(AdmButton, { onClick: () => onShowMoreVisitorsClick(i.id), variant: 'countMore', count: 9 }) })), i.visitors
+                                                        ?.filter((a, aIndex) => aIndex < maxAdmToShow)
+                                                        .map((visit) => {
+                                                        return jsxRuntime.jsx(Tooltip$2, { content: visit.name, direction: 'bottom', delay: 500, style: {
+                                                                fontFamily: 'PT Sans',
+                                                                fontWeight: 400,
+                                                                fontSize: '14px',
+                                                                color: 'rgba(117, 117, 117, 1)',
+                                                                width: 'fit-content',
+                                                                height: '31px',
+                                                                top: '8px',
+                                                                left: '4px',
+                                                                whiteSpace: 'nowrap',
+                                                                boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                                            }, children: jsxRuntime.jsx(AdmButton, { image: visit.avatar, variant: 'image' }, visit.id) });
+                                                    })] }) }) }), jsxRuntime.jsx("td", { children: jsxRuntime.jsx("div", { style: { display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }, children: !i.isRoot &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TdEditButtom, { onClick: () => !i.isRoot && onEditClick(i.id) }), jsxRuntime.jsx(TdTrashButton, { onClick: () => !i.isRoot && onDeleteClick(i.id, index) })] }) }) })] }, index))) })] }) })] }));
 }
 
