@@ -20,7 +20,8 @@ export default function ParticipantCardOld({
   handleSendInvitation,
   handleClickRemove,
   onClickUserInfo,
-  textVisitProfile
+  textVisitProfile,
+  hidenRemoveBtn,
 }: ParticipantCardI) {
   const [userName, setUserName] = useState(userInfo?.name)
   const [userEmail, setUserEmail] = useState(userInfo?.email)
@@ -101,6 +102,7 @@ export default function ParticipantCardOld({
               userInfo={userInfo}
               variant={variant}
               IconSend={<LetterEnvelopLineIcon />}
+              hidenRemoveBtn={hidenRemoveBtn}              
             />
           ) : (
           variant == 'tertiary' ?
@@ -112,6 +114,7 @@ export default function ParticipantCardOld({
               userInfo={userInfo}
               variant={variant}
               IconSend={ <PeopleLineIcon/>}
+              hidenRemoveBtn={hidenRemoveBtn}
             /> 
             :
             <FooterButtonDefault            
@@ -135,7 +138,8 @@ function FooterButtonVariantIcons({
   labels, 
   userInfo,
   variant,
-  IconSend }) {
+  IconSend,
+  hidenRemoveBtn }) {
   const [status, setStatus] = useState(statusSend)
 
   useEffect(() => {
@@ -156,10 +160,11 @@ function FooterButtonVariantIcons({
             {IconSend}
             {labels?.sendInvitation ? labels?.sendInvitation : 'Convidar'}
           </Styles.ButtonSendV2>
+          {!hidenRemoveBtn && <>
           <Styles.ButtonOrV2>{labels.or}</Styles.ButtonOrV2>
           <Styles.ButtonRemoveV2 onClick={() => handleClickRemove(userInfo?.id)}>
             {labels?.remove ? labels?.remove : 'Remover'}
-          </Styles.ButtonRemoveV2>
+          </Styles.ButtonRemoveV2></>}
         </Styles.WrapperButtons>
       ) : null }
         <div style={{ width: '100%', justifyContent: 'flex-start' }}>

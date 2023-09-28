@@ -32,7 +32,7 @@ normal.args = {
   textVisitProfile: 'Visit profile',
   successfullInvite: false,
   handleSendInvitation: (id: any) => alert(`Send: ${id}`),
-  handleClickRemove: (id: any) => alert(`Remove: ${id}`)
+  handleClickRemove: (id: any) => alert(`Remove: ${id}`),
 }
 
 export const brainstorm = Template.bind({})
@@ -62,6 +62,7 @@ brainstorm.args = {
 
 export const profile = Template.bind({})
 profile.args = {
+  hidenRemoveBtn: true,
   onClickUserInfo:() => alert('redirect profile'),
   variant: 'tertiary',
   userInfo: {
