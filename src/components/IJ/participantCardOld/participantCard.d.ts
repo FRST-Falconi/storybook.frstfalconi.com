@@ -26,4 +26,5 @@ export interface ParticipantCardI {
     style: React.CSSProperties
     handleSendInvitation?: (id: any) => void;
     handleClickRemove?: (id: any) => void;
+    hidenRemoveBtn?: boolean;
 }
