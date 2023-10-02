@@ -44,3 +44,12 @@ ComTextoEspanhol.args = {
   isTexto: true,
   traducao: 'es-ES'
 }
+
+export const BotaoDesabilitado = Template.bind({})
+BotaoDesabilitado.args = {
+  textButton: 'Criar novo desafio',
+  handleClick: () => alert('Clicado!'),
+  textTitleLogo: 'DESAFIO',
+  isTexto: true,
+  hideBtn: true
+}

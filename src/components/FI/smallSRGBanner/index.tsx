@@ -10,6 +10,7 @@ interface ISmallSRGBanner {
   textTitleLogo?: string
   isTexto?: boolean
   traducao?: 'es-ES' | 'en-US'
+  hideBtn?: boolean
 }
 
 export default function SmallSRGBanner(props: ISmallSRGBanner) {
@@ -48,9 +49,11 @@ export default function SmallSRGBanner(props: ISmallSRGBanner) {
             </Styles.SrgLogo>
           </>
         )}
-        <Styles.Button>
-          <Button variant="primary" label={props.textButton} startIcon={<AddIcon fill="#FFF" />} />
-        </Styles.Button>
+        {!props.hideBtn &&
+          <Styles.Button>
+            <Button variant="primary" label={props.textButton} startIcon={<AddIcon fill="#FFF" />} />
+          </Styles.Button>
+        }  
       </Styles.mask>
     </Styles.Container>
   )
