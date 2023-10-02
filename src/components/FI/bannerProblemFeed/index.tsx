@@ -78,6 +78,7 @@ interface IBannerProblemFeed extends stepsInfo{
     
     isCommentV2?: boolean
     childrenCommentV2?: any
+    hideInteraction?: boolean
 }
 
 interface stepsInfo{
@@ -433,38 +434,40 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                 />
 
             </Styles.bannerContainer>
-            <FeedInteraction
-                isChallengeReview={true}
-                id={props.id}
-                isLiked={props.isLiked}
-                qtdComments={stateTotalComments}
-                qtdLikes={props.qtdLikes}
-                textAvaluation={props.textAvaluation}
-                textAvaluationTitle={props.textAvaluationTitle}
-                isDisabledAvaluation={props.isDisabledAvaluation}
-                textComments={props.textComments}
-                textDeslike={props.textDeslike}
-                textLikes={props.textLikes}
-                // latestComment={stateLatestComment}
-                // textLatestComment={props.textLatestComment} 
-                textImpacto={props.textImpacto}
-                ratingImpacto={props.ratingImpacto}
-                textRelevancia={props.textRelevancia}
-                ratingRelevancia={props.ratingRelevancia}
-                // userCommentPlaceholder={props.userCommentPlaceholder}
-                // onCommentChange={props.onCommentChange}
-                handleLikeClick={props.handleLikeClick}
-                handleImpactoChange={props.handleImpactoChange}
-                handleRelevanciaChange={props.handleRelevanciaChange}
-                // textSaveCommentBtn={props.textSaveCommentBtn}
-                // handleSaveCommentBtn={props.handleSaveCommentBtn}
-                userAvatar={props.avatar}
-                textTotalView={props.textTotalView}
-                handleClickTextTotalViews={props.handleClickTextTotalViews}
-                
-                isCommentV2={props?.isCommentV2}
-                childrenCommentV2={props?.childrenCommentV2}
-            />
+            {!props.hideInteraction &&
+                <FeedInteraction
+                    isChallengeReview={true}
+                    id={props.id}
+                    isLiked={props.isLiked}
+                    qtdComments={stateTotalComments}
+                    qtdLikes={props.qtdLikes}
+                    textAvaluation={props.textAvaluation}
+                    textAvaluationTitle={props.textAvaluationTitle}
+                    isDisabledAvaluation={props.isDisabledAvaluation}
+                    textComments={props.textComments}
+                    textDeslike={props.textDeslike}
+                    textLikes={props.textLikes}
+                    // latestComment={stateLatestComment}
+                    // textLatestComment={props.textLatestComment} 
+                    textImpacto={props.textImpacto}
+                    ratingImpacto={props.ratingImpacto}
+                    textRelevancia={props.textRelevancia}
+                    ratingRelevancia={props.ratingRelevancia}
+                    // userCommentPlaceholder={props.userCommentPlaceholder}
+                    // onCommentChange={props.onCommentChange}
+                    handleLikeClick={props.handleLikeClick}
+                    handleImpactoChange={props.handleImpactoChange}
+                    handleRelevanciaChange={props.handleRelevanciaChange}
+                    // textSaveCommentBtn={props.textSaveCommentBtn}
+                    // handleSaveCommentBtn={props.handleSaveCommentBtn}
+                    userAvatar={props.avatar}
+                    textTotalView={props.textTotalView}
+                    handleClickTextTotalViews={props.handleClickTextTotalViews}
+                    
+                    isCommentV2={props?.isCommentV2}
+                    childrenCommentV2={props?.childrenCommentV2}
+                />
+            }
         </ThemeProvider>
     )
 }
