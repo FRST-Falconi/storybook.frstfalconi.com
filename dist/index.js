@@ -14365,16 +14365,17 @@ function BannerProblemFeed(props) {
                             marginBottom: 4,
                             borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
                             display: 'flex', justifyContent: 'center'
-                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: () => props.onClickButton() })] }), jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, 
-                // latestComment={stateLatestComment}
-                // textLatestComment={props.textLatestComment} 
-                textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, 
-                // userCommentPlaceholder={props.userCommentPlaceholder}
-                // onCommentChange={props.onCommentChange}
-                handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, 
-                // textSaveCommentBtn={props.textSaveCommentBtn}
-                // handleSaveCommentBtn={props.handleSaveCommentBtn}
-                userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 })] }));
+                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: () => props.onClickButton() })] }), !props.hideInteraction &&
+                jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, 
+                    // latestComment={stateLatestComment}
+                    // textLatestComment={props.textLatestComment} 
+                    textImpacto: props.textImpacto, ratingImpacto: props.ratingImpacto, textRelevancia: props.textRelevancia, ratingRelevancia: props.ratingRelevancia, 
+                    // userCommentPlaceholder={props.userCommentPlaceholder}
+                    // onCommentChange={props.onCommentChange}
+                    handleLikeClick: props.handleLikeClick, handleImpactoChange: props.handleImpactoChange, handleRelevanciaChange: props.handleRelevanciaChange, 
+                    // textSaveCommentBtn={props.textSaveCommentBtn}
+                    // handleSaveCommentBtn={props.handleSaveCommentBtn}
+                    userAvatar: props.avatar, textTotalView: props.textTotalView, handleClickTextTotalViews: props.handleClickTextTotalViews, isCommentV2: props?.isCommentV2, childrenCommentV2: props?.childrenCommentV2 })] }));
 }
 function getStepsChallenge(language, stepProblem, setSelectedStep, onSelectedStep) {
     let translate = {
