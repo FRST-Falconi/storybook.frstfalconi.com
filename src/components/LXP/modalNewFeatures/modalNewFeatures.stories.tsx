@@ -18,7 +18,7 @@ ModalNewFeaturesNormal.args = {
   steps: [
     {
       title: 'titulo do Topico 1',
-      topicName: 'Topico 1',
+      topicName: 'Oficina de Desafios',
       midia: 'https://player.vimeo.com/video/836574158?h=0aa0de5905&autoplay=1',
       typeMidia: 'video',
       description:
