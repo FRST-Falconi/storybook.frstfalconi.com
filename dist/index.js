@@ -12690,9 +12690,9 @@ const ModalNewFeaturesContent = styled__default["default"].div `
 `;
 const AssideNewFeatures = styled__default["default"].aside `
   box-sizing: border-box;
-  width: 192px;
+  width: 250px;
   height: 100%;
-  padding: 32px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12838,8 +12838,8 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                 const target = e.target;
                 target.id === 'container-modal' && onClose();
             }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
-                                            return (jsxRuntime.jsx(Topic, { className: currentTopic.topicName === topic.topicName ? 'active' : '', onClick: () => handleClickTopic(i), children: topic.topicName }));
-                                        }) })] }), jsxRuntime.jsx(Button$5, { label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsxs(Midia, { children: [jsxRuntime.jsx("div", { className: "close", onClick: onClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) })] }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { children: currentTopic.description })] })] })] }) })) }));
+                                            return (jsxRuntime.jsx(Topic, { className: currentTopic.topicName === topic.topicName ? 'active' : '', onClick: () => handleClickTopic(i), children: topic.topicName }, i));
+                                        }) })] }), jsxRuntime.jsx(Button$5, { label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsx(Midia, { children: jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) }) }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { children: currentTopic.description })] })] })] }) })) }));
 };
 
 const ProgressBox = styled__default["default"](_.Box) `
