@@ -61,6 +61,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                   {steps.map((topic, i) => {
                     return (
                       <S.Topic
+                        key={i}
                         className={currentTopic.topicName === topic.topicName ? 'active' : ''}
                         onClick={() => handleClickTopic(i)}
                       >
@@ -80,9 +81,9 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
 
             <S.MidiaContent>
               <S.Midia>
-                <div className="close" onClick={onClose}>
+                {/* <div className="close" onClick={onClose}>
                   <CloseIcon />
-                </div>
+                </div> */}
                 <div className="content">
                   {currentTopic.typeMidia !== 'video' ? (
                     <img src={currentTopic.midia} alt={currentTopic.title} />

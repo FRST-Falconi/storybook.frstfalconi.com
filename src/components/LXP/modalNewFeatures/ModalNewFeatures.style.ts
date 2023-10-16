@@ -24,9 +24,9 @@ export const ModalNewFeaturesContent = styled.div`
 
 export const AssideNewFeatures = styled.aside`
   box-sizing: border-box;
-  width: 192px;
+  width: 250px;
   height: 100%;
-  padding: 32px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
