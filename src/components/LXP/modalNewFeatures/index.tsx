@@ -16,19 +16,21 @@ type ModalNewFeaturesProps = {
   title: string
   open: boolean
   onClose: () => void
+  onFinish: () => void
   steps: TopicsNewFeatues[]
 }
 
-const modalNewFeatures = ({ title = 'Novidades', open, onClose, steps }: ModalNewFeaturesProps) => {
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps }: ModalNewFeaturesProps) => {
   const [numberCurrentStep, setNumberCurrentStep] = useState(0)
   const [currentTopic, setCurrentTopic] = useState<TopicsNewFeatues>(steps[numberCurrentStep])
 
   const isLastStep = currentTopic === steps[steps.length - 1]
 
   const labelButton = isLastStep ? 'Entendi' : 'Próximo'
+  const variantButton = isLastStep ? 'primary' : 'secondary'
 
   const handleClickButtonNext = () => {
-    if (isLastStep) onClose()
+    if (isLastStep) onFinish()
     else {
       setCurrentTopic(steps[numberCurrentStep + 1])
       setNumberCurrentStep((prev) => prev + 1)
@@ -70,7 +72,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, steps }: ModalNe
               </div>
               <Button
                 label={labelButton}
-                variant="secondary"
+                variant={variantButton}
                 handleClick={handleClickButtonNext}
                 style={{ padding: '8px 32px', height: 'fit-content' }}
               />

@@ -14,6 +14,7 @@ ModalNewFeaturesNormal.args = {
   title: 'Novidades',
   open: open,
   onClose: () => alert('Modal Fechado'),
+  onFinish: () => alert('salvar, aparecer só uma vez'),
   steps: [
     {
       title: 'titulo do Topico 1',
