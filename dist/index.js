@@ -12815,14 +12815,15 @@ const ContentDescription = styled__default["default"].div `
   gap: 16px;
 `;
 
-const modalNewFeatures = ({ title = 'Novidades', open, onClose, steps }) => {
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps }) => {
     const [numberCurrentStep, setNumberCurrentStep] = React.useState(0);
     const [currentTopic, setCurrentTopic] = React.useState(steps[numberCurrentStep]);
     const isLastStep = currentTopic === steps[steps.length - 1];
     const labelButton = isLastStep ? 'Entendi' : 'Próximo';
+    const variantButton = isLastStep ? 'primary' : 'secondary';
     const handleClickButtonNext = () => {
         if (isLastStep)
-            onClose();
+            onFinish();
         else {
             setCurrentTopic(steps[numberCurrentStep + 1]);
             setNumberCurrentStep((prev) => prev + 1);
@@ -12838,7 +12839,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, steps }) => {
                 target.id === 'container-modal' && onClose();
             }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
                                             return (jsxRuntime.jsx(Topic, { className: currentTopic.topicName === topic.topicName ? 'active' : '', onClick: () => handleClickTopic(i), children: topic.topicName }));
-                                        }) })] }), jsxRuntime.jsx(Button$5, { label: labelButton, variant: "secondary", handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsxs(Midia, { children: [jsxRuntime.jsx("div", { className: "close", onClick: onClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) })] }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { children: currentTopic.description })] })] })] }) })) }));
+                                        }) })] }), jsxRuntime.jsx(Button$5, { label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsxs(Midia, { children: [jsxRuntime.jsx("div", { className: "close", onClick: onClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) })] }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { children: currentTopic.description })] })] })] }) })) }));
 };
 
 const ProgressBox = styled__default["default"](_.Box) `
