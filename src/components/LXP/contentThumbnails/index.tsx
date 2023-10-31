@@ -41,6 +41,7 @@ export default function ContentThumbnails({
     <Icons.Content fill={'#EE4C15'} />,
     <Icons.Video fill={'#EE4C15'} />,
     <Icons.PodCast fill={'#EE4C15'} />,
+    <Icons.Content fill={'#EE4C15'} />, /// PDF
     <Icons.QuizSucessError fill={'#EE4C15'} />,
     <Icons.Quiz fill={'#EE4C15'} />,
     <Icons.Certificate fill={'#EE4C15'} />
@@ -91,7 +92,7 @@ export default function ContentThumbnails({
                     {(provided: any) => (
                       <Styles.ContainerCard ref={provided.innerRef} {...provided.draggableProps}>
                         <HeaderVectorElipses provided={provided} direction='column' />
-                        
+
                         <div
                           onClick={() => {
                             handleClick(item)

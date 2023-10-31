@@ -8342,6 +8342,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
         jsxRuntime.jsx(Content$3, { fill: '#EE4C15' }),
         jsxRuntime.jsx(Video$1, { fill: '#EE4C15' }),
         jsxRuntime.jsx(PodCast, { fill: '#EE4C15' }),
+        jsxRuntime.jsx(Content$3, { fill: '#EE4C15' }),
         jsxRuntime.jsx(QuizSucessError, { fill: '#EE4C15' }),
         jsxRuntime.jsx(Quiz, { fill: '#EE4C15' }),
         jsxRuntime.jsx(Certificate, { fill: '#EE4C15' })
