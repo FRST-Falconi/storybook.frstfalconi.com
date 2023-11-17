@@ -2145,9 +2145,9 @@ const AvatarWrapper = styled__default["default"].div `
   cursor: ${({ isActiveClick }) => isActiveClick ? 'pointer' : 'auto'} ;
 `;
 
-function Avatar({ size, src, alt, className, disabled, onClick, isActiveClick }) {
+function Avatar({ size, src, alt, className, disabled, onClick, isActiveClick, id }) {
     const defaultImg = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, id: id, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
 }
 
 ///-----------------------------------------

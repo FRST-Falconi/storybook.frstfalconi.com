@@ -7,4 +7,5 @@ export interface IAvatar {
   disabled?: boolean
   onClick?: () => void
   isActiveClick?: boolean
+  id?: string
 }
