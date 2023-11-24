@@ -56,11 +56,12 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
           <S.ModalNewFeaturesContent>
             <S.AssideNewFeatures>
               <div className="list">
-                <S.Text className="title">{title}</S.Text>
+                <S.Text id="modal-title" className="title">{title}</S.Text>
                 <S.ListTopics>
                   {steps.map((topic, i) => {
                     return (
                       <S.Topic
+                        id={`step${i+1}`}
                         key={i}
                         className={currentTopic.topicName === topic.topicName ? 'active' : ''}
                         onClick={() => handleClickTopic(i)}
@@ -72,6 +73,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                 </S.ListTopics>
               </div>
               <Button
+                id={isLastStep ? 'button-finish' : 'button-nextStep'}
                 label={labelButton}
                 variant={variantButton}
                 handleClick={handleClickButtonNext}
@@ -80,7 +82,10 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
             </S.AssideNewFeatures>
 
             <S.MidiaContent>
-              <S.Midia>
+              <S.Midia 
+               id="midia-container"
+              >
+                
                 {/* <div className="close" onClick={onClose}>
                   <CloseIcon />
                 </div> */}
@@ -99,9 +104,10 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                 </div>
               </S.Midia>
               <S.ContentDescription>
-                <S.Text className="subtitle">{currentTopic.title}</S.Text>
 
-                <S.Text>{currentTopic.description}</S.Text>
+                <S.Text id="step-title" className="subtitle">{currentTopic.title}</S.Text>
+
+                <S.Text id="step-description">{currentTopic.description}</S.Text>
               </S.ContentDescription>
             </S.MidiaContent>
           </S.ModalNewFeaturesContent>
