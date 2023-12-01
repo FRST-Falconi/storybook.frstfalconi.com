@@ -16,7 +16,7 @@ export default function Checkbox({label, isChecked, handleCheck, color = FRSTThe
                 onMouseOver={() => setActionAreaCheckIcon(true)}
                 onMouseOut={() => setActionAreaCheckIcon(false)}
                 >   
-                    <CheckButton>
+                    <CheckButton id='check-container'>
                         {
                             isChecked ? (          
                                 <CheckboxChecked fill={color} stroke={color}/>

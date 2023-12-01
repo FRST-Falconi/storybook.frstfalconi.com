@@ -16,11 +16,11 @@ export default function AdmButton({ variant, count, image, onClick }: IAdmButton
     return (
         <ThemeProvider theme={FRSTTheme}>
                 <AvatarContent onClick={onClick} background={backgroudVariant}>
-                    {variant == 'count' && <div style={{paddingRight: '6px'}}>+{count}</div>}
-                    {variant == 'countMore' && <div style={{paddingRight: '6px'}}>{count}+</div>}
+                    {variant == 'count' && <div id='count' style={{paddingRight: '6px'}}>+{count}</div>}
+                    {variant == 'countMore' && <div id='count-more' style={{paddingRight: '6px'}}>{count}+</div>}
                     {variant == 'add' && (
                         <>
-                            <ImageAvatarContent>
+                            <ImageAvatarContent id='add-people'>
                                 <EmptyAvatar />
                             </ImageAvatarContent>
 
@@ -28,7 +28,7 @@ export default function AdmButton({ variant, count, image, onClick }: IAdmButton
                         </>
                         
                     )} {variant == 'image' && (
-                        <>{image ? <ImageContent><img src={image} alt="" /></ImageContent> : <ImageAvatarContent><EmptyAvatar/></ImageAvatarContent>}
+                        <>{image ? <ImageContent id='avatar-image'><img src={image} alt="" /></ImageContent> : <ImageAvatarContent  id='avatar-empty'><EmptyAvatar/></ImageAvatarContent>}
                             
                                 
                             
