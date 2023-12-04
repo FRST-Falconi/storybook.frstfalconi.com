@@ -88,7 +88,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
 
     const itemTemplate = (item) => {
         return (
-            <S.selectItem>
+            <S.selectItem id="select-items">
                 <Avatar src={item.avatar} size='24px' />
                 <div style={{ display: 'flex', gap: '6px' }}>
                     <p> {item.name}
@@ -110,18 +110,18 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                 props.optionLayout ?
                                     props.optionLayout(item)
                                     :
-                                    <S.selectTag key={index}>
+                                    <S.selectTag key={index} id="tag-container">
                                         <Avatar src={item.avatar} size="24px" />
                                         <p> {item.name} </p>
-                                        <IconButton onClick={() => removeSelectedValue(item.id)}>
-                                            <CloseIcon width="8" height="8" fill="#FFFFFF" />
+                                        <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>
+                                            <CloseIcon  width="8" height="8" fill="#FFFFFF" />
                                         </IconButton>
                                     </S.selectTag>
                             )
                         }
                         else if (index === props.maxSelectedShow) {
                             return (
-                                <S.overShowInfo key={index} onClick={() => setShowModal(true)} >
+                                <S.overShowInfo key={index} onClick={() => setShowModal(true)} id="number-people">
                                     <p>
                                         {`+ ${pessoasAMais} ${pessoasAMais > 1 ? props.people : props.person}`}
                                     </p>
@@ -154,6 +154,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                     />
                 </div>
                 <Button
+                    id="select-all"
                     variant={'link'}
                     label={props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos'}
                     disabled={false}
@@ -171,8 +172,8 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                 open={showModal}
                 onClose={() => setShowModal(false)}
             >
-                <S.modalContainer>
-                    <S.modalHeader>
+                <S.modalContainer id="container-modal">
+                    <S.modalHeader id="header-people">
                         <p> {props.modalTitle ? props.modalTitle : 'Este grupo é administrado por'} {selectedValues.length} {selectedValues.length > 1 ? props.people : props.person} </p>
                     </S.modalHeader>
                     <S.modalContent>
@@ -187,7 +188,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                             <S.cardDescription> {item.subDescription} </S.cardDescription>
                                         </div>
                                     </div>
-                                    <div style={{ display: 'flex', cursor: 'pointer' }} onClick={() => removeSelectedValue(item.id)}>
+                                    <div id="remove-people-admin" style={{ display: 'flex', cursor: 'pointer' }} onClick={() => removeSelectedValue(item.id)}>
                                         <Trash fill="#A50000" width="24" height="24" />
                                         <S.cardTitle style={{ color: '#A50000' }} > {props.removeModalText ? props.removeModalText : 'Remover'} </S.cardTitle>
                                     </div>
@@ -196,7 +197,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         })}
                     </S.modalContent>
                     <S.closeModal>
-                        <IconButton onClick={() => setShowModal(false)} >
+                        <IconButton id="close-modal" onClick={() => setShowModal(false)} >
                             <CloseIcon />
                         </IconButton>
                     </S.closeModal>
@@ -228,7 +229,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <S.containerSelect style={{ ...props.style }}>
+            <S.containerSelect style={{ ...props.style }} id="container-select">
 
                 {selectedValues?.length > 0 &&
                     <S.headerSelect>
@@ -236,14 +237,14 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         {selectTemplate(selectedValues)}
 
                         {selectedValues?.length > 1 &&
-                            <div style={{ zIndex: 999, position: 'absolute', right: 40 }}>
+                            <div style={{ zIndex: 999, position: 'absolute', right: 40 }} id="remove-all-selected">
                                 <Tooltip
                                     content={props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos'}
                                     direction="bottom"
                                     trigger="hover"
                                     style={{ height: 'auto' }}
                                 >
-                                    <IconButton onClick={() => setSelectedValues([])} >
+                                    <IconButton onClick={() => setSelectedValues([])}>
                                         <Trash fill="#9C9C9C" />
                                     </IconButton>
                                 </Tooltip>
@@ -253,6 +254,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                 }
                 <S.customSelect >
                     <MultiSelect
+                        id="list-selected"
                         value={selectedValues}
                         options={listFilterSearch}
                         onChange={(e) => setSelectedValues(e.value)}

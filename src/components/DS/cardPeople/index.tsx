@@ -16,10 +16,10 @@ export default function CardPeople({ labels, userInfo, isChecked, onChecked, hid
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <Styles.PeopleContainer isChecked={isChecked} style={{...style}}>
+            <Styles.PeopleContainer isChecked={isChecked} style={{...style}} id='people-card-container'>
                 <Styles.PeopleInfo>
                     <div style={{ paddingTop: '24px', display: 'flex', paddingLeft: '16px'}}>
-                        <div style={{paddingTop:'12px'}}>
+                        <div style={{paddingTop:'12px'}} id='container-check'>
                         {hiddenCheckbox ? <div></div> : <Checkbox label="" isChecked={isChecked} handleCheck={handleChecked} />}
                         </div>
                         <Avatar size="40px" src={userInfo.avatar} />

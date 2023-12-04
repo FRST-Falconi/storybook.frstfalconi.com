@@ -22,8 +22,9 @@ const TdTrashButton = ({ onClick}) => {
 	const [isHover, setIsHover] = useState(false)
 	return (
 		<div
+		    id='delete-button'
 			onClick={onClick}
-			style={{ cursor:'pointer '}}
+			style={{ cursor:'pointer'}}
 			onMouseLeave={() => setIsHover(false)}
 			onMouseEnter={() => setIsHover(true)}
 		>
@@ -36,6 +37,7 @@ const TdEditButtom = ({ onClick}) => {
 	const [isHover, setIsHover] = useState(false)
 	return (
 		<div
+			id='edit-button'
 			onClick={onClick}
 			style={{ cursor: 'pointer'}}
 			onMouseLeave={() => setIsHover(false)}
@@ -117,17 +119,17 @@ export default function GroupsTable({
 		<ThemeProvider theme={FRSTTheme}>
 			<ContainerSelected>
 				{' '}
-				<div>
+				<div id='selected-groups'>
 					{selected} {selectedItems}
 				</div>
 				{selectedItems > 1 && (
-					<span onClick={handleDeleteAllSelected} style={{ cursor: 'pointer' }}>
+					<span id='deleted-all-groups-selected' onClick={handleDeleteAllSelected} style={{ cursor: 'pointer' }}>
 						<Trash fill="rgba(165, 0, 0, 1)" />
 						{deleted}
 					</span>
 				)}
 			</ContainerSelected>
-			<TableContainer>
+			<TableContainer id='container-table-groups'>
 				<Table>
 					<thead>
 						<TableHeader style={{ textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }}>
@@ -171,12 +173,12 @@ export default function GroupsTable({
 									{!i.isRoot ?
 										<Checkbox label={i.group} handleCheck={() => handleToggleSelectRow(index)} isChecked={i.checked} />
 										:
-										<p style={{fontFamily:'PT Sans', fontWeight:400, fontSize:'16px', paddingLeft:'32px', lineHeight:'21px', fontStyle:'normal'}}>{i.textRoot} ({i.group})</p>
+										<p id='group-root' style={{fontFamily:'PT Sans', fontWeight:400, fontSize:'16px', paddingLeft:'32px', lineHeight:'21px', fontStyle:'normal'}}>{i.textRoot} ({i.group})</p>
 									}
 								</TableChecked>
 
 
-								<TableAdm>
+								<TableAdm id='container-adm'>
 									<div>
 										<Tooltip
 											content={textTooltipAdd}
@@ -266,7 +268,7 @@ export default function GroupsTable({
 								</TableAdm>
 
 
-								<TableVisit>
+								<TableVisit id='container-visit'>
 
 									<TableVisitContent>
 										<div>
@@ -359,7 +361,7 @@ export default function GroupsTable({
 									<div style={{ display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }}>
 										{ !i.isRoot &&
 											<>
-											<TdEditButtom   onClick={() => !i.isRoot && onEditClick(i.id)} />
+											<TdEditButtom  onClick={() => !i.isRoot && onEditClick(i.id)} />
 											<TdTrashButton  onClick={() => !i.isRoot && onDeleteClick(i.id, index)} />
 											</>
 										}
