@@ -58,13 +58,13 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <CardContainer style={{ ...style }}>
+            <CardContainer id="container-checklist" style={{ ...style }}>
                 {
-                    <ImageTextGroup>
-                     <img src={level.avatar} width={85} height={85} />
+                    <ImageTextGroup id="container-level">
+                    <img id="image-level" src={level.avatar} width={85} height={85} />
                         <div>
-                            <TextLevel>{level.name}</TextLevel>
-                            <Challenge>
+                            <TextLevel id="name-level-Up">{level.name}</TextLevel>
+                            <Challenge id="count-Challenge">
                                 {countChallenge} {textChallenge}
                             </Challenge>
                         </div>
@@ -84,9 +84,9 @@ export default function OnboardingProgressMenu(props: IOnboardingProgressMenu) {
                         }}
                     ></div>
                 )}
-                <ScroollableContent ref={scrollRef}>
+                <ScroollableContent id="scrool-content" ref={scrollRef}>
                     {internalItems.map((i, index) => (
-                        <StepBox>
+                        <StepBox id="container-step">
                             <StepBoxIconBlock>
                                 <CheckCircle isComplete={i.finished} isChecked={i.finished}>
                                     {i.finished ? <Tick width="12" /> : <Dot width="16" height="16" />}
