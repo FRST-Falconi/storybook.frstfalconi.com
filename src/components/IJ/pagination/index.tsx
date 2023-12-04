@@ -110,16 +110,16 @@ export default function Pagination( props : IPagination ) {
     
     return(
         <ThemeProvider theme={FRSTTheme} >
-            <Styles.containerPagination style={{...props.style}}>
-                <Styles.contentPagination>
+            <Styles.containerPagination style={{...props.style}} id='container-pagination'>
+                <Styles.contentPagination id='content-pagination'>
                     {props.children}
                 </Styles.contentPagination>
 
                 {
                     !IsLoading && Refresh > 0 &&
-                        <Styles.pageButtonList>
+                        <Styles.pageButtonList id='page-button-list'>
                             {props.showFirstLastButton ?
-                                <Styles.buttonPage disabled={activePage === 0} onClick={() => activePage > 0 && handleSwitchPage(0)} selected={false}>
+                                <Styles.buttonPage  disabled={activePage === 0} onClick={() => activePage > 0 && handleSwitchPage(0)} selected={false}>
                                     {props.textFirstButton ? props.textFirstButton : 'Primeiro'}
                                 </Styles.buttonPage>
                                 : null
