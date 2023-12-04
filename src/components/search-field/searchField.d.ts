@@ -11,4 +11,5 @@ export interface ISearchField {
   className?: string
   handleKeyPress?: (e) => void
   isButton?: boolean
+  id?:string
 }

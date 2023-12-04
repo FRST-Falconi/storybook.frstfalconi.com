@@ -15,7 +15,8 @@ export default function SearchField({
   textButton,
   className,
   handleClickButton,
-  isButton
+  isButton,
+  id
 }: ISearchField) {
   const [actionAreaInput, setActionAreaInput] = useState(false)
   const [inputOnFocus, setInputOnFocus] = useState(false)
@@ -23,6 +24,7 @@ export default function SearchField({
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Container
+        id='container-search-field'
         className={className}
         onMouseOver={() => setActionAreaInput(true)}
         onMouseOut={() => setActionAreaInput(false)}
