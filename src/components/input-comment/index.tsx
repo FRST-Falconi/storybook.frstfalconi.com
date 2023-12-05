@@ -9,7 +9,7 @@ import * as Styles from './inputCommentStyles'
 
 import { randID } from './inputComment.utils'
 
-export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyDown, children }: IInputComment) {
+export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyDown, user, children }: IInputComment) {
     const [ focus, setFocus ] = useState(false)
 
     // Emoji Window States
@@ -48,7 +48,8 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
         setStringValueTextArea(e.target.value)
         onChange(e)
     }
-    
+
+        
     const onEmojiClick = (emojiObject: any) => {
         let textAreaRef = document.getElementById(iDInputComment)
         
