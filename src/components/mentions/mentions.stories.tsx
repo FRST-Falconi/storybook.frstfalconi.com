@@ -17,7 +17,7 @@ export default {
 
 const Template: Story<MentionProps> = (args) => {
   const [showMention, setShowMention] = useState(false)
-
+  
   return (
     <div style={{ width: '532px', background: 'transparent' }}>
       <InputComment
@@ -25,11 +25,9 @@ const Template: Story<MentionProps> = (args) => {
         className=""
         IDInput="input-comment"
         limit={1000}
-        onChange={(e: any) => {
-          if (e.target.value.includes('@')) {
+        onKeyDown={(e:KeyboardEvent) => {
+          if (e.key === '@') {
             setShowMention(true)
-          } else {
-            setShowMention(false)
           }
         }}
         hasEmoji={true}
@@ -37,7 +35,7 @@ const Template: Story<MentionProps> = (args) => {
         styles={{ margin: '0 0 0 0' }}
         emojiWindowlanguage="pt"
       >
-        {showMention && <Mentions {...args} show={showMention} />}
+        {showMention && <Mentions {...args}  />}
       </InputComment>
     </div>
   )
