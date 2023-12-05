@@ -1,3 +1,4 @@
+import { User } from "@components/mentions"
 import React from "react"
 
 export interface IInputComment {
@@ -14,5 +15,6 @@ export interface IInputComment {
     styles: any,
     emojiWindowlanguage: string,
     onKeyDown?: (e:KeyboardEvent<HTMLTextAreaElement>) => void,
+    user?: User
     children?: React.ReactNode
 }
