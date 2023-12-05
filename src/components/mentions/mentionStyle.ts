@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div<{ width?: number; height?: number }>`
-  background-color: #f5f5f5;
+  background-color: #ffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,10 +9,26 @@ export const Container = styled.div<{ width?: number; height?: number }>`
   position: absolute;
   top: 35px;
   width: ${({ width }) => (width ? `${width}px` : '100%')};
-  height: ${({ height }) => (height ? height : 100)}px;
+  height: ${({ height }) => (height ? height : 195)}px;
   overflow-y: auto;
   z-index: 100;
   border-radius: 8px;
+
+  &::-webkit-scrollbar {
+    width: 5px; 
+    margin-right: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #757575;
+    border-radius: 6px; 
+    
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fff; /* Set the color of the scrollbar track */
+    border-radius: 8px; /* Set the border radius of the scrollbar track */
+  }
 `
 
 export const InputMention = styled.input``
@@ -20,7 +36,7 @@ export const InputMention = styled.input``
 export const MentionList = styled.div`
   display: flex;
   flex-direction: column;
-  height: 56px;
+  height: 195px;
   width: 100%;
 `
 
@@ -29,6 +45,11 @@ export const MentionItem = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 8px;
+  height: 56px;
+  border-bottom: 1px solid #6666;
+  &:last-child {
+    border-bottom: none; /* Remove the border for the last child */
+  }
 `
 
 export const MentionContainer = styled.div`
