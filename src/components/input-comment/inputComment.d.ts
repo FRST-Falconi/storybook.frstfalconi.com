@@ -13,5 +13,6 @@ export interface IInputComment {
     IDInput: string,
     styles: any,
     emojiWindowlanguage: string,
+    onKeyDown?: (e:KeyboardEvent<HTMLTextAreaElement>) => void,
     children?: React.ReactNode
 }

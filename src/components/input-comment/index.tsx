@@ -9,7 +9,7 @@ import * as Styles from './inputCommentStyles'
 
 import { randID } from './inputComment.utils'
 
-export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, children }: IInputComment) {
+export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyDown, children }: IInputComment) {
     const [ focus, setFocus ] = useState(false)
 
     // Emoji Window States
@@ -76,6 +76,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                     onFocus={() => setFocus(true)}
                     onBlur={() => setFocus(false)}
                     onChange={inputInChanging}
+                    onKeyDown={onKeyDown}
                     value={stringValueTextArea}
                     placeholder={placeholder}
                     maxLength={limit}
