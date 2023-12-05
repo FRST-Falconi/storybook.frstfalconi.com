@@ -8,7 +8,8 @@ interface AvatarI {
 
 interface Wrapper {
     disabled?: boolean,
-    focus?: boolean
+    focus?: boolean,
+    hasChildren?: boolean,
 }
 
 interface IEmojiWindow {
@@ -21,9 +22,10 @@ interface TextArea {
 
 export const InputWrapper = styled.div<Wrapper>`
     display: flex;
-    align-items:flex-end;
+    align-items:${({hasChildren}) => hasChildren ? 'base-line': 'flex-end'};
     width: 100%;
-    min-height: 48px;
+    min-height: ${({hasChildren}) => hasChildren ? '99px' : '48px'};
+    position: ${({hasChildren}) => hasChildren ? 'relative' : 'static'};
     background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};

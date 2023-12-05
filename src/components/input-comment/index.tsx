@@ -1,16 +1,15 @@
-import React,{ useEffect,  useState, useRef }  from 'react'
-import '../../shared/global.css'
+import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import '../../shared/global.css'
 import { FRSTTheme } from '../../theme'
-import * as Styles from './inputCommentStyles'
 import { IInputComment } from './inputComment'
+import * as Styles from './inputCommentStyles'
 
-import { SmileOutlined } from '@shared/icons'
 // import EmojiPicker from '@components/emoji-picker'
 
 import { randID } from './inputComment.utils'
 
-export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage }: IInputComment) {
+export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, children }: IInputComment) {
     const [ focus, setFocus ] = useState(false)
 
     // Emoji Window States
@@ -71,7 +70,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
     return (
         <ThemeProvider theme={FRSTTheme}>
         <div style={{...styles}} onClick={verifyClick}>
-            <Styles.InputWrapper focus={focus}>
+            <Styles.InputWrapper focus={focus}  hasChildren={!!children}>
                 <Styles.InputText
                     id={iDInputComment}
                     onFocus={() => setFocus(true)}
@@ -82,6 +81,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                     maxLength={limit}
                     disabled={disabled}
                 />
+                {children}
                 {/* { hasEmoji && 
                     <>
                         <Styles.EmojiWindow 
