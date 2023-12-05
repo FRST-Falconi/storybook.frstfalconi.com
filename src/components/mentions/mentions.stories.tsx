@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import React, { useState } from 'react'
 import InputComment from '../input-comment'
-import { MentionProps, Mentions } from './index'
+import { MentionProps, Mentions, User } from './index'
 export default {
   title: 'First Interactive/Mentions',
   component: Mentions,
@@ -17,7 +17,9 @@ export default {
 
 const Template: Story<MentionProps> = (args) => {
   const [showMention, setShowMention] = useState(false)
-  
+  const [selectedUser, setSelectedUser] = useState<User | null>(null);
+  const [inputSearch, setInputSearch] = useState('');
+
   return (
     <div style={{ width: '532px', background: 'transparent' }}>
       <InputComment
@@ -30,12 +32,22 @@ const Template: Story<MentionProps> = (args) => {
             setShowMention(true)
           }
         }}
+        onChange={(e)=>{
+          if(e.target.value === '') setShowMention(false); 
+          setInputSearch(e.target.value);
+        }}
         hasEmoji={true}
         showCharacterCounter={true}
         styles={{ margin: '0 0 0 0' }}
         emojiWindowlanguage="pt"
+        user={selectedUser}
       >
-        {showMention && <Mentions {...args}  />}
+        {showMention && <Mentions {...args} inputSearch={inputSearch} onSelect={(user:User)=>
+          {
+            setShowMention(false)
+            setSelectedUser(user)
+            
+          }}  />}
       </InputComment>
     </div>
   )
