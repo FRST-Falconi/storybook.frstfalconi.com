@@ -40,16 +40,23 @@ export const MentionList = styled.div`
   width: 100%;
 `
 
-export const MentionItem = styled.div`
+export const MentionItem = styled.div<{active?: boolean}>`
   display: flex;
+  cursor: pointer;
   align-items: center;
   justify-content: flex-start;
   padding: 8px;
   height: 56px;
-  border-bottom: 1px solid #6666;
+  border-bottom: 1px solid #BDBDBD;
   &:last-child {
     border-bottom: none; /* Remove the border for the last child */
   }
+  &:hover {
+    background-color:${({active}) => active ? '#FCF3EB' : '#F1F5F9'};
+  }
+  
+  
+  
 `
 
 export const MentionContainer = styled.div`
