@@ -1,17 +1,29 @@
-import React,{ useEffect,  useState, useRef }  from 'react'
-import '../../shared/global.css'
+import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import '../../shared/global.css'
 import { FRSTTheme } from '../../theme'
-import * as Styles from './inputCommentStyles'
 import { IInputComment } from './inputComment'
+import * as Styles from './inputCommentStyles'
 
-import { SmileOutlined } from '@shared/icons'
 // import EmojiPicker from '@components/emoji-picker'
 
 import { randID } from './inputComment.utils'
 
-export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage }: IInputComment) {
-    const [ focus, setFocus ] = useState(false)
+export default function InputComment({
+  placeholder,
+  value,
+  onChange,
+  remain,
+  limit,
+  hasEmoji,
+  showCharacterCounter,
+  IDInput,
+  styles,
+  disabled,
+  emojiWindowlanguage,
+  children
+}: IInputComment) {
+  const [focus, setFocus] = useState(false)
 
     // Emoji Window States
     const [ isVisibleEmojiWindow, setIsVisibleEmojiWindow ] = useState(false)
@@ -64,21 +76,22 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
             setIsVisibleEmojiWindow(false);
     }
 
-    return (
-        <ThemeProvider theme={FRSTTheme}>
-        <div style={{...styles}} onClick={verifyClick}>
-            <Styles.InputWrapper focus={focus}>
-                <Styles.InputText
-                    id={iDInputComment}
-                    onFocus={() => setFocus(true)}
-                    onBlur={() => setFocus(false)}
-                    onChange={inputInChanging}
-                    value={stringValueTextArea}
-                    placeholder={placeholder}
-                    maxLength={limit}
-                    disabled={disabled}
-                />
-                {/* { hasEmoji && 
+  return (
+    <ThemeProvider theme={FRSTTheme}>
+      <div style={{...styles}} onClick={verifyClick}>
+        <Styles.InputWrapper focus={focus} hasChildren={!!children}>
+          <Styles.InputText
+            id={iDInputComment}
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
+            onChange={inputInChanging}
+            value={stringValueTextArea}
+            placeholder={placeholder}
+            maxLength={limit}
+            disabled={disabled}
+          />
+          {children}
+          {/* { hasEmoji && 
                     <>
                         <Styles.EmojiWindow 
                             visible={isVisibleEmojiWindow} 

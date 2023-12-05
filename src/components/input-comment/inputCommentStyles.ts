@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 interface AvatarI {
     size?: string,
@@ -8,24 +8,26 @@ interface AvatarI {
 
 interface Wrapper {
     disabled?: boolean,
-    focus?: boolean
+    focus?: boolean,
+    hasChildren?: boolean,
 }
 
 interface IEmojiWindow {
     visible?: boolean
     positionEmojiWindow?: any
 }
-interface TextArea {
+interface TextArea{
     height?: string
 }
 
 export const InputWrapper = styled.div<Wrapper>`
     display: flex;
-    align-items:flex-end;
+    align-items:${({hasChildren}) => hasChildren ? 'base-line': 'flex-end'};
     width: 100%;
-    min-height: 48px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    min-height: ${({hasChildren}) => hasChildren ? '99px' : '48px'};
 
+    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    position: ${({hasChildren}) => hasChildren ? 'relative' : 'static'};
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
     border-radius: 24px;
 
@@ -45,7 +47,7 @@ export const InputText = styled.textarea<TextArea>`
     align-items: center;
 
     width: 100%;
-    height: ${({height}) => height || '20px' };
+    height: ${({height}) => height ? '47px !important' : '20px' };
     outline: 0;
     
     font-family: 'Work Sans';

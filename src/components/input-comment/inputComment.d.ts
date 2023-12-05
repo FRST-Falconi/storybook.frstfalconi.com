@@ -13,4 +13,5 @@ export interface IInputComment {
     IDInput: string,
     styles: any,
     emojiWindowlanguage: string,
+    children?: React.ReactNode
 }
