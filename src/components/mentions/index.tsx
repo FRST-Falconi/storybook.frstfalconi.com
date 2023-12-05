@@ -18,7 +18,6 @@ interface User {
 export interface MentionProps
   extends Readonly<{
     users: User[]
-    show: boolean,
     height: number,
     width: number
 
@@ -27,7 +26,6 @@ export interface MentionProps
 export const Mentions = (mention: MentionProps) => {
   return (
     <>
-    {mention.show && (
       <Container>
       <MentionList>
         {mention?.users?.map((user) => {
@@ -45,7 +43,6 @@ export const Mentions = (mention: MentionProps) => {
         })}
       </MentionList>
     </Container>
-    )}
     </>
     
   )
