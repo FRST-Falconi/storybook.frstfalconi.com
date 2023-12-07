@@ -1,0 +1,47 @@
+import React from 'react';
+import {IThreadComments} from './threadComments.types';
+
+
+import { ThreadComments } from './index';
+import { Meta } from '@storybook/react'
+
+
+export default {
+    title: 'Frst Interactive/ThreadComments',
+    component: ThreadComments
+  } as Meta
+
+  const Template = (args) => <ThreadComments {...args} />
+  
+export const Default = Template.bind({})
+
+Default.args = {
+    mainComment: {
+        id:"01",
+        username: "Leticia Costa",
+        office: "Líder de vendas",
+        text: "Uow, que projeto incrível, ansioso para ver os proximos passos",
+        howlongAgo: "18 horas atrás",
+        className:'Comentario qualquer',
+        imgProfile: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg',
+    },
+    listReplyComments: [{
+        id:"02",
+        username: "Julio Neto",
+        office: "Gestor de Trafego",
+        text: "Uow, que projeto incrível, ansioso para ver os proximos passos",
+        howlongAgo: "2 horas atrás",
+        className:'Comentario de julio'
+    },
+    {
+        id:"03",
+        username: "Lucas Neto",
+        office: "Gestor de RH",
+        text: "Uow, que projeto incrível, ansioso para ver os proximos passos",
+        howlongAgo: "1 horas atrás",
+        className:'Comentario de lucas',
+
+    }
+]
+}
+
