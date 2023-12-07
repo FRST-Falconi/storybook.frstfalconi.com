@@ -27,14 +27,15 @@ const Template: Story<MentionProps> = (args) => {
         className=""
         IDInput="input-comment"
         limit={1000}
-        onKeyDown={(e:KeyboardEvent) => {
+        onKeyDown={(e: KeyboardEvent) => {
           if (e.key === '@') {
             setShowMention(true)
           }
         }}
-        onChange={(e)=>{
-          if(e.target.value === '') setShowMention(false); 
-          setInputSearch(e.target.value);
+        onChange={(inputText) => {
+          if (inputText === '') setShowMention(false);
+          setInputSearch(inputText)
+          setSelectedUser(null);
         }}
         hasEmoji={true}
         showCharacterCounter={true}
@@ -42,12 +43,11 @@ const Template: Story<MentionProps> = (args) => {
         emojiWindowlanguage="pt"
         user={selectedUser}
       >
-        {showMention && <Mentions {...args} inputSearch={inputSearch} onSelect={(user:User)=>
-          {
-            setShowMention(false)
-            setSelectedUser(user)
-            
-          }}  />}
+        {showMention && <Mentions {...args} inputSearch={inputSearch} onSelect={(user: User) => {
+          setShowMention(false)
+          setSelectedUser(user)
+
+        }} />}
       </InputComment>
     </div>
   )
