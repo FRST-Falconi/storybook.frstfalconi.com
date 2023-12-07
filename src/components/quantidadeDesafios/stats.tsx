@@ -17,7 +17,7 @@ export const Stats = ({
           {definicao?.count}
         </S.DataTitle>
         <S.DataSubTitle x={60} y={101} fill='#222' font-size="10">
-          {definicao?.percentage}
+          {definicao?.percentage}%
         </S.DataSubTitle>
       <g filter="url(#filter1_d_576_26707)">
         <circle cx="353.562" cy="74.564" r="50.5581" fill="white" />
@@ -26,7 +26,7 @@ export const Stats = ({
           {testes?.count}
         </S.DataTitle>
         <S.DataSubTitle x={353} y={101} fill='#222' font-size="10">
-          {testes?.percentage}
+          {testes?.percentage}%
         </S.DataSubTitle>
       <g filter="url(#filter2_d_576_26707)">
         <circle cx="645.562" cy="74.564" r="50.5581" fill="white" />
@@ -35,7 +35,7 @@ export const Stats = ({
           {proximosPassos?.count}
         </S.DataTitle>
         <S.DataSubTitle x={645} y={101} fill='#222' font-size="10">
-          {proximosPassos?.percentage}
+          {proximosPassos?.percentage}%
         </S.DataSubTitle>
       <g filter="url(#filter3_d_576_26707)">
         <circle cx="207.562" cy="73.565" r="50.5581" fill="white" />
@@ -44,7 +44,7 @@ export const Stats = ({
           {hipoteses?.count}
         </S.DataTitle>
         <S.DataSubTitle x={208} y={101} fill='#222' font-size="10">
-          {hipoteses?.percentage}
+          {hipoteses?.percentage}%
         </S.DataSubTitle>
       <g filter="url(#filter4_d_576_26707)">
         <circle cx="499.562" cy="73.565" r="50.5581" fill="white" />
@@ -53,7 +53,7 @@ export const Stats = ({
           {resultados?.count}
         </S.DataTitle>
         <S.DataSubTitle x={500} y={101} fill='#222' font-size="10">
-          {resultados?.percentage}
+          {resultados?.percentage}%
         </S.DataSubTitle>
       <path fill-rule="evenodd" clip-rule="evenodd" d="M294.675 42.9438C292.1 41.4867 291.178 38.2055 292.819 35.7437C298.339 27.4598 305.497 20.3675 313.87 14.9146C323.742 8.48533 335.016 4.52345 346.74 3.36288C358.464 2.20231 370.295 3.87705 381.236 8.24596C389.713 11.6306 397.463 16.5554 404.104 22.7486L410.79 16.9156L415.748 42.1779L391.391 33.84L395.981 29.8356C390.492 24.8959 384.159 20.949 377.263 18.1954C367.917 14.4633 357.81 13.0327 347.795 14.0241C337.78 15.0155 328.15 18.3999 319.716 23.8921C312.783 28.4076 306.825 34.2391 302.17 41.0381C300.499 43.4793 297.249 44.4008 294.675 42.9438Z" fill="url(#paint1_linear_576_26707)" />
       <path fill-rule="evenodd" clip-rule="evenodd" d="M2.67667 42.9438C0.101951 41.4867 -0.820191 38.2055 0.82048 35.7437C6.34132 27.4598 13.4987 20.3675 21.8719 14.9146C31.7443 8.48533 43.0176 4.52346 54.7416 3.36288C66.4656 2.20231 78.2969 3.87705 89.2382 8.24597C97.7138 11.6303 105.463 16.5545 112.105 22.7469L118.789 16.9156L123.746 42.1779L99.3894 33.84L103.981 29.8339C98.493 24.895 92.1606 20.9487 85.2654 18.1954C75.9188 14.4634 65.8121 13.0327 55.797 14.0241C45.7818 15.0155 36.1517 18.3999 27.7183 23.8921C20.7846 28.4076 14.8268 34.2391 10.1724 41.0381C8.50128 43.4793 5.25138 44.4008 2.67667 42.9438Z" fill="url(#paint2_linear_576_26707)" />

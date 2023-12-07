@@ -20,6 +20,7 @@ Conquista.args = {
   userArea: 'Customer Experience',
   problemId: 'Abc',
   textMoreDetails: 'Mais detalhes',
+  textVisitProfile:"teste",
   description:
     'Aumentei o tempo médio de uso da plataforma de 8 horas/semana para 12 horas/semana ao final do ciclo ágil, mandando um texto para testar o tamanho do acccaradasdasd',
   onClick: (problemID) => {

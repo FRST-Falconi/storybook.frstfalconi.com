@@ -17,28 +17,28 @@ normal.args = {
   definicao: {
     title: 'definicao',
     count: 111,
-    percentage: '10%',
+    percentage: 10,
     title_en: 'definition',
     title_es: 'definición'
   },
   hipoteses: {
-    title: 'hipoteses',
+    title: 'Aprendizados e Resultados',
     count: 222,
-    percentage: '20%'
+    percentage: 20
   },
   testes: {
     title: 'testes',
     count: 333,
-    percentage: '30%'
+    percentage: 30
   },
   resultados: {
     title: 'resultados',
     count: 444,
-    percentage: '40%'
+    percentage: 40
   },
   proximosPassos: {
     title: 'Próximos Passos',
     count: 555,
-    percentage: '50%'
+    percentage: 50
   }
 }
