@@ -5,7 +5,7 @@ export const Container = styled.div<{ width?: string;}>`
   display: flex;
   align-items: left;
   flex-direction: column;
-  width: ${({ width }) => (width ? `${width}` : 'auto')};
+  width: ${({ width }) => (width ? `${width}` : '100%')};
 `
 export const CommentarysContainer = styled.div<{ width?: number;}>`
 width: ${({ width }) => (width ? `${width}` : '70%')};
@@ -15,7 +15,11 @@ margin:18px;
 export const CommentaryBoxContainer = styled.div`
 display:flex;
 margin-bottom:20px;
-position: relative;
+`
+export const InputContainer = styled.div`
+display:flex;
+margin-bottom:40px;
+margin-left:55px
 `
 
 export const ViewReplysButtonContainer = styled.div`

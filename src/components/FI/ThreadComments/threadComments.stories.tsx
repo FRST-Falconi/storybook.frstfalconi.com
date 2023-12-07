@@ -29,7 +29,7 @@ Default.args = {
         id:"02",
         username: "Julio Neto",
         office: "Gestor de Trafego",
-        text: "Uow, que projeto incrível, ansioso para ver os proximos passos",
+        text: "Disse tudo Leticia!",
         howlongAgo: "2 horas atrás",
         className:'Comentario de julio'
     },
@@ -37,7 +37,7 @@ Default.args = {
         id:"03",
         username: "Lucas Neto",
         office: "Gestor de RH",
-        text: "Uow, que projeto incrível, ansioso para ver os proximos passos",
+        text: "sim, eu também estou ansioso com o que vem por aí!",
         howlongAgo: "1 horas atrás",
         className:'Comentario de lucas',
 
