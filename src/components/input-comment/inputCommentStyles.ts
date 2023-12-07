@@ -22,7 +22,7 @@ interface TextArea {
 
 export const InputWrapper = styled.div<Wrapper>`
     display: flex;
-    align-items:${({hasChildren}) => hasChildren ? 'base-line': 'flex-end'};
+    align-items:${({hasChildren}) => hasChildren ? 'baseline': 'flex-end'};
     width: 100%;
     min-height: ${({hasChildren}) => hasChildren ? '99px' : '48px'};
     position: ${({hasChildren}) => hasChildren ? 'relative' : 'static'};
@@ -42,7 +42,7 @@ export const InputWrapper = styled.div<Wrapper>`
     }
 `
 
-export const InputText = styled.textarea<TextArea>`
+export const InputText = styled.div<TextArea>`
     display: flex;
     align-items: center;
 
