@@ -1,7 +1,8 @@
 import { Meta, Story } from '@storybook/react'
 import React, { useState } from 'react'
+import { Mentions } from '.'
 import InputComment from '../input-comment'
-import { MentionProps, Mentions, User } from './index'
+import { MentionProps, User } from './types'
 export default {
   title: 'First Interactive/Mentions',
   component: Mentions,
@@ -58,55 +59,55 @@ export const Default = Template.bind({})
 Default.args = {
   users: [
     {
-      id: 1,
+      uuid: 1,
       name: 'João',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 2,
+      uuid: 2,
       name: 'Maria',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 3,
+      uuid: 3,
       name: 'José',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 4,
+      uuid: 4,
       name: 'Pedro',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 5,
+      uuid: 5,
       name: 'Paulo',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 6,
+      uuid: 6,
       name: 'Paula',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 7,
+      uuid: 7,
       name: 'Joana',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 8,
+      uuid: 8,
       name: 'Joaquim',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
     },
     {
-      id: 9,
+      uuid: 9,
       name: 'Joaquina',
       avatar: 'https://avatars.githubusercontent.com/u/2254731?v=4',
       subTitle: 'Falconi Road of Skills and Talent'
