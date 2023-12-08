@@ -2,6 +2,8 @@
   "globals.clickHere": "Clique aqui",
   "globals.typeHere": "Escreva aqui",
   "globals.edit": "Editar",
+  "globals.toView": "Visualizar",
+  "globals.replys": "Respostas",
 
   "calendar.weekdays": [
     "domingo",

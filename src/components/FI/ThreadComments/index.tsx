@@ -4,18 +4,35 @@ import CommentaryBox from '@components/commentary-box';
 import {IThreadComments} from './threadComments.types';
 import Avatar from '@components/avatar'
 import InputComment from '@components/input-comment';
-
+import { useTranslation } from 'react-i18next'
+import Loading from '@components/DS/loading';
 
 export const ThreadComments = (comment: IThreadComments) => {
+    const [isLoading, setIsLoading] = useState(false);
+
     const [showAnswers, setShowAnswers] = useState(false);
     const [showReplyInput, setShowReplyInput] = useState(false);
     const [commentData, setCommentData] = useState('');
+    const { t } = useTranslation()
 
     const OnChangeComment = (e) => {
         setCommentData(e.target.value)
     }
+
+    const handleShowReplys = async ()=>{
+        setIsLoading(true);
+        try {
+            comment.onClickShowReplys();
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            setShowAnswers(true);
+        } catch (error) {return}
+        setIsLoading(false);
+    }
     
-    const handleReplyComment=()=>{
+    const handleReplyComment=(replyTo:string)=>{
+        if(!commentData.includes(replyTo)){
+            setCommentData(replyTo + ' ' + commentData);
+        }
         setShowReplyInput(true);
     }
 
@@ -35,10 +52,15 @@ export const ThreadComments = (comment: IThreadComments) => {
                     onChange={() => {}}
                     hasAnswer={true}
                     textAnswer='Responder'
-                    actionAnswer={()=>handleReplyComment()}
+                    actionAnswer={()=>handleReplyComment(comment.mainComment.username)}
                     />
                 </Styled.CommentaryBoxContainer>
-               <Styled.ViewReplysButtonContainer ><span onClick={()=>setShowAnswers(!showAnswers)}>{showAnswers?'Esconder' :'Visualizar'} {comment.listReplyComments.length} respostas</span></Styled.ViewReplysButtonContainer> 
+              {comment?.listReplyComments?.length>0 && !showAnswers &&
+              (<Styled.ViewReplysButtonContainer >
+                    <span onClick={()=>handleShowReplys()}>{t('globals.toView')} {comment.listReplyComments.length } {t('globals.replys')} </span>
+             </Styled.ViewReplysButtonContainer> 
+             )} 
+
                {showReplyInput && (
                 <Styled.InputContainer>
                     <InputComment
@@ -49,14 +71,16 @@ export const ThreadComments = (comment: IThreadComments) => {
                         emojiWindowlanguage='pt'
                         onChange={OnChangeComment}
                         value={commentData}
-                        placeholder='Responda aqui!'
+                        placeholder={comment.textPlaceHolder || t('globals.typeHere') || ''}
                         limit={800} 
                         remain={800 - commentData.length}
                         showCharacterCounter={true}/>
                 </Styled.InputContainer>
                )}
                 </div>
-                {showAnswers && 
+                {isLoading && <Loading/> }
+
+                {showAnswers && !isLoading &&(
                 <Styled.RepplysContainer>
                 {comment.listReplyComments?.map((replyComment)=>{
                     return  (
@@ -74,10 +98,8 @@ export const ThreadComments = (comment: IThreadComments) => {
                         />
                     </Styled.CommentaryBoxContainer>
                 )})}
-
             </Styled.RepplysContainer>
-            }
-
+            )}
             </Styled.CommentarysContainer>
    
 
@@ -85,6 +107,3 @@ export const ThreadComments = (comment: IThreadComments) => {
     )
   }
   
-  const commentaryBoxProps = {
-    
-  }

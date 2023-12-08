@@ -11,5 +11,7 @@ export interface Icomment {
 
 export interface IThreadComments {
     mainComment:Icomment,
-    listReplyComments:Icomment[]
+    listReplyComments:Icomment[],
+    textPlaceHolder: string,
+    onClickShowReplys?: ()  => void,
 }

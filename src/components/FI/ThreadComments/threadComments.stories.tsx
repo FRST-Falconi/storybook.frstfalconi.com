@@ -1,6 +1,4 @@
 import React from 'react';
-import {IThreadComments} from './threadComments.types';
-
 
 import { ThreadComments } from './index';
 import { Meta } from '@storybook/react'
@@ -42,6 +40,7 @@ Default.args = {
         className:'Comentario de lucas',
 
     }
-]
+],
+    textPlaceHolder:"Responda Aqui!"
 }
 

@@ -10,6 +10,8 @@ export const Container = styled.div<{ width?: string;}>`
 export const CommentarysContainer = styled.div<{ width?: number;}>`
 width: ${({ width }) => (width ? `${width}` : '70%')};
 margin:18px;
+align-items: center;
+justify-content:center;
 `
 
 export const CommentaryBoxContainer = styled.div`
