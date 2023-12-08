@@ -11,7 +11,7 @@ import { useInputHook } from './useInputHook'
 import { randID } from './inputComment.utils'
 
 export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyDown, user, children }: IInputComment) {
-    const { clearDivContent, divRef, handleInput, focus, setFocus } = useInputHook(user, placeholder, onChange)
+    const { clearDivContent, divRef, handleInput, focus, setFocus, userMentionIds } = useInputHook(user, placeholder, onChange)
     // Emoji Window States
     const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = useState(false)
     const [actionAreaEmojiButton, setActionAreaEmojiButton] = useState(false)
@@ -64,7 +64,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <div style={{ ...styles }} onClick={verifyClick}>
+            <div style={{ ...styles }} onClick={verifyClick} data-mentions={userMentionIds}>
                 <Styles.InputWrapper focus={focus} hasChildren={!!children}>
                     <Styles.InputText
                         contentEditable={true}
