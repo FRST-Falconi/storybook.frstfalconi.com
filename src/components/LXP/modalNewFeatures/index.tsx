@@ -7,6 +7,7 @@ import * as S from './ModalNewFeatures.style'
 type TopicsNewFeatues = {
   title: string
   description: string
+  styleImage?: React.CSSProperties
   midia: string
   topicName: string
   typeMidia: 'gif' | 'video' | 'image'
@@ -83,7 +84,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
 
             <S.MidiaContent>
               <S.Midia 
-               id="midia-container"
+              id="midia-container"
               >
                 
                 {/* <div className="close" onClick={onClose}>
@@ -91,7 +92,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                 </div> */}
                 <div className="content">
                   {currentTopic.typeMidia !== 'video' ? (
-                    <img src={currentTopic.midia} alt={currentTopic.title} />
+                    <img style={currentTopic.styleImage} src={currentTopic.midia} alt={currentTopic.title} />
                   ) : (
                     <ReactPlayer
                       url={currentTopic.midia}
