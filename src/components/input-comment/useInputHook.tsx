@@ -1,8 +1,10 @@
+import { User } from "@components/mentions/types";
 import { useEffect, useRef, useState } from "react";
-import { User } from "../mentions";
+
 
 export const useInputHook = (user: User, placeholder: string, onChange?: (value: string) => void) => {
     const [cursorPosition, setCursorPosition] = useState<number | undefined>()
+    const [userMentionIds, setUserMentionIds] = useState<string[]>([]);
     const [focus, setFocus] = useState(false)
     const divRef = useRef<HTMLDivElement>(null)
 
@@ -15,6 +17,7 @@ export const useInputHook = (user: User, placeholder: string, onChange?: (value:
 
     useEffect(() => {
         if (user?.name && divRef.current) {
+            setUserMentionIds([...userMentionIds, user.uuid])
             // Set the cursor to the last saved position
             const textContent = divRef.current.textContent;
             const childElements = divRef.current.childNodes;
@@ -200,6 +203,7 @@ export const useInputHook = (user: User, placeholder: string, onChange?: (value:
         handleInput,
         clearDivContent,
         focus,
-        setFocus
+        setFocus,
+        userMentionIds
     }
 }
