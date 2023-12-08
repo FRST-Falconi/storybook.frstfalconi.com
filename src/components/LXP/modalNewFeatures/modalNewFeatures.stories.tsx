@@ -22,13 +22,14 @@ ModalNewFeaturesNormal.args = {
       midia: 'https://player.vimeo.com/video/836574158?h=0aa0de5905&autoplay=1',
       typeMidia: 'video',
       description:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumque dolores ullam ea at modi recusandae!'
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumque dolores ullam ea at modi recusandae!'
     },
     {
+      styleImage:{objectFit:'scale-down', objectPosition: "left", marginLeft:"20px" },
       title: 'titulo do topico 2',
       topicName: 'Topico 2',
       midia:
-        'https://www.sydle.com/api/1/blog/com.sydle.site/blogFacade/images/e-business-612541b6b060f57604938af9/e-business.jpg',
+        'https://cdn-images.frstfalconi.cloud/page_perfile.png',
       description:
         'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumque dolores ullam ea at modi recusandae!'
     },
