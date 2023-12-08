@@ -4,6 +4,7 @@
   "globals.edit": "Edit",
   "globals.toView": "View",
   "globals.replys": "Answers",
+  "globals.publish": "Publish",
 
   "calendar.weekdays": ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
   "calendar.monthsInitials": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],

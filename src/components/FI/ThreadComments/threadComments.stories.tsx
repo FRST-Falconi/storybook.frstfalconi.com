@@ -41,6 +41,7 @@ Default.args = {
 
     }
 ],
-    textPlaceHolder:"Responda Aqui!"
+    onClickPublishButton: ()=> {},
+    textPlaceHolder:"Responda Aqui!",
 }
 

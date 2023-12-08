@@ -20,6 +20,7 @@ margin-bottom:20px;
 `
 export const InputContainer = styled.div`
 display:flex;
+flex-direction:column;
 margin-bottom:40px;
 margin-left:55px
 `

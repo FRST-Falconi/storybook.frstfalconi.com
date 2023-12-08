@@ -4,6 +4,7 @@
   "globals.edit": "Editar",
   "globals.toView": "Visualizar",
   "globals.replys": "Respostas",
+  "globals.publish": "Publicar",
 
   "calendar.weekdays": [
     "domingo",
