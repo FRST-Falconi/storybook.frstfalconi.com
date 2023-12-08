@@ -28,7 +28,7 @@ const Template: Story<MentionProps> = (args) => {
         className=""
         IDInput="input-comment"
         limit={1000}
-        onKeyDown={(e: KeyboardEvent) => {
+        onKeyUp={(e: KeyboardEvent) => {
           if (e.key === '@') {
             setShowMention(true)
           }

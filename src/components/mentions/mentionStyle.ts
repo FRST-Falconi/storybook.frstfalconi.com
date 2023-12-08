@@ -54,6 +54,9 @@ export const MentionItem = styled.div<{active?: boolean}>`
   &:hover {
     background-color:${({active}) => active ? '#FCF3EB' : '#F1F5F9'};
   }
+  &:focus{
+    background-color:${({active}) => active ? '#FCF3EB' : '#F1F5F9'};
+  }
   
   
   

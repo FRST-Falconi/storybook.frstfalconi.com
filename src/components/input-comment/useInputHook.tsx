@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 export const useInputHook = (user: User, placeholder: string, onChange?: (value: string) => void) => {
     const [cursorPosition, setCursorPosition] = useState<number | undefined>()
-    const [userMentionIds, setUserMentionIds] = useState<string[]>([]);
+    const [userMentionIds, setUserMentionIds] = useState<Set<string>>(new Set<string>());
     const [focus, setFocus] = useState(false)
     const divRef = useRef<HTMLDivElement>(null)
 
@@ -17,7 +17,8 @@ export const useInputHook = (user: User, placeholder: string, onChange?: (value:
 
     useEffect(() => {
         if (user?.name && divRef.current) {
-            setUserMentionIds([...userMentionIds, user.uuid])
+            const newSet = new Set<string>([...userMentionIds, user.uuid])
+            setUserMentionIds(newSet)
             // Set the cursor to the last saved position
             const textContent = divRef.current.textContent;
             const childElements = divRef.current.childNodes;

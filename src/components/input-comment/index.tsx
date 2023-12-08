@@ -10,7 +10,7 @@ import { useInputHook } from './useInputHook'
 
 import { randID } from './inputComment.utils'
 
-export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyDown, user, children }: IInputComment) {
+export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyUp, user, children }: IInputComment) {
     const { clearDivContent, divRef, handleInput, focus, setFocus, userMentionIds } = useInputHook(user, placeholder, onChange)
     // Emoji Window States
     const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = useState(false)
@@ -64,18 +64,18 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            <div style={{ ...styles }} onClick={verifyClick} data-mentions={userMentionIds}>
-                <Styles.InputWrapper focus={focus} hasChildren={!!children}>
+            <div style={{ ...styles }} onClick={verifyClick} data-mentions={Array.from(userMentionIds)} tabIndex={0}>
+                <Styles.InputWrapper focus={focus} hasChildren={!!children} tabIndex={1}>
                     <Styles.InputText
+                        tabIndex={2}
                         contentEditable={true}
                         ref={divRef}
                         id={iDInputComment}
                         onFocus={() => setFocus(true)}
                         onBlur={() => setFocus(false)}
                         placeholder={placeholder}
-                        onKeyDown={onKeyDown}
                         onKeyUpCapture={(event) => {
-                            onKeyDown(event);
+                            onKeyUp(event);
                             setFocus(true);
                             clearDivContent();
                         }}
