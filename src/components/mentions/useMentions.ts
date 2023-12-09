@@ -3,7 +3,7 @@ import { MentionProps, User } from "./types";
 
 
 export const useMentions = (mention: MentionProps) => {
-  const { onSelect, users, inputSearch, onClose } = mention;
+  const { onSelect, users, inputSearch } = mention;
   const [selectedUser, setSelectedUser] = useState<User | null>()
   const mentionRegexKey = /@(\w+)/;
   const match = mentionRegexKey.exec(inputSearch || '');
