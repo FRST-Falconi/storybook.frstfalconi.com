@@ -13,15 +13,15 @@ import { useMentions } from './useMentions';
 
 export const Mentions = (mention: MentionProps) => {
   const { filteredUsers, selectedUser, setSelectedUser } = useMentions(mention);
+  const { top } = mention;
 
   return (
     <>
-      <Container tabIndex={0}>
+      <Container top={top} tabIndex={0}>
         <MentionList tabIndex={1}>
           {filteredUsers?.map((user, index) => {
             return (
               <MentionItem
-
                 tabIndex={index += 2}
                 key={user.uuid}
                 active={user.uuid === selectedUser?.uuid}

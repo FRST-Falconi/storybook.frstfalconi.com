@@ -1,12 +1,11 @@
 import { User } from "@components/mentions/types";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
-export const useInputHook = (user: User, placeholder: string, onChange?: (value: string) => void) => {
+export const useInputHook = (user: User, placeholder: string, divRef: React.RefObject<HTMLDivElement>, onChange?: (value: string) => void) => {
     const [cursorPosition, setCursorPosition] = useState<number | undefined>()
     const [userMentionIds, setUserMentionIds] = useState<Set<string>>(new Set<string>());
     const [focus, setFocus] = useState(false)
-    const divRef = useRef<HTMLDivElement>(null)
 
     const getTextAfterKey = (content: string) => {
         const regex = /(?:[^@]+@[^@]+\s)?([^@]+)@([^@]+)\s/;

@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ width?: number; height?: number }>`
+export const Container = styled.div<{ top: string; width?: number; height?: number }>`
   background-color: #ffff;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   position: absolute;
-  top: 35px;
+  top: ${({top})=> top};
   width: ${({ width }) => (width ? `${width}px` : '100%')};
   height: ${({ height }) => (height ? height : 195)}px;
   overflow-y: auto;

@@ -7,6 +7,7 @@ export interface User {
 }
 export interface MentionProps
   extends Readonly<{
+    top:string;
     users: User[]
     height: number,
     width: number,

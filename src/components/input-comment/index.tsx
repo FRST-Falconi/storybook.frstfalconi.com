@@ -10,8 +10,8 @@ import { useInputHook } from './useInputHook'
 
 import { randID } from './inputComment.utils'
 
-export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyUp, user, children }: IInputComment) {
-    const { clearDivContent, divRef, handleInput, focus, setFocus, userMentionIds } = useInputHook(user, placeholder, onChange)
+export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, divRef, onKeyUp, user, children }: IInputComment) {
+    const { clearDivContent, handleInput, focus, setFocus, userMentionIds } = useInputHook(user, placeholder, divRef, onChange)
     // Emoji Window States
     const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = useState(false)
     const [actionAreaEmojiButton, setActionAreaEmojiButton] = useState(false)
@@ -75,6 +75,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                         onBlur={() => setFocus(false)}
                         placeholder={placeholder}
                         onKeyUpCapture={(event) => {
+                            handleInput
                             onKeyUp(event);
                             setFocus(true);
                             clearDivContent();
