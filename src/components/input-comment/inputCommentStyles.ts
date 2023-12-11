@@ -43,9 +43,6 @@ export const InputWrapper = styled.div<Wrapper>`
 `
 
 export const InputText = styled.div<TextArea>`
-    display: flex;
-    align-items: center;
-
     width: 100%;
     height: ${({height}) => height || '20px' };
     outline: 0;
@@ -58,7 +55,7 @@ export const InputText = styled.div<TextArea>`
     letter-spacing: -0.02em;
     
     overflow: hidden;
-    resize: none;
+    
 
     padding: 0;
     margin: 14px;

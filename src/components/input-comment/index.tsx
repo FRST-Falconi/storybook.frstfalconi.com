@@ -73,19 +73,16 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                         id={iDInputComment}
                         onFocus={() => setFocus(true)}
                         onBlur={() => setFocus(false)}
-                        placeholder={placeholder}
                         onKeyUpCapture={(event) => {
-                            handleInput
+                            handleInput(event)
                             onKeyUp(event);
-                            setFocus(true);
-                            clearDivContent();
                         }}
                         aria-aria-multiline={true}
-                        onInput={handleInput}
+
                         data-text="enter"
 
 
-                    />
+                    ><p><br /></p></Styles.InputText>
                     {children}
                     {/* { hasEmoji && 
                     <>

@@ -22,7 +22,7 @@ const Template: Story<MentionProps> = (args) => {
   const [inputSearch, setInputSearch] = useState('');
   const [remains, setRemain] = useState<number>(1000);
   const divRef = useRef<HTMLDivElement>(null);
-  const mentionTopPosition = `${(divRef.current?.clientHeight ?? 15) + 15}px`
+  const mentionTopPosition = `${(divRef.current?.clientHeight ?? 15) + 12}px`
   return (
     <div style={{ width: '532px', background: 'transparent' }}>
       <InputComment
