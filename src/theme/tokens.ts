@@ -18,6 +18,7 @@ export const DesignTokens = {
     messageAlert2: '#fef0d4',
     messageError1: '#ea0000',
     messageError2: '#ffe5e5',
+    messageError3: '#C00F00',
     messageSuccess1: '#2ca92a',
     messageSuccess2: '#d1f6d1',
     neutralsGrey1: '#222222',

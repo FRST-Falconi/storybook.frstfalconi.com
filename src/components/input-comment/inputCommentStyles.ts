@@ -84,7 +84,7 @@ export const SmileIcon = styled.div`
     transition: all 0.2s ease-in-out;
 `
 
-export const HelperText = styled.span`
+export const HelperText = styled.span<{isInputLimit?:boolean}>`
     display: flex;
     position: absolute;
     align-items: center;
@@ -97,7 +97,7 @@ export const HelperText = styled.span`
 
     letter-spacing: -0.02em;
 
-    color: ${({ theme }) => theme.colors.neutralsGrey2};
+    color: ${({ theme,isInputLimit }) => isInputLimit===true ? theme.colors.messageError3 : theme.colors.neutralsGrey2};
 
     margin-top: 8px;
     margin-left: 13px;

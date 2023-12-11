@@ -11,8 +11,8 @@ import { randID } from './inputComment.utils'
 
 export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, onKeyDown, user, children }: IInputComment) {
     const [ focus, setFocus ] = useState(false)
-
     // Emoji Window States
+    const [isErrorInputLimit, setIsErrorInputLimit] = useState(false);
     const [ isVisibleEmojiWindow, setIsVisibleEmojiWindow ] = useState(false)
     const [ actionAreaEmojiButton, setActionAreaEmojiButton] = useState(false)
     const [ colorEmojiButton, setColorEmojiButton ] = useState('')
@@ -47,8 +47,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
     function inputInChanging(e: any) {
         setStringValueTextArea(e.target.value)
         onChange(e)
-    }
-
+}
         
     const onEmojiClick = (emojiObject: any) => {
         let textAreaRef = document.getElementById(iDInputComment)
@@ -111,7 +110,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                 } */}
             </Styles.InputWrapper>
             { showCharacterCounter &&
-                <Styles.HelperText>
+                <Styles.HelperText isInputLimit={isErrorInputLimit}>
                     {limit - remain}/{limit}
                 </Styles.HelperText>
             }

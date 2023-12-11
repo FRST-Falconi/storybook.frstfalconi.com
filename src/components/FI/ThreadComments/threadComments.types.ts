@@ -13,6 +13,6 @@ export interface IThreadComments {
     mainComment:Icomment,
     listReplyComments:Icomment[],
     textPlaceHolder: string,
-    onClickPublishButton: () =>void
+    onClickPublishButton: () => void,
     onClickShowReplys?: ()  => void,
 }

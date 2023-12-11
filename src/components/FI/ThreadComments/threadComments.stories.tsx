@@ -5,7 +5,7 @@ import { Meta } from '@storybook/react'
 
 
 export default {
-    title: 'Frst Interactive/ThreadComments',
+    title: 'FI/ThreadComments',
     component: ThreadComments
   } as Meta
 
