@@ -3655,12 +3655,12 @@ const Container$j = styled__default["default"].div `
   box-shadow: 4px 8px 10px 0 #BDBDBD;
  
   ::-webkit-scrollbar {
-    width: 28px; 
+    width: 17px; 
   }
 
   ::-webkit-scrollbar-thumb {
-    width:10px;
-    border: 12px solid rgba(0, 0, 0, 0);
+    width: 15px;
+    border: 6px solid rgba(0, 0, 0, 0);
     background-clip: padding-box;
     border-radius: 9999px;
     background-color:  #757575;
@@ -3751,17 +3751,19 @@ const CompanyName = styled__default["default"].span `
     white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 90%;
 
-  @media (max-width: 1750px) {
-    /* Styles for screens with a minimum width of 768px */
-    width: 84%;
+ 
+  @media (min-width: 1024px) {
+    width: 58%
   }
-  @media (max-width: 1536px) {
+  @media (min-width: 1440px) {
     /* Styles for screens with a minimum width of 768px */
     width: 48%;
   }
-  
+  @media (min-width: 1750px) {
+    /* Styles for screens with a minimum width of 768px */
+    width: 90%;
+  }
   
 `;
 
@@ -3815,9 +3817,10 @@ const Mentions = (mention) => {
 
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
     const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
+    const showMentions = showMention && ['b1005836-b0a6-4a50-8147-537ebdc64a75', '413c2f36-9195-4fef-86fe-572c49049007'].includes(group_uuid);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
                                 handleInput(event);
-                            }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
+                            }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMentions && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
                             } })] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder ?
