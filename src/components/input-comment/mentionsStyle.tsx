@@ -11,6 +11,7 @@ export const Container = styled.div<{ hide: boolean; top: string; width?: number
   width: ${({ width }) => (width ? `${width}px` : '100%')};
   height: ${({ height }) => (height ? height : 195)}px;
   overflow-y: auto;
+  overflow-x: hidden;
   z-index: 100;
   border-radius: 8px;
   box-shadow: 4px 8px 10px 0 #BDBDBD;
@@ -122,18 +123,12 @@ export const CompanyName = styled.span`
     white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 50%;
+  min-width: 0; 
 
- 
-  @media (min-width: 1024px) {
-    width: 58%
-  }
-  @media (min-width: 1440px) {
+  @media (min-width: 1900px) {
     /* Styles for screens with a minimum width of 768px */
-    width: 48%;
-  }
-  @media (min-width: 1750px) {
-    /* Styles for screens with a minimum width of 768px */
-    width: 90%;
+    max-width: 90%;
   }
   
 `
