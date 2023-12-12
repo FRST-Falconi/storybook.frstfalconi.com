@@ -17,7 +17,7 @@ ModalNewFeaturesNormal.args = {
   onFinish: () => alert('salvar, aparecer só uma vez'),
   steps: [
     {
-      title: 'titulo do Topico 1',
+      title: 'titulo do Topico 1',        
       topicName: 'Oficina de Desafios',
       midia: 'https://player.vimeo.com/video/836574158?h=0aa0de5905&autoplay=1',
       typeMidia: 'video',
@@ -31,7 +31,7 @@ ModalNewFeaturesNormal.args = {
       midia:
         'https://cdn-images.frstfalconi.cloud/page_perfile.png',
       description:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumque dolores ullam ea at modi recusandae!'
+        <p>Lorem ipsum dolor <a href="https://www.google.com" style={{color:"black", fontWeight:"bold", textDecoration:"none"}}>link</a></p>
     },
     {
       title: 'titulo do topico 3',

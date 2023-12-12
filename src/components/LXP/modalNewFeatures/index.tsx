@@ -6,7 +6,7 @@ import * as S from './ModalNewFeatures.style'
 
 type TopicsNewFeatues = {
   title: string
-  description: string
+  description: React.ReactNode | string
   styleImage?: React.CSSProperties
   midia: string
   topicName: string
