@@ -77,7 +77,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                             handleInput(event)
                         }}
                         aria-aria-multiline={true}
-
+                        suppressContentEditableWarning={true}
                         data-text="enter"
 
 
