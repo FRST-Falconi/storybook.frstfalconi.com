@@ -90,9 +90,21 @@ export const useInputHook = (user: User, placeholder: string, divRef: React.RefO
         if (divRef.current.childNodes.length === 0 && !focus) {
             // create a textnode with the placeholder
             divRef.current.innerText = placeholder;
-        } else if (!focus && divRef.current.childNodes.length === 1 && divRef.current.childNodes[0]?.nodeName === 'P' && !divRef.current.hasChildNodes() || divRef.current.childNodes[0].childNodes[0]?.nodeName === "BR") {
-            // create a textnode with the placeholder
-            divRef.current.innerText = placeholder;
+        } else if (!focus && divRef.current.childNodes.length >= 1) {
+            // loop over all child element and check if they are empty
+            let isEmpty = true;
+            divRef.current.childNodes.forEach((child) => {
+                if (child.textContent !== '') {
+                    isEmpty = false;
+                }
+            })
+
+            // if they are empty show the placeholder
+            if (isEmpty) {
+                // create a textnode with the placeholder
+                divRef.current.innerText = placeholder;
+            }
+
         } else if (divRef.current.innerText === placeholder) {
             // create a paragraph node
             const p = document.createElement('p');
