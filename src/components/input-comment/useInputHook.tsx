@@ -1,4 +1,4 @@
-import { User } from "@components/mentions/types";
+import { User } from "@components/mentions";
 import React, { useEffect, useState } from "react";
 
 

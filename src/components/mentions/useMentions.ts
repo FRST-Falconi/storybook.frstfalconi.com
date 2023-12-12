@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MentionProps, User } from "./types";
+import { MentionProps, User } from ".";
 
 
 export const useMentions = (mention: MentionProps) => {

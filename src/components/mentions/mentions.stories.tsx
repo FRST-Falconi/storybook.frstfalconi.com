@@ -1,8 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import React, { useRef, useState } from 'react'
-import { Mentions } from '.'
+import { MentionProps, Mentions, User } from '.'
 import InputComment from '../input-comment'
-import { MentionProps, User } from './types'
 export default {
   title: 'FI/Mentions',
   component: Mentions,

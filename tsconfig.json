@@ -35,6 +35,6 @@
     "./**/**/*.png",
     "src/components/LXP/progressBar/progressStyle.ts",
     "src/components/audio-player/old_index.tsx"
-  ],
+, "src/components/input-comment/index.tsx", "src/components/mentions/mentions.tsx"  ],
   "exclude": ["node_modules", "./src/**/*.stories.@(js|jsx|ts|tsx)"]
 }
