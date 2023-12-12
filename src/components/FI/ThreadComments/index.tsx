@@ -5,7 +5,7 @@ import Loading from '@components/DS/loading';
 import { InputReply } from './utilitiesComponents/inputReply';
 import { CommentaryBoxWithAvatar } from './utilitiesComponents/comentaryBoxWithAvatar';
 
-export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, placeHolderText, onClickPublishButton, textShowReplys, textPublish,limitInputs,answerButtonText}: IThreadComments) => {
+export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText,limitInputs,answerButtonText}: IThreadComments) => {
     const [isLoading, setIsLoading] = useState(false);
     const [showAnswers, setShowAnswers] = useState(false);
     const [showReplyInput, setShowReplyInput] = useState(false);
@@ -53,7 +53,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                     />
                 {listReplyComments?.length>0 && !showAnswers &&
                     (<Styled.ViewReplysButtonContainer >
-                        <span onClick={()=>handleShowReplys()}>{textShowReplys}</span>
+                        <span onClick={()=>handleShowReplys()}>{showReplysButtonText}</span>
                     </Styled.ViewReplysButtonContainer> 
                     )} 
 
@@ -62,7 +62,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                     styles={{width:'100%'}}
                     idInput={`idInput-${mainComment.id}`}
                     placeHolderText={placeHolderText}
-                    publishButtonText={textPublish}
+                    publishButtonText={publishButtonText}
                     limitInput={limitInputs} 
                     onClickPublishButton={onClickPublishButton}
                     replyFor={mainComment.username}
@@ -87,7 +87,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                             styles={{width:'100%'}}
                             idInput={`idInput-${replyComment.id}`}
                             placeHolderText={placeHolderText}
-                            publishButtonText={textPublish}
+                            publishButtonText={publishButtonText}
                             limitInput={limitInputs} 
                             onClickPublishButton={onClickPublishButton}
                             replyFor={replyComment.username}

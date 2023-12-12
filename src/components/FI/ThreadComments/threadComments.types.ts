@@ -15,7 +15,7 @@ export interface IThreadComments {
     answerButtonText: string,
     onClickPublishButton: () => void,
     onClickShowReplys: ()  => void,
-    textShowReplys:string,
-    textPublish:string,
+    showReplysButtonText:string,
+    publishButtonText:string,
     limitInputs:number
 }

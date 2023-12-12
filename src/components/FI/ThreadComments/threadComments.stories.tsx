@@ -30,7 +30,7 @@ const listReplyComments = [{
 }
 ]
 
-const  onClickShowReplys =async ()=>{
+const  onClickShowReplys = async ()=>{
      await new Promise(resolve => setTimeout(resolve, 3000))
 }
 
@@ -45,11 +45,11 @@ Default.args = {
         imgProfile: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg',
     },
     listReplyComments: listReplyComments,
-    onClickPublishButton: ()=> {},
+    onClickPublishButton: () => { alert("Comentário postado!") },
     onClickShowReplys: onClickShowReplys,
-    textPlaceHolder:"Responda Aqui!",
-    textShowReplys: `Visualizar ${listReplyComments.length} Respostas`,
-    textPublish:"Publicar",
+    placeHolderText:"Responda Aqui!",
+    showReplysButtonText: `Visualizar ${listReplyComments.length} Respostas`,
+    publishButtonText:"Publicar",
     limitInputs:800,
     answerButtonText: 'Responder'
 }
