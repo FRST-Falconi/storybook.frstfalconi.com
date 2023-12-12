@@ -4,25 +4,20 @@ import CommentaryBox from '@components/commentary-box';
 import {IThreadComments} from './threadComments.types';
 import Avatar from '@components/avatar'
 import InputComment from '@components/input-comment';
-import { useTranslation } from 'react-i18next'
 import Loading from '@components/DS/loading';
 import MiniButton from '../../mini-button/index';
 
-export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, textPlaceHolder, onClickPublishButton}: IThreadComments) => {
+export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, textPlaceHolder, onClickPublishButton, textShowReplys, textPublish}: IThreadComments) => {
     const [isLoading, setIsLoading] = useState(false);
     const [showAnswers, setShowAnswers] = useState(false);
     const [showReplyInput, setShowReplyInput] = useState(false);
     const [commentData, setCommentData] = useState('');
     const [showInputByIdReply, setShowInputByIdReply] = useState<string[]>([]);
 
-    const { t } = useTranslation();
     const limitInput = 800;
 
     const OnChangeComment = (e: { target: { value: SetStateAction<string>; }; }) => {
         setCommentData(e.target.value);
-
-            console.log("limitInput = " + limitInput);
-            console.log("commentData = " + e.target.value.length);
             if(limitInput ===  e.target.value.length){
                 console.log("if true")
             }else{
@@ -81,7 +76,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                 </Styled.CommentaryBoxContainer>
               {listReplyComments?.length>0 && !showAnswers &&
               (<Styled.ViewReplysButtonContainer >
-                    <span onClick={()=>handleShowReplys()}>{t('globals.toView')}  {listReplyComments.length } {t('globals.replys')} </span>
+                    <span onClick={()=>handleShowReplys()}>{textShowReplys}</span>
              </Styled.ViewReplysButtonContainer> 
              )} 
 
@@ -95,12 +90,12 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                         emojiWindowlanguage='pt'
                         onChange={OnChangeComment}
                         value={commentData}
-                        placeholder={textPlaceHolder || t('globals.typeHere')}
+                        placeholder={textPlaceHolder}
                         limit={limitInput} 
                         remain={limitInput - commentData.length}
                         showCharacterCounter={true}/>
 
-                        <MiniButton disabled={commentData.length <= 0} label={ t('globals.publish')} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
+                        <MiniButton disabled={commentData.length <= 0} label={textPublish} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
                 </Styled.InputContainer>
                )}
                 </div>
@@ -139,12 +134,12 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                             emojiWindowlanguage='pt'
                             onChange={OnChangeComment}
                             value={commentData}
-                            placeholder={textPlaceHolder || t('globals.typeHere')}
+                            placeholder={textPlaceHolder}
                             limit={limitInput} 
                             remain={limitInput - commentData.length}
                             showCharacterCounter={true}/>
 
-                            <MiniButton disabled={commentData.length <= 0} label={ t('globals.publish')} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
+                            <MiniButton disabled={commentData.length <= 0} label={textPublish} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
                 </Styled.InputContainer>
                     )
                 }

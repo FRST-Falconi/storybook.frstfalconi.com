@@ -15,4 +15,6 @@ export interface IThreadComments {
     textPlaceHolder: string,
     onClickPublishButton: () => void,
     onClickShowReplys?: ()  => void,
+    textShowReplys:string,
+    textPublish:string
 }

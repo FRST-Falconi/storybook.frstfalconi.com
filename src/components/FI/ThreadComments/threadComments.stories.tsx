@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { ThreadComments } from './index';
 import { Meta } from '@storybook/react'
-
 
 export default {
     title: 'FI/ThreadComments',
@@ -12,6 +10,25 @@ export default {
   const Template = (args) => <ThreadComments {...args} />
   
 export const Default = Template.bind({})
+
+const listReplyComments = [{
+    id:"02",
+    username: "Julio Neto",
+    office: "Gestor de Trafego",
+    text: "Disse tudo Leticia!",
+    howlongAgo: "2 horas atrás",
+    className:'Comentario de julio'
+},
+{
+    id:"03",
+    username: "Lucas Neto",
+    office: "Gestor de RH",
+    text: "sim, eu também estou ansioso com o que vem por aí!",
+    howlongAgo: "1 horas atrás",
+    className:'Comentario de lucas',
+
+}
+]
 
 Default.args = {
     mainComment: {
@@ -23,25 +40,11 @@ Default.args = {
         className:'Comentario qualquer',
         imgProfile: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg',
     },
-    listReplyComments: [{
-        id:"02",
-        username: "Julio Neto",
-        office: "Gestor de Trafego",
-        text: "Disse tudo Leticia!",
-        howlongAgo: "2 horas atrás",
-        className:'Comentario de julio'
-    },
-    {
-        id:"03",
-        username: "Lucas Neto",
-        office: "Gestor de RH",
-        text: "sim, eu também estou ansioso com o que vem por aí!",
-        howlongAgo: "1 horas atrás",
-        className:'Comentario de lucas',
-
-    }
-],
+    listReplyComments: listReplyComments,
     onClickPublishButton: ()=> {},
     textPlaceHolder:"Responda Aqui!",
+    textShowReplys: `Visualizar ${listReplyComments.length} Respostas`,
+    textPublish:"Publicar"
 }
+
 
