@@ -1,4 +1,9 @@
 export interface IInputReply {
-    textPlaceHolder: string,
+    placeHolderText: string,
+    publishButtonText:string,
     onClickPublishButton: () => void,
+    limitInput:number,
+    styles:any,
+    idInput:string,
+    replyFor:string
 }

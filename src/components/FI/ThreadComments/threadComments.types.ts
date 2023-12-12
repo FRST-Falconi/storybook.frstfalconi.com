@@ -1,20 +1,21 @@
-export interface Icomment {
+export interface IComment {
     id: string,
     username: string,
     office:string,
     text:string,
     howlongAgo: string,
     imgProfile?:string,
-    className?:string,
-    listReplyComments:Icomment[]
+    listReplyComments?:IComment[]
 }
 
 export interface IThreadComments {
-    mainComment:Icomment,
-    listReplyComments:Icomment[],
-    textPlaceHolder: string,
+    mainComment:IComment,
+    listReplyComments:IComment[],
+    placeHolderText: string,
+    answerButtonText: string,
     onClickPublishButton: () => void,
-    onClickShowReplys?: ()  => void,
+    onClickShowReplys: ()  => void,
     textShowReplys:string,
-    textPublish:string
+    textPublish:string,
+    limitInputs:number
 }

@@ -30,6 +30,10 @@ const listReplyComments = [{
 }
 ]
 
+const  onClickShowReplys =async ()=>{
+     await new Promise(resolve => setTimeout(resolve, 3000))
+}
+
 Default.args = {
     mainComment: {
         id:"01",
@@ -42,9 +46,12 @@ Default.args = {
     },
     listReplyComments: listReplyComments,
     onClickPublishButton: ()=> {},
+    onClickShowReplys: onClickShowReplys,
     textPlaceHolder:"Responda Aqui!",
     textShowReplys: `Visualizar ${listReplyComments.length} Respostas`,
-    textPublish:"Publicar"
+    textPublish:"Publicar",
+    limitInputs:800,
+    answerButtonText: 'Responder'
 }
 
 
