@@ -2,16 +2,10 @@ import { User } from "@components/mentions/types";
 import React, { useEffect, useState } from "react";
 
 
-export const useInputHook = (user: User, placeholder: string, divRef: React.RefObject<HTMLDivElement>, onChange?: (value: string) => void) => {
+export const useInputHook = (user: User, placeholder: string, divRef: React.RefObject<HTMLDivElement>, onChange?: (value: string) => void, onKeyUp?: (e: React.KeyboardEvent) => void) => {
     const [userMentionIds, setUserMentionIds] = useState<Set<string>>(new Set<string>());
     const [focus, setFocus] = useState(false)
 
-    const getTextAfterKey = (content: string) => {
-        const regex = /(?:[^@]+@[^@]+\s)?([^@]+)@([^@]+)\s/;
-        const match = content.match(regex);
-        const textAfter = match ? match[2] : '';
-        return textAfter
-    }
 
     useEffect(() => {
         if (user?.name && divRef.current) {
@@ -22,6 +16,16 @@ export const useInputHook = (user: User, placeholder: string, divRef: React.RefO
 
             if (selection.rangeCount > 0) {
                 const range = selection.getRangeAt(0);
+
+                let symbolFound = false;
+                while (!symbolFound) {
+                    if (range.startContainer.textContent.charAt(range.startOffset - 1) !== '@') {
+                        range.setStart(range.startContainer, range.startOffset - 1);
+                        range.deleteContents();
+                    } else {
+                        symbolFound = true;
+                    }
+                }
 
 
                 // Create a new anchor element
@@ -58,10 +62,25 @@ export const useInputHook = (user: User, placeholder: string, divRef: React.RefO
     }, [user])
 
     const handleInput = (event: React.KeyboardEvent) => {
-        if (event.key === '@') {
-            const searchText = getTextAfterKey(divRef.current.innerText)
-            onChange(searchText)
+        const selection = window.getSelection();
+        let inputSearch = '@';
+        if (selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+
+            // Get the text before the cursor
+            const textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
+
+            // Find the last index of "@" in the text before the cursor
+            const atIndex = textBeforeCursor.lastIndexOf('@');
+
+            if (atIndex !== -1) {
+                // Get the characters after the last "@"
+                const afterAt = textBeforeCursor.substring(atIndex + 1);
+                inputSearch = afterAt
+            }
         }
+        onChange(inputSearch)
+        onKeyUp(event)
         divRef.current.style.height = 'auto';
         divRef.current.style.height = divRef.current.scrollHeight + 'px';
     }

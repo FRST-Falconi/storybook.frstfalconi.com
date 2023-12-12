@@ -11,7 +11,7 @@ import { useInputHook } from './useInputHook'
 import { randID } from './inputComment.utils'
 
 export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage, divRef, onKeyUp, user, children }: IInputComment) {
-    const { clearDivContent, handleInput, focus, setFocus, userMentionIds } = useInputHook(user, placeholder, divRef, onChange)
+    const { handleInput, focus, setFocus, userMentionIds } = useInputHook(user, placeholder, divRef, onChange, onKeyUp)
     // Emoji Window States
     const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = useState(false)
     const [actionAreaEmojiButton, setActionAreaEmojiButton] = useState(false)
@@ -75,7 +75,6 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
                         onBlur={() => setFocus(false)}
                         onKeyUpCapture={(event) => {
                             handleInput(event)
-                            onKeyUp(event);
                         }}
                         aria-aria-multiline={true}
 

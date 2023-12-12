@@ -15,7 +15,7 @@ export interface IInputComment {
     styles: any,
     emojiWindowlanguage: string,
     divRef?: React.RefObject<HTMLDivElement>,
-    onKeyUp?: (e:KeyboardEvent<HTMLDivElement>) => void,
+    onKeyUp?: (e:React.KeyboardEvent) => void,
     user?: User
     children?: React.ReactNode
 }

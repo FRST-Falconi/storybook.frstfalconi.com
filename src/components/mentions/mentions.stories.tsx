@@ -32,16 +32,14 @@ const Template: Story<MentionProps> = (args) => {
         IDInput="input-comment"
         remain={remains}
         limit={1000}
-        onKeyUp={(e: KeyboardEvent) => {
+        onKeyUp={(e: React.KeyboardEvent) => {
           if (e.key === '@') {
             setShowMention(true)
           }
         }}
         onChange={(inputText) => {
-
-
           setRemain(1000 - inputText.length)
-          if (inputText === '') setShowMention(false);
+
           setInputSearch(inputText)
           setSelectedUser(null);
         }}
