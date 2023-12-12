@@ -30,7 +30,7 @@ export { default as Checkmark } from './src/components/checkmark'
 export { default as CommentaryBox } from './src/components/commentary-box'
 export { default as TextArea } from './src/components/form-elements/textarea'
 export { default as TextField } from './src/components/form-elements/textfield'
-export { default as InputComment } from './src/components/input-comment'
+export { default as InputComment } from './src/components/input-comment/inputComment'
 export { default as LearningSteps } from './src/components/learning-steps'
 export { default as ScrollContainer } from './src/components/scroll-container'
 export { default as TotalizerCard } from './src/components/totalizer-card'
@@ -164,4 +164,4 @@ export { default as DropdownMultiselect } from './src/components/DS/dropdown-Mul
 export { default as ScrollContainerV2 } from './src/components/DS/scroll-container-v2'
 export { default as FiltroGaleriaDesafios } from './src/components/filtro-galeria-desafio'
 
-export { MentionProps, Mentions, User } from './src/components/mentions'
+

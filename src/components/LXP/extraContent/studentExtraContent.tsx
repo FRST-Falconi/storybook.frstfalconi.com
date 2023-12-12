@@ -4,7 +4,7 @@ import { DownloadIcon } from '@shared/icons';
 import { useState } from "react";
 import Avatar from '../../avatar';
 import CommentaryBox from '../../commentary-box';
-import InputComment from '../../input-comment';
+import InputComment from '../../input-comment/inputComment';
 import { IExtraContent } from "./extraContent";
 import style from './extraContent.module.css';
 import RichTextEditor from './richTextEditor/index';

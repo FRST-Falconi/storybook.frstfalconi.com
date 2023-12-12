@@ -1,14 +1,5 @@
-import { MentionProps } from '.';
-import {
-  Container,
-  MentionAvatar,
-  MentionItem,
-  MentionList,
-  MentionSubTitle,
-  MentionSubTitleText,
-  MentionUserContainer,
-  MentionUserName
-} from './mentionStyle';
+import { Container, MentionAvatar, MentionItem, MentionList, MentionSubTitle, MentionSubTitleText, MentionUserContainer, MentionUserName } from './mentionStyle';
+import { MentionProps } from './types';
 import { useMentions } from './useMentions';
 
 export const Mentions = (mention: MentionProps) => {

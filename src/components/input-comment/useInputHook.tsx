@@ -1,14 +1,17 @@
-import { User } from "@components/mentions";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { User } from "./types";
 
 
-export const useInputHook = (user: User, placeholder: string, divRef: React.RefObject<HTMLDivElement>, onChange?: (value: string) => void, onKeyUp?: (e: React.KeyboardEvent) => void) => {
+export const useInputHook = (placeholder: string, onChange?: (value: string) => void) => {
     const [userMentionIds, setUserMentionIds] = useState<Set<string>>(new Set<string>());
     const [focus, setFocus] = useState(false)
+    const [showMention, setShowMention] = useState(false)
+    const [inputSearch, setInputSearch] = useState('');
+    const divInputRef = useRef<HTMLDivElement>(null);
+    const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`
 
-
-    useEffect(() => {
-        if (user?.name && divRef.current) {
+    const handleMentionUser = (user: User) => {
+        if (user?.name && divInputRef.current) {
             const newSet = new Set<string>([...userMentionIds, user.uuid])
             setUserMentionIds(newSet)
             // Set the cursor to the last saved position
@@ -59,7 +62,24 @@ export const useInputHook = (user: User, placeholder: string, divRef: React.RefO
             }
         }
 
-    }, [user])
+    }
+    //create a method that increase the size of the div as the scroll height increases
+    const resizeDiv = () => {
+        if (divInputRef.current) {
+            divInputRef.current.style.height = 'auto';
+            divInputRef.current.style.height = divInputRef.current.scrollHeight + 'px';
+        }
+    }
+
+    useEffect(() => {
+
+        divInputRef.current?.addEventListener('input', resizeDiv)
+
+        return () => {
+            divInputRef.current?.removeEventListener('input', resizeDiv)
+        }
+
+    }, [])
 
     const handleInput = (event: React.KeyboardEvent) => {
         const selection = window.getSelection();
@@ -79,21 +99,24 @@ export const useInputHook = (user: User, placeholder: string, divRef: React.RefO
                 inputSearch = afterAt
             }
         }
+        if (event.key === '@') {
+            setShowMention(true)
+        }
+        setInputSearch(inputSearch)
         onChange(inputSearch)
-        onKeyUp(event)
-        divRef.current.style.height = 'auto';
-        divRef.current.style.height = divRef.current.scrollHeight + 'px';
+
+
     }
 
     const clearDivContent = () => {
 
-        if (divRef.current.childNodes.length === 0 && !focus) {
+        if (divInputRef.current.childNodes.length === 0 && !focus) {
             // create a textnode with the placeholder
-            divRef.current.innerText = placeholder;
-        } else if (!focus && divRef.current.childNodes.length >= 1) {
+            divInputRef.current.innerText = placeholder;
+        } else if (!focus && divInputRef.current.childNodes.length >= 1) {
             // loop over all child element and check if they are empty
             let isEmpty = true;
-            divRef.current.childNodes.forEach((child) => {
+            divInputRef.current.childNodes.forEach((child) => {
                 if (child.textContent !== '') {
                     isEmpty = false;
                 }
@@ -102,33 +125,47 @@ export const useInputHook = (user: User, placeholder: string, divRef: React.RefO
             // if they are empty show the placeholder
             if (isEmpty) {
                 // create a textnode with the placeholder
-                divRef.current.innerText = placeholder;
+                divInputRef.current.innerText = placeholder;
             }
 
-        } else if (divRef.current.innerText === placeholder) {
+        } else if (divInputRef.current.innerText === placeholder) {
             // create a paragraph node
             const p = document.createElement('p');
             const br = document.createElement('br');
             p.appendChild(br);
-            divRef.current.innerHTML = '';
-            divRef.current.appendChild(p);
+            divInputRef.current.innerHTML = '';
+            divInputRef.current.appendChild(p);
 
         }
+
 
     }
 
     useEffect(() => {
-        if (!divRef.current) return;
+        if (!divInputRef.current) return;
+
+        //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
+        divInputRef.current.addEventListener('keyup', (event) => {
+            if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Enter') {
+                setShowMention(false)
+            }
+        })
 
         clearDivContent()
     }, [focus])
 
     return {
-        divRef,
         handleInput,
         clearDivContent,
         focus,
         setFocus,
-        userMentionIds
+        userMentionIds,
+        showMention,
+        setShowMention,
+        inputSearch,
+        setInputSearch,
+        divInputRef,
+        mentionTopPosition,
+        handleMentionUser
     }
 }
