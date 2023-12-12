@@ -164,3 +164,4 @@ export { default as DropdownMultiselect } from './src/components/DS/dropdown-Mul
 export { default as ScrollContainerV2 } from './src/components/DS/scroll-container-v2'
 export { default as FiltroGaleriaDesafios } from './src/components/filtro-galeria-desafio'
 
+export { MentionProps, Mentions, User } from './src/components/mentions'
