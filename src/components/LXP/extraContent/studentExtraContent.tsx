@@ -4,7 +4,7 @@ import { DownloadIcon } from '@shared/icons';
 import { useState } from "react";
 import Avatar from '../../avatar';
 import CommentaryBox from '../../commentary-box';
-import InputComment from '../../input-comment/inputComment';
+import InputComment from '../../input-comment';
 import { IExtraContent } from "./extraContent";
 import style from './extraContent.module.css';
 import RichTextEditor from './richTextEditor/index';
@@ -118,13 +118,11 @@ export default function StudentExtraContent(props: IExtraContent) {
                                 className={''}
                                 showCharacterCounter={false}
                                 IDInput='1'
-                                emojiWindowlanguage='pt'
                                 placeholder={'Comente aqui sobre o seu problema'}
                                 value={comments}
                                 onChange={(e) => handleComments(e)}
                                 remain={1000 - comments.length}
                                 limit={1000}
-                                hasEmoji={true}
                                 styles={{ marginLeft: '8px', width: '80%' }}
                             />
                         </div>
