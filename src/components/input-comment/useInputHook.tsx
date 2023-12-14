@@ -12,7 +12,7 @@ export const useInputHook = (placeholder: string, onChange?: (value: string) => 
 
     const handleMentionUser = (user: User) => {
         if (user?.name && divInputRef.current) {
-            const newSet = new Set<string>([...userMentionIds, user.uuid])
+            const newSet = new Set<string>([...userMentionIds, user["user-uuid"]])
             setUserMentionIds(newSet)
             // Set the cursor to the last saved position
             const selection = window.getSelection();
@@ -36,6 +36,8 @@ export const useInputHook = (placeholder: string, onChange?: (value: string) => 
                 mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
                 mentionAnchorElement.style.fontWeight = 'bold';
                 mentionAnchorElement.style.color = '#F26818';
+                mentionAnchorElement.setAttribute('data-mention-id', user["user-uuid"])
+                mentionAnchorElement.setAttribute("contenteditable", "false")
                 const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
                 if (range.startOffset > 0 && range.startContainer.textContent.charAt(range.startOffset - 1) === '@') {
                     range.setStart(range.startContainer, range.startOffset - 1);

@@ -16,8 +16,8 @@ export const Mentions = (mention: MentionProps) => {
             return (
               <MentionItem
                 tabIndex={index += 2}
-                key={user.uuid}
-                active={user.uuid === selectedUser?.uuid}
+                key={user['user-uuid']}
+                active={user['user-uuid'] === selectedUser?.['user-uuid']}
                 onMouseDown={() => setSelectedUser(user)}
                 onKeyUpCapture={(e) => {
                   if (e.key.toLowerCase() === 'enter') {

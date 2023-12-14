@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { User } from ".";
 import { MentionProps } from "./types";
-import fakeJson from "./users.json";
 
 export const useMentions = (mention: MentionProps) => {
   const mentionListRef = useRef<HTMLDivElement>(null);
@@ -14,8 +13,31 @@ export const useMentions = (mention: MentionProps) => {
   }
 
   const handleGetUsers = useCallback(async() =>{
-    const users = fakeJson.users
-    setUsers(users)
+    const fakeUsers = [
+      {
+        "user-uuid": "1",
+        "name": "John Doe",
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "subTitle": "CEO"
+      },
+      {
+        "user-uuid": "2",
+        "name": "Edi Doe",
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "subTitle": "CEO"
+      }
+      ,
+      {
+        "user-uuid": "2",
+        "name": "Edi Doe",
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "subTitle": "CEO"
+      },
+
+    ]
+     
+    
+    setUsers(fakeUsers)
   },[])
   useEffect(() => {
     handleGetUsers()

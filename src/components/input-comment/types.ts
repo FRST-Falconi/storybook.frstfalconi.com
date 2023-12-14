@@ -1,6 +1,6 @@
 
 export interface User {
-  uuid: string
+  "user-uuid": string
   name: string
   avatar: string
   subTitle: string
