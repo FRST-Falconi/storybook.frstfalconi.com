@@ -20,7 +20,10 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
                 const range = selection.getRangeAt(0);
 
                 if (range.startContainer.textContent === null) return;
-
+                if (range.startOffset === 0) {
+                    setShowMention(false)
+                    return
+                };
                 let symbolFound = false;
                 while (!symbolFound) {
                     if (range.startContainer.textContent.charAt(range.startOffset - 1) !== '@') {
@@ -185,26 +188,24 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
     }
 
+    useEffect(() => {
+        if (!divInputRef.current) return;
+
+        //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
+        divInputRef.current.addEventListener('keyup', (event) => {
+            if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Enter') {
+                setShowMention(false)
+            }
+        })
+
+        clearDivContent()
+    }, [focus])
 
     useEffect(() => {
         cutTextAfterMaxLength()
     }, [textLength])
 
-    useEffect(() => {
-        if (!divInputRef.current) return;
 
-        const handleSelectionChange = () => {
-            setShowMention(false)
-        };
-
-        // Add the event listener
-        document.addEventListener('selectionchange', handleSelectionChange);
-
-        // Remove the event listener when the component unmounts
-        return () => {
-            document.removeEventListener('selectionchange', handleSelectionChange);
-        };
-    }, []);
 
     return {
         handleInput,
