@@ -4,7 +4,7 @@ import InputComment from './index'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-    title: 'Learning Tech/Input Comment',
+    title: 'FI/Input Comment',
     component: InputComment,
 }
 
@@ -17,10 +17,10 @@ normal.args = {
     disabled: false,
     remain: 20,
     limit: 1000,
-    onChange: (e : any) => { console.log(e) },
+    onChange: (e: any) => { console.log(e) },
     className: null,
     hasEmoji: true,
     showCharacterCounter: true,
-    styles: { margin: '0 0 0 0'},
+    styles: { margin: '0 0 0 0' },
     emojiWindowlanguage: 'pt'
 }

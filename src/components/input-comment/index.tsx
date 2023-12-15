@@ -68,21 +68,24 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
             setIsVisibleEmojiWindow(false);
     }
 
-    return (
-        <ThemeProvider theme={FRSTTheme}>
-        <div style={{...styles}} onClick={verifyClick}>
-            <Styles.InputWrapper focus={focus}>
-                <Styles.InputText
-                    id={iDInputComment}
-                    onFocus={() => setFocus(true)}
-                    onBlur={() => setFocus(false)}
-                    onChange={inputInChanging}
-                    value={stringValueTextArea}
-                    placeholder={placeholder}
-                    maxLength={limit}
-                    disabled={disabled}
-                />
-                {/* { hasEmoji && 
+  return (
+    <ThemeProvider theme={FRSTTheme}>
+      <div style={{ ...styles }} tabIndex={0}>
+        <Styles.InputWrapper focus={focus} tabIndex={1}>
+          <Styles.InputText
+            tabIndex={2}
+            contentEditable={true}
+
+            onFocus={() => setFocus(true)}
+            onBlur={() => setFocus(false)}
+
+          
+            aria-aria-multiline={true}
+            data-text="enter"
+
+
+          />
+          {/* { hasEmoji && 
                     <>
                         <Styles.EmojiWindow 
                             visible={isVisibleEmojiWindow} 

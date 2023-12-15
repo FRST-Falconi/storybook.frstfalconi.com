@@ -8,7 +8,7 @@ interface AvatarI {
 
 interface Wrapper {
     disabled?: boolean,
-    focus?: boolean
+    focus?: boolean,
 }
 
 interface IEmojiWindow {
@@ -21,9 +21,10 @@ interface TextArea {
 
 export const InputWrapper = styled.div<Wrapper>`
     display: flex;
-    align-items:flex-end;
+    align-items:'baseline';
     width: 100%;
-    min-height: 48px;
+    min-height: '99px';
+    position: 'relative';
     background-color: ${({ theme }) => theme.colors.shadeWhite};
 
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
@@ -40,10 +41,7 @@ export const InputWrapper = styled.div<Wrapper>`
     }
 `
 
-export const InputText = styled.textarea<TextArea>`
-    display: flex;
-    align-items: center;
-
+export const InputText = styled.div<TextArea>`
     width: 100%;
     height: ${({height}) => height || '20px' };
     outline: 0;
@@ -56,7 +54,7 @@ export const InputText = styled.textarea<TextArea>`
     letter-spacing: -0.02em;
     
     overflow: hidden;
-    resize: none;
+    
 
     padding: 0;
     margin: 14px;
