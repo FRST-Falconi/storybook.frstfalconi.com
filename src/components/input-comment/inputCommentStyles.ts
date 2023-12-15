@@ -17,6 +17,7 @@ interface IEmojiWindow {
 }
 interface TextArea {
     height?: string
+    isPlaceholder?: boolean
 }
 
 export const InputWrapper = styled.div<Wrapper>`
@@ -25,9 +26,9 @@ export const InputWrapper = styled.div<Wrapper>`
     width: 100%;
     min-height: '99px';
     position: 'relative';
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
+    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
 
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    
     border-radius: 24px;
 
     transition: all 0.2s ease-in-out;
@@ -45,14 +46,14 @@ export const InputText = styled.div<TextArea>`
     width: 100%;
     height: ${({height}) => height || '20px' };
     outline: 0;
-    
+    color: ${({ theme, isPlaceholder }) => !isPlaceholder ? theme.colors.neutralsGrey1: theme.colors.neutralsGrey4};
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.02em;
-    
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     
 

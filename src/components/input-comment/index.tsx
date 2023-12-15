@@ -9,7 +9,7 @@ import { Mentions } from './mentions'
 import { User } from './types'
 
 export default function InputComment({ placeholder, value, onChange, limit, showCharacterCounter, styles, disabled, className }: IInputComment) {
-  const { handleInput, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
+  const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -24,8 +24,9 @@ export default function InputComment({ placeholder, value, onChange, limit, show
             onKeyUpCapture={(event) => {
               handleInput(event)
             }}
-            data-text="enter"
 
+            data-text="enter"
+            isPlaceholder={isPlaceholder}
 
           ><p><br /></p>
           </Styles.InputText>

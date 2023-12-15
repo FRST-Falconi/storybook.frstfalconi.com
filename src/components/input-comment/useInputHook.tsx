@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { DesignTokens } from "../../theme/tokens";
 import { User } from "./types";
 
 
@@ -10,6 +11,7 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
     const divInputRef = useRef<HTMLDivElement>(null);
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`
     const [textLength, setTextLength] = useState(0)
+    const [isPlaceholder, setPlaceholder] = useState(false)
 
     const handleMentionUser = (user: User) => {
         if (user?.name && divInputRef.current) {
@@ -39,7 +41,7 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
                 const mentionAnchorElement = document.createElement('a');
                 mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
                 mentionAnchorElement.style.fontWeight = 'bold';
-                mentionAnchorElement.style.color = '#F26818';
+                mentionAnchorElement.style.color = DesignTokens.colors.primary1;
                 mentionAnchorElement.setAttribute('data-mention-id', user["user-uuid"])
                 mentionAnchorElement.setAttribute("contenteditable", "false")
                 const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
@@ -155,11 +157,13 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
     }
 
     const clearDivContent = () => {
-        if (!divInputRef.current) return;
 
+        if (!divInputRef.current) return;
+        setPlaceholder(false)
         if (divInputRef.current.childNodes.length === 0 && !focus) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
+            setPlaceholder(true)
         } else if (!focus && divInputRef.current.childNodes.length >= 1) {
             // loop over all child element and check if they are empty
             let isEmpty = true;
@@ -173,6 +177,7 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
             if (isEmpty) {
                 // create a textnode with the placeholder
                 divInputRef.current.innerText = placeholder;
+                setPlaceholder(true)
             }
 
         } else if (divInputRef.current.innerText === placeholder) {
@@ -219,6 +224,7 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
         divInputRef,
         mentionTopPosition,
         handleMentionUser,
-        textLength
+        textLength,
+        isPlaceholder
     }
 }
