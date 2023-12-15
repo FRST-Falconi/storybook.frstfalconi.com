@@ -3,14 +3,10 @@ import React from "react"
 export interface IInputComment {
     placeholder?: string,
     value?: any,
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
-    remain?: number,
+    onChange?: (value:string) => void,
     limit?: number,
     disabled?: boolean,
-    className: string,
-    hasEmoji: boolean,
+    className?: string,
     showCharacterCounter: boolean,
-    IDInput: string,
-    styles: any,
-    emojiWindowlanguage: string,
+    styles?: any,
 }
