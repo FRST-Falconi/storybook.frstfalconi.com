@@ -2,13 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { User } from "./types";
 
 
-export const useInputHook = (placeholder: string, onChange?: (value: string) => void) => {
+export const useInputHook = (limit: number, placeholder: string, onChange?: (value: string) => void) => {
     const [userMentionIds, setUserMentionIds] = useState<Set<string>>(new Set<string>());
     const [focus, setFocus] = useState(false)
     const [showMention, setShowMention] = useState(false)
     const [inputSearch, setInputSearch] = useState('');
     const divInputRef = useRef<HTMLDivElement>(null);
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`
+    const [textLength, setTextLength] = useState(0)
 
     const handleMentionUser = (user: User) => {
         if (user?.name && divInputRef.current) {
@@ -62,6 +63,7 @@ export const useInputHook = (placeholder: string, onChange?: (value: string) => 
                 selection.addRange(newRange);
 
             }
+            countChars()
         }
 
     }
@@ -105,9 +107,33 @@ export const useInputHook = (placeholder: string, onChange?: (value: string) => 
             setShowMention(true)
         }
         setInputSearch(inputSearch)
-        onChange(inputSearch)
+        !!onChange && onChange(inputSearch)
+        countChars()
 
 
+    }
+
+    const countChars = () => {
+        // create a function that loop through my divref and count each chars inside of it and it´s children
+        let count = 0;
+        if (divInputRef.current) {
+            divInputRef.current.childNodes.forEach((child) => {
+                if (child.textContent) {
+                    count += child.textContent.length
+                }
+            })
+        }
+
+        setTextLength(count)
+
+    }
+
+    const cutTextAfterMaxLength = () => {
+        if (textLength > limit) {
+
+
+        }
+        countChars()
     }
 
     const clearDivContent = () => {
@@ -156,6 +182,26 @@ export const useInputHook = (placeholder: string, onChange?: (value: string) => 
         clearDivContent()
     }, [focus])
 
+    useEffect(() => {
+        cutTextAfterMaxLength()
+    }, [textLength])
+
+    useEffect(() => {
+        if (!divInputRef.current) return;
+
+        const handleSelectionChange = () => {
+            setShowMention(false)
+        };
+
+        // Add the event listener
+        document.addEventListener('selectionchange', handleSelectionChange);
+
+        // Remove the event listener when the component unmounts
+        return () => {
+            document.removeEventListener('selectionchange', handleSelectionChange);
+        };
+    }, []);
+
     return {
         handleInput,
         clearDivContent,
@@ -168,6 +214,7 @@ export const useInputHook = (placeholder: string, onChange?: (value: string) => 
         setInputSearch,
         divInputRef,
         mentionTopPosition,
-        handleMentionUser
+        handleMentionUser,
+        textLength
     }
 }
