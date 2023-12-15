@@ -75,9 +75,13 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
           <Styles.InputText
             tabIndex={2}
             contentEditable={true}
+            ref={divInputRef}
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
-            aria-aria-multiline={true}
+            onKeyUpCapture={(event) => {
+              handleInput(event)
+            }}
+
             data-text="enter"
 
 
