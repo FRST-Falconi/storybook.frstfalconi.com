@@ -3,7 +3,7 @@ import { User } from "./types";
 
 
 export const useInputHook = (limit: number, placeholder: string, onChange?: (value: any) => void) => {
-  
+
     const [userMentionIds, setUserMentionIds] = useState<Set<string>>(new Set<string>());
     const [focus, setFocus] = useState(false)
     const [showMention, setShowMention] = useState(false)
@@ -21,8 +21,8 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
             if (selection && selection.rangeCount > 0) {
                 const range = selection.getRangeAt(0);
-                
-                if(range.startContainer.textContent === null) return; 
+
+                if (range.startContainer.textContent === null) return;
 
                 let symbolFound = false;
                 while (!symbolFound) {
@@ -71,11 +71,12 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
     }
     //create a method that increase the size of the div as the scroll height increases
-    const resizeDiv = () => {
+    const resizeDiv = (event: any) => {
         if (divInputRef.current) {
             divInputRef.current.style.height = 'auto';
             divInputRef.current.style.height = divInputRef.current.scrollHeight + 'px';
         }
+
     }
 
     useEffect(() => {
@@ -89,12 +90,13 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
     }, [])
 
     const handleInput = (event: React.KeyboardEvent) => {
+
         const selection = window.getSelection();
         let inputSearch = '@';
         if (selection && selection.rangeCount > 0) {
             const range = selection.getRangeAt(0);
 
-            if(range.startContainer.textContent === null) return;
+            if (range.startContainer.textContent === null) return;
             // Get the text before the cursor
             const textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
 
@@ -129,19 +131,31 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
         }
 
         setTextLength(count)
+        return count;
 
     }
 
     const cutTextAfterMaxLength = () => {
         if (textLength > limit) {
+            const selection = document.getSelection();
+            const range = document.createRange();
+            const children = Array.from(divInputRef.current?.childNodes || []);
+            children.reverse().forEach((child) => {
+                if (countChars() <= limit) return;
+                const childLength = child.textContent.length;
+                child.textContent = child.textContent.substring(0, childLength - Math.abs(limit - textLength));
 
+                range.selectNodeContents(child);
+                range.collapse(false);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            });
 
         }
-        countChars()
     }
 
     const clearDivContent = () => {
-        if(!divInputRef.current) return;
+        if (!divInputRef.current) return;
 
         if (divInputRef.current.childNodes.length === 0 && !focus) {
             // create a textnode with the placeholder
