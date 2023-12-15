@@ -4,7 +4,6 @@ import { User } from "./types";
 
 export const useInputHook = (limit: number, placeholder: string, onChange?: (value: any) => void) => {
 
-    const [userMentionIds, setUserMentionIds] = useState<Set<string>>(new Set<string>());
     const [focus, setFocus] = useState(false)
     const [showMention, setShowMention] = useState(false)
     const [inputSearch, setInputSearch] = useState('');
@@ -14,8 +13,6 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
     const handleMentionUser = (user: User) => {
         if (user?.name && divInputRef.current) {
-            const newSet = new Set<string>([...userMentionIds, user["user-uuid"]])
-            setUserMentionIds(newSet)
             // Set the cursor to the last saved position
             const selection = window.getSelection();
 
@@ -226,7 +223,6 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
         clearDivContent,
         focus,
         setFocus,
-        userMentionIds,
         showMention,
         setShowMention,
         inputSearch,

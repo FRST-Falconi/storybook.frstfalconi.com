@@ -9,7 +9,7 @@ import { Mentions } from './mentions'
 import { User } from './types'
 
 export default function InputComment({ placeholder, value, onChange, limit, showCharacterCounter, styles, disabled, className }: IInputComment) {
-  const { handleInput, focus, setFocus, userMentionIds, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
+  const { handleInput, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
 
   return (
     <ThemeProvider theme={FRSTTheme}>
