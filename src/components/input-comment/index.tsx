@@ -7,8 +7,9 @@ import { IInputComment } from './inputComment'
 import {useInputHook} from './useInputHook'
 import { SmileOutlined } from '@shared/icons'
 // import EmojiPicker from '@components/emoji-picker'
-
+import { Mentions } from './mentions'
 import { randID } from './inputComment.utils'
+import { User } from './types'
 
 export default function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage }: IInputComment) {
     const { handleInput, focus, setFocus, userMentionIds, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
@@ -87,6 +88,14 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
 
           ><p><br /></p>
           </Styles.InputText>
+          {showMention && <Mentions
+            inputSearch={inputSearch}
+            top={mentionTopPosition}
+            onSelect={(user: User) => {
+              setShowMention(false)
+              handleMentionUser(user)
+
+            }} />}
           {/* { hasEmoji && 
                     <>
                         <Styles.EmojiWindow 
