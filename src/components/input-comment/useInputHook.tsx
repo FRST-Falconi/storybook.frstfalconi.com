@@ -68,7 +68,7 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
     }
     //create a method that increase the size of the div as the scroll height increases
-    const resizeDiv = (event: any) => {
+    const resizeDiv = () => {
         if (divInputRef.current) {
             divInputRef.current.style.height = 'auto';
             divInputRef.current.style.height = divInputRef.current.scrollHeight + 'px';
