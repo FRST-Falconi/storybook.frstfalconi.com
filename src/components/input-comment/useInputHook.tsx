@@ -185,18 +185,6 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
     }
 
-    useEffect(() => {
-        if (!divInputRef.current) return;
-
-        //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-        divInputRef.current.addEventListener('keyup', (event) => {
-            if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Enter') {
-                setShowMention(false)
-            }
-        })
-
-        clearDivContent()
-    }, [focus])
 
     useEffect(() => {
         cutTextAfterMaxLength()
