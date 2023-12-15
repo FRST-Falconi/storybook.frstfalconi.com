@@ -14,7 +14,7 @@ export default function InputComment({ placeholder, value, onChange, limit, show
   return (
     <ThemeProvider theme={FRSTTheme}>
       <div style={{ ...styles }} tabIndex={0}>
-        <Styles.InputWrapper focus={focus} tabIndex={1}>
+        <Styles.InputWrapper focus={focus} tabIndex={1} isPlaceholder={isPlaceholder}>
           <Styles.InputText
             tabIndex={2}
             contentEditable={true}

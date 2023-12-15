@@ -9,6 +9,7 @@ interface AvatarI {
 interface Wrapper {
     disabled?: boolean,
     focus?: boolean,
+    isPlaceholder?: boolean
 }
 
 interface IEmojiWindow {
@@ -26,19 +27,19 @@ export const InputWrapper = styled.div<Wrapper>`
     width: 100%;
     min-height: '99px';
     position: 'relative';
-    background-color: ${({ theme }) => theme.colors.neutralsGrey7};
-
+    background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+    
     
     border-radius: 24px;
 
     transition: all 0.2s ease-in-out;
 
-    &:hover {
-        border: 1px solid ${({ theme }) => theme.colors.shadeBlack};
-    }
+  
 
-    ${({ focus, theme }) => focus &&  
-        `border: 1px solid` + theme.colors.primary1 + " !important;"
+    border: ${({ theme, isPlaceholder }) => !isPlaceholder ? `2px solid ${theme.colors.neutralsGrey5} !important`: `1px solid ${theme.colors.neutralsGrey5} !important`};
+
+    &:hover {
+        border: 2px solid ${({ theme }) => theme.colors.neutralsGrey5} !important;
     }
 `
 
