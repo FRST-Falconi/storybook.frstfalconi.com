@@ -101,8 +101,8 @@ export const MentionSubTitleText = styled.span`
   justify-content: flex-start;
 `
 export const Circle = styled.div`
-  width: 8px;
-  height: 8px;
+  width: 2px;
+  height: 2px;
   border-radius: 50%;
   background-color: #757575;
   margin: 0 8px;

@@ -27,6 +27,7 @@ export default function InputComment({ placeholder, onChange, limit, users, show
 
             data-text="enter"
             isPlaceholder={isPlaceholder}
+            suppressContentEditableWarning={true}
 
           ><p><br /></p>
           </Styles.InputText>
