@@ -10,6 +10,9 @@ export interface ICommentaryBoxV2{
     idTextComment?: string ;
     onClickUserInfo?: () => void ;
     actionLike?: () => void;
+    actionEdit?: ()=>void ;
+    actionDelete?: ()=>void ;
+    editText?: string ;
     hasActionToClickOnAvatar: boolean;
 }
 
@@ -25,4 +28,20 @@ interface Comment {
     text: string ;
     date: string ; 
     likesCount?: number ;
+}
+
+interface ElementsTexts {
+    answerButtonText?: string ;
+    likeButtonText?:string ;
+    editText?: string ;
+    deleteText?: string ;
+}
+
+interface ElementsActions {
+    onClickUserInfo?: () => void ;
+    actionLike?: () => void;
+    actionEdit?: ()=>void ;
+    actionDelete?: ()=>void ;
+    actionAnswer?: () => void ;
+
 }

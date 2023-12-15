@@ -54,28 +54,32 @@ export const LikesContainer = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 110%;
+
 `
 
 export const IconLikeContainer = styled.div`
-    padding: 4px;
+    & > *:last-child {
     border-radius: 50%;
-    object-fit: cover;
     background-color: #757575;
+    border: 3px solid #757575;
+    width: 14px;
+    height: 14px;
 `
 
 export const InteractiveButtonsContainer = styled.div`
     display:flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
     gap:7px;
     margin-top: 4px;
     margin-left: 44px;
-    aling-items:center;
+    align-items: center;
     color: #444;
     font-family: PT Sans;
     font-size: 12px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-
+    
     & > *:last-child {
         height:24px;
         transform: rotate(90deg);
@@ -86,6 +90,15 @@ export const FlexButtonContainer = styled.div<IButton>`
     cursor: pointer;
     display: flex;
     gap: 4px;
+    align-items: center;
+    justify-content: center;
+
+        svg {
+            :hover {
+                fill: #f26818;
+                stroke: #fff;
+            }
+        }
 
 
 `

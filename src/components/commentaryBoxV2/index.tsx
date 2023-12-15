@@ -7,18 +7,18 @@ import MenuMore from '@components/menu-more';
 
 
 
-export const CommentaryBoxV2 = ({ user,comment, onClickUserInfo, hasActionToClickOnAvatar,answerButtonText,likeButtonText, actionLike, actionAnswer }: ICommentaryBoxV2)=> {
+export const CommentaryBoxV2 = ({ user,comment, onClickUserInfo, hasActionToClickOnAvatar,answerButtonText,likeButtonText, actionLike, actionAnswer,actionEdit,actionDelete}: ICommentaryBoxV2)=> {
 
     const options = [
         {
             description: 'Editar',
             startIcon: <EditIcon fill='#222'/>,
-            onClick: (e) => alert('click edit')
+            onClick: actionEdit
         },
         {
             description: 'Excluir',
             startIcon: <TrashIconNew fill='#C1341A'/>,
-            onClick: (e) => alert('click delete'),
+            onClick: actionDelete,
             color: '#C1341A'
         },
     ]
@@ -33,9 +33,9 @@ export const CommentaryBoxV2 = ({ user,comment, onClickUserInfo, hasActionToClic
                                 {comment.likesCount > 0 && (
                                 <Styled.LikesContainer>
                                     <Styled.IconLikeContainer>
-                                        <IconLikeFilled fill='#fff' stroke='#fff' customColor_1={'#757575'} width='12px' height='12px'/>
+                                        <IconLikeFilled fill='#fff' stroke='#fff' customColor_1={'#757575'} width='16px' height='16px'/>
                                     </Styled.IconLikeContainer>
-                                    <strong>{comment.likesCount}</strong>
+                                    <p>{comment.likesCount}</p>
                                 </Styled.LikesContainer>
                                 
                                 ) }
@@ -49,7 +49,7 @@ export const CommentaryBoxV2 = ({ user,comment, onClickUserInfo, hasActionToClic
             </Styled.Container>
             <Styled.InteractiveButtonsContainer> 
                 <Styled.FlexButtonContainer   disabled={false}>
-                    <IconLikeLine fill='#444' stroke='#444' />               
+                    <IconLikeLine fill='#444'  />               
                     <MiniButton variant='secondary' onClick={actionLike} label={likeButtonText} styles={{}}/>
                 </Styled.FlexButtonContainer>
                
