@@ -1,15 +1,15 @@
 import { ThemeProvider } from 'styled-components'
 import '../../shared/global.css'
 import { FRSTTheme } from '../../theme'
-import { IInputComment } from './inputComment'
 import * as Styles from './inputCommentStyles'
+import { IInputComment } from './types'
 import { useInputHook } from './useInputHook'
 // import EmojiPicker from '@components/emoji-picker'
 import { Mentions } from './mentions'
 import { User } from './types'
 
-export default function InputComment({ placeholder, value, onChange, limit, showCharacterCounter, styles, disabled, className }: IInputComment) {
-  const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
+export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, disabled, className }: IInputComment) {
+  const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook(limit, placeholder, onChange)
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -31,7 +31,7 @@ export default function InputComment({ placeholder, value, onChange, limit, show
           ><p><br /></p>
           </Styles.InputText>
           {showMention && <Mentions
-            inputSearch={inputSearch}
+            users={users}
             top={mentionTopPosition}
             onSelect={(user: User) => {
               setShowMention(false)

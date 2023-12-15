@@ -42,7 +42,7 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
                 mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
                 mentionAnchorElement.style.fontWeight = 'bold';
                 mentionAnchorElement.style.color = DesignTokens.colors.primary1;
-                mentionAnchorElement.setAttribute('data-mention-id', user["user-uuid"])
+                mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid)
                 mentionAnchorElement.setAttribute("contenteditable", "false")
                 const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
                 if (range.startOffset > 0 && range.startContainer.textContent.charAt(range.startOffset - 1) === '@') {
@@ -113,6 +113,9 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
         }
         if (event.key === '@') {
             setShowMention(true)
+        }
+        if (inputSearch.trim() === '@') {
+            inputSearch = ''
         }
         setInputSearch(inputSearch)
         !!onChange && onChange(inputSearch)

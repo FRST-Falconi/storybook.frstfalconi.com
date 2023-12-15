@@ -96,4 +96,14 @@ export const MentionSubTitle = styled.div`
 export const MentionSubTitleText = styled.span`
   width: 400px;
   font-size: 12px;
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+`
+export const Circle = styled.div`
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #757575;
+  margin: 0 8px;
 `

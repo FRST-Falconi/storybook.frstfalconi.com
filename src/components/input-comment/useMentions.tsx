@@ -1,22 +1,12 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { MentionProps, User, fakeUsers } from "./types";
+import { useEffect, useRef, useState } from "react";
+import { MentionProps, User } from "./types";
 
 export const useMentions = (mention: MentionProps) => {
   const mentionListRef = useRef<HTMLDivElement>(null);
-  const { onSelect, inputSearch } = mention;
+  const { onSelect } = mention;
   const [selectedUser, setSelectedUser] = useState<User | null>()
-  const [users, setUsers] = useState<User[]>([])
-  let filteredUsers = !!inputSearch?.length ? users.filter((user) => user.name.toLowerCase().includes(inputSearch?.toLowerCase())) : users
-  if (filteredUsers.length === 0) {
-    filteredUsers = users;
-  }
 
-  const handleGetUsers = useCallback(async () => {
-
-    setUsers(fakeUsers.users)
-  }, [])
   useEffect(() => {
-    handleGetUsers()
     if (!mentionListRef.current) return;
 
     //keydown should change item focus
@@ -45,7 +35,6 @@ export const useMentions = (mention: MentionProps) => {
   }, [selectedUser])
 
   return {
-    filteredUsers,
     selectedUser,
     setSelectedUser,
     mentionListRef
