@@ -8,4 +8,5 @@ export interface IAvatar {
   onClick?: () => void
   isActiveClick?: boolean
   id?: string
+  style?: any;
 }
