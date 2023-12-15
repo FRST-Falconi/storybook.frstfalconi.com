@@ -111,7 +111,7 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
             </Styles.InputWrapper>
             { showCharacterCounter &&
                 <Styles.HelperText>
-                    {limit - remain}/{limit}
+                    {textLength}/{limit}
                 </Styles.HelperText>
             }
         </div>
