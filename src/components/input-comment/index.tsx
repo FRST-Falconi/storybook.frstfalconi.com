@@ -1,28 +1,15 @@
-import React,{ useEffect,  useState, useRef }  from 'react'
-import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
+import '../../shared/global.css'
 import { FRSTTheme } from '../../theme'
-import * as Styles from './inputCommentStyles'
 import { IInputComment } from './inputComment'
-import {useInputHook} from './useInputHook'
-import { SmileOutlined } from '@shared/icons'
+import * as Styles from './inputCommentStyles'
+import { useInputHook } from './useInputHook'
 // import EmojiPicker from '@components/emoji-picker'
 import { Mentions } from './mentions'
-import { randID } from './inputComment.utils'
 import { User } from './types'
 
-export default function InputComment({ placeholder, value, onChange, limit, showCharacterCounter, styles, disabled }: IInputComment) {
-    const { handleInput, focus, setFocus, userMentionIds, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
-
-debugger
-    
-
-    
-    
-    
-    
-    
-    
+export default function InputComment({ placeholder, value, onChange, limit, showCharacterCounter, styles, disabled, className }: IInputComment) {
+  const { handleInput, focus, setFocus, userMentionIds, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, setInputSearch, showMention, textLength } = useInputHook(limit, placeholder, onChange)
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -37,7 +24,6 @@ debugger
             onKeyUpCapture={(event) => {
               handleInput(event)
             }}
-
             data-text="enter"
 
 
@@ -51,21 +37,16 @@ debugger
               handleMentionUser(user)
 
             }} />}
-         
-            </Styles.InputWrapper>
-            { showCharacterCounter &&
-                <Styles.HelperText>
-                    {textLength}/{limit}
-                </Styles.HelperText>
-            }
-        </div>
-        </ThemeProvider>
-    )
 
-  
+        </Styles.InputWrapper>
+        {showCharacterCounter &&
+          <Styles.HelperText>
+            {textLength}/{limit}
+          </Styles.HelperText>
+        }
+      </div>
+    </ThemeProvider>
+  )
 
-   
-   
-   
 }
 
