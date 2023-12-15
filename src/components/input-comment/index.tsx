@@ -75,16 +75,14 @@ export default function InputComment({ placeholder, value, onChange, remain, lim
           <Styles.InputText
             tabIndex={2}
             contentEditable={true}
-
             onFocus={() => setFocus(true)}
             onBlur={() => setFocus(false)}
-
-          
             aria-aria-multiline={true}
             data-text="enter"
 
 
-          />
+          ><p><br /></p>
+          </Styles.InputText>
           {/* { hasEmoji && 
                     <>
                         <Styles.EmojiWindow 
