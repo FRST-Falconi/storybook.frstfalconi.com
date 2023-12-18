@@ -30,6 +30,10 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
   const labelButton = isLastStep ? 'Entendi' : 'Próximo'
   const variantButton = isLastStep ? 'primary' : 'secondary'
 
+  useEffect(()=>{
+    setCurrentTopic(steps[numberCurrentStep])
+  },[steps])
+
   const handleClickButtonNext = () => {
     if (isLastStep) onFinish()
     else {
