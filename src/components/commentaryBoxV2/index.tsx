@@ -55,7 +55,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
                     <Styled.Box>
                         <Styled.UserDataContainer>
                             <Styled.FirstChildUserData>
-                                <strong>{userName}</strong>
+                                <Styled.Username>{userName}</Styled.Username>
                                 {likesCount > 0 && (
                                 <Styled.LikesContainer>
                                     <Styled.IconLikeContainer>
@@ -66,13 +66,13 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
                                 
                                 ) }
                             </Styled.FirstChildUserData>
-                            <Styled.LastChildUserData>
+                            <Styled.UserDataLastChild>
                                 {userOffice && userOffice} {userCompany && `• ${userCompany}`} {howLongAgo && `• ${howLongAgo}`}
-                            </Styled.LastChildUserData>
+                            </Styled.UserDataLastChild>
                         </Styled.UserDataContainer>
                         {relationToPhaseText && <Styled.RelationContainer>{relationToPhaseText}</Styled.RelationContainer>}
                         <Styled.TextContainer id='textContainerId'>
-                            <Styled.Text style={isExpanded ?{ display: 'block'}: {display: '-webkit-box'}} id={iDCommentPosted}>{commentText}</Styled.Text>
+                            <Styled.Text style={isExpanded ?{ display: 'block'}: {display: '-webkit-box'}} id={iDCommentPosted}>{buildStringWithLinkHTML(commentText)}</Styled.Text>
                             <Styled.ShowMore isVisible={isEllipsisVisible} onClick={toggleExpand}>
                                {isExpanded? showLessText : showMoreText}
                             </Styled.ShowMore>
@@ -87,8 +87,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
                     <MiniButton variant='secondary' onClick={handleLike} label={likeButtonText} active={isLiked} styles={{}}/>
                 </Styled.FlexButtonContainer>
                 )}
-     
-               
+        
                 <MiniButton variant='secondary' onClick={actionAnswer} label={answerButtonText}  styles={{}}/>
                 {showOptions && options ? <MenuMore options={options}/> : <div/>}
             </Styled.InteractiveButtonsContainer>

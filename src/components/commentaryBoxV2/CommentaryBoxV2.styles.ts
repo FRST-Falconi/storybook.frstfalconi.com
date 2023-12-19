@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export const Container = styled.div<{width?: string; height?:string}>`
     display:flex;
@@ -28,15 +28,23 @@ export const UserDataContainer = styled.div`
     heigth: 34px;
     margin-bottom: 8px;
 `
+export const Username = styled.h2`
+    color: var(--neutrals-neutral-1, #222);
+    font-family: PT Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+`
 
 export const FirstChildUserData = styled.div`
     display:flex;
     justify-content: space-between;
  `
 
-export const LastChildUserData = styled.div`
+export const UserDataLastChild = styled.div`
     display:flex;
-    color: #757575;
+    color: ${({theme})=> theme.colors.neutralsGrey3};
     font-family: PT Sans;
     font-size: 12px;
     font-style: normal;
@@ -81,7 +89,7 @@ export const RelationContainer = styled.div`
 export const InteractiveButtonsContainer = styled.div`
     display:flex;
     flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    gap:7px;
+    gap:16px;
     margin-top: 4px;
     margin-left: 44px;
     align-items: center;
@@ -113,6 +121,10 @@ export const FlexButtonContainer = styled.div<IButton>`
 `
 
 export const Text = styled.p`
+    color: #444;
+    font-family: Work Sans;
+    font-size: 16px;
+    font-style: normal;
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 5;
@@ -124,6 +136,11 @@ export const TextContainer = styled.div`
 `
 export const ShowMore = styled.span<{isVisible:boolean}>`
     color: ${({theme})=> theme.colors.neutralsGrey2};
+    font-family: Work Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 140%;
     cursor: pointer;
     display: ${({ isVisible }) => (isVisible ? 'inline' : 'none')};
 `;
