@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div<{width?: string; height?:string}>`
     display:flex;
@@ -92,16 +92,30 @@ export const FlexButtonContainer = styled.div<IButton>`
     gap: 4px;
     align-items: center;
     justify-content: center;
-
+    
         svg {
             :hover {
                 fill: #f26818;
                 stroke: #fff;
             }
         }
-
-
 `
+
+export const Text = styled.p`
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    margin: 0;
+`
+
+export const TextContainer = styled.div`
+`
+export const ShowMore = styled.span<{isVisible:boolean}>`
+    color: ${({theme})=> theme.colors.neutralsGrey2};
+    cursor: pointer;
+    display: ${({ isVisible }) => (isVisible ? 'inline' : 'none')};
+    `;
 
 interface IButton {
     disabled?: boolean

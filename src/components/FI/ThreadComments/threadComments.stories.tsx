@@ -36,6 +36,7 @@ const  onClickShowReplys = async ()=>{
 
 Default.args = {
     mainComment: {
+        userId: "user-0001",
         id:"01",
         username: "Leticia Costa",
         office: "Líder de vendas",

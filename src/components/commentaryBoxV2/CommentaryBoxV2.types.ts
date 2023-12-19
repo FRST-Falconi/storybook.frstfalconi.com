@@ -1,19 +1,19 @@
+import { IOptionItem } from "@components/menu-more/menuMore";
+
 export interface ICommentaryBoxV2{
     user : User ;
     comment: Comment;
+    texts: Texts;
+    actions : Actions;
+    options?: IOptionItem[] ;
     styles?: any ;
     detectLinks?: boolean ;
     isAuthor?: boolean ;
-    actionAnswer?: () => void ;
-    answerButtonText?: string ;
-    likeButtonText?:string ;
     idTextComment?: string ;
-    onClickUserInfo?: () => void ;
-    actionLike?: () => void;
-    actionEdit?: ()=>void ;
-    actionDelete?: ()=>void ;
     editText?: string ;
     hasActionToClickOnAvatar: boolean;
+    showOptions?: boolean ;
+    itsLiked: boolean ;
 }
 
 export interface User{
@@ -25,23 +25,26 @@ export interface User{
 }
 
 interface Comment {
+    id:string;
     text: string ;
     date: string ; 
     likesCount?: number ;
 }
 
-interface ElementsTexts {
+interface Texts {
     answerButtonText?: string ;
     likeButtonText?:string ;
     editText?: string ;
     deleteText?: string ;
+    showMoreText: string;
+    showLessText: string ;
 }
 
-interface ElementsActions {
+interface Actions {
     onClickUserInfo?: () => void ;
-    actionLike?: () => void;
+    actionLike?: (wantToLike:boolean) => void;
     actionEdit?: ()=>void ;
     actionDelete?: ()=>void ;
     actionAnswer?: () => void ;
-
 }
+

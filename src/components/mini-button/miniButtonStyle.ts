@@ -4,10 +4,11 @@ import styled, { css } from 'styled-components'
 interface IButton {
     disabled?: boolean
     variant: string
+    active?: boolean
 }
 
 export const Button = styled.div<IButton>`
-    ${({variant, disabled, theme}) => {
+    ${({variant, disabled,active, theme}) => {
         
         let styleVariant = {
             'primary': css`
@@ -50,7 +51,7 @@ export const Button = styled.div<IButton>`
                         color: ${({theme}) => disabled ? theme.colors.borderPrimary : theme.colors.secondary5};
                         text-decoration: underline;
                     }
-                    
+                    ${active && `color : ${theme.colors.primary1}` }
                 `
         }
 

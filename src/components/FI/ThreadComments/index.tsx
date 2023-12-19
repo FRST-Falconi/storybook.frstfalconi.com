@@ -4,6 +4,7 @@ import {IThreadComments} from './threadComments.types';
 import Loading from '@components/DS/loading';
 import { InputReply } from './utilitiesComponents/inputReply';
 import { CommentaryBoxWithAvatar } from './utilitiesComponents/comentaryBoxWithAvatar';
+import { CommentaryBoxV2 } from '@components/commentaryBoxV2';
 
 export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText,limitInputs,answerButtonText}: IThreadComments) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -11,14 +12,6 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
     const [showReplyInput, setShowReplyInput] = useState(false);
     const [showInputByIdReply, setShowInputByIdReply] = useState<string[]>([]);
 
-    // const OnChangeComment = (e: { target: { value: SetStateAction<string>; }; }) => {
-    //     setCommentData(e.target.value);
-    //         if(limitInputs ===  e.target.value.length){
-    //             console.log("if true")
-    //         }else{
-    //             console.log("if false")
-    //         }
-    // }
 
     const handleShowReplys = async ()=>{
         setIsLoading(true);
@@ -46,11 +39,18 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
         <Styled.Container>
             <Styled.CommentarysContainer>
                 <div>
-                    <CommentaryBoxWithAvatar
-                    commentData={mainComment}
-                    answerButtonText={answerButtonText}
-                    onClickAnswerButton={handleCommentReply}     
-                    />
+                    {/* <CommentaryBoxV2 
+                        user={{id:mainComment.userId,name:mainComment.username, office: mainComment.office, company: mainComment.company, imgProfile: mainComment.imgProfile}}
+                        comment={undefined}
+                        texts={{showMoreText: "Ver Mais", showLessText: "Ver Menos"}}
+                        actions={undefined}
+                        hasActionToClickOnAvatar={false}
+                        itsLiked={false} /> */}
+                        <CommentaryBoxWithAvatar
+                        commentData={mainComment}
+                        answerButtonText={answerButtonText}
+                        onClickAnswerButton={handleCommentReply}     
+                        />
                 {listReplyComments?.length>0 && !showAnswers &&
                     (<Styled.ViewReplysButtonContainer >
                         <span onClick={()=>handleShowReplys()}>{showReplysButtonText}</span>

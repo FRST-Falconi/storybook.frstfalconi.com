@@ -1,8 +1,10 @@
 export interface IComment {
+    userId:string;
     id: string,
     username: string,
     office:string,
     text:string,
+    company:string,
     howlongAgo: string,
     imgProfile?:string,
     listReplyComments?:IComment[]

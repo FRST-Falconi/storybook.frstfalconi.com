@@ -11,7 +11,8 @@ export default function MiniButton({
     label, 
     disabled, 
     onClick, 
-    styles 
+    styles ,
+    active,
     }: IMiniButton) {
 
     return (
@@ -21,6 +22,7 @@ export default function MiniButton({
                 disabled={disabled}
                 variant={variant}
                 style={{...styles}}
+                active={!!active}
             >
                 {label}
             </Styles.Button>
