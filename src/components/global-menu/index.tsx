@@ -646,7 +646,7 @@ export default function GlobalMenu({
                       >
                         <IconNotification fill={FRSTTheme['colors'].shadeWhite} />
                         {hasNewNotification ? (
-                          <div style={{ marginLeft: '-12px' }}>
+                          <div style={{ position:'absolute', top:'0' }}>
                             <HasNotificationIcon />
                           </div>
                         ) : null}{' '}
