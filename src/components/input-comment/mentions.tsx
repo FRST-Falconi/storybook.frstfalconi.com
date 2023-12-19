@@ -1,3 +1,4 @@
+import { DefaultProfile } from '../../../public/customIcons/DefaultProfile';
 import { Circle, Container, MentionAvatar, MentionItem, MentionList, MentionSubTitle, MentionSubTitleText, MentionUserContainer, MentionUserName } from './mentionsStyle';
 import { MentionProps } from './types';
 import { useMentions } from './useMentions';
@@ -25,7 +26,7 @@ export const Mentions = (mention: MentionProps) => {
                   }
                 }}
               >
-                <MentionAvatar src={user.profile.avatar} />
+                {!!user.profile.avatar && !!user.profile.avatar.length ? <MentionAvatar src={user.profile.avatar} /> : <DefaultProfile />}
                 <MentionUserContainer>
                   <MentionUserName>{user.name}</MentionUserName>
                   <MentionSubTitle>
