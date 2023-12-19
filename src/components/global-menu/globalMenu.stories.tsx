@@ -24,7 +24,9 @@ const Template = (args) => <GlobalMenu {...args} />
 
 export const normal = Template.bind({})
 normal.args = {
-  showProfile: true,
+  showProfile: false,
+  showHelp: true,
+  onClickHelp: () => alert('ajuda'),
   variant: 'default',
   textNotification: 'Notificações',
   onClickProfileMenuText: () => alert('Clicked Profile'),
