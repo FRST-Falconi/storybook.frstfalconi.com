@@ -65,6 +65,18 @@ export const IconLikeContainer = styled.div`
     width: 14px;
     height: 14px;
 `
+export const RelationContainer = styled.div`
+    display: flex;
+    padding: 2px 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 8px 0px;
+    border-radius: 4px;
+    background: #9CA3AF;
+    color: #FFFFFF;
+`
+
 
 export const InteractiveButtonsContainer = styled.div`
     display:flex;
@@ -95,8 +107,7 @@ export const FlexButtonContainer = styled.div<IButton>`
     
         svg {
             :hover {
-                fill: #f26818;
-                stroke: #fff;
+                fill: #fff;
             }
         }
 `
@@ -115,7 +126,7 @@ export const ShowMore = styled.span<{isVisible:boolean}>`
     color: ${({theme})=> theme.colors.neutralsGrey2};
     cursor: pointer;
     display: ${({ isVisible }) => (isVisible ? 'inline' : 'none')};
-    `;
+`;
 
 interface IButton {
     disabled?: boolean

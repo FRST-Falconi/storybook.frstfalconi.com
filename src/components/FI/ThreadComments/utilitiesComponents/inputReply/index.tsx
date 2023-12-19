@@ -3,9 +3,10 @@ import InputComment from '@components/input-comment';
 import MiniButton from '@components/mini-button';
 import * as Styled from './inputReply.styles';
 import {IInputReply} from './inputReply.types';
+import Avatar from '@components/avatar';
 
 
-export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText,idInput, replyFor}: IInputReply) => {
+export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText,idInput, replyFor,imgProfile, styles}: IInputReply) => {
     const [commentData, setCommentData] = useState(replyFor);
 
     const OnChangeComment = (e: { target: { value: SetStateAction<string>; }; }) => {
@@ -13,9 +14,11 @@ export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,p
     }
 
     return (
-            <Styled.InputContainer>
+        <Styled.Container>
+            <Avatar src={imgProfile} size='32px' style={{marginTop:'55px', marginRight:'8px'}}/>
+            <Styled.InputContainer style={{...styles}}>
                 <InputComment
-                    styles={{width:'100%'}}
+                    styles={{width:'100%',marginTop:'22.5px'}}
                     IDInput={idInput}
                     className='userComment'
                     hasEmoji={true} 
@@ -29,6 +32,8 @@ export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,p
 
                     <MiniButton disabled={commentData.length <= 0} label={publishButtonText} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
             </Styled.InputContainer>
+        </Styled.Container>
+
     )
   }
   

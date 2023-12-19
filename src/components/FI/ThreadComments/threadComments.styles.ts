@@ -21,7 +21,7 @@ margin-bottom:20px;
 export const InputContainer = styled.div`
 display:flex;
 flex-direction:column;
-margin-bottom:40px;
+margin-bottom:30px;
 margin-left:55px
 `
 
@@ -33,8 +33,9 @@ font-style: normal;
 font-weight: 400;
 line-height: 110%; 
 position: relative;
-left: 55px;
+left: 45px;
 margin-bottom:10px;
+margin-top: 8px;
 
 span{
     cursor:pointer;

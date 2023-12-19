@@ -3,10 +3,12 @@ import * as Styled from './threadComments.styles';
 import {IThreadComments} from './threadComments.types';
 import Loading from '@components/DS/loading';
 import { InputReply } from './utilitiesComponents/inputReply';
-import { CommentaryBoxWithAvatar } from './utilitiesComponents/comentaryBoxWithAvatar';
 import { CommentaryBoxV2 } from '@components/commentaryBoxV2';
+import { CommentaryBoxReply } from './utilitiesComponents/commentaryBoxReply';
 
-export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText,limitInputs,answerButtonText}: IThreadComments) => {
+export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, placeHolderText, onClickPublishButton,
+     showReplysButtonText, publishButtonText,limitInputs,answerButtonText,loggedUserProfileImg,
+     showMoreButtonText, showLessButtonText}: IThreadComments) => {
     const [isLoading, setIsLoading] = useState(false);
     const [showAnswers, setShowAnswers] = useState(false);
     const [showReplyInput, setShowReplyInput] = useState(false);
@@ -39,18 +41,16 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
         <Styled.Container>
             <Styled.CommentarysContainer>
                 <div>
-                    {/* <CommentaryBoxV2 
-                        user={{id:mainComment.userId,name:mainComment.username, office: mainComment.office, company: mainComment.company, imgProfile: mainComment.imgProfile}}
-                        comment={undefined}
-                        texts={{showMoreText: "Ver Mais", showLessText: "Ver Menos"}}
-                        actions={undefined}
+                    <CommentaryBoxV2       
+                        styles={{marginBottom:'8px'}}                 
                         hasActionToClickOnAvatar={false}
-                        itsLiked={false} /> */}
-                        <CommentaryBoxWithAvatar
-                        commentData={mainComment}
-                        answerButtonText={answerButtonText}
-                        onClickAnswerButton={handleCommentReply}     
+                        itsLiked={false} userId={mainComment.userId} userName={mainComment.username}
+                        userOffice={mainComment.office} userCompany={mainComment.company}
+                        commentId={mainComment.id} commentText={mainComment.text} 
+                        howLongAgo={mainComment.howLongAgo} showMoreText={showMoreButtonText} showLessText={showLessButtonText} answerButtonText={answerButtonText}
+                        showLikeButton={false} actionAnswer={handleCommentReply}
                         />
+             
                 {listReplyComments?.length>0 && !showAnswers &&
                     (<Styled.ViewReplysButtonContainer >
                         <span onClick={()=>handleShowReplys()}>{showReplysButtonText}</span>
@@ -59,7 +59,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
 
                {showReplyInput && (
                     <InputReply
-                    styles={{width:'100%'}}
+                    styles={{width:'100%', marginTop:'24px'}}
                     idInput={`idInput-${mainComment.id}`}
                     placeHolderText={placeHolderText}
                     publishButtonText={publishButtonText}
@@ -76,15 +76,13 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                 <Styled.RepplysContainer>
                 {listReplyComments?.map((replyComment)=>{
                     return  (
-                        <>
-                            <CommentaryBoxWithAvatar
-                            commentData={replyComment}
-                            answerButtonText={answerButtonText}
-                            onClickAnswerButton={handleCommentReplyReply}     
-                            />
+                    <>
+                        <CommentaryBoxReply commentData={replyComment} answerButtonText={answerButtonText} showMoreButtonText={showMoreButtonText}
+                        showLessButtonText={showLessButtonText} onClickAnswerButton={handleCommentReplyReply}/>
                     {showInputByIdReply.includes(replyComment.id) &&(
                         <InputReply
-                            styles={{width:'100%'}}
+                            imgProfile={loggedUserProfileImg}
+                            styles={{width:'100%', marginTop:'24px'}}
                             idInput={`idInput-${replyComment.id}`}
                             placeHolderText={placeHolderText}
                             publishButtonText={publishButtonText}
@@ -94,7 +92,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                         />
                     )
                 }
-                    </>
+                </>
                        
                 )})}
             </Styled.RepplysContainer>

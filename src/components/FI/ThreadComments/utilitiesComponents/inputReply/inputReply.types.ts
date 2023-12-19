@@ -5,5 +5,6 @@ export interface IInputReply {
     limitInput:number,
     styles:any,
     idInput:string,
-    replyFor:string
+    replyFor:string,
+    imgProfile?:string
 }

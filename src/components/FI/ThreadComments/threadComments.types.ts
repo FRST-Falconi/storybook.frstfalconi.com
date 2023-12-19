@@ -5,7 +5,7 @@ export interface IComment {
     office:string,
     text:string,
     company:string,
-    howlongAgo: string,
+    howLongAgo: string,
     imgProfile?:string,
     listReplyComments?:IComment[]
 }
@@ -19,5 +19,8 @@ export interface IThreadComments {
     onClickShowReplys: ()  => void,
     showReplysButtonText:string,
     publishButtonText:string,
-    limitInputs:number
+    limitInputs:number,
+    showMoreButtonText: string,
+    showLessButtonText: string,
+    loggedUserProfileImg?: string
 }
