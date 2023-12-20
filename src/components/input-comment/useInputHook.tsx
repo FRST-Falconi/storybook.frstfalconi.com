@@ -2,8 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import { DesignTokens } from "../../theme/tokens";
 import { User } from "./types";
 
+interface IInputHook {
+    limit: number
+    placeholder: string
+    onSendMentions: (mentions: string[]) => void
+    onContentFormat: (content: string) => void
+    onContentUnformat: (content: string) => void
+    onChange?: (value: any) => void
+}
 
-export const useInputHook = (limit: number, placeholder: string, onChange?: (value: any) => void) => {
+export const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange }: IInputHook) => {
 
     const [focus, setFocus] = useState(false)
     const [showMention, setShowMention] = useState(false)
@@ -69,6 +77,9 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
             }
             countChars()
+            createFormatAndTextContentToSaveComment()
+
+
         }
 
     }
@@ -91,6 +102,37 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
 
     }, [])
 
+    const addOrDeleteMentionedUser = () => {
+        // get all mentioned users
+        const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
+        // get all mentioned users id
+        const mentionedUsersId: string[] = [];
+        mentionedUsers.forEach((user) => {
+            mentionedUsersId.push(user.getAttribute('data-mention-id') || '')
+        })
+        // send the mentioned users id to the parent component
+        onSendMentions(mentionedUsersId)
+
+
+    }
+
+    const createFormatAndTextContentToSaveComment = () => {
+        // get the content string of each node
+        let plainContent = '';
+        if (divInputRef.current) {
+            divInputRef.current.childNodes.forEach((child) => {
+                if (child.textContent) {
+                    plainContent += child.textContent
+                }
+            })
+        }
+
+        // get the full html content of the div
+        const htmlContent = divInputRef.current?.innerHTML || '';
+        onContentFormat(htmlContent)
+        onContentUnformat(plainContent)
+        addOrDeleteMentionedUser()
+    }
     const handleInput = (event: React.KeyboardEvent) => {
 
         const selection = window.getSelection();
@@ -120,6 +162,8 @@ export const useInputHook = (limit: number, placeholder: string, onChange?: (val
         setInputSearch(inputSearch)
         !!onChange && onChange(inputSearch)
         countChars()
+        createFormatAndTextContentToSaveComment()
+
 
 
     }

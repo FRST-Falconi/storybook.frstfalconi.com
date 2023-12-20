@@ -25,5 +25,8 @@ export interface MentionProps
     showCharacterCounter: boolean,
     styles?: any,
     users: User[],
+    onSendMentions: (mentions: string[]) => void
+    onContentFormat: (content: string) => void
+    onContentUnformat: (content: string) => void
 }
 
