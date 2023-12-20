@@ -17,20 +17,21 @@ ModalNewFeaturesNormal.args = {
   onFinish: () => alert('salvar, aparecer só uma vez'),
   steps: [
     {
-      title: 'titulo do Topico 1',
+      title: 'titulo do Topico 1',        
       topicName: 'Oficina de Desafios',
       midia: 'https://player.vimeo.com/video/836574158?h=0aa0de5905&autoplay=1',
       typeMidia: 'video',
       description:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumque dolores ullam ea at modi recusandae!'
+      'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumque dolores ullam ea at modi recusandae!'
     },
     {
+      styleImage:{objectFit:'scale-down', objectPosition: "left", marginLeft:"20px" },
       title: 'titulo do topico 2',
       topicName: 'Topico 2',
       midia:
-        'https://www.sydle.com/api/1/blog/com.sydle.site/blogFacade/images/e-business-612541b6b060f57604938af9/e-business.jpg',
+        'https://cdn-images.frstfalconi.cloud/page_perfile.png',
       description:
-        'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate fuga voluptatibus cumque est quascupiditate earum odit ex eligendi ab. Veritatis itaque pariatur cumque dolores ullam ea at modi recusandae!'
+        <p>Lorem ipsum dolor <a href="https://www.google.com" style={{color:"black", fontWeight:"bold", textDecoration:"none"}}>link</a></p>
     },
     {
       title: 'titulo do topico 3',

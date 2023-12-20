@@ -1,12 +1,4 @@
-export interface IComment {
-    id: string,
-    username: string,
-    office:string,
-    company: string,
-    text:string,
-    howLongAgo: string,
-    imgProfile?:string,
-}
+import {IComment} from '../../threadComments.types';
 
 export interface ICommentComentaryBoxReply {
     commentData:IComment,

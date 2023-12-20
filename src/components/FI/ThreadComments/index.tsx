@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {  useState } from 'react'
 import * as Styled from './threadComments.styles';
 import {IThreadComments} from './threadComments.types';
 import Loading from '@components/DS/loading';
@@ -44,11 +44,12 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                     <CommentaryBoxV2       
                         styles={{marginBottom:'8px'}}                 
                         hasActionToClickOnAvatar={false}
-                        itsLiked={false} userId={mainComment.userId} userName={mainComment.username}
-                        userOffice={mainComment.office} userCompany={mainComment.company}
+                        imgProfile={mainComment.user.avatar}
+                        itsLiked={false} userId={mainComment.user.uuid} userName={mainComment.user.name}
+                        userOffice={mainComment.user.role_name} userCompany={mainComment.user.company_name}
                         commentId={mainComment.id} commentText={mainComment.text} 
                         howLongAgo={mainComment.howLongAgo} showMoreText={showMoreButtonText} showLessText={showLessButtonText} answerButtonText={answerButtonText}
-                        showLikeButton={false} actionAnswer={handleCommentReply}
+                        showLikeButton={false} actionAnswer={handleCommentReply} commentTextWithMention={mainComment.mentionText}
                         />
              
                 {listReplyComments?.length>0 && !showAnswers &&
@@ -65,7 +66,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                     publishButtonText={publishButtonText}
                     limitInput={limitInputs} 
                     onClickPublishButton={onClickPublishButton}
-                    replyFor={mainComment.username}
+                    replyFor={mainComment.user.name}
                     />
                )}
                 </div>
@@ -78,7 +79,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                     return  (
                     <>
                         <CommentaryBoxReply commentData={replyComment} answerButtonText={answerButtonText} showMoreButtonText={showMoreButtonText}
-                        showLessButtonText={showLessButtonText} onClickAnswerButton={handleCommentReplyReply}/>
+                        showLessButtonText={showLessButtonText} onClickAnswerButton={handleCommentReplyReply} />
                     {showInputByIdReply.includes(replyComment.id) &&(
                         <InputReply
                             imgProfile={loggedUserProfileImg}
@@ -88,7 +89,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                             publishButtonText={publishButtonText}
                             limitInput={limitInputs} 
                             onClickPublishButton={onClickPublishButton}
-                            replyFor={replyComment.username}
+                            replyFor={replyComment.user.name}
                         />
                     )
                 }

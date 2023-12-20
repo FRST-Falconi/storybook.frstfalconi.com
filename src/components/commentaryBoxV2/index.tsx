@@ -5,16 +5,16 @@ import { IconLikeFilled, IconLikeLine  } from '@shared/icons';
 import MiniButton from '@components/mini-button';
 import MenuMore from '@components/menu-more';
 import {buildStringWithLinkHTML, createUUID} from '../../utilityFunctions/'
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 
 
 
 export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,showMoreText,relationToPhaseText, showLessText,showLikeButton, styles,
-     actionLike,answerButtonText,likeButtonText,
+    actionLike,answerButtonText,likeButtonText, commentTextWithMention,
     howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,
-     likesCount, hasActionToClickOnAvatar, showOptions, options, itsLiked}: ICommentaryBoxV2)=> {
+    likesCount, hasActionToClickOnAvatar, showOptions, options, itsLiked}: ICommentaryBoxV2)=> {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;
     const [isLiked, setIsLiked] = useState(itsLiked);
 
@@ -35,18 +35,27 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
 
     const [isEllipsisVisible, setIsEllipsisVisible] = useState(false);
 
-
-    useEffect(() =>  {
-        document.getElementById(iDCommentPosted) ? 
-            document.getElementById(iDCommentPosted).innerHTML = buildStringWithLinkHTML(commentText) : null;
-    }, [commentText]);
-
     useEffect(() => {
         const textContainer = document.getElementById(iDCommentPosted); 
         if (textContainer) {  
             setIsEllipsisVisible( textContainer.scrollHeight > textContainer.clientHeight);
         }
     }, [commentText]);
+
+    useLayoutEffect(() => {
+        const handleResize = () => {
+          const textContainer = document.getElementById(iDCommentPosted);
+          if (textContainer) {
+            setIsEllipsisVisible(textContainer.scrollHeight > textContainer.clientHeight);
+          }
+        };
+            window.addEventListener('resize', handleResize);
+    
+        handleResize();
+            return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []); 
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -72,7 +81,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
                         </Styled.UserDataContainer>
                         {relationToPhaseText && <Styled.RelationContainer>{relationToPhaseText}</Styled.RelationContainer>}
                         <Styled.TextContainer id='textContainerId'>
-                            <Styled.Text style={isExpanded ?{ display: 'block'}: {display: '-webkit-box'}} id={iDCommentPosted}>{buildStringWithLinkHTML(commentText)}</Styled.Text>
+                            <Styled.Text style={isExpanded ?{ display: 'block'}: {display: '-webkit-box'}} id={iDCommentPosted} dangerouslySetInnerHTML={{__html:buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention: commentText)}}/>
                             <Styled.ShowMore isVisible={isEllipsisVisible} onClick={toggleExpand}>
                                {isExpanded? showLessText : showMoreText}
                             </Styled.ShowMore>

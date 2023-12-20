@@ -1,13 +1,9 @@
 export interface IComment {
-    userId:string;
     id: string,
-    username: string,
-    office:string,
-    text:string,
-    company:string,
+    user: IUser,
+    text: string,
+    mentionText?:string, 
     howLongAgo: string,
-    imgProfile?:string,
-    listReplyComments?:IComment[]
 }
 
 export interface IThreadComments {
@@ -23,4 +19,12 @@ export interface IThreadComments {
     showMoreButtonText: string,
     showLessButtonText: string,
     loggedUserProfileImg?: string
+}
+
+export interface IUser {
+    uuid: string,
+    name: string,
+    role_name: string,
+    company_name: string,
+    avatar?: string,
 }

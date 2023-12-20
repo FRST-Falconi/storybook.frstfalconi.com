@@ -6,10 +6,10 @@ import {IInputReply} from './inputReply.types';
 import Avatar from '@components/avatar';
 
 
-export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText,idInput, replyFor,imgProfile, styles}: IInputReply) => {
+export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles}: IInputReply) => {
     const [commentData, setCommentData] = useState(replyFor);
 
-    const OnChangeComment = (e: { target: { value: SetStateAction<string>; }; }) => {
+    const OnChangeComment = (e: any) => {
         setCommentData(e.target.value);
     }
 
@@ -18,17 +18,12 @@ export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,p
             <Avatar src={imgProfile} size='32px' style={{marginTop:'55px', marginRight:'8px'}}/>
             <Styled.InputContainer style={{...styles}}>
                 <InputComment
-                    styles={{width:'100%',marginTop:'22.5px'}}
-                    IDInput={idInput}
+                    styles={{ width: '100%', marginTop: '22.5px' }}
                     className='userComment'
-                    hasEmoji={true} 
-                    emojiWindowlanguage='pt'
                     onChange={OnChangeComment}
-                    value={commentData}
                     placeholder={placeHolderText}
-                    limit={limitInput} 
-                    remain={limitInput - commentData.length}
-                    showCharacterCounter={true}/>
+                    limit={limitInput}
+                    showCharacterCounter={true} users={[]}/>
 
                     <MiniButton disabled={commentData.length <= 0} label={publishButtonText} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
             </Styled.InputContainer>

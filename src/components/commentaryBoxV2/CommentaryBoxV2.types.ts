@@ -10,6 +10,7 @@ export interface ICommentaryBoxV2{
 
     commentId:string;
     commentText: string ;
+    commentTextWithMention?: string;
     howLongAgo: string ; 
     likesCount?: number ;
 

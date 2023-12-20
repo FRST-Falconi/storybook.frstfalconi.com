@@ -10,6 +10,7 @@ interface Wrapper {
     disabled?: boolean,
     focus?: boolean,
     hasChildren?: boolean,
+    isPlaceholder?: boolean
 }
 
 interface IEmojiWindow {
@@ -18,47 +19,45 @@ interface IEmojiWindow {
 }
 interface TextArea {
     height?: string
+    isPlaceholder?: boolean
 }
 
 export const InputWrapper = styled.div<Wrapper>`
     display: flex;
-    align-items:${({hasChildren}) => hasChildren ? 'base-line': 'flex-end'};
+    align-items:'baseline';
     width: 100%;
-    min-height: ${({hasChildren}) => hasChildren ? '99px' : '48px'};
-    position: ${({hasChildren}) => hasChildren ? 'relative' : 'static'};
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    min-height: '99px';
+    position: 'relative';
+    background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+    
+    
     border-radius: 24px;
 
     transition: all 0.2s ease-in-out;
 
-    &:hover {
-        border: 1px solid ${({ theme }) => theme.colors.shadeBlack};
-    }
+  
 
-    ${({ focus, theme }) => focus &&  
-        `border: 1px solid` + theme.colors.primary1 + " !important;"
+    border: ${({ theme, isPlaceholder }) => !isPlaceholder ? `2px solid ${theme.colors.neutralsGrey5} !important`: `1px solid ${theme.colors.neutralsGrey5} !important`};
+
+    &:hover {
+        border: 2px solid ${({ theme }) => theme.colors.neutralsGrey5} !important;
     }
 `
 
-export const InputText = styled.textarea<TextArea>`
-    display: flex;
-    align-items: center;
-
+export const InputText = styled.div<TextArea>`
     width: 100%;
     height: ${({height}) => height || '20px' };
     outline: 0;
-    
+    color: ${({ theme, isPlaceholder }) => !isPlaceholder ? theme.colors.neutralsGrey1: theme.colors.neutralsGrey4};
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.02em;
-    
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
-    resize: none;
+    
 
     padding: 0;
     margin: 14px;

@@ -32,7 +32,7 @@ Default.args = {
     userOffice: "Líder de vendas",
     userCompany: "Frst Falconi",
     imgProfile: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg',
-
+    commentTextWithMention:"<div><p>Este é um comentario para o usuario <span style='color: orange;'>Joao</span> que vai ficar marcado no mentions https://frstfalconi.com/ </p></div>",
     commentId:"commentId-0001",
     commentText: "Uow, muito genial isso https://frstfalconi.com/  Uow, muito genial isso https://frstfalconi.com/ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type andUow, muito genial isso https://frstfalconi.com/ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and",
     howLongAgo: "1 dia atrás",
@@ -48,7 +48,8 @@ Default.args = {
 
     hasActionToClickOnAvatar: true,
     showOptions:true,
-    options: options
+    options: options,
+    showLikeButton:true,
 
 }
 

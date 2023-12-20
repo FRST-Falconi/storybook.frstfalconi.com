@@ -120,7 +120,7 @@ export const FlexButtonContainer = styled.div<IButton>`
         }
 `
 
-export const Text = styled.p`
+export const Text = styled.div`
     color: #444;
     font-family: Work Sans;
     font-size: 16px;
