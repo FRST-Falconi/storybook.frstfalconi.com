@@ -113,7 +113,7 @@ export default function StudentExtraContent(props: IExtraContent) {
                         <div style={{display: 'flex', flexDirection:'row'}}>
 
                         <Avatar size={'40px'} src={props.userAvatar} />
-                        <InputComment
+                        {/* <InputComment
                             className={''}
                             showCharacterCounter={false}
                             IDInput='1'
@@ -125,7 +125,7 @@ export default function StudentExtraContent(props: IExtraContent) {
                             limit={1000}
                             hasEmoji={true}
                             styles={{ marginLeft: '8px', width: '80%' }}
-                            />
+                            /> */}
                         </div>
                         <div>
                             {props.commentList?.map( ( item : any, index: number) => {

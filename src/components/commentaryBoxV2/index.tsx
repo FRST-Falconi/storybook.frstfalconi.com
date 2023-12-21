@@ -9,8 +9,6 @@ import { useEffect, useLayoutEffect, useState } from 'react';
 import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 
-
-
 export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,showMoreText,relationToPhaseText, showLessText,showLikeButton, styles,
     actionLike,answerButtonText,likeButtonText, commentTextWithMention,
     howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,
@@ -93,11 +91,12 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
                     <Styled.FlexButtonContainer onClick={handleLike} >
                     {isLiked? 
                     <IconLikeFilled />  :  <IconLikeLine fill='#444'  />       }
-                    <MiniButton variant='secondary' onClick={handleLike} label={likeButtonText} active={isLiked} styles={{}}/>
+                    <MiniButton variant='terciary' onClick={handleLike} label={likeButtonText} active={isLiked} styles={{padding:'0px'}}
+                      />
                 </Styled.FlexButtonContainer>
                 )}
-        
-                <MiniButton variant='secondary' onClick={actionAnswer} label={answerButtonText}  styles={{}}/>
+
+                <MiniButton variant='terciary' onClick={actionAnswer} label={answerButtonText}  styles={{}}/>
                 {showOptions && options ? <MenuMore options={options}/> : <div/>}
             </Styled.InteractiveButtonsContainer>
     </ThemeProvider>

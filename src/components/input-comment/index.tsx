@@ -7,10 +7,10 @@ import { useInputHook } from './useInputHook'
 import { Mentions } from './mentions'
 import { User,IInputComment } from './types'
 
-export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, disabled, className }: IInputComment) {
-  const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook(limit, placeholder, onChange)
-    console.log(users);
-    
+export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className }: IInputComment) {
+  const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } =
+    useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange })
+
   return (
     <ThemeProvider theme={FRSTTheme}>
       <div style={{ ...styles }} tabIndex={0}>

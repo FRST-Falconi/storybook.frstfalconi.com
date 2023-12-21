@@ -109,13 +109,23 @@ export const InteractiveButtonsContainer = styled.div`
 export const FlexButtonContainer = styled.div<IButton>`
     cursor: pointer;
     display: flex;
-    gap: 4px;
     align-items: center;
     justify-content: center;
-    
+    padding:4px;
+    gap:4px;
+    border-radius: 8px;
+   
+    &:hover {
+        background-color: ${({theme}) => theme.colors.neutralsGrey9};
+    }
         svg {
             :hover {
-                fill: #fff;
+                fill:${({theme}) => theme.colors.neutralsGrey9};
+                background-color: ${({theme}) => theme.colors.neutralsGrey9};
+            }
+            :active {
+                stroke:${({theme}) => theme.colors.neutralsGrey1};
+                background-color:  ${({theme}) => theme.colors.neutralsGrey9};
             }
         }
 `

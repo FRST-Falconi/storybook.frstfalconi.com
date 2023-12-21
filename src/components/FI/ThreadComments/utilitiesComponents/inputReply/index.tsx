@@ -8,8 +8,19 @@ import Avatar from '@components/avatar';
 
 export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles, mentionUsers}: IInputReply) => {
     const [commentData, setCommentData] = useState(replyFor);
-    const OnChangeComment = (e: any) => {
-        setCommentData(e.target.value);
+    const OnChangeComment = (text: string) => {
+        setCommentData(text);
+    }
+
+    const [captureUnformattedValue, setCaptureUnformattedValue] = useState<string>("");
+    const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>("");
+    const [captureMentions, setCaptureMentions] = useState<string[]>();
+
+    const handlePublish = () =>{
+        console.log(captureUnformattedValue);
+        console.log(CaptureFormattedValue);
+        console.log(captureMentions);
+        onClickPublishButton();
     }
 
     return (
@@ -22,9 +33,13 @@ export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,p
                     onChange={OnChangeComment}
                     placeholder={placeHolderText}
                     limit={limitInput}
-                    showCharacterCounter={true} users={mentionUsers}/>
+                    showCharacterCounter={true} users={mentionUsers}
+                    onContentUnformat={((unformattedValue: string) => setCaptureUnformattedValue(unformattedValue))}
+                    onContentFormat={((formattedValue: string) => setCaptureFormattedValue(formattedValue))}
+                    onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
+                    />
 
-                    <MiniButton disabled={commentData.length <= 0} label={publishButtonText} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
+                    <MiniButton disabled={captureUnformattedValue.length <= 0} label={publishButtonText} onClick={()=> handlePublish()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
             </Styled.InputContainer>
         </Styled.Container>
 
