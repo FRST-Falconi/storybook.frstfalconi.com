@@ -8,7 +8,6 @@ import Avatar from '@components/avatar';
 
 export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles, mentionUsers}: IInputReply) => {
     const [commentData, setCommentData] = useState(replyFor);
-
     const OnChangeComment = (e: any) => {
         setCommentData(e.target.value);
     }
@@ -23,7 +22,7 @@ export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,p
                     onChange={OnChangeComment}
                     placeholder={placeHolderText}
                     limit={limitInput}
-                    showCharacterCounter={true} users={[]}/>
+                    showCharacterCounter={true} users={mentionUsers}/>
 
                     <MiniButton disabled={commentData.length <= 0} label={publishButtonText} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
             </Styled.InputContainer>

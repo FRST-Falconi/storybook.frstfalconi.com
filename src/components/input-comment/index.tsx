@@ -9,7 +9,8 @@ import { User,IInputComment } from './types'
 
 export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, disabled, className }: IInputComment) {
   const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook(limit, placeholder, onChange)
-
+    console.log(users);
+    
   return (
     <ThemeProvider theme={FRSTTheme}>
       <div style={{ ...styles }} tabIndex={0}>

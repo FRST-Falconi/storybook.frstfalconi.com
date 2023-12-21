@@ -1,4 +1,4 @@
-import {User as MentionUsersList} from '@components/input-comment/types'
+import {User as MentionUsers} from '@components/input-comment/types'
 
 export interface IComment {
     id: string,
@@ -21,7 +21,7 @@ export interface IThreadComments {
     showMoreButtonText: string,
     showLessButtonText: string,
     loggedUserProfileImg?: string,
-    mentionUsersList: MentionUsersList
+    mentionUsersList: MentionUsers[]
 }
 
 export interface IUser {

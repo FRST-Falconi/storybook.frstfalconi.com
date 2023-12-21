@@ -1,4 +1,4 @@
-import {User as MentionUsersList} from '@components/input-comment/types'
+import {User as MentionUser} from '@components/input-comment/types'
 
 export interface IInputReply {
     placeHolderText: string,
@@ -9,5 +9,5 @@ export interface IInputReply {
     idInput:string,
     replyFor:string,
     imgProfile?:string,
-    mentionUsers:MentionUsersList
+    mentionUsers:MentionUser[]
 }
