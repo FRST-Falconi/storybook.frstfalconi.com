@@ -7,7 +7,7 @@ import { CommentaryBoxV2 } from '@components/commentaryBoxV2';
 import { CommentaryBoxReply } from './utilitiesComponents/commentaryBoxReply';
 
 export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReplys, placeHolderText, onClickPublishButton,
-     showReplysButtonText, publishButtonText,limitInputs,answerButtonText,loggedUserProfileImg,
+     showReplysButtonText, publishButtonText,limitInputs,answerButtonText,loggedUserProfileImg,mentionUsersList,
      showMoreButtonText, showLessButtonText}: IThreadComments) => {
     const [isLoading, setIsLoading] = useState(false);
     const [showAnswers, setShowAnswers] = useState(false);
@@ -67,6 +67,7 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                     limitInput={limitInputs} 
                     onClickPublishButton={onClickPublishButton}
                     replyFor={mainComment.user.name}
+                    mentionUsers={mentionUsersList}
                     />
                )}
                 </div>
@@ -82,15 +83,14 @@ export const ThreadComments = ({ mainComment,listReplyComments, onClickShowReply
                         showLessButtonText={showLessButtonText} onClickAnswerButton={handleCommentReplyReply} />
                     {showInputByIdReply.includes(replyComment.id) &&(
                         <InputReply
-                            imgProfile={loggedUserProfileImg}
-                            styles={{width:'100%', marginTop:'24px'}}
-                            idInput={`idInput-${replyComment.id}`}
-                            placeHolderText={placeHolderText}
-                            publishButtonText={publishButtonText}
-                            limitInput={limitInputs} 
-                            onClickPublishButton={onClickPublishButton}
-                            replyFor={replyComment.user.name}
-                        />
+                                    imgProfile={loggedUserProfileImg}
+                                    styles={{ width: '100%', marginTop: '24px' }}
+                                    idInput={`idInput-${replyComment.id}`}
+                                    placeHolderText={placeHolderText}
+                                    publishButtonText={publishButtonText}
+                                    limitInput={limitInputs}
+                                    onClickPublishButton={onClickPublishButton}
+                                    replyFor={replyComment.user.name} mentionUsers={mentionUsersList}                        />
                     )
                 }
                 </>

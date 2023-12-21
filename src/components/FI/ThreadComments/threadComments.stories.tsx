@@ -1,7 +1,8 @@
 import React from 'react';
 import { ThreadComments } from './index';
 import { Meta } from '@storybook/react'
-import ShowMore from '../../show-more/index';
+
+import {mentionUserList} from '../../input-comment/inputComment.stories' 
 
 export default {
     title: 'FI/ThreadComments',
@@ -27,7 +28,7 @@ const listReplyComments = [{
     id:"03",
     text: "sim, eu também estou ansioso com o que vem por aí!",
     howLongAgo: "1 horas atrás",
-    mentionText: "<div><p>Este é um comentario para o usuario <span style='color: orange;'>Joao</span> que vai ficar marcado no mentions https://frstfalconi.com/ </p></div>",
+    mentionText: "<div><p>Este é um comentario para o usuario <span style='color: rgb(242, 104, 24);'>Joao</span> que vai ficar marcado no mentions https://frstfalconi.com/ </p></div>",
     user:{
         uuid: "user-00002",
         name: "Lucas Silva",
@@ -64,6 +65,7 @@ Default.args = {
     answerButtonText: 'Responder',
     showMoreButtonText: "Ver Mais",
     showLessButtonText: "Ver Menos",
+    mentionUsersList: mentionUserList
 }
 
 

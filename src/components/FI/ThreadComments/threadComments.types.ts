@@ -1,3 +1,5 @@
+import {User as MentionUsersList} from '@components/input-comment/types'
+
 export interface IComment {
     id: string,
     user: IUser,
@@ -18,7 +20,8 @@ export interface IThreadComments {
     limitInputs:number,
     showMoreButtonText: string,
     showLessButtonText: string,
-    loggedUserProfileImg?: string
+    loggedUserProfileImg?: string,
+    mentionUsersList: MentionUsersList
 }
 
 export interface IUser {

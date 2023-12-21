@@ -1,3 +1,5 @@
+import {User as MentionUsersList} from '@components/input-comment/types'
+
 export interface IInputReply {
     placeHolderText: string,
     publishButtonText:string,
@@ -6,5 +8,6 @@ export interface IInputReply {
     styles:any,
     idInput:string,
     replyFor:string,
-    imgProfile?:string
+    imgProfile?:string,
+    mentionUsers:MentionUsersList
 }

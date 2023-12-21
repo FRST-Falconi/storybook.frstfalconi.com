@@ -6,7 +6,7 @@ import {IInputReply} from './inputReply.types';
 import Avatar from '@components/avatar';
 
 
-export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles}: IInputReply) => {
+export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles, mentionUsers}: IInputReply) => {
     const [commentData, setCommentData] = useState(replyFor);
 
     const OnChangeComment = (e: any) => {
