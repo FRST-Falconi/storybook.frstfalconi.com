@@ -65,6 +65,8 @@ export const WrapperIconNotification = styled.div`
   font-size: 16px;
   font-weight: 400;
   color: #fff;
+  position: relative;
+  left: 17px;
 `
 export const WrapperIconNotificationMobile = styled.div`
   cursor: pointer;
@@ -194,4 +196,29 @@ export const itemFrstSocials = styled.button`
   border: none;
   background: none;
   cursor: pointer;
+`
+
+export const help = styled.div`
+
+width: 77px;
+color: #fff;
+display: flex;
+left: 14px;
+position: relative;
+cursor: pointer;
+
+
+`
+
+export const helpText = styled.p`
+
+color: #fff;
+width: 45px;
+position: relative;
+top: 3px;
+height: 0px;
+position: relative;
+right: 10px;
+
+
 `
