@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ top: string; width?: number; height?: number }>`
+export const Container = styled.div<{ hide: boolean; top: string; width?: number; height?: number }>`
   background-color: #ffff;
-  display: flex;
+  display: ${({ hide }) => hide ? 'none' : 'flex'};
   justify-content: center;
   align-items: center;
   flex-direction: column;

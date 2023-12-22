@@ -11,7 +11,7 @@ export const Mentions = (mention: MentionProps) => {
 
   return (
     <>
-      <Container top={top} tabIndex={0}>
+      <Container top={top} tabIndex={0} hide={!users || users.length <= 0}>
         <MentionList tabIndex={1} ref={mentionListRef}>
           {users?.map((user, index) => {
             return (
