@@ -9,9 +9,10 @@ interface IInputHook {
     onContentFormat: (content: string) => void
     onContentUnformat: (content: string) => void
     onChange?: (value: any) => void
+    value?: string
 }
 
-export const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange }: IInputHook) => {
+export const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value }: IInputHook) => {
 
     const [focus, setFocus] = useState(false)
     const [showMention, setShowMention] = useState(false)
@@ -207,7 +208,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
         if (!divInputRef.current) return;
         setPlaceholder(false)
-        if (divInputRef.current.childNodes.length === 0 && !focus) {
+        if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true)
@@ -239,7 +240,12 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
 
     }
-
+    useEffect(() => {
+        if ((!value || value.length <= 0) && !focus) {
+            divInputRef.current.innerText = placeholder;
+            setPlaceholder(true)
+        }
+    }, [value])
     useEffect(() => {
         if (!divInputRef.current) return;
 
