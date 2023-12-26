@@ -7,8 +7,6 @@ export const Mentions = (mention: MentionProps) => {
   const { selectedUser, setSelectedUser, mentionListRef } = useMentions(mention);
   const { top, users } = mention;
 
-
-
   return (
     <>
       <Container top={top} tabIndex={0}>

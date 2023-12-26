@@ -1,7 +1,7 @@
 import * as Styled from './CommentaryBoxV2.styles';
 import Avatar from '@components/avatar';
 import {ICommentaryBoxV2} from './CommentaryBoxV2.types';
-import { IconLikeFilled, IconLikeLine  } from '@shared/icons';
+import { EditIcon, IconLikeFilled, IconLikeLine, TrashIconNew  } from '@shared/icons';
 import MiniButton from '@components/mini-button';
 import MenuMore from '@components/menu-more';
 import {buildStringWithLinkHTML, createUUID} from '../../utilityFunctions/'
@@ -10,11 +10,32 @@ import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 
 export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,showMoreText,relationToPhaseText, showLessText,showLikeButton, styles,
-    actionLike,answerButtonText,likeButtonText, commentTextWithMention,
-    howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,
-    likesCount, hasActionToClickOnAvatar, showOptions, options, itsLiked}: ICommentaryBoxV2)=> {
+    actionLike,answerButtonText,likeButtonText, commentTextWithMention,editText,deleteText,isAuthor,isOwnerPost,
+    howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,actionEditComment, actionDeleteComment,
+    likesCount, hasActionToClickOnAvatar, showOptions, itsLiked}: ICommentaryBoxV2)=> {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;
     const [isLiked, setIsLiked] = useState(itsLiked);
+
+    const edit = {
+        description: editText,
+        startIcon: <EditIcon fill='#222'/>,
+        onClick: actionEditComment,
+    };
+    const exclude =         {
+        description: deleteText,
+        startIcon: <TrashIconNew fill='#C1341A'/>,
+        onClick:() =>actionDeleteComment,
+        color: '#C1341A',
+    };
+
+    const authorOptions = [
+        edit,
+        exclude
+    ]
+    
+    const ownerPost = [
+        exclude
+    ]
 
     const handleLike = () =>{
         try {
@@ -97,7 +118,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
                 )}
 
                 <MiniButton variant='terciary' onClick={actionAnswer} label={answerButtonText}  styles={{}}/>
-                {showOptions && options ? <MenuMore options={options}/> : <div/>}
+                {showOptions && isAuthor ? <MenuMore options={authorOptions}/> :isOwnerPost? <MenuMore options={ownerPost}/>: <div/>}
             </Styled.InteractiveButtonsContainer>
     </ThemeProvider>
     )

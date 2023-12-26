@@ -26,10 +26,12 @@ export interface ICommentaryBoxV2{
     onClickUserInfo?: () => void ;
     actionLike?: (wantToLike:boolean) => void;
     actionAnswer?: () => void ;
+    actionDeleteComment?: () => void
+    actionEditComment?: () => void
 
-    options?: IOptionItem[] ;
     styles?: any ;
     isAuthor?: boolean ;
+    isOwnerPost?: boolean;
     idTextComment?: string ;
     hasActionToClickOnAvatar: boolean;
     showOptions?: boolean ;

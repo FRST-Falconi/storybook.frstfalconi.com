@@ -2,7 +2,7 @@ import React from 'react';
 import { ThreadComments } from './index';
 import { Meta } from '@storybook/react'
 
-import {mentionUserList} from '../../input-comment/inputComment.stories' 
+import {mentionUserList} from '../../input-comment/mention.mocks' 
 
 export default {
     title: 'FI/ThreadComments',
