@@ -44,6 +44,7 @@ Default.args = {
     answerButtonText: "Responder",
     showMoreText: "Ver Mais",
     showLessText: "Ver Menos",
+    visitProfileText: "Visitar perfil",
     relationToPhaseText:"Em relação à Fase 1 -  Definição",
 
     hasActionToClickOnAvatar: true,

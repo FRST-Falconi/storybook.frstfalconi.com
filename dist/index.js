@@ -4436,9 +4436,27 @@ const createUUID = () => {
     return uuid;
 };
 
-const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, answerButtonText, likeButtonText, commentTextWithMention, howLongAgo, commentId, commentText, actionAnswer, onClickUserInfo, likesCount, hasActionToClickOnAvatar, showOptions, options, itsLiked }) => {
+const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, likesCount, hasActionToClickOnAvatar, showOptions, itsLiked }) => {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;
     const [isLiked, setIsLiked] = React.useState(itsLiked);
+    const edit = {
+        description: editText,
+        startIcon: jsxRuntime.jsx(EditIcon, { fill: '#222' }),
+        onClick: actionEditComment,
+    };
+    const exclude = {
+        description: deleteText,
+        startIcon: jsxRuntime.jsx(TrashIconNew, { fill: '#C1341A' }),
+        onClick: () => actionDeleteComment,
+        color: '#C1341A',
+    };
+    const authorOptions = [
+        edit,
+        exclude
+    ];
+    const ownerPost = [
+        exclude
+    ];
     const handleLike = () => {
         try {
             actionLike(!isLiked);
@@ -4471,7 +4489,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
         };
     }, []);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$g, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { size: '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default' } }), jsxRuntime.jsxs(Box, { children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsxs(FirstChildUserData, { children: [jsxRuntime.jsx(Username, { children: userName }), likesCount > 0 && (jsxRuntime.jsxs(LikesContainer, { children: [jsxRuntime.jsx(IconLikeContainer, { children: jsxRuntime.jsx(IconLikeFilled, { fill: '#fff', stroke: '#fff', customColor_1: '#757575', width: '16px', height: '16px' }) }), jsxRuntime.jsx("p", { children: likesCount })] }))] }), jsxRuntime.jsxs(UserDataLastChild, { children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$1, { id: 'textContainerId', children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: { __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText) } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] })] }), jsxRuntime.jsxs(InteractiveButtonsContainer, { children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: handleLike, children: [isLiked ?
-                                jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: '#444' }), jsxRuntime.jsx(MiniButton, { variant: 'terciary', onClick: handleLike, label: likeButtonText, active: isLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: 'terciary', onClick: actionAnswer, label: answerButtonText, styles: {} }), showOptions && options ? jsxRuntime.jsx(MenuMore, { options: options }) : jsxRuntime.jsx("div", {})] })] }));
+                                jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: '#444' }), jsxRuntime.jsx(MiniButton, { variant: 'terciary', onClick: handleLike, label: likeButtonText, active: isLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: 'terciary', onClick: actionAnswer, label: answerButtonText, styles: {} }), showOptions && isAuthor ? jsxRuntime.jsx(MenuMore, { options: authorOptions }) : isOwnerPost ? jsxRuntime.jsx(MenuMore, { options: ownerPost }) : jsxRuntime.jsx("div", {})] })] }));
 };
 
 const ButtonCheckmark = styled__default["default"].div `

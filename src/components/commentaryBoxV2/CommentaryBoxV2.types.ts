@@ -20,6 +20,7 @@ export interface ICommentaryBoxV2{
     deleteText?: string ;
     showMoreText: string;
     showLessText: string ;
+    visitProfileText?: string ;
     relationToPhaseText?: string;
 
 

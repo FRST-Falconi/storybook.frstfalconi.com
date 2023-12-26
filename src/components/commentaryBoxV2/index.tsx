@@ -10,7 +10,7 @@ import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 
 export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,showMoreText,relationToPhaseText, showLessText,showLikeButton, styles,
-    actionLike,answerButtonText,likeButtonText, commentTextWithMention,editText,deleteText,isAuthor,isOwnerPost,
+    actionLike,answerButtonText,likeButtonText,visitProfileText, commentTextWithMention,editText,deleteText,isAuthor,isOwnerPost,
     howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,actionEditComment, actionDeleteComment,
     likesCount, hasActionToClickOnAvatar, showOptions, itsLiked}: ICommentaryBoxV2)=> {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;
@@ -79,20 +79,23 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
     return (
         <ThemeProvider theme={FRSTTheme}>
             <Styled.Container style={{...styles}}>
-                <Avatar size='32px' src={imgProfile} onClick={onClickUserInfo} style={{cursor: hasActionToClickOnAvatar ? 'pointer': 'default'}}/>
-                    <Styled.Box>
-                        <Styled.UserDataContainer>
-                            <Styled.FirstChildUserData>
-                                <Styled.Username>{userName}</Styled.Username>
-                                {likesCount > 0 && (
-                                <Styled.LikesContainer>
-                                    <Styled.IconLikeContainer>
-                                        <IconLikeFilled fill='#fff' stroke='#fff' customColor_1={'#757575'} width='16px' height='16px'/>
+            <Avatar 
+            size='32px' src={imgProfile} 
+            onClick={onClickUserInfo}
+             style={{cursor: hasActionToClickOnAvatar ? 'pointer': 'default'}}
+            />
+            <Styled.Box>
+                <Styled.UserDataContainer>
+                    <Styled.FirstChildUserData>
+                        <Styled.Username>{userName}</Styled.Username>
+                            {likesCount > 0 && (
+                            <Styled.LikesContainer>
+                                <Styled.IconLikeContainer>
+                                    <IconLikeFilled fill='#fff' stroke='#fff' customColor_1={'#757575'} width='16px' height='16px'/>
                                     </Styled.IconLikeContainer>
                                     <p>{likesCount}</p>
-                                </Styled.LikesContainer>
-                                
-                                ) }
+                            </Styled.LikesContainer>          
+                            )}
                             </Styled.FirstChildUserData>
                             <Styled.UserDataLastChild>
                                 {userOffice && userOffice} {userCompany && `• ${userCompany}`} {howLongAgo && `• ${howLongAgo}`}
