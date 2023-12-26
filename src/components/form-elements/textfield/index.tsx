@@ -4,13 +4,16 @@ import * as Styles from './textFieldStyle'
 import {  ThemeProvider } from 'styled-components'
 import { useTranslation } from 'react-i18next'
 import { FRSTTheme } from '../../../theme'
+import { LampHelpBoxInput } from '@shared/icons'
 
 type enumType = 'text' | 'password' | 'email' | 'number' 
 
 export interface TextFieldProps {
-    label?: string,
+    label?: any,
     placeholder?: string,
-    helperText?: string,
+    helperText?: any,
+    helperTextBox?: string,
+    isHelperTextBox?: boolean,
     endIcon?: any,
     endIconChanged?: any,
     startIcon?: any,
@@ -30,6 +33,7 @@ export interface TextFieldProps {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
     maxLength?: number,
     handleClickEndIcon?: () => void
+
 }
 
 export default function TextField(props: TextFieldProps) {
@@ -67,6 +71,7 @@ export default function TextField(props: TextFieldProps) {
                     onMouseLeave={() => setHover(false)}
                     onClick={() => showBorderAfterClick()}
                     isClicked={click}
+                    isHelpTextBox={props.isHelperTextBox}
                 >
                     {
                         props.startIcon && !props.multiline && (
@@ -76,7 +81,6 @@ export default function TextField(props: TextFieldProps) {
                     <Styles.TextField
                         onFocus={() => setFocus(true)}
                         onBlur={() => setFocus(false)}  
-                        
                         id={props.id}
                         placeholder={props.placeholder || `${ t('globals.typeHere') }...`}
                         as={props.multiline ? 'textarea' : 'input'}
@@ -97,6 +101,9 @@ export default function TextField(props: TextFieldProps) {
                 </Styles.TextFieldContainer>
                 {
                     props.helperText && <Styles.HelperText>{props.helperText}</Styles.HelperText>
+                }
+                {
+                    props.helperTextBox && <Styles.HelperTextBox><LampHelpBoxInput/>{props.helperTextBox}</Styles.HelperTextBox>
                 }
             </div>
         </ThemeProvider>

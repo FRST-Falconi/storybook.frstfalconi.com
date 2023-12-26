@@ -4,6 +4,7 @@ interface TextFieldProps {
   type?: string
   as?: string
   isClicked?: boolean
+  isHelpTextBox?: boolean
   erroe?: boolean
 }
 
@@ -25,7 +26,7 @@ const placeholderStyle = (color: string) => css`
     }
 `
 
-export const TextFieldContainer = styled.div<{ isClicked }>`
+export const TextFieldContainer = styled.div<TextFieldProps>`
   width: ${(props) => props.theme.width || '100%'};
   height: 48px;
   background: ${({ theme }) => theme.colors.neutralsGrey6};
@@ -45,6 +46,22 @@ export const TextFieldContainer = styled.div<{ isClicked }>`
     `
         box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
         border: 1px solid #663366 !important;`}
+
+  
+${(props) =>
+    props.isHelpTextBox && props.isClicked &&
+    css`
+    box-shadow: none !important;
+        border: 1px solid #F18624 !important;
+    `}
+
+    ${(props) =>
+    props.theme.focused && props.isHelpTextBox &&
+    css`
+      box-shadow: 0px 0px 0px 1px #F18624 !important;
+      border: 1px solid #F18624 !important;
+    `}
+
 
   ${(props) =>
     props.theme.multiline &&
@@ -188,6 +205,23 @@ export const HelperText = styled.span`
     css`
       color: ${({ theme }) => theme.colors.messageError1};
     `}
+`
+
+export const HelperTextBox = styled.div`
+width: 100%;
+height: fit-content;
+padding: 1rem;
+border-radius: 8px;
+border: 1px;
+background: #FEF0D080;
+border: 1px solid #FDAE15;
+display: flex;
+font-weight: 400;
+font-size: 16px;
+align-items: center;
+svg{
+  margin-right: 0.5rem;
+}
 `
 
 export const InputIconButton = styled.button`
