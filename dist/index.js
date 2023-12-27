@@ -4641,20 +4641,20 @@ const Container$g = styled__default["default"].div `
     display:flex;
     justify-content:center;
     margin-bottom:40px;
-    margin-left:55px;
-
 `;
 
 const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyFor, imgProfile, styles }) => {
     const [comment, setComment] = React.useState('');
-    const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState("");
+    const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState('');
     const [captureMentions, setCaptureMentions] = React.useState([]);
     const [users, setUsers] = React.useState([]);
     const handlePublish = async () => {
-        console.log(comment);
-        console.log(CaptureFormattedValue);
-        console.log(captureMentions);
-        await onClickPublishButton({ comment, contentMention: CaptureFormattedValue, mentions: captureMentions, parentId });
+        await onClickPublishButton({
+            content: comment,
+            contentMention: CaptureFormattedValue,
+            mentions: captureMentions,
+            parentId
+        });
         setComment('');
         setCaptureFormattedValue('');
         setCaptureMentions([]);
@@ -4670,9 +4670,9 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
         const response = await getSearchUsers(value);
         setUsers(response.data.results);
     };
-    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: '32px', style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: 'userComment', onChange: (e) => {
+    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
-                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: ((unformattedValue) => setCommentData(unformattedValue)), onContentFormat: ((formattedValue) => setCaptureFormattedValue(formattedValue)), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } })] })] }));
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } })] })] }));
 };
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
