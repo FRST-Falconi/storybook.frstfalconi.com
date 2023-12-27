@@ -13,7 +13,7 @@ export interface IInputReply {    placeHolderText: string,
 }
 
 interface onClickPublishButtonParams {
-    content: string,
+    comment: string,
     contentMention: string ,
     mentions: Array<string> ,
     parentId?: number ;

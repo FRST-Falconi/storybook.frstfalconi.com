@@ -4649,11 +4649,13 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     const [captureMentions, setCaptureMentions] = React.useState([]);
     const [users, setUsers] = React.useState([]);
     const handlePublish = async () => {
+        console.log(comment);
+        console.log(parentId);
         await onClickPublishButton({
-            content: comment,
+            comment,
             contentMention: CaptureFormattedValue,
             mentions: captureMentions,
-            parentId
+            parentId: parentId
         });
         setComment('');
         setCaptureFormattedValue('');
