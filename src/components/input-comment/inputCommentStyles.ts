@@ -9,7 +9,10 @@ interface AvatarI {
 interface Wrapper {
     disabled?: boolean,
     focus?: boolean,
+<<<<<<< HEAD
     hasChildren?: boolean,
+=======
+>>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
     isPlaceholder?: boolean
 }
 

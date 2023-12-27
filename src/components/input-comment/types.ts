@@ -28,5 +28,6 @@ export interface MentionProps
     onSendMentions: (mentions: string[]) => void
     onContentFormat: (content: string) => void
     onContentUnformat: (content: string) => void
+    value?:string
 }
 
