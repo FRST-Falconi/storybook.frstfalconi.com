@@ -551,13 +551,8 @@ function styleInject(css, ref) {
   }
 }
 
-<<<<<<< HEAD
-var css_248z$p = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$p);
-=======
 var css_248z$o = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
 styleInject(css_248z$o);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 function Tag(props) {
     function getBG() {
@@ -1534,11 +1529,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-<<<<<<< HEAD
 const Container$k = styled__default["default"](Card__default["default"]) `
-=======
-const Container$h = styled__default["default"](Card__default["default"]) `
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -1744,15 +1735,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-<<<<<<< HEAD
             jsxRuntime.jsx(Container$k, { className: 'shimmer' })
             :
                 jsxRuntime.jsx(Container$k, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$6, { children: t('calendar.title') }), moduleSelector &&
-=======
-            jsxRuntime.jsx(Container$h, { className: 'shimmer' })
-            :
-                jsxRuntime.jsx(Container$h, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$6, { children: t('calendar.title') }), moduleSelector &&
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -1765,15 +1750,9 @@ function CalendarCard(props) {
                                         jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$o = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
-var style$h = {"container":"TextIcon-module_container__c5xjY"};
-styleInject(css_248z$o);
-=======
 var css_248z$n = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
 var style$g = {"container":"TextIcon-module_container__c5xjY"};
 styleInject(css_248z$n);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 ///-----------------------------------------
 /// Componente
@@ -1785,15 +1764,9 @@ function TextIcon(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$g.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$n = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
-var style$g = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
-styleInject(css_248z$n);
-=======
 var css_248z$m = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
 var style$f = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
 styleInject(css_248z$m);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 ///-----------------------------------------
 /// Componente
@@ -1826,15 +1799,9 @@ function Rating$1(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$f.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$f.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$f.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$f.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$f.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$m = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
-var style$f = {"container":"RatingCurtidas-module_container__Ns11t"};
-styleInject(css_248z$m);
-=======
 var css_248z$l = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
 var style$e = {"container":"RatingCurtidas-module_container__Ns11t"};
 styleInject(css_248z$l);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 ///-----------------------------------------
 /// Componente
@@ -2150,18 +2117,6 @@ function StepItem({ index, name, action, step, variant }) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { variant: variant }), jsxRuntime.jsx(CicleStepChar, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
 }
 
-<<<<<<< HEAD
-var css_248z$l = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
-var style$e = {"container":"avatarWithInfo-module_container__Y-yUf"};
-styleInject(css_248z$l);
-
-const AvatarImg$1 = styled__default["default"].img `
-  width: ${(props) => props.size || '120px'};
-  height: ${(props) => props.size || '120px'};
-  border-radius: 50%;
-  object-fit: cover;
-
-=======
 var css_248z$k = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
 var style$d = {"container":"avatarWithInfo-module_container__Y-yUf"};
 styleInject(css_248z$k);
@@ -2172,7 +2127,6 @@ const AvatarImg$1 = styled__default["default"].img `
   border-radius: 50%;
   object-fit: cover;
 
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
   ${({ disabled }) => disabled === true &&
     `
         filter: grayscale(100%);
@@ -2427,11 +2381,7 @@ const variantStyles$1 = (variant = 'contained') => ({
       }
     `
 }[variant]);
-<<<<<<< HEAD
-const Button$6 = styled__default["default"].button `
-=======
 const Button$5 = styled__default["default"].button `
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2577,15 +2527,9 @@ function Button$4({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$5, { ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$k = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
-var style$d = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
-styleInject(css_248z$k);
-=======
 var css_248z$j = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
 var style$c = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
 styleInject(css_248z$j);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 const SpanHeaderTag = styled__default["default"].span `
     display: flex;
@@ -2867,15 +2811,9 @@ function getTranslateBtnNextPrevSteps() {
     };
 }
 
-<<<<<<< HEAD
-var css_248z$j = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
-var style$c = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
-styleInject(css_248z$j);
-=======
 var css_248z$i = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
 var style$b = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
 styleInject(css_248z$i);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 ///-----------------------------------------
 /// Componente
@@ -3013,8 +2951,6 @@ const TextFieldContainer = styled__default["default"].div `
         box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
         border: 1px solid #663366 !important;`}
 
-<<<<<<< HEAD
-=======
   
 ${(props) => props.isHelpTextBox && props.isClicked &&
     styled.css `
@@ -3029,7 +2965,6 @@ ${(props) => props.isHelpTextBox && props.isClicked &&
     `}
 
 
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
   ${(props) => props.theme.multiline &&
     styled.css `
       width: ${(props) => props.theme.width || '100%'};
@@ -3156,25 +3091,6 @@ const HelperText$3 = styled__default["default"].span `
       color: ${({ theme }) => theme.colors.messageError1};
     `}
 `;
-<<<<<<< HEAD
-const InputIconButton = styled__default["default"].button `
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
-  margin-right: -10px;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 50%;
-  outline: none;
-  transition: all 0.1s linear;
-  cursor: pointer;
-  margin-right: 16px;
-`;
-=======
 const HelperTextBox = styled__default["default"].div `
 width: 100%;
 height: fit-content;
@@ -3208,7 +3124,6 @@ const InputIconButton = styled__default["default"].button `
   cursor: pointer;
   margin-right: 16px;
 `;
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 const StartIcon = styled__default["default"].span `
   margin-left: 16px;
 `;
@@ -3310,11 +3225,7 @@ const HelperText$2 = styled__default["default"].span `
 
     letter-spacing: -0.02em;
 
-<<<<<<< HEAD
     color: ${({ theme, isInputLimit }) => isInputLimit === true ? theme.colors.messageError3 : theme.colors.neutralsGrey2};
-=======
-    color: ${({ theme }) => theme.colors.neutralsGrey2};
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
     margin-top: 8px;
     margin-left: 13px;
@@ -3333,11 +3244,7 @@ styled__default["default"].div `
 `;
 // transform: scale(0.845);
 
-<<<<<<< HEAD
-const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange }) => {
-=======
 const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value }) => {
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
     const [focus, setFocus] = React.useState(false);
     const [showMention, setShowMention] = React.useState(false);
     const [inputSearch, setInputSearch] = React.useState('');
@@ -3499,11 +3406,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         if (!divInputRef.current)
             return;
         setPlaceholder(false);
-<<<<<<< HEAD
-        if (divInputRef.current.childNodes.length === 0 && !focus) {
-=======
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true);
@@ -3533,15 +3436,12 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         }
     };
     React.useEffect(() => {
-<<<<<<< HEAD
-=======
         if ((!value || value.length <= 0) && !focus) {
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true);
         }
     }, [value]);
     React.useEffect(() => {
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
         if (!divInputRef.current)
             return;
         //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
@@ -3576,15 +3476,9 @@ const DefaultProfile = ({ className, size = 40 }) => {
     return (jsxRuntime.jsxs("svg", { className: className, width: size, height: size, viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", children: [jsxRuntime.jsx("path", { d: "M40 19.9999C40 8.95419 31.0463 2.71419e-06 19.9991 1.7484e-06C8.9537 7.82768e-07 -7.82789e-07 8.95419 -1.74842e-06 19.9999C-2.71406e-06 31.0456 8.95369 40 19.9991 40C31.0463 40 40 31.0456 40 19.9999Z", fill: "url(#pattern0)" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsx("pattern", { id: "pattern0", patternContentUnits: "objectBoundingBox", width: "1", height: "1", children: jsxRuntime.jsx("use", { xlinkHref: "#image0_1049_1923", transform: "scale(0.00287356)" }) }), jsxRuntime.jsx("image", { id: "image0_1049_1923", width: "348", height: "348", xlinkHref: "data:image/png;base64,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" })] })] }));
 };
 
-<<<<<<< HEAD
 const Container$j = styled__default["default"].div `
   background-color: #ffff;
-  display: flex;
-=======
-const Container$g = styled__default["default"].div `
-  background-color: #ffff;
   display: ${({ hide }) => hide ? 'none' : 'flex'};
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -3720,11 +3614,7 @@ const useMentions = (mention) => {
 const Mentions = (mention) => {
     const { selectedUser, setSelectedUser, mentionListRef } = useMentions(mention);
     const { top, users } = mention;
-<<<<<<< HEAD
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Container$j, { top: top, tabIndex: 0, children: jsxRuntime.jsx(MentionList, { tabIndex: 1, ref: mentionListRef, children: users?.map((user, index) => {
-=======
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Container$g, { top: top, tabIndex: 0, hide: !users || users.length <= 0, children: jsxRuntime.jsx(MentionList, { tabIndex: 1, ref: mentionListRef, children: users?.map((user, index) => {
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Container$j, { top: top, tabIndex: 0, hide: !users || users.length <= 0, children: jsxRuntime.jsx(MentionList, { tabIndex: 1, ref: mentionListRef, children: users?.map((user, index) => {
                     return (jsxRuntime.jsxs(MentionItem, { tabIndex: index += 2, active: user.user_uuid === selectedUser?.user_uuid, onMouseDown: () => setSelectedUser(user), onKeyUpCapture: (e) => {
                             if (e.key.toLowerCase() === 'enter') {
                                 setSelectedUser(user);
@@ -3733,13 +3623,8 @@ const Mentions = (mention) => {
                 }) }) }) }));
 };
 
-<<<<<<< HEAD
-function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className }) {
-    const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange });
-=======
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value }) {
     const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value });
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMention && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
@@ -4204,7 +4089,6 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                                     jsxRuntime.jsxs(LinkButton, { onClick: actionAnswer, children: ["  ", textAnswer, "  "] })] })] })] })] }) }));
 }
 
-<<<<<<< HEAD
 const Container$i = styled__default["default"].div `
     display:flex;
     width: ${({ width }) => width ? width : "100%"};
@@ -4349,7 +4233,7 @@ const ShowMore$1 = styled__default["default"].span `
     display: ${({ isVisible }) => (isVisible ? 'inline' : 'none')};
 `;
 
-const Button$4 = styled__default["default"].div `
+const Button$3 = styled__default["default"].div `
     ${({ variant, disabled, active, theme }) => {
     let styleVariant = {
         'primary': styled.css `
@@ -4424,7 +4308,7 @@ const Button$4 = styled__default["default"].div `
 `;
 
 function MiniButton({ variant, label, disabled, onClick, styles, active, }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme }, children: jsxRuntime.jsx(Button$4, { onClick: (e) => !disabled && onClick(e), disabled: disabled, variant: variant, style: { ...styles }, active: !!active, children: label }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme }, children: jsxRuntime.jsx(Button$3, { onClick: (e) => !disabled && onClick(e), disabled: disabled, variant: variant, style: { ...styles }, active: !!active, children: label }) }));
 }
 
 styled__default["default"].p `
@@ -4580,7 +4464,7 @@ const createUUID = () => {
     return uuid;
 };
 
-const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, answerButtonText, likeButtonText, visitProfileText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, likesCount, hasActionToClickOnAvatar, showOptions, itsLiked }) => {
+const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, likesCount, hasActionToClickOnAvatar, showOptions, itsLiked }) => {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;
     const [isLiked, setIsLiked] = React.useState(itsLiked);
     const edit = {
@@ -4641,10 +4525,9 @@ const Container$h = styled__default["default"].div `
   display: flex;
   align-items: left;
   flex-direction: column;
-  width: ${({ width }) => (width ? `${width}` : '100%')};
+  width:100%;
 `;
 const CommentarysContainer = styled__default["default"].div `
-width: ${({ width }) => (width ? `${width}` : '70%')};
 margin:18px;
 align-items: center;
 justify-content:center;
@@ -4753,9 +4636,9 @@ function Loading(props) {
 }
 
 const InputContainer = styled__default["default"].div `
-display:flex;
-flex-direction:column;
-position:relative;
+    display:flex;
+    flex-direction:column;
+    position:relative;
 `;
 const Container$g = styled__default["default"].div `
     display:flex;
@@ -4765,28 +4648,40 @@ const Container$g = styled__default["default"].div `
 
 `;
 
-const InputReply = ({ placeHolderText, onClickPublishButton, limitInput, publishButtonText, replyFor, imgProfile, styles, mentionUsers }) => {
-    const [commentData, setCommentData] = React.useState(replyFor);
-    const OnChangeComment = (text) => {
-        setCommentData(text);
-    };
-    const [captureUnformattedValue, setCaptureUnformattedValue] = React.useState("");
+const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyFor, imgProfile, styles }) => {
+    const [comment, setComment] = React.useState(replyFor);
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState("");
     const [captureMentions, setCaptureMentions] = React.useState();
+    const [users, setUsers] = React.useState([]);
     const handlePublish = () => {
-        console.log(captureUnformattedValue);
+        console.log(comment);
         console.log(CaptureFormattedValue);
         console.log(captureMentions);
-        onClickPublishButton();
+        onClickPublishButton({ comment, contentMention: CaptureFormattedValue, mentions: captureMentions, parentId });
+        setComment('');
+        setCaptureFormattedValue('');
+        setCaptureMentions([]);
     };
-    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: '32px', style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: 'userComment', onChange: OnChangeComment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, users: mentionUsers, onContentUnformat: ((unformattedValue) => setCaptureUnformattedValue(unformattedValue)), onContentFormat: ((formattedValue) => setCaptureFormattedValue(formattedValue)), onSendMentions: (mentions) => setCaptureMentions(mentions) }), jsxRuntime.jsx(MiniButton, { disabled: captureUnformattedValue.length <= 0, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } })] })] }));
+    let timeout;
+    const setCommentData = (value) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            setComment(value);
+        }, 500);
+    };
+    const handleSearchUsers = async (value) => {
+        setUsers(await getSearchUsers(value));
+    };
+    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: '32px', style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: 'userComment', onChange: (e) => {
+                            handleSearchUsers(e);
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: ((unformattedValue) => setCommentData(unformattedValue)), onContentFormat: ((formattedValue) => setCaptureFormattedValue(formattedValue)), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } })] })] }));
 };
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
     return (jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, itsLiked: false, userName: commentData.user.name, userOffice: commentData.user.role_name, userCompany: commentData.user.company_name, commentId: commentData.id, commentText: commentData.text, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => onClickAnswerButton(commentData.id), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '8px' }, commentTextWithMention: commentData.mentionText }));
 };
 
-const ThreadComments = ({ mainComment, listReplyComments, onClickShowReplys, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedUserProfileImg, mentionUsersList, showMoreButtonText, showLessButtonText }) => {
+const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedUserProfileImg, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText }) => {
     const [isLoading, setIsLoading] = React.useState(false);
     const [showAnswers, setShowAnswers] = React.useState(false);
     const [showReplyInput, setShowReplyInput] = React.useState(false);
@@ -4794,7 +4689,6 @@ const ThreadComments = ({ mainComment, listReplyComments, onClickShowReplys, pla
     const handleShowReplys = async () => {
         setIsLoading(true);
         try {
-            await onClickShowReplys();
             setShowAnswers(true);
         }
         catch (error) {
@@ -4809,9 +4703,8 @@ const ThreadComments = ({ mainComment, listReplyComments, onClickShowReplys, pla
     const handleCommentReplyReply = (idReply) => {
         setShowInputByIdReply([...showInputByIdReply, idReply]);
     };
-    return (jsxRuntime.jsx(Container$h, { children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user.avatar, itsLiked: false, userId: mainComment.user.uuid, userName: mainComment.user.name, userOffice: mainComment.user.role_name, userCompany: mainComment.user.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, commentTextWithMention: mainComment.mentionText }), listReplyComments?.length > 0 && !showAnswers &&
-                            (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: () => handleShowReplys(), children: showReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyFor: mainComment.user.name, mentionUsers: mentionUsersList }))] }), isLoading && jsxRuntime.jsx(Loading, {}), showAnswers && !isLoading && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments?.map((replyComment) => {
-                        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryBoxReply, { commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, onClickAnswerButton: handleCommentReplyReply }), showInputByIdReply.includes(replyComment.id) && (jsxRuntime.jsx(InputReply, { imgProfile: loggedUserProfileImg, styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${replyComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyFor: replyComment.user.name, mentionUsers: mentionUsersList }))] }));
+    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user.avatar, itsLiked: false, userId: mainComment.user.uuid, userName: mainComment.user.name, userOffice: mainComment.user.role_name, userCompany: mainComment.user.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText }), listReplyComments?.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: () => handleShowReplys(), children: showReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, imgProfile: loggedUserProfileImg, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyFor: mainComment.user.name, parentId: Number(mainComment.id) }))] }), isLoading && jsxRuntime.jsx(Loading, {}), showAnswers && !isLoading && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments?.map((replyComment) => {
+                        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryBoxReply, { commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, onClickAnswerButton: handleCommentReplyReply }), showInputByIdReply.includes(replyComment.id) && (jsxRuntime.jsx(InputReply, { imgProfile: loggedUserProfileImg, styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${replyComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyFor: replyComment.user.name, getSearchUsers: getSearchUsers, parentId: Number(mainComment.id) }))] }));
                     }) }))] }) }));
 };
 
@@ -4822,15 +4715,6 @@ const ButtonCheckmark = styled__default["default"].div `
     cursor: pointer;
     width: fit-content;
 `;
-=======
-const ButtonCheckmark = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    width: fit-content;
-`;
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 const Subtitle = styled__default["default"].span `
     font-family: 'Work Sans';
     font-style: normal;
@@ -5145,11 +5029,7 @@ const AvatarInternal = styled__default["default"].div `
     text-align: center;
 
 `;
-<<<<<<< HEAD
 const ButtonMore = styled__default["default"].div `
-=======
-const ButtonMore$1 = styled__default["default"].div `
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: 700;
@@ -6027,7 +5907,6 @@ function CardPeople({ labels, userInfo, isChecked, onChecked, hiddenCheckbox, st
                                     }, children: jsxRuntime.jsx("span", { style: { cursor: 'pointer' }, children: userInfo?.position }) })) : (jsxRuntime.jsx("span", { children: userInfo?.position }))] })] })] }) }));
 }
 
-<<<<<<< HEAD
 const CardContainer$1 = styled__default["default"].div `
     box-sizing: border-box;
     max-width: 100%;
@@ -6111,164 +5990,6 @@ const StepBoxDescription = styled__default["default"].p `
     color:#6a7585;
     margin-bottom: 18px;
 `;
-=======
-const container = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: ${({ textPosition }) => textPosition === 'left' ? 'row-reverse'
-    : textPosition === 'right' ? 'row'
-        : textPosition === 'top' ? 'column-reverse'
-            : textPosition === 'bottom' ? 'column'
-                : null};
-    position: relative;
-    width: auto;
-    gap: 8px;
-    padding: 16px;
-`;
-const loader = styled__default["default"].div `
-    
-    svg {
-        animation: load 1.5s infinite linear;
-        
-        @keyframes load {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    }
-`;
-const loadText = styled__default["default"].p `
-    font-family: 'Inter';
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-`;
-
-function Loading(props) {
-    const [Size, setSize] = React.useState('24');
-    const [Color, setColor] = React.useState(props.loadColor ? props.loadColor : '');
-    const [PositionTextLoad, setPositionTextLoad] = React.useState(props.positionLoadingText ? props.positionLoadingText : 'bottom');
-    const [LoadText, setLoadText] = React.useState(props.loadText ? props.loadText : '');
-    React.useEffect(() => {
-        setLoadText(props.loadText);
-    }, [props.loadText]);
-    React.useEffect(() => {
-        setColor(props.loadColor);
-    }, [props.loadColor]);
-    React.useEffect(() => {
-        setPositionTextLoad(props.positionLoadingText);
-    }, [props.positionLoadingText]);
-    React.useEffect(() => {
-        if (props.sizeLoading === 'extra-small') {
-            setSize('16');
-        }
-        else if (props.sizeLoading === 'small') {
-            setSize('20');
-        }
-        else if (props.sizeLoading === 'medium') {
-            setSize('24');
-        }
-        else if (props.sizeLoading === 'large') {
-            setSize('32');
-        }
-        else if (props.sizeLoading === 'extra-large') {
-            setSize('40');
-        }
-        else {
-            setSize('24');
-        }
-    }, [props.sizeLoading]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
-}
-
-const CardContainer$1 = styled__default["default"].div `
-    box-sizing: border-box;
-    max-width: 100%;
-    height: auto;
-    background:${({ theme }) => theme.colors.shadeWhite};
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    border-color: ${({ theme }) => theme.colors.linkDisabled};
-    border-radius: 16px;
-    padding-right: 23px;
-    padding-top: 27px;
-    padding-left: 23px;
-    padding-bottom: 27px;
-    position:relative;
-`;
-const TextLevel = styled__default["default"].p `
-    ${({ theme }) => theme.fonts.textMessageComponentsBold};
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
-    display: block;
-`;
-const Challenge = styled__default["default"].p `
-    ${({ theme }) => theme.fonts.textMessageRegular};
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
-`;
-const ImageTextGroup = styled__default["default"].div `
-    display: flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content: center;
-    gap: 11.83px;
-    padding-bottom:20.35px; 
-`;
-const ScroollableContent = styled__default["default"].div `
-    display: block;
-    width: 100%;
-    overflow-y:auto;
-    max-height: 520px;
-    padding-right: 17px;
-    position:relative;
-    &::-webkit-scrollbar{
-        width:7px;
-        background-color: #e2e8f0;
-    };
-    &::-webkit-scrollbar-thumb{
-        background-color: #64748b;
-    };  
-`;
-const StepBox = styled__default["default"].div `
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-`;
-const StepBoxTextBlock = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
-`;
-const StepBoxIconBlock = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    width: 66px;
-    align-items: center;
-`;
-const StepBar = styled__default["default"].div `
-    width: 2px;
-    flex:1;
-    border-radius: 2px;
-    background-color: ${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
-`;
-const StepBoxTitle = styled__default["default"].a `
-    ${({ theme }) => theme.fonts.MessageComponentsBodyBold};
-    color:${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : ' #344054'};
-    ${({ isComplete }) => !isComplete && 'font-weight: 500;'}
-    margin-top:7px;
-    cursor: pointer;
-    text-decoration: none;
-`;
-const StepBoxDescription = styled__default["default"].p `
-    ${({ theme }) => theme.fonts.textMessageComponentsRegular};
-    color:#6a7585;
-    margin-bottom: 18px;
-`;
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 const CheckCircle = styled__default["default"].div `
     box-sizing: border-box !important;
     display: flex;
@@ -6679,15 +6400,9 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-<<<<<<< HEAD
-var css_248z$i = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
-var style$b = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
-styleInject(css_248z$i);
-=======
 var css_248z$h = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
 var style$a = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
 styleInject(css_248z$h);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 var problemaFRST = "data:image/png;base64,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";
 
@@ -6714,15 +6429,9 @@ function ModalStatusProblema(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$a.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$a.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$a.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$a.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { avatarSize: (size[0] >= BREAKWIDTH) ? '120px' : '100px', size: (size[0] >= BREAKWIDTH) ? '160px' : '120px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto, onClickUserInfo: item?.onClickUserInfo }, index))) }), jsxRuntime.jsxs("div", { className: style$a.modal_controls_wrapper, children: [jsxRuntime.jsx("div", { className: style$a.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$a.conclusao, children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, entendi', handleClick: props.handleClose, style: { width: '100%', minWidth: '140px' } }) })] })] }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$h = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
-var style$a = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
-styleInject(css_248z$h);
-=======
 var css_248z$g = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
 var style$9 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
 styleInject(css_248z$g);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 function ModalLearningTech(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$9.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, children: props.children }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: props.confirmationButton ?
@@ -6734,15 +6443,9 @@ function ModalLearningTech(props) {
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$g = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
-var style$9 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
-styleInject(css_248z$g);
-=======
 var css_248z$f = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
 var style$8 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
 styleInject(css_248z$f);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 const WrapperStars = styled__default["default"].div `
     display: flex;
@@ -6868,15 +6571,9 @@ function ModalVideo(props) {
                                             }, disabled: false }) })] }) }))] })] }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$f = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
-var style$8 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
-styleInject(css_248z$f);
-=======
 var css_248z$e = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
 var style$7 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
 styleInject(css_248z$e);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 /**
  * @param {CardProblemGestorProps} props
@@ -6894,15 +6591,9 @@ function CardProblemGestor(props) {
                             jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle && (jsxRuntime.jsx("div", { className: style$7.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), props.tags && (jsxRuntime.jsx("div", { className: style$7.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) })), props.ratingImpacto && (jsxRuntime.jsxs("div", { className: style$7.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] })), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }))] })] }));
 }
 
-<<<<<<< HEAD
-var css_248z$e = ".cardProblem-module_container__eYX3j {\n  width: 100%;\n  border-radius: 10px;\n  padding-right: 24px;\n  padding-left: 48px;\n  padding-top: 40px;\n  padding-bottom: 24px;\n\n  justify-content: flex-start;\n  align-items: flex-start;\n  flex-direction: row;\n  position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n\n\n.cardProblem-module_tagStatusProblem__11NQe {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: flex;\n  font-size: 12px;\n  font-weight: 500;\n  padding: 8px;\n  border-bottom-left-radius: 8px;\n  border-top-right-radius: 5px;\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n  display: flex;\n  justify-content: flex-start;\n  align-items: flex-start;\n  height: 100%;\n  padding-top: 17px;\n  padding-left: 16px;\n\n  position: absolute;\n  left: 0;\n}\n\n.cardProblem-module_contentCard__oBqoN {\n  margin-left: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: row;\n  margin-bottom: 24px;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n  margin-left: 16px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n  margin-top: 4px;\n  margin-bottom: 8px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  font-weight: 600;\n  font-size: 18px;\n  word-break: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  font-weight: 600;\n\n  margin-bottom: 26px;\n  margin-right: 30px;\n}\n";
-var style$7 = {"container":"cardProblem-module_container__eYX3j","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","contentCard":"cardProblem-module_contentCard__oBqoN","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
-styleInject(css_248z$e);
-=======
 var css_248z$d = ".cardProblem-module_container__eYX3j {\n  width: 100%;\n  border-radius: 10px;\n  padding-right: 24px;\n  padding-left: 48px;\n  padding-top: 40px;\n  padding-bottom: 24px;\n\n  justify-content: flex-start;\n  align-items: flex-start;\n  flex-direction: row;\n  position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n\n\n.cardProblem-module_tagStatusProblem__11NQe {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: flex;\n  font-size: 12px;\n  font-weight: 500;\n  padding: 8px;\n  border-bottom-left-radius: 8px;\n  border-top-right-radius: 5px;\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n  display: flex;\n  justify-content: flex-start;\n  align-items: flex-start;\n  height: 100%;\n  padding-top: 17px;\n  padding-left: 16px;\n\n  position: absolute;\n  left: 0;\n}\n\n.cardProblem-module_contentCard__oBqoN {\n  margin-left: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: row;\n  margin-bottom: 24px;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n  margin-left: 16px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n  margin-top: 4px;\n  margin-bottom: 8px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  font-weight: 600;\n  font-size: 18px;\n  word-break: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  font-weight: 600;\n\n  margin-bottom: 26px;\n  margin-right: 30px;\n}\n";
 var style$6 = {"container":"cardProblem-module_container__eYX3j","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","contentCard":"cardProblem-module_contentCard__oBqoN","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
 styleInject(css_248z$d);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 const translate = {
     'pt-BR': {
@@ -7042,143 +6733,6 @@ var css_248z$c = ".cardDefinicaoFase-module_container__KEYns {\r\n  width: 282px
 var style$5 = {"container":"cardDefinicaoFase-module_container__KEYns","headerContainer":"cardDefinicaoFase-module_headerContainer__uxRId","titleDescription":"cardDefinicaoFase-module_titleDescription__x7pED","description":"cardDefinicaoFase-module_description__-pzJG","descriptionContainer":"cardDefinicaoFase-module_descriptionContainer__XLHCC","buttonContainer":"cardDefinicaoFase-module_buttonContainer__6u6bM","divisoria":"cardDefinicaoFase-module_divisoria__IYAiv","titleAndMenu":"cardDefinicaoFase-module_titleAndMenu__aqXT0","titleFrase":"cardDefinicaoFase-module_titleFrase__b8v0i","buttonFinalizado":"cardDefinicaoFase-module_buttonFinalizado__V8Oas"};
 styleInject(css_248z$c);
 
-<<<<<<< HEAD
-=======
-styled__default["default"].p `
-  color: white;
-  padding-left: 5px;
-  font-size: 16px;
-`;
-const ButtonMore = styled__default["default"](Button__default["default"]) `
-    width: 30px !important;
-    min-width: 30px !important;
-    max-width: 30px !important;
-    height: 30px !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    display: flex !important;
-    justify-content: center !important;
-    border-radius: 12px !important;
-
-    &:hover {
-        background-color: #FFF9 !important;
-    }
-
-`;
-const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
-  margin-top: 10px;
-  margin-left: 30px;
-  overflow: hidden;
-  border-radius: 8px;
-
-  & .MuiPaper-root {
-    border-radius: 0px;
-    box-shadow: none !important;
-    overflow: visible;
-    background: #00000000;
-
-    &:before {
-        content: "";
-        position: absolute;
-        top: -15px;
-        right: 8.5px;
-        border-top: 6px solid transparent;
-        border-bottom: 10px solid #EBEBEB;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-    }
-  
-    &:after {
-        content: "";
-        position: absolute;
-        top: -14px;
-        right: 8.5px;
-        border-top: 6px solid transparent;
-        border-bottom: 10px solid #FFF;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-    }
-  }
-  ul {
-    box-shadow:  0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border: 1px solid #EBEBEB !important;
-    border-radius: 8px !important;
-    overflow: hidden;
-    background: #FFF;
-    width: 160px;
-
-
-  li {
-    padding-left: 25px;
-  }
-  }
-`;
-const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
-  background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
-  padding-right: 45px !important;
-  margin: 1px !important;
-  transition: none !important;
-  animation: none !important;
-  &:hover {
-    background-color: #F7F9FC !important;
-  }
-  &:active {    
-    background-color: #FCF3EB !important;
-  }
-
-  
-`;
-styled__default["default"](MenuItem__default["default"]) `
-  color: white !important;
-  background-color: #F5792A !important;
-
-  display: flex;
-  flex-direction: row;
-  &:hover {
-    background-color: #FD9350 !important;
-  }
-`;
-const TextOption$1 = styled__default["default"].div `
-  margin-left: 10px;
-  padding-top: 1px;
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-`;
-const IconOption = styled__default["default"].div `
-  width: 20px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-function MenuMore({ iconButton, options, style }) {
-    const [listOptions, setListOptions] = React.useState(options);
-    React.useEffect(() => {
-        setListOptions(options);
-    }, [options]);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
-                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => itemOption?.onClick(), style: {
-                                    borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
-                                    color: itemOption?.color ? itemOption?.color : '#222'
-                                }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon ? itemOption?.startIcon : '' }), jsxRuntime.jsx(TextOption$1, { children: itemOption?.description })] }) }, index));
-                    }) }))] }) }));
-}
-
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 function CardDefinicaoFase(props) {
     function handleFase() {
         switch (props.fase) {
@@ -7201,15 +6755,9 @@ function CardDefinicaoFase(props) {
     return (jsxRuntime.jsxs("div", { className: style$5.container, children: [jsxRuntime.jsxs("div", { className: style$5.headerContainer, children: [jsxRuntime.jsx("div", { className: style$5.titleFrase, children: props.titleFase ? props.titleFase : 'Definição do objetivo' }), props.fase ? handleFase() : jsxRuntime.jsx(FaseUm, {})] }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("div", { className: style$5.titleAndMenu, children: [jsxRuntime.jsxs("span", { className: style$5.titleDescription, children: [" ", props.cardTitle] }), jsxRuntime.jsx(MenuMore, { options: props.optionsMenuMore })] }), jsxRuntime.jsxs("span", { className: style$5.description, children: [" ", props.cardDescription] })] }), props.fase === 'finalizado' ? (jsxRuntime.jsx("div", { className: style$5.buttonFinalizado, children: jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }) })) : (jsxRuntime.jsxs("div", { className: style$5.buttonContainer, children: [jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }), jsxRuntime.jsx("div", { className: style$5.divisoria }), jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonContinue ? props.textButtonContinue : 'Continuar', handleClick: props.handleClickContinue })] }))] }));
 }
 
-<<<<<<< HEAD
-var css_248z$c = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
-var style$5 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
-styleInject(css_248z$c);
-=======
 var css_248z$b = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
 var style$4 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
 styleInject(css_248z$b);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 var Conquista = "data:image/png;base64,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";
 
@@ -7292,15 +6840,9 @@ function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeA
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$b = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
-var style$4 = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
-styleInject(css_248z$b);
-=======
 var css_248z$a = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
 var style$3 = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
 styleInject(css_248z$a);
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 
 ///-----------------------------------------
 /// Componente
@@ -10237,16 +9779,8 @@ function StarMetric({ disabled, onChange }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard$5, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$a = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
-var style$3 = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
-styleInject(css_248z$a);
-
-var css_248z$9 = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
-=======
 var css_248z$9 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
 var style$2 = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 styleInject(css_248z$9);
 
 var css_248z$8 = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
@@ -10398,11 +9932,8 @@ const WrapperIconNotification = styled__default["default"].div `
   font-size: 16px;
   font-weight: 400;
   color: #fff;
-<<<<<<< HEAD
-=======
   position: relative;
   left: 17px;
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 `;
 const WrapperIconNotificationMobile = styled__default["default"].div `
   cursor: pointer;
@@ -10523,8 +10054,6 @@ const itemFrstSocials = styled__default["default"].button `
   border: none;
   background: none;
   cursor: pointer;
-<<<<<<< HEAD
-=======
 `;
 const help = styled__default["default"].div `
 
@@ -10548,7 +10077,6 @@ position: relative;
 right: 10px;
 
 
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 `;
 
 const Container$7 = styled__default["default"].div `
@@ -11679,284 +11207,9 @@ function IconHamburgerMenu() {
 }
 function HasNotificationIcon() {
     return (jsxRuntime.jsx("div", { children: jsxRuntime.jsx("svg", { width: "10", height: "10", viewBox: "0 0 10 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("rect", { width: "10", height: "10", rx: "5", fill: "#FF4D0D" }) }) }));
-<<<<<<< HEAD
-}
-
-var css_248z$8 = ".extraContent-module_container__tV2ud {\n    background-color: #E0E0E0;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    font-family: 'PT Sans';\n    padding: 20px;\n}\n\n.extraContent-module_contentInfo__TGKPS {\n    padding: 32px 20px;\n}\n\n.extraContent-module_notes__I6JnG {\n    display: flex;\n    flex-direction: column;\n}\n\n.extraContent-module_saveNotes__DHETt {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    margin-top: 24px;\n}";
-var style$2 = {"container":"extraContent-module_container__tV2ud","contentInfo":"extraContent-module_contentInfo__TGKPS","notes":"extraContent-module_notes__I6JnG","saveNotes":"extraContent-module_saveNotes__DHETt"};
-styleInject(css_248z$8);
-
-function AdminExtraContent(props) {
-    const [valueTabs, setValueTabs] = React.useState(0);
-    const [transcriptionText, setTranscriptionText] = React.useState('');
-    const handleChangeTabs = (e, newTab) => {
-        setValueTabs(newTab);
-    };
-    React.useState([]);
-    function BooksInfo(books) {
-        let bookInfo;
-        return (jsxRuntime.jsxs("div", { style: { marginTop: 16 }, children: [jsxRuntime.jsx(TextField, { label: "Nome do livro", onChange: (e) => bookInfo.name = e.target.value }), jsxRuntime.jsx(TextField, { label: "Nome do autor", onChange: (e) => bookInfo.autor = e.target.value }), jsxRuntime.jsx(TextField, { label: "Link para compra", onChange: (e) => bookInfo.link = e.target.value }), jsxRuntime.jsx("div", { style: { marginBottom: 8 }, children: jsxRuntime.jsx("span", { children: " Fa\u00E7a upload da capa do livro abaixo" }) }), jsxRuntime.jsx(FileUpload, { variant: "landscape" })] }));
-    }
-    return (jsxRuntime.jsxs("div", { className: style$2.container, children: [jsxRuntime.jsx("span", { style: { fontSize: 18, fontWeight: 700 }, children: "Material extra" }), jsxRuntime.jsx("div", { className: style$2.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
-                        '& .Mui-selected ': {
-                            color: '#FF4D0D !important',
-                            fontWeight: '700 !important'
-                        },
-                        '& .MuiTab-root': {
-                            fontFamily: 'PT Sans !important',
-                            textTransform: 'none !important',
-                            fontWeight: '400 !important',
-                        },
-                        '& .MuiTabs-indicator': {
-                            backgroundColor: '#FF5427 !important',
-                        }
-                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Livros', value: 2 })] }) }), jsxRuntime.jsxs("div", { className: style$2.contentInfo, children: [valueTabs === 0 &&
-                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Para ajudar as pessoas com algum problema auditivo ou que somente desejam revisar de forma r\u00E1pida o conte\u00FAdo, transcreva abaixo o que foi dito durante o v\u00EDdeo." }) }), jsxRuntime.jsx(Textarea, { label: "Transcri\u00E7\u00E3o", style: { marginTop: 24 }, height: '150px', onChange: (e) => {
-                                        setTranscriptionText(e.target.value);
-                                    } })] }), valueTabs === 1 &&
-                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Adicone materiais extras como PDFs e PPTs que ajudem seus alunos a se desenvolverem neste assunto." }) }), jsxRuntime.jsx("div", { style: { marginTop: 24, marginBottom: 8 }, children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Fa\u00E7a o upload dos arquivos abaixo" }) }), jsxRuntime.jsx(FileUpload, { variant: "landscape" })] }), valueTabs === 2 &&
-                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Adicione abaixo links de compra dos livros que podem ajudar seus alunos a se desenvolverem nesta \u00E1rea." }), BooksInfo(), jsxRuntime.jsx("div", { style: { marginTop: 24 }, children: jsxRuntime.jsx(Button$5, { variant: "expandedSecondary", label: "Adicionar", startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FF4D0D" }), handleClick: () => { } }) })] })] })] }));
-}
-
-const Button$3 = React__default["default"].forwardRef(({ className, active, reversed, ...props }, ref) => (jsxRuntime.jsx("span", { ...props, ref: ref, className: css.cx(className, css.css `
-          cursor: pointer;
-          color: ${reversed
-        ? active
-            ? 'white'
-            : '#aaa'
-        : active
-            ? 'black'
-            : '#ccc'};
-        `) })));
-React__default["default"].forwardRef(({ className, value, ...props }, ref) => {
-    const textLines = value.document.nodes
-        .map(node => node.text)
-        .toArray()
-        .join('\n');
-    return (jsxRuntime.jsxs("div", { ref: ref, ...props, className: css.cx(className, css.css `
-            margin: 30px -20px 0;
-          `), children: [jsxRuntime.jsx("div", { className: css.css `
-            font-size: 14px;
-            padding: 5px 20px;
-            color: #404040;
-            border-top: 2px solid #eeeeee;
-            background: #f8f8f8;
-          `, children: "Slate's value as text" }), jsxRuntime.jsx("div", { className: css.css `
-            color: #404040;
-            font: 12px monospace;
-            white-space: pre-wrap;
-            padding: 10px 20px;
-            div {
-              margin: 0 0 0.5em;
-            }
-          `, children: textLines })] }));
-});
-React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("span", { ...props, ref: ref, className: css.cx('material-icons', className, css.css `
-          font-size: 18px;
-          vertical-align: text-bottom;
-        `) })));
-React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ...props, ref: ref, className: css.cx(className, css.css `
-          white-space: pre-wrap;
-          margin: 0 -20px 10px;
-          padding: 10px 20px;
-          font-size: 14px;
-          background: #f8f8e8;
-        `) })));
-const Menu = React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ...props, ref: ref, className: css.cx(className, css.css `
-          & > * {
-            display: inline-block;
-          }
-
-          & > * + * {
-            margin-left: 15px;
-          }
-        `) })));
-const Toolbar = React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx(Menu, { ...props, ref: ref, className: css.cx(className, css.css `
-          position: relative;
-          padding: 16px 16px 16px;
-          border-bottom: 2px solid #eee;
-          background-color: #FFF
-        `) })));
-
-const HOTKEYS = {
-    'mod+b': 'bold',
-    'mod+i': 'italic',
-    'mod+u': 'underline',
-    'mod+`': 'code',
-};
-const LIST_TYPES = ['numbered-list', 'bulleted-list'];
-const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify'];
-const RichTextExample = () => {
-    const renderElement = React.useCallback(props => jsxRuntime.jsx(Element, { ...props }), []);
-    const renderLeaf = React.useCallback(props => jsxRuntime.jsx(Leaf, { ...props }), []);
-    const editor = React.useMemo(() => slateHistory.withHistory(slateReact.withReact(slate.createEditor())), []);
-    return (jsxRuntime.jsxs(slateReact.Slate, { editor: editor, value: initialValue, children: [jsxRuntime.jsxs(Toolbar, { children: [jsxRuntime.jsx(MarkButton, { format: "bold", icon: jsxRuntime.jsx(iconsMaterial.FormatBold, {}) }), jsxRuntime.jsx(MarkButton, { format: "italic", icon: jsxRuntime.jsx(iconsMaterial.FormatItalic, {}) }), jsxRuntime.jsx(MarkButton, { format: "underline", icon: jsxRuntime.jsx(iconsMaterial.FormatUnderlined, {}) }), jsxRuntime.jsx(MarkButton, { format: "code", icon: jsxRuntime.jsx(iconsMaterial.Code, {}) }), jsxRuntime.jsx(BlockButton, { format: "heading-one", icon: jsxRuntime.jsx(iconsMaterial.LooksOne, {}) }), jsxRuntime.jsx(BlockButton, { format: "heading-two", icon: jsxRuntime.jsx(iconsMaterial.LooksTwo, {}) }), jsxRuntime.jsx(BlockButton, { format: "block-quote", icon: jsxRuntime.jsx(iconsMaterial.FormatQuote, {}) }), jsxRuntime.jsx(BlockButton, { format: "numbered-list", icon: jsxRuntime.jsx(iconsMaterial.FormatListNumbered, {}) }), jsxRuntime.jsx(BlockButton, { format: "bulleted-list", icon: jsxRuntime.jsx(iconsMaterial.FormatListBulleted, {}) }), jsxRuntime.jsx(BlockButton, { format: "left", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignLeft, {}) }), jsxRuntime.jsx(BlockButton, { format: "center", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignCenter, {}) }), jsxRuntime.jsx(BlockButton, { format: "right", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignRight, {}) }), jsxRuntime.jsx(BlockButton, { format: "justify", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignJustify, {}) })] }), jsxRuntime.jsx(slateReact.Editable, { renderElement: renderElement, renderLeaf: renderLeaf, placeholder: "Digite seu texto aqui", spellCheck: true, autoFocus: true, style: { height: 275, width: '100%', backgroundColor: '#EBEBEB', border: '1px solid #E0E0E0', overflow: 'auto' }, onKeyDown: event => {
-                    for (const hotkey in HOTKEYS) {
-                        if (isHotkey__default["default"](hotkey, event)) {
-                            event.preventDefault();
-                            const mark = HOTKEYS[hotkey];
-                            toggleMark(editor, mark);
-                        }
-                    }
-                } })] }));
-};
-const toggleBlock = (editor, format) => {
-    const isActive = isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type');
-    const isList = LIST_TYPES.includes(format);
-    slate.Transforms.unwrapNodes(editor, {
-        match: n => !slate.Editor.isEditor(n) &&
-            slate.Element.isElement(n) &&
-            // @ts-ignore
-            LIST_TYPES.includes(n.type) &&
-            !TEXT_ALIGN_TYPES.includes(format),
-        split: true,
-    });
-    let newProperties;
-    if (TEXT_ALIGN_TYPES.includes(format)) {
-        newProperties = {
-            // @ts-ignore
-            align: isActive ? undefined : format,
-        };
-    }
-    else {
-        newProperties = {
-            // @ts-ignore
-            type: isActive ? 'paragraph' : isList ? 'list-item' : format,
-        };
-    }
-    slate.Transforms.setNodes(editor, newProperties);
-    if (!isActive && isList) {
-        const block = { type: format, children: [] };
-        slate.Transforms.wrapNodes(editor, block);
-    }
-};
-const toggleMark = (editor, format) => {
-    const isActive = isMarkActive(editor, format);
-    if (isActive) {
-        slate.Editor.removeMark(editor, format);
-    }
-    else {
-        slate.Editor.addMark(editor, format, true);
-    }
-};
-const isBlockActive = (editor, format, blockType = 'type') => {
-    const { selection } = editor;
-    if (!selection)
-        return false;
-    const [match] = Array.from(slate.Editor.nodes(editor, {
-        at: slate.Editor.unhangRange(editor, selection),
-        match: n => !slate.Editor.isEditor(n) &&
-            slate.Element.isElement(n) &&
-            n[blockType] === format,
-    }));
-    return !!match;
-};
-const isMarkActive = (editor, format) => {
-    const marks = slate.Editor.marks(editor);
-    return marks ? marks[format] === true : false;
-};
-const Element = ({ attributes, children, element }) => {
-    const style = { textAlign: element.align };
-    switch (element.type) {
-        case 'block-quote':
-            return (jsxRuntime.jsx("blockquote", { style: style, ...attributes, children: children }));
-        case 'bulleted-list':
-            return (jsxRuntime.jsx("ul", { style: style, ...attributes, children: children }));
-        case 'heading-one':
-            return (jsxRuntime.jsx("h1", { style: style, ...attributes, children: children }));
-        case 'heading-two':
-            return (jsxRuntime.jsx("h2", { style: style, ...attributes, children: children }));
-        case 'list-item':
-            return (jsxRuntime.jsx("li", { style: style, ...attributes, children: children }));
-        case 'numbered-list':
-            return (jsxRuntime.jsx("ol", { style: style, ...attributes, children: children }));
-        default:
-            return (jsxRuntime.jsx("p", { style: style, ...attributes, children: children }));
-    }
-};
-const Leaf = ({ attributes, children, leaf }) => {
-    if (leaf.bold) {
-        children = jsxRuntime.jsx("strong", { children: children });
-    }
-    if (leaf.code) {
-        children = jsxRuntime.jsx("code", { children: children });
-    }
-    if (leaf.italic) {
-        children = jsxRuntime.jsx("em", { children: children });
-    }
-    if (leaf.underline) {
-        children = jsxRuntime.jsx("u", { children: children });
-    }
-    return jsxRuntime.jsx("span", { ...attributes, children: children });
-};
-const BlockButton = ({ format, icon }) => {
-    const editor = slateReact.useSlate();
-    return (jsxRuntime.jsx(Button$3, { active: isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type'), onMouseDown: event => {
-            event.preventDefault();
-            toggleBlock(editor, format);
-        }, children: icon }));
-};
-const MarkButton = ({ format, icon }) => {
-    const editor = slateReact.useSlate();
-    return (jsxRuntime.jsx(Button$3, { active: isMarkActive(editor, format), onMouseDown: event => {
-            event.preventDefault();
-            toggleMark(editor, format);
-        }, children: icon }));
-};
-const initialValue = [
-    {
-        type: 'paragraph',
-        children: [
-            { text: '' }
-        ],
-    },
-];
-
-function StudentExtraContent(props) {
-    const [valueTabs, setValueTabs] = React.useState(0);
-    React.useState('');
-    React.useState('');
-    const handleChangeTabs = (e, newTab) => {
-        setValueTabs(newTab);
-    };
-    return (jsxRuntime.jsxs("div", { className: style$2.container, children: [jsxRuntime.jsx("div", { className: style$2.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
-                        '& .Mui-selected ': {
-                            color: '#FF4D0D !important',
-                            fontWeight: '700 !important'
-                        },
-                        '& .MuiTab-root': {
-                            fontFamily: 'PT Sans !important',
-                            textTransform: 'none !important',
-                            fontWeight: '400 !important',
-                        },
-                        '& .MuiTabs-indicator': {
-                            backgroundColor: '#FF5427 !important',
-                        }
-                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Anota\u00E7\u00F5es', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Livros recomendados', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 2 }), jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 3 }), jsxRuntime.jsx(material.Tab, { label: 'Coment\u00E1rios', value: 4 })] }) }), jsxRuntime.jsxs("div", { className: style$2.contentInfo, children: [valueTabs === 0 &&
-                        jsxRuntime.jsxs("div", { className: style$2.notes, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000' }, children: " Escreva e fa\u00E7a suas anota\u00E7\u00F5es aqui para rever depois, este espa\u00E7o \u00E9 seu." }), jsxRuntime.jsx("div", { style: { marginTop: 12 }, children: jsxRuntime.jsx(RichTextExample, {}) }), jsxRuntime.jsx("div", { className: style$2.saveNotes, children: jsxRuntime.jsx(Button$5, { label: "Salvar", variant: "primary", handleClick: () => { } }) })] }), valueTabs === 1 &&
-                        jsxRuntime.jsx(material.Grid, { container: true, spacing: 0, children: props.bookList?.map((item, index) => {
-                                return (jsxRuntime.jsxs(material.Grid, { item: true, style: { position: 'relative', width: 200, height: 310, backgroundColor: '#FFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '16px 32px 8px 32px', border: '1px solid #BDBDBD', cursor: 'pointer' }, onClick: () => { props.onClickBook(item.id); }, children: [jsxRuntime.jsx("img", { src: item.img, width: 130, height: 185 }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, color: '#000', marginTop: 12 }, children: [" ", item.title, " "] }), jsxRuntime.jsxs("span", { style: { fontSize: 12, fontWeight: 400, color: '#000', position: 'absolute', bottom: 0, marginBottom: 8 }, children: [" ", item.autor, " "] })] }, index));
-                            }) }), valueTabs === 2 &&
-                        jsxRuntime.jsx(material.Grid, { container: true, spacing: 0, children: props.suportMaterial?.map((item, index) => {
-                                return (jsxRuntime.jsxs(material.Grid, { item: true, style: { width: 200, height: 240, backgroundColor: '#FFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '16px 32px 8px 32px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("img", { src: item.img, width: 65, height: 70 }), jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000', marginTop: 12 }, children: item.description }), jsxRuntime.jsxs("label", { htmlFor: "downloadBtn", onClick: () => { props.onClickSuportMaterial(item.id); }, style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, children: [" ", jsxRuntime.jsx(DownloadIcon, { fill: "#0645AD" }), " \u00A0 Download"] })] }, index));
-                            }) }), valueTabs === 3 &&
-                        jsxRuntime.jsx("div", { style: { fontSize: 16, fontWeight: 400, textAlign: 'justify' }, children: jsxRuntime.jsx("span", { children: props.transcription }) }), valueTabs === 4 &&
-                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', flexDirection: 'row' }, children: jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }) }), jsxRuntime.jsx("div", { children: props.commentList?.map((item, index) => {
-                                        return (jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: 20 }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: item?.userAvatar }), jsxRuntime.jsx(CommentaryBox, { className: '', name: item.userName, position: item.userPosition, value: item.comments, date: item.date, onChange: () => { }, styles: { marginRight: 8, width: '80%' }, textLiked: 'Curtir', actionLike: () => { item.isLiked = true; }, isLiked: item?.isLiked })] }, index));
-                                    }) })] })] })] }));
-}
-
-// import RichTextEditor from './richTextEditor'
-function ExtraContent(props) {
-    return (jsxRuntime.jsx("div", { children: props.typeExhibition === 1 ?
-            AdminExtraContent()
-            :
-                StudentExtraContent(props) }));
-=======
 }
 function HelpIcon() {
     return (jsxRuntime.jsxs("svg", { width: "26", height: "25", viewBox: "0 0 26 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_34_679)", children: [jsxRuntime.jsx("path", { d: "M22.7976 18.8385C22.0103 18.6927 21.4879 18.2794 21.2952 17.5098C21.2523 17.3395 21.253 17.1563 21.2523 16.9786C21.2489 15.5001 21.2503 14.0222 21.2503 12.5437C21.2503 11.4561 21.6548 10.9215 22.6974 10.6286C22.7206 10.6218 22.7424 10.6082 22.7628 10.5987C22.5565 5.73339 18.4008 1.24471 12.8313 1.23518C7.22236 1.22496 3.06194 5.72726 2.8372 10.6055C2.90598 10.6246 2.97749 10.6464 3.05036 10.6641C3.79745 10.8473 4.33819 11.4697 4.34568 12.2332C4.36203 13.8894 4.36884 15.5464 4.34432 17.2027C4.32866 18.2862 3.35751 19.0006 2.23244 18.8078C0.967083 18.5913 0.0429235 17.5445 0.0177253 16.2574C-0.00270567 15.2297 -0.00951599 14.2007 0.0197684 13.1737C0.0483717 12.1807 0.525775 11.4289 1.38932 10.9365C1.5337 10.8541 1.58955 10.7737 1.59908 10.6075C1.87762 5.69934 5.31752 1.54096 10.0861 0.339619C16.308 -1.22744 22.6069 2.78793 23.8164 9.09973C23.9117 9.59825 23.956 10.1083 24.0064 10.6143C24.0214 10.7649 24.0609 10.85 24.1991 10.9283C25.1035 11.4377 25.5728 12.2223 25.5905 13.2568C25.6068 14.2252 25.6034 15.1936 25.5918 16.162C25.5789 17.2074 25.1144 18.0022 24.2012 18.5164C24.0561 18.5981 24.0261 18.6893 24.0241 18.8378C24.0152 19.4398 24.0547 20.0507 23.9669 20.6425C23.7033 22.4241 22.1853 23.7215 20.3785 23.7596C19.8099 23.7719 19.2399 23.7664 18.6712 23.7603C18.537 23.7589 18.4662 23.7937 18.4015 23.9244C18.0515 24.6259 17.478 24.9896 16.6894 24.9957C16.0778 25.0005 15.4663 25.0018 14.8547 24.995C13.8127 24.9828 13.0227 24.2166 12.9887 23.1951C12.9553 22.1987 13.7078 21.3644 14.7355 21.3113C15.4302 21.2759 16.1289 21.2834 16.8242 21.3086C17.5584 21.3352 18.0807 21.7152 18.4117 22.3696C18.4464 22.4391 18.5316 22.5317 18.5929 22.5317C19.2971 22.5304 20.0067 22.5624 20.7048 22.4881C21.8523 22.3669 22.7615 21.3304 22.7976 20.1774C22.8112 19.7368 22.7996 19.2961 22.7996 18.8385H22.7976ZM24.3694 14.738C24.3694 14.2368 24.3789 13.7355 24.3673 13.235C24.3496 12.4599 23.7347 11.8375 22.9998 11.8354C22.6763 11.8348 22.4788 12.0057 22.4775 12.3271C22.472 13.9235 22.472 15.5205 22.4775 17.1168C22.4788 17.439 22.6763 17.6133 22.9957 17.6119C23.734 17.6092 24.3483 16.9909 24.3667 16.2158C24.3782 15.7234 24.3694 15.2311 24.3694 14.738ZM3.13072 14.7339C3.13072 13.9439 3.13481 13.1539 3.12868 12.3646C3.12595 11.9982 2.93254 11.8252 2.56547 11.8368C1.8606 11.8586 1.2538 12.4606 1.24086 13.1975C1.22315 14.2163 1.22315 15.2358 1.24086 16.2547C1.25312 16.9609 1.8211 17.55 2.49396 17.6058C2.93663 17.6426 3.128 17.4717 3.13004 17.0269C3.13277 16.2628 3.1314 15.498 3.13072 14.7339ZM15.7693 23.7732C16.0839 23.7732 16.3979 23.7787 16.7125 23.7719C17.0912 23.7637 17.3493 23.511 17.3527 23.1562C17.3561 22.8001 17.1062 22.5351 16.7268 22.529C16.0983 22.5181 15.4697 22.5181 14.8411 22.529C14.4604 22.5358 14.207 22.8028 14.2118 23.1549C14.2172 23.5097 14.476 23.7637 14.8526 23.7719C15.1584 23.7787 15.4635 23.7732 15.7693 23.7732Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M8.88545 16.423C8.30725 16.4019 7.80465 16.2643 7.36402 15.9476C6.60331 15.4021 6.24713 14.6489 6.24713 13.7193C6.24713 12.029 6.24032 10.3379 6.24917 8.64763C6.25735 7.04652 7.36607 5.95142 8.97058 5.95006C11.5279 5.94734 14.0844 5.94665 16.6417 5.95006C18.2442 5.9521 19.3481 7.04925 19.3556 8.65444C19.3638 10.3366 19.3631 12.0187 19.3556 13.7009C19.3488 15.3156 18.2387 16.4155 16.624 16.4189C15.6134 16.4209 14.602 16.4236 13.5914 16.4155C13.4082 16.4141 13.2767 16.4625 13.1453 16.5953C12.4466 17.3022 11.7458 18.0077 11.03 18.6963C10.3912 19.3112 9.3574 19.111 9.01076 18.3067C8.92631 18.1106 8.90043 17.8797 8.8909 17.6631C8.87251 17.2579 8.88545 16.8513 8.88545 16.4216V16.423ZM10.1093 17.7864C10.1297 17.798 10.1508 17.8089 10.1712 17.8204C10.2373 17.7592 10.3054 17.6999 10.3694 17.6366C11.0865 16.9242 11.8084 16.2173 12.516 15.4961C12.7292 15.2795 12.9587 15.1883 13.2611 15.1917C14.3732 15.2032 15.486 15.1971 16.5981 15.1957C17.5747 15.1951 18.1318 14.6414 18.1332 13.6655C18.1352 12.0092 18.1352 10.3536 18.1332 8.69734C18.1318 7.7187 17.5802 7.17319 16.5961 7.17319C14.0742 7.17319 11.5517 7.17319 9.02983 7.17319C8.011 7.17319 7.47094 7.71053 7.47026 8.72526C7.4689 10.3645 7.47026 12.0031 7.47026 13.6423C7.47026 13.7526 7.47367 13.8637 7.48593 13.9726C7.55403 14.5849 7.99466 15.065 8.60282 15.161C8.8439 15.1992 9.09316 15.1923 9.33833 15.1951C9.90427 15.2012 10.1065 15.398 10.1079 15.9599C10.1093 16.5687 10.1079 17.1782 10.1079 17.7871L10.1093 17.7864Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M12.8027 12.1847C12.311 12.1847 11.8935 11.7652 11.8976 11.2741C11.9017 10.7811 12.3239 10.3677 12.815 10.3759C13.2999 10.384 13.703 10.7899 13.7078 11.2728C13.7126 11.7624 13.2951 12.1833 12.8034 12.184L12.8027 12.1847Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M10.7283 11.2804C10.7283 11.7803 10.3183 12.1903 9.82317 12.1848C9.32806 12.1794 8.92217 11.7633 8.92898 11.2668C8.93511 10.7812 9.33828 10.3801 9.82385 10.376C10.3196 10.3713 10.7283 10.7799 10.7283 11.2804Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M14.8765 11.2757C14.8785 10.7752 15.2899 10.3679 15.785 10.3761C16.2814 10.3836 16.6846 10.8011 16.6758 11.2969C16.6669 11.7811 16.2603 12.1822 15.7761 12.1842C15.281 12.1863 14.8738 11.7756 14.8765 11.2757Z", fill: "white" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_34_679", children: jsxRuntime.jsx("rect", { width: "25.6014", height: "25", fill: "white" }) }) })] }));
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 }
 
 const isColorBlack = ({ theme }) => theme.colors.shadeBlack;
@@ -15840,11 +15093,7 @@ const SrgLogo = styled__default["default"].div `
   align-items: center;
   margin-bottom: 2rem;
 `;
-<<<<<<< HEAD
 const Button$2 = styled__default["default"].div `
-=======
-const Button$3 = styled__default["default"].div `
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15876,11 +15125,7 @@ var imgFrst = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAAA3CAYAAABzTLo
 
 function SmallSRGBanner(props) {
     return (jsxRuntime.jsx(Container$1, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [props.isTexto ? (jsxRuntime.jsx(TextCard, { children: props.traducao ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.traducao === 'en-US' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Accelerate" }), " your performance and ", jsxRuntime.jsx("b", { children: "develop" }), " by solving ", jsxRuntime.jsx("b", { children: "real challenges" })] })) : props.traducao === 'es-ES' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Acelera" }), " tu rendimiento y ", jsxRuntime.jsx("b", { children: "desarrollate" }), " resolviendo ", jsxRuntime.jsx("b", { children: "desaf\u00EDos reales" })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Acelere" }), " sua performance e ", jsxRuntime.jsx("b", { children: "desenvolva-se" }), " solucionando ", jsxRuntime.jsx("b", { children: "desafios reais" })] })) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Acelere" }), " sua performance e ", jsxRuntime.jsx("b", { children: "desenvolva-se" }), " solucionando ", jsxRuntime.jsx("b", { children: "desafios reais" })] })) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleLogo, { children: props.textTitleLogo }), jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: imgFrst, alt: "SRG Logo" }) })] })), !props.hideBtn &&
-<<<<<<< HEAD
-                    jsxRuntime.jsx(Button$2, { children: jsxRuntime.jsx(Button$5, { variant: "primary", label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FFF" }) }) })] }) }));
-=======
-                    jsxRuntime.jsx(Button$3, { children: jsxRuntime.jsx(Button$4, { variant: "primary", label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FFF" }) }) })] }) }));
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
+                    jsxRuntime.jsx(Button$2, { children: jsxRuntime.jsx(Button$4, { variant: "primary", label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FFF" }) }) })] }) }));
 }
 
 const Wrapper$3 = styled__default["default"].div `
@@ -17462,11 +16707,7 @@ const DataListItem = styled__default["default"].li `
   font-weight: 400;
   padding: 0px 10px;
 `;
-<<<<<<< HEAD
 const Button$1 = styled__default["default"].button `
-=======
-const Button$2 = styled__default["default"].button `
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
   background: transparent;
   display: flex;
   align-items: center;
@@ -18029,63 +17270,6 @@ function InputComment({ placeholder, value, onChange, remain, limit, hasEmoji, s
     }
 }
 
-<<<<<<< HEAD
-=======
-const Button$1 = styled__default["default"].div `
-    ${({ variant, disabled, theme }) => {
-    let styleVariant = {
-        'primary': styled.css `
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    padding: 4px 16px;
-                    gap: 8px;
-                    width: fit-content;
-                    height: 32px;
-                    background: ${disabled ? '#BDBDBD' : '#F26818'};
-                    border-radius: 8px;
-                    cursor: ${disabled ? 'default' : 'pointer'};
-                    font-family: 'Work Sans';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 16px;
-                    line-height: 19px;
-                    display: flex;
-                    align-items: center;
-                    color: ${({ theme }) => theme.colors.shadeWhite};
-                    user-select:none;
-                    &:hover {
-                        background: ${disabled ? '#BDBDBD' : '#D14211'};
-                    }
-                `,
-        'secondary': styled.css `
-                    font-family: 'PT Sans';
-                    font-style: normal;
-                    font-weight: 700;
-                    font-size: 16px;
-                    width: fit-content;
-                    color: ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey2};
-                    cursor: pointer;
-                    user-select:none;
-                    &:hover {
-                        color: ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.messageError1};
-                    }
-                    &:active {
-                        color: ${({ theme }) => disabled ? theme.colors.borderPrimary : theme.colors.secondary5};
-                        text-decoration: underline;
-                    }
-                    
-                `
-    };
-    return styleVariant[variant];
-}}
-`;
-
-function MiniButton({ variant, label, disabled, onClick, styles }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme }, children: jsxRuntime.jsx(Button$1, { onClick: (e) => !disabled && onClick(e), disabled: disabled, variant: variant, style: { ...styles }, children: label }) }));
-}
-
->>>>>>> 02f02df97a56f3a4b43476c9d228202ffbd20dd9
 const WrapperButton = styled__default["default"].div `
     display: flex;
     flex-direction: row;
