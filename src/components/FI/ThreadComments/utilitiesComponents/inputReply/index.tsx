@@ -1,26 +1,27 @@
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import InputComment from '@components/input-comment';
 import MiniButton from '@components/mini-button';
 import * as Styled from './inputReply.styles';
 import {IInputReply} from './inputReply.types';
 import Avatar from '@components/avatar';
+import { User } from '@components/input-comment/types';
 
 
-export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles, mentionUsers}: IInputReply) => {
-    const [commentData, setCommentData] = useState(replyFor);
-    const OnChangeComment = (text: string) => {
-        setCommentData(text);
-    }
-
-    const [captureUnformattedValue, setCaptureUnformattedValue] = useState<string>("");
+export const InputReply = ({ placeHolderText,getSearchUsers, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles}: IInputReply) => {
+    const [captureUnformattedValue, setCaptureUnformattedValue] = useState<string>(replyFor);
     const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>("");
     const [captureMentions, setCaptureMentions] = useState<string[]>();
+    const [users, setUsers] = useState<User[]>([]);
 
     const handlePublish = () =>{
         console.log(captureUnformattedValue);
         console.log(CaptureFormattedValue);
         console.log(captureMentions);
         onClickPublishButton();
+    }
+
+    const handleSearchUsers = async(value:string) =>{
+        setUsers(await getSearchUsers(value));
     }
 
     return (
@@ -30,14 +31,17 @@ export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,p
                 <InputComment
                     styles={{ width: '100%', marginTop: '22.5px' }}
                     className='userComment'
-                    onChange={OnChangeComment}
+                    onChange={(e: string) => {
+                        handleSearchUsers(e)
+                      }}
                     placeholder={placeHolderText}
                     limit={limitInput}
-                    showCharacterCounter={true} users={mentionUsers}
+                    showCharacterCounter={true}
                     onContentUnformat={((unformattedValue: string) => setCaptureUnformattedValue(unformattedValue))}
                     onContentFormat={((formattedValue: string) => setCaptureFormattedValue(formattedValue))}
                     onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
-                    />
+                    users={users}
+                   />
 
                     <MiniButton disabled={captureUnformattedValue.length <= 0} label={publishButtonText} onClick={()=> handlePublish()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
             </Styled.InputContainer>

@@ -14,17 +14,21 @@ export interface IThreadComments {
     placeHolderText: string,
     answerButtonText: string,
     onClickPublishButton: () => void,
-    onClickShowReplys: ()  => void,
     showReplysButtonText:string,
     publishButtonText:string,
+    editText: string,
+    deleteText: string,
     limitInputs:number,
     showMoreButtonText: string,
     showLessButtonText: string,
     loggedUserProfileImg?: string,
-    mentionUsersList: MentionUsers[]
+    styles: any,
+    getSearchUsers?: (value:string) =>  MentionUsers[],
+    relationToPhaseText?: string,
 }
 
 export interface IUser {
+    id: number,
     uuid: string,
     name: string,
     role_name: string,

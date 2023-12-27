@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ width?: string;}>`
+export const Container = styled.div`
   background-color: #ffff;
   display: flex;
   align-items: left;
   flex-direction: column;
-  width: ${({ width }) => (width ? `${width}` : '100%')};
+  width:100%;
 `
-export const CommentarysContainer = styled.div<{ width?: number;}>`
-width: ${({ width }) => (width ? `${width}` : '70%')};
+export const CommentarysContainer = styled.div`
 margin:18px;
 align-items: center;
 justify-content:center;

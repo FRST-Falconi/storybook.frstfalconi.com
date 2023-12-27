@@ -10,7 +10,7 @@ import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 
 export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,showMoreText,relationToPhaseText, showLessText,showLikeButton, styles,
-    actionLike,answerButtonText,likeButtonText,visitProfileText, commentTextWithMention,editText,deleteText,isAuthor,isOwnerPost,
+    actionLike,answerButtonText,likeButtonText, commentTextWithMention,editText,deleteText,isAuthor,isOwnerPost,
     howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,actionEditComment, actionDeleteComment,
     likesCount, hasActionToClickOnAvatar, showOptions, itsLiked}: ICommentaryBoxV2)=> {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;

@@ -38,10 +38,17 @@ const listReplyComments = [{
 }
 ]
 
-const  onClickShowReplys = async ()=>{
-     await new Promise(resolve => setTimeout(resolve, 3000))
-}
 
+const getSearchUsers = async (search: string): Promise<object[]> => {
+    await new Promise(resolve => setTimeout(resolve, 500));  
+    return mentionUserList.filter(user => user.name.toLowerCase().includes(search.toLowerCase()));
+  };
+  
+  // Exemplo de uso
+  const searchTerm = 'Usuário';
+  getSearchUsers(searchTerm).then(users => {
+    console.log(users);
+  });
 Default.args = {
     mainComment: {
         user:{
@@ -57,7 +64,7 @@ Default.args = {
     },
     listReplyComments: listReplyComments,
     onClickPublishButton: () => { alert("Comentário postado!") },
-    onClickShowReplys: onClickShowReplys,
+    getSearchUsers: getSearchUsers ,
     placeHolderText:"Responda Aqui!",
     showReplysButtonText: `Visualizar ${listReplyComments.length} Respostas`,
     publishButtonText:"Publicar",
@@ -65,7 +72,8 @@ Default.args = {
     answerButtonText: 'Responder',
     showMoreButtonText: "Ver Mais",
     showLessButtonText: "Ver Menos",
-    mentionUsersList: mentionUserList
+    editText: "Editar",
+    deleteText: "Excluir"
 }
 
 
