@@ -7,18 +7,30 @@ import Avatar from '@components/avatar';
 import { User } from '@components/input-comment/types';
 
 
-export const InputReply = ({ placeHolderText,getSearchUsers, onClickPublishButton, limitInput,publishButtonText, replyFor,imgProfile, styles}: IInputReply) => {
-    const [captureUnformattedValue, setCaptureUnformattedValue] = useState<string>(replyFor);
+export const InputReply = ({ placeHolderText,getSearchUsers, onClickPublishButton, parentId, limitInput,publishButtonText, replyFor,imgProfile, styles}: IInputReply) => {
+    const [comment, setComment] = useState<string>(replyFor)
     const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>("");
     const [captureMentions, setCaptureMentions] = useState<string[]>();
     const [users, setUsers] = useState<User[]>([]);
 
     const handlePublish = () =>{
-        console.log(captureUnformattedValue);
+        console.log(comment);
         console.log(CaptureFormattedValue);
         console.log(captureMentions);
-        onClickPublishButton();
+        onClickPublishButton({comment,contentMention: CaptureFormattedValue,mentions: captureMentions, parentId});
+        setComment('');
+        setCaptureFormattedValue('');
+        setCaptureMentions([]);
     }
+
+    let timeout;
+    const setCommentData = (value: string) => {
+        clearTimeout(timeout)
+        timeout = setTimeout(() => {
+          setComment(value)
+        }, 500)
+      }
+    
 
     const handleSearchUsers = async(value:string) =>{
         setUsers(await getSearchUsers(value));
@@ -34,16 +46,17 @@ export const InputReply = ({ placeHolderText,getSearchUsers, onClickPublishButto
                     onChange={(e: string) => {
                         handleSearchUsers(e)
                       }}
+                    value={comment}
                     placeholder={placeHolderText}
                     limit={limitInput}
                     showCharacterCounter={true}
-                    onContentUnformat={((unformattedValue: string) => setCaptureUnformattedValue(unformattedValue))}
+                    onContentUnformat={((unformattedValue: string) => setCommentData(unformattedValue))}
                     onContentFormat={((formattedValue: string) => setCaptureFormattedValue(formattedValue))}
                     onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
                     users={users}
                    />
 
-                    <MiniButton disabled={captureUnformattedValue.length <= 0} label={publishButtonText} onClick={()=> handlePublish()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
+                    <MiniButton disabled={comment.length <= 0} label={publishButtonText} onClick={()=> handlePublish()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
             </Styled.InputContainer>
         </Styled.Container>
 

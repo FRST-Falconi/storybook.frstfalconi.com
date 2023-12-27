@@ -2,11 +2,19 @@ import {User as MentionUsers} from '@components/input-comment/types'
 
 export interface IInputReply {    placeHolderText: string,
     publishButtonText:string,
-    onClickPublishButton: () => void,
+    onClickPublishButton: (props:onClickPublishButtonParams) => void,
     limitInput:number,
     styles:any,
     idInput:string,
     replyFor:string,
     imgProfile?:string,
-    getSearchUsers?: (value:string) =>  MentionUsers[]
+    getSearchUsers?: (value:string) =>  MentionUsers[],
+    parentId?:number
+}
+
+interface onClickPublishButtonParams {
+    comment: string,
+    contentMention: string ,
+    mentions: Array<string> ,
+    parentId?: number ;
 }

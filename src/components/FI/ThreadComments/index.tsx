@@ -88,6 +88,7 @@ export const ThreadComments = ({
               onClickPublishButton={onClickPublishButton}
               getSearchUsers={getSearchUsers}
               replyFor={mainComment.user.name}
+              parentId={Number(mainComment.id)}
             />
           )}
         </div>
@@ -116,7 +117,9 @@ export const ThreadComments = ({
                       limitInput={limitInputs}
                       onClickPublishButton={onClickPublishButton}
                       replyFor={replyComment.user.name}
-                      getSearchUsers={getSearchUsers}                    />
+                      getSearchUsers={getSearchUsers}
+                      parentId={Number(mainComment.id)}
+                    />
                   )}
                 </>
               )
