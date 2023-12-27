@@ -759,19 +759,10 @@ export default function GlobalMenu({
                   }}
                 />
                 {showHelp && (
-                  <Tooltip
-                    direction="bottom"
-                    content="Clique aqui para tirar suas dúvidas com o nosso suporte."
-                    width="220px"
-                    height="52px"
-                    style={{ top:'10px', position:'relative', textAlign: 'left' }}
-                    
-                  >
                     <Styles.help onClick={onClickHelp}>
                       <Styles.helpText>Ajuda </Styles.helpText>
                       {<HelpIcon />}
                     </Styles.help>
-                  </Tooltip>
                 )}
 
                 {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
