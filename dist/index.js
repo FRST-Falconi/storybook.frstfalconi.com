@@ -8,8 +8,8 @@ var styled = require('styled-components');
 var ReactPlayer = require('react-player');
 var material = require('@mui/material');
 var reactI18next = require('react-i18next');
-var Button$7 = require('@mui/material/Button');
-var Menu$1 = require('@mui/material/Menu');
+var Button$6 = require('@mui/material/Button');
+var Menu = require('@mui/material/Menu');
 var MenuItem = require('@mui/material/MenuItem');
 var Card = require('@mui/material/Card');
 var Stepper$1 = require('@mui/material/Stepper');
@@ -35,13 +35,6 @@ var locale = require('date-fns/locale');
 var dateFns = require('date-fns');
 var Avatar$1 = require('@mui/material/Avatar');
 var Markdown = require('markdown-to-jsx');
-var isHotkey = require('is-hotkey');
-var slateReact = require('slate-react');
-var slate = require('slate');
-var slateHistory = require('slate-history');
-require('react-dom');
-var css = require('@emotion/css');
-var iconsMaterial = require('@mui/icons-material');
 var Tooltip$3 = require('@mui/material/Tooltip');
 var Switch = require('react-switch');
 var core = require('@material-ui/core');
@@ -91,8 +84,8 @@ var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 var ReactPlayer__default = /*#__PURE__*/_interopDefaultLegacy(ReactPlayer);
-var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$7);
-var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu$1);
+var Button__default = /*#__PURE__*/_interopDefaultLegacy(Button$6);
+var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var Card__default = /*#__PURE__*/_interopDefaultLegacy(Card);
 var Stepper__default = /*#__PURE__*/_interopDefaultLegacy(Stepper$1);
@@ -111,7 +104,6 @@ var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography$4);
 var Avatar__default = /*#__PURE__*/_interopDefaultLegacy(Avatar$1);
 var Markdown__default = /*#__PURE__*/_interopDefaultLegacy(Markdown);
-var isHotkey__default = /*#__PURE__*/_interopDefaultLegacy(isHotkey);
 var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip$3);
 var Switch__default = /*#__PURE__*/_interopDefaultLegacy(Switch);
 var moment__default = /*#__PURE__*/_interopDefaultLegacy(moment);
@@ -146,9 +138,6 @@ function FRSTLogoBig({ fill, width, height }) {
 }
 function ChangeAccount({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '18', height: height ? height : '16', viewBox: "0 0 18 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M1 1.74841V6.2496H5.36364", stroke: fill ?? 'white', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.9999 13.7516V9.25043H12.6362", stroke: fill ?? 'white', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.1745 5.49941C14.8057 4.42421 14.1788 3.46293 13.3524 2.70524C12.526 1.94755 11.5269 1.41816 10.4485 1.16646C9.3701 0.914767 8.24745 0.948968 7.18532 1.26588C6.12318 1.58278 5.15618 2.17207 4.37455 2.97875L1 6.24961M17 9.25039L13.6255 12.5213C12.8438 13.3279 11.8768 13.9172 10.8147 14.2341C9.75255 14.551 8.6299 14.5852 7.55148 14.3335C6.47307 14.0818 5.47404 13.5524 4.64761 12.7948C3.82119 12.0371 3.1943 11.0758 2.82545 10.0006", stroke: fill ?? 'white', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
-}
-function DownloadIcon({ fill, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M12.8 1C12.8 0.447715 12.3523 0 11.8 0C11.2477 0 10.8 0.447715 10.8 1V12.9858L6.50711 8.69289C6.11658 8.30237 5.48342 8.30237 5.09289 8.69289C4.70237 9.08342 4.70237 9.71658 5.09289 10.1071L11.0929 16.1071C11.2858 16.3 11.5379 16.3976 11.7908 16.4C11.7938 16.4 11.7969 16.4 11.8 16.4M12.8 1V12.9858V1ZM11.8092 16.4C12.0621 16.3976 12.3142 16.3 12.5071 16.1071L18.5071 10.1071C18.8976 9.71658 18.8976 9.08342 18.5071 8.69289C18.1166 8.30237 17.4834 8.30237 17.0929 8.69289L12.8 12.9858M1 14.4C1.55228 14.4 2 14.8477 2 15.4V20.2C2 20.5713 2.1475 20.9274 2.41005 21.1899C2.6726 21.4525 3.0287 21.6 3.4 21.6H20.2C20.5713 21.6 20.9274 21.4525 21.1899 21.1899C21.4525 20.9274 21.6 20.5713 21.6 20.2V15.4C21.6 14.8477 22.0477 14.4 22.6 14.4C23.1523 14.4 23.6 14.8477 23.6 15.4V20.2C23.6 21.1017 23.2418 21.9665 22.6042 22.6042C21.9665 23.2418 21.1017 23.6 20.2 23.6H3.4C2.49826 23.6 1.63346 23.2418 0.995837 22.6042C0.358213 21.9665 0 21.1017 0 20.2V15.4C0 14.8477 0.447715 14.4 1 14.4Z", fill: fill ?? '#FF4D0D' }) }));
 }
 function DropdownIconWhite({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '16', height: height ? height : '16', children: jsxRuntime.jsx("path", { d: "M2 8l6 6 6-6z", fill: fill ?? 'white' }) }));
@@ -531,6 +520,9 @@ function CardFinished() {
 function Tick({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '12', height: height ? height : '10.5', viewBox: "0 0 13 11", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M11.0964 0.390037L3.93638 7.30004L2.03638 5.27004C1.68638 4.94004 1.13638 4.92004 0.736381 5.20004C0.346381 5.49004 0.236381 6.00004 0.476381 6.41004L2.72638 10.07C2.94638 10.41 3.32638 10.62 3.75638 10.62C4.16638 10.62 4.55638 10.41 4.77638 10.07C5.13638 9.60004 12.0064 1.41004 12.0064 1.41004C12.9064 0.490037 11.8164 -0.319963 11.0964 0.380037V0.390037Z", fill: fill ? fill : 'white' }) }));
 }
+function LampHelpBoxInput({ fill, width, height }) {
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "22", viewBox: "0 0 16 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.7282 15.2853H11.2704M3.0496 13.1938C2.07082 12.1947 1.40432 10.9219 1.13437 9.53624C0.864424 8.15062 1.00315 6.71443 1.53302 5.40926C2.06289 4.1041 2.9601 2.98857 4.1112 2.20374C5.26231 1.4189 6.61561 1 8 1C9.38439 1 10.7377 1.4189 11.8888 2.20374C13.0399 2.98857 13.9371 4.1041 14.467 5.40926C14.9968 6.71443 15.1356 8.15062 14.8656 9.53624C14.5957 10.9219 13.9292 12.1947 12.9504 13.1938L12.1832 13.9752C11.7446 14.4229 11.3967 14.9544 11.1594 15.5393C10.922 16.1241 10.7999 16.751 10.8 17.384V18.1427C10.8 18.9005 10.505 19.6273 9.9799 20.1631C9.4548 20.699 8.74261 21 8 21C7.25739 21 6.5452 20.699 6.0201 20.1631C5.495 19.6273 5.2 18.9005 5.2 18.1427V17.384C5.2 16.1054 4.7016 14.8782 3.8168 13.9752L3.0496 13.1938Z", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M4 7.5V7.5C4 5.567 5.567 4 7.5 4V4", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round" })] }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -559,8 +551,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$p = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$p);
+var css_248z$o = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
+styleInject(css_248z$o);
 
 function Tag(props) {
     function getBG() {
@@ -1536,7 +1528,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$g = styled__default["default"](Card__default["default"]) `
+const Container$h = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -1742,9 +1734,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$g, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$h, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$g, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$6, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$h, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$6, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -1757,9 +1749,9 @@ function CalendarCard(props) {
                                         jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
 }
 
-var css_248z$o = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
-var style$h = {"container":"TextIcon-module_container__c5xjY"};
-styleInject(css_248z$o);
+var css_248z$n = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
+var style$g = {"container":"TextIcon-module_container__c5xjY"};
+styleInject(css_248z$n);
 
 ///-----------------------------------------
 /// Componente
@@ -1768,12 +1760,12 @@ styleInject(css_248z$o);
  * @componente
  */
 function TextIcon(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$h.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$g.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
 }
 
-var css_248z$n = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
-var style$g = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
-styleInject(css_248z$n);
+var css_248z$m = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
+var style$f = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
+styleInject(css_248z$m);
 
 ///-----------------------------------------
 /// Componente
@@ -1803,12 +1795,12 @@ function Rating$1(props) {
         '#FFC200',
         '#FF4D0D',
     ];
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$g.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$g.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$g.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$g.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$g.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$f.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$f.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$f.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$f.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$f.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
 }
 
-var css_248z$m = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
-var style$f = {"container":"RatingCurtidas-module_container__Ns11t"};
-styleInject(css_248z$m);
+var css_248z$l = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
+var style$e = {"container":"RatingCurtidas-module_container__Ns11t"};
+styleInject(css_248z$l);
 
 ///-----------------------------------------
 /// Componente
@@ -1849,7 +1841,7 @@ function RocketButton(props) {
  * @componente
  */
 function RatingCurtidas(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$f.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 40, height: 40, justifyContent: 'center', alignItems: 'center', position: 'relative' }, children: jsxRuntime.jsx(RocketButton, { tipoBotao: props.tipoBotao }) }), jsxRuntime.jsx("div", { style: { display: 'inline-flex', width: 90, marginLeft: 4 }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', flexWrap: 'wrap', width: 100 }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.qtdeCurtidas ? props.qtdeCurtidas : 0 }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: props.descricaoCurtida })] }) })] })] }) }));
 }
 
 const TooltipWrapper = styled__default["default"].div `
@@ -2124,9 +2116,9 @@ function StepItem({ index, name, action, step, variant }) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { variant: variant }), jsxRuntime.jsx(CicleStepChar, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
 }
 
-var css_248z$l = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
-var style$e = {"container":"avatarWithInfo-module_container__Y-yUf"};
-styleInject(css_248z$l);
+var css_248z$k = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
+var style$d = {"container":"avatarWithInfo-module_container__Y-yUf"};
+styleInject(css_248z$k);
 
 const AvatarImg$1 = styled__default["default"].img `
   width: ${(props) => props.size || '120px'};
@@ -2167,7 +2159,7 @@ function Vector(props) {
  * @componente Planet: Componente responsável por gerenciar os controles dos steps das missões
  */
 function AvatarWithInfo(props) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$e.container, style: { ...props.style }, onClick: () => props?.onClick ? props.onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar, isActiveClick: !!props?.onClick }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, onClick: () => props?.onClick ? props.onClick() : {}, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.fotoAvatar, isActiveClick: !!props?.onClick }), jsxRuntime.jsx("span", { style: { fontWeight: 600, marginLeft: 8, marginRight: 4 }, children: props.nomeCompleto }), " ", props.cargo ? jsxRuntime.jsx(Vector, {}) : '', " ", jsxRuntime.jsx("span", { style: { fontWeight: 400, marginLeft: 4, marginRight: 8, textAlign: 'center' }, children: props.cargo })] }) }));
 }
 
 const LinkButton$1 = styled__default["default"].a `
@@ -2388,7 +2380,7 @@ const variantStyles$1 = (variant = 'contained') => ({
       }
     `
 }[variant]);
-const Button$6 = styled__default["default"].button `
+const Button$5 = styled__default["default"].button `
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -2511,7 +2503,7 @@ const ButtonEndIcon = styled__default["default"].button `
   ${({ variant }) => variantStyles$1(variant)}
 `;
 
-function Button$5({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount }) {
+function Button$4({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount }) {
     React.useEffect(() => {
         if (handleMount && id) {
             handleMount(id);
@@ -2531,12 +2523,12 @@ function Button$5({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                     (variant === 'link') ?
                         jsxRuntime.jsx(LinkButton$1, { ref: ref, style: { ...style }, disabled: disabled, onClick: handleClick, id: id, children: label })
                         :
-                            jsxRuntime.jsx(Button$6, { ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
+                            jsxRuntime.jsx(Button$5, { ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
 }
 
-var css_248z$k = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
-var style$d = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
-styleInject(css_248z$k);
+var css_248z$j = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
+var style$c = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
+styleInject(css_248z$j);
 
 const SpanHeaderTag = styled__default["default"].span `
     display: flex;
@@ -2650,10 +2642,10 @@ function BannerProblem(props) {
         setSelectedStep(props.stepActive);
     }, [props.stepActive]);
     const MOBILEWIDTH = 650;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.container, style: { ...props.style }, children: [props.topHeaderTagText &&
-                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$d.titleProblem, children: [showChallengeTitle(), props.isVerified &&
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.container, style: { ...props.style }, children: [props.topHeaderTagText &&
+                    jsxRuntime.jsx(SpanHeaderTag, { background: props.topHeaderTagBgColor, color: props.topHeaderTagColor, children: props.topHeaderTagText }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }, children: [jsxRuntime.jsxs("span", { className: style$c.titleProblem, children: [showChallengeTitle(), props.isVerified &&
                                     jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.verifiedTooltipContent, trigger: 'hover', width: '361px', height: '54px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx(SawBadgeIcon, {}) })] }), props.isEditable &&
-                            jsxRuntime.jsx(Button$5, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
+                            jsxRuntime.jsx(Button$4, { label: Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações") : (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar"), variant: 'link', handleClick: () => handleEdit(), startIcon: jsxRuntime.jsx(EditIcon, {}) })] }), Edit ?
                     jsxRuntime.jsx("div", { style: {
                             marginTop: '8px',
                             marginBottom: '8px',
@@ -2675,7 +2667,7 @@ function BannerProblem(props) {
                                 wordBreak: 'break-word',
                             }, children: TituloProblema }) })
                     :
-                        jsxRuntime.jsx("h1", { className: style$d.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC' }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', width: 'fit-content', paddingTop: '16px' }, children: [jsxRuntime.jsx("span", { className: style$d.created, children: props.dataCriacao }), props.onClickUserInfo ?
+                        jsxRuntime.jsx("h1", { className: style$c.description, children: TituloProblema }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC' }, children: jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: '100%' }, children: [jsxRuntime.jsxs("div", { style: { width: '100%', maxWidth: 600 }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', width: 'fit-content', paddingTop: '16px' }, children: [jsxRuntime.jsx("span", { className: style$c.created, children: props.dataCriacao }), props.onClickUserInfo ?
                                                 jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8, marginTop: 24, cursor: props.onClickUserInfo ? 'pointer' : 'auto' }, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {} }) })
                                                 :
                                                     jsxRuntime.jsx(AvatarWithInfo, { cargo: props.cargo, nomeCompleto: props.nome, fotoAvatar: props.avatar, style: { marginBottom: 8, marginTop: 24 } })] }), jsxRuntime.jsx(TextIcon, { description: props.area, svg: jsxRuntime.jsx(Brain, {}) }), props.company && jsxRuntime.jsx(TextIcon, { style: { width: '80%' }, description: props.company, svg: jsxRuntime.jsx(CompanyIcon, {}) }), jsxRuntime.jsx(TextIcon, { description: adapterEmail(props.email, size[0]), svg: jsxRuntime.jsx(Mail, {}) }), Edit && props.isVisibleEditTrail ?
@@ -2688,15 +2680,15 @@ function BannerProblem(props) {
                                                     jsxRuntime.jsx(TextIcon, { description: props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha', svg: jsxRuntime.jsx(WithoutTrail, {}) })
                                                     :
                                                         jsxRuntime.jsx(TextIcon, { description: TrilhaBanner, svg: jsxRuntime.jsx(WithTrail, {}) }) }), jsxRuntime.jsx("div", { style: { marginTop: 16, marginBottom: 26, maxWidth: !Edit ? '400px' : '100%' }, children: Edit && props.isVisibleEditTags ?
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$d.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$c.contentInput, children: [jsxRuntime.jsx("h3", { style: { marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }, children: props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:' }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag1; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag1(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag2; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag2(e.value); } }), jsxRuntime.jsx(Select__default$1["default"], { id: "select", styles: customStyles, options: tagListShow, value: tagListShow.filter(function (temp) { return temp.value === Tag3; }), placeholder: props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag', onChange: e => { setTag3(e.value); } })] }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, { children: Tags?.map((item, key) => (item &&
                                                         jsxRuntime.jsx(Tag, { title: item, style: { color: '#000 !important', marginRight: 8, marginTop: 8 }, color: "#E4E1FF", selected: false, inverted: false }, key))) }) }), size[0] <= MOBILEWIDTH || Edit ?
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%' }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                                     jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 }, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
                                         : null, jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '32px' }, children: [props.showButtonInvite &&
-                                                jsxRuntime.jsx(Button$5, { variant: 'link', label: props.textGoalInviteBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '26px', marginBottom: '-2px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalInviteIcon, { width: '26px', height: '26px' }) }), handleClick: props.onClickMessage, style: { paddingTop: '0px', paddingBottom: '16px' } }), props.showButtonViews &&
-                                                jsxRuntime.jsx(Button$5, { variant: 'link', label: props.textGoalViewsBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '20px', marginBottom: '-1px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalViewsIcon, { width: '20px' }) }), handleClick: props.onClickViewsBtn, style: { paddingTop: '0px', paddingBottom: '16px' } })] })] }), size[0] > MOBILEWIDTH && Edit === false ?
+                                                jsxRuntime.jsx(Button$4, { variant: 'link', label: props.textGoalInviteBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '26px', marginBottom: '-2px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalInviteIcon, { width: '26px', height: '26px' }) }), handleClick: props.onClickMessage, style: { paddingTop: '0px', paddingBottom: '16px' } }), props.showButtonViews &&
+                                                jsxRuntime.jsx(Button$4, { variant: 'link', label: props.textGoalViewsBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '20px', marginBottom: '-1px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalViewsIcon, { width: '20px' }) }), handleClick: props.onClickViewsBtn, style: { paddingTop: '0px', paddingBottom: '16px' } })] })] }), size[0] > MOBILEWIDTH && Edit === false ?
                                 jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, id: 'avaliations-banner-problem', children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas &&
                                             jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' })] })
                                 : null] }) }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx("div", { style: { marginTop: '20px' }, children: jsxRuntime.jsx(ButtonsProcessSteps, { idioma: Idioma, definedSteps: props?.stepProblem, selectedStep: selectedStep, setSelectedStep: (e) => {
@@ -2775,11 +2767,11 @@ function ButtonsProcessSteps({ selectedStep, definedSteps, setSelectedStep, idio
         }
     }, [idioma]);
     return jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [selectedStep == 1 && definedSteps > 1 &&
-                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(2), label: anhorsBtn.next, variant: "link", style: { height: '40px' } }) }), selectedStep > 1 && selectedStep < definedSteps &&
-                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep + 1), label: anhorsBtn.next, variant: "link", style: { height: '40px' } })] }), selectedStep == definedSteps && definedSteps != 5 && definedSteps != 1 &&
-                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), hasContinuePropsState ? jsxRuntime.jsx(Button$5, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } }) : jsxRuntime.jsx("div", { children: " " })] }), selectedStep == definedSteps && definedSteps == 5 &&
-                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-start' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }) }), selectedStep == definedSteps && definedSteps == 1 &&
-                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: hasContinuePropsState ? jsxRuntime.jsx(Button$5, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } }) : jsxRuntime.jsx("div", { children: " " }) })] });
+                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Button$4, { handleClick: () => setSelectedStep(2), label: anhorsBtn.next, variant: "link", style: { height: '40px' } }) }), selectedStep > 1 && selectedStep < definedSteps &&
+                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$4, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), jsxRuntime.jsx(Button$4, { handleClick: () => setSelectedStep(selectedStep + 1), label: anhorsBtn.next, variant: "link", style: { height: '40px' } })] }), selectedStep == definedSteps && definedSteps != 5 && definedSteps != 1 &&
+                jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', justifyContent: 'space-between' }, children: [jsxRuntime.jsx(Button$4, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }), hasContinuePropsState ? jsxRuntime.jsx(Button$4, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } }) : jsxRuntime.jsx("div", { children: " " })] }), selectedStep == definedSteps && definedSteps == 5 &&
+                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-start' }, children: jsxRuntime.jsx(Button$4, { handleClick: () => setSelectedStep(selectedStep - 1), label: anhorsBtn.previous, variant: "link", style: { height: '40px' } }) }), selectedStep == definedSteps && definedSteps == 1 &&
+                jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: hasContinuePropsState ? jsxRuntime.jsx(Button$4, { handleClick: () => onClickContinue(), label: anhorsBtn.continueChallenge, variant: "primary", style: { height: '40px' } }) : jsxRuntime.jsx("div", { children: " " }) })] });
 }
 function getTranslateBtnNextPrevSteps() {
     const traducaoPTBR = {
@@ -2818,9 +2810,9 @@ function getTranslateBtnNextPrevSteps() {
     };
 }
 
-var css_248z$j = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
-var style$c = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
-styleInject(css_248z$j);
+var css_248z$i = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
+var style$b = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
+styleInject(css_248z$i);
 
 ///-----------------------------------------
 /// Componente
@@ -2874,22 +2866,22 @@ function MessageBox(props) {
         jsxRuntime.jsx(SaveIcon, { fill: 'red' })
     ];
     return (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsxs("div", { className: props.hasHover ?
-                    `${props.tipoVisualizacao === 1 ? style$c.success
-                        : props.tipoVisualizacao === 2 ? style$c.warning
-                            : props.tipoVisualizacao === 3 ? style$c.error
-                                : props.tipoVisualizacao === 4 ? style$c.notificacao
-                                    : props.tipoVisualizacao === 5 ? style$c.notificacaoErro
-                                        : ''} ${style$c.container}`
+                    `${props.tipoVisualizacao === 1 ? style$b.success
+                        : props.tipoVisualizacao === 2 ? style$b.warning
+                            : props.tipoVisualizacao === 3 ? style$b.error
+                                : props.tipoVisualizacao === 4 ? style$b.notificacao
+                                    : props.tipoVisualizacao === 5 ? style$b.notificacaoErro
+                                        : ''} ${style$b.container}`
                     :
-                        `${props.tipoVisualizacao === 1 ? style$c.successNoHover
-                            : props.tipoVisualizacao === 2 ? style$c.warningNoHover
-                                : props.tipoVisualizacao === 3 ? style$c.errorNoHover
-                                    : props.tipoVisualizacao === 4 ? style$c.notificacaoNoHover
-                                        : props.tipoVisualizacao === 5 ? style$c.notificacaoErroNoHover
-                                            : ''} ${style$c.container}`, style: {
+                        `${props.tipoVisualizacao === 1 ? style$b.successNoHover
+                            : props.tipoVisualizacao === 2 ? style$b.warningNoHover
+                                : props.tipoVisualizacao === 3 ? style$b.errorNoHover
+                                    : props.tipoVisualizacao === 4 ? style$b.notificacaoNoHover
+                                        : props.tipoVisualizacao === 5 ? style$b.notificacaoErroNoHover
+                                            : ''} ${style$b.container}`, style: {
                     cursor: props.onClick ? 'pointer' : 'default',
                     ...props.style
-                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$c.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
+                }, onClick: props.onClick, children: [jsxRuntime.jsx("div", { className: style$b.square, style: { backgroundColor: MapBorderColor[props.tipoVisualizacao - 1] }, children: MapIconList[props.tipoVisualizacao - 1] }), jsxRuntime.jsxs("div", { style: { display: 'inline-flex', width: 'calc(100% - 30px)' }, children: [props.texto, jsxRuntime.jsxs("span", { children: [" \u00A0", props.descricao ? props.descricao : ''] })] })] }), props.hasClickExit &&
                 jsxRuntime.jsxs("div", { style: {
                         display: 'inline-flex',
                         position: 'absolute',
@@ -2957,6 +2949,20 @@ const TextFieldContainer = styled__default["default"].div `
     `
         box-shadow: 0px 0px 0px 2px rgba(102, 51, 102, 0.4) !important;
         border: 1px solid #663366 !important;`}
+
+  
+${(props) => props.isHelpTextBox && props.isClicked &&
+    styled.css `
+    box-shadow: none !important;
+        border: 1px solid #F18624 !important;
+    `}
+
+    ${(props) => props.theme.focused && props.isHelpTextBox &&
+    styled.css `
+      box-shadow: 0px 0px 0px 1px #F18624 !important;
+      border: 1px solid #F18624 !important;
+    `}
+
 
   ${(props) => props.theme.multiline &&
     styled.css `
@@ -3084,6 +3090,22 @@ const HelperText$3 = styled__default["default"].span `
       color: ${({ theme }) => theme.colors.messageError1};
     `}
 `;
+const HelperTextBox = styled__default["default"].div `
+width: 100%;
+height: fit-content;
+padding: 1rem;
+border-radius: 8px;
+border: 1px;
+background: #FEF0D080;
+border: 1px solid #FDAE15;
+display: flex;
+font-weight: 400;
+font-size: 16px;
+align-items: center;
+svg{
+  margin-right: 0.5rem;
+}
+`;
 const InputIconButton = styled__default["default"].button `
   display: flex;
   justify-content: center;
@@ -3124,7 +3146,7 @@ function TextField(props) {
             setClick(false);
         }, 1000);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsxs(HelperTextBox, { children: [jsxRuntime.jsx(LampHelpBoxInput, {}), props.helperTextBox] })] }) }));
 }
 
 function Textarea(props) {
@@ -3133,40 +3155,39 @@ function Textarea(props) {
 
 const InputWrapper$2 = styled__default["default"].div `
     display: flex;
-    align-items:flex-end;
+    align-items:'baseline';
     width: 100%;
-    min-height: 48px;
-    background-color: ${({ theme }) => theme.colors.shadeWhite};
-
-    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey4};
+    min-height: '99px';
+    position: 'relative';
+    background-color: ${({ theme }) => theme.colors.neutralsGrey9};
+    
+    
     border-radius: 24px;
 
     transition: all 0.2s ease-in-out;
 
+  
+
+    border: ${({ theme, isPlaceholder }) => !isPlaceholder ? `2px solid ${theme.colors.neutralsGrey5} !important` : `1px solid ${theme.colors.neutralsGrey5} !important`};
+
     &:hover {
-        border: 1px solid ${({ theme }) => theme.colors.shadeBlack};
+        border: 2px solid ${({ theme }) => theme.colors.neutralsGrey5} !important;
     }
-
-    ${({ focus, theme }) => focus &&
-    `border: 1px solid` + theme.colors.primary1 + " !important;"}
 `;
-const InputText$4 = styled__default["default"].textarea `
-    display: flex;
-    align-items: center;
-
+const InputText$4 = styled__default["default"].div `
     width: 100%;
     height: ${({ height }) => height || '20px'};
     outline: 0;
-    
+    color: ${({ theme, isPlaceholder }) => !isPlaceholder ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey4};
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 20px;
     letter-spacing: -0.02em;
-    
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
-    resize: none;
+    
 
     padding: 0;
     margin: 14px;
@@ -3222,83 +3243,394 @@ styled__default["default"].div `
 `;
 // transform: scale(0.845);
 
-function randID$3() {
-    return Math.random()
-        .toString(36)
-        .substr(2, 9);
-}
-
-function InputComment$1({ placeholder, value, onChange, remain, limit, hasEmoji, showCharacterCounter, IDInput, styles, disabled, emojiWindowlanguage }) {
+const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value }) => {
     const [focus, setFocus] = React.useState(false);
-    // Emoji Window States
-    const [isVisibleEmojiWindow, setIsVisibleEmojiWindow] = React.useState(false);
-    const [actionAreaEmojiButton, setActionAreaEmojiButton] = React.useState(false);
-    const [colorEmojiButton, setColorEmojiButton] = React.useState('');
-    const [heightPositionWindowEmoji, setHeightPositionWindowEmoji] = React.useState('');
-    const [newEmojiIncluded, setNewEmojiIncluded] = React.useState(false);
-    const [lastPositionCursorTextTextArea, setLastPositionCursorTextTextArea] = React.useState({});
-    const [lenghtLastEmoji, setLenghtLastEmoji] = React.useState();
-    // TextArea states
-    const [stringValueTextArea, setStringValueTextArea] = React.useState(value);
-    // IDs
-    const [iDInputComment, setIDInputComment] = React.useState(IDInput ? IDInput : `InputComment-${randID$3()}`);
-    React.useState(IDInput ? IDInput : `IDEmojiButton-${randID$3()}`);
-    // Emoji window actions
-    React.useEffect(() => {
-        (isVisibleEmojiWindow) ? configsWhenOpenWindowEmoji() : configsWhenCloseWindowEmoji();
-    }, [isVisibleEmojiWindow]);
-    React.useEffect(() => {
-        {
-            newEmojiIncluded && repositionCursorAfterNewEmojiInTextArea();
+    const [showMention, setShowMention] = React.useState(false);
+    const [inputSearch, setInputSearch] = React.useState('');
+    const divInputRef = React.useRef(null);
+    const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`;
+    const [textLength, setTextLength] = React.useState(0);
+    const [isPlaceholder, setPlaceholder] = React.useState(false);
+    const handleMentionUser = (user) => {
+        if (user?.name && divInputRef.current) {
+            // Set the cursor to the last saved position
+            const selection = window.getSelection();
+            if (selection && selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                if (range.startContainer.textContent === null)
+                    return;
+                if (range.startOffset === 0) {
+                    setShowMention(false);
+                    return;
+                }
+                let symbolFound = false;
+                while (!symbolFound) {
+                    if (range.startContainer.textContent.charAt(range.startOffset - 1) !== '@') {
+                        range.setStart(range.startContainer, range.startOffset - 1);
+                        range.deleteContents();
+                    }
+                    else {
+                        symbolFound = true;
+                    }
+                }
+                // Create a new anchor element
+                const mentionAnchorElement = document.createElement('a');
+                mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
+                mentionAnchorElement.style.fontWeight = 'bold';
+                mentionAnchorElement.style.color = DesignTokens.colors.primary1;
+                mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
+                mentionAnchorElement.setAttribute("contenteditable", "false");
+                const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
+                if (range.startOffset > 0 && range.startContainer.textContent.charAt(range.startOffset - 1) === '@') {
+                    range.setStart(range.startContainer, range.startOffset - 1);
+                    range.deleteContents();
+                }
+                // append the child to the current cursor position within the paragraph
+                range.collapse(false); // set the cursor to the end of the paragraph
+                range.insertNode(spaceNode);
+                range.insertNode(mentionAnchorElement);
+                // If the previous character is "@", delete it
+                // Create a new range for setting the cursor position
+                const newRange = document.createRange();
+                // Move the cursor to the end of the spaceNode
+                newRange.setStartAfter(spaceNode);
+                newRange.collapse(true);
+                // Update the selection
+                selection.removeAllRanges();
+                selection.addRange(newRange);
+            }
+            countChars();
+            createFormatAndTextContentToSaveComment();
         }
-        resizeTextArea();
-    }, [stringValueTextArea]);
-    React.useEffect(() => {
-        setStringValueTextArea(value);
-    }, [value]);
-    function inputInChanging(e) {
-        setStringValueTextArea(e.target.value);
-        onChange(e);
-    }
-    const verifyClick = () => {
-        if (!actionAreaEmojiButton)
-            setIsVisibleEmojiWindow(false);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, onClick: verifyClick, children: [jsxRuntime.jsx(InputWrapper$2, { focus: focus, children: jsxRuntime.jsx(InputText$4, { id: iDInputComment, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onChange: inputInChanging, value: stringValueTextArea, placeholder: placeholder, maxLength: limit, disabled: disabled }) }), showCharacterCounter &&
-                    jsxRuntime.jsxs(HelperText$2, { children: [limit - remain, "/", limit] })] }) }));
-    function resizeTextArea() {
-        let tx = document.getElementById(iDInputComment);
-        const txResize = (tx) => {
-            tx.style.height = '20px';
-            tx.style.height = tx.scrollHeight + 'px';
-            setHeightPositionWindowEmoji(tx.scrollHeight - 440 + 'px');
+    //create a method that increase the size of the div as the scroll height increases
+    const resizeDiv = () => {
+        if (divInputRef.current) {
+            divInputRef.current.style.height = 'auto';
+            divInputRef.current.style.height = divInputRef.current.scrollHeight + 'px';
+        }
+    };
+    React.useEffect(() => {
+        divInputRef.current?.addEventListener('input', resizeDiv);
+        return () => {
+            divInputRef.current?.removeEventListener('input', resizeDiv);
         };
-        {
-            tx && tx.style && txResize(tx);
+    }, []);
+    const addOrDeleteMentionedUser = () => {
+        // get all mentioned users
+        const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
+        // get all mentioned users id
+        const mentionedUsersId = [];
+        mentionedUsers.forEach((user) => {
+            mentionedUsersId.push(user.getAttribute('data-mention-id') || '');
+        });
+        // send the mentioned users id to the parent component
+        onSendMentions(mentionedUsersId);
+    };
+    const createFormatAndTextContentToSaveComment = () => {
+        // get the content string of each node
+        let plainContent = '';
+        if (divInputRef.current) {
+            divInputRef.current.childNodes.forEach((child) => {
+                if (child.textContent) {
+                    plainContent += child.textContent;
+                }
+            });
         }
-    }
-    function configsWhenOpenWindowEmoji() {
-        setColorEmojiButton(FRSTTheme['colors'].primary1);
-        // document.body.addEventListener("click", (e: any) => verifyClick(), true);
-        // document.getElementById(iDEmojiButton).removeEventListener("click", (e: any) => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), false);
-    }
-    function configsWhenCloseWindowEmoji() {
-        setColorEmojiButton(FRSTTheme['colors'].neutralsGrey2);
-        // document.body.removeEventListener("click", (e: any) => verifyClick(), true);
-        // document.getElementById(iDEmojiButton).addEventListener("click", (e: any) => setIsVisibleEmojiWindow(!isVisibleEmojiWindow), false);
-    }
-    function repositionCursorAfterNewEmojiInTextArea() {
-        let tx = document.getElementById(iDInputComment);
-        if (lastPositionCursorTextTextArea[1] != lastPositionCursorTextTextArea[0]) { // Cursor in multiple chars selected
-            // @ts-ignore
-            tx.selectionEnd = lastPositionCursorTextTextArea[0] + lenghtLastEmoji;
+        // get the full html content of the div
+        const htmlContent = divInputRef.current?.innerHTML || '';
+        onContentFormat(htmlContent);
+        onContentUnformat(plainContent);
+        addOrDeleteMentionedUser();
+    };
+    const handleInput = (event) => {
+        const selection = window.getSelection();
+        let inputSearch = '@';
+        if (selection && selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            if (range.startContainer.textContent === null)
+                return;
+            // Get the text before the cursor
+            const textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
+            // Find the last index of "@" in the text before the cursor
+            const atIndex = textBeforeCursor.lastIndexOf('@');
+            if (atIndex !== -1) {
+                // Get the characters after the last "@"
+                const afterAt = textBeforeCursor.substring(atIndex + 1);
+                inputSearch = afterAt;
+            }
         }
-        else { // Cursor text in specific point
-            // @ts-ignore
-            tx.selectionEnd = lastPositionCursorTextTextArea[1] + lenghtLastEmoji;
+        if (event.key === '@') {
+            setShowMention(true);
         }
-        setNewEmojiIncluded(false);
-    }
+        if (inputSearch.trim() === '@') {
+            inputSearch = '';
+        }
+        setInputSearch(inputSearch);
+        !!onChange && onChange(inputSearch);
+        countChars();
+        createFormatAndTextContentToSaveComment();
+    };
+    const countChars = () => {
+        // create a function that loop through my divref and count each chars inside of it and it´s children
+        let count = 0;
+        if (divInputRef.current) {
+            divInputRef.current.childNodes.forEach((child) => {
+                if (child.textContent) {
+                    count += child.textContent.length;
+                }
+            });
+        }
+        setTextLength(count);
+        return count;
+    };
+    const cutTextAfterMaxLength = () => {
+        if (textLength > limit) {
+            const selection = document.getSelection();
+            const range = document.createRange();
+            const children = Array.from(divInputRef.current?.childNodes || []);
+            children.reverse().forEach((child) => {
+                if (countChars() <= limit)
+                    return;
+                const childLength = child.textContent.length;
+                child.textContent = child.textContent.substring(0, childLength - Math.abs(limit - textLength));
+                range.selectNodeContents(child);
+                range.collapse(false);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            });
+        }
+    };
+    const clearDivContent = () => {
+        if (!divInputRef.current)
+            return;
+        setPlaceholder(false);
+        if ((divInputRef.current.childNodes.length === 0 && !focus)) {
+            // create a textnode with the placeholder
+            divInputRef.current.innerText = placeholder;
+            setPlaceholder(true);
+        }
+        else if (!focus && divInputRef.current.childNodes.length >= 1) {
+            // loop over all child element and check if they are empty
+            let isEmpty = true;
+            divInputRef.current.childNodes.forEach((child) => {
+                if (child.textContent !== '') {
+                    isEmpty = false;
+                }
+            });
+            // if they are empty show the placeholder
+            if (isEmpty) {
+                // create a textnode with the placeholder
+                divInputRef.current.innerText = placeholder;
+                setPlaceholder(true);
+            }
+        }
+        else if (divInputRef.current.innerText === placeholder) {
+            // create a paragraph node
+            const p = document.createElement('p');
+            const br = document.createElement('br');
+            p.appendChild(br);
+            divInputRef.current.innerHTML = '';
+            divInputRef.current.appendChild(p);
+        }
+    };
+    React.useEffect(() => {
+        if ((!value || value.length <= 0) && !focus) {
+            divInputRef.current.innerText = placeholder;
+            setPlaceholder(true);
+        }
+    }, [value]);
+    React.useEffect(() => {
+        if (!divInputRef.current)
+            return;
+        //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
+        divInputRef.current.addEventListener('keyup', (event) => {
+            if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Enter') {
+                setShowMention(false);
+            }
+        });
+        clearDivContent();
+    }, [focus]);
+    React.useEffect(() => {
+        cutTextAfterMaxLength();
+    }, [textLength]);
+    return {
+        handleInput,
+        clearDivContent,
+        focus,
+        setFocus,
+        showMention,
+        setShowMention,
+        inputSearch,
+        setInputSearch,
+        divInputRef,
+        mentionTopPosition,
+        handleMentionUser,
+        textLength,
+        isPlaceholder
+    };
+};
+
+const DefaultProfile = ({ className, size = 40 }) => {
+    return (jsxRuntime.jsxs("svg", { className: className, width: size, height: size, viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", children: [jsxRuntime.jsx("path", { d: "M40 19.9999C40 8.95419 31.0463 2.71419e-06 19.9991 1.7484e-06C8.9537 7.82768e-07 -7.82789e-07 8.95419 -1.74842e-06 19.9999C-2.71406e-06 31.0456 8.95369 40 19.9991 40C31.0463 40 40 31.0456 40 19.9999Z", fill: "url(#pattern0)" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsx("pattern", { id: "pattern0", patternContentUnits: "objectBoundingBox", width: "1", height: "1", children: jsxRuntime.jsx("use", { xlinkHref: "#image0_1049_1923", transform: "scale(0.00287356)" }) }), jsxRuntime.jsx("image", { id: "image0_1049_1923", width: "348", height: "348", xlinkHref: "data:image/png;base64,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" })] })] }));
+};
+
+const Container$g = styled__default["default"].div `
+  background-color: #ffff;
+  display: ${({ hide }) => hide ? 'none' : 'flex'};
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: ${({ top }) => top};
+  width: ${({ width }) => (width ? `${width}px` : '100%')};
+  height: ${({ height }) => (height ? height : 195)}px;
+  overflow-y: auto;
+  z-index: 100;
+  border-radius: 8px;
+
+  &::-webkit-scrollbar {
+    width: 5px; 
+    margin-right: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #757575;
+    border-radius: 6px; 
+    
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fff; /* Set the color of the scrollbar track */
+    border-radius: 8px; /* Set the border radius of the scrollbar track */
+  }
+`;
+styled__default["default"].input ``;
+const MentionList = styled__default["default"].div `
+  display: flex;
+  flex-direction: column;
+  height: 195px;
+  width: 100%;
+`;
+const MentionItem = styled__default["default"].div `
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 8px;
+  height: 56px;
+  border-bottom: 1px solid #BDBDBD;
+  &:last-child {
+    border-bottom: none; /* Remove the border for the last child */
+  }
+  &:hover {
+    background-color:${({ active }) => active ? '#FCF3EB' : '#F1F5F9'};
+  }
+  &:focus{
+    background-color:${({ active }) => active ? '#FCF3EB' : '#F1F5F9'};
+  }
+  
+  
+  
+`;
+styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const MentionAvatar = styled__default["default"].img `
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
+const MentionUserContainer = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+  padding: 0 8px 0 16px;
+`;
+const MentionUserName = styled__default["default"].span `
+  font-weight: 400;
+  font-size: 16px;
+`;
+const MentionSubTitle = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const MentionSubTitleText = styled__default["default"].span `
+  width: 400px;
+  font-size: 12px;
+  display:flex;
+  align-items: center;
+  justify-content: flex-start;
+`;
+const Circle = styled__default["default"].div `
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background-color: #757575;
+  margin: 0 8px;
+`;
+
+const useMentions = (mention) => {
+    const mentionListRef = React.useRef(null);
+    const { onSelect } = mention;
+    const [selectedUser, setSelectedUser] = React.useState();
+    React.useEffect(() => {
+        if (!mentionListRef.current)
+            return;
+        //keydown should change item focus
+        mentionListRef.current.addEventListener('keydown', (e) => {
+            const activeElement = document.activeElement;
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (activeElement.nextSibling) {
+                    activeElement.nextSibling.focus();
+                }
+            }
+            else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (activeElement.previousSibling) {
+                    activeElement.previousSibling.focus();
+                }
+            }
+        });
+    }, []);
+    React.useEffect(() => {
+        if (!selectedUser)
+            return;
+        onSelect(selectedUser);
+    }, [selectedUser]);
+    return {
+        selectedUser,
+        setSelectedUser,
+        mentionListRef
+    };
+};
+
+const Mentions = (mention) => {
+    const { selectedUser, setSelectedUser, mentionListRef } = useMentions(mention);
+    const { top, users } = mention;
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Container$g, { top: top, tabIndex: 0, hide: !users || users.length <= 0, children: jsxRuntime.jsx(MentionList, { tabIndex: 1, ref: mentionListRef, children: users?.map((user, index) => {
+                    return (jsxRuntime.jsxs(MentionItem, { tabIndex: index += 2, active: user.user_uuid === selectedUser?.user_uuid, onMouseDown: () => setSelectedUser(user), onKeyUpCapture: (e) => {
+                            if (e.key.toLowerCase() === 'enter') {
+                                setSelectedUser(user);
+                            }
+                        }, children: [!!user.profile.avatar && !!user.profile.avatar.length ? jsxRuntime.jsx(MentionAvatar, { src: user.profile.avatar }) : jsxRuntime.jsx(DefaultProfile, {}), jsxRuntime.jsxs(MentionUserContainer, { children: [jsxRuntime.jsx(MentionUserName, { children: user.name }), jsxRuntime.jsx(MentionSubTitle, { children: jsxRuntime.jsxs(MentionSubTitleText, { children: [user.profile.role_name, " ", jsxRuntime.jsx(Circle, {}), user.profile.company_name] }) })] })] }, user.user_uuid));
+                }) }) }) }));
+};
+
+function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value }) {
+    const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value });
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
+                                handleInput(event);
+                            }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMention && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
+                                setShowMention(false);
+                                handleMentionUser(user);
+                            } })] }), showCharacterCounter &&
+                    jsxRuntime.jsxs(HelperText$2, { children: [textLength, "/", limit] })] }) }));
 }
 
 const HeaderWrapper$1 = styled__default["default"].div `
@@ -3745,7 +4077,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] })] })] })] })] }), size[0] <= WIDTH_MOBILE &&
                     jsxRuntime.jsxs("div", { style: { display: 'flex', marginLeft: '14px', marginTop: '5px', alignItems: 'center' }, children: [(isPrivateAuthor || isPrivateMe) &&
                                 jsxRuntime.jsx("div", { style: { marginRight: '10px' }, children: jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }) }), jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] })] }), onEditing ?
-                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button$5, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile, disabled: !enableSaveEdit, variant: "primary", style: { marginRight: '20px' } }), jsxRuntime.jsx(Button$5, { handleClick: () => { cancelEditComment(); }, label: textCancelButton, variant: "secondary" })] })] })
+                    jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryEditingContent, { id: iDCommentInEditing, "data-gramm": "false", contentEditable: "true", role: "textbox", "aria-multiline": "true", suppressContentEditableWarning: true, children: value }), jsxRuntime.jsxs(FooterEditingWrapper, { width: size[0], children: [jsxRuntime.jsx(Button$4, { handleClick: () => { saveEditComment(); }, label: size[0] > WIDTH_MOBILE ? textSaveButton : textSaveButtonMobile, disabled: !enableSaveEdit, variant: "primary", style: { marginRight: '20px' } }), jsxRuntime.jsx(Button$4, { handleClick: () => { cancelEditComment(); }, label: textCancelButton, variant: "secondary" })] })] })
                     :
                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryContent, { id: iDCommentPosted, children: value }), jsxRuntime.jsxs(IterationsWrapper, { children: [showStatusLike ? jsxRuntime.jsxs(LikesStatistics, { children: [!isLiked ?
                                                     jsxRuntime.jsx(ThumbsUpCovered, { width: '16px', height: '16px' })
@@ -5521,19 +5853,19 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-var css_248z$i = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
-var style$b = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
-styleInject(css_248z$i);
+var css_248z$h = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
+var style$a = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
+styleInject(css_248z$h);
 
 var problemaFRST = "data:image/png;base64,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";
 
 function ApprovesItem(props) {
-    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { className: style$b.containerItem, children: [jsxRuntime.jsx("div", { className: style$b.avatar, style: { width: props.size, cursor: props.onClickUserInfo ? 'pointer' : 'auto' }, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, children: jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.avatarSize, isActiveClick: !!props.onClickUserInfo }) }), props.statusApprove === 'reviewed' ?
+    return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs("div", { className: style$a.containerItem, children: [jsxRuntime.jsx("div", { className: style$a.avatar, style: { width: props.size, cursor: props.onClickUserInfo ? 'pointer' : 'auto' }, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, children: jsxRuntime.jsx(Avatar, { src: props.avatar, size: props.avatarSize, isActiveClick: !!props.onClickUserInfo }) }), props.statusApprove === 'reviewed' ?
                         jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaSawBadgeIcon, {}) })
                         : props.statusApprove === 'adjustments' ?
                             jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaEdit, {}) })
                             :
-                                jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaSendIcon, {}) }), jsxRuntime.jsx("div", { style: { width: props.size }, className: style$b.status_logo, children: jsxRuntime.jsx(Avatar, { src: problemaFRST, size: props.avatarSize }) })] }), jsxRuntime.jsx("div", { className: style$b.containerItem, style: { marginTop: '8px', cursor: props.onClickUserInfo ? 'pointer' : 'auto' }, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, children: jsxRuntime.jsxs("div", { className: style$b.containerData, style: { width: props.size }, children: [jsxRuntime.jsx("span", { className: style$b.name, children: props.nomeAvatar }), jsxRuntime.jsx("span", { className: style$b.sub_title, children: props.dataAvatar })] }) })] }));
+                                jsxRuntime.jsx("div", { children: jsxRuntime.jsx(StatusProblemaSendIcon, {}) }), jsxRuntime.jsx("div", { style: { width: props.size }, className: style$a.status_logo, children: jsxRuntime.jsx(Avatar, { src: problemaFRST, size: props.avatarSize }) })] }), jsxRuntime.jsx("div", { className: style$a.containerItem, style: { marginTop: '8px', cursor: props.onClickUserInfo ? 'pointer' : 'auto' }, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, children: jsxRuntime.jsxs("div", { className: style$a.containerData, style: { width: props.size }, children: [jsxRuntime.jsx("span", { className: style$a.name, children: props.nomeAvatar }), jsxRuntime.jsx("span", { className: style$a.sub_title, children: props.dataAvatar })] }) })] }));
 }
 function ModalStatusProblema(props) {
     // Função para pegar o width da tela
@@ -5547,26 +5879,26 @@ function ModalStatusProblema(props) {
         return () => window.removeEventListener('resize', updateSize);
     }, []);
     const BREAKWIDTH = 500;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$b.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$b.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$b.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$b.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { avatarSize: (size[0] >= BREAKWIDTH) ? '120px' : '100px', size: (size[0] >= BREAKWIDTH) ? '160px' : '120px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto, onClickUserInfo: item?.onClickUserInfo }, index))) }), jsxRuntime.jsxs("div", { className: style$b.modal_controls_wrapper, children: [jsxRuntime.jsx("div", { className: style$b.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$b.conclusao, children: jsxRuntime.jsx(Button$5, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, entendi', handleClick: props.handleClose, style: { width: '100%', minWidth: '140px' } }) })] })] }) }));
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$a.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$a.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$a.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$a.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { avatarSize: (size[0] >= BREAKWIDTH) ? '120px' : '100px', size: (size[0] >= BREAKWIDTH) ? '160px' : '120px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto, onClickUserInfo: item?.onClickUserInfo }, index))) }), jsxRuntime.jsxs("div", { className: style$a.modal_controls_wrapper, children: [jsxRuntime.jsx("div", { className: style$a.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$a.conclusao, children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, entendi', handleClick: props.handleClose, style: { width: '100%', minWidth: '140px' } }) })] })] }) }));
 }
 
-var css_248z$h = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
-var style$a = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
-styleInject(css_248z$h);
+var css_248z$g = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
+var style$9 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
+styleInject(css_248z$g);
 
 function ModalLearningTech(props) {
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$a.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$a.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$a.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$a.container, children: props.children }), jsxRuntime.jsx("div", { className: style$a.conclusao, children: props.confirmationButton ?
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$9.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$9.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$9.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$9.container, children: props.children }), jsxRuntime.jsx("div", { className: style$9.conclusao, children: props.confirmationButton ?
                         props.cancelButton ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$5, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$5, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$4, { variant: 'link', label: props.cancelButton, handleClick: props.handleClose }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$4, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })] })
                             :
-                                jsxRuntime.jsx(Button$5, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })
+                                jsxRuntime.jsx(Button$4, { variant: props.typeButtonConfirmation, label: props.confirmationButton, handleClick: props.handleConfirmation })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
 }
 
-var css_248z$g = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
-var style$9 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
-styleInject(css_248z$g);
+var css_248z$f = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
+var style$8 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
+styleInject(css_248z$f);
 
 const WrapperStars = styled__default["default"].div `
     display: flex;
@@ -5679,22 +6011,22 @@ function ModalVideo(props) {
             setCurrentRating(props.rating);
         }
     }, [props.rating]);
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { id: `modal-video${(props.title ? props.title : '').replace(/( )+/g, '')}`, className: style$9.modalBox, style: {
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { id: `modal-video${(props.title ? props.title : '').replace(/( )+/g, '')}`, className: style$8.modalBox, style: {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
                 height: props.showRating ? '80%' : '400px',
                 maxHeight: props.showRating ? '620px' : '400px',
                 overflowY: 'auto'
-            }, children: [jsxRuntime.jsxs(material.Stack, { flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between", px: 3, children: [jsxRuntime.jsx(material.Box, { textAlign: "left", style: { paddingLeft: 6, }, children: props.title }), jsxRuntime.jsx(material.Box, { className: style$9.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) })] }), jsxRuntime.jsxs(material.Box, { p: 3, children: [props.videoUrl && (jsxRuntime.jsx(material.Box, { width: "100%", children: jsxRuntime.jsx(Video, { videoId: IdVideo, privateHash: HashVideo, autoplay: 1, controls: 1, keyboard: 1, timeStart: convertTimeToString(props.timeBegin), showSpeedControl: 1, width: 620, height: 400 }) })), props.showRating && (jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsxs(material.Box, { style: { maxWidth: 240 }, children: [jsxRuntime.jsx("p", { style: { textAlign: 'left', fontSize: 14, fontWeight: 400 }, children: props.ratingDescription }), jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: true, marginStars: "3.5px", orientation: "horizontal", qtdStars: 5, rating: currentRating, sizeStars: 25, handleRating: (e) => {
+            }, children: [jsxRuntime.jsxs(material.Stack, { flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between", px: 3, children: [jsxRuntime.jsx(material.Box, { textAlign: "left", style: { paddingLeft: 6, }, children: props.title }), jsxRuntime.jsx(material.Box, { className: style$8.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) })] }), jsxRuntime.jsxs(material.Box, { p: 3, children: [props.videoUrl && (jsxRuntime.jsx(material.Box, { width: "100%", children: jsxRuntime.jsx(Video, { videoId: IdVideo, privateHash: HashVideo, autoplay: 1, controls: 1, keyboard: 1, timeStart: convertTimeToString(props.timeBegin), showSpeedControl: 1, width: 620, height: 400 }) })), props.showRating && (jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsxs(material.Box, { style: { maxWidth: 240 }, children: [jsxRuntime.jsx("p", { style: { textAlign: 'left', fontSize: 14, fontWeight: 400 }, children: props.ratingDescription }), jsxRuntime.jsx(material.Box, { style: { display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(Rating, { isVisibleNumberRating: true, marginStars: "3.5px", orientation: "horizontal", qtdStars: 5, rating: currentRating, sizeStars: 25, handleRating: (e) => {
                                                 setCurrentRating(e);
                                                 props.handleChangeRating(props.recommendationId, e);
                                             }, disabled: false }) })] }) }))] })] }) }));
 }
 
-var css_248z$f = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
-var style$8 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
-styleInject(css_248z$f);
+var css_248z$e = ".cardProblemaGestor-module_container__si6gB {\n    width: 100%;\n    padding-top: 30px;\n    padding-left: 16px;\n    padding-right: 16px;\n    padding-bottom: 16px;\n\n    justify-content: flex-start;\n    align-items: flex-start;\n    flex-direction: row;\n    position: relative;\n}\n\n.cardProblemaGestor-module_container__si6gB:hover {\n    cursor: pointer;\n}\n\n.cardProblemaGestor-module_tagStatusProblem__SKKTK {\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    font-size: 12px;\n    font-weight: 500;\n    padding: 8px;\n\n    border-bottom-left-radius: 8px;\n    \n\n}\n\n.cardProblemaGestor-module_checkBox__SK00W {\n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: flex-start;\n    height: 100%;\n    padding-top: 20px;\n    padding-left: 12px;\n    \n\n    position: absolute;\n    left: 0;\n\n}\n\n.cardProblemaGestor-module_contentCard__0-ex3 {\n    \n    \n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n}\n\n.cardProblemaGestor-module_avatarInfoUser__dZei- {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardProblemaGestor-module_infoUser__naGfk {\n    display: flex;\n    justify-content: center;\n    align-items: flex-start;\n    flex-direction: column;\n    margin-left: 4px;\n}\n\n.cardProblemaGestor-module_tituloCard__i4n9p {\n    \n    margin-top: 4px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n\n    font-weight: 600;\n    font-size: 18px;\n    word-wrap: break-word;\n}\n\n.cardProblemaGestor-module_tagsContainer__K2zv5 {\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n}\n\n.cardProblemaGestor-module_avaliacao__w2-fB {\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-wrap: wrap;\n    \n}\n";
+var style$7 = {"container":"cardProblemaGestor-module_container__si6gB","tagStatusProblem":"cardProblemaGestor-module_tagStatusProblem__SKKTK","checkBox":"cardProblemaGestor-module_checkBox__SK00W","contentCard":"cardProblemaGestor-module_contentCard__0-ex3","avatarInfoUser":"cardProblemaGestor-module_avatarInfoUser__dZei-","infoUser":"cardProblemaGestor-module_infoUser__naGfk","tituloCard":"cardProblemaGestor-module_tituloCard__i4n9p","tagsContainer":"cardProblemaGestor-module_tagsContainer__K2zv5","avaliacao":"cardProblemaGestor-module_avaliacao__w2-fB"};
+styleInject(css_248z$e);
 
 /**
  * @param {CardProblemGestorProps} props
@@ -5706,15 +6038,15 @@ function CardProblemGestor(props) {
         event.stopPropagation();
         props.onClickUserInfo && props.onClickUserInfo();
     };
-    return (jsxRuntime.jsxs("div", { className: style$8.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [props.problemStatus !== 'problemaCriado' && (jsxRuntime.jsx("div", { className: style$8.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName })), jsxRuntime.jsxs("div", { className: style$8.contentCard, children: [!!props?.onClickUserInfo ?
-                        jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsxs("div", { className: style$8.avatarInfoUser, onClick: handleChildClick, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$8.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }) })
+    return (jsxRuntime.jsxs("div", { className: style$7.container, style: { border: '1px solid ', borderColor: '#CCC', backgroundColor: '#FFF', color: '#000' }, onClick: () => props.onClick(props.problemID), children: [props.problemStatus !== 'problemaCriado' && (jsxRuntime.jsx("div", { className: style$7.tagStatusProblem, style: { background: statusBg || '#757575', color: statusColor }, children: props.statusName })), jsxRuntime.jsxs("div", { className: style$7.contentCard, children: [!!props?.onClickUserInfo ?
+                        jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, onClick: handleChildClick, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }) })
                         :
-                            jsxRuntime.jsxs("div", { className: style$8.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$8.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle && (jsxRuntime.jsx("div", { className: style$8.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), props.tags && (jsxRuntime.jsx("div", { className: style$8.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) })), props.ratingImpacto && (jsxRuntime.jsxs("div", { className: style$8.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] })), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }))] })] }));
+                            jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600 }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.cardTitle && (jsxRuntime.jsx("div", { className: style$7.tituloCard, style: { color: '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), props.tags && (jsxRuntime.jsx("div", { className: style$7.tagsContainer, children: props.tags.map((item, index) => (jsxRuntime.jsx(Tag, { title: item, color: '#050505', selected: false, inverted: true, style: { fontWeight: 500, fontSize: 14, marginRight: 8, marginTop: 8 } }, index))) })), props.ratingImpacto && (jsxRuntime.jsxs("div", { className: style$7.avaliacao, children: [jsxRuntime.jsx(Rating$1, { nota: props.ratingImpacto.nota, qtdeAvaliacao: props.ratingImpacto.qtdeAvaliacao, descricaoAvaliacao: props.ratingImpacto.description, titulo: props.locales?.impact, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(Rating$1, { nota: props.ratingRelevancia.nota, qtdeAvaliacao: props.ratingRelevancia.qtdeAvaliacao, descricaoAvaliacao: props.ratingRelevancia.description, titulo: props.locales?.relevance, tipoVisualizacao: 2, style: { margin: 0, width: 120 }, nomeAvaliacao: props.locales?.evaluation }), jsxRuntime.jsx(RatingCurtidas, { qtdeCurtidas: props.ratingCurtidas, titulo: props.locales?.likes, tipoBotao: 4, style: { margin: 0, width: 90 }, descricaoCurtida: props.locales?.likesDescription })] })), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#0645AD', fontSize: 12, fontWeight: 400, marginTop: 8 }, children: [props.lastUpdated, " "] }))] })] }));
 }
 
-var css_248z$e = ".cardProblem-module_container__eYX3j {\n  width: 100%;\n  border-radius: 10px;\n  padding-right: 24px;\n  padding-left: 48px;\n  padding-top: 40px;\n  padding-bottom: 24px;\n\n  justify-content: flex-start;\n  align-items: flex-start;\n  flex-direction: row;\n  position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n\n\n.cardProblem-module_tagStatusProblem__11NQe {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: flex;\n  font-size: 12px;\n  font-weight: 500;\n  padding: 8px;\n  border-bottom-left-radius: 8px;\n  border-top-right-radius: 5px;\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n  display: flex;\n  justify-content: flex-start;\n  align-items: flex-start;\n  height: 100%;\n  padding-top: 17px;\n  padding-left: 16px;\n\n  position: absolute;\n  left: 0;\n}\n\n.cardProblem-module_contentCard__oBqoN {\n  margin-left: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: row;\n  margin-bottom: 24px;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n  margin-left: 16px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n  margin-top: 4px;\n  margin-bottom: 8px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  font-weight: 600;\n  font-size: 18px;\n  word-break: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  font-weight: 600;\n\n  margin-bottom: 26px;\n  margin-right: 30px;\n}\n";
-var style$7 = {"container":"cardProblem-module_container__eYX3j","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","contentCard":"cardProblem-module_contentCard__oBqoN","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
-styleInject(css_248z$e);
+var css_248z$d = ".cardProblem-module_container__eYX3j {\n  width: 100%;\n  border-radius: 10px;\n  padding-right: 24px;\n  padding-left: 48px;\n  padding-top: 40px;\n  padding-bottom: 24px;\n\n  justify-content: flex-start;\n  align-items: flex-start;\n  flex-direction: row;\n  position: relative;\n}\n\n.cardProblem-module_container__eYX3j:hover {\n  box-shadow: 4px 8px 8px rgba(0, 0, 0, 0.2);\n}\n\n\n\n.cardProblem-module_tagStatusProblem__11NQe {\n  position: absolute;\n  top: 0;\n  right: 0;\n  display: flex;\n  font-size: 12px;\n  font-weight: 500;\n  padding: 8px;\n  border-bottom-left-radius: 8px;\n  border-top-right-radius: 5px;\n}\n\n.cardProblem-module_checkBox__hhdF6 {\n  display: flex;\n  justify-content: flex-start;\n  align-items: flex-start;\n  height: 100%;\n  padding-top: 17px;\n  padding-left: 16px;\n\n  position: absolute;\n  left: 0;\n}\n\n.cardProblem-module_contentCard__oBqoN {\n  margin-left: 8px;\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n}\n\n.cardProblem-module_avatarInfoUser__0ppVK {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: row;\n  margin-bottom: 24px;\n}\n\n.cardProblem-module_infoUser__Zx6rx {\n  display: flex;\n  justify-content: center;\n  align-items: flex-start;\n  flex-direction: column;\n  margin-left: 16px;\n}\n\n.cardProblem-module_tituloCard__JD95u {\n  margin-top: 4px;\n  margin-bottom: 8px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  font-weight: 600;\n  font-size: 18px;\n  word-break: break-word;\n}\n\n.cardProblem-module_tagsContainer__IwGeV {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-wrap: wrap;\n}\n\n.cardProblem-module_buttonVerMais__qgmLA {\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  font-weight: 600;\n\n  margin-bottom: 26px;\n  margin-right: 30px;\n}\n";
+var style$6 = {"container":"cardProblem-module_container__eYX3j","tagStatusProblem":"cardProblem-module_tagStatusProblem__11NQe","checkBox":"cardProblem-module_checkBox__hhdF6","contentCard":"cardProblem-module_contentCard__oBqoN","avatarInfoUser":"cardProblem-module_avatarInfoUser__0ppVK","infoUser":"cardProblem-module_infoUser__Zx6rx","tituloCard":"cardProblem-module_tituloCard__JD95u","tagsContainer":"cardProblem-module_tagsContainer__IwGeV","buttonVerMais":"cardProblem-module_buttonVerMais__qgmLA"};
+styleInject(css_248z$d);
 
 const translate = {
     'pt-BR': {
@@ -5834,25 +6166,25 @@ function CardProblem(props) {
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    return (jsxRuntime.jsxs("div", { className: style$7.container, style: {
+    return (jsxRuntime.jsxs("div", { className: style$6.container, style: {
             border: '1px solid ',
             borderColor: statusColor,
             backgroundColor: selected ? '#FF4D0D' : '#FFF',
             color: selected ? '#FFF' : '#000'
-        }, children: [jsxRuntime.jsxs("div", { className: style$7.tagStatusProblem, style: {
+        }, children: [jsxRuntime.jsxs("div", { className: style$6.tagStatusProblem, style: {
                     background: statusColor,
                     color: statusName === translate[languageSlected]['hypothesesTaised'] ? '#222222' : '#FFF'
-                }, children: [statusName, statusName === translate[languageSlected]['finished'] && (jsxRuntime.jsx("div", { style: { marginLeft: '0.5rem' }, children: jsxRuntime.jsx(CardFinished, {}) }))] }), jsxRuntime.jsx("div", { className: style$7.checkBox, onClick: () => {
+                }, children: [statusName, statusName === translate[languageSlected]['finished'] && (jsxRuntime.jsx("div", { style: { marginLeft: '0.5rem' }, children: jsxRuntime.jsx(CardFinished, {}) }))] }), jsxRuntime.jsx("div", { className: style$6.checkBox, onClick: () => {
                     props.handleSelect(props.problemID);
-                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$7.contentCard, children: [props.onClickUserInfo ?
-                        jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '-10px', textAlign: 'center' }, children: jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, style: { cursor: 'pointer' }, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar, isActiveClick: true }), ' '] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600, cursor: 'pointer' }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }) })
+                }, children: selected ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), jsxRuntime.jsxs("div", { className: style$6.contentCard, children: [props.onClickUserInfo ?
+                        jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '-10px', textAlign: 'center' }, children: jsxRuntime.jsxs("div", { className: style$6.avatarInfoUser, onClick: () => props.onClickUserInfo ? props.onClickUserInfo() : {}, style: { cursor: 'pointer' }, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar, isActiveClick: true }), ' '] }), jsxRuntime.jsxs("div", { className: style$6.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600, cursor: 'pointer' }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }) })
                         :
-                            jsxRuntime.jsxs("div", { className: style$7.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$7.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600, cursor: 'auto' }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.isVerified ? (jsxRuntime.jsxs("div", { style: { textAlign: 'center', display: 'flex' }, children: [jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['verifiedChallenge'] }) }), jsxRuntime.jsx(SawBadgeIcon, {})] })) : (jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['challenge'] }) })), props.cardTitle && (jsxRuntime.jsx("div", { className: style$7.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), statusName !== translate[languageSlected][6] ? (props.trilhaVinculada ? (jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })) : (jsxRuntime.jsx(TextIcon, { description: translate[languageSlected]['notLinkedTrail'], svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } }))) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#000', fontSize: 12, fontWeight: 400, marginTop: 40 }, children: [props.lastUpdated, " "] })), props.isButtonVerMais && (jsxRuntime.jsx("div", { className: style$7.buttonVerMais, children: jsxRuntime.jsx(Button$5, { variant: "link", label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) }))] })] }));
+                            jsxRuntime.jsxs("div", { className: style$6.avatarInfoUser, children: [jsxRuntime.jsxs("div", { children: [' ', jsxRuntime.jsx(Avatar, { size: "40px", src: props.userAvatar }), ' '] }), jsxRuntime.jsxs("div", { className: style$6.infoUser, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 600, cursor: 'auto' }, children: props.userName }), jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 400 }, children: props.userCargo })] })] }), props.isVerified ? (jsxRuntime.jsxs("div", { style: { textAlign: 'center', display: 'flex' }, children: [jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['verifiedChallenge'] }) }), jsxRuntime.jsx(SawBadgeIcon, {})] })) : (jsxRuntime.jsx("div", { style: { color: selected ? '#FFF' : '#000', width: '100%', fontWeight: 700 }, children: jsxRuntime.jsx("span", { children: translate[languageSlected]['challenge'] }) })), props.cardTitle && (jsxRuntime.jsx("div", { className: style$6.tituloCard, style: { color: selected ? '#FFF' : '#FF4D0D', width: '100%' }, children: jsxRuntime.jsx("span", { children: props.cardTitle }) })), statusName !== translate[languageSlected][6] ? (props.trilhaVinculada ? (jsxRuntime.jsx(TextIcon, { description: `${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`, svg: jsxRuntime.jsx(WithTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } })) : (jsxRuntime.jsx(TextIcon, { description: translate[languageSlected]['notLinkedTrail'], svg: jsxRuntime.jsx(WithoutTrail, {}), style: { fontSize: 12, fontWeight: 400, marginTop: 8 } }))) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})), props.lastUpdated && (jsxRuntime.jsxs("div", { style: { color: '#000', fontSize: 12, fontWeight: 400, marginTop: 40 }, children: [props.lastUpdated, " "] })), props.isButtonVerMais && (jsxRuntime.jsx("div", { className: style$6.buttonVerMais, children: jsxRuntime.jsx(Button$4, { variant: "link", label: translate[languageSlected]['viewMore'], handleClick: () => props.onClick(props.problemID) }) }))] })] }));
 }
 
-var css_248z$d = ".cardDefinicaoFase-module_container__KEYns {\r\n  width: 282px !important;\r\n  max-width: 282px !important;\r\n  color: #222222;\r\n  background-color: #fff;\r\n  border-radius: 10px;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  position: relative;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_headerContainer__uxRId {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: flex-end;\r\n  background: rgba(241, 134, 36, 0.2);\r\n  height: 200px;\r\n  max-width: 282px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleDescription__x7pED {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 16px;\r\n  line-height: 110%;\r\n  color: #444444;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_description__-pzJG {\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 23px;\r\n  color: #f26818;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_descriptionContainer__XLHCC {\r\n  padding: 20px;\r\n  height: 197px;\r\n  max-width: 282px !important;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin-bottom: 1rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonContainer__6u6bM {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n\r\n.cardDefinicaoFase-module_divisoria__IYAiv {\r\n  border: 1px solid #bdbdbd;\r\n  transform: rotate(360deg);\r\n}\r\n\r\n.cardDefinicaoFase-module_titleAndMenu__aqXT0 {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  width: 100%;\r\n  align-items: center;\r\n  margin-bottom: 9px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleFrase__b8v0i {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 25px;\r\n  line-height: 110%;\r\n  color: #f18624;\r\n  max-width: 200px;\r\n  padding-left: 1.5rem;\r\n  padding-bottom: 2rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonFinalizado__V8Oas {\r\n  display: flex;\r\n  justify-content: center;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n";
-var style$6 = {"container":"cardDefinicaoFase-module_container__KEYns","headerContainer":"cardDefinicaoFase-module_headerContainer__uxRId","titleDescription":"cardDefinicaoFase-module_titleDescription__x7pED","description":"cardDefinicaoFase-module_description__-pzJG","descriptionContainer":"cardDefinicaoFase-module_descriptionContainer__XLHCC","buttonContainer":"cardDefinicaoFase-module_buttonContainer__6u6bM","divisoria":"cardDefinicaoFase-module_divisoria__IYAiv","titleAndMenu":"cardDefinicaoFase-module_titleAndMenu__aqXT0","titleFrase":"cardDefinicaoFase-module_titleFrase__b8v0i","buttonFinalizado":"cardDefinicaoFase-module_buttonFinalizado__V8Oas"};
-styleInject(css_248z$d);
+var css_248z$c = ".cardDefinicaoFase-module_container__KEYns {\r\n  width: 282px !important;\r\n  max-width: 282px !important;\r\n  color: #222222;\r\n  background-color: #fff;\r\n  border-radius: 10px;\r\n  justify-content: center;\r\n  align-items: center;\r\n  flex-direction: column;\r\n  position: relative;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_headerContainer__uxRId {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  align-items: flex-end;\r\n  background: rgba(241, 134, 36, 0.2);\r\n  height: 200px;\r\n  max-width: 282px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleDescription__x7pED {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 16px;\r\n  line-height: 110%;\r\n  color: #444444;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_description__-pzJG {\r\n  font-family: 'Work Sans';\r\n  font-style: normal;\r\n  font-weight: 500;\r\n  font-size: 20px;\r\n  line-height: 23px;\r\n  color: #f26818;\r\n  max-width: 250px;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_descriptionContainer__XLHCC {\r\n  padding: 20px;\r\n  height: 197px;\r\n  max-width: 282px !important;\r\n  display: flex;\r\n  justify-content: flex-start;\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\r\n  margin-bottom: 1rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonContainer__6u6bM {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n\r\n.cardDefinicaoFase-module_divisoria__IYAiv {\r\n  border: 1px solid #bdbdbd;\r\n  transform: rotate(360deg);\r\n}\r\n\r\n.cardDefinicaoFase-module_titleAndMenu__aqXT0 {\r\n  display: flex;\r\n  justify-content: space-between;\r\n  width: 100%;\r\n  align-items: center;\r\n  margin-bottom: 9px;\r\n}\r\n\r\n.cardDefinicaoFase-module_titleFrase__b8v0i {\r\n  font-family: 'PT Sans';\r\n  font-style: normal;\r\n  font-weight: 700;\r\n  font-size: 25px;\r\n  line-height: 110%;\r\n  color: #f18624;\r\n  max-width: 200px;\r\n  padding-left: 1.5rem;\r\n  padding-bottom: 2rem;\r\n  word-break: break-word !important;\r\n  word-wrap: break-word !important;\r\n  overflow-wrap: break-word !important;\r\n}\r\n\r\n.cardDefinicaoFase-module_buttonFinalizado__V8Oas {\r\n  display: flex;\r\n  justify-content: center;\r\n  height: 55px;\r\n  padding: 0 35px;\r\n  border-radius: 0px 0px 8px 8px;\r\n  border: 1px solid #bdbdbd;\r\n}\r\n";
+var style$5 = {"container":"cardDefinicaoFase-module_container__KEYns","headerContainer":"cardDefinicaoFase-module_headerContainer__uxRId","titleDescription":"cardDefinicaoFase-module_titleDescription__x7pED","description":"cardDefinicaoFase-module_description__-pzJG","descriptionContainer":"cardDefinicaoFase-module_descriptionContainer__XLHCC","buttonContainer":"cardDefinicaoFase-module_buttonContainer__6u6bM","divisoria":"cardDefinicaoFase-module_divisoria__IYAiv","titleAndMenu":"cardDefinicaoFase-module_titleAndMenu__aqXT0","titleFrase":"cardDefinicaoFase-module_titleFrase__b8v0i","buttonFinalizado":"cardDefinicaoFase-module_buttonFinalizado__V8Oas"};
+styleInject(css_248z$c);
 
 styled__default["default"].p `
   color: white;
@@ -6007,12 +6339,12 @@ function CardDefinicaoFase(props) {
                 return jsxRuntime.jsx(FaseUm, {});
         }
     }
-    return (jsxRuntime.jsxs("div", { className: style$6.container, children: [jsxRuntime.jsxs("div", { className: style$6.headerContainer, children: [jsxRuntime.jsx("div", { className: style$6.titleFrase, children: props.titleFase ? props.titleFase : 'Definição do objetivo' }), props.fase ? handleFase() : jsxRuntime.jsx(FaseUm, {})] }), jsxRuntime.jsxs("div", { className: style$6.descriptionContainer, children: [jsxRuntime.jsxs("div", { className: style$6.titleAndMenu, children: [jsxRuntime.jsxs("span", { className: style$6.titleDescription, children: [" ", props.cardTitle] }), jsxRuntime.jsx(MenuMore, { options: props.optionsMenuMore })] }), jsxRuntime.jsxs("span", { className: style$6.description, children: [" ", props.cardDescription] })] }), props.fase === 'finalizado' ? (jsxRuntime.jsx("div", { className: style$6.buttonFinalizado, children: jsxRuntime.jsx(Button$5, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }) })) : (jsxRuntime.jsxs("div", { className: style$6.buttonContainer, children: [jsxRuntime.jsx(Button$5, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }), jsxRuntime.jsx("div", { className: style$6.divisoria }), jsxRuntime.jsx(Button$5, { variant: "link", label: props.textButtonContinue ? props.textButtonContinue : 'Continuar', handleClick: props.handleClickContinue })] }))] }));
+    return (jsxRuntime.jsxs("div", { className: style$5.container, children: [jsxRuntime.jsxs("div", { className: style$5.headerContainer, children: [jsxRuntime.jsx("div", { className: style$5.titleFrase, children: props.titleFase ? props.titleFase : 'Definição do objetivo' }), props.fase ? handleFase() : jsxRuntime.jsx(FaseUm, {})] }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("div", { className: style$5.titleAndMenu, children: [jsxRuntime.jsxs("span", { className: style$5.titleDescription, children: [" ", props.cardTitle] }), jsxRuntime.jsx(MenuMore, { options: props.optionsMenuMore })] }), jsxRuntime.jsxs("span", { className: style$5.description, children: [" ", props.cardDescription] })] }), props.fase === 'finalizado' ? (jsxRuntime.jsx("div", { className: style$5.buttonFinalizado, children: jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }) })) : (jsxRuntime.jsxs("div", { className: style$5.buttonContainer, children: [jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }), jsxRuntime.jsx("div", { className: style$5.divisoria }), jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonContinue ? props.textButtonContinue : 'Continuar', handleClick: props.handleClickContinue })] }))] }));
 }
 
-var css_248z$c = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
-var style$5 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
-styleInject(css_248z$c);
+var css_248z$b = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
+var style$4 = {"container":"cardResultConquista-module_container__39blw","cardAvatar":"cardResultConquista-module_cardAvatar__mEUL0","description":"cardResultConquista-module_description__rgSn5","verMais":"cardResultConquista-module_verMais__8mtfe"};
+styleInject(css_248z$b);
 
 var Conquista = "data:image/png;base64,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";
 
@@ -6035,10 +6367,10 @@ function CardResultConquista(props) {
     React.useEffect(() => {
         setBtnViewMore(props.textMoreDetails);
     }, [props.textMoreDetails]);
-    return (jsxRuntime.jsxs("div", { className: style$5.container, style: { ...props.style, backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, children: [jsxRuntime.jsxs("div", { className: style$5.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: "50px", src: props.userAvatar, onClick: props.onClickAvatar, isActiveClick: !!props.onClickAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ? (isPressed ? (jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })) : (jsxRuntime.jsx("img", { src: Conquista, alt: "Icone de conquista" }))) : isPressed ? (jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })) : (jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" }))] }), props.onClickName ?
+    return (jsxRuntime.jsxs("div", { className: style$4.container, style: { ...props.style, backgroundColor: isPressed ? '#FF4D0D' : '#FFF' }, children: [jsxRuntime.jsxs("div", { className: style$4.cardAvatar, children: [jsxRuntime.jsx(Avatar, { size: "50px", src: props.userAvatar, onClick: props.onClickAvatar, isActiveClick: !!props.onClickAvatar }), jsxRuntime.jsx("span", { children: "\u00A0\u00A0" }), props.statusCard === 1 ? (isPressed ? (jsxRuntime.jsx("img", { src: ConquistaPressed, alt: "Icone de conquista" })) : (jsxRuntime.jsx("img", { src: Conquista, alt: "Icone de conquista" }))) : isPressed ? (jsxRuntime.jsx("img", { src: AprendizadoPressed, alt: "Icone de aprendizado" })) : (jsxRuntime.jsx("img", { src: Aprendizado, alt: "Icone de aprendizado" }))] }), props.onClickName ?
                 jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12, cursor: props.onClickName ? 'pointer' : 'auto' }, onClick: props.onClickName, children: props.userName }) })
                 :
-                    jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, onClick: props.onClickName, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$5.description, style: {
+                    jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 600, fontSize: 16, marginTop: 12 }, onClick: props.onClickName, children: props.userName }), jsxRuntime.jsx("span", { style: { color: isPressed ? '#FFF' : '#222', fontWeight: 400, fontSize: 12, marginTop: 4 }, children: props.userArea }), jsxRuntime.jsx("div", { className: style$4.description, style: {
                     color: isPressed ? '#FFD600' : '#FF4D0D',
                     fontWeight: 500,
                     fontSize: 16,
@@ -6047,7 +6379,7 @@ function CardResultConquista(props) {
                 }, children: props.description }), jsxRuntime.jsx("div", { onClick: () => {
                     props.onClick(props.problemId);
                     setIsPressed(true);
-                }, className: style$5.verMais, style: { cursor: 'pointer' }, children: btnViewMore ? btnViewMore : 'Mais detalhes' })] }));
+                }, className: style$4.verMais, style: { cursor: 'pointer' }, children: btnViewMore ? btnViewMore : 'Mais detalhes' })] }));
 }
 
 const WrapperCard$7 = styled__default["default"].div `
@@ -6080,7 +6412,7 @@ const WrapperButton$3 = styled__default["default"].div `
 `;
 
 function ExclusiveClassCard({ titleClass, labelButton, className, handleClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$7, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$3, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$5, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$7, { children: [jsxRuntime.jsxs(WrapperTitle, { children: [jsxRuntime.jsx(PeopleIcon, {}), jsxRuntime.jsx(TitleCard$1, { style: { marginLeft: '14.67px' }, children: titleClass })] }), jsxRuntime.jsx(WrapperButton$3, { style: { display: 'flex', justifyContent: 'end', marginRight: '26px' }, children: jsxRuntime.jsx(Button$4, { label: labelButton, startIcon: jsxRuntime.jsx(EditIcon, {}), variant: "link", handleClick: handleClick }) })] }) }));
 }
 
 function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeArrowButton, horizontalMarginInternScroll, positionArrowButton, marginTopArrrowButton, textMoreDetails, }) {
@@ -6095,9 +6427,9 @@ function ConquistaCarrossel({ onSelected, objectCards, marginsArrowButton, sizeA
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ScrollContainer$1, { stepMove: 380, isVisibleControlsButtons: true, sizeArrowButton: sizeArrowButton, marginsArrowButton: marginsArrowButton, horizontalMarginInternScroll: horizontalMarginInternScroll, positionArrowButton: positionArrowButton ? positionArrowButton : '', marginTopArrrowButton: marginTopArrrowButton ? marginTopArrrowButton : '20px', children: objectCards.map(renderCard) }) }));
 }
 
-var css_248z$b = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
-var style$4 = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
-styleInject(css_248z$b);
+var css_248z$a = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Planet-module_container__YS3oo {\n  width: 100px;\n  height: 100px;\n  display: flex;\n  justify-content: 'center';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n\n  text-align: center;\n  font-size: 26px;\n  font-family: 'VT323', monospace;\n  color: white;\n  -webkit-text-stroke: 0.5px black;\n  text-shadow:2px 0 0 black,0 2px 0 black,-2px 0 0 black,0 -2px 0 black;\n}\n\n.Planet-module_label__bZgzb {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  position: absolute;\n  padding: 2px;\n  border: 2px dashed white;\n  bottom: 0;\n  left: 8px;\n  right: 8px;\n  width: calc(100% -16px);\n}\n@media (max-width: 600px) {\n  .Planet-module_label__bZgzb {\n    font-size: 22px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 540px) {\n  .Planet-module_label__bZgzb {\n    font-size: 18px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 470px) {\n  .Planet-module_label__bZgzb {\n    font-size: 16px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n@media (max-width: 400px) {\n  .Planet-module_label__bZgzb {\n    font-size: 14px;\n    text-shadow: none;\n    -webkit-text-stroke: 0%;\n    color: black;\n  }\n}\n\n.Planet-module_block__yUjqK {\n  position: absolute;\n  justify-content: center;\n  align-items: center;\n  display: flex;\n  padding: 4px;\n  \n  bottom: 16px;\n  left: 0;\n  right: 0;\n  top: 0;\n  /* width: calc(100% -16px); */\n  \n}\n\n.Planet-module_block__yUjqK img {\n  width: 50%;\n  height: 50%;\n  object-fit: contain;\n  margin-top: 0;\n}\n\n.Planet-module_imgAtive__dgis2 {\n  filter: grayscale(0);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgAtive__dgis2:hover {\n  cursor: pointer\n}\n\n.Planet-module_imgInative__RXloV {\n  filter: grayscale(1);\n  opacity: 1;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;\n}\n\n.Planet-module_imgInative__RXloV:hover {\n  cursor: pointer;\n}\n\n.Planet-module_imgBlocked__txZ4a {\n  filter: grayscale(1);\n  opacity: 0.5;\n  height: 100% !important;\n  width: 100% !important;\n  object-fit: contain;\n  margin-left: 2px;;\n}\n\n.Planet-module_imgBlockedL__xcI-B:hover {\n  cursor: not-allowed;\n}\n\n.Planet-module_missaoTitle__RbGDH{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  \n  color: #0645AD;\n}";
+var style$3 = {"container":"Planet-module_container__YS3oo","label":"Planet-module_label__bZgzb","block":"Planet-module_block__yUjqK","imgAtive":"Planet-module_imgAtive__dgis2","imgInative":"Planet-module_imgInative__RXloV","imgBlocked":"Planet-module_imgBlocked__txZ4a","imgBlockedL":"Planet-module_imgBlockedL__xcI-B","missaoTitle":"Planet-module_missaoTitle__RbGDH"};
+styleInject(css_248z$a);
 
 ///-----------------------------------------
 /// Componente
@@ -6150,16 +6482,16 @@ function Steps(props) {
     React.useEffect(() => {
         setIdioma(props.idioma ? props.idioma : 'pt-BR');
     }, [props.idioma]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$4.container, style: { ...props.style }, onClick: () => {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$3.container, style: { ...props.style }, onClick: () => {
                 if (props.status !== 'B') {
                     props.onClick();
                 }
             }, children: [jsxRuntime.jsx("img", { src: TypeStep[props.step - 1], className: props.status === "A" ?
-                        style$4.imgAtive
+                        style$3.imgAtive
                         : props.status === "I" ?
-                            style$4.imgInative
-                            : style$4.imgBlocked }), jsxRuntime.jsx("div", { className: style$4.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
-                    jsxRuntime.jsx("div", { className: style$4.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
+                            style$3.imgInative
+                            : style$3.imgBlocked }), jsxRuntime.jsx("div", { className: style$3.label, children: mapTraducao.get(Idioma)[props.step - 1] }), props.status === 'B' &&
+                    jsxRuntime.jsx("div", { className: style$3.block, children: jsxRuntime.jsx("img", { src: 'https://api-motor.s3.amazonaws.com/lock.png' }) })] }) }));
 }
 
 ///-----------------------------------------
@@ -6239,17 +6571,17 @@ function MissionSteps(props) {
     };
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { style: { display: "flex", justifyContent: 'center', width: '100%', position: 'relative', padding: 20, backgroundColor: 'white', marginTop: '10px' }, children: [stepActive > 1 ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$4.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$3.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previous}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$4.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive - 1); }, className: style$3.missaoTitle, style: leftButtonStyle, children: `${mapTraducao.get(Idioma).previousShort}` })
                     : null, stepActive < stepLiberado ?
                     size[0] >= BREAKWIDTH ?
-                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$4.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
+                        jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$3.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).next}` })
                         :
-                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$4.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
+                            jsxRuntime.jsx("span", { onClick: () => { setStep(stepActive + 1); }, className: style$3.missaoTitle, style: rightButtonStyle, children: `${mapTraducao.get(Idioma).nextShort}` })
                     : props.stepProblem < 5 &&
                         props.onClickContinue &&
-                        jsxRuntime.jsx("span", { className: style$4.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$5, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
+                        jsxRuntime.jsx("span", { className: style$3.missaoTitle, style: { ...rightButtonStyle, marginTop: '-10px' }, children: jsxRuntime.jsx(Button$4, { handleClick: () => props.onClickContinue(), label: mapTraducao.get(Idioma).continueChallenge, variant: "primary", endIcon: jsxRuntime.jsx(FowardArrow, { fill: "#fff" }), style: { height: '40px' } }) }), jsxRuntime.jsxs("div", { style: { display: "inline-flex", marginTop: 40, justifyContent: 'center', width: '100%' }, children: [jsxRuntime.jsx(Steps, { step: 1, idioma: Idioma, status: stepLiberado >= 1 ? stepActive === 1 ? "A" : "I" : "B", onClick: () => {
                                 setStep(1);
                             } }), jsxRuntime.jsx(Steps, { step: 2, idioma: Idioma, status: stepLiberado >= 2 ? stepActive === 2 ? "A" : "I" : "B", onClick: () => {
                                 setStep(2);
@@ -6403,7 +6735,7 @@ function Stepper({ children, }) {
 function StepperItem({ title, subtitle, buttonText, active = false, onClick }) {
     return (jsxRuntime.jsx(ProgressItem, { active: active, children: active
             ?
-                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button$5, { handleClick: onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
+                jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ProgressItemTitle, { active: active, children: title }), jsxRuntime.jsx(ProgressItemSubtitle, { active: active, children: subtitle }), jsxRuntime.jsx(Button$4, { handleClick: onClick, label: buttonText || 'Agendar reunião', variant: "primary" })] })
             :
                 jsxRuntime.jsx(ProgressItemTitle, { children: title }) }));
 }
@@ -6535,7 +6867,7 @@ const WrapperButtons$1 = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$7, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons$1, { children: [jsxRuntime.jsx(Button$5, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$7, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons$1, { children: [jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -7069,7 +7401,7 @@ function ContentCycle({ title, description, selected, listSkils, urlPhoto, urlVi
     };
     return (jsxRuntime.jsxs(Container$e, { className: selected && 'selected', onClick: () => onSelect(), id: id, children: [jsxRuntime.jsx(Thumbnail, { children: jsxRuntime.jsx("img", { src: urlPhoto ? urlPhoto : defaultImage[typeContent], alt: title }) }), jsxRuntime.jsxs(Content$2, { children: [jsxRuntime.jsxs(Article, { children: [jsxRuntime.jsxs(Options, { children: [jsxRuntime.jsx(Title$3, { children: title }), stepContent && (jsxRuntime.jsx(Tooltip, { position: "top", textTooltip: "Remover", children: jsxRuntime.jsx(Trash, {}) }))] }), jsxRuntime.jsx(Description$2, { children: description })] }), jsxRuntime.jsxs(SkillsList, { children: [jsxRuntime.jsx("p", { className: "title", children: "Competencias: " }), listSkils.map((skill, index) => {
                                 return (jsxRuntime.jsx(Skill, { id: skill, children: skill }, index));
-                            })] }), started ? (jsxRuntime.jsxs(ContentBarProgess, { children: [jsxRuntime.jsx(BarProgress, { children: jsxRuntime.jsx(Progress, { progress: progress }) }), jsxRuntime.jsxs("p", { children: [progress, "%"] })] })) : (jsxRuntime.jsx(Button$5, { startIcon: jsxRuntime.jsx(PlayLineIcon, { fill: "#0645AD" }), variant: "link", label: "Ver Teaser", handleClick: () => setOpenModal(true), sizeIcon: "24px" }))] }), jsxRuntime.jsx(ModalVideo, { timeBegin: 0, open: openModal, handleClose: () => setOpenModal(false), videoUrl: urlVideo, nameVideo: titleVideo, title: titleVideo })] }));
+                            })] }), started ? (jsxRuntime.jsxs(ContentBarProgess, { children: [jsxRuntime.jsx(BarProgress, { children: jsxRuntime.jsx(Progress, { progress: progress }) }), jsxRuntime.jsxs("p", { children: [progress, "%"] })] })) : (jsxRuntime.jsx(Button$4, { startIcon: jsxRuntime.jsx(PlayLineIcon, { fill: "#0645AD" }), variant: "link", label: "Ver Teaser", handleClick: () => setOpenModal(true), sizeIcon: "24px" }))] }), jsxRuntime.jsx(ModalVideo, { timeBegin: 0, open: openModal, handleClose: () => setOpenModal(false), videoUrl: urlVideo, nameVideo: titleVideo, title: titleVideo })] }));
 }
 
 const Container$d = styled__default["default"].div `
@@ -7860,7 +8192,7 @@ function BannerLxp(props) {
                             color: props?.titleColor,
                             fontSize: 40,
                             fontWeight: 700
-                        }, children: props?.title })), props?.showBannerConfigs && (jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$5, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }))] })), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: onCancell, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: {
+                        }, children: props?.title })), props?.showBannerConfigs && (jsxRuntime.jsx(ConfigButton, { className: "configButton", children: jsxRuntime.jsx(Button$4, { variant: "primary", label: "Configura\u00E7\u00E3o de capa", handleClick: handleOpenConfig }) }))] })), jsxRuntime.jsx(material.Modal, { open: openConfig, onClose: onCancell, children: jsxRuntime.jsxs(ConfigContainer, { style: { ...props.style }, children: [jsxRuntime.jsx("span", { style: {
                                 fontWeight: 700,
                                 fontSize: 16,
                                 color: '#000000',
@@ -8755,11 +9087,11 @@ function HeaderContent(props) {
     }
     function RecomendationHeader(item) {
         const hasSeeMore = item.description.length >= 164;
-        return (jsxRuntime.jsxs(StyleHeaderInProgress, { children: [jsxRuntime.jsxs("section", { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { className: !zeroHeigthDescription ? 'short' : '', zeroHeigthDescription: zeroHeigthDescription, children: item.description }), hasSeeMore && (jsxRuntime.jsxs(SpaceButtonTopViewMore, { className: zeroHeigthDescription ? 'open' : 'closed', zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx("span", { className: !zeroHeigthDescription ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' }) })] }))] }), jsxRuntime.jsx(SpaceButtonTop, { onClick: item.onClick, children: item.labelButton && jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary" }) })] }));
+        return (jsxRuntime.jsxs(StyleHeaderInProgress, { children: [jsxRuntime.jsxs("section", { children: [jsxRuntime.jsx(Title$1, { children: item.title }), jsxRuntime.jsx(Description$1, { className: !zeroHeigthDescription ? 'short' : '', zeroHeigthDescription: zeroHeigthDescription, children: item.description }), hasSeeMore && (jsxRuntime.jsxs(SpaceButtonTopViewMore, { className: zeroHeigthDescription ? 'open' : 'closed', zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$4, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx("span", { className: !zeroHeigthDescription ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' }) })] }))] }), jsxRuntime.jsx(SpaceButtonTop, { onClick: item.onClick, children: item.labelButton && jsxRuntime.jsx(Button$4, { label: item.labelButton, variant: "primary" }) })] }));
     }
     function InProgressHeader(item) {
         const hasSeeMore = item.description.length >= 164;
-        return (jsxRuntime.jsxs(StyleHeaderInProgress, { children: [jsxRuntime.jsxs("section", { children: [jsxRuntime.jsx(Title$1, { title: item.title, children: item.title }), jsxRuntime.jsx(Description$1, { className: !zeroHeigthDescription ? 'short' : '', zeroHeigthDescription: zeroHeigthDescription, children: item.description }), hasSeeMore && (jsxRuntime.jsxs(SpaceButtonTopViewMore, { className: zeroHeigthDescription ? 'open' : 'closed', zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$5, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx("span", { className: !zeroHeigthDescription ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' }) })] }))] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel, style: { width: 200 } }), item.labelButton && jsxRuntime.jsx(Button$5, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
+        return (jsxRuntime.jsxs(StyleHeaderInProgress, { children: [jsxRuntime.jsxs("section", { children: [jsxRuntime.jsx(Title$1, { title: item.title, children: item.title }), jsxRuntime.jsx(Description$1, { className: !zeroHeigthDescription ? 'short' : '', zeroHeigthDescription: zeroHeigthDescription, children: item.description }), hasSeeMore && (jsxRuntime.jsxs(SpaceButtonTopViewMore, { className: zeroHeigthDescription ? 'open' : 'closed', zeroHeigthDescription: zeroHeigthDescription, onClick: addHeigthDescription, children: [jsxRuntime.jsx(Button$4, { label: textView, variant: "link", style: { color: '#649AF3', fontWeight: '900' } }), jsxRuntime.jsx("span", { className: !zeroHeigthDescription ? 'open' : 'closed', children: jsxRuntime.jsx(ArrowScrollRight, { fill: "#649AF3", width: "13px", height: "13px", strokeWidth: '4' }) })] }))] }), jsxRuntime.jsxs(SpaceProgressAndButton, { children: [jsxRuntime.jsx(ProgressBar$1, { value: item.progresso, label: item.channel, style: { width: 200 } }), item.labelButton && jsxRuntime.jsx(Button$4, { label: item.labelButton, variant: "primary", handleClick: item.onClick })] })] }));
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$9, { style: { ...props.style }, children: [props.listaRecomendacao.map((item, index) => {
                     return (jsxRuntime.jsx(HeaderImage$1, { img: item.bgImg, tmnDescription: item.description.length, onDisplay: index === selectedContent, style: { ...props.style }, children: jsxRuntime.jsx(jsxRuntime.Fragment, { children: item.typeOfHeader === 'inProgress' ? (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: InProgressHeader(item) })) : (jsxRuntime.jsx(Content, { height: props?.height, onDisplay: index === selectedContent, children: RecomendationHeader(item) })) }) }, index));
@@ -9034,12 +9366,12 @@ function StarMetric({ disabled, onChange }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(WrapperCard$5, { children: jsxRuntime.jsxs(Box__default["default"], { children: [jsxRuntime.jsx(Typography__default["default"], { component: "legend" }), jsxRuntime.jsx(Rating__default["default"], { disabled: disabled ? disabled : false, onChange: (e) => { onChange(); } })] }) }) }));
 }
 
-var css_248z$a = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
-var style$3 = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
-styleInject(css_248z$a);
-
-var css_248z$9 = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
+var css_248z$9 = ".calendarLxp-module_containerCalendar__rGMXM {\n    display: flex;\n    position: relative;\n    width: fit-content;\n    min-height: 550px;\n    border-radius: 8px;\n    background-color: #FFF;\n}\n\n.calendarLxp-module_fechar__B-og5{\n    font-size: 12px;\n    color: #222222;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n\n    margin-right: 24px;\n    margin-top: 24px;\n    cursor: default;\n    \n}\n\n.calendarLxp-module_calendar__-C-pK {\n    padding: 32px;\n    display: inline-flex;\n    \n}\n\n.calendarLxp-module_btnSubmit__A-5NS {\n    position: absolute;\n    right: 0;\n    bottom: 0;\n    margin-right: 24px;\n    margin-bottom: 24px;\n}\n";
+var style$2 = {"containerCalendar":"calendarLxp-module_containerCalendar__rGMXM","fechar":"calendarLxp-module_fechar__B-og5","calendar":"calendarLxp-module_calendar__-C-pK","btnSubmit":"calendarLxp-module_btnSubmit__A-5NS"};
 styleInject(css_248z$9);
+
+var css_248z$8 = ".rdrCalendarWrapper{\n  color: #000000;\n  font-size: 16px;\n  font-family: 'PT Sans';\n}\n\n.rdrDateDisplayWrapper{\n  background-color: rgb(239, 242, 247);\n}\n\n.rdrDateDisplay{\n  margin: 0.833em;\n}\n\n.rdrDateDisplayItem{\n  border-radius: 4px;\n  background-color: rgb(255, 255, 255);\n  box-shadow: 0 1px 2px 0 rgba(35, 57, 66, 0.21);\n  border: 1px solid transparent;\n}\n\n.rdrDateDisplayItem input{\n    cursor: pointer;\n    height: 2.5em;\n    line-height: 2.5em;\n    border: 0px;\n    background: transparent;\n    width: 100%;\n    color: #222222;\n  }\n\n.rdrDateDisplayItemActive{\n  border-color: currentColor;\n}\n\n.rdrDateDisplayItemActive input{\n    color: #7d888d\n  }\n\n.rdrMonthAndYearWrapper {\n  align-items: center;\n  height: 60px;\n  padding-top: 10px;\n}\n\n.rdrMonthAndYearPickers{\n  font-weight: 600;\n}\n\n.rdrMonthAndYearPickers select{\n    -moz-appearance: none;\n         appearance: none;\n    -webkit-appearance: none;\n    border: 0;\n    background: transparent;\n    padding: 10px 30px 10px 10px;\n    border-radius: 4px;\n    outline: 0;\n    color: #FF4D0D;\n    background: url(\"data:image/svg+xml;utf8,<svg width='9px' height='6px' viewBox='0 0 9 6' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><g id='Artboard' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd' transform='translate(-636.000000, -171.000000)' fill-opacity='0.368716033'><g id='input' transform='translate(172.000000, 37.000000)' fill='%230E242F' fill-rule='nonzero'><g id='Group-9' transform='translate(323.000000, 127.000000)'><path d='M142.280245,7.23952813 C141.987305,6.92353472 141.512432,6.92361662 141.219585,7.23971106 C140.926739,7.5558055 140.926815,8.06821394 141.219755,8.38420735 L145.498801,13 L149.780245,8.38162071 C150.073185,8.0656273 150.073261,7.55321886 149.780415,7.23712442 C149.487568,6.92102998 149.012695,6.92094808 148.719755,7.23694149 L145.498801,10.7113732 L142.280245,7.23952813 Z' id='arrow'></path></g></g></g></svg>\") no-repeat;\n    background-position: right 8px center;\n    cursor: pointer;\n    text-align: center;\n    display: none;\n  }\n\n.rdrMonthAndYearPickers select:hover{\n      background-color: rgba(187, 22, 22, 0.07);\n    }\n\n.rdrMonthPicker, .rdrYearPicker{\n  margin: 0 5px\n}\n\n.rdrNextPrevButton {\n  display: block;\n  width: 24px;\n  height: 24px;\n  margin: 0 0.833em;\n  padding: 0;\n  border: 0;\n  border-radius: 5px;\n  background: #EFF2F7\n}\n\n.rdrNextPrevButton:hover{\n    background: #E1E7F0;\n  }\n\n.rdrNextPrevButton i {\n    display: block;\n    width: 0;\n    height: 0;\n    padding: 0;\n    text-align: center;\n    border-style: solid;\n    margin: auto;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrPprevButton i {\n    border-width: 4px 6px 4px 4px;\n    border-color: transparent rgb(52, 73, 94) transparent transparent;\n    transform: translate(-3px, 0px);\n  }\n\n.rdrNextButton i {\n    margin: 0 0 0 7px;\n    border-width: 4px 4px 4px 6px;\n    border-color: transparent transparent transparent rgb(52, 73, 94);\n    transform: translate(3px, 0px);\n  }\n\n.rdrWeekDays {\n  padding: 0 0.833em;\n}\n\n.rdrMonth{\n  padding: 0 0.833em 1.666em 0.833em;\n}\n\n.rdrMonth .rdrWeekDays {\n    padding: 0;\n  }\n\n.rdrMonths.rdrMonthsVertical .rdrMonth:first-child .rdrMonthName{\n  display: none;\n}\n\n.rdrWeekDay {\n  font-weight: 400;\n  line-height: 2.667em;\n  color: #FF4D0D;\n}\n\n.rdrDay {\n  background: transparent;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  border: 0;\n  padding: 0;\n  line-height: 3.000em;\n  height: 3.000em;\n  text-align: center;\n  color: #1d2429;\n}\n\n.rdrDay:focus {\n    outline: 0;\n  }\n\n.rdrDayNumber {\n  outline: 0;\n  font-weight: 300;\n  position: absolute;\n  left: 0;\n  right: 0;\n  top: 0;\n  bottom: 0;\n  top: 5px;\n  bottom: 5px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.rdrDayToday .rdrDayNumber span{\n  font-weight: 500\n}\n\n.rdrDayToday:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span:after,.rdrDayToday:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span:after{\n      background: #fff;\n    }\n\n.rdrDay:not(.rdrDayPassive) .rdrInRange ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrStartEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrEndEdge ~ .rdrDayNumber span,.rdrDay:not(.rdrDayPassive) .rdrSelected ~ .rdrDayNumber span{\n          color: rgba(255, 255, 255, 0.85);\n        }\n\n.rdrSelected, .rdrInRange, .rdrStartEdge, .rdrEndEdge{\n  background: currentColor;\n  position: absolute;\n  top: 5px;\n  left: 0;\n  right: 0;\n  bottom: 5px;\n}\n\n.rdrSelected{\n  left: 2px;\n  right: 2px;\n}\n\n\n.rdrStartEdge{\n  border-top-left-radius: 1.042em;\n  border-bottom-left-radius: 1.042em;\n  left: 2px;\n}\n\n.rdrEndEdge{\n  border-top-right-radius: 1.042em;\n  border-bottom-right-radius: 1.042em;\n  right: 2px;\n}\n\n.rdrSelected{\n  border-radius: 1.042em;\n}\n\n.rdrDayStartOfMonth .rdrInRange, .rdrDayStartOfMonth .rdrEndEdge, .rdrDayStartOfWeek .rdrInRange, .rdrDayStartOfWeek .rdrEndEdge{\n    border-top-left-radius: 1.042em;\n    border-bottom-left-radius: 1.042em;\n    left: 2px;\n  }\n\n.rdrDayEndOfMonth .rdrInRange,  .rdrDayEndOfMonth .rdrStartEdge,  .rdrDayEndOfWeek .rdrInRange,  .rdrDayEndOfWeek .rdrStartEdge{\n    border-top-right-radius: 1.042em;\n    border-bottom-right-radius: 1.042em;\n    right: 2px;\n  }\n\n.rdrDayStartOfMonth .rdrDayInPreview, .rdrDayStartOfMonth .rdrDayEndPreview, .rdrDayStartOfWeek .rdrDayInPreview, .rdrDayStartOfWeek .rdrDayEndPreview{\n    border-top-left-radius: 1.333em;\n    border-bottom-left-radius: 1.333em;\n    border-left-width: 1px;\n    left: 0px;\n  }\n\n.rdrDayEndOfMonth .rdrDayInPreview, .rdrDayEndOfMonth .rdrDayStartPreview, .rdrDayEndOfWeek .rdrDayInPreview, .rdrDayEndOfWeek .rdrDayStartPreview{\n   border-top-right-radius: 1.333em;\n   border-bottom-right-radius: 1.333em;\n   border-right-width: 1px;\n   right: 0px;\n }\n\n.rdrDayStartPreview, .rdrDayInPreview, .rdrDayEndPreview{\n  background: rgba(255, 255, 255, 0.09);\n  position: absolute;\n  top: 3px;\n  left: 0px;\n  right: 0px;\n  bottom: 3px;\n  pointer-events: none;\n  border: 0px solid currentColor;\n  z-index: 1;\n}\n\n.rdrDayStartPreview{\n  border-top-width: 1px;\n  border-left-width: 1px;\n  border-bottom-width: 1px;\n  border-top-left-radius: 1.333em;\n  border-bottom-left-radius: 1.333em;\n  left: 0px;\n}\n\n.rdrDayInPreview{\n  border-top-width: 1px;\n  border-bottom-width: 1px;\n}\n\n.rdrDayEndPreview{\n  border-top-width: 1px;\n  border-right-width: 1px;\n  border-bottom-width: 1px;\n  border-top-right-radius: 1.333em;\n  border-bottom-right-radius: 1.333em;\n  right: 2px;\n  right: 0px;\n}\n\n.rdrDefinedRangesWrapper{\n  font-size: 12px;\n  width: 226px;\n  border-right: solid 1px #eff2f7;\n  background: #fff;\n}\n\n.rdrDefinedRangesWrapper .rdrStaticRangeSelected{\n    color: currentColor;\n    font-weight: 600;\n  }\n\n.rdrStaticRange{\n  border: 0;\n  cursor: pointer;\n  display: block;\n  outline: 0;\n  border-bottom: 1px solid #eff2f7;\n  padding: 0;\n  background: #fff\n}\n\n.rdrStaticRange:hover .rdrStaticRangeLabel,.rdrStaticRange:focus .rdrStaticRangeLabel{\n      background: #eff2f7;\n    }\n\n.rdrStaticRangeLabel{\n  display: block;\n  outline: 0;\n  line-height: 18px;\n  padding: 10px 20px;\n  text-align: left;\n}\n\n.rdrInputRanges{\n  padding: 10px 0;\n}\n\n.rdrInputRange{\n  align-items: center;\n  padding: 5px 20px;\n}\n\n.rdrInputRangeInput{\n  width: 30px;\n  height: 30px;\n  line-height: 30px;\n  border-radius: 4px;\n  text-align: center;\n  border: solid 1px rgb(222, 231, 235);\n  margin-right: 10px;\n  color: rgb(108, 118, 122)\n}\n\n.rdrInputRangeInput:focus, .rdrInputRangeInput:hover{\n    border-color: rgb(180, 191, 196);\n    outline: 0;\n    color: #333;\n  }\n\n.rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber:after{\n  content: '';\n  border: 1px solid currentColor;\n  border-radius: 1.333em;\n  position: absolute;\n  top: -2px;\n  bottom: -2px;\n  left: 0px;\n  right: 0px;\n  background: transparent;\n}\n\n.rdrDayPassive{\n  pointer-events: none;\n}\n\n.rdrDayPassive .rdrDayNumber span{\n    color: #AEB0B3;\n  }\n\n.rdrDayPassive .rdrInRange, .rdrDayPassive .rdrStartEdge, .rdrDayPassive .rdrEndEdge, .rdrDayPassive .rdrSelected, .rdrDayPassive .rdrDayStartPreview, .rdrDayPassive .rdrDayInPreview, .rdrDayPassive .rdrDayEndPreview{\n    display: none;\n  }\n\n.rdrDayDisabled {\n  background-color: rgb(248, 248, 248);\n}\n\n.rdrDayDisabled .rdrDayNumber span{\n    color: #aeb9bf;\n  }\n\n.rdrDayDisabled .rdrInRange, .rdrDayDisabled .rdrStartEdge, .rdrDayDisabled .rdrEndEdge, .rdrDayDisabled .rdrSelected, .rdrDayDisabled .rdrDayStartPreview, .rdrDayDisabled .rdrDayInPreview, .rdrDayDisabled .rdrDayEndPreview{\n    filter: grayscale(100%) opacity(60%);\n  }\n\n.rdrMonthName{\n  text-align: center;\n  font-weight: 700;\n  color: #FF4D0D;\n  padding: 0.833em;\n}\n";
+styleInject(css_248z$8);
 
 const defineds = {
     startOfWeek: dateFns.startOfWeek(new Date()),
@@ -9126,7 +9458,7 @@ function CalendarLxp(props) {
         }
     ]);
     locale.pt.options.weekStartsOn = 0;
-    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$3.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$3.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$3.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$3.btnSubmit, children: jsxRuntime.jsx(Button$5, { label: 'Aplicar', variant: 'primary', handleClick: () => {
+    return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$2.containerCalendar, style: { ...props.styles }, children: [jsxRuntime.jsx("div", { className: style$2.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsxs("div", { className: style$2.calendar, children: [jsxRuntime.jsx("div", { style: { fontSize: 16 }, children: jsxRuntime.jsx(reactDateRange.DefinedRange, { inputRanges: [], staticRanges: defaultStaticRanges, ranges: newRange, rangeColors: ['#0645AD'], onChange: item => setNewRange([item.selection]) }) }), jsxRuntime.jsx("div", { children: jsxRuntime.jsx(reactDateRange.DateRange, { locale: locale.pt, ranges: newRange, onChange: item => setNewRange([item.selection]), months: 2, direction: 'horizontal', rangeColors: ['#FF4D0D'], showDateDisplay: false, showPreview: false, weekdayDisplayFormat: 'EEEEE', preventSnapRefocus: true }) })] }), jsxRuntime.jsx("div", { className: style$2.btnSubmit, children: jsxRuntime.jsx(Button$4, { label: 'Aplicar', variant: 'primary', handleClick: () => {
                             props.onSave([newRange[0].startDate, newRange[0].endDate]);
                         } }) })] }) }));
 }
@@ -9932,7 +10264,7 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
     };
     return (jsxRuntime.jsx(Container$6, { style: { ...style }, children: variant == 'LXP' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [showProfile ?
                     jsxRuntime.jsxs(Button__default["default"], { id: "profile-dropdown", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, style: { padding: 0 }, onClick: handleClick, children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png' }), !isMobileVersion && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(UserName, { children: [" ", user.textIsMe, " "] }), jsxRuntime.jsx(DropdownIcon, { fill: "white" })] }))] })
-                    : null, jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png', style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), !hiddenProfileMenu && (jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$5, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) }))] })] }), menuItems &&
+                    : null, jsxRuntime.jsxs(MenuCustom$1, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'center' }, transformOrigin: { vertical: 'top', horizontal: 'center' }, anchorEl: anchorEl, open: open, onClose: handleClose, variantstyle: 'LXP', children: [jsxRuntime.jsxs(ProfileInfos, { children: [jsxRuntime.jsx(AvatarCustomUser, { alt: "User Photo", src: user.avatar || 'https://certificates-mentor.s3.amazonaws.com/frst-avatar-default.png', style: { width: '70px', height: '70px' } }), jsxRuntime.jsxs(WrapperRightProfileInfo, { children: [jsxRuntime.jsxs(ProfileNameInfo, { children: [" ", user.name, " "] }), jsxRuntime.jsxs(ProfileCompanyInfo, { children: [" ", user.company, " "] }), !hiddenProfileMenu && (jsxRuntime.jsx(WrapperButtonFrst, { children: jsxRuntime.jsx(Button$4, { variant: 'secondary', label: profileMenuText, handleClick: handleProfileMenuClick }) }))] })] }), menuItems &&
                             menuItems.length > 0 &&
                             menuItems.map((item, index) => {
                                 if (item.subItens) {
@@ -10157,7 +10489,7 @@ function NotificationPopOver(props) {
         : [];
     const emptyStateImage = imgNotification;
     const notificationsLength = props?.notificationList?.length;
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ? (jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$5, { variant: "link", startIcon: jsxRuntime.jsx(BackArrow, { fill: "currentColor" }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$5, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ? (jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$4, { variant: "link", startIcon: jsxRuntime.jsx(BackArrow, { fill: "currentColor" }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$4, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
                                 return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { style: { width: '100%' }, onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }));
                             }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) : (jsxRuntime.jsxs(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
                 vertical: 'bottom',
@@ -10185,7 +10517,7 @@ function NotificationPopOver(props) {
                             transform: 'rotate(45deg)',
                             left: 'calc(50% - 6px)'
                         }
-                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}, onMouseOut: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$5, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
+                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}, onMouseOut: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$4, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
                                 return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}, onMouseOut: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}, children: jsxRuntime.jsx(NotificationCard, { onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }, index));
                             }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
@@ -10465,281 +10797,6 @@ function HasNotificationIcon() {
 }
 function HelpIcon() {
     return (jsxRuntime.jsxs("svg", { width: "26", height: "25", viewBox: "0 0 26 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_34_679)", children: [jsxRuntime.jsx("path", { d: "M22.7976 18.8385C22.0103 18.6927 21.4879 18.2794 21.2952 17.5098C21.2523 17.3395 21.253 17.1563 21.2523 16.9786C21.2489 15.5001 21.2503 14.0222 21.2503 12.5437C21.2503 11.4561 21.6548 10.9215 22.6974 10.6286C22.7206 10.6218 22.7424 10.6082 22.7628 10.5987C22.5565 5.73339 18.4008 1.24471 12.8313 1.23518C7.22236 1.22496 3.06194 5.72726 2.8372 10.6055C2.90598 10.6246 2.97749 10.6464 3.05036 10.6641C3.79745 10.8473 4.33819 11.4697 4.34568 12.2332C4.36203 13.8894 4.36884 15.5464 4.34432 17.2027C4.32866 18.2862 3.35751 19.0006 2.23244 18.8078C0.967083 18.5913 0.0429235 17.5445 0.0177253 16.2574C-0.00270567 15.2297 -0.00951599 14.2007 0.0197684 13.1737C0.0483717 12.1807 0.525775 11.4289 1.38932 10.9365C1.5337 10.8541 1.58955 10.7737 1.59908 10.6075C1.87762 5.69934 5.31752 1.54096 10.0861 0.339619C16.308 -1.22744 22.6069 2.78793 23.8164 9.09973C23.9117 9.59825 23.956 10.1083 24.0064 10.6143C24.0214 10.7649 24.0609 10.85 24.1991 10.9283C25.1035 11.4377 25.5728 12.2223 25.5905 13.2568C25.6068 14.2252 25.6034 15.1936 25.5918 16.162C25.5789 17.2074 25.1144 18.0022 24.2012 18.5164C24.0561 18.5981 24.0261 18.6893 24.0241 18.8378C24.0152 19.4398 24.0547 20.0507 23.9669 20.6425C23.7033 22.4241 22.1853 23.7215 20.3785 23.7596C19.8099 23.7719 19.2399 23.7664 18.6712 23.7603C18.537 23.7589 18.4662 23.7937 18.4015 23.9244C18.0515 24.6259 17.478 24.9896 16.6894 24.9957C16.0778 25.0005 15.4663 25.0018 14.8547 24.995C13.8127 24.9828 13.0227 24.2166 12.9887 23.1951C12.9553 22.1987 13.7078 21.3644 14.7355 21.3113C15.4302 21.2759 16.1289 21.2834 16.8242 21.3086C17.5584 21.3352 18.0807 21.7152 18.4117 22.3696C18.4464 22.4391 18.5316 22.5317 18.5929 22.5317C19.2971 22.5304 20.0067 22.5624 20.7048 22.4881C21.8523 22.3669 22.7615 21.3304 22.7976 20.1774C22.8112 19.7368 22.7996 19.2961 22.7996 18.8385H22.7976ZM24.3694 14.738C24.3694 14.2368 24.3789 13.7355 24.3673 13.235C24.3496 12.4599 23.7347 11.8375 22.9998 11.8354C22.6763 11.8348 22.4788 12.0057 22.4775 12.3271C22.472 13.9235 22.472 15.5205 22.4775 17.1168C22.4788 17.439 22.6763 17.6133 22.9957 17.6119C23.734 17.6092 24.3483 16.9909 24.3667 16.2158C24.3782 15.7234 24.3694 15.2311 24.3694 14.738ZM3.13072 14.7339C3.13072 13.9439 3.13481 13.1539 3.12868 12.3646C3.12595 11.9982 2.93254 11.8252 2.56547 11.8368C1.8606 11.8586 1.2538 12.4606 1.24086 13.1975C1.22315 14.2163 1.22315 15.2358 1.24086 16.2547C1.25312 16.9609 1.8211 17.55 2.49396 17.6058C2.93663 17.6426 3.128 17.4717 3.13004 17.0269C3.13277 16.2628 3.1314 15.498 3.13072 14.7339ZM15.7693 23.7732C16.0839 23.7732 16.3979 23.7787 16.7125 23.7719C17.0912 23.7637 17.3493 23.511 17.3527 23.1562C17.3561 22.8001 17.1062 22.5351 16.7268 22.529C16.0983 22.5181 15.4697 22.5181 14.8411 22.529C14.4604 22.5358 14.207 22.8028 14.2118 23.1549C14.2172 23.5097 14.476 23.7637 14.8526 23.7719C15.1584 23.7787 15.4635 23.7732 15.7693 23.7732Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M8.88545 16.423C8.30725 16.4019 7.80465 16.2643 7.36402 15.9476C6.60331 15.4021 6.24713 14.6489 6.24713 13.7193C6.24713 12.029 6.24032 10.3379 6.24917 8.64763C6.25735 7.04652 7.36607 5.95142 8.97058 5.95006C11.5279 5.94734 14.0844 5.94665 16.6417 5.95006C18.2442 5.9521 19.3481 7.04925 19.3556 8.65444C19.3638 10.3366 19.3631 12.0187 19.3556 13.7009C19.3488 15.3156 18.2387 16.4155 16.624 16.4189C15.6134 16.4209 14.602 16.4236 13.5914 16.4155C13.4082 16.4141 13.2767 16.4625 13.1453 16.5953C12.4466 17.3022 11.7458 18.0077 11.03 18.6963C10.3912 19.3112 9.3574 19.111 9.01076 18.3067C8.92631 18.1106 8.90043 17.8797 8.8909 17.6631C8.87251 17.2579 8.88545 16.8513 8.88545 16.4216V16.423ZM10.1093 17.7864C10.1297 17.798 10.1508 17.8089 10.1712 17.8204C10.2373 17.7592 10.3054 17.6999 10.3694 17.6366C11.0865 16.9242 11.8084 16.2173 12.516 15.4961C12.7292 15.2795 12.9587 15.1883 13.2611 15.1917C14.3732 15.2032 15.486 15.1971 16.5981 15.1957C17.5747 15.1951 18.1318 14.6414 18.1332 13.6655C18.1352 12.0092 18.1352 10.3536 18.1332 8.69734C18.1318 7.7187 17.5802 7.17319 16.5961 7.17319C14.0742 7.17319 11.5517 7.17319 9.02983 7.17319C8.011 7.17319 7.47094 7.71053 7.47026 8.72526C7.4689 10.3645 7.47026 12.0031 7.47026 13.6423C7.47026 13.7526 7.47367 13.8637 7.48593 13.9726C7.55403 14.5849 7.99466 15.065 8.60282 15.161C8.8439 15.1992 9.09316 15.1923 9.33833 15.1951C9.90427 15.2012 10.1065 15.398 10.1079 15.9599C10.1093 16.5687 10.1079 17.1782 10.1079 17.7871L10.1093 17.7864Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M12.8027 12.1847C12.311 12.1847 11.8935 11.7652 11.8976 11.2741C11.9017 10.7811 12.3239 10.3677 12.815 10.3759C13.2999 10.384 13.703 10.7899 13.7078 11.2728C13.7126 11.7624 13.2951 12.1833 12.8034 12.184L12.8027 12.1847Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M10.7283 11.2804C10.7283 11.7803 10.3183 12.1903 9.82317 12.1848C9.32806 12.1794 8.92217 11.7633 8.92898 11.2668C8.93511 10.7812 9.33828 10.3801 9.82385 10.376C10.3196 10.3713 10.7283 10.7799 10.7283 11.2804Z", fill: "white" }), jsxRuntime.jsx("path", { d: "M14.8765 11.2757C14.8785 10.7752 15.2899 10.3679 15.785 10.3761C16.2814 10.3836 16.6846 10.8011 16.6758 11.2969C16.6669 11.7811 16.2603 12.1822 15.7761 12.1842C15.281 12.1863 14.8738 11.7756 14.8765 11.2757Z", fill: "white" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_34_679", children: jsxRuntime.jsx("rect", { width: "25.6014", height: "25", fill: "white" }) }) })] }));
-}
-
-var css_248z$8 = ".extraContent-module_container__tV2ud {\n    background-color: #E0E0E0;\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n    font-family: 'PT Sans';\n    padding: 20px;\n}\n\n.extraContent-module_contentInfo__TGKPS {\n    padding: 32px 20px;\n}\n\n.extraContent-module_notes__I6JnG {\n    display: flex;\n    flex-direction: column;\n}\n\n.extraContent-module_saveNotes__DHETt {\n    display: flex;\n    justify-content: flex-end;\n    align-items: center;\n    margin-top: 24px;\n}";
-var style$2 = {"container":"extraContent-module_container__tV2ud","contentInfo":"extraContent-module_contentInfo__TGKPS","notes":"extraContent-module_notes__I6JnG","saveNotes":"extraContent-module_saveNotes__DHETt"};
-styleInject(css_248z$8);
-
-function AdminExtraContent(props) {
-    const [valueTabs, setValueTabs] = React.useState(0);
-    const [transcriptionText, setTranscriptionText] = React.useState('');
-    const handleChangeTabs = (e, newTab) => {
-        setValueTabs(newTab);
-    };
-    React.useState([]);
-    function BooksInfo(books) {
-        let bookInfo;
-        return (jsxRuntime.jsxs("div", { style: { marginTop: 16 }, children: [jsxRuntime.jsx(TextField, { label: "Nome do livro", onChange: (e) => bookInfo.name = e.target.value }), jsxRuntime.jsx(TextField, { label: "Nome do autor", onChange: (e) => bookInfo.autor = e.target.value }), jsxRuntime.jsx(TextField, { label: "Link para compra", onChange: (e) => bookInfo.link = e.target.value }), jsxRuntime.jsx("div", { style: { marginBottom: 8 }, children: jsxRuntime.jsx("span", { children: " Fa\u00E7a upload da capa do livro abaixo" }) }), jsxRuntime.jsx(FileUpload, { variant: "landscape" })] }));
-    }
-    return (jsxRuntime.jsxs("div", { className: style$2.container, children: [jsxRuntime.jsx("span", { style: { fontSize: 18, fontWeight: 700 }, children: "Material extra" }), jsxRuntime.jsx("div", { className: style$2.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
-                        '& .Mui-selected ': {
-                            color: '#FF4D0D !important',
-                            fontWeight: '700 !important'
-                        },
-                        '& .MuiTab-root': {
-                            fontFamily: 'PT Sans !important',
-                            textTransform: 'none !important',
-                            fontWeight: '400 !important',
-                        },
-                        '& .MuiTabs-indicator': {
-                            backgroundColor: '#FF5427 !important',
-                        }
-                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Livros', value: 2 })] }) }), jsxRuntime.jsxs("div", { className: style$2.contentInfo, children: [valueTabs === 0 &&
-                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Para ajudar as pessoas com algum problema auditivo ou que somente desejam revisar de forma r\u00E1pida o conte\u00FAdo, transcreva abaixo o que foi dito durante o v\u00EDdeo." }) }), jsxRuntime.jsx(Textarea, { label: "Transcri\u00E7\u00E3o", style: { marginTop: 24 }, height: '150px', onChange: (e) => {
-                                        setTranscriptionText(e.target.value);
-                                    } })] }), valueTabs === 1 &&
-                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Adicone materiais extras como PDFs e PPTs que ajudem seus alunos a se desenvolverem neste assunto." }) }), jsxRuntime.jsx("div", { style: { marginTop: 24, marginBottom: 8 }, children: jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Fa\u00E7a o upload dos arquivos abaixo" }) }), jsxRuntime.jsx(FileUpload, { variant: "landscape" })] }), valueTabs === 2 &&
-                        jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400 }, children: "Adicione abaixo links de compra dos livros que podem ajudar seus alunos a se desenvolverem nesta \u00E1rea." }), BooksInfo(), jsxRuntime.jsx("div", { style: { marginTop: 24 }, children: jsxRuntime.jsx(Button$5, { variant: "expandedSecondary", label: "Adicionar", startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FF4D0D" }), handleClick: () => { } }) })] })] })] }));
-}
-
-const Button$4 = React__default["default"].forwardRef(({ className, active, reversed, ...props }, ref) => (jsxRuntime.jsx("span", { ...props, ref: ref, className: css.cx(className, css.css `
-          cursor: pointer;
-          color: ${reversed
-        ? active
-            ? 'white'
-            : '#aaa'
-        : active
-            ? 'black'
-            : '#ccc'};
-        `) })));
-React__default["default"].forwardRef(({ className, value, ...props }, ref) => {
-    const textLines = value.document.nodes
-        .map(node => node.text)
-        .toArray()
-        .join('\n');
-    return (jsxRuntime.jsxs("div", { ref: ref, ...props, className: css.cx(className, css.css `
-            margin: 30px -20px 0;
-          `), children: [jsxRuntime.jsx("div", { className: css.css `
-            font-size: 14px;
-            padding: 5px 20px;
-            color: #404040;
-            border-top: 2px solid #eeeeee;
-            background: #f8f8f8;
-          `, children: "Slate's value as text" }), jsxRuntime.jsx("div", { className: css.css `
-            color: #404040;
-            font: 12px monospace;
-            white-space: pre-wrap;
-            padding: 10px 20px;
-            div {
-              margin: 0 0 0.5em;
-            }
-          `, children: textLines })] }));
-});
-React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("span", { ...props, ref: ref, className: css.cx('material-icons', className, css.css `
-          font-size: 18px;
-          vertical-align: text-bottom;
-        `) })));
-React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ...props, ref: ref, className: css.cx(className, css.css `
-          white-space: pre-wrap;
-          margin: 0 -20px 10px;
-          padding: 10px 20px;
-          font-size: 14px;
-          background: #f8f8e8;
-        `) })));
-const Menu = React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx("div", { ...props, ref: ref, className: css.cx(className, css.css `
-          & > * {
-            display: inline-block;
-          }
-
-          & > * + * {
-            margin-left: 15px;
-          }
-        `) })));
-const Toolbar = React__default["default"].forwardRef(({ className, ...props }, ref) => (jsxRuntime.jsx(Menu, { ...props, ref: ref, className: css.cx(className, css.css `
-          position: relative;
-          padding: 16px 16px 16px;
-          border-bottom: 2px solid #eee;
-          background-color: #FFF
-        `) })));
-
-const HOTKEYS = {
-    'mod+b': 'bold',
-    'mod+i': 'italic',
-    'mod+u': 'underline',
-    'mod+`': 'code',
-};
-const LIST_TYPES = ['numbered-list', 'bulleted-list'];
-const TEXT_ALIGN_TYPES = ['left', 'center', 'right', 'justify'];
-const RichTextExample = () => {
-    const renderElement = React.useCallback(props => jsxRuntime.jsx(Element, { ...props }), []);
-    const renderLeaf = React.useCallback(props => jsxRuntime.jsx(Leaf, { ...props }), []);
-    const editor = React.useMemo(() => slateHistory.withHistory(slateReact.withReact(slate.createEditor())), []);
-    return (jsxRuntime.jsxs(slateReact.Slate, { editor: editor, value: initialValue, children: [jsxRuntime.jsxs(Toolbar, { children: [jsxRuntime.jsx(MarkButton, { format: "bold", icon: jsxRuntime.jsx(iconsMaterial.FormatBold, {}) }), jsxRuntime.jsx(MarkButton, { format: "italic", icon: jsxRuntime.jsx(iconsMaterial.FormatItalic, {}) }), jsxRuntime.jsx(MarkButton, { format: "underline", icon: jsxRuntime.jsx(iconsMaterial.FormatUnderlined, {}) }), jsxRuntime.jsx(MarkButton, { format: "code", icon: jsxRuntime.jsx(iconsMaterial.Code, {}) }), jsxRuntime.jsx(BlockButton, { format: "heading-one", icon: jsxRuntime.jsx(iconsMaterial.LooksOne, {}) }), jsxRuntime.jsx(BlockButton, { format: "heading-two", icon: jsxRuntime.jsx(iconsMaterial.LooksTwo, {}) }), jsxRuntime.jsx(BlockButton, { format: "block-quote", icon: jsxRuntime.jsx(iconsMaterial.FormatQuote, {}) }), jsxRuntime.jsx(BlockButton, { format: "numbered-list", icon: jsxRuntime.jsx(iconsMaterial.FormatListNumbered, {}) }), jsxRuntime.jsx(BlockButton, { format: "bulleted-list", icon: jsxRuntime.jsx(iconsMaterial.FormatListBulleted, {}) }), jsxRuntime.jsx(BlockButton, { format: "left", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignLeft, {}) }), jsxRuntime.jsx(BlockButton, { format: "center", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignCenter, {}) }), jsxRuntime.jsx(BlockButton, { format: "right", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignRight, {}) }), jsxRuntime.jsx(BlockButton, { format: "justify", icon: jsxRuntime.jsx(iconsMaterial.FormatAlignJustify, {}) })] }), jsxRuntime.jsx(slateReact.Editable, { renderElement: renderElement, renderLeaf: renderLeaf, placeholder: "Digite seu texto aqui", spellCheck: true, autoFocus: true, style: { height: 275, width: '100%', backgroundColor: '#EBEBEB', border: '1px solid #E0E0E0', overflow: 'auto' }, onKeyDown: event => {
-                    for (const hotkey in HOTKEYS) {
-                        if (isHotkey__default["default"](hotkey, event)) {
-                            event.preventDefault();
-                            const mark = HOTKEYS[hotkey];
-                            toggleMark(editor, mark);
-                        }
-                    }
-                } })] }));
-};
-const toggleBlock = (editor, format) => {
-    const isActive = isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type');
-    const isList = LIST_TYPES.includes(format);
-    slate.Transforms.unwrapNodes(editor, {
-        match: n => !slate.Editor.isEditor(n) &&
-            slate.Element.isElement(n) &&
-            // @ts-ignore
-            LIST_TYPES.includes(n.type) &&
-            !TEXT_ALIGN_TYPES.includes(format),
-        split: true,
-    });
-    let newProperties;
-    if (TEXT_ALIGN_TYPES.includes(format)) {
-        newProperties = {
-            // @ts-ignore
-            align: isActive ? undefined : format,
-        };
-    }
-    else {
-        newProperties = {
-            // @ts-ignore
-            type: isActive ? 'paragraph' : isList ? 'list-item' : format,
-        };
-    }
-    slate.Transforms.setNodes(editor, newProperties);
-    if (!isActive && isList) {
-        const block = { type: format, children: [] };
-        slate.Transforms.wrapNodes(editor, block);
-    }
-};
-const toggleMark = (editor, format) => {
-    const isActive = isMarkActive(editor, format);
-    if (isActive) {
-        slate.Editor.removeMark(editor, format);
-    }
-    else {
-        slate.Editor.addMark(editor, format, true);
-    }
-};
-const isBlockActive = (editor, format, blockType = 'type') => {
-    const { selection } = editor;
-    if (!selection)
-        return false;
-    const [match] = Array.from(slate.Editor.nodes(editor, {
-        at: slate.Editor.unhangRange(editor, selection),
-        match: n => !slate.Editor.isEditor(n) &&
-            slate.Element.isElement(n) &&
-            n[blockType] === format,
-    }));
-    return !!match;
-};
-const isMarkActive = (editor, format) => {
-    const marks = slate.Editor.marks(editor);
-    return marks ? marks[format] === true : false;
-};
-const Element = ({ attributes, children, element }) => {
-    const style = { textAlign: element.align };
-    switch (element.type) {
-        case 'block-quote':
-            return (jsxRuntime.jsx("blockquote", { style: style, ...attributes, children: children }));
-        case 'bulleted-list':
-            return (jsxRuntime.jsx("ul", { style: style, ...attributes, children: children }));
-        case 'heading-one':
-            return (jsxRuntime.jsx("h1", { style: style, ...attributes, children: children }));
-        case 'heading-two':
-            return (jsxRuntime.jsx("h2", { style: style, ...attributes, children: children }));
-        case 'list-item':
-            return (jsxRuntime.jsx("li", { style: style, ...attributes, children: children }));
-        case 'numbered-list':
-            return (jsxRuntime.jsx("ol", { style: style, ...attributes, children: children }));
-        default:
-            return (jsxRuntime.jsx("p", { style: style, ...attributes, children: children }));
-    }
-};
-const Leaf = ({ attributes, children, leaf }) => {
-    if (leaf.bold) {
-        children = jsxRuntime.jsx("strong", { children: children });
-    }
-    if (leaf.code) {
-        children = jsxRuntime.jsx("code", { children: children });
-    }
-    if (leaf.italic) {
-        children = jsxRuntime.jsx("em", { children: children });
-    }
-    if (leaf.underline) {
-        children = jsxRuntime.jsx("u", { children: children });
-    }
-    return jsxRuntime.jsx("span", { ...attributes, children: children });
-};
-const BlockButton = ({ format, icon }) => {
-    const editor = slateReact.useSlate();
-    return (jsxRuntime.jsx(Button$4, { active: isBlockActive(editor, format, TEXT_ALIGN_TYPES.includes(format) ? 'align' : 'type'), onMouseDown: event => {
-            event.preventDefault();
-            toggleBlock(editor, format);
-        }, children: icon }));
-};
-const MarkButton = ({ format, icon }) => {
-    const editor = slateReact.useSlate();
-    return (jsxRuntime.jsx(Button$4, { active: isMarkActive(editor, format), onMouseDown: event => {
-            event.preventDefault();
-            toggleMark(editor, format);
-        }, children: icon }));
-};
-const initialValue = [
-    {
-        type: 'paragraph',
-        children: [
-            { text: '' }
-        ],
-    },
-];
-
-function StudentExtraContent(props) {
-    const [valueTabs, setValueTabs] = React.useState(0);
-    const [comments, setComments] = React.useState('');
-    React.useState('');
-    const handleChangeTabs = (e, newTab) => {
-        setValueTabs(newTab);
-    };
-    const handleComments = (e) => {
-        setComments(e.target.value);
-    };
-    return (jsxRuntime.jsxs("div", { className: style$2.container, children: [jsxRuntime.jsx("div", { className: style$2.contentTabs, children: jsxRuntime.jsxs(material.Tabs, { value: valueTabs, onChange: handleChangeTabs, sx: {
-                        '& .Mui-selected ': {
-                            color: '#FF4D0D !important',
-                            fontWeight: '700 !important'
-                        },
-                        '& .MuiTab-root': {
-                            fontFamily: 'PT Sans !important',
-                            textTransform: 'none !important',
-                            fontWeight: '400 !important',
-                        },
-                        '& .MuiTabs-indicator': {
-                            backgroundColor: '#FF5427 !important',
-                        }
-                    }, children: [jsxRuntime.jsx(material.Tab, { label: 'Anota\u00E7\u00F5es', value: 0 }), jsxRuntime.jsx(material.Tab, { label: 'Livros recomendados', value: 1 }), jsxRuntime.jsx(material.Tab, { label: 'Material de apoio', value: 2 }), jsxRuntime.jsx(material.Tab, { label: 'Transcri\u00E7\u00E3o', value: 3 }), jsxRuntime.jsx(material.Tab, { label: 'Coment\u00E1rios', value: 4 })] }) }), jsxRuntime.jsxs("div", { className: style$2.contentInfo, children: [valueTabs === 0 &&
-                        jsxRuntime.jsxs("div", { className: style$2.notes, children: [jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000' }, children: " Escreva e fa\u00E7a suas anota\u00E7\u00F5es aqui para rever depois, este espa\u00E7o \u00E9 seu." }), jsxRuntime.jsx("div", { style: { marginTop: 12 }, children: jsxRuntime.jsx(RichTextExample, {}) }), jsxRuntime.jsx("div", { className: style$2.saveNotes, children: jsxRuntime.jsx(Button$5, { label: "Salvar", variant: "primary", handleClick: () => { } }) })] }), valueTabs === 1 &&
-                        jsxRuntime.jsx(material.Grid, { container: true, spacing: 0, children: props.bookList?.map((item, index) => {
-                                return (jsxRuntime.jsxs(material.Grid, { item: true, style: { position: 'relative', width: 200, height: 310, backgroundColor: '#FFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '16px 32px 8px 32px', border: '1px solid #BDBDBD', cursor: 'pointer' }, onClick: () => { props.onClickBook(item.id); }, children: [jsxRuntime.jsx("img", { src: item.img, width: 130, height: 185 }), jsxRuntime.jsxs("span", { style: { fontSize: 16, fontWeight: 400, color: '#000', marginTop: 12 }, children: [" ", item.title, " "] }), jsxRuntime.jsxs("span", { style: { fontSize: 12, fontWeight: 400, color: '#000', position: 'absolute', bottom: 0, marginBottom: 8 }, children: [" ", item.autor, " "] })] }, index));
-                            }) }), valueTabs === 2 &&
-                        jsxRuntime.jsx(material.Grid, { container: true, spacing: 0, children: props.suportMaterial?.map((item, index) => {
-                                return (jsxRuntime.jsxs(material.Grid, { item: true, style: { width: 200, height: 240, backgroundColor: '#FFF', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between', padding: '16px 32px 8px 32px', border: '1px solid #BDBDBD' }, children: [jsxRuntime.jsx("img", { src: item.img, width: 65, height: 70 }), jsxRuntime.jsx("span", { style: { fontSize: 16, fontWeight: 400, color: '#000', marginTop: 12 }, children: item.description }), jsxRuntime.jsxs("label", { htmlFor: "downloadBtn", onClick: () => { props.onClickSuportMaterial(item.id); }, style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, children: [" ", jsxRuntime.jsx(DownloadIcon, { fill: "#0645AD" }), " \u00A0 Download"] })] }, index));
-                            }) }), valueTabs === 3 &&
-                        jsxRuntime.jsx("div", { style: { fontSize: 16, fontWeight: 400, textAlign: 'justify' }, children: jsxRuntime.jsx("span", { children: props.transcription }) }), valueTabs === 4 &&
-                        jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row' }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: props.userAvatar }), jsxRuntime.jsx(InputComment$1, { className: '', showCharacterCounter: false, IDInput: '1', emojiWindowlanguage: 'pt', placeholder: 'Comente aqui sobre o seu problema', value: comments, onChange: (e) => handleComments(e), remain: 1000 - comments.length, limit: 1000, hasEmoji: true, styles: { marginLeft: '8px', width: '80%' } })] }), jsxRuntime.jsx("div", { children: props.commentList?.map((item, index) => {
-                                        return (jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', marginTop: 20 }, children: [jsxRuntime.jsx(Avatar, { size: '40px', src: item?.userAvatar }), jsxRuntime.jsx(CommentaryBox, { className: '', name: item.userName, position: item.userPosition, value: item.comments, date: item.date, onChange: () => { }, styles: { marginRight: 8, width: '80%' }, textLiked: 'Curtir', actionLike: () => { item.isLiked = true; }, isLiked: item?.isLiked })] }, index));
-                                    }) })] })] })] }));
-}
-
-// import RichTextEditor from './richTextEditor'
-function ExtraContent(props) {
-    return (jsxRuntime.jsx("div", { children: props.typeExhibition === 1 ?
-            AdminExtraContent()
-            :
-                StudentExtraContent(props) }));
 }
 
 const isColorBlack = ({ theme }) => theme.colors.shadeBlack;
@@ -11141,19 +11198,19 @@ function Login(props) {
         setError(props.isError);
         setMsgInput2(props.isError ? 'E-mail ou senhas incorretos.' : '');
     }, [props.isError]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerInputAndLink, { children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmail, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$5, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerPassword, { isError: error, children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { style: { paddingTop: '78px' }, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$5, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerEmailAndTypeRecoverRecover, { children: [jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.variant === 'login' && step === 1 ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogo, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(ContainerTypography, { children: jsxRuntime.jsx(TypographyWelcome, { children: props.textBoasVindas ? props.textBoasVindas : 'Bem-vindo' }) }), jsxRuntime.jsx(TypographyFill, { children: props.textLoginInformacao ? props.textLoginInformacao : 'Para acessar, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerInputAndLink, { children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmail, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput1, placeholder: "Email", label: "Email", type: "email", value: email, onChange: (e) => setEmail(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsx(ContainerButtonLink, { children: jsxRuntime.jsx(Button$4, { variant: "link", label: props.textoLabelLoginButtonLink ? props.textoLabelLoginButtonLink : 'Esqueceu a senha?', handleClick: onClickForgotPassword }) }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerPassword, { isError: error, children: jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', label: props.textInputLoginSenha ? props.textInputLoginSenha : 'Senha', type: "password", value: password, onChange: (e) => setPassword(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { style: { paddingTop: '78px' }, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerConnect, { children: [jsxRuntime.jsxs(ContainerCheckbox, { onClick: handleClickCheckbox, children: [keepConnected ? jsxRuntime.jsx(CheckboxEmpty, { fill: '#ebeded' }) : jsxRuntime.jsx(CheckboxChecked, {}), jsxRuntime.jsx(TypographyConnect, { children: props.textLoginConectado ? props.textLoginConectado : 'Manter-me conectado' })] }), jsxRuntime.jsx(Button$4, { variant: "primary", label: props.textLoginButton ? props.textLoginButton : 'Entrar', handleClick: onClikLogin })] })] })) : props.variant === 'login' && step === 2 ? (jsxRuntime.jsxs(ContainerRecover, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsxs(ContainerEmailAndTypeRecoverRecover, { children: [jsxRuntime.jsxs(ContainerTypographyRecover, { children: [jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro
                                         ? props.textEmailCadastro
                                         : 'Digite seu e-mail de cadastro abaixo e clique em enviar.' }), jsxRuntime.jsx(TypographyRecover, { children: props.textEmailCadastro2
                                         ? props.textEmailCadastro2
-                                        : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$5, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$5, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
+                                        : 'Nós lhe enviaremos um e-mail com o link para recastrar sua senha.' })] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(ContainerEmailRecover, { isError: error, children: jsxRuntime.jsx(TextField, { error: error, helperText: MsgInput2, placeholder: "Email", label: "Email", type: "email", value: emailRecover, onChange: (e) => setEmailRecover(e.target.value), style: { width: '100%' } }) }), error && (jsxRuntime.jsx(IconAlert, { isStep: step, children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$4, { variant: "link", label: props.textEmailButtonLinkCancel ? props.textEmailButtonLinkCancel : 'Não, cancelar', handleClick: onClickNotCancel }), jsxRuntime.jsx(Button$4, { variant: "primary", label: props.textEmailButtonEnviar ? props.textEmailButtonEnviar : 'Enviar', handleClick: onClickForgotPasswordChange })] })] })) : props.variant === 'newPassword' ? (jsxRuntime.jsxs(Container$5, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textNewPasswordInformacao
                         ? props.textNewPasswordInformacao
                         : 'Para criar uma nova senha, preencha os campos abaixo:' }), jsxRuntime.jsxs(ContainerPasswordNew, { isError: error, children: [jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, placeholder: props.textNewPasswordInputEmailPlaceholder
                                         ? props.textNewPasswordInputEmailPlaceholder
                                         : 'Por favor, insira seu e-mail aqui', label: props.textNewPasswordInputEmail ? props.textNewPasswordInputEmail : 'Digite o email', type: 'text', value: confirmEmail, onChange: (e) => setConfirmEmail(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { error: error, endIcon: jsxRuntime.jsx(Viewer, { fill: error ? '#ff0000' : '#000000' }), placeholder: props.textNewPasswordInput ? props.textNewPasswordInput : 'Insira sua nova senha', label: props.textNewPasswordInput ? props.textNewPasswordInput : 'Nova senha', type: 'password', value: newPassword, onChange: (e) => setNewPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] }), jsxRuntime.jsxs(ContainerIpuntAndIsIcon, { children: [jsxRuntime.jsx(TextField, { helperText: MsgInput2, error: error, placeholder: props.textNewPasswordInputPlaceholderCodigo ? props.textNewPasswordInputPlaceholderCodigo : 'Código', label: props.textNewPasswordInputCodigo ? props.textNewPasswordInputCodigo : 'Digite o Código', type: 'text', value: codigoNewPassword, onChange: (e) => setCodigoNewPassword(e.target.value), style: { width: '95%' } }), error && (jsxRuntime.jsx(IconAlert, { children: jsxRuntime.jsx(AlertCicle, {}) }))] })] }), jsxRuntime.jsx(ContainerTypographyNewPassword, { children: jsxRuntime.jsx(TypographyNewPassword, { isColorError: colorError, style: { fontSize: '14px' }, children: props.textNewPasswordErrorSenhaForte
                             ? props.textNewPasswordErrorSenhaForte
-                            : 'Use pelo menos 8 caracteres, 1 maiúscula, 1 minúscula, e um número ou caractere especial. Não use parte de seu e-mail (seunome@empresa.com) como senha.' }) }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$5, { variant: "link", label: props.textNewPasswordButtonLink ? props.textNewPasswordButtonLink : 'Voltar Login', handleClick: props.handleClickChangePasswordCancel }), jsxRuntime.jsx(Button$5, { variant: "primary", label: props.textNewPasswordButtonSalvar ? props.textNewPasswordButtonSalvar : 'Salvar', handleClick: onClickSave })] })] })) : props.variant === 'login' && step === 3 ? (jsxRuntime.jsxs(ContainerSendComfirmation, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textConfirmacaoRespostaEmail
+                            : 'Use pelo menos 8 caracteres, 1 maiúscula, 1 minúscula, e um número ou caractere especial. Não use parte de seu e-mail (seunome@empresa.com) como senha.' }) }), jsxRuntime.jsxs(ContainerButtonRecover, { children: [jsxRuntime.jsx(Button$4, { variant: "link", label: props.textNewPasswordButtonLink ? props.textNewPasswordButtonLink : 'Voltar Login', handleClick: props.handleClickChangePasswordCancel }), jsxRuntime.jsx(Button$4, { variant: "primary", label: props.textNewPasswordButtonSalvar ? props.textNewPasswordButtonSalvar : 'Salvar', handleClick: onClickSave })] })] })) : props.variant === 'login' && step === 3 ? (jsxRuntime.jsxs(ContainerSendComfirmation, { children: [jsxRuntime.jsx(ContainerLogoRecover, { children: jsxRuntime.jsx(FRSTLogoBig, {}) }), jsxRuntime.jsx(TypographyNewPassword, { children: props.textConfirmacaoRespostaEmail
                         ? props.textConfirmacaoRespostaEmail
-                        : 'Solicitação enviada com sucesso para o seu e-mail.' }), jsxRuntime.jsx(ContainerButtonSendConfirmation, { children: jsxRuntime.jsx(Button$5, { variant: "primary", label: props.textConfirmacaoButtonRetorna ? props.textConfirmacaoButtonRetorna : 'Retornar', handleClick: props.onClickConfimationBackToLogin }) })] })) : null }));
+                        : 'Solicitação enviada com sucesso para o seu e-mail.' }), jsxRuntime.jsx(ContainerButtonSendConfirmation, { children: jsxRuntime.jsx(Button$4, { variant: "primary", label: props.textConfirmacaoButtonRetorna ? props.textConfirmacaoButtonRetorna : 'Retornar', handleClick: props.onClickConfimationBackToLogin }) })] })) : null }));
 }
 
 const ContainerHeader = styled__default["default"].div `
@@ -11602,7 +11659,7 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
                                 // className="imageHover"
                                 src: src || defaultImg }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd', textAlign: 'start' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
                                             setElementPopover(element.currentTarget);
-                                        }, children: jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsx(Button$5
+                                        }, children: jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsx(Button$4
                             // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
                             , { 
                                 // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
@@ -11813,12 +11870,12 @@ function ContentCoursesTrails(props) {
                                                 props.handleChangeTrailName(nameTrail);
                                             }
                                         }
-                                    } }), jsxRuntime.jsx(Button$5, { handleClick: async () => {
+                                    } }), jsxRuntime.jsx(Button$4, { handleClick: async () => {
                                         setActive(false);
-                                    }, label: 'Cancelar', variant: "link" }), jsxRuntime.jsx(Button$5, { handleClick: async () => {
+                                    }, label: 'Cancelar', variant: "link" }), jsxRuntime.jsx(Button$4, { handleClick: async () => {
                                         setActive(false);
                                         props.handleChangeTrailName(nameTrail);
-                                    }, label: 'Salvar', variant: "primary" })] })) }), props.showButtonActive && (jsxRuntime.jsxs(ContentActiveHeader, { children: [!active && (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: "#ffffff", offHandleColor: "#ffffff", onColor: "#FF4D0D", offColor: "#757575", activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }) })), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$5, { id: `btnPublish${props.id}`, handleMount: (element) => {
+                                    }, label: 'Salvar', variant: "primary" })] })) }), props.showButtonActive && (jsxRuntime.jsxs(ContentActiveHeader, { children: [!active && (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [props.txtAtivarTrilha ? props.txtAtivarTrilha : 'Ativar trilha', jsxRuntime.jsx(Switch__default["default"], { onChange: handleChange, checked: props.ativo, height: 16, width: 40, checkedIcon: false, uncheckedIcon: false, handleDiameter: 24, onHandleColor: "#ffffff", offHandleColor: "#ffffff", onColor: "#FF4D0D", offColor: "#757575", activeBoxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575', boxShadow: props.ativo ? '0 0 2px 2px #FF4D0D' : '0 0 2px 2px #757575' })] }) })), jsxRuntime.jsxs(TypographyActiveHeader, { active: props.ativo, style: { fontWeight: props.ativo ? 700 : 400 }, children: [jsxRuntime.jsx(Button$4, { id: `btnPublish${props.id}`, handleMount: (element) => {
                                             let el = document.getElementById(element);
                                             setElementPopoverPublish(el ? el : null);
                                         }, handleClick: async () => {
@@ -11863,12 +11920,12 @@ styleInject(css_248z$7);
 function ModalLXP(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$1.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$1.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$1.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$1.container, children: props.children }), jsxRuntime.jsx("div", { className: style$1.conclusao, children: props.confirmationButton ?
                         props.cancelButton ?
-                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$5, { variant: "link", label: props.confirmationButton, handleClick: () => {
+                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Button$4, { variant: "link", label: props.confirmationButton, handleClick: () => {
                                             props.handleConfirmation();
                                             props.handleClose();
-                                        } }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: props.cancelButton, handleClick: props.handleClose })] })
+                                        } }), jsxRuntime.jsx("span", { style: { marginRight: 8, marginLeft: 8 }, children: props.language === 'en-US' ? 'or' : 'ou' }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: props.cancelButton, handleClick: props.handleClose })] })
                             :
-                                jsxRuntime.jsx(Button$5, { variant: "primary", label: props.confirmationButton, handleClick: () => {
+                                jsxRuntime.jsx(Button$4, { variant: "primary", label: props.confirmationButton, handleClick: () => {
                                         props.handleConfirmation();
                                         props.handleClose();
                                     } })
@@ -12877,7 +12934,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                 target.id === 'container-modal' && onClose();
             }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { id: "modal-title", className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
                                             return (jsxRuntime.jsx(Topic, { id: `step${i + 1}`, className: currentTopic.topicName === topic.topicName ? 'active' : '', onClick: () => handleClickTopic(i), children: topic.topicName }, i));
-                                        }) })] }), jsxRuntime.jsx(Button$5, { id: isLastStep ? 'button-finish' : 'button-nextStep', label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsx(Midia, { id: "midia-container", children: jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { style: currentTopic.styleImage, src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) }) }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { id: "step-title", className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { id: "step-description", children: currentTopic.description })] })] })] }) })) }));
+                                        }) })] }), jsxRuntime.jsx(Button$4, { id: isLastStep ? 'button-finish' : 'button-nextStep', label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsx(Midia, { id: "midia-container", children: jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { style: currentTopic.styleImage, src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) }) }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { id: "step-title", className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { id: "step-description", children: currentTopic.description })] })] })] }) })) }));
 };
 
 const ProgressBox = styled__default["default"](_.Box) `
@@ -13733,23 +13790,23 @@ function LateralMenu$1({ label, onClick, button, beginComponent, activeBeginIcon
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: subItems && subItems.length > 0 ?
             jsxRuntime.jsxs(WrapperCompound, { isOpen: isActive, style: { ...style, maxHeight: isActive ? getSizeCompound() : '40px' }, children: [jsxRuntime.jsxs(WrapperItem, { active: isActive, onClick: (e) => setIsActive(!isActive), style: { ...style, margin: 0, padding: 0, justifyContent: 'space-between' }, children: [jsxRuntime.jsxs(WrapperItem, { style: { background: 'transparent', width: '100%' }, children: [beginComponent &&
                                         jsxRuntime.jsx(WrapperComponent, { active: isActive, children: isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent }), jsxRuntime.jsx(WrapperMainLabel, { active: isActive, style: { marginLeft: beginComponent ? '8px' : '0px' }, children: label })] }), button && button?.label &&
-                                jsxRuntime.jsx(WrapperButton$1, { children: jsxRuntime.jsx(Button$5, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) }), !hiddenIconDropArrow &&
+                                jsxRuntime.jsx(WrapperButton$1, { children: jsxRuntime.jsx(Button$4, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) }), !hiddenIconDropArrow &&
                                 jsxRuntime.jsx(WrapperIconDrop, { isOpen: isActive, children: jsxRuntime.jsx(DropdownIconLine, { fill: '#000' }) })] }), jsxRuntime.jsx(WrapperSubItems, { isOpen: isActive, children: subItems.map((item, index) => {
                             return jsxRuntime.jsx(SubItem, { onClick: () => item.onClick(item.id), children: item.label }, index);
                         }) })] })
             :
                 jsxRuntime.jsxs(WrapperItem, { active: isActive, style: { ...style, margin: 0, padding: 0, justifyContent: 'space-between' }, children: [jsxRuntime.jsxs(WrapperItem, { style: { background: 'transparent', width: '100%' }, onClick: (e) => onClick(e), children: [beginComponent &&
                                     jsxRuntime.jsx(WrapperComponent, { active: isActive, children: isActive ? activeBeginIcon ? activeBeginIcon : beginComponent : beginComponent }), jsxRuntime.jsx(WrapperMainLabel, { active: isActive, style: { marginLeft: beginComponent ? '8px' : '0px' }, children: label })] }), button && button?.label &&
-                            jsxRuntime.jsx(WrapperButton$1, { children: jsxRuntime.jsx(Button$5, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) })] }) }));
+                            jsxRuntime.jsx(WrapperButton$1, { children: jsxRuntime.jsx(Button$4, { label: button.label, handleClick: (e) => button.onClick(e), variant: button?.variant ? button.variant : 'primary' }) })] }) }));
 }
 
 function LateralMenu({ variant, hiddenButtonHeader, avatar, name, channel, button, listOptions, style }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(WrapperCard$3, { style: { ...style }, children: [jsxRuntime.jsxs(WrapperHeader, { children: [jsxRuntime.jsx(Avatar, { src: avatar.src, alt: avatar.alt ? avatar.alt : 'Image profile avatar', size: avatar.size ? avatar.size : '80px' }), jsxRuntime.jsx(NameProfile, { children: name }), channel &&
                             jsxRuntime.jsx(Channel, { children: channel }), !hiddenButtonHeader &&
                             jsxRuntime.jsx(WrapperButton$2, { children: !channel ?
-                                    jsxRuntime.jsx(Button$5, { variant: 'primary', label: button.label, handleClick: (e) => button.onClick(e) })
+                                    jsxRuntime.jsx(Button$4, { variant: 'primary', label: button.label, handleClick: (e) => button.onClick(e) })
                                     :
-                                        jsxRuntime.jsx(Button$5, { variant: 'link', label: button.label, handleClick: (e) => button.onClick(e) }) }), jsxRuntime.jsx(HR, {})] }), listOptions && listOptions.length > 0 && listOptions.map((item, index) => {
+                                        jsxRuntime.jsx(Button$4, { variant: 'link', label: button.label, handleClick: (e) => button.onClick(e) }) }), jsxRuntime.jsx(HR, {})] }), listOptions && listOptions.length > 0 && listOptions.map((item, index) => {
                     return (jsxRuntime.jsx(LateralMenu$1, { label: item.label, button: item.button, beginComponent: item.beginComponent, activeBeginIcon: item.activeBeginIcon, hiddenIconDropArrow: item.hiddenIconDropArrow, onClick: (e) => item.onClick(e), selected: item.selected, subItems: item.subItems, style: { width: '100%' } }, index));
                 })] }) }));
 }
@@ -13970,7 +14027,7 @@ const ItemFrstSocials = styled__default["default"].button `
 
 function BannerSRG(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent$2, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
-                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$5, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx(Button$5, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
+                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$4, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
 }
 
 const achievementHeader = styled__default["default"].div `
@@ -14295,9 +14352,9 @@ function FeedInteraction(props) {
                                 : null] })
                     : jsxRuntime.jsx(jsxRuntime.Fragment, { children: (props.textTotalView || props.qtdLikes || stateTotalComments) &&
                             jsxRuntime.jsxs(infoContentWithView, { children: [jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '5px' }, children: [props.qtdLikes && jsxRuntime.jsxs(infoWithView, { children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] }), props.qtdLikes && stateTotalComments && jsxRuntime.jsx("div", { children: "\u2022" }), stateTotalComments && jsxRuntime.jsxs(infoWithView, { children: [" ", stateTotalComments, " "] })] }), props.textTotalView && jsxRuntime.jsx(infoWithView, { style: { color: '#0645AD', fontWeight: 700, cursor: 'pointer' }, onClick: () => props.handleClickTextTotalViews(), children: props.textTotalView })] }) }), jsxRuntime.jsxs(buttonsContent, { children: [props.isLiked ?
-                            jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$5, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textDeslike, variant: 'link', handleClick: props.handleLikeClick }) })
+                            jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$4, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textDeslike, variant: 'link', handleClick: props.handleLikeClick }) })
                             :
-                                jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$5, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textLikes, variant: 'link', handleClick: props.handleLikeClick }) }), isVisibleComments &&
+                                jsxRuntime.jsx(buttons, { children: jsxRuntime.jsx(Button$4, { startIcon: jsxRuntime.jsx(ThumbsUpIcon, { fill: 'currentColor' }), label: props.textLikes, variant: 'link', handleClick: props.handleLikeClick }) }), isVisibleComments &&
                             jsxRuntime.jsxs(buttons, { onClick: OnCommentsClick, style: { color: openComments && FRSTTheme['colors'].linkPressed }, children: [jsxRuntime.jsx(TalkIcon, { fill: 'currentColor' }), " ", props.textComments] }), jsxRuntime.jsxs(buttons, { onClick: OnReviewClick, style: { color: openReview && FRSTTheme['colors'].linkPressed }, children: [jsxRuntime.jsx(StarOutlined, { fill: 'currentColor' }), " ", props.textAvaluation] })] }), openReview &&
                     jsxRuntime.jsxs(reviewContainer, { children: [props.textAvaluationTitle, jsxRuntime.jsxs(reviewContent, { children: [props.isChallengeReview &&
                                         jsxRuntime.jsxs("div", { style: { display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }, children: [jsxRuntime.jsx(Rating, { isVisibleNumberRating: false, orientation: 'horizontal', qtdStars: 5, sizeStars: 20, marginStars: '3.5px', disabled: props.isDisabledAvaluation, rating: props.ratingImpacto, handleRating: props?.handleImpactoChange }), jsxRuntime.jsx("span", { children: props.textImpacto })] }), props.isChallengeReview &&
@@ -14404,7 +14461,7 @@ function BannerProblemFeed(props) {
                             marginBottom: 4,
                             borderTop: `1px solid ${FRSTTheme['colors'].borderPrimary}`,
                             display: 'flex', justifyContent: 'center'
-                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$5, { label: props.textButton, variant: 'expandedPrimary', handleClick: () => props.onClickButton() })] }), !props.hideInteraction &&
+                        }, children: jsxRuntime.jsx("div", { style: { width: '95%' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) }) }), jsxRuntime.jsx(RenderSteps, {}), jsxRuntime.jsx(Button$4, { label: props.textButton, variant: 'expandedPrimary', handleClick: () => props.onClickButton() })] }), !props.hideInteraction &&
                 jsxRuntime.jsx(FeedInteraction, { isChallengeReview: true, id: props.id, isLiked: props.isLiked, qtdComments: stateTotalComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, isDisabledAvaluation: props.isDisabledAvaluation, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, 
                     // latestComment={stateLatestComment}
                     // textLatestComment={props.textLatestComment} 
@@ -14655,7 +14712,7 @@ var imgFrst = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAAA3CAYAAABzTLo
 
 function SmallSRGBanner(props) {
     return (jsxRuntime.jsx(Container$1, { style: { ...props.style }, onClick: props.handleClick, children: jsxRuntime.jsxs(mask, { children: [props.isTexto ? (jsxRuntime.jsx(TextCard, { children: props.traducao ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: props.traducao === 'en-US' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Accelerate" }), " your performance and ", jsxRuntime.jsx("b", { children: "develop" }), " by solving ", jsxRuntime.jsx("b", { children: "real challenges" })] })) : props.traducao === 'es-ES' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Acelera" }), " tu rendimiento y ", jsxRuntime.jsx("b", { children: "desarrollate" }), " resolviendo ", jsxRuntime.jsx("b", { children: "desaf\u00EDos reales" })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Acelere" }), " sua performance e ", jsxRuntime.jsx("b", { children: "desenvolva-se" }), " solucionando ", jsxRuntime.jsx("b", { children: "desafios reais" })] })) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("b", { children: "Acelere" }), " sua performance e ", jsxRuntime.jsx("b", { children: "desenvolva-se" }), " solucionando ", jsxRuntime.jsx("b", { children: "desafios reais" })] })) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(TitleLogo, { children: props.textTitleLogo }), jsxRuntime.jsx(SrgLogo, { children: jsxRuntime.jsx("img", { src: imgFrst, alt: "SRG Logo" }) })] })), !props.hideBtn &&
-                    jsxRuntime.jsx(Button$3, { children: jsxRuntime.jsx(Button$5, { variant: "primary", label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FFF" }) }) })] }) }));
+                    jsxRuntime.jsx(Button$3, { children: jsxRuntime.jsx(Button$4, { variant: "primary", label: props.textButton, startIcon: jsxRuntime.jsx(AddIcon, { fill: "#FFF" }) }) })] }) }));
 }
 
 const Wrapper$3 = styled__default["default"].div `
@@ -14863,7 +14920,7 @@ function PostFeed(props) {
                                         jsxRuntime.jsx("iframe", { src: `https://www.youtube.com/embed/${props.postVideoId}`, frameBorder: "0", allow: "autoplay; fullscreen; picture-in-picture", width: props.videoWidth ? props.videoWidth : '100%', height: props.videoHeight ? props.videoHeight : 430 }), props.videoSource == 'vimeo' &&
                                         jsxRuntime.jsx("iframe", { src: `https://player.vimeo.com/video/${props.postVideoId}?autoplay=0`, width: props.videoWidth ? props.videoWidth : '100%', height: props.videoHeight ? props.videoHeight : 430, allow: "autoplay; fullscreen" })] })
                             : null, props.handlePostButtonClick ?
-                            jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%', paddingLeft: '24px', paddingRight: '24px' }, children: jsxRuntime.jsx(Button$5, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
+                            jsxRuntime.jsx("div", { style: { marginTop: 32, width: '100%', paddingLeft: '24px', paddingRight: '24px' }, children: jsxRuntime.jsx(Button$4, { variant: 'expandedPrimary', label: props.textPostButton, handleClick: props.handlePostButtonClick }) })
                             : null] }), jsxRuntime.jsx(FeedInteraction, { hideComments: isVisibleComments, isPostReview: true, userAvatar: props.userAvatar, id: props.postId, isLiked: props.isPostLiked, qtdComments: props.qtdComments, qtdLikes: props.qtdLikes, textAvaluation: props.textAvaluation, textAvaluationTitle: props.textAvaluationTitle, textComments: props.textComments, textDeslike: props.textDeslike, textLikes: props.textLikes, 
                     // commentList={props.commentList}
                     // userCommentPlaceholder={props.userCommentPlaceholder}
@@ -15386,7 +15443,7 @@ function ThumbListContent(props) {
         if (props.isSelected)
             setIsSelected(props?.isSelected);
     }, [props.isSelected]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ? (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title && jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })) : (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, onClick: props.onClickThumb, children: [props.imageSrc ? (tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsx(ProgressAndImg, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) }) }) })) : (jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb }))) : tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { onClick: props.onClickThumb, children: jsxRuntime.jsxs(iconsThumbAndProgress, { children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx(IconAndProgress, { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, props.typeThumbContent === 'textual' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, jsxRuntime.jsx(ProgressIcon, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) })] }) })) : (jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'textual' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null] })), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, tagVisualized: props.tagValue, isSelected: props?.isSelected, children: [props.tagValue !== 'notVisualized' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.tagValue === 'vizualized' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressVisualized }) })) : null, props.tagValue === 'inProgress' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressInProgress }) })) : null] })) : null, props.title ? jsxRuntime.jsx("span", { children: props.title }) : null, jsxRuntime.jsx(descriptionThumbContent, { showText: showMore, isSelected: props?.isSelected, children: props.description })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$5, { variant: "link", label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12, color: props?.isSelected ? '#E5E7EB' : '#444444' } }) })] })) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ? (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title && jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })) : (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, onClick: props.onClickThumb, children: [props.imageSrc ? (tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsx(ProgressAndImg, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) }) }) })) : (jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb }))) : tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { onClick: props.onClickThumb, children: jsxRuntime.jsxs(iconsThumbAndProgress, { children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx(IconAndProgress, { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, props.typeThumbContent === 'textual' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, jsxRuntime.jsx(ProgressIcon, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) })] }) })) : (jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'textual' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null] })), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, tagVisualized: props.tagValue, isSelected: props?.isSelected, children: [props.tagValue !== 'notVisualized' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.tagValue === 'vizualized' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressVisualized }) })) : null, props.tagValue === 'inProgress' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressInProgress }) })) : null] })) : null, props.title ? jsxRuntime.jsx("span", { children: props.title }) : null, jsxRuntime.jsx(descriptionThumbContent, { showText: showMore, isSelected: props?.isSelected, children: props.description })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$4, { variant: "link", label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12, color: props?.isSelected ? '#E5E7EB' : '#444444' } }) })] })) }));
 }
 
 const containerList = styled__default["default"].div `
@@ -15458,7 +15515,7 @@ function ListSelector(props) {
                             jsxRuntime.jsxs(itemList, { children: [jsxRuntime.jsx("div", { onClick: () => handleSelect(item.id), children: selectedItens.includes(item.id) ? jsxRuntime.jsx(CheckboxChecked, {}) : jsxRuntime.jsx(CheckboxEmpty, {}) }), item.description] }, index)
                             : null);
                     }) }), props.minShowList < props.contentList.length ?
-                    jsxRuntime.jsx(viewMoreContent, { children: jsxRuntime.jsx(Button$5, { variant: 'link', label: showSize === props.minShowList ? props.textViewMore : props.textViewLess, handleClick: handleView }) })
+                    jsxRuntime.jsx(viewMoreContent, { children: jsxRuntime.jsx(Button$4, { variant: 'link', label: showSize === props.minShowList ? props.textViewMore : props.textViewLess, handleClick: handleView }) })
                     : null] }) }));
 }
 
@@ -17833,7 +17890,7 @@ function ContentModalInviteMultiple({ labels, onClickInvite, statusSend }) {
     return (jsxRuntime.jsxs(WrapperContent$1, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
                             return (jsxRuntime.jsxs(WrapperInputPerson, { children: [jsxRuntime.jsx(CustomTextField, { label: labels?.name, placeholder: labels?.placeholderName, onChange: (e) => onChangeInput({ e, type: 'name', id: inputPerson.id }), type: 'text', value: inputPerson?.name, required: true, error: inputPerson?.errorName }), jsxRuntime.jsx(CustomTextField, { label: labels?.lastName, placeholder: labels.placeholderLastName, onChange: (e) => onChangeInput({ e, type: 'lastName', id: inputPerson?.id }), type: 'text', value: inputPerson?.lastName, required: true, error: inputPerson?.errorLastName }), jsxRuntime.jsx(CustomTextField, { label: labels?.email, placeholder: labels.placeholderEmail, onChange: (e) => onChangeInput({ e, type: 'email', id: inputPerson?.id }), type: 'text', value: inputPerson?.email, required: true, error: inputPerson?.errorEmail })] }, index));
                         }) }), inputMultiplePerson?.length > 1 &&
-                        jsxRuntime.jsxs(ButtonRemove, { onClick: () => handleRemoveInput(), children: [jsxRuntime.jsx(TrashIconNew, { fill: '#444' }), labels?.delete] }), jsxRuntime.jsxs(ButtonAddNewPerson, { onClick: () => handleAddNewInput(), children: [jsxRuntime.jsx("div", { style: { width: '24px', display: 'flex', alignItems: 'center' }, children: jsxRuntime.jsx(IconPlusCicle, {}) }), jsxRuntime.jsx(LabelButtonAddPerson, { children: labels?.buttonAddMore })] })] }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '14px' }, children: [jsxRuntime.jsx(StatusSendInvite, { statusSendLocal: statusSendLocal, labels: labels, setStatusSendLocal: setStatusSendLocal }), jsxRuntime.jsx(Button$5, { variant: 'primary', label: labels?.invite, handleClick: () => sendListInput(), disabled: isDisabledSendInvite })] })] }));
+                        jsxRuntime.jsxs(ButtonRemove, { onClick: () => handleRemoveInput(), children: [jsxRuntime.jsx(TrashIconNew, { fill: '#444' }), labels?.delete] }), jsxRuntime.jsxs(ButtonAddNewPerson, { onClick: () => handleAddNewInput(), children: [jsxRuntime.jsx("div", { style: { width: '24px', display: 'flex', alignItems: 'center' }, children: jsxRuntime.jsx(IconPlusCicle, {}) }), jsxRuntime.jsx(LabelButtonAddPerson, { children: labels?.buttonAddMore })] })] }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '14px' }, children: [jsxRuntime.jsx(StatusSendInvite, { statusSendLocal: statusSendLocal, labels: labels, setStatusSendLocal: setStatusSendLocal }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: labels?.invite, handleClick: () => sendListInput(), disabled: isDisabledSendInvite })] })] }));
 }
 function IconPlusCicle() {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: "#F26818", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 8V16", stroke: "#F26818", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8 12H16", stroke: "#F26818", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -18621,9 +18678,9 @@ function FiltroGaleriaDesafios({ placeholderSelect, handleValueSelect, optionLab
         const lengthList = selectedItems ? selectedItems.length : 0;
         return listItems.length >= maxListItems ? (jsxRuntime.jsxs(searchAndButton$1, { children: [jsxRuntime.jsx("div", { style: { marginBottom: '1rem' }, children: jsxRuntime.jsx(SearchField, { placeholder: textBusca, className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, onChange: (e) => {
                             setTextFilter(e.target.value);
-                        } }) }), lengthList >= 1 ? (jsxRuntime.jsx(Button$5, { variant: 'link', label: textButtonClear, disabled: false, handleClick: () => {
+                        } }) }), lengthList >= 1 ? (jsxRuntime.jsx(Button$4, { variant: 'link', label: textButtonClear, disabled: false, handleClick: () => {
                         setSelectedListItems(null);
-                    } })) : (jsxRuntime.jsx("div", {}))] })) : lengthList >= 1 ? (jsxRuntime.jsx(searchAndButton$1, { children: jsxRuntime.jsx(Button$5, { variant: 'link', label: textButtonClear, disabled: false, handleClick: () => {
+                    } })) : (jsxRuntime.jsx("div", {}))] })) : lengthList >= 1 ? (jsxRuntime.jsx(searchAndButton$1, { children: jsxRuntime.jsx(Button$4, { variant: 'link', label: textButtonClear, disabled: false, handleClick: () => {
                     setSelectedListItems(null);
                 } }) })) : (jsxRuntime.jsx("div", {}));
     };
@@ -18920,7 +18977,7 @@ function DropdownMultiselect(props) {
         const lengthList = selectedItems ? selectedItems?.length : 0;
         return props.listItems.length >= lengthList ? (jsxRuntime.jsxs(searchAndButton, { children: [jsxRuntime.jsx("div", { style: { marginBottom: '1rem' }, children: jsxRuntime.jsx(SearchField, { placeholder: props.searchSelectPlaceholder ? props.searchSelectPlaceholder : 'Buscar', className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, onChange: (e) => {
                             props.onSearch(e.target.value);
-                        } }) }), jsxRuntime.jsx(Button$5, { id: "select-all", variant: 'link', label: props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos', disabled: false, handleClick: () => {
+                        } }) }), jsxRuntime.jsx(Button$4, { id: "select-all", variant: 'link', label: props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos', disabled: false, handleClick: () => {
                         setSelectedValues(listItemsFilter);
                     } })] })) : jsxRuntime.jsx(jsxRuntime.Fragment, {});
     };
@@ -18968,7 +19025,7 @@ exports.BannerProblemFeed = BannerProblemFeed;
 exports.BannerSRG = BannerSRG;
 exports.BaseCard = EmptyCard;
 exports.Books = Books;
-exports.Button = Button$5;
+exports.Button = Button$4;
 exports.ButtonContent = ButtonContent;
 exports.ButtonGroup = ButtonGroup;
 exports.CalendarCard = CalendarCard;
@@ -19009,7 +19066,6 @@ exports.EmptyAvatar = EmptyAvatar;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
 exports.ExpandButton = ExpandButton;
-exports.ExtraContent = ExtraContent;
 exports.EyeOff = EyeOff;
 exports.Favorite = Favorite;
 exports.FeedInteraction = FeedInteraction;
