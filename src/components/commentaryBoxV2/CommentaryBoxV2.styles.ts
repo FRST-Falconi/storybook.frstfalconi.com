@@ -4,8 +4,6 @@ export const Container = styled.div<{width?: string; height?:string}>`
     display:flex;
     width: ${({width}) => width ? width  : "100%"};
     height: ${({height}) => height ? height  : "auto"};
-    min-height: 20px
-    background-color:green;
 `;
 
 export const Box = styled.div<{width?: string; height?:string}>`

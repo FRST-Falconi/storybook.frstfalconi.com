@@ -8,7 +8,7 @@ export interface IInputReply {    placeHolderText: string,
     idInput:string,
     replyFor:string,
     imgProfile?:string,
-    getSearchUsers?: (value:string) =>  MentionUsers[],
+    getSearchUsers?: (value:string) =>  any,
     parentId?:number
 }
 

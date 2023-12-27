@@ -8,16 +8,16 @@ import { User } from '@components/input-comment/types';
 
 
 export const InputReply = ({ placeHolderText,getSearchUsers, onClickPublishButton, parentId, limitInput,publishButtonText, replyFor,imgProfile, styles}: IInputReply) => {
-    const [comment, setComment] = useState<string>(replyFor)
+    const [comment, setComment] = useState<string>('')
     const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>("");
-    const [captureMentions, setCaptureMentions] = useState<string[]>();
+    const [captureMentions, setCaptureMentions] = useState<string[]>([]);
     const [users, setUsers] = useState<User[]>([]);
 
-    const handlePublish = () =>{
+    const handlePublish = async () =>{
         console.log(comment);
         console.log(CaptureFormattedValue);
         console.log(captureMentions);
-        onClickPublishButton({comment,contentMention: CaptureFormattedValue,mentions: captureMentions, parentId});
+        await onClickPublishButton({comment,contentMention: CaptureFormattedValue,mentions: captureMentions, parentId});
         setComment('');
         setCaptureFormattedValue('');
         setCaptureMentions([]);
@@ -33,7 +33,8 @@ export const InputReply = ({ placeHolderText,getSearchUsers, onClickPublishButto
     
 
     const handleSearchUsers = async(value:string) =>{
-        setUsers(await getSearchUsers(value));
+       const response = await getSearchUsers(value);
+        setUsers(response.data.results);
     }
 
     return (

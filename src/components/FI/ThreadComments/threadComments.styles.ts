@@ -8,9 +8,8 @@ export const Container = styled.div`
   width:100%;
 `
 export const CommentarysContainer = styled.div`
-margin:18px;
-align-items: center;
-justify-content:center;
+  align-items: center;
+  justify-content:center;
 `
 
 export const CommentaryBoxContainer = styled.div`

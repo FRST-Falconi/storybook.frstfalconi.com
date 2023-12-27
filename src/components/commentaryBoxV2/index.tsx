@@ -80,7 +80,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
         <ThemeProvider theme={FRSTTheme}>
             <Styled.Container style={{...styles}}>
             <Avatar 
-            size='32px' src={imgProfile} 
+            size={relationToPhaseText? '48px' : '32px'} src={imgProfile} 
             onClick={onClickUserInfo}
              style={{cursor: hasActionToClickOnAvatar ? 'pointer': 'default'}}
             />

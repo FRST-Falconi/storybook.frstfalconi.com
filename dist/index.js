@@ -4093,8 +4093,6 @@ const Container$i = styled__default["default"].div `
     display:flex;
     width: ${({ width }) => width ? width : "100%"};
     height: ${({ height }) => height ? height : "auto"};
-    min-height: 20px
-    background-color:green;
 `;
 const Box = styled__default["default"].div `
     width: ${({ width }) => width ? width : "100%"};
@@ -4516,7 +4514,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$i, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { size: '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default' } }), jsxRuntime.jsxs(Box, { children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsxs(FirstChildUserData, { children: [jsxRuntime.jsx(Username, { children: userName }), likesCount > 0 && (jsxRuntime.jsxs(LikesContainer, { children: [jsxRuntime.jsx(IconLikeContainer, { children: jsxRuntime.jsx(IconLikeFilled, { fill: '#fff', stroke: '#fff', customColor_1: '#757575', width: '16px', height: '16px' }) }), jsxRuntime.jsx("p", { children: likesCount })] }))] }), jsxRuntime.jsxs(UserDataLastChild, { children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$1, { id: 'textContainerId', children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: { __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText) } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] })] }), jsxRuntime.jsxs(InteractiveButtonsContainer, { children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: handleLike, children: [isLiked ?
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$i, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { size: relationToPhaseText ? '48px' : '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default' } }), jsxRuntime.jsxs(Box, { children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsxs(FirstChildUserData, { children: [jsxRuntime.jsx(Username, { children: userName }), likesCount > 0 && (jsxRuntime.jsxs(LikesContainer, { children: [jsxRuntime.jsx(IconLikeContainer, { children: jsxRuntime.jsx(IconLikeFilled, { fill: '#fff', stroke: '#fff', customColor_1: '#757575', width: '16px', height: '16px' }) }), jsxRuntime.jsx("p", { children: likesCount })] }))] }), jsxRuntime.jsxs(UserDataLastChild, { children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$1, { id: 'textContainerId', children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: { __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText) } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] })] }), jsxRuntime.jsxs(InteractiveButtonsContainer, { children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: handleLike, children: [isLiked ?
                                 jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: '#444' }), jsxRuntime.jsx(MiniButton, { variant: 'terciary', onClick: handleLike, label: likeButtonText, active: isLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: 'terciary', onClick: actionAnswer, label: answerButtonText, styles: {} }), showOptions && isAuthor ? jsxRuntime.jsx(MenuMore, { options: authorOptions }) : isOwnerPost ? jsxRuntime.jsx(MenuMore, { options: ownerPost }) : jsxRuntime.jsx("div", {})] })] }));
 };
 
@@ -4528,9 +4526,8 @@ const Container$h = styled__default["default"].div `
   width:100%;
 `;
 const CommentarysContainer = styled__default["default"].div `
-margin:18px;
-align-items: center;
-justify-content:center;
+  align-items: center;
+  justify-content:center;
 `;
 styled__default["default"].div `
 display:flex;
@@ -4649,15 +4646,15 @@ const Container$g = styled__default["default"].div `
 `;
 
 const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyFor, imgProfile, styles }) => {
-    const [comment, setComment] = React.useState(replyFor);
+    const [comment, setComment] = React.useState('');
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState("");
-    const [captureMentions, setCaptureMentions] = React.useState();
+    const [captureMentions, setCaptureMentions] = React.useState([]);
     const [users, setUsers] = React.useState([]);
-    const handlePublish = () => {
+    const handlePublish = async () => {
         console.log(comment);
         console.log(CaptureFormattedValue);
         console.log(captureMentions);
-        onClickPublishButton({ comment, contentMention: CaptureFormattedValue, mentions: captureMentions, parentId });
+        await onClickPublishButton({ comment, contentMention: CaptureFormattedValue, mentions: captureMentions, parentId });
         setComment('');
         setCaptureFormattedValue('');
         setCaptureMentions([]);
@@ -4670,7 +4667,8 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
         }, 500);
     };
     const handleSearchUsers = async (value) => {
-        setUsers(await getSearchUsers(value));
+        const response = await getSearchUsers(value);
+        setUsers(response.data.results);
     };
     return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: '32px', style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: 'userComment', onChange: (e) => {
                             handleSearchUsers(e);
