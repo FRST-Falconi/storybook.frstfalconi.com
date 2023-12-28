@@ -2,7 +2,7 @@ import {User as MentionUser} from '@components/input-comment/types'
 
 export interface IComment {
     id: string,
-    user: MentionUser,
+    user: IUser,
     text: string,
     mentionText?:string, 
     howLongAgo: string,
