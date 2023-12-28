@@ -1,11 +1,11 @@
-import { useState, useRef, useEffect } from 'react';
+import Loading from '@components/DS/loading';
+import Avatar from '@components/avatar';
 import InputComment from '@components/input-comment';
+import { User } from '@components/input-comment/types';
 import MiniButton from '@components/mini-button';
+import { useEffect, useRef, useState } from 'react';
 import * as Styled from './inputReply.styles';
 import { IInputReply } from './inputReply.types';
-import Avatar from '@components/avatar';
-import Loading from '@components/DS/loading';
-import { User } from '@components/input-comment/types';
 
 export const InputReply = ({
   placeHolderText,
@@ -26,13 +26,26 @@ export const InputReply = ({
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef(null);
 
+
+  const user: User = {
+    user_uuid: replyMentionedUser.uuid,
+    name: replyMentionedUser.name,
+    profile: {
+      avatar: replyMentionedUser.avatar,
+      company_name: replyMentionedUser.company_name,
+      role_name: replyMentionedUser.role_name
+    }
+  };
+  const [userMentionedOnReplied, setUserMentionedOnReply] = useState<boolean>(false);
+
   const handleClickOutside = (event) => {
     if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
       handleHiddenInput();
     }
   };
 
-  useEffect(() => {   
+  useEffect(() => {
+
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
@@ -57,6 +70,7 @@ export const InputReply = ({
 
   let timeout;
   const setCommentData = (value: string) => {
+    setUserMentionedOnReply(true)
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       setComment(value);
@@ -86,6 +100,7 @@ export const InputReply = ({
           onContentFormat={(formattedValue: string) => setCaptureFormattedValue(formattedValue)}
           onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
           users={users}
+          replyMentionedUser={!userMentionedOnReplied && user}
         />
 
         <MiniButton
