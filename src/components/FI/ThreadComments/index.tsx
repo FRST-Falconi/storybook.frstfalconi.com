@@ -38,6 +38,16 @@ export const ThreadComments = ({
     }
   }
 
+  const handleHiddenInput = ()=>{
+    setShowReplyInput(false);
+  }
+
+  const handleHiddenInputReply = (idReplyToRemove: string)=>{
+      setShowInputByIdReply(prevShowInputByIdReply => 
+      prevShowInputByIdReply.filter(id => id !== idReplyToRemove)
+    );  
+  }
+
   const handleCommentReply = () => {
     setShowReplyInput(true)
   }
@@ -89,6 +99,7 @@ export const ThreadComments = ({
               getSearchUsers={getSearchUsers}
               replyFor={mainComment.user.name}
               parentId={Number(mainComment.id)}
+              handleHiddenInput={handleHiddenInput}
             />
           )}
         </div>
@@ -119,6 +130,7 @@ export const ThreadComments = ({
                       replyFor={replyComment.user.name}
                       getSearchUsers={getSearchUsers}
                       parentId={Number(mainComment.id)}
+                      handleHiddenInput={(replyId = replyComment.id)=>handleHiddenInputReply(replyId)}
                     />
                   )}
                 </>

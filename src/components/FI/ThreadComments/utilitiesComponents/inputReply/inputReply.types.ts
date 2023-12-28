@@ -9,12 +9,14 @@ export interface IInputReply {    placeHolderText: string,
     replyFor:string,
     imgProfile?:string,
     getSearchUsers?: (value:string) =>  any,
-    parentId?:number
+    parentId?:number,
+    handleHiddenInput: (replyId?:string)=> void;
 }
 
 interface onClickPublishButtonParams {
     comment: string,
     contentMention: string ,
     mentions: Array<string> ,
-    parentId?: number ;
+    parentId?: number ,
+    
 }
