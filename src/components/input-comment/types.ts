@@ -29,5 +29,6 @@ export interface MentionProps
     onContentFormat: (content: string) => void
     onContentUnformat: (content: string) => void
     value?:string
+    replyMentionedUser?: User
 }
 

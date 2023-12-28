@@ -10,9 +10,10 @@ interface IInputHook {
     onContentUnformat: (content: string) => void
     onChange?: (value: any) => void
     value?: string
+    replyMentionedUser?: User
 }
 
-export const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value }: IInputHook) => {
+export const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }: IInputHook) => {
 
     const [focus, setFocus] = useState(false)
     const [showMention, setShowMention] = useState(false)
@@ -22,6 +23,39 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
     const [textLength, setTextLength] = useState(0)
     const [isPlaceholder, setPlaceholder] = useState(false)
 
+
+    const createNewRangeAndMoveCursorToTheEnd = (selection: Selection, spaceNode: Text) => {
+        // Create a new range for setting the cursor position
+        const newRange = document.createRange();
+
+        // Move the cursor to the end of the spaceNode
+        newRange.setStartAfter(spaceNode);
+        newRange.collapse(true);
+
+        // Update the selection
+        selection.removeAllRanges();
+        selection.addRange(newRange);
+    }
+    const addMentionToRangeAndSpaceNode = (range: Range, spaceNode: Text, mentionAnchorElement: HTMLAnchorElement) => {
+        if (range.startOffset > 0 && range.startContainer.textContent.charAt(range.startOffset - 1) === '@') {
+            range.setStart(range.startContainer, range.startOffset - 1);
+            range.deleteContents();
+        }
+        // append the child to the current cursor position within the paragraph
+        range.collapse(false); // set the cursor to the end of the paragraph
+        range.insertNode(spaceNode);
+        range.insertNode(mentionAnchorElement);
+    }
+    const createMentionedUser = (user: User) => {
+        // Create a new anchor element
+        const mentionAnchorElement = document.createElement('a');
+        mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
+        mentionAnchorElement.style.fontWeight = 'bold';
+        mentionAnchorElement.style.color = DesignTokens.colors.primary1;
+        mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid)
+        mentionAnchorElement.setAttribute("contenteditable", "false")
+        return mentionAnchorElement
+    }
     const handleMentionUser = (user: User) => {
         if (user?.name && divInputRef.current) {
             // Set the cursor to the last saved position
@@ -46,35 +80,13 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
                 }
 
 
-                // Create a new anchor element
-                const mentionAnchorElement = document.createElement('a');
-                mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
-                mentionAnchorElement.style.fontWeight = 'bold';
-                mentionAnchorElement.style.color = DesignTokens.colors.primary1;
-                mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid)
-                mentionAnchorElement.setAttribute("contenteditable", "false")
+                const mentionAnchorElement = createMentionedUser(user)
                 const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
-                if (range.startOffset > 0 && range.startContainer.textContent.charAt(range.startOffset - 1) === '@') {
-                    range.setStart(range.startContainer, range.startOffset - 1);
-                    range.deleteContents();
-                }
-                // append the child to the current cursor position within the paragraph
-                range.collapse(false); // set the cursor to the end of the paragraph
-                range.insertNode(spaceNode);
-                range.insertNode(mentionAnchorElement);
 
-                // If the previous character is "@", delete it
 
-                // Create a new range for setting the cursor position
-                const newRange = document.createRange();
+                addMentionToRangeAndSpaceNode(range, spaceNode, mentionAnchorElement)
 
-                // Move the cursor to the end of the spaceNode
-                newRange.setStartAfter(spaceNode);
-                newRange.collapse(true);
-
-                // Update the selection
-                selection.removeAllRanges();
-                selection.addRange(newRange);
+                createNewRangeAndMoveCursorToTheEnd(selection, spaceNode)
 
             }
             countChars()
@@ -92,17 +104,6 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         }
 
     }
-
-    useEffect(() => {
-
-        divInputRef.current?.addEventListener('input', resizeDiv)
-
-        return () => {
-            divInputRef.current?.removeEventListener('input', resizeDiv)
-        }
-
-    }, [])
-
     const addOrDeleteMentionedUser = () => {
         // get all mentioned users
         const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
@@ -240,8 +241,38 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
 
     }
+
     useEffect(() => {
-        if ((!value || value.length <= 0) && !focus) {
+
+        divInputRef.current?.addEventListener('input', resizeDiv)
+
+        return () => {
+            divInputRef.current?.removeEventListener('input', resizeDiv)
+        }
+
+    }, [])
+
+    useEffect(() => {
+        if (!replyMentionedUser) return;
+
+        divInputRef.current?.focus()
+        const selection = window.getSelection();
+
+        if (selection && selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            if (range.startContainer.textContent === null) return;
+            const mentionedUser = createMentionedUser(replyMentionedUser);
+            const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
+            addMentionToRangeAndSpaceNode(range, spaceNode, mentionedUser)
+            createNewRangeAndMoveCursorToTheEnd(selection, spaceNode)
+        }
+
+    }, [replyMentionedUser])
+
+
+    useEffect(() => {
+        setPlaceholder(false)
+        if ((!value || value.length <= 0) && !focus && !replyMentionedUser) {
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true)
         }
