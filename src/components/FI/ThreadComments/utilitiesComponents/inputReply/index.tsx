@@ -23,13 +23,11 @@ export const InputReply = ({
   const [users, setUsers] = useState<User[]>([])
 
   const handlePublish = async () => {
-    console.log(comment);
-    console.log(parentId)
-    await onClickPublishButton({
+    onClickPublishButton({
       comment,
       contentMention: CaptureFormattedValue,
       mentions: captureMentions,
-      parentId: parentId
+      parentId
     });
     setComment('')
     setCaptureFormattedValue('')

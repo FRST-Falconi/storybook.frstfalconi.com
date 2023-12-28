@@ -8,6 +8,7 @@ export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessBu
     return (
         <CommentaryBoxV2                        
         hasActionToClickOnAvatar={false}
+        imgProfile={commentData.user.avatar}
         itsLiked={false} userName={commentData.user.name}
         userOffice={commentData.user.role_name} userCompany={commentData.user.company_name}
         commentId={commentData.id} commentText={commentData.text} 
