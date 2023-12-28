@@ -73,7 +73,8 @@ Default.args = {
     showMoreButtonText: "Ver Mais",
     showLessButtonText: "Ver Menos",
     editText: "Editar",
-    deleteText: "Excluir"
+    deleteText: "Excluir",
+    styles: {padding: '10px'}
 }
 
 

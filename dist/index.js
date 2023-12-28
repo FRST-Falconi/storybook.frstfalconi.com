@@ -4649,6 +4649,18 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     const [captureMentions, setCaptureMentions] = React.useState([]);
     const [users, setUsers] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
+    const inputRef = React.useRef(null);
+    React.useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
+                handleHiddenInput();
+            }
+        };
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [comment, handleHiddenInput]);
     const handlePublish = async () => {
         setIsLoading(true);
         await onClickPublishButton({
@@ -4674,7 +4686,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
         const response = await getSearchUsers(value);
         setUsers(response?.data?.results || response);
     };
-    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
+    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
                         }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };

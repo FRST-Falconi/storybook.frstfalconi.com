@@ -1,11 +1,12 @@
-import { useState } from 'react'
-import InputComment from '@components/input-comment'
-import MiniButton from '@components/mini-button'
-import * as Styled from './inputReply.styles'
-import { IInputReply } from './inputReply.types'
-import Avatar from '@components/avatar'
-import { User } from '@components/input-comment/types'
-import Loading from '@components/DS/loading'
+import { useState, useRef, useEffect } from 'react';
+import InputComment from '@components/input-comment';
+import MiniButton from '@components/mini-button';
+import * as Styled from './inputReply.styles';
+import { IInputReply } from './inputReply.types';
+import Avatar from '@components/avatar';
+import Loading from '@components/DS/loading';
+import { User } from '@components/input-comment/types';
+
 
 export const InputReply = ({
   placeHolderText,
@@ -19,50 +20,65 @@ export const InputReply = ({
   styles,
   handleHiddenInput
 }: IInputReply) => {
-  const [comment, setComment] = useState<string>('')
-  const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>('')
-  const [captureMentions, setCaptureMentions] = useState<string[]>([])
-  const [users, setUsers] = useState<User[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [comment, setComment] = useState<string>('');
+  const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>('');
+  const [captureMentions, setCaptureMentions] = useState<string[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const inputRef = useRef(null);
+
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
+        handleHiddenInput();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [comment, handleHiddenInput]);
 
   const handlePublish = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     await onClickPublishButton({
       comment,
       contentMention: CaptureFormattedValue,
       mentions: captureMentions,
       parentId
-    })
-    setIsLoading(false)
-    handleHiddenInput()
-    setComment('')
-    setCaptureFormattedValue('')
-    setCaptureMentions([])
-  }
+    });
+    setIsLoading(false);
+    handleHiddenInput();
+    setComment('');
+    setCaptureFormattedValue('');
+    setCaptureMentions([]);
+  };
 
-  let timeout
+  let timeout;
   const setCommentData = (value: string) => {
-    clearTimeout(timeout)
+    clearTimeout(timeout);
     timeout = setTimeout(() => {
-      setComment(value)
-    }, 300)
-  }
-
+      setComment(value);
+    }, 300);
+  };
 
   const handleSearchUsers = async (value: string) => {
-    const response = await getSearchUsers(value)
-    setUsers(response?.data?.results || response)
-  }
+    const response = await getSearchUsers(value);
+    setUsers(response?.data?.results || response);
+  };
 
   return (
     <Styled.Container>
       <Avatar src={imgProfile} size="32px" style={{ marginTop: '55px', marginRight: '8px' }} />
-      <Styled.InputContainer style={{ ...styles }}>
+      <Styled.InputContainer ref={inputRef} style={{ ...styles }}>
         <InputComment
           styles={{ width: '100%', marginTop: '22.5px' }}
           className="userComment"
           onChange={(e: string) => {
-            handleSearchUsers(e)
+            handleSearchUsers(e);
           }}
           value={comment}
           placeholder={placeHolderText}
@@ -84,5 +100,5 @@ export const InputReply = ({
         {isLoading && <Loading />}
       </Styled.InputContainer>
     </Styled.Container>
-  )
-}
+  );
+};

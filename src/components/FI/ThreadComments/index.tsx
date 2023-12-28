@@ -28,8 +28,7 @@ export const ThreadComments = ({
   const [showInputByIdReply, setShowInputByIdReply] = useState<string[]>([])
 
   const handleShowReplys = async () => {
-    setIsLoading(true)
-    
+    setIsLoading(true)  
     try {
       setShowAnswers(true)
     } catch (error) {
