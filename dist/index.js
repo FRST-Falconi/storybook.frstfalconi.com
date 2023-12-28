@@ -4649,13 +4649,11 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     const [captureMentions, setCaptureMentions] = React.useState([]);
     const [users, setUsers] = React.useState([]);
     const handlePublish = async () => {
-        console.log(comment);
-        console.log(parentId);
-        await onClickPublishButton({
+        onClickPublishButton({
             comment,
             contentMention: CaptureFormattedValue,
             mentions: captureMentions,
-            parentId: parentId
+            parentId
         });
         setComment('');
         setCaptureFormattedValue('');
@@ -4678,7 +4676,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
 };
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
-    return (jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, itsLiked: false, userName: commentData.user.name, userOffice: commentData.user.role_name, userCompany: commentData.user.company_name, commentId: commentData.id, commentText: commentData.text, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => onClickAnswerButton(commentData.id), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '8px' }, commentTextWithMention: commentData.mentionText }));
+    return (jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user.avatar, itsLiked: false, userName: commentData.user.name, userOffice: commentData.user.role_name, userCompany: commentData.user.company_name, commentId: commentData.id, commentText: commentData.text, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => onClickAnswerButton(commentData.id), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '8px' }, commentTextWithMention: commentData.mentionText }));
 };
 
 const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedUserProfileImg, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText }) => {
