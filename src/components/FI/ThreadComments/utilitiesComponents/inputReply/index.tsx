@@ -5,6 +5,7 @@ import * as Styled from './inputReply.styles'
 import { IInputReply } from './inputReply.types'
 import Avatar from '@components/avatar'
 import { User } from '@components/input-comment/types'
+import Loading from '@components/DS/loading'
 
 export const InputReply = ({
   placeHolderText,
@@ -15,20 +16,25 @@ export const InputReply = ({
   publishButtonText,
   replyFor,
   imgProfile,
-  styles
+  styles,
+  handleHiddenInput
 }: IInputReply) => {
   const [comment, setComment] = useState<string>('')
   const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>('')
   const [captureMentions, setCaptureMentions] = useState<string[]>([])
   const [users, setUsers] = useState<User[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   const handlePublish = async () => {
-    onClickPublishButton({
+    setIsLoading(true)
+    await onClickPublishButton({
       comment,
       contentMention: CaptureFormattedValue,
       mentions: captureMentions,
       parentId
-    });
+    })
+    setIsLoading(false)
+    handleHiddenInput()
     setComment('')
     setCaptureFormattedValue('')
     setCaptureMentions([])
@@ -39,12 +45,13 @@ export const InputReply = ({
     clearTimeout(timeout)
     timeout = setTimeout(() => {
       setComment(value)
-    }, 500)
+    }, 300)
   }
+
 
   const handleSearchUsers = async (value: string) => {
     const response = await getSearchUsers(value)
-    setUsers(response.data.results)
+    setUsers(response?.data?.results || response)
   }
 
   return (
@@ -68,12 +75,13 @@ export const InputReply = ({
         />
 
         <MiniButton
-          disabled={comment.length <= 0}
+          disabled={comment.length <= 0 || isLoading}
           label={publishButtonText}
           onClick={() => handlePublish()}
           variant="primary"
           styles={{ marginLeft: 'auto', marginTop: '15px' }}
         />
+        {isLoading && <Loading />}
       </Styled.InputContainer>
     </Styled.Container>
   )

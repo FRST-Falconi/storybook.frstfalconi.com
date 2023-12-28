@@ -4643,18 +4643,22 @@ const Container$g = styled__default["default"].div `
     margin-bottom:40px;
 `;
 
-const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyFor, imgProfile, styles }) => {
+const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyFor, imgProfile, styles, handleHiddenInput }) => {
     const [comment, setComment] = React.useState('');
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState('');
     const [captureMentions, setCaptureMentions] = React.useState([]);
     const [users, setUsers] = React.useState([]);
+    const [isLoading, setIsLoading] = React.useState(false);
     const handlePublish = async () => {
-        onClickPublishButton({
+        setIsLoading(true);
+        await onClickPublishButton({
             comment,
             contentMention: CaptureFormattedValue,
             mentions: captureMentions,
             parentId
         });
+        setIsLoading(false);
+        handleHiddenInput();
         setComment('');
         setCaptureFormattedValue('');
         setCaptureMentions([]);
@@ -4664,15 +4668,15 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             setComment(value);
-        }, 500);
+        }, 300);
     };
     const handleSearchUsers = async (value) => {
         const response = await getSearchUsers(value);
-        setUsers(response.data.results);
+        setUsers(response?.data?.results || response);
     };
     return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
-                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } })] })] }));
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
