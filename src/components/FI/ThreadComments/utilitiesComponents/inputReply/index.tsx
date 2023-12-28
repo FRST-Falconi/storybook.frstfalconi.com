@@ -7,7 +7,6 @@ import Avatar from '@components/avatar';
 import Loading from '@components/DS/loading';
 import { User } from '@components/input-comment/types';
 
-
 export const InputReply = ({
   placeHolderText,
   getSearchUsers,
@@ -27,14 +26,13 @@ export const InputReply = ({
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef(null);
 
+  const handleClickOutside = (event) => {
+    if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
+      handleHiddenInput();
+    }
+  };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
-        handleHiddenInput();
-      }
-    };
-
+  useEffect(() => {   
     document.addEventListener('mousedown', handleClickOutside);
 
     return () => {
@@ -88,7 +86,6 @@ export const InputReply = ({
           onContentFormat={(formattedValue: string) => setCaptureFormattedValue(formattedValue)}
           onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
           users={users}
-          replyMentionedUser={replyMentionedUser}
         />
 
         <MiniButton

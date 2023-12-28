@@ -1,4 +1,4 @@
-import {User as MentionUser} from '@components/input-comment/types'
+import { IUser } from '../../threadComments.types';
 
 export interface IInputReply {    placeHolderText: string,
     publishButtonText:string,
@@ -6,7 +6,7 @@ export interface IInputReply {    placeHolderText: string,
     limitInput:number,
     styles:any,
     idInput:string,
-    replyMentionedUser: MentionUser,
+    replyMentionedUser: IUser,
     imgProfile?:string,
     getSearchUsers?: (value:string) =>  any,
     parentId?:number,

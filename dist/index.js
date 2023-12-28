@@ -4584,6 +4584,17 @@ const RepplysContainer = styled__default["default"].div `
 width: ${({ width }) => (width ? `${width}px` : 'auto')};
 margin-left:50px`;
 
+const InputContainer = styled__default["default"].div `
+    display:flex;
+    flex-direction:column;
+    position:relative;
+`;
+const Container$g = styled__default["default"].div `
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+`;
+
 const container = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -4657,17 +4668,6 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const InputContainer = styled__default["default"].div `
-    display:flex;
-    flex-direction:column;
-    position:relative;
-`;
-const Container$g = styled__default["default"].div `
-    display:flex;
-    justify-content:center;
-    margin-bottom:40px;
-`;
-
 const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyMentionedUser, imgProfile, styles, handleHiddenInput }) => {
     const [comment, setComment] = React.useState('');
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState('');
@@ -4675,12 +4675,12 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     const [users, setUsers] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const inputRef = React.useRef(null);
+    const handleClickOutside = (event) => {
+        if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
+            handleHiddenInput();
+        }
+    };
     React.useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
-                handleHiddenInput();
-            }
-        };
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
@@ -4713,29 +4713,17 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     };
     return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
-                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, replyMentionedUser: replyMentionedUser }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
-    return (jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user?.profile?.avatar, itsLiked: false, userName: commentData.user?.name, userOffice: commentData.user?.profile?.role_name, userCompany: commentData.user?.profile?.company_name, commentId: commentData.id, commentText: commentData.text, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => onClickAnswerButton(commentData.id), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '8px' }, commentTextWithMention: commentData.mentionText }));
+    return (jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user?.avatar, itsLiked: false, userName: commentData.user?.name, userOffice: commentData.user?.role_name, userCompany: commentData.user?.company_name, commentId: commentData.id, commentText: commentData.text, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => onClickAnswerButton(commentData.id), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '8px' }, commentTextWithMention: commentData.mentionText }));
 };
 
 const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedUserProfileImg, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText }) => {
-    const [isLoading, setIsLoading] = React.useState(false);
     const [showAnswers, setShowAnswers] = React.useState(false);
     const [showReplyInput, setShowReplyInput] = React.useState(false);
     const [showInputByIdReply, setShowInputByIdReply] = React.useState([]);
-    const handleShowReplys = async () => {
-        setIsLoading(true);
-        try {
-            setShowAnswers(true);
-        }
-        catch (error) {
-        }
-        finally {
-            setIsLoading(false);
-        }
-    };
     const handleHiddenInput = () => {
         setShowReplyInput(false);
     };
@@ -4748,7 +4736,7 @@ const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onCli
     const handleCommentReplyReply = (idReply) => {
         setShowInputByIdReply([...showInputByIdReply, idReply]);
     };
-    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user.profile?.avatar, itsLiked: false, userId: mainComment.user.user_uuid, userName: mainComment.user.name, userOffice: mainComment.user.profile?.role_name, userCompany: mainComment.user.profile?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText }), listReplyComments?.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: () => handleShowReplys(), children: showReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, imgProfile: loggedUserProfileImg, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput }))] }), isLoading && jsxRuntime.jsx(Loading, {}), showAnswers && !isLoading && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments?.map((replyComment) => {
+    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user?.avatar, itsLiked: false, userId: mainComment.user?.uuid, userName: mainComment.user?.name, userOffice: mainComment.user?.role_name, userCompany: mainComment.user?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText }), listReplyComments?.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: () => setShowAnswers(true), children: showReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, imgProfile: loggedUserProfileImg, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput }))] }), showAnswers && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments?.map((replyComment) => {
                         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryBoxReply, { commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, onClickAnswerButton: handleCommentReplyReply }), showInputByIdReply.includes(replyComment.id) && (jsxRuntime.jsx(InputReply, { imgProfile: loggedUserProfileImg, styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${replyComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyMentionedUser: replyComment.user, getSearchUsers: getSearchUsers, parentId: Number(mainComment.id), handleHiddenInput: (replyId = replyComment.id) => handleHiddenInputReply(replyId) }))] }));
                     }) }))] }) }));
 };
