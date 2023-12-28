@@ -4675,15 +4675,6 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     const [users, setUsers] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const inputRef = React.useRef(null);
-    // const user: User = {
-    //   user_uuid: replyMentionedUser.uuid, 
-    //   name: replyMentionedUser.name,
-    //   profile:{
-    //     avatar: replyMentionedUser.avatar,
-    //     company_name: replyMentionedUser.company_name,
-    //     role_name: replyMentionedUser.role_name             
-    //   }
-    // };
     const handleClickOutside = (event) => {
         if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
             handleHiddenInput();
