@@ -30,3 +30,13 @@ secondary.args = {
     alert('Click')
   }
 }
+
+export const terciary = Template.bind({})
+terciary.args = {
+  variant: 'terciary',
+  label: 'Button text',
+  disabled: false,
+  onClick: () => {
+    alert('Click')
+  }
+}

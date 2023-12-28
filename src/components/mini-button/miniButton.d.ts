@@ -1,6 +1,6 @@
 import React from "react"
 
-type enumVariant = 'primary' | 'secondary'
+type enumVariant = 'primary' | 'secondary' | 'terciary'
 
 export interface IMiniButton {
     variant?: enumVariant
@@ -8,4 +8,5 @@ export interface IMiniButton {
     disabled?: boolean
     onClick: (e) => void
     styles?: React.CSSProperties
+    active?: boolean
 }
