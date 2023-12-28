@@ -12,7 +12,7 @@ export interface TextFieldProps {
     label?: any,
     placeholder?: string,
     helperText?: any,
-    helperTextBox?: string,
+    helperTextBox?: any,
     isHelperTextBox?: boolean,
     endIcon?: any,
     endIconChanged?: any,
