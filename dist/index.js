@@ -4584,17 +4584,6 @@ const RepplysContainer = styled__default["default"].div `
 width: ${({ width }) => (width ? `${width}px` : 'auto')};
 margin-left:50px`;
 
-const InputContainer = styled__default["default"].div `
-    display:flex;
-    flex-direction:column;
-    position:relative;
-`;
-const Container$g = styled__default["default"].div `
-    display:flex;
-    justify-content:center;
-    margin-bottom:40px;
-`;
-
 const container = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -4668,6 +4657,17 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
+const InputContainer = styled__default["default"].div `
+    display:flex;
+    flex-direction:column;
+    position:relative;
+`;
+const Container$g = styled__default["default"].div `
+    display:flex;
+    justify-content:center;
+    margin-bottom:40px;
+`;
+
 const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyMentionedUser, imgProfile, styles, handleHiddenInput }) => {
     const [comment, setComment] = React.useState('');
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState('');
@@ -4675,6 +4675,16 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     const [users, setUsers] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const inputRef = React.useRef(null);
+    const user = {
+        user_uuid: replyMentionedUser.uuid,
+        name: replyMentionedUser.name,
+        profile: {
+            avatar: replyMentionedUser.avatar,
+            company_name: replyMentionedUser.company_name,
+            role_name: replyMentionedUser.role_name
+        }
+    };
+    const [userMentionedOnReplied, setUserMentionedOnReply] = React.useState(false);
     const handleClickOutside = (event) => {
         if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
             handleHiddenInput();
@@ -4702,6 +4712,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     };
     let timeout;
     const setCommentData = (value) => {
+        setUserMentionedOnReply(true);
         clearTimeout(timeout);
         timeout = setTimeout(() => {
             setComment(value);
@@ -4713,7 +4724,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     };
     return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
-                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, replyMentionedUser: !userMentionedOnReplied && user }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
