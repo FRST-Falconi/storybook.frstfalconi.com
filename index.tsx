@@ -150,6 +150,7 @@ export { default as ParticipantThumbnails } from './src/components/LXP/participa
 export { default as ParticipantThumbnailsList } from './src/components/LXP/participantThumbnailsList'
 export { default as AccordionList } from './src/components/LXP/AccordionList'
 export { default as ModalNewFeatures } from './src/components/LXP/modalNewFeatures'
+export { default as FieldSearch } from './src/components/field-search-dropdown'
 //export { default as DropdownSelectMultiple } from './src/components/LXP/DropdownSelectMultiple'
 
 // FI

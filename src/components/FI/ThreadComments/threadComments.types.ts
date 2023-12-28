@@ -1,8 +1,8 @@
-import {User as MentionUsers} from '@components/input-comment/types'
+import {User as MentionUser} from '@components/input-comment/types'
 
 export interface IComment {
     id: string,
-    user: IUser,
+    user: MentionUser,
     text: string,
     mentionText?:string, 
     howLongAgo: string,
@@ -23,7 +23,7 @@ export interface IThreadComments {
     showLessButtonText: string,
     loggedUserProfileImg?: string,
     styles: any,
-    getSearchUsers?: (value:string) =>  MentionUsers[],
+    getSearchUsers?: (value:string) =>  MentionUser[],
     relationToPhaseText?: string,
 }
 

@@ -15,7 +15,7 @@ export const InputReply = ({
   parentId,
   limitInput,
   publishButtonText,
-  replyFor,
+  replyMentionedUser,
   imgProfile,
   styles,
   handleHiddenInput
@@ -88,6 +88,7 @@ export const InputReply = ({
           onContentFormat={(formattedValue: string) => setCaptureFormattedValue(formattedValue)}
           onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
           users={users}
+          replyMentionedUser={replyMentionedUser}
         />
 
         <MiniButton

@@ -1,4 +1,4 @@
-import {User as MentionUsers} from '@components/input-comment/types'
+import {User as MentionUser} from '@components/input-comment/types'
 
 export interface IInputReply {    placeHolderText: string,
     publishButtonText:string,
@@ -6,7 +6,7 @@ export interface IInputReply {    placeHolderText: string,
     limitInput:number,
     styles:any,
     idInput:string,
-    replyFor:string,
+    replyMentionedUser: MentionUser,
     imgProfile?:string,
     getSearchUsers?: (value:string) =>  any,
     parentId?:number,

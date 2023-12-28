@@ -62,12 +62,12 @@ export const ThreadComments = ({
           <CommentaryBoxV2
             styles={{ marginBottom: '8px' }}
             hasActionToClickOnAvatar={false}
-            imgProfile={mainComment.user.avatar}
+            imgProfile={mainComment.user.profile?.avatar}
             itsLiked={false}
-            userId={mainComment.user.uuid}
+            userId={mainComment.user.user_uuid}
             userName={mainComment.user.name}
-            userOffice={mainComment.user.role_name}
-            userCompany={mainComment.user.company_name}
+            userOffice={mainComment.user.profile?.role_name}
+            userCompany={mainComment.user.profile?.company_name}
             commentId={mainComment.id}
             commentText={mainComment.text}
             howLongAgo={mainComment.howLongAgo}
@@ -96,7 +96,7 @@ export const ThreadComments = ({
               limitInput={limitInputs}
               onClickPublishButton={onClickPublishButton}
               getSearchUsers={getSearchUsers}
-              replyFor={mainComment.user.name}
+              replyMentionedUser={mainComment.user}
               parentId={Number(mainComment.id)}
               handleHiddenInput={handleHiddenInput}
             />
@@ -126,7 +126,7 @@ export const ThreadComments = ({
                       publishButtonText={publishButtonText}
                       limitInput={limitInputs}
                       onClickPublishButton={onClickPublishButton}
-                      replyFor={replyComment.user.name}
+                      replyMentionedUser={replyComment.user}
                       getSearchUsers={getSearchUsers}
                       parentId={Number(mainComment.id)}
                       handleHiddenInput={(replyId = replyComment.id)=>handleHiddenInputReply(replyId)}

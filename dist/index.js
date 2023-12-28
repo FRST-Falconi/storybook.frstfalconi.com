@@ -3244,7 +3244,7 @@ styled__default["default"].div `
 `;
 // transform: scale(0.845);
 
-const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value }) => {
+const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }) => {
     const [focus, setFocus] = React.useState(false);
     const [showMention, setShowMention] = React.useState(false);
     const [inputSearch, setInputSearch] = React.useState('');
@@ -3252,6 +3252,36 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`;
     const [textLength, setTextLength] = React.useState(0);
     const [isPlaceholder, setPlaceholder] = React.useState(false);
+    const createNewRangeAndMoveCursorToTheEnd = (selection, spaceNode) => {
+        // Create a new range for setting the cursor position
+        const newRange = document.createRange();
+        // Move the cursor to the end of the spaceNode
+        newRange.setStartAfter(spaceNode);
+        newRange.collapse(true);
+        // Update the selection
+        selection.removeAllRanges();
+        selection.addRange(newRange);
+    };
+    const addMentionToRangeAndSpaceNode = (range, spaceNode, mentionAnchorElement) => {
+        if (range.startOffset > 0 && range.startContainer.textContent.charAt(range.startOffset - 1) === '@') {
+            range.setStart(range.startContainer, range.startOffset - 1);
+            range.deleteContents();
+        }
+        // append the child to the current cursor position within the paragraph
+        range.collapse(false); // set the cursor to the end of the paragraph
+        range.insertNode(spaceNode);
+        range.insertNode(mentionAnchorElement);
+    };
+    const createMentionedUser = (user) => {
+        // Create a new anchor element
+        const mentionAnchorElement = document.createElement('a');
+        mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
+        mentionAnchorElement.style.fontWeight = 'bold';
+        mentionAnchorElement.style.color = DesignTokens.colors.primary1;
+        mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
+        mentionAnchorElement.setAttribute("contenteditable", "false");
+        return mentionAnchorElement;
+    };
     const handleMentionUser = (user) => {
         if (user?.name && divInputRef.current) {
             // Set the cursor to the last saved position
@@ -3274,31 +3304,10 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                         symbolFound = true;
                     }
                 }
-                // Create a new anchor element
-                const mentionAnchorElement = document.createElement('a');
-                mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`));
-                mentionAnchorElement.style.fontWeight = 'bold';
-                mentionAnchorElement.style.color = DesignTokens.colors.primary1;
-                mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
-                mentionAnchorElement.setAttribute("contenteditable", "false");
+                const mentionAnchorElement = createMentionedUser(user);
                 const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
-                if (range.startOffset > 0 && range.startContainer.textContent.charAt(range.startOffset - 1) === '@') {
-                    range.setStart(range.startContainer, range.startOffset - 1);
-                    range.deleteContents();
-                }
-                // append the child to the current cursor position within the paragraph
-                range.collapse(false); // set the cursor to the end of the paragraph
-                range.insertNode(spaceNode);
-                range.insertNode(mentionAnchorElement);
-                // If the previous character is "@", delete it
-                // Create a new range for setting the cursor position
-                const newRange = document.createRange();
-                // Move the cursor to the end of the spaceNode
-                newRange.setStartAfter(spaceNode);
-                newRange.collapse(true);
-                // Update the selection
-                selection.removeAllRanges();
-                selection.addRange(newRange);
+                addMentionToRangeAndSpaceNode(range, spaceNode, mentionAnchorElement);
+                createNewRangeAndMoveCursorToTheEnd(selection, spaceNode);
             }
             countChars();
             createFormatAndTextContentToSaveComment();
@@ -3311,12 +3320,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             divInputRef.current.style.height = divInputRef.current.scrollHeight + 'px';
         }
     };
-    React.useEffect(() => {
-        divInputRef.current?.addEventListener('input', resizeDiv);
-        return () => {
-            divInputRef.current?.removeEventListener('input', resizeDiv);
-        };
-    }, []);
     const addOrDeleteMentionedUser = () => {
         // get all mentioned users
         const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
@@ -3436,7 +3439,29 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         }
     };
     React.useEffect(() => {
-        if ((!value || value.length <= 0) && !focus) {
+        divInputRef.current?.addEventListener('input', resizeDiv);
+        return () => {
+            divInputRef.current?.removeEventListener('input', resizeDiv);
+        };
+    }, []);
+    React.useEffect(() => {
+        if (!replyMentionedUser)
+            return;
+        divInputRef.current?.focus();
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0) {
+            const range = selection.getRangeAt(0);
+            if (range.startContainer.textContent === null)
+                return;
+            const mentionedUser = createMentionedUser(replyMentionedUser);
+            const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
+            addMentionToRangeAndSpaceNode(range, spaceNode, mentionedUser);
+            createNewRangeAndMoveCursorToTheEnd(selection, spaceNode);
+        }
+    }, [replyMentionedUser]);
+    React.useEffect(() => {
+        setPlaceholder(false);
+        if ((!value || value.length <= 0) && !focus && !replyMentionedUser) {
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true);
         }
@@ -3623,8 +3648,8 @@ const Mentions = (mention) => {
                 }) }) }) }));
 };
 
-function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value }) {
-    const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, inputSearch, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value });
+function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser }) {
+    const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMention && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
@@ -4643,7 +4668,7 @@ const Container$g = styled__default["default"].div `
     margin-bottom:40px;
 `;
 
-const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyFor, imgProfile, styles, handleHiddenInput }) => {
+const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyMentionedUser, imgProfile, styles, handleHiddenInput }) => {
     const [comment, setComment] = React.useState('');
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState('');
     const [captureMentions, setCaptureMentions] = React.useState([]);
@@ -4688,7 +4713,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     };
     return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
-                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, replyMentionedUser: replyMentionedUser }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
@@ -4723,8 +4748,8 @@ const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onCli
     const handleCommentReplyReply = (idReply) => {
         setShowInputByIdReply([...showInputByIdReply, idReply]);
     };
-    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user.avatar, itsLiked: false, userId: mainComment.user.uuid, userName: mainComment.user.name, userOffice: mainComment.user.role_name, userCompany: mainComment.user.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText }), listReplyComments?.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: () => handleShowReplys(), children: showReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, imgProfile: loggedUserProfileImg, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyFor: mainComment.user.name, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput }))] }), isLoading && jsxRuntime.jsx(Loading, {}), showAnswers && !isLoading && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments?.map((replyComment) => {
-                        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryBoxReply, { commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, onClickAnswerButton: handleCommentReplyReply }), showInputByIdReply.includes(replyComment.id) && (jsxRuntime.jsx(InputReply, { imgProfile: loggedUserProfileImg, styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${replyComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyFor: replyComment.user.name, getSearchUsers: getSearchUsers, parentId: Number(mainComment.id), handleHiddenInput: (replyId = replyComment.id) => handleHiddenInputReply(replyId) }))] }));
+    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user.profile?.avatar, itsLiked: false, userId: mainComment.user.user_uuid, userName: mainComment.user.name, userOffice: mainComment.user.profile?.role_name, userCompany: mainComment.user.profile?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText }), listReplyComments?.length > 0 && !showAnswers && (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: () => handleShowReplys(), children: showReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, imgProfile: loggedUserProfileImg, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput }))] }), isLoading && jsxRuntime.jsx(Loading, {}), showAnswers && !isLoading && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments?.map((replyComment) => {
+                        return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(CommentaryBoxReply, { commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, onClickAnswerButton: handleCommentReplyReply }), showInputByIdReply.includes(replyComment.id) && (jsxRuntime.jsx(InputReply, { imgProfile: loggedUserProfileImg, styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${replyComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyMentionedUser: replyComment.user, getSearchUsers: getSearchUsers, parentId: Number(mainComment.id), handleHiddenInput: (replyId = replyComment.id) => handleHiddenInputReply(replyId) }))] }));
                     }) }))] }) }));
 };
 
@@ -19449,6 +19474,7 @@ exports.ExpandButton = ExpandButton;
 exports.EyeOff = EyeOff;
 exports.Favorite = Favorite;
 exports.FeedInteraction = FeedInteraction;
+exports.FieldSearch = FieldSearch;
 exports.FileUpload = FileUpload;
 exports.FilterAccordionCheckbox = FilterAccordionCheckbox;
 exports.FiltroGaleriaDesafios = FiltroGaleriaDesafios;
