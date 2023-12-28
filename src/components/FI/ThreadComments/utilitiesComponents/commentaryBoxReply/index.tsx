@@ -8,9 +8,9 @@ export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessBu
     return (
         <CommentaryBoxV2                        
         hasActionToClickOnAvatar={false}
-        imgProfile={commentData.user.avatar}
+        imgProfile={commentData.user.profile.avatar}
         itsLiked={false} userName={commentData.user.name}
-        userOffice={commentData.user.role_name} userCompany={commentData.user.company_name}
+        userOffice={commentData.user.profile.role_name} userCompany={commentData.user.profile.company_name}
         commentId={commentData.id} commentText={commentData.text} 
         howLongAgo={commentData.howLongAgo} showMoreText={showMoreButtonText} actionAnswer={()=>onClickAnswerButton(commentData.id)}
         showLessText={showLessButtonText} answerButtonText={answerButtonText} styles={{marginTop: '8px'}} commentTextWithMention={commentData.mentionText} />
