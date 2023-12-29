@@ -8,9 +8,10 @@ import { useInputHook } from './useInputHook'
 import { Mentions } from './mentions'
 import { User } from './types'
 
-export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser }: IInputComment) {
+export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid }: IInputComment) {
   const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength } =
     useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser })
+  const showMentions = showMention && group_uuid === 'b1005836-b0a6-4a50-8147-537ebdc64a75'
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -32,7 +33,7 @@ export default function InputComment({ placeholder, onChange, limit, users, show
 
           ><p><br /></p>
           </Styles.InputText>
-          {showMention && <Mentions
+          {showMentions && <Mentions
             users={users}
             top={mentionTopPosition}
             onSelect={(user: User) => {

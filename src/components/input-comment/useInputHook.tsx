@@ -153,6 +153,8 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
                 // Get the characters after the last "@"
                 const afterAt = textBeforeCursor.substring(atIndex + 1);
                 inputSearch = afterAt
+            } else {
+                setShowMention(false)
             }
         }
         if (event.key === '@') {

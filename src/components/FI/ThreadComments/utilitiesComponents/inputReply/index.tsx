@@ -17,7 +17,8 @@ export const InputReply = ({
   replyMentionedUser,
   imgProfile,
   styles,
-  handleHiddenInput
+  handleHiddenInput,
+  group_uuid
 }: IInputReply) => {
   const [comment, setComment] = useState<string>('');
   const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>('');
@@ -101,6 +102,7 @@ export const InputReply = ({
           onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
           users={users}
           replyMentionedUser={!userMentionedOnReplied && user}
+          group_uuid={group_uuid}
         />
 
         <MiniButton

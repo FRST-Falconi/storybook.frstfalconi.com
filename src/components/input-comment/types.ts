@@ -30,5 +30,6 @@ export interface MentionProps
     onContentUnformat: (content: string) => void
     value?:string
     replyMentionedUser?: User
+    group_uuid?: string;
 }
 
