@@ -1,9 +1,9 @@
+import { CommentaryBoxV2 } from '@components/commentaryBoxV2'
 import { useState } from 'react'
 import * as Styled from './threadComments.styles'
 import { IThreadComments } from './threadComments.types'
-import { InputReply } from './utilitiesComponents/inputReply'
-import { CommentaryBoxV2 } from '@components/commentaryBoxV2'
 import { CommentaryBoxReply } from './utilitiesComponents/commentaryBoxReply'
+import { InputReply } from './utilitiesComponents/inputReply'
 
 export const ThreadComments = ({
   mainComment,
@@ -15,6 +15,7 @@ export const ThreadComments = ({
   limitInputs,
   answerButtonText,
   loggedUserProfileImg,
+  group_uuid,
   getSearchUsers,
   showMoreButtonText,
   showLessButtonText,
@@ -25,14 +26,14 @@ export const ThreadComments = ({
   const [showReplyInput, setShowReplyInput] = useState(false)
   const [showInputByIdReply, setShowInputByIdReply] = useState<string[]>([])
 
-  const handleHiddenInput = ()=>{
+  const handleHiddenInput = () => {
     setShowReplyInput(false);
   }
 
-  const handleHiddenInputReply = (idReplyToRemove: string)=>{
-      setShowInputByIdReply(prevShowInputByIdReply => 
+  const handleHiddenInputReply = (idReplyToRemove: string) => {
+    setShowInputByIdReply(prevShowInputByIdReply =>
       prevShowInputByIdReply.filter(id => id !== idReplyToRemove)
-    );  
+    );
   }
 
   const handleCommentReply = () => {
@@ -87,6 +88,7 @@ export const ThreadComments = ({
               replyMentionedUser={mainComment.user}
               parentId={Number(mainComment.id)}
               handleHiddenInput={handleHiddenInput}
+              group_uuid={group_uuid}
             />
           )}
         </div>
@@ -115,7 +117,9 @@ export const ThreadComments = ({
                       replyMentionedUser={replyComment.user}
                       getSearchUsers={getSearchUsers}
                       parentId={Number(mainComment.id)}
-                      handleHiddenInput={(replyId = replyComment.id)=>handleHiddenInputReply(replyId)}
+                      handleHiddenInput={(replyId = replyComment.id) => handleHiddenInputReply(replyId)}
+                      group_uuid={group_uuid}
+
                     />
                   )}
                 </>
