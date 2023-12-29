@@ -3578,22 +3578,25 @@ const MentionUserContainer = styled__default["default"].div `
   align-items: baseline;
   flex-direction: column;
   padding: 0 8px 0 16px;
+  width: 100%;
 `;
 const MentionUserName = styled__default["default"].span `
   font-weight: 400;
   font-size: 16px;
+  width: 100%;
 `;
 const MentionSubTitle = styled__default["default"].div `
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 const MentionSubTitleText = styled__default["default"].span `
-  width: 400px;
   font-size: 12px;
   display:flex;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
 `;
 const Circle = styled__default["default"].div `
   width: 2px;
