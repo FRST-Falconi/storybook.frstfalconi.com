@@ -101,7 +101,7 @@ export const InputReply = ({
           onContentFormat={(formattedValue: string) => setCaptureFormattedValue(formattedValue)}
           onSendMentions={(mentions: string[]) => setCaptureMentions(mentions)}
           users={users}
-          replyMentionedUser={!userMentionedOnReplied && user}
+          //replyMentionedUser={!userMentionedOnReplied && user}
           group_uuid={group_uuid}
         />
 

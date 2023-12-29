@@ -4683,7 +4683,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     const [users, setUsers] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const inputRef = React.useRef(null);
-    const user = {
+    ({
         user_uuid: replyMentionedUser.uuid,
         name: replyMentionedUser.name,
         profile: {
@@ -4691,7 +4691,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
             company_name: replyMentionedUser.company_name,
             role_name: replyMentionedUser.role_name
         }
-    };
+    });
     const [userMentionedOnReplied, setUserMentionedOnReply] = React.useState(false);
     const handleClickOutside = (event) => {
         if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
@@ -4732,7 +4732,9 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
     };
     return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
-                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, replyMentionedUser: !userMentionedOnReplied && user, group_uuid: group_uuid }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
+                        }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, 
+                        //replyMentionedUser={!userMentionedOnReplied && user}
+                        group_uuid: group_uuid }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
 
 const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedUserProfileImg, group_uuid, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText }) => {
