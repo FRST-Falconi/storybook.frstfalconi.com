@@ -80,25 +80,30 @@ export const MentionUserContainer = styled.div`
   align-items: baseline;
   flex-direction: column;
   padding: 0 8px 0 16px;
+  white-space: nowrap; 
+  overflow: hidden; 
 `
 
 export const MentionUserName = styled.span`
   font-weight: 400;
   font-size: 16px;
+  width: 100%;
 `
 
 export const MentionSubTitle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `
 
 export const MentionSubTitleText = styled.span`
-  width: 400px;
   font-size: 12px;
   display:flex;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
+ 
 `
 export const Circle = styled.div`
   width: 2px;
