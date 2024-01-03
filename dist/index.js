@@ -3280,6 +3280,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         mentionAnchorElement.style.color = DesignTokens.colors.primary1;
         mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
         mentionAnchorElement.setAttribute("contenteditable", "false");
+        mentionAnchorElement.setAttribute("href", `/profile/${user.user_uuid}`);
         return mentionAnchorElement;
     };
     const handleMentionUser = (user) => {
@@ -3578,7 +3579,8 @@ const MentionUserContainer = styled__default["default"].div `
   align-items: baseline;
   flex-direction: column;
   padding: 0 8px 0 16px;
-  width: 100%;
+  white-space: nowrap; 
+  overflow: hidden; 
 `;
 const MentionUserName = styled__default["default"].span `
   font-weight: 400;
@@ -3597,6 +3599,7 @@ const MentionSubTitleText = styled__default["default"].span `
   align-items: center;
   justify-content: flex-start;
   width: 100%;
+ 
 `;
 const Circle = styled__default["default"].div `
   width: 2px;
