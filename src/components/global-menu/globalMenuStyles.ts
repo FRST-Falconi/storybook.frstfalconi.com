@@ -61,13 +61,23 @@ export const WrapperIconNotification = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 150px;
+  min-width: 132px;
   font-size: 16px;
   font-weight: 400;
   color: #fff;
   position: relative;
-  left: 17px;
+  left: 23px;
 `
+
+export const WrapperIconNotificationText = styled.p`
+ 
+ text-align: left;
+ left: 5px;
+ position: absolute;
+ width: 108px;
+`
+
+
 export const WrapperIconNotificationMobile = styled.div`
   cursor: pointer;
   display: flex;
@@ -199,14 +209,15 @@ export const itemFrstSocials = styled.button`
 `
 
 export const help = styled.div`
-
-width: 77px;
-color: #fff;
-display: flex;
-left: 14px;
-position: relative;
-cursor: pointer;
-
+  width: 80px; 
+  color: #fff;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  flex-direction: row;
+  left: 4px;
 
 `
 
@@ -214,11 +225,9 @@ export const helpText = styled.p`
 
 color: #fff;
 width: 45px;
-position: relative;
-top: 3px;
-height: 0px;
-position: relative;
-right: 10px;
+height: 25px;
+align-items: center;
+display: flex;
 
 
 `
