@@ -1,4 +1,3 @@
-import React from 'react'
 //import * as Icons from '../../shared/icons'
 //mport { content } from '../../shared/icons'
 
@@ -29,6 +28,7 @@ export interface IThumbnails {
   isTrail?: boolean
   index?: string
   provided?: any
+  activeMenuModule?: boolean
 }
 
 export interface IThumbnailsTranslate extends IThumbnails {

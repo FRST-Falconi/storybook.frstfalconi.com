@@ -1,20 +1,19 @@
-import '../../../shared/global.css'
+import * as LoadingComponent from '@components/DS/loading'
+import { styled } from '@mui/material/styles'
+import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import '../../../shared/global.css'
+import * as Icons from '../../../shared/icons'
 import { FRSTTheme } from '../../../theme'
-import * as Styles from './thumbnailsStyle'
-import { IThumbnails, IThumbnailsTranslate } from './thumbnails.d'
+import Button from '../../buttons'
 import HeaderVectorElipses from './headerVectorElipses'
 import { LoadingThumbnails } from './loadingThumbnails'
-import * as LoadingComponent from '@components/DS/loading'
+import { IThumbnailsTranslate } from './thumbnails.d'
+import * as Styles from './thumbnailsStyle'
 import VectorCross from './vectorCross'
-import React, { useState, useEffect } from 'react'
-import * as Icons from '../../../shared/icons'
-import Switch from 'react-switch'
-import Button from '../../buttons'
-import { styled } from '@mui/material/styles'
 // import Tooltip from '@components/LXP/tooltip'
-import PopOver, { PopOverItem } from '../popOver'
 import Tooltip, { TooltipProps, tooltipClasses } from '@mui/material/Tooltip'
+import PopOver, { PopOverItem } from '../popOver'
 
 export default function Thumbnails({
   variant,
@@ -47,7 +46,8 @@ export default function Thumbnails({
   txtPopOverDeleteTrail,
   txtPopOverEditContentActivity,
   txtHideContent,
-  txtShowContent
+  txtShowContent,
+  activeMenuModule = true
 }: IThumbnailsTranslate) {
   const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
   const [ativo, setAtivo] = useState<boolean>(isDisabled)
@@ -148,7 +148,7 @@ export default function Thumbnails({
                       setElementPopover(element.currentTarget)
                     }}
                   >
-                    <Icons.MoreVertical fill={ativo ? '#000000' : '#bdbdbd'} />
+                    { activeMenuModule && <Icons.MoreVertical fill={ativo ? '#000000' : '#bdbdbd'} /> }
                   </Styles.IconVertical>
                 </Styles.ContainerMain>
 
