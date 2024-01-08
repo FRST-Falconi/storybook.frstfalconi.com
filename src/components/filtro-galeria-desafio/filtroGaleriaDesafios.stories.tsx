@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import FiltroGaleriaDesafio from './index'
+import { TrashIconNew } from '../../shared/icons';
 
 export default {
   title: 'GaleriaDesafios/FiltroGaleriaDesafio',
   component: FiltroGaleriaDesafio
 }
 
-const Template = (args) => <FiltroGaleriaDesafio {...args} />
-
+const Template = (args) => {
+  const [selectedItems, setSelectedItems] = useState([])
+  return (
+    <div style={{ display: 'flex', gap: '10px' }}>
+      <FiltroGaleriaDesafio {...args} valueSelect={selectedItems} />
+      <div
+        style={{ color: '#0645ad', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+        onClick={() => {
+          console.log('limpou os filtros')
+          setSelectedItems([])
+        }}
+      >
+        {' '}
+        <TrashIconNew fill="#0645ad" />
+        &nbsp; Excluir Filtros
+      </div>
+    </div>
+  )
+}
 export const normal = Template.bind({})
 normal.args = {
   placeholderSelect: 'Convites',
