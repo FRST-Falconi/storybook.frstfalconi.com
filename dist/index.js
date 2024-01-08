@@ -3280,6 +3280,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         mentionAnchorElement.style.color = DesignTokens.colors.primary1;
         mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
         mentionAnchorElement.setAttribute("contenteditable", "false");
+        mentionAnchorElement.setAttribute("href", `/profile/${user.user_uuid}`);
         return mentionAnchorElement;
     };
     const handleMentionUser = (user) => {
@@ -3578,22 +3579,27 @@ const MentionUserContainer = styled__default["default"].div `
   align-items: baseline;
   flex-direction: column;
   padding: 0 8px 0 16px;
+  white-space: nowrap; 
+  overflow: hidden; 
 `;
 const MentionUserName = styled__default["default"].span `
   font-weight: 400;
   font-size: 16px;
+  width: 100%;
 `;
 const MentionSubTitle = styled__default["default"].div `
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 const MentionSubTitleText = styled__default["default"].span `
-  width: 400px;
   font-size: 12px;
   display:flex;
   align-items: center;
   justify-content: flex-start;
+  width: 100%;
+ 
 `;
 const Circle = styled__default["default"].div `
   width: 2px;
@@ -6097,6 +6103,50 @@ function OnboardingProgressMenu(props) {
                         width: 'calc(100% - 46px)',
                         zIndex: 10
                     } }))] }) }));
+}
+
+const UserContainer = styled__default["default"].div `
+    width: 100%;
+    display: flex;
+    min-height: 208px;
+    position: relative;
+    flex-direction:column;
+    align-items:center;
+    justify-content: space-between;
+    background:${({ theme }) => theme.colors.shadeWhite};
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    padding-top: 18px;
+    padding-left:16px;
+    padding-right: 16px;
+    padding-bottom: 22px;
+`;
+const Headers = styled__default["default"].div `
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+`;
+const InfoBottom = styled__default["default"].div `
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 8px;
+    font-size:12px;
+    text-align: center;
+    margin-top:14px;
+    font-family:PT Sans;
+    `;
+const InfoDescription = styled__default["default"].div `
+    margin-top:8px;
+    font-size:12px;
+    text-align:center;
+    margin-bottom:3px;
+    color:#757575;
+`;
+
+function CarUser({ style, userInfo, handleLinkProfile }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(UserContainer, { id: 'userContainer', style: { ...style }, children: [jsxRuntime.jsxs(Headers, { children: [jsxRuntime.jsx(Avatar, { src: userInfo.avatar, size: '74px', onClick: handleLinkProfile, isActiveClick: true }), jsxRuntime.jsx("p", { style: { fontWeight: 600, fontSize: "14px", textAlign: "center", fontFamily: "Work Sans", marginTop: "8px" }, children: userInfo.name })] }), jsxRuntime.jsxs(InfoDescription, { children: [jsxRuntime.jsx("p", { children: userInfo.profession }), jsxRuntime.jsx("p", { style: { marginTop: "3px" }, children: userInfo.education })] }), jsxRuntime.jsx(InfoBottom, { children: jsxRuntime.jsxs("p", { children: [userInfo.activeSice, " ", jsxRuntime.jsx("b", { children: userInfo.date })] }) })] }) }));
 }
 
 const Container$f = styled__default["default"].div `
@@ -9978,12 +10028,19 @@ const WrapperIconNotification = styled__default["default"].div `
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 150px;
+  min-width: 132px;
   font-size: 16px;
   font-weight: 400;
   color: #fff;
   position: relative;
-  left: 17px;
+  left: 23px;
+`;
+const WrapperIconNotificationText = styled__default["default"].p `
+ 
+ text-align: left;
+ left: 5px;
+ position: absolute;
+ width: 108px;
 `;
 const WrapperIconNotificationMobile = styled__default["default"].div `
   cursor: pointer;
@@ -10106,25 +10163,24 @@ const itemFrstSocials = styled__default["default"].button `
   cursor: pointer;
 `;
 const help = styled__default["default"].div `
-
-width: 77px;
-color: #fff;
-display: flex;
-left: 14px;
-position: relative;
-cursor: pointer;
-
+  width: 80px; 
+  color: #fff;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  flex-direction: row;
+  left: 4px;
 
 `;
 const helpText = styled__default["default"].p `
 
 color: #fff;
 width: 45px;
-position: relative;
-top: 3px;
-height: 0px;
-position: relative;
-right: 10px;
+height: 25px;
+align-items: center;
+display: flex;
 
 
 `;
@@ -11148,11 +11204,12 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                                     height: '100%',
                                                     flexDirection: 'inherit'
                                                 } }, item.id ? item.id : index))), jsxRuntime.jsxs(WrapperIconNotification, { onClick: onClickNotification, children: [jsxRuntime.jsxs("span", { style: {
-                                                            display: 'inline-flex',
+                                                            display: 'flex',
                                                             justifyContent: 'flex-start',
                                                             alignItems: 'center',
-                                                            flexDirection: 'row-reverse'
-                                                        }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), hasNewNotification ? (jsxRuntime.jsx("div", { style: { position: 'absolute', top: '0' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, ' ', "\u00A0 ", textNotification] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })] })), isMobileVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
+                                                            flexDirection: 'row-reverse',
+                                                            width: '130px'
+                                                        }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), hasNewNotification ? (jsxRuntime.jsx("div", { style: { position: 'absolute', top: '0' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, ' ', jsxRuntime.jsx(WrapperIconNotificationText, { children: textNotification })] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })] })), isMobileVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
                                             borderBottom: openNotificationMobile && windowSize[0] <= 650
                                                 ? `4px solid ${FRSTTheme['colors'].primary1}`
                                                 : '',
@@ -11165,7 +11222,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                         }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', hasNewNotification ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] > 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })), jsxRuntime.jsx(DropdownProfileMenu, { variant: "LXP", user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, hiddenProfileMenu: hiddenProfileMenu, showProfile: showProfile, style: {
                                             marginLeft: isMobileVersion ? '0px' : '5px',
                                             marginRight: isMobileVersion ? '0px' : '5px'
-                                        } }), showHelp && (jsxRuntime.jsxs(help, { onClick: onClickHelp, children: [jsxRuntime.jsx(helpText, { children: "Ajuda " }), jsxRuntime.jsx(HelpIcon, {})] })), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
+                                        } }), showHelp && (jsxRuntime.jsxs(help, { onClick: onClickHelp, children: [jsxRuntime.jsx(helpText, { children: "Ajuda" }), jsxRuntime.jsx(HelpIcon, {})] })), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
                             menu.length > 0 &&
                             menu.map((item, index) => {
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "default", type: "menu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
@@ -12069,7 +12126,7 @@ function VectorCross(props) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.2051 1.53845V22.8718", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.53809 12.2051H22.8714", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 
-function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNew, handleSwitchAtivar, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMoveToTrail, handleClickPopOverDeleteTrail, handlePublicarCourse, handlePublicarContentCheck, publishContentStatus, title, provided, isDisabled, isLoading, txtButtonLabel, txtCriarNovoCurso, txtCriarNovoCurso2, txtAtivarCurso, txtPopOverDeleteContent, txtPopOverMoveToTrails, txtPopOverEditContent, isActive, isTrail, txtPopOverDeleteTrail, txtPopOverEditContentActivity, txtHideContent, txtShowContent }) {
+function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNew, handleSwitchAtivar, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMoveToTrail, handleClickPopOverDeleteTrail, handlePublicarCourse, handlePublicarContentCheck, publishContentStatus, title, provided, isDisabled, isLoading, txtButtonLabel, txtCriarNovoCurso, txtCriarNovoCurso2, txtAtivarCurso, txtPopOverDeleteContent, txtPopOverMoveToTrails, txtPopOverEditContent, isActive, isTrail, txtPopOverDeleteTrail, txtPopOverEditContentActivity, txtHideContent, txtShowContent, activeMenuModule = true }) {
     const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png';
     const [ativo, setAtivo] = React.useState(isDisabled);
     const [showModules, setShowModules] = React.useState(false);
@@ -12122,7 +12179,7 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
                                 // className="imageHover"
                                 src: src || defaultImg }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd', textAlign: 'start' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
                                             setElementPopover(element.currentTarget);
-                                        }, children: jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsx(Button$4
+                                        }, children: activeMenuModule && jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsx(Button$4
                             // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
                             , { 
                                 // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
@@ -19453,6 +19510,7 @@ exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
 exports.CardResultConquista = CardResultConquista;
 exports.CardTrail = CardTrail;
+exports.CardUser = CarUser;
 exports.CardsTrailsCarousel = CardTrailCarousel;
 exports.Challenge = Challenge$1;
 exports.ChallengeCard = ChallengeCard;

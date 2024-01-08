@@ -54,6 +54,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         mentionAnchorElement.style.color = DesignTokens.colors.primary1;
         mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid)
         mentionAnchorElement.setAttribute("contenteditable", "false")
+        mentionAnchorElement.setAttribute("href", `/profile/${user.user_uuid}`)
         return mentionAnchorElement
     }
     const handleMentionUser = (user: User) => {

@@ -8,7 +8,6 @@ export default {
   component: FiltroGaleriaDesafio
 }
 
-
 const Template = (args) => {
   const [selectedItems, setSelectedItems] = useState([])
   return (

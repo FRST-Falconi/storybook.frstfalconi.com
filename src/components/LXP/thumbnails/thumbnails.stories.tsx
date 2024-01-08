@@ -22,7 +22,7 @@ Default.args = {
     variant: 'default',
     label: 'Label',
     src: '',
-    title: 'Blockchain e criptomoedas',    
+    title: 'Blockchain e criptomoedas',
     id: 0,
     index: 0,
     handleClickCourse: () => { alert('Indo para o curso') },
@@ -36,6 +36,7 @@ Default.args = {
     txtPopOverEditContent: "Edit content",
     txtPopOverMoveToTrails: "Move to Trails",
     txtPopOverDeleteContent:"Delete content",
+    activeMenuModule: false
 }
 
 export const Add = Template.bind({})

@@ -639,10 +639,12 @@ export default function GlobalMenu({
                     <Styles.WrapperIconNotification onClick={onClickNotification}>
                       <span
                         style={{
-                          display: 'inline-flex',
+                          display: 'flex',
                           justifyContent: 'flex-start',
                           alignItems: 'center',
-                          flexDirection: 'row-reverse'
+                          flexDirection: 'row-reverse',
+                          width:'130px'
+
                         }}
                         onClick={handleOpenNotification}
                       >
@@ -652,7 +654,7 @@ export default function GlobalMenu({
                             <HasNotificationIcon />
                           </div>
                         ) : null}{' '}
-                        &nbsp; {textNotification}
+                        <Styles.WrapperIconNotificationText>{textNotification}</Styles.WrapperIconNotificationText> 
                       </span>
                       <NotificationPopOver
                         handleClickMarkRead={notification.handleClickMarkRead}
@@ -760,7 +762,7 @@ export default function GlobalMenu({
                 />
                 {showHelp && (
                     <Styles.help onClick={onClickHelp}>
-                      <Styles.helpText>Ajuda </Styles.helpText>
+                      <Styles.helpText>Ajuda</Styles.helpText>
                       {<HelpIcon />}
                     </Styles.help>
                 )}
