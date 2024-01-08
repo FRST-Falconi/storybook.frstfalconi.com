@@ -8,7 +8,6 @@ import './styles/primeflex.css'
 // import 'primeicons/primeicons.css'
 import Button from '@components/buttons'
 import SearchField from '@components/search-field'
-import iconT from './styles/icons/vector.png'
 
 export default function FiltroGaleriaDesafios({
   placeholderSelect,
@@ -18,12 +17,13 @@ export default function FiltroGaleriaDesafios({
   isDisabled,
   maxListItems,
   textButtonClear,
-  textBusca
+  textBusca,
+  valueSelect=[]
 }) {
   const [lazyItems, setLazyItems] = useState([])
   const [lazyLoading, setLazyLoading] = useState(false)
   const [onClickFilter, setOnClickFilter] = useState(false)
-  const [selectedListItems, setSelectedListItems] = useState(null)
+  const [selectedListItems, setSelectedListItems] = useState(valueSelect)
   const [textFilter, setTextFilter] = useState('')
   const [listItemsFilter, setListItemsFilter] = useState(listItems)
 
@@ -31,6 +31,11 @@ export default function FiltroGaleriaDesafios({
     setLazyItems(Array.from({ length: 100000 }))
     setLazyLoading(false)
   }, [])
+
+  useEffect(() => {
+    setSelectedListItems(valueSelect);
+    handleValueSelect(valueSelect);
+  }, [valueSelect])
 
   const handleSelectItems = (items) => {
     setSelectedListItems(items)
@@ -65,6 +70,7 @@ export default function FiltroGaleriaDesafios({
             disabled={false}
             handleClick={() => {
               setSelectedListItems(null)
+              handleValueSelect([]);
             }}
           />
         ) : (
@@ -79,6 +85,7 @@ export default function FiltroGaleriaDesafios({
           disabled={false}
           handleClick={() => {
             setSelectedListItems(null)
+            handleValueSelect([]);
           }}
         />
       </StylesFiltro.searchAndButton>
