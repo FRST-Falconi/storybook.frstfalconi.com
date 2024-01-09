@@ -643,7 +643,7 @@ export default function GlobalMenu({
                           justifyContent: 'flex-start',
                           alignItems: 'center',
                           flexDirection: 'row-reverse',
-                          width:'130px'
+                          width:'140px',
 
                         }}
                         onClick={handleOpenNotification}
