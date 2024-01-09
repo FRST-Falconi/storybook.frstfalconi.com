@@ -61,7 +61,7 @@ export const WrapperIconNotification = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 132px;
+  min-width: 140px;
   font-size: 16px;
   font-weight: 400;
   color: #fff;
@@ -71,10 +71,10 @@ export const WrapperIconNotification = styled.div`
 
 export const WrapperIconNotificationText = styled.p`
  
- text-align: left;
- left: 5px;
+ text-align: right;
+ left: 0px;
  position: absolute;
- width: 108px;
+ width: 113px;
 `
 
 
