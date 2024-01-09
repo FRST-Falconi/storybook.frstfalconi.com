@@ -4,9 +4,8 @@ export const notificationContainer = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-
     width: 375px;
-    height: 120px;
+    height: auto;
     padding: 16px;
     gap: 16px;
     cursor: pointer;

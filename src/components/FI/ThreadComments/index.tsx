@@ -100,7 +100,8 @@ export const ThreadComments = ({
                 <>
                   <CommentaryBoxReply
                     commentData={replyComment}
-                    answerButtonText={answerButtonText}
+                    // answerButtonText={answerButtonText}
+                    answerButtonText={''}
                     showMoreButtonText={showMoreButtonText}
                     showLessButtonText={showLessButtonText}
                     onClickAnswerButton={handleCommentReplyReply}
