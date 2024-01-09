@@ -3659,7 +3659,7 @@ const Mentions = (mention) => {
 
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid }) {
     const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
-    const showMentions = showMention && group_uuid === 'b1005836-b0a6-4a50-8147-537ebdc64a75';
+    const showMentions = showMention && ['b1005836-b0a6-4a50-8147-537ebdc64a75', '413c2f36-9195-4fef-86fe-572c49049007'].includes(group_uuid);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMentions && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
@@ -10030,7 +10030,7 @@ const WrapperIconNotification = styled__default["default"].div `
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 132px;
+  min-width: 140px;
   font-size: 16px;
   font-weight: 400;
   color: #fff;
@@ -10039,10 +10039,10 @@ const WrapperIconNotification = styled__default["default"].div `
 `;
 const WrapperIconNotificationText = styled__default["default"].p `
  
- text-align: left;
- left: 5px;
+ text-align: right;
+ left: 0px;
  position: absolute;
- width: 108px;
+ width: 113px;
 `;
 const WrapperIconNotificationMobile = styled__default["default"].div `
   cursor: pointer;
@@ -11209,7 +11209,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                                             justifyContent: 'flex-start',
                                                             alignItems: 'center',
                                                             flexDirection: 'row-reverse',
-                                                            width: '130px'
+                                                            width: '140px',
                                                         }, onClick: handleOpenNotification, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), hasNewNotification ? (jsxRuntime.jsx("div", { style: { position: 'absolute', top: '0' }, children: jsxRuntime.jsx(HasNotificationIcon, {}) })) : null, ' ', jsxRuntime.jsx(WrapperIconNotificationText, { children: textNotification })] }), jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotification, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })] })] })), isMobileVersion && notification && (jsxRuntime.jsxs(WrapperIconNotificationMobile, { onClick: onClickNotification, style: {
                                             borderBottom: openNotificationMobile && windowSize[0] <= 650
                                                 ? `4px solid ${FRSTTheme['colors'].primary1}`

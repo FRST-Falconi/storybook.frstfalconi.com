@@ -35,7 +35,8 @@ export default function ThumbnailsDraggable({
   isTrail,
   txtPopOverMoveToTrails,
   txtPopOverDeleteTrail,
-  txtPopOverEditContentActivity
+  txtPopOverEditContentActivity,
+  activeMenuModule
 }: IThumbnailsTranslate) {
   return (
     <>
@@ -75,6 +76,7 @@ export default function ThumbnailsDraggable({
               handlePublicarContentCheck={handlePublicarContentCheck}
               publishContentStatus={publishContentStatus}
               handlePublicarCourse={handlePublicarCourse}
+              activeMenuModule={activeMenuModule}
             />
           )
         }}
