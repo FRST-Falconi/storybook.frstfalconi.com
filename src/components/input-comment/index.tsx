@@ -11,7 +11,7 @@ import { User } from './types'
 export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid }: IInputComment) {
   const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength } =
     useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser })
-  const showMentions = showMention && group_uuid === 'b1005836-b0a6-4a50-8147-537ebdc64a75'
+  const showMentions = showMention && ['b1005836-b0a6-4a50-8147-537ebdc64a75','413c2f36-9195-4fef-86fe-572c49049007'].includes(group_uuid)
 
   return (
     <ThemeProvider theme={FRSTTheme}>
