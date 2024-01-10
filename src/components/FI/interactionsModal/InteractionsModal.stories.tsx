@@ -20,7 +20,7 @@ Default.args = {
             id: '1',
             name: 'Carol Rodrigues',
             position: 'Tecnologia da Informação',
-            organization: 'FRST Falconi',
+            organization: 'FRST FALCONI ROAD OF SKILLS AND TALENTS TREINAMENTO E DESENVOLVIMENTO DE PESSOAS LTDA.',
             avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png',
             onClickUserInfo: () => alert('visitar perfil - 1'),
             textVisitProfile: 'visit profile'

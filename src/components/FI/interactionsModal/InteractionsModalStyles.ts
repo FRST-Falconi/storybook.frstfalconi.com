@@ -155,10 +155,12 @@ export const OrgUser = styled.div`
     line-height: 110%;
     /* or 18px */
 
-    display: flex;
-    align-items: center;
-
     /* neutrals/neutral_1 */
 
     color: #222222;
+
+    max-width: 21ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 `
