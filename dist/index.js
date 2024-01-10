@@ -15599,12 +15599,14 @@ const OrgUser = styled__default["default"].div `
     line-height: 110%;
     /* or 18px */
 
-    display: flex;
-    align-items: center;
-
     /* neutrals/neutral_1 */
 
     color: #222222;
+
+    max-width: 21ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 `;
 
 function InteractionsModal({ textTitle, textSubtitle, listUsers, isOpen, handleClickClose, newListUsers, checkScrollEnd, trackClick, style }) {
