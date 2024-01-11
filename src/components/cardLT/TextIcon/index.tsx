@@ -46,11 +46,11 @@ export default function TextIcon(props: TextIconParams) {
     <>    
       <div className={style.container} style={{...props.style }}>
     
-        <div style={{display: 'flex',  width: '100%', justifyContent: 'flex-start', alignItems: props.flexStart? 'flex-start' : 'center'}}>          
-          <div style={{display:props.flexStart? "inline" : 'inline-flex', position: 'relative', justifyContent: 'center', alignItems:props.flexStart? 'flex-start' : 'center'}}>            
+        <div style={{display: 'flex',  width: '100%', justifyContent: 'flex-start', alignItems: props.flexStart ? 'flex-start' : 'center'}}>          
+          <div style={{display:props.flexStart ? "inline" : 'inline-flex', position: 'relative', justifyContent: 'center', alignItems:props.flexStart ? 'flex-start' : 'center'}}>            
             {props.svg}
           </div>
-          <div style={{display:props.flexStart? "inline" : 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap'}}>
+          <div style={{display:props.flexStart ? "inline" : 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap'}}>
             {props.description}           
           </div>          
         </div>

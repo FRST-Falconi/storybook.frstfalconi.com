@@ -23,7 +23,7 @@ function Tooltip({
   const ref = useRef(null)
 
   useEffect(() => {
-    if(setIsActive)setIsActive(active);
+    setIsActive && setIsActive(active)
     if(!ref.current || !active) return
     if(height) setRenderHeight(height)
     if(renderHeight === '51px') setRenderHeight(ref.current.clientHeight + 'px')
