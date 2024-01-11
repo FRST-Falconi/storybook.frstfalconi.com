@@ -7,7 +7,7 @@ import { FRSTTheme } from '../../../theme';
 import { ProgressBar, ProgressItem, ContainerSteps, CicleStep, CicleStepChar, CicleStepName } from './stepsProgressStyles'
 // import { IAvatar } from './stepsProgress'
 
-export default function StepsProgress({ definedSteps, stepSelected, width = 600,colorItemWhite}) {
+export default function StepsProgress({ definedSteps, stepSelected, width = 600,colorItemWhite=false}) {
     const stepColor = definedSteps.filter(s => s.step !== 1);
 
     return (
