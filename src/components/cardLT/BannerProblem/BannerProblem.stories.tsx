@@ -24,7 +24,7 @@ ShowData.args = {
     isVerified: true,
     verifiedTooltipContent: 'Este desafio consta como verificado pois o objetivo dele está alinhado às metas da empresa a qual ele pertence',
     problema: "Aumentar o engajamento dos alunos na plataforma",
-    company: "FRST Falconi",
+    company: "FRST  FALCONI ROAD OF SKILLS AND TALENTS TREINAMENTO E DESENVOLVIMENTO DE PESSOAS LTDA.",
     topHeaderTagText: 'Convite recebido para aprovação',
     onClickUserInfo: () => alert('visitar perfil'),
     textVisitProfile: 'Visit profile',

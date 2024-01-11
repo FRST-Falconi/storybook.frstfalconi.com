@@ -9,6 +9,7 @@ export type TooltipProps = {
   height?: string
   onShow?: (event: any) => void
   onHide?: (event: any) => void
+  setIsActive?:(active: boolean)=>void
   direction?:
     | "top"
     | "right"

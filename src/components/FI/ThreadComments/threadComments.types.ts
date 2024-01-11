@@ -26,6 +26,8 @@ export interface IThreadComments {
     styles: any,
     getSearchUsers?: (value:string) =>  MentionUser[],
     relationToPhaseText?: string,
+    size?:number
+    showMoreReplysButtonText: string
 }
 
 export interface IUser {

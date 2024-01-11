@@ -158,3 +158,12 @@ export const IconLike = styled.img`
 
     // border: 0.5vw solid #0645ad;
 `
+
+export const WorkInfo = styled.span`
+    font-weight: 400;
+    font-size: 16;
+    max-width: 21ch;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+`

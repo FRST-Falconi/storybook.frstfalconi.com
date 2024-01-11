@@ -14,36 +14,20 @@ export default {
 export const Default = Template.bind({})
 
 
-const listReplyComments = [{
-    id:"02",
-    text: "Disse tudo Leticia! https://frstfalconi.com/ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type andUow, muito genial isso https://frstfalconi.com/ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and Lorem Ipsum is simply dummy text of the printing and typesetting industry.  Lorem Ipsum has been the industry's Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
-    howLongAgo: "2 horas atrás",
-    user:{
-        user_uuid: "user-00001",
-        name: "Julio Neto",
-        profile:{
-            role_name:"Gestor de Trafego",
-            company_name: "Frst Falconi",
-            avatar: "",
-        }
+const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
+    id: `reply-${index + 1}`,
+    text: `Resposta ${index + 1}: Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
+    howLongAgo: `${index + 1} horas atrás`,
+    user: {
+      user_uuid: `user-${index + 1}`,
+      name: `Usuário ${index + 1}`,
+      profile: {
+        role_name: "Cargo",
+        company_name: "Frst Falconi",
+        avatar: "",
+      },
     },
-},
-{
-    id:"03",
-    text: "sim, eu também estou ansioso com o que vem por aí!",
-    howLongAgo: "1 horas atrás",
-    mentionText: "<div><p>Este é um comentario para o usuario <span style='color: rgb(242, 104, 24);'>Joao</span> que vai ficar marcado no mentions https://frstfalconi.com/ </p></div>",
-    user:{
-        user_uuid: "user-00002",
-        name: "Lucas Silva",
-        profile:{
-            role_name:"Gestor De Finanças",
-            company_name: "Frst Falconi",
-            avatar: ""
-        }
-    },
-}
-]
+  }));
 
 
 const getSearchUsers = async (search: string): Promise<object[]> => {
@@ -78,7 +62,8 @@ Default.args = {
     showLessButtonText: "Ver Menos",
     editText: "Editar",
     deleteText: "Excluir",
-    styles: {padding: '10px'}
+    styles: {padding: '10px'},
+    showMoreReplysButtonText: "Mostrar mais respostas"
 }
 
 

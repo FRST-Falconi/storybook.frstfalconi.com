@@ -147,43 +147,56 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
   const MOBILEWIDTH = 650;
 
   return (
-
-    <>    
-      <div className={style.container} style={{...props.style }}>
-        {props.topHeaderTagText &&
+    <>
+      <div className={style.container} style={{ ...props.style }}>
+        {props.topHeaderTagText && (
           <SpanHeaderTag background={props.topHeaderTagBgColor} color={props.topHeaderTagColor}>
-              {props.topHeaderTagText}
+            {props.topHeaderTagText}
           </SpanHeaderTag>
-        }
-        <div style={{width: '100%', display: 'flex', justifyContent:'space-between', flexDirection: 'row', alignItems:'center'}}>
+        )}
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            alignItems: 'center'
+          }}
+        >
           <span className={style.titleProblem}>
             {showChallengeTitle()}
-            {props.isVerified &&
+            {props.isVerified && (
               <Tooltip
                 direction="bottom"
                 content={props.verifiedTooltipContent}
-                trigger='hover'
-                width='361px'
-                height='54px'
+                trigger="hover"
+                width="361px"
+                height="54px"
                 style={{ top: '10px', textAlign: 'center' }}
               >
-                <SawBadgeIcon/>
+                <SawBadgeIcon />
               </Tooltip>
-            }
+            )}
           </span>
-          {
-            props.isEditable &&
-            <Button 
-              label={Edit ? (props.textButtonLinkEditSave ? props.textButtonLinkEditSave : "Salvar Alterações"): (props.textButtonLinkEdit ? props.textButtonLinkEdit : "Editar")}
-              variant='link' 
+          {props.isEditable && (
+            <Button
+              label={
+                Edit
+                  ? props.textButtonLinkEditSave
+                    ? props.textButtonLinkEditSave
+                    : 'Salvar Alterações'
+                  : props.textButtonLinkEdit
+                  ? props.textButtonLinkEdit
+                  : 'Editar'
+              }
+              variant="link"
               handleClick={() => handleEdit()}
               startIcon={<EditIcon />}
             />
-          }
+          )}
         </div>
-        {
-          Edit ?
-            <div
+        {Edit ? (
+          <div
             style={{
               marginTop: '8px',
               marginBottom: '8px',
@@ -192,233 +205,295 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
               borderRadius: '8px',
               padding: '24px 16px',
               width: '100%'
-            }}>
-              <div
-                id={"idEdit-fieldTitleProblem"}
-                data-gramm="false" 
-                contentEditable="true" 
-                role="textbox" 
-                aria-multiline="true"
-                suppressContentEditableWarning={true}
-                style={{              
-                  fontStyle: 'normal',
-                  fontWeight: '600',
-                  fontSize: '32px',
-                  textAlign: 'left',
-                  display: 'flex',
-                  width: '100%',
-                  color: '#FF4D0D',
-                  backgroundColor: 'rgb(242, 242, 242)',
-                  border: 'none',
-                  wordBreak: 'break-word',
-                }}
-                >
-                  {TituloProblema}
-              </div>
+            }}
+          >
+            <div
+              id={'idEdit-fieldTitleProblem'}
+              data-gramm="false"
+              contentEditable="true"
+              role="textbox"
+              aria-multiline="true"
+              suppressContentEditableWarning={true}
+              style={{
+                fontStyle: 'normal',
+                fontWeight: '600',
+                fontSize: '32px',
+                textAlign: 'left',
+                display: 'flex',
+                width: '100%',
+                color: '#FF4D0D',
+                backgroundColor: 'rgb(242, 242, 242)',
+                border: 'none',
+                wordBreak: 'break-word'
+              }}
+            >
+              {TituloProblema}
             </div>
-          :
-            <h1 className={style.description}>{TituloProblema}</h1>
-
-        }
-        <div style={{display: 'flex', justifyContent: 'space-between', position: 'relative', width: '100%', borderBottom: '1px solid #CCCCCC'}}>
-          <div style={{display: 'inline-flex', width: '100%'}}>
-            <div style={{width:'100%', maxWidth: 600}}>
-              <div style={{display: 'flex', flexDirection: 'column', width: 'fit-content', paddingTop: '16px'}}>
+          </div>
+        ) : (
+          <h1 className={style.description}>{TituloProblema}</h1>
+        )}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            position: 'relative',
+            width: '100%',
+            borderBottom: '1px solid #CCCCCC'
+          }}
+        >
+          <div style={{ display: 'inline-flex', width: '100%' }}>
+            <div style={{ width: '100%', maxWidth: 600 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', width: 'fit-content', paddingTop: '16px' }}>
                 <span className={style.created}>{props.dataCriacao}</span>
-                {props.onClickUserInfo ?
+                {props.onClickUserInfo ? (
                   <Tooltip
                     direction="bottom"
                     content={props.textVisitProfile ? props.textVisitProfile : 'Visitar perfil'}
-                    trigger='hover'
-                    width='101px'
-                    height='32px'
+                    trigger="hover"
+                    width="101px"
+                    height="32px"
                     style={{ top: '10px', textAlign: 'center' }}
                   >
-                    <AvatarWithInfo 
-                      cargo={props.cargo} 
-                      nomeCompleto={props.nome} 
-                      fotoAvatar={props.avatar} 
-                      style={{marginBottom: 8, marginTop:24, cursor: props.onClickUserInfo ? 'pointer' : 'auto'}}                      
-                      onClick={() => props.onClickUserInfo ? props.onClickUserInfo() : {}}  
+                    <AvatarWithInfo
+                      cargo={props.cargo}
+                      nomeCompleto={props.nome}
+                      fotoAvatar={props.avatar}
+                      style={{ marginBottom: 8, marginTop: 24, cursor: props.onClickUserInfo ? 'pointer' : 'auto' }}
+                      onClick={() => (props.onClickUserInfo ? props.onClickUserInfo() : {})}
                     />
                   </Tooltip>
-                : 
-                  <AvatarWithInfo cargo={props.cargo} nomeCompleto={props.nome} fotoAvatar={props.avatar} style={{marginBottom: 8, marginTop:24}} />
-                }
+                ) : (
+                  <AvatarWithInfo
+                    cargo={props.cargo}
+                    nomeCompleto={props.nome}
+                    fotoAvatar={props.avatar}
+                    style={{ marginBottom: 8, marginTop: 24 }}
+                  />
+                )}
               </div>
-              <TextIcon description={props.area} svg={<Brain />}/>
-              
-              {props.company && <TextIcon style={{width: '80%'}} description={props.company} svg={<CompanyIcon />} />}
+              <TextIcon style={{margin:'10px'}} description={props.area} svg={<Brain />} />
 
-              <TextIcon description={adapterEmail(props.email, size[0])} svg={<Mail />}/>
-              {
-                Edit && props.isVisibleEditTrail ? 
+              {props.company && <TextIcon style={{ width: '80%', margin:'10px'}} flexStart description={props.company} svg={<CompanyIcon />} />}
+
+              <TextIcon style={{margin:'10px'}} description={adapterEmail(props.email, size[0])} svg={<Mail />} />
+              {Edit && props.isVisibleEditTrail ? (
                 <>
-                  <div style={{marginTop: 12, backgroundColor: '#F2F2F2', borderWidth: 1, borderRadius: 4, padding: '24px 16px 24px 16px', border: '1px solid #BDBDBD'}}>
-                    <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>{props.textTrailLabel ? props.textTrailLabel : 'Deseja vincular este novo problema a uma Trilha de Aprendizagem?'}</h3>
-                    <Select 
-                      id={"select"}
+                  <div
+                    style={{
+                      marginTop: 12,
+                      backgroundColor: '#F2F2F2',
+                      borderWidth: 1,
+                      borderRadius: 4,
+                      padding: '24px 16px 24px 16px',
+                      border: '1px solid #BDBDBD'
+                    }}
+                  >
+                    <h3 style={{ marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }}>
+                      {props.textTrailLabel
+                        ? props.textTrailLabel
+                        : 'Deseja vincular este novo problema a uma Trilha de Aprendizagem?'}
+                    </h3>
+                    <Select
+                      id={'select'}
                       styles={customStyles}
-                      options={props.trilhaData ? props.trilhaData : []} 
-                      value={props.trilhaData.filter(function(temp) {return temp.value === TrilhaId})} 
-                      placeholder={props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha'}    
-                      onChange={e => {
+                      options={props.trilhaData ? props.trilhaData : []}
+                      value={props.trilhaData.filter(function (temp) {
+                        return temp.value === TrilhaId
+                      })}
+                      placeholder={props.placeholderSelectTrail ? props.placeholderSelectTrail : 'Selecione uma trilha'}
+                      onChange={(e) => {
                         setTrilhaId(e.value)
                         setTrilhaDescricaoSelecionada(e.label)
-                      }}               
-                    /> 
+                      }}
+                    />
                   </div>
                 </>
-                :
+              ) : (
                 <>
-                {
-                  TrilhaBanner === '' ?
-                    <TextIcon description={props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha'} svg={<WithoutTrail />}/> 
-                  :
-                    <TextIcon description={TrilhaBanner} svg={<WithTrail />}/>   
-                }
+                  {TrilhaBanner === '' ? (
+                    <TextIcon style={{margin:'10px'}}
+                      description={
+                        props.textIconDescription ? props.textIconDescription : 'Ainda não está vinculado a uma trilha'
+                      }
+                      svg={<WithoutTrail />}
+                    />
+                  ) : (
+                    <TextIcon style={{margin:'10px'}} description={TrilhaBanner} svg={<WithTrail />} />
+                  )}
                 </>
-              }
-              
-              <div style={{ marginTop: 16, marginBottom: 26, maxWidth: !Edit ? '400px': '100%'}}>
-                {
-                  Edit && props.isVisibleEditTags ? 
+              )}
+
+              <div style={{ marginTop: 16, marginBottom: 26, maxWidth: !Edit ? '400px' : '100%' }}>
+                {Edit && props.isVisibleEditTags ? (
                   <>
                     <div className={style.contentInput}>
-                      <h3 style={{marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16}}>{props.textContentInput ? props.textContentInput : 'Busque e selecione até três palavras-chave:'}</h3>
-                      
-                      <Select 
-                        id={"select"}
+                      <h3 style={{ marginBottom: 12, textAlign: 'left', width: '100%', fontSize: 16 }}>
+                        {props.textContentInput
+                          ? props.textContentInput
+                          : 'Busque e selecione até três palavras-chave:'}
+                      </h3>
+
+                      <Select
+                        id={'select'}
                         styles={customStyles}
                         options={tagListShow}
-                        value={tagListShow.filter(function(temp) {return temp.value === Tag1})} 
-                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}    
-                        onChange={e => {setTag1(e.value) }}
-                      /> 
-                      <Select 
-                        id={"select"}
+                        value={tagListShow.filter(function (temp) {
+                          return temp.value === Tag1
+                        })}
+                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}
+                        onChange={(e) => {
+                          setTag1(e.value)
+                        }}
+                      />
+                      <Select
+                        id={'select'}
                         styles={customStyles}
                         options={tagListShow}
-                        value={tagListShow.filter(function(temp) {return temp.value === Tag2})} 
-                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}    
-                        onChange={e => {setTag2(e.value)}}               
-                      />       
-                      <Select 
-                        id={"select"}
+                        value={tagListShow.filter(function (temp) {
+                          return temp.value === Tag2
+                        })}
+                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}
+                        onChange={(e) => {
+                          setTag2(e.value)
+                        }}
+                      />
+                      <Select
+                        id={'select'}
                         styles={customStyles}
                         options={tagListShow}
-                        value={tagListShow.filter(function(temp) {return temp.value === Tag3})} 
-                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}    
-                        onChange={e => {setTag3(e.value)}}
-                      />                       
+                        value={tagListShow.filter(function (temp) {
+                          return temp.value === Tag3
+                        })}
+                        placeholder={props.placeholderSelectTag ? props.placeholderSelectTag : 'Selecione uma Tag'}
+                        onChange={(e) => {
+                          setTag3(e.value)
+                        }}
+                      />
                     </div>
                   </>
-                  :
+                ) : (
                   <>
-                      {
-                        Tags?.map((item, key) => (
-                          item &&
-                           <Tag title={item} style={{ color: '#000 !important', marginRight: 8, marginTop: 8 }} color={"#E4E1FF"} selected={false} inverted={false} key={key}/>  
-                        ))
-                      }
+                    {Tags?.map(
+                      (item, key) =>
+                        item && (
+                          <Tag
+                            title={item}
+                            style={{ color: '#000 !important', marginRight: 8, marginTop: 8 }}
+                            color={'#E4E1FF'}
+                            selected={false}
+                            inverted={false}
+                            key={key}
+                          />
+                        )
+                    )}
                   </>
-                }
-
+                )}
               </div>
-              { size[0] <= MOBILEWIDTH || Edit ? 
-                  <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', width: '100%'}} >
-                    <Rating 
-                      titulo={props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto'}
-                      descricaoAvaliacao={props.descriptionImpacto}
-                      qtdeAvaliacao={props.qtdeAvaliacao}
-                      nota={props.notaAvaliacao}
-                      tipoVisualizacao={1}
-                      style={{margin: 0}}
-                      nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
+              {size[0] <= MOBILEWIDTH || Edit ? (
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'flex-start',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    width: '100%'
+                  }}
+                >
+                  <Rating
+                    titulo={props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto'}
+                    descricaoAvaliacao={props.descriptionImpacto}
+                    qtdeAvaliacao={props.qtdeAvaliacao}
+                    nota={props.notaAvaliacao}
+                    tipoVisualizacao={1}
+                    style={{ margin: 0 }}
+                    nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
+                  />
+                  <Rating
+                    titulo={props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância'}
+                    descricaoAvaliacao={props.descriptionRelevancia}
+                    qtdeAvaliacao={props.qtdeRelevancia}
+                    nota={props.notaRelevancia}
+                    tipoVisualizacao={1}
+                    style={{ margin: 0 }}
+                    nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
+                  />
+                  {props.curtidas && (
+                    <RatingCurtidas
+                      titulo={props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas'}
+                      qtdeCurtidas={props.curtidas}
+                      tipoBotao={2}
+                      style={{ margin: 0 }}
+                      descricaoCurtida={props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas'}
                     />
-                    <Rating 
-                      titulo={props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância'}
-                      descricaoAvaliacao={props.descriptionRelevancia}
-                      qtdeAvaliacao={props.qtdeRelevancia}
-                      nota={props.notaRelevancia}
-                      tipoVisualizacao={1}
-                      style={{margin: 0}}
-                      nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
-                    />            
-                    {props.curtidas &&
-                      <RatingCurtidas 
-                        titulo={props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas'}
-                        qtdeCurtidas={props.curtidas}
-                        tipoBotao={2}
-                        style={{margin:0}}
-                        descricaoCurtida={props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas'}
-                      />
+                  )}
+                </div>
+              ) : null}
+              <div style={{ display: 'flex', flexDirection: 'row', gap: '32px' }}>
+                {props.showButtonInvite && (
+                  <Button
+                    variant="link"
+                    label={props.textGoalInviteBtn}
+                    startIcon={
+                      <div style={{ width: '26px', marginBottom: '-2px', marginRight: '8px' }}>
+                        <GoalInviteIcon width="26px" height="26px" />
+                      </div>
                     }
-                  </div>
-                : null
-              }
-              <div style={{display: 'flex', flexDirection: 'row', gap: '32px'}}>
-                {props.showButtonInvite &&
-                    <Button
-                      variant='link'
-                      label={props.textGoalInviteBtn}
-                      startIcon={
-                        <div style={{width: '26px', marginBottom:'-2px', marginRight: '8px'}}>
-                          <GoalInviteIcon width='26px' height='26px'/>
-                        </div>
-                      }
-                      handleClick={props.onClickMessage}
-                      style={{paddingTop: '0px', paddingBottom: '16px'}}
-                    />
-                }
-                {props.showButtonViews &&
-                    <Button
-                      variant='link'
-                      label={props.textGoalViewsBtn}
-                      startIcon={
-                        <div style={{width: '20px', marginBottom:'-1px', marginRight: '8px'}}>
-                          <GoalViewsIcon width='20px'/>
-                        </div>
-                      }
-                      handleClick={props.onClickViewsBtn}
-                      style={{paddingTop: '0px', paddingBottom: '16px'}}
-                    />
-                }
+                    handleClick={props.onClickMessage}
+                    style={{ paddingTop: '0px', paddingBottom: '16px' }}
+                  />
+                )}
+                {props.showButtonViews && (
+                  <Button
+                    variant="link"
+                    label={props.textGoalViewsBtn}
+                    startIcon={
+                      <div style={{ width: '20px', marginBottom: '-1px', marginRight: '8px' }}>
+                        <GoalViewsIcon width="20px" />
+                      </div>
+                    }
+                    handleClick={props.onClickViewsBtn}
+                    style={{ paddingTop: '0px', paddingBottom: '16px' }}
+                  />
+                )}
               </div>
             </div>
 
-            { size[0] > MOBILEWIDTH && Edit === false ?
-              <div style={{position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%'}} id='avaliations-banner-problem'>
-                <Rating 
-                  titulo={props.ratingTitleImpact ? props.ratingTitleImpact :'Impacto'}
+            {size[0] > MOBILEWIDTH && Edit === false ? (
+              <div
+                style={{ position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }}
+                id="avaliations-banner-problem"
+              >
+                <Rating
+                  titulo={props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto'}
                   descricaoAvaliacao={props.descriptionImpacto}
                   qtdeAvaliacao={props.qtdeAvaliacao}
                   nota={props.notaAvaliacao}
                   tipoVisualizacao={1}
                   nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
                 />
-                <Rating 
+                <Rating
                   titulo={props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância'}
                   descricaoAvaliacao={props.descriptionRelevancia}
                   qtdeAvaliacao={props.qtdeRelevancia}
                   nota={props.notaRelevancia}
                   tipoVisualizacao={1}
                   nomeAvaliacao={props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação'}
-                />            
-                {props.curtidas &&
-                  <RatingCurtidas 
+                />
+                {props.curtidas && (
+                  <RatingCurtidas
                     titulo={props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas'}
                     qtdeCurtidas={props.curtidas}
                     tipoBotao={2}
                     descricaoCurtida={props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas'}
                   />
-                }
-              </div> 
-              : null
-            }       
+                )}
+              </div>
+            ) : null}
           </div>
         </div>
-        
+
         {/* <StepMission 
           stepProblem={props.stepProblem}
           stepActive={props.stepActive}
@@ -429,31 +504,37 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
           idioma={Idioma}
           
         /> */}
-        <div  style={{ width:'100%', display: 'flex', flexDirection: 'column'}}>
-          <div style={{ marginTop:'20px'}}>
-            <ButtonsProcessSteps 
-                idioma={Idioma}
-                definedSteps={props?.stepProblem}
-                selectedStep={selectedStep}
-                setSelectedStep={(e) => {
-                  setSelectedStep(e)
-                  props?.onSelectedStep(e)
-                }}
-                hasContinueProps={props?.hasContinueButton}
-                onClickContinue={() => props.onClickContinue()}
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
+          <div style={{ marginTop: '20px' }}>
+            <ButtonsProcessSteps
+              idioma={Idioma}
+              definedSteps={props?.stepProblem}
+              selectedStep={selectedStep}
+              setSelectedStep={(e) => {
+                setSelectedStep(e)
+                props?.onSelectedStep(e)
+              }}
+              hasContinueProps={props?.hasContinueButton}
+              onClickContinue={() => props.onClickContinue()}
             />
           </div>
-          <div  style={{ width:'100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px'}}>
-            <StepsProgress
-                definedSteps={definedSteps}
-                stepSelected={selectedStep}
-            />
+          <div style={{ width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }}>
+            <StepsProgress definedSteps={definedSteps} stepSelected={selectedStep} />
           </div>
         </div>
-        <div style={{marginTop: 18, width: '100%', borderRadius: 8, border: '1px solid #BDBDBD', padding: 16, paddingLeft: 32, paddingRight: 32}}>
+        <div
+          style={{
+            marginTop: 18,
+            width: '100%',
+            borderRadius: 8,
+            border: '1px solid #BDBDBD',
+            padding: 16,
+            paddingLeft: 32,
+            paddingRight: 32
+          }}
+        >
           {props.children}
-        </div>        
-
+        </div>
       </div>
     </>
   )
