@@ -1,5 +1,5 @@
 import { CommentaryBoxV2 } from '@components/commentaryBoxV2'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import * as Styled from './threadComments.styles'
 import { IThreadComments } from './threadComments.types'
 import { CommentaryBoxReply } from './utilitiesComponents/commentaryBoxReply'
@@ -20,20 +20,33 @@ export const ThreadComments = ({
   showMoreButtonText,
   showLessButtonText,
   styles,
-  relationToPhaseText
+  relationToPhaseText,
+  size = 5,
+  showMoreReplysButtonText
 }: IThreadComments) => {
-  const [showAnswers, setShowAnswers] = useState(false)
+  const [showAnswers, setShowAnswers] = useState(false);
+  const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0);
   const [showReplyInput, setShowReplyInput] = useState(false)
   const [showInputByIdReply, setShowInputByIdReply] = useState<string[]>([])
+  const [visibleReplies, setVisibleReplies] = useState(0);
+
+  const handleLoadMoreReplies = () => {
+    if (showReplysOnClickCounter === 0) {
+      setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size);
+    }
+    setReplysOnClickCounter((prevShowReplysOnClickCounter) => prevShowReplysOnClickCounter + 1);
+    if (showReplysOnClickCounter >= 1) {
+      setVisibleReplies(listReplyComments.length);
+    }
+    setShowAnswers(true);
+  }
 
   const handleHiddenInput = () => {
-    setShowReplyInput(false);
+    setShowReplyInput(false)
   }
 
   const handleHiddenInputReply = (idReplyToRemove: string) => {
-    setShowInputByIdReply(prevShowInputByIdReply =>
-      prevShowInputByIdReply.filter(id => id !== idReplyToRemove)
-    );
+    setShowInputByIdReply((prevShowInputByIdReply) => prevShowInputByIdReply.filter((id) => id !== idReplyToRemove))
   }
 
   const handleCommentReply = () => {
@@ -69,9 +82,9 @@ export const ThreadComments = ({
             commentTextWithMention={mainComment.mentionText}
           />
 
-          {listReplyComments?.length > 0 && !showAnswers && (
+          {listReplyComments.length > visibleReplies && (
             <Styled.ViewReplysButtonContainer>
-              <span onClick={() => setShowAnswers(true)}>{showReplysButtonText}</span>
+              <span onClick={handleLoadMoreReplies}>{showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText}</span>
             </Styled.ViewReplysButtonContainer>
           )}
 
@@ -93,39 +106,35 @@ export const ThreadComments = ({
           )}
         </div>
 
-        {showAnswers && (
+        {showAnswers && visibleReplies && (
           <Styled.RepplysContainer>
-            {listReplyComments?.map((replyComment) => {
-              return (
-                <>
-                  <CommentaryBoxReply
-                    commentData={replyComment}
-                    // answerButtonText={answerButtonText}
-                    answerButtonText={''}
-                    showMoreButtonText={showMoreButtonText}
-                    showLessButtonText={showLessButtonText}
-                    onClickAnswerButton={handleCommentReplyReply}
+            {listReplyComments.slice(0, visibleReplies).map((replyComment) => (
+              <Fragment key={replyComment.id}>
+                <CommentaryBoxReply
+                  commentData={replyComment}
+                  answerButtonText={''}
+                  showMoreButtonText={showMoreButtonText}
+                  showLessButtonText={showLessButtonText}
+                  onClickAnswerButton={handleCommentReplyReply}
+                />
+                {showInputByIdReply.includes(replyComment.id) && (
+                  <InputReply
+                    imgProfile={loggedUserProfileImg}
+                    styles={{ width: '100%', marginTop: '24px' }}
+                    idInput={`idInput-${replyComment.id}`}
+                    placeHolderText={placeHolderText}
+                    publishButtonText={publishButtonText}
+                    limitInput={limitInputs}
+                    onClickPublishButton={onClickPublishButton}
+                    replyMentionedUser={replyComment.user}
+                    getSearchUsers={getSearchUsers}
+                    parentId={Number(mainComment.id)}
+                    handleHiddenInput={(replyId = replyComment.id) => handleHiddenInputReply(replyId)}
+                    group_uuid={group_uuid}
                   />
-                  {showInputByIdReply.includes(replyComment.id) && (
-                    <InputReply
-                      imgProfile={loggedUserProfileImg}
-                      styles={{ width: '100%', marginTop: '24px' }}
-                      idInput={`idInput-${replyComment.id}`}
-                      placeHolderText={placeHolderText}
-                      publishButtonText={publishButtonText}
-                      limitInput={limitInputs}
-                      onClickPublishButton={onClickPublishButton}
-                      replyMentionedUser={replyComment.user}
-                      getSearchUsers={getSearchUsers}
-                      parentId={Number(mainComment.id)}
-                      handleHiddenInput={(replyId = replyComment.id) => handleHiddenInputReply(replyId)}
-                      group_uuid={group_uuid}
-
-                    />
-                  )}
-                </>
-              )
-            })}
+                )}
+              </Fragment>
+            ))}
           </Styled.RepplysContainer>
         )}
       </Styled.CommentarysContainer>

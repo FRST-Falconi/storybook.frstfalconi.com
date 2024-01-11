@@ -21,6 +21,8 @@ interface TextIconParams {
     * @prop {React.CSSProperties} style: Styles de CSS adicional
     */  
   style?: React.CSSProperties;
+
+  flexStart?: boolean;
 }
 
 ///-----------------------------------------
@@ -44,11 +46,11 @@ export default function TextIcon(props: TextIconParams) {
     <>    
       <div className={style.container} style={{...props.style }}>
     
-        <div style={{display: 'flex',  width: '100%', justifyContent: 'flex-start', alignItems: 'center'}}>          
-          <div style={{display: 'inline-flex', width: 30, height: 30, position: 'relative', justifyContent: 'center', alignItems: 'center'}}>            
+        <div style={{display: 'flex',  width: '100%', justifyContent: 'flex-start', alignItems: props.flexStart? 'flex-start' : 'center'}}>          
+          <div style={{display:props.flexStart? "inline" : 'inline-flex', position: 'relative', justifyContent: 'center', alignItems:props.flexStart? 'flex-start' : 'center'}}>            
             {props.svg}
           </div>
-          <div style={{display: 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap'}}>
+          <div style={{display:props.flexStart? "inline" : 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap'}}>
             {props.description}           
           </div>          
         </div>

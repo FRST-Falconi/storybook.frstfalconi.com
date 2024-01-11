@@ -40,3 +40,15 @@ terciary.args = {
     alert('Click')
   }
 }
+
+export const activePrimary = Template.bind({})
+activePrimary.args = {
+  variant: 'active-primary',
+  label: 'Button text',
+  disabled: false,
+  active: false,
+  tooltipText: "Tooltip text",
+  onClick: () => {
+    alert('Click')
+  }
+}

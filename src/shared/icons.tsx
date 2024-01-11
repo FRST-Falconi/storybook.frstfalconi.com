@@ -603,7 +603,7 @@ export function Brain({ fill, width, height }: IconsProps) {
 
 export function CompanyIcon({ fill, width, height }: IconsProps) {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width? width : "20"} height={height? height : "20"} viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M2.5 17.5H1.9V18.1H2.5V17.5ZM2.5 2.5V1.9C2.16863 1.9 1.9 2.16863 1.9 2.5H2.5ZM10.5 2.5H11.1C11.1 2.16863 10.8314 1.9 10.5 1.9V2.5ZM17.5 8.5H18.1C18.1 8.16863 17.8314 7.9 17.5 7.9V8.5ZM17.5 17.5V18.1H18.1V17.5H17.5ZM3.1 17.5V2.5H1.9V17.5H3.1ZM2.5 3.1H10.5V1.9H2.5V3.1ZM9.9 2.5V17H11.1V2.5H9.9ZM11 9.1H17.5V7.9H11V9.1ZM16.9 8.5V17.5H18.1V8.5H16.9ZM17.5 16.9H2.5V18.1H17.5V16.9Z"
         fill="black"
