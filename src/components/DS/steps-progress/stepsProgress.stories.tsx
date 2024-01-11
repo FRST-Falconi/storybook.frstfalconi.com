@@ -24,5 +24,6 @@ normal.args = {
         // { step: 6, active: false, current: false, name: 'NOME', action: () => selectStep(6)},
         // { step: 7, active: false, current: false, name: 'NOME', action: () => selectStep(7)},
     ],
-    stepSelected: 2
+    stepSelected: 2,
+    colorItemWhite:true
 }

@@ -2091,9 +2091,14 @@ const CicleStepName = styled__default["default"](material.Box) `
     margin-top: 20px;
     width: 70px;
     text-align: center;
-    color: ${({ variant }) => variant == 'disabled' ? ('#757575') : (variant == 'selected' ? '#F26818' : '#222')};
+    color: ${({ variant }) => variant == 'disabled' ? ('#757575') : (variant == 'selected' ? '#F26818' : (variant == 'white' ? '#FFF' : '#222'))};
     font-weight: ${({ variant }) => variant == 'selected' ? '600' : '400'};
     cursor: ${({ variant }) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+
+    ${({ colorItemWhite }) => colorItemWhite &&
+    `
+    color:#fff;
+    `}
 
     @media (max-width: 400px) {        
         font-size: 10px;
@@ -2101,7 +2106,7 @@ const CicleStepName = styled__default["default"](material.Box) `
 `;
 
 // import { IAvatar } from './stepsProgress'
-function StepsProgress({ definedSteps, stepSelected, width = 600 }) {
+function StepsProgress({ definedSteps, stepSelected, width = 600, colorItemWhite = false }) {
     const stepColor = definedSteps.filter(s => s.step !== 1);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(ProgressBar$2, { children: stepColor && Array.isArray(stepColor) ?
                     stepColor.map((item, index) => jsxRuntime.jsx(ProgressItem$1, { active: item?.active }, index))
@@ -2109,13 +2114,13 @@ function StepsProgress({ definedSteps, stepSelected, width = 600 }) {
                     definedSteps.map((item, index) => {
                         return (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(item?.step == stepSelected) &&
                                     jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'selected' }), (!(item?.step == stepSelected) && item?.active) &&
-                                    jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'normal' }), (!item?.active) &&
+                                    jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'normal', colorItemWhite: colorItemWhite }), (!item?.active) &&
                                     jsxRuntime.jsx(StepItem, { index: index, name: item?.name, action: item?.action, step: item?.step, variant: 'disabled' })] }));
                     })
                     : null })] }));
 }
-function StepItem({ index, name, action, step, variant }) {
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { variant: variant }), jsxRuntime.jsx(CicleStepChar, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
+function StepItem({ index, name, action, step, variant, colorItemWhite = false }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { variant: variant }), jsxRuntime.jsx(CicleStepChar, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { variant: variant, colorItemWhite: colorItemWhite, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
 }
 
 var css_248z$k = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
