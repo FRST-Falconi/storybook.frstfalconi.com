@@ -61,7 +61,7 @@ export const InputText = styled.div<TextArea>`
     background-color: inherit;
 
     padding: 0;
-    margin: 10px 4px 40px 15px;
+    margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
     border: none;    
 `
 

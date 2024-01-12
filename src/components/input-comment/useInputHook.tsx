@@ -193,7 +193,6 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
     const clearDivContent = () => {
 
         if (!divInputRef.current) return;
-        setPlaceholder(false)
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
@@ -202,8 +201,9 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             // loop over all child element and check if they are empty
             let isEmpty = true;
             divInputRef.current.childNodes.forEach((child) => {
-                if (child.textContent !== '') {
+                if (child.textContent !== '' && child.textContent != placeholder) {
                     isEmpty = false;
+                    setPlaceholder(false)
                 }
             })
 
@@ -221,6 +221,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             p.appendChild(br);
             divInputRef.current.innerHTML = '';
             divInputRef.current.appendChild(p);
+            setPlaceholder(false)
 
         }
 

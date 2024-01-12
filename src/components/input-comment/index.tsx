@@ -46,10 +46,12 @@ export default function InputComment({ placeholder, onChange, limit, users, show
 
         </Styles.InputWrapper>
         <Styles.HelperContainer >
-        {showCharacterCounter &&
+        {!isPlaceholder ?
           <Styles.HelperText  isInputLimit={styleLimitExceeded}>
             {textLength}/{limit}
           </Styles.HelperText>
+          :
+          <></>
         }
         </Styles.HelperContainer>
         {styleLimitExceeded && (

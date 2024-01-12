@@ -3228,7 +3228,7 @@ const InputText$4 = styled__default["default"].div `
     background-color: inherit;
 
     padding: 0;
-    margin: 10px 4px 40px 15px;
+    margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
     border: none;    
 `;
 styled__default["default"].div `
@@ -3449,7 +3449,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const clearDivContent = () => {
         if (!divInputRef.current)
             return;
-        setPlaceholder(false);
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
@@ -3459,8 +3458,9 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             // loop over all child element and check if they are empty
             let isEmpty = true;
             divInputRef.current.childNodes.forEach((child) => {
-                if (child.textContent !== '') {
+                if (child.textContent !== '' && child.textContent != placeholder) {
                     isEmpty = false;
+                    setPlaceholder(false);
                 }
             });
             // if they are empty show the placeholder
@@ -3477,6 +3477,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             p.appendChild(br);
             divInputRef.current.innerHTML = '';
             divInputRef.current.appendChild(p);
+            setPlaceholder(false);
         }
     };
     React.useEffect(() => {
@@ -3707,8 +3708,10 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
                             }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMentions && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
-                            } })] }), jsxRuntime.jsx(HelperContainer, { children: showCharacterCounter &&
-                        jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] }) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
+                            } })] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder ?
+                        jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] })
+                        :
+                            jsxRuntime.jsx(jsxRuntime.Fragment, {}) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
 }
 
 const HeaderWrapper$1 = styled__default["default"].div `
