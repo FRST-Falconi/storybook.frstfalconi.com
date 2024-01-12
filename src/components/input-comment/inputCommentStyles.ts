@@ -10,6 +10,7 @@ interface Wrapper {
     disabled?: boolean,
     focus?: boolean,
     isPlaceholder?: boolean
+    isInputLimit?: boolean
 }
 
 interface IEmojiWindow {
@@ -18,7 +19,8 @@ interface IEmojiWindow {
 }
 interface TextArea {
     height?: string
-    isPlaceholder?: boolean
+    isPlaceholder?: boolean;
+        
 }
 
 export const InputWrapper = styled.div<Wrapper>`
@@ -27,8 +29,7 @@ export const InputWrapper = styled.div<Wrapper>`
     width: 100%;
     min-height: '99px';
     position: 'relative';
-    background-color: ${({ theme }) => theme.colors.neutralsGrey9};
-    
+    background-color: ${({ theme, isInputLimit }) => !isInputLimit ? theme.colors.neutralsGrey9: theme.colors.inputError};
     
     border-radius: 24px;
 
@@ -36,11 +37,12 @@ export const InputWrapper = styled.div<Wrapper>`
 
   
 
-    border: ${({ theme, isPlaceholder }) => !isPlaceholder ? `2px solid ${theme.colors.neutralsGrey5} !important`: `1px solid ${theme.colors.neutralsGrey5} !important`};
-
+    border: ${({ theme, isPlaceholder, isInputLimit }) => isInputLimit ? `2px solid ${theme.colors.messageError3} !important` : !isPlaceholder ? `1px solid ${theme.colors.neutralsGrey5} !important`: `1px solid ${theme.colors.neutralsGrey5} !important`};
+    
     &:hover {
-        border: 2px solid ${({ theme }) => theme.colors.neutralsGrey5} !important;
+        border: 2px solid ${({ theme, isInputLimit }) => isInputLimit ? theme.colors.messageError3 : theme.colors.neutralsGrey5} !important;
     }
+    
 `
 
 export const InputText = styled.div<TextArea>`
@@ -56,10 +58,10 @@ export const InputText = styled.div<TextArea>`
     letter-spacing: -0.02em;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
-    
+    background-color: inherit;
 
     padding: 0;
-    margin: 14px;
+    margin: 10px 4px 40px 15px;
     border: none;    
 `
 
@@ -81,7 +83,10 @@ export const SmileIcon = styled.div`
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 `
-
+export const HelperContainer = styled.div`
+    position:relative;
+    padding: 5px;
+`
 export const HelperText = styled.span<{isInputLimit?:boolean}>`
     display: flex;
     position: absolute;
@@ -92,12 +97,13 @@ export const HelperText = styled.span<{isInputLimit?:boolean}>`
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-
+    
     letter-spacing: -0.02em;
 
     color: ${({ theme,isInputLimit }) => isInputLimit===true ? theme.colors.messageError3 : theme.colors.neutralsGrey2};
 
-    margin-top: 8px;
+    
+    top:-30px;
     margin-left: 13px;
 `
 
@@ -113,4 +119,17 @@ export const EmojiWindow = styled.div<IEmojiWindow>`
     border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
     position: absolute;
 `;
+export const LimitCharsContainer = styled.div`
+ display:flex;
+ justify-content: flex-start;
+ align-items: center;
+ margin-left: 10px;
+`
+
+
+export const LimitCharsExceededMessage = styled.span`
+    color: ${({ theme }) => theme.colors.linkError };
+    font-size: 12px;
+    margin-left: 5px;
+`
 // transform: scale(0.845);

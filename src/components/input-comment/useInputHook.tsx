@@ -22,7 +22,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`
     const [textLength, setTextLength] = useState(0)
     const [isPlaceholder, setPlaceholder] = useState(false)
-
+    const [styleLimitExceeded, setStyleLimitExceeded] = useState(false)
 
     const createNewRangeAndMoveCursorToTheEnd = (selection: Selection, spaceNode: Text) => {
         // Create a new range for setting the cursor position
@@ -189,25 +189,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
     }
 
-    const cutTextAfterMaxLength = () => {
-        if (textLength > limit) {
-            const selection = document.getSelection();
-            const range = document.createRange();
-            const children = Array.from(divInputRef.current?.childNodes || []);
-            children.reverse().forEach((child) => {
-                if (countChars() <= limit) return;
-                const childLength = child.textContent.length;
-                child.textContent = child.textContent.substring(0, childLength - Math.abs(limit - textLength));
-
-                range.selectNodeContents(child);
-                range.collapse(false);
-                selection.removeAllRanges();
-                selection.addRange(range);
-            });
-
-        }
-    }
-
+   
     const clearDivContent = () => {
 
         if (!divInputRef.current) return;
@@ -294,7 +276,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
     }, [focus])
 
     useEffect(() => {
-        cutTextAfterMaxLength()
+        setStyleLimitExceeded(textLength > limit)
     }, [textLength])
 
 
@@ -312,6 +294,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         mentionTopPosition,
         handleMentionUser,
         textLength,
-        isPlaceholder
+        isPlaceholder,
+        styleLimitExceeded
     }
 }

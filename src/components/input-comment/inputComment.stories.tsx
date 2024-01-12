@@ -54,5 +54,6 @@ normal.args = {
             "company_name": "Centrais Eletricas Brasileiras SA | Eletrobras"
         }
     },
-    group_uuid: 'b1005836-b0a6-4a50-8147-537ebdc64a75'
+    group_uuid: 'b1005836-b0a6-4a50-8147-537ebdc64a75',
+    limitMessageExceeded: 'Limite de caracteres excedido'
 }

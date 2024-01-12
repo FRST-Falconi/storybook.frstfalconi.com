@@ -21,6 +21,7 @@ export const ThreadComments = ({
   showLessButtonText,
   styles,
   relationToPhaseText,
+  limitMessageExceeded,
   size = 5,
   showMoreReplysButtonText
 }: IThreadComments) => {
@@ -102,6 +103,7 @@ export const ThreadComments = ({
               parentId={Number(mainComment.id)}
               handleHiddenInput={handleHiddenInput}
               group_uuid={group_uuid}
+              limitMessageExceeded={limitMessageExceeded}
             />
           )}
         </div>
@@ -131,6 +133,7 @@ export const ThreadComments = ({
                     parentId={Number(mainComment.id)}
                     handleHiddenInput={(replyId = replyComment.id) => handleHiddenInputReply(replyId)}
                     group_uuid={group_uuid}
+                    limitMessageExceeded={limitMessageExceeded}
                   />
                 )}
               </Fragment>

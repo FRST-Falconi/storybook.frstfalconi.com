@@ -3197,8 +3197,7 @@ const InputWrapper$2 = styled__default["default"].div `
     width: 100%;
     min-height: '99px';
     position: 'relative';
-    background-color: ${({ theme }) => theme.colors.neutralsGrey9};
-    
+    background-color: ${({ theme, isInputLimit }) => !isInputLimit ? theme.colors.neutralsGrey9 : theme.colors.inputError};
     
     border-radius: 24px;
 
@@ -3206,11 +3205,12 @@ const InputWrapper$2 = styled__default["default"].div `
 
   
 
-    border: ${({ theme, isPlaceholder }) => !isPlaceholder ? `2px solid ${theme.colors.neutralsGrey5} !important` : `1px solid ${theme.colors.neutralsGrey5} !important`};
-
+    border: ${({ theme, isPlaceholder, isInputLimit }) => isInputLimit ? `2px solid ${theme.colors.messageError3} !important` : !isPlaceholder ? `1px solid ${theme.colors.neutralsGrey5} !important` : `1px solid ${theme.colors.neutralsGrey5} !important`};
+    
     &:hover {
-        border: 2px solid ${({ theme }) => theme.colors.neutralsGrey5} !important;
+        border: 2px solid ${({ theme, isInputLimit }) => isInputLimit ? theme.colors.messageError3 : theme.colors.neutralsGrey5} !important;
     }
+    
 `;
 const InputText$4 = styled__default["default"].div `
     width: 100%;
@@ -3225,10 +3225,10 @@ const InputText$4 = styled__default["default"].div `
     letter-spacing: -0.02em;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
-    
+    background-color: inherit;
 
     padding: 0;
-    margin: 14px;
+    margin: 10px 4px 40px 15px;
     border: none;    
 `;
 styled__default["default"].div `
@@ -3249,6 +3249,10 @@ styled__default["default"].div `
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 `;
+const HelperContainer = styled__default["default"].div `
+    position:relative;
+    padding: 5px;
+`;
 const HelperText$2 = styled__default["default"].span `
     display: flex;
     position: absolute;
@@ -3259,12 +3263,13 @@ const HelperText$2 = styled__default["default"].span `
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-
+    
     letter-spacing: -0.02em;
 
     color: ${({ theme, isInputLimit }) => isInputLimit === true ? theme.colors.messageError3 : theme.colors.neutralsGrey2};
 
-    margin-top: 8px;
+    
+    top:-30px;
     margin-left: 13px;
 `;
 styled__default["default"].div `
@@ -3279,6 +3284,17 @@ styled__default["default"].div `
     border: 1px solid  ${({ theme }) => theme.colors.neutralsGrey4};
     position: absolute;
 `;
+const LimitCharsContainer = styled__default["default"].div `
+ display:flex;
+ justify-content: flex-start;
+ align-items: center;
+ margin-left: 10px;
+`;
+const LimitCharsExceededMessage = styled__default["default"].span `
+    color: ${({ theme }) => theme.colors.linkError};
+    font-size: 12px;
+    margin-left: 5px;
+`;
 // transform: scale(0.845);
 
 const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }) => {
@@ -3289,6 +3305,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`;
     const [textLength, setTextLength] = React.useState(0);
     const [isPlaceholder, setPlaceholder] = React.useState(false);
+    const [styleLimitExceeded, setStyleLimitExceeded] = React.useState(false);
     const createNewRangeAndMoveCursorToTheEnd = (selection, spaceNode) => {
         // Create a new range for setting the cursor position
         const newRange = document.createRange();
@@ -3429,23 +3446,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         setTextLength(count);
         return count;
     };
-    const cutTextAfterMaxLength = () => {
-        if (textLength > limit) {
-            const selection = document.getSelection();
-            const range = document.createRange();
-            const children = Array.from(divInputRef.current?.childNodes || []);
-            children.reverse().forEach((child) => {
-                if (countChars() <= limit)
-                    return;
-                const childLength = child.textContent.length;
-                child.textContent = child.textContent.substring(0, childLength - Math.abs(limit - textLength));
-                range.selectNodeContents(child);
-                range.collapse(false);
-                selection.removeAllRanges();
-                selection.addRange(range);
-            });
-        }
-    };
     const clearDivContent = () => {
         if (!divInputRef.current)
             return;
@@ -3519,7 +3519,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         clearDivContent();
     }, [focus]);
     React.useEffect(() => {
-        cutTextAfterMaxLength();
+        setStyleLimitExceeded(textLength > limit);
     }, [textLength]);
     return {
         handleInput,
@@ -3534,8 +3534,13 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         mentionTopPosition,
         handleMentionUser,
         textLength,
-        isPlaceholder
+        isPlaceholder,
+        styleLimitExceeded
     };
+};
+
+const TagAlert = ({ width = 18, height = 18, color = "#C00F00" }) => {
+    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: color, "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M8.99683 5.57153L8.99683 9.68582", stroke: color, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("ellipse", { cx: "8.99821", cy: "12.4283", rx: "0.685714", ry: "0.685145", fill: color })] }));
 };
 
 const DefaultProfile = ({ className, size = 40 }) => {
@@ -3694,16 +3699,16 @@ const Mentions = (mention) => {
                 }) }) }) }));
 };
 
-function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid }) {
-    const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
+function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
+    const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
     const showMentions = showMention && ['b1005836-b0a6-4a50-8147-537ebdc64a75', '413c2f36-9195-4fef-86fe-572c49049007'].includes(group_uuid);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMentions && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
-                            } })] }), showCharacterCounter &&
-                    jsxRuntime.jsxs(HelperText$2, { children: [textLength, "/", limit] })] }) }));
+                            } })] }), jsxRuntime.jsx(HelperContainer, { children: showCharacterCounter &&
+                        jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] }) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
 }
 
 const HeaderWrapper$1 = styled__default["default"].div `
@@ -4750,7 +4755,7 @@ const Container$g = styled__default["default"].div `
     margin-bottom:40px;
 `;
 
-const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyMentionedUser, imgProfile, styles, handleHiddenInput, group_uuid }) => {
+const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, parentId, limitInput, publishButtonText, replyMentionedUser, imgProfile, styles, handleHiddenInput, group_uuid, limitMessageExceeded }) => {
     const [comment, setComment] = React.useState('');
     const [CaptureFormattedValue, setCaptureFormattedValue] = React.useState('');
     const [captureMentions, setCaptureMentions] = React.useState([]);
@@ -4808,10 +4813,10 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
                             handleSearchUsers(e);
                         }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, 
                         //replyMentionedUser={!userMentionedOnReplied && user}
-                        group_uuid: group_uuid }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
+                        group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || comment.length > limitInput || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '15px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
 
-const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedUserProfileImg, group_uuid, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText, size = 5, showMoreReplysButtonText }) => {
+const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedUserProfileImg, group_uuid, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText, limitMessageExceeded, size = 5, showMoreReplysButtonText }) => {
     const [showAnswers, setShowAnswers] = React.useState(false);
     const [showReplysOnClickCounter, setReplysOnClickCounter] = React.useState(0);
     const [showReplyInput, setShowReplyInput] = React.useState(false);
@@ -4839,7 +4844,7 @@ const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onCli
     const handleCommentReplyReply = (idReply) => {
         setShowInputByIdReply([...showInputByIdReply, idReply]);
     };
-    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user?.avatar, itsLiked: false, userId: mainComment.user?.uuid, userName: mainComment.user?.name, userOffice: mainComment.user?.role_name, userCompany: mainComment.user?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText }), listReplyComments.length > visibleReplies && (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, imgProfile: loggedUserProfileImg, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput, group_uuid: group_uuid }))] }), showAnswers && visibleReplies && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments.slice(0, visibleReplies).map((replyComment) => (jsxRuntime.jsxs(React.Fragment, { children: [jsxRuntime.jsx(CommentaryBoxReply, { commentData: replyComment, answerButtonText: '', showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, onClickAnswerButton: handleCommentReplyReply }), showInputByIdReply.includes(replyComment.id) && (jsxRuntime.jsx(InputReply, { imgProfile: loggedUserProfileImg, styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${replyComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyMentionedUser: replyComment.user, getSearchUsers: getSearchUsers, parentId: Number(mainComment.id), handleHiddenInput: (replyId = replyComment.id) => handleHiddenInputReply(replyId), group_uuid: group_uuid }))] }, replyComment.id))) }))] }) }));
+    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { styles: { marginBottom: '8px' }, hasActionToClickOnAvatar: false, imgProfile: mainComment.user?.avatar, itsLiked: false, userId: mainComment.user?.uuid, userName: mainComment.user?.name, userOffice: mainComment.user?.role_name, userCompany: mainComment.user?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, showLikeButton: false, actionAnswer: handleCommentReply, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText }), listReplyComments.length > visibleReplies && (jsxRuntime.jsx(ViewReplysButtonContainer, { children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { width: '100%', marginTop: '24px' }, imgProfile: loggedUserProfileImg, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }))] }), showAnswers && visibleReplies && (jsxRuntime.jsx(RepplysContainer, { children: listReplyComments.slice(0, visibleReplies).map((replyComment) => (jsxRuntime.jsxs(React.Fragment, { children: [jsxRuntime.jsx(CommentaryBoxReply, { commentData: replyComment, answerButtonText: '', showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, onClickAnswerButton: handleCommentReplyReply }), showInputByIdReply.includes(replyComment.id) && (jsxRuntime.jsx(InputReply, { imgProfile: loggedUserProfileImg, styles: { width: '100%', marginTop: '24px' }, idInput: `idInput-${replyComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, replyMentionedUser: replyComment.user, getSearchUsers: getSearchUsers, parentId: Number(mainComment.id), handleHiddenInput: (replyId = replyComment.id) => handleHiddenInputReply(replyId), group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }))] }, replyComment.id))) }))] }) }));
 };
 
 const ButtonCheckmark = styled__default["default"].div `
