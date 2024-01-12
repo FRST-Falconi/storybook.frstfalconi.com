@@ -70,14 +70,20 @@ export const CicleStepChar = styled(Box)<{variant}>`
     }
 `
 
-export const CicleStepName = styled(Box)<{variant}>`
+export const CicleStepName = styled(Box)<{variant,colorItemWhite}>`
     margin-left: -10px;
     margin-top: 20px;
     width: 70px;
     text-align: center;
-    color: ${({variant}) => variant == 'disabled' ? ('#757575') : (variant == 'selected' ? '#F26818' : '#222')};
+    color: ${({variant}) => variant == 'disabled' ? ('#757575') : (variant == 'selected' ? '#F26818' : (variant == 'white' ? '#FFF' : '#222'))};
     font-weight: ${({variant}) => variant == 'selected' ? '600' : '400'};
     cursor: ${({variant}) => variant == 'disabled' ? 'not-allowed' : 'pointer'};
+
+    ${({ colorItemWhite }) =>
+    colorItemWhite &&
+    `
+    color:#fff;
+    `}
 
     @media (max-width: 400px) {        
         font-size: 10px;

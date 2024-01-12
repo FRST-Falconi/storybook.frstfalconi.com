@@ -17,7 +17,7 @@ Normal.args = {
     userAvatar: 'https://i.gyazo.com/59d6b73b26541b748ca6a5d167645746.png',
     userName: 'Rayana Gama',
     userPosition: 'Tecnologia da Informação',
-    userCompany: 'FRST Falconi',
+    userCompany: 'FRST FALCONI ROAD OF SKILLS AND TALENTS TREINAMENTO E DESENVOLVIMENTO DE PESSOAS LTDA.',
     problemTitle: 'Aumentar a venda de produto adicional na loja física',
     topHeaderTagText: 'Convite recebido para aprovação',
     problemTags: ['Customer Success', 'Experiência do usuário', 'CSAT'],

@@ -7,7 +7,7 @@ import { FRSTTheme } from '../../../theme';
 import { ProgressBar, ProgressItem, ContainerSteps, CicleStep, CicleStepChar, CicleStepName } from './stepsProgressStyles'
 // import { IAvatar } from './stepsProgress'
 
-export default function StepsProgress({ definedSteps, stepSelected, width = 600 }) {
+export default function StepsProgress({ definedSteps, stepSelected, width = 600,colorItemWhite=false}) {
     const stepColor = definedSteps.filter(s => s.step !== 1);
 
     return (
@@ -39,6 +39,8 @@ export default function StepsProgress({ definedSteps, stepSelected, width = 600 
                                     action={item?.action} 
                                     step={item?.step} 
                                     variant={'normal'}
+                                    colorItemWhite={colorItemWhite}
+
                                 /> }
                             { (!item?.active) &&
                                 <StepItem
@@ -59,7 +61,7 @@ export default function StepsProgress({ definedSteps, stepSelected, width = 600 
     )
 }
 
-function StepItem({index, name, action, step, variant}) {
+function StepItem({index, name, action, step, variant,colorItemWhite = false}) {
     return (
         <>
             <Box key={index}>
@@ -70,6 +72,7 @@ function StepItem({index, name, action, step, variant}) {
                     onClick={() => variant != 'disabled' ? action() : () => {}}>{step}</CicleStepChar>
                 <CicleStepName 
                     variant={variant}
+                    colorItemWhite={colorItemWhite}
                     onClick={() => variant != 'disabled' ? action() : () => {}}>{name}</CicleStepName>
             </Box>
     </>

@@ -358,7 +358,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                     }
                                 </span>
                                 <span style={{fontWeight: 400, fontSize: 16}}>{props.userPosition}</span>
-                                <span style={{fontWeight: 400, fontSize: 16}}>{props.userCompany}</span>
+                                <Styles.WorkInfo >{props.userCompany}</Styles.WorkInfo>
                             </Styles.userInfo>
                         </Tooltip>
                     :
@@ -379,7 +379,7 @@ export default function BannerProblemFeed(props : IBannerProblemFeed){
                                     }
                                 </span>
                                 <span style={{fontWeight: 400, fontSize: 16}}>{props.userPosition}</span>
-                                <span style={{fontWeight: 400, fontSize: 16}}>{props.userCompany}</span>
+                                <Styles.WorkInfo style={{fontWeight: 400, fontSize: 16}}>{props.userCompany}</Styles.WorkInfo>
                             </Styles.userInfo>
                         </>
                     }

@@ -5,10 +5,11 @@ interface IButton {
     disabled?: boolean
     variant: string
     active?: boolean
+    isTooltipActive?: boolean
 }
 
 export const Button = styled.div<IButton>`
-    ${({variant, disabled,active, theme}) => {
+    ${({variant, disabled,active, theme, isTooltipActive}) => {
         
         let styleVariant = {
             'primary': css`
@@ -76,7 +77,36 @@ export const Button = styled.div<IButton>`
                     background-color:  ${({theme}) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey9};
                 }
                 ${active && `color : ${theme.colors.primary1}` }
-            `    
+            `,
+            'active-primary': css`
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 4px 16px;
+            gap: 8px;
+            width: fit-content;
+            height: 37px;
+            background: ${({theme}) => disabled? theme.colors.borderPrimary : theme.colors.shadeWhite};
+            border-radius: 8px;
+            border: solid 2px ${({theme}) => disabled? theme.colors.borderPrimary: theme.colors.primary1};
+            cursor: ${disabled ? 'default' : 'pointer'};
+            font-family: PT Sans;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 21px;
+            letter-spacing: 0em;
+            text-align: left;            
+            color: ${({theme}) => disabled? theme.colors.shadeWhite : theme.colors.primary1};
+            &:hover {
+                background: ${({theme}) => disabled ? theme.colors.borderPrimary  : theme.colors.primary1};
+                color:  ${({theme}) => theme.colors.shadeWhite};
+            }
+
+            ${(isTooltipActive || active) && `color : ${theme.colors.shadeWhite};` }
+            ${(isTooltipActive || active) && `background : ${theme.colors.primary1};` }
+            ${disabled && `background : ${theme.colors.borderPrimary};` }
+            ${disabled && `color : ${theme.colors.shadeWhite};` }
+        `    
         }
 
         return styleVariant[variant]
