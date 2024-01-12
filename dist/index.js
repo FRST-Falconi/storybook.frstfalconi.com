@@ -3506,6 +3506,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         if ((!value || value.length <= 0) && !focus && !replyMentionedUser) {
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true);
+            resizeDiv();
         }
     }, [value]);
     React.useEffect(() => {
