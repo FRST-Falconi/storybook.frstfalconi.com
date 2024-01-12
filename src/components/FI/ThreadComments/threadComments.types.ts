@@ -26,7 +26,7 @@ export interface IThreadComments {
     styles: any,
     getSearchUsers?: (value:string) =>  MentionUser[],
     relationToPhaseText?: string,
-    limitMessageExceeded?: string,
+    limitMessageExceeded: string,
     size?:number,
     showMoreReplysButtonText: string
 }

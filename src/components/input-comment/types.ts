@@ -31,6 +31,6 @@ export interface MentionProps
     value?:string
     replyMentionedUser?: User
     group_uuid?: string;
-    limitMessageExceeded?: string;
+    limitMessageExceeded: string;
 }
 

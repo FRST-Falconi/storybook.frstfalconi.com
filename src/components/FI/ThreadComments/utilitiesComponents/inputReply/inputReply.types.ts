@@ -12,7 +12,7 @@ export interface IInputReply {    placeHolderText: string,
     getSearchUsers?: (value:string) =>  any,
     parentId?:number,
     handleHiddenInput: (replyId?:string)=> void;
-    limitMessageExceeded?: string;
+    limitMessageExceeded: string;
 }
 
 interface onClickPublishButtonParams {
