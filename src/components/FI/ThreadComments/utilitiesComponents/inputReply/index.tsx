@@ -108,7 +108,7 @@ export const InputReply = ({
         />
 
         <MiniButton
-          disabled={comment.length <= 0 || isLoading}
+          disabled={comment.length <= 0 || comment.length > limitInput || isLoading}
           label={publishButtonText}
           onClick={() => handlePublish()}
           variant="primary"
