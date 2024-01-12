@@ -191,7 +191,6 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
    
     const clearDivContent = () => {
-
         if (!divInputRef.current) return;
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
@@ -261,6 +260,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         if ((!value || value.length <= 0) && !focus && !replyMentionedUser) {
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true)
+            resizeDiv()
         }
     }, [value])
     useEffect(() => {
