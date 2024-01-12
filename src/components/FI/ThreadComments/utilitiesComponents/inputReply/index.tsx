@@ -18,7 +18,8 @@ export const InputReply = ({
   imgProfile,
   styles,
   handleHiddenInput,
-  group_uuid
+  group_uuid,
+  limitMessageExceeded
 }: IInputReply) => {
   const [comment, setComment] = useState<string>('');
   const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>('');
@@ -103,6 +104,7 @@ export const InputReply = ({
           users={users}
           //replyMentionedUser={!userMentionedOnReplied && user}
           group_uuid={group_uuid}
+          limitMessageExceeded={limitMessageExceeded}
         />
 
         <MiniButton
