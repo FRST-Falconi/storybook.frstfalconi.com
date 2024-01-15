@@ -86,7 +86,7 @@ export const InputReply = ({
 
   return (
     <Styled.Container>
-      <Avatar src={imgProfile} size="32px" style={{ marginTop: '55px', marginRight: '8px' }} />
+      <Avatar src={imgProfile} size="32px" style={{ marginTop: '50px', marginRight: '8px' }} />
       <Styled.InputContainer ref={inputRef} style={{ ...styles }}>
         <InputComment
           styles={{ width: '100%', marginTop: '22.5px' }}

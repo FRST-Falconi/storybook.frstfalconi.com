@@ -4813,7 +4813,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
         const response = await getSearchUsers(value);
         setUsers(response?.data?.results || response);
     };
-    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '55px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
+    return (jsxRuntime.jsxs(Container$g, { children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '50px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { ...styles }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%', marginTop: '22.5px' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
                         }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, 
                         //replyMentionedUser={!userMentionedOnReplied && user}
@@ -14921,18 +14921,10 @@ styled__default["default"].div `
 function FeedInteraction(props) {
     const [openReview, setOpenReview] = React.useState(false);
     const [openComments, setOpenComments] = React.useState(false);
-    // const [loadCommentsText, setLoadCommentsText] = useState(props.commentList?.length < 2 ? false : true);
-    // const [showMoreComments, setShowMoreComments] = useState(false);
-    // const [focusComment, setFocusComment] = useState(false);
-    // const [commentData, setCommentData] = useState('');
     const [isVisibleComments, setIsVisibleComments] = React.useState(!props?.hideComments);
     React.useEffect(() => {
         setIsVisibleComments(!props?.hideComments);
     }, [props?.hideComments]);
-    // const [stateLatestComment, setStateLatestComment] = useState(props.latestComment)
-    // useEffect(() => {
-    //     setStateLatestComment(props.latestComment)
-    // }, [props.latestComment]);
     const [stateTotalComments, setStateTotalComments] = React.useState(props.qtdComments);
     React.useEffect(() => {
         setStateTotalComments(props.qtdComments);
@@ -14945,19 +14937,6 @@ function FeedInteraction(props) {
         setOpenComments(!openComments);
         setOpenReview(false);
     };
-    // const OnLoadCommentsClick = () => {
-    //     setLoadCommentsText(false)
-    //     setShowMoreComments(true)
-    // }
-    // const OnChangeComment = (e) => {
-    //     setCommentData(e.target.value)
-    //     setFocusComment(true)
-    // }
-    // const HandleSaveComment = () => {
-    //     props.handleSaveCommentBtn(commentData)
-    //     setCommentData('')
-    //     setFocusComment(false)
-    // }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$2, { style: { ...props.style }, id: props.id, children: [!props.textTotalView && (props.qtdLikes || stateTotalComments) ?
                     jsxRuntime.jsxs(infoContent, { children: [props.qtdLikes ?
                                 jsxRuntime.jsxs(info, { style: { left: 0 }, children: [" ", jsxRuntime.jsx(ThumbsUpCovered, {}), " \u00A0", props.qtdLikes] })
