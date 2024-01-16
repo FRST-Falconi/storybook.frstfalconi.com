@@ -21,11 +21,9 @@ const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
     user: {
       user_uuid: `user-${index + 1}`,
       name: `Usuário ${index + 1}`,
-      profile: {
-        role_name: "Cargo",
-        company_name: "Frst Falconi",
-        avatar: "",
-      },
+      role_name: "Cargo",
+      company_name: "Frst Falconi",
+      avatar: "",
     },
   }));
 
@@ -40,11 +38,9 @@ Default.args = {
         user:{
             uuid: "user-0001",
             name: "Leticia Costa",
-            profile:{
-                role_name:"Líder de vendas",
-                company_name: "Frst Falconi",
-                avatar: "https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg"
-            }
+            role_name:"Líder de vendas",
+            company_name: "Frst Falconi",
+            avatar: "https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg"
         },
         id:"01",
         text: "Uow, que projeto incrível, ansioso para ver os proximos passos  https://frstfalconi.com/",
@@ -62,8 +58,9 @@ Default.args = {
     showLessButtonText: "Ver Menos",
     editText: "Editar",
     deleteText: "Excluir",
-    styles: {padding: '10px'},
-    showMoreReplysButtonText: "Mostrar mais respostas"
+    styles: {},
+    showMoreReplysButtonText: "Mostrar mais respostas",
+    relationToPhaseText:"Em relação à Fase 1 -  Definição",
 }
 
 

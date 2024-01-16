@@ -85,11 +85,11 @@ export const InputReply = ({
   };
 
   return (
-    <Styled.Container>
-      <Avatar src={imgProfile} size="32px" style={{ marginTop: '50px', marginRight: '8px' }} />
-      <Styled.InputContainer ref={inputRef} style={{ ...styles }}>
+    <Styled.Container style={{ ...styles }}>
+      <Avatar src={imgProfile} size="32px" style={{ marginTop: '16px', marginRight: '8px' }} />
+      <Styled.InputContainer ref={inputRef} style={{ width: '100%', marginTop: '16px' }} >
         <InputComment
-          styles={{ width: '100%', marginTop: '22.5px' }}
+          styles={{ width: '100%'}}
           className="userComment"
           onChange={(e: string) => {
             handleSearchUsers(e);
@@ -112,7 +112,7 @@ export const InputReply = ({
           label={publishButtonText}
           onClick={() => handlePublish()}
           variant="primary"
-          styles={{ marginLeft: 'auto', marginTop: '15px' }}
+          styles={{ marginLeft: 'auto', marginTop: '14px' }}
         />
         {isLoading && <Loading />}
       </Styled.InputContainer>
