@@ -44,16 +44,22 @@ video.args = {
 
 export const videoSemProgresso = Template.bind({})
 videoSemProgresso.args = {
-  imageSrc: 'img/thumbFoto.png',
-  typeThumbContent: 'video',
-  title: 'Label',
-  description:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididut ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-  textViewMoreButton: 'Ver mais',
-  textViewLessButton: 'Ver menos',
+  imageSrc: 'img/thumbVideo.png',
+  typeThumbContent: '',
+  nameCanal:'Smart Content',
+  imageSrcCanal:'img/SmartImg.png',
+  description:'Como criar novos desafios dentro de uma equipe multidisciplinar',
   onClickThumb: () => alert('clicado'),
   isLoading: false,
-  style: { width: 375 },
+  style: { 
+    width: '308px',
+    height: '119px',
+    background:'#FBFBFB',
+    borderRadius: '8px',
+    color:'#000'
+    
+    
+  },
   textProgressVisualized: 'Visualizado',
   textProgressInProgress: 'Em andamento',
   tagValue: 'notVisualized'
@@ -161,3 +167,4 @@ selecionado.args = {
   valueProgress: 84,
   isSelected: true
 }
+
