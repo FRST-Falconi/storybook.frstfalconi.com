@@ -112,7 +112,7 @@ export const ThreadComments = ({
               <Fragment key={replyComment.id}>
                 <CommentaryBoxReply
                   commentData={replyComment}
-                  answerButtonText={''}
+                  answerButtonText={'Responder'}
                   showMoreButtonText={showMoreButtonText}
                   showLessButtonText={showLessButtonText}
                   onClickAnswerButton={handleCommentReplyReply}
