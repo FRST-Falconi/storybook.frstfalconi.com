@@ -50,7 +50,6 @@ videoSemProgresso.args = {
   imageSrcCanal:'img/SmartImg.png',
   description:'Como criar novos desafios dentro de uma equipe multidisciplinar',
   onClickThumb: () => alert('clicado'),
-  onClickCanal: () => alert('clicado para canal'),
   isLoading: false,
   style: { 
     width: '308px',
