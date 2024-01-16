@@ -13,12 +13,12 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
     height: 37px;
     border-radius: 16px;
     border: 2px #f26818 solid;
-    box-shadow: 2px 2px 15px 0px #00000040;
 
     :hover {
       border: 2px #f26818 solid !important;
       background: #f26818;
       color: #fff;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 
       .p-placeholder {
         color: #fff !important;
@@ -192,6 +192,7 @@ export const textCountSelectNumber = styled.b`
 export const searchAndButton = styled.div`
   display: flex;
   padding: 1rem;
+  border-radius: 8px 8px 0px 0px;
   flex-direction: column;
 `
 
