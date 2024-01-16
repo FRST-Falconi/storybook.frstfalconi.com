@@ -13,10 +13,6 @@ export const CommentarysContainer = styled.div`
   width:100%;
 `
 
-export const CommentaryBoxContainer = styled.div`
-display:flex;
-margin-bottom:16px;
-`
 export const InputContainer = styled.div`
 display:flex;
 flex-direction:column;
@@ -32,8 +28,8 @@ font-weight: 400;
 line-height: 110%; 
 position: relative;
 left: 59px;
-margin-bottom:10px;
-margin-top: 8px;
+margin-bottom:4px;
+margin-top: 6px;
 
 span{
     cursor:pointer;
