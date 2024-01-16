@@ -38,4 +38,5 @@ export interface ICommentaryBoxV2{
     showOptions?: boolean ;
     showLikeButton?: boolean;
     itsLiked: boolean ;
+    isMainComment?: boolean
 }

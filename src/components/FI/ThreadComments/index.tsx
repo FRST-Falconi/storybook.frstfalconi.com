@@ -78,7 +78,7 @@ export const ThreadComments = ({
             actionAnswer={handleCommentReply}
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
-            
+            isMainComment
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -89,7 +89,7 @@ export const ThreadComments = ({
 
           {showReplyInput && (
             <InputReply
-              styles={{marginLeft:'40px'}}
+              styles={{marginLeft:'60px'}}
               imgProfile={loggedUserProfileImg}
               idInput={`idInput-${mainComment.id}`}
               placeHolderText={placeHolderText}

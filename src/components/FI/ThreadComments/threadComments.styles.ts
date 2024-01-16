@@ -31,7 +31,7 @@ font-style: normal;
 font-weight: 400;
 line-height: 110%; 
 position: relative;
-left: 44px;
+left: 59px;
 margin-bottom:10px;
 margin-top: 8px;
 
@@ -42,4 +42,6 @@ span{
 
 export const RepplysContainer = styled.div<{ width?: number;}>`
 width: ${({ width }) => (width ? `${width}px` : 'auto')};
-margin-left:40px`
+margin-left:60px;
+background-color: yellow;
+`

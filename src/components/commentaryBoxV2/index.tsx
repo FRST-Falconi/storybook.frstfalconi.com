@@ -11,7 +11,7 @@ import { ThemeProvider } from 'styled-components'
 
 export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,showMoreText,relationToPhaseText, showLessText,showLikeButton, styles,
     actionLike,answerButtonText,likeButtonText, commentTextWithMention,editText,deleteText,isAuthor,isOwnerPost,
-    howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,actionEditComment, actionDeleteComment,
+    howLongAgo,commentId,commentText,actionAnswer, onClickUserInfo,actionEditComment, actionDeleteComment,isMainComment,
     likesCount, hasActionToClickOnAvatar, showOptions, itsLiked}: ICommentaryBoxV2)=> {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;
     const [isLiked, setIsLiked] = useState(itsLiked);
@@ -80,7 +80,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
         <ThemeProvider theme={FRSTTheme}>
             <Styled.Container style={{...styles}}>
             <Avatar 
-            size={relationToPhaseText? '48px' : '32px'} src={imgProfile} 
+            size={isMainComment? '48px' : '32px'} src={imgProfile} 
             onClick={onClickUserInfo}
              style={{cursor: hasActionToClickOnAvatar ? 'pointer': 'default', marginRight:'6px'}}
             />
@@ -110,7 +110,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
                         </Styled.TextContainer>
                     </Styled.Box>
             </Styled.Container>
-            <Styled.InteractiveButtonsContainer> 
+            <Styled.InteractiveButtonsContainer style={isMainComment? {marginLeft: '55px'} : {}}> 
                 {showLikeButton &&(
                     <Styled.FlexButtonContainer onClick={handleLike} >
                     {isLiked? 

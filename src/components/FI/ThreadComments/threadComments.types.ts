@@ -29,6 +29,9 @@ export interface IThreadComments {
     limitMessageExceeded: string,
     size?:number,
     showMoreReplysButtonText: string
+    onClickShowReplys?: ()  => void,
+    textShowReplys:string,
+    textPublish:string
 }
 
 export interface IUser {
