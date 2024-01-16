@@ -85,11 +85,11 @@ export const InputReply = ({
   };
 
   return (
-    <Styled.Container>
-      <Avatar src={imgProfile} size="32px" style={{ marginTop: '50px', marginRight: '8px' }} />
-      <Styled.InputContainer ref={inputRef} style={{ ...styles }}>
+    <Styled.Container style={{ ...styles }}>
+      <Avatar src={imgProfile} size="32px" style={{ marginTop: '12px', marginRight: '8px' }} />
+      <Styled.InputContainer ref={inputRef} style={{ width: '100%', marginTop: '16px' }} >
         <InputComment
-          styles={{ width: '100%', marginTop: '22.5px' }}
+          styles={{ width: '100%'}}
           className="userComment"
           onChange={(e: string) => {
             handleSearchUsers(e);

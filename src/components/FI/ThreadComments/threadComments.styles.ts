@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #ffff;
+  background-color: inerit;
   display: flex;
   align-items: left;
   flex-direction: column;
   width:100%;
 `
 export const CommentarysContainer = styled.div`
-  align-items: center;
-  justify-content:center;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
 `
 
 export const CommentaryBoxContainer = styled.div`
 display:flex;
-margin-bottom:20px;
+margin-bottom:16px;
 `
 export const InputContainer = styled.div`
 display:flex;
 flex-direction:column;
-margin-bottom:30px;
-margin-left:55px
+margin-left:0px
 `
 
 export const ViewReplysButtonContainer = styled.div`
@@ -31,7 +31,7 @@ font-style: normal;
 font-weight: 400;
 line-height: 110%; 
 position: relative;
-left: 45px;
+left: 50px;
 margin-bottom:10px;
 margin-top: 8px;
 
@@ -42,4 +42,4 @@ span{
 
 export const RepplysContainer = styled.div<{ width?: number;}>`
 width: ${({ width }) => (width ? `${width}px` : 'auto')};
-margin-left:50px`
+margin-left:45px`

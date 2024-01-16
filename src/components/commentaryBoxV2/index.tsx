@@ -82,7 +82,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
             <Avatar 
             size={relationToPhaseText? '48px' : '32px'} src={imgProfile} 
             onClick={onClickUserInfo}
-             style={{cursor: hasActionToClickOnAvatar ? 'pointer': 'default'}}
+             style={{cursor: hasActionToClickOnAvatar ? 'pointer': 'default', marginRight:'6px'}}
             />
             <Styled.Box>
                 <Styled.UserDataContainer>

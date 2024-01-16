@@ -14,7 +14,6 @@ export const Box = styled.div<{width?: string; height?:string}>`
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 6px;
     border-radius: 0px 16px 16px 16px;
     background-color: #f2f2f2 ;
 `;
@@ -87,9 +86,9 @@ export const RelationContainer = styled.div`
 export const InteractiveButtonsContainer = styled.div`
     display:flex;
     flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    gap:16px;
+    gap:4px;
     margin-top: 4px;
-    margin-left: 44px;
+    margin-left: 46px;
     align-items: center;
     color: #444;
     font-family: PT Sans;

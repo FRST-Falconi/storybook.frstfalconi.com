@@ -61,9 +61,8 @@ export const ThreadComments = ({
   return (
     <Styled.Container style={styles}>
       <Styled.CommentarysContainer>
-        <div>
           <CommentaryBoxV2
-            styles={{ marginBottom: '8px' }}
+            styles={{marginLeft:'0px' }}
             hasActionToClickOnAvatar={false}
             imgProfile={mainComment.user?.avatar}
             itsLiked={false}
@@ -77,10 +76,10 @@ export const ThreadComments = ({
             showMoreText={showMoreButtonText}
             showLessText={showLessButtonText}
             answerButtonText={answerButtonText}
-            showLikeButton={false}
             actionAnswer={handleCommentReply}
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
+            
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -91,7 +90,7 @@ export const ThreadComments = ({
 
           {showReplyInput && (
             <InputReply
-              styles={{ width: '100%', marginTop: '24px' }}
+              styles={{marginLeft:'45px'}}
               imgProfile={loggedUserProfileImg}
               idInput={`idInput-${mainComment.id}`}
               placeHolderText={placeHolderText}
@@ -106,7 +105,6 @@ export const ThreadComments = ({
               limitMessageExceeded={limitMessageExceeded}
             />
           )}
-        </div>
 
         {showAnswers && visibleReplies && (
           <Styled.RepplysContainer>
@@ -114,7 +112,7 @@ export const ThreadComments = ({
               <Fragment key={replyComment.id}>
                 <CommentaryBoxReply
                   commentData={replyComment}
-                  answerButtonText={''}
+                  answerButtonText={'Responder'}
                   showMoreButtonText={showMoreButtonText}
                   showLessButtonText={showLessButtonText}
                   onClickAnswerButton={handleCommentReplyReply}
@@ -122,7 +120,7 @@ export const ThreadComments = ({
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply
                     imgProfile={loggedUserProfileImg}
-                    styles={{ width: '100%', marginTop: '24px' }}
+                    styles={{marginLeft:'0px'}}
                     idInput={`idInput-${replyComment.id}`}
                     placeHolderText={placeHolderText}
                     publishButtonText={publishButtonText}
