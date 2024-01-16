@@ -1,6 +1,7 @@
 .p-component,
 .p-component * {
   box-sizing: border-box;
+  font-family: PT Sans;
 }
 
 .p-hidden {
@@ -831,6 +832,11 @@
   user-select: none;
   vertical-align: bottom;
   position: relative;
+}
+
+.p-checkbox + span {
+  text-align: left;
+  width: 100%;
 }
 
 .p-checkbox.p-checkbox-disabled {
@@ -4098,6 +4104,7 @@ input.p-dropdown-label {
 
 .p-multiselect-items-wrapper {
   overflow: auto;
+  margin-right: 4px;
 }
 
 .p-multiselect-items {
@@ -6462,10 +6469,13 @@ input.p-dropdown-label {
   display: flex;
   justify-content: flex-start;
   width: 100%;
-}
+  flex-direction: row-reverse;
+  }
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-component .p-multiselect-item .p-checkbox {
   margin-right: 16px;
+  margin-top: 5px;
+  margin-left: 16px;
   width: fit-content;
 }
 
