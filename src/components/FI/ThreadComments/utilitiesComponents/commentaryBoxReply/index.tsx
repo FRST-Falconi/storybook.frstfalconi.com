@@ -13,7 +13,7 @@ export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessBu
         userOffice={commentData.user?.role_name} userCompany={commentData.user?.company_name}
         commentId={commentData.id} commentText={commentData.text} 
         howLongAgo={commentData.howLongAgo} showMoreText={showMoreButtonText} actionAnswer={()=>onClickAnswerButton(commentData.id)}
-        showLessText={showLessButtonText} answerButtonText={answerButtonText} styles={{marginTop: '8px'}} commentTextWithMention={commentData.mentionText} />
+        showLessText={showLessButtonText} answerButtonText={answerButtonText} styles={{marginTop: '0px'}} commentTextWithMention={commentData.mentionText} />
     )
 }
   

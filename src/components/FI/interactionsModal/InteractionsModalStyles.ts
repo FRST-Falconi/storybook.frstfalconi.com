@@ -96,7 +96,7 @@ export const ContentScroll = styled.div`
 
 export const CardItemUser = styled.div`
     width: calc(100% + 10px);
-    height: 86px;
+    min-height: 86px;
     border-bottom: 1px solid #BDBDBD;
     padding: 16px;
     padding-left: 24px;
@@ -120,14 +120,9 @@ export const NameUser = styled.div`
     font-weight: 700;
     font-size: 16px;
     line-height: 110%;
-    /* or 18px */
-
-    display: flex;
-    align-items: center;
-
-    /* neutrals/neutral_1 */
 
     color: #222222;
+
 `
 
 export const PositionUser = styled.div`
@@ -159,7 +154,7 @@ export const OrgUser = styled.div`
 
     color: #222222;
 
-    max-width: 21ch;
+    max-width: 40ch;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

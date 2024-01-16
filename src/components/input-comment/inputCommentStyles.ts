@@ -25,9 +25,9 @@ interface TextArea {
 
 export const InputWrapper = styled.div<Wrapper>`
     display: flex;
-    align-items:'baseline';
+    align-items:center;
     width: 100%;
-    min-height: '99px';
+    min-height: 48px;
     position: 'relative';
     background-color: ${({ theme, isInputLimit }) => !isInputLimit ? theme.colors.neutralsGrey9: theme.colors.inputError};
     
@@ -54,12 +54,11 @@ export const InputText = styled.div<TextArea>`
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 20px;
     letter-spacing: -0.02em;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
-
+        
     padding: 0;
     margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
     border: none;    

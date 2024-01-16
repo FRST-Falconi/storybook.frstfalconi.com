@@ -25,21 +25,21 @@ export const ThreadComments = ({
   size = 5,
   showMoreReplysButtonText
 }: IThreadComments) => {
-  const [showAnswers, setShowAnswers] = useState(false);
-  const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0);
+  const [showAnswers, setShowAnswers] = useState(false)
+  const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
   const [showReplyInput, setShowReplyInput] = useState(false)
   const [showInputByIdReply, setShowInputByIdReply] = useState<string[]>([])
-  const [visibleReplies, setVisibleReplies] = useState(0);
+  const [visibleReplies, setVisibleReplies] = useState(0)
 
   const handleLoadMoreReplies = () => {
     if (showReplysOnClickCounter === 0) {
-      setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size);
+      setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size)
     }
-    setReplysOnClickCounter((prevShowReplysOnClickCounter) => prevShowReplysOnClickCounter + 1);
+    setReplysOnClickCounter((prevShowReplysOnClickCounter) => prevShowReplysOnClickCounter + 1)
     if (showReplysOnClickCounter >= 1) {
-      setVisibleReplies(listReplyComments.length);
+      setVisibleReplies(listReplyComments.length)
     }
-    setShowAnswers(true);
+    setShowAnswers(true)
   }
 
   const handleHiddenInput = () => {
@@ -63,7 +63,6 @@ export const ThreadComments = ({
       <Styled.CommentarysContainer>
         <div>
           <CommentaryBoxV2
-            styles={{ marginBottom: '8px' }}
             hasActionToClickOnAvatar={false}
             imgProfile={mainComment.user?.avatar}
             itsLiked={false}
@@ -77,21 +76,23 @@ export const ThreadComments = ({
             showMoreText={showMoreButtonText}
             showLessText={showLessButtonText}
             answerButtonText={answerButtonText}
-            showLikeButton={false}
             actionAnswer={handleCommentReply}
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
+            isMainComment
           />
 
           {listReplyComments.length > visibleReplies && (
             <Styled.ViewReplysButtonContainer>
-              <span onClick={handleLoadMoreReplies}>{showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText}</span>
+              <span onClick={handleLoadMoreReplies}>
+                {showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText}
+              </span>
             </Styled.ViewReplysButtonContainer>
           )}
 
           {showReplyInput && (
             <InputReply
-              styles={{ width: '100%', marginTop: '24px' }}
+              styles={{ marginLeft: '60px' }}
               imgProfile={loggedUserProfileImg}
               idInput={`idInput-${mainComment.id}`}
               placeHolderText={placeHolderText}
@@ -107,7 +108,6 @@ export const ThreadComments = ({
             />
           )}
         </div>
-
         {showAnswers && visibleReplies && (
           <Styled.RepplysContainer>
             {listReplyComments.slice(0, visibleReplies).map((replyComment) => (
@@ -122,7 +122,7 @@ export const ThreadComments = ({
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply
                     imgProfile={loggedUserProfileImg}
-                    styles={{ width: '100%', marginTop: '24px' }}
+                    styles={{ width: '100%' }}
                     idInput={`idInput-${replyComment.id}`}
                     placeHolderText={placeHolderText}
                     publishButtonText={publishButtonText}

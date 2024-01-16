@@ -18,7 +18,7 @@ Default.args = {
     listUsers: [
         {
             id: '1',
-            name: 'Carol Rodrigues',
+            name: 'Carol Rodrigues Rodrigues Rodrigues Rodrigues Rodrigues Rodrigues',
             position: 'Tecnologia da Informação',
             organization: 'FRST FALCONI ROAD OF SKILLS AND TALENTS TREINAMENTO E DESENVOLVIMENTO DE PESSOAS LTDA.',
             avatar: 'https://i.gyazo.com/3a59a7139631b386a8043095b207949c.png',
