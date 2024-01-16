@@ -3193,9 +3193,9 @@ function Textarea(props) {
 
 const InputWrapper$2 = styled__default["default"].div `
     display: flex;
-    align-items:'baseline';
+    align-items:center;
     width: 100%;
-    min-height: '99px';
+    min-height: 48px;
     position: 'relative';
     background-color: ${({ theme, isInputLimit }) => !isInputLimit ? theme.colors.neutralsGrey9 : theme.colors.inputError};
     
@@ -3221,12 +3221,11 @@ const InputText$4 = styled__default["default"].div `
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
-    line-height: 20px;
     letter-spacing: -0.02em;
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
-
+        
     padding: 0;
     margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
     border: none;    
@@ -3704,7 +3703,7 @@ const Mentions = (mention) => {
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
     const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
     const showMentions = showMention && ['b1005836-b0a6-4a50-8147-537ebdc64a75', '413c2f36-9195-4fef-86fe-572c49049007'].includes(group_uuid);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, minHeight: '48px' }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMentions && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
