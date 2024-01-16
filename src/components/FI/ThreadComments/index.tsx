@@ -61,7 +61,7 @@ export const ThreadComments = ({
   return (
     <Styled.Container style={styles}>
       <Styled.CommentarysContainer>
-      <div style={{}}>
+      <div>
           <CommentaryBoxV2
             hasActionToClickOnAvatar={false}
             imgProfile={mainComment.user?.avatar}
