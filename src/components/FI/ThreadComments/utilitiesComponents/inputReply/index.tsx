@@ -112,7 +112,7 @@ export const InputReply = ({
           label={publishButtonText}
           onClick={() => handlePublish()}
           variant="primary"
-          styles={{ marginLeft: 'auto', marginTop: '15px' }}
+          styles={{ marginLeft: 'auto', marginTop: '14px' }}
         />
         {isLoading && <Loading />}
       </Styled.InputContainer>

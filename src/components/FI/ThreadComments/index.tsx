@@ -62,7 +62,6 @@ export const ThreadComments = ({
     <Styled.Container style={styles}>
       <Styled.CommentarysContainer>
           <CommentaryBoxV2
-            styles={{marginLeft:'0px' }}
             hasActionToClickOnAvatar={false}
             imgProfile={mainComment.user?.avatar}
             itsLiked={false}
@@ -90,7 +89,7 @@ export const ThreadComments = ({
 
           {showReplyInput && (
             <InputReply
-              styles={{marginLeft:'45px'}}
+              styles={{marginLeft:'40px'}}
               imgProfile={loggedUserProfileImg}
               idInput={`idInput-${mainComment.id}`}
               placeHolderText={placeHolderText}

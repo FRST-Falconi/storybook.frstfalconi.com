@@ -88,7 +88,7 @@ export const InteractiveButtonsContainer = styled.div`
     flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
     gap:4px;
     margin-top: 4px;
-    margin-left: 46px;
+    margin-left: 40px;
     align-items: center;
     color: #444;
     font-family: PT Sans;
