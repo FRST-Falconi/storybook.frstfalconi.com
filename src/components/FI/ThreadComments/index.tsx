@@ -61,6 +61,7 @@ export const ThreadComments = ({
   return (
     <Styled.Container style={styles}>
       <Styled.CommentarysContainer>
+      <div>
           <CommentaryBoxV2
             hasActionToClickOnAvatar={false}
             imgProfile={mainComment.user?.avatar}
@@ -104,14 +105,14 @@ export const ThreadComments = ({
               limitMessageExceeded={limitMessageExceeded}
             />
           )}
-
+       </div>
         {showAnswers && visibleReplies && (
           <Styled.RepplysContainer>
             {listReplyComments.slice(0, visibleReplies).map((replyComment) => (
               <Fragment key={replyComment.id}>
                 <CommentaryBoxReply
                   commentData={replyComment}
-                  answerButtonText={'Responder'}
+                  answerButtonText={''}
                   showMoreButtonText={showMoreButtonText}
                   showLessButtonText={showLessButtonText}
                   onClickAnswerButton={handleCommentReplyReply}
@@ -119,7 +120,7 @@ export const ThreadComments = ({
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply
                     imgProfile={loggedUserProfileImg}
-                    styles={{marginLeft:'0px'}}
+                    styles={{width: '100%'}}
                     idInput={`idInput-${replyComment.id}`}
                     placeHolderText={placeHolderText}
                     publishButtonText={publishButtonText}

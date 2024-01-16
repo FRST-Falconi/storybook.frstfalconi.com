@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const CommentarysContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: left;
+  width:100%;
 `
 
 export const CommentaryBoxContainer = styled.div`
@@ -43,5 +43,4 @@ span{
 export const RepplysContainer = styled.div<{ width?: number;}>`
 width: ${({ width }) => (width ? `${width}px` : 'auto')};
 margin-left:60px;
-background-color: yellow;
 `
