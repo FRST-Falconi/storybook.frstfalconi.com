@@ -3301,7 +3301,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const [showMention, setShowMention] = React.useState(false);
     const [inputSearch, setInputSearch] = React.useState('');
     const divInputRef = React.useRef(null);
-    const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 30}px`;
+    const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 20}px`;
     const [textLength, setTextLength] = React.useState(0);
     const [isPlaceholder, setPlaceholder] = React.useState(false);
     const [styleLimitExceeded, setStyleLimitExceeded] = React.useState(false);
@@ -3561,6 +3561,7 @@ const Container$j = styled__default["default"].div `
   overflow-y: auto;
   z-index: 100;
   border-radius: 8px;
+  box-shadow: 0px 8px 10px 0 #BDBDBD;
 
   &::-webkit-scrollbar {
     width: 5px; 
@@ -4642,10 +4643,6 @@ const CommentarysContainer = styled__default["default"].div `
 `;
 styled__default["default"].div `
 display:flex;
-margin-bottom:16px;
-`;
-styled__default["default"].div `
-display:flex;
 flex-direction:column;
 margin-left:0px
 `;
@@ -4658,8 +4655,8 @@ font-weight: 400;
 line-height: 110%; 
 position: relative;
 left: 59px;
-margin-bottom:10px;
-margin-top: 8px;
+margin-bottom:4px;
+margin-top: 6px;
 
 span{
     cursor:pointer;
@@ -4671,7 +4668,7 @@ margin-left:60px;
 `;
 
 const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText, onClickAnswerButton }) => {
-    return (jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user?.avatar, itsLiked: false, userName: commentData.user?.name, userOffice: commentData.user?.role_name, userCompany: commentData.user?.company_name, commentId: commentData.id, commentText: commentData.text, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => onClickAnswerButton(commentData.id), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '8px' }, commentTextWithMention: commentData.mentionText }));
+    return (jsxRuntime.jsx(CommentaryBoxV2, { hasActionToClickOnAvatar: false, imgProfile: commentData.user?.avatar, itsLiked: false, userName: commentData.user?.name, userOffice: commentData.user?.role_name, userCompany: commentData.user?.company_name, commentId: commentData.id, commentText: commentData.text, howLongAgo: commentData.howLongAgo, showMoreText: showMoreButtonText, actionAnswer: () => onClickAnswerButton(commentData.id), showLessText: showLessButtonText, answerButtonText: answerButtonText, styles: { marginTop: '0px' }, commentTextWithMention: commentData.mentionText }));
 };
 
 const container = styled__default["default"].div `
@@ -4812,7 +4809,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
         const response = await getSearchUsers(value);
         setUsers(response?.data?.results || response);
     };
-    return (jsxRuntime.jsxs(Container$g, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '12px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { width: '100%', marginTop: '16px' }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, className: "userComment", onChange: (e) => {
+    return (jsxRuntime.jsxs(Container$g, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '16px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { width: '100%', marginTop: '16px' }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
                         }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, 
                         //replyMentionedUser={!userMentionedOnReplied && user}
