@@ -23,7 +23,7 @@ const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
       name: `Usuário ${index + 1}`,
       role_name: "Cargo",
       company_name: "Frst Falconi",
-      avatar: "",
+      avatar: "https://api-deimos-cdn.dev.frstfalconi.cloud/avatar/d49fe932-18d5-4476-bb37-1d1bb23f5b2e.jpg",
     },
   }));
 
@@ -61,6 +61,7 @@ Default.args = {
     styles: {},
     showMoreReplysButtonText: "Mostrar mais respostas",
     relationToPhaseText:"Em relação à Fase 1 -  Definição",
+    loggedUserProfileImg: "https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg"
 }
 
 
