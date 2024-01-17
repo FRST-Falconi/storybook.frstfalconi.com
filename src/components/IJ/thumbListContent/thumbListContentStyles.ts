@@ -14,6 +14,8 @@ export const containerThumbContent = styled.div`
   height: auto;
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.shadeWhite};
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) !important;
+
 `
 
 export const loadingImageThumb = styled.div`
@@ -50,7 +52,7 @@ export const iconsThumb = styled.div`
 export const imageThumbContent = styled.div`
   height: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover !important;
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -163,8 +165,8 @@ export const descriptionThumbContent = styled.div<content>`
   line-height: normal;
   font-family: PT Sans;
   color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#222222')};
-  padding: 10px 16px 0px 0px;
-  width: 165px;
+  padding: 10px 0px 0px 0px;
+  width: 135px;
   overflow: hidden;
   text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
   display: ${(props) => (props.showText ? 'flex' : '-webkit-box')};
@@ -199,18 +201,20 @@ width: 24px;
 height: 24px;
 flex-shrink: 0;
 border-radius: 40px;
+background-size:cover !important;
+
 
 `
 
 export const InfCanal = styled.div`
 
-width: 150px;
+width: 130px;
 height: 30px;
 position: absolute;
 display: inline-flex;
 align-items: center;
 gap: 16px;
-right: 17px;
+right: 10px;
 margin-bottom: 7px;
 border-top: 0.5px solid #E2E8F0;
 

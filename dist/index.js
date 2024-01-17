@@ -11268,8 +11268,8 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                             }, children: SubMenu.map((item, index) => {
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "LXP", type: "submenu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
                             }) }))] }), openNotificationMobile && windowSize[0] < 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification() })) : null] })) : variant === 'default' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(MenuMobile, { onClickExit: onClickExit, languageSelected: languageSelected, variant: 'default', items: menu, isVisible: isVisibleMenuMobile, setVisible: (e) => setIsVisibleMenuMobile(e), onClickSite: onClickSite, onClickLinkedin: onClickLinkedin, onClickInstagram: onClickInstagram, onClickYoutube: onClickYoutube, onClickSpotify: onClickSpotify, onClickPodCast: onClickPodCast, customMenu: customMenu }), jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: {
-                            paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] > 1199 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
-                            paddingLeft: windowSize[0] > 1400 ? '225px' : windowSize[0] > 1199 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
+                            paddingRight: windowSize[0] > 1400 ? '70px' : windowSize[0] > 1199 ? '50px' : windowSize[0] < 500 ? '10px' : '35px',
+                            paddingLeft: windowSize[0] > 1400 ? '170px' : windowSize[0] > 1199 ? '145px' : windowSize[0] < 500 ? '10px' : '35px',
                             ...style
                         }, children: [isMobileVersion && (jsxRuntime.jsx(HamburgerButton, { style: { marginLeft: 0 }, onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), isTabletVersion && (jsxRuntime.jsx(HamburgerButton, { onClick: () => onClickMenuHamburger(), children: jsxRuntime.jsx(IconHamburgerMenu, {}) })), !isMobileVersion && !isTabletVersion && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), showLogo && (jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), style: { marginRight: '0px' }, children: jsxRuntime.jsx(FRSTLogo, { height: "28", fill: FRSTTheme['colors'].primary1 }) })), jsxRuntime.jsx(WrapperMenu, { style: { height: '100%' }, children: !isMobileVersion && !isTabletVersion && showSearchField && (jsxRuntime.jsx(FieldSearch, { variant: "LXP", value: valueSearch, onFilter: search.onFilter, onChange: (e) => handleChangeValueSearch(e.target.value), placeholder: search.label, loading: loadingSearch, textLoading: search.textLoading, fieldSearchIsOpen: controlExpandedSearchMobile, setFieldSearchIsOpen: setControlExpandedSearchMobile, isLabeledResult: search.isLabeledResult, listResults: search.isLabeledResult ? null : valueListSearch, labeledResultList: search.isLabeledResult ? valueListSearch : null, historicResults: search.historicResults, isMobileVersion: isMobileVersion, hasOptionSeeAll: search.hasOptionSeeAll, seeAll: search.seeAll, style: {
                                         width: isMobileVersion ? '190px' : '332px'
@@ -15848,6 +15848,8 @@ const containerThumbContent = styled__default["default"].div `
   height: auto;
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.shadeWhite};
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) !important;
+
 `;
 const loadingImageThumb = styled__default["default"].div `
   display: flex;
@@ -15880,7 +15882,7 @@ const iconsThumb = styled__default["default"].div `
 const imageThumbContent = styled__default["default"].div `
   height: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover !important;
   background-position: center;
   display: flex;
   flex-direction: column;
@@ -15985,8 +15987,8 @@ const descriptionThumbContent = styled__default["default"].div `
   line-height: normal;
   font-family: PT Sans;
   color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#222222')};
-  padding: 10px 16px 0px 0px;
-  width: 165px;
+  padding: 10px 0px 0px 0px;
+  width: 135px;
   overflow: hidden;
   text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
   display: ${(props) => (props.showText ? 'flex' : '-webkit-box')};
@@ -16019,17 +16021,19 @@ width: 24px;
 height: 24px;
 flex-shrink: 0;
 border-radius: 40px;
+background-size:cover !important;
+
 
 `;
 const InfCanal = styled__default["default"].div `
 
-width: 150px;
+width: 130px;
 height: 30px;
 position: absolute;
 display: inline-flex;
 align-items: center;
 gap: 16px;
-right: 17px;
+right: 10px;
 margin-bottom: 7px;
 border-top: 0.5px solid #E2E8F0;
 

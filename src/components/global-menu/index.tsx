@@ -517,8 +517,8 @@ export default function GlobalMenu({
             <Styles.MenuContainer
               variant={variant}
               style={{
-                paddingRight: windowSize[0] > 1400 ? '124px' : windowSize[0] > 1199 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
-                paddingLeft: windowSize[0] > 1400 ? '225px' : windowSize[0] > 1199 ? '124px' : windowSize[0] < 500 ? '10px' : '35px',
+                paddingRight: windowSize[0] > 1400 ? '70px' : windowSize[0] > 1199 ? '50px' : windowSize[0] < 500 ? '10px' : '35px',
+                paddingLeft: windowSize[0] > 1400 ? '170px' : windowSize[0] > 1199 ? '145px' : windowSize[0] < 500 ? '10px' : '35px',
                 ...style
               }}
             >
