@@ -45,14 +45,14 @@ video.args = {
 export const videoSemProgresso = Template.bind({})
 videoSemProgresso.args = {
   imageSrc: 'img/thumbVideo.png',
-  typeThumbContent: '',
+  typeThumbContent: 'video',
   nameCanal:'Smart Content',
   imageSrcCanal:'img/SmartImg.png',
   description:'Como criar novos desafios dentro de uma equipe multidisciplinar',
   onClickThumb: () => alert('clicado'),
   isLoading: false,
   style: { 
-    width: '308px',
+    width: '282px',
     height: '119px',
     background:'#FBFBFB',
     borderRadius: '8px',
