@@ -140,6 +140,41 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
 
   .p-multiselect .p-component .p-inputwrapper .p-inputwrapper-focus .multiselect-custom {
     border-color: #663366;
+    background-color: #663366 !important;
+  }
+
+.p-inputwrapper-focus {
+    border: 2px #f26818 solid !important;
+    background: #f26818 !important;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) !important;
+    .p-placeholder {
+        color: #fff !important;
+      }
+      .country-item-value {
+        color: #ffffff !important;
+      }
+
+      .p-placeholder {
+        color: #ffffff !important;
+      }
+      .p-multiselect-trigger i {
+        color: #ffffff !important;
+      }
+      p {
+        color: #ffffff !important;
+      }
+      .p-multiselect-items-label {
+        color: #ffffff;
+      }
+    .p-multiselect-trigger {
+        i {
+          background-image: url(${ArrowIconWhite});
+          background-size: 1rem;
+          width: 15px;
+          height: 15px;
+          background-repeat: no-repeat;
+        }
+      }
   }
 `
 
@@ -191,9 +226,17 @@ export const textCountSelectNumber = styled.b`
 
 export const searchAndButton = styled.div`
   display: flex;
-  padding: 1rem;
+  padding: 0.5rem 0.5rem 0.25rem 0.5rem;
   border-radius: 8px 8px 0px 0px;
   flex-direction: column;
+  a{
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: #ebeded;
+    padding-bottom: 1rem;
+    padding-left:1rem;
+    align-items: center;
+  }
 `
 
 export const containerFiltro = styled.div`
