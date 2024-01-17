@@ -9,5 +9,4 @@ export const InputContainer = styled.div`
 export const Container = styled.div`
     display:flex;
     justify-content:center;
-    margin-bottom:24px;
 `

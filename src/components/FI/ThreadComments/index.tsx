@@ -109,9 +109,9 @@ export const ThreadComments = ({
           )}
         </div>
         {showAnswers && visibleReplies && (
-          <Styled.RepplysContainer>
+          <Styled.RepplysContainer style={{marginTop:'24px'}} >
             {listReplyComments.slice(0, visibleReplies).map((replyComment) => (
-              <Fragment key={replyComment.id}>
+              <div key={replyComment.id}>
                 <CommentaryBoxReply
                   commentData={replyComment}
                   answerButtonText={''}
@@ -136,7 +136,7 @@ export const ThreadComments = ({
                     limitMessageExceeded={limitMessageExceeded}
                   />
                 )}
-              </Fragment>
+              </div>
             ))}
           </Styled.RepplysContainer>
         )}

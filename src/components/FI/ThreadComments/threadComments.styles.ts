@@ -16,7 +16,6 @@ export const CommentarysContainer = styled.div`
 export const InputContainer = styled.div`
 display:flex;
 flex-direction:column;
-margin-left:0px
 `
 
 export const ViewReplysButtonContainer = styled.div`
@@ -28,7 +27,6 @@ font-weight: 400;
 line-height: 110%; 
 position: relative;
 left: 59px;
-margin-bottom:4px;
 margin-top: 6px;
 
 span{

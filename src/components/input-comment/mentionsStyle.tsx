@@ -13,6 +13,7 @@ export const Container = styled.div<{ hide: boolean; top: string; width?: number
   overflow-y: auto;
   z-index: 100;
   border-radius: 8px;
+  box-shadow: 0px 8px 10px 0 #BDBDBD;
 
   &::-webkit-scrollbar {
     width: 5px; 

@@ -1,7 +1,11 @@
 {
   "name": "frst-components",
   "homepage": "http://FRST-Falconi.github.io/storybook.frstfalconi.com",
+<<<<<<< HEAD
   "version": "0.21.90",
+=======
+  "version": "0.21.89",
+>>>>>>> develop
   "private": false,
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
