@@ -5,4 +5,5 @@ export interface ToastProps {
   message: string;
   onClose?: () => void;
   showBySeconds?: number;
+  styles: any;
 }

@@ -912,7 +912,7 @@ export function SearchIcon({ fill, stroke, customColor_1, width, height }: Icons
   )
 }
 
-export function ErrorInCicleIcon({ fill="#FF0000", stroke, customColor_1, width='48', height='48' }: IconsProps) {
+export function ErrorInCicleIcon({ fill='#FF0000', stroke, customColor_1, width='48', height='48' }: IconsProps) {
   return (
     <svg
       width={width}
