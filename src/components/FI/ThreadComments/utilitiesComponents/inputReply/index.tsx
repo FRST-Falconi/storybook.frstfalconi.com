@@ -1,7 +1,10 @@
 import Loading from '@components/DS/loading';
 import Avatar from '@components/avatar';
 import InputComment from '@components/input-comment';
+<<<<<<< HEAD
 import { User } from '@components/input-comment/types';
+=======
+>>>>>>> 44504d7 (feat/Add utilitiesComponents)
 import MiniButton from '@components/mini-button';
 import { useEffect, useRef, useState } from 'react';
 import * as Styled from './inputReply.styles';
@@ -29,6 +32,7 @@ export const InputReply = ({
   const inputRef = useRef(null);
 
 
+<<<<<<< HEAD
   const user: User = {
     user_uuid: replyMentionedUser.uuid,
     name: replyMentionedUser.name,
@@ -36,10 +40,18 @@ export const InputReply = ({
       avatar: replyMentionedUser.avatar,
       company_name: replyMentionedUser.company_name,
       role_name: replyMentionedUser.role_name
+=======
+export const InputReply = ({ placeHolderText, onClickPublishButton, limitInput,publishButtonText,idInput, replyFor}: IInputReply) => {
+    const [commentData, setCommentData] = useState(replyFor);
+
+    const OnChangeComment = (e: { target: { value: SetStateAction<string>; }; }) => {
+        setCommentData(e.target.value);
+>>>>>>> 44504d7 (feat/Add utilitiesComponents)
     }
   };
   const [userMentionedOnReplied, setUserMentionedOnReply] = useState<boolean>(false);
 
+<<<<<<< HEAD
   const handleClickOutside = (event) => {
     if (inputRef.current && !inputRef.current.contains(event.target) && comment.length === 0) {
       handleHiddenInput();
@@ -119,3 +131,25 @@ export const InputReply = ({
     </Styled.Container>
   );
 };
+=======
+    return (
+            <Styled.InputContainer>
+                <InputComment
+                    styles={{width:'100%'}}
+                    IDInput={idInput}
+                    className='userComment'
+                    hasEmoji={true} 
+                    emojiWindowlanguage='pt'
+                    onChange={OnChangeComment}
+                    value={commentData}
+                    placeholder={placeHolderText}
+                    limit={limitInput} 
+                    remain={limitInput - commentData.length}
+                    showCharacterCounter={true}/>
+
+                    <MiniButton disabled={commentData.length <= 0} label={publishButtonText} onClick={()=> onClickPublishButton()} variant="primary" styles={{ marginLeft:'auto', marginTop:'15px'}}/>
+            </Styled.InputContainer>
+    )
+  }
+  
+>>>>>>> 44504d7 (feat/Add utilitiesComponents)
