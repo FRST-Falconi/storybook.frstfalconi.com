@@ -6,4 +6,6 @@ export interface ICommentComentaryBoxReply {
     showMoreButtonText: string,
     showLessButtonText: string,
     onClickAnswerButton: (idReply?:string) => void,
+    isAuthor: boolean;
+    isOwnerPost:boolean;
 }

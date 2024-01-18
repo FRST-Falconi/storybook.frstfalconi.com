@@ -3,7 +3,7 @@ import React from 'react'
 import {ICommentComentaryBoxReply} from './commentaryBoxReply.types';
 import { CommentaryBoxV2 } from '@components/commentaryBoxV2';
 
-export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText,onClickAnswerButton
+export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText,onClickAnswerButton,isAuthor,isOwnerPost
 }: ICommentComentaryBoxReply) => {
     return (
         <CommentaryBoxV2                        
@@ -13,7 +13,10 @@ export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessBu
         userOffice={commentData.user?.role_name} userCompany={commentData.user?.company_name}
         commentId={commentData.id} commentText={commentData.text} 
         howLongAgo={commentData.howLongAgo} showMoreText={showMoreButtonText} actionAnswer={()=>onClickAnswerButton(commentData.id)}
-        showLessText={showLessButtonText} answerButtonText={answerButtonText} styles={{marginTop: '0px'}} commentTextWithMention={commentData.mentionText} />
+        showLessText={showLessButtonText} answerButtonText={answerButtonText} styles={{marginTop: '0px'}} commentTextWithMention={commentData.mentionText} 
+        isAuthor={isAuthor}
+        isOwnerPost={isOwnerPost}
+        />
     )
 }
   

@@ -14,7 +14,7 @@ export const ThreadComments = ({
   publishButtonText,
   limitInputs,
   answerButtonText,
-  loggedUserProfileImg,
+  loggedInUser,
   group_uuid,
   getSearchUsers,
   showMoreButtonText,
@@ -23,7 +23,8 @@ export const ThreadComments = ({
   relationToPhaseText,
   limitMessageExceeded,
   size = 5,
-  showMoreReplysButtonText
+  showMoreReplysButtonText,
+  isGoalOwner
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -80,6 +81,8 @@ export const ThreadComments = ({
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
             isMainComment
+            isAuthor={mainComment.user.uuid === loggedInUser.id}
+            isOwnerPost={isGoalOwner}
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -93,7 +96,7 @@ export const ThreadComments = ({
           {showReplyInput && (
             <InputReply
               styles={{ marginLeft: '60px' }}
-              imgProfile={loggedUserProfileImg}
+              imgProfile={loggedInUser?.avatar}
               idInput={`idInput-${mainComment.id}`}
               placeHolderText={placeHolderText}
               publishButtonText={publishButtonText}
@@ -118,10 +121,12 @@ export const ThreadComments = ({
                   showMoreButtonText={showMoreButtonText}
                   showLessButtonText={showLessButtonText}
                   onClickAnswerButton={handleCommentReplyReply}
+                  isAuthor={replyComment.user.uuid === loggedInUser.id}
+                  isOwnerPost={(mainComment.user.uuid === loggedInUser.id) || isGoalOwner}
                 />
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply
-                    imgProfile={loggedUserProfileImg}
+                    imgProfile={loggedInUser?.avatar}
                     styles={{ width: '100%' }}
                     idInput={`idInput-${replyComment.id}`}
                     placeHolderText={placeHolderText}
