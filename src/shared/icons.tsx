@@ -912,11 +912,11 @@ export function SearchIcon({ fill, stroke, customColor_1, width, height }: Icons
   )
 }
 
-export function ErrorInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+export function ErrorInCicleIcon({ fill, stroke, customColor_1, width='48', height='48' }: IconsProps) {
   return (
     <svg
-      width={width ? width : '48'}
-      height={height ? height : '48'}
+      width={width}
+      height={height}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -965,11 +965,11 @@ export function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height 
   )
 }
 
-export function CloseIcon({ fill, width, height }: IconsProps) {
+export function CloseIcon({ fill, width='12', height='12' }: IconsProps) {
   return (
     <svg
-      width={width ? width : '12'}
-      height={height ? height : '12'}
+      width={width}
+      height={height}
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

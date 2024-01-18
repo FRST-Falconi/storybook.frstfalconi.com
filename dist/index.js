@@ -232,8 +232,8 @@ function TrashIcon({ fill, stroke, customColor_1, width, height }) {
 function SearchIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '28', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z", fill: fill ?? 'black' }) }));
 }
-function CloseIcon({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '12', height: height ? height : '12', viewBox: "0 0 12 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.3334 0.666687L0.666748 11.3334", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M0.666748 0.666687L11.3334 11.3334", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+function CloseIcon({ fill, width = '12', height = '12' }) {
+    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 12 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.3334 0.666687L0.666748 11.3334", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M0.666748 0.666687L11.3334 11.3334", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function AddIcon({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '17', height: height ? height : '16', viewBox: "0 0 17 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.16992 1V15", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16992 8H15.1699", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -4576,11 +4576,11 @@ const createUUID = () => {
 const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, isMainComment, likesCount, hasActionToClickOnAvatar, showOptions, itsLiked }) => {
     const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`;
     const [isLiked, setIsLiked] = React.useState(itsLiked);
-    const edit = {
+    ({
         description: editText,
         startIcon: jsxRuntime.jsx(EditIcon, { fill: '#222' }),
         onClick: actionEditComment,
-    };
+    });
     const exclude = {
         description: deleteText,
         startIcon: jsxRuntime.jsx(TrashIconNew, { fill: '#C1341A' }),
@@ -4588,7 +4588,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
         color: '#C1341A',
     };
     const authorOptions = [
-        edit,
+        //  edit,
         exclude
     ];
     const ownerPost = [

@@ -12,20 +12,6 @@ const Template = (args) => <CommentaryBoxV2 {...args} />
 
 export const Default = Template.bind({})
 
-const options = [
-    {
-        description: "Editar",
-        startIcon: <EditIcon fill='#222'/>,
-        onClick: () => { alert("Comentario editado") },
-    },
-    {
-        description: "Excluir",
-        startIcon: <TrashIconNew fill='#C1341A'/>,
-        onClick:() => { alert("Comentario exluido") },
-        color: '#C1341A',
-    },
-]
-
 Default.args = {
     userId:"001",
     userName: "Leticia Costa",
@@ -49,9 +35,10 @@ Default.args = {
 
     hasActionToClickOnAvatar: true,
     showOptions:true,
-    options: options,
     showLikeButton:true,
-
+    isAuthor: true,
+    editText: "Editar",
+    deleteText: "Excluir"
 }
 
 

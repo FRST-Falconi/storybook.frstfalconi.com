@@ -21,7 +21,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
         startIcon: <EditIcon fill='#222'/>,
         onClick: actionEditComment,
     };
-    const exclude =         {
+    const exclude = {
         description: deleteText,
         startIcon: <TrashIconNew fill='#C1341A'/>,
         onClick:() =>actionDeleteComment,
@@ -29,7 +29,7 @@ export const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice,
     };
 
     const authorOptions = [
-        edit,
+        //  edit,
         exclude
     ]
     
