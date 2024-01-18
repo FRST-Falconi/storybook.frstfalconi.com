@@ -1,5 +1,5 @@
 import { CommentaryBoxV2 } from '@components/commentaryBoxV2'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import * as Styled from './threadComments.styles'
 import { IThreadComments } from './threadComments.types'
 import { CommentaryBoxReply } from './utilitiesComponents/commentaryBoxReply'
@@ -24,7 +24,9 @@ export const ThreadComments = ({
   limitMessageExceeded,
   size = 5,
   showMoreReplysButtonText,
-  isGoalOwner
+  isGoalOwner,
+  editText,
+  deleteText
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -59,6 +61,8 @@ export const ThreadComments = ({
     setShowInputByIdReply([...showInputByIdReply, idReply])
   }
 
+  const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id;
+
   return (
     <Styled.Container style={styles}>
       <Styled.CommentarysContainer>
@@ -81,8 +85,11 @@ export const ThreadComments = ({
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
             isMainComment
-            isAuthor={mainComment.user.uuid === loggedInUser.id}
+            isAuthor={isMainCommentUser}
             isOwnerPost={isGoalOwner}
+            deleteText={deleteText}
+            editText={editText}
+            showOptions={isMainCommentUser || isGoalOwner }
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -121,8 +128,8 @@ export const ThreadComments = ({
                   showMoreButtonText={showMoreButtonText}
                   showLessButtonText={showLessButtonText}
                   onClickAnswerButton={handleCommentReplyReply}
-                  isAuthor={replyComment.user.uuid === loggedInUser.id}
-                  isOwnerPost={(mainComment.user.uuid === loggedInUser.id) || isGoalOwner}
+                  isAuthor={replyComment.user?.uuid === loggedInUser?.id}
+                  isOwnerPost={(mainComment.user?.uuid === loggedInUser?.id) || isGoalOwner}
                 />
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply

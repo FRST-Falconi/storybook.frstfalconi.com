@@ -156,10 +156,14 @@ export const CommentaryBoxV2 = ({
         )}
 
         <MiniButton variant="terciary" onClick={actionAnswer} label={answerButtonText} />
-        {showOptions && isAuthor ? (
-          <MenuMore options={authorOptions} style={{marginTop:'5px'}} />
-        ) : isOwnerPost ? (
-          <MenuMore options={ownerPost} style={{marginTop:'5px'}}/>
+        {showOptions ? (
+          isAuthor ? (
+            <MenuMore options={authorOptions} style={{ marginTop: '5px' }} />
+          ) : isOwnerPost ? (
+            <MenuMore options={ownerPost} style={{ marginTop: '5px' }} />
+          ) : (
+            <MenuMore options={[]} />
+          )
         ) : (
           <div />
         )}
