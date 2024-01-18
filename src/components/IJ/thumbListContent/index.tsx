@@ -25,6 +25,7 @@ interface IThumbListContent {
   isSelected?: boolean
   nameCanal?: string
   imageSrcCanal?: string
+  urlCanal?: string
 }
 
 export default function ThumbListContent(props: IThumbListContent) {
@@ -57,7 +58,7 @@ export default function ThumbListContent(props: IThumbListContent) {
           </Styles.loadingThumbContent>
         </Styles.containerThumbContent>
       ) : (
-        <Styles.containerThumbContent style={{ ...props.style }} onClick={props.onClickThumb}>
+        <Styles.containerThumbContent style={{ ...props.style }}>
           {props.imageSrc ? (
             tagVisualized > 0 ? (
               <Styles.shadedThumb>
@@ -71,6 +72,7 @@ export default function ThumbListContent(props: IThumbListContent) {
                 </Styles.imageThumbContent>
               </Styles.shadedThumb>
             ) : (
+              <>
               <Styles.imageThumbContent
                 style={{ backgroundImage: `url(${props.imageSrc})` }}
                 onClick={props.onClickThumb}
@@ -79,12 +81,14 @@ export default function ThumbListContent(props: IThumbListContent) {
                   {' '}
                   <IconPlay />{' '}
                 </Styles.IconPlayVideo>
+              </Styles.imageThumbContent>
 
-                <Styles.InfCanal>
+              <Styles.InfCanal id='DadosCanal' href={props.urlCanal}>
                   <Styles.ImgCanal src={props.imageSrcCanal} />
                   <Styles.NameCanal>{props.nameCanal}</Styles.NameCanal>
-                </Styles.InfCanal>
-              </Styles.imageThumbContent>
+              </Styles.InfCanal>
+              </>
+              
             )
           ) : tagVisualized > 0 ? (
             <Styles.shadedThumb onClick={props.onClickThumb}>

@@ -193,6 +193,8 @@ font-weight: 400;
 line-height: normal;
 position: relative;
 right: 10px;
+pointer-events: none;
+
 `
 
 export const ImgCanal = styled.img`
@@ -202,21 +204,26 @@ height: 24px;
 flex-shrink: 0;
 border-radius: 40px;
 background-size:cover !important;
+pointer-events: none;
+
 
 
 `
 
-export const InfCanal = styled.div`
+export const InfCanal = styled.a`
 
 width: 130px;
 height: 30px;
-position: absolute;
+position:absolute;
 display: inline-flex;
 align-items: center;
 gap: 16px;
 right: 10px;
-margin-bottom: 7px;
+top:82px;
 border-top: 0.5px solid #E2E8F0;
+text-decoration: none;
+display: none;
+
 
 `
 
