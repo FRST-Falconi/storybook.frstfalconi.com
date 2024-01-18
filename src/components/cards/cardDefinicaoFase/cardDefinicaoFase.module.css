@@ -47,9 +47,9 @@
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6 !important;
+  -webkit-box-orient: vertical !important;
 }
 
 .descriptionContainer {
