@@ -4659,7 +4659,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     const exclude = {
         description: deleteText,
         startIcon: jsxRuntime.jsx(TrashIconNew, { fill: "#C1341A" }),
-        onClick: (commentId) => actionDeleteComment(commentId),
+        onClick: () => actionDeleteComment(commentId),
         color: '#C1341A'
     };
     const authorOptions = [

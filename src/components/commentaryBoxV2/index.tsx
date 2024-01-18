@@ -51,7 +51,7 @@ export const CommentaryBoxV2 = ({
   const exclude = {
     description: deleteText,
     startIcon: <TrashIconNew fill="#C1341A" />,
-    onClick: (commentId: string)=> actionDeleteComment(commentId),
+    onClick: () => actionDeleteComment(commentId),
     color: '#C1341A'
   }
 
