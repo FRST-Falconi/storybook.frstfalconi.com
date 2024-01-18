@@ -2964,7 +2964,7 @@ const ToastWrapper = styled__default["default"].div `
   position: fixed;
   top: 100px;
   right: 40px;
-  animation: blowup 0.3s ease-in-out;
+  animation: blowup 0.5s ease-in-out;
 `;
 const Icon = styled__default["default"].span `
   margin-right: 10px;
