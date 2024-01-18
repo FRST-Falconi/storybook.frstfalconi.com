@@ -16,7 +16,7 @@ export default function InputComment({ placeholder, onChange, limit, users, show
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <div style={{ ...styles, minHeight:'48px' }} tabIndex={0}>
+      <div style={{ minHeight:'48px', ...styles }} tabIndex={0}>
         <Styles.InputWrapper focus={focus} tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded}>
           <Styles.InputText
             tabIndex={2}

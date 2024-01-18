@@ -23,6 +23,9 @@ interface IThumbListContent {
   valueProgress?: number
   tagValue: 'vizualized' | 'inProgress' | 'notVisualized'
   isSelected?: boolean
+  nameCanal?: string
+  imageSrcCanal?: string
+  urlCanal?: string
 }
 
 export default function ThumbListContent(props: IThumbListContent) {
@@ -38,6 +41,9 @@ export default function ThumbListContent(props: IThumbListContent) {
     if (props.isSelected) setIsSelected(props?.isSelected)
   }, [props.isSelected])
 
+
+  const MAX_CHARACTERS = 150
+
   return (
     <ThemeProvider theme={FRSTTheme}>
       {props.isLoading ? (
@@ -52,7 +58,7 @@ export default function ThumbListContent(props: IThumbListContent) {
           </Styles.loadingThumbContent>
         </Styles.containerThumbContent>
       ) : (
-        <Styles.containerThumbContent style={{ ...props.style }} onClick={props.onClickThumb}>
+        <Styles.containerThumbContent style={{ ...props.style }}>
           {props.imageSrc ? (
             tagVisualized > 0 ? (
               <Styles.shadedThumb>
@@ -66,10 +72,23 @@ export default function ThumbListContent(props: IThumbListContent) {
                 </Styles.imageThumbContent>
               </Styles.shadedThumb>
             ) : (
+              <>
               <Styles.imageThumbContent
                 style={{ backgroundImage: `url(${props.imageSrc})` }}
                 onClick={props.onClickThumb}
-              ></Styles.imageThumbContent>
+              >
+                <Styles.IconPlayVideo>
+                  {' '}
+                  <IconPlay />{' '}
+                </Styles.IconPlayVideo>
+              </Styles.imageThumbContent>
+
+              <Styles.InfCanal id='DadosCanal' href={props.urlCanal}>
+                  <Styles.ImgCanal src={props.imageSrcCanal} />
+                  <Styles.NameCanal>{props.nameCanal}</Styles.NameCanal>
+              </Styles.InfCanal>
+              </>
+              
             )
           ) : tagVisualized > 0 ? (
             <Styles.shadedThumb onClick={props.onClickThumb}>
@@ -137,7 +156,13 @@ export default function ThumbListContent(props: IThumbListContent) {
 
             {props.title ? <span>{props.title}</span> : null}
             <Styles.descriptionThumbContent showText={showMore} isSelected={props?.isSelected}>
-              {props.description}
+              {props.description.length > MAX_CHARACTERS ? (
+                <>
+                  {showMore ? props.description : `${props.description.slice(0, MAX_CHARACTERS)}...`}
+                </>
+              ) : (
+                props.description
+              )}
             </Styles.descriptionThumbContent>
           </Styles.infoThumbContent>
           <Styles.viewMoreContent>
@@ -152,4 +177,44 @@ export default function ThumbListContent(props: IThumbListContent) {
       )}
     </ThemeProvider>
   )
+
+  function IconPlay() {
+    return (
+      <>
+        <svg xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33" fill="none">
+          <g filter="url(#filter0_d_1_13248)">
+            <path
+              d="M22.7851 17.6767C23.3898 17.273 23.3898 16.3841 22.7851 15.9803L14.8446 10.6786C14.1668 10.2261 13.2583 10.7119 13.2583 11.5269V22.1302C13.2583 22.9451 14.1668 23.4309 14.8446 22.9784L22.7851 17.6767Z"
+              fill="white"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_d_1_13248"
+              x="0"
+              y="0"
+              width="32.6364"
+              height="32.6364"
+              filterUnits="userSpaceOnUse"
+              color-interpolation-filters="sRGB"
+            >
+              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feMorphology radius="20.3983" operator="erode" in="SourceAlpha" result="effect1_dropShadow_1_13248" />
+              <feOffset dy="3.05975" />
+              <feGaussianBlur stdDeviation="2.54979" />
+              <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" />
+              <feBlend mode="multiply" in2="BackgroundImageFix" result="effect1_dropShadow_1_13248" />
+              <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_13248" result="shape" />
+            </filter>
+          </defs>
+        </svg>
+      </>
+    )
+  }
 }

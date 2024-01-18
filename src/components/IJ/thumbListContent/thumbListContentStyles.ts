@@ -14,6 +14,8 @@ export const containerThumbContent = styled.div`
   height: auto;
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.shadeWhite};
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) !important;
+
 `
 
 export const loadingImageThumb = styled.div`
@@ -50,11 +52,16 @@ export const iconsThumb = styled.div`
 export const imageThumbContent = styled.div`
   height: 100%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size:cover !important;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  border-radius: 6.733px;
+  align-items: center;
+  margin-left: -1px;
+  background: rgba(0, 0, 0, 0.30);
+
 `
 
 export const loadingThumbContent = styled.div`
@@ -86,7 +93,26 @@ export const loadingContent = styled.div`
   &:last-child {
     width: 30%;
   }
+
 `
+
+
+export const IconPlayVideo = styled.div`
+width: 133px;
+height: 119px;
+border-radius: 8px;
+flex-shrink: 0;
+background-color: rgba(0, 0, 0, 0.30);
+/* background-color: red; */
+position: relative;
+left: 0px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+`
+
 
 export const infoThumbContent = styled.div<content>`
   display: flex;
@@ -133,15 +159,21 @@ export const tagThumbContent = styled.div<content>`
 `
 
 export const descriptionThumbContent = styled.div<content>`
-  font-size: 14px;
-  font-weight: 400;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  font-family: PT Sans;
   color: ${(props) => (props?.isSelected ? '#F9FAFB' : '#222222')};
-  padding: 0px 16px 0px 16px;
+  padding: 10px 0px 0px 0px;
+  width: 135px;
   overflow: hidden;
   text-overflow: ${(props) => (props.showText ? 'none' : 'ellipsis')};
   display: ${(props) => (props.showText ? 'flex' : '-webkit-box')};
   -webkit-line-clamp: ${(props) => (props.showText ? 'none' : 3)};
   -webkit-box-orient: ${(props) => (props.showText ? 'none' : 'vertical')};
+  position: relative;
+  left: 8.83px;
 `
 
 export const viewMoreContent = styled.div`
@@ -151,6 +183,50 @@ export const viewMoreContent = styled.div`
   margin: 0px 16px 12px 0px;
   user-select: none;
 `
+export const NameCanal = styled.p`
+
+color: var(--neutrals-neutral_2, #444);
+font-family: PT Sans;
+font-size: 10px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+position: relative;
+right: 10px;
+pointer-events: none;
+
+`
+
+export const ImgCanal = styled.img`
+
+width: 24px;
+height: 24px;
+flex-shrink: 0;
+border-radius: 40px;
+background-size:cover !important;
+pointer-events: none;
+
+
+
+`
+
+export const InfCanal = styled.a`
+
+width: 130px;
+height: 30px;
+position:absolute;
+display: inline-flex;
+align-items: center;
+gap: 16px;
+right: 10px;
+top:82px;
+border-top: 0.5px solid #E2E8F0;
+text-decoration: none;
+display: none;
+
+
+`
+
 
 export const shadedThumb = styled.div`
   position: relative;
