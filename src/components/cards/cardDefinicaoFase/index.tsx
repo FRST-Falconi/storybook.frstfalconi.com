@@ -16,16 +16,6 @@ interface CardDefinicaoFaseProps {
   textButtonContinue?: string
 }
 
-
-const MAX_CHARACTERS = 100;
-
-const handleMaxText = (text) => {
-  if (text.length > MAX_CHARACTERS) {
-    return text.substring(0, MAX_CHARACTERS) + "...";
-  }
-  return text;
-};
-
 export default function CardDefinicaoFase(props: CardDefinicaoFaseProps) {
   function handleFase() {
     switch (props.fase) {
@@ -61,7 +51,7 @@ export default function CardDefinicaoFase(props: CardDefinicaoFaseProps) {
           <span className={style.titleDescription}> {props.cardTitle}</span>
           <MenuMore options={props.optionsMenuMore} />
         </div>
-        <span className={style.description}>{handleMaxText(props.cardDescription)}</span>
+        <span className={style.description}> {props.cardDescription}</span>
       </div>
       {props.fase === 'finalizado' ? (
         <div className={style.buttonFinalizado}>
