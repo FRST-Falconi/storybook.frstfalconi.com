@@ -47,6 +47,7 @@ videoSemProgresso.args = {
   imageSrc: 'img/thumbVideo.png',
   typeThumbContent: 'video',
   nameCanal:'Smart Content',
+  urlCanal:'',
   imageSrcCanal:'img/SmartImg.png',
   description:'Como criar novos desafios dentro de uma equipe multidisciplinar',
   onClickThumb: () => alert('clicado'),
