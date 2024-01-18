@@ -12,4 +12,5 @@ export interface IMenuMore {
     iconButton?: any
     options:  Array<IOptionItem>
     style?: React.CSSProperties;
+    closeAfterClick?: boolean;
 }

@@ -11,7 +11,7 @@ const Template = (args) => <Toast {...args} />;
 export const SuccessToast = Template.bind({});
 SuccessToast.args = {
   type: 'success',
-  message: 'Operação concluída com sucesso! Operação concluída com sucesso!Operação concluída com sucesso!',
+  message: 'Operação concluída com sucesso!',
 };
 
 export const ErrorToast = Template.bind({});

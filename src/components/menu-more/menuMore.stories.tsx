@@ -40,7 +40,8 @@ normal.args = {
             color: '#C1341A'
         },
     ],
-    style: {marginLeft: '200px'}
+    style: {marginLeft: '200px'},
+    closeAfterClick:true
 }
 
 export const twoItems = Template.bind({})

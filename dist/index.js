@@ -2940,11 +2940,11 @@ const TagAlert = ({ width = 18, height = 18, color = "#C00F00" }) => {
     return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: color, "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M8.99683 5.57153L8.99683 9.68582", stroke: color, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("ellipse", { cx: "8.99821", cy: "12.4283", rx: "0.685714", ry: "0.685145", fill: color })] }));
 };
 
-const CircledCheck = ({ width = '22', height = '22', color = '#1BA853' }) => {
-    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: width, height: height, rx: "11", fill: color }), jsxRuntime.jsx("path", { d: "M16.3327 7L8.99935 14.3333L5.66602 11", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+const CircledCheck = ({ width = '22', height = '22', fill = '#1BA853' }) => {
+    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: width, height: height, rx: "11", fill: fill }), jsxRuntime.jsx("path", { d: "M16.3327 7L8.99935 14.3333L5.66602 11", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 };
 
-const CircledAlert = ({ fill = "#F18624", width = '22', height = '22' }) => {
+const CircledAlert = ({ fill = '#F18624', width = '22', height = '22' }) => {
     return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: width, height: height, rx: "11", fill: fill }), jsxRuntime.jsx("path", { d: "M9.952 9H11.772V16H9.952V9ZM9.686 7.026C9.686 6.75533 9.784 6.52667 9.98 6.34C10.1853 6.144 10.4653 6.046 10.82 6.046C11.1747 6.046 11.4593 6.144 11.674 6.34C11.898 6.52667 12.01 6.75533 12.01 7.026C12.01 7.29667 11.898 7.52533 11.674 7.712C11.4593 7.88933 11.1747 7.978 10.82 7.978C10.4653 7.978 10.1853 7.88933 9.98 7.712C9.784 7.52533 9.686 7.29667 9.686 7.026Z", fill: "#F8FAFC" })] }));
 };
 
@@ -4608,7 +4608,7 @@ const IconOption = styled__default["default"].div `
   justify-content: center;
 `;
 
-function MenuMore({ iconButton, options, style }) {
+function MenuMore({ iconButton, options, style, closeAfterClick }) {
     const [listOptions, setListOptions] = React.useState(options);
     React.useEffect(() => {
         setListOptions(options);
@@ -4622,7 +4622,10 @@ function MenuMore({ iconButton, options, style }) {
         setAnchorEl(null);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
-                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => itemOption?.onClick(), style: {
+                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => {
+                                    itemOption?.onClick();
+                                    closeAfterClick && handleClose();
+                                }, style: {
                                     borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
                                     color: itemOption?.color ? itemOption?.color : '#222'
                                 }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon ? itemOption?.startIcon : '' }), jsxRuntime.jsx(TextOption$1, { children: itemOption?.description })] }) }, index));
@@ -4700,7 +4703,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     }, []);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$i, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { size: isMainComment ? '48px' : '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' } }), jsxRuntime.jsxs(Box, { children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsxs(FirstChildUserData, { children: [jsxRuntime.jsx(Username, { children: userName }), likesCount > 0 && (jsxRuntime.jsxs(LikesContainer, { children: [jsxRuntime.jsx(IconLikeContainer, { children: jsxRuntime.jsx(IconLikeFilled, { fill: "#fff", stroke: "#fff", customColor_1: '#757575', width: "16px", height: "16px" }) }), jsxRuntime.jsx("p", { children: likesCount })] }))] }), jsxRuntime.jsxs(UserDataLastChild, { children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$1, { id: "textContainerId", children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: {
                                             __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
-                                        } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] })] }), jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: handleLike, children: [isLiked ? jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: "#444" }), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: handleLike, label: likeButtonText, active: isLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMore, { options: authorOptions, style: { marginTop: '5px' } })) : isOwnerPost ? (jsxRuntime.jsx(MenuMore, { options: ownerPost, style: { marginTop: '5px' } })) : (jsxRuntime.jsx(MenuMore, { options: [] }))) : (jsxRuntime.jsx("div", {}))] })] }));
+                                        } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] })] }), jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: handleLike, children: [isLiked ? jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: "#444" }), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: handleLike, label: likeButtonText, active: isLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMore, { options: authorOptions, style: { marginTop: '5px' }, closeAfterClick: true })) : isOwnerPost ? (jsxRuntime.jsx(MenuMore, { options: ownerPost, style: { marginTop: '5px' }, closeAfterClick: true })) : (jsxRuntime.jsx(MenuMore, { options: [] }))) : (jsxRuntime.jsx("div", {}))] })] }));
 };
 
 const Container$h = styled__default["default"].div `
