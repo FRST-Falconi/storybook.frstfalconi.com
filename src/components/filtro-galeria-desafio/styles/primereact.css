@@ -6340,15 +6340,13 @@ input.p-dropdown-label {
 
 /* ## header */
 .p-multiselect-panel {
-  border-radius: 8px;
-  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 8px !important;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) !important;
   width: fit-content;
   margin-top:10px ;
-  /* margin-left: 10px; */
   margin-right: 18px;
 }
 .p-multiselect-panel .p-multiselect-header {
-  border-radius: 8px 8px 0px 0px;
   background: #ffff !important;
   border: none !important;
 }
@@ -6537,3 +6535,4 @@ input.p-dropdown-label {
   background-color:#757575 !important;
   border-radius: 15px;
 }
+
