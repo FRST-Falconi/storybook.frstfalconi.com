@@ -11,11 +11,17 @@ const Template = (args) => <Toast {...args} />;
 export const SuccessToast = Template.bind({});
 SuccessToast.args = {
   type: 'success',
-  message: 'Operação concluída com sucesso!',
+  message: 'Operação concluída com sucesso! Operação concluída com sucesso!Operação concluída com sucesso!',
 };
 
 export const ErrorToast = Template.bind({});
 ErrorToast.args = {
   type: 'error',
-  message: 'Ocorreu um erro inesperado.',
+  message: 'Erro ao excluir. Tente novamente!',
+};
+
+export const AlertToast = Template.bind({});
+AlertToast.args = {
+  type: 'alert',
+  message: 'Notificação de alerta.',
 };

@@ -14,6 +14,7 @@ export interface IThreadComments {
     placeHolderText: string,
     answerButtonText: string,
     onClickPublishButton: () => void,
+    onClickDelete: (commentId: string) => void,
     showReplysButtonText:string,
     publishButtonText:string,
     editText: string,

@@ -47,6 +47,8 @@ Default.args = {
         howLongAgo: "18 horas atrás",
     },
     listReplyComments: listReplyComments,
+    
+    onClickDelete:(commentId : string)=> {alert(`commentId: ${commentId}`)},
     onClickPublishButton: () => { alert("Comentário postado!") },
     getSearchUsers: getSearchUsers ,
     placeHolderText:"Responda Aqui!",
@@ -61,7 +63,7 @@ Default.args = {
     styles: {},
     showMoreReplysButtonText: "Mostrar mais respostas",
     relationToPhaseText:"Em relação à Fase 1 -  Definição",
-    loggedUserProfileImg: "https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg"
+    showOptions: true
 }
 
 

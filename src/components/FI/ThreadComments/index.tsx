@@ -26,7 +26,8 @@ export const ThreadComments = ({
   showMoreReplysButtonText,
   isGoalOwner,
   editText,
-  deleteText
+  deleteText,
+  onClickDelete
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -82,6 +83,7 @@ export const ThreadComments = ({
             showLessText={showLessButtonText}
             answerButtonText={answerButtonText}
             actionAnswer={handleCommentReply}
+            actionDeleteComment={onClickDelete}
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
             isMainComment
@@ -132,6 +134,7 @@ export const ThreadComments = ({
                   isOwnerPost={(mainComment.user?.uuid === loggedInUser?.id) || isGoalOwner}
                   deleteText={deleteText}
                   editText={editText}
+                  onClickDelete={onClickDelete}
                 />
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply

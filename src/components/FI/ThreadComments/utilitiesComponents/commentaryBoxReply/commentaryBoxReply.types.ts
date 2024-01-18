@@ -10,4 +10,5 @@ export interface ICommentComentaryBoxReply {
     onClickAnswerButton: (idReply?:string) => void,
     isAuthor: boolean;
     isOwnerPost:boolean;
+    onClickDelete: (commentId: string)=> void,
 }

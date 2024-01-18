@@ -24,8 +24,8 @@ Default.args = {
     howLongAgo: "1 dia atrás",
     likesCount: 5,
 
+    actionDeleteComment:(commentId : string)=> {alert(`commentId: ${commentId}`)},
     onClickUserInfo:  () => { alert("Visitar-Perfil") },
-
     likeButtonText: "Curtir",
     answerButtonText: "Responder",
     showMoreText: "Ver Mais",

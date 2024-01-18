@@ -32,7 +32,7 @@ export default function Modal({
   onClose,
   onOpen,
   closeOnClickOutside = true,
-  animation,
+  animation='BlowUp',
   handleCloseOnIcon
 }: ModalProps): JSX.Element {
   const ModalWrapperRef = useRef(null)

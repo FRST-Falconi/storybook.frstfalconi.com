@@ -3,7 +3,7 @@ import React from 'react'
 import {ICommentComentaryBoxReply} from './commentaryBoxReply.types';
 import { CommentaryBoxV2 } from '@components/commentaryBoxV2';
 
-export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText,onClickAnswerButton,isAuthor,isOwnerPost,deleteText,editText
+export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessButtonText, answerButtonText,onClickAnswerButton,isAuthor,isOwnerPost,deleteText,editText,onClickDelete
 }: ICommentComentaryBoxReply) => {
     return (
         <CommentaryBoxV2                        
@@ -19,6 +19,7 @@ export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessBu
         deleteText={deleteText}
         editText={editText}
         showOptions={isAuthor || isOwnerPost }
+        actionDeleteComment={onClickDelete}
         />
     )
 }
