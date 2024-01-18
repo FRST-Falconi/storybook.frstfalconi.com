@@ -232,7 +232,7 @@ function TrashIcon({ fill, stroke, customColor_1, width, height }) {
 function SearchIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '28', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z", fill: fill ?? 'black' }) }));
 }
-function ErrorInCicleIcon({ fill = "#FF0000", stroke, customColor_1, width = '48', height = '48' }) {
+function ErrorInCicleIcon({ fill = '#FF0000', stroke, customColor_1, width = '48', height = '48' }) {
     return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: fill }), jsxRuntime.jsx("path", { d: "M36 12L12 36", stroke: "white", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 12L36 36", stroke: "white", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function CloseIcon({ fill, width = '12', height = '12' }) {
@@ -2988,7 +2988,7 @@ const Text$3 = styled__default["default"].p `
   margin-right: 16px;
 `;
 
-const Toast = ({ type = 'success', message, onClose, showBySeconds = 5 }) => {
+const Toast = ({ type = 'success', message, onClose, showBySeconds = 5, styles }) => {
     React.useEffect(() => {
         const timer = setTimeout(() => {
             onClose();
@@ -3009,7 +3009,7 @@ const Toast = ({ type = 'success', message, onClose, showBySeconds = 5 }) => {
         default:
             iconComponent = jsxRuntime.jsx(CircledAlert, { width: '22', height: '22' });
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon, { width: '14', height: '14' }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { style: styles, children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon, { width: '14', height: '14' }) })] }) }));
 };
 
 const ButtonGroupWrapper = styled__default["default"].div `
