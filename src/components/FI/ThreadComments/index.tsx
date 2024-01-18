@@ -1,5 +1,5 @@
 import { CommentaryBoxV2 } from '@components/commentaryBoxV2'
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import * as Styled from './threadComments.styles'
 import { IThreadComments } from './threadComments.types'
 import { CommentaryBoxReply } from './utilitiesComponents/commentaryBoxReply'
@@ -14,7 +14,7 @@ export const ThreadComments = ({
   publishButtonText,
   limitInputs,
   answerButtonText,
-  loggedUserProfileImg,
+  loggedInUser,
   group_uuid,
   getSearchUsers,
   showMoreButtonText,
@@ -23,7 +23,11 @@ export const ThreadComments = ({
   relationToPhaseText,
   limitMessageExceeded,
   size = 5,
-  showMoreReplysButtonText
+  showMoreReplysButtonText,
+  isGoalOwner,
+  editText,
+  deleteText,
+  onClickDelete
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -58,6 +62,8 @@ export const ThreadComments = ({
     setShowInputByIdReply([...showInputByIdReply, idReply])
   }
 
+  const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id;
+
   return (
     <Styled.Container style={styles}>
       <Styled.CommentarysContainer>
@@ -77,9 +83,15 @@ export const ThreadComments = ({
             showLessText={showLessButtonText}
             answerButtonText={answerButtonText}
             actionAnswer={handleCommentReply}
+            actionDeleteComment={onClickDelete}
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
             isMainComment
+            isAuthor={isMainCommentUser}
+            isOwnerPost={isGoalOwner}
+            deleteText={deleteText}
+            editText={editText}
+            showOptions={isMainCommentUser || isGoalOwner }
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -93,7 +105,7 @@ export const ThreadComments = ({
           {showReplyInput && (
             <InputReply
               styles={{ marginLeft: '60px' }}
-              imgProfile={loggedUserProfileImg}
+              imgProfile={loggedInUser?.avatar}
               idInput={`idInput-${mainComment.id}`}
               placeHolderText={placeHolderText}
               publishButtonText={publishButtonText}
@@ -118,10 +130,15 @@ export const ThreadComments = ({
                   showMoreButtonText={showMoreButtonText}
                   showLessButtonText={showLessButtonText}
                   onClickAnswerButton={handleCommentReplyReply}
+                  isAuthor={replyComment.user?.uuid === loggedInUser?.id}
+                  isOwnerPost={(mainComment.user?.uuid === loggedInUser?.id) || isGoalOwner}
+                  deleteText={deleteText}
+                  editText={editText}
+                  onClickDelete={onClickDelete}
                 />
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply
-                    imgProfile={loggedUserProfileImg}
+                    imgProfile={loggedInUser?.avatar}
                     styles={{ width: '100%' }}
                     idInput={`idInput-${replyComment.id}`}
                     placeHolderText={placeHolderText}

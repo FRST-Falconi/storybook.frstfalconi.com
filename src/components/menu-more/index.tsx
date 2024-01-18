@@ -9,7 +9,7 @@ import { ButtonMore, MenuCustom, MenuItemCustom, TextOption, IconOption } from '
 import { IMenuMore } from './menuMore'
 import { Box } from '@mui/material'
 
-export default function MenuMore({ iconButton, options, style }: IMenuMore) {
+export default function MenuMore({ iconButton, options, style, closeAfterClick }: IMenuMore) {
   const [listOptions, setListOptions] = useState(options)
 
   useEffect(() => {
@@ -51,10 +51,13 @@ export default function MenuMore({ iconButton, options, style }: IMenuMore) {
               return (
                 <Box key={index}>
                   <MenuItemCustom
-                    onClick={() => itemOption?.onClick()}
+                    onClick={() => {
+                      itemOption?.onClick();
+                      closeAfterClick && handleClose();
+                    }}
                     style={{
-                      borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
-                      color: itemOption?.color ? itemOption?.color : '#222'
+                    borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
+                    color: itemOption?.color ? itemOption?.color : '#222'
                     }}
                     disableRipple
                   >

@@ -912,27 +912,27 @@ export function SearchIcon({ fill, stroke, customColor_1, width, height }: Icons
   )
 }
 
-export function ErrorInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+export function ErrorInCicleIcon({ fill='#FF0000', stroke, customColor_1, width='48', height='48' }: IconsProps) {
   return (
     <svg
-      width={width ? width : '48'}
-      height={height ? height : '48'}
+      width={width}
+      height={height}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <circle cx="24" cy="24" r="24" fill="#FF0000" />
+      <circle cx="24" cy="24" r="24" fill={fill} />
       <path d="M36 12L12 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
       <path d="M12 12L36 36" stroke="white" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
 
-export function WarningInCicleIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+export function WarningInCicleIcon({ fill, stroke, customColor_1, width='48', height='48' }: IconsProps) {
   return (
     <svg
-      width={width ? width : '48'}
-      height={height ? height : '48'}
+      width={width}
+      height={height}
       viewBox="0 0 48 48"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -965,11 +965,11 @@ export function CorrectInCicleIcon({ fill, stroke, customColor_1, width, height 
   )
 }
 
-export function CloseIcon({ fill, width, height }: IconsProps) {
+export function CloseIcon({ fill, width='12', height='12' }: IconsProps) {
   return (
     <svg
-      width={width ? width : '12'}
-      height={height ? height : '12'}
+      width={width}
+      height={height}
       viewBox="0 0 12 12"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -1823,28 +1823,28 @@ export function Viewer({ fill }: IconsProps) {
   )
 }
 
-export function IconNotification({ fill, width, height }: IconsProps) {
+export function IconNotification({ fill='#FFD600', width='24', height='24' }: IconsProps) {
   return (
     <svg
-      width={width ? width : '24'}
-      height={height ? height : '24'}
+      width={width}
+      height={height}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
         d="M18.2843 18.389H5.71573C5.09953 18.389 4.6 17.8895 4.6 17.2733C4.6 17.0869 4.6467 16.9034 4.73583 16.7397L4.20888 16.4528L4.73583 16.7397L5.28347 15.7339C5.49118 15.3524 5.6 14.925 5.6 14.4906V10.9998C5.6 7.4652 8.46538 4.59982 12 4.59982C15.5346 4.59982 18.4 7.4652 18.4 10.9998V14.4906C18.4 14.925 18.5088 15.3524 18.7165 15.7339L19.2642 16.7397C19.3533 16.9034 19.4 17.0869 19.4 17.2733C19.4 17.8895 18.9005 18.389 18.2843 18.389Z"
-        stroke={fill ? fill : '#FFD600'}
+        stroke={fill}
         strokeWidth="1.2"
       />
       <path
         d="M10 4.99982L10 3.99982C10 2.89526 10.8954 1.99982 12 1.99982V1.99982C13.1046 1.99982 14 2.89526 14 3.99982V4.99982"
-        stroke={fill ? fill : '#FFD600'}
+        stroke={fill}
         strokeWidth="1.2"
       />
       <path
         d="M9 18.9998V18.9998C9 20.6567 10.3431 21.9998 12 21.9998V21.9998C13.6569 21.9998 15 20.6567 15 18.9998V18.9998"
-        stroke={fill ? fill : '#FFD600'}
+        stroke={fill}
         strokeWidth="1.2"
       />
     </svg>

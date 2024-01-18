@@ -4,7 +4,7 @@ export interface IComment {
     id: string,
     user: IUser,
     text: string,
-    mentionText?:string, 
+    mentionText?: string, 
     howLongAgo: string,
 }
 
@@ -14,6 +14,7 @@ export interface IThreadComments {
     placeHolderText: string,
     answerButtonText: string,
     onClickPublishButton: () => void,
+    onClickDelete: (commentId: string) => void,
     showReplysButtonText:string,
     publishButtonText:string,
     editText: string,
@@ -22,13 +23,14 @@ export interface IThreadComments {
     showMoreButtonText: string,
     showLessButtonText: string,
     group_uuid: string,
-    loggedUserProfileImg?: string,
     styles: any,
     getSearchUsers?: (value:string) =>  MentionUser[],
     relationToPhaseText?: string,
     limitMessageExceeded: string,
     size?:number,
-    showMoreReplysButtonText: string
+    showMoreReplysButtonText: string,
+    loggedInUser:LoggedInUser,
+    isGoalOwner: boolean
 }
 
 export interface IUser {
@@ -39,3 +41,14 @@ export interface IUser {
     company_name: string,
     avatar?: string,
 }
+
+export type LoggedInUser = {
+    avatar?: string;
+    id: string;
+    name?: {
+      name: string;
+      first_name: string;
+      last_name: string;
+    };
+  };
+  
