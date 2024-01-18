@@ -13,6 +13,10 @@ export const ToastWrapper = styled.div`
   width: 411px;
   min-height:54px;
   max-height: auto;
+  position: fixed;
+  top: 100px;
+  right: 40px;
+  animation: blowup 0.3s ease-in-out;
 `
 
 export const Icon = styled.span`

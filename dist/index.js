@@ -2961,6 +2961,10 @@ const ToastWrapper = styled__default["default"].div `
   width: 411px;
   min-height:54px;
   max-height: auto;
+  position: fixed;
+  top: 100px;
+  right: 40px;
+  animation: blowup 0.3s ease-in-out;
 `;
 const Icon = styled__default["default"].span `
   margin-right: 10px;
