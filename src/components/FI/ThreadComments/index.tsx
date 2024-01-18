@@ -130,6 +130,8 @@ export const ThreadComments = ({
                   onClickAnswerButton={handleCommentReplyReply}
                   isAuthor={replyComment.user?.uuid === loggedInUser?.id}
                   isOwnerPost={(mainComment.user?.uuid === loggedInUser?.id) || isGoalOwner}
+                  deleteText={deleteText}
+                  editText={editText}
                 />
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply
