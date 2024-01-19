@@ -6459,7 +6459,6 @@ input.p-dropdown-label {
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-component .p-multiselect-item {
   border-width: 1px 0px 0px 0px;
-  padding: 1rem 1rem;
   border-style: solid;
   border-color: #ebebeb;
 }
@@ -6477,7 +6476,7 @@ input.p-dropdown-label {
   }
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-component .p-multiselect-item .p-checkbox {
-  /* margin-right: 16px; */
+  margin-right: -12px !important;
   margin-top: 5px;
   margin-left: 16px;
   width: fit-content;
