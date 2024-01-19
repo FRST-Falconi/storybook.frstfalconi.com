@@ -11,7 +11,7 @@ export const CommentaryBoxReply = ({ commentData, showMoreButtonText, showLessBu
         imgProfile={commentData.user?.avatar}
         itsLiked={false} userName={commentData.user?.name}
         userOffice={commentData.user?.role_name} userCompany={commentData.user?.company_name}
-        commentId={commentData.id} commentText={commentData.text} 
+        commentId={commentData.id} commentText={commentData.text} commentUuid={commentData.uuid}
         howLongAgo={commentData.howLongAgo} showMoreText={showMoreButtonText} actionAnswer={()=>onClickAnswerButton(commentData.id)}
         showLessText={showLessButtonText} answerButtonText={answerButtonText} styles={{marginTop: '0px'}} commentTextWithMention={commentData.mentionText} 
         isAuthor={isAuthor}

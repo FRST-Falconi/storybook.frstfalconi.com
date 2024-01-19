@@ -7,7 +7,7 @@ export interface ICommentaryBoxV2{
     userCompany:string ;
     imgProfile?:string ;
 
-
+    commentUuid: string,
     commentId:string;
     commentText: string ;
     commentTextWithMention?: string;

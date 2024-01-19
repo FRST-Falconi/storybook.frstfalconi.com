@@ -92,6 +92,7 @@ export const ThreadComments = ({
             deleteText={deleteText}
             editText={editText}
             showOptions={isMainCommentUser || isGoalOwner }
+            commentUuid={mainComment.uuid}
           />
 
           {listReplyComments.length > visibleReplies && (
