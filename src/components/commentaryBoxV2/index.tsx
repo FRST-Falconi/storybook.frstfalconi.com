@@ -29,6 +29,7 @@ export const CommentaryBoxV2 = ({
   isOwnerPost,
   howLongAgo,
   commentId,
+  commentUuid,
   commentText,
   actionAnswer,
   onClickUserInfo,
@@ -51,7 +52,7 @@ export const CommentaryBoxV2 = ({
   const exclude = {
     description: deleteText,
     startIcon: <TrashIconNew fill="#C1341A" />,
-    onClick: () => actionDeleteComment(commentId),
+    onClick: () => actionDeleteComment(commentUuid),
     color: '#C1341A'
   }
 
