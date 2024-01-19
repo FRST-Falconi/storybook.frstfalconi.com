@@ -31,13 +31,13 @@ export const ContainerIcon = styled.div`
     min-height: 20px;
     min-width: 20px;
     padding-left: 15px;
-    padding-right: 10px;
+    padding-right: 8px;
     padding-top: 3px;
 `
 
 export const InputSearchWrapper = styled.div<ISearchField>`
     height: 48px;
-    background-color: #E8E8E8;
+    background-color: #EBEDED;
 
     border-radius: 8px;
     
@@ -51,7 +51,6 @@ export const InputSearchWrapper = styled.div<ISearchField>`
 `
 
 export const InputText = styled.input`
-    margin-left:10px;
     display: flex;
     align-items: center;
     height: 48px;
