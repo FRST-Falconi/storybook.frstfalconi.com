@@ -137,35 +137,48 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         addOrDeleteMentionedUser()
     }
     const handleInput = (event: React.KeyboardEvent) => {
-
         const selection = window.getSelection();
-        let inputSearch = '@';
+        let inputSearch = '';
+        let hasSpaceBeForeKey = false;
+        let hasKeyPresent = false;    
+        let textBeforeCursor = "";
         if (selection && selection.rangeCount > 0) {
             const range = selection.getRangeAt(0);
 
             if (range.startContainer.textContent === null) return;
             // Get the text before the cursor
-            const textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
-
+            const completeText = range.startContainer.textContent;
+            textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
             // Find the last index of "@" in the text before the cursor
-            const atIndex = textBeforeCursor.lastIndexOf('@');
+            const atIndex = completeText.lastIndexOf('@');
+            hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex) === "" || completeText.substring(atIndex - 1, atIndex) === " ";
+            
 
-            if (atIndex !== -1) {
-                // Get the characters after the last "@"
-                const afterAt = textBeforeCursor.substring(atIndex + 1);
-                inputSearch = afterAt
-            } else {
+            if (hasSpaceBeForeKey || textBeforeCursor === "@") {
+                if (atIndex !== -1) {
+                    
+                    // Get the characters after the last "@"
+                    const afterAt = completeText.substring(atIndex);
+                    if(afterAt.length > 1 || event.key === "@"){
+                        hasKeyPresent = true
+                    }
+                    inputSearch = afterAt.replace('@', '');
+                } else {
+                    inputSearch = ''
+                    setShowMention(false)
+                }
+            }else{
                 setShowMention(false)
+                
             }
+           
         }
-        if (event.key === '@') {
+        if((hasSpaceBeForeKey && hasKeyPresent) ||  textBeforeCursor === "@" ){
             setShowMention(true)
+            setInputSearch(inputSearch)
+            !!onChange && onChange(inputSearch)
         }
-        if (inputSearch.trim() === '@') {
-            inputSearch = ''
-        }
-        setInputSearch(inputSearch)
-        !!onChange && onChange(inputSearch)
+        
         countChars()
         createFormatAndTextContentToSaveComment()
 

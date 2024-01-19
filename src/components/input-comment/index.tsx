@@ -35,7 +35,7 @@ export default function InputComment({ placeholder, onChange, limit, users, show
           ><p><br /></p>
           
           </Styles.InputText>
-          {showMentions && <Mentions
+          {showMention && users && users.length > 0 && <Mentions
             users={users}
             top={mentionTopPosition}
             onSelect={(user: User) => {
