@@ -29,6 +29,7 @@ export interface IThumbnails {
   index?: string
   provided?: any
   activeMenuModule?: boolean
+  activePublishButton?: boolean
 }
 
 export interface IThumbnailsTranslate extends IThumbnails {

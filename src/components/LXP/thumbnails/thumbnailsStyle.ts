@@ -48,7 +48,6 @@ export const ContainerMain = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
 `
 export const Typography = styled.div`
   font-family: 'PT Sans';
@@ -58,7 +57,6 @@ export const Typography = styled.div`
   line-height: 21px;
   color: ${({ theme }) => theme.colors.shadeBlack};
   white-space: wrap;
-  position: absolute;
 `
 export const IconVertical = styled.div`
   margin-left: 150px;
@@ -127,7 +125,6 @@ export const CardDragAndDrop = styled.div<IImageBackground>`
   width: 195px;
   min-width: 195px;
   padding: 8px;
-  height: 273px;
   flex-direction: column;
   align-items: center;
   /* justify-content: space-between; */
@@ -141,8 +138,8 @@ export const CardDragAndDrop = styled.div<IImageBackground>`
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-border: 1px dashed  #BDBDBD;
-background: #E0E0E0;
+    border: 1px dashed  #BDBDBD;
+    background: #E0E0E0;
   }
 
   &.loading {
