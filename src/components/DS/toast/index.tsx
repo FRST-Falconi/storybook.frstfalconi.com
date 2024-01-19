@@ -33,7 +33,7 @@ export const Toast = ({ type = 'success' , message, onClose , showBySeconds= 5, 
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <ToastWrapper style={...styles}>
+      <ToastWrapper style={{...styles}}>
         <Icon>{iconComponent}</Icon>
         <Text>{message}</Text>
         <CloseButton onClick={onClose}><CloseIcon width='14' height='14'/></CloseButton>
