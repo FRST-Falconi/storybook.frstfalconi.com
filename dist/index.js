@@ -3487,32 +3487,43 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     };
     const handleInput = (event) => {
         const selection = window.getSelection();
-        let inputSearch = '@';
+        let inputSearch = '';
+        let hasSpaceBeForeKey = false;
+        let hasKeyPresent = false;
+        let textBeforeCursor = "";
         if (selection && selection.rangeCount > 0) {
             const range = selection.getRangeAt(0);
             if (range.startContainer.textContent === null)
                 return;
             // Get the text before the cursor
-            const textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
+            const completeText = range.startContainer.textContent;
+            textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
             // Find the last index of "@" in the text before the cursor
-            const atIndex = textBeforeCursor.lastIndexOf('@');
-            if (atIndex !== -1) {
-                // Get the characters after the last "@"
-                const afterAt = textBeforeCursor.substring(atIndex + 1);
-                inputSearch = afterAt;
+            const atIndex = completeText.lastIndexOf('@');
+            hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex) === "" || completeText.substring(atIndex - 1, atIndex) === " ";
+            if (hasSpaceBeForeKey || textBeforeCursor === "@") {
+                if (atIndex !== -1) {
+                    // Get the characters after the last "@"
+                    const afterAt = completeText.substring(atIndex);
+                    if (afterAt.length > 1 || event.key === "@") {
+                        hasKeyPresent = true;
+                    }
+                    inputSearch = afterAt.replace('@', '');
+                }
+                else {
+                    inputSearch = '';
+                    setShowMention(false);
+                }
             }
             else {
                 setShowMention(false);
             }
         }
-        if (event.key === '@') {
+        if ((hasSpaceBeForeKey && hasKeyPresent) || textBeforeCursor === "@") {
             setShowMention(true);
+            setInputSearch(inputSearch);
+            !!onChange && onChange(inputSearch);
         }
-        if (inputSearch.trim() === '@') {
-            inputSearch = '';
-        }
-        setInputSearch(inputSearch);
-        !!onChange && onChange(inputSearch);
         countChars();
         createFormatAndTextContentToSaveComment();
     };
@@ -3783,10 +3794,9 @@ const Mentions = (mention) => {
 
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
     const { handleInput, isPlaceholder, focus, setFocus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
-    const showMentions = showMention && ['b1005836-b0a6-4a50-8147-537ebdc64a75', '413c2f36-9195-4fef-86fe-572c49049007'].includes(group_uuid);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), onKeyUpCapture: (event) => {
                                 handleInput(event);
-                            }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMentions && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
+                            }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
                             } })] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder ?
