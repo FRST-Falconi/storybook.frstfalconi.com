@@ -6341,7 +6341,7 @@ input.p-dropdown-label {
 /* ## header */
 .p-multiselect-panel {
   border-radius: 8px !important;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3) !important;
   width: fit-content;
   margin-top:10px ;
   margin-right: 18px;
@@ -6460,6 +6460,7 @@ input.p-dropdown-label {
 .p-multiselect-panel .p-multiselect-items-wrapper .p-component .p-multiselect-item {
   border-width: 1px 0px 0px 0px;
   border-style: solid;
+  height: 41px;
   border-color: #ebebeb;
 }
 
