@@ -18,7 +18,7 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
       border: 2px #f26818 solid !important;
       background: #f26818;
       color: #fff;
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
 
       .p-placeholder {
         color: #fff !important;
@@ -146,7 +146,7 @@ export const FiltroPrimeReact = styled.div<PropsFilter>`
 .p-inputwrapper-focus {
     border: 2px #f26818 solid !important;
     background: #f26818 !important;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3) !important;
     .p-placeholder {
         color: #fff !important;
       }

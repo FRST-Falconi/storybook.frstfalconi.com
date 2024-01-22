@@ -8,6 +8,7 @@ import './styles/primeflex.css'
 // import 'primeicons/primeicons.css'
 import Button from '@components/buttons'
 import SearchField from '@components/search-field'
+import { Margin } from '@mui/icons-material'
 
 export default function FiltroGaleriaDesafios({
   placeholderSelect,
@@ -51,7 +52,7 @@ export default function FiltroGaleriaDesafios({
     const lengthList = selectedItems ? selectedItems.length : 0
     return listItems.length >= maxListItems ? (
       <StylesFiltro.searchAndButton>
-        <div style={{ marginBottom: '1rem' }}>
+        <div>
           <SearchField
             placeholder={textBusca}
             className={null}
@@ -65,6 +66,7 @@ export default function FiltroGaleriaDesafios({
         </div>
         {lengthList >= 1 ? (
           <Button
+            style={{marginTop: "1rem"}}
             variant={'link'}
             label={textButtonClear}
             disabled={false}
