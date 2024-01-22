@@ -13,21 +13,24 @@ export const Container = styled.div<{ hide: boolean; top: string; width?: number
   overflow-y: auto;
   z-index: 100;
   border-radius: 8px;
-  box-shadow: 0px 8px 10px 0 #BDBDBD;
-
-  &::-webkit-scrollbar {
-    width: 5px; 
-    margin-right: 4px;
+  box-shadow: 4px 8px 10px 0 #BDBDBD;
+ 
+  ::-webkit-scrollbar {
+    width: 28px; 
   }
 
-  &::-webkit-scrollbar-thumb {
-    background-color: #757575;
-    border-radius: 6px; 
+  ::-webkit-scrollbar-thumb {
+    width:10px;
+    border: 12px solid rgba(0, 0, 0, 0);
+    background-clip: padding-box;
+    border-radius: 9999px;
+    background-color:  #757575;
     
+  
   }
 
-  &::-webkit-scrollbar-track {
-    background-color: #fff; /* Set the color of the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background-color: inherit; /* Set the color of the scrollbar track */
     border-radius: 8px; /* Set the border radius of the scrollbar track */
   }
 `
@@ -48,7 +51,7 @@ export const MentionItem = styled.div<{ active?: boolean }>`
   justify-content: flex-start;
   padding: 8px;
   height: 56px;
-  border-bottom: 1px solid #BDBDBD;
+  border-bottom:${({ theme }) =>  `0.5px solid ${theme.colors.neutralsGrey5}`};
   &:last-child {
     border-bottom: none; /* Remove the border for the last child */
   }
@@ -83,19 +86,24 @@ export const MentionUserContainer = styled.div`
   padding: 0 8px 0 16px;
   white-space: nowrap; 
   overflow: hidden; 
+  
 `
 
 export const MentionUserName = styled.span`
   font-weight: 400;
   font-size: 16px;
   width: 100%;
+  
 `
 
 export const MentionSubTitle = styled.div`
+  margin-top: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  color: ${({ theme }) => theme.colors.neutralsGrey3};
+  font-weight: 400;
 `
 
 export const MentionSubTitleText = styled.span`
@@ -107,9 +115,11 @@ export const MentionSubTitleText = styled.span`
  
 `
 export const Circle = styled.div`
-  width: 2px;
-  height: 2px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
-  background-color: #757575;
+  font-weight: 400;
+  background-color: ${({ theme }) => theme.colors.neutralsGrey3};
+  color: ${({ theme }) => theme.colors.neutralsGrey3};
   margin: 0 8px;
 `
