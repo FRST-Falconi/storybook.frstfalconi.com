@@ -10,7 +10,10 @@ export default {
 }
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <InputComment {...args} />
+const Template = (args) => 
+<div style={{width:'50%', position:'relative'}}>
+<InputComment {...args} />
+</div>
 
 export const normal = Template.bind({})
 normal.args = {
