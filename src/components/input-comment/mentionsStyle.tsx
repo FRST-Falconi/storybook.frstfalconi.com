@@ -50,7 +50,6 @@ export const MentionItem = styled.div<{ active?: boolean }>`
   align-items: center;
   justify-content: flex-start;
   padding: 8px;
-  height: 56px;
   border-bottom:${({ theme }) =>  `0.5px solid ${theme.colors.neutralsGrey5}`};
   &:last-child {
     border-bottom: none; /* Remove the border for the last child */
@@ -63,14 +62,8 @@ export const MentionItem = styled.div<{ active?: boolean }>`
   }
   
   
-  
 `
 
-export const MentionContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
 
 export const MentionAvatar = styled.img`
   width: 40px;
@@ -78,30 +71,33 @@ export const MentionAvatar = styled.img`
   border-radius: 50%;
 `
 
+export const DefaultAvatar = styled.div`
+ width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
+
 export const MentionUserContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
   flex-direction: column;
   padding: 0 8px 0 16px;
-  white-space: nowrap; 
-  overflow: hidden; 
+  width: 96%;
   
 `
 
 export const MentionUserName = styled.span`
   font-weight: 400;
   font-size: 16px;
-  width: 100%;
   
 `
 
-export const MentionSubTitle = styled.div`
+export const MentionSubTitleContainer = styled.div`
   margin-top: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   color: ${({ theme }) => theme.colors.neutralsGrey3};
   font-weight: 400;
 `
@@ -111,7 +107,6 @@ export const MentionSubTitleText = styled.span`
   display:flex;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
  
 `
 export const Circle = styled.div`
@@ -123,3 +118,21 @@ export const Circle = styled.div`
   color: ${({ theme }) => theme.colors.neutralsGrey3};
   margin: 0 8px;
 `
+export const CompanyName = styled.span`
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+
+  @media (max-width: 1750px) {
+    /* Styles for screens with a minimum width of 768px */
+    width: 84%;
+  }
+  @media (max-width: 1536px) {
+    /* Styles for screens with a minimum width of 768px */
+    width: 48%;
+  }
+  
+  
+`
+

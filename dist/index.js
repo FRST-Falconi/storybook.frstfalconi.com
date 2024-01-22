@@ -3686,7 +3686,6 @@ const MentionItem = styled__default["default"].div `
   align-items: center;
   justify-content: flex-start;
   padding: 8px;
-  height: 56px;
   border-bottom:${({ theme }) => `0.5px solid ${theme.colors.neutralsGrey5}`};
   &:last-child {
     border-bottom: none; /* Remove the border for the last child */
@@ -3699,15 +3698,14 @@ const MentionItem = styled__default["default"].div `
   }
   
   
-  
-`;
-styled__default["default"].div `
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 const MentionAvatar = styled__default["default"].img `
   width: 40px;
+  height: 40px;
+  border-radius: 50%;
+`;
+const DefaultAvatar = styled__default["default"].div `
+ width: 40px;
   height: 40px;
   border-radius: 50%;
 `;
@@ -3717,22 +3715,19 @@ const MentionUserContainer = styled__default["default"].div `
   align-items: baseline;
   flex-direction: column;
   padding: 0 8px 0 16px;
-  white-space: nowrap; 
-  overflow: hidden; 
+  width: 96%;
   
 `;
 const MentionUserName = styled__default["default"].span `
   font-weight: 400;
   font-size: 16px;
-  width: 100%;
   
 `;
-const MentionSubTitle = styled__default["default"].div `
+const MentionSubTitleContainer = styled__default["default"].div `
   margin-top: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   color: ${({ theme }) => theme.colors.neutralsGrey3};
   font-weight: 400;
 `;
@@ -3741,7 +3736,6 @@ const MentionSubTitleText = styled__default["default"].span `
   display:flex;
   align-items: center;
   justify-content: flex-start;
-  width: 100%;
  
 `;
 const Circle = styled__default["default"].div `
@@ -3752,6 +3746,23 @@ const Circle = styled__default["default"].div `
   background-color: ${({ theme }) => theme.colors.neutralsGrey3};
   color: ${({ theme }) => theme.colors.neutralsGrey3};
   margin: 0 8px;
+`;
+const CompanyName = styled__default["default"].span `
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 90%;
+
+  @media (max-width: 1750px) {
+    /* Styles for screens with a minimum width of 768px */
+    width: 84%;
+  }
+  @media (max-width: 1536px) {
+    /* Styles for screens with a minimum width of 768px */
+    width: 48%;
+  }
+  
+  
 `;
 
 const useMentions = (mention) => {
@@ -3798,7 +3809,7 @@ const Mentions = (mention) => {
                             if (e.key.toLowerCase() === 'enter') {
                                 setSelectedUser(user);
                             }
-                        }, children: [!!user.profile.avatar && !!user.profile.avatar.length ? jsxRuntime.jsx(MentionAvatar, { src: user.profile.avatar }) : jsxRuntime.jsx(DefaultProfile, {}), jsxRuntime.jsxs(MentionUserContainer, { children: [jsxRuntime.jsx(MentionUserName, { children: user.name }), jsxRuntime.jsx(MentionSubTitle, { children: jsxRuntime.jsxs(MentionSubTitleText, { children: [user.profile.role_name, " ", jsxRuntime.jsx(Circle, {}), user.profile.company_name] }) })] })] }, user.user_uuid));
+                        }, children: [!!user.profile.avatar && !!user.profile.avatar.length ? jsxRuntime.jsx(MentionAvatar, { src: user.profile.avatar }) : jsxRuntime.jsx(DefaultAvatar, { children: jsxRuntime.jsx(DefaultProfile, {}) }), jsxRuntime.jsxs(MentionUserContainer, { children: [jsxRuntime.jsx(MentionUserName, { children: user.name }), jsxRuntime.jsx(MentionSubTitleContainer, { children: jsxRuntime.jsxs(MentionSubTitleText, { children: [user.profile.role_name, " ", jsxRuntime.jsx(Circle, {}), jsxRuntime.jsx(CompanyName, { children: user.profile.company_name })] }) })] })] }, user.user_uuid));
                 }) }) }) }));
 };
 
