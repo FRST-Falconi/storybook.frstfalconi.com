@@ -47,7 +47,8 @@ export default function Thumbnails({
   txtPopOverEditContentActivity,
   txtHideContent,
   txtShowContent,
-  activeMenuModule = true
+  activeMenuModule = true,
+  activePublishButton = true
 }: IThumbnailsTranslate) {
   const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png'
   const [ativo, setAtivo] = useState<boolean>(isDisabled)
@@ -152,25 +153,28 @@ export default function Thumbnails({
                   </Styles.IconVertical>
                 </Styles.ContainerMain>
 
-                <Button
-                  // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
-                  variant="expandedSecondary"
-                  style={{ marginTop: '16px', height: '32px' }}
-                  handleClick={async () => {
-                    setPublishing('processing')
-                    await handlePublicarCourse()
-                    checkStatusPublish()
-                  }}
-                  startIcon={
-                    Publishing === 'processing' && (
-                      <LoadingComponent.default sizeLoading="small" loadColor="#a5a5a5" style={{ width: 40 }} />
-                    )
-                  }
-                  label={
-                    Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...'
-                  }
-                  disabled={Publishing === 'pending' ? false : true}
-                />
+                {
+                  activePublishButton &&
+                  <Button
+                    // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
+                    variant="expandedSecondary"
+                    style={{ height: '32px' }}
+                    handleClick={async () => {
+                      setPublishing('processing')
+                      await handlePublicarCourse()
+                      checkStatusPublish()
+                    }}
+                    startIcon={
+                      Publishing === 'processing' && (
+                        <LoadingComponent.default sizeLoading="small" loadColor="#a5a5a5" style={{ width: 40 }} />
+                      )
+                    }
+                    label={
+                      Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...'
+                    }
+                    disabled={Publishing === 'pending' ? false : true}
+                  />
+                }
               </Styles.CardDragAndDrop>
             )}
           </>
