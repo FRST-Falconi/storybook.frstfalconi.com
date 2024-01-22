@@ -12147,7 +12147,6 @@ const ContainerMain = styled__default["default"].div `
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
 `;
 const Typography$2 = styled__default["default"].div `
   font-family: 'PT Sans';
@@ -12157,7 +12156,6 @@ const Typography$2 = styled__default["default"].div `
   line-height: 21px;
   color: ${({ theme }) => theme.colors.shadeBlack};
   white-space: wrap;
-  position: absolute;
 `;
 const IconVertical = styled__default["default"].div `
   margin-left: 150px;
@@ -12223,7 +12221,6 @@ const CardDragAndDrop = styled__default["default"].div `
   width: 195px;
   min-width: 195px;
   padding: 8px;
-  height: 273px;
   flex-direction: column;
   align-items: center;
   /* justify-content: space-between; */
@@ -12237,8 +12234,8 @@ const CardDragAndDrop = styled__default["default"].div `
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-border: 1px dashed  #BDBDBD;
-background: #E0E0E0;
+    border: 1px dashed  #BDBDBD;
+    background: #E0E0E0;
   }
 
   &.loading {
@@ -12311,7 +12308,7 @@ function VectorCross(props) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.2051 1.53845V22.8718", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.53809 12.2051H22.8714", stroke: "#EBEBEB", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 
-function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNew, handleSwitchAtivar, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMoveToTrail, handleClickPopOverDeleteTrail, handlePublicarCourse, handlePublicarContentCheck, publishContentStatus, title, provided, isDisabled, isLoading, txtButtonLabel, txtCriarNovoCurso, txtCriarNovoCurso2, txtAtivarCurso, txtPopOverDeleteContent, txtPopOverMoveToTrails, txtPopOverEditContent, isActive, isTrail, txtPopOverDeleteTrail, txtPopOverEditContentActivity, txtHideContent, txtShowContent, activeMenuModule = true }) {
+function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNew, handleSwitchAtivar, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMoveToTrail, handleClickPopOverDeleteTrail, handlePublicarCourse, handlePublicarContentCheck, publishContentStatus, title, provided, isDisabled, isLoading, txtButtonLabel, txtCriarNovoCurso, txtCriarNovoCurso2, txtAtivarCurso, txtPopOverDeleteContent, txtPopOverMoveToTrails, txtPopOverEditContent, isActive, isTrail, txtPopOverDeleteTrail, txtPopOverEditContentActivity, txtHideContent, txtShowContent, activeMenuModule = true, activePublishButton = true }) {
     const defaultImg = 'https://i.gyazo.com/35d9c18bbdc6a48d843b0aa24ab2499e.png';
     const [ativo, setAtivo] = React.useState(isDisabled);
     const [showModules, setShowModules] = React.useState(false);
@@ -12364,15 +12361,16 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
                                 // className="imageHover"
                                 src: src || defaultImg }), jsxRuntime.jsxs(ContainerMain, { children: [jsxRuntime.jsx(LightTooltip, { title: title, children: jsxRuntime.jsx(Typography$2, { style: { color: ativo ? '#000000' : '#bdbdbd', textAlign: 'start' }, children: title && title?.length > 17 ? `${title.substring(0, 17)}...` : title }) }), jsxRuntime.jsx(IconVertical, { onClick: (element) => {
                                             setElementPopover(element.currentTarget);
-                                        }, children: activeMenuModule && jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), jsxRuntime.jsx(Button$4
-                            // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
-                            , { 
+                                        }, children: activeMenuModule && jsxRuntime.jsx(MoreVertical, { fill: ativo ? '#000000' : '#bdbdbd' }) })] }), activePublishButton &&
+                                jsxRuntime.jsx(Button$4
                                 // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
-                                variant: "expandedSecondary", style: { marginTop: '16px', height: '32px' }, handleClick: async () => {
-                                    setPublishing('processing');
-                                    await handlePublicarCourse();
-                                    checkStatusPublish();
-                                }, startIcon: Publishing === 'processing' && (jsxRuntime.jsx(Loading, { sizeLoading: "small", loadColor: "#a5a5a5", style: { width: 40 } })), label: Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...', disabled: Publishing === 'pending' ? false : true })] })) })) : variant === 'add' ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading$1 ? (jsxRuntime.jsx(LoadingThumbnails, { provided: provided })) : (jsxRuntime.jsxs(CardDragAndDrop, { className: "add", children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo' })] })) })) : null, jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
+                                , { 
+                                    // label={txtButtonLabel ? txtButtonLabel : 'Publicar'}
+                                    variant: "expandedSecondary", style: { height: '32px' }, handleClick: async () => {
+                                        setPublishing('processing');
+                                        await handlePublicarCourse();
+                                        checkStatusPublish();
+                                    }, startIcon: Publishing === 'processing' && (jsxRuntime.jsx(Loading, { sizeLoading: "small", loadColor: "#a5a5a5", style: { width: 40 } })), label: Publishing === 'pending' ? 'Publicar' : Publishing === 'complete' ? 'Publicado' : 'Publicando...', disabled: Publishing === 'pending' ? false : true })] })) })) : variant === 'add' ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: Loading$1 ? (jsxRuntime.jsx(LoadingThumbnails, { provided: provided })) : (jsxRuntime.jsxs(CardDragAndDrop, { className: "add", children: [jsxRuntime.jsx(ContainerEllipse, { onClick: handleClickNew, children: jsxRuntime.jsx(VectorCross, {}) }), jsxRuntime.jsx(TypographyAdd, { children: txtCriarNovoCurso ? txtCriarNovoCurso : 'Criar novo conteúdo' })] })) })) : null, jsxRuntime.jsx(PopOver, { element: ElementPopover, onClosePopover: () => {
                         setElementPopover(null);
                     }, variant: 'upRight', children: jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', padding: 0 }, children: [jsxRuntime.jsx(PopOverItem, { label: txtPopOverEditContent ? txtPopOverEditContent : 'Editar módulo', onClick: () => {
                                     setElementPopover(null);
@@ -12413,9 +12411,9 @@ function Thumbnails({ variant, src, showSwitch, handleClickCourse, handleClickNe
 }
 
 // import { Draggable } from 'react-beautiful-dnd'
-function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleSwitchAtivar, title, id, index, isDisabled, isLoading, txtButtonLabel, txtAtivarCurso, showSwitch, txtCriarNovoCurso, txtCriarNovoCurso2, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMove, handleClickPopOverMoveToTrail, handlePublicarCourse, handlePublicarContentCheck, publishContentStatus, txtPopOverDeleteContent, txtPopOverEditContent, isActive, isTrail, txtPopOverMoveToTrails, txtPopOverDeleteTrail, txtPopOverEditContentActivity, activeMenuModule }) {
+function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleSwitchAtivar, title, id, index, isDisabled, isLoading, txtButtonLabel, txtAtivarCurso, showSwitch, txtCriarNovoCurso, txtCriarNovoCurso2, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMove, handleClickPopOverMoveToTrail, handlePublicarCourse, handlePublicarContentCheck, publishContentStatus, txtPopOverDeleteContent, txtPopOverEditContent, isActive, isTrail, txtPopOverMoveToTrails, txtPopOverDeleteTrail, txtPopOverEditContentActivity, activeMenuModule, activePublishButton }) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(dnd.Draggable, { index: parseInt(index), draggableId: id, children: (provided) => {
-                return (jsxRuntime.jsx(Thumbnails, { src: src, isDisabled: isDisabled, handleClickCourse: handleClickCourse, handleSwitchAtivar: handleSwitchAtivar, handleClickNew: handleClickNew, handleClickContent: handleClickContent, variant: variant, title: title, id: id, isActive: isActive, isLoading: isLoading, showSwitch: showSwitch, index: index, isTrail: isTrail, provided: provided, txtButtonLabel: txtButtonLabel, txtAtivarCurso: txtAtivarCurso, txtCriarNovoCurso: txtCriarNovoCurso, txtCriarNovoCurso2: txtCriarNovoCurso2, handleClickPopOverEditActivity: handleClickPopOverEditActivity, handleClickPopOverDelete: handleClickPopOverDelete, handleClickPopOverEdit: handleClickPopOverEdit, handleClickPopOverMove: handleClickPopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails, txtPopOverDeleteTrail: txtPopOverDeleteTrail, txtPopOverEditContentActivity: txtPopOverEditContentActivity, handleClickPopOverMoveToTrail: handleClickPopOverMoveToTrail, handlePublicarContentCheck: handlePublicarContentCheck, publishContentStatus: publishContentStatus, handlePublicarCourse: handlePublicarCourse, activeMenuModule: activeMenuModule }));
+                return (jsxRuntime.jsx(Thumbnails, { src: src, isDisabled: isDisabled, handleClickCourse: handleClickCourse, handleSwitchAtivar: handleSwitchAtivar, handleClickNew: handleClickNew, handleClickContent: handleClickContent, variant: variant, title: title, id: id, isActive: isActive, isLoading: isLoading, showSwitch: showSwitch, index: index, isTrail: isTrail, provided: provided, txtButtonLabel: txtButtonLabel, txtAtivarCurso: txtAtivarCurso, txtCriarNovoCurso: txtCriarNovoCurso, txtCriarNovoCurso2: txtCriarNovoCurso2, handleClickPopOverEditActivity: handleClickPopOverEditActivity, handleClickPopOverDelete: handleClickPopOverDelete, handleClickPopOverEdit: handleClickPopOverEdit, handleClickPopOverMove: handleClickPopOverMove, txtPopOverDeleteContent: txtPopOverDeleteContent, txtPopOverEditContent: txtPopOverEditContent, txtPopOverMoveToTrails: txtPopOverMoveToTrails, txtPopOverDeleteTrail: txtPopOverDeleteTrail, txtPopOverEditContentActivity: txtPopOverEditContentActivity, handleClickPopOverMoveToTrail: handleClickPopOverMoveToTrail, handlePublicarContentCheck: handlePublicarContentCheck, publishContentStatus: publishContentStatus, handlePublicarCourse: handlePublicarCourse, activeMenuModule: activeMenuModule, activePublishButton: activePublishButton }));
             } }, id) }));
 }
 

@@ -36,7 +36,8 @@ Default.args = {
     txtPopOverEditContent: "Edit content",
     txtPopOverMoveToTrails: "Move to Trails",
     txtPopOverDeleteContent:"Delete content",
-    activeMenuModule: false
+    activeMenuModule: false,
+    activePublishButton: false
 }
 
 export const Add = Template.bind({})
