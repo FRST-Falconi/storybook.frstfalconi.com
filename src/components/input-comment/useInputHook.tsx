@@ -151,7 +151,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
             // Find the last index of "@" in the text before the cursor
             const atIndex = completeText.lastIndexOf('@');
-            hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex) === "" || completeText.substring(atIndex - 1, atIndex) === " ";
+            hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex).trim() === "";
             
 
             if (hasSpaceBeForeKey || textBeforeCursor === "@") {
