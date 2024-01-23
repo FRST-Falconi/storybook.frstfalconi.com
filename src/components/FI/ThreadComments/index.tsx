@@ -124,7 +124,7 @@ export const ThreadComments = ({
         {showAnswers && visibleReplies && (
           <Styled.RepplysContainer style={{marginTop:'24px'}} >
             {listReplyComments.slice(0, visibleReplies).map((replyComment) => (
-              <div key={replyComment.id}>
+              <div key={replyComment.id} style={{marginTop:"6px"}}>
                 <CommentaryBoxReply
                   commentData={replyComment}
                   answerButtonText={''}

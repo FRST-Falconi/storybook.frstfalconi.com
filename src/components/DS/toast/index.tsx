@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import { CloseIcon, ErrorInCicleIcon } from '@shared/icons'
@@ -8,11 +8,12 @@ import {ToastProps} from './toast.types'
 
 
 export const Toast = ({ type = 'success' , message, onClose , showBySeconds= 5, styles}: ToastProps) => {
+  const [isToastOpen, setIsToastOpen] = useState(true);
+  
   useEffect(() => {
     const timer = setTimeout(() => {
-      onClose()
+      onClose();
     }, showBySeconds * 1000)
-
     return () => clearTimeout(timer)
   }, [onClose])
 
@@ -32,8 +33,8 @@ export const Toast = ({ type = 'success' , message, onClose , showBySeconds= 5, 
   }
 
   return (
-    <ThemeProvider theme={FRSTTheme}>
-      <ToastWrapper style={{...styles}}>
+    <ThemeProvider theme={FRSTTheme} > 
+      <ToastWrapper visible={isToastOpen} style={{...styles}}>
         <Icon>{iconComponent}</Icon>
         <Text>{message}</Text>
         <CloseButton onClick={onClose}><CloseIcon width='14' height='14'/></CloseButton>
