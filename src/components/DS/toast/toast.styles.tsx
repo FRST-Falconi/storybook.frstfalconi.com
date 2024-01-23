@@ -1,6 +1,33 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
-export const ToastWrapper = styled.div`
+export interface AnimationToastProps {
+  visible?: boolean;
+}
+
+
+const fadeInRight = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const fadeOutRight = keyframes`
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+`;
+
+export const ToastWrapper = styled.div<AnimationToastProps>`
   display: flex;
   align-items: center;
   padding: 16px;
@@ -16,8 +43,8 @@ export const ToastWrapper = styled.div`
   position: fixed;
   top: 100px;
   right: 40px;
-  animation: 0% { transform: scale(0) }
-  100% { transform: scale(1) } 0.5s ease-in-out;
+  z-index: 10000;
+  animation: ${fadeInRight} 0.5s ease-in-out;
 `
 
 export const Icon = styled.span`
