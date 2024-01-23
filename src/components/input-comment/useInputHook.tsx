@@ -205,6 +205,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
    
     const clearDivContent = () => {
         if (!divInputRef.current) return;
+        console.log('focus is', focus)
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
@@ -279,12 +280,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
     useEffect(() => {
         if (!divInputRef.current) return;
 
-        //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-        divInputRef.current.addEventListener('keyup', (event) => {
-            if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Enter') {
-                setShowMention(false)
-            }
-        })
+        
 
         clearDivContent()
     }, [focus])
@@ -293,13 +289,48 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         setStyleLimitExceeded(textLength > limit)
     }, [textLength])
 
+    useEffect(()=>{
+        if(!divInputRef.current) return;
 
+        divInputRef.current.addEventListener('mousedown',()=>{
+            setFocus(true)
+        })
+        divInputRef.current.addEventListener('focus',()=>{
+            setFocus(true)
+        })
+        divInputRef.current.addEventListener('blur',()=>{
+            setFocus(false)
+        })
+        //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
+        divInputRef.current.addEventListener('keyup', (event) => {
+            if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Enter') {
+                setShowMention(false)
+            }
+        })
+
+        return ()=>{
+            divInputRef.current?.removeEventListener('mousedown',()=>{
+                setFocus(true)
+            })
+            divInputRef.current?.removeEventListener('focus',()=>{
+                setFocus(true)
+            })
+            divInputRef.current?.removeEventListener('blur',()=>{
+                setFocus(false)
+            })
+            //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
+            divInputRef.current.removeEventListener('keyup', (event) => {
+                if (event.key === 'ArrowUp' || event.key === 'ArrowDown' || event.key === 'ArrowLeft' || event.key === 'ArrowRight' || event.key === 'Enter') {
+                    setShowMention(false)
+                }
+            })
+        }
+    },[])
 
     return {
         handleInput,
         clearDivContent,
         focus,
-        setFocus,
         showMention,
         setShowMention,
         inputSearch,
