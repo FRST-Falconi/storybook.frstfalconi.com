@@ -1,12 +1,22 @@
-import React from 'react';
-import { Toast } from './index'; // Certifique-se de ajustar o caminho conforme sua estrutura de diretórios
+import React, { useState } from 'react';
+import { Toast } from './index';
+import MiniButton from '../../mini-button'
 
 export default {
   title: 'Components/Toast',
   component: Toast,
 };
 
-const Template = (args) => <Toast {...args} />;
+const Template = (args) => {
+  const [isToastOpen, setIsToastOpen] = useState(false);
+  return (
+    <div style={{ display: 'flex', gap: '10px' }}>
+        {isToastOpen && (<Toast  {...args} onClose={() => setIsToastOpen(false)}/>)}
+
+        <MiniButton label={'Mostrar toast'} variant="primary" onClick={()=> setIsToastOpen(true)}/>
+    </div>
+  )
+}
 
 export const SuccessToast = Template.bind({});
 SuccessToast.args = {
