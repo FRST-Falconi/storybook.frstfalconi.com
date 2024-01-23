@@ -122,17 +122,19 @@ export const CompanyName = styled.span`
     white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 90%;
 
-  @media (max-width: 1750px) {
-    /* Styles for screens with a minimum width of 768px */
-    width: 84%;
+ 
+  @media (min-width: 1024px) {
+    width: 58%
   }
-  @media (max-width: 1536px) {
+  @media (min-width: 1440px) {
     /* Styles for screens with a minimum width of 768px */
     width: 48%;
   }
-  
+  @media (min-width: 1750px) {
+    /* Styles for screens with a minimum width of 768px */
+    width: 90%;
+  }
   
 `
 
