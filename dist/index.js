@@ -3575,6 +3575,8 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const clearDivContent = () => {
         if (!divInputRef.current)
             return;
+        console.log('placeholder focus = ', focus);
+        console.log('placeholder divInputRef.current.childNodes.length = ', divInputRef.current.childNodes.length);
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
@@ -3589,6 +3591,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                     setPlaceholder(false);
                 }
             });
+            console.log('placeholder isEmpty = ', isEmpty);
             // if they are empty show the placeholder
             if (isEmpty) {
                 // create a textnode with the placeholder
@@ -3598,11 +3601,15 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         }
         else if (divInputRef.current.innerText === placeholder) {
             // create a paragraph node
+            divInputRef.current.innerHTML = '';
+            // clear complete the div
+            divInputRef.current.innerText = '';
+            console.log(`placeholder clear`);
             const p = document.createElement('p');
             const br = document.createElement('br');
             p.appendChild(br);
-            divInputRef.current.innerHTML = '';
             divInputRef.current.appendChild(p);
+            console.log(`placeholder divInputRef.current.innerHtml= ${divInputRef.current.innerHTML}`);
             setPlaceholder(false);
         }
     };
