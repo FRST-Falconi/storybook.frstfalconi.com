@@ -2,7 +2,7 @@ import { Box, Modal, Stack } from '@mui/material'
 import style from './modalBase.module.css'
 import { CloseIcon } from '@shared/icons'
 import Rating from '@components/EBR/rating'
-import { ReactChildren, useEffect, useState } from 'react'
+import { ReactChildren, ReactNode, useEffect, useState } from 'react'
 
 interface ModalBaseProps {
   open: boolean
@@ -15,12 +15,11 @@ interface ModalBaseProps {
   showRating?: boolean
   rating?: number
   ratingDescription?: string
-  children: ReactChildren
+  children: ReactNode
 }
 
 export default function ModalBase(props: ModalBaseProps) {
   const [currentRating, setCurrentRating] = useState(props.rating)
-  const [isOpenModal, setOpenModal] = useState(() => props.open)
 
   useEffect(() => {
     if (props.rating) {
@@ -28,13 +27,9 @@ export default function ModalBase(props: ModalBaseProps) {
     }
   }, [props.rating])
 
-  const handleModalClose = () => {
-    props.handleClose && props.handleClose()
-    setOpenModal(() => false)
-  }
 
   return (
-    <Modal open={isOpenModal} onClose={handleModalClose} >
+    <Modal open={props.open} onClose={props.handleClose} >
       <Box
         id={`modal-video${(props.title? props.title : '').replace(/( )+/g, '')}`}
         className={style.modalBox}
@@ -50,7 +45,7 @@ export default function ModalBase(props: ModalBaseProps) {
           px={3}
         >
           <Box textAlign="left">{props.title}</Box>
-          <Box className={style.fechar} onClick={handleModalClose}>
+          <Box className={style.fechar} onClick={props.handleClose}>
             <CloseIcon />
           </Box>
         </Stack>
@@ -59,9 +54,7 @@ export default function ModalBase(props: ModalBaseProps) {
           <Box
             width="100%"
             style={{
-              minHeight: 260,
               display: 'flex',
-              alignItems: 'center',
               justifyContent: 'center'
             }}
           >
@@ -69,7 +62,11 @@ export default function ModalBase(props: ModalBaseProps) {
           </Box>
 
           {props.showRating && (
-            <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <Box style={{
+              position: "absolute",
+              bottom: "17px",
+              right: "25px",
+            }}>
               <Box style={{ maxWidth: 240 }}>
                 <p style={{ textAlign: 'left', fontSize: 14, fontWeight: 400 }}>{props.ratingDescription}</p>
                 <Box style={{ display: 'flex', justifyContent: 'flex-end' }}>

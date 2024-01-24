@@ -1,6 +1,7 @@
 import React from 'react'
 
 import ModalBase from './index'
+import AudioPlayer from '../../audio-player'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -21,7 +22,21 @@ ModalDefaultBase.args = {
   handleClose: () => alert('Fechando o modal'),
   title: 'Cultura da Inovação',
   language: 'en-US',
-  children: <h1>Media</h1>
+  children: (
+    <AudioPlayer
+    audio={'https://lxp-cdn.frstfalconi.cloud/f077ea93b532e29525910bbd9b8a5fd6.mp3'}
+    startAt= {90}
+    coverImage= {'https://i.gyazo.com/002fc9811582004a947a954e5c83d784.png'}
+    title= {'T4:e02 - Human Made: Coragem, Criatividade e Resiliência'}
+    description= {'FIRST THINGS FRST - Gente que transforma o futuro'}
+    date= {'10/05/2023'}
+    volume= {0.7}
+    longLoading= {true}
+    onProgress= {(e) => console.log('onProgress: ', e)}
+    onEnded= {() => console.log('onEnded: ', 'Fim')}
+    style= {{width: 814}}
+    />
+  )
 }
 
 export const ModalBaseRating = Template.bind({})
@@ -36,5 +51,19 @@ ModalBaseRating.args = {
   ratingDescription: 'Avalie abaixo o quanto isso foi útil para você.',
   recommendationId: '123',
   handleChangeRating: (recommendationId, rating) => alert(`RecomendationId:${recommendationId} and Rating:${rating}`),
-  children: <h1>Media</h1>
+  children: (
+    <AudioPlayer
+    audio={'https://lxp-cdn.frstfalconi.cloud/f077ea93b532e29525910bbd9b8a5fd6.mp3'}
+    startAt= {90}
+    coverImage= {'https://i.gyazo.com/002fc9811582004a947a954e5c83d784.png'}
+    title= {'T4:e02 - Human Made: Coragem, Criatividade e Resiliência'}
+    description= {'FIRST THINGS FRST - Gente que transforma o futuro'}
+    date= {'10/05/2023'}
+    volume= {0.7}
+    longLoading= {true}
+    onProgress= {(e) => console.log('onProgress: ', e)}
+    onEnded= {() => console.log('onEnded: ', 'Fim')}
+    style= {{width: 814}}
+    />
+  )
 }
