@@ -10,14 +10,14 @@ import { Mentions } from './mentions'
 import { User } from './types'
 
 export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }: IInputComment) {
-  const {mainContainerRef,  handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } =
+  const {divPlaceholder, handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } =
     useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser })
   
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <div ref={mainContainerRef} style={{ minHeight:'48px', ...styles }} tabIndex={0} >
-        <Styles.InputWrapper focus={focus} tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded} >
+      <div style={{ minHeight:'48px', ...styles }} tabIndex={0} >
+        <Styles.InputWrapper  focus={focus} tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded} >
           <Styles.InputText
             tabIndex={2}
             contentEditable={true}
@@ -27,12 +27,12 @@ export default function InputComment({ placeholder, onChange, limit, users, show
             }}
 
             data-text="enter"
-            isPlaceholder={isPlaceholder}
             suppressContentEditableWarning={true}
 
           ><p><br /></p>
           
           </Styles.InputText>
+          <Styles.InputPlaceholder style={{display:'none'}} contentEditable={true} ref={divPlaceholder} >{placeholder}</Styles.InputPlaceholder>
           {showMention && users && users.length > 0 && <Mentions
             users={users}
             top={mentionTopPosition}
