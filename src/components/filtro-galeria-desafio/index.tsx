@@ -64,7 +64,7 @@ export default function FiltroGaleriaDesafios({
             }}
           />
         </div>
-        {lengthList >= 1 ? (
+        {lengthList >= 2 ? (
           <Button
             style={{marginTop: "1rem"}}
             variant={'link'}
