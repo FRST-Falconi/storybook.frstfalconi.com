@@ -153,6 +153,11 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             const atIndex = completeText.lastIndexOf('@');
             hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex).trim() === "";
             
+            console.log(`teste - completeText =  ${completeText}`)
+            console.log(`teste  textBeforeCursor ${textBeforeCursor}`)
+            console.log(`teste - atIndex =  ${atIndex}`)
+            console.log(`teste - spaceBefore =  ${completeText.substring(atIndex - 1, atIndex).trim() === ""}`)
+            console.log(`teste  hasSpaceBeForeKey ${hasSpaceBeForeKey}`)
 
             if (hasSpaceBeForeKey || textBeforeCursor === "@") {
                 if (atIndex !== -1) {
@@ -164,19 +169,24 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
                     }
                     inputSearch = afterAt.replace('@', '');
                 } else {
+                    console.log(`teste esconde mention atIndex = ${atIndex}`)
                     inputSearch = ''
                     setShowMention(false)
                 }
             }else{
+                console.log(`teste esconde mention`)
                 setShowMention(false)
                 
             }
            
         }
         if((hasSpaceBeForeKey && hasKeyPresent) ||  textBeforeCursor === "@" ){
+            console.log(`teste, chamar backend com ${inputSearch}`)
             setShowMention(true)
             setInputSearch(inputSearch)
             !!onChange && onChange(inputSearch)
+        }else{
+            console.log(`teste, não chamou o backend ${inputSearch}`)
         }
         
         countChars()
@@ -205,6 +215,9 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
    
     const clearDivContent = () => {
         if (!divInputRef.current) return;
+
+        console.log('placeholder focus = ', focus)
+        console.log('placeholder divInputRef.current.childNodes.length = ', divInputRef.current.childNodes.length)
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
@@ -218,7 +231,8 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
                     setPlaceholder(false)
                 }
             })
-
+            console.log('placeholder isEmpty = ', isEmpty)
+        
             // if they are empty show the placeholder
             if (isEmpty) {
                 // create a textnode with the placeholder
@@ -228,11 +242,15 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
         } else if (divInputRef.current.innerText === placeholder) {
             // create a paragraph node
+            divInputRef.current.innerHTML = '';
+            // clear complete the div
+            divInputRef.current.innerText = '';
+            console.log(`placeholder clear`)
             const p = document.createElement('p');
             const br = document.createElement('br');
             p.appendChild(br);
-            divInputRef.current.innerHTML = '';
             divInputRef.current.appendChild(p);
+            console.log(`placeholder divInputRef.current.innerHtml= ${divInputRef.current.innerHTML}`)
             setPlaceholder(false)
 
         }
@@ -263,6 +281,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
             addMentionToRangeAndSpaceNode(range, spaceNode, mentionedUser)
             createNewRangeAndMoveCursorToTheEnd(selection, spaceNode)
+            divInputRef.current?.focus()
         }
 
     }, [replyMentionedUser])
