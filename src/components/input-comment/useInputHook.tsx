@@ -209,10 +209,6 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         const isFocused = divInputRef.current === document.activeElement;
         if (divInputRef.current && !isFocused) {
             divInputRef.current.childNodes.forEach((child) => {
-                console.log(divInputRef.current.childNodes)
-                console.log(divInputRef.current.innerText)
-                console.log(child.textContent)
-                
                 if (child.textContent.length <=0) {
                     isEmpty = true
                 }
