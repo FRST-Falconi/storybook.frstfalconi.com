@@ -205,7 +205,6 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
    
     const clearDivContent = () => {
         if (!divInputRef.current) return;
-        console.log('focus is', focus)
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
