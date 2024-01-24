@@ -3321,7 +3321,7 @@ const InputText$4 = styled__default["default"].div `
     width: 100%;
     height: ${({ height }) => height || '20px'};
     outline: 0;
-    color: ${({ theme, isPlaceholder }) => !isPlaceholder ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey4};
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: normal;
@@ -3333,7 +3333,26 @@ const InputText$4 = styled__default["default"].div `
     
         
     padding: 0;
-    margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
+    margin: 10px 4px 40px 15px;
+    border: none;    
+`;
+const InputPlaceholder = styled__default["default"].div `
+    width: 100%;
+    height: ${({ height }) => height || '20px'};
+    outline: 0;
+    color: ${({ theme }) => theme.colors.neutralsGrey4};
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
+    overflow: hidden;
+    background-color: inherit;
+    
+        
+    padding: 0;
+    margin: 10px 4px 10px 15px;
     border: none;    
 `;
 styled__default["default"].div `
@@ -3407,7 +3426,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const [showMention, setShowMention] = React.useState(false);
     const [inputSearch, setInputSearch] = React.useState('');
     const divInputRef = React.useRef(null);
-    const mainContainerRef = React.useRef(null);
+    const divPlaceholder = React.useRef(null);
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 20}px`;
     const [textLength, setTextLength] = React.useState(0);
     const [isPlaceholder, setPlaceholder] = React.useState(false);
@@ -3566,44 +3585,42 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         setTextLength(count);
         return count;
     };
-    const clearDivContent = () => {
-        if (!divInputRef.current)
-            return;
-        console.log(`active element = ${document.activeElement}`);
-        if ((divInputRef.current.childNodes.length === 0 && !focus)) {
-            // create a textnode with the placeholder
-            divInputRef.current.innerText = placeholder;
-            setPlaceholder(true);
-        }
-        else if (!focus && divInputRef.current.childNodes.length >= 1) {
-            // loop over all child element and check if they are empty
-            let isEmpty = true;
+    const areChildrenEmpty = () => {
+        // return if divInputRef has child empty
+        let isEmpty = false;
+        //if divInputRef is not focused 
+        const isFocused = divInputRef.current === document.activeElement;
+        if (divInputRef.current && !isFocused) {
             divInputRef.current.childNodes.forEach((child) => {
-                if (child.textContent !== '' && child.textContent != placeholder) {
-                    isEmpty = false;
-                    setPlaceholder(false);
-                }
-                else if (child.textContent === placeholder) {
-                    divInputRef.current.blur();
+                console.log(divInputRef.current.childNodes);
+                console.log(divInputRef.current.innerText);
+                console.log(child.textContent);
+                if (child.textContent.length <= 0) {
+                    isEmpty = true;
                 }
             });
-            // if they are empty show the placeholder
-            if (isEmpty) {
-                // create a textnode with the placeholder
-                divInputRef.current.innerText = placeholder;
+        }
+        return isEmpty;
+    };
+    const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
+        // if divInputRef has any element hide the placeholder
+        if (isPlaceHolderFocus) {
+            divPlaceholder.current?.style.setProperty('display', 'none');
+            divInputRef.current.style.setProperty('display', 'block');
+            divInputRef.current.focus();
+            setPlaceholder(false);
+        }
+        else {
+            if (!areChildrenEmpty()) {
+                divPlaceholder.current?.style.setProperty('display', 'none');
+                divInputRef.current.style.setProperty('display', 'block');
+                setPlaceholder(false);
+            }
+            else {
+                divPlaceholder.current?.style.setProperty('display', 'block');
+                divInputRef.current.style.setProperty('display', 'none');
                 setPlaceholder(true);
             }
-        }
-        else if (divInputRef.current.innerText === placeholder) {
-            // create a paragraph node
-            divInputRef.current.innerHTML = '';
-            // clear complete the div
-            divInputRef.current.innerText = '';
-            const p = document.createElement('p');
-            const br = document.createElement('br');
-            p.appendChild(br);
-            divInputRef.current.appendChild(p);
-            setPlaceholder(false);
         }
     };
     React.useEffect(() => {
@@ -3613,8 +3630,10 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         };
     }, []);
     React.useEffect(() => {
-        if (!replyMentionedUser || !divInputRef?.current)
+        if (!replyMentionedUser || !divInputRef?.current) {
+            handlePlaceholderInputText();
             return;
+        }
         divInputRef.current?.focus();
         const selection = window.getSelection();
         if (selection && selection.rangeCount > 0) {
@@ -3625,44 +3644,41 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
             addMentionToRangeAndSpaceNode(range, spaceNode, mentionedUser);
             createNewRangeAndMoveCursorToTheEnd(selection, spaceNode);
+            handlePlaceholderInputText();
         }
     }, [replyMentionedUser]);
-    React.useEffect(() => {
-        setPlaceholder(false);
-        if ((!value || value.length <= 0) && !focus && !replyMentionedUser) {
-            divInputRef.current.innerText = placeholder;
-            setPlaceholder(true);
-            resizeDiv();
-        }
-    }, [value]);
-    React.useEffect(() => {
-        if (!divInputRef.current)
-            return;
-        clearDivContent();
-    }, [focus]);
     React.useEffect(() => {
         setStyleLimitExceeded(textLength > limit);
     }, [textLength]);
     React.useEffect(() => {
-        if (!divInputRef.current || !mainContainerRef.current)
+        if (!divInputRef.current || !divPlaceholder.current)
             return;
+        document.addEventListener('mousedown', () => {
+            handlePlaceholderInputText();
+        });
+        document.addEventListener('focus', () => {
+            handlePlaceholderInputText();
+        });
+        document.addEventListener('blur', () => {
+            handlePlaceholderInputText();
+        });
+        divPlaceholder.current.addEventListener('mousedown', () => {
+            handlePlaceholderInputText(true);
+        });
+        divPlaceholder.current.addEventListener('focus', () => {
+            handlePlaceholderInputText(true);
+        });
+        divPlaceholder.current.addEventListener('blur', () => {
+            handlePlaceholderInputText(true);
+        });
         divInputRef.current.addEventListener('mousedown', () => {
-            setFocus(true);
+            handlePlaceholderInputText();
         });
         divInputRef.current.addEventListener('focus', () => {
-            setFocus(true);
+            handlePlaceholderInputText();
         });
         divInputRef.current.addEventListener('blur', () => {
-            setFocus(false);
-        });
-        mainContainerRef.current.addEventListener('mousedown', () => {
-            setFocus(true);
-        });
-        mainContainerRef.current.addEventListener('focus', () => {
-            setFocus(true);
-        });
-        mainContainerRef.current.addEventListener('blur', () => {
-            setFocus(false);
+            handlePlaceholderInputText();
         });
         //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
         divInputRef.current.addEventListener('keyup', (event) => {
@@ -3671,23 +3687,32 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             }
         });
         return () => {
-            divInputRef.current?.removeEventListener('mousedown', () => {
-                setFocus(true);
+            document.removeEventListener('mousedown', () => {
+                handlePlaceholderInputText();
             });
-            divInputRef.current?.removeEventListener('focus', () => {
-                setFocus(true);
+            document.removeEventListener('focus', () => {
+                handlePlaceholderInputText();
             });
-            divInputRef.current?.removeEventListener('blur', () => {
-                setFocus(false);
+            document.removeEventListener('blur', () => {
+                handlePlaceholderInputText();
             });
-            mainContainerRef.current?.removeEventListener('mousedown', () => {
-                setFocus(true);
+            divPlaceholder.current.removeEventListener('mousedown', () => {
+                handlePlaceholderInputText(true);
             });
-            mainContainerRef.current?.removeEventListener('focus', () => {
-                setFocus(true);
+            divPlaceholder.current.removeEventListener('focus', () => {
+                handlePlaceholderInputText(true);
             });
-            mainContainerRef.current?.removeEventListener('blur', () => {
-                setFocus(false);
+            divPlaceholder.current.removeEventListener('blur', () => {
+                handlePlaceholderInputText(true);
+            });
+            divInputRef.current.removeEventListener('mousedown', () => {
+                handlePlaceholderInputText();
+            });
+            divInputRef.current.removeEventListener('focus', () => {
+                handlePlaceholderInputText();
+            });
+            divInputRef.current.removeEventListener('blur', () => {
+                handlePlaceholderInputText();
             });
             //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
             divInputRef.current.removeEventListener('keyup', (event) => {
@@ -3699,7 +3724,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     }, []);
     return {
         handleInput,
-        clearDivContent,
+        handlePlaceholderInputText,
         focus,
         showMention,
         setShowMention,
@@ -3711,7 +3736,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         textLength,
         isPlaceholder,
         styleLimitExceeded,
-        mainContainerRef
+        divPlaceholder
     };
 };
 
@@ -3891,10 +3916,10 @@ const Mentions = (mention) => {
 };
 
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
-    const { mainContainerRef, handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { ref: mainContainerRef, style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
+    const { divPlaceholder, handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
                                 handleInput(event);
-                            }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
+                            }, "data-text": "enter", suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
                             } })] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder ?
