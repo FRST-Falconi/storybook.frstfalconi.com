@@ -224,11 +224,13 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             console.log(`placeholder vou incluir o placeholder`)
+            debugger
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true)
         } else if (!focus && divInputRef.current.childNodes.length >= 1) {
-            console.log(`placeholder vou incluir o placeholder`)
+            debugger
+            console.log(`placeholder vou incluir 2 o placeholder`)
             // loop over all child element and check if they are empty
             let isEmpty = true;
             divInputRef.current.childNodes.forEach((child) => {
@@ -251,6 +253,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
         } else if (divInputRef.current.innerText === placeholder) {
             console.log(`placeholder terceiro divInputRef.current.innerText === placeholder resultado = ${divInputRef.current.innerText === placeholder}`)
+            debugger
             // create a paragraph node
             divInputRef.current.innerHTML = '';
             // clear complete the div
