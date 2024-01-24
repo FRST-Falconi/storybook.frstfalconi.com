@@ -4629,10 +4629,11 @@ const ButtonMore$1 = styled__default["default"](Button__default["default"]) `
     display: flex !important;
     justify-content: center !important;
     border-radius: 12px !important;
+    background-color: transparent !important;
     ${({ isHover }) => isHover && `&:hover {
       background-color: #FFF9 !important;
   }`};
-}`;
+`;
 const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
 margin-top: 8px;
 margin-left: 30px;
