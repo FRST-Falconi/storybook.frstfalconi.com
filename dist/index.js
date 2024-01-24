@@ -3518,20 +3518,23 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 return;
             // Get the text before the cursor
             const completeText = range.startContainer.textContent;
-            textBeforeCursor = range.startContainer.textContent.substring(0, range.startOffset);
             // Find the last index of "@" in the text before the cursor
             const atIndex = completeText.lastIndexOf('@');
+            textBeforeCursor = range.startContainer.textContent.substring(atIndex, range.startOffset);
             hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex).trim() === "";
             console.log(`teste - completeText =  ${completeText}`);
             console.log(`teste  textBeforeCursor ${textBeforeCursor}`);
             console.log(`teste - atIndex =  ${atIndex}`);
             console.log(`teste - spaceBefore =  ${completeText.substring(atIndex - 1, atIndex).trim() === ""}`);
             console.log(`teste  hasSpaceBeForeKey ${hasSpaceBeForeKey}`);
+            console.log(`teste textBeforeCursor = @ ? ${textBeforeCursor === "@"}`);
             if (hasSpaceBeForeKey || textBeforeCursor === "@") {
                 if (atIndex !== -1) {
                     // Get the characters after the last "@"
                     const afterAt = completeText.substring(atIndex);
-                    if (afterAt.length > 1 || event.key === "@") {
+                    console.log(`teste afterAt = ${afterAt}`);
+                    if (afterAt.length > 1 || event.key === "@" || textBeforeCursor === "@") {
+                        console.log(`teste hasKeyPresent ${hasKeyPresent}`);
                         hasKeyPresent = true;
                     }
                     inputSearch = afterAt.replace('@', '');
@@ -3554,6 +3557,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             !!onChange && onChange(inputSearch);
         }
         else {
+            console.log(`teste resultado foi  ${hasSpaceBeForeKey && hasKeyPresent} e textBeforeCursor = @ ${textBeforeCursor === "@"}`);
             console.log(`teste, não chamou o backend ${inputSearch}`);
         }
         countChars();
