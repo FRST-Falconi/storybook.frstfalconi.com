@@ -3330,6 +3330,7 @@ const InputText$4 = styled__default["default"].div `
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
+    
         
     padding: 0;
     margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
@@ -3406,6 +3407,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const [showMention, setShowMention] = React.useState(false);
     const [inputSearch, setInputSearch] = React.useState('');
     const divInputRef = React.useRef(null);
+    const mainContainerRef = React.useRef(null);
     const mentionTopPosition = `${(divInputRef.current?.clientHeight ?? 15) + 20}px`;
     const [textLength, setTextLength] = React.useState(0);
     const [isPlaceholder, setPlaceholder] = React.useState(false);
@@ -3513,6 +3515,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         let hasSpaceBeForeKey = false;
         let hasKeyPresent = false;
         let textBeforeCursor = "";
+        let textBeforeKey = "";
         if (selection && selection.rangeCount > 0) {
             const range = selection.getRangeAt(0);
             if (range.startContainer.textContent === null)
@@ -3523,43 +3526,29 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             const atIndex = completeText.lastIndexOf('@');
             textBeforeCursor = range.startContainer.textContent.substring(atIndex, range.startOffset);
             hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex).trim() === "";
-            console.log(`teste - completeText =  ${completeText}`);
-            console.log(`teste  textBeforeCursor ${textBeforeCursor}`);
-            console.log(`teste - atIndex =  ${atIndex}`);
-            console.log(`teste - spaceBefore =  ${completeText.substring(atIndex - 1, atIndex).trim() === ""}`);
-            console.log(`teste  hasSpaceBeForeKey ${hasSpaceBeForeKey}`);
-            console.log(`teste textBeforeCursor = @ ? ${textBeforeCursor === "@"}`);
-            if (hasSpaceBeForeKey || textBeforeCursor === "@") {
+            textBeforeKey = completeText.substring(atIndex - 1, atIndex).trim();
+            if (hasSpaceBeForeKey || (textBeforeCursor === "@" && textBeforeKey.length === 0)) {
                 if (atIndex !== -1) {
                     // Get the characters after the last "@"
                     const afterAt = completeText.substring(atIndex);
-                    console.log(`teste afterAt = ${afterAt}`);
                     if (afterAt.length > 1 || event.key === "@" || textBeforeCursor === "@") {
-                        console.log(`teste hasKeyPresent ${hasKeyPresent}`);
                         hasKeyPresent = true;
                     }
                     inputSearch = afterAt.replace('@', '');
                 }
                 else {
-                    console.log(`teste esconde mention atIndex = ${atIndex}`);
                     inputSearch = '';
                     setShowMention(false);
                 }
             }
             else {
-                console.log(`teste esconde mention`);
                 setShowMention(false);
             }
         }
-        if ((hasSpaceBeForeKey && hasKeyPresent) || textBeforeCursor === "@") {
-            console.log(`teste, chamar backend com ${inputSearch}`);
+        if ((hasSpaceBeForeKey && hasKeyPresent) || (textBeforeCursor === "@" && textBeforeKey.length === 0)) {
             setShowMention(true);
             setInputSearch(inputSearch);
             !!onChange && onChange(inputSearch);
-        }
-        else {
-            console.log(`teste resultado foi  ${hasSpaceBeForeKey && hasKeyPresent} e textBeforeCursor = @ ${textBeforeCursor === "@"}`);
-            console.log(`teste, não chamou o backend ${inputSearch}`);
         }
         countChars();
         createFormatAndTextContentToSaveComment();
@@ -3580,18 +3569,13 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const clearDivContent = () => {
         if (!divInputRef.current)
             return;
-        console.log(`placeholder primeiro if divInputRef.current.childNodes.length === 0 && !focus resultado = ${divInputRef.current.childNodes.length === 0 && !focus}`);
-        console.log(`placeholder segundo if divInputRef.current.childNodes.length >= 1 resultado = ${divInputRef.current.childNodes.length >= 1}`);
+        console.log(`active element = ${document.activeElement}`);
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
-            console.log(`placeholder vou incluir o placeholder`);
-            debugger;
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true);
         }
         else if (!focus && divInputRef.current.childNodes.length >= 1) {
-            debugger;
-            console.log(`placeholder vou incluir 2 o placeholder`);
             // loop over all child element and check if they are empty
             let isEmpty = true;
             divInputRef.current.childNodes.forEach((child) => {
@@ -3600,11 +3584,9 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                     setPlaceholder(false);
                 }
                 else if (child.textContent === placeholder) {
-                    console.log(`placeholder child.textContent === placeholder resultado = ${child.textContent === placeholder}`);
                     divInputRef.current.blur();
                 }
             });
-            console.log('placeholder isEmpty = ', isEmpty);
             // if they are empty show the placeholder
             if (isEmpty) {
                 // create a textnode with the placeholder
@@ -3613,20 +3595,15 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             }
         }
         else if (divInputRef.current.innerText === placeholder) {
-            console.log(`placeholder terceiro divInputRef.current.innerText === placeholder resultado = ${divInputRef.current.innerText === placeholder}`);
-            debugger;
             // create a paragraph node
             divInputRef.current.innerHTML = '';
             // clear complete the div
             divInputRef.current.innerText = '';
-            console.log(`placeholder clear`);
             const p = document.createElement('p');
             const br = document.createElement('br');
             p.appendChild(br);
             divInputRef.current.appendChild(p);
-            console.log(`placeholder divInputRef.current.innerHtml= ${divInputRef.current.innerHTML}`);
             setPlaceholder(false);
-            divInputRef.current.blur();
         }
     };
     React.useEffect(() => {
@@ -3667,7 +3644,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         setStyleLimitExceeded(textLength > limit);
     }, [textLength]);
     React.useEffect(() => {
-        if (!divInputRef.current)
+        if (!divInputRef.current || !mainContainerRef.current)
             return;
         divInputRef.current.addEventListener('mousedown', () => {
             setFocus(true);
@@ -3676,6 +3653,15 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             setFocus(true);
         });
         divInputRef.current.addEventListener('blur', () => {
+            setFocus(false);
+        });
+        mainContainerRef.current.addEventListener('mousedown', () => {
+            setFocus(true);
+        });
+        mainContainerRef.current.addEventListener('focus', () => {
+            setFocus(true);
+        });
+        mainContainerRef.current.addEventListener('blur', () => {
             setFocus(false);
         });
         //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
@@ -3692,6 +3678,15 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 setFocus(true);
             });
             divInputRef.current?.removeEventListener('blur', () => {
+                setFocus(false);
+            });
+            mainContainerRef.current?.removeEventListener('mousedown', () => {
+                setFocus(true);
+            });
+            mainContainerRef.current?.removeEventListener('focus', () => {
+                setFocus(true);
+            });
+            mainContainerRef.current?.removeEventListener('blur', () => {
                 setFocus(false);
             });
             //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
@@ -3715,7 +3710,8 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         handleMentionUser,
         textLength,
         isPlaceholder,
-        styleLimitExceeded
+        styleLimitExceeded,
+        mainContainerRef
     };
 };
 
@@ -3895,8 +3891,8 @@ const Mentions = (mention) => {
 };
 
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
-    const { handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, contentEditable: false, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, contentEditable: false, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
+    const { mainContainerRef, handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { ref: mainContainerRef, style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", isPlaceholder: isPlaceholder, suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);

@@ -58,6 +58,7 @@ export const InputText = styled.div<TextArea>`
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
+    
         
     padding: 0;
     margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
