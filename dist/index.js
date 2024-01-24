@@ -3470,6 +3470,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             }
             countChars();
             createFormatAndTextContentToSaveComment();
+            resizeDiv();
         }
     };
     //create a method that increase the size of the div as the scroll height increases
@@ -3579,20 +3580,26 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const clearDivContent = () => {
         if (!divInputRef.current)
             return;
-        console.log('placeholder focus = ', focus);
-        console.log('placeholder divInputRef.current.childNodes.length = ', divInputRef.current.childNodes.length);
+        console.log(`placeholder primeiro if divInputRef.current.childNodes.length === 0 && !focus resultado = ${divInputRef.current.childNodes.length === 0 && !focus}`);
+        console.log(`placeholder segundo if divInputRef.current.childNodes.length >= 1 resultado = ${divInputRef.current.childNodes.length >= 1}`);
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
+            console.log(`placeholder vou incluir o placeholder`);
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true);
         }
         else if (!focus && divInputRef.current.childNodes.length >= 1) {
+            console.log(`placeholder vou incluir o placeholder`);
             // loop over all child element and check if they are empty
             let isEmpty = true;
             divInputRef.current.childNodes.forEach((child) => {
                 if (child.textContent !== '' && child.textContent != placeholder) {
                     isEmpty = false;
                     setPlaceholder(false);
+                }
+                else if (child.textContent === placeholder) {
+                    console.log(`placeholder child.textContent === placeholder resultado = ${child.textContent === placeholder}`);
+                    divInputRef.current.blur();
                 }
             });
             console.log('placeholder isEmpty = ', isEmpty);
@@ -3604,6 +3611,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             }
         }
         else if (divInputRef.current.innerText === placeholder) {
+            console.log(`placeholder terceiro divInputRef.current.innerText === placeholder resultado = ${divInputRef.current.innerText === placeholder}`);
             // create a paragraph node
             divInputRef.current.innerHTML = '';
             // clear complete the div
@@ -3615,6 +3623,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             divInputRef.current.appendChild(p);
             console.log(`placeholder divInputRef.current.innerHtml= ${divInputRef.current.innerHTML}`);
             setPlaceholder(false);
+            divInputRef.current.blur();
         }
     };
     React.useEffect(() => {
@@ -3624,7 +3633,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         };
     }, []);
     React.useEffect(() => {
-        if (!replyMentionedUser)
+        if (!replyMentionedUser || !divInputRef?.current)
             return;
         divInputRef.current?.focus();
         const selection = window.getSelection();
@@ -3636,7 +3645,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             const spaceNode = document.createTextNode('\u00A0'); // Unicode for non-breaking space
             addMentionToRangeAndSpaceNode(range, spaceNode, mentionedUser);
             createNewRangeAndMoveCursorToTheEnd(selection, spaceNode);
-            divInputRef.current?.focus();
         }
     }, [replyMentionedUser]);
     React.useEffect(() => {
