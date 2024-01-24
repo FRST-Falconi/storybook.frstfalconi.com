@@ -142,6 +142,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         let hasSpaceBeForeKey = false;
         let hasKeyPresent = false;    
         let textBeforeCursor = "";
+        let textBeforeKey = "";
         if (selection && selection.rangeCount > 0) {
             const range = selection.getRangeAt(0);
 
@@ -152,14 +153,17 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             const atIndex = completeText.lastIndexOf('@');
             textBeforeCursor = range.startContainer.textContent.substring(atIndex, range.startOffset);
             hasSpaceBeForeKey = completeText.substring(atIndex - 1, atIndex).trim() === "";
+            textBeforeKey = completeText.substring(atIndex - 1, atIndex).trim();
             
+            
+
             console.log(`teste - completeText =  ${completeText}`)
             console.log(`teste  textBeforeCursor ${textBeforeCursor}`)
             console.log(`teste - atIndex =  ${atIndex}`)
             console.log(`teste - spaceBefore =  ${completeText.substring(atIndex - 1, atIndex).trim() === ""}`)
             console.log(`teste  hasSpaceBeForeKey ${hasSpaceBeForeKey}`)
             console.log(`teste textBeforeCursor = @ ? ${textBeforeCursor === "@"}`)
-            if (hasSpaceBeForeKey || textBeforeCursor === "@") {
+            if (hasSpaceBeForeKey || (textBeforeCursor === "@" && textBeforeKey.length === 0)) {
                 if (atIndex !== -1) {
                     
                     // Get the characters after the last "@"
@@ -182,7 +186,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             }
            
         }
-        if((hasSpaceBeForeKey && hasKeyPresent) ||  textBeforeCursor === "@" ){
+        if((hasSpaceBeForeKey && hasKeyPresent) ||  (textBeforeCursor === "@" && textBeforeKey.length === 0)){
             console.log(`teste, chamar backend com ${inputSearch}`)
             setShowMention(true)
             setInputSearch(inputSearch)
@@ -224,12 +228,10 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         
         if ((divInputRef.current.childNodes.length === 0 && !focus)) {
             console.log(`placeholder vou incluir o placeholder`)
-            debugger
             // create a textnode with the placeholder
             divInputRef.current.innerText = placeholder;
             setPlaceholder(true)
         } else if (!focus && divInputRef.current.childNodes.length >= 1) {
-            debugger
             console.log(`placeholder vou incluir 2 o placeholder`)
             // loop over all child element and check if they are empty
             let isEmpty = true;
