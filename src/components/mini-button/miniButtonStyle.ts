@@ -100,7 +100,7 @@ export const Button = styled.div<IButton>`
             &:hover {
                 background: ${({theme}) => disabled ? theme.colors.borderPrimary  : theme.colors.primary1};
                 color:  ${({theme}) => theme.colors.shadeWhite};
-                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
             }
 
             ${(isTooltipActive || active) && `color : ${theme.colors.shadeWhite};` }
