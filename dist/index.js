@@ -4372,6 +4372,21 @@ const UserDataLastChild = styled__default["default"].div `
     font-weight: 400;
     line-height: normal;
 `;
+const MenuMoreContainer = styled__default["default"].div `
+  border-radius: 8px;
+  height: 32px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 4px;
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
+
+`;
 const LikesContainer = styled__default["default"].div `
     display: flex;
     align-items: center;
@@ -4595,105 +4610,101 @@ const ButtonMore$1 = styled__default["default"](Button__default["default"]) `
     display: flex !important;
     justify-content: center !important;
     border-radius: 12px !important;
-
-    &:hover {
-        background-color: #FFF9 !important;
-    }
-
-`;
+    ${({ isHover }) => isHover && `&:hover {
+      background-color: #FFF9 !important;
+  }`};
+}`;
 const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
-  margin-top: 10px;
-  margin-left: 30px;
-  overflow: hidden;
-  border-radius: 8px;
+margin-top: 8px;
+margin-left: 30px;
+overflow: hidden;
+border-radius: 8px;
 
   & .MuiPaper-root {
-    border-radius: 0px;
-    box-shadow: none !important;
-    overflow: visible;
-    background: #00000000;
-
+  border-radius: 0px;
+  box-shadow: none!important;
+  overflow: visible;
+  background: #00000000;
     &:before {
-        content: "";
-        position: absolute;
-        top: -15px;
-        right: 8.5px;
-        border-top: 6px solid transparent;
-        border-bottom: 10px solid #EBEBEB;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-    }
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: 8.5px;
+    border-top: 6px solid transparent;
+    border-bottom: 10px solid #EBEBEB;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
   
     &:after {
-        content: "";
-        position: absolute;
-        top: -14px;
-        right: 8.5px;
-        border-top: 6px solid transparent;
-        border-bottom: 10px solid #FFF;
-        border-left: 8px solid transparent;
-        border-right: 8px solid transparent;
-    }
+    content: "";
+    position: absolute;
+    top: -14px;
+    right: 8.5px;
+    border-top: 6px solid transparent;
+    border-bottom: 10px solid #FFF;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
   }
+}
   ul {
-    box-shadow:  0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border: 1px solid #EBEBEB !important;
-    border-radius: 8px !important;
-    overflow: hidden;
-    background: #FFF;
-    width: 160px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px - 20px rgba(34, 34, 34, 0.15);;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: 1px solid #EBEBEB!important;
+  border-radius: 8px!important;
+  overflow: hidden;
+  background: #FFF;
+  width: 160px;
 
 
   li {
     padding-left: 25px;
   }
-  }
+}
 `;
 const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
-  background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
-  padding-right: 45px !important;
-  margin: 1px !important;
-  transition: none !important;
-  animation: none !important;
+background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
+padding-right: 45px!important;
+margin: 1px!important;
+transition: none!important;
+animation: none!important;
   &:hover {
-    background-color: #F7F9FC !important;
-  }
-  &:active {    
-    background-color: #FCF3EB !important;
-  }
+  background-color: #F7F9FC!important;
+}
+  &:active {
+  background-color: #FCF3EB!important;
+}
 
-  
 `;
 styled__default["default"](MenuItem__default["default"]) `
-  color: white !important;
-  background-color: #F5792A !important;
+color: white!important;
+background-color: #F5792A!important;
 
-  display: flex;
-  flex-direction: row;
+display: flex;
+flex-direction: row;
   &:hover {
-    background-color: #FD9350 !important;
-  }
+  background-color: #FD9350!important;
+}
 `;
 const TextOption$1 = styled__default["default"].div `
-  margin-left: 10px;
-  padding-top: 1px;
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
+margin-left: 10px;
+padding-top: 1px;
+font-family: 'PT Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 21px;
 `;
 const IconOption = styled__default["default"].div `
-  width: 20px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 20px;
+height: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
 `;
 
-function MenuMore({ iconButton, options, style, closeAfterClick }) {
+function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true }) {
     const [listOptions, setListOptions] = React.useState(options);
     React.useEffect(() => {
         setListOptions(options);
@@ -4706,7 +4717,7 @@ function MenuMore({ iconButton, options, style, closeAfterClick }) {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, isHover: isHover, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
                         return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
@@ -4788,7 +4799,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     }, []);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$i, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { size: isMainComment ? '48px' : '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' } }), jsxRuntime.jsxs(Box, { children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsxs(FirstChildUserData, { children: [jsxRuntime.jsx(Username, { children: userName }), likesCount > 0 && (jsxRuntime.jsxs(LikesContainer, { children: [jsxRuntime.jsx(IconLikeContainer, { children: jsxRuntime.jsx(IconLikeFilled, { fill: "#fff", stroke: "#fff", customColor_1: '#757575', width: "16px", height: "16px" }) }), jsxRuntime.jsx("p", { children: likesCount })] }))] }), jsxRuntime.jsxs(UserDataLastChild, { children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$1, { id: "textContainerId", children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: {
                                             __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
-                                        } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] })] }), jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: handleLike, children: [isLiked ? jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: "#444" }), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: handleLike, label: likeButtonText, active: isLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMore, { options: authorOptions, style: { marginTop: '5px' }, closeAfterClick: true })) : isOwnerPost ? (jsxRuntime.jsx(MenuMore, { options: ownerPost, style: { marginTop: '5px' }, closeAfterClick: true })) : (jsxRuntime.jsx(MenuMore, { options: [] }))) : (jsxRuntime.jsx("div", {}))] })] }));
+                                        } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] })] }), jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: handleLike, children: [isLiked ? jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: "#444" }), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: handleLike, label: likeButtonText, active: isLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] })] }));
 };
 
 const Container$h = styled__default["default"].div `

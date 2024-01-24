@@ -159,11 +159,17 @@ export const CommentaryBoxV2 = ({
         <MiniButton variant="terciary" onClick={actionAnswer} label={answerButtonText} />
         {showOptions ? (
           isAuthor ? (
-            <MenuMore options={authorOptions} style={{ marginTop: '5px' }} closeAfterClick={true} />
+            <Styled.MenuMoreContainer>
+              <MenuMore options={authorOptions} style={{}} closeAfterClick={true} isHover={false} />
+            </Styled.MenuMoreContainer>
           ) : isOwnerPost ? (
-            <MenuMore options={ownerPost} style={{ marginTop: '5px' }} closeAfterClick={true} />
+            <Styled.MenuMoreContainer>
+              <MenuMore options={ownerPost} style={{}} closeAfterClick={true} isHover={false} />
+            </Styled.MenuMoreContainer>
           ) : (
-            <MenuMore options={[]} />
+            <Styled.MenuMoreContainer>
+              <MenuMore options={[]} isHover={false} />
+            </Styled.MenuMoreContainer>
           )
         ) : (
           <div />

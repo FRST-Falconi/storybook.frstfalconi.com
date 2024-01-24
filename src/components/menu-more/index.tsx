@@ -9,7 +9,7 @@ import { ButtonMore, MenuCustom, MenuItemCustom, TextOption, IconOption } from '
 import { IMenuMore } from './menuMore'
 import { Box } from '@mui/material'
 
-export default function MenuMore({ iconButton, options, style, closeAfterClick }: IMenuMore) {
+export default function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true }: IMenuMore) {
   const [listOptions, setListOptions] = useState(options)
 
   useEffect(() => {
@@ -31,10 +31,12 @@ export default function MenuMore({ iconButton, options, style, closeAfterClick }
       <div style={{ ...style }}>
         <ButtonMore
           id="basic-button"
+          disableRipple={isHover ? false : true}
           aria-controls="basic-menu"
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
+          isHover={isHover}
         >
           {iconButton ? iconButton : <MoreDotsVertical fill="#444" />}
         </ButtonMore>
@@ -52,12 +54,12 @@ export default function MenuMore({ iconButton, options, style, closeAfterClick }
                 <Box key={index}>
                   <MenuItemCustom
                     onClick={() => {
-                      itemOption?.onClick();
-                      closeAfterClick && handleClose();
+                      itemOption?.onClick()
+                      closeAfterClick && handleClose()
                     }}
                     style={{
-                    borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
-                    color: itemOption?.color ? itemOption?.color : '#222'
+                      borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
+                      color: itemOption?.color ? itemOption?.color : '#222'
                     }}
                     disableRipple
                   >

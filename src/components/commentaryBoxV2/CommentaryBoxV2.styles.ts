@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 
-export const Container = styled.div<{width?: string; height?:string}>`
+export const Container = styled.div<{ width?: string; height?: string }>`
     display:flex;
-    width: ${({width}) => width ? width  : "100%"};
-    height: ${({height}) => height ? height  : "auto"};
+    width: ${({ width }) => width ? width : "100%"};
+    height: ${({ height }) => height ? height : "auto"};
 `;
 
-export const Box = styled.div<{width?: string; height?:string}>`
-    width: ${({width}) => width ? width  : "100%"};
-    height: ${({height}) => height ? height  : "auto"};
+export const Box = styled.div<{ width?: string; height?: string }>`
+    width: ${({ width }) => width ? width : "100%"};
+    height: ${({ height }) => height ? height : "auto"};
     display: flex;
     padding: 16px;
     flex-direction: column;
@@ -41,13 +41,29 @@ export const FirstChildUserData = styled.div`
 
 export const UserDataLastChild = styled.div`
     display:flex;
-    color: ${({theme})=> theme.colors.neutralsGrey3};
+    color: ${({ theme }) => theme.colors.neutralsGrey3};
     font-family: PT Sans;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 `
+
+export const MenuMoreContainer = styled.div`
+  border-radius: 8px;
+  height: 32px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  padding: 4px;
+
+  &:hover {
+    background-color: #f2f2f2;
+  }
+
+`;
 
 export const LikesContainer = styled.div`
     display: flex;
@@ -113,16 +129,16 @@ export const FlexButtonContainer = styled.div<IButton>`
     border-radius: 8px;
    
     &:hover {
-        background-color: ${({theme}) => theme.colors.neutralsGrey9};
+        background-color: ${({ theme }) => theme.colors.neutralsGrey9};
     }
         svg {
             :hover {
-                fill:${({theme}) => theme.colors.neutralsGrey9};
-                background-color: ${({theme}) => theme.colors.neutralsGrey9};
+                fill:${({ theme }) => theme.colors.neutralsGrey9};
+                background-color: ${({ theme }) => theme.colors.neutralsGrey9};
             }
             :active {
-                stroke:${({theme}) => theme.colors.neutralsGrey1};
-                background-color:  ${({theme}) => theme.colors.neutralsGrey9};
+                stroke:${({ theme }) => theme.colors.neutralsGrey1};
+                background-color:  ${({ theme }) => theme.colors.neutralsGrey9};
             }
         }
 `
@@ -141,8 +157,8 @@ export const Text = styled.div`
 
 export const TextContainer = styled.div`
 `
-export const ShowMore = styled.span<{isVisible:boolean}>`
-    color: ${({theme})=> theme.colors.neutralsGrey2};
+export const ShowMore = styled.span<{ isVisible: boolean }>`
+    color: ${({ theme }) => theme.colors.neutralsGrey2};
     font-family: Work Sans;
     font-size: 14px;
     font-style: normal;
