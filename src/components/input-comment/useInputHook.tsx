@@ -239,6 +239,8 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             
     }
 
+    
+
     useEffect(() => {
 
         divInputRef.current?.addEventListener('input', resizeDiv)
@@ -358,6 +360,19 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
             })
         }
     },[])
+
+    useEffect(()=>{
+        if(replyMentionedUser) return;
+        if(!value || value.length<=0 && document.activeElement !== divInputRef.current){
+            divPlaceholder.current?.style.setProperty('display', 'block')
+            divInputRef.current.style.setProperty('display', 'none')
+            divInputRef.current.innerHTML = '<p><br /></p>'
+            setPlaceholder(true)
+            countChars()
+            
+        }
+            
+    },[value])
 
     return {
         handleInput,
