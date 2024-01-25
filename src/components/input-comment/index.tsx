@@ -10,14 +10,14 @@ import { Mentions } from './mentions'
 import { User } from './types'
 
 export default function InputComment({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }: IInputComment) {
-  const {divPlaceholder, handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } =
+  const {divPlaceholder, handleInput, isPlaceholder, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } =
     useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser })
   
 
   return (
     <ThemeProvider theme={FRSTTheme}>
       <div style={{ minHeight:'48px', ...styles }} tabIndex={0} >
-        <Styles.InputWrapper  focus={focus} tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded} >
+        <Styles.InputWrapper  tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded} >
           <Styles.InputText
             tabIndex={2}
             contentEditable={true}

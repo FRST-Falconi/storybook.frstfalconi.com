@@ -3592,9 +3592,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         const isFocused = divInputRef.current === document.activeElement;
         if (divInputRef.current && !isFocused) {
             divInputRef.current.childNodes.forEach((child) => {
-                console.log(divInputRef.current.childNodes);
-                console.log(divInputRef.current.innerText);
-                console.log(child.textContent);
                 if (child.textContent.length <= 0) {
                     isEmpty = true;
                 }
@@ -3722,6 +3719,17 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             });
         };
     }, []);
+    React.useEffect(() => {
+        if (replyMentionedUser)
+            return;
+        if (!value || value.length <= 0 && document.activeElement !== divInputRef.current) {
+            divPlaceholder.current?.style.setProperty('display', 'block');
+            divInputRef.current.style.setProperty('display', 'none');
+            divInputRef.current.innerHTML = '<p><br /></p>';
+            setPlaceholder(true);
+            countChars();
+        }
+    }, [value]);
     return {
         handleInput,
         handlePlaceholderInputText,
@@ -3916,8 +3924,8 @@ const Mentions = (mention) => {
 };
 
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
-    const { divPlaceholder, handleInput, isPlaceholder, focus, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { focus: focus, tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
+    const { divPlaceholder, handleInput, isPlaceholder, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
