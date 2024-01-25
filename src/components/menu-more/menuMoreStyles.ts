@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import MenuItem from '@mui/material/MenuItem'
-import Menu from '@mui/material/Menu'
 import Button from '@mui/material/Button'
+import Menu from '@mui/material/Menu'
+import MenuItem from '@mui/material/MenuItem'
+import styled from 'styled-components'
 
 export const UserName = styled.p`
   color: white;
@@ -19,10 +19,11 @@ export const ButtonMore = styled(Button) <{ isHover: boolean }>`
     display: flex !important;
     justify-content: center !important;
     border-radius: 12px !important;
+    background-color: transparent !important;
     ${({ isHover }) => isHover && `&:hover {
       background-color: #FFF9 !important;
   }`};
-}`
+`
 
 
 export const MenuCustom = styled(Menu)`

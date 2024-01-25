@@ -19,7 +19,6 @@ interface IEmojiWindow {
 }
 interface TextArea {
     height?: string
-    isPlaceholder?: boolean;
         
 }
 
@@ -49,7 +48,7 @@ export const InputText = styled.div<TextArea>`
     width: 100%;
     height: ${({height}) => height || '20px' };
     outline: 0;
-    color: ${({ theme, isPlaceholder }) => !isPlaceholder ? theme.colors.neutralsGrey1: theme.colors.neutralsGrey4};
+    color: ${({ theme }) => theme.colors.neutralsGrey1};
     font-family: 'Work Sans';
     font-style: normal;
     font-weight: normal;
@@ -58,12 +57,31 @@ export const InputText = styled.div<TextArea>`
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
+    
         
     padding: 0;
-    margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
+    margin: 10px 4px 40px 15px;
     border: none;    
 `
-
+export const InputPlaceholder = styled.div<TextArea>`
+    width: 100%;
+    height: ${({height}) => height || '20px' };
+    outline: 0;
+    color: ${({ theme}) =>  theme.colors.neutralsGrey4};
+    font-family: 'Work Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+    border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
+    overflow: hidden;
+    background-color: inherit;
+    
+        
+    padding: 0;
+    margin: 10px 4px 10px 15px;
+    border: none;    
+`
 export const SmileIcon = styled.div`
     display: flex;
     justify-content: center;
