@@ -3729,8 +3729,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     React.useEffect(() => {
         if (replyMentionedUser)
             return;
-        // get where the cursor is
-        window.getSelection();
         // check if the cursor is inside the divInputRef
         const isFocused = divInputRef.current === document.activeElement;
         // if the cursor is not inside the divInputRef show the placeholder
