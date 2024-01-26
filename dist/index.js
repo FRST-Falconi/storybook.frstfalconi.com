@@ -3589,9 +3589,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         let isEmpty = false;
         //if divInputRef is not focused 
         const isFocused = divInputRef.current === document.activeElement;
-        console.log('entrei aqui child.textContent divInputRef.current', divInputRef.current);
         if (divInputRef.current && !isFocused) {
-            console.log('entrei aqui divInputRef.current.childNodes.length', divInputRef.current.childNodes.length);
             if (divInputRef.current.childNodes.length <= 0)
                 return true;
             divInputRef.current.childNodes.forEach((child) => {
@@ -3604,14 +3602,11 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 }
             });
         }
-        console.log('entrei aqui isFocused e isEmpty', isFocused, isEmpty);
         return isEmpty;
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
         if (document.activeElement?.id === 'input-comment-component')
             return;
-        console.log(`entrei divInputRef.current?.innerHTML = ${divInputRef.current?.innerHTML}`);
-        console.log('entrei aqui no handlePlaceholderInputText document.activeElement?.id ', document.activeElement?.id);
         // if divInputRef has any element hide the placeholder
         if (isPlaceHolderFocus) {
             divPlaceholder.current?.style.setProperty('display', 'none');
@@ -3620,15 +3615,12 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             setPlaceholder(false);
         }
         else {
-            console.log('entrei aqui vou ver o areChildrenEmpty');
             if (!areChildrenEmpty()) {
-                console.log('entrei aqui mostrasr o input');
                 divPlaceholder.current?.style.setProperty('display', 'none');
                 divInputRef.current.style.setProperty('display', 'block');
                 setPlaceholder(false);
             }
             else {
-                console.log('entrei aqui mostrar o place holder');
                 divPlaceholder.current?.style.setProperty('display', 'block');
                 divInputRef.current.style.setProperty('display', 'none');
                 setPlaceholder(true);
@@ -3735,7 +3727,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         };
     }, []);
     React.useEffect(() => {
-        console.log(`entrei id é = ${document.activeElement?.id}`);
         if (replyMentionedUser)
             return;
         // get where the cursor is
@@ -3744,8 +3735,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         const isFocused = divInputRef.current === document.activeElement;
         // if the cursor is not inside the divInputRef show the placeholder
         if ((!value || value.length <= 0) && document.activeElement?.id !== 'input-comment-component' && !isFocused) {
-            console.log('entrei divInputRef.current =', divInputRef.current);
-            console.log('entrei aqui no value');
             divPlaceholder.current?.style.setProperty('display', 'block');
             divInputRef.current.style.setProperty('display', 'none');
             divInputRef.current.innerHTML = '<p><br /></p>';
