@@ -554,13 +554,8 @@ function styleInject(css, ref) {
   }
 }
 
-<<<<<<< HEAD
-var css_248z$o = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
-styleInject(css_248z$o);
-=======
 var css_248z$p = "/* DEFAULTS */\n@import url('https://fonts.googleapis.com/css?family=Work+Sans:regular,bold,italic&subset=latin,latin-ext');\n@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=Work+Sans:wght@700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\nhtml,\nbody {\n  padding: 0;\n  margin: 0;\n  font-family: Work Sans !important;\n  font-weight: 500 !important;\n}\n\np {\n  margin: 0px;\n}\n\nbr {\n  display: block;\n  margin: 8px 0;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\n.avatar {\n  vertical-align: middle;\n  width: 50px;\n  height: 50px;\n  border-radius: 50%;\n}\n\n.ellipsis {\n  overflow: hidden !important;\n  white-space: nowrap !important;\n  text-overflow: ellipsis !important;\n  display: inline-block !important;\n}\n\n.tag {\n  border-radius: 13px;\n  min-height: 24px;\n  text-align: center;\n  font-size: 14px;\n  line-height: 16px;\n  display: inline-block;\n}\n\n.content {\n  padding: 24px !important;\n  border-radius: inherit;\n}\n\n.fixedBottom {\n  position: absolute !important;\n  bottom: 0px !important;\n  right: 0px !important;\n}\n\n.innerContent {\n  padding: 0px 24px 0px 24px !important;\n  border-radius: inherit;\n}\n\n.centeredVertically {\n  display: inline-flex;\n  align-items: center;\n}\n\n.cardContent {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n  padding: 24px !important;\n}\n\n.cardContentNoMargin {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  box-shadow: none !important;\n  border: 1px solid #c4c4c4;\n  background-color: #fff;\n  box-sizing: border-box !important;\n  border-radius: 8px !important;\n}\n\n.cardTopRightConner {\n  float: right;\n  border-radius: 0px 8px;\n}\n\n.frstButton {\n  color: #fff;\n  font-weight: bold !important;\n  background-color: #ff4d0d;\n  border-color: #ff4d0d;\n  height: 48px !important;\n  font-size: 16px !important;\n  padding-left: 16px !important;\n  padding-right: 16px !important;\n  padding-top: 18px !important;\n  padding-bottom: 18px !important;\n  text-transform: none !important;\n  border-radius: 5px 5px 5px 5px !important;\n  box-shadow: 0 2px 0 rgb(0 0 0 / 2%) !important;\n}\n\n.blue {\n  border: 1px solid #e8e8e8 !important;\n  background-color: #fff !important;\n  color: #0645ad !important;\n}\n\n.shimmer {\n  background: #f6f7f8;\n  background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #c4c4c4 40%, #c4c4c4 100%);\n  background-repeat: no-repeat;\n  background-size: 100% 100%;\n  position: relative;\n  color: transparent;\n\n  -webkit-animation-duration: 1s;\n  -webkit-animation-fill-mode: forwards;\n  -webkit-animation-iteration-count: infinite;\n  -webkit-animation-name: placeholderShimmer;\n  -webkit-animation-timing-function: linear;\n}\n\n@keyframes placeholderShimmer {\n  0% {\n    background-position: -468px 0;\n  }\n\n  100% {\n    background-position: 468px 0;\n  }\n}\n";
 styleInject(css_248z$p);
->>>>>>> chore: update the build and package.json version
 
 function Tag(props) {
     function getBG() {
@@ -1758,15 +1753,9 @@ function CalendarCard(props) {
                                         jsxRuntime.jsx(FRSTButton, { style: { marginLeft: 'auto' }, variant: "contained", onClick: props.trails[module]?.joinEventAction, children: t('calendar.card.joinEvent') })] })] }) }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$n = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
-var style$g = {"container":"TextIcon-module_container__c5xjY"};
-styleInject(css_248z$n);
-=======
 var css_248z$o = ".TextIcon-module_container__c5xjY {\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n}\n";
 var style$h = {"container":"TextIcon-module_container__c5xjY"};
 styleInject(css_248z$o);
->>>>>>> chore: update the build and package.json version
 
 ///-----------------------------------------
 /// Componente
@@ -1778,15 +1767,9 @@ function TextIcon(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { className: style$h.container, style: { ...props.style }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: props.flexStart ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("div", { style: { display: props.flexStart ? "inline" : 'inline-flex', position: 'relative', justifyContent: 'center', alignItems: props.flexStart ? 'flex-start' : 'center' }, children: props.svg }), jsxRuntime.jsx("div", { style: { display: props.flexStart ? "inline" : 'inline-flex', marginLeft: 8, whiteSpace: 'pre-wrap' }, children: props.description })] }) }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$m = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
-var style$f = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
-styleInject(css_248z$m);
-=======
 var css_248z$n = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.Rating-module_container__yehpg {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n\n.Rating-module_titulo__mPtNy{\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  font-size: 16px;\n  font-weight: 600px;\n}\n\n.Rating-module_content__fqIyW{\n  display: flex;\n  width: 100%;\n  justify-content: flex-start;\n  align-items: flex-start;\n  \n}\n\n.Rating-module_star__Wzye9{\n  display: inline-flex;\n  width: 35px; \n  height: 35px; \n  position: relative; \n  justify-content: center; \n  align-items: center;\n}\n\n.Rating-module_avaliacao__AOld-{\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100px;\n  height: 100%;\n  margin-left: 4px;\n}\n";
 var style$g = {"container":"Rating-module_container__yehpg","titulo":"Rating-module_titulo__mPtNy","content":"Rating-module_content__fqIyW","star":"Rating-module_star__Wzye9","avaliacao":"Rating-module_avaliacao__AOld-"};
 styleInject(css_248z$n);
->>>>>>> chore: update the build and package.json version
 
 ///-----------------------------------------
 /// Componente
@@ -1819,15 +1802,9 @@ function Rating$1(props) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("div", { className: style$g.container, style: { ...props.style }, children: [jsxRuntime.jsx("div", { className: style$g.titulo, style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', fontSize: 16, fontWeight: 600 }, children: props.titulo }), jsxRuntime.jsxs("div", { className: style$g.content, style: { display: 'flex', width: '100%', justifyContent: 'flex-start', alignItems: 'flex-start' }, children: [jsxRuntime.jsxs("div", { className: style$g.star, style: { display: 'inline-flex', width: 35, height: 35, position: 'relative', justifyContent: 'center', alignItems: 'center' }, children: [jsxRuntime.jsx(StarIcon, { color: MapColorStar[props.tipoVisualizacao - 1] }), jsxRuntime.jsx("span", { style: { position: 'absolute', fontSize: 10, color: MapColorNumberStar[props.tipoVisualizacao - 1], fontWeight: 'bold', top: 12, textAlign: 'center' }, children: props.nota })] }), jsxRuntime.jsxs("div", { className: style$g.avaliacao, style: { justifyContent: props.descricaoAvaliacao ? 'flex-start' : 'center' }, children: [jsxRuntime.jsx("span", { style: { fontSize: 14, fontWeight: 600 }, children: props.descricaoAvaliacao }), jsxRuntime.jsx("span", { style: { fontSize: 12, fontWeight: 400 }, children: `${props.qtdeAvaliacao} ${props.qtdeAvaliacao > 1 ? props.nomeAvaliacao : props.nomeAvaliacao}` })] })] })] }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$l = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
-var style$e = {"container":"RatingCurtidas-module_container__Ns11t"};
-styleInject(css_248z$l);
-=======
 var css_248z$m = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.RatingCurtidas-module_container__Ns11t {\n  width: 150px;\n  padding: 8px;\n  height: 80px;\n  display: flex;\n  justify-content: 'flex-start';\n  align-items: 'center';\n  position: relative;\n  margin-left: 16px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  font-family: 'Work Sans';\n  \n}\n";
 var style$f = {"container":"RatingCurtidas-module_container__Ns11t"};
 styleInject(css_248z$m);
->>>>>>> chore: update the build and package.json version
 
 ///-----------------------------------------
 /// Componente
@@ -2149,9 +2126,9 @@ function StepItem({ index, name, action, step, variant, colorItemWhite = false }
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(material.Box, { children: [jsxRuntime.jsx(CicleStep, { variant: variant }), jsxRuntime.jsx(CicleStepChar, { variant: variant, onClick: () => variant != 'disabled' ? action() : () => { }, children: step }), jsxRuntime.jsx(CicleStepName, { variant: variant, colorItemWhite: colorItemWhite, onClick: () => variant != 'disabled' ? action() : () => { }, children: name })] }, index) }));
 }
 
-var css_248z$k = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
-var style$d = {"container":"avatarWithInfo-module_container__Y-yUf"};
-styleInject(css_248z$k);
+var css_248z$l = "@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=VT323&display=swap');\n\n.avatarWithInfo-module_container__Y-yUf {\n  /* width: 100%; */\n  height: fit-content;\n  padding: 4px 16px 4px 4px;\n  display: inline-flex;\n  justify-content: space-between;\n  align-items: center;\n  \n  border: 1px solid #BDBDBD;\n  border-radius: 25px;\n  background-color: #FFF;\n  font-size: 16px;\n  \n  flex-direction: row;\n  flex-wrap: nowrap;\n  font-family: 'Work Sans';\n  flex-wrap: wrap;\n}";
+var style$e = {"container":"avatarWithInfo-module_container__Y-yUf"};
+styleInject(css_248z$l);
 
 const AvatarImg$1 = styled__default["default"].img `
   width: ${(props) => props.size || '120px'};
@@ -2559,9 +2536,9 @@ function Button$4({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
                             jsxRuntime.jsx(Button$5, { ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
 }
 
-var css_248z$j = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
-var style$c = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
-styleInject(css_248z$j);
+var css_248z$k = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
+var style$d = {"container":"BannerProblem-module_container__iitVU","titleProblem":"BannerProblem-module_titleProblem__BeJIN","created":"BannerProblem-module_created__OrSsa","description":"BannerProblem-module_description__olZ05","missaoTitle":"BannerProblem-module_missaoTitle__300kZ","contentInput":"BannerProblem-module_contentInput__YXpxk","goal_invite":"BannerProblem-module_goal_invite__B0T5N"};
+styleInject(css_248z$k);
 
 const SpanHeaderTag = styled__default["default"].span `
     display: flex;
@@ -2874,9 +2851,9 @@ function getTranslateBtnNextPrevSteps() {
     };
 }
 
-var css_248z$i = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
-var style$b = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
-styleInject(css_248z$i);
+var css_248z$j = ".MessageBox-module_container__6oBFw {\n  min-width: 200px;\n  padding: 8px;\n  min-height: 30px;\n  margin-top: 8px;\n  font-size: 14px;\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  \n}\n\n.MessageBox-module_square__bUGB6{\n  height: 20px;\n  width: 20px;\n  display: inline-flex; \n  justify-content: center; \n  align-items: center;\n  margin-right: 8px;\n}\n\n.MessageBox-module_success__OT-qh{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_success__OT-qh:hover{\n  background-color: #2CA92A !important;\n  color: white;\n}\n\n.MessageBox-module_successNoHover__0-hv8{\n  \n  border-Width: 2;\n  border: 1px solid;\n  border-color: #2CA92A;\n  background-color: #D1F6D1;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_warning__WFHrV:hover{\n  background-color: #FFC200 !important;\n  color: white;\n}\n\n.MessageBox-module_warningNoHover__9REga{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #FFC200;\n  background-color: #FEF0D4;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_error__PzfdG:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_errorNoHover__wBfkm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacao__TIUt0{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacao__TIUt0:hover{\n  background-color: #F2F2F2 !important;\n  \n}\n\n.MessageBox-module_notificacao__TIUt0 span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #757575;\n  background-color: #F2F2F2;\n  color: #0645AD;\n  font-weight: 700;\n}\n\n.MessageBox-module_notificacaoNoHover__NHKEm span {\n  color: #757575 !important;\n  font-weight: 400;\n}\n\n.MessageBox-module_notificacaoErro__-Daph{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}\n\n.MessageBox-module_notificacaoErro__-Daph:hover{\n  background-color: #EA0000 !important;\n  color: white;\n}\n\n.MessageBox-module_notificacaoErroNoHover__kW518{\n  border-Width: 2;\n  border: 1px solid;\n  border-color: #EA0000 ;\n  background-color: #FFE5E5;\n  color: #222;\n}";
+var style$c = {"container":"MessageBox-module_container__6oBFw","square":"MessageBox-module_square__bUGB6","success":"MessageBox-module_success__OT-qh","successNoHover":"MessageBox-module_successNoHover__0-hv8","warning":"MessageBox-module_warning__WFHrV","warningNoHover":"MessageBox-module_warningNoHover__9REga","error":"MessageBox-module_error__PzfdG","errorNoHover":"MessageBox-module_errorNoHover__wBfkm","notificacao":"MessageBox-module_notificacao__TIUt0","notificacaoNoHover":"MessageBox-module_notificacaoNoHover__NHKEm","notificacaoErro":"MessageBox-module_notificacaoErro__-Daph","notificacaoErroNoHover":"MessageBox-module_notificacaoErroNoHover__kW518"};
+styleInject(css_248z$j);
 
 ///-----------------------------------------
 /// Componente
@@ -3353,10 +3330,10 @@ const InputText$4 = styled__default["default"].div `
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
-<<<<<<< HEAD
     
         
     padding: 0;
+    margin: 10px 4px 40px 15px;
     border: none;    
 `;
 const InputPlaceholder = styled__default["default"].div `
@@ -3376,10 +3353,10 @@ const InputPlaceholder = styled__default["default"].div `
         
     padding: 0;
     margin: 10px 4px 10px 15px;
-=======
-        
-    padding: 0;
-    margin: ${({ isPlaceholder }) => isPlaceholder ? '10px 4px 10px 15px' : '10px 4px 40px 15px'};
+    border: none;    
+`;
+styled__default["default"].div `
+    display: flex;
     justify-content: center;
     align-items: center;
 
@@ -3445,7 +3422,12 @@ const LimitCharsExceededMessage = styled__default["default"].span `
 // transform: scale(0.845);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }) => {
+=======
+const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }) => {
+    const [focus, setFocus] = React.useState(false);
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
     const [showMention, setShowMention] = React.useState(false);
     const [inputSearch, setInputSearch] = React.useState('');
     const divInputRef = React.useRef(null);
@@ -3614,23 +3596,32 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         //if divInputRef is not focused 
         const isFocused = divInputRef.current === document.activeElement;
         if (divInputRef.current && !isFocused) {
+<<<<<<< HEAD
             if (divInputRef.current.childNodes.length <= 0)
                 return true;
+=======
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
             divInputRef.current.childNodes.forEach((child) => {
                 if (child.textContent.length <= 0) {
                     isEmpty = true;
                 }
+<<<<<<< HEAD
                 else {
                     isEmpty = false;
                     return false;
                 }
+=======
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
             });
         }
         return isEmpty;
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
+<<<<<<< HEAD
         if (document.activeElement?.id === 'input-comment-component')
             return;
+=======
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
         // if divInputRef has any element hide the placeholder
         if (isPlaceHolderFocus) {
             divPlaceholder.current?.style.setProperty('display', 'none');
@@ -3753,10 +3744,14 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     React.useEffect(() => {
         if (replyMentionedUser)
             return;
+<<<<<<< HEAD
         // check if the cursor is inside the divInputRef
         const isFocused = divInputRef.current === document.activeElement;
         // if the cursor is not inside the divInputRef show the placeholder
         if ((!value || value.length <= 0) && document.activeElement?.id !== 'input-comment-component' && !isFocused) {
+=======
+        if (!value || value.length <= 0 && document.activeElement !== divInputRef.current) {
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
             divPlaceholder.current?.style.setProperty('display', 'block');
             divInputRef.current.style.setProperty('display', 'none');
             divInputRef.current.innerHTML = '<p><br /></p>';
@@ -3767,6 +3762,10 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     return {
         handleInput,
         handlePlaceholderInputText,
+<<<<<<< HEAD
+=======
+        focus,
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
         showMention,
         setShowMention,
         inputSearch,
@@ -3779,6 +3778,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         styleLimitExceeded,
         divPlaceholder
     };
+<<<<<<< HEAD
 =======
 const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }) => {
     const [focus, setFocus] = React.useState(false);
@@ -4106,6 +4106,8 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         divPlaceholder
     };
 >>>>>>> 0224afbe (chore: update the build and package.json version)
+=======
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
 };
 
 const DefaultProfile = ({ className, size = 40 }) => {
@@ -4284,9 +4286,15 @@ const Mentions = (mention) => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
     const { divPlaceholder, handleInput, isPlaceholder, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { id: "input-comment-component", tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
+=======
+function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
+    const { divPlaceholder, handleInput, isPlaceholder, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
                                 handleInput(event);
                             }, "data-text": "enter", suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
@@ -4295,6 +4303,7 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
                         jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
+<<<<<<< HEAD
 =======
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
     const { divPlaceholder, handleInput, isPlaceholder, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
@@ -4308,6 +4317,8 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
 >>>>>>> 0224afbe (chore: update the build and package.json version)
+=======
+>>>>>>> 2fd9d6d7 (feat: publish a new version on npm)
 }
 
 const HeaderWrapper$1 = styled__default["default"].div `
@@ -4823,7 +4834,6 @@ const MenuMoreContainer = styled__default["default"].div `
     background-color: #f2f2f2;
   }
 
-<<<<<<< HEAD
 `;
 const LikesContainer = styled__default["default"].div `
     display: flex;
@@ -4875,59 +4885,6 @@ const InteractiveButtonsContainer = styled__default["default"].div `
         transform: rotate(90deg);
       }
 `;
-=======
-`;
-const LikesContainer = styled__default["default"].div `
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    color: #444;
-    font-family: PT Sans;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 110%;
-
-`;
-const IconLikeContainer = styled__default["default"].div `
-    & > *:last-child {
-    border-radius: 50%;
-    background-color: #757575;
-    border: 3px solid #757575;
-    width: 14px;
-    height: 14px;
-`;
-const RelationContainer = styled__default["default"].div `
-    display: flex;
-    padding: 2px 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin: 8px 0px;
-    border-radius: 4px;
-    background: #9CA3AF;
-    color: #FFFFFF;
-`;
-const InteractiveButtonsContainer = styled__default["default"].div `
-    display:flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    gap:4px;
-    margin-top: 4px;
-    margin-left: 40px;
-    align-items: center;
-    color: #444;
-    font-family: PT Sans;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    
-    & > *:last-child {
-        height:24px;
-        transform: rotate(90deg);
-      }
-`;
->>>>>>> chore: update the build and package.json version
 const FlexButtonContainer = styled__default["default"].div `
     cursor: pointer;
     display: flex;
@@ -5101,18 +5058,11 @@ const ButtonMore$1 = styled__default["default"](Button__default["default"]) `
     display: flex !important;
     justify-content: center !important;
     border-radius: 12px !important;
-<<<<<<< HEAD
     background-color: transparent !important;
     ${({ isHover }) => isHover && `&:hover {
       background-color: #FFF9 !important;
   }`};
 `;
-=======
-    ${({ isHover }) => isHover && `&:hover {
-      background-color: #FFF9 !important;
-  }`};
-}`;
->>>>>>> chore: update the build and package.json version
 const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
 margin-top: 8px;
 margin-left: 30px;
@@ -5175,7 +5125,6 @@ animation: none!important;
   background-color: #FCF3EB!important;
 }
 
-<<<<<<< HEAD
 `;
 styled__default["default"](MenuItem__default["default"]) `
 color: white!important;
@@ -5187,19 +5136,6 @@ flex-direction: row;
   background-color: #FD9350!important;
 }
 `;
-=======
-`;
-styled__default["default"](MenuItem__default["default"]) `
-color: white!important;
-background-color: #F5792A!important;
-
-display: flex;
-flex-direction: row;
-  &:hover {
-  background-color: #FD9350!important;
-}
-`;
->>>>>>> chore: update the build and package.json version
 const TextOption$1 = styled__default["default"].div `
 margin-left: 10px;
 padding-top: 1px;
@@ -7039,7 +6975,6 @@ const ContainerTitleTabs = styled__default["default"].div `
     &::-webkit-scrollbar {
         display: none;
     }
-<<<<<<< HEAD
 `;
 const ContainerCleanAction = styled__default["default"].div `
     margin-left: 10px;
@@ -7087,55 +7022,6 @@ const TextTotalTab = styled__default["default"].div `
 const TextTitleTab = styled__default["default"].div `
     white-space: nowrap;
 `;
-=======
-`;
-const ContainerCleanAction = styled__default["default"].div `
-    margin-left: 10px;
-    display: flex;
-    height: fit-content;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    cursor: pointer;
-`;
-const TextClean = styled__default["default"].span `
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 21px;
-
-    padding-left: 8px;
-
-    color: ${({ theme }) => theme.colors.linkOnfocus};
-`;
-const TitleTabWrapper = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: ${({ theme }) => theme.colors.linkOnfocus};
-    padding-right: 16px;
-    padding-bottom: 16px;
-    cursor: pointer;
-
-    
-
-    ${({ typeButton, status }) => (typeButton == 'filled') ? (status == true ? 'background-color: #fff; margin-bottom: -1px;' : 'background-color: #bdbdbd') : null};
-`;
-const TextTotalTab = styled__default["default"].div `
-    margin-left: 2px;
-    margin-right: 2px;
-    color: #FF4D0D;
-`;
-const TextTitleTab = styled__default["default"].div `
-    white-space: nowrap;
-`;
->>>>>>> chore: update the build and package.json version
 const WrapperContent$3 = styled__default["default"].div `
 
     background-color: transparent;
@@ -7314,15 +7200,9 @@ function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
     }
 }
 
-<<<<<<< HEAD
-var css_248z$h = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
-var style$a = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
-styleInject(css_248z$h);
-=======
 var css_248z$i = ".statusProblema-module_modalBox__SJtEw{\n    background-color: #FFF;\n    width: 800px;\n    min-height: 400px;\n    max-height: 80%;\n    padding-top: 20px;\n    padding-bottom: 20px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n\n}\n\n.statusProblema-module_fechar__6ESi1{\n    font-size: 12px;\n    padding: 8px;\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0;\n    right: 0;\n    margin-top: 0px;\n    cursor: default;\n    margin-top: 10px;\n    margin-right: 10px;\n}\n\n.statusProblema-module_titulo__6REcF{\n    width: 100%;\n    margin-top: 10px;\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    padding-left: 24px;\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 700;\n    font-size: 24px;\n    line-height: 130%;\n    text-align: center;\n    letter-spacing: 0.01em;\n    color: #222222;\n}\n\n.statusProblema-module_container__KLG2- {\n    overflow: auto;\n    min-width: 100%;\n    max-width: 100%;\n    \n    \n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 20px;\n    margin-left: 0px;\n\n    border: 1px solid #BDBDBD;\n    border-left: 0px;\n    padding-bottom: 16px;\n}\n\n.statusProblema-module_containerItem__-Ui-d {\n    width: 400px;\n    margin-top: 24px;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.statusProblema-module_containerData__QoS0I {\n    text-align: center;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n}\n\n@media (max-width: 500px) {    \n    .statusProblema-module_containerItem__-Ui-d {\n        width: 90vw;\n    }\n}\n\n.statusProblema-module_avatar__4mtlc{\n\n    font-size: 14px;\n    text-align: center;\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_descricao__OJJt7{    \n    text-align: left;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 16px;\n    line-height: 110%;\n}\n\n\n.statusProblema-module_modal_controls_wrapper__1dEvp {\n    gap: 23px;\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin-top: 20px;\n    padding: 0 24px;\n}\n\n.statusProblema-module_status_logo__1zV01 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.statusProblema-module_name__BZi68 {\n    font-family: 'Work Sans';\n    font-style: normal;\n    font-weight: 600;\n    font-size: 16px;\n    line-height: 20px;\n    display: flex;\n    align-items: center;\n    text-align: center;\n    letter-spacing: -0.02em;\n    color: #FF4D0D;\n}\n\n.statusProblema-module_sub_title__s8MA4 {\n    font-family: 'PT Sans';\n    font-style: normal;\n    font-weight: 400;\n    font-size: 14px;\n    line-height: 18px;\n    text-align: center;\n}\n";
 var style$b = {"modalBox":"statusProblema-module_modalBox__SJtEw","fechar":"statusProblema-module_fechar__6ESi1","titulo":"statusProblema-module_titulo__6REcF","container":"statusProblema-module_container__KLG2-","containerItem":"statusProblema-module_containerItem__-Ui-d","containerData":"statusProblema-module_containerData__QoS0I","avatar":"statusProblema-module_avatar__4mtlc","descricao":"statusProblema-module_descricao__OJJt7","modal_controls_wrapper":"statusProblema-module_modal_controls_wrapper__1dEvp","status_logo":"statusProblema-module_status_logo__1zV01","name":"statusProblema-module_name__BZi68","sub_title":"statusProblema-module_sub_title__s8MA4"};
 styleInject(css_248z$i);
->>>>>>> chore: update the build and package.json version
 
 var problemaFRST = "data:image/png;base64,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";
 
@@ -7349,15 +7229,9 @@ function ModalStatusProblema(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$b.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$b.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$b.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$b.container, style: { height: props.approves.length >= 3 ? 555 : 185 * props.approves.length }, children: props.approves.map((item, index) => (jsxRuntime.jsx(ApprovesItem, { avatarSize: (size[0] >= BREAKWIDTH) ? '120px' : '100px', size: (size[0] >= BREAKWIDTH) ? '160px' : '120px', nomeAvatar: item.nome, dataAvatar: item.data, statusApprove: item.approve, avatar: item.avatarFoto, onClickUserInfo: item?.onClickUserInfo }, index))) }), jsxRuntime.jsxs("div", { className: style$b.modal_controls_wrapper, children: [jsxRuntime.jsx("div", { className: style$b.descricao, children: props.description }), jsxRuntime.jsx("div", { className: style$b.conclusao, children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props.language === 'en-US' ? 'ok, close' : 'Ok, entendi', handleClick: props.handleClose, style: { width: '100%', minWidth: '140px' } }) })] })] }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$g = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
-var style$9 = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
-styleInject(css_248z$g);
-=======
 var css_248z$h = ".modalLearningTech-module_modalBox__y9RGt{\n    background-color: #FFF;\n    max-width: 900px;\n    min-height: 300px;\n    max-height: 80%;\n    padding-top: 30px;\n    padding-bottom: 30px;\n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    border-radius: 10px;\n\n    font-family: 'Work Sans';\n    \n\n}\n\n.modalLearningTech-module_fechar__1Vw6M{\n    font-size: 12px;\n    color: #222222;\n    padding: 12px;\n    background-color: transparent;\n    border-top-right-radius: 10px;\n\n    display: flex;\n    justify-content: right;\n    align-items: center;\n    position: absolute;\n    top: 0px;\n    right: 0px;\n\n    margin-top: 0px;\n    cursor: pointer;\n}\n\n.modalLearningTech-module_titulo__U8Urp{\n    \n    width: 100%;\n\n    margin-top: 10px;\n    \n    font-size: 24px;\n    font-weight: 700;\n    \n\n    display: flex;\n    justify-content: center;\n    align-items: center;\n\n    \n}\n\n.modalLearningTech-module_container__HKtAY {\n    overflow: auto;\n    width: 100%;\n\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    flex-wrap: noWrap;\n\n    margin-top: 10px;\n\n}\n\n.modalLearningTech-module_conclusao__KHnxJ{\n    margin-top: 30px;\n\n    display: inline-flex;\n    justify-content: space-between;\n    align-items: center;\n    flex-wrap: nowrap;\n\n}";
 var style$a = {"modalBox":"modalLearningTech-module_modalBox__y9RGt","fechar":"modalLearningTech-module_fechar__1Vw6M","titulo":"modalLearningTech-module_titulo__U8Urp","container":"modalLearningTech-module_container__HKtAY","conclusao":"modalLearningTech-module_conclusao__KHnxJ"};
 styleInject(css_248z$h);
->>>>>>> chore: update the build and package.json version
 
 function ModalLearningTech(props) {
     return (jsxRuntime.jsx(material.Modal, { open: props.open, onClose: props.handleClose, children: jsxRuntime.jsxs(material.Box, { className: style$a.modalBox, style: { top: '50%', left: '50%', transform: 'translate(-50%, -50%)', ...props.style }, children: [jsxRuntime.jsx("div", { className: style$a.fechar, onClick: props.handleClose, children: jsxRuntime.jsx(CloseIcon, {}) }), jsxRuntime.jsx("div", { className: style$a.titulo, children: props.title }), jsxRuntime.jsx("div", { className: style$a.container, children: props.children }), jsxRuntime.jsx("div", { className: style$a.conclusao, children: props.confirmationButton ?
@@ -7369,15 +7243,9 @@ function ModalLearningTech(props) {
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }) }));
 }
 
-<<<<<<< HEAD
-var css_248z$f = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
-var style$8 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
-styleInject(css_248z$f);
-=======
 var css_248z$g = ".modalVideo-module_modalBox__qB5gT {\n  background-color: #fff;\n  max-width: 670px;\n  max-height: 80%;\n  padding-top: 20px;\n  position: relative;\n  border-radius: 10px;\n  font-family: 'Work Sans';\n}\n\n.modalVideo-module_fechar__jywh1 {\n  font-size: 13px;\n  color: #222222;\n}\n\n.modalVideo-module_container__OYjiD {\n  overflow: auto;\n  width: 100%;\n\n  display: flex;\n  justify-content: flex-start;\n  align-items: center;\n  flex-direction: column;\n  flex-wrap: noWrap;\n\n  margin-top: 10px;\n}\n";
 var style$9 = {"modalBox":"modalVideo-module_modalBox__qB5gT","fechar":"modalVideo-module_fechar__jywh1","container":"modalVideo-module_container__OYjiD"};
 styleInject(css_248z$g);
->>>>>>> chore: update the build and package.json version
 
 const WrapperStars = styled__default["default"].div `
     display: flex;
@@ -16102,7 +15970,6 @@ const postContainer = styled__default["default"].div `
         max-height: 100%;
     }
 
-<<<<<<< HEAD
 `;
 const postHeader = styled__default["default"].div `
     display: flex;
@@ -16144,49 +16011,6 @@ const postImage = styled__default["default"].div `
         max-height: 100%;
     }
 `;
-=======
-`;
-const postHeader = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-`;
-const postTitle = styled__default["default"].span `
-    font-family: 'Work Sans';
-    font-weight: 600;
-    font-size: 24px;
-    text-align: center;
-    color: ${({ theme }) => theme.colors.primary1};
-    margin-top: 32px;
-    padding-left: 22px;
-    padding-right: 22px;
-`;
-const postDescription = styled__default["default"].span `
-    font-family: 'PT Sans';
-    font-weight: 400;
-    font-size: 16px;
-    text-align: left;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
-    margin-top: 32px;
-    width: 100% !important;
-`;
-const postImage = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin-top: 32px;
-    width: 100%;
-    object-fit: cover;
-
-    & img{
-        max-width: 100%;
-        width: 100%;
-        max-height: 100%;
-    }
-`;
->>>>>>> chore: update the build and package.json version
 const postVideo = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -17218,7 +17042,6 @@ const ButtonRemoveV2 = styled__default["default"].div `
     &:active {
         color: ${({ theme }) => theme.colors.neutralsGrey3};
     }
-<<<<<<< HEAD
 `;
 const ButtonOrV2 = styled__default["default"].div `
     font-family: 'PT Sans';
@@ -17271,60 +17094,6 @@ const ButtonSuccess = styled__default["default"].div `
 
     color: #222222;
 `;
-=======
-`;
-const ButtonOrV2 = styled__default["default"].div `
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 110%;
-    /* or 13px */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-    cursor: pointer;
-`;
-const ButtonSuccess = styled__default["default"].div `
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 4px 16px;
-    gap: 8px;
-
-    width: 159px;
-    height: 32px;
-
-    /* message/success_2 */
-
-    background: #D1F6D1;
-    /* message/success_1 */
-
-    border: 1px solid #1BA853;
-    border-radius: 8px;
-
-    width: 163px;
-    height: 32px;
-    cursor: default;
-    white-space: nowrap;
-
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 14px;
-    /* identical to box height */
-
-    display: flex;
-    align-items: center;
-
-    /* neutrals/grey_1 */
-
-    color: #222222;
-`;
->>>>>>> chore: update the build and package.json version
 const ButtonSuccessV2 = styled__default["default"].div `
     display: flex;
     flex-direction: row;
