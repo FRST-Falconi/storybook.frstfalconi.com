@@ -19,6 +19,7 @@ export default function InputComment({ placeholder, onChange, limit, users, show
       <div style={{ minHeight:'48px', ...styles }} tabIndex={0} >
         <Styles.InputWrapper  tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded} >
           <Styles.InputText
+            id="input-comment-component"
             tabIndex={2}
             contentEditable={true}
             ref={divInputRef}
