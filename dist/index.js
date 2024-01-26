@@ -3595,7 +3595,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             if (divInputRef.current.childNodes.length <= 0)
                 return true;
             divInputRef.current.childNodes.forEach((child) => {
-                console.log('entrei aqui child.textContent', child.textContent);
                 if (child.textContent.length <= 0) {
                     isEmpty = true;
                 }
