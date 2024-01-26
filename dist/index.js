@@ -3422,7 +3422,6 @@ const LimitCharsExceededMessage = styled__default["default"].span `
 // transform: scale(0.845);
 
 const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }) => {
-    const [focus, setFocus] = React.useState(false);
     const [showMention, setShowMention] = React.useState(false);
     const [inputSearch, setInputSearch] = React.useState('');
     const divInputRef = React.useRef(null);
@@ -3590,16 +3589,30 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         let isEmpty = false;
         //if divInputRef is not focused 
         const isFocused = divInputRef.current === document.activeElement;
+        console.log('entrei aqui child.textContent divInputRef.current', divInputRef.current);
         if (divInputRef.current && !isFocused) {
+            console.log('entrei aqui divInputRef.current.childNodes.length', divInputRef.current.childNodes.length);
+            if (divInputRef.current.childNodes.length <= 0)
+                return true;
             divInputRef.current.childNodes.forEach((child) => {
+                console.log('entrei aqui child.textContent', child.textContent);
                 if (child.textContent.length <= 0) {
                     isEmpty = true;
                 }
+                else {
+                    isEmpty = false;
+                    return false;
+                }
             });
         }
+        console.log('entrei aqui isFocused e isEmpty', isFocused, isEmpty);
         return isEmpty;
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
+        if (document.activeElement?.id === 'input-comment-component')
+            return;
+        console.log(`entrei divInputRef.current?.innerHTML = ${divInputRef.current?.innerHTML}`);
+        console.log('entrei aqui no handlePlaceholderInputText document.activeElement?.id ', document.activeElement?.id);
         // if divInputRef has any element hide the placeholder
         if (isPlaceHolderFocus) {
             divPlaceholder.current?.style.setProperty('display', 'none');
@@ -3608,12 +3621,15 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             setPlaceholder(false);
         }
         else {
+            console.log('entrei aqui vou ver o areChildrenEmpty');
             if (!areChildrenEmpty()) {
+                console.log('entrei aqui mostrasr o input');
                 divPlaceholder.current?.style.setProperty('display', 'none');
                 divInputRef.current.style.setProperty('display', 'block');
                 setPlaceholder(false);
             }
             else {
+                console.log('entrei aqui mostrar o place holder');
                 divPlaceholder.current?.style.setProperty('display', 'block');
                 divInputRef.current.style.setProperty('display', 'none');
                 setPlaceholder(true);
@@ -3720,9 +3736,17 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         };
     }, []);
     React.useEffect(() => {
+        console.log(`entrei id é = ${document.activeElement?.id}`);
         if (replyMentionedUser)
             return;
-        if (!value || value.length <= 0 && document.activeElement !== divInputRef.current) {
+        // get where the cursor is
+        window.getSelection();
+        // check if the cursor is inside the divInputRef
+        const isFocused = divInputRef.current === document.activeElement;
+        // if the cursor is not inside the divInputRef show the placeholder
+        if ((!value || value.length <= 0) && document.activeElement?.id !== 'input-comment-component' && !isFocused) {
+            console.log('entrei divInputRef.current =', divInputRef.current);
+            console.log('entrei aqui no value');
             divPlaceholder.current?.style.setProperty('display', 'block');
             divInputRef.current.style.setProperty('display', 'none');
             divInputRef.current.innerHTML = '<p><br /></p>';
@@ -3733,7 +3757,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     return {
         handleInput,
         handlePlaceholderInputText,
-        focus,
         showMention,
         setShowMention,
         inputSearch,
@@ -3925,7 +3948,7 @@ const Mentions = (mention) => {
 
 function InputComment$1({ placeholder, onChange, limit, users, showCharacterCounter, styles, onSendMentions, onContentFormat, onContentUnformat, disabled, className, value, replyMentionedUser, group_uuid, limitMessageExceeded }) {
     const { divPlaceholder, handleInput, isPlaceholder, divInputRef, handleMentionUser, mentionTopPosition, setShowMention, showMention, textLength, styleLimitExceeded } = useInputHook({ limit, placeholder, onContentFormat, onContentUnformat, onSendMentions, onChange, value, replyMentionedUser });
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { id: "input-comment-component", tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
                                 handleInput(event);
                             }, "data-text": "enter", suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);

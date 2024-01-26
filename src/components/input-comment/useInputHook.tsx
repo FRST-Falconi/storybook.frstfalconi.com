@@ -15,7 +15,6 @@ interface IInputHook {
 
 export const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onContentUnformat, onChange, value, replyMentionedUser }: IInputHook) => {
 
-    const [focus, setFocus] = useState(false)
     const [showMention, setShowMention] = useState(false)
     const [inputSearch, setInputSearch] = useState('');
     const divInputRef = useRef<HTMLDivElement>(null);
@@ -205,18 +204,22 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
         // return if divInputRef has child empty
         let isEmpty = false;
         //if divInputRef is not focused 
-
         const isFocused = divInputRef.current === document.activeElement;
         if (divInputRef.current && !isFocused) {
+            if(divInputRef.current.childNodes.length <=0) return true;
             divInputRef.current.childNodes.forEach((child) => {
                 if (child.textContent.length <=0) {
                     isEmpty = true
+                }else{
+                    isEmpty = false;
+                    return false;
                 }
             })
         }
         return isEmpty
     }
     const handlePlaceholderInputText = (isPlaceHolderFocus:boolean = false) => {
+        if(document.activeElement?.id === 'input-comment-component') return;
             // if divInputRef has any element hide the placeholder
             if(isPlaceHolderFocus){
                 divPlaceholder.current?.style.setProperty('display', 'none')
@@ -240,6 +243,7 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
     }
 
     
+
 
     useEffect(() => {
 
@@ -363,7 +367,14 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
 
     useEffect(()=>{
         if(replyMentionedUser) return;
-        if(!value || value.length<=0 && document.activeElement !== divInputRef.current){
+
+        // get where the cursor is
+        const selection = window.getSelection();
+        // check if the cursor is inside the divInputRef
+        const isFocused = divInputRef.current === document.activeElement;
+        // if the cursor is not inside the divInputRef show the placeholder
+
+        if((!value || value.length<=0) && document.activeElement?.id !== 'input-comment-component' && !isFocused){
             divPlaceholder.current?.style.setProperty('display', 'block')
             divInputRef.current.style.setProperty('display', 'none')
             divInputRef.current.innerHTML = '<p><br /></p>'
@@ -377,7 +388,6 @@ export const useInputHook = ({ limit, placeholder, onSendMentions, onContentForm
     return {
         handleInput,
         handlePlaceholderInputText,
-        focus,
         showMention,
         setShowMention,
         inputSearch,
