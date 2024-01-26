@@ -96,6 +96,7 @@ export { default as FilterAccordionCheckbox } from './src/components/filter-acco
 export { default as ModalStatusProblema } from './src/components/modal/statusProblema'
 export { default as ModalLearningTech } from './src/components/modal/modalLearningTech'
 export { default as ModalVideo } from './src/components/modal/modalVideo'
+export { default as ModalBase } from './src/components/modal/modalBase'
 
 export { default as CardProblemGestor } from './src/components/cards/cardProblemGestor'
 export { default as CardProblem } from './src/components/cards/cardProblem'
