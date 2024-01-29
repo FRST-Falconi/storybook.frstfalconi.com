@@ -28,7 +28,7 @@ line-height: 110%;
 position: relative;
 left: 59px;
 margin-top: 6px;
-width: 200px !important;
+width: 190px !important;
 
 span{
     cursor:pointer;
