@@ -246,6 +246,7 @@ export const useInputHook = ({
 
   useEffect(() => {
     if (divInputRef.current && initialText) {
+      setPlaceholder(false)
       divInputRef.current.innerHTML = initialText
     }
   }, [initialText])

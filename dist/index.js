@@ -3628,9 +3628,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         }
     };
     React.useEffect(() => {
-        if (divInputRef.current && initialText) {
-            divInputRef.current.innerHTML = initialText;
-        }
         divInputRef.current?.addEventListener('input', resizeDiv);
         return () => {
             divInputRef.current?.removeEventListener('input', resizeDiv);
@@ -3638,6 +3635,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     }, []);
     React.useEffect(() => {
         if (divInputRef.current && initialText) {
+            setPlaceholder(false);
             divInputRef.current.innerHTML = initialText;
         }
     }, [initialText]);
