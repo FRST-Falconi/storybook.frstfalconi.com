@@ -146,6 +146,8 @@ export const FlexButtonContainer = styled.div<IButton>`
 export const Text = styled.div`
     color: #444;
     font-family: Work Sans;
+    font-weight: 400;
+    line-height: 140%;
     font-size: 16px;
     font-style: normal;
     overflow: hidden;
