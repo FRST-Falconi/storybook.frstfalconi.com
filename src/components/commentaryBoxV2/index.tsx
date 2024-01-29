@@ -47,7 +47,8 @@ export const CommentaryBoxV2 = ({
   orText,
   groupUuid,
   limitMessageExceeded,
-  placeHolderText
+  placeHolderText,
+  getSearchUsers
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isLiked, setIsLiked] = useState(itsLiked)
@@ -130,6 +131,7 @@ export const CommentaryBoxV2 = ({
             commentId={commentId}
             setIsModeEdit={setIsModeEdit}
             group_uuid={groupUuid}
+            getSearchUsers={getSearchUsers}
           />
         ) : (
           <Styled.Box>

@@ -20,7 +20,8 @@ export const CommentaryBoxReply = ({
   saveButtonText,
   orText,
   limitMessageExceeded,
-  placeHolderText
+  placeHolderText,
+  getSearchUsers
 }: ICommentComentaryBoxReply) => {
   return (
     <CommentaryBoxV2
@@ -53,6 +54,7 @@ export const CommentaryBoxReply = ({
       limitMessageExceeded={limitMessageExceeded}
       actionEditComment={onClickEdit}
       placeHolderText={placeHolderText}
+      getSearchUsers={getSearchUsers}
     />
   )
 }
