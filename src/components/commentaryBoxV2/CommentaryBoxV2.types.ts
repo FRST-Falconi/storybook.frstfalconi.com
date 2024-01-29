@@ -1,3 +1,4 @@
+import { User as MentionUser } from '@components/input-comment/types';
 import { OnClickEditButtonParams } from "./utilitiesComponents/inputEdit/inputEdit.types";
 export interface ICommentaryBoxV2 {
     userId?: string;
@@ -34,6 +35,7 @@ export interface ICommentaryBoxV2 {
     actionAnswer?: () => void;
     actionDeleteComment?: (commentId?: string) => void
     actionEditComment?: (props: OnClickEditButtonParams) => void
+    getSearchUsers?: (value: string) => MentionUser[],
 
     styles?: any;
     isAuthor?: boolean;

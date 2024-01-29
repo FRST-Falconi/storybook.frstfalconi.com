@@ -105,10 +105,11 @@ export const ThreadComments = ({
             orText={orText}
             limitMessageExceeded={limitMessageExceeded}
             placeHolderText={placeHolderText}
+            getSearchUsers={getSearchUsers}
           />
 
           {listReplyComments.length > visibleReplies && (
-            <Styled.ViewReplysButtonContainer>
+            <Styled.ViewReplysButtonContainer id="text-viwMsg">
               <span onClick={handleLoadMoreReplies}>
                 {showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText}
               </span>
@@ -156,6 +157,7 @@ export const ThreadComments = ({
                   limitMessageExceeded={limitMessageExceeded}
                   onClickEdit={onClickEdit}
                   placeHolderText={placeHolderText}
+                  getSearchUsers={getSearchUsers}
                 />
                 {showInputByIdReply.includes(replyComment.id.toString()) && (
                   <InputReply

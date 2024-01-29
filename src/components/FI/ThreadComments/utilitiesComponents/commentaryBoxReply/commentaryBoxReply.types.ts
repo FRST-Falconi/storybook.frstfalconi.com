@@ -1,5 +1,7 @@
 import { OnClickEditButtonParams } from '@components/commentaryBoxV2/utilitiesComponents/inputEdit/inputEdit.types';
 import { IComment } from '../../threadComments.types';
+import { User as MentionUser } from '@components/input-comment/types';
+
 
 export interface ICommentComentaryBoxReply {
     commentData: IComment,
@@ -13,6 +15,7 @@ export interface ICommentComentaryBoxReply {
     isOwnerPost: boolean;
     onClickDelete: (commentId: string) => void,
     onClickEdit: (params: OnClickEditButtonParams) => void,
+    getSearchUsers?: (value: string) => MentionUser[],
     limitInput?: number,
     groupUuid?: string,
     saveButtonText?: string;
