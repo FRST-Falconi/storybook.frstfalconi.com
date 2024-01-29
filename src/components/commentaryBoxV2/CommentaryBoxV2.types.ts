@@ -28,7 +28,7 @@ export interface ICommentaryBoxV2 {
     limitMessageExceeded?: string;
 
 
-    onClickUserInfo?: () => void;
+    actionUserInfo?: () => void;
     actionLike?: (wantToLike: boolean) => void;
     actionAnswer?: () => void;
     actionDeleteComment?: (commentId?: string) => void

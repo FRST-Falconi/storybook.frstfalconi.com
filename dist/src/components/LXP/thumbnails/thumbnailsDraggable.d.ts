@@ -1,0 +1,5 @@
+/// <reference types="react" />
+import '../../../shared/global.css';
+import { IThumbnailsTranslate } from './thumbnails.d';
+export default function ThumbnailsDraggable({ variant, src, handleClickCourse, handleClickNew, handleClickContent, handleSwitchAtivar, title, id, index, isDisabled, isLoading, txtButtonLabel, txtAtivarCurso, showSwitch, txtCriarNovoCurso, txtCriarNovoCurso2, handleClickPopOverDelete, handleClickPopOverEdit, handleClickPopOverEditActivity, handleClickPopOverMove, handleClickPopOverMoveToTrail, handlePublicarCourse, handlePublicarContentCheck, publishContentStatus, txtPopOverDeleteContent, txtPopOverEditContent, isActive, isTrail, txtPopOverMoveToTrails, txtPopOverDeleteTrail, txtPopOverEditContentActivity, activeMenuModule, activePublishButton }: IThumbnailsTranslate): JSX.Element;
+//# sourceMappingURL=thumbnailsDraggable.d.ts.map

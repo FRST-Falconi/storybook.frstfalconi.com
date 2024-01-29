@@ -33,7 +33,7 @@ export const CommentaryBoxV2 = ({
   commentUuid,
   commentText,
   actionAnswer,
-  onClickUserInfo,
+  actionUserInfo,
   actionEditComment,
   actionDeleteComment,
   isMainComment,
@@ -112,7 +112,7 @@ export const CommentaryBoxV2 = ({
         <Avatar
           size={isMainComment ? '48px' : '32px'}
           src={imgProfile}
-          onClick={onClickUserInfo}
+          onClick={actionUserInfo}
           style={{ cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' }}
         />
         {isModeEdit ? (
