@@ -237,15 +237,19 @@ export const useInputHook = ({
   }
 
   useEffect(() => {
-    if (divInputRef.current && initialText) {
-      divInputRef.current.innerHTML = initialText
-    }
     divInputRef.current?.addEventListener('input', resizeDiv)
 
     return () => {
       divInputRef.current?.removeEventListener('input', resizeDiv)
     }
   }, [])
+
+  useEffect(() => {
+    if (divInputRef.current && initialText) {
+      setPlaceholder(false)
+      divInputRef.current.innerHTML = initialText
+    }
+  }, [initialText])
 
   useEffect(() => {
     if (!replyMentionedUser || !divInputRef?.current) {
