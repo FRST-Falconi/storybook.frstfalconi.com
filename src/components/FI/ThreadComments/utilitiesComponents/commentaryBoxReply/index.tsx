@@ -14,11 +14,13 @@ export const CommentaryBoxReply = ({
   deleteText,
   editText,
   onClickDelete,
+  onClickEdit,
   limitInput,
   cancelButtonText,
   saveButtonText,
   orText,
-  limitMessageExceeded
+  limitMessageExceeded,
+  placeHolderText
 }: ICommentComentaryBoxReply) => {
   return (
     <CommentaryBoxV2
@@ -33,7 +35,7 @@ export const CommentaryBoxReply = ({
       commentUuid={commentData.uuid}
       howLongAgo={commentData.howLongAgo}
       showMoreText={showMoreButtonText}
-      actionAnswer={() => onClickAnswerButton(commentData.id)}
+      actionAnswer={() => onClickAnswerButton(commentData.id.toString())}
       showLessText={showLessButtonText}
       answerButtonText={answerButtonText}
       styles={{ marginTop: '0px' }}
@@ -49,6 +51,8 @@ export const CommentaryBoxReply = ({
       saveButtonText={saveButtonText}
       orText={orText}
       limitMessageExceeded={limitMessageExceeded}
+      actionEditComment={onClickEdit}
+      placeHolderText={placeHolderText}
     />
   )
 }

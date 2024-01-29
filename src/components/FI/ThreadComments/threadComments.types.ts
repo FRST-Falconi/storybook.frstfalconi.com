@@ -1,7 +1,8 @@
+import { OnClickEditButtonParams } from '@components/commentaryBoxV2/utilitiesComponents/inputEdit/inputEdit.types';
 import { User as MentionUser } from '@components/input-comment/types';
 
 export interface IComment {
-    id: string,
+    id: number,
     uuid: string,
     user: IUser,
     text: string,
@@ -16,7 +17,7 @@ export interface IThreadComments {
     answerButtonText: string,
     onClickPublishButton: () => void,
     onClickDelete: (commentId: string) => void,
-    onClickEdit: (commentId: string) => void,
+    onClickEdit: (params: OnClickEditButtonParams) => void,
     showReplysButtonText: string,
     publishButtonText: string,
     editText: string,

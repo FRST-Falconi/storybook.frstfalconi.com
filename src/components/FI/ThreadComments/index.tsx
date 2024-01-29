@@ -28,6 +28,7 @@ export const ThreadComments = ({
   editText,
   deleteText,
   onClickDelete,
+  onClickEdit,
   cancelButtonText,
   saveButtonText,
   orText
@@ -87,6 +88,7 @@ export const ThreadComments = ({
             answerButtonText={answerButtonText}
             actionAnswer={handleCommentReply}
             actionDeleteComment={onClickDelete}
+            actionEditComment={onClickEdit}
             relationToPhaseText={relationToPhaseText}
             commentTextWithMention={mainComment.mentionText}
             isMainComment
@@ -102,6 +104,7 @@ export const ThreadComments = ({
             saveButtonText={saveButtonText}
             orText={orText}
             limitMessageExceeded={limitMessageExceeded}
+            placeHolderText={placeHolderText}
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -151,8 +154,10 @@ export const ThreadComments = ({
                   saveButtonText={saveButtonText}
                   orText={orText}
                   limitMessageExceeded={limitMessageExceeded}
+                  onClickEdit={onClickEdit}
+                  placeHolderText={placeHolderText}
                 />
-                {showInputByIdReply.includes(replyComment.id) && (
+                {showInputByIdReply.includes(replyComment.id.toString()) && (
                   <InputReply
                     imgProfile={loggedInUser?.avatar}
                     styles={{ width: '100%' }}
@@ -164,7 +169,7 @@ export const ThreadComments = ({
                     replyMentionedUser={replyComment.user}
                     getSearchUsers={getSearchUsers}
                     parentId={Number(mainComment.id)}
-                    handleHiddenInput={(replyId = replyComment.id) => handleHiddenInputReply(replyId)}
+                    handleHiddenInput={(replyId = replyComment.id.toString()) => handleHiddenInputReply(replyId)}
                     group_uuid={group_uuid}
                     limitMessageExceeded={limitMessageExceeded}
                   />

@@ -1,4 +1,4 @@
-import { onClickEditButtonParams } from "./utilitiesComponents/inputEdit/inputEdit.types";
+import { OnClickEditButtonParams } from "./utilitiesComponents/inputEdit/inputEdit.types";
 export interface ICommentaryBoxV2 {
     userId?: string;
     userName: string;
@@ -7,7 +7,7 @@ export interface ICommentaryBoxV2 {
     imgProfile?: string;
 
     commentUuid: string,
-    commentId: string;
+    commentId: number;
     commentText: string;
     commentTextWithMention?: string;
     howLongAgo: string;
@@ -26,13 +26,14 @@ export interface ICommentaryBoxV2 {
     cancelButtonText?: string;
     orText?: string;
     limitMessageExceeded?: string;
+    placeHolderText?: string;
 
 
     onClickUserInfo?: () => void;
     actionLike?: (wantToLike: boolean) => void;
     actionAnswer?: () => void;
     actionDeleteComment?: (commentId?: string) => void
-    actionEditComment?: (props: onClickEditButtonParams) => void
+    actionEditComment?: (props: OnClickEditButtonParams) => void
 
     styles?: any;
     isAuthor?: boolean;

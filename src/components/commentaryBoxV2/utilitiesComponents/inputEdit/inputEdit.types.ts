@@ -1,11 +1,11 @@
 export interface IInputEdit {
     placeHolderText: string,
     editButtonText: string,
-    onClickEditButton: (props: onClickEditButtonParams) => void,
+    onClickEditButton: (props: OnClickEditButtonParams) => void,
     limitInput: number,
     getSearchUsers?: (value: string) => any,
     limitMessageExceeded: string;
-    commentUUID: string;
+    commentId: number;
     commentTextWithMention?: string;
     commentText: string;
     setIsModeEdit: (isModeEdit: boolean) => void;
@@ -14,8 +14,8 @@ export interface IInputEdit {
     group_uuid: string;
 }
 
-export interface onClickEditButtonParams {
-    commentUuid: string,
+export interface OnClickEditButtonParams {
+    commentId: number,
     content: string,
     contentMention: string,
     mentions: Array<string>,

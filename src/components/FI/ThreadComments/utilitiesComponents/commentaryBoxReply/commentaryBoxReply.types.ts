@@ -1,3 +1,4 @@
+import { OnClickEditButtonParams } from '@components/commentaryBoxV2/utilitiesComponents/inputEdit/inputEdit.types';
 import { IComment } from '../../threadComments.types';
 
 export interface ICommentComentaryBoxReply {
@@ -11,10 +12,12 @@ export interface ICommentComentaryBoxReply {
     isAuthor: boolean;
     isOwnerPost: boolean;
     onClickDelete: (commentId: string) => void,
+    onClickEdit: (params: OnClickEditButtonParams) => void,
     limitInput?: number,
     groupUuid?: string,
     saveButtonText?: string;
     cancelButtonText?: string;
     orText?: string;
     limitMessageExceeded?: string;
+    placeHolderText?: string;
 }

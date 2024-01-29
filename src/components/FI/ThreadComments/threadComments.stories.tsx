@@ -14,7 +14,7 @@ const Template = (args) => <ThreadComments {...args} />
 export const Default = Template.bind({})
 
 const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
-  id: `reply-${index + 1}`,
+  id: index + 1,
   text: `Resposta ${index + 1}: Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
   howLongAgo: `${index + 1} horas atrás`,
   uuid: `replyUuid-${index + 1}`,
@@ -41,7 +41,7 @@ Default.args = {
       company_name: 'Frst Falconi',
       avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg'
     },
-    id: '01',
+    id: 1,
     text: 'Uow, que projeto incrível, ansioso para ver os proximos passos  https://frstfalconi.com/',
     howLongAgo: '18 horas atrás'
   },
@@ -58,8 +58,8 @@ Default.args = {
   onClickDelete: (commentId: string) => {
     alert(`commentId: ${commentId}`)
   },
-  onClickEdit: (commentId: string) => {
-    alert(`commentId: ${commentId}`)
+  onClickEdit: (comment) => {
+    console.log('comment:', comment)
   },
   onClickPublishButton: () => {
     alert('Comentário postado!')
