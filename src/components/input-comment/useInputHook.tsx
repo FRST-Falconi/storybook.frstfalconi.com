@@ -248,6 +248,12 @@ export const useInputHook = ({
   }, [])
 
   useEffect(() => {
+    if (divInputRef.current && initialText) {
+      divInputRef.current.innerHTML = initialText
+    }
+  }, [initialText])
+
+  useEffect(() => {
     if (!replyMentionedUser || !divInputRef?.current) {
       handlePlaceholderInputText()
       return

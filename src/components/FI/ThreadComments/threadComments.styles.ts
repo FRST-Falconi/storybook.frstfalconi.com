@@ -28,6 +28,9 @@ line-height: 110%;
 position: relative;
 left: 59px;
 margin-top: 6px;
+span{
+    cursor:pointer;
+}
 
 @media screen  and (max-width:768px){
   color: #444444;
@@ -40,9 +43,7 @@ margin-top: 6px;
   left: 59px;
   margin-top: 6px;
   max-width: 150px !important;
-  
-span{
-    cursor:pointer;
+  }
 }
 `
 

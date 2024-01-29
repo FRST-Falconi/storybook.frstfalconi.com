@@ -3637,6 +3637,11 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         };
     }, []);
     React.useEffect(() => {
+        if (divInputRef.current && initialText) {
+            divInputRef.current.innerHTML = initialText;
+        }
+    }, [initialText]);
+    React.useEffect(() => {
         if (!replyMentionedUser || !divInputRef?.current) {
             handlePlaceholderInputText();
             return;
@@ -5055,6 +5060,9 @@ line-height: 110%;
 position: relative;
 left: 59px;
 margin-top: 6px;
+span{
+    cursor:pointer;
+}
 
 @media screen  and (max-width:768px){
   color: #444444;
@@ -5067,9 +5075,7 @@ margin-top: 6px;
   left: 59px;
   margin-top: 6px;
   max-width: 150px !important;
-  
-span{
-    cursor:pointer;
+  }
 }
 `;
 const RepplysContainer = styled__default["default"].div `
