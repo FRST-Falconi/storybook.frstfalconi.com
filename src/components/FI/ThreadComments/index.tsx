@@ -108,7 +108,7 @@ export const ThreadComments = ({
           />
 
           {listReplyComments.length > visibleReplies && (
-            <Styled.ViewReplysButtonContainer>
+            <Styled.ViewReplysButtonContainer id='text-viwMsg'>
               <span onClick={handleLoadMoreReplies}>
                 {showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText}
               </span>
