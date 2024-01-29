@@ -237,9 +237,6 @@ export const useInputHook = ({
   }
 
   useEffect(() => {
-    if (divInputRef.current && initialText) {
-      divInputRef.current.innerHTML = initialText
-    }
     divInputRef.current?.addEventListener('input', resizeDiv)
 
     return () => {
