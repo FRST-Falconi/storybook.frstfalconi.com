@@ -5,32 +5,36 @@ export interface IComment {
     uuid: string,
     user: IUser,
     text: string,
-    mentionText?: string, 
+    mentionText?: string,
     howLongAgo: string,
 }
 
 export interface IThreadComments {
-    mainComment:IComment,
-    listReplyComments:IComment[],
+    mainComment: IComment,
+    listReplyComments: IComment[],
     placeHolderText: string,
     answerButtonText: string,
     onClickPublishButton: () => void,
     onClickDelete: (commentId: string) => void,
-    showReplysButtonText:string,
-    publishButtonText:string,
+    onClickEdit: (commentId: string) => void,
+    showReplysButtonText: string,
+    publishButtonText: string,
     editText: string,
     deleteText: string,
-    limitInputs:number,
+    limitInputs: number,
+    cancelButtonText: string,
+    saveButtonText: string,
+    orText: string,
     showMoreButtonText: string,
     showLessButtonText: string,
     group_uuid: string,
     styles: any,
-    getSearchUsers?: (value:string) =>  MentionUser[],
+    getSearchUsers?: (value: string) => MentionUser[],
     relationToPhaseText?: string,
     limitMessageExceeded: string,
-    size?:number,
+    size?: number,
     showMoreReplysButtonText: string,
-    loggedInUser:LoggedInUser,
+    loggedInUser: LoggedInUser,
     isGoalOwner: boolean
 }
 
@@ -47,9 +51,8 @@ export type LoggedInUser = {
     avatar?: string;
     id: string;
     name?: {
-      name: string;
-      first_name: string;
-      last_name: string;
+        name: string;
+        first_name: string;
+        last_name: string;
     };
-  };
-  
+};

@@ -27,7 +27,10 @@ export const ThreadComments = ({
   isGoalOwner,
   editText,
   deleteText,
-  onClickDelete
+  onClickDelete,
+  cancelButtonText,
+  saveButtonText,
+  orText
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -62,7 +65,7 @@ export const ThreadComments = ({
     setShowInputByIdReply([...showInputByIdReply, idReply])
   }
 
-  const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id;
+  const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id
 
   return (
     <Styled.Container style={styles}>
@@ -91,8 +94,14 @@ export const ThreadComments = ({
             isOwnerPost={isGoalOwner}
             deleteText={deleteText}
             editText={editText}
-            showOptions={isMainCommentUser || isGoalOwner }
+            showOptions={isMainCommentUser || isGoalOwner}
             commentUuid={mainComment.uuid}
+            limitInput={limitInputs}
+            groupUuid={group_uuid}
+            cancelButtonText={cancelButtonText}
+            saveButtonText={saveButtonText}
+            orText={orText}
+            limitMessageExceeded={limitMessageExceeded}
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -122,9 +131,9 @@ export const ThreadComments = ({
           )}
         </div>
         {showAnswers && visibleReplies && (
-          <Styled.RepplysContainer style={{marginTop:'24px'}} >
+          <Styled.RepplysContainer style={{ marginTop: '24px' }}>
             {listReplyComments.slice(0, visibleReplies).map((replyComment) => (
-              <div key={replyComment.id} style={{marginTop:"6px"}}>
+              <div key={replyComment.id} style={{ marginTop: '6px' }}>
                 <CommentaryBoxReply
                   commentData={replyComment}
                   answerButtonText={''}
@@ -132,10 +141,16 @@ export const ThreadComments = ({
                   showLessButtonText={showLessButtonText}
                   onClickAnswerButton={handleCommentReplyReply}
                   isAuthor={replyComment.user?.uuid === loggedInUser?.id}
-                  isOwnerPost={(mainComment.user?.uuid === loggedInUser?.id) || isGoalOwner}
+                  isOwnerPost={mainComment.user?.uuid === loggedInUser?.id || isGoalOwner}
                   deleteText={deleteText}
                   editText={editText}
                   onClickDelete={onClickDelete}
+                  limitInput={limitInputs}
+                  groupUuid={group_uuid}
+                  cancelButtonText={cancelButtonText}
+                  saveButtonText={saveButtonText}
+                  orText={orText}
+                  limitMessageExceeded={limitMessageExceeded}
                 />
                 {showInputByIdReply.includes(replyComment.id) && (
                   <InputReply
