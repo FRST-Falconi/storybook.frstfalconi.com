@@ -58,7 +58,7 @@ export const MenuMoreContainer = styled.div`
   justify-content: center;
   margin-top: 5px;
   padding: 4px;
-
+  
   &:hover {
     background-color: #f2f2f2;
   }
@@ -75,7 +75,6 @@ export const LikesContainer = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 110%;
-
 `
 
 export const IconLikeContainer = styled.div`
@@ -146,6 +145,8 @@ export const FlexButtonContainer = styled.div<IButton>`
 export const Text = styled.div`
     color: #444;
     font-family: Work Sans;
+    font-weight: 400;
+    line-height: 140%;
     font-size: 16px;
     font-style: normal;
     overflow: hidden;
