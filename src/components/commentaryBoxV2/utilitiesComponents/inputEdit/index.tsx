@@ -17,7 +17,7 @@ export const InputEdit = ({
   cancelButtonText,
   orText,
   limitMessageExceeded,
-  commentUUID,
+  commentId,
   group_uuid,
   setIsModeEdit
 }: IInputEdit) => {
@@ -31,7 +31,7 @@ export const InputEdit = ({
   const handlePublish = async () => {
     setIsLoading(true)
     await onClickEditButton({
-      commentUuid: commentUUID,
+      commentId,
       content: comment,
       contentMention: CaptureFormattedValue,
       mentions: captureMentions
@@ -85,14 +85,7 @@ export const InputEdit = ({
         <MiniButton
           disabled={comment.length <= 0 || comment.length > limitInput || isLoading}
           label={editButtonText}
-          onClick={() =>
-            onClickEditButton({
-              commentUuid: commentUUID,
-              content: comment,
-              contentMention: CaptureFormattedValue,
-              mentions: captureMentions
-            })
-          }
+          onClick={() => handlePublish()}
           variant="primary"
           styles={{}}
         />

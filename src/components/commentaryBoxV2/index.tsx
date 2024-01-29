@@ -46,9 +46,10 @@ export const CommentaryBoxV2 = ({
   cancelButtonText,
   orText,
   groupUuid,
-  limitMessageExceeded
+  limitMessageExceeded,
+  placeHolderText
 }: ICommentaryBoxV2) => {
-  const iDCommentPosted = commentId ? commentId : `IDCommentPosted-${createUUID()}`
+  const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isLiked, setIsLiked] = useState(itsLiked)
   const [isModeEdit, setIsModeEdit] = useState(false)
 
@@ -117,7 +118,7 @@ export const CommentaryBoxV2 = ({
         />
         {isModeEdit ? (
           <InputEdit
-            placeHolderText={'teste'}
+            placeHolderText={placeHolderText}
             commentText={buildStringWithLinkHTML(commentText)}
             commentTextWithMention={commentTextWithMention && buildStringWithLinkHTML(commentTextWithMention)}
             editButtonText={saveButtonText}
@@ -126,7 +127,7 @@ export const CommentaryBoxV2 = ({
             cancelButtonText={cancelButtonText}
             orText={orText}
             limitMessageExceeded={limitMessageExceeded}
-            commentUUID={commentUuid}
+            commentId={commentId}
             setIsModeEdit={setIsModeEdit}
             group_uuid={groupUuid}
           />
