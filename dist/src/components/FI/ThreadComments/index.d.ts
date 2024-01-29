@@ -1,4 +1,0 @@
-/// <reference types="react" />
-import { IThreadComments } from './threadComments.types';
-export declare const ThreadComments: ({ mainComment, listReplyComments, placeHolderText, onClickPublishButton, showReplysButtonText, publishButtonText, limitInputs, answerButtonText, loggedInUser, group_uuid, getSearchUsers, showMoreButtonText, showLessButtonText, styles, relationToPhaseText, limitMessageExceeded, size, showMoreReplysButtonText, isGoalOwner, editText, deleteText, onClickDelete, cancelButtonText, saveButtonText, orText }: IThreadComments) => JSX.Element;
-//# sourceMappingURL=index.d.ts.map

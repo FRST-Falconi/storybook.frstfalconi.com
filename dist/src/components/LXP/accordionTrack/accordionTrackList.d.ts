@@ -1,5 +1,0 @@
-/// <reference types="react" />
-import '../../../shared/global.css';
-import { IAccordionTranslate } from './IAccordionTrack';
-export default function AccordionTrackList({ trailsData, courseData, handleChange, onNewTrail, handleEditCourse, handlePopOverMove, handlePopOverEdit, handlePopOverTrailEdit, handlePopOverTrailDelete, handleSwitchActiveTrail, onSetNameTrail, handleSwitchAtivar, handleDeleteCourse, handleDeleteCourseTrail, handleMessageError, handleUpdateTrail, txtPopOverEditContentActivity, txtPopOverDeleteContent, txtPopOverEditContent, txtPopOverMoveToTrails, textMeusConteudos, textTotalDe, textRegistros, textMinhasTrihas, txtAtivarCurso, txtButtonLabel, txtCriarNovoCurso, txtAtivarTrilha, isLoading, handlePublicarContentCheck, handlePublicarCourse, handlePublicarTrilha, changeCourses, handlePublicarCheck, handleClickPopOverEditActivity, handleSwitchPrivateTrail, handleClickPopOverMoveToTrail }: IAccordionTranslate): JSX.Element;
-//# sourceMappingURL=accordionTrackList.d.ts.map

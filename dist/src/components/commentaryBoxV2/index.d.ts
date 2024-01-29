@@ -1,4 +1,0 @@
-/// <reference types="react" />
-import { ICommentaryBoxV2 } from './CommentaryBoxV2.types';
-export declare const CommentaryBoxV2: ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentUuid, commentText, actionAnswer, actionUserInfo, actionEditComment, actionDeleteComment, isMainComment, likesCount, hasActionToClickOnAvatar, showOptions, itsLiked, limitInput, saveButtonText, cancelButtonText, orText, groupUuid, limitMessageExceeded }: ICommentaryBoxV2) => JSX.Element;
-//# sourceMappingURL=index.d.ts.map
