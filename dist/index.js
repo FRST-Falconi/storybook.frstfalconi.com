@@ -3459,6 +3459,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
         mentionAnchorElement.setAttribute('contenteditable', 'false');
         mentionAnchorElement.setAttribute('href', `/profile/${user.user_uuid}`);
+        mentionAnchorElement.suppressContentEditableWarning = true;
         return mentionAnchorElement;
     };
     const handleMentionUser = (user) => {
@@ -3506,7 +3507,11 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         // get all mentioned users id
         const mentionedUsersId = [];
         mentionedUsers.forEach((user) => {
-            mentionedUsersId.push(user.getAttribute('data-mention-id') || '');
+            const mentionId = user.getAttribute('data-mention-id' );
+            // Check if mentionId is not null or undefined before adding to the list
+            if (mentionId) {
+                mentionedUsersId.push(mentionId);
+            }
         });
         // send the mentioned users id to the parent component
         onSendMentions(mentionedUsersId);
