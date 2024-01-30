@@ -33,7 +33,7 @@ export const useInputHook = ({
   const [textLength, setTextLength] = useState(0)
   const [isPlaceholder, setPlaceholder] = useState(false)
   const [styleLimitExceeded, setStyleLimitExceeded] = useState(false)
-  const [newMentionedUsers, setNewMentionedUsers] = useState<string[]>([])
+  const [mentionedIds, setMentionedIds] = useState<string[]>([])
 
   const createNewRangeAndMoveCursorToTheEnd = (selection: Selection, spaceNode: Text) => {
     // Create a new range for setting the cursor position
@@ -57,8 +57,8 @@ export const useInputHook = ({
     range.insertNode(spaceNode)
     range.insertNode(mentionAnchorElement)
   }
+
   const createMentionedUser = (user: User) => {
-    setNewMentionedUsers([...newMentionedUsers, user.user_uuid])
     // Create a new anchor element
     const mentionAnchorElement = document.createElement('a')
     mentionAnchorElement.appendChild(document.createTextNode(`${user.name}`))
@@ -113,35 +113,15 @@ export const useInputHook = ({
       divInputRef.current.style.height = divInputRef.current.scrollHeight + 'px'
     }
   }
+
   const addOrDeleteMentionedUser = () => {
     // get all mentioned users
-    const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || []
-    const mentionedUsersIdList: string[] = []
-    mentionedUsers.forEach((user) => {
-      const mentionId = user.getAttribute('data-mention-id')
-      if (mentionId) {
-        mentionedUsersIdList.push(mentionId as string)
-      }
-    })
+    const mentionedUsers = getAllMentions()
 
-    // update the list of new mentions in case it has been excluded from the input
-    const updateNewsMentionsList = newMentionedUsers.filter((newMentionedUser) =>
-      mentionedUsersIdList.includes(newMentionedUser)
-    )
-    setNewMentionedUsers(updateNewsMentionsList)
+    const newMentionsIds =
+      mentionedIds.length > 0 ? mentionedUsers.filter((value) => !mentionedIds.includes(value)) : mentionedUsers
 
-    // get all mentioned users id
-    const mentionedUsersId: string[] = []
-    mentionedUsersIdList.forEach((id) => {
-      const isNewMention = updateNewsMentionsList.includes(id)
-
-      // Check if mentionId is not null or undefined before adding to the list
-      if (id && isNewMention) {
-        mentionedUsersId.push(id)
-      }
-    })
-    // send the mentioned users id to the parent component
-    onSendMentions(mentionedUsersId)
+    onSendMentions(newMentionsIds)
   }
 
   const createFormatAndTextContentToSaveComment = () => {
@@ -257,12 +237,28 @@ export const useInputHook = ({
     }
   }
 
+  const getAllMentions = () => {
+    const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || []
+    const mentionedUsersIdList: string[] = []
+    mentionedUsers.forEach((user) => {
+      const mentionId = user.getAttribute('data-mention-id')
+      if (mentionId) {
+        mentionedUsersIdList.push(mentionId as string)
+      }
+    })
+    return mentionedUsersIdList
+  }
+
   useEffect(() => {
     if (divInputRef.current && initialText) {
       divInputRef.current.innerHTML = initialText
       countChars()
       handlePlaceholderInputText()
       resizeDiv()
+      const regex = /data-mention-id="([^"]+)"/g
+      const matches = [...initialText.matchAll(regex)]
+      const ids = matches.map((match) => match[1])
+      setMentionedIds(ids)
     }
     divInputRef.current?.addEventListener('input', resizeDiv)
 
