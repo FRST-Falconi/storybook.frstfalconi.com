@@ -3430,6 +3430,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const [textLength, setTextLength] = React.useState(0);
     const [isPlaceholder, setPlaceholder] = React.useState(false);
     const [styleLimitExceeded, setStyleLimitExceeded] = React.useState(false);
+    const [mentionedIds, setMentionedIds] = React.useState([]);
     const createNewRangeAndMoveCursorToTheEnd = (selection, spaceNode) => {
         // Create a new range for setting the cursor position
         const newRange = document.createRange();
@@ -3459,6 +3460,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
         mentionAnchorElement.setAttribute('contenteditable', 'false');
         mentionAnchorElement.setAttribute('href', `/profile/${user.user_uuid}`);
+        mentionAnchorElement.suppressContentEditableWarning = true;
         return mentionAnchorElement;
     };
     const handleMentionUser = (user) => {
@@ -3502,14 +3504,9 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     };
     const addOrDeleteMentionedUser = () => {
         // get all mentioned users
-        const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
-        // get all mentioned users id
-        const mentionedUsersId = [];
-        mentionedUsers.forEach((user) => {
-            mentionedUsersId.push(user.getAttribute('data-mention-id') || '');
-        });
-        // send the mentioned users id to the parent component
-        onSendMentions(mentionedUsersId);
+        const mentionedUsers = getAllMentions();
+        const newMentionsIds = mentionedIds.length > 0 ? mentionedUsers.filter((value) => !mentionedIds.includes(value)) : mentionedUsers;
+        onSendMentions(newMentionsIds);
     };
     const createFormatAndTextContentToSaveComment = () => {
         // get the content string of each node
@@ -3586,7 +3583,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     };
     const areChildrenEmpty = () => {
         // return if divInputRef has child empty
-        let isEmpty = false;
         //if divInputRef is not focused
         const isFocused = divInputRef.current === document.activeElement;
         if (divInputRef.current && !isFocused) {
@@ -3594,15 +3590,14 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 return true;
             divInputRef.current.childNodes.forEach((child) => {
                 if (child.textContent.length <= 0) {
-                    isEmpty = true;
+                    return true;
                 }
                 else {
-                    isEmpty = false;
                     return false;
                 }
             });
         }
-        return isEmpty;
+        return false;
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
         if (document.activeElement?.id === 'input-comment-component')
@@ -3610,35 +3605,50 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         // if divInputRef has any element hide the placeholder
         if (isPlaceHolderFocus) {
             divPlaceholder.current?.style.setProperty('display', 'none');
-            divInputRef.current.style.setProperty('display', 'block');
-            divInputRef.current.focus();
+            divInputRef.current?.style.setProperty('display', 'block');
+            divInputRef.current?.focus();
             setPlaceholder(false);
         }
         else {
-            if (!areChildrenEmpty()) {
-                divPlaceholder.current?.style.setProperty('display', 'none');
-                divInputRef.current.style.setProperty('display', 'block');
-                setPlaceholder(false);
+            if (areChildrenEmpty()) {
+                divPlaceholder.current?.style.setProperty('display', 'block');
+                divInputRef.current?.style.setProperty('display', 'none');
+                setPlaceholder(true);
             }
             else {
-                divPlaceholder.current?.style.setProperty('display', 'block');
-                divInputRef.current.style.setProperty('display', 'none');
-                setPlaceholder(true);
+                divPlaceholder.current?.style.setProperty('display', 'none');
+                divInputRef.current?.style.setProperty('display', 'block');
+                setPlaceholder(false);
             }
         }
     };
+    const getAllMentions = () => {
+        const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
+        const mentionedUsersIdList = [];
+        mentionedUsers.forEach((user) => {
+            const mentionId = user.getAttribute('data-mention-id');
+            if (mentionId) {
+                mentionedUsersIdList.push(mentionId);
+            }
+        });
+        return mentionedUsersIdList;
+    };
     React.useEffect(() => {
+        if (divInputRef.current && initialText) {
+            divInputRef.current.innerHTML = initialText;
+            countChars();
+            handlePlaceholderInputText();
+            resizeDiv();
+            const regex = /data-mention-id="([^"]+)"/g;
+            const matches = [...initialText.matchAll(regex)];
+            const ids = matches.map((match) => match[1]);
+            setMentionedIds(ids);
+        }
         divInputRef.current?.addEventListener('input', resizeDiv);
         return () => {
             divInputRef.current?.removeEventListener('input', resizeDiv);
         };
     }, []);
-    React.useEffect(() => {
-        if (divInputRef.current && initialText) {
-            setPlaceholder(false);
-            divInputRef.current.innerHTML = initialText;
-        }
-    }, [initialText]);
     React.useEffect(() => {
         if (!replyMentionedUser || !divInputRef?.current) {
             handlePlaceholderInputText();
@@ -3672,26 +3682,26 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         document.addEventListener('blur', () => {
             handlePlaceholderInputText();
         });
-        divPlaceholder.current.addEventListener('mousedown', () => {
+        divPlaceholder.current?.addEventListener('mousedown', () => {
             handlePlaceholderInputText(true);
         });
-        divPlaceholder.current.addEventListener('focus', () => {
+        divPlaceholder.current?.addEventListener('focus', () => {
             handlePlaceholderInputText(true);
         });
-        divPlaceholder.current.addEventListener('blur', () => {
+        divPlaceholder.current?.addEventListener('blur', () => {
             handlePlaceholderInputText(true);
         });
-        divInputRef.current.addEventListener('mousedown', () => {
+        divInputRef.current?.addEventListener('mousedown', () => {
             handlePlaceholderInputText();
         });
-        divInputRef.current.addEventListener('focus', () => {
+        divInputRef.current?.addEventListener('focus', () => {
             handlePlaceholderInputText();
         });
-        divInputRef.current.addEventListener('blur', () => {
+        divInputRef.current?.addEventListener('blur', () => {
             handlePlaceholderInputText();
         });
         //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-        divInputRef.current.addEventListener('keyup', (event) => {
+        divInputRef.current?.addEventListener('keyup', (event) => {
             if (event.key === 'ArrowUp' ||
                 event.key === 'ArrowDown' ||
                 event.key === 'ArrowLeft' ||
@@ -3710,26 +3720,26 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             document.removeEventListener('blur', () => {
                 handlePlaceholderInputText();
             });
-            divPlaceholder.current.removeEventListener('mousedown', () => {
+            divPlaceholder.current?.removeEventListener('mousedown', () => {
                 handlePlaceholderInputText(true);
             });
-            divPlaceholder.current.removeEventListener('focus', () => {
+            divPlaceholder.current?.removeEventListener('focus', () => {
                 handlePlaceholderInputText(true);
             });
-            divPlaceholder.current.removeEventListener('blur', () => {
+            divPlaceholder.current?.removeEventListener('blur', () => {
                 handlePlaceholderInputText(true);
             });
-            divInputRef.current.removeEventListener('mousedown', () => {
+            divInputRef.current?.removeEventListener('mousedown', () => {
                 handlePlaceholderInputText();
             });
-            divInputRef.current.removeEventListener('focus', () => {
+            divInputRef.current?.removeEventListener('focus', () => {
                 handlePlaceholderInputText();
             });
-            divInputRef.current.removeEventListener('blur', () => {
+            divInputRef.current?.removeEventListener('blur', () => {
                 handlePlaceholderInputText();
             });
             //capture the cursor position on arrow up and down or left and right and check if it´s close to the @ key
-            divInputRef.current.removeEventListener('keyup', (event) => {
+            divInputRef.current?.removeEventListener('keyup', (event) => {
                 if (event.key === 'ArrowUp' ||
                     event.key === 'ArrowDown' ||
                     event.key === 'ArrowLeft' ||
@@ -3746,7 +3756,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         // check if the cursor is inside the divInputRef
         const isFocused = divInputRef.current === document.activeElement;
         // if the cursor is not inside the divInputRef show the placeholder
-        if ((!value || value.length <= 0) && document.activeElement?.id !== 'input-comment-component' && !isFocused) {
+        if (value.length <= 0 && document.activeElement?.id !== 'input-comment-component' && !isFocused) {
             divPlaceholder.current?.style.setProperty('display', 'block');
             divInputRef.current.style.setProperty('display', 'none');
             divInputRef.current.innerHTML = '<p><br /></p>';
