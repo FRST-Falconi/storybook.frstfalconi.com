@@ -3628,17 +3628,16 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         }
     };
     React.useEffect(() => {
+        if (divInputRef.current && initialText) {
+            divInputRef.current.innerHTML = initialText;
+            countChars();
+            handlePlaceholderInputText();
+        }
         divInputRef.current?.addEventListener('input', resizeDiv);
         return () => {
             divInputRef.current?.removeEventListener('input', resizeDiv);
         };
     }, []);
-    React.useEffect(() => {
-        if (divInputRef.current && initialText) {
-            setPlaceholder(false);
-            divInputRef.current.innerHTML = initialText;
-        }
-    }, [initialText]);
     React.useEffect(() => {
         if (!replyMentionedUser || !divInputRef?.current) {
             handlePlaceholderInputText();
