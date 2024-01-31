@@ -25,7 +25,7 @@ ModalDefaultBase.args = {
   children: (
     <AudioPlayer
     audio={'https://lxp-cdn.frstfalconi.cloud/f077ea93b532e29525910bbd9b8a5fd6.mp3'}
-    startAt= {90}
+    startAt= {290}
     coverImage= {'https://i.gyazo.com/002fc9811582004a947a954e5c83d784.png'}
     title= {'T4:e02 - Human Made: Coragem, Criatividade e Resiliência'}
     description= {'FIRST THINGS FRST - Gente que transforma o futuro'}
@@ -47,14 +47,14 @@ ModalBaseRating.args = {
   title: 'Cultura da Inovação',
   language: 'en-US',
   showRating: true,
-  rating: 1,
+  rating: 5,
   ratingDescription: 'Avalie abaixo o quanto isso foi útil para você.',
   recommendationId: '123',
   handleChangeRating: (recommendationId, rating) => alert(`RecomendationId:${recommendationId} and Rating:${rating}`),
   children: (
     <AudioPlayer
     audio={'https://lxp-cdn.frstfalconi.cloud/f077ea93b532e29525910bbd9b8a5fd6.mp3'}
-    startAt= {90}
+    startAt= {290}
     coverImage= {'https://i.gyazo.com/002fc9811582004a947a954e5c83d784.png'}
     title= {'T4:e02 - Human Made: Coragem, Criatividade e Resiliência'}
     description= {'FIRST THINGS FRST - Gente que transforma o futuro'}

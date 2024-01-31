@@ -32,6 +32,15 @@ export default function AudioPlayer(props: IAudioPlayer) {
   const defaultThumb = 'https://i.gyazo.com/f201e5ef302347108c31a2129104adc1.png'
 
   useEffect(() => {
+    setTimeout(() => {
+      if (playerRef.current) {
+        setPlayedSeconds(props.startAt)
+        playerRef.current.seekTo(props.startAt)
+      }
+    }, 1000)
+  }, [props.startAt, playerRef.current])
+
+  useEffect(() => {
     if (props.exitSound) {
       setIsPlaying(false)
       if (playerRef.current) {
