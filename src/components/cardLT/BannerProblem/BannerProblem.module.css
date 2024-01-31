@@ -10,6 +10,19 @@
   font-family: 'Work Sans';
   font-style: normal;
 
+  @media screen and (max-width:570px) {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: white;
+  font-family: 'Work Sans';
+  font-style: normal;
+  }
+
 }
 
 .titleProblem{
