@@ -1147,6 +1147,14 @@ function AudioPlayer(props) {
     const [audioVolume, setAudioVolume] = React.useState(props?.volume ?? 0.5);
     const defaultThumb = 'https://i.gyazo.com/f201e5ef302347108c31a2129104adc1.png';
     React.useEffect(() => {
+        setTimeout(() => {
+            if (playerRef.current) {
+                setPlayedSeconds(props.startAt);
+                playerRef.current.seekTo(props.startAt);
+            }
+        }, 1000);
+    }, [props.startAt, playerRef.current]);
+    React.useEffect(() => {
         if (props.exitSound) {
             setIsPlaying(false);
             if (playerRef.current) {
