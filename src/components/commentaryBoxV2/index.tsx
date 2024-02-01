@@ -9,6 +9,7 @@ import { useEffect, useLayoutEffect, useState } from 'react'
 import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 import { InputEdit } from './utilitiesComponents'
+import { set } from 'date-fns'
 
 export const CommentaryBoxV2 = ({
   userName,
@@ -53,6 +54,7 @@ export const CommentaryBoxV2 = ({
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
+  const [loadingLike, setLoadingLike] = useState(false)
   const itsLiked = likes?.some((like) => like.user_uuid === loggedInUser.id)
   const likesCount = likes?.length || 0
   const likeId = likes?.find((like) => like.user_uuid === loggedInUser.id)?.id || null
@@ -73,22 +75,27 @@ export const CommentaryBoxV2 = ({
 
   const ownerPost = [exclude]
 
-  const handleLike = () => {
+  const handleLike = async () => {
     try {
-      actionLike(commentId)
+      setLoadingLike(true)
+      await actionLike(commentId)
     } catch (error) {
       console.log('error:', error)
+    } finally {
+      setLoadingLike(false)
     }
   }
 
-  const handleUnlike = () => {
+  const handleUnlike = async () => {
     try {
-      actionUnlike(likeId)
+      setLoadingLike(true)
+      await actionUnlike(likeId)
     } catch (error) {
       console.log('error:', error)
+    } finally {
+      setLoadingLike(false)
     }
   }
-
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleExpand = () => {
@@ -182,14 +189,24 @@ export const CommentaryBoxV2 = ({
       {!isModeEdit && (
         <Styled.InteractiveButtonsContainer style={isMainComment ? { marginLeft: '55px' } : {}}>
           {showLikeButton && (
-            <Styled.FlexButtonContainer onClick={itsLiked ? handleUnlike : handleLike}>
+            <Styled.FlexButtonContainer
+              onClick={itsLiked ? handleUnlike : handleLike}
+              style={{
+                cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                pointerEvents: loadingLike ? 'none' : 'auto'
+              }}
+            >
               {itsLiked ? <IconLikeFilled /> : <IconLikeLine fill="#444" />}
               <MiniButton
                 variant="terciary"
                 onClick={() => {}}
                 label={likeButtonText}
                 active={itsLiked}
-                styles={{ padding: '0px' }}
+                styles={{
+                  padding: '0px',
+                  cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                  pointerEvents: loadingLike ? 'none' : 'auto'
+                }}
               />
             </Styled.FlexButtonContainer>
           )}

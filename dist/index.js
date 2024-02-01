@@ -4998,6 +4998,7 @@ const InputEdit = ({ placeHolderText, commentText, commentTextWithMention, getSe
 const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, actionUnlike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentUuid, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, isMainComment, hasActionToClickOnAvatar, showOptions, limitInput = 800, saveButtonText, cancelButtonText, orText, groupUuid, limitMessageExceeded, placeHolderText, getSearchUsers, likes, loggedInUser }) => {
     const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`;
     const [isModeEdit, setIsModeEdit] = React.useState(false);
+    const [loadingLike, setLoadingLike] = React.useState(false);
     const itsLiked = likes?.some((like) => like.user_uuid === loggedInUser.id);
     const likesCount = likes?.length || 0;
     const likeId = likes?.find((like) => like.user_uuid === loggedInUser.id)?.id || null;
@@ -5014,20 +5015,28 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     };
     const authorOptions = [edit, exclude];
     const ownerPost = [exclude];
-    const handleLike = () => {
+    const handleLike = async () => {
         try {
-            actionLike(commentId);
+            setLoadingLike(true);
+            await actionLike(commentId);
         }
         catch (error) {
             console.log('error:', error);
+        }
+        finally {
+            setLoadingLike(false);
         }
     };
-    const handleUnlike = () => {
+    const handleUnlike = async () => {
         try {
-            actionUnlike(likeId);
+            setLoadingLike(true);
+            await actionUnlike(likeId);
         }
         catch (error) {
             console.log('error:', error);
+        }
+        finally {
+            setLoadingLike(false);
         }
     };
     const [isExpanded, setIsExpanded] = React.useState(false);
@@ -5056,7 +5065,14 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     }, []);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$j, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { size: isMainComment ? '48px' : '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' } }), isModeEdit ? (jsxRuntime.jsx(InputEdit, { placeHolderText: placeHolderText, commentText: buildStringWithLinkHTML(commentText), commentTextWithMention: commentTextWithMention && buildStringWithLinkHTML(commentTextWithMention), editButtonText: saveButtonText, onClickEditButton: actionEditComment, limitInput: limitInput, cancelButtonText: cancelButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, commentId: commentId, setIsModeEdit: setIsModeEdit, group_uuid: groupUuid, getSearchUsers: getSearchUsers })) : (jsxRuntime.jsxs(Box, { children: [jsxRuntime.jsxs(UserDataContainer, { children: [jsxRuntime.jsxs(FirstChildUserData, { children: [jsxRuntime.jsx(Username, { children: userName }), likesCount > 0 && (jsxRuntime.jsxs(LikesContainer, { children: [jsxRuntime.jsx(IconLikeContainer, { children: jsxRuntime.jsx(IconLikeFilled, { fill: "#fff", stroke: "#fff", customColor_1: '#757575', width: "16px", height: "16px" }) }), jsxRuntime.jsx("p", { children: likesCount })] }))] }), jsxRuntime.jsxs(UserDataLastChild, { children: [userOffice && userOffice, " ", userCompany && `• ${userCompany}`, " ", howLongAgo && `• ${howLongAgo}`] })] }), relationToPhaseText && jsxRuntime.jsx(RelationContainer, { children: relationToPhaseText }), jsxRuntime.jsxs(TextContainer$1, { id: "textContainerId", children: [jsxRuntime.jsx(Text$2, { style: isExpanded ? { display: 'block' } : { display: '-webkit-box' }, id: iDCommentPosted, dangerouslySetInnerHTML: {
                                             __html: buildStringWithLinkHTML(commentTextWithMention ? commentTextWithMention : commentText)
-                                        } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] }))] }), !isModeEdit && (jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: itsLiked ? handleUnlike : handleLike, children: [itsLiked ? jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: "#444" }), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: () => { }, label: likeButtonText, active: itsLiked, styles: { padding: '0px' } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] }))] }));
+                                        } }), jsxRuntime.jsx(ShowMore$1, { isVisible: isEllipsisVisible, onClick: toggleExpand, children: isExpanded ? showLessText : showMoreText })] })] }))] }), !isModeEdit && (jsxRuntime.jsxs(InteractiveButtonsContainer, { style: isMainComment ? { marginLeft: '55px' } : {}, children: [showLikeButton && (jsxRuntime.jsxs(FlexButtonContainer, { onClick: itsLiked ? handleUnlike : handleLike, style: {
+                            cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                            pointerEvents: loadingLike ? 'none' : 'auto'
+                        }, children: [itsLiked ? jsxRuntime.jsx(IconLikeFilled, {}) : jsxRuntime.jsx(IconLikeLine, { fill: "#444" }), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: () => { }, label: likeButtonText, active: itsLiked, styles: {
+                                    padding: '0px',
+                                    cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                                    pointerEvents: loadingLike ? 'none' : 'auto'
+                                } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] }))] }));
 };
 
 const Container$h = styled__default["default"].div `
