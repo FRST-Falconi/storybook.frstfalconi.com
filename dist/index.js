@@ -3513,7 +3513,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const addOrDeleteMentionedUser = () => {
         // get all mentioned users
         const mentionedUsers = getAllMentions();
-        const newMentionsIds = mentionedIds.length > 0 ? mentionedUsers.filter((value) => !mentionedIds.includes(value)) : mentionedUsers;
+        const newMentionsIds = mentionedIds?.length > 0 ? mentionedUsers.filter((value) => !mentionedIds.includes(value)) : mentionedUsers;
         onSendMentions(newMentionsIds);
     };
     const createFormatAndTextContentToSaveComment = () => {
@@ -3592,12 +3592,14 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
     const areChildrenEmpty = () => {
         // return if divInputRef has child empty
         //if divInputRef is not focused
+        let isEmpty = false;
         const isFocused = divInputRef.current === document.activeElement;
         if (divInputRef.current && !isFocused) {
-            if (divInputRef.current.childNodes.length <= 0)
+            if (divInputRef.current.childNodes?.length <= 0)
                 return true;
             divInputRef.current.childNodes.forEach((child) => {
                 if (child.textContent.length <= 0) {
+                    isEmpty = true;
                     return true;
                 }
                 else {
@@ -3605,7 +3607,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 }
             });
         }
-        return false;
+        return isEmpty;
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
         if (document.activeElement?.id === 'input-comment-component')
@@ -3649,7 +3651,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             resizeDiv();
             const regex = /data-mention-id="([^"]+)"/g;
             const matches = [...initialText.matchAll(regex)];
-            const ids = matches.map((match) => match[1]);
+            const ids = matches?.map((match) => match[1]);
             setMentionedIds(ids);
         }
         divInputRef.current?.addEventListener('input', resizeDiv);
@@ -3764,7 +3766,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         // check if the cursor is inside the divInputRef
         const isFocused = divInputRef.current === document.activeElement;
         // if the cursor is not inside the divInputRef show the placeholder
-        if (value.length <= 0 && document.activeElement?.id !== 'input-comment-component' && !isFocused) {
+        if (value?.length <= 0 && document.activeElement?.id !== 'input-comment-component' && !isFocused) {
             divPlaceholder.current?.style.setProperty('display', 'block');
             divInputRef.current.style.setProperty('display', 'none');
             divInputRef.current.innerHTML = '<p><br /></p>';
