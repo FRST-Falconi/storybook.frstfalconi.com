@@ -5011,7 +5011,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     const exclude = {
         description: deleteText,
         startIcon: jsxRuntime.jsx(TrashIconNew, { fill: "#C1341A" }),
-        onClick: () => actionDeleteComment(likeId),
+        onClick: () => actionDeleteComment(commentUuid),
         color: '#C1341A'
     };
     const authorOptions = [edit, exclude];
@@ -5026,7 +5026,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
     };
     const handleUnlike = () => {
         try {
-            actionUnlike(commentUuid);
+            actionUnlike(likeId);
         }
         catch (error) {
             console.log('error:', error);

@@ -65,7 +65,7 @@ export const CommentaryBoxV2 = ({
   const exclude = {
     description: deleteText,
     startIcon: <TrashIconNew fill="#C1341A" />,
-    onClick: () => actionDeleteComment(likeId),
+    onClick: () => actionDeleteComment(commentUuid),
     color: '#C1341A'
   }
 
@@ -83,7 +83,7 @@ export const CommentaryBoxV2 = ({
 
   const handleUnlike = () => {
     try {
-      actionUnlike(commentUuid)
+      actionUnlike(likeId)
     } catch (error) {
       console.log('error:', error)
     }
