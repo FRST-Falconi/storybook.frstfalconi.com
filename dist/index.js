@@ -2562,6 +2562,18 @@ const SpanHeaderTag = styled__default["default"].span `
     color: ${({ color }) => color || '#FFFFFF'};
     border-radius: 0px 0px 0px 8px;
 `;
+const Steps$1 = styled__default["default"].div `
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 30px;
+
+    @media screen and (max-width:600px){
+    padding-left: 2% !important;
+    padding-right: 0% !important;
+    font-size: 13px !important;
+}
+`;
 
 function BannerProblem(props) {
     const [Idioma, setIdioma] = React.useState(props.missionIdioma ? props.missionIdioma : 'pt-BR');
@@ -2735,7 +2747,7 @@ function BannerProblem(props) {
                                         }, children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, style: { margin: 0 }, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas && (jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, style: { margin: 0 }, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' }))] })) : null, jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'row', gap: '32px' }, children: [props.showButtonInvite && (jsxRuntime.jsx(Button$4, { variant: "link", label: props.textGoalInviteBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '26px', marginBottom: '-2px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalInviteIcon, { width: "26px", height: "26px" }) }), handleClick: props.onClickMessage, style: { paddingTop: '0px', paddingBottom: '16px' } })), props.showButtonViews && (jsxRuntime.jsx(Button$4, { variant: "link", label: props.textGoalViewsBtn, startIcon: jsxRuntime.jsx("div", { style: { width: '20px', marginBottom: '-1px', marginRight: '8px' }, children: jsxRuntime.jsx(GoalViewsIcon, { width: "20px" }) }), handleClick: props.onClickViewsBtn, style: { paddingTop: '0px', paddingBottom: '16px' } }))] })] }), size[0] > MOBILEWIDTH && Edit === false ? (jsxRuntime.jsxs("div", { style: { position: 'absolute', right: 0, flexFlow: 'column', justifyContent: 'flex-end', width: '20%' }, id: "avaliations-banner-problem", children: [jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleImpact ? props.ratingTitleImpact : 'Impacto', descricaoAvaliacao: props.descriptionImpacto, qtdeAvaliacao: props.qtdeAvaliacao, nota: props.notaAvaliacao, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), jsxRuntime.jsx(Rating$1, { titulo: props.ratingTitleRelevance ? props.ratingTitleRelevance : 'Relevância', descricaoAvaliacao: props.descriptionRelevancia, qtdeAvaliacao: props.qtdeRelevancia, nota: props.notaRelevancia, tipoVisualizacao: 1, nomeAvaliacao: props.ratingLikesEvaluation ? props.ratingLikesEvaluation : 'avaliação' }), props.curtidas && (jsxRuntime.jsx(RatingCurtidas, { titulo: props.ratingTitleLikes ? props.ratingTitleLikes : 'Curtidas', qtdeCurtidas: props.curtidas, tipoBotao: 2, descricaoCurtida: props.ratingLikesDescription ? props.ratingLikesDescription : 'pessoas' }))] })) : null] }) }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'column' }, children: [jsxRuntime.jsx("div", { style: { marginTop: '20px' }, children: jsxRuntime.jsx(ButtonsProcessSteps, { idioma: Idioma, definedSteps: props?.stepProblem, selectedStep: selectedStep, setSelectedStep: (e) => {
                                     setSelectedStep(e);
                                     props?.onSelectedStep(e);
-                                }, hasContinueProps: props?.hasContinueButton, onClickContinue: () => props.onClickContinue() }) }), jsxRuntime.jsx("div", { style: { width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }, children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) })] }), jsxRuntime.jsx("div", { style: {
+                                }, hasContinueProps: props?.hasContinueButton, onClickContinue: () => props.onClickContinue() }) }), jsxRuntime.jsx(Steps$1, { children: jsxRuntime.jsx(StepsProgress, { definedSteps: definedSteps, stepSelected: selectedStep }) })] }), jsxRuntime.jsx("div", { style: {
                         marginTop: 18,
                         width: '100%',
                         borderRadius: 8,
