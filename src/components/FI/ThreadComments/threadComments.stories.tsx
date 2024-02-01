@@ -80,5 +80,6 @@ Default.args = {
   cancelButtonText: 'Cancelar',
   saveButtonText: 'Salvar',
   orText: 'ou',
-  limitMessageExceeded: 'Limite de caracteres excedido'
+  limitMessageExceeded: 'Limite de caracteres excedido',
+  likeButtonText: 'Curtir'
 }

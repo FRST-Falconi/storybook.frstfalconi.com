@@ -9,6 +9,7 @@ import { useEffect, useLayoutEffect, useState } from 'react'
 import { FRSTTheme } from '../../theme'
 import { ThemeProvider } from 'styled-components'
 import { InputEdit } from './utilitiesComponents'
+import { set } from 'date-fns'
 
 export const CommentaryBoxV2 = ({
   userName,
@@ -21,6 +22,7 @@ export const CommentaryBoxV2 = ({
   showLikeButton,
   styles,
   actionLike,
+  actionUnlike,
   answerButtonText,
   likeButtonText,
   commentTextWithMention,
@@ -37,10 +39,8 @@ export const CommentaryBoxV2 = ({
   actionEditComment,
   actionDeleteComment,
   isMainComment,
-  likesCount,
   hasActionToClickOnAvatar,
   showOptions,
-  itsLiked,
   limitInput = 800,
   saveButtonText,
   cancelButtonText,
@@ -48,11 +48,17 @@ export const CommentaryBoxV2 = ({
   groupUuid,
   limitMessageExceeded,
   placeHolderText,
-  getSearchUsers
+  getSearchUsers,
+  likes,
+  loggedInUser
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
-  const [isLiked, setIsLiked] = useState(itsLiked)
   const [isModeEdit, setIsModeEdit] = useState(false)
+  const [loadingLike, setLoadingLike] = useState(false)
+  const itsLiked = likes?.some((like) => like.user_uuid === loggedInUser.id)
+  const likesCount = likes?.length || 0
+  const likeId =
+    likes?.find((like) => like.user_uuid === loggedInUser.id || like.user?.uuid === loggedInUser.id)?.id || null
 
   const edit = {
     description: editText,
@@ -70,14 +76,27 @@ export const CommentaryBoxV2 = ({
 
   const ownerPost = [exclude]
 
-  const handleLike = () => {
+  const handleLike = async () => {
     try {
-      actionLike(!isLiked)
-    } catch (error) {}
-
-    setIsLiked(!isLiked)
+      setLoadingLike(true)
+      await actionLike(commentId)
+    } catch (error) {
+      console.log('error:', error)
+    } finally {
+      setLoadingLike(false)
+    }
   }
 
+  const handleUnlike = async () => {
+    try {
+      setLoadingLike(true)
+      await actionUnlike(likeId)
+    } catch (error) {
+      console.log('error:', error)
+    } finally {
+      setLoadingLike(false)
+    }
+  }
   const [isExpanded, setIsExpanded] = useState(false)
 
   const toggleExpand = () => {
@@ -171,14 +190,24 @@ export const CommentaryBoxV2 = ({
       {!isModeEdit && (
         <Styled.InteractiveButtonsContainer style={isMainComment ? { marginLeft: '55px' } : {}}>
           {showLikeButton && (
-            <Styled.FlexButtonContainer onClick={handleLike}>
-              {isLiked ? <IconLikeFilled /> : <IconLikeLine fill="#444" />}
+            <Styled.FlexButtonContainer
+              onClick={itsLiked ? handleUnlike : handleLike}
+              style={{
+                cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                pointerEvents: loadingLike ? 'none' : 'auto'
+              }}
+            >
+              {itsLiked ? <IconLikeFilled /> : <IconLikeLine fill="#444" />}
               <MiniButton
                 variant="terciary"
-                onClick={handleLike}
+                onClick={() => {}}
                 label={likeButtonText}
-                active={isLiked}
-                styles={{ padding: '0px' }}
+                active={itsLiked}
+                styles={{
+                  padding: '0px',
+                  cursor: loadingLike ? 'not-allowed !important' : 'pointer',
+                  pointerEvents: loadingLike ? 'none' : 'auto'
+                }}
               />
             </Styled.FlexButtonContainer>
           )}
