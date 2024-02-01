@@ -12,6 +12,23 @@
 
 }
 
+@media (max-width:570px) {
+
+  .container {
+    padding: 10px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: white;
+    font-family: 'Work Sans';
+    font-style: normal;
+  
+  }
+  }
+
 .titleProblem{
   font-weight: 700;
   font-size: 18px;
