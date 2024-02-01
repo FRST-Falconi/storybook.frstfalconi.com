@@ -25,6 +25,8 @@ import AvatarWithInfo from '../AvatarWithInfo/index'
 import Button from '@components/buttons'
 import { IBannerProgressTranslate } from './BannerProblem'
 import style from './BannerProblem.module.css'
+import * as S from './styles'
+
 import { SpanHeaderTag } from './styles'
 
 
@@ -518,9 +520,9 @@ export default function BannerProblem(props: IBannerProgressTranslate) {
               onClickContinue={() => props.onClickContinue()}
             />
           </div>
-          <div style={{ width: '100%', paddingLeft: '5%', paddingRight: '5%', paddingTop: '30px' }}>
+          <S.Steps>
             <StepsProgress definedSteps={definedSteps} stepSelected={selectedStep} />
-          </div>
+          </S.Steps>
         </div>
         <div
           style={{

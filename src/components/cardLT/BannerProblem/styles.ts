@@ -14,3 +14,16 @@ export const SpanHeaderTag = styled.span<{ background: string, color: string }>`
     color: ${({color}) => color || '#FFFFFF'};
     border-radius: 0px 0px 0px 8px;
 `
+
+export const Steps = styled.div`
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 30px;
+
+    @media screen and (max-width:600px){
+    padding-left: 2% !important;
+    padding-right: 0% !important;
+    font-size: 13px !important;
+}
+`
