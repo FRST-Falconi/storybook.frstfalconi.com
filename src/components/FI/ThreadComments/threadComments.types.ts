@@ -13,7 +13,8 @@ export interface IComment {
 
 export interface ILike {
     id: string,
-    user_uuid: string,
+    user_uuid?: string,
+    user?: IUser,
 }
 
 export interface IThreadComments {

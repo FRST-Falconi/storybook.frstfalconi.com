@@ -57,7 +57,8 @@ export const CommentaryBoxV2 = ({
   const [loadingLike, setLoadingLike] = useState(false)
   const itsLiked = likes?.some((like) => like.user_uuid === loggedInUser.id)
   const likesCount = likes?.length || 0
-  const likeId = likes?.find((like) => like.user_uuid === loggedInUser.id)?.id || null
+  const likeId =
+    likes?.find((like) => like.user_uuid === loggedInUser.id || like.user?.uuid === loggedInUser.id)?.id || null
 
   const edit = {
     description: editText,
