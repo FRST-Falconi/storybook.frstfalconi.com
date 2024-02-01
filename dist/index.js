@@ -5000,9 +5000,9 @@ const InputEdit = ({ placeHolderText, commentText, commentTextWithMention, getSe
 const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMoreText, relationToPhaseText, showLessText, showLikeButton, styles, actionLike, actionUnlike, answerButtonText, likeButtonText, commentTextWithMention, editText, deleteText, isAuthor, isOwnerPost, howLongAgo, commentId, commentUuid, commentText, actionAnswer, onClickUserInfo, actionEditComment, actionDeleteComment, isMainComment, hasActionToClickOnAvatar, showOptions, limitInput = 800, saveButtonText, cancelButtonText, orText, groupUuid, limitMessageExceeded, placeHolderText, getSearchUsers, likes, loggedInUser }) => {
     const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`;
     const [isModeEdit, setIsModeEdit] = React.useState(false);
-    const itsLiked = likes.some((like) => like.user_uuid === loggedInUser.id);
-    const likesCount = likes.length;
-    const likeId = likes.find((like) => like.user_uuid === loggedInUser.id)?.id;
+    const itsLiked = likes?.some((like) => like.user_uuid === loggedInUser.id);
+    const likesCount = likes?.length || 0;
+    const likeId = likes?.find((like) => like.user_uuid === loggedInUser.id)?.id || null;
     const edit = {
         description: editText,
         startIcon: jsxRuntime.jsx(EditIcon, { fill: "#222" }),

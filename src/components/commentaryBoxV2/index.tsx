@@ -53,9 +53,9 @@ export const CommentaryBoxV2 = ({
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
-  const itsLiked = likes.some((like) => like.user_uuid === loggedInUser.id)
-  const likesCount = likes.length
-  const likeId = likes.find((like) => like.user_uuid === loggedInUser.id)?.id
+  const itsLiked = likes?.some((like) => like.user_uuid === loggedInUser.id)
+  const likesCount = likes?.length || 0
+  const likeId = likes?.find((like) => like.user_uuid === loggedInUser.id)?.id || null
 
   const edit = {
     description: editText,
