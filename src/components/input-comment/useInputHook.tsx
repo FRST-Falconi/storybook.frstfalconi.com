@@ -207,13 +207,10 @@ export const useInputHook = ({
 
     const isFocused = divInputRef.current === document.activeElement
     if (divInputRef.current && !isFocused) {
-      if (divInputRef.current.childNodes?.length <= 0) return true
+      if (divInputRef.current.childNodes?.length <= 0) isEmpty = true
       divInputRef.current.childNodes.forEach((child) => {
         if (child.textContent.length <= 0) {
           isEmpty = true
-          return true
-        } else {
-          return false
         }
       })
     }

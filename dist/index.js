@@ -3596,14 +3596,10 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         const isFocused = divInputRef.current === document.activeElement;
         if (divInputRef.current && !isFocused) {
             if (divInputRef.current.childNodes?.length <= 0)
-                return true;
+                isEmpty = true;
             divInputRef.current.childNodes.forEach((child) => {
                 if (child.textContent.length <= 0) {
                     isEmpty = true;
-                    return true;
-                }
-                else {
-                    return false;
                 }
             });
         }
