@@ -22,17 +22,17 @@ export const CommentaryBoxReply = ({
   limitMessageExceeded,
   placeHolderText,
   getSearchUsers,
-  likesCount,
-  itsLiked,
   onClickLike,
   onClickUnlike,
-  likeButtonText
+  likeButtonText,
+  loggedInUser,
+  likes
 }: ICommentComentaryBoxReply) => {
   return (
     <CommentaryBoxV2
       hasActionToClickOnAvatar={false}
       imgProfile={commentData.user?.avatar}
-      itsLiked={itsLiked}
+      loggedInUser={loggedInUser}
       userName={commentData.user?.name}
       userOffice={commentData.user?.role_name}
       userCompany={commentData.user?.company_name}
@@ -60,7 +60,7 @@ export const CommentaryBoxReply = ({
       actionEditComment={onClickEdit}
       placeHolderText={placeHolderText}
       getSearchUsers={getSearchUsers}
-      likesCount={likesCount}
+      likes={likes}
       actionLike={onClickLike}
       actionUnlike={onClickUnlike}
       showLikeButton={true}

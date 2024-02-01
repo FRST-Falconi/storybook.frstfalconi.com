@@ -1,5 +1,5 @@
 import { OnClickEditButtonParams } from '@components/commentaryBoxV2/utilitiesComponents/inputEdit/inputEdit.types';
-import { IComment } from '../../threadComments.types';
+import { IComment, ILike, LoggedInUser } from '../../threadComments.types';
 import { User as MentionUser } from '@components/input-comment/types';
 
 
@@ -23,9 +23,9 @@ export interface ICommentComentaryBoxReply {
     orText?: string;
     limitMessageExceeded?: string;
     placeHolderText?: string;
-    likesCount?: number;
     onClickLike: (commentId: number) => void;
-    onClickUnlike: (commentId: number) => void;
-    itsLiked: boolean;
+    onClickUnlike: (commentUuid: string) => void;
     likeButtonText?: string;
+    loggedInUser: LoggedInUser;
+    likes: ILike[];
 }

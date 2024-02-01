@@ -1,5 +1,6 @@
 import { User as MentionUser } from '@components/input-comment/types';
 import { OnClickEditButtonParams } from "./utilitiesComponents/inputEdit/inputEdit.types";
+import { ILike, LoggedInUser } from '@components/FI/ThreadComments/threadComments.types';
 export interface ICommentaryBoxV2 {
     userId?: string;
     userName: string;
@@ -12,7 +13,6 @@ export interface ICommentaryBoxV2 {
     commentText: string;
     commentTextWithMention?: string;
     howLongAgo: string;
-    likesCount?: number;
     limitInput?: number;
 
     answerButtonText?: string;
@@ -32,7 +32,7 @@ export interface ICommentaryBoxV2 {
 
     onClickUserInfo?: () => void;
     actionLike?: (commentId: number) => void;
-    actionUnlike?: (commentId: number) => void;
+    actionUnlike?: (commentUuid: string) => void;
     actionAnswer?: () => void;
     actionDeleteComment?: (commentId?: string) => void
     actionEditComment?: (props: OnClickEditButtonParams) => void
@@ -45,8 +45,9 @@ export interface ICommentaryBoxV2 {
     hasActionToClickOnAvatar: boolean;
     showOptions?: boolean;
     showLikeButton?: boolean;
-    itsLiked: boolean;
+    likes: ILike[];
     isMainComment?: boolean
     groupUuid?: string,
+    loggedInUser: LoggedInUser,
 
 }

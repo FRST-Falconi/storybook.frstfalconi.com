@@ -38,10 +38,8 @@ export const CommentaryBoxV2 = ({
   actionEditComment,
   actionDeleteComment,
   isMainComment,
-  likesCount = 0,
   hasActionToClickOnAvatar,
   showOptions,
-  itsLiked = false,
   limitInput = 800,
   saveButtonText,
   cancelButtonText,
@@ -49,10 +47,15 @@ export const CommentaryBoxV2 = ({
   groupUuid,
   limitMessageExceeded,
   placeHolderText,
-  getSearchUsers
+  getSearchUsers,
+  likes,
+  loggedInUser
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
+  const itsLiked = likes.some((like) => like.user_uuid === loggedInUser.id)
+  const likesCount = likes.length
+  const likeId = likes.find((like) => like.user_uuid === loggedInUser.id)?.id
 
   const edit = {
     description: editText,
@@ -62,7 +65,7 @@ export const CommentaryBoxV2 = ({
   const exclude = {
     description: deleteText,
     startIcon: <TrashIconNew fill="#C1341A" />,
-    onClick: () => actionDeleteComment(commentUuid),
+    onClick: () => actionDeleteComment(likeId),
     color: '#C1341A'
   }
 
@@ -80,7 +83,7 @@ export const CommentaryBoxV2 = ({
 
   const handleUnlike = () => {
     try {
-      actionUnlike(commentId)
+      actionUnlike(commentUuid)
     } catch (error) {
       console.log('error:', error)
     }
@@ -183,7 +186,7 @@ export const CommentaryBoxV2 = ({
               {itsLiked ? <IconLikeFilled /> : <IconLikeLine fill="#444" />}
               <MiniButton
                 variant="terciary"
-                onClick={itsLiked ? handleUnlike : handleLike}
+                onClick={() => {}}
                 label={likeButtonText}
                 active={itsLiked}
                 styles={{ padding: '0px' }}

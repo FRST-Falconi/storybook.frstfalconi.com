@@ -25,7 +25,7 @@ export interface IThreadComments {
     onClickDelete: (commentId: string) => void,
     onClickEdit: (params: OnClickEditButtonParams) => void,
     onClickLike: (commentId: number) => void,
-    onClickUnlike: (commentId: number) => void,
+    onClickUnlike: (commentUuid: string) => void,
     showReplysButtonText: string,
     publishButtonText: string,
     editText: string,
