@@ -112,6 +112,7 @@ export const ThreadComments = ({
             likesCount={mainComment.likes?.length}
             actionLike={onClickLike}
             actionUnlike={onClickUnlike}
+            showLikeButton={true}
           />
 
           {listReplyComments.length > visibleReplies && (
