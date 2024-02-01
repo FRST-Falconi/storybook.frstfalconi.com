@@ -27,4 +27,5 @@ export interface ICommentComentaryBoxReply {
     onClickLike: (commentId: number) => void;
     onClickUnlike: (commentId: number) => void;
     itsLiked: boolean;
+    likeButtonText?: string;
 }

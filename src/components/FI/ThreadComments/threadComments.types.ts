@@ -30,6 +30,7 @@ export interface IThreadComments {
     publishButtonText: string,
     editText: string,
     deleteText: string,
+    likeButtonText?: string,
     limitInputs: number,
     cancelButtonText: string,
     saveButtonText: string,

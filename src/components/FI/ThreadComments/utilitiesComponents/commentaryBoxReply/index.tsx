@@ -25,7 +25,8 @@ export const CommentaryBoxReply = ({
   likesCount,
   itsLiked,
   onClickLike,
-  onClickUnlike
+  onClickUnlike,
+  likeButtonText
 }: ICommentComentaryBoxReply) => {
   return (
     <CommentaryBoxV2
@@ -63,6 +64,7 @@ export const CommentaryBoxReply = ({
       actionLike={onClickLike}
       actionUnlike={onClickUnlike}
       showLikeButton={true}
+      likeButtonText={likeButtonText}
     />
   )
 }

@@ -33,7 +33,8 @@ export const ThreadComments = ({
   saveButtonText,
   orText,
   onClickLike,
-  onClickUnlike
+  onClickUnlike,
+  likeButtonText
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -113,6 +114,7 @@ export const ThreadComments = ({
             actionLike={onClickLike}
             actionUnlike={onClickUnlike}
             showLikeButton={true}
+            likeButtonText={likeButtonText}
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -169,6 +171,7 @@ export const ThreadComments = ({
                   onClickLike={onClickLike}
                   onClickUnlike={onClickUnlike}
                   itsLiked={replyComment.likes?.some((like) => like.user_uuid === loggedInUser?.id)}
+                  likeButtonText={likeButtonText}
                 />
                 {showInputByIdReply.includes(replyComment.id.toString()) && (
                   <InputReply
