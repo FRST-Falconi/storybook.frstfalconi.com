@@ -31,7 +31,9 @@ export const ThreadComments = ({
   onClickEdit,
   cancelButtonText,
   saveButtonText,
-  orText
+  orText,
+  onClickLike,
+  onClickUnlike
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -67,6 +69,7 @@ export const ThreadComments = ({
   }
 
   const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id
+  const isMainCommentLike = mainComment.likes?.some((like) => like.user_uuid === loggedInUser?.id)
 
   return (
     <Styled.Container style={styles}>
@@ -75,7 +78,7 @@ export const ThreadComments = ({
           <CommentaryBoxV2
             hasActionToClickOnAvatar={false}
             imgProfile={mainComment.user?.avatar}
-            itsLiked={false}
+            itsLiked={isMainCommentLike}
             userId={mainComment.user?.uuid}
             userName={mainComment.user?.name}
             userOffice={mainComment.user?.role_name}
@@ -106,6 +109,9 @@ export const ThreadComments = ({
             limitMessageExceeded={limitMessageExceeded}
             placeHolderText={placeHolderText}
             getSearchUsers={getSearchUsers}
+            likesCount={mainComment.likes?.length}
+            actionLike={onClickLike}
+            actionUnlike={onClickUnlike}
           />
 
           {listReplyComments.length > visibleReplies && (
@@ -158,6 +164,10 @@ export const ThreadComments = ({
                   onClickEdit={onClickEdit}
                   placeHolderText={placeHolderText}
                   getSearchUsers={getSearchUsers}
+                  likesCount={replyComment.likes?.length}
+                  onClickLike={onClickLike}
+                  onClickUnlike={onClickUnlike}
+                  itsLiked={replyComment.likes?.some((like) => like.user_uuid === loggedInUser?.id)}
                 />
                 {showInputByIdReply.includes(replyComment.id.toString()) && (
                   <InputReply

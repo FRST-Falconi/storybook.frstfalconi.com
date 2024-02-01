@@ -8,6 +8,12 @@ export interface IComment {
     text: string,
     mentionText?: string,
     howLongAgo: string,
+    likes?: ILike[],
+}
+
+export interface ILike {
+    id: string,
+    user_uuid: string,
 }
 
 export interface IThreadComments {
@@ -18,6 +24,8 @@ export interface IThreadComments {
     onClickPublishButton: () => void,
     onClickDelete: (commentId: string) => void,
     onClickEdit: (params: OnClickEditButtonParams) => void,
+    onClickLike: (commentId: number) => void,
+    onClickUnlike: (commentId: number) => void,
     showReplysButtonText: string,
     publishButtonText: string,
     editText: string,

@@ -23,4 +23,8 @@ export interface ICommentComentaryBoxReply {
     orText?: string;
     limitMessageExceeded?: string;
     placeHolderText?: string;
+    likesCount?: number;
+    onClickLike: (commentId: number) => void;
+    onClickUnlike: (commentId: number) => void;
+    itsLiked: boolean;
 }

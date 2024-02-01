@@ -31,7 +31,8 @@ export interface ICommentaryBoxV2 {
 
 
     onClickUserInfo?: () => void;
-    actionLike?: (wantToLike: boolean) => void;
+    actionLike?: (commentId: number) => void;
+    actionUnlike?: (commentId: number) => void;
     actionAnswer?: () => void;
     actionDeleteComment?: (commentId?: string) => void
     actionEditComment?: (props: OnClickEditButtonParams) => void

@@ -21,6 +21,7 @@ export const CommentaryBoxV2 = ({
   showLikeButton,
   styles,
   actionLike,
+  actionUnlike,
   answerButtonText,
   likeButtonText,
   commentTextWithMention,
@@ -37,10 +38,10 @@ export const CommentaryBoxV2 = ({
   actionEditComment,
   actionDeleteComment,
   isMainComment,
-  likesCount,
+  likesCount = 0,
   hasActionToClickOnAvatar,
   showOptions,
-  itsLiked,
+  itsLiked = false,
   limitInput = 800,
   saveButtonText,
   cancelButtonText,
@@ -51,7 +52,6 @@ export const CommentaryBoxV2 = ({
   getSearchUsers
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
-  const [isLiked, setIsLiked] = useState(itsLiked)
   const [isModeEdit, setIsModeEdit] = useState(false)
 
   const edit = {
@@ -72,10 +72,18 @@ export const CommentaryBoxV2 = ({
 
   const handleLike = () => {
     try {
-      actionLike(!isLiked)
-    } catch (error) {}
+      actionLike(commentId)
+    } catch (error) {
+      console.log('error:', error)
+    }
+  }
 
-    setIsLiked(!isLiked)
+  const handleUnlike = () => {
+    try {
+      actionUnlike(commentId)
+    } catch (error) {
+      console.log('error:', error)
+    }
   }
 
   const [isExpanded, setIsExpanded] = useState(false)
@@ -171,13 +179,13 @@ export const CommentaryBoxV2 = ({
       {!isModeEdit && (
         <Styled.InteractiveButtonsContainer style={isMainComment ? { marginLeft: '55px' } : {}}>
           {showLikeButton && (
-            <Styled.FlexButtonContainer onClick={handleLike}>
-              {isLiked ? <IconLikeFilled /> : <IconLikeLine fill="#444" />}
+            <Styled.FlexButtonContainer onClick={itsLiked ? handleUnlike : handleLike}>
+              {itsLiked ? <IconLikeFilled /> : <IconLikeLine fill="#444" />}
               <MiniButton
                 variant="terciary"
-                onClick={handleLike}
+                onClick={itsLiked ? handleUnlike : handleLike}
                 label={likeButtonText}
-                active={isLiked}
+                active={itsLiked}
                 styles={{ padding: '0px' }}
               />
             </Styled.FlexButtonContainer>
