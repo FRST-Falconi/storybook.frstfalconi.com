@@ -185,6 +185,7 @@ function ButtonArrow({
 }) {
   return (
     <div
+      id={`div-controll${isLeftButton}`}
       style={{
         height: '100%',
         width: widthProtectClick ? widthProtectClick : 'fit-content',
