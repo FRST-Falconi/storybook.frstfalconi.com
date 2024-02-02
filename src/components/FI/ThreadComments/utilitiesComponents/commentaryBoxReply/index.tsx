@@ -63,7 +63,7 @@ export const CommentaryBoxReply = ({
       likes={likes}
       actionLike={onClickLike}
       actionUnlike={onClickUnlike}
-      showLikeButton={true}
+      showLikeButton={false}
       likeButtonText={likeButtonText}
     />
   )
