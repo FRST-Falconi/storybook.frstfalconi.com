@@ -31,6 +31,7 @@ export default function ScrollContainer({
   const [actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
   const [actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
 
+
   const [iDScroll, setIDScroll] = useState(`iDScroll-${randID()}`)
 
   const [isVisibleArrowButtonLeft, setIsVisibleArrowButtonLeft] = useState(false)
@@ -203,7 +204,7 @@ function ButtonArrow({
       }}
     >
       <ButtonControll
-        id={`button-controll${isVisible}`}
+        id={`button-controll${isVisible++}`}
         isLeftButton={isLeftButton}
         onClick={onClick}
         onMouseOver={() => onActionArea(true)}
