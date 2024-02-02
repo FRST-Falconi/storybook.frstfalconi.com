@@ -33,8 +33,8 @@ overflow: hidden;
 border-radius: 8px;
 
   & .MuiPaper-root {
-  border-radius: 0px;
-  box-shadow: none!important;
+  border-radius: 8px !important;
+  box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
   overflow: visible;
   background: #00000000;
     &:before {
@@ -60,7 +60,7 @@ border-radius: 8px;
   }
 }
   ul {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px - 20px rgba(34, 34, 34, 0.15);;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px - 20px rgba(34, 34, 34, 0.15);
   padding-top: 0px;
   padding-bottom: 0px;
   border: 1px solid #EBEBEB!important;
