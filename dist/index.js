@@ -5454,7 +5454,7 @@ function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButt
             background: !isLeftButton
                 ? `linear-gradient(270deg, ${colorBackground} 15%, rgba(243, 243, 243, 0.00) 100%)`
                 : `linear-gradient(90deg, ${colorBackground} 15%, rgba(235, 235, 235, 0.00) 100%)`
-        }, children: jsxRuntime.jsx(ButtonControll$1, { id: "button-controll", isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton, visibility: 'visible', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
+        }, children: jsxRuntime.jsx(ButtonControll$1, { id: `button-controll${isVisible}`, isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton, visibility: isVisible ? 'visible' : 'hidden', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `

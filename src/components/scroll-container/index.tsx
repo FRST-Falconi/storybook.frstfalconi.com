@@ -203,13 +203,13 @@ function ButtonArrow({
       }}
     >
       <ButtonControll
-        id="button-controll"
+        id={`button-controll${isVisible}`}
         isLeftButton={isLeftButton}
         onClick={onClick}
         onMouseOver={() => onActionArea(true)}
         onMouseOut={() => onActionArea(false)}
         sizeButton={sizeButton}
-        visibility={'visible'}
+        visibility={ isVisible ? 'visible' : 'hidden' }
         marginsArrowButton={margin}
         marginTopArrrowButton={marginTopArrrowButton}
       >
