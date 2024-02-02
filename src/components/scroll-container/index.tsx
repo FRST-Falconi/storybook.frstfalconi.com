@@ -203,7 +203,7 @@ function ButtonArrow({
       }}
     >
       <ButtonControll
-        id='button-controll'
+        id="button-controll"
         isLeftButton={isLeftButton}
         onClick={onClick}
         onMouseOver={() => onActionArea(true)}

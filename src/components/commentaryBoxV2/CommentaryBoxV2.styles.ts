@@ -32,6 +32,7 @@ export const Username = styled.h2`
     font-style: normal;
     font-weight: 700;
     line-height: 110%;
+    margin-bottom: 2px;
 `
 
 export const FirstChildUserData = styled.div`
@@ -95,6 +96,11 @@ export const RelationContainer = styled.div`
     border-radius: 4px;
     background: #9CA3AF;
     color: #FFFFFF;
+    font-family: PT Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 `
 
 

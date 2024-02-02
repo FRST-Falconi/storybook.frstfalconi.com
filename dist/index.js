@@ -4479,6 +4479,7 @@ const Username = styled__default["default"].h2 `
     font-style: normal;
     font-weight: 700;
     line-height: 110%;
+    margin-bottom: 2px;
 `;
 const FirstChildUserData = styled__default["default"].div `
     display:flex;
@@ -4537,6 +4538,11 @@ const RelationContainer = styled__default["default"].div `
     border-radius: 4px;
     background: #9CA3AF;
     color: #FFFFFF;
+    font-family: PT Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 `;
 const InteractiveButtonsContainer = styled__default["default"].div `
     display:flex;
@@ -4744,8 +4750,8 @@ overflow: hidden;
 border-radius: 8px;
 
   & .MuiPaper-root {
-  border-radius: 0px;
-  box-shadow: none!important;
+  border-radius: 8px !important;
+  box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
   overflow: visible;
   background: #00000000;
     &:before {
@@ -4771,7 +4777,7 @@ border-radius: 8px;
   }
 }
   ul {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px - 20px rgba(34, 34, 34, 0.15);;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px - 20px rgba(34, 34, 34, 0.15);
   padding-top: 0px;
   padding-bottom: 0px;
   border: 1px solid #EBEBEB!important;
@@ -5448,7 +5454,7 @@ function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButt
             background: !isLeftButton
                 ? `linear-gradient(270deg, ${colorBackground} 15%, rgba(243, 243, 243, 0.00) 100%)`
                 : `linear-gradient(90deg, ${colorBackground} 15%, rgba(235, 235, 235, 0.00) 100%)`
-        }, children: jsxRuntime.jsx(ButtonControll$1, { id: 'button-controll', isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton, visibility: 'visible', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
+        }, children: jsxRuntime.jsx(ButtonControll$1, { id: "button-controll", isLeftButton: isLeftButton, onClick: onClick, onMouseOver: () => onActionArea(true), onMouseOut: () => onActionArea(false), sizeButton: sizeButton, visibility: 'visible', marginsArrowButton: margin, marginTopArrrowButton: marginTopArrrowButton, children: jsxRuntime.jsx(ArrowScroll, { fill: actionArea ? '#fff' : '#000', height: sizeButton ? (sizeButton / 2.3).toFixed(0).toString() : '34', width: sizeButton ? (sizeButton / 4.3).toFixed(0).toString() : '18' }) }) }));
 }
 
 const HeaderWrapper = styled__default["default"].div `
