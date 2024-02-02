@@ -204,7 +204,7 @@ function ButtonArrow({
       }}
     >
       <ButtonControll
-        id={`button-controll${isVisible++}`}
+        id={`button-controll${isLeftButton}`}
         isLeftButton={isLeftButton}
         onClick={onClick}
         onMouseOver={() => onActionArea(true)}
