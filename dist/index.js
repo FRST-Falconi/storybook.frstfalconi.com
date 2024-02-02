@@ -5438,7 +5438,7 @@ function ScrollContainer$1({ children, type, isVisibleControlsButtons, positionA
                         }, children: [jsxRuntime.jsx(ButtonArrow, { isLeftButton: true, onClick: scrollToLeft, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollLeft, widthProtectClick: widthProtectClick, marginTopArrrowButton: marginTopArrrowButton }), jsxRuntime.jsx(ButtonArrow, { isLeftButton: false, colorBackground: colorBackground, onClick: scrollToRight, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? marginsArrowButton + 'px' : '10px', ArrowScroll: ArrowScrollRight, widthProtectClick: widthProtectClick, marginTopArrrowButton: marginTopArrrowButton })] })) })] }) }));
 }
 function ButtonArrow({ isLeftButton, onClick, onActionArea, actionArea, sizeButton = 40, isVisible, margin, ArrowScroll, marginTopArrrowButton, widthProtectClick, colorBackground = 'transparent' }) {
-    return (jsxRuntime.jsx("div", { style: {
+    return (jsxRuntime.jsx("div", { id: `div-controll${isLeftButton}`, style: {
             height: '100%',
             width: widthProtectClick ? widthProtectClick : 'fit-content',
             zIndex: 10,
