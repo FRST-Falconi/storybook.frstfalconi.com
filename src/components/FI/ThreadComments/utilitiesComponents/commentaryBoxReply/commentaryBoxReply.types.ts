@@ -1,5 +1,5 @@
 import { OnClickEditButtonParams } from '@components/commentaryBoxV2/utilitiesComponents/inputEdit/inputEdit.types';
-import { IComment, ILike, LoggedInUser } from '../../threadComments.types';
+import { IComment, ILike, IUser, LoggedInUser } from '../../threadComments.types';
 import { User as MentionUser } from '@components/input-comment/types';
 
 
@@ -10,7 +10,6 @@ export interface ICommentComentaryBoxReply {
     showLessButtonText: string,
     editText?: string,
     deleteText?: string,
-    onClickAnswerButton: (idReply?: string) => void,
     isAuthor: boolean;
     isOwnerPost: boolean;
     onClickDelete: (commentId: string) => void,
@@ -28,4 +27,16 @@ export interface ICommentComentaryBoxReply {
     likeButtonText?: string;
     loggedInUser: LoggedInUser;
     likes: ILike[];
+    replies: IComment[];
+    isGoalOwner?: boolean;
+    group_uuid: string;
+    onClickPublishButton: () => void,
+    publishButtonText: string,
+    mainCommentId: number,
+    mainCommentUser: IUser
+    size?: number,
+    showReplysButtonText?: string,
+    showMoreReplysButtonText?: string,
+    toViewText: string,
+    answersText: string
 }

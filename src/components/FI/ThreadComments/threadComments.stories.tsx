@@ -13,6 +13,14 @@ const Template = (args) => <ThreadComments {...args} />
 
 export const Default = Template.bind({})
 
+const handleCountReplies = () => {
+  let countReplys = listReplyComments.length
+  listReplyComments.map((replyComment) => {
+    countReplys = countReplys + replyComment.replies.length
+  })
+  return countReplys
+}
+
 const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
   id: index + 1,
   text: `Resposta ${index + 1}: Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
@@ -24,7 +32,39 @@ const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
     role_name: 'Cargo',
     company_name: 'Frst Falconi',
     avatar: 'https://api-deimos-cdn.dev.frstfalconi.cloud/avatar/d49fe932-18d5-4476-bb37-1d1bb23f5b2e.jpg'
-  }
+  },
+  replies: [
+    {
+      id: index + index * 10,
+      text: `Resposta de resposta ${
+        index + index * 10
+      }: Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
+      howLongAgo: `${index + index * 10} horas atrás`,
+      uuid: `replyUuid-${index + index * 10}`,
+      user: {
+        uuid: `user-${index + index * 10}`,
+        name: `Usuário ${index + index * 10}`,
+        role_name: 'Cargo',
+        company_name: 'Frst Falconi',
+        avatar: 'https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp'
+      }
+    },
+    {
+      id: index + index * 20,
+      text: `Resposta de resposta ${
+        index + index * 20
+      }: Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
+      howLongAgo: `${index + 1} horas atrás`,
+      uuid: `replyUuid-${index + index * 20}`,
+      user: {
+        uuid: `user-${index + index * 20}`,
+        name: `Usuário ${index + index * 20}`,
+        role_name: 'Cargo',
+        company_name: 'Frst Falconi',
+        avatar: 'https://pics.craiyon.com/2023-06-27/287f2a60c2e74386b5a89c517eb527dc.webp'
+      }
+    }
+  ]
 }))
 
 const getSearchUsers = async (search: string): Promise<object[]> => {
@@ -66,7 +106,7 @@ Default.args = {
   },
   getSearchUsers: getSearchUsers,
   placeHolderText: 'Responda Aqui!',
-  showReplysButtonText: `Visualizar ${listReplyComments.length} Respostas`,
+  showReplysButtonText: `Visualizar ${handleCountReplies()} Respostas`,
   publishButtonText: 'Publicar',
   limitInputs: 800,
   answerButtonText: 'Responder',
@@ -81,5 +121,7 @@ Default.args = {
   saveButtonText: 'Salvar',
   orText: 'ou',
   limitMessageExceeded: 'Limite de caracteres excedido',
-  likeButtonText: 'Curtir'
+  likeButtonText: 'Curtir',
+  toViewText: 'Visualizar',
+  answersText: 'Respostas'
 }

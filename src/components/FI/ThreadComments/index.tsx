@@ -34,12 +34,13 @@ export const ThreadComments = ({
   orText,
   onClickLike,
   onClickUnlike,
-  likeButtonText
+  likeButtonText,
+  toViewText,
+  answersText
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
   const [showReplyInput, setShowReplyInput] = useState(false)
-  const [showInputByIdReply, setShowInputByIdReply] = useState<string[]>([])
   const [visibleReplies, setVisibleReplies] = useState(0)
 
   const handleLoadMoreReplies = () => {
@@ -57,16 +58,8 @@ export const ThreadComments = ({
     setShowReplyInput(false)
   }
 
-  const handleHiddenInputReply = (idReplyToRemove: string) => {
-    setShowInputByIdReply((prevShowInputByIdReply) => prevShowInputByIdReply.filter((id) => id !== idReplyToRemove))
-  }
-
   const handleCommentReply = () => {
     setShowReplyInput(true)
-  }
-
-  const handleCommentReplyReply = (idReply: string) => {
-    setShowInputByIdReply([...showInputByIdReply, idReply])
   }
 
   const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id
@@ -143,15 +136,15 @@ export const ThreadComments = ({
           )}
         </div>
         {showAnswers && visibleReplies && (
-          <Styled.RepplysContainer style={{ marginTop: '24px' }}>
+          <Styled.RepplysContainer style={{ marginTop: '6px' }}>
             {listReplyComments.slice(0, visibleReplies).map((replyComment) => (
-              <div key={replyComment.id} style={{ marginTop: '6px' }}>
+              <div key={replyComment.id}>
                 <CommentaryBoxReply
+                  replies={replyComment?.replies}
                   commentData={replyComment}
-                  answerButtonText={''}
+                  answerButtonText={answerButtonText}
                   showMoreButtonText={showMoreButtonText}
                   showLessButtonText={showLessButtonText}
-                  onClickAnswerButton={handleCommentReplyReply}
                   isAuthor={replyComment.user?.uuid === loggedInUser?.id}
                   isOwnerPost={mainComment.user?.uuid === loggedInUser?.id || isGoalOwner}
                   deleteText={deleteText}
@@ -171,24 +164,17 @@ export const ThreadComments = ({
                   likeButtonText={likeButtonText}
                   likes={replyComment.likes}
                   loggedInUser={loggedInUser}
+                  isGoalOwner={isGoalOwner}
+                  group_uuid={group_uuid}
+                  publishButtonText={publishButtonText}
+                  onClickPublishButton={onClickPublishButton}
+                  mainCommentId={mainComment.id}
+                  mainCommentUser={mainComment.user}
+                  showReplysButtonText={showReplysButtonText}
+                  showMoreReplysButtonText={showMoreReplysButtonText}
+                  toViewText={toViewText}
+                  answersText={answersText}
                 />
-                {showInputByIdReply.includes(replyComment.id.toString()) && (
-                  <InputReply
-                    imgProfile={loggedInUser?.avatar}
-                    styles={{ width: '100%' }}
-                    idInput={`idInput-${replyComment.id}`}
-                    placeHolderText={placeHolderText}
-                    publishButtonText={publishButtonText}
-                    limitInput={limitInputs}
-                    onClickPublishButton={onClickPublishButton}
-                    replyMentionedUser={replyComment.user}
-                    getSearchUsers={getSearchUsers}
-                    parentId={Number(mainComment.id)}
-                    handleHiddenInput={(replyId = replyComment.id.toString()) => handleHiddenInputReply(replyId)}
-                    group_uuid={group_uuid}
-                    limitMessageExceeded={limitMessageExceeded}
-                  />
-                )}
               </div>
             ))}
           </Styled.RepplysContainer>
