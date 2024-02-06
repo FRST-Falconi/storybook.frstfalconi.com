@@ -18,12 +18,21 @@ export default function ConquistaCarrossel({
   textMoreDetails,
 }: IConquistaCarrossel) {
   const [itemSelected, setItemSelected] = useState(-1)
+  const [Refresh, setRefresh] = useState(0);
 
   const onItemSelect = (n: number) => {
     setItemSelected(n)
     onSelected(n)
   }
   const [btnViewMore, setBtnViewMore] = useState('')
+
+
+  useEffect(() => {
+
+    let temp = Refresh
+    setRefresh(temp +1)
+    
+  }, [objectCards]);
 
   useEffect(() => {
     setBtnViewMore(textMoreDetails)
@@ -59,6 +68,7 @@ export default function ConquistaCarrossel({
         horizontalMarginInternScroll={horizontalMarginInternScroll}
         positionArrowButton={positionArrowButton ? positionArrowButton : ''}
         marginTopArrrowButton={marginTopArrrowButton ? marginTopArrrowButton : '20px'}
+        refreshResize={Refresh}
       >
         {objectCards.map(renderCard)}
       </ScrollContainer>
