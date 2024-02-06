@@ -2156,8 +2156,12 @@ const AvatarWrapper = styled__default["default"].div `
 `;
 
 function Avatar({ size, src, alt, className, disabled, onClick, isActiveClick, id, style }) {
+    const [isImage, setIsImage] = React.useState(false);
     const defaultImg = 'https://cdn-images.frstfalconi.cloud/Avatar_default.png';
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, id: id, style: style, children: jsxRuntime.jsx(AvatarImg$1, { src: src || defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
+    React.useEffect(() => {
+        setIsImage(!!src);
+    }, [src]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, id: id, style: style, children: jsxRuntime.jsx(AvatarImg$1, { src: isImage ? src : defaultImg, alt: alt, size: size, disabled: disabled }) }) }));
 }
 
 ///-----------------------------------------
