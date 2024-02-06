@@ -141,7 +141,7 @@ export const CommentaryBoxV2 = ({
           {showInterconnectionLine && (
             <div
               style={{
-                height: '110px',
+                height: '100%',
                 width: '2px',
                 position: 'absolute',
                 left: '16px',
