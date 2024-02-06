@@ -9,6 +9,7 @@ export interface IComment {
     mentionText?: string,
     howLongAgo: string,
     likes?: ILike[],
+    replies?: IComment[],
 }
 
 export interface ILike {
@@ -46,7 +47,10 @@ export interface IThreadComments {
     size?: number,
     showMoreReplysButtonText: string,
     loggedInUser: LoggedInUser,
-    isGoalOwner: boolean
+    isGoalOwner: boolean,
+    toViewText: string,
+    answersText: string
+    answerText: string,
 }
 
 export interface IUser {

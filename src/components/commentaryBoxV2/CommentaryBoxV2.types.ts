@@ -49,5 +49,6 @@ export interface ICommentaryBoxV2 {
     isMainComment?: boolean
     groupUuid?: string,
     loggedInUser: LoggedInUser,
+    showInterconnectionLine?: boolean;
 
 }

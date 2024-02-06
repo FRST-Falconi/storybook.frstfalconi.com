@@ -50,7 +50,8 @@ export const CommentaryBoxV2 = ({
   placeHolderText,
   getSearchUsers,
   likes,
-  loggedInUser
+  loggedInUser,
+  showInterconnectionLine = false
 }: ICommentaryBoxV2) => {
   const iDCommentPosted = commentId ? commentId.toString() : `IDCommentPosted-${createUUID()}`
   const [isModeEdit, setIsModeEdit] = useState(false)
@@ -130,12 +131,27 @@ export const CommentaryBoxV2 = ({
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styled.Container style={{ ...styles }}>
-        <Avatar
-          size={isMainComment ? '48px' : '32px'}
-          src={imgProfile}
-          onClick={onClickUserInfo}
-          style={{ cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' }}
-        />
+        <div style={{ position: 'relative' }}>
+          <Avatar
+            size={isMainComment ? '48px' : '32px'}
+            src={imgProfile}
+            onClick={onClickUserInfo}
+            style={{ cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' }}
+          />
+          {showInterconnectionLine && (
+            <div
+              style={{
+                height: '110px',
+                width: '2px',
+                position: 'absolute',
+                left: '16px',
+                top: '40px',
+                backgroundColor: '#D1D5DB'
+              }}
+            />
+          )}
+        </div>
+
         {isModeEdit ? (
           <InputEdit
             placeHolderText={placeHolderText}
