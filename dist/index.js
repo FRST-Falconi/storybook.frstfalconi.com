@@ -5086,7 +5086,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
         };
     }, []);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$j, { style: { ...styles }, children: [jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(Avatar, { size: isMainComment ? '48px' : '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' } }), showInterconnectionLine && (jsxRuntime.jsx("div", { style: {
-                                    height: '110px',
+                                    height: '100%',
                                     width: '2px',
                                     position: 'absolute',
                                     left: '16px',
