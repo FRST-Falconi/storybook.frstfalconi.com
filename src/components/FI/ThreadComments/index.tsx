@@ -36,7 +36,8 @@ export const ThreadComments = ({
   onClickUnlike,
   likeButtonText,
   toViewText,
-  answersText
+  answersText,
+  answerText
 }: IThreadComments) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
@@ -173,6 +174,7 @@ export const ThreadComments = ({
                   showReplysButtonText={showReplysButtonText}
                   toViewText={toViewText}
                   answersText={answersText}
+                  answerText={answerText}
                 />
               </div>
             ))}

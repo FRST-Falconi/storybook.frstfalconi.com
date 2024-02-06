@@ -35,7 +35,8 @@ export const CommentaryBoxReply = ({
   onClickPublishButton,
   mainCommentUser,
   answersText,
-  toViewText
+  toViewText,
+  answerText
 }: ICommentComentaryBoxReply) => {
   const [showAnswers, setShowAnswers] = useState(false)
   const [showReplyInput, setShowReplyInput] = useState(false)
@@ -87,7 +88,9 @@ export const CommentaryBoxReply = ({
 
       {replies.length > 0 && !showAnswers && (
         <ViewReplysButtonContainer style={{ left: '44px' }}>
-          <span onClick={handleLoadMoreReplies}>{`${toViewText} ${replies.length} ${answersText}`}</span>
+          <span onClick={handleLoadMoreReplies}>{`${toViewText} ${replies.length} ${
+            replies.length === 1 ? answerText : answersText
+          }`}</span>
         </ViewReplysButtonContainer>
       )}
 

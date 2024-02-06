@@ -50,6 +50,7 @@ export interface IThreadComments {
     isGoalOwner: boolean,
     toViewText: string,
     answersText: string
+    answerText: string,
 }
 
 export interface IUser {
