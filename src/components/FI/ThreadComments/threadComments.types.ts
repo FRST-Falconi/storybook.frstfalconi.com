@@ -48,8 +48,8 @@ export interface IThreadComments {
     showMoreReplysButtonText: string,
     loggedInUser: LoggedInUser,
     isGoalOwner: boolean,
-    toViewText?: string,
-    answersText?: string
+    toViewText: string,
+    answersText: string
 }
 
 export interface IUser {
