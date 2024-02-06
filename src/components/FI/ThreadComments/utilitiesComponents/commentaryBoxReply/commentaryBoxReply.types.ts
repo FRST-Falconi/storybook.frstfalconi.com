@@ -34,9 +34,7 @@ export interface ICommentComentaryBoxReply {
     publishButtonText: string,
     mainCommentId: number,
     mainCommentUser: IUser
-    size?: number,
     showReplysButtonText?: string,
-    showMoreReplysButtonText?: string,
     toViewText: string,
     answersText: string
 }

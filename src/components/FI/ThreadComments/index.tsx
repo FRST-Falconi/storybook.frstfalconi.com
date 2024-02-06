@@ -171,7 +171,6 @@ export const ThreadComments = ({
                   mainCommentId={mainComment.id}
                   mainCommentUser={mainComment.user}
                   showReplysButtonText={showReplysButtonText}
-                  showMoreReplysButtonText={showMoreReplysButtonText}
                   toViewText={toViewText}
                   answersText={answersText}
                 />

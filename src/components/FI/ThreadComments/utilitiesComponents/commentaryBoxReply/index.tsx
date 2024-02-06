@@ -34,24 +34,13 @@ export const CommentaryBoxReply = ({
   publishButtonText,
   onClickPublishButton,
   mainCommentUser,
-  size = 1,
-  showMoreReplysButtonText,
   answersText,
   toViewText
 }: ICommentComentaryBoxReply) => {
   const [showAnswers, setShowAnswers] = useState(false)
-  const [showReplysOnClickCounter, setReplysOnClickCounter] = useState(0)
   const [showReplyInput, setShowReplyInput] = useState(false)
-  const [visibleReplies, setVisibleReplies] = useState(0)
 
   const handleLoadMoreReplies = () => {
-    if (showReplysOnClickCounter === 0) {
-      setVisibleReplies((prevVisibleReplies) => prevVisibleReplies + size)
-    }
-    setReplysOnClickCounter((prevShowReplysOnClickCounter) => prevShowReplysOnClickCounter + 1)
-    if (showReplysOnClickCounter >= 1) {
-      setVisibleReplies(commentData.replies?.length || 0)
-    }
     setShowAnswers(true)
   }
 
@@ -93,16 +82,12 @@ export const CommentaryBoxReply = ({
         actionUnlike={onClickUnlike}
         showLikeButton={false}
         likeButtonText={likeButtonText}
-        showInterconnectionLine={replies.length > 0 && visibleReplies > 0}
+        showInterconnectionLine={replies.length > 0 && showAnswers}
       />
 
-      {replies.length > visibleReplies && (
+      {replies.length > 0 && !showAnswers && (
         <ViewReplysButtonContainer style={{ left: '44px' }}>
-          <span onClick={handleLoadMoreReplies}>
-            {showReplysOnClickCounter === 0
-              ? `${toViewText} ${replies.length} ${answersText}`
-              : showMoreReplysButtonText}
-          </span>
+          <span onClick={handleLoadMoreReplies}>{`${toViewText} ${replies.length} ${answersText}`}</span>
         </ViewReplysButtonContainer>
       )}
 
@@ -124,8 +109,7 @@ export const CommentaryBoxReply = ({
         />
       )}
       {showAnswers &&
-        visibleReplies &&
-        replies?.slice(0, visibleReplies).map((reply, index) => (
+        replies?.map((reply, index) => (
           <>
             <CommentaryBoxV2
               styles={{ marginTop: '16px' }}
@@ -162,7 +146,7 @@ export const CommentaryBoxReply = ({
               isOwnerPost={isAuthor || isOwnerPost || isGoalOwner}
               showOptions={isAuthor || isOwnerPost || reply.user?.uuid === loggedInUser?.id || isGoalOwner}
               imgProfile={reply.user?.avatar}
-              showInterconnectionLine={replies.length != index + 1 && visibleReplies > index + 1}
+              showInterconnectionLine={replies.length != index + 1}
             />
           </>
         ))}
