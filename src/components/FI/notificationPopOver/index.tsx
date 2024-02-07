@@ -48,13 +48,14 @@ export default function NotificationPopOver(props: INotificationPopOver) {
   const markAllAsReadOption = {
     description: props.textMarkAllAsRead,
     onClick: props.handleClickMarkRead,
-    color: '#FCFCFC'
+    color: props.notificationList ? '#FCFCFC' : '#9C9C9C',
+    disabled: !props.notificationList
   }
 
   return (
     <ThemeProvider theme={FRSTTheme}>
       {props.isMobile ? (
-        <div style={{ backgroundColor: '#222222' }}>
+        <div style={{ backgroundColor: '#E5E5E5' }}>
           <div style={{ padding: 16 }}>
             <Button
               variant="link"
@@ -70,11 +71,14 @@ export default function NotificationPopOver(props: INotificationPopOver) {
               >
                 {props.textNotification}
               </span>
-              <Button
-                variant="link"
-                label={props.textMarkAllAsRead}
-                disabled={isNewNotification.length ? false : true}
-                handleClick={props.handleClickMarkRead}
+              <MenuMore
+                options={[markAllAsReadOption]}
+                isHover={false}
+                closeAfterClick={true}
+                isArrowInMenu={false}
+                isPaddingInMenu={false}
+                isDarkMode={true}
+                iconButton={<MoreDotsVertical fill="#F7F9FC" />}
               />
             </Styles.notificationHeader>
             {props.notificationList ? (
@@ -156,12 +160,6 @@ export default function NotificationPopOver(props: INotificationPopOver) {
               >
                 {props.textNotification}
               </span>
-              {/* <Button
-                variant="link"
-                label={props.textMarkAllAsRead}
-                disabled={isNewNotification.length ? false : true}
-                handleClick={props.handleClickMarkRead}
-              /> */}
               <MenuMore
                 options={[markAllAsReadOption]}
                 isHover={false}

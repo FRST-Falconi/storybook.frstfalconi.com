@@ -1,3 +1,4 @@
+import { disabled } from './../IJ/participantCard/participantCard.stories';
 
 import React from 'react'
 
@@ -6,6 +7,7 @@ export interface IOptionItem {
     startIcon?: any
     onClick: (e?: any) => void
     color?: string
+    disabled?: boolean
 }
 
 export interface IMenuMore {

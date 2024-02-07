@@ -39,7 +39,7 @@ export const notificationContainerMobile = styled.div`
   height: 100%;
   overflow: hidden;
   border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  background-color: ${({ theme }) => theme.colors.neutralsGrey1};
 
   & > div:nth-child(2) {
     max-height: 80vh !important;

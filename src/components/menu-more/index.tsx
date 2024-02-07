@@ -73,7 +73,9 @@ export default function MenuMore({
                     }}
                     style={{
                       borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
-                      color: itemOption?.color ? itemOption?.color : '#222'
+                      color: itemOption?.color ? itemOption?.color : '#222',
+                      pointerEvents: itemOption?.disabled ? 'none' : 'auto',
+                      cursor: itemOption?.disabled ? 'default' : 'pointer'
                     }}
                     disableRipple
                   >

@@ -27,7 +27,7 @@ export const ButtonMore = styled(Button) <{ isHover: boolean }>`
 
 
 export const MenuCustom = styled(Menu) < { isArrowInMenu: boolean, isPaddingInMenu: boolean, isDarkMode: boolean } > `
-margin-top: 15px;
+margin-top: ${({ isArrowInMenu }) => isArrowInMenu ? '8px' : '15px'};
 margin-left: 30px;
 overflow: hidden;
 border-radius: 8px;
@@ -44,12 +44,9 @@ border-radius: 8px;
     top: -15px;
     right: 8.5px;
     border-top: 6px solid transparent;
-    border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#EBEBEB'};
+    border-bottom: 10px solid #EBEBEB;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    &:hover {
-      border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#EBEBEB'};
-    }
   }
   
     &:after {
@@ -58,12 +55,10 @@ border-radius: 8px;
     top: -14px;
     right: 8.5px;
     border-top: 6px solid transparent;
-    border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#FFF'};
+    border-bottom: 10px solid #FFF;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    &:hover {
-      border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#FFF'};
-    }
+
   }`} 
 }
   ul {
@@ -79,11 +74,10 @@ border-radius: 8px;
   &:hover {
     background:${({ isDarkMode }) => isDarkMode ? '#525252' : '#FFF'};
     border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#EBEBEB'} !important;
-
   }
   li {
     ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px;`}
-}
+  }
 }
 `
 
@@ -119,7 +113,7 @@ font-family: 'PT Sans';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
-line-height: 21px;
+line-height: 17.6px;
 `
 
 export const IconOption = styled.div`
