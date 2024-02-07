@@ -4,9 +4,10 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import NotificationCard from '../notificationCard'
 import * as Styles from './notificationPopOverStyles'
-import { BackArrow } from '@shared/icons'
+import { BackArrow, MoreDotsVertical } from '@shared/icons'
 import { useState } from 'react'
 import imgNotification from '../../../../public/img/Nonotification.png'
+import MenuMore from '@components/menu-more'
 
 type notificationCard = {
   notificationAvatar: string
@@ -44,6 +45,13 @@ export default function NotificationPopOver(props: INotificationPopOver) {
   const emptyStateImage = imgNotification
   const notificationsLength = props?.notificationList?.length
 
+  const markAllAsReadOption = {
+    description: props.textMarkAllAsRead,
+    onClick: props.handleClickMarkRead,
+    color: props.notificationList ? '#FCFCFC' : '#9C9C9C',
+    disabled: !props.notificationList
+  }
+
   return (
     <ThemeProvider theme={FRSTTheme}>
       {props.isMobile ? (
@@ -63,11 +71,14 @@ export default function NotificationPopOver(props: INotificationPopOver) {
               >
                 {props.textNotification}
               </span>
-              <Button
-                variant="link"
-                label={props.textMarkAllAsRead}
-                disabled={isNewNotification.length ? false : true}
-                handleClick={props.handleClickMarkRead}
+              <MenuMore
+                options={[markAllAsReadOption]}
+                isHover={false}
+                closeAfterClick={true}
+                isArrowInMenu={false}
+                isPaddingInMenu={false}
+                isDarkMode={true}
+                iconButton={<MoreDotsVertical fill="#F7F9FC" />}
               />
             </Styles.notificationHeader>
             {props.notificationList ? (
@@ -141,19 +152,22 @@ export default function NotificationPopOver(props: INotificationPopOver) {
 
           <Styles.notificationContainer>
             <Styles.notificationHeader
-              onMouseOver={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}}
-              onMouseOut={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false): {}}
+              onMouseOver={() => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {})}
+              onMouseOut={() => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {})}
             >
               <span
                 style={{ fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }}
               >
                 {props.textNotification}
               </span>
-              <Button
-                variant="link"
-                label={props.textMarkAllAsRead}
-                disabled={isNewNotification.length ? false : true}
-                handleClick={props.handleClickMarkRead}
+              <MenuMore
+                options={[markAllAsReadOption]}
+                isHover={false}
+                closeAfterClick={true}
+                isArrowInMenu={false}
+                isPaddingInMenu={false}
+                isDarkMode={true}
+                iconButton={<MoreDotsVertical fill="#F7F9FC" />}
               />
             </Styles.notificationHeader>
             {props.notificationList ? (
@@ -162,8 +176,8 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                   return (
                     <div
                       style={{ borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }}
-                      onMouseOver={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}}
-                      onMouseOut={() => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false): {}}
+                      onMouseOver={() => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {})}
+                      onMouseOut={() => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {})}
                       key={index}
                     >
                       <NotificationCard

@@ -4748,7 +4748,7 @@ const ButtonMore$1 = styled__default["default"](Button__default["default"]) `
   }`};
 `;
 const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
-margin-top: 8px;
+margin-top: ${({ isArrowInMenu }) => isArrowInMenu ? '8px' : '15px'};
 margin-left: 30px;
 overflow: hidden;
 border-radius: 8px;
@@ -4758,7 +4758,8 @@ border-radius: 8px;
   box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
   overflow: visible;
   background: #00000000;
-    &:before {
+   ${({ isArrowInMenu }) => isArrowInMenu &&
+    `&:before {
     content: "";
     position: absolute;
     top: -15px;
@@ -4778,37 +4779,40 @@ border-radius: 8px;
     border-bottom: 10px solid #FFF;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-  }
+
+  }`} 
 }
   ul {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px - 20px rgba(34, 34, 34, 0.15);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
   padding-top: 0px;
   padding-bottom: 0px;
-  border: 1px solid #EBEBEB!important;
+  border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#EBEBEB'}!important;
   border-radius: 8px!important;
   overflow: hidden;
-  background: #FFF;
-  width: 160px;
-
-
+  background:${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#FFF'};
+  min-width: 160px;
+  width: auto;
+  &:hover {
+    background:${({ isDarkMode }) => isDarkMode ? '#525252' : '#FFF'};
+    border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#EBEBEB'} !important;
+  }
   li {
-    padding-left: 25px;
+    ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px;`}
   }
 }
 `;
 const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
-background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
-padding-right: 45px!important;
-margin: 1px!important;
-transition: none!important;
-animation: none!important;
-  &:hover {
-  background-color: #F7F9FC!important;
-}
-  &:active {
-  background-color: #FCF3EB!important;
-}
-
+  background-color: ${({ theme, isDarkMode }) => isDarkMode ? `#1f1f1f` : theme.colors.shadeWhite} !important;
+  ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-right: 45px!important;`}
+  margin: 1px!important;
+  transition: none!important;
+  animation: none!important;
+    &:hover {
+    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#F7F9FC!important;`};
+  }
+    &:active {
+    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#FCF3EB!important;`};
+  }
 `;
 styled__default["default"](MenuItem__default["default"]) `
 color: white!important;
@@ -4827,7 +4831,7 @@ font-family: 'PT Sans';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
-line-height: 21px;
+line-height: 17.6px;
 `;
 const IconOption = styled__default["default"].div `
 width: 20px;
@@ -4837,7 +4841,7 @@ align-items: center;
 justify-content: center;
 `;
 
-function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true }) {
+function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true, isArrowInMenu = true, isPaddingInMenu = true, isDarkMode = false }) {
     const [listOptions, setListOptions] = React.useState(options);
     React.useEffect(() => {
         setListOptions(options);
@@ -4850,14 +4854,16 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true 
     const handleClose = () => {
         setAnchorEl(null);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, isHover: isHover, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, children: listOptions.map((itemOption, index) => {
-                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { onClick: () => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, isHover: isHover, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
+                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
                                 }, style: {
                                     borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
-                                    color: itemOption?.color ? itemOption?.color : '#222'
-                                }, disableRipple: true, children: [jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon ? itemOption?.startIcon : '' }), jsxRuntime.jsx(TextOption$1, { children: itemOption?.description })] }) }, index));
+                                    color: itemOption?.color ? itemOption?.color : '#222',
+                                    pointerEvents: itemOption?.disabled ? 'none' : 'auto',
+                                    cursor: itemOption?.disabled ? 'default' : 'pointer'
+                                }, disableRipple: true, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), jsxRuntime.jsx(TextOption$1, { style: !itemOption?.startIcon ? { marginLeft: '0px' } : {}, children: itemOption?.description })] }) }, index));
                     }) }))] }) }));
 }
 
@@ -11383,7 +11389,7 @@ const notificationDescription = styled__default["default"].div `
     font-family: 'PT Sans';
     font-size: 16px;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+    color: ${({ theme }) => theme.colors.selectItens};
 `;
 const notificationDate = styled__default["default"].div `
     display: flex;
@@ -11395,7 +11401,7 @@ const notificationDate = styled__default["default"].div `
     font-family: 'PT Sans';
     font-size: 14px;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.neutralsGrey3};
+    color: ${({ theme }) => theme.colors.neutralsGrey5};
 `;
 styled__default["default"].div `
     display: none;
@@ -11406,8 +11412,8 @@ styled__default["default"].div `
     z-index: 1000;
 `;
 
-const Divider = () => {
-    return (jsxRuntime.jsx("svg", { width: "5", height: "5", viewBox: "0 0 5 5", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("circle", { cx: "2.5", cy: "2.5", r: "2.5", fill: "#757575" }) }));
+const Divider = ({ fill = '#757575' }) => {
+    return (jsxRuntime.jsx("svg", { width: "5", height: "5", viewBox: "0 0 5 5", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("circle", { cx: "2.5", cy: "2.5", r: "2.5", fill: fill }) }));
 };
 function NotificationCard(props) {
     const [descriptionNotification, setDescriptionNotification] = React.useState(props.notificationDescription);
@@ -11418,13 +11424,10 @@ function NotificationCard(props) {
         event.stopPropagation();
         props.onClickUserInfo && props.onClickUserInfo();
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(notificationContainer$1, { onClick: props.handleClick, style: { ...props.style, backgroundColor: props.isNewNotification ? '#FEF0D0' : FRSTTheme['colors'].shadeWhite }, children: [!!props?.onClickUserInfo ?
-                    jsxRuntime.jsx(Tooltip, { position: "right", textTooltip: props?.textVisitProfile ? props?.textVisitProfile : 'Visitar Perfil', customWidth: '106px', customMarginLeft: '-30px', children: jsxRuntime.jsx("div", { onClick: (e) => handleChildClick(e), children: jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: '40px', isActiveClick: true }) }) })
-                    :
-                        jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: '40px', isActiveClick: false }), jsxRuntime.jsxs(notificationInfo, { children: [jsxRuntime.jsx(notificationDescription, { children: jsxRuntime.jsx(Markdown__default["default"], { children: descriptionNotification }) }), props.isNewNotification ?
-                            jsxRuntime.jsxs(notificationDate, { children: [jsxRuntime.jsx("span", { style: { fontWeight: 700, color: FRSTTheme['colors'].primary1 }, children: props.textNew }), jsxRuntime.jsx(Divider, {}), props.notificationDate] })
-                            :
-                                jsxRuntime.jsx(notificationDate, { children: props.notificationDate })] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(notificationContainer$1, { onClick: props.handleClick, style: {
+                ...props.style,
+                backgroundColor: props.isNewNotification ? '#444444' : '#313131'
+            }, children: [!!props?.onClickUserInfo ? (jsxRuntime.jsx(Tooltip, { position: "right", textTooltip: props?.textVisitProfile ? props?.textVisitProfile : 'Visitar Perfil', customWidth: '106px', customMarginLeft: '-30px', children: jsxRuntime.jsx("div", { onClick: (e) => handleChildClick(e), children: jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: "40px", isActiveClick: true }) }) })) : (jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: "40px", isActiveClick: false })), jsxRuntime.jsxs(notificationInfo, { children: [jsxRuntime.jsx(notificationDescription, { children: jsxRuntime.jsx(Markdown__default["default"], { children: descriptionNotification }) }), props.isNewNotification ? (jsxRuntime.jsxs(notificationDate, { style: { color: FRSTTheme['colors'].primary1 }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700 }, children: props.textNew }), jsxRuntime.jsx(Divider, { fill: FRSTTheme['colors'].primary1 }), props.notificationDate] })) : (jsxRuntime.jsx(notificationDate, { children: props.notificationDate }))] })] }) }));
 }
 
 const PopoverCustom = styled__default["default"](material.Popover) `
@@ -11444,8 +11447,9 @@ const notificationContainer = styled__default["default"].div `
   width: 376px;
   height: 412px;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.shadeWhite};
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary} !important;
+  background-color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+  border: 1px solid ${({ theme }) => theme.colors.borderSecondary4} !important;
   /* & > div:nth-child(2) > div:nth-child(3) {
     display: none !important;
   } */
@@ -11459,7 +11463,7 @@ const notificationContainerMobile = styled__default["default"].div `
   height: 100%;
   overflow: hidden;
   border-top: 1px solid ${({ theme }) => theme.colors.borderPrimary};
-  background-color: ${({ theme }) => theme.colors.shadeWhite};
+  background-color: ${({ theme }) => theme.colors.neutralsGrey1};
 
   & > div:nth-child(2) {
     max-height: 80vh !important;
@@ -11528,12 +11532,18 @@ const emptyStateInfo = styled__default["default"].div `
 var imgNotification = "data:image/png;base64,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";
 
 function NotificationPopOver(props) {
-    const isNewNotification = props.notificationList
+    props.notificationList
         ? props.notificationList.filter((notification) => notification.isNewNotification)
         : [];
     const emptyStateImage = imgNotification;
     const notificationsLength = props?.notificationList?.length;
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ? (jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$4, { variant: "link", startIcon: jsxRuntime.jsx(BackArrow, { fill: "currentColor" }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$4, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
+    const markAllAsReadOption = {
+        description: props.textMarkAllAsRead,
+        onClick: props.handleClickMarkRead,
+        color: props.notificationList ? '#FCFCFC' : '#9C9C9C',
+        disabled: !props.notificationList
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ? (jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$4, { variant: "link", startIcon: jsxRuntime.jsx(BackArrow, { fill: "currentColor" }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(MenuMore, { options: [markAllAsReadOption], isHover: false, closeAfterClick: true, isArrowInMenu: false, isPaddingInMenu: false, isDarkMode: true, iconButton: jsxRuntime.jsx(MoreDotsVertical, { fill: "#F7F9FC" }) })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
                                 return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { style: { width: '100%' }, onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }));
                             }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) : (jsxRuntime.jsxs(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
                 vertical: 'bottom',
@@ -11561,8 +11571,8 @@ function NotificationPopOver(props) {
                             transform: 'rotate(45deg)',
                             left: 'calc(50% - 6px)'
                         }
-                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}, onMouseOut: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}, children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(Button$4, { variant: "link", label: props.textMarkAllAsRead, disabled: isNewNotification.length ? false : true, handleClick: props.handleClickMarkRead })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
-                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}, onMouseOut: () => props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}, children: jsxRuntime.jsx(NotificationCard, { onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }, index));
+                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}), onMouseOut: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}), children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(MenuMore, { options: [markAllAsReadOption], isHover: false, closeAfterClick: true, isArrowInMenu: false, isPaddingInMenu: false, isDarkMode: true, iconButton: jsxRuntime.jsx(MoreDotsVertical, { fill: "#F7F9FC" }) })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
+                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}), onMouseOut: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}), children: jsxRuntime.jsx(NotificationCard, { onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick }, index) }, index));
                             }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
 

@@ -23,7 +23,7 @@ export const notificationDescription = styled.div`
     font-family: 'PT Sans';
     font-size: 16px;
     font-weight: 400;
-    color: ${({theme}) => theme.colors.neutralsGrey1};
+    color: ${({ theme }) => theme.colors.selectItens};
 `
 
 export const notificationDate = styled.div`
@@ -36,7 +36,7 @@ export const notificationDate = styled.div`
     font-family: 'PT Sans';
     font-size: 14px;
     font-weight: 400;
-    color: ${({theme}) => theme.colors.neutralsGrey3};
+    color: ${({ theme }) => theme.colors.neutralsGrey5};
 `
 
 export const PopOverVisitProfile = styled.div`
