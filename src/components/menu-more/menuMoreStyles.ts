@@ -26,8 +26,8 @@ export const ButtonMore = styled(Button) <{ isHover: boolean }>`
 `
 
 
-export const MenuCustom = styled(Menu)`
-margin-top: 8px;
+export const MenuCustom = styled(Menu) < { isArrowInMenu: boolean, isPaddingInMenu: boolean, isDarkMode: boolean } > `
+margin-top: 15px;
 margin-left: 30px;
 overflow: hidden;
 border-radius: 8px;
@@ -37,15 +37,19 @@ border-radius: 8px;
   box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
   overflow: visible;
   background: #00000000;
-    &:before {
+   ${({ isArrowInMenu }) => isArrowInMenu &&
+    `&:before {
     content: "";
     position: absolute;
     top: -15px;
     right: 8.5px;
     border-top: 6px solid transparent;
-    border-bottom: 10px solid #EBEBEB;
+    border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#EBEBEB'};
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
+    &:hover {
+      border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#EBEBEB'};
+    }
   }
   
     &:after {
@@ -54,41 +58,47 @@ border-radius: 8px;
     top: -14px;
     right: 8.5px;
     border-top: 6px solid transparent;
-    border-bottom: 10px solid #FFF;
+    border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#FFF'};
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-  }
+    &:hover {
+      border-bottom: 10px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#FFF'};
+    }
+  }`} 
 }
   ul {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px - 20px rgba(34, 34, 34, 0.15);
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
   padding-top: 0px;
   padding-bottom: 0px;
-  border: 1px solid #EBEBEB!important;
+  border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#EBEBEB'}!important;
   border-radius: 8px!important;
   overflow: hidden;
-  background: #FFF;
-  width: 160px;
+  background:${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#FFF'};
+  min-width: 160px;
+  width: auto;
+  &:hover {
+    background:${({ isDarkMode }) => isDarkMode ? '#525252' : '#FFF'};
+    border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#EBEBEB'} !important;
 
-
-  li {
-    padding-left: 25px;
   }
+  li {
+    ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px;`}
+}
 }
 `
 
-export const MenuItemCustom = styled(MenuItem)`
-background-color: ${({ theme }) => theme.colors.shadeWhite} !important;
-padding-right: 45px!important;
-margin: 1px!important;
-transition: none!important;
-animation: none!important;
-  &:hover {
-  background-color: #F7F9FC!important;
-}
-  &:active {
-  background-color: #FCF3EB!important;
-}
-
+export const MenuItemCustom = styled(MenuItem) < { isPaddingInMenu: boolean, isDarkMode: boolean } > `
+  background-color: ${({ theme, isDarkMode }) => isDarkMode ? `#1f1f1f` : theme.colors.shadeWhite} !important;
+  ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-right: 45px!important;`}
+  margin: 1px!important;
+  transition: none!important;
+  animation: none!important;
+    &:hover {
+    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#F7F9FC!important;`};
+  }
+    &:active {
+    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#FCF3EB!important;`};
+  }
 `
 
 export const SubMenuItemCustom = styled(MenuItem)`

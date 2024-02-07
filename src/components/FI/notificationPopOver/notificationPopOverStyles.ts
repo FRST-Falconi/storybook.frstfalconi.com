@@ -22,8 +22,9 @@ export const notificationContainer = styled.div`
   width: 376px;
   height: 412px;
   overflow: hidden;
-  background-color: ${({ theme }) => theme.colors.shadeWhite};
-  border: 1px solid ${({ theme }) => theme.colors.borderPrimary} !important;
+  background-color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+  border: 1px solid ${({ theme }) => theme.colors.borderSecondary4} !important;
   /* & > div:nth-child(2) > div:nth-child(3) {
     display: none !important;
   } */

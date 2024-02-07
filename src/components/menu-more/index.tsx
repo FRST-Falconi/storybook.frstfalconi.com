@@ -9,7 +9,16 @@ import { ButtonMore, MenuCustom, MenuItemCustom, TextOption, IconOption } from '
 import { IMenuMore } from './menuMore'
 import { Box } from '@mui/material'
 
-export default function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true }: IMenuMore) {
+export default function MenuMore({
+  iconButton,
+  options,
+  style,
+  closeAfterClick,
+  isHover = true,
+  isArrowInMenu = true,
+  isPaddingInMenu = true,
+  isDarkMode = false
+}: IMenuMore) {
   const [listOptions, setListOptions] = useState(options)
 
   useEffect(() => {
@@ -48,11 +57,16 @@ export default function MenuMore({ iconButton, options, style, closeAfterClick, 
             anchorEl={anchorEl}
             open={open}
             onClose={handleClose}
+            isArrowInMenu={isArrowInMenu}
+            isPaddingInMenu={isPaddingInMenu}
+            isDarkMode={isDarkMode}
           >
             {listOptions.map((itemOption, index) => {
               return (
                 <Box key={index}>
                   <MenuItemCustom
+                    isPaddingInMenu={isPaddingInMenu}
+                    isDarkMode={isDarkMode}
                     onClick={() => {
                       itemOption?.onClick()
                       closeAfterClick && handleClose()
@@ -63,8 +77,10 @@ export default function MenuMore({ iconButton, options, style, closeAfterClick, 
                     }}
                     disableRipple
                   >
-                    <IconOption>{itemOption?.startIcon ? itemOption?.startIcon : ''}</IconOption>
-                    <TextOption>{itemOption?.description}</TextOption>
+                    {itemOption?.startIcon && <IconOption>{itemOption?.startIcon}</IconOption>}
+                    <TextOption style={!itemOption?.startIcon ? { marginLeft: '0px' } : {}}>
+                      {itemOption?.description}
+                    </TextOption>
                   </MenuItemCustom>
                 </Box>
               )

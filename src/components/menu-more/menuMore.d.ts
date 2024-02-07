@@ -3,7 +3,7 @@ import React from 'react'
 
 export interface IOptionItem {
     description: string
-    startIcon: any
+    startIcon?: any
     onClick: (e?: any) => void
     color?: string
 }
@@ -14,4 +14,7 @@ export interface IMenuMore {
     style?: React.CSSProperties;
     closeAfterClick?: boolean;
     isHover?: boolean;
+    isArrowInMenu?: boolean;
+    isPaddingInMenu?: boolean;
+    isDarkMode?: boolean;
 }
