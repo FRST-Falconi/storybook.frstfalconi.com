@@ -169,7 +169,6 @@ export const ThreadComments = ({
                   group_uuid={group_uuid}
                   publishButtonText={publishButtonText}
                   onClickPublishButton={onClickPublishButton}
-                  mainCommentId={mainComment.id}
                   mainCommentUser={replyComment.user}
                   showReplysButtonText={showReplysButtonText}
                   toViewText={toViewText}
