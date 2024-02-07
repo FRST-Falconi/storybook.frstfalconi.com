@@ -32,7 +32,6 @@ export interface ICommentComentaryBoxReply {
     group_uuid: string;
     onClickPublishButton: () => void,
     publishButtonText: string,
-    mainCommentId: number,
     mainCommentUser: IUser
     showReplysButtonText?: string,
     toViewText: string,
