@@ -49,11 +49,6 @@ export default function NotificationCard(props: INotificationCard) {
     try {
       setIsLoading(true)
       props.handleClickDelete && props.handleClickDelete()
-
-      setTimeout(() => {
-        console.log('Deleted')
-        setIsLoading(false)
-      }, 5000)
     } catch (error) {
       console.error('Error deleting notification', error)
     }
