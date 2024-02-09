@@ -6,10 +6,11 @@ interface IButton {
     variant: string
     active?: boolean
     isTooltipActive?: boolean
+    darkMode?: boolean
 }
 
 export const Button = styled.div<IButton>`
-    ${({variant, disabled,active, theme, isTooltipActive}) => {
+    ${({variant, disabled,active, theme, isTooltipActive, darkMode}) => {
         
         let styleVariant = {
             'primary': css`
@@ -42,7 +43,7 @@ export const Button = styled.div<IButton>`
                     font-weight: 700;
                     font-size: 16px;
                     width: fit-content;
-                    color: ${({theme}) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey2};
+                    color: ${({theme}) => disabled ? theme.colors.borderPrimary : (darkMode ? theme.colors.neutralsGrey7 : theme.colors.neutralsGrey2)};
                     cursor: pointer;
                     user-select:none;
                     &:hover {
@@ -54,7 +55,7 @@ export const Button = styled.div<IButton>`
                     }
                     ${active && `color : ${theme.colors.primary1}` }
                 `,
-                'terciary': css`
+            'terciary': css`
                 font-family: 'PT Sans';
                 font-style: normal;
                 font-weight: 700;
@@ -66,15 +67,15 @@ export const Button = styled.div<IButton>`
                 border-radius: 8px;
 
 
-                color: ${({theme}) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey2};
+                color: ${({theme}) => disabled ? theme.colors.borderPrimary : (darkMode ? theme.colors.neutralsGrey7 : theme.colors.neutralsGrey2)};
                 cursor: pointer;
                 user-select:none;
                 &:hover {
-                    background-color:  ${({theme}) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey9};
+                    background-color:  ${({theme}) => disabled ? theme.colors.borderPrimary : (darkMode ? '#272727' : theme.colors.neutralsGrey9)};
                 }
                 &:active {
-                    color: ${({theme}) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey1};
-                    background-color:  ${({theme}) => disabled ? theme.colors.borderPrimary : theme.colors.neutralsGrey9};
+                    color: ${({theme}) => disabled ? theme.colors.borderPrimary : (darkMode ? theme.colors.neutralsGrey7 : theme.colors.neutralsGrey1)};
+                    background-color:  ${({theme}) => disabled ? theme.colors.borderPrimary : (darkMode ? '#3D3D3D' : theme.colors.neutralsGrey9)};
                 }
                 ${active && `color : ${theme.colors.primary1}` }
             `,

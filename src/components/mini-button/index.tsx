@@ -15,6 +15,7 @@ export default function MiniButton({
     styles ,
     active,
     tooltipText,
+    darkMode
     }: IMiniButton) {
         const [isTooltipActive, setIsTooltipActive]= useState(false);
         const generateButtonComponent = () => (
@@ -25,6 +26,7 @@ export default function MiniButton({
             style={{ ...styles }}
             active={!!active}
             isTooltipActive={isTooltipActive}
+            darkMode={darkMode}
           >
             {label}
           </Styles.Button>

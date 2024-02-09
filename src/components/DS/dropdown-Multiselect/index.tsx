@@ -1,13 +1,14 @@
 import { FRSTTheme } from '../../../theme'
 import { ThemeProvider } from 'styled-components'
 import { MultiSelect } from 'primereact/multiselect'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
 import * as S from './styles/multiselectStyles'
 import { CloseIcon, DropdownIcon, Trash } from '@shared/icons'
 import SearchField from '@components/search-field'
 import Avatar from '@components/avatar'
 import { IconButton, Modal, Skeleton } from '@mui/material'
 import './styles/primereact.css'
+import './styles/stylesMulti.css'
 // import './styles/primeflex.css'
 // import './styles/theme.css'
 import Tooltip, { TooltipV2 } from '../tooltip'
@@ -38,6 +39,8 @@ interface IDropdownMultiselect {
     hiddenAddAll?: boolean
     variantModeDescritpion?: boolean
     width?: string
+    tagColor?: string
+    darkMode?: boolean
 }
 
 type ISelectedValue = {
@@ -56,53 +59,84 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         searchTerm,
         hiddenAddAll,
         variantModeDescritpion,
-        width
+        width,
+        listItems,
+        selectedDefault,
+        getSelectedItems,
+        onSearch,
+        tagColor,
+        darkMode
     } = props
+    
     const [selectedValues, setSelectedValues] = useState<ISelectedValue>([])
     const [textFilter, setTextFilter] = useState(searchTerm || '')
-    const [listItemsFilter, setListItemsFilter] = useState<ISelectedValue>(props.listItems)
+    const [listItemsFilter, setListItemsFilter] = useState<ISelectedValue>(listItems)
     const [showModal, setShowModal] = useState(false)
     const [listFilterSearch, setListFilterSearch] = useState<any>()
     const [lazyLoading, setLazyLoading] = useState(false)
     const [lazyItems, setLazyItems] = useState([])
     const loadLazyTimeout = useRef(null)
 
+    // Atualiza a lista de itens quando props.listItems muda
     useEffect(() => {
-        setListFilterSearch(props.listItems)
-    }, [props.listItems])
+        if (listItems) {
+            setListItemsFilter(listItems)
+            setListFilterSearch(listItems)
+        }
+    }, [listItems])
 
+    // Atualiza o termo de busca quando searchTerm muda
     useEffect(() => {
-        setTextFilter(searchTerm || '')
+        if (searchTerm !== undefined) {
+            setTextFilter(searchTerm || '')
+        }
     }, [searchTerm])
 
+    // Filtra os itens quando useTextFilter está ativado
     useEffect(() => {
-        if (!useTextFilter) return
+        if (!useTextFilter || !listItemsFilter) return
 
-        let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter.toLowerCase()))
+        const temp = listItemsFilter.filter((resp) => 
+            resp.name.toLowerCase().includes(textFilter.toLowerCase())
+        )
         setListFilterSearch(temp)
-    }, [textFilter])
+    }, [textFilter, listItemsFilter, useTextFilter])
 
+    // Inicializa valores selecionados com selectedDefault
     useEffect(() => {
-        if (props.selectedDefault) {
-            setSelectedValues(props?.selectedDefault)
+        if (selectedDefault) {
+            setSelectedValues(selectedDefault)
         }
-    }, [props?.selectedDefault])
+    }, [selectedDefault])
+
+    // Notifica o componente pai sobre alterações nos valores selecionados
+    // Envolvendo em um useCallback para evitar loops infinitos
+    const notifySelectedItemsChange = useCallback(() => {
+        if (getSelectedItems) {
+            getSelectedItems(selectedValues)
+        }
+    }, [selectedValues])
 
     useEffect(() => {
-        setListItemsFilter(props.listItems)
-    }, [props.listItems])
-
-    useEffect(() => {
-        props.getSelectedItems(selectedValues)
+        notifySelectedItemsChange()
     }, [selectedValues])
 
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
-            prev = [...prev]
-            const index = prev.map((value) => value.id).indexOf(id)
-            prev.splice(index, 1)
-            return prev
+            const newValues = [...prev]
+            const index = newValues.map((value) => value.id).indexOf(id)
+            if (index !== -1) {
+                newValues.splice(index, 1)
+            }
+            return newValues
         })
+    }
+
+    const handleSearchChange = (value) => {
+        setTextFilter(value)
+        if (onSearch) {
+            onSearch(value)
+        }
     }
 
     const itemTemplate = (item) => {
@@ -114,7 +148,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
 
         return (
             <TooltipV2 style={{ maxWidth: '275px' }} content={fullText}>
-                <S.selectItem id="select-items" width={width}>
+                <S.selectItem id="select-items" width={width} darkMode={darkMode}>
                     {canShowAvatar &&
                         (item?.isVariant ? <ExternalAvatar /> : <Avatar src={item?.avatar} size="24px" />)}
                     <S.TextContainer>
@@ -135,46 +169,54 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     }
 
     const selectTemplate = (option) => {
+        if (!option || option.length === 0) return <></>
+
         const pessoasAMais = selectedValues?.length - props.maxSelectedShow
-        if (option) {
-            return (
-                <>
-                    {option.map((item, index) => {
-                        if (index < props.maxSelectedShow) {
-                            return props.optionLayout ? (
-                                props.optionLayout(item)
-                            ) : (
-                                <S.selectTag key={index} id="tag-container" isVariant={!!item?.isVariant}>
-                                    {canShowAvatar &&
-                                        (item?.isVariant ? (
-                                            externaAvatarBackgroundWhite
-                                        ) : (
-                                            <Avatar src={item?.avatar} size="24px" />
-                                        ))}
-                                    <p> {item?.name} </p>
-                                    <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>
-                                        <CloseIcon width="8" height="8" fill="#FFFFFF" />
-                                    </IconButton>
-                                </S.selectTag>
-                            )
-                        } else if (index === props?.maxSelectedShow) {
-                            return (
-                                <S.overShowInfo key={index} onClick={() => setShowModal(true)} id="number-people">
-                                    <p>{`+ ${pessoasAMais} ${pessoasAMais > 1 ? props?.people : props?.person}`}</p>
-                                </S.overShowInfo>
-                            )
-                        }
-                    })}
-                </>
-            )
-        } else {
-            return <></>
-        }
+        
+        return (
+            <>
+                {option.map((item, index) => {
+                    if (index < props.maxSelectedShow) {
+                        return props.optionLayout ? (
+                            props.optionLayout(item)
+                        ) : (
+                            <S.SelectTag key={index} id="tag-container" isVariant={!!item?.isVariant} tagColor={tagColor}>
+                                {canShowAvatar &&
+                                    (item?.isVariant ? (
+                                        externaAvatarBackgroundWhite
+                                    ) : (
+                                        <Avatar src={item?.avatar} size="24px" />
+                                    ))}
+                                <p> {item?.name} </p>
+                                <IconButton id="close-icon" onClick={() => removeSelectedValue(item.id)}>
+                                    <CloseIcon width="8" height="8" fill="#FFFFFF" />
+                                </IconButton>
+                            </S.SelectTag>
+                        )
+                    } else if (index === props?.maxSelectedShow) {
+                        return (
+                            <S.overShowInfo key={index} onClick={() => setShowModal(true)} id="number-people" darkMode={darkMode}>
+                                <p>{`+ ${pessoasAMais} ${pessoasAMais > 1 ? props?.people : props?.person}`}</p>
+                            </S.overShowInfo>
+                        )
+                    }
+                    return null
+                })}
+            </>
+        )
+    }
+
+    const handleSelectAll = () => {
+        if (!listFilterSearch) return
+        
+        setSelectedValues((prev) => {
+            const currentIds = new Set(prev.map(item => item.id))
+            const newItems = listFilterSearch.filter(value => !currentIds.has(value.id))
+            return [...prev, ...newItems]
+        })
     }
 
     const handleTemplateHeader = () => {
-        const selectedItems = selectedValues
-        const lengthList = selectedItems ? selectedItems?.length : 0
         return (
             <S.searchAndButton>
                 <div style={{ marginBottom: hiddenAddAll ? '0rem' : '1rem' }}>
@@ -185,28 +227,18 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         isButton
                         hasSearchIcon={true}
                         value={textFilter}
-                        onChange={(e: any) => {
-                            props.onSearch(e.target.value)
-                            setTextFilter(e.target.value)
-                        }}
+                        onChange={(e: any) => handleSearchChange(e.target.value)}
+                        darkMode={darkMode}
                     />
                 </div>
-                {props.listItems?.length > 0 && !hiddenAddAll ? (
+                {listFilterSearch?.length > 0 && !hiddenAddAll ? (
                     <Button
                         id="select-all"
                         variant={'link'}
                         label={props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos'}
                         disabled={false}
-                        handleClick={() => {
-                            setSelectedValues([
-                                ...selectedValues,
-                                ...listFilterSearch.filter((value) => {
-                                    if (!selectedValues.find((item) => item.id === value.id)) {
-                                        return value
-                                    }
-                                })
-                            ])
-                        }}
+                        handleClick={handleSelectAll}
+                        style={{color: darkMode && '#F26818'}}
                     />
                 ) : (
                     <></>
@@ -216,12 +248,13 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     }
 
     const selectValuesModal = () => {
+        if (!selectedValues || !showModal) return null
+        
         return (
             <Modal open={showModal} onClose={() => setShowModal(false)}>
                 <S.modalContainer id="container-modal">
                     <S.modalHeader id="header-people">
                         <p>
-                            {' '}
                             {props.modalTitle ? props.modalTitle : 'Este grupo é administrado por'}{' '}
                             {selectedValues.length} {selectedValues.length > 1 ? props.people : props.person}{' '}
                         </p>
@@ -250,7 +283,6 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                     >
                                         <Trash fill="#A50000" width="24" height="24" />
                                         <S.cardTitle style={{ color: '#A50000' }}>
-                                            {' '}
                                             {props?.removeModalText ? props.removeModalText : 'Remover'}{' '}
                                         </S.cardTitle>
                                     </div>
@@ -289,15 +321,40 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
         }, Math.random() * 500 + 250)
     }
 
+    const renderVirtualScrollerOptions = () => {
+        if (!props.activeLazyLoad) return null
+
+        return {
+            lazy: true,
+            onLazyLoad: onLazyLoad,
+            itemSize: 50,
+            showLoader: true,
+            loading: lazyLoading,
+            delay: 100,
+            loadingTemplate: (option) => (
+                <div
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        padding: 2,
+                        height: '50px'
+                    }}
+                >
+                    <Skeleton width={option.even ? '70%' : '60%'} height={'2rem'} />
+                </div>
+            )
+        }
+    }
+
     return (
         <ThemeProvider theme={FRSTTheme}>
             <S.containerSelect style={{ ...props.style }} id="container-select">
                 {selectedValues?.length > 0 && (
-                    <S.headerSelect>
+                    <S.headerSelect darkMode={darkMode}>
                         {selectTemplate(selectedValues)}
 
                         {selectedValues?.length > 1 && (
-                            <div style={{ zIndex: 999, position: 'absolute', right: 40 }} id="remove-all-selected">
+                            <div style={{ zIndex: '1', position: 'absolute', right: 40 }} id="remove-all-selected">
                                 <Tooltip
                                     content={props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos'}
                                     direction="bottom"
@@ -305,26 +362,27 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                                     style={{ height: 'auto' }}
                                 >
                                     <IconButton onClick={() => setSelectedValues([])}>
-                                        <Trash fill="#9C9C9C" />
+                                        <Trash fill={darkMode ? "#757575" : "#9C9C9C"} />
                                     </IconButton>
                                 </Tooltip>
                             </div>
                         )}
                     </S.headerSelect>
                 )}
-                <S.customSelect onClick={() => setTextFilter('')}>
+                <S.customSelect onClick={() => textFilter !== '' && setTextFilter('')} darkMode={darkMode}>
                     <MultiSelect
                         id="list-selected"
                         panelStyle={{
                             display: props.isModalOpen !== undefined ? (props.isModalOpen ? 'block' : 'none') : 'block',
-                            background: '#fff'
+                            background: darkMode ? '#323232' : '#fff'
                         }}
                         value={selectedValues}
                         options={listFilterSearch}
                         onChange={(e) => setSelectedValues(e.value)}
                         placeholder={props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui'}
                         className="custom-multiselect"
-                        dropdownIcon={<DropdownIcon fill={FRSTTheme['colors'].shadeBlack} />}
+                        panelClassName={darkMode ? 'custom-darkMode-dropdown' : 'custom-dropdown'}
+                        dropdownIcon={<DropdownIcon fill={darkMode ? FRSTTheme['colors'].neutralsGrey3 : FRSTTheme['colors'].shadeBlack} />}
                         panelHeaderTemplate={handleTemplateHeader()}
                         itemTemplate={itemTemplate}
                         disabled={props.isDisabled}
@@ -334,35 +392,17 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                             border:
                                 selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}`
                         }}
-                        virtualScrollerOptions={
-                            !props.activeLazyLoad
-                                ? null
-                                : {
-                                      lazy: true,
-                                      onLazyLoad: onLazyLoad,
-                                      itemSize: 50,
-                                      showLoader: true,
-                                      loading: lazyLoading,
-                                      delay: 100,
-                                      loadingTemplate: (option) => {
-                                          return (
-                                              <div
-                                                  style={{
-                                                      display: 'flex',
-                                                      alignItems: 'center',
-                                                      padding: 2,
-                                                      height: '50px'
-                                                  }}
-                                              >
-                                                  <Skeleton width={option.even ? '70%' : '60%'} height={'2rem'} />
-                                              </div>
-                                          )
-                                      }
-                                  }
-                        }
+                        virtualScrollerOptions={renderVirtualScrollerOptions()}
+                        pt={{
+                            item: {
+                                style: {
+                                    borderColor: darkMode && '#444444'
+                                }
+                            }
+                        }}
                     />
                 </S.customSelect>
-                {selectedValues && selectValuesModal()}
+                {selectValuesModal()}
             </S.containerSelect>
         </ThemeProvider>
     )

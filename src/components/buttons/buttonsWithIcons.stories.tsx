@@ -18,7 +18,18 @@ primary.args = {
     label: 'Button text',
     disabled: false,
     startIcon: <Icons.ChangeAccount />,
+    handleClick: () => { alert('Click') }
+}
+
+export const buttonColors = Template.bind({})
+buttonColors.args = {
+    variant: 'primary',
+    label: 'Button text',
+    disabled: false,
+    startIcon: <Icons.ChangeAccount />,
     handleClick: () => { alert('Click') },
+    backgroundColor: '#2457E3'
+
 }
 
 export const secondary = Template.bind({})

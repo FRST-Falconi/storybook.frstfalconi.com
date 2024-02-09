@@ -47,7 +47,7 @@ export default function MenuMore({
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
         >
-          {iconButton ? iconButton : <MoreDotsVertical fill="#444" />}
+          {iconButton ? iconButton : <MoreDotsVertical fill={isDarkMode ? "#EBEBEB" : "#444"} />}
         </ButtonMore>
         {listOptions && listOptions?.length > 0 && (
           <MenuCustom

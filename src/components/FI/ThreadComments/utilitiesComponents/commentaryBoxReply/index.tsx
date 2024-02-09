@@ -37,13 +37,19 @@ export const CommentaryBoxReply = ({
   answersText,
   toViewText,
   answerText,
-  threadOpenByDefault
+  threadOpenByDefault,
+  darkMode,
+  toHideText
 }: ICommentComentaryBoxReply) => {
   const [showAnswers, setShowAnswers] = useState(threadOpenByDefault)
   const [showReplyInput, setShowReplyInput] = useState(false)
 
   const handleLoadMoreReplies = () => {
     setShowAnswers(true)
+  }
+
+  const handleHideReplies = () => {
+    setShowAnswers(false)
   }
 
   return (
@@ -85,11 +91,21 @@ export const CommentaryBoxReply = ({
         showLikeButton={true}
         likeButtonText={likeButtonText}
         showInterconnectionLine={replies.length > 0 && showAnswers}
+        darkMode={darkMode}
+        isLiked={commentData?.isLiked}
+        totalLikes={commentData?.totalLikes}
       />
 
       {replies.length > 0 && !showAnswers && (
-        <ViewReplysButtonContainer style={{ left: '44px' }}>
+        <ViewReplysButtonContainer style={{ left: '44px' }} darkMode={darkMode}>
           <span onClick={handleLoadMoreReplies}>{`${toViewText} ${replies.length} ${
+            replies.length === 1 ? answerText : answersText
+          }`}</span>
+        </ViewReplysButtonContainer>
+      )}
+      {replies.length > 0 && showAnswers && toHideText && (
+        <ViewReplysButtonContainer style={{ left: '44px' }} darkMode={darkMode}>
+          <span onClick={handleHideReplies}>{`${toHideText} ${replies.length} ${
             replies.length === 1 ? answerText : answersText
           }`}</span>
         </ViewReplysButtonContainer>
@@ -110,6 +126,7 @@ export const CommentaryBoxReply = ({
           handleHiddenInput={() => setShowReplyInput(false)}
           group_uuid={group_uuid}
           limitMessageExceeded={limitMessageExceeded}
+          darkMode={darkMode}
         />
       )}
       {showAnswers &&
@@ -151,6 +168,9 @@ export const CommentaryBoxReply = ({
               showOptions={isAuthor || isOwnerPost || reply.user?.uuid === loggedInUser?.id || isGoalOwner}
               imgProfile={reply.user?.avatar}
               showInterconnectionLine={replies.length != index + 1}
+              darkMode={darkMode}
+              isLiked={reply?.isLiked}
+              totalLikes={reply?.totalLikes}
             />
           </>
         ))}

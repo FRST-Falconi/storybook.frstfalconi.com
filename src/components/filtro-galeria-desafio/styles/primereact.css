@@ -6520,7 +6520,7 @@ input.p-dropdown-label {
 
 .p-multiselect-panel .p-multiselect-items-wrapper .p-multiselect-items .p-multiselect-item.p-highlight {
   color: #525960;
-  background: #ffffff !important;
+  background: #ffffff;
 }
 
 .p-multiselect-panel .p-multiselect-items-wrapper::-webkit-scrollbar {

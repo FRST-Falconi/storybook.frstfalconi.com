@@ -42,6 +42,7 @@ interface IFeedInteraction {
     handleClickTextTotalViews?: () => void
     isCommentV2?: boolean
     childrenCommentV2?: any
+    isVisibleAvaliations?: boolean
 }
 
 export default function FeedInteraction(props: IFeedInteraction) {
@@ -97,6 +98,8 @@ export default function FeedInteraction(props: IFeedInteraction) {
         setRatingPostReview(value)
         props?.handlePostReviewChange(value)
     }
+
+    const { isVisibleAvaliations = true } = props;
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -185,9 +188,11 @@ export default function FeedInteraction(props: IFeedInteraction) {
                             <Icons.TalkIcon fill={'currentColor'} /> {props.textComments}
                         </Styles.buttons>
                     )}
-                    <Styles.buttons onClick={OnReviewClick} style={{ color: '#444' }}>
-                        <Icons.StarOutlined2 fill={'currentColor'} /> {props.textAvaluation}
-                    </Styles.buttons>
+                    {isVisibleAvaliations && (
+                        <Styles.buttons onClick={OnReviewClick} style={{ color: '#444' }}>
+                            <Icons.StarOutlined2 fill={'currentColor'} /> {props.textAvaluation}
+                        </Styles.buttons>
+                    )}
                 </Styles.buttonsContent>
 
                 {openReview && (

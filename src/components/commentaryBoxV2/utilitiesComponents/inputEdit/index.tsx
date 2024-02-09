@@ -19,7 +19,8 @@ export const InputEdit = ({
   limitMessageExceeded,
   commentId,
   group_uuid,
-  setIsModeEdit
+  setIsModeEdit,
+  darkMode
 }: IInputEdit) => {
   const [comment, setComment] = useState<string>(commentText)
   const [CaptureFormattedValue, setCaptureFormattedValue] = useState<string>(commentTextWithMention)
@@ -75,12 +76,14 @@ export const InputEdit = ({
           group_uuid={group_uuid}
           limitMessageExceeded={limitMessageExceeded}
           initialText={CaptureFormattedValue || comment}
+          darkMode={darkMode}
+          showEmojiPicker={darkMode}
         />
       </Styled.InputContainer>
       <Styled.ButtonsContainer>
-        <MiniButton label={cancelButtonText} onClick={() => setIsModeEdit(false)} variant={'secondary'} />
+        <MiniButton darkMode={darkMode} label={cancelButtonText} onClick={() => setIsModeEdit(false)} variant={'secondary'} />
 
-        <Styled.SpanText>{orText}</Styled.SpanText>
+        <Styled.SpanText darkMode={darkMode}>{orText}</Styled.SpanText>
 
         <MiniButton
           disabled={comment.length <= 0 || comment.length > limitInput || isLoading}

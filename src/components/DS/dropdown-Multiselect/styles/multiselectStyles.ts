@@ -19,7 +19,7 @@ export const containerSelect = styled.div<{ width?: string }>`
     }
 `
 
-export const headerSelect = styled.div`
+export const headerSelect = styled.div<{darkMode?:boolean}>`
     display: inline-flex;
     flex-wrap: wrap;
     align-items: center;
@@ -27,8 +27,8 @@ export const headerSelect = styled.div`
     overflow: hidden;
     /* position: absolute; */
     /* z-index: 999; */
-    background: ${(props) => props.theme.colors.shadeWhite};
-    border: 1px solid ${(props) => props.theme.colors.borderPrimary};
+    background: ${(props) => props.darkMode ? '#272727' : props.theme.colors.shadeWhite};
+    border: 1px solid ${(props) => props.darkMode ? props.theme.colors.neutralsGrey2 : props.theme.colors.borderPrimary};
     border-radius: 8px;
     min-height: 48px;
     display: flex;
@@ -36,7 +36,7 @@ export const headerSelect = styled.div`
     padding: 8px 52px 8px 10px;
 `
 
-export const customSelect = styled.div`
+export const customSelect = styled.div<{darkMode?: boolean}>`
     & .custom-multiselect {
         background: transparent;
         /* background: ${(props) => props.theme.colors.shadeWhite}; */
@@ -61,11 +61,6 @@ export const customSelect = styled.div`
             line-height: 18.12px;
         }
 
-        .p-multiselect-items {
-            display: flex;
-            width: 100%;
-        }
-
         .p-multiselect-label-container {
             display: flex;
             align-items: center;
@@ -84,7 +79,7 @@ export const searchAndButton = styled.div`
     flex-direction: column;
 `
 
-export const selectItem = styled.div<{ width?: string }>`
+export const selectItem = styled.div<{ width?: string, darkMode?: boolean }>`
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -92,7 +87,7 @@ export const selectItem = styled.div<{ width?: string }>`
     font-size: 16px;
     font-weight: 400;
     width: ${({ width }) => (width ? width : '600px')};
-    color: ${(props) => props.theme.colors.neutralsGrey1};
+    color: ${(props) => props.darkMode ? props.theme.colors.shadeWhite : props.theme.colors.neutralsGrey1};
 `
 
 export const TextContainer = styled.div`
@@ -102,19 +97,19 @@ export const TextContainer = styled.div`
     max-width: 100%;
 `
 
-export const selectTag = styled.div<{ isVariant?: boolean }>`
+export const SelectTag = styled.div<{ isVariant?: boolean, tagColor?: string }>`
     display: inline-flex;
     align-items: center;
     min-height: 32px;
-    background: ${({ isVariant }) => (isVariant ? '#6A3F86' : '#00828c')};
+    background: ${({ isVariant, tagColor }) => (tagColor ? tagColor : isVariant ? '#6A3F86' : '#00828c')};
     border-radius: 4px;
     gap: 8px;
     padding: 4px 8px;
     margin: 5px 10px 5px 0;
-    z-index: 999;
+    z-index: 1;
 
     :hover {
-        background: ${({ isVariant }) => (isVariant ? '#6A3F86' : '#1f6e74')};
+        background: ${({ isVariant, tagColor }) => (tagColor ? tagColor : isVariant ? '#6A3F86' : '#1f6e74')};
     }
 
     & > p {
@@ -132,15 +127,15 @@ export const selectTag = styled.div<{ isVariant?: boolean }>`
     }
 `
 
-export const overShowInfo = styled.div`
+export const overShowInfo = styled.div<{darkMode?: boolean}>`
     height: 32px;
     padding: 4px 8px;
     margin: 5px 10px 5px 0;
-    z-index: 999;
+    z-index: 1;
     cursor: pointer;
 
     & :hover {
-        color: ${(props) => props.theme.colors.neutralsGrey1};
+        color: ${(props) => props.darkMode ? props.theme.colors.shadeWhite : props.theme.colors.neutralsGrey1};
     }
 
     & > p {
@@ -149,7 +144,7 @@ export const overShowInfo = styled.div`
         font-weight: 700;
         line-height: 18.12px;
         text-align: center;
-        color: ${(props) => props.theme.colors.neutralsGrey2};
+        color: ${(props) => props.darkMode ? props.theme.colors.neutralsGrey6 : props.theme.colors.neutralsGrey2};
     }
 `
 

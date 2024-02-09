@@ -10,4 +10,5 @@ export interface IMiniButton {
     styles?: React.CSSProperties
     active?: boolean
     tooltipText?: string
+    darkMode?: boolean
 }

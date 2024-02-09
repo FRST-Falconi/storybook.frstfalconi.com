@@ -4,13 +4,13 @@ import { MentionProps } from './types';
 import { useMentions } from './useMentions';
 export const Mentions = (mention: MentionProps) => {
   const { selectedUser, setSelectedUser, mentionListRef } = useMentions(mention);
-  const { top, users } = mention;
+  const { top, users, darkMode } = mention;
 
 
 
   return (
     <>
-      <Container top={top} tabIndex={0} hide={!users || users.length <= 0}>
+      <Container top={top} tabIndex={0} hide={!users || users.length <= 0} darkMode={darkMode}>
         <MentionList tabIndex={1} ref={mentionListRef}>
           {users?.map((user, index) => {
             return (
@@ -24,12 +24,13 @@ export const Mentions = (mention: MentionProps) => {
                     setSelectedUser(user)
                   }
                 }}
+                darkMode={darkMode}
               >
                 {!!user.profile.avatar && !!user.profile.avatar.length ? <MentionAvatar src={user.profile.avatar} /> : <DefaultAvatar><DefaultProfile /></DefaultAvatar>}
                 <MentionUserContainer>
-                  <MentionUserName>{user.name}</MentionUserName>
-                  <MentionSubTitleContainer>
-                    <MentionSubTitleText>{user.profile.role_name} <Circle /><CompanyName>{user.profile.company_name}</CompanyName></MentionSubTitleText>
+                  <MentionUserName darkMode={darkMode}>{user.name}</MentionUserName>
+                  <MentionSubTitleContainer darkMode={darkMode}>
+                    <MentionSubTitleText>{user.profile.role_name} <Circle darkMode={darkMode} /><CompanyName>{user.profile.company_name}</CompanyName></MentionSubTitleText>
                   </MentionSubTitleContainer>
                 </MentionUserContainer>
               </MentionItem>
