@@ -11,6 +11,9 @@ export const PopoverCustom = styled(Popover)`
     -webkit-box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.47);
     -moz-box-shadow: 0px 25px 62px -19px rgba(0, 0, 0, 0.47);
   }
+  margin-top:24px;
+  box-shadow: 0px 0px 10px 0px #00000033;
+
 `
 
 export const notificationContainer = styled.div`
@@ -55,6 +58,7 @@ export const notificationHeader = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderPrimary};
   width: 100%;
 `
+
 
 export const notificationCardList = styled.div<NotificationListProps>`
   height: 100%;
