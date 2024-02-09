@@ -5,7 +5,6 @@ import { FRSTTheme } from '../../../theme'
 import NotificationCard from '../notificationCard'
 import * as Styles from './notificationPopOverStyles'
 import { BackArrow, MoreDotsVertical } from '@shared/icons'
-import { useState } from 'react'
 import imgNotification from '../../../../public/img/Nonotification.png'
 import MenuMore from '@components/menu-more'
 

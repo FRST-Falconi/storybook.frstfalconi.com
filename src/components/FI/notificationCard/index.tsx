@@ -48,7 +48,7 @@ export default function NotificationCard(props: INotificationCard) {
   const handleDelete = async () => {
     try {
       setIsLoading(true)
-      await props.handleClickDelete()
+      await Promise.resolve(props.handleClickDelete())
     } catch (error) {
       console.error('Error deleting notification', error)
     } finally {

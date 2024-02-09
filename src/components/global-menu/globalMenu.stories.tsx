@@ -19,6 +19,15 @@ export default {
   }
 }
 
+const handleClickDelete = () => {
+  return new Promise<void>((resolve) => {
+    setTimeout(() => {
+      alert('Notificação deletada!')
+      resolve()
+    }, 3000) // 3000 milissegundos = 3 segundos
+  })
+}
+
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <GlobalMenu {...args} />
 
@@ -133,7 +142,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => handleClickDelete()
       },
       {
         notificationAvatar:
