@@ -47,3 +47,16 @@ export const PopOverVisitProfile = styled.div`
     padding: 10px;
     z-index: 1000;
 `
+
+export const TrashIconContainer = styled.div`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: auto;
+    margin-top: auto;
+    border-radius: 50%;
+    &:hover {
+        background-color: #ffff;
+    }
+`

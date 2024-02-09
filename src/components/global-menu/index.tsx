@@ -206,7 +206,6 @@ export default function GlobalMenu({
             customMenu={customMenu}
           />
           <div style={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-
             <Styles.MenuContainer
               variant={variant}
               style={{
@@ -346,6 +345,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     </div>
                   )}
@@ -404,6 +405,8 @@ export default function GlobalMenu({
                           setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                           textBack={notification.textBack}
                           handleClickBack={() => handleCloseNotification()}
+                          textDeleteAll={notification.textDeleteAll}
+                          handleClickDeleteAll={notification.handleClickDeleteAll}
                         />
                       ) : null}
                     </Styles.WrapperIconNotificationMobile>
@@ -493,6 +496,8 @@ export default function GlobalMenu({
               setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
               textBack={notification.textBack}
               handleClickBack={() => handleCloseNotification()}
+              textDeleteAll={notification.textDeleteAll}
+              handleClickDeleteAll={notification.handleClickDeleteAll}
             />
           ) : null}
         </>
@@ -517,8 +522,16 @@ export default function GlobalMenu({
             <Styles.MenuContainer
               variant={variant}
               style={{
-                paddingRight: windowSize[0] > 1400 ? '70px' : windowSize[0] > 1199 ? '50px' : windowSize[0] < 500 ? '10px' : '35px',
-                paddingLeft: windowSize[0] > 1400 ? '170px' : windowSize[0] > 1199 ? '145px' : windowSize[0] < 500 ? '10px' : '35px',
+                paddingRight:
+                  windowSize[0] > 1400 ? '70px' : windowSize[0] > 1199 ? '50px' : windowSize[0] < 500 ? '10px' : '35px',
+                paddingLeft:
+                  windowSize[0] > 1400
+                    ? '170px'
+                    : windowSize[0] > 1199
+                    ? '145px'
+                    : windowSize[0] < 500
+                    ? '10px'
+                    : '35px',
                 ...style
               }}
             >
@@ -644,8 +657,7 @@ export default function GlobalMenu({
                           justifyContent: 'flex-start',
                           alignItems: 'center',
                           flexDirection: 'row-reverse',
-                          width:'140px',
-
+                          width: '140px'
                         }}
                         onClick={handleOpenNotification}
                       >
@@ -655,7 +667,7 @@ export default function GlobalMenu({
                             <HasNotificationIcon />
                           </div>
                         ) : null}{' '}
-                        <Styles.WrapperIconNotificationText>{textNotification}</Styles.WrapperIconNotificationText> 
+                        <Styles.WrapperIconNotificationText>{textNotification}</Styles.WrapperIconNotificationText>
                       </span>
                       <NotificationPopOver
                         handleClickMarkRead={notification.handleClickMarkRead}
@@ -669,6 +681,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     </Styles.WrapperIconNotification>
                   </>
@@ -706,6 +720,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     ) : null}
                   </Styles.WrapperIconNotificationMobile>
@@ -743,6 +759,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     ) : null}
                   </Styles.WrapperIconNotificationMobile>
@@ -762,10 +780,10 @@ export default function GlobalMenu({
                   }}
                 />
                 {showHelp && (
-                    <Styles.help onClick={onClickHelp}>
-                      <Styles.helpText>Ajuda</Styles.helpText>
-                      {<HelpIcon />}
-                    </Styles.help>
+                  <Styles.help onClick={onClickHelp}>
+                    <Styles.helpText>Ajuda</Styles.helpText>
+                    {<HelpIcon />}
+                  </Styles.help>
                 )}
 
                 {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
@@ -793,6 +811,8 @@ export default function GlobalMenu({
               setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
               textBack={notification.textBack}
               handleClickBack={() => handleCloseNotification()}
+              textDeleteAll={notification.textDeleteAll}
+              handleClickDeleteAll={notification.handleClickDeleteAll}
             />
           ) : null}
         </>

@@ -14,10 +14,12 @@ type notificationCard = {
   notificationDescription: string
   isNewNotification: boolean
   notificationDate: string
+  id: string
 
   textNew: string
 
   handleClick: () => void
+  handleClickDelete: () => void
   onClickUserInfo?: () => void
   textVisitProfile?: string
 }
@@ -27,6 +29,7 @@ interface INotificationPopOver {
   textBack: string
   textNotification: string
   textMarkAllAsRead: string
+  textDeleteAll: string
   textEmptyState: string
 
   isOpen: boolean
@@ -34,6 +37,7 @@ interface INotificationPopOver {
   isMobile: boolean
 
   handleClickMarkRead: () => void
+  handleClickDeleteAll: () => void
   setOnAreaPopOver?: (e) => void
   handleClickBack: () => void
 }
@@ -49,6 +53,13 @@ export default function NotificationPopOver(props: INotificationPopOver) {
     description: props.textMarkAllAsRead,
     onClick: props.handleClickMarkRead,
     color: props.notificationList ? '#FCFCFC' : '#9C9C9C',
+    disabled: !props.notificationList
+  }
+
+  const deleteAllNotificationsOption = {
+    description: props.textDeleteAll,
+    onClick: props.handleClickDeleteAll,
+    color: props.notificationList ? '#FF6868' : '#9C9C9C',
     disabled: !props.notificationList
   }
 
@@ -72,7 +83,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                 {props.textNotification}
               </span>
               <MenuMore
-                options={[markAllAsReadOption]}
+                options={[markAllAsReadOption, deleteAllNotificationsOption]}
                 isHover={false}
                 closeAfterClick={true}
                 isArrowInMenu={false}
@@ -96,6 +107,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                         textNew={item.textNew}
                         isNewNotification={item.isNewNotification}
                         handleClick={item.handleClick}
+                        handleClickDelete={item.handleClickDelete}
                         key={index}
                       />
                     </div>
@@ -161,7 +173,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                 {props.textNotification}
               </span>
               <MenuMore
-                options={[markAllAsReadOption]}
+                options={[markAllAsReadOption, deleteAllNotificationsOption]}
                 isHover={false}
                 closeAfterClick={true}
                 isArrowInMenu={false}
@@ -189,6 +201,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                         textNew={item.textNew}
                         isNewNotification={item.isNewNotification}
                         handleClick={item.handleClick}
+                        handleClickDelete={item.handleClickDelete}
                         key={index}
                       />
                     </div>

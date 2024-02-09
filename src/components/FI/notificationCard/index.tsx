@@ -5,6 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './notificationCardStyles'
 import Tooltip from '@components/LXP/tooltip'
+import { SmallTrash } from '@public/customIcons'
 
 interface INotificationCard {
   notificationAvatar: string
@@ -17,6 +18,7 @@ interface INotificationCard {
   style?: React.CSSProperties
 
   handleClick: () => void
+  handleClickDelete: () => void
   onClickUserInfo?: () => void
 }
 
@@ -43,7 +45,6 @@ export default function NotificationCard(props: INotificationCard) {
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.notificationContainer
-        onClick={props.handleClick}
         style={{
           ...props.style,
           backgroundColor: props.isNewNotification ? '#444444' : '#313131'
@@ -63,7 +64,7 @@ export default function NotificationCard(props: INotificationCard) {
         ) : (
           <Avatar src={props.notificationAvatar} size="40px" isActiveClick={false} />
         )}
-        <Styles.notificationInfo>
+        <Styles.notificationInfo onClick={props.handleClick}>
           <Styles.notificationDescription>
             <Markdown>{descriptionNotification}</Markdown>
           </Styles.notificationDescription>
@@ -77,6 +78,9 @@ export default function NotificationCard(props: INotificationCard) {
             <Styles.notificationDate>{props.notificationDate}</Styles.notificationDate>
           )}
         </Styles.notificationInfo>
+        <Styles.TrashIconContainer>
+          <SmallTrash />
+        </Styles.TrashIconContainer>
       </Styles.notificationContainer>
     </ThemeProvider>
   )

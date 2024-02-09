@@ -122,6 +122,7 @@ normal.args = {
     hasNewNotification: false,
     textNotification: 'Notificações',
     textMarkAllAsRead: 'Marcar todas como lidas',
+    textDeleteAll: 'Excluir todas',
     textEmptyState: 'No momento você não tem notificações.',
     notificationList: [
       {
