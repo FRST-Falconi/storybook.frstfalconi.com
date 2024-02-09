@@ -94,7 +94,7 @@ export default function NotificationCard(props: INotificationCard) {
             <Styles.notificationDate>{props.notificationDate}</Styles.notificationDate>
           )}
         </Styles.notificationInfo>
-        <Styles.TrashIconContainer isNewNotification={props.isNewNotification} onClick={handleDelete}>
+        <Styles.TrashIconContainer isNewNotification={props.isNewNotification} onClick={() => handleDelete()}>
           <SmallTrash />
         </Styles.TrashIconContainer>
       </Styles.notificationContainer>
