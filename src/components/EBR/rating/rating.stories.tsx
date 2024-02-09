@@ -20,7 +20,7 @@ DefaultRating.args = {
   sizeStars: 18,
   marginStars: '3.5px',
   orientation: 'horizontal',
-  handleRating: (e) => alert(e)
+  handleRating: (e) => console.log(e)
 }
 
 export const VariantRating = Template.bind({})
