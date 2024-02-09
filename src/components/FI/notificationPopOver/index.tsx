@@ -18,7 +18,7 @@ type notificationCard = {
   textNew: string
 
   handleClick: () => void
-  handleClickDelete: () => void
+  handleClickDelete: () => Promise<void>
   onClickUserInfo?: () => void
   textVisitProfile?: string
 }

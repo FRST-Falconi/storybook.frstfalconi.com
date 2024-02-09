@@ -19,7 +19,7 @@ interface INotificationCard {
   style?: React.CSSProperties
 
   handleClick: () => void
-  handleClickDelete: () => void
+  handleClickDelete: () => Promise<void>
   onClickUserInfo?: () => void
 }
 
@@ -48,11 +48,10 @@ export default function NotificationCard(props: INotificationCard) {
   const handleDelete = async () => {
     try {
       setIsLoading(true)
-      await Promise.resolve(props.handleClickDelete())
+      await props.handleClickDelete()
+      setIsLoading(false)
     } catch (error) {
       console.error('Error deleting notification', error)
-    } finally {
-      setIsLoading(false)
     }
   }
 
