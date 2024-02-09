@@ -14191,8 +14191,16 @@ function NotificationCard(props) {
     const handleDelete = async () => {
         try {
             setIsLoading(true);
+<<<<<<< HEAD
             props.handleClickDelete && (await props.handleClickDelete());
             setIsLoading(false);
+=======
+            props.handleClickDelete && props.handleClickDelete();
+            setTimeout(() => {
+                console.log('Deleted');
+                setIsLoading(false);
+            }, 5000);
+>>>>>>> d16760f5 (update)
         }
         catch (error) {
             console.error('Error deleting notification', error);

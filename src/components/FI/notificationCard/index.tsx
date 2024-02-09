@@ -9,112 +9,113 @@ import { SmallTrash } from '@public/customIcons'
 import Loading from '@components/DS/loading'
 
 interface INotificationCard {
-  notificationAvatar: string
-  notificationDescription: string
-  isNewNotification: boolean
-  notificationDate: string
-  textVisitProfile?: string
-  notificationHour: string
+    notificationAvatar: string
+    notificationDescription: string
+    isNewNotification: boolean
+    notificationDate: string
+    textVisitProfile?: string
+    notificationHour: string
 
-  textNew: string
-  style?: React.CSSProperties
+    textNew: string
+    style?: React.CSSProperties
 
-  handleClick: () => void
-  handleClickDelete: () => Promise<void>
-  onClickUserInfo?: () => void
+    handleClick: () => void
+    handleClickDelete: () => Promise<void>
+    onClickUserInfo?: () => void
 }
 
 const Divider = ({ fill = '#757575' }) => {
-  return (
-    <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="2.5" cy="2.5" r="2.5" fill={fill} />
-    </svg>
-  )
+    return (
+        <svg width="5" height="5" viewBox="0 0 5 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="2.5" cy="2.5" r="2.5" fill={fill} />
+        </svg>
+    )
 }
 
 export default function NotificationCard(props: INotificationCard) {
-  const [descriptionNotification, setDescriptionNotification] = useState(props.notificationDescription)
+    const [descriptionNotification, setDescriptionNotification] = useState(props.notificationDescription)
 
-  useEffect(() => {
-    setDescriptionNotification(props.notificationDescription)
-  }, [props.notificationDescription])
+    useEffect(() => {
+        setDescriptionNotification(props.notificationDescription)
+    }, [props.notificationDescription])
 
-  const handleChildClick = (event: any) => {
-    event.stopPropagation()
-    props.onClickUserInfo && props.onClickUserInfo()
-  }
-
-  const [isloading, setIsLoading] = useState(false)
-
-  const handleDelete = async () => {
-    try {
-      setIsLoading(true)
-      props.handleClickDelete && (await props.handleClickDelete())
-      setIsLoading(false)
-    } catch (error) {
-      console.error('Error deleting notification', error)
+    const handleChildClick = (event: any) => {
+        event.stopPropagation()
+        props.onClickUserInfo && props.onClickUserInfo()
     }
-  }
 
-  return (
-    <ThemeProvider theme={FRSTTheme}>
-      <Styles.notificationContainer
-        style={{
-          ...props.style,
-          backgroundColor: props.isNewNotification ? '#444444' : '#313131'
-        }}
-      >
-        {!!props?.onClickUserInfo ? (
-          <Tooltip
-            position="right"
-            textTooltip={props?.textVisitProfile ? props?.textVisitProfile : 'Visitar Perfil'}
-            customWidth={'106px'}
-            customMarginLeft={'-30px'}
-          >
-            <div onClick={(e) => handleChildClick(e)}>
-              <Avatar src={props.notificationAvatar} size="40px" isActiveClick={true} />
-            </div>
-          </Tooltip>
-        ) : (
-          <Avatar src={props.notificationAvatar} size="40px" isActiveClick={false} />
-        )}
-        <Styles.notificationInfo onClick={props.handleClick}>
-          <Styles.notificationDescription>
-            <Markdown>{descriptionNotification}</Markdown>
-          </Styles.notificationDescription>
-          {props.isNewNotification ? (
-            <Styles.notificationDate style={{ color: FRSTTheme['colors'].primary1 }}>
-              <span style={{ fontWeight: 700 }}>{props.textNew}</span>
-              <Divider fill={FRSTTheme['colors'].primary1} />
-              {props.notificationHour ? (
-                <>
-                  <span>{props.notificationHour}</span>
-                  <Divider fill={props.isNewNotification ? FRSTTheme['colors'].primary1 : undefined} />
-                </>
-              ) : (
-                <></>
-              )}
-              {props.notificationDate}
-            </Styles.notificationDate>
-          ) : (
-            <Styles.notificationDate>
-              {props.notificationDate}
-              {props.notificationHour ? (
-                <>
-                  <Divider />
-                  <span>{props.notificationHour}</span>
-                </>
-              ) : (
-                <></>
-              )}
-            </Styles.notificationDate>
-          )}
-        </Styles.notificationInfo>
-        <Styles.TrashIconContainer isNewNotification={props.isNewNotification} onClick={() => handleDelete()}>
-          <SmallTrash />
-        </Styles.TrashIconContainer>
-      </Styles.notificationContainer>
-      {isloading && <Loading />}
-    </ThemeProvider>
-  )
+    const [isloading, setIsLoading] = useState(false)
+
+    const handleDelete = async () => {
+        try {
+            setIsLoading(true)
+            props.handleClickDelete && (await props.handleClickDelete())
+            setIsLoading(false)
+        } catch (error) {
+            console.error('Error deleting notification', error)
+        }
+    }
+    return (
+        <ThemeProvider theme={FRSTTheme}>
+            <Styles.notificationContainer
+                style={{
+                    ...props.style,
+                    backgroundColor: props.isNewNotification ? '#444444' : '#313131'
+                }}
+            >
+                {!!props?.onClickUserInfo ? (
+                    <Tooltip
+                        position="right"
+                        textTooltip={props?.textVisitProfile ? props?.textVisitProfile : 'Visitar Perfil'}
+                        customWidth={'106px'}
+                        customMarginLeft={'-30px'}
+                    >
+                        <div onClick={(e) => handleChildClick(e)}>
+                            <Avatar src={props.notificationAvatar} size="40px" isActiveClick={true} />
+                        </div>
+                    </Tooltip>
+                ) : (
+                    <Avatar src={props.notificationAvatar} size="40px" isActiveClick={false} />
+                )}
+                <Styles.notificationInfo onClick={props.handleClick}>
+                    <Styles.notificationDescription>
+                        <Markdown>{descriptionNotification}</Markdown>
+                    </Styles.notificationDescription>
+                    {props.isNewNotification ? (
+                        <Styles.notificationDate style={{ color: FRSTTheme['colors'].primary1 }}>
+                            <span style={{ fontWeight: 700 }}>{props.textNew}</span>
+                            <Divider fill={FRSTTheme['colors'].primary1} />
+                            {props.notificationHour ? (
+                                <>
+                                    <span>{props.notificationHour}</span>
+                                    <Divider
+                                        fill={props.isNewNotification ? FRSTTheme['colors'].primary1 : undefined}
+                                    />
+                                </>
+                            ) : (
+                                <></>
+                            )}
+                            {props.notificationDate}
+                        </Styles.notificationDate>
+                    ) : (
+                        <Styles.notificationDate>
+                            {props.notificationDate}
+                            {props.notificationHour ? (
+                                <>
+                                    <Divider />
+                                    <span>{props.notificationHour}</span>
+                                </>
+                            ) : (
+                                <></>
+                            )}
+                        </Styles.notificationDate>
+                    )}
+                </Styles.notificationInfo>
+                <Styles.TrashIconContainer isNewNotification={props.isNewNotification} onClick={() => handleDelete()}>
+                    <SmallTrash />
+                </Styles.TrashIconContainer>
+            </Styles.notificationContainer>
+            {isloading && <Loading />}
+        </ThemeProvider>
+    )
 }
