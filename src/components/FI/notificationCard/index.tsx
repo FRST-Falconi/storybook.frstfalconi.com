@@ -53,6 +53,10 @@ export default function NotificationCard(props: INotificationCard) {
       console.error('Error deleting notification', error)
     }
   }
+
+  useEffect(() => {
+    console.log('isloading: ', isloading)
+  }, [isloading])
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.notificationContainer

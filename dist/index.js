@@ -11470,6 +11470,9 @@ function NotificationCard(props) {
             console.error('Error deleting notification', error);
         }
     };
+    React.useEffect(() => {
+        console.log('isloading: ', isloading);
+    }, [isloading]);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(notificationContainer$1, { style: {
                     ...props.style,
                     backgroundColor: props.isNewNotification ? '#444444' : '#313131'
