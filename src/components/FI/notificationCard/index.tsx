@@ -6,6 +6,7 @@ import { FRSTTheme } from '../../../theme'
 import * as Styles from './notificationCardStyles'
 import Tooltip from '@components/LXP/tooltip'
 import { SmallTrash } from '@public/customIcons'
+import Loading from '@components/DS/loading'
 
 interface INotificationCard {
   notificationAvatar: string
@@ -40,6 +41,19 @@ export default function NotificationCard(props: INotificationCard) {
   const handleChildClick = (event: any) => {
     event.stopPropagation()
     props.onClickUserInfo && props.onClickUserInfo()
+  }
+
+  const [isloading, setIsLoading] = useState(false)
+
+  const handleDelete = async () => {
+    try {
+      setIsLoading(true)
+      await props.handleClickDelete()
+    } catch (error) {
+      console.error('Error deleting notification', error)
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -78,10 +92,11 @@ export default function NotificationCard(props: INotificationCard) {
             <Styles.notificationDate>{props.notificationDate}</Styles.notificationDate>
           )}
         </Styles.notificationInfo>
-        <Styles.TrashIconContainer isNewNotification={props.isNewNotification} onClick={props.handleClickDelete}>
+        <Styles.TrashIconContainer isNewNotification={props.isNewNotification} onClick={handleDelete}>
           <SmallTrash />
         </Styles.TrashIconContainer>
       </Styles.notificationContainer>
+      {isloading && <Loading />}
     </ThemeProvider>
   )
 }

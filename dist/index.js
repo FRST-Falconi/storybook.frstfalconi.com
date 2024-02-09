@@ -11460,10 +11460,23 @@ function NotificationCard(props) {
         event.stopPropagation();
         props.onClickUserInfo && props.onClickUserInfo();
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(notificationContainer$1, { style: {
-                ...props.style,
-                backgroundColor: props.isNewNotification ? '#444444' : '#313131'
-            }, children: [!!props?.onClickUserInfo ? (jsxRuntime.jsx(Tooltip, { position: "right", textTooltip: props?.textVisitProfile ? props?.textVisitProfile : 'Visitar Perfil', customWidth: '106px', customMarginLeft: '-30px', children: jsxRuntime.jsx("div", { onClick: (e) => handleChildClick(e), children: jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: "40px", isActiveClick: true }) }) })) : (jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: "40px", isActiveClick: false })), jsxRuntime.jsxs(notificationInfo, { onClick: props.handleClick, children: [jsxRuntime.jsx(notificationDescription, { children: jsxRuntime.jsx(Markdown__default["default"], { children: descriptionNotification }) }), props.isNewNotification ? (jsxRuntime.jsxs(notificationDate, { style: { color: FRSTTheme['colors'].primary1 }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700 }, children: props.textNew }), jsxRuntime.jsx(Divider, { fill: FRSTTheme['colors'].primary1 }), props.notificationDate] })) : (jsxRuntime.jsx(notificationDate, { children: props.notificationDate }))] }), jsxRuntime.jsx(TrashIconContainer, { isNewNotification: props.isNewNotification, onClick: props.handleClickDelete, children: jsxRuntime.jsx(SmallTrash, {}) })] }) }));
+    const [isloading, setIsLoading] = React.useState(false);
+    const handleDelete = async () => {
+        try {
+            setIsLoading(true);
+            await props.handleClickDelete();
+        }
+        catch (error) {
+            console.error('Error deleting notification', error);
+        }
+        finally {
+            setIsLoading(false);
+        }
+    };
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(notificationContainer$1, { style: {
+                    ...props.style,
+                    backgroundColor: props.isNewNotification ? '#444444' : '#313131'
+                }, children: [!!props?.onClickUserInfo ? (jsxRuntime.jsx(Tooltip, { position: "right", textTooltip: props?.textVisitProfile ? props?.textVisitProfile : 'Visitar Perfil', customWidth: '106px', customMarginLeft: '-30px', children: jsxRuntime.jsx("div", { onClick: (e) => handleChildClick(e), children: jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: "40px", isActiveClick: true }) }) })) : (jsxRuntime.jsx(Avatar, { src: props.notificationAvatar, size: "40px", isActiveClick: false })), jsxRuntime.jsxs(notificationInfo, { onClick: props.handleClick, children: [jsxRuntime.jsx(notificationDescription, { children: jsxRuntime.jsx(Markdown__default["default"], { children: descriptionNotification }) }), props.isNewNotification ? (jsxRuntime.jsxs(notificationDate, { style: { color: FRSTTheme['colors'].primary1 }, children: [jsxRuntime.jsx("span", { style: { fontWeight: 700 }, children: props.textNew }), jsxRuntime.jsx(Divider, { fill: FRSTTheme['colors'].primary1 }), props.notificationDate] })) : (jsxRuntime.jsx(notificationDate, { children: props.notificationDate }))] }), jsxRuntime.jsx(TrashIconContainer, { isNewNotification: props.isNewNotification, onClick: handleDelete, children: jsxRuntime.jsx(SmallTrash, {}) })] }), isloading && jsxRuntime.jsx(Loading, {})] }));
 }
 
 const PopoverCustom = styled__default["default"](material.Popover) `
@@ -11590,7 +11603,7 @@ function NotificationPopOver(props) {
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isMobile ? (jsxRuntime.jsxs("div", { style: { backgroundColor: '#E5E5E5' }, children: [jsxRuntime.jsx("div", { style: { padding: 16 }, children: jsxRuntime.jsx(Button$4, { variant: "link", startIcon: jsxRuntime.jsx(BackArrow, { fill: "currentColor" }), label: props.textBack, handleClick: () => props.handleClickBack() }) }), jsxRuntime.jsxs(notificationContainerMobile, { children: [jsxRuntime.jsxs(notificationHeader, { children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(MenuMore, { options: [markAllAsReadOption, deleteAllNotificationsOption], isHover: false, closeAfterClick: true, isArrowInMenu: false, isPaddingInMenu: false, isDarkMode: true, iconButton: jsxRuntime.jsx(MoreDotsVertical, { fill: "#F7F9FC" }) })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { children: props.notificationList.map((item, index) => {
                                 return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, children: jsxRuntime.jsx(NotificationCard, { style: { width: '100%' }, onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick, handleClickDelete: item.handleClickDelete }, index) }));
-                            }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) : (jsxRuntime.jsx(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
+                            }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) : (jsxRuntime.jsxs(PopoverCustom, { open: props.isOpen, anchorEl: props.anchor, anchorOrigin: {
                 vertical: 'bottom',
                 horizontal: 'center'
             }, transformOrigin: {
@@ -11602,9 +11615,23 @@ function NotificationPopOver(props) {
                     boxShadow: 'none',
                     borderRadius: 0
                 }
-            }, children: jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}), onMouseOut: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}), children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(MenuMore, { options: [markAllAsReadOption, deleteAllNotificationsOption], isHover: false, closeAfterClick: true, isArrowInMenu: false, isPaddingInMenu: false, isDarkMode: true, iconButton: jsxRuntime.jsx(MoreDotsVertical, { fill: "#F7F9FC" }) })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
-                            return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }, onMouseOver: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}), onMouseOut: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}), children: jsxRuntime.jsx(NotificationCard, { onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick, handleClickDelete: item.handleClickDelete }, index) }, index));
-                        }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] }) })) }));
+            }, children: [jsxRuntime.jsx(material.Box, { sx: {
+                        position: 'relative',
+                        mt: '10px',
+                        '&::before': {
+                            backgroundColor: 'white',
+                            content: '""',
+                            display: 'block',
+                            position: 'absolute',
+                            width: 12,
+                            height: 12,
+                            top: -6,
+                            transform: 'rotate(45deg)',
+                            left: 'calc(50% - 6px)'
+                        }
+                    } }), jsxRuntime.jsxs(notificationContainer, { children: [jsxRuntime.jsxs(notificationHeader, { onMouseOver: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}), onMouseOut: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}), children: [jsxRuntime.jsx("span", { style: { fontFamily: 'Work Sans', fontSize: 20, fontWeight: 500, color: FRSTTheme['colors'].primary1 }, children: props.textNotification }), jsxRuntime.jsx(MenuMore, { options: [markAllAsReadOption, deleteAllNotificationsOption], isHover: false, closeAfterClick: true, isArrowInMenu: false, isPaddingInMenu: false, isDarkMode: true, iconButton: jsxRuntime.jsx(MoreDotsVertical, { fill: "#F7F9FC" }) })] }), props.notificationList ? (jsxRuntime.jsx(notificationCardList, { notificationsLength: notificationsLength, children: props.notificationList.map((item, index) => {
+                                return (jsxRuntime.jsx("div", { style: { borderBottom: `1px solid #313131` }, onMouseOver: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {}), onMouseOut: () => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {}), children: jsxRuntime.jsx(NotificationCard, { onClickUserInfo: item.onClickUserInfo, textVisitProfile: item.textVisitProfile, notificationAvatar: item.notificationAvatar, notificationDescription: item.notificationDescription, notificationDate: item.notificationDate, textNew: item.textNew, isNewNotification: item.isNewNotification, handleClick: item.handleClick, handleClickDelete: item.handleClickDelete }, index) }, index));
+                            }) })) : (jsxRuntime.jsx(emptyState, { children: jsxRuntime.jsxs(emptyStateInfo, { children: [jsxRuntime.jsx("img", { src: emptyStateImage, alt: "Empty notification list" }), jsxRuntime.jsx("span", { children: props.textEmptyState })] }) }))] })] })) }));
 }
 
 function GlobalMenu({ variant, menu, customMenu, user, search, notification, languages, languageSelected, onChangeLanguage, style, textNotification, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, onClickProfileMenuText, onClickExit, profileMenuText, showSearchField, marginTopSubMenu, hiddenProfileMenu, onClickLogo, onClickMenuHamburger, showHelp, onClickHelp, showProfile = true }) {
