@@ -48,11 +48,13 @@ export default function NotificationCard(props: INotificationCard) {
   const handleDelete = async () => {
     try {
       setIsLoading(true)
+      console.log('isloading handleDelete', isloading)
       await Promise.resolve(props.handleClickDelete())
     } catch (error) {
       console.error('Error deleting notification', error)
     } finally {
       setIsLoading(false)
+      console.log('isloading handleDelete', isloading)
     }
   }
 

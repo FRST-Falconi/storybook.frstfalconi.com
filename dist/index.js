@@ -11464,6 +11464,7 @@ function NotificationCard(props) {
     const handleDelete = async () => {
         try {
             setIsLoading(true);
+            console.log('isloading handleDelete', isloading);
             await Promise.resolve(props.handleClickDelete());
         }
         catch (error) {
@@ -11471,6 +11472,7 @@ function NotificationCard(props) {
         }
         finally {
             setIsLoading(false);
+            console.log('isloading handleDelete', isloading);
         }
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(notificationContainer$1, { style: {
