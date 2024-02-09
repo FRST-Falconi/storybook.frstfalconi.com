@@ -144,24 +144,6 @@ export default function NotificationPopOver(props: INotificationPopOver) {
             }
           }}
         >
-          <Box
-            sx={{
-              position: 'relative',
-              mt: '10px',
-              '&::before': {
-                backgroundColor: 'white',
-                content: '""',
-                display: 'block',
-                position: 'absolute',
-                width: 12,
-                height: 12,
-                top: -6,
-                transform: 'rotate(45deg)',
-                left: 'calc(50% - 6px)'
-              }
-            }}
-          />
-
           <Styles.notificationContainer>
             <Styles.notificationHeader
               onMouseOver={() => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {})}
