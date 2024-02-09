@@ -46,11 +46,11 @@ const ListItem = styled("li")<props>`
     }
 `;
 
-type valueEnum = string | number | boolean | null;
+type valueEnum = string | number | boolean | null | React.ReactNode ;
 
 interface SelectProps {
     value?: valueEnum
-    label?: string
+    label?: string | React.ReactNode
     selected?: boolean
     handleSelect?: (value: any) => void
     disabled?: boolean
