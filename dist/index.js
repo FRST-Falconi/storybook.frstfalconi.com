@@ -5720,7 +5720,7 @@ const DropDownContainer$1 = styled__default["default"].div `
     styled.css `
       background: ${({ theme }) => theme.colors.inputError};
       border: 1px solid ${({ theme }) => theme.colors.messageError1};
-    `}
+  `};
 `;
 const EventOverlay$1 = styled__default["default"].div `
   position: absolute;
@@ -5729,7 +5729,11 @@ const EventOverlay$1 = styled__default["default"].div `
   top: 0;
   left: 0;
   background: transparent;
-  cursor: pointer;
+  ${props => props.disabled &&
+    styled.css `
+      cursor: not-allowed !important;
+      pointer-events: none;
+  `};
   z-index: 2;
 `;
 const DropDownHeader$1 = styled__default["default"].div `
@@ -5758,7 +5762,16 @@ const DropDownHeader$1 = styled__default["default"].div `
       p {
         color: ${({ theme }) => theme.colors.linkError};
       }
-    `}
+    `};
+  ${(props) => props.disabled &&
+    styled.css `
+        background: ${({ theme }) => theme.colors.neutralsGrey8};
+        border: 1px solid ${({ theme }) => theme.colors.neutralsGrey6};
+        cursor: not-allowed !important;
+        p {
+          color: ${({ theme }) => theme.colors.neutralsGrey5};
+        }
+  `};
 `;
 const DropDownListContainer$1 = styled__default["default"]('div') ``;
 const DropDownList$1 = styled__default["default"]('ul') `
@@ -5797,13 +5810,13 @@ const SelectedOption$1 = styled__default["default"]('p') `
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #222222 !important;
+  color: #222222;
 `;
 
-function ArrowIcon$2() {
-    return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: "#222222" }) }));
+function ArrowIcon$2({ fill }) {
+    return (jsxRuntime.jsx("svg", { width: "14", height: "7", viewBox: "0 0 14 7", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z", fill: fill ? fill : "#222222" }) }));
 }
-function Select$2({ placeholder, defaultValue, children, onChange, loading, isError, style }) {
+function Select$2({ placeholder, defaultValue, children, onChange, loading, isError, style, disabled }) {
     const wrapperRef = React.useRef(null);
     const [isOpen, setIsOpen] = React.useState(false);
     const [selectedOption, setSelectedOption] = React.useState(null);
@@ -5840,7 +5853,7 @@ function Select$2({ placeholder, defaultValue, children, onChange, loading, isEr
         onChange(e);
         toggle();
     };
-    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer$1, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay$1, { onClick: toggle }), jsxRuntime.jsxs(DropDownHeader$1, { error: isError, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption$1, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon$1, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon$2, {}) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer$1, { children: jsxRuntime.jsx(DropDownList$1, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
+    return (jsxRuntime.jsx("div", { style: style, children: jsxRuntime.jsxs(DropDownContainer$1, { ref: wrapperRef, error: isError, theme: FRSTTheme, children: [jsxRuntime.jsx(EventOverlay$1, { onClick: toggle, disabled: disabled }), jsxRuntime.jsxs(DropDownHeader$1, { error: isError, disabled: disabled, theme: FRSTTheme, children: [loading ? (jsxRuntime.jsx("p", { children: "Carregando dados..." })) : selectedOption ? (jsxRuntime.jsx(SelectedOption$1, { children: selectedOption })) : (jsxRuntime.jsx("p", { children: placeholder })), jsxRuntime.jsx(DropDownHeaderIcon$1, { open: isOpen, children: jsxRuntime.jsx(ArrowIcon$2, { fill: disabled && '#BDBDBD' }) })] }), isOpen && (jsxRuntime.jsx(DropDownListContainer$1, { children: jsxRuntime.jsx(DropDownList$1, { children: jsxRuntime.jsx("div", { onClick: handleChange, children: jsxRuntime.jsx(SelectContext.Provider, { value: { selected: selectedOptionValue }, children: children }) }) }) }))] }) }));
 }
 
 const ListItem$1 = styled__default["default"]("li") `
@@ -5884,8 +5897,8 @@ function SelectItem({ value, label, selected, handleSelect, disabled }) {
     return (jsxRuntime.jsx(SelectContext.Consumer, { children: ({ selected }) => (jsxRuntime.jsx(ListItem$1, { disabled: disabled, selected: selected === value, value: value, onClick: handleSelect, children: label })) }));
 }
 
-function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style }) {
-    return (jsxRuntime.jsx(Select$2, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), isError: isError, style: style, children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
+function SelectFRST({ placeholder, valueSelect, handleValueSelect, listItems, isError, style, disabled }) {
+    return (jsxRuntime.jsx(Select$2, { placeholder: placeholder, defaultValue: valueSelect, onChange: (e) => handleValueSelect(e.target?.attributes?.value?.value), isError: isError, style: style, disabled: disabled, children: listItems.map((item, index) => (jsxRuntime.jsx(SelectItem, { label: item, value: item }, index))) }));
 }
 
 const ModalWrapper = styled__default["default"].div `

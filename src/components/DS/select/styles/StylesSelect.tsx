@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 interface PropsSelect {
   error?: boolean
+  disabled?: boolean
 }
 
 export const DropDownContainer = styled.div<PropsSelect>`
@@ -16,16 +17,20 @@ export const DropDownContainer = styled.div<PropsSelect>`
     css`
       background: ${({ theme }) => theme.colors.inputError};
       border: 1px solid ${({ theme }) => theme.colors.messageError1};
-    `}
+  `};
 `
-export const EventOverlay = styled.div`
+export const EventOverlay = styled.div<PropsSelect>`
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   background: transparent;
-  cursor: pointer;
+  ${props => props.disabled && 
+    css`
+      cursor: not-allowed !important;
+      pointer-events: none;
+  `};
   z-index: 2;
 `
 export const DropDownHeader = styled.div<PropsSelect>`
@@ -55,7 +60,17 @@ export const DropDownHeader = styled.div<PropsSelect>`
       p {
         color: ${({ theme }) => theme.colors.linkError};
       }
-    `}
+    `};
+  ${(props) =>
+    props.disabled &&
+      css`
+        background: ${({ theme }) => theme.colors.neutralsGrey8};
+        border: 1px solid ${({ theme }) => theme.colors.neutralsGrey6};
+        cursor: not-allowed !important;
+        p {
+          color: ${({ theme }) => theme.colors.neutralsGrey5};
+        }
+  `};
 `
 export const DropDownListContainer = styled('div')``
 
@@ -96,5 +111,5 @@ export const SelectedOption = styled('p')`
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: #222222 !important;
+  color: #222222;
 `

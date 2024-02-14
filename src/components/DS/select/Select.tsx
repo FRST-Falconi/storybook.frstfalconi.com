@@ -3,10 +3,10 @@ import { SelectContext } from './SelectContext'
 import { FRSTTheme } from '../../../theme'
 import * as StylesSelect from './styles/StylesSelect'
 
-export function ArrowIcon() {
+export function ArrowIcon({fill}) {
   return (
     <svg width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z" fill="#222222" />
+      <path d="M7.1736 6.64904L13.521 0.992188H0.826172L7.1736 6.64904Z" fill={fill ? fill : "#222222"} />
     </svg>
   )
 }
@@ -19,6 +19,7 @@ interface SelectProps {
   loading?: boolean
   isError?: boolean
   style?: React.CSSProperties
+  disabled?: boolean
 }
 
 export default function Select({
@@ -28,7 +29,8 @@ export default function Select({
   onChange,
   loading,
   isError,
-  style
+  style,
+  disabled
 }: SelectProps) {
   const wrapperRef = useRef(null)
   const [isOpen, setIsOpen] = useState<boolean>(false)
@@ -73,8 +75,8 @@ export default function Select({
   return (
     <div style={style}>
       <StylesSelect.DropDownContainer ref={wrapperRef} error={isError} theme={FRSTTheme}>
-        <StylesSelect.EventOverlay onClick={toggle}></StylesSelect.EventOverlay>
-        <StylesSelect.DropDownHeader error={isError} theme={FRSTTheme}>
+        <StylesSelect.EventOverlay onClick={toggle} disabled={disabled}></StylesSelect.EventOverlay>
+        <StylesSelect.DropDownHeader error={isError} disabled={disabled} theme={FRSTTheme}>
           {loading ? (
             <p>Carregando dados...</p>
           ) : selectedOption ? (
@@ -83,7 +85,7 @@ export default function Select({
             <p>{placeholder}</p>
           )}
           <StylesSelect.DropDownHeaderIcon open={isOpen}>
-            <ArrowIcon />
+            <ArrowIcon fill={disabled && '#BDBDBD'} />
           </StylesSelect.DropDownHeaderIcon>
         </StylesSelect.DropDownHeader>
         {isOpen && (
