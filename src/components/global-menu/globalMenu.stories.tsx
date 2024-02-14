@@ -2,6 +2,7 @@ import React from 'react'
 
 import GlobalMenu from './index'
 import * as Icons from '../../shared/icons'
+import { onClickAsyncMock } from '../../utilityFunctions'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -122,6 +123,7 @@ normal.args = {
     hasNewNotification: false,
     textNotification: 'Notificações',
     textMarkAllAsRead: 'Marcar todas como lidas',
+    textDeleteAll: 'Excluir todas',
     textEmptyState: 'No momento você não tem notificações.',
     notificationList: [
       {
@@ -132,7 +134,74 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => onClickAsyncMock()
+      },
+      {
+        notificationAvatar:
+          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+        isNewNotification: true,
+        textNew: 'Nova',
+        notificationDate: 'Hoje',
+
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
+      },
+      {
+        notificationAvatar:
+          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+        isNewNotification: true,
+        textNew: 'Nova',
+        notificationDate: 'Hoje',
+
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
+      },
+      {
+        notificationAvatar:
+          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+        isNewNotification: true,
+        textNew: 'Nova',
+        notificationDate: 'Hoje',
+
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
+      },
+      {
+        notificationAvatar:
+          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+        isNewNotification: true,
+        textNew: 'Nova',
+        notificationDate: 'Hoje',
+
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
+      },
+      {
+        notificationAvatar:
+          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+        isNewNotification: true,
+        textNew: 'Nova',
+        notificationDate: 'Hoje',
+
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
+      },
+      {
+        notificationAvatar:
+          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
+        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
+        isNewNotification: true,
+        textNew: 'Nova',
+        notificationDate: 'Hoje',
+
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -162,7 +231,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -172,7 +242,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -182,7 +253,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -192,7 +264,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -202,7 +275,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -212,7 +286,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -222,7 +297,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -232,67 +308,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
-      },
-      {
-        notificationAvatar:
-          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-        isNewNotification: true,
-        textNew: 'Nova',
-        notificationDate: 'Hoje',
-
-        handleClick: () => alert('Notificação clicada!')
-      },
-      {
-        notificationAvatar:
-          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-        isNewNotification: true,
-        textNew: 'Nova',
-        notificationDate: 'Hoje',
-
-        handleClick: () => alert('Notificação clicada!')
-      },
-      {
-        notificationAvatar:
-          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-        isNewNotification: true,
-        textNew: 'Nova',
-        notificationDate: 'Hoje',
-
-        handleClick: () => alert('Notificação clicada!')
-      },
-      {
-        notificationAvatar:
-          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-        isNewNotification: true,
-        textNew: 'Nova',
-        notificationDate: 'Hoje',
-
-        handleClick: () => alert('Notificação clicada!')
-      },
-      {
-        notificationAvatar:
-          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-        isNewNotification: true,
-        textNew: 'Nova',
-        notificationDate: 'Hoje',
-
-        handleClick: () => alert('Notificação clicada!')
-      },
-      {
-        notificationAvatar:
-          'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-        notificationDescription: `Edson Corbari comentou no seu desafio “Aumentar o engajamento dos alunos na plataforma D2L”.`,
-        isNewNotification: true,
-        textNew: 'Nova',
-        notificationDate: 'Hoje',
-
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -302,7 +319,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -312,7 +330,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       },
       {
         notificationAvatar:
@@ -322,7 +341,8 @@ normal.args = {
         textNew: 'Nova',
         notificationDate: 'Hoje',
 
-        handleClick: () => alert('Notificação clicada!')
+        handleClick: () => alert('Notificação clicada!'),
+        handleClickDelete: () => alert('Notificação deletada!')
       }
     ],
     handleClickOpenPopOverNotification: () => alert('Notificação aberta'),

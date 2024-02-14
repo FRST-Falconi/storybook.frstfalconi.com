@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const notificationContainer = styled.div`
     display: flex;
@@ -46,4 +46,37 @@ export const PopOverVisitProfile = styled.div`
     background-color: #fff;
     padding: 10px;
     z-index: 1000;
+`
+
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+export const TrashIconContainer = styled.div<{ isNewNotification: boolean }>`
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: auto;
+    margin-top: auto;
+    border-radius: 50%;
+    &:hover {
+        background-color:${({ isNewNotification }) => isNewNotification ? '#585858' : '#494949'};
+        & > svg {
+            path {
+        fill: #F7F9FC!important;
+        }
+    }
+    }
+    &:active {
+        background-color:${({ isNewNotification }) => isNewNotification ? '#686868' : '#595959'};
+        animation: ${pulseAnimation} 0.3s ease-in-out;
+    }
 `

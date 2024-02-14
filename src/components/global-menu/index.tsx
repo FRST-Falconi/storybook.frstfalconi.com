@@ -345,6 +345,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     </div>
                   )}
@@ -403,6 +405,8 @@ export default function GlobalMenu({
                           setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                           textBack={notification.textBack}
                           handleClickBack={() => handleCloseNotification()}
+                          textDeleteAll={notification.textDeleteAll}
+                          handleClickDeleteAll={notification.handleClickDeleteAll}
                         />
                       ) : null}
                     </Styles.WrapperIconNotificationMobile>
@@ -492,6 +496,8 @@ export default function GlobalMenu({
               setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
               textBack={notification.textBack}
               handleClickBack={() => handleCloseNotification()}
+              textDeleteAll={notification.textDeleteAll}
+              handleClickDeleteAll={notification.handleClickDeleteAll}
             />
           ) : null}
         </>
@@ -675,6 +681,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     </Styles.WrapperIconNotification>
                   </>
@@ -712,6 +720,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     ) : null}
                   </Styles.WrapperIconNotificationMobile>
@@ -749,6 +759,8 @@ export default function GlobalMenu({
                         setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
                         textBack={notification.textBack}
                         handleClickBack={() => handleCloseNotification()}
+                        textDeleteAll={notification.textDeleteAll}
+                        handleClickDeleteAll={notification.handleClickDeleteAll}
                       />
                     ) : null}
                   </Styles.WrapperIconNotificationMobile>
@@ -799,6 +811,8 @@ export default function GlobalMenu({
               setOnAreaPopOver={(e) => setOnAreaPopOver(e)}
               textBack={notification.textBack}
               handleClickBack={() => handleCloseNotification()}
+              textDeleteAll={notification.textDeleteAll}
+              handleClickDeleteAll={notification.handleClickDeleteAll}
             />
           ) : null}
         </>

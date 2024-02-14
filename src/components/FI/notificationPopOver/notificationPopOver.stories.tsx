@@ -16,6 +16,7 @@ normal.args = {
   textBack: 'Voltar',
   textNotification: 'Notificações',
   textMarkAllAsRead: 'Marcar todas como lidas',
+  textDeleteAll: 'Excluir todas',
   textEmptyState: 'No momento você não tem notificações.',
 
   handleClickMarkRead: () => alert('Click!'),
@@ -31,7 +32,7 @@ normal.args = {
       isNewNotification: true,
       textNew: 'Nova',
       notificationDate: 'Hoje',
-      
+
       onClickUserInfo: () => alert('perfil clicado - 1'),
       textVisitProfile: 'Visit profile',
       handleClick: () => alert('Notificação clicada!')
@@ -120,6 +121,7 @@ export const emptyState = Template.bind({})
 emptyState.args = {
   textNotification: 'Notificações',
   textMarkAllAsRead: 'Marcar todas como lidas',
+  textDeleteAll: 'Excluir todas',
   textEmptyState: 'No momento você não tem notificações.',
 
   handleClickMarkRead: () => alert('Click!'),

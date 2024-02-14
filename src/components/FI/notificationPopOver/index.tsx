@@ -5,7 +5,6 @@ import { FRSTTheme } from '../../../theme'
 import NotificationCard from '../notificationCard'
 import * as Styles from './notificationPopOverStyles'
 import { BackArrow, MoreDotsVertical } from '@shared/icons'
-import { useState } from 'react'
 import imgNotification from '../../../../public/img/Nonotification.png'
 import MenuMore from '@components/menu-more'
 
@@ -14,10 +13,12 @@ type notificationCard = {
   notificationDescription: string
   isNewNotification: boolean
   notificationDate: string
+  id: string
 
   textNew: string
 
   handleClick: () => void
+  handleClickDelete: () => Promise<void>
   onClickUserInfo?: () => void
   textVisitProfile?: string
 }
@@ -27,6 +28,7 @@ interface INotificationPopOver {
   textBack: string
   textNotification: string
   textMarkAllAsRead: string
+  textDeleteAll: string
   textEmptyState: string
 
   isOpen: boolean
@@ -34,6 +36,7 @@ interface INotificationPopOver {
   isMobile: boolean
 
   handleClickMarkRead: () => void
+  handleClickDeleteAll: () => void
   setOnAreaPopOver?: (e) => void
   handleClickBack: () => void
 }
@@ -49,6 +52,13 @@ export default function NotificationPopOver(props: INotificationPopOver) {
     description: props.textMarkAllAsRead,
     onClick: props.handleClickMarkRead,
     color: props.notificationList ? '#FCFCFC' : '#9C9C9C',
+    disabled: !props.notificationList
+  }
+
+  const deleteAllNotificationsOption = {
+    description: props.textDeleteAll,
+    onClick: props.handleClickDeleteAll,
+    color: props.notificationList ? '#FF6868' : '#9C9C9C',
     disabled: !props.notificationList
   }
 
@@ -96,6 +106,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                         textNew={item.textNew}
                         isNewNotification={item.isNewNotification}
                         handleClick={item.handleClick}
+                        handleClickDelete={item.handleClickDelete}
                         key={index}
                       />
                     </div>
@@ -157,7 +168,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                 {props.notificationList.map((item, index) => {
                   return (
                     <div
-                      style={{ borderBottom: `1px solid ${FRSTTheme['colors'].borderPrimary}` }}
+                      style={{ borderBottom: `1px solid #313131` }}
                       onMouseOver={() => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(true) : {})}
                       onMouseOut={() => (props?.setOnAreaPopOver ? props?.setOnAreaPopOver(false) : {})}
                       key={index}
@@ -171,6 +182,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                         textNew={item.textNew}
                         isNewNotification={item.isNewNotification}
                         handleClick={item.handleClick}
+                        handleClickDelete={item.handleClickDelete}
                         key={index}
                       />
                     </div>
