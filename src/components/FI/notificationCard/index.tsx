@@ -48,15 +48,13 @@ export default function NotificationCard(props: INotificationCard) {
   const handleDelete = async () => {
     try {
       setIsLoading(true)
-      props.handleClickDelete && props.handleClickDelete()
+      props.handleClickDelete && (await props.handleClickDelete())
     } catch (error) {
       console.error('Error deleting notification', error)
     }
+    setIsLoading(false)
   }
 
-  useEffect(() => {
-    console.log('isloading: ', isloading)
-  }, [isloading])
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.notificationContainer

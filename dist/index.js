@@ -11464,15 +11464,13 @@ function NotificationCard(props) {
     const handleDelete = async () => {
         try {
             setIsLoading(true);
-            props.handleClickDelete && props.handleClickDelete();
+            props.handleClickDelete && (await props.handleClickDelete());
         }
         catch (error) {
             console.error('Error deleting notification', error);
         }
+        setIsLoading(false);
     };
-    React.useEffect(() => {
-        console.log('isloading: ', isloading);
-    }, [isloading]);
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(notificationContainer$1, { style: {
                     ...props.style,
                     backgroundColor: props.isNewNotification ? '#444444' : '#313131'
