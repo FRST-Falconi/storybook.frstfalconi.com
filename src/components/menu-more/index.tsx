@@ -72,7 +72,8 @@ export default function MenuMore({
                       closeAfterClick && handleClose()
                     }}
                     style={{
-                      borderBottom: listOptions?.length - 1 == index ? '' : '1px solid #EBEBEB',
+                      borderBottom:
+                        listOptions?.length - 1 == index ? '' : isDarkMode ? '1px solid #525252' : '1px solid #EBEBEB',
                       color: itemOption?.color ? itemOption?.color : '#222',
                       pointerEvents: itemOption?.disabled ? 'none' : 'auto',
                       cursor: itemOption?.disabled ? 'default' : 'pointer'
