@@ -82,7 +82,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                 {props.textNotification}
               </span>
               <MenuMore
-                options={[markAllAsReadOption]}
+                options={[markAllAsReadOption, deleteAllNotificationsOption]}
                 isHover={false}
                 closeAfterClick={true}
                 isArrowInMenu={false}
@@ -154,7 +154,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                 {props.textNotification}
               </span>
               <MenuMore
-                options={[markAllAsReadOption]}
+                options={[markAllAsReadOption, deleteAllNotificationsOption]}
                 isHover={false}
                 closeAfterClick={true}
                 isArrowInMenu={false}
