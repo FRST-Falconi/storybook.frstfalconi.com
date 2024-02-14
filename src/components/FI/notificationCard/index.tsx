@@ -49,10 +49,10 @@ export default function NotificationCard(props: INotificationCard) {
     try {
       setIsLoading(true)
       props.handleClickDelete && (await props.handleClickDelete())
+      setIsLoading(false)
     } catch (error) {
       console.error('Error deleting notification', error)
     }
-    setIsLoading(false)
   }
 
   return (

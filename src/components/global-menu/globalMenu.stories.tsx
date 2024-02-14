@@ -2,6 +2,7 @@ import React from 'react'
 
 import GlobalMenu from './index'
 import * as Icons from '../../shared/icons'
+import { onClickAsyncMock } from '../../utilityFunctions'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -134,7 +135,7 @@ normal.args = {
         notificationDate: 'Hoje',
 
         handleClick: () => alert('Notificação clicada!'),
-        handleClickDelete: () => alert('Notificação deletada!')
+        handleClickDelete: () => onClickAsyncMock()
       },
       {
         notificationAvatar:
