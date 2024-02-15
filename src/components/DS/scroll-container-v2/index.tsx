@@ -13,21 +13,22 @@ import { ButtonControll } from './ButtonControl'
 import { useScroll } from './useScroll'
 
 
-export default function ScrollContainer(props) {
-  const {
-    children,
-    isVisibleControlsButtons,
-    stepMove,
-    horizontalMarginInternScroll,
-    verticalMarginInternScroll,
-    marginsArrowButtonHorizontal,
-    marginsArrowButtonVertical,
-    positionArrowButton,
-    className,
-    styles,
-    sizeArrowButton,
-    hiddenHorizontalScrollBar,
-  } = props
+export default function ScrollContainer( {
+  children,
+  isVisibleControlsButtons,
+  stepMove,
+  horizontalMarginInternScroll,
+  verticalMarginInternScroll,
+  marginsArrowButtonHorizontal,
+  marginsArrowButtonVertical,
+  positionArrowButton,
+  className,
+  styles,
+  sizeArrowButton,
+  hiddenHorizontalScrollBar,
+  handleClick
+}:IScrollContainer) {
+
   
   const {
     scrollToLeft,
@@ -36,7 +37,7 @@ export default function ScrollContainer(props) {
     isVisibleLeft,
     isVisibleRight,
     scrollRef
-  } = useScroll(stepMove)
+  } = useScroll(stepMove, handleClick )
 
   return (
     <ThemeProvider theme={FRSTTheme}>

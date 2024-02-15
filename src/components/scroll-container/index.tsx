@@ -26,7 +26,8 @@ export default function ScrollContainer({
   widthProtectClick,
   hiddenHorizontalScrollBar,
   colorBackground,
-  paddingLeft
+  paddingLeft,
+  handleClick
 }: IScrollContainer) {
   const [actionAreaButtonLeft, setActionAreaButtonLeft] = useState(false)
   const [actionAreaButtonRight, setActionAreaButtonRight] = useState(false)
@@ -43,6 +44,7 @@ export default function ScrollContainer({
       objDiv.scrollLeft - stepMove <= 0 ? setIsVisibleArrowButtonLeft(false) : setIsVisibleArrowButtonLeft(true)
       setIsVisibleArrowButtonRight(true)
       objDiv.scrollLeft = objDiv.scrollLeft - stepMove
+      handleClick()
     }
   }
 
@@ -54,6 +56,7 @@ export default function ScrollContainer({
         ? setIsVisibleArrowButtonRight(false)
         : setIsVisibleArrowButtonRight(true)
       objDiv.scrollLeft = objDiv.scrollLeft + stepMove
+      handleClick()
     }
   }
 

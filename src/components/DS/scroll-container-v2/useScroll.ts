@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { useEffect, useState, useRef } from 'react'
 
-export const useScroll = (stepMove) => {
+export const useScroll = (stepMove, handleClick) => {
     const scrollRef = useRef()
     const [isVisibleLeft, setIsVisibleLeft] = useState(false)
     const [isVisibleRight, setIsVisibleRight] = useState(false)
@@ -11,6 +11,7 @@ export const useScroll = (stepMove) => {
       scrollElement.scrollLeft - stepMove <= 0 ? setIsVisibleLeft(false) : setIsVisibleLeft(true)
       setIsVisibleRight(true)
       scrollElement.scrollLeft = scrollElement.scrollLeft - stepMove
+      handleClick()
     }
   
     const scrollToRight = () => {
@@ -20,6 +21,7 @@ export const useScroll = (stepMove) => {
         ? setIsVisibleRight(false)
         : setIsVisibleRight(true)
       scrollElement.scrollLeft = scrollElement.scrollLeft + stepMove
+      handleClick()
     }
 
     const onClickLongPress = (direction) => {

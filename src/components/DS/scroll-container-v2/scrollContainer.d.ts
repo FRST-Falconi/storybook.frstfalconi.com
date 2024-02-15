@@ -17,4 +17,7 @@ export interface IScrollContainer {
   widthProtectClick?: number
   hiddenHorizontalScrollBar?: boolean
   colorBackground?: string
+  verticalMarginInternScroll?: any
+  marginsArrowButtonHorizontal?: any
+  marginsArrowButtonVertical?: any
 }
