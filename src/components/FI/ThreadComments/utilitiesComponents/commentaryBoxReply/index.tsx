@@ -81,7 +81,7 @@ export const CommentaryBoxReply = ({
         likes={likes}
         actionLike={onClickLike}
         actionUnlike={onClickUnlike}
-        showLikeButton={false}
+        showLikeButton={true}
         likeButtonText={likeButtonText}
         showInterconnectionLine={replies.length > 0 && showAnswers}
       />
@@ -139,7 +139,7 @@ export const CommentaryBoxReply = ({
               likes={reply.likes}
               loggedInUser={loggedInUser}
               limitMessageExceeded={limitMessageExceeded}
-              showLikeButton={false}
+              showLikeButton={true}
               actionLike={onClickLike}
               actionUnlike={onClickUnlike}
               getSearchUsers={getSearchUsers}
