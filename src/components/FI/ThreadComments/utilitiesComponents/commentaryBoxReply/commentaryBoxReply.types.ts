@@ -26,7 +26,6 @@ export interface ICommentComentaryBoxReply {
     onClickUnlike: (commentUuid: string) => void;
     likeButtonText?: string;
     loggedInUser: LoggedInUser;
-    likes: ILike[];
     replies: IComment[];
     isGoalOwner?: boolean;
     group_uuid: string;

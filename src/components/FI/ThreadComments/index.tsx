@@ -163,7 +163,6 @@ export const ThreadComments = ({
                   onClickLike={onClickLike}
                   onClickUnlike={onClickUnlike}
                   likeButtonText={likeButtonText}
-                  likes={replyComment.likes}
                   loggedInUser={loggedInUser}
                   isGoalOwner={isGoalOwner}
                   group_uuid={group_uuid}
