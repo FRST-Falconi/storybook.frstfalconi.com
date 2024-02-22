@@ -27,7 +27,6 @@ export const CommentaryBoxReply = ({
   onClickUnlike,
   likeButtonText,
   loggedInUser,
-  likes,
   replies = [],
   isGoalOwner,
   group_uuid,
@@ -78,7 +77,7 @@ export const CommentaryBoxReply = ({
         actionEditComment={onClickEdit}
         placeHolderText={placeHolderText}
         getSearchUsers={getSearchUsers}
-        likes={likes}
+        likes={commentData.likes}
         actionLike={onClickLike}
         actionUnlike={onClickUnlike}
         showLikeButton={true}
