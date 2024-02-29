@@ -3358,6 +3358,7 @@ const InputText$4 = styled__default["default"].div `
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
+    word-break: break-all;
     
         
     padding: 0;
@@ -3797,6 +3798,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             divInputRef.current.innerHTML = '<p><br /></p>';
             setPlaceholder(true);
             countChars();
+            resizeDiv();
         }
     }, [value]);
     return {

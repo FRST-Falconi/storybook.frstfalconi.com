@@ -404,6 +404,7 @@ export const useInputHook = ({
       divInputRef.current.innerHTML = '<p><br /></p>'
       setPlaceholder(true)
       countChars()
+      resizeDiv()
     }
   }, [value])
 
