@@ -57,6 +57,7 @@ export const InputText = styled.div<TextArea>`
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
+    word-break: break-all;
     
         
     padding: 0;
