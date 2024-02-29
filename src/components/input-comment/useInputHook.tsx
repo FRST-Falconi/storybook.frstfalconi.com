@@ -204,14 +204,24 @@ export const useInputHook = ({
     // return if divInputRef has child empty
     //if divInputRef is not focused
     let isEmpty = false
+    
 
     const isFocused = divInputRef.current === document.activeElement
     if (divInputRef.current && !isFocused) {
       if (divInputRef.current.childNodes?.length <= 0) isEmpty = true
+      let isAnyChildWithTextValue = false;
       divInputRef.current.childNodes.forEach((child) => {
-        if (child.textContent.length <= 0) {
+        if(isAnyChildWithTextValue) {
+          isEmpty = false;
+          return;
+        };
+        if (child.textContent.trim().length <= 0) {
           isEmpty = true
+        }else{
+          // in case we have one item not empty we wont show the placeholder
+          isAnyChildWithTextValue = true
         }
+        
       })
     }
     return isEmpty

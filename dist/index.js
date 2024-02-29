@@ -3617,9 +3617,18 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         if (divInputRef.current && !isFocused) {
             if (divInputRef.current.childNodes?.length <= 0)
                 isEmpty = true;
+            let isAnyChildWithTextValue = false;
             divInputRef.current.childNodes.forEach((child) => {
-                if (child.textContent.length <= 0) {
+                if (isAnyChildWithTextValue) {
+                    isEmpty = false;
+                    return;
+                }
+                if (child.textContent.trim().length <= 0) {
                     isEmpty = true;
+                }
+                else {
+                    // in case we have one item not empty we wont show the placeholder
+                    isAnyChildWithTextValue = true;
                 }
             });
         }
