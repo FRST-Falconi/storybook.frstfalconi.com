@@ -52,8 +52,8 @@ export default function InputComment({
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <div style={{ minHeight: '48px', ...styles }} tabIndex={0}>
-        <Styles.InputWrapper tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded}>
+      <div style={{ minHeight: '48px', ...styles }} tabIndex={0} onMouseDown={()=>divInputRef.current.focus()}>
+        <Styles.InputWrapper tabIndex={1} isPlaceholder={isPlaceholder} isInputLimit={styleLimitExceeded} onMouseDown={()=>divInputRef.current.focus()}>
           <Styles.InputText
             id="input-comment-component"
             tabIndex={2}
@@ -69,7 +69,7 @@ export default function InputComment({
               <br />
             </p>
           </Styles.InputText>
-          <Styles.InputPlaceholder style={{ display: 'none' }} contentEditable={true} ref={divPlaceholder}>
+          <Styles.InputPlaceholder style={{ display: 'none' }} contentEditable={true} ref={divPlaceholder} onMouseDown={()=>divInputRef.current.focus()}>
             {placeholder}
           </Styles.InputPlaceholder>
           {showMention && users && users.length > 0 && (
