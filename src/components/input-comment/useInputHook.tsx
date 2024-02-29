@@ -227,6 +227,7 @@ export const useInputHook = ({
     return isEmpty
   }
   const handlePlaceholderInputText = (isPlaceHolderFocus: boolean = false) => {
+    
     if (document.activeElement?.id === 'input-comment-component') return
     // if divInputRef has any element hide the placeholder
     if (isPlaceHolderFocus) {
@@ -236,6 +237,7 @@ export const useInputHook = ({
       setPlaceholder(false)
     } else {
       if (areChildrenEmpty()) {
+        resizeDiv()
         divPlaceholder.current?.style.setProperty('display', 'block')
         divInputRef.current?.style.setProperty('display', 'none')
         setPlaceholder(true)
@@ -404,7 +406,6 @@ export const useInputHook = ({
       divInputRef.current.innerHTML = '<p><br /></p>'
       setPlaceholder(true)
       countChars()
-      resizeDiv()
     }
   }, [value])
 

@@ -3647,6 +3647,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         }
         else {
             if (areChildrenEmpty()) {
+                resizeDiv();
                 divPlaceholder.current?.style.setProperty('display', 'block');
                 divInputRef.current?.style.setProperty('display', 'none');
                 setPlaceholder(true);
@@ -3798,7 +3799,6 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             divInputRef.current.innerHTML = '<p><br /></p>';
             setPlaceholder(true);
             countChars();
-            resizeDiv();
         }
     }, [value]);
     return {
@@ -4005,9 +4005,9 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
         replyMentionedUser,
         initialText
     });
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, children: [jsxRuntime.jsx(InputText$4, { id: "input-comment-component", tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, onMouseDown: () => divInputRef.current.focus(), children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, onMouseDown: () => divInputRef.current.focus(), children: [jsxRuntime.jsx(InputText$4, { id: "input-comment-component", tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
                                 handleInput(event);
-                            }, "data-text": "enter", suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && (jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
+                            }, "data-text": "enter", suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, onMouseDown: () => divInputRef.current.focus(), children: placeholder }), showMention && users && users.length > 0 && (jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
                             } }))] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder ? (jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {})) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
