@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
-import '../../../shared/global.css'
-import * as Styles from './textFieldStyle'
-import {  ThemeProvider } from 'styled-components'
-import { useTranslation } from 'react-i18next'
-import { FRSTTheme } from '../../../theme'
 import { LampHelpBoxInput } from '@shared/icons'
+import { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { ThemeProvider } from 'styled-components'
+import '../../../shared/global.css'
+import { FRSTTheme } from '../../../theme'
+import * as Styles from './textFieldStyle'
 
 type enumType = 'text' | 'password' | 'email' | 'number' 
 
@@ -33,6 +33,7 @@ export interface TextFieldProps {
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
     maxLength?: number,
     handleClickEndIcon?: () => void
+    textRef?: React.RefObject<HTMLInputElement>
 
 }
 
@@ -79,6 +80,7 @@ export default function TextField(props: TextFieldProps) {
                         )
                     }
                     <Styles.TextField
+                        ref={props.textRef}
                         onFocus={() => setFocus(true)}
                         onBlur={() => setFocus(false)}  
                         id={props.id}
