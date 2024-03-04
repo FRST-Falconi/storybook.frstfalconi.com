@@ -13948,6 +13948,7 @@ font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: 110%; 
+top: 10px;
 
 `;
 const Text$1 = styled__default["default"].p `
@@ -14112,7 +14113,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps,
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: open && (jsxRuntime.jsx(ModalNewFeaturesContainer, { id: "container-modal", onClick: (e) => {
                 const target = e.target;
                 target.id === 'container-modal' && onClose();
-            }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsx(divExit, { children: jsxRuntime.jsx(TextExit, { onClick: onClose, children: Exit }) }), jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { id: "modal-title", className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
+            }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsx(divExit, { children: jsxRuntime.jsx(TextExit, { id: 'exit', onClick: onClose, children: Exit }) }), jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { id: "modal-title", className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
                                             return (jsxRuntime.jsx(Topic, { id: `step${i + 1}`, className: currentTopic.topicName === topic.topicName ? 'active' : '', onClick: () => handleClickTopic(i), children: topic.topicName }, i));
                                         }) })] }), jsxRuntime.jsx(Button$4, { id: isLastStep ? 'button-finish' : 'button-nextStep', label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsx(Midia, { id: "midia-container", children: jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { style: currentTopic.styleImage, src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: 'currentTopic.midia', controls: true, playing: true, style: { width: '100%', height: '100%' } })) }) }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { id: "step-title", className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { id: "step-description", children: currentTopic.description })] })] })] }) })) }));
 };

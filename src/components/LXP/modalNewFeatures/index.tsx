@@ -61,7 +61,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps,
         >
           <S.ModalNewFeaturesContent>
           
-          <S.divExit><S.TextExit onClick={onClose}>{Exit}</S.TextExit></S.divExit>
+          <S.divExit><S.TextExit id='exit' onClick={onClose}>{Exit}</S.TextExit></S.divExit>
 
             <S.AssideNewFeatures>
               <div className="list">
