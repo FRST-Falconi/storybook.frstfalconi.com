@@ -16,12 +16,13 @@ type TopicsNewFeatues = {
 type ModalNewFeaturesProps = {
   title: string
   open: boolean
+  Exit:string
   onClose: () => void
   onFinish: () => void
   steps: TopicsNewFeatues[]
 }
 
-const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps }: ModalNewFeaturesProps) => {
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit='X' }: ModalNewFeaturesProps) => {
   const [numberCurrentStep, setNumberCurrentStep] = useState(0)
   const [currentTopic, setCurrentTopic] = useState<TopicsNewFeatues>(steps[numberCurrentStep])
 
@@ -59,9 +60,13 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
           }}
         >
           <S.ModalNewFeaturesContent>
+          
+          <S.divExit><S.TextExit onClick={onClose}>{Exit}</S.TextExit></S.divExit>
+
             <S.AssideNewFeatures>
               <div className="list">
                 <S.Text id="modal-title" className="title">{title}</S.Text>
+
                 <S.ListTopics>
                   {steps.map((topic, i) => {
                     return (
@@ -75,7 +80,9 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                       </S.Topic>
                     )
                   })}
+
                 </S.ListTopics>
+
               </div>
               <Button
                 id={isLastStep ? 'button-finish' : 'button-nextStep'}
@@ -99,7 +106,7 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
                     <img style={currentTopic.styleImage} src={currentTopic.midia} alt={currentTopic.title} />
                   ) : (
                     <ReactPlayer
-                      url={currentTopic.midia}
+                      url={'currentTopic.midia'}
                       controls
                       playing
                       style={{ width: '100%', height: '100%' }}
