@@ -38,7 +38,34 @@ export const AssideNewFeatures = styled.aside`
     align-items: center;
     justify-content: flex-start;
     gap: 60px;
+    position: relative;
+    left: 13px;
   }
+`
+
+export const divExit = styled.div`
+
+
+width: 963px;
+position: absolute;
+cursor: pointer;
+display: flex;
+z-index: 3000;
+`
+
+export const TextExit = styled.h2`
+
+width: 30px;
+height: 20px;
+right: 0px;
+position: absolute;
+color: #000;
+font-family: "PT Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 110%; 
+
 `
 
 export const Text = styled.p`
@@ -48,7 +75,8 @@ export const Text = styled.p`
   font-weight: 400;
   line-height: 110%;
   color: #222;
-
+  text-align: left;
+  width: 100%;
   /* max-width: 83ch; */
   max-height: 69px;
   overflow: hidden;
@@ -84,11 +112,11 @@ export const ListTopics = styled.ul`
   flex-direction: column;
   padding-left: 0;
   gap: 16px;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 308px;
 
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
     height: 90%;
     display: flex;
     box-sizing: border-box;
