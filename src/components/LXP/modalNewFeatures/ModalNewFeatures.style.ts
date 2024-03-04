@@ -65,6 +65,7 @@ font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: 110%; 
+top: 10px;
 
 `
 
