@@ -13966,6 +13966,33 @@ const ListTopics = styled__default["default"].ul `
   flex-direction: column;
   padding-left: 0;
   gap: 16px;
+  overflow-y: scroll;
+  height: 308px;
+
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 90%;
+    display: flex;
+    box-sizing: border-box;
+    margin-right: 5px !important;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #D1D1D1;
+    height: 30%;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background:#646464;
+    height: 60%;
+    border-radius: 5px;
+    margin: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #646464;
+    height: 30%;
+  }
 `;
 const Topic = styled__default["default"].li `
   list-style: none;
