@@ -13923,7 +13923,32 @@ const AssideNewFeatures = styled__default["default"].aside `
     align-items: center;
     justify-content: flex-start;
     gap: 60px;
+    position: relative;
+    left: 13px;
   }
+`;
+const divExit = styled__default["default"].div `
+
+
+width: 963px;
+position: absolute;
+cursor: pointer;
+display: flex;
+z-index: 3000;
+`;
+const TextExit = styled__default["default"].h2 `
+
+width: 30px;
+height: 20px;
+right: 0px;
+position: absolute;
+color: #000;
+font-family: "PT Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 110%; 
+
 `;
 const Text$1 = styled__default["default"].p `
   font-family: PT Sans;
@@ -13932,7 +13957,8 @@ const Text$1 = styled__default["default"].p `
   font-weight: 400;
   line-height: 110%;
   color: #222;
-
+  text-align: left;
+  width: 100%;
   /* max-width: 83ch; */
   max-height: 69px;
   overflow: hidden;
@@ -13966,11 +13992,11 @@ const ListTopics = styled__default["default"].ul `
   flex-direction: column;
   padding-left: 0;
   gap: 16px;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 308px;
 
   ::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
     height: 90%;
     display: flex;
     box-sizing: border-box;
@@ -14061,7 +14087,7 @@ const ContentDescription = styled__default["default"].div `
   gap: 16px;
 `;
 
-const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps }) => {
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit = 'X' }) => {
     const [numberCurrentStep, setNumberCurrentStep] = React.useState(0);
     const [currentTopic, setCurrentTopic] = React.useState(steps[numberCurrentStep]);
     const isLastStep = currentTopic === steps[steps.length - 1];
@@ -14086,9 +14112,9 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps 
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: open && (jsxRuntime.jsx(ModalNewFeaturesContainer, { id: "container-modal", onClick: (e) => {
                 const target = e.target;
                 target.id === 'container-modal' && onClose();
-            }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { id: "modal-title", className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
+            }, children: jsxRuntime.jsxs(ModalNewFeaturesContent, { children: [jsxRuntime.jsx(divExit, { children: jsxRuntime.jsx(TextExit, { onClick: onClose, children: Exit }) }), jsxRuntime.jsxs(AssideNewFeatures, { children: [jsxRuntime.jsxs("div", { className: "list", children: [jsxRuntime.jsx(Text$1, { id: "modal-title", className: "title", children: title }), jsxRuntime.jsx(ListTopics, { children: steps.map((topic, i) => {
                                             return (jsxRuntime.jsx(Topic, { id: `step${i + 1}`, className: currentTopic.topicName === topic.topicName ? 'active' : '', onClick: () => handleClickTopic(i), children: topic.topicName }, i));
-                                        }) })] }), jsxRuntime.jsx(Button$4, { id: isLastStep ? 'button-finish' : 'button-nextStep', label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsx(Midia, { id: "midia-container", children: jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { style: currentTopic.styleImage, src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: currentTopic.midia, controls: true, playing: true, style: { width: '100%', height: '100%' } })) }) }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { id: "step-title", className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { id: "step-description", children: currentTopic.description })] })] })] }) })) }));
+                                        }) })] }), jsxRuntime.jsx(Button$4, { id: isLastStep ? 'button-finish' : 'button-nextStep', label: labelButton, variant: variantButton, handleClick: handleClickButtonNext, style: { padding: '8px 32px', height: 'fit-content' } })] }), jsxRuntime.jsxs(MidiaContent, { children: [jsxRuntime.jsx(Midia, { id: "midia-container", children: jsxRuntime.jsx("div", { className: "content", children: currentTopic.typeMidia !== 'video' ? (jsxRuntime.jsx("img", { style: currentTopic.styleImage, src: currentTopic.midia, alt: currentTopic.title })) : (jsxRuntime.jsx(ReactPlayer__default["default"], { url: 'currentTopic.midia', controls: true, playing: true, style: { width: '100%', height: '100%' } })) }) }), jsxRuntime.jsxs(ContentDescription, { children: [jsxRuntime.jsx(Text$1, { id: "step-title", className: "subtitle", children: currentTopic.title }), jsxRuntime.jsx(Text$1, { id: "step-description", children: currentTopic.description })] })] })] }) })) }));
 };
 
 const ProgressBox = styled__default["default"](_.Box) `
