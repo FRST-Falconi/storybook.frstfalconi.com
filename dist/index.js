@@ -2144,11 +2144,26 @@ const AvatarImg$1 = styled__default["default"].img `
   border-radius: 50%;
   object-fit: cover;
   background-image: url('https://cdn-images.frstfalconi.cloud/Avatar_default.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ${({ disabled }) => disabled === true &&
     `
         filter: grayscale(100%);
     `}
+
+&::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: ${(props) => props.src ? `url(${props.src})` : 'none'};
+  }
 `;
 const AvatarWrapper = styled__default["default"].div `
   width: ${(props) => props.size || '120px'};
