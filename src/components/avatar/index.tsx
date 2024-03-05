@@ -17,7 +17,7 @@ export default function Avatar({ size, src, alt, className, disabled, onClick, i
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styles.AvatarWrapper size={size} className={className} onClick={onClick} isActiveClick={isActiveClick} id={id} style={style}>
-        <Styles.AvatarImg src={isImage ? src : defaultImg} alt={alt} size={size} disabled={disabled}/>
+        <Styles.AvatarImg src={isImage ? src : defaultImg} size={size} disabled={disabled}/>
       </Styles.AvatarWrapper>
     </ThemeProvider>
   )
