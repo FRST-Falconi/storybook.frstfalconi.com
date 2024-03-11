@@ -3355,7 +3355,7 @@ const InputText$4 = styled__default["default"].div `
     border: 1px solid ${({ theme }) => theme.colors.neutralsGrey3};
     overflow: hidden;
     background-color: inherit;
-    word-break: break-all;
+    word-break: break-word;
     
         
     padding: 0;
@@ -4606,6 +4606,7 @@ const Text$2 = styled__default["default"].div `
     color: #444;
     font-family: Work Sans;
     font-weight: 400;
+    word-break: break-word;
     line-height: 140%;
     font-size: 16px;
     font-style: normal;
