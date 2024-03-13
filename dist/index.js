@@ -2143,7 +2143,7 @@ const AvatarImg$1 = styled__default["default"].img `
   height: ${(props) => props.size || '120px'};
   border-radius: 50%;
   object-fit: cover;
-  background-image: url('https://cdn-images.frstfalconi.cloud/Avatar_default.png');
+  background-image: url(' https://cdn-images.frstfalconi.cloud/path582.svg');
   background-size: cover;
 
   ${({ disabled }) => disabled === true &&
@@ -2158,7 +2158,13 @@ const AvatarWrapper = styled__default["default"].div `
 `;
 
 function Avatar({ size, src, alt, className, disabled, onClick, isActiveClick, id, style }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, id: id, style: style, children: jsxRuntime.jsx(AvatarImg$1, { src: src, size: size, disabled: disabled }) }) }));
+    const [isImage, setIsImage] = React.useState(!!src); // Assume que a imagem está presente inicialmente
+    const defaultImg = 'https://cdn-images.frstfalconi.cloud/path582.svg';
+    React.useEffect(() => {
+        setIsImage(!!src);
+    }, [src]);
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [" ", jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, id: id, style: style, children: isImage ? ( // Renderize a imagem apenas se houver uma URL válida
+                jsxRuntime.jsx(AvatarImg$1, { src: src, size: size, disabled: disabled, onError: () => setIsImage(false) })) : (jsxRuntime.jsx(AvatarImg$1, { src: defaultImg, size: size, disabled: disabled })) })] }));
 }
 
 ///-----------------------------------------
@@ -14086,7 +14092,7 @@ const ContentDescription = styled__default["default"].div `
   gap: 16px;
 `;
 
-const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit = 'X' }) => {
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit = 'X', onNext }) => {
     const [numberCurrentStep, setNumberCurrentStep] = React.useState(0);
     const [currentTopic, setCurrentTopic] = React.useState(steps[numberCurrentStep]);
     const isLastStep = currentTopic === steps[steps.length - 1];
@@ -14101,6 +14107,8 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps,
         else {
             setCurrentTopic(steps[numberCurrentStep + 1]);
             setNumberCurrentStep((prev) => prev + 1);
+            if (onNext)
+                onNext();
         }
     };
     const handleClickTopic = (id) => {
