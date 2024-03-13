@@ -19,7 +19,7 @@ type ModalNewFeaturesProps = {
   Exit?:string
   onClose: () => void
   onFinish: () => void
-  onNext: () => void
+  onNext?: () => void
   steps: TopicsNewFeatues[]
 }
 
