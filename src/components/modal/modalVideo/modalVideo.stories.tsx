@@ -16,12 +16,12 @@ const Template = (args) => {
 
 export const ModalDefaultVideo = Template.bind({})
 ModalDefaultVideo.args = {
-  open: false,
+  open: true,
   handleClose: () => {},
   title: 'Cultura da Inovação',
   style: { textAlign: 'center', padding: 20 },
   language: 'en-US',
-  videoUrl: 'https://player.vimeo.com/video/786061124?h=e346220ada&amp;badge=0&amp'
+  videoUrl: 'https://cdn-images.frstfalconi.cloud/aula_14__ciclos_de_aprendizagem%20(240p).mp4'
 }
 
 export const ModalVideoRating = Template.bind({})
