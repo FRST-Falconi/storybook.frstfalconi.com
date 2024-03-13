@@ -12,7 +12,7 @@ export const AvatarImg = styled.img<AvatarI>`
   height: ${(props) => props.size || '120px'};
   border-radius: 50%;
   object-fit: cover;
-  background-image: url('https://cdn-images.frstfalconi.cloud/Avatar_default.png');
+  background-image: url(' https://cdn-images.frstfalconi.cloud/path582.svg');
   background-size: cover;
 
   ${({ disabled }) =>
