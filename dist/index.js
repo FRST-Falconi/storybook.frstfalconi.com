@@ -19892,24 +19892,25 @@ var css_248z$3 = ".grid {\n    display: flex;\n    flex-wrap: wrap;\n    margin-
 styleInject(css_248z$3);
 
 function FiltroGaleriaDesafios({ placeholderSelect, handleValueSelect, optionLabel, listItems, isDisabled, maxListItems, textButtonClear, textBusca, valueSelect = [] }) {
-    const [lazyItems, setLazyItems] = React.useState([]);
-    const [lazyLoading, setLazyLoading] = React.useState(false);
-    const [onClickFilter, setOnClickFilter] = React.useState(false);
-    const [selectedListItems, setSelectedListItems] = React.useState(valueSelect);
+    /// TODO: Não está implementado Lazyloading nesse componente. 
+    // const [lazyItems, setLazyItems] = useState([])
+    // const [lazyLoading, setLazyLoading] = useState(false)
+    // useEffect(() => {
+    //   setLazyItems(Array.from({ length: 100000 }))
+    //   setLazyLoading(false)
+    // }, [])
+    ///
+    const [selectedListItems, setSelectedListItems] = React.useState([]);
     const [textFilter, setTextFilter] = React.useState('');
     const [listItemsFilter, setListItemsFilter] = React.useState(listItems);
     React.useEffect(() => {
-        setLazyItems(Array.from({ length: 100000 }));
-        setLazyLoading(false);
-    }, []);
-    React.useEffect(() => {
-        setSelectedListItems(valueSelect);
-        handleValueSelect(valueSelect);
+        if (valueSelect.length > 0) {
+            setSelectedListItems(valueSelect);
+        }
     }, [valueSelect]);
-    const handleSelectItems = (items) => {
-        setSelectedListItems(items);
-        return handleValueSelect(items);
-    };
+    React.useMemo(() => {
+        handleValueSelect(selectedListItems);
+    }, [selectedListItems]);
     const listFilterSearch = React.useMemo(() => {
         return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter));
     }, [textFilter]);
@@ -19919,11 +19920,9 @@ function FiltroGaleriaDesafios({ placeholderSelect, handleValueSelect, optionLab
         return listItems.length >= maxListItems ? (jsxRuntime.jsxs(searchAndButton$1, { children: [jsxRuntime.jsx("div", { children: jsxRuntime.jsx(SearchField, { placeholder: textBusca, className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, onChange: (e) => {
                             setTextFilter(e.target.value);
                         } }) }), lengthList >= 2 ? (jsxRuntime.jsx(Button$4, { style: { marginTop: "1rem" }, variant: 'link', label: textButtonClear, disabled: false, handleClick: () => {
-                        setSelectedListItems(null);
-                        handleValueSelect([]);
+                        setSelectedListItems([]);
                     } })) : (jsxRuntime.jsx("div", {}))] })) : lengthList >= 1 ? (jsxRuntime.jsx(searchAndButton$1, { children: jsxRuntime.jsx(Button$4, { variant: 'link', label: textButtonClear, disabled: false, handleClick: () => {
-                    setSelectedListItems(null);
-                    handleValueSelect([]);
+                    setSelectedListItems([]);
                 } }) })) : (jsxRuntime.jsx("div", {}));
     };
     const handleDropdownIcon = () => {
@@ -19934,10 +19933,10 @@ function FiltroGaleriaDesafios({ placeholderSelect, handleValueSelect, optionLab
     };
     const selectedItems = selectedListItems;
     const length = selectedItems ? selectedItems.length : 0;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(containerFiltro, { children: [length >= 1 && (jsxRuntime.jsx(countSelect, { children: jsxRuntime.jsx(textCountSelectNumber, { children: length }) })), jsxRuntime.jsx(FiltroPrimeReact, { onClickFilter: onClickFilter, children: jsxRuntime.jsx(multiselect.MultiSelect, { value: selectedListItems, options: listFilterSearch, onChange: (e) => handleSelectItems(e.value), optionLabel: optionLabel, placeholder: placeholderSelect ? placeholderSelect : 'Por favor escolha', className: "multiselect-custom", 
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(containerFiltro, { children: [length >= 1 && (jsxRuntime.jsx(countSelect, { children: jsxRuntime.jsx(textCountSelectNumber, { children: length }) })), jsxRuntime.jsx(FiltroPrimeReact, { children: jsxRuntime.jsx(multiselect.MultiSelect, { value: selectedListItems, options: listFilterSearch, onChange: (e) => setSelectedListItems(e.value), optionLabel: optionLabel, placeholder: placeholderSelect ? placeholderSelect : 'Por favor escolha', className: "multiselect-custom", 
                         // panelStyle={selectItemsCss}
                         // selectedItemTemplate={selectedCountriesTemplate()}
-                        selectedItemsLabel: placeholderSelect, disabled: isDisabled, maxSelectedLabels: 0, filter: false, showSelectAll: false, onClick: () => (onClickFilter ? setOnClickFilter(false) : setOnClickFilter(true)), panelHeaderTemplate: handleTemplateHeader(), removeIcon: handleRemoveIcon, dropdownIcon: handleDropdownIcon }) })] }) }));
+                        selectedItemsLabel: placeholderSelect, disabled: isDisabled, maxSelectedLabels: 0, filter: false, showSelectAll: false, panelHeaderTemplate: handleTemplateHeader(), removeIcon: handleRemoveIcon, dropdownIcon: handleDropdownIcon }) })] }) }));
 }
 
 const containerSelect = styled__default["default"].div `
