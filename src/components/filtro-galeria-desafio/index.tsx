@@ -35,13 +35,11 @@ export default function FiltroGaleriaDesafios({
 
   useEffect(() => {
     setSelectedListItems(valueSelect);
-    handleValueSelect(valueSelect);
   }, [valueSelect])
 
-  const handleSelectItems = (items) => {
-    setSelectedListItems(items)
-    return handleValueSelect(items)
-  }
+  useEffect(() => {
+    handleValueSelect(selectedListItems)
+  }, [selectedListItems])
 
   const listFilterSearch = useMemo(() => {
     return listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
@@ -119,7 +117,7 @@ export default function FiltroGaleriaDesafios({
           <MultiSelect
             value={selectedListItems}
             options={listFilterSearch}
-            onChange={(e) => handleSelectItems(e.value)}
+            onChange={(e) => setSelectedListItems(e.value)}
             optionLabel={optionLabel}
             placeholder={placeholderSelect ? placeholderSelect : 'Por favor escolha'}
             className="multiselect-custom"
