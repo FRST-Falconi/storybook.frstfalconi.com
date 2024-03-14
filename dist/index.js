@@ -14092,7 +14092,7 @@ const ContentDescription = styled__default["default"].div `
   gap: 16px;
 `;
 
-const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit = 'X', onNext }) => {
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit = 'X', onCurrentStep }) => {
     const [numberCurrentStep, setNumberCurrentStep] = React.useState(0);
     const [currentTopic, setCurrentTopic] = React.useState(steps[numberCurrentStep]);
     const isLastStep = currentTopic === steps[steps.length - 1];
@@ -14101,14 +14101,16 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps,
     React.useEffect(() => {
         setCurrentTopic(steps[numberCurrentStep]);
     }, [steps]);
+    React.useEffect(() => {
+        onCurrentStep && onCurrentStep(currentTopic);
+    }, [currentTopic]);
     const handleClickButtonNext = () => {
-        if (isLastStep)
-            onFinish();
+        if (isLastStep) {
+            onFinish && onFinish();
+        }
         else {
             setCurrentTopic(steps[numberCurrentStep + 1]);
             setNumberCurrentStep((prev) => prev + 1);
-            if (onNext)
-                onNext();
         }
     };
     const handleClickTopic = (id) => {
