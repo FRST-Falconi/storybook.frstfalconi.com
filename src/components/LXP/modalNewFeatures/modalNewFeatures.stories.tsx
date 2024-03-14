@@ -14,7 +14,7 @@ ModalNewFeaturesNormal.args = {
   title: 'Novidades',
   open: open,
   onClose: () => alert('Modal Fechado'),
-  onNext: () => alert('Modal Proximo'),
+  onCurrentStep: () => alert('Modal Proximo'),
   onFinish: () => alert('salvar, aparecer só uma vez'),
   Exit:'X',
   steps: [
