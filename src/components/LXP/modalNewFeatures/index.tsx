@@ -18,12 +18,12 @@ type ModalNewFeaturesProps = {
   open: boolean
   Exit?:string
   onClose: () => void
-  onFinish: () => void
-  onNext: () => void
+  onFinish?: () => void
+  onCurrentStep?: (CurrentStep) => void
   steps: TopicsNewFeatues[]
 }
 
-const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit='X', onNext }: ModalNewFeaturesProps) => {
+const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps, Exit='X', onCurrentStep }: ModalNewFeaturesProps) => {
   const [numberCurrentStep, setNumberCurrentStep] = useState(0)
   const [currentTopic, setCurrentTopic] = useState<TopicsNewFeatues>(steps[numberCurrentStep])
 
@@ -36,12 +36,18 @@ const modalNewFeatures = ({ title = 'Novidades', open, onClose, onFinish, steps,
     setCurrentTopic(steps[numberCurrentStep])
   },[steps])
 
+  useEffect(()=>{
+    onCurrentStep && onCurrentStep(currentTopic)
+  },[currentTopic])
+
   const handleClickButtonNext = () => {
-    if (isLastStep) onFinish();
+    if (isLastStep){
+      onFinish && onFinish()
+    }
     else {
       setCurrentTopic(steps[numberCurrentStep + 1]);
       setNumberCurrentStep((prev) => prev + 1);
-      if (onNext) onNext(); 
+      
     }
   };
 
