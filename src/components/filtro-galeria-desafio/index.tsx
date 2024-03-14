@@ -21,23 +21,28 @@ export default function FiltroGaleriaDesafios({
   textBusca,
   valueSelect=[]
 }) {
-  const [lazyItems, setLazyItems] = useState([])
-  const [lazyLoading, setLazyLoading] = useState(false)
-  const [onClickFilter, setOnClickFilter] = useState(false)
-  const [selectedListItems, setSelectedListItems] = useState(valueSelect)
+
+  /// TODO: Não está implementado Lazyloading nesse componente. 
+  // const [lazyItems, setLazyItems] = useState([])
+  // const [lazyLoading, setLazyLoading] = useState(false)
+  // useEffect(() => {
+  //   setLazyItems(Array.from({ length: 100000 }))
+  //   setLazyLoading(false)
+  // }, [])
+
+  ///
+  const [selectedListItems, setSelectedListItems] = useState([])
   const [textFilter, setTextFilter] = useState('')
   const [listItemsFilter, setListItemsFilter] = useState(listItems)
 
-  useEffect(() => {
-    setLazyItems(Array.from({ length: 100000 }))
-    setLazyLoading(false)
-  }, [])
 
   useEffect(() => {
-    setSelectedListItems(valueSelect);
+    if (valueSelect.length > 0) {
+      setSelectedListItems(valueSelect);
+    }
   }, [valueSelect])
 
-  useEffect(() => {
+  useMemo(() => {
     handleValueSelect(selectedListItems)
   }, [selectedListItems])
 
@@ -69,8 +74,7 @@ export default function FiltroGaleriaDesafios({
             label={textButtonClear}
             disabled={false}
             handleClick={() => {
-              setSelectedListItems(null)
-              handleValueSelect([]);
+              setSelectedListItems([])
             }}
           />
         ) : (
@@ -84,8 +88,7 @@ export default function FiltroGaleriaDesafios({
           label={textButtonClear}
           disabled={false}
           handleClick={() => {
-            setSelectedListItems(null)
-            handleValueSelect([]);
+            setSelectedListItems([])
           }}
         />
       </StylesFiltro.searchAndButton>
@@ -113,7 +116,7 @@ export default function FiltroGaleriaDesafios({
             <StylesFiltro.textCountSelectNumber>{length}</StylesFiltro.textCountSelectNumber>
           </StylesFiltro.countSelect>
         )}
-        <StylesFiltro.FiltroPrimeReact onClickFilter={onClickFilter}>
+        <StylesFiltro.FiltroPrimeReact>
           <MultiSelect
             value={selectedListItems}
             options={listFilterSearch}
@@ -128,7 +131,6 @@ export default function FiltroGaleriaDesafios({
             maxSelectedLabels={0}
             filter={false}
             showSelectAll={false}
-            onClick={() => (onClickFilter ? setOnClickFilter(false) : setOnClickFilter(true))}
             panelHeaderTemplate={handleTemplateHeader()}
             removeIcon={handleRemoveIcon}
             dropdownIcon={handleDropdownIcon}
