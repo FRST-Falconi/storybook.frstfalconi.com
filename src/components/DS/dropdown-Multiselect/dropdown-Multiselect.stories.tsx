@@ -14,8 +14,10 @@ const Template = (args) => <DropdownMultiselect {...args} />
 export const normal = Template.bind({})
 normal.args = {
   maxSelectedShow: 5,
-  selectedDefault: [ { id: 1, name: 'Australia', description: 'FRST Falconi', avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg' },
-  { id: 2, name: 'Brazil', description: 'FRST Falconi', avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg' }],
+  selectedDefault: [ 
+    { id: 1, name: 'Australia', description: 'Tecnologia da Informação', avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg', subDescription: 'Analista' },
+    { id: 2, name: 'Brazil', description: 'Tecnologia da Informação', avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg', subDescription: 'Analista' },
+  ],
   selectPlaceholder: 'Selecione aqui',
   searchSelectPlaceholder: 'Pesquisar',
   isDisabled: false,
