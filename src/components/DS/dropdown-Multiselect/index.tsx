@@ -32,6 +32,7 @@ interface IDropdownMultiselect {
     selectedDefault?: ISelectedValue
     activeLazyLoad?: boolean
     onSearch?: (searchTerm) => void
+    searchTerm?: string
 }
 
 type ISelectedValue = {
@@ -46,7 +47,7 @@ type ISelectedValue = {
 export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const [selectedValues, setSelectedValues] = useState<ISelectedValue>([]);
     // const [textFilter, setTextFilter] = useState('')
-    const [listItemsFilter, setListItemsFilter] = useState(props.listItems)
+    const [listItemsFilter, setListItemsFilter] = useState<ISelectedValue>(props.listItems)
     const [showModal, setShowModal] = useState(false);
     const [listFilterSearch, setListFilterSearch] = useState<any>();
     const [lazyLoading, setLazyLoading] = useState(false);
@@ -139,7 +140,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
     const handleTemplateHeader = () => {
         const selectedItems = selectedValues
         const lengthList = selectedItems ? selectedItems?.length : 0
-        return props.listItems.length >= lengthList ? (
+        return (
             <S.searchAndButton>
                 <div style={{ marginBottom: '1rem' }}>
                     <SearchField
@@ -148,22 +149,33 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         handleClickButton={null}
                         isButton
                         hasSearchIcon={true}
+                        value={props.searchTerm}
                         onChange={(e: any) => {
                             props.onSearch(e.target.value)
                         }}
                     />
                 </div>
-                <Button
-                    id="select-all"
-                    variant={'link'}
-                    label={props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos'}
-                    disabled={false}
-                    handleClick={() => {
-                        setSelectedValues(listItemsFilter)
-                    }}
-                />
+                { props.listItems.length > 0 ?
+                    <Button
+                        id="select-all"
+                        variant={'link'}
+                        label={props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos'}
+                        disabled={false}
+                        handleClick={() => {
+                            setSelectedValues([
+                                ...selectedValues,
+                                ...listItemsFilter.filter( value => {
+                                    if(!selectedValues.find(item => item.id === value.id)) {
+                                        return value
+                                    }
+                                })
+                            ])
+                        }}
+                    />
+                    : <></>
+                }
             </S.searchAndButton>
-        ) : <></>
+        )
     }
 
     const selectValuesModal = () => {
@@ -265,7 +277,7 @@ export default function DropdownMultiselect(props: IDropdownMultiselect) {
                         itemTemplate={itemTemplate}
                         disabled={props.isDisabled}
                         maxSelectedLabels={0}
-                        selectedItemsLabel=" "
+                        selectedItemsLabel=" "            
                         style={{ border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }}
                         virtualScrollerOptions={ !props.activeLazyLoad ? null : {lazy: true, onLazyLoad: onLazyLoad, itemSize: 50, showLoader: true, loading: lazyLoading, delay: 100, loadingTemplate: (option) => {
                             return (
