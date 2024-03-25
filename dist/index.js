@@ -20217,12 +20217,21 @@ function DropdownMultiselect(props) {
     };
     const handleTemplateHeader = () => {
         const selectedItems = selectedValues;
-        const lengthList = selectedItems ? selectedItems?.length : 0;
-        return props.listItems.length >= lengthList ? (jsxRuntime.jsxs(searchAndButton, { children: [jsxRuntime.jsx("div", { style: { marginBottom: '1rem' }, children: jsxRuntime.jsx(SearchField, { placeholder: props.searchSelectPlaceholder ? props.searchSelectPlaceholder : 'Buscar', className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, onChange: (e) => {
+        selectedItems ? selectedItems?.length : 0;
+        return (jsxRuntime.jsxs(searchAndButton, { children: [jsxRuntime.jsx("div", { style: { marginBottom: '1rem' }, children: jsxRuntime.jsx(SearchField, { placeholder: props.searchSelectPlaceholder ? props.searchSelectPlaceholder : 'Buscar', className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, value: props.searchTerm, onChange: (e) => {
                             props.onSearch(e.target.value);
-                        } }) }), jsxRuntime.jsx(Button$4, { id: "select-all", variant: 'link', label: props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos', disabled: false, handleClick: () => {
-                        setSelectedValues(listItemsFilter);
-                    } })] })) : jsxRuntime.jsx(jsxRuntime.Fragment, {});
+                        } }) }), props.listItems.length > 0 ?
+                    jsxRuntime.jsx(Button$4, { id: "select-all", variant: 'link', label: props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos', disabled: false, handleClick: () => {
+                            setSelectedValues([
+                                ...selectedValues,
+                                ...listItemsFilter.filter(value => {
+                                    if (!selectedValues.find(item => item.id === value.id)) {
+                                        return value;
+                                    }
+                                })
+                            ]);
+                        } })
+                    : jsxRuntime.jsx(jsxRuntime.Fragment, {})] }));
     };
     const selectValuesModal = () => {
         return (jsxRuntime.jsx(material.Modal, { open: showModal, onClose: () => setShowModal(false), children: jsxRuntime.jsxs(modalContainer, { id: "container-modal", children: [jsxRuntime.jsx(modalHeader, { id: "header-people", children: jsxRuntime.jsxs("p", { children: [" ", props.modalTitle ? props.modalTitle : 'Este grupo é administrado por', " ", selectedValues.length, " ", selectedValues.length > 1 ? props.people : props.person, " "] }) }), jsxRuntime.jsx(modalContent, { children: selectedValues.map((item, index) => {
