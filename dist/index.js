@@ -1540,7 +1540,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$l = styled__default["default"](Card__default["default"]) `
+const Container$m = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -1548,7 +1548,7 @@ const Container$l = styled__default["default"](Card__default["default"]) `
   border-radius: 8px !important;
   padding: 24px !important;
 `;
-const Title$6 = styled__default["default"].span `
+const Title$7 = styled__default["default"].span `
   font-size: 20px !important;
   color: #ff4d0d !important;
 `;
@@ -1746,9 +1746,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$l, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$m, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$l, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$6, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$m, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$7, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -2979,6 +2979,14 @@ const CircledAlert = ({ fill = '#F18624', width = '22', height = '22' }) => {
     return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: width, height: height, rx: "11", fill: fill }), jsxRuntime.jsx("path", { d: "M9.952 9H11.772V16H9.952V9ZM9.686 7.026C9.686 6.75533 9.784 6.52667 9.98 6.34C10.1853 6.144 10.4653 6.046 10.82 6.046C11.1747 6.046 11.4593 6.144 11.674 6.34C11.898 6.52667 12.01 6.75533 12.01 7.026C12.01 7.29667 11.898 7.52533 11.674 7.712C11.4593 7.88933 11.1747 7.978 10.82 7.978C10.4653 7.978 10.1853 7.88933 9.98 7.712C9.784 7.52533 9.686 7.29667 9.686 7.026Z", fill: "#F8FAFC" })] }));
 };
 
+const VoteIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) => {
+    return (jsxRuntime.jsxs("svg", { style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_2067_11382)", children: [jsxRuntime.jsx("path", { d: "M7.9987 14.9192C11.6806 14.9192 14.6654 11.9345 14.6654 8.25257C14.6654 4.57068 11.6806 1.58591 7.9987 1.58591C4.3168 1.58591 1.33203 4.57068 1.33203 8.25257C1.33203 11.9345 4.3168 14.9192 7.9987 14.9192Z", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11 8.25256L8 5.25256L5 8.25256", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8 11.2526V5.25256", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_2067_11382", children: jsxRuntime.jsx("rect", { width: "16", height: "16", fill: "white", transform: "translate(0 0.252563)" }) }) })] }));
+};
+
+const ExcludeVoteIcon = ({ style, width = '16', height = '17', stroke = '#444444', onMouseOver }) => {
+    return (jsxRuntime.jsxs("svg", { onMouseOver: onMouseOver, style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00065 14.9381C11.6825 14.9381 14.6673 11.9533 14.6673 8.2714C14.6673 4.5895 11.6825 1.60474 8.00065 1.60474C4.31875 1.60474 1.33398 4.5895 1.33398 8.2714C1.33398 11.9533 4.31875 14.9381 8.00065 14.9381Z", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.6673 5.60474L5.33398 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M5.33398 5.60474L10.6673 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+};
+
 const fadeInRight = styled.keyframes `
   0% {
     opacity: 0;
@@ -3067,6 +3075,227 @@ const Toast = ({ type = 'success', message, onClose, showBySeconds = 5, styles }
             iconComponent = jsxRuntime.jsx(CircledAlert, { width: '22', height: '22' });
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { visible: isToastOpen, style: { ...styles }, children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon, { width: '14', height: '14' }) })] }) }));
+};
+
+const MainContainer = styled__default["default"].div `
+display: flex;
+align-items: center;
+justify-content: space-between;
+width:100%;
+`;
+const Container$l = styled__default["default"].div `
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-family: PT Sans;
+font-size:14px;
+border-radius:8px;
+padding: 0 0 0 16px; 
+height: 100%;
+min-height: 52px;
+
+${({ type }) => type === 'prioritize' && styled.css `
+    background: #FDAE15;
+`}
+${({ type }) => type === 'raised' && styled.css `
+    background: #F8D784;
+
+`}
+${({ type }) => type === 'suggested' && styled.css `
+    background: #CDDAEF;
+`}
+`;
+const Title$6 = styled__default["default"].span `
+font-weight:700;
+white-space: nowrap;
+`;
+styled__default["default"].span `
+font-weight:700;
+`;
+const Separator = styled__default["default"].div `
+font-weight:bold;
+margin: 0 8px;
+`;
+const Description$3 = styled__default["default"].span `
+font-weight:400;
+padding: 8px 0 8px;
+
+`;
+const SplitContainer = styled__default["default"].div `
+display:flex;
+justify-content: flex-start;
+align-items:center;
+height: ${({ height }) => height ? `${height}px` : '100%'};
+`;
+const VoteMainContainer = styled__default["default"].div `
+display: flex;
+align-items: center;
+justify-content: flex-start;
+cursor: pointer;
+height: ${({ height }) => height ? `${height}px` : '100%'};
+width: 100%;
+`;
+styled__default["default"].div `
+display: flex;
+align-items: center;
+justify-content: flex-start;
+position: relative;
+`;
+styled__default["default"].div `
+    position: absolute;
+`;
+const VoteButtonContainer = styled__default["default"].span `
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    background: #F9CD5E;
+
+    ${({ type }) => type === 'prioritize' && styled.css `
+    background: #DC9100;
+    `}
+    ${({ type }) => type === 'raised' && styled.css `
+        background: #F9CD5E;
+
+    `}
+    ${({ type }) => type === 'suggested' && styled.css `
+        background: #A5C3F2;
+    `}
+    border-radius:0 8px 8px 0;
+    padding: 0 16px 0 16px;
+    height: 100%;
+    min-height: 52px;
+    margin-left: 4px;
+
+`;
+const VoteCount = styled__default["default"].span `
+    display: flex;
+    align-items: center;
+    height: 100%;
+    gap: 4px;
+    white-space: nowrap;
+    width: auto;
+`;
+const VoteButton = styled__default["default"].p `
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height:100%;
+    width: 100%;
+    font-family: PT Sans;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18.12px;
+    text-align: left;
+    color: #444444;
+    white-space: nowrap;
+    width: auto;
+`;
+const VoteContent = styled__default["default"].div `
+    display: flex;
+    div{
+        flex-direction: row-reverse;
+        display: flex;
+        :nth-child(1n){
+        margin-left: -8px;
+    }
+    }
+`;
+const ImageContent$1 = styled__default["default"].div `
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: solid  2.5px #fff;
+    color: #FFFFFF;
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+`;
+const VoteListContainer = styled__default["default"].div `
+position: absolute;
+top: calc(100% + 1px);
+right: 0;
+width: 225px; 
+max-height: 300px; 
+overflow-y: auto;
+padding: 5px 0px;
+background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 8px;
+z-index: 1999;
+display: ${({ showVotes }) => showVotes ? 'block' : 'none'};
+    &::-webkit-scrollbar {
+      display: none;
+    }
+box-shadow: 0px 15px 20px 0px #22222226;
+`;
+const VoteListItem = styled__default["default"].div `
+height: 36px;
+display: flex;
+align-items: center;
+gap: 10px;
+${({ lastVote }) => lastVote === false && "border-bottom: solid 1px #ccc;"}
+`;
+
+const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile }) => {
+    const [isHover, seIsHover] = React.useState(false);
+    const [hasVote, setHasVote] = React.useState(votes?.some((vote) => vote?.user_uuid === userLoggedId));
+    const [hypothesisVotes, setHypothesisVotes] = React.useState(votes);
+    const [showVotesList, setShowVotesList] = React.useState(false);
+    const toggleVotes = () => {
+        setShowVotesList(!showVotesList);
+    };
+    const handleVote = async (hyphoteseId) => {
+        const vote = await onVote(hyphoteseId);
+        if (vote?.status === 201) {
+            let updateVotes = hypothesisVotes;
+            if (!updateVotes.some((vot) => vot?.id === vote?.data?.id)) {
+                updateVotes.push(vote.data);
+                setHypothesisVotes(updateVotes);
+            }
+            setHasVote(true);
+        }
+        if (vote?.status !== 201)
+            setHasVote(false);
+    };
+    const handleDeleteVote = async (voteId) => {
+        const vote = await deleteVote(voteId);
+        if (vote?.status === 204) {
+            let updateVotes = hypothesisVotes;
+            if (updateVotes.some((vot) => vot?.id === voteId)) {
+                const newArrayVotes = updateVotes.filter((vot) => vot.id !== voteId);
+                setHypothesisVotes(newArrayVotes);
+            }
+            setHasVote(false);
+        }
+    };
+    return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$l, { type: type, id: id, children: [jsxRuntime.jsxs(SplitContainer, { children: [jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$3, { children: description })] }), !canVote && canViewVote && hypothesisVotes.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteMainContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
+                                                        return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 1000 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
+                                                    }), hypothesisVotes.length > 3 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
+                                                                fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
+                                                            }, children: ["+", hypothesisVotes?.length - 3] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }) }) }) }), jsxRuntime.jsx(VoteList, { hypothesisVotes: votes, showVotes: showVotesList, viewProfile: handleViewProfile })] })), canVote && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteMainContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { role: "button", type: type, onMouseOver: () => seIsHover(true), onMouseOut: () => seIsHover(false), children: hasVote ? (isHover ? (jsxRuntime.jsxs("div", { style: {
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '4px'
+                                }, onClick: () => handleDeleteVote(hypothesisVotes.find((vote) => vote.user_uuid === userLoggedId).id), children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
+                                                return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 1000 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
+                                            }), hypothesisVotes.length > 3 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", hypothesisVotes?.length - 3] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }))) : (jsxRuntime.jsxs("div", { style: {
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-around',
+                                    paddingLeft: '4px',
+                                    height: '100%'
+                                }, onClick: () => handleVote(id), children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] })) }) }) }))] }) }));
+};
+const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
+    return (jsxRuntime.jsx(VoteListContainer, { showVotes: showVotes, children: hypothesisVotes?.map((vote, index) => (jsxRuntime.jsxs(VoteListItem, { lastVote: hypothesisVotes?.length === index + 1, onClick: () => viewProfile(vote?.user?.uuid), children: [jsxRuntime.jsx(Avatar, { src: vote?.user?.avatar, size: '24px', alt: vote?.user?.name, style: { marginLeft: '6px' } }), jsxRuntime.jsx("p", { children: vote?.user?.name })] }, vote?.id))) }));
 };
 
 const ButtonGroupWrapper = styled__default["default"].div `
@@ -20336,6 +20565,7 @@ exports.HeaderImprovementIdea = HeaderImprovementIdea;
 exports.HeaderUser = HeaderUser;
 exports.HomeFilledIcon = HomeFilledIcon;
 exports.HomeLineIcon = HomeLineIcon;
+exports.HypothesisComponent = HypothesisComponent;
 exports.IconContent = IconContent;
 exports.IconNotification = IconNotification;
 exports.IcrementarIdeia = IcrementarIdeia;
