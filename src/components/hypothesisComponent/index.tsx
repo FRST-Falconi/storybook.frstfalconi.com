@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as Styles from './hypothesisComponent.style'
 import { Vote } from './types'
 import { ExcludeVoteIcon, VoteIcon } from '@public/customIcons'
@@ -47,6 +47,21 @@ export const HypothesisComponent = ({
   const toggleVotes = () => {
     setShowVotesList(!showVotesList)
   }
+  const viewVotesRef = useRef(null)
+
+  const handleClickOutsideVote = (event) => {
+    if (viewVotesRef?.current && !viewVotesRef?.current?.contains(event?.target)) {
+      setShowVotesList(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutsideVote)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideVote)
+    }
+  }, [setShowVotesList])
 
   const handleVote = async (hyphoteseId: string) => {
     const vote = await onVote(hyphoteseId)
@@ -86,6 +101,7 @@ export const HypothesisComponent = ({
             <Styles.SplitContainer>
               <Styles.VoteMainContainer>
                 <Styles.VoteButtonContainer
+                  ref={viewVotesRef}
                   style={{ cursor: canViewListVotes ? 'pointer' : 'default' }}
                   type={type}
                   onClick={canViewListVotes ? toggleVotes : null}
@@ -94,7 +110,7 @@ export const HypothesisComponent = ({
                     <Styles.VoteContent>
                       {hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
                         return (
-                          <Styles.ImageContent key={vote?.id} style={{ zIndex: 1000 - index }}>
+                          <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
                             <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                           </Styles.ImageContent>
                         )
@@ -195,7 +211,12 @@ const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
           lastVote={hypothesisVotes?.length === index + 1}
           onClick={() => viewProfile(vote?.user?.uuid)}
         >
-          <Avatar src={vote?.user?.avatar} size={'24px'} alt={vote?.user?.name} style={{ marginLeft: '6px' }} />
+          <Avatar
+            src={vote?.user?.avatar}
+            size={'24px'}
+            alt={vote?.user?.name}
+            style={{ marginLeft: '6px', cursor: 'pointer' }}
+          />
           <p>{vote?.user?.name}</p>
         </Styles.VoteListItem>
       ))}
