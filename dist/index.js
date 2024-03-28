@@ -3255,7 +3255,9 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
     };
     const viewVotesRef = React.useRef(null);
     const handleClickOutsideVote = (event) => {
-        if (viewVotesRef?.current && !viewVotesRef?.current?.contains(event?.target)) {
+        if (viewVotesRef?.current &&
+            !viewVotesRef?.current?.contains(event?.target) &&
+            !event.target.closest('.VoteListItem')) {
             setShowVotesList(false);
         }
     };
@@ -3308,7 +3310,8 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                 }, onClick: () => handleVote(id), children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] })) }) }) }))] }) }));
 };
 const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
-    return (jsxRuntime.jsx(VoteListContainer, { showVotes: showVotes, children: hypothesisVotes?.map((vote, index) => (jsxRuntime.jsxs(VoteListItem, { lastVote: hypothesisVotes?.length === index + 1, onClick: () => viewProfile(vote?.user?.uuid), children: [jsxRuntime.jsx(Avatar, { src: vote?.user?.avatar, size: '24px', alt: vote?.user?.name, style: { marginLeft: '6px', cursor: 'pointer' } }), jsxRuntime.jsx("p", { children: vote?.user?.name })] }, vote?.id))) }));
+    const sortedVotes = [...hypothesisVotes].sort((a, b) => a.user.name.localeCompare(b.user.name));
+    return (jsxRuntime.jsx(VoteListContainer, { showVotes: showVotes, children: sortedVotes?.map((vote, index) => (jsxRuntime.jsxs(VoteListItem, { className: "VoteListItem", lastVote: hypothesisVotes?.length === index + 1, onClick: () => viewProfile(vote?.user?.uuid), children: [jsxRuntime.jsx(Avatar, { src: vote?.user?.avatar, size: '24px', alt: vote?.user?.name, style: { marginLeft: '6px', cursor: 'pointer' } }), jsxRuntime.jsx("p", { children: vote?.user?.name })] }, vote?.id))) }));
 };
 
 const ButtonGroupWrapper = styled__default["default"].div `

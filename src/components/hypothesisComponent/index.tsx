@@ -50,7 +50,11 @@ export const HypothesisComponent = ({
   const viewVotesRef = useRef(null)
 
   const handleClickOutsideVote = (event) => {
-    if (viewVotesRef?.current && !viewVotesRef?.current?.contains(event?.target)) {
+    if (
+      viewVotesRef?.current &&
+      !viewVotesRef?.current?.contains(event?.target) &&
+      !event.target.closest('.VoteListItem')
+    ) {
       setShowVotesList(false)
     }
   }
@@ -203,10 +207,12 @@ export const HypothesisComponent = ({
 }
 
 const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
+  const sortedVotes = [...hypothesisVotes].sort((a, b) => a.user.name.localeCompare(b.user.name))
   return (
     <Styles.VoteListContainer showVotes={showVotes}>
-      {hypothesisVotes?.map((vote, index) => (
+      {sortedVotes?.map((vote, index) => (
         <Styles.VoteListItem
+          className="VoteListItem"
           key={vote?.id}
           lastVote={hypothesisVotes?.length === index + 1}
           onClick={() => viewProfile(vote?.user?.uuid)}
