@@ -24,6 +24,7 @@ Priorizada.args = {
   deleteVoteText: 'Excluir voto',
   voteText: 'Votar',
   canViewListVotes: true,
+  handleViewProfile: (id) => alert(`cliquei no user de id: ${id}`),
   votes: [
     {
       id: 1,
