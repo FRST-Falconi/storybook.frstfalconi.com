@@ -3237,6 +3237,7 @@ display: ${({ showVotes }) => showVotes ? 'block' : 'none'};
 box-shadow: 0px 15px 20px 0px #22222226;
 `;
 const VoteListItem = styled__default["default"].div `
+cursor: pointer;
 height: 36px;
 display: flex;
 align-items: center;
@@ -3277,7 +3278,7 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
         }
     };
     return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$l, { type: type, id: id, children: [jsxRuntime.jsxs(SplitContainer, { children: [jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$3, { children: description })] }), !canVote && canViewVote && hypothesisVotes.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteMainContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
-                                                        return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 1000 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
+                                                        return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
                                                     }), hypothesisVotes.length > 3 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
                                                                 fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
                                                             }, children: ["+", hypothesisVotes?.length - 3] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }) }) }) }), jsxRuntime.jsx(VoteList, { hypothesisVotes: votes, showVotes: showVotesList, viewProfile: handleViewProfile })] })), canVote && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteMainContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { role: "button", type: type, onMouseOver: () => seIsHover(true), onMouseOut: () => seIsHover(false), children: hasVote ? (isHover ? (jsxRuntime.jsxs("div", { style: {
@@ -3295,7 +3296,7 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                 }, onClick: () => handleVote(id), children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] })) }) }) }))] }) }));
 };
 const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
-    return (jsxRuntime.jsx(VoteListContainer, { showVotes: showVotes, children: hypothesisVotes?.map((vote, index) => (jsxRuntime.jsxs(VoteListItem, { lastVote: hypothesisVotes?.length === index + 1, onClick: () => viewProfile(vote?.user?.uuid), children: [jsxRuntime.jsx(Avatar, { src: vote?.user?.avatar, size: '24px', alt: vote?.user?.name, style: { marginLeft: '6px' } }), jsxRuntime.jsx("p", { children: vote?.user?.name })] }, vote?.id))) }));
+    return (jsxRuntime.jsx(VoteListContainer, { showVotes: showVotes, children: hypothesisVotes?.map((vote, index) => (jsxRuntime.jsxs(VoteListItem, { lastVote: hypothesisVotes?.length === index + 1, onClick: () => viewProfile(vote?.user?.uuid), children: [jsxRuntime.jsx(Avatar, { src: vote?.user?.avatar, size: '24px', alt: vote?.user?.name, style: { marginLeft: '6px', cursor: 'pointer' } }), jsxRuntime.jsx("p", { children: vote?.user?.name })] }, vote?.id))) }));
 };
 
 const ButtonGroupWrapper = styled__default["default"].div `

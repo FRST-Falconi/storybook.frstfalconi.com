@@ -94,7 +94,7 @@ export const HypothesisComponent = ({
                     <Styles.VoteContent>
                       {hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
                         return (
-                          <Styles.ImageContent key={vote?.id} style={{ zIndex: 1000 - index }}>
+                          <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
                             <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                           </Styles.ImageContent>
                         )
@@ -195,7 +195,12 @@ const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
           lastVote={hypothesisVotes?.length === index + 1}
           onClick={() => viewProfile(vote?.user?.uuid)}
         >
-          <Avatar src={vote?.user?.avatar} size={'24px'} alt={vote?.user?.name} style={{ marginLeft: '6px' }} />
+          <Avatar
+            src={vote?.user?.avatar}
+            size={'24px'}
+            alt={vote?.user?.name}
+            style={{ marginLeft: '6px', cursor: 'pointer' }}
+          />
           <p>{vote?.user?.name}</p>
         </Styles.VoteListItem>
       ))}

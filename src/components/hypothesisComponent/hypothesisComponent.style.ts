@@ -168,6 +168,7 @@ box-shadow: 0px 15px 20px 0px #22222226;
 `
 
 export const VoteListItem = styled.div<{ lastVote?: boolean }>`
+cursor: pointer;
 height: 36px;
 display: flex;
 align-items: center;
