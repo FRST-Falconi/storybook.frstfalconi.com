@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import * as Styles from './hypothesisComponent.style'
 import { Vote } from './types'
 import { ExcludeVoteIcon, VoteIcon } from '@public/customIcons'
@@ -47,6 +47,21 @@ export const HypothesisComponent = ({
   const toggleVotes = () => {
     setShowVotesList(!showVotesList)
   }
+  const viewVotesRef = useRef(null)
+
+  const handleClickOutsideVote = (event) => {
+    if (viewVotesRef?.current && !viewVotesRef?.current?.contains(event?.target)) {
+      setShowVotesList(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutsideVote)
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutsideVote)
+    }
+  }, [setShowVotesList])
 
   const handleVote = async (hyphoteseId: string) => {
     const vote = await onVote(hyphoteseId)
@@ -86,6 +101,7 @@ export const HypothesisComponent = ({
             <Styles.SplitContainer>
               <Styles.VoteMainContainer>
                 <Styles.VoteButtonContainer
+                  ref={viewVotesRef}
                   style={{ cursor: canViewListVotes ? 'pointer' : 'default' }}
                   type={type}
                   onClick={canViewListVotes ? toggleVotes : null}
