@@ -119,7 +119,7 @@ export const HypothesisComponent = ({
                           </Styles.ImageContent>
                         )
                       })}
-                      {hypothesisVotes.length > 3 && (
+                      {hypothesisVotes?.length > 3 && (
                         <Styles.ImageContent style={{ background: '#444444' }}>
                           <p
                             style={{
@@ -143,10 +143,10 @@ export const HypothesisComponent = ({
           <Styles.SplitContainer>
             <Styles.VoteMainContainer>
               <Styles.VoteButtonContainer
-                role="button"
                 type={type}
-                onMouseOver={() => seIsHover(true)}
-                onMouseOut={() => seIsHover(false)}
+                modeDelete={isHover}
+                onMouseEnter={() => seIsHover(true)}
+                onMouseLeave={() => seIsHover(false)}
               >
                 {hasVote ? (
                   isHover ? (
@@ -154,7 +154,9 @@ export const HypothesisComponent = ({
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '4px'
+                        gap: '4px',
+                        width: 'auto',
+                        justifyContent: 'end'
                       }}
                       onClick={() =>
                         handleDeleteVote(hypothesisVotes.find((vote) => vote.user_uuid === userLoggedId).id)
@@ -168,7 +170,7 @@ export const HypothesisComponent = ({
                       <Styles.VoteContent>
                         {hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
                           return (
-                            <Styles.ImageContent key={vote?.id} style={{ zIndex: 1000 - index }}>
+                            <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
                               <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                             </Styles.ImageContent>
                           )
@@ -179,7 +181,9 @@ export const HypothesisComponent = ({
                           </Styles.ImageContent>
                         )}
                       </Styles.VoteContent>
-                      {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+                      <p>
+                        {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+                      </p>
                     </Styles.VoteCount>
                   )
                 ) : (

@@ -74,12 +74,13 @@ export const VoteAvatar = styled.div`
     position: absolute;
 `
 
-export const VoteButtonContainer = styled.span<{ type?: string }>`
+export const VoteButtonContainer = styled.span<{ type?: string, modeDelete?: boolean }>`
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 100%;
     background: #F9CD5E;
+
 
     ${({ type }) => type === 'prioritize' && css`
     background: #DC9100;
@@ -90,6 +91,10 @@ export const VoteButtonContainer = styled.span<{ type?: string }>`
     `}
     ${({ type }) => type === 'suggested' && css`
         background: #A5C3F2;
+    `}
+
+    ${({ modeDelete }) => modeDelete && css`
+    background: inherit;
     `}
     border-radius:0 8px 8px 0;
     padding: 0 16px 0 16px;

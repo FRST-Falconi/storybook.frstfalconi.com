@@ -2983,8 +2983,8 @@ const VoteIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) =>
     return (jsxRuntime.jsxs("svg", { style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_2067_11382)", children: [jsxRuntime.jsx("path", { d: "M7.9987 14.9192C11.6806 14.9192 14.6654 11.9345 14.6654 8.25257C14.6654 4.57068 11.6806 1.58591 7.9987 1.58591C4.3168 1.58591 1.33203 4.57068 1.33203 8.25257C1.33203 11.9345 4.3168 14.9192 7.9987 14.9192Z", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11 8.25256L8 5.25256L5 8.25256", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8 11.2526V5.25256", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_2067_11382", children: jsxRuntime.jsx("rect", { width: "16", height: "16", fill: "white", transform: "translate(0 0.252563)" }) }) })] }));
 };
 
-const ExcludeVoteIcon = ({ style, width = '16', height = '17', stroke = '#444444', onMouseOver }) => {
-    return (jsxRuntime.jsxs("svg", { onMouseOver: onMouseOver, style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00065 14.9381C11.6825 14.9381 14.6673 11.9533 14.6673 8.2714C14.6673 4.5895 11.6825 1.60474 8.00065 1.60474C4.31875 1.60474 1.33398 4.5895 1.33398 8.2714C1.33398 11.9533 4.31875 14.9381 8.00065 14.9381Z", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.6673 5.60474L5.33398 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M5.33398 5.60474L10.6673 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+const ExcludeVoteIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) => {
+    return (jsxRuntime.jsxs("svg", { style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00065 14.9381C11.6825 14.9381 14.6673 11.9533 14.6673 8.2714C14.6673 4.5895 11.6825 1.60474 8.00065 1.60474C4.31875 1.60474 1.33398 4.5895 1.33398 8.2714C1.33398 11.9533 4.31875 14.9381 8.00065 14.9381Z", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.6673 5.60474L5.33398 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M5.33398 5.60474L10.6673 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 };
 
 const fadeInRight = styled.keyframes `
@@ -3152,6 +3152,7 @@ const VoteButtonContainer = styled__default["default"].span `
     width: 100%;
     background: #F9CD5E;
 
+
     ${({ type }) => type === 'prioritize' && styled.css `
     background: #DC9100;
     `}
@@ -3161,6 +3162,10 @@ const VoteButtonContainer = styled__default["default"].span `
     `}
     ${({ type }) => type === 'suggested' && styled.css `
         background: #A5C3F2;
+    `}
+
+    ${({ modeDelete }) => modeDelete && styled.css `
+    background: inherit;
     `}
     border-radius:0 8px 8px 0;
     padding: 0 16px 0 16px;
@@ -3293,15 +3298,17 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
     };
     return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$l, { type: type, id: id, children: [jsxRuntime.jsxs(SplitContainer, { children: [jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$3, { children: description })] }), !canVote && canViewVote && hypothesisVotes.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteMainContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
                                                         return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
-                                                    }), hypothesisVotes.length > 3 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
+                                                    }), hypothesisVotes?.length > 3 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
                                                                 fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
-                                                            }, children: ["+", hypothesisVotes?.length - 3] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }) }) }) }), jsxRuntime.jsx(VoteList, { hypothesisVotes: votes, showVotes: showVotesList, viewProfile: handleViewProfile })] })), canVote && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteMainContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { role: "button", type: type, onMouseOver: () => seIsHover(true), onMouseOut: () => seIsHover(false), children: hasVote ? (isHover ? (jsxRuntime.jsxs("div", { style: {
+                                                            }, children: ["+", hypothesisVotes?.length - 3] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }) }) }) }), jsxRuntime.jsx(VoteList, { hypothesisVotes: votes, showVotes: showVotesList, viewProfile: handleViewProfile })] })), canVote && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteMainContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, onMouseLeave: () => seIsHover(false), children: hasVote ? (isHover ? (jsxRuntime.jsxs("div", { style: {
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: '4px'
+                                    gap: '4px',
+                                    width: 'auto',
+                                    justifyContent: 'end'
                                 }, onClick: () => handleDeleteVote(hypothesisVotes.find((vote) => vote.user_uuid === userLoggedId).id), children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
-                                                return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 1000 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
-                                            }), hypothesisVotes.length > 3 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", hypothesisVotes?.length - 3] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }))) : (jsxRuntime.jsxs("div", { style: {
+                                                return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
+                                            }), hypothesisVotes.length > 3 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, onMouseEnter: () => seIsHover(true), children: jsxRuntime.jsxs("p", { children: ["+", hypothesisVotes?.length - 3] }) }))] }), jsxRuntime.jsxs("p", { children: [hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsxs("div", { style: {
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'space-around',
