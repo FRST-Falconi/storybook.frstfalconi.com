@@ -5,6 +5,7 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 width:100%;
+color: #222222;
 `
 export const Container = styled.div<{ type: string }>`
 width: 100%;
@@ -77,8 +78,8 @@ export const VoteAvatar = styled.div`
 export const VoteButtonContainer = styled.span<{ type?: string, modeDelete?: boolean }>`
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    width: 100%;
+    justify-content: center;
+    width: 150px;
     background: #F9CD5E;
 
 

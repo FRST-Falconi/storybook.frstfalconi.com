@@ -119,18 +119,6 @@ Sugerida.args = {
         email: 'teste.teste@gmail.com',
         avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
       }
-    },
-    {
-      id: 3,
-      user_uuid: '05b7bec63',
-      obj_code: '0fb8e72d3',
-      obj_type: 'hypothese',
-      user: {
-        name: 'Lima',
-        uuid: '05b7bec63',
-        email: 'teste.teste@gmail.com',
-        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
-      }
     }
   ],
   canVote: true,
