@@ -81,7 +81,7 @@ Priorizada.args = {
 Levantada.args = {
   title: 'HIPÓTESE',
   type: HypothesisEnum.RAISED,
-  description: 'Melhorar a UI e usabilidade da plataforma.',
+  description: 'Melhorar a UI e usabilidade da plataforma. ',
   id: '2',
   votes: [],
   userLoggedId: '00',
@@ -93,7 +93,7 @@ Levantada.args = {
 Sugerida.args = {
   title: 'HIPÓTESE',
   type: HypothesisEnum.SUGGESTED,
-  description: 'Melhorar a UI e usabilidade da plataforma.',
+  description: 'Melhorar a UI e usabilidade da plataforma. Melhorar a UI e usabilidade da plataforma.',
   id: '2',
   votes: [
     {
@@ -116,30 +116,6 @@ Sugerida.args = {
       user: {
         name: 'Roberto',
         uuid: '05b7bec62',
-        email: 'teste.teste@gmail.com',
-        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
-      }
-    },
-    {
-      id: 3,
-      user_uuid: '05b7bec63',
-      obj_code: '0fb8e72d3',
-      obj_type: 'hypothese',
-      user: {
-        name: 'Lima',
-        uuid: '05b7bec63',
-        email: 'teste.teste@gmail.com',
-        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
-      }
-    },
-    {
-      id: 4,
-      user_uuid: '05b7bec64',
-      obj_code: '0fb8e72d4',
-      obj_type: 'hypothese',
-      user: {
-        name: 'Up',
-        uuid: '05b7bec64',
         email: 'teste.teste@gmail.com',
         avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
       }

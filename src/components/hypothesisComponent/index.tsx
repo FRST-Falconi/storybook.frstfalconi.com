@@ -71,7 +71,7 @@ export const HypothesisComponent = ({
     const vote = await onVote(hyphoteseId)
     if (vote?.status === 201) {
       let updateVotes = hypothesisVotes
-      if (!updateVotes.some((vot) => vot?.id === vote?.data?.id)) {
+      if (!updateVotes?.some((vot) => vot?.id === vote?.data?.id)) {
         updateVotes.push(vote.data)
         setHypothesisVotes(updateVotes)
       }
@@ -112,21 +112,21 @@ export const HypothesisComponent = ({
                 >
                   <Styles.VoteCount>
                     <Styles.VoteContent>
-                      {hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
+                      {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
                         return (
                           <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
                             <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                           </Styles.ImageContent>
                         )
                       })}
-                      {hypothesisVotes.length > 3 && (
+                      {hypothesisVotes?.length > 2 && (
                         <Styles.ImageContent style={{ background: '#444444' }}>
                           <p
                             style={{
                               fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
                             }}
                           >
-                            +{hypothesisVotes?.length - 3}
+                            +{hypothesisVotes?.length - 2}
                           </p>
                         </Styles.ImageContent>
                       )}
@@ -143,10 +143,10 @@ export const HypothesisComponent = ({
           <Styles.SplitContainer>
             <Styles.VoteMainContainer>
               <Styles.VoteButtonContainer
-                role="button"
                 type={type}
-                onMouseOver={() => seIsHover(true)}
-                onMouseOut={() => seIsHover(false)}
+                modeDelete={isHover}
+                onMouseEnter={() => seIsHover(true)}
+                onMouseLeave={() => seIsHover(false)}
               >
                 {hasVote ? (
                   isHover ? (
@@ -154,7 +154,8 @@ export const HypothesisComponent = ({
                       style={{
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '4px'
+                        gap: '4px',
+                        justifyContent: 'center'
                       }}
                       onClick={() =>
                         handleDeleteVote(hypothesisVotes.find((vote) => vote.user_uuid === userLoggedId).id)
@@ -166,20 +167,22 @@ export const HypothesisComponent = ({
                   ) : (
                     <Styles.VoteCount>
                       <Styles.VoteContent>
-                        {hypothesisVotes?.slice(0, 3)?.map((vote, index) => {
+                        {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
                           return (
-                            <Styles.ImageContent key={vote?.id} style={{ zIndex: 1000 - index }}>
+                            <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
                               <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                             </Styles.ImageContent>
                           )
                         })}
-                        {hypothesisVotes.length > 3 && (
+                        {hypothesisVotes.length > 2 && (
                           <Styles.ImageContent style={{ background: '#444444' }}>
-                            <p>+{hypothesisVotes?.length - 3}</p>
+                            <p>+{hypothesisVotes?.length - 2}</p>
                           </Styles.ImageContent>
                         )}
                       </Styles.VoteContent>
-                      {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+                      <p>
+                        {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+                      </p>
                     </Styles.VoteCount>
                   )
                 ) : (
@@ -187,7 +190,7 @@ export const HypothesisComponent = ({
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'space-around',
+                      justifyContent: 'center',
                       paddingLeft: '4px',
                       height: '100%'
                     }}
