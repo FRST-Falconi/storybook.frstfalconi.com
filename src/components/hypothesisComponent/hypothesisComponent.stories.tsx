@@ -95,6 +95,9 @@ Sugerida.args = {
   type: HypothesisEnum.SUGGESTED,
   description: 'Melhorar a UI e usabilidade da plataforma. Melhorar a UI e usabilidade da plataforma.',
   id: '2',
+  authorId: '22222',
+  showAvatar: true,
+  handleViewProfile: (id) => alert(`cliquei no user de id: ${id}`),
   votes: [
     {
       id: 1,

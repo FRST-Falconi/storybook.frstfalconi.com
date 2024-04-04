@@ -20,7 +20,10 @@ export const HypothesisComponent = ({
   votesPluralText,
   voteText,
   deleteVoteText,
-  handleViewProfile
+  handleViewProfile,
+  avatar,
+  showAvatar,
+  authorId
 }: {
   description: string
   type: string
@@ -38,6 +41,9 @@ export const HypothesisComponent = ({
   votesPluralText?: string
   voteText?: string
   deleteVoteText?: string
+  avatar?: string
+  showAvatar?: boolean
+  authorId?: string
 }) => {
   const [isHover, seIsHover] = useState(false)
   const [hasVote, setHasVote] = useState(votes?.some((vote) => vote?.user_uuid === userLoggedId))
@@ -96,6 +102,14 @@ export const HypothesisComponent = ({
     <Styles.MainContainer>
       <Styles.Container type={type} id={id}>
         <Styles.SplitContainer>
+          {showAvatar && (
+            <Avatar
+              src={avatar}
+              size="24px"
+              style={{ marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }}
+              onClick={() => handleViewProfile(authorId)}
+            />
+          )}
           <Styles.Title>{title}</Styles.Title>
           <Styles.Separator>|</Styles.Separator>
           <Styles.Description>{description}</Styles.Description>
