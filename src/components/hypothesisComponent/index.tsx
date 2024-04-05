@@ -126,7 +126,7 @@ export const HypothesisComponent = ({
           <Styles.Description>{description}</Styles.Description>
         </Styles.SplitContainer>
         {((!canVote && canViewVote && hypothesisVotes?.length > 0) ||
-          (canVote && hasVoteGoal && hypothesisVotes?.length > 0)) && (
+          (canVote && hasVoteGoal && !hasVoteHypothesis && hypothesisVotes?.length > 0)) && (
           <div style={{ position: 'relative', height: '100%' }}>
             <Styles.SplitContainer>
               <Styles.VoteButtonContainer
@@ -164,7 +164,7 @@ export const HypothesisComponent = ({
             <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
           </div>
         )}
-        {canVote && !hasVoteGoal && (
+        {canVote && (
           <Styles.SplitContainer>
             <Styles.VoteButtonContainer
               type={type}
