@@ -163,7 +163,7 @@ export const HypothesisComponent = ({
             <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
           </div>
         )}
-        {canVote && hasVoteGoal && (
+        {canVote && hasVoteGoal && hypothesisVotes?.length > 0 && (
           <Styles.SplitContainer>
             <Styles.VoteButtonContainer
               type={type}
@@ -171,6 +171,7 @@ export const HypothesisComponent = ({
               height={heightContainer}
               onMouseEnter={() => seIsHover(true)}
               onMouseLeave={() => seIsHover(false)}
+              style={{ cursor: hasVoteHypothesis ? 'pointer' : 'default' }}
             >
               {hasVoteHypothesis ? (
                 isHover ? (
@@ -212,9 +213,6 @@ export const HypothesisComponent = ({
               ) : (
                 <ViewVotes
                   hypothesisVotes={hypothesisVotes}
-                  viewVotesRef={viewVotesRef}
-                  type={type}
-                  heightContainer={heightContainer}
                   votesPluralText={votesPluralText}
                   votesSingularText={votesSingularText}
                 />
@@ -276,10 +274,10 @@ const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
   )
 }
 
-const ViewVotes = ({ hypothesisVotes, viewVotesRef, type, heightContainer, votesPluralText, votesSingularText }) => {
+const ViewVotes = ({ hypothesisVotes, votesPluralText, votesSingularText }) => {
   return (
-    <Styles.SplitContainer>
-      <Styles.VoteButtonContainer ref={viewVotesRef} height={heightContainer} type={type}>
+    <>
+      {hypothesisVotes?.length > 0 && (
         <Styles.VoteCount>
           <Styles.VoteContent>
             {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
@@ -303,7 +301,7 @@ const ViewVotes = ({ hypothesisVotes, viewVotesRef, type, heightContainer, votes
           </Styles.VoteContent>
           {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
         </Styles.VoteCount>
-      </Styles.VoteButtonContainer>
-    </Styles.SplitContainer>
+      )}
+    </>
   )
 }
