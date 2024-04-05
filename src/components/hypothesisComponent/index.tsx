@@ -125,8 +125,7 @@ export const HypothesisComponent = ({
           <Styles.Separator>|</Styles.Separator>
           <Styles.Description>{description}</Styles.Description>
         </Styles.SplitContainer>
-        {((!canVote && canViewVote && hypothesisVotes?.length > 0) ||
-          (canVote && hasVoteGoal && !hasVoteHypothesis && hypothesisVotes?.length > 0)) && (
+        {!canVote && canViewVote && hypothesisVotes?.length > 0 && (
           <div style={{ position: 'relative', height: '100%' }}>
             <Styles.SplitContainer>
               <Styles.VoteButtonContainer
@@ -164,7 +163,7 @@ export const HypothesisComponent = ({
             <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
           </div>
         )}
-        {canVote && (
+        {canVote && hasVoteGoal && (
           <Styles.SplitContainer>
             <Styles.VoteButtonContainer
               type={type}
@@ -211,20 +210,40 @@ export const HypothesisComponent = ({
                   </Styles.VoteCount>
                 )
               ) : (
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingLeft: '4px',
-                    height: '100%'
-                  }}
-                  onClick={() => handleVote(id)}
-                >
-                  <VoteIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
-                  <Styles.VoteButton>{voteText}</Styles.VoteButton>
-                </div>
+                <ViewVotes
+                  hypothesisVotes={hypothesisVotes}
+                  viewVotesRef={viewVotesRef}
+                  type={type}
+                  heightContainer={heightContainer}
+                  votesPluralText={votesPluralText}
+                  votesSingularText={votesSingularText}
+                />
               )}
+            </Styles.VoteButtonContainer>
+          </Styles.SplitContainer>
+        )}
+        {canVote && !hasVoteGoal && (
+          <Styles.SplitContainer>
+            <Styles.VoteButtonContainer
+              type={type}
+              modeDelete={isHover}
+              height={heightContainer}
+              onMouseEnter={() => seIsHover(true)}
+              onMouseLeave={() => seIsHover(false)}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  paddingLeft: '4px',
+                  height: '100%'
+                }}
+                onClick={() => handleVote(id)}
+              >
+                <VoteIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                <Styles.VoteButton>{voteText}</Styles.VoteButton>
+              </div>
             </Styles.VoteButtonContainer>
           </Styles.SplitContainer>
         )}
@@ -254,5 +273,37 @@ const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
         </Styles.VoteListItem>
       ))}
     </Styles.VoteListContainer>
+  )
+}
+
+const ViewVotes = ({ hypothesisVotes, viewVotesRef, type, heightContainer, votesPluralText, votesSingularText }) => {
+  return (
+    <Styles.SplitContainer>
+      <Styles.VoteButtonContainer ref={viewVotesRef} height={heightContainer} type={type}>
+        <Styles.VoteCount>
+          <Styles.VoteContent>
+            {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
+              return (
+                <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
+                  <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
+                </Styles.ImageContent>
+              )
+            })}
+            {hypothesisVotes?.length > 2 && (
+              <Styles.ImageContent style={{ background: '#444444' }}>
+                <p
+                  style={{
+                    fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
+                  }}
+                >
+                  +{hypothesisVotes?.length - 2}
+                </p>
+              </Styles.ImageContent>
+            )}
+          </Styles.VoteContent>
+          {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+        </Styles.VoteCount>
+      </Styles.VoteButtonContainer>
+    </Styles.SplitContainer>
   )
 }

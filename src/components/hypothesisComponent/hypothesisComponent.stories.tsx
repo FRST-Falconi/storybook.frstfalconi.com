@@ -25,6 +25,7 @@ Priorizada.args = {
   deleteVoteText: 'Excluir voto',
   voteText: 'Votar',
   canViewListVotes: true,
+  userLoggedId: '05b7bec61',
   handleViewProfile: (id) => alert(`cliquei no user de id: ${id}`),
   votes: [
     {
@@ -75,8 +76,7 @@ Priorizada.args = {
         avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
       }
     }
-  ],
-  userLoggedId: '00'
+  ]
 }
 
 Levantada.args = {
