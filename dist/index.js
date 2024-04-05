@@ -3247,7 +3247,80 @@ gap: 10px;
 ${({ lastVote }) => lastVote === false && "border-bottom: solid 1px #ccc;"}
 `;
 
-const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal }) => {
+const container = styled__default["default"].div `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: ${({ textPosition }) => textPosition === 'left' ? 'row-reverse'
+    : textPosition === 'right' ? 'row'
+        : textPosition === 'top' ? 'column-reverse'
+            : textPosition === 'bottom' ? 'column'
+                : null};
+    position: relative;
+    width: auto;
+    gap: 8px;
+    padding: 16px;
+`;
+const loader = styled__default["default"].div `
+    
+    svg {
+        animation: load 1.5s infinite linear;
+        
+        @keyframes load {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    }
+`;
+const loadText = styled__default["default"].p `
+    font-family: 'Inter';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+`;
+
+function Loading(props) {
+    const [Size, setSize] = React.useState('24');
+    const [Color, setColor] = React.useState(props.loadColor ? props.loadColor : '');
+    const [PositionTextLoad, setPositionTextLoad] = React.useState(props.positionLoadingText ? props.positionLoadingText : 'bottom');
+    const [LoadText, setLoadText] = React.useState(props.loadText ? props.loadText : '');
+    React.useEffect(() => {
+        setLoadText(props.loadText);
+    }, [props.loadText]);
+    React.useEffect(() => {
+        setColor(props.loadColor);
+    }, [props.loadColor]);
+    React.useEffect(() => {
+        setPositionTextLoad(props.positionLoadingText);
+    }, [props.positionLoadingText]);
+    React.useEffect(() => {
+        if (props.sizeLoading === 'extra-small') {
+            setSize('16');
+        }
+        else if (props.sizeLoading === 'small') {
+            setSize('20');
+        }
+        else if (props.sizeLoading === 'medium') {
+            setSize('24');
+        }
+        else if (props.sizeLoading === 'large') {
+            setSize('32');
+        }
+        else if (props.sizeLoading === 'extra-large') {
+            setSize('40');
+        }
+        else {
+            setSize('24');
+        }
+    }, [props.sizeLoading]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
+}
+
+const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading }) => {
     const [isHover, seIsHover] = React.useState(false);
     const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(votes?.some((vote) => vote?.user_uuid === userLoggedId));
     const [hypothesisVotes, setHypothesisVotes] = React.useState(votes);
@@ -3302,24 +3375,24 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
             setHasVoteHypothesis(false);
         }
     };
-    return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$l, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$3, { children: description })] }), !canVote && canViewVote && hypothesisVotes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
+    return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$l, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$3, { children: description })] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && hypothesisVotes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
+                                                            return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
+                                                        }), hypothesisVotes?.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
+                                                                    fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
+                                                                }, children: ["+", hypothesisVotes?.length - 2] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }) }) }), jsxRuntime.jsx(VoteList, { hypothesisVotes: votes, showVotes: showVotesList, viewProfile: handleViewProfile })] })), canVote && hasVoteGoal && hypothesisVotes?.length > 0 && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), style: { cursor: hasVoteHypothesis ? 'pointer' : 'default' }, children: hasVoteHypothesis ? (isHover ? (jsxRuntime.jsxs("div", { style: {
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '4px',
+                                        justifyContent: 'center'
+                                    }, onClick: () => handleDeleteVote(hypothesisVotes?.find((vote) => vote?.user_uuid === userLoggedId)?.id), children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
                                                     return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
-                                                }), hypothesisVotes?.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
-                                                            fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
-                                                        }, children: ["+", hypothesisVotes?.length - 2] }) }))] }), hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] }) }) }), jsxRuntime.jsx(VoteList, { hypothesisVotes: votes, showVotes: showVotesList, viewProfile: handleViewProfile })] })), canVote && hasVoteGoal && hypothesisVotes?.length > 0 && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), style: { cursor: hasVoteHypothesis ? 'pointer' : 'default' }, children: hasVoteHypothesis ? (isHover ? (jsxRuntime.jsxs("div", { style: {
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '4px',
-                                justifyContent: 'center'
-                            }, onClick: () => handleDeleteVote(hypothesisVotes?.find((vote) => vote?.user_uuid === userLoggedId)?.id), children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
-                                            return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
-                                        }), hypothesisVotes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", hypothesisVotes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: hypothesisVotes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                paddingLeft: '4px',
-                                height: '100%'
-                            }, onClick: () => handleVote(id), children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] }) }) }))] }) }));
+                                                }), hypothesisVotes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", hypothesisVotes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [hypothesisVotes?.length, " ", hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: hypothesisVotes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        paddingLeft: '4px',
+                                        height: '100%'
+                                    }, onClick: () => handleVote(id), children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] }) }) }))] }))] }) }));
 };
 const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
     const sortedVotes = [...hypothesisVotes].sort((a, b) => a.user.name.localeCompare(b.user.name));
@@ -5168,79 +5241,6 @@ const createUUID = () => {
     });
     return uuid;
 };
-
-const container = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: ${({ textPosition }) => textPosition === 'left' ? 'row-reverse'
-    : textPosition === 'right' ? 'row'
-        : textPosition === 'top' ? 'column-reverse'
-            : textPosition === 'bottom' ? 'column'
-                : null};
-    position: relative;
-    width: auto;
-    gap: 8px;
-    padding: 16px;
-`;
-const loader = styled__default["default"].div `
-    
-    svg {
-        animation: load 1.5s infinite linear;
-        
-        @keyframes load {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    }
-`;
-const loadText = styled__default["default"].p `
-    font-family: 'Inter';
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 20px;
-`;
-
-function Loading(props) {
-    const [Size, setSize] = React.useState('24');
-    const [Color, setColor] = React.useState(props.loadColor ? props.loadColor : '');
-    const [PositionTextLoad, setPositionTextLoad] = React.useState(props.positionLoadingText ? props.positionLoadingText : 'bottom');
-    const [LoadText, setLoadText] = React.useState(props.loadText ? props.loadText : '');
-    React.useEffect(() => {
-        setLoadText(props.loadText);
-    }, [props.loadText]);
-    React.useEffect(() => {
-        setColor(props.loadColor);
-    }, [props.loadColor]);
-    React.useEffect(() => {
-        setPositionTextLoad(props.positionLoadingText);
-    }, [props.positionLoadingText]);
-    React.useEffect(() => {
-        if (props.sizeLoading === 'extra-small') {
-            setSize('16');
-        }
-        else if (props.sizeLoading === 'small') {
-            setSize('20');
-        }
-        else if (props.sizeLoading === 'medium') {
-            setSize('24');
-        }
-        else if (props.sizeLoading === 'large') {
-            setSize('32');
-        }
-        else if (props.sizeLoading === 'extra-large') {
-            setSize('40');
-        }
-        else {
-            setSize('24');
-        }
-    }, [props.sizeLoading]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
-}
 
 const InputContainer$1 = styled__default["default"].div `
     display:flex;
