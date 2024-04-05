@@ -16,19 +16,20 @@ font-family: PT Sans;
 font-size:14px;
 border-radius:8px;
 padding: 0 0 0 16px; 
-height: 100%;
 min-height: 52px;
 
-${({ type }) => type === 'prioritize' && css`
-    background: #FDAE15;
-`}
-${({ type }) => type === 'raised' && css`
-    background: #F8D784;
-
-`}
-${({ type }) => type === 'suggested' && css`
-    background: #CDDAEF;
-`}
+${({ type }) => {
+        switch (type) {
+            case 'prioritize':
+                return css`background: #FDAE15;`
+            case 'raised':
+                return css`background: #F8D784;`
+            case 'suggested':
+                return css`background: #CDDAEF;`
+            default:
+                return '';
+        }
+    }}
 `;
 
 export const Title = styled.span`
@@ -50,19 +51,11 @@ font-weight:400;
 padding: 8px 0 8px;
 
 `;
-export const SplitContainer = styled.div<{ height?: number }>`
+export const SplitContainer = styled.div`
 display:flex;
 justify-content: flex-start;
 align-items:center;
-height: ${({ height }) => height ? `${height}px` : '100%'};
-`
-export const VoteMainContainer = styled.div<{ height?: number }>`
-display: flex;
-align-items: center;
-justify-content: flex-start;
-cursor: pointer;
-height: ${({ height }) => height ? `${height}px` : '100%'};
-width: 100%;
+height: 100%;
 `
 export const VoteAvatarsContainer = styled.div`
 display: flex;
@@ -75,31 +68,34 @@ export const VoteAvatar = styled.div`
     position: absolute;
 `
 
-export const VoteButtonContainer = styled.span<{ type?: string, modeDelete?: boolean }>`
+export const VoteButtonContainer = styled.span<{ type?: string, modeDelete?: boolean, height?: number }>`
     display: flex;
     align-items: center;
     justify-content: center;
     width: 150px;
     background: #F9CD5E;
-
-
-    ${({ type }) => type === 'prioritize' && css`
-    background: #DC9100;
-    `}
-    ${({ type }) => type === 'raised' && css`
-        background: #F9CD5E;
-
-    `}
-    ${({ type }) => type === 'suggested' && css`
-        background: #A5C3F2;
+    cursor: pointer;
+    ${({ height }) => height > 0 && css`
+    height: ${height}px;
     `}
 
+    ${({ type }) => {
+        switch (type) {
+            case 'prioritize':
+                return css`background: #DC9100;`
+            case 'raised':
+                return css`background: #F9CD5E;`
+            case 'suggested':
+                return css`background: #A5C3F2;`
+            default:
+                return '';
+        }
+    }}
     ${({ modeDelete }) => modeDelete && css`
     background: inherit;
     `}
     border-radius:0 8px 8px 0;
     padding: 0 16px 0 16px;
-    height: 100%;
     min-height: 52px;
     margin-left: 4px;
 

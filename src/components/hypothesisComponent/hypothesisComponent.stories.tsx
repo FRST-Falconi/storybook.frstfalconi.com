@@ -16,7 +16,8 @@ export const Sugerida = Template.bind({})
 Priorizada.args = {
   title: 'HIPÓTESE',
   type: HypothesisEnum.PRIORITIZE,
-  description: 'Melhorar a UI e usabilidade da plataforma.',
+  description:
+    "1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with des",
   id: '1',
   canViewVote: true,
   votesSingularText: 'voto',
@@ -81,7 +82,8 @@ Priorizada.args = {
 Levantada.args = {
   title: 'HIPÓTESE',
   type: HypothesisEnum.RAISED,
-  description: 'Melhorar a UI e usabilidade da plataforma. ',
+  description:
+    "1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with des",
   id: '2',
   votes: [],
   userLoggedId: '00',
@@ -93,8 +95,12 @@ Levantada.args = {
 Sugerida.args = {
   title: 'HIPÓTESE',
   type: HypothesisEnum.SUGGESTED,
-  description: 'Melhorar a UI e usabilidade da plataforma. Melhorar a UI e usabilidade da plataforma.',
+  description:
+    "1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with des",
   id: '2',
+  authorId: '22222',
+  showAvatar: true,
+  handleViewProfile: (id) => alert(`cliquei no user de id: ${id}`),
   votes: [
     {
       id: 1,
