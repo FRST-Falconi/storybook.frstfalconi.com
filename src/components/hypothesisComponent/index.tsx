@@ -73,6 +73,7 @@ export const HypothesisComponent = ({
 
   useEffect(() => {
     setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId))
+    seIsHover(false)
   }, [votes])
 
   useEffect(() => {

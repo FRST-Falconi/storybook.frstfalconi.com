@@ -3339,6 +3339,7 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
     };
     React.useEffect(() => {
         setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId));
+        seIsHover(false);
     }, [votes]);
     React.useEffect(() => {
         document.addEventListener('mousedown', handleClickOutsideVote);
