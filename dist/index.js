@@ -3322,7 +3322,7 @@ function Loading(props) {
 
 const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading }) => {
     const [isHover, seIsHover] = React.useState(false);
-    const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(votes?.some((vote) => vote?.user_uuid === userLoggedId));
+    const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(false);
     const [showVotesList, setShowVotesList] = React.useState(false);
     const ContainerRef = React.useRef(null);
     const [heightContainer, seHeightContainer] = React.useState(0);
@@ -3337,6 +3337,9 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
             setShowVotesList(false);
         }
     };
+    React.useEffect(() => {
+        setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId));
+    }, [votes]);
     React.useEffect(() => {
         document.addEventListener('mousedown', handleClickOutsideVote);
         return () => {

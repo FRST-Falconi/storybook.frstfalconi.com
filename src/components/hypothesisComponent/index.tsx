@@ -51,7 +51,7 @@ export const HypothesisComponent = ({
   loading?: boolean
 }) => {
   const [isHover, seIsHover] = useState(false)
-  const [hasVoteHypothesis, setHasVoteHypothesis] = useState(votes?.some((vote) => vote?.user_uuid === userLoggedId))
+  const [hasVoteHypothesis, setHasVoteHypothesis] = useState(false)
   const [showVotesList, setShowVotesList] = useState(false)
   const ContainerRef = useRef<HTMLDivElement>(null)
   const [heightContainer, seHeightContainer] = useState(0)
@@ -70,6 +70,10 @@ export const HypothesisComponent = ({
       setShowVotesList(false)
     }
   }
+
+  useEffect(() => {
+    setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId))
+  }, [votes])
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutsideVote)
