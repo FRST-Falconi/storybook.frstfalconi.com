@@ -3354,18 +3354,10 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
         }
     }, [ContainerRef]);
     const handleVote = async (hyphoteseId) => {
-        const vote = await onVote(hyphoteseId);
-        if (vote?.status === 201) {
-            setHasVoteHypothesis(true);
-        }
-        if (vote?.status !== 201)
-            setHasVoteHypothesis(false);
+        await onVote(hyphoteseId);
     };
     const handleDeleteVote = async (voteId) => {
-        const vote = await deleteVote(voteId);
-        if (vote?.status === 204) {
-            setHasVoteHypothesis(false);
-        }
+        await deleteVote(voteId);
     };
     return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$l, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$3, { children: description })] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && votes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                             return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));

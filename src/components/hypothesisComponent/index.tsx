@@ -92,18 +92,10 @@ export const HypothesisComponent = ({
   }, [ContainerRef])
 
   const handleVote = async (hyphoteseId: string) => {
-    const vote = await onVote(hyphoteseId)
-    if (vote?.status === 201) {
-      setHasVoteHypothesis(true)
-    }
-
-    if (vote?.status !== 201) setHasVoteHypothesis(false)
+    await onVote(hyphoteseId)
   }
   const handleDeleteVote = async (voteId: number) => {
-    const vote = await deleteVote(voteId)
-    if (vote?.status === 204) {
-      setHasVoteHypothesis(false)
-    }
+    await deleteVote(voteId)
   }
   return (
     <Styles.MainContainer>
