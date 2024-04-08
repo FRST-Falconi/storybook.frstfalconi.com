@@ -52,7 +52,6 @@ export const HypothesisComponent = ({
 }) => {
   const [isHover, seIsHover] = useState(false)
   const [hasVoteHypothesis, setHasVoteHypothesis] = useState(votes?.some((vote) => vote?.user_uuid === userLoggedId))
-  const [hypothesisVotes, setHypothesisVotes] = useState<Vote[]>(votes)
   const [showVotesList, setShowVotesList] = useState(false)
   const ContainerRef = useRef<HTMLDivElement>(null)
   const [heightContainer, seHeightContainer] = useState(0)
@@ -91,11 +90,6 @@ export const HypothesisComponent = ({
   const handleVote = async (hyphoteseId: string) => {
     const vote = await onVote(hyphoteseId)
     if (vote?.status === 201) {
-      let updateVotes = hypothesisVotes
-      if (!updateVotes?.some((vot) => vot?.id === vote?.data?.id)) {
-        updateVotes.push(vote.data)
-        setHypothesisVotes(updateVotes)
-      }
       setHasVoteHypothesis(true)
     }
 
@@ -104,11 +98,6 @@ export const HypothesisComponent = ({
   const handleDeleteVote = async (voteId: number) => {
     const vote = await deleteVote(voteId)
     if (vote?.status === 204) {
-      let updateVotes = hypothesisVotes
-      if (updateVotes.some((vot) => vot?.id === voteId)) {
-        const newArrayVotes = updateVotes.filter((vot) => vot.id !== voteId)
-        setHypothesisVotes(newArrayVotes)
-      }
       setHasVoteHypothesis(false)
     }
   }
@@ -143,7 +132,7 @@ export const HypothesisComponent = ({
         )}
         {!loading && (
           <>
-            {!canVote && canViewVote && hypothesisVotes?.length > 0 && (
+            {!canVote && canViewVote && votes?.length > 0 && (
               <div style={{ position: 'relative', height: '100%' }}>
                 <Styles.SplitContainer>
                   <Styles.VoteButtonContainer
@@ -155,33 +144,33 @@ export const HypothesisComponent = ({
                   >
                     <Styles.VoteCount>
                       <Styles.VoteContent>
-                        {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
+                        {votes?.slice(0, 2)?.map((vote, index) => {
                           return (
                             <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
                               <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                             </Styles.ImageContent>
                           )
                         })}
-                        {hypothesisVotes?.length > 2 && (
+                        {votes?.length > 2 && (
                           <Styles.ImageContent style={{ background: '#444444' }}>
                             <p
                               style={{
-                                fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
+                                fontSize: votes?.length > 9 ? 10 : votes?.length > 99 ? 8 : 14
                               }}
                             >
-                              +{hypothesisVotes?.length - 2}
+                              +{votes?.length - 2}
                             </p>
                           </Styles.ImageContent>
                         )}
                       </Styles.VoteContent>
-                      {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+                      {votes?.length} {votes?.length > 1 ? votesPluralText : votesSingularText}
                     </Styles.VoteCount>
                   </Styles.VoteButtonContainer>
                 </Styles.SplitContainer>
                 <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
               </div>
             )}
-            {canVote && hasVoteGoal && hypothesisVotes?.length > 0 && (
+            {canVote && hasVoteGoal && votes?.length > 0 && (
               <Styles.SplitContainer>
                 <Styles.VoteButtonContainer
                   type={type}
@@ -200,9 +189,7 @@ export const HypothesisComponent = ({
                           gap: '4px',
                           justifyContent: 'center'
                         }}
-                        onClick={() =>
-                          handleDeleteVote(hypothesisVotes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
-                        }
+                        onClick={() => handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)}
                       >
                         <ExcludeVoteIcon width="24" height="24" />
                         <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
@@ -210,27 +197,27 @@ export const HypothesisComponent = ({
                     ) : (
                       <Styles.VoteCount>
                         <Styles.VoteContent>
-                          {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
+                          {votes?.slice(0, 2)?.map((vote, index) => {
                             return (
                               <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
                                 <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                               </Styles.ImageContent>
                             )
                           })}
-                          {hypothesisVotes.length > 2 && (
+                          {votes.length > 2 && (
                             <Styles.ImageContent style={{ background: '#444444' }}>
-                              <p>+{hypothesisVotes?.length - 2}</p>
+                              <p>+{votes?.length - 2}</p>
                             </Styles.ImageContent>
                           )}
                         </Styles.VoteContent>
                         <p>
-                          {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+                          {votes?.length} {votes?.length > 1 ? votesPluralText : votesSingularText}
                         </p>
                       </Styles.VoteCount>
                     )
                   ) : (
                     <ViewVotes
-                      hypothesisVotes={hypothesisVotes}
+                      hypothesisVotes={votes}
                       votesPluralText={votesPluralText}
                       votesSingularText={votesSingularText}
                     />
