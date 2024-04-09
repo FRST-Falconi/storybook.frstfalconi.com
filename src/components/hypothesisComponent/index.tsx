@@ -3,6 +3,7 @@ import * as Styles from './hypothesisComponent.style'
 import { Vote } from './types'
 import { ExcludeVoteIcon, VoteIcon } from '@public/customIcons'
 import Avatar from '@components/avatar'
+import Loading from '@components/DS/loading'
 
 export const HypothesisComponent = ({
   description,
@@ -24,7 +25,8 @@ export const HypothesisComponent = ({
   avatar,
   showAvatar,
   authorId,
-  hasVoteGoal
+  hasVoteGoal,
+  loading
 }: {
   description: string
   type: string
@@ -46,10 +48,10 @@ export const HypothesisComponent = ({
   avatar?: string
   showAvatar?: boolean
   authorId?: string
+  loading?: boolean
 }) => {
   const [isHover, seIsHover] = useState(false)
-  const [hasVoteHypothesis, setHasVoteHypothesis] = useState(votes?.some((vote) => vote?.user_uuid === userLoggedId))
-  const [hypothesisVotes, setHypothesisVotes] = useState<Vote[]>(votes)
+  const [hasVoteHypothesis, setHasVoteHypothesis] = useState(false)
   const [showVotesList, setShowVotesList] = useState(false)
   const ContainerRef = useRef<HTMLDivElement>(null)
   const [heightContainer, seHeightContainer] = useState(0)
@@ -70,6 +72,14 @@ export const HypothesisComponent = ({
   }
 
   useEffect(() => {
+    setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId))
+  }, [votes])
+
+  useEffect(() => {
+    if (loading) seIsHover(false)
+  }, [loading])
+
+  useEffect(() => {
     document.addEventListener('mousedown', handleClickOutsideVote)
 
     return () => {
@@ -86,28 +96,10 @@ export const HypothesisComponent = ({
   }, [ContainerRef])
 
   const handleVote = async (hyphoteseId: string) => {
-    const vote = await onVote(hyphoteseId)
-    if (vote?.status === 201) {
-      let updateVotes = hypothesisVotes
-      if (!updateVotes?.some((vot) => vot?.id === vote?.data?.id)) {
-        updateVotes.push(vote.data)
-        setHypothesisVotes(updateVotes)
-      }
-      setHasVoteHypothesis(true)
-    }
-
-    if (vote?.status !== 201) setHasVoteHypothesis(false)
+    await onVote(hyphoteseId)
   }
   const handleDeleteVote = async (voteId: number) => {
-    const vote = await deleteVote(voteId)
-    if (vote?.status === 204) {
-      let updateVotes = hypothesisVotes
-      if (updateVotes.some((vot) => vot?.id === voteId)) {
-        const newArrayVotes = updateVotes.filter((vot) => vot.id !== voteId)
-        setHypothesisVotes(newArrayVotes)
-      }
-      setHasVoteHypothesis(false)
-    }
+    await deleteVote(voteId)
   }
   return (
     <Styles.MainContainer>
@@ -125,108 +117,144 @@ export const HypothesisComponent = ({
           <Styles.Separator>|</Styles.Separator>
           <Styles.Description>{description}</Styles.Description>
         </Styles.SplitContainer>
-        {((!canVote && canViewVote && hypothesisVotes?.length > 0) ||
-          (canVote && hasVoteGoal && !hasVoteHypothesis && hypothesisVotes?.length > 0)) && (
-          <div style={{ position: 'relative', height: '100%' }}>
-            <Styles.SplitContainer>
-              <Styles.VoteButtonContainer
-                ref={viewVotesRef}
-                height={heightContainer}
-                style={{ cursor: canViewListVotes ? 'pointer' : 'default' }}
-                type={type}
-                onClick={canViewListVotes ? toggleVotes : null}
-              >
-                <Styles.VoteCount>
-                  <Styles.VoteContent>
-                    {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
-                      return (
-                        <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
-                          <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
-                        </Styles.ImageContent>
-                      )
-                    })}
-                    {hypothesisVotes?.length > 2 && (
-                      <Styles.ImageContent style={{ background: '#444444' }}>
-                        <p
-                          style={{
-                            fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
-                          }}
-                        >
-                          +{hypothesisVotes?.length - 2}
-                        </p>
-                      </Styles.ImageContent>
-                    )}
-                  </Styles.VoteContent>
-                  {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
-                </Styles.VoteCount>
-              </Styles.VoteButtonContainer>
-            </Styles.SplitContainer>
-            <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
-          </div>
-        )}
-        {canVote && (
+
+        {loading && (
           <Styles.SplitContainer>
             <Styles.VoteButtonContainer
               type={type}
               modeDelete={isHover}
               height={heightContainer}
-              onMouseEnter={() => seIsHover(true)}
-              onMouseLeave={() => seIsHover(false)}
+              style={{ cursor: 'default' }}
             >
-              {hasVoteHypothesis ? (
-                isHover ? (
+              <Loading />
+            </Styles.VoteButtonContainer>
+          </Styles.SplitContainer>
+        )}
+        {!loading && (
+          <>
+            {!canVote && canViewVote && votes?.length > 0 && (
+              <div style={{ position: 'relative', height: '100%' }}>
+                <Styles.SplitContainer>
+                  <Styles.VoteButtonContainer
+                    ref={viewVotesRef}
+                    height={heightContainer}
+                    style={{ cursor: canViewListVotes ? 'pointer' : 'default' }}
+                    type={type}
+                    onClick={canViewListVotes ? toggleVotes : null}
+                  >
+                    <Styles.VoteCount>
+                      <Styles.VoteContent>
+                        {votes?.slice(0, 2)?.map((vote, index) => {
+                          return (
+                            <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
+                              <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
+                            </Styles.ImageContent>
+                          )
+                        })}
+                        {votes?.length > 2 && (
+                          <Styles.ImageContent style={{ background: '#444444' }}>
+                            <p
+                              style={{
+                                fontSize: votes?.length > 9 ? 10 : votes?.length > 99 ? 8 : 14
+                              }}
+                            >
+                              +{votes?.length - 2}
+                            </p>
+                          </Styles.ImageContent>
+                        )}
+                      </Styles.VoteContent>
+                      {votes?.length} {votes?.length > 1 ? votesPluralText : votesSingularText}
+                    </Styles.VoteCount>
+                  </Styles.VoteButtonContainer>
+                </Styles.SplitContainer>
+                <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
+              </div>
+            )}
+            {canVote && hasVoteGoal && votes?.length > 0 && (
+              <Styles.SplitContainer
+                onClick={() =>
+                  hasVoteHypothesis && isHover
+                    ? handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
+                    : null
+                }
+              >
+                <Styles.VoteButtonContainer
+                  type={type}
+                  modeDelete={isHover}
+                  height={heightContainer}
+                  onMouseEnter={() => seIsHover(true)}
+                  onMouseLeave={() => seIsHover(false)}
+                  style={{ cursor: hasVoteHypothesis ? 'pointer' : 'default' }}
+                >
+                  {hasVoteHypothesis ? (
+                    isHover ? (
+                      <div
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '4px',
+                          justifyContent: 'center'
+                        }}
+                      >
+                        <ExcludeVoteIcon width="24" height="24" />
+                        <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
+                      </div>
+                    ) : (
+                      <Styles.VoteCount>
+                        <Styles.VoteContent>
+                          {votes?.slice(0, 2)?.map((vote, index) => {
+                            return (
+                              <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
+                                <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
+                              </Styles.ImageContent>
+                            )
+                          })}
+                          {votes.length > 2 && (
+                            <Styles.ImageContent style={{ background: '#444444' }}>
+                              <p>+{votes?.length - 2}</p>
+                            </Styles.ImageContent>
+                          )}
+                        </Styles.VoteContent>
+                        <p>
+                          {votes?.length} {votes?.length > 1 ? votesPluralText : votesSingularText}
+                        </p>
+                      </Styles.VoteCount>
+                    )
+                  ) : (
+                    <ViewVotes
+                      hypothesisVotes={votes}
+                      votesPluralText={votesPluralText}
+                      votesSingularText={votesSingularText}
+                    />
+                  )}
+                </Styles.VoteButtonContainer>
+              </Styles.SplitContainer>
+            )}
+            {canVote && !hasVoteGoal && (
+              <Styles.SplitContainer onClick={() => handleVote(id)}>
+                <Styles.VoteButtonContainer
+                  type={type}
+                  modeDelete={isHover}
+                  height={heightContainer}
+                  onMouseEnter={() => seIsHover(true)}
+                  onMouseLeave={() => seIsHover(false)}
+                >
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '4px',
-                      justifyContent: 'center'
+                      justifyContent: 'center',
+                      paddingLeft: '4px',
+                      height: '100%'
                     }}
-                    onClick={() =>
-                      handleDeleteVote(hypothesisVotes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
-                    }
                   >
-                    <ExcludeVoteIcon width="24" height="24" />
-                    <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
+                    <VoteIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                    <Styles.VoteButton>{voteText}</Styles.VoteButton>
                   </div>
-                ) : (
-                  <Styles.VoteCount>
-                    <Styles.VoteContent>
-                      {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
-                        return (
-                          <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
-                            <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
-                          </Styles.ImageContent>
-                        )
-                      })}
-                      {hypothesisVotes.length > 2 && (
-                        <Styles.ImageContent style={{ background: '#444444' }}>
-                          <p>+{hypothesisVotes?.length - 2}</p>
-                        </Styles.ImageContent>
-                      )}
-                    </Styles.VoteContent>
-                    <p>
-                      {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
-                    </p>
-                  </Styles.VoteCount>
-                )
-              ) : (
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    paddingLeft: '4px',
-                    height: '100%'
-                  }}
-                  onClick={() => handleVote(id)}
-                >
-                  <VoteIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
-                  <Styles.VoteButton>{voteText}</Styles.VoteButton>
-                </div>
-              )}
-            </Styles.VoteButtonContainer>
-          </Styles.SplitContainer>
+                </Styles.VoteButtonContainer>
+              </Styles.SplitContainer>
+            )}
+          </>
         )}
       </Styles.Container>
     </Styles.MainContainer>
@@ -254,5 +282,37 @@ const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
         </Styles.VoteListItem>
       ))}
     </Styles.VoteListContainer>
+  )
+}
+
+const ViewVotes = ({ hypothesisVotes, votesPluralText, votesSingularText }) => {
+  return (
+    <>
+      {hypothesisVotes?.length > 0 && (
+        <Styles.VoteCount>
+          <Styles.VoteContent>
+            {hypothesisVotes?.slice(0, 2)?.map((vote, index) => {
+              return (
+                <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
+                  <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
+                </Styles.ImageContent>
+              )
+            })}
+            {hypothesisVotes?.length > 2 && (
+              <Styles.ImageContent style={{ background: '#444444' }}>
+                <p
+                  style={{
+                    fontSize: hypothesisVotes?.length > 9 ? 10 : hypothesisVotes?.length > 99 ? 8 : 14
+                  }}
+                >
+                  +{hypothesisVotes?.length - 2}
+                </p>
+              </Styles.ImageContent>
+            )}
+          </Styles.VoteContent>
+          {hypothesisVotes?.length} {hypothesisVotes?.length > 1 ? votesPluralText : votesSingularText}
+        </Styles.VoteCount>
+      )}
+    </>
   )
 }
