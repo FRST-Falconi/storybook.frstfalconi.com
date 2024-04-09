@@ -73,8 +73,11 @@ export const HypothesisComponent = ({
 
   useEffect(() => {
     setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId))
-    seIsHover(false)
   }, [votes])
+
+  useEffect(() => {
+    if (loading) seIsHover(false)
+  }, [loading])
 
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutsideVote)
@@ -168,7 +171,13 @@ export const HypothesisComponent = ({
               </div>
             )}
             {canVote && hasVoteGoal && votes?.length > 0 && (
-              <Styles.SplitContainer>
+              <Styles.SplitContainer
+                onClick={() =>
+                  hasVoteHypothesis && isHover
+                    ? handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
+                    : null
+                }
+              >
                 <Styles.VoteButtonContainer
                   type={type}
                   modeDelete={isHover}
@@ -186,7 +195,6 @@ export const HypothesisComponent = ({
                           gap: '4px',
                           justifyContent: 'center'
                         }}
-                        onClick={() => handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)}
                       >
                         <ExcludeVoteIcon width="24" height="24" />
                         <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
@@ -223,7 +231,7 @@ export const HypothesisComponent = ({
               </Styles.SplitContainer>
             )}
             {canVote && !hasVoteGoal && (
-              <Styles.SplitContainer>
+              <Styles.SplitContainer onClick={() => handleVote(id)}>
                 <Styles.VoteButtonContainer
                   type={type}
                   modeDelete={isHover}
@@ -239,7 +247,6 @@ export const HypothesisComponent = ({
                       paddingLeft: '4px',
                       height: '100%'
                     }}
-                    onClick={() => handleVote(id)}
                   >
                     <VoteIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
                     <Styles.VoteButton>{voteText}</Styles.VoteButton>
