@@ -17,7 +17,7 @@ CardFaseUm.args = {
   cardTitle: 'Space Race Game',
   cardDescription:
     'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
-  textButtonVisualizar: 'Vizualizar',
+  textButtonVisualizar: 'Visualizar',
   textButtonContinue: 'Continuar',
   handleClickContinue: () => {
     alert('continue')
@@ -52,7 +52,7 @@ CardFinalizado.args = {
   cardTitle: 'Space Race Game',
   cardDescription:
     'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
-  textButtonVisualizar: 'Vizualizar',
+  textButtonVisualizar: 'Visualizar',
   optionsMenuMore: [
     {
       description: 'Continuar',

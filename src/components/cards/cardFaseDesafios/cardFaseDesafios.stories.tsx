@@ -85,7 +85,7 @@ CardFinalizado.args = {
   cardTitle: 'Desafio',
   cardDescription:
     'Nossa ferramenta guia de resolução de problemas em ciclos ágeis de aprendizado, colaboração e experimentação.',
-    textButton: 'Vizualizar',
+    textButton: 'Visualizar',
   optionsMenuMore: [
     {
       description: 'Editar',
