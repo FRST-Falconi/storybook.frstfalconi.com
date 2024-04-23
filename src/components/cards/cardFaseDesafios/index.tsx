@@ -1,5 +1,5 @@
 import '../../../shared/global.css'
-import { FaseCincoDesafio, FaseDoisDesafio, FaseQuatroDesafio, FaseTresDesafio, FaseUmDesafio, WarnCard, FaseFinalizada } from '@shared/icons'
+import { FaseCincoDesafio, FaseDoisDesafio, FaseQuatroDesafio, FaseTresDesafio, FaseUmDesafio, WarnCard, FaseFinalizadaDesafio } from '@shared/icons'
 import * as S from './styles'
 import MenuMore from '@components/menu-more'
 
@@ -32,7 +32,7 @@ export default function CardFaseDesafios(props: CardFaseDesafiosProps) {
       case '5':
         return <FaseCincoDesafio />
       case 'finalizado':
-        return <FaseFinalizada />
+        return <FaseFinalizadaDesafio />
       default:
         return <FaseUmDesafio />
     }
