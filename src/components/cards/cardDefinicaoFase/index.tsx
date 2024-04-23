@@ -1,7 +1,6 @@
 import '../../../shared/global.css'
-import { FaseCinco, FaseDois, FaseFinalizado, FaseQuatro, FaseTres, FaseUm } from '@shared/icons'
-import style from './cardDefinicaoFase.module.css'
-import Button from '@components/buttons'
+import { FaseCinco, FaseDois, FaseQuatro, FaseTres, FaseUm, WarnCard, FaseFinalizada } from '@shared/icons'
+import * as S from './styles'
 import MenuMore from '@components/menu-more'
 
 interface CardDefinicaoFaseProps {
@@ -10,9 +9,12 @@ interface CardDefinicaoFaseProps {
   handleClickContinue?: () => void
   handleToView?: () => void
   optionsMenuMore?: any | any[]
+  Hypotheshis?: number
+  HypothesesToTest?: number
+  Actions?: number
   titleFase?: string
   fase?: 'finalizado' | '1' | '2' | '3' | '4' | '5'
-  textButtonVisualizar?: string
+  textButton?: string
   textButtonContinue?: string
 }
 
@@ -30,52 +32,55 @@ export default function CardDefinicaoFase(props: CardDefinicaoFaseProps) {
       case '5':
         return <FaseCinco />
       case 'finalizado':
-        return (
-          <div style={{ paddingRight: '1.5rem' }}>
-            <FaseFinalizado />
-          </div>
-        )
+        return <FaseFinalizada />
       default:
         return <FaseUm />
     }
   }
 
   return (
-    <div className={style.container}>
-      <div className={style.headerContainer}>
-        <div className={style.titleFrase}>{props.titleFase ? props.titleFase : 'Definição do objetivo'}</div>
-        {props.fase ? handleFase() : <FaseUm />}
-      </div>
-      <div className={style.descriptionContainer}>
-        <div className={style.titleAndMenu}>
-          <span className={style.titleDescription}> {props.cardTitle}</span>
-          <MenuMore options={props.optionsMenuMore} />
+    <S.Container>
+      <S.HeaderContainer>
+        <S.PhaseNumber>{props.fase ? handleFase() : <FaseUm />}</S.PhaseNumber>
+      </S.HeaderContainer>
+      <S.DescriptionContainer>
+        <S.CardTitlePhase>{props.titleFase ? props.titleFase : 'Definição'}</S.CardTitlePhase>
+        <S.TitleDescription> {props.cardTitle}</S.TitleDescription>
+        <S.Description> {props.cardDescription}</S.Description>
+      </S.DescriptionContainer>
+      <S.HypothesysAndActions>
+        <div className="items">
+          <img src="https://cdn-images.frstfalconi.cloud/hall/hyphotese.svg" alt="" />
+          <p className="text-items">Hipóteses</p>
+          <p className="number-items">{props.Hypotheshis ? props.Hypotheshis : 0}</p>
         </div>
-        <span className={style.description}> {props.cardDescription}</span>
-      </div>
-      {props.fase === 'finalizado' ? (
-        <div className={style.buttonFinalizado}>
-          <Button
-            variant="link"
-            label={props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar'}
-            handleClick={props.handleToView}
-          />
+        <div className="items">
+          <img src="https://cdn-images.frstfalconi.cloud/hall/actions.svg" alt="" />
+          <p className="text-items">Ações</p>
+          <p className="number-items">{props.Actions ? props.Actions : 0}</p>
         </div>
-      ) : (
-        <div className={style.buttonContainer}>
-          <Button
-            variant="link"
-            label={props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar'}
-            handleClick={props.handleToView}
-          />
-          <div className={style.divisoria}></div>
-          <Button
-            variant="link"
-            label={props.textButtonContinue ? props.textButtonContinue : 'Continuar'}
-            handleClick={props.handleClickContinue}
-          />
-        </div>
+      </S.HypothesysAndActions>
+      {props.HypothesesToTest && (
+        <S.PendingHypotheses>
+          <WarnCard />
+          <span style={{ fontSize: '14px', fontFamily: 'PT Sans', color: '#334155' }}>
+            Ainda existem <span style={{ fontWeight: 700 }}>{props.HypothesesToTest} hipóteses</span> que não foram
+            testadas.
+          </span>
+        </S.PendingHypotheses>
       )}
-    </div>
+
+      {props.fase === 'finalizado' ? (
+        <S.ButtonContainer>
+          <p onClick={props.handleToView}>{props.textButton ? props.textButton : 'Visualizar'}</p>
+          <MenuMore style={{ position: 'absolute', right: '1rem' }} isDarkMode={true} options={props.optionsMenuMore} />
+        </S.ButtonContainer>
+      ) : (
+        <S.ButtonContainer>
+          <p onClick={props.handleToView}>{props.textButton ? props.textButton : 'Continuar desafio'}</p>
+          <MenuMore style={{ position: 'absolute', right: '1rem' }} options={props.optionsMenuMore} />
+        </S.ButtonContainer>
+      )}
+    </S.Container>
   )
 }
