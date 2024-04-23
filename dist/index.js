@@ -499,6 +499,32 @@ function ArrowShowMoreLess({ fill, stroke, customColor_1, width, height }) {
 function IconCriarIdeia({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "56", height: "56", viewBox: "0 0 56 56", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M28.0001 51.3333C40.8867 51.3333 51.3334 40.8866 51.3334 28C51.3334 15.1133 40.8867 4.66666 28.0001 4.66666C15.1134 4.66666 4.66675 15.1133 4.66675 28C4.66675 40.8866 15.1134 51.3333 28.0001 51.3333Z", fill: "white", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M28 18.6667V37.3333", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.6667 28H37.3334", stroke: "#222222", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
+function FaseUmDesafio() {
+    return (jsxRuntime.jsx("svg", { width: "22", height: "43", viewBox: "0 0 22 43", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M12.2845 43V15.83C12.2845 14.8333 12.2845 13.815 12.2845 12.775C12.3278 11.6917 12.3712 10.5867 12.4145 9.46C10.9412 10.8033 9.29449 11.9733 7.47449 12.97C5.65449 13.9667 3.79116 14.66 1.88449 15.05L0.714492 7.51C1.71116 7.42333 2.81616 7.14166 4.02949 6.665C5.28616 6.145 6.54283 5.53833 7.79949 4.845C9.09949 4.10833 10.2695 3.35 11.3095 2.57C12.3928 1.74666 13.2162 0.923331 13.7795 0.0999983H21.0595V43H12.2845Z", fill: "#F26818" }) }));
+}
+function FaseDoisDesafio() {
+    return (jsxRuntime.jsx("svg", { width: "33", height: "44", viewBox: "0 0 33 44", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.52334 44V37.955C5.42334 35.3117 8.71667 32.9283 11.4033 30.805C14.1333 28.6383 16.3217 26.645 17.9683 24.825C19.6583 22.9617 20.8717 21.2067 21.6083 19.56C22.3883 17.9133 22.7783 16.2667 22.7783 14.62C22.7783 12.6267 22.1717 11.0017 20.9583 9.745C19.745 8.445 18.0333 7.795 15.8233 7.795C13.3967 7.795 11.49 8.61833 10.1033 10.265C8.76001 11.9117 8.02334 14.2517 7.89334 17.285L0.15834 14.36C0.375007 11.4133 1.15501 8.92166 2.49834 6.885C3.88501 4.805 5.74834 3.22333 8.08834 2.14C10.4717 1.01333 13.2017 0.449999 16.2783 0.449999C18.9217 0.449999 21.1967 0.818331 23.1033 1.555C25.0533 2.29166 26.6567 3.31 27.9133 4.61C29.2133 5.86667 30.1883 7.31833 30.8383 8.965C31.4883 10.6117 31.8133 12.3233 31.8133 14.1C31.8133 16.8733 31.12 19.495 29.7333 21.965C28.39 24.435 26.31 26.8833 23.4933 29.31C20.6767 31.7367 17.1017 34.2933 12.7683 36.98V37.045C13.4183 37.0017 14.1983 36.9583 15.1083 36.915C16.0617 36.8717 17.0367 36.85 18.0333 36.85C19.03 36.8067 19.8967 36.785 20.6333 36.785H32.4633V44H1.52334Z", fill: "#F26818" }) }));
+}
+function FaseTresDesafio() {
+    return (jsxRuntime.jsx("svg", { width: "34", height: "45", viewBox: "0 0 34 45", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M17.6668 44.65C13.3768 44.65 9.71515 43.7617 6.68182 41.985C3.69182 40.165 1.63348 37.565 0.506816 34.185L8.95682 30.48C9.26015 32.04 9.75848 33.34 10.4518 34.38C11.1452 35.3767 12.0768 36.135 13.2468 36.655C14.4602 37.175 15.8902 37.435 17.5368 37.435C19.0102 37.435 20.2452 37.175 21.2418 36.655C22.2818 36.135 23.0835 35.3983 23.6468 34.445C24.2102 33.4917 24.4918 32.4083 24.4918 31.195C24.4918 29.895 24.2318 28.8333 23.7118 28.01C23.2352 27.1867 22.4985 26.6017 21.5018 26.255C20.5052 25.865 19.2485 25.67 17.7318 25.67C17.1685 25.67 16.6268 25.6917 16.1068 25.735C15.6302 25.735 15.0885 25.7783 14.4818 25.865V19.3C14.8285 19.3433 15.1752 19.3867 15.5218 19.43C15.9118 19.43 16.3018 19.43 16.6918 19.43C19.1185 19.43 20.8518 18.9533 21.8918 18C22.9752 17.0033 23.5168 15.4217 23.5168 13.255C23.5168 11.4783 22.9752 10.1133 21.8918 9.16C20.8518 8.16333 19.3568 7.665 17.4068 7.665C15.3268 7.665 13.6802 8.185 12.4668 9.225C11.2535 10.2217 10.4085 11.76 9.93182 13.84L1.93682 10.85C2.45682 8.68333 3.45348 6.82 4.92682 5.26C6.44348 3.7 8.30682 2.50833 10.5168 1.685C12.7268 0.818333 15.1752 0.385 17.8618 0.385C21.0685 0.385 23.7335 0.883333 25.8568 1.88C28.0235 2.87667 29.6485 4.24167 30.7318 5.975C31.8585 7.70833 32.4218 9.70167 32.4218 11.955C32.4218 13.7317 32.1402 15.2483 31.5768 16.505C31.0568 17.7183 30.3635 18.7583 29.4968 19.625C28.6735 20.4483 27.8068 21.0767 26.8968 21.51C25.9868 21.9433 25.1418 22.2033 24.3618 22.29V22.485C25.3585 22.5283 26.3768 22.745 27.4168 23.135C28.4568 23.4817 29.4102 24.0233 30.2768 24.76C31.1868 25.4967 31.9235 26.45 32.4868 27.62C33.0502 28.7467 33.3318 30.09 33.3318 31.65C33.3318 34.25 32.6385 36.5467 31.2518 38.54C29.9085 40.49 28.0668 42.0067 25.7268 43.09C23.3868 44.13 20.7002 44.65 17.6668 44.65Z", fill: "#F26818" }) }));
+}
+function FaseQuatroDesafio() {
+    return (jsxRuntime.jsx("svg", { width: "37", height: "44", viewBox: "0 0 37 44", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M21.7236 43.3546V33.2796H0.793594V27.4296C1.01026 26.9963 1.31359 26.4763 1.70359 25.8696C2.13693 25.2196 2.61359 24.4829 3.13359 23.6596L19.1236 0.454613H29.8486V26.7796H36.8036V33.2796H29.8486V43.3546H21.7236ZM8.46359 26.7796H21.7886V12.6096C21.7886 11.6996 21.8103 10.7246 21.8536 9.68461C21.8969 8.64461 21.9403 7.62628 21.9836 6.62961H21.8536C21.3769 7.58295 20.7919 8.62295 20.0986 9.74961C19.4486 10.8329 18.8419 11.8079 18.2786 12.6746L9.30859 25.5446C9.17859 25.7613 9.02693 25.9779 8.85359 26.1946C8.72359 26.3679 8.59359 26.5629 8.46359 26.7796Z", fill: "#F26818" }) }));
+}
+function FaseCincoDesafio() {
+    return (jsxRuntime.jsx("svg", { width: "33", height: "45", viewBox: "0 0 33 45", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16.174 44.2955C12.404 44.2955 9.21899 43.5155 6.61899 41.9555C4.06232 40.3955 1.96065 38.0122 0.313985 34.8055L8.37398 30.7755C8.93732 32.6822 9.82565 34.2205 11.039 35.3905C12.2523 36.5605 14.029 37.1455 16.369 37.1455C17.9723 37.1455 19.3373 36.8638 20.464 36.3005C21.5907 35.7372 22.4573 34.9138 23.064 33.8305C23.714 32.7472 24.039 31.4255 24.039 29.8655C24.039 28.3055 23.7357 27.0055 23.129 25.9655C22.5657 24.8822 21.7423 24.0805 20.659 23.5605C19.5757 22.9972 18.2107 22.7155 16.564 22.7155C15.4373 22.7155 14.3757 22.8238 13.379 23.0405C12.4257 23.2572 11.559 23.6038 10.779 24.0805C9.99898 24.5138 9.30565 25.0988 8.69898 25.8355L1.67898 24.5355L4.34398 0.745506H30.279V7.96051H11.104L9.80398 18.4255L9.60898 19.2705H9.73898C10.649 18.2305 11.884 17.4288 13.444 16.8655C15.0473 16.3022 16.8673 16.0205 18.904 16.0205C21.7207 16.0205 24.1257 16.5838 26.119 17.7105C28.1123 18.8372 29.6507 20.4188 30.734 22.4555C31.8173 24.4488 32.359 26.7455 32.359 29.3455C32.359 31.8155 31.9473 34.0038 31.124 35.9105C30.3007 37.7738 29.1307 39.3338 27.614 40.5905C26.1407 41.8038 24.429 42.7355 22.479 43.3855C20.529 43.9922 18.4273 44.2955 16.174 44.2955Z", fill: "#F26818" }) }));
+}
+function FaseFinalizadaDesafio() {
+    const faseFinalizada = 'https://cdn-images.frstfalconi.cloud/hall/bandeira-finalizado.svg';
+    return (jsxRuntime.jsx("img", { style: {
+            borderRadius: '50%',
+            height: '95px',
+            width: '97px',
+            border: '4px solid #F18624',
+            display: 'flex',
+            marginTop: '2px'
+        }, src: faseFinalizada, alt: "Fase finalizada" }));
+}
 function FaseUm() {
     return (jsxRuntime.jsx("svg", { width: "52", height: "144", viewBox: "0 0 52 144", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M27.1523 144V26.3L0.152344 42.8V16.2L27.1523 -5.72205e-06H51.7523V144H27.1523Z", fill: "#F18624" }) }));
 }
@@ -516,6 +542,9 @@ function FaseCinco() {
 }
 function FaseFinalizado() {
     return (jsxRuntime.jsx("svg", { width: "26", height: "144", viewBox: "0 0 26 144", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M0.964845 144V121.9H25.0648V144H0.964845ZM0.964845 108V-5.72205e-06H25.0648V108H0.964845Z", fill: "#F18624" }) }));
+}
+function WarnCard() {
+    return (jsxRuntime.jsx("svg", { width: "45", height: "33", viewBox: "0 0 32 33", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16 0.5C7.184 0.5 0 7.684 0 16.5C0 25.316 7.184 32.5 16 32.5C24.816 32.5 32 25.316 32 16.5C32 7.684 24.816 0.5 16 0.5ZM16 24.5C15.12 24.5 14.4 23.78 14.4 22.9C14.4 22.02 15.12 21.3 16 21.3C16.88 21.3 17.6 22.02 17.6 22.9C17.6 23.78 16.88 24.5 16 24.5ZM17.6 16.5C17.6 17.38 16.88 18.1 16 18.1C15.12 18.1 14.4 17.38 14.4 16.5V10.1C14.4 9.22 15.12 8.5 16 8.5C16.88 8.5 17.6 9.22 17.6 10.1V16.5Z", fill: "white" }) }));
 }
 function CardFinished() {
     return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "7.4", stroke: "white", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M12 5L6.5 10.5L4 8", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
@@ -1540,7 +1569,7 @@ styled__default["default"](MenuItem__default["default"]) `
   }
 `;
 
-const Container$m = styled__default["default"](Card__default["default"]) `
+const Container$n = styled__default["default"](Card__default["default"]) `
   height: 100%;
   box-shadow: none !important;
   border: 1px solid #c4c4c4 !important;
@@ -1746,9 +1775,9 @@ function CalendarCard(props) {
         }
     }, [props.trails]);
     return (jsxRuntime.jsx("div", { style: { height: '100%' }, children: props.loading ?
-            jsxRuntime.jsx(Container$m, { className: 'shimmer' })
+            jsxRuntime.jsx(Container$n, { className: 'shimmer' })
             :
-                jsxRuntime.jsx(Container$m, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$7, { children: t('calendar.title') }), moduleSelector &&
+                jsxRuntime.jsx(Container$n, { children: jsxRuntime.jsxs(material.CardContent, { style: { padding: '0px' }, children: [jsxRuntime.jsx(Title$7, { children: t('calendar.title') }), moduleSelector &&
                                 jsxRuntime.jsxs(ContainerDescription, { children: [jsxRuntime.jsx(TextDescription$1, { children: t('calendar.card.description') }), jsxRuntime.jsx(FormControlSelect, { fullWidth: true, children: jsxRuntime.jsx(DropDownList$2, { id: "module-id", value: module, onChange: handleChange, children: props.trails?.map((item, index) => {
                                                     return jsxRuntime.jsxs(material.MenuItem, { value: index, children: [item.name, " - ", item.moduleID] }, index);
                                                 }) }) })] }), moduleEvents?.length === 0 &&
@@ -3084,7 +3113,7 @@ justify-content: space-between;
 width:100%;
 color: #222222;
 `;
-const Container$l = styled__default["default"].div `
+const Container$m = styled__default["default"].div `
 width: 100%;
 display: flex;
 align-items: center;
@@ -3119,7 +3148,7 @@ const Separator = styled__default["default"].div `
 font-weight:bold;
 margin: 0 8px;
 `;
-const Description$3 = styled__default["default"].span `
+const Description$4 = styled__default["default"].span `
 font-weight:400;
 padding: 8px 0 8px;
 
@@ -3363,7 +3392,7 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
     const handleDeleteVote = async (voteId) => {
         await deleteVote(voteId);
     };
-    return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$l, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$3, { children: description })] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && votes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
+    return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$4, { children: description })] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && votes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                             return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
                                                         }), votes?.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
                                                                     fontSize: votes?.length > 9 ? 10 : votes?.length > 99 ? 8 : 14
@@ -4152,7 +4181,7 @@ const DefaultProfile = ({ className, size = 40 }) => {
     return (jsxRuntime.jsxs("svg", { className: className, width: size, height: size, viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink", children: [jsxRuntime.jsx("path", { d: "M40 19.9999C40 8.95419 31.0463 2.71419e-06 19.9991 1.7484e-06C8.9537 7.82768e-07 -7.82789e-07 8.95419 -1.74842e-06 19.9999C-2.71406e-06 31.0456 8.95369 40 19.9991 40C31.0463 40 40 31.0456 40 19.9999Z", fill: "url(#pattern0)" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsx("pattern", { id: "pattern0", patternContentUnits: "objectBoundingBox", width: "1", height: "1", children: jsxRuntime.jsx("use", { xlinkHref: "#image0_1049_1923", transform: "scale(0.00287356)" }) }), jsxRuntime.jsx("image", { id: "image0_1049_1923", width: "348", height: "348", xlinkHref: "data:image/png;base64,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" })] })] }));
 };
 
-const Container$k = styled__default["default"].div `
+const Container$l = styled__default["default"].div `
   background-color: #ffff;
   display: ${({ hide }) => hide ? 'none' : 'flex'};
   justify-content: center;
@@ -4314,7 +4343,7 @@ const useMentions = (mention) => {
 const Mentions = (mention) => {
     const { selectedUser, setSelectedUser, mentionListRef } = useMentions(mention);
     const { top, users } = mention;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Container$k, { top: top, tabIndex: 0, hide: !users || users.length <= 0, children: jsxRuntime.jsx(MentionList, { tabIndex: 1, ref: mentionListRef, children: users?.map((user, index) => {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(Container$l, { top: top, tabIndex: 0, hide: !users || users.length <= 0, children: jsxRuntime.jsx(MentionList, { tabIndex: 1, ref: mentionListRef, children: users?.map((user, index) => {
                     return (jsxRuntime.jsxs(MentionItem, { tabIndex: index += 2, active: user.user_uuid === selectedUser?.user_uuid, onMouseDown: () => setSelectedUser(user), onKeyUpCapture: (e) => {
                             if (e.key.toLowerCase() === 'enter') {
                                 setSelectedUser(user);
@@ -4798,7 +4827,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                                     jsxRuntime.jsxs(LinkButton, { onClick: actionAnswer, children: ["  ", textAnswer, "  "] })] })] })] })] }) }));
 }
 
-const Container$j = styled__default["default"].div `
+const Container$k = styled__default["default"].div `
     display:flex;
     width: ${({ width }) => width ? width : "100%"};
     height: ${({ height }) => height ? height : "auto"};
@@ -5237,7 +5266,7 @@ const InputContainer$1 = styled__default["default"].div `
     flex-direction:column;
     position:relative;
 `;
-const Container$i = styled__default["default"].div `
+const Container$j = styled__default["default"].div `
     display:flex;
     justify-content:center;
     flex-direction:column;
@@ -5291,7 +5320,7 @@ const InputEdit = ({ placeHolderText, commentText, commentTextWithMention, getSe
         const response = await getSearchUsers(value);
         setUsers(response?.data?.results || response);
     };
-    return (jsxRuntime.jsxs(Container$i, { children: [jsxRuntime.jsx(InputContainer$1, { ref: inputRef, style: { width: '100%' }, children: jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, onChange: (e) => {
+    return (jsxRuntime.jsxs(Container$j, { children: [jsxRuntime.jsx(InputContainer$1, { ref: inputRef, style: { width: '100%' }, children: jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, onChange: (e) => {
                         handleSearchUsers(e);
                     }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded, initialText: CaptureFormattedValue || comment }) }), jsxRuntime.jsxs(ButtonsContainer, { children: [jsxRuntime.jsx(MiniButton, { label: cancelButtonText, onClick: () => setIsModeEdit(false), variant: 'secondary' }), jsxRuntime.jsx(SpanText, { children: orText }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || comment.length > limitInput || isLoading, label: editButtonText, onClick: () => handlePublish(), variant: "primary", styles: {} })] }), isLoading && jsxRuntime.jsx(Loading, {})] }));
 };
@@ -5364,7 +5393,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$j, { style: { ...styles }, children: [jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(Avatar, { size: isMainComment ? '48px' : '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' } }), showInterconnectionLine && (jsxRuntime.jsx("div", { style: {
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(Container$k, { style: { ...styles }, children: [jsxRuntime.jsxs("div", { style: { position: 'relative' }, children: [jsxRuntime.jsx(Avatar, { size: isMainComment ? '48px' : '32px', src: imgProfile, onClick: onClickUserInfo, style: { cursor: hasActionToClickOnAvatar ? 'pointer' : 'default', marginRight: '6px' } }), showInterconnectionLine && (jsxRuntime.jsx("div", { style: {
                                     height: '100%',
                                     width: '2px',
                                     position: 'absolute',
@@ -5383,7 +5412,7 @@ const CommentaryBoxV2 = ({ userName, imgProfile, userCompany, userOffice, showMo
                                 } })] })), jsxRuntime.jsx(MiniButton, { variant: "terciary", onClick: actionAnswer, label: answerButtonText }), showOptions ? (isAuthor ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: authorOptions, style: {}, closeAfterClick: true, isHover: false }) })) : isOwnerPost ? (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: ownerPost, style: {}, closeAfterClick: true, isHover: false }) })) : (jsxRuntime.jsx(MenuMoreContainer, { children: jsxRuntime.jsx(MenuMore, { options: [], isHover: false }) }))) : (jsxRuntime.jsx("div", {}))] }))] }));
 };
 
-const Container$h = styled__default["default"].div `
+const Container$i = styled__default["default"].div `
   background-color: inerit;
   display: flex;
   align-items: flex-start;
@@ -5437,7 +5466,7 @@ const InputContainer = styled__default["default"].div `
     flex-direction:column;
     position:relative;
 `;
-const Container$g = styled__default["default"].div `
+const Container$h = styled__default["default"].div `
     display:flex;
     justify-content:center;
 `;
@@ -5496,7 +5525,7 @@ const InputReply = ({ placeHolderText, getSearchUsers, onClickPublishButton, par
         const response = await getSearchUsers(value);
         setUsers(response?.data?.results || response);
     };
-    return (jsxRuntime.jsxs(Container$g, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '16px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { width: '100%', marginTop: '16px' }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, className: "userComment", onChange: (e) => {
+    return (jsxRuntime.jsxs(Container$h, { style: { ...styles }, children: [jsxRuntime.jsx(Avatar, { src: imgProfile, size: "32px", style: { marginTop: '16px', marginRight: '8px' } }), jsxRuntime.jsxs(InputContainer, { ref: inputRef, style: { width: '100%', marginTop: '16px' }, children: [jsxRuntime.jsx(InputComment$1, { styles: { width: '100%' }, className: "userComment", onChange: (e) => {
                             handleSearchUsers(e);
                         }, value: comment, placeholder: placeHolderText, limit: limitInput, showCharacterCounter: true, onContentUnformat: (unformattedValue) => setCommentData(unformattedValue), onContentFormat: (formattedValue) => setCaptureFormattedValue(formattedValue), onSendMentions: (mentions) => setCaptureMentions(mentions), users: users, replyMentionedUser: !userMentionedOnReplied && user, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }), jsxRuntime.jsx(MiniButton, { disabled: comment.length <= 0 || comment.length > limitInput || isLoading, label: publishButtonText, onClick: () => handlePublish(), variant: "primary", styles: { marginLeft: 'auto', marginTop: '14px' } }), isLoading && jsxRuntime.jsx(Loading, {})] })] }));
 };
@@ -5533,7 +5562,7 @@ const ThreadComments = ({ mainComment, listReplyComments, placeHolderText, onCli
         setShowReplyInput(true);
     };
     const isMainCommentUser = mainComment.user?.uuid === loggedInUser?.id;
-    return (jsxRuntime.jsx(Container$h, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { loggedInUser: loggedInUser, hasActionToClickOnAvatar: false, imgProfile: mainComment.user?.avatar, userId: mainComment.user?.uuid, userName: mainComment.user?.name, userOffice: mainComment.user?.role_name, userCompany: mainComment.user?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, actionAnswer: handleCommentReply, actionDeleteComment: onClickDelete, actionEditComment: onClickEdit, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText, isMainComment: true, isAuthor: isMainCommentUser, isOwnerPost: isGoalOwner, deleteText: deleteText, editText: editText, showOptions: isMainCommentUser || isGoalOwner, commentUuid: mainComment.uuid, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, actionLike: onClickLike, actionUnlike: onClickUnlike, showLikeButton: true, likeButtonText: likeButtonText, likes: mainComment.likes }), listReplyComments.length > visibleReplies && (jsxRuntime.jsx(ViewReplysButtonContainer, { id: "text-viwMsg", children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { marginLeft: '60px' }, imgProfile: loggedInUser?.avatar, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }))] }), showAnswers && visibleReplies && (jsxRuntime.jsx(RepplysContainer, { style: { marginTop: '6px' }, children: listReplyComments.slice(0, visibleReplies).map((replyComment) => (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(CommentaryBoxReply, { replies: replyComment?.replies, commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, isAuthor: replyComment.user?.uuid === loggedInUser?.id, isOwnerPost: mainComment.user?.uuid === loggedInUser?.id || isGoalOwner, deleteText: deleteText, editText: editText, onClickDelete: onClickDelete, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, onClickEdit: onClickEdit, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, onClickLike: onClickLike, onClickUnlike: onClickUnlike, likeButtonText: likeButtonText, likes: replyComment.likes, loggedInUser: loggedInUser, isGoalOwner: isGoalOwner, group_uuid: group_uuid, publishButtonText: publishButtonText, onClickPublishButton: onClickPublishButton, mainCommentUser: replyComment.user, showReplysButtonText: showReplysButtonText, toViewText: toViewText, answersText: answersText, answerText: answerText }) }, replyComment.id))) }))] }) }));
+    return (jsxRuntime.jsx(Container$i, { style: styles, children: jsxRuntime.jsxs(CommentarysContainer, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(CommentaryBoxV2, { loggedInUser: loggedInUser, hasActionToClickOnAvatar: false, imgProfile: mainComment.user?.avatar, userId: mainComment.user?.uuid, userName: mainComment.user?.name, userOffice: mainComment.user?.role_name, userCompany: mainComment.user?.company_name, commentId: mainComment.id, commentText: mainComment.text, howLongAgo: mainComment.howLongAgo, showMoreText: showMoreButtonText, showLessText: showLessButtonText, answerButtonText: answerButtonText, actionAnswer: handleCommentReply, actionDeleteComment: onClickDelete, actionEditComment: onClickEdit, relationToPhaseText: relationToPhaseText, commentTextWithMention: mainComment.mentionText, isMainComment: true, isAuthor: isMainCommentUser, isOwnerPost: isGoalOwner, deleteText: deleteText, editText: editText, showOptions: isMainCommentUser || isGoalOwner, commentUuid: mainComment.uuid, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, actionLike: onClickLike, actionUnlike: onClickUnlike, showLikeButton: true, likeButtonText: likeButtonText, likes: mainComment.likes }), listReplyComments.length > visibleReplies && (jsxRuntime.jsx(ViewReplysButtonContainer, { id: "text-viwMsg", children: jsxRuntime.jsx("span", { onClick: handleLoadMoreReplies, children: showReplysOnClickCounter === 0 ? showReplysButtonText : showMoreReplysButtonText }) })), showReplyInput && (jsxRuntime.jsx(InputReply, { styles: { marginLeft: '60px' }, imgProfile: loggedInUser?.avatar, idInput: `idInput-${mainComment.id}`, placeHolderText: placeHolderText, publishButtonText: publishButtonText, limitInput: limitInputs, onClickPublishButton: onClickPublishButton, getSearchUsers: getSearchUsers, replyMentionedUser: mainComment.user, parentId: Number(mainComment.id), handleHiddenInput: handleHiddenInput, group_uuid: group_uuid, limitMessageExceeded: limitMessageExceeded }))] }), showAnswers && visibleReplies && (jsxRuntime.jsx(RepplysContainer, { style: { marginTop: '6px' }, children: listReplyComments.slice(0, visibleReplies).map((replyComment) => (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(CommentaryBoxReply, { replies: replyComment?.replies, commentData: replyComment, answerButtonText: answerButtonText, showMoreButtonText: showMoreButtonText, showLessButtonText: showLessButtonText, isAuthor: replyComment.user?.uuid === loggedInUser?.id, isOwnerPost: mainComment.user?.uuid === loggedInUser?.id || isGoalOwner, deleteText: deleteText, editText: editText, onClickDelete: onClickDelete, limitInput: limitInputs, groupUuid: group_uuid, cancelButtonText: cancelButtonText, saveButtonText: saveButtonText, orText: orText, limitMessageExceeded: limitMessageExceeded, onClickEdit: onClickEdit, placeHolderText: placeHolderText, getSearchUsers: getSearchUsers, onClickLike: onClickLike, onClickUnlike: onClickUnlike, likeButtonText: likeButtonText, likes: replyComment.likes, loggedInUser: loggedInUser, isGoalOwner: isGoalOwner, group_uuid: group_uuid, publishButtonText: publishButtonText, onClickPublishButton: onClickPublishButton, mainCommentUser: replyComment.user, showReplysButtonText: showReplysButtonText, toViewText: toViewText, answersText: answersText, answerText: answerText }) }, replyComment.id))) }))] }) }));
 };
 
 const ButtonCheckmark = styled__default["default"].div `
@@ -6936,7 +6965,7 @@ function CarUser({ style, userInfo, handleLinkProfile }) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(UserContainer, { id: 'userContainer', style: { ...style }, children: [jsxRuntime.jsxs(Headers, { children: [jsxRuntime.jsx(Avatar, { src: userInfo.avatar, size: '74px', onClick: handleLinkProfile, isActiveClick: true }), jsxRuntime.jsx("p", { style: { fontWeight: 600, fontSize: "14px", textAlign: "center", fontFamily: "Work Sans", marginTop: "8px" }, children: userInfo.name })] }), jsxRuntime.jsxs(InfoDescription, { children: [jsxRuntime.jsx("p", { children: userInfo.profession }), jsxRuntime.jsx("p", { style: { marginTop: "3px" }, children: userInfo.education })] }), jsxRuntime.jsx(InfoBottom, { children: jsxRuntime.jsxs("p", { children: [userInfo.activeSice, " ", jsxRuntime.jsx("b", { children: userInfo.date })] }) })] }) }));
 }
 
-const Container$f = styled__default["default"].div `
+const Container$g = styled__default["default"].div `
     display: flex;
     flex-direction: column;
 `;
@@ -7026,7 +7055,7 @@ const ButtonAction$1 = styled__default["default"].div `
 function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton, isButton, id }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$f, { id: 'container-search-field', className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label && (jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [' ', label, ' '] })), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon && (jsxRuntime.jsxs(ContainerIcon$2, { children: [' ', jsxRuntime.jsx(SearchIcon, {}), ' '] })), jsxRuntime.jsx(InputText$3, { placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$g, { id: 'container-search-field', className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label && (jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [' ', label, ' '] })), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon && (jsxRuntime.jsxs(ContainerIcon$2, { children: [' ', jsxRuntime.jsx(SearchIcon, {}), ' '] })), jsxRuntime.jsx(InputText$3, { placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
                                 if (event.key === 'Enter') {
                                     handleClickButton(event);
                                 }
@@ -7666,6 +7695,188 @@ function CardDefinicaoFase(props) {
         }
     }
     return (jsxRuntime.jsxs("div", { className: style$5.container, children: [jsxRuntime.jsxs("div", { className: style$5.headerContainer, children: [jsxRuntime.jsx("div", { className: style$5.titleFrase, children: props.titleFase ? props.titleFase : 'Definição do objetivo' }), props.fase ? handleFase() : jsxRuntime.jsx(FaseUm, {})] }), jsxRuntime.jsxs("div", { className: style$5.descriptionContainer, children: [jsxRuntime.jsxs("div", { className: style$5.titleAndMenu, children: [jsxRuntime.jsxs("span", { className: style$5.titleDescription, children: [" ", props.cardTitle] }), jsxRuntime.jsx(MenuMore, { options: props.optionsMenuMore })] }), jsxRuntime.jsxs("span", { className: style$5.description, children: [" ", props.cardDescription] })] }), props.fase === 'finalizado' ? (jsxRuntime.jsx("div", { className: style$5.buttonFinalizado, children: jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }) })) : (jsxRuntime.jsxs("div", { className: style$5.buttonContainer, children: [jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonVisualizar ? props.textButtonVisualizar : 'Visualizar', handleClick: props.handleToView }), jsxRuntime.jsx("div", { className: style$5.divisoria }), jsxRuntime.jsx(Button$4, { variant: "link", label: props.textButtonContinue ? props.textButtonContinue : 'Continuar', handleClick: props.handleClickContinue })] }))] }));
+}
+
+const Container$f = styled__default["default"].div `
+  width: 282px !important;
+  max-width: 282px !important;
+  color: #222222;
+  background-color: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+`;
+const PhaseNumber = styled__default["default"].div `
+  background: #fce7d3;
+  height: 89.6px;
+  width: 91.2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 5px solid #F18624;
+  margin-bottom: -1rem;
+  padding: 0px 4px 0px 0px;
+`;
+const HeaderContainer = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background: #F18624;
+  height: 45px;
+  max-width: 282px;
+  border-radius: 8px 8px 0px 0px;
+`;
+const DescriptionContainer = styled__default["default"].div `
+  padding: 20px;
+  height: 197px;
+  gap: 2px;
+  max-width: 282px !important;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+`;
+const Description$3 = styled__default["default"].div `
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #F18624;
+  max-width: 250px;
+  max-height: 97px;
+    overflow: auto;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 6 !important;
+  -webkit-box-orient: vertical !important;
+
+  &::-webkit-scrollbar {
+    width: 8px; 
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #FCE7D3;  
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #F18624;  
+    border-radius: 10px;  
+    border: 2px solid #f0f0f0;  
+  }
+`;
+const CardTitlePhase = styled__default["default"].div `
+  display: flex;
+  color: #F18624;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 9px;
+`;
+const TitleDescription = styled__default["default"].span `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 110%;
+  color: #444444;
+  max-width: 250px;
+  word-break: break-word !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+`;
+styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  height: 55px;
+  padding: 0 35px;
+  border-radius: 0px 0px 8px 8px;
+  border: 1px solid #bdbdbd;
+`;
+const ButtonContainer = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 47px;
+  padding: 0 5px;
+  border-radius: 0px 0px 8px 8px;
+  background: #F18624;
+  color: #fff;
+  font-weight: 600;
+  font-family: 'PT Sans';
+  cursor: pointer;
+`;
+const HypothesysAndActions = styled__default["default"].div `
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 0.5rem;
+
+  .items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .text-items {
+      font-size: 14px;
+      font-family: 'PT Sans';
+      font-weight: 700;
+    }
+
+    .number-items {
+      font-size: 24px;
+      font-family: 'PT Sans';
+      font-weight: 700;
+      color: #475569;
+      margin-top: -3px;
+    }
+  }
+`;
+const PendingHypotheses = styled__default["default"].div `
+  background: #F8D784;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 28px 9px;
+  gap: 11px;
+ 
+`;
+
+function CardFaseDesafios(props) {
+    function handleFase() {
+        switch (props.fase) {
+            case '1':
+                return jsxRuntime.jsx(FaseUmDesafio, {});
+            case '2':
+                return jsxRuntime.jsx(FaseDoisDesafio, {});
+            case '3':
+                return jsxRuntime.jsx(FaseTresDesafio, {});
+            case '4':
+                return jsxRuntime.jsx(FaseQuatroDesafio, {});
+            case '5':
+                return jsxRuntime.jsx(FaseCincoDesafio, {});
+            case 'finalizado':
+                return jsxRuntime.jsx(FaseFinalizadaDesafio, {});
+            default:
+                return jsxRuntime.jsx(FaseUmDesafio, {});
+        }
+    }
+    return (jsxRuntime.jsxs(Container$f, { children: [jsxRuntime.jsx(HeaderContainer, { children: jsxRuntime.jsx(PhaseNumber, { children: props.fase ? handleFase() : jsxRuntime.jsx(FaseUmDesafio, {}) }) }), jsxRuntime.jsxs(DescriptionContainer, { children: [jsxRuntime.jsx(CardTitlePhase, { children: props.titleFase ? props.titleFase : 'Definição' }), jsxRuntime.jsxs(TitleDescription, { children: [" ", props.cardTitle] }), jsxRuntime.jsxs(Description$3, { children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs(HypothesysAndActions, { children: [jsxRuntime.jsxs("div", { className: "items", children: [jsxRuntime.jsx("img", { src: "https://cdn-images.frstfalconi.cloud/hall/hyphotese.svg", alt: "" }), jsxRuntime.jsx("p", { className: "text-items", children: "Hip\u00F3teses" }), jsxRuntime.jsx("p", { className: "number-items", children: props.Hypotheshis ? props.Hypotheshis : 0 })] }), jsxRuntime.jsxs("div", { className: "items", children: [jsxRuntime.jsx("img", { src: "https://cdn-images.frstfalconi.cloud/hall/actions.svg", alt: "" }), jsxRuntime.jsx("p", { className: "text-items", children: "A\u00E7\u00F5es" }), jsxRuntime.jsx("p", { className: "number-items", children: props.Actions ? props.Actions : 0 })] })] }), props.HypothesesToTest && (jsxRuntime.jsxs(PendingHypotheses, { children: [jsxRuntime.jsx(WarnCard, {}), jsxRuntime.jsxs("span", { style: { fontSize: '14px', fontFamily: 'PT Sans', color: '#334155' }, children: ["Ainda existem ", jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.HypothesesToTest, " hip\u00F3teses"] }), " que n\u00E3o foram testadas."] })] })), props.fase === 'finalizado' ? (jsxRuntime.jsxs(ButtonContainer, { children: [jsxRuntime.jsx("p", { onClick: props.handleToView, children: props.textButton ? props.textButton : 'Visualizar' }), jsxRuntime.jsx(MenuMore, { style: { position: 'absolute', right: '1rem' }, isDarkMode: true, options: props.optionsMenuMore })] })) : (jsxRuntime.jsxs(ButtonContainer, { children: [jsxRuntime.jsx("p", { onClick: props.handleToView, children: props.textButton ? props.textButton : 'Continuar desafio' }), jsxRuntime.jsx(MenuMore, { style: { position: 'absolute', right: '1rem' }, options: props.optionsMenuMore })] }))] }));
 }
 
 var css_248z$b = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
@@ -20539,6 +20750,7 @@ exports.CalendarFilledIcon = CalendarFilledIcon;
 exports.CalendarLineIcon = CalendarLineIcon;
 exports.CalendarLxp = CalendarLxp;
 exports.CardDefinicaoFase = CardDefinicaoFase;
+exports.CardFaseDesafios = CardFaseDesafios;
 exports.CardPeople = CardPeople;
 exports.CardProblem = CardProblem;
 exports.CardProblemGestor = CardProblemGestor;
