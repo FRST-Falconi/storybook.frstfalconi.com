@@ -35,6 +35,9 @@ CardFaseUm.args = {
       color: '#C1341A'
     }
   ],
+  Hypotheshis: 2,
+  HypothesesToTest: 1,
+  Actions: 3,
   titleFase: 'Definição',
   fase: '1',
   handleToView: () => {
@@ -96,6 +99,8 @@ CardFinalizado.args = {
       color: '#C1341A'
     }
   ],
+  Hypotheshis: 11,
+  Actions: 8,
   titleFase: 'Finalizado',
   fase: 'finalizado',
   handleToView: () => {
