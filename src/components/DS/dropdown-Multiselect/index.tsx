@@ -44,7 +44,7 @@ type ISelectedValue = {
 }[]
 
 
-export default function DropdownMultiselect(props: IDropdownMultiselect) {
+export default function     (props: IDropdownMultiselect) {
     const [selectedValues, setSelectedValues] = useState<ISelectedValue>([]);
     // const [textFilter, setTextFilter] = useState('')
     const [listItemsFilter, setListItemsFilter] = useState<ISelectedValue>(props.listItems)
