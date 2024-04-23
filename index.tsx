@@ -102,6 +102,7 @@ export { default as ModalBase } from './src/components/modal/modalBase'
 export { default as CardProblemGestor } from './src/components/cards/cardProblemGestor'
 export { default as CardProblem } from './src/components/cards/cardProblem'
 export { default as CardDefinicaoFase } from './src/components/cards/cardDefinicaoFase'
+export { default as CardFaseDesafios } from './src/components/cards/cardFaseDesafios'
 export { default as CardResultConquista } from './src/components/cards/cardResultConquista'
 
 export { default as ExclusiveClassCard } from './src/components/exclusive-class'
