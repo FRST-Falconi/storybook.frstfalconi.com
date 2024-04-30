@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react'
 
 export default function Avatar({ size, src, alt, className, disabled, onClick, isActiveClick, id, style }: IAvatar) {
 
-  const [isImage, setIsImage] = useState(!!src);
-  const defaultImg = 'https://cdn-images.frstfalconi.cloud/Avatar_default.png';
+  const [isImage, setIsImage] = useState(!!src); 
+  const defaultImg = 'https://cdn-images.frstfalconi.cloud/path582.svg';
 
   useEffect(() =>{
     setIsImage(!!src)
@@ -16,9 +16,9 @@ export default function Avatar({ size, src, alt, className, disabled, onClick, i
 
 
   return (
-    <ThemeProvider theme={FRSTTheme}> 
+    <ThemeProvider theme={FRSTTheme}>
       <Styles.AvatarWrapper size={size} className={className} onClick={onClick} isActiveClick={isActiveClick} id={id} style={style}>
-        {(isImage && src ) ? ( 
+        {isImage ? ( 
           <Styles.AvatarImg src={src} size={size} disabled={disabled} onError={() => setIsImage(false)} /> 
         ) : (
           <Styles.AvatarImg src={defaultImg} size={size} disabled={disabled} />
