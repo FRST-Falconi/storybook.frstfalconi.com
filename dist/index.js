@@ -2172,7 +2172,7 @@ const AvatarImg$1 = styled__default["default"].img `
   height: ${(props) => props.size || '120px'};
   border-radius: 50%;
   object-fit: cover;
-  background-image: url(' https://cdn-images.frstfalconi.cloud/path582.svg');
+  background-image: url('https://cdn-images.frstfalconi.cloud/Avatar_default.png');
   background-size: cover;
 
   ${({ disabled }) => disabled === true &&
@@ -2187,13 +2187,12 @@ const AvatarWrapper = styled__default["default"].div `
 `;
 
 function Avatar({ size, src, alt, className, disabled, onClick, isActiveClick, id, style }) {
-    const [isImage, setIsImage] = React.useState(!!src); // Assume que a imagem está presente inicialmente
-    const defaultImg = 'https://cdn-images.frstfalconi.cloud/path582.svg';
+    const [isImage, setIsImage] = React.useState(!!src);
+    const defaultImg = 'https://cdn-images.frstfalconi.cloud/Avatar_default.png';
     React.useEffect(() => {
         setIsImage(!!src);
     }, [src]);
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [" ", jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, id: id, style: style, children: isImage ? ( // Renderize a imagem apenas se houver uma URL válida
-                jsxRuntime.jsx(AvatarImg$1, { src: src, size: size, disabled: disabled, onError: () => setIsImage(false) })) : (jsxRuntime.jsx(AvatarImg$1, { src: defaultImg, size: size, disabled: disabled })) })] }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(AvatarWrapper, { size: size, className: className, onClick: onClick, isActiveClick: isActiveClick, id: id, style: style, children: (isImage && src) ? (jsxRuntime.jsx(AvatarImg$1, { src: src, size: size, disabled: disabled, onError: () => setIsImage(false) })) : (jsxRuntime.jsx(AvatarImg$1, { src: defaultImg, size: size, disabled: disabled })) }) }));
 }
 
 ///-----------------------------------------
