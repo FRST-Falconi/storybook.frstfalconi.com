@@ -3,6 +3,8 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 282px !important;
   max-width: 282px !important;
+  height: 430px;
+  max-height: 430px;
   color: #222222;
   background-color: #fff;
   border-radius: 10px;
@@ -23,7 +25,7 @@ export const PhaseNumber = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  border: 5px solid #F18624;
+  border: 5px solid #f18624;
   margin-bottom: -1rem;
   padding: 0px 4px 0px 0px;
 `
@@ -32,7 +34,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  background: #F18624;
+  background: #f18624;
   height: 45px;
   max-width: 282px;
   border-radius: 8px 8px 0px 0px;
@@ -40,7 +42,6 @@ export const HeaderContainer = styled.div`
 
 export const DescriptionContainer = styled.div`
   padding: 20px;
-  height: 197px;
   gap: 2px;
   max-width: 282px !important;
   display: flex;
@@ -50,17 +51,18 @@ export const DescriptionContainer = styled.div`
   word-break: break-word !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
+  flex-direction: column;
 `
 
-export const Description = styled.div`
+export const Description = styled.span`
   font-family: 'Work Sans';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  color: #F18624;
+  color: #f18624;
   max-width: 250px;
   max-height: 97px;
-    overflow: auto;
+  overflow: auto;
   word-break: break-word !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
@@ -69,26 +71,27 @@ export const Description = styled.div`
   -webkit-box-orient: vertical !important;
 
   &::-webkit-scrollbar {
-    width: 8px; 
+    width: 8px;
   }
 
   &::-webkit-scrollbar-track {
-    background: #FCE7D3;  
+    background: #fce7d3;
     border-radius: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: #F18624;  
-    border-radius: 10px;  
-    border: 2px solid #f0f0f0;  
+    background-color: #f18624;
+    border-radius: 10px;
+    border: 2px solid #f0f0f0;
   }
 `
 
 export const CardTitlePhase = styled.div`
   display: flex;
-  color: #F18624;
+  color: #f18624;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 0.25px;
@@ -125,7 +128,7 @@ export const ButtonContainer = styled.div`
   height: 47px;
   padding: 0 5px;
   border-radius: 0px 0px 8px 8px;
-  background: #F18624;
+  background: #f18624;
   color: #fff;
   font-weight: 600;
   font-family: 'PT Sans';
@@ -136,7 +139,7 @@ export const HypothesysAndActions = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
 
   .items {
     display: flex;
@@ -160,11 +163,10 @@ export const HypothesysAndActions = styled.div`
 `
 
 export const PendingHypotheses = styled.div`
-  background: #F8D784;
+  background: #f8d784;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 8px 28px 9px;
   gap: 11px;
- 
 `
