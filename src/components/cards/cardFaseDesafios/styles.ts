@@ -66,7 +66,6 @@ export const Description = styled.span`
   word-break: break-word !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
-  display: -webkit-box !important;
   -webkit-line-clamp: 6 !important;
   -webkit-box-orient: vertical !important;
 
