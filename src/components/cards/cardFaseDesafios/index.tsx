@@ -53,15 +53,15 @@ export default function CardFaseDesafios(props: CardFaseDesafiosProps) {
         <Box className="items">
           <img src="https://cdn-images.frstfalconi.cloud/hall/hyphotese.svg" alt="" />
           <p className="text-items">Hipóteses</p>
-          <p className="number-items">{props.Hypotheshis ? props.Hypotheshis : null}</p>
+          <p className="number-items">{props.Hypotheshis ? props.Hypotheshis : 0}</p>
         </Box>
         <Box className="items">
           <img src="https://cdn-images.frstfalconi.cloud/hall/actions.svg" alt="" />
           <p className="text-items">Ações</p>
-          <p className="number-items">{props.Actions ? props.Actions : null}</p>
+          <p className="number-items">{props.Actions ? props.Actions : 0}</p>
         </Box>
       </S.HypothesysAndActions>
-      {props.HypothesesToTest && (
+      {props.HypothesesToTest ? (
         <S.PendingHypotheses>
           <WarnCard />
           <span style={{ fontSize: '14px', fontFamily: 'PT Sans', color: '#334155' }}>
@@ -69,7 +69,7 @@ export default function CardFaseDesafios(props: CardFaseDesafiosProps) {
             testadas.
           </span>
         </S.PendingHypotheses>
-      )}
+      ) : null}
 
       {props.fase === 'finalizado' ? (
         <S.ButtonContainer>

@@ -7699,14 +7699,15 @@ function CardDefinicaoFase(props) {
 const Container$f = styled__default["default"].div `
   width: 282px !important;
   max-width: 282px !important;
-  height: 430px;
-  max-height: 430px;
+  height: 472px;
+  max-height: 472px;
   color: #222222;
   background-color: #fff;
   border-radius: 10px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  display: flex;
   position: relative;
   word-break: break-word !important;
   word-wrap: break-word !important;
@@ -7729,6 +7730,7 @@ const HeaderContainer = styled__default["default"].div `
   justify-content: center;
   align-items: flex-end;
   background: #f18624;
+  width: 100%;
   height: 45px;
   max-width: 282px;
   border-radius: 8px 8px 0px 0px;
@@ -7802,17 +7804,6 @@ const TitleDescription = styled__default["default"].span `
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
 `;
-styled__default["default"].div `
-  display: flex;
-  justify-content: center;
-  height: 55px;
-  padding: 0 35px;
-  border-radius: 0px 0px 8px 8px;
-  border: 1px solid #bdbdbd;
-  position: absolute;
-  bottom: -1rem;
-  width: 100%;
-`;
 const ButtonContainer = styled__default["default"].div `
   display: flex;
   justify-content: center;
@@ -7825,12 +7816,14 @@ const ButtonContainer = styled__default["default"].div `
   font-weight: 600;
   font-family: 'PT Sans';
   cursor: pointer;
+  width: 100%;
 `;
 const HypothesysAndActions = styled__default["default"].div `
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 1.5rem;
+  width: 100%;
 
   .items {
     display: flex;
@@ -7879,7 +7872,7 @@ function CardFaseDesafios(props) {
                 return jsxRuntime.jsx(FaseUmDesafio, {});
         }
     }
-    return (jsxRuntime.jsxs(Container$f, { children: [jsxRuntime.jsx(HeaderContainer, { children: jsxRuntime.jsx(PhaseNumber, { children: props.fase ? handleFase() : jsxRuntime.jsx(FaseUmDesafio, {}) }) }), jsxRuntime.jsxs(DescriptionContainer, { children: [jsxRuntime.jsx(CardTitlePhase, { children: props.titleFase ? props.titleFase : 'Definição' }), jsxRuntime.jsxs(TitleDescription, { children: [" ", props.cardTitle] }), jsxRuntime.jsxs(Description$3, { children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs(HypothesysAndActions, { children: [jsxRuntime.jsxs(material.Box, { className: "items", children: [jsxRuntime.jsx("img", { src: "https://cdn-images.frstfalconi.cloud/hall/hyphotese.svg", alt: "" }), jsxRuntime.jsx("p", { className: "text-items", children: "Hip\u00F3teses" }), jsxRuntime.jsx("p", { className: "number-items", children: props.Hypotheshis ? props.Hypotheshis : null })] }), jsxRuntime.jsxs(material.Box, { className: "items", children: [jsxRuntime.jsx("img", { src: "https://cdn-images.frstfalconi.cloud/hall/actions.svg", alt: "" }), jsxRuntime.jsx("p", { className: "text-items", children: "A\u00E7\u00F5es" }), jsxRuntime.jsx("p", { className: "number-items", children: props.Actions ? props.Actions : null })] })] }), props.HypothesesToTest && (jsxRuntime.jsxs(PendingHypotheses, { children: [jsxRuntime.jsx(WarnCard, {}), jsxRuntime.jsxs("span", { style: { fontSize: '14px', fontFamily: 'PT Sans', color: '#334155' }, children: ["Ainda existem ", jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.HypothesesToTest, " hip\u00F3teses"] }), " que n\u00E3o foram testadas."] })] })), props.fase === 'finalizado' ? (jsxRuntime.jsxs(ButtonContainer, { children: [jsxRuntime.jsx("p", { onClick: props.handleToView, children: props.textButton ? props.textButton : 'Visualizar' }), jsxRuntime.jsx(MenuMore, { style: { position: 'absolute', right: '1rem' }, isDarkMode: true, options: props.optionsMenuMore })] })) : (jsxRuntime.jsxs(ButtonContainer, { children: [jsxRuntime.jsx("p", { onClick: props.handleToView, children: props.textButton ? props.textButton : 'Continuar desafio' }), jsxRuntime.jsx(MenuMore, { style: { position: 'absolute', right: '1rem' }, options: props.optionsMenuMore })] }))] }));
+    return (jsxRuntime.jsxs(Container$f, { children: [jsxRuntime.jsx(HeaderContainer, { children: jsxRuntime.jsx(PhaseNumber, { children: props.fase ? handleFase() : jsxRuntime.jsx(FaseUmDesafio, {}) }) }), jsxRuntime.jsxs(DescriptionContainer, { children: [jsxRuntime.jsx(CardTitlePhase, { children: props.titleFase ? props.titleFase : 'Definição' }), jsxRuntime.jsxs(TitleDescription, { children: [" ", props.cardTitle] }), jsxRuntime.jsxs(Description$3, { children: [" ", props.cardDescription] })] }), jsxRuntime.jsxs(HypothesysAndActions, { children: [jsxRuntime.jsxs(material.Box, { className: "items", children: [jsxRuntime.jsx("img", { src: "https://cdn-images.frstfalconi.cloud/hall/hyphotese.svg", alt: "" }), jsxRuntime.jsx("p", { className: "text-items", children: "Hip\u00F3teses" }), jsxRuntime.jsx("p", { className: "number-items", children: props.Hypotheshis ? props.Hypotheshis : 0 })] }), jsxRuntime.jsxs(material.Box, { className: "items", children: [jsxRuntime.jsx("img", { src: "https://cdn-images.frstfalconi.cloud/hall/actions.svg", alt: "" }), jsxRuntime.jsx("p", { className: "text-items", children: "A\u00E7\u00F5es" }), jsxRuntime.jsx("p", { className: "number-items", children: props.Actions ? props.Actions : 0 })] })] }), props.HypothesesToTest ? (jsxRuntime.jsxs(PendingHypotheses, { children: [jsxRuntime.jsx(WarnCard, {}), jsxRuntime.jsxs("span", { style: { fontSize: '14px', fontFamily: 'PT Sans', color: '#334155' }, children: ["Ainda existem ", jsxRuntime.jsxs("span", { style: { fontWeight: 700 }, children: [props.HypothesesToTest, " hip\u00F3teses"] }), " que n\u00E3o foram testadas."] })] })) : null, props.fase === 'finalizado' ? (jsxRuntime.jsxs(ButtonContainer, { children: [jsxRuntime.jsx("p", { onClick: props.handleToView, children: props.textButton ? props.textButton : 'Visualizar' }), jsxRuntime.jsx(MenuMore, { style: { position: 'absolute', right: '1rem' }, isDarkMode: true, options: props.optionsMenuMore })] })) : (jsxRuntime.jsxs(ButtonContainer, { children: [jsxRuntime.jsx("p", { onClick: props.handleToView, children: props.textButton ? props.textButton : 'Continuar desafio' }), jsxRuntime.jsx(MenuMore, { style: { position: 'absolute', right: '1rem' }, options: props.optionsMenuMore })] }))] }));
 }
 
 var css_248z$b = ".cardResultConquista-module_container__39blw {\n    display: flex;\n    justify-content: flex-start;\n    align-items: center;\n    flex-direction: column;\n    position: relative;\n\n    width: 343px;\n    height: 265px;\n    padding: 24px;\n    border: 1px solid #BDBDBD;\n    border-radius: 8px;\n    font-family: 'work sans';\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_container__39blw:hover {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n}\n\n.cardResultConquista-module_container__39blw:active {\n    box-shadow: 0px 0px 20px -7px #BDBDBD;\n    background-color: #FF4D0D;\n}\n\n.cardResultConquista-module_cardAvatar__mEUL0 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: row;\n}\n\n.cardResultConquista-module_description__rgSn5 {\n    max-height: 100px !important;\n    width: 300px;\n    text-overflow: ellipsis;\n    overflow: hidden;\n    display: -webkit-box;\n    -webkit-line-clamp: 4; /** número de linhas que você quer exibir */\n    -webkit-box-orient: vertical;\n    word-wrap: break-word;\n}\n\n.cardResultConquista-module_verMais__8mtfe {\n    position:absolute;\n    color: #0645AD;\n    font-weight: 700;\n    right: 0;\n    bottom: 0;\n    margin-right: 20px;\n    margin-bottom: 12px;\n}";
