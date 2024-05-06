@@ -2,6 +2,7 @@ import '../../../shared/global.css'
 import { FaseCincoDesafio, FaseDoisDesafio, FaseQuatroDesafio, FaseTresDesafio, FaseUmDesafio, WarnCard, FaseFinalizadaDesafio } from '@shared/icons'
 import * as S from './styles'
 import MenuMore from '@components/menu-more'
+import { Box } from '@mui/material'
 
 interface CardFaseDesafiosProps {
   cardTitle?: string
@@ -49,16 +50,16 @@ export default function CardFaseDesafios(props: CardFaseDesafiosProps) {
         <S.Description> {props.cardDescription}</S.Description>
       </S.DescriptionContainer>
       <S.HypothesysAndActions>
-        <div className="items">
+        <Box className="items">
           <img src="https://cdn-images.frstfalconi.cloud/hall/hyphotese.svg" alt="" />
           <p className="text-items">Hipóteses</p>
-          <p className="number-items">{props.Hypotheshis ? props.Hypotheshis : 0}</p>
-        </div>
-        <div className="items">
+          <p className="number-items">{props.Hypotheshis ? props.Hypotheshis : null}</p>
+        </Box>
+        <Box className="items">
           <img src="https://cdn-images.frstfalconi.cloud/hall/actions.svg" alt="" />
           <p className="text-items">Ações</p>
-          <p className="number-items">{props.Actions ? props.Actions : 0}</p>
-        </div>
+          <p className="number-items">{props.Actions ? props.Actions : null}</p>
+        </Box>
       </S.HypothesysAndActions>
       {props.HypothesesToTest && (
         <S.PendingHypotheses>

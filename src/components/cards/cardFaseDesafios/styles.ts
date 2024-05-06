@@ -61,8 +61,9 @@ export const Description = styled.span`
   font-size: 16px;
   color: #f18624;
   max-width: 250px;
-  max-height: 97px;
-  overflow: auto;
+  max-height: 70px;
+  overflow-y: auto;
+  overflow-x: hidden;
   word-break: break-word !important;
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
@@ -118,6 +119,9 @@ export const ViewButton = styled.div`
   padding: 0 35px;
   border-radius: 0px 0px 8px 8px;
   border: 1px solid #bdbdbd;
+  position: absolute;
+  bottom: -1rem;
+  width: 100%;
 `
 
 export const ButtonContainer = styled.div`
@@ -152,8 +156,7 @@ export const HypothesysAndActions = styled.div`
     }
 
     .number-items {
-      font-size: 24px;
-      font-family: 'PT Sans';
+      font-size: 40px;
       font-weight: 700;
       color: #475569;
       margin-top: -3px;
