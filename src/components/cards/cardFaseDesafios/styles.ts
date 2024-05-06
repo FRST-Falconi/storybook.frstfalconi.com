@@ -3,14 +3,15 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 282px !important;
   max-width: 282px !important;
-  height: 430px;
-  max-height: 430px;
+  height: 472px;
+  max-height: 472px;
   color: #222222;
   background-color: #fff;
   border-radius: 10px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  display: flex;
   position: relative;
   word-break: break-word !important;
   word-wrap: break-word !important;
@@ -35,6 +36,7 @@ export const HeaderContainer = styled.div`
   justify-content: center;
   align-items: flex-end;
   background: #f18624;
+  width: 100%;
   height: 45px;
   max-width: 282px;
   border-radius: 8px 8px 0px 0px;
@@ -112,18 +114,6 @@ export const TitleDescription = styled.span`
   word-wrap: break-word !important;
   overflow-wrap: break-word !important;
 `
-export const ViewButton = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 55px;
-  padding: 0 35px;
-  border-radius: 0px 0px 8px 8px;
-  border: 1px solid #bdbdbd;
-  position: absolute;
-  bottom: -1rem;
-  width: 100%;
-`
-
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -136,6 +126,7 @@ export const ButtonContainer = styled.div`
   font-weight: 600;
   font-family: 'PT Sans';
   cursor: pointer;
+  width: 100%;
 `
 
 export const HypothesysAndActions = styled.div`
@@ -143,6 +134,7 @@ export const HypothesysAndActions = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 1.5rem;
+  width: 100%;
 
   .items {
     display: flex;
