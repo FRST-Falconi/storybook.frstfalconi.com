@@ -6283,7 +6283,7 @@ const ModalCloseButton = styled__default["default"].span `
   cursor: pointer;
 `;
 
-function Modal({ children, width, headerContent, open = false, mobileFullPage = false, showCloseButton = false, showHeader = false, style, onClose, onOpen, closeOnClickOutside = true, animation = 'BlowUp', handleCloseOnIcon }) {
+function Modal({ children, width, headerContent, style, onClose, onOpen, handleCloseOnIcon, animation = 'BlowUp', open = false, showHeader = false, mobileFullPage = false, showCloseButton = false, closeOnClickOutside = true, propagationOnClose = true, }) {
     const ModalWrapperRef = React.useRef(null);
     const ModalContentRef = React.useRef(null);
     const AnimationType = animation.toLowerCase();
@@ -6315,7 +6315,8 @@ function Modal({ children, width, headerContent, open = false, mobileFullPage = 
         setActive(open);
     }, [onOpen, open]);
     const handleClose = (e) => {
-        e.stopPropagation();
+        if (propagationOnClose)
+            e.stopPropagation();
         setActive(false);
         if (onClose)
             onClose(e);
