@@ -21,6 +21,7 @@ interface IDropdownMultiselect {
     people: string
     person: string
     maxSelectedShow?: number
+    isModalOpen?: boolean
     isDisabled?: boolean
     removeItemsToolTip?: string
     modalTitle?: string
@@ -42,7 +43,6 @@ type ISelectedValue = {
     description: string
     subDescription?: string
 }[]
-
 
 export default function     (props: IDropdownMultiselect) {
     const [selectedValues, setSelectedValues] = useState<ISelectedValue>([]);
@@ -265,8 +265,11 @@ export default function     (props: IDropdownMultiselect) {
                     </S.headerSelect>
                 }
                 <S.customSelect >
+                    
                     <MultiSelect
+                        appendTo={document.body}
                         id="list-selected"
+                        panelStyle={{ display: props.isModalOpen !== undefined ? (props.isModalOpen ? "block" : "none") : "block" }}
                         value={selectedValues}
                         options={listFilterSearch}
                         onChange={(e) => setSelectedValues(e.value)}
