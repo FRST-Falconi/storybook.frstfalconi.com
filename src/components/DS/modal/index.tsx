@@ -4,6 +4,7 @@ import { ModalWrapper, ModalContent, ModalHeader, ModalCloseButton } from './sty
 
 import { CloseIcon } from '@shared/icons'
 
+
 interface ModalProps {
   children?: ReactNode
   width?: string
@@ -17,23 +18,25 @@ interface ModalProps {
   onOpen?: (event?: MouseEvent | any) => void
   closeOnClickOutside?: boolean
   animation?: 'BlowUp' | 'Fade' | 'SlideUp' | 'SlideDown'
-  handleCloseOnIcon?: () => void
+  handleCloseOnIcon?: () => void,
+  propagationOnClose?: boolean
 }
 
 export default function Modal({
   children,
   width,
   headerContent,
-  open = false,
-  mobileFullPage = false,
-  showCloseButton = false,
-  showHeader = false,
   style,
   onClose,
   onOpen,
-  closeOnClickOutside = true,
+  handleCloseOnIcon,
   animation='BlowUp',
-  handleCloseOnIcon
+  open = false,
+  showHeader = false,
+  mobileFullPage = false,
+  showCloseButton = false,
+  closeOnClickOutside = true,
+  propagationOnClose = true,
 }: ModalProps): JSX.Element {
   const ModalWrapperRef = useRef(null)
   const ModalContentRef = useRef(null)
@@ -65,7 +68,8 @@ export default function Modal({
   }, [onOpen, open])
 
   const handleClose = (e: MouseEvent) => {
-    e.stopPropagation()
+    if (propagationOnClose) e.stopPropagation()
+
     setActive(false)
 
     if (onClose) onClose(e)
