@@ -47,5 +47,5 @@ Default.args = {
   isAuthor: true,
   editText: 'Editar',
   deleteText: 'Excluir',
-  limitMessageExceeded: 'Limite de caracteres excedido'
+  limitMessageExceeded: 'Limite de caracteres excedido',
 }
