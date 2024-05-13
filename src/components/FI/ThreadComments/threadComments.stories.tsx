@@ -25,7 +25,7 @@ const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
   id: index + 1,
   text: `Resposta ${index + 1}: Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
   howLongAgo: `${index + 1} horas atrás`,
-  uuid: `replyUuid-${index + 1}`,
+  uuid: `TestereplyUuid-${index + 1}`,
   user: {
     uuid: `user-${index + 1}`,
     name: `Usuário ${index + 1}`,
@@ -40,7 +40,7 @@ const listReplyComments = Array.from({ length: 12 }, (_, index) => ({
         index + index * 10
       }: Lorem Ipsum is simply dummy text of the printing and typesetting industry.`,
       howLongAgo: `${index + index * 10} horas atrás`,
-      uuid: `replyUuid-${index + index * 10}`,
+      uuid: `Teste2replyUuid-${index + index * 10}`,
       user: {
         uuid: `user-${index + index * 10}`,
         name: `Usuário ${index + index * 10}`,
@@ -123,5 +123,7 @@ Default.args = {
   limitMessageExceeded: 'Limite de caracteres excedido',
   likeButtonText: 'Curtir',
   toViewText: 'Visualizar',
-  answersText: 'Respostas'
+  answersText: 'Respostas',
+  idCommentResponse:"testeIdResposta"
+
 }
