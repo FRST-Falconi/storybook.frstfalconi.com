@@ -168,7 +168,7 @@ export const CommentaryBoxV2 = ({
             getSearchUsers={getSearchUsers}
           />
         ) : (
-          <Styled.Box id={commentUuid}>
+          <Styled.Box id={`comment_${commentUuid}`}>
             <Styled.UserDataContainer>
               <Styled.FirstChildUserData>
                 <Styled.Username>{userName}</Styled.Username>
