@@ -24,7 +24,6 @@ export const headerSelect = styled.div`
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    cursor: pointer;
     overflow: hidden;
     /* position: absolute; */
     /* z-index: 999; */
@@ -94,14 +93,14 @@ export const selectItem = styled.div`
     font-family: 'PT Sans';
     font-size: 16px;
     font-weight: 400;
-    color: ${ props => props.theme.colors.neutralsGrey1};
+    color: ${props => props.theme.colors.neutralsGrey1};
 
 `
 
 export const selectTag = styled.div`
     display: inline-flex;
     align-items: center;
-    height: 32px;
+    min-height: 32px;
     background: #00828C;
     border-radius: 4px;
     gap: 8px;
@@ -118,8 +117,13 @@ export const selectTag = styled.div`
         font-size: 14px;
         font-weight: 700;
         line-height: 18.12px;
-        text-align: center;
-        color: ${ props => props.theme.colors.shadeWhite };
+        text-align: left;
+        color: ${props => props.theme.colors.shadeWhite};
+            overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
     }
 `
 
@@ -131,7 +135,7 @@ export const overShowInfo = styled.div`
     cursor: pointer;
 
     & :hover{
-        color: ${ props => props.theme.colors.neutralsGrey1 };
+        color: ${props => props.theme.colors.neutralsGrey1};
     }
 
     & > p {
@@ -140,7 +144,7 @@ export const overShowInfo = styled.div`
         font-weight: 700;
         line-height: 18.12px;
         text-align: center;
-        color: ${ props => props.theme.colors.neutralsGrey2 };
+        color: ${props => props.theme.colors.neutralsGrey2};
     }
 `
 
