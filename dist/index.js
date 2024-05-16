@@ -20426,7 +20426,6 @@ const headerSelect = styled__default["default"].div `
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    cursor: pointer;
     overflow: hidden;
     /* position: absolute; */
     /* z-index: 999; */
@@ -20499,7 +20498,7 @@ const selectItem = styled__default["default"].div `
 const selectTag = styled__default["default"].div `
     display: inline-flex;
     align-items: center;
-    height: 32px;
+    min-height: 32px;
     background: #00828C;
     border-radius: 4px;
     gap: 8px;
@@ -20516,8 +20515,13 @@ const selectTag = styled__default["default"].div `
         font-size: 14px;
         font-weight: 700;
         line-height: 18.12px;
-        text-align: center;
+        text-align: left;
         color: ${props => props.theme.colors.shadeWhite};
+            overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; 
+        -webkit-box-orient: vertical;
     }
 `;
 const overShowInfo = styled__default["default"].div `
@@ -20621,8 +20625,9 @@ var css_248z = ":root {\n  --surface-a: #ffffff;\n  --surface-b: #f8f9fa;\n  --s
 styleInject(css_248z);
 
 function index (props) {
+    const { canShowAvatar = true, useTextFilter = false, searchTerm } = props;
     const [selectedValues, setSelectedValues] = React.useState([]);
-    // const [textFilter, setTextFilter] = useState('')
+    const [textFilter, setTextFilter] = React.useState(searchTerm || '');
     const [listItemsFilter, setListItemsFilter] = React.useState(props.listItems);
     const [showModal, setShowModal] = React.useState(false);
     const [listFilterSearch, setListFilterSearch] = React.useState();
@@ -20632,10 +20637,15 @@ function index (props) {
     React.useEffect(() => {
         setListFilterSearch(props.listItems);
     }, [props.listItems]);
-    // useEffect(() => {
-    //     let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter))
-    //     setListFilterSearch(temp)
-    // }, [textFilter])
+    React.useEffect(() => {
+        setTextFilter(searchTerm || '');
+    }, [searchTerm]);
+    React.useEffect(() => {
+        if (!useTextFilter)
+            return;
+        let temp = listItemsFilter.filter((resp) => resp.name.toLowerCase().includes(textFilter.toLowerCase()));
+        setListFilterSearch(temp);
+    }, [textFilter]);
     React.useEffect(() => {
         if (props.selectedDefault) {
             setSelectedValues(props?.selectedDefault);
@@ -20650,23 +20660,20 @@ function index (props) {
     const removeSelectedValue = (id) => {
         setSelectedValues((prev) => {
             prev = [...prev];
-            const index = prev.map(value => value.id).indexOf(id);
+            const index = prev.map((value) => value.id).indexOf(id);
             prev.splice(index, 1);
             return prev;
         });
     };
     const itemTemplate = (item) => {
-        return (jsxRuntime.jsxs(selectItem, { id: "select-items", children: [jsxRuntime.jsx(Avatar, { src: item.avatar, size: '24px' }), jsxRuntime.jsx("div", { style: { display: 'flex', gap: '6px' }, children: jsxRuntime.jsxs("p", { children: [" ", item.name, jsxRuntime.jsxs("span", { style: { color: '#757575' }, children: [" (", item.description, ") "] })] }) })] }));
+        return (jsxRuntime.jsxs(selectItem, { id: "select-items", children: [canShowAvatar && jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsx("div", { style: { display: 'flex', gap: '6px' }, children: jsxRuntime.jsxs("p", { children: [' ', item.name, jsxRuntime.jsxs("span", { style: { color: '#757575' }, children: [" ", item?.description && `(${item.description})`, " "] })] }) })] }));
     };
     const selectTemplate = (option) => {
         const pessoasAMais = selectedValues?.length - props.maxSelectedShow;
         if (option) {
             return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: option.map((item, index) => {
                     if (index < props.maxSelectedShow) {
-                        return (props.optionLayout ?
-                            props.optionLayout(item)
-                            :
-                                jsxRuntime.jsxs(selectTag, { id: "tag-container", children: [jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsxs("p", { children: [" ", item.name, " "] }), jsxRuntime.jsx(material.IconButton, { id: "close-icon", onClick: () => removeSelectedValue(item.id), children: jsxRuntime.jsx(CloseIcon, { width: "8", height: "8", fill: "#FFFFFF" }) })] }, index));
+                        return props.optionLayout ? (props.optionLayout(item)) : (jsxRuntime.jsxs(selectTag, { id: "tag-container", children: [canShowAvatar && jsxRuntime.jsx(Avatar, { src: item.avatar, size: "24px" }), jsxRuntime.jsxs("p", { children: [" ", item.name, " "] }), jsxRuntime.jsx(material.IconButton, { id: "close-icon", onClick: () => removeSelectedValue(item.id), children: jsxRuntime.jsx(CloseIcon, { width: "8", height: "8", fill: "#FFFFFF" }) })] }, index));
                     }
                     else if (index === props.maxSelectedShow) {
                         return (jsxRuntime.jsx(overShowInfo, { onClick: () => setShowModal(true), id: "number-people", children: jsxRuntime.jsx("p", { children: `+ ${pessoasAMais} ${pessoasAMais > 1 ? props.people : props.person}` }) }, index));
@@ -20680,24 +20687,23 @@ function index (props) {
     const handleTemplateHeader = () => {
         const selectedItems = selectedValues;
         selectedItems ? selectedItems?.length : 0;
-        return (jsxRuntime.jsxs(searchAndButton, { children: [jsxRuntime.jsx("div", { style: { marginBottom: '1rem' }, children: jsxRuntime.jsx(SearchField, { placeholder: props.searchSelectPlaceholder ? props.searchSelectPlaceholder : 'Buscar', className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, value: props.searchTerm, onChange: (e) => {
+        return (jsxRuntime.jsxs(searchAndButton, { children: [jsxRuntime.jsx("div", { style: { marginBottom: '1rem' }, children: jsxRuntime.jsx(SearchField, { placeholder: props.searchSelectPlaceholder ? props.searchSelectPlaceholder : 'Buscar', className: null, handleClickButton: null, isButton: true, hasSearchIcon: true, value: textFilter, onChange: (e) => {
                             props.onSearch(e.target.value);
-                        } }) }), props.listItems.length > 0 ?
-                    jsxRuntime.jsx(Button$4, { id: "select-all", variant: 'link', label: props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos', disabled: false, handleClick: () => {
-                            setSelectedValues([
-                                ...selectedValues,
-                                ...listItemsFilter.filter(value => {
-                                    if (!selectedValues.find(item => item.id === value.id)) {
-                                        return value;
-                                    }
-                                })
-                            ]);
-                        } })
-                    : jsxRuntime.jsx(jsxRuntime.Fragment, {})] }));
+                            setTextFilter(e.target.value);
+                        } }) }), props.listItems.length > 0 ? (jsxRuntime.jsx(Button$4, { id: "select-all", variant: 'link', label: props.btnSelectAllText ? props.btnSelectAllText : 'Selecionar todos', disabled: false, handleClick: () => {
+                        setSelectedValues([
+                            ...selectedValues,
+                            ...listFilterSearch.filter((value) => {
+                                if (!selectedValues.find((item) => item.id === value.id)) {
+                                    return value;
+                                }
+                            })
+                        ]);
+                    } })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))] }));
     };
     const selectValuesModal = () => {
-        return (jsxRuntime.jsx(material.Modal, { open: showModal, onClose: () => setShowModal(false), children: jsxRuntime.jsxs(modalContainer, { id: "container-modal", children: [jsxRuntime.jsx(modalHeader, { id: "header-people", children: jsxRuntime.jsxs("p", { children: [" ", props.modalTitle ? props.modalTitle : 'Este grupo é administrado por', " ", selectedValues.length, " ", selectedValues.length > 1 ? props.people : props.person, " "] }) }), jsxRuntime.jsx(modalContent, { children: selectedValues.map((item, index) => {
-                            return (jsxRuntime.jsxs(modalCards, { style: { background: index % 2 === 0 ? '#F2F2F2' : '#FFF' }, children: [jsxRuntime.jsxs("div", { style: { display: "flex", gap: '12px' }, children: [jsxRuntime.jsx(Avatar, { src: item.avatar, size: "50px" }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', gap: '4px' }, children: [jsxRuntime.jsxs(cardTitle, { children: [" ", item.name, " "] }), jsxRuntime.jsxs(cardDescription, { children: [" ", item.description, " "] }), jsxRuntime.jsxs(cardDescription, { children: [" ", item.subDescription, " "] })] })] }), jsxRuntime.jsxs("div", { id: "remove-people-admin", style: { display: 'flex', cursor: 'pointer' }, onClick: () => removeSelectedValue(item.id), children: [jsxRuntime.jsx(Trash, { fill: "#A50000", width: "24", height: "24" }), jsxRuntime.jsxs(cardTitle, { style: { color: '#A50000' }, children: [" ", props.removeModalText ? props.removeModalText : 'Remover', " "] })] })] }, index));
+        return (jsxRuntime.jsx(material.Modal, { open: showModal, onClose: () => setShowModal(false), children: jsxRuntime.jsxs(modalContainer, { id: "container-modal", children: [jsxRuntime.jsx(modalHeader, { id: "header-people", children: jsxRuntime.jsxs("p", { children: [' ', props.modalTitle ? props.modalTitle : 'Este grupo é administrado por', " ", selectedValues.length, ' ', selectedValues.length > 1 ? props.people : props.person, ' '] }) }), jsxRuntime.jsx(modalContent, { children: selectedValues.map((item, index) => {
+                            return (jsxRuntime.jsxs(modalCards, { style: { background: index % 2 === 0 ? '#F2F2F2' : '#FFF' }, children: [jsxRuntime.jsxs("div", { style: { display: 'flex', gap: '12px' }, children: [canShowAvatar && jsxRuntime.jsx(Avatar, { src: item.avatar, size: "50px" }), jsxRuntime.jsxs("div", { style: { display: 'flex', flexDirection: 'column', gap: '4px' }, children: [jsxRuntime.jsxs(cardTitle, { children: [" ", item.name, " "] }), jsxRuntime.jsxs(cardDescription, { children: [" ", item.description, " "] }), jsxRuntime.jsxs(cardDescription, { children: [" ", item.subDescription, " "] })] })] }), jsxRuntime.jsxs("div", { id: "remove-people-admin", style: { display: 'flex', cursor: 'pointer' }, onClick: () => removeSelectedValue(item.id), children: [jsxRuntime.jsx(Trash, { fill: "#A50000", width: "24", height: "24" }), jsxRuntime.jsxs(cardTitle, { style: { color: '#A50000' }, children: [' ', props.removeModalText ? props.removeModalText : 'Remover', ' '] })] })] }, index));
                         }) }), jsxRuntime.jsx(closeModal, { children: jsxRuntime.jsx(material.IconButton, { id: "close-modal", onClick: () => setShowModal(false), children: jsxRuntime.jsx(CloseIcon, {}) }) })] }) }));
     };
     const onLazyLoad = (event) => {
@@ -20716,12 +20722,19 @@ function index (props) {
             setLazyLoading(false);
         }, Math.random() * 500 + 250);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, id: "container-select", children: [selectedValues?.length > 0 &&
-                    jsxRuntime.jsxs(headerSelect, { children: [selectTemplate(selectedValues), selectedValues?.length > 1 &&
-                                jsxRuntime.jsx("div", { style: { zIndex: 999, position: 'absolute', right: 40 }, id: "remove-all-selected", children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: "#9C9C9C" }) }) }) })] }), jsxRuntime.jsx(customSelect, { children: jsxRuntime.jsx(multiselect.MultiSelect, { appendTo: document.body, id: "list-selected", panelStyle: { display: props.isModalOpen !== undefined ? (props.isModalOpen ? "block" : "none") : "block" }, value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : "Selecione aqui", className: "custom-multiselect", dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: { border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }, virtualScrollerOptions: !props.activeLazyLoad ? null : { lazy: true, onLazyLoad: onLazyLoad, itemSize: 50, showLoader: true, loading: lazyLoading, delay: 100, loadingTemplate: (option) => {
-                                return (jsxRuntime.jsx("div", { style: { display: 'flex', alignItems: 'center', padding: 2, height: '50px' }, children: jsxRuntime.jsx(material.Skeleton, { width: option.even ? '70%' : '60%', height: '2rem' }) }));
-                            }
-                        } }) }), selectedValues && selectValuesModal()] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, id: "container-select", children: [selectedValues?.length > 0 && (jsxRuntime.jsxs(headerSelect, { children: [selectTemplate(selectedValues), selectedValues?.length > 1 && (jsxRuntime.jsx("div", { style: { zIndex: 999, position: 'absolute', right: 40 }, id: "remove-all-selected", children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: "#9C9C9C" }) }) }) }))] })), jsxRuntime.jsx(customSelect, { onClick: () => setTextFilter(''), children: jsxRuntime.jsx(multiselect.MultiSelect, { appendTo: document.body, id: "list-selected", panelStyle: { display: props.isModalOpen !== undefined ? (props.isModalOpen ? 'block' : 'none') : 'block' }, value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui', className: "custom-multiselect", dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: { border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }, virtualScrollerOptions: !props.activeLazyLoad
+                            ? null
+                            : {
+                                lazy: true,
+                                onLazyLoad: onLazyLoad,
+                                itemSize: 50,
+                                showLoader: true,
+                                loading: lazyLoading,
+                                delay: 100,
+                                loadingTemplate: (option) => {
+                                    return (jsxRuntime.jsx("div", { style: { display: 'flex', alignItems: 'center', padding: 2, height: '50px' }, children: jsxRuntime.jsx(material.Skeleton, { width: option.even ? '70%' : '60%', height: '2rem' }) }));
+                                }
+                            } }) }), selectedValues && selectValuesModal()] }) }));
 }
 
 exports.AccordionList = AccordionList$2;
