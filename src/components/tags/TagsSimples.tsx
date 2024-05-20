@@ -12,13 +12,13 @@ interface TagsProps {
   listSelectTag?: Array<TagObj>
 }
 
-export default function Tags({ listAllTags, listSelectTag }: TagsProps) {
+export default function TagsSimples({ listAllTags, listSelectTag }: TagsProps) {
   const [selectTags, setSelectTags] = useState([]);
-  const [Refresh, setRefresh] = useState(1);
+  // const [Refresh, setRefresh] = useState(1);
 
-  // useEffect(() => {
-  //   console.log("useEffect listSelectTags ",selectTags)
-  // }, [selectTags]);
+  useEffect(() => {
+    console.log("useEffect listSelectTags ",selectTags)
+  }, [selectTags]);
 
   // useEffect(() => {
   //   console.log("NUmber listSelectTags ",Refresh)
@@ -36,7 +36,7 @@ export default function Tags({ listAllTags, listSelectTag }: TagsProps) {
         temp.push(item)
     }
     console.log("Tags ",temp)
-    setRefresh(Refresh + 1)
+    // setRefresh(Refresh + 1)
     setSelectTags(temp)
   }
 
