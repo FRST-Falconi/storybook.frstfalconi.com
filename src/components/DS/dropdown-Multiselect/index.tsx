@@ -267,7 +267,6 @@ export default function     (props: IDropdownMultiselect) {
                 <S.customSelect >
                     
                     <MultiSelect
-                        appendTo={document.body}
                         id="list-selected"
                         panelStyle={{ display: props.isModalOpen !== undefined ? (props.isModalOpen ? "block" : "none") : "block" }}
                         value={selectedValues}
