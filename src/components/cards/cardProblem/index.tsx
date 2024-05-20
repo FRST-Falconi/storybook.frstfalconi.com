@@ -266,7 +266,7 @@ export default function CardProblem(props: CardProblemProps) {
           </div>
         )}
 
-        {statusName !== translate[languageSlected][6] ? (
+        {/* {statusName !== translate[languageSlected][6] ? (
           props.trilhaVinculada ? (
             <TextIcon
               description={`${translate[languageSlected]['linkedTrail']} ${props.trilhaVinculada}`}
@@ -282,7 +282,7 @@ export default function CardProblem(props: CardProblemProps) {
           )
         ) : (
           <></>
-        )}
+        )} */}
         {props.lastUpdated && (
           <div style={{ color: '#000', fontSize: 12, fontWeight: 400, marginTop: 40 }}>{props.lastUpdated} </div>
         )}
