@@ -58,6 +58,10 @@ primary.args = {
             id: 6,
             tag: "Teste 6"
         },
-    ]
+    ],
+
+    handleListTagsSelects: (e) => console.log("retornando a lista ",e),
+    handleListTagsSelectsRemove:(e) => console.log("item removido foi ",e),
+    handleListTagsSelectsAdd:(e) => console.log("item add foi ",e)
 
 }
