@@ -20400,7 +20400,7 @@ function FiltroGaleriaDesafios({ placeholderSelect, handleValueSelect, optionLab
     };
     const selectedItems = selectedListItems;
     const length = selectedItems ? selectedItems.length : 0;
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(containerFiltro, { children: [length >= 1 && (jsxRuntime.jsx(countSelect, { children: jsxRuntime.jsx(textCountSelectNumber, { children: length }) })), jsxRuntime.jsx(FiltroPrimeReact, { children: jsxRuntime.jsx(multiselect.MultiSelect, { value: selectedListItems, options: listFilterSearch, onChange: (e) => setSelectedListItems(e.value), optionLabel: optionLabel, placeholder: placeholderSelect ? placeholderSelect : 'Por favor escolha', className: "multiselect-custom", 
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs(containerFiltro, { children: [length >= 1 && (jsxRuntime.jsx(countSelect, { children: jsxRuntime.jsx(textCountSelectNumber, { children: length }) })), jsxRuntime.jsx(FiltroPrimeReact, { children: jsxRuntime.jsx(multiselect.MultiSelect, { appendTo: document ? document?.body : null, value: selectedListItems, options: listFilterSearch, onChange: (e) => setSelectedListItems(e.value), optionLabel: optionLabel, placeholder: placeholderSelect ? placeholderSelect : 'Por favor escolha', className: "multiselect-custom", 
                         // panelStyle={selectItemsCss}
                         // selectedItemTemplate={selectedCountriesTemplate()}
                         selectedItemsLabel: placeholderSelect, disabled: isDisabled, maxSelectedLabels: 0, filter: false, showSelectAll: false, panelHeaderTemplate: handleTemplateHeader(), removeIcon: handleRemoveIcon, dropdownIcon: handleDropdownIcon }) })] }) }));
