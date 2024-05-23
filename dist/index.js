@@ -3994,28 +3994,31 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         return isEmpty;
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
-        if (document.activeElement?.id === 'input-comment-component')
-            return;
-        // if divInputRef has any element hide the placeholder
-        if (isPlaceHolderFocus) {
-            divPlaceholder.current?.style.setProperty('display', 'none');
-            divInputRef.current?.style.setProperty('display', 'block');
-            divInputRef.current?.focus();
-            setPlaceholder(false);
-        }
-        else {
-            if (areChildrenEmpty()) {
-                resizeDiv();
-                divPlaceholder.current?.style.setProperty('display', 'block');
-                divInputRef.current?.style.setProperty('display', 'none');
-                setPlaceholder(true);
-            }
-            else {
+        setTimeout(() => {
+            if (document.activeElement?.id === 'input-comment-component')
+                return;
+            // if divInputRef has any element hide the placeholder
+            if (isPlaceHolderFocus) {
                 divPlaceholder.current?.style.setProperty('display', 'none');
                 divInputRef.current?.style.setProperty('display', 'block');
+                divInputRef.current?.style.setProperty('height', '19px');
+                divInputRef.current?.focus();
                 setPlaceholder(false);
             }
-        }
+            else {
+                if (areChildrenEmpty()) {
+                    resizeDiv();
+                    divPlaceholder.current?.style.setProperty('display', 'block');
+                    divInputRef.current?.style.setProperty('display', 'none');
+                    setPlaceholder(true);
+                }
+                else {
+                    divPlaceholder.current?.style.setProperty('display', 'none');
+                    divInputRef.current?.style.setProperty('display', 'block');
+                    setPlaceholder(false);
+                }
+            }
+        }, 0);
     };
     const getAllMentions = () => {
         const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
