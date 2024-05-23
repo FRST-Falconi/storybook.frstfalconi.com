@@ -3994,28 +3994,31 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         return isEmpty;
     };
     const handlePlaceholderInputText = (isPlaceHolderFocus = false) => {
-        if (document.activeElement?.id === 'input-comment-component')
-            return;
-        // if divInputRef has any element hide the placeholder
-        if (isPlaceHolderFocus) {
-            divPlaceholder.current?.style.setProperty('display', 'none');
-            divInputRef.current?.style.setProperty('display', 'block');
-            divInputRef.current?.focus();
-            setPlaceholder(false);
-        }
-        else {
-            if (areChildrenEmpty()) {
-                resizeDiv();
-                divPlaceholder.current?.style.setProperty('display', 'block');
-                divInputRef.current?.style.setProperty('display', 'none');
-                setPlaceholder(true);
-            }
-            else {
+        setTimeout(() => {
+            if (document.activeElement?.id === 'input-comment-component')
+                return;
+            // if divInputRef has any element hide the placeholder
+            if (isPlaceHolderFocus) {
                 divPlaceholder.current?.style.setProperty('display', 'none');
                 divInputRef.current?.style.setProperty('display', 'block');
+                divInputRef.current?.style.setProperty('height', '19px');
+                divInputRef.current?.focus();
                 setPlaceholder(false);
             }
-        }
+            else {
+                if (areChildrenEmpty()) {
+                    resizeDiv();
+                    divPlaceholder.current?.style.setProperty('display', 'block');
+                    divInputRef.current?.style.setProperty('display', 'none');
+                    setPlaceholder(true);
+                }
+                else {
+                    divPlaceholder.current?.style.setProperty('display', 'none');
+                    divInputRef.current?.style.setProperty('display', 'block');
+                    setPlaceholder(false);
+                }
+            }
+        }, 0);
     };
     const getAllMentions = () => {
         const mentionedUsers = divInputRef.current?.querySelectorAll('a[data-mention-id]') || [];
@@ -20722,7 +20725,7 @@ function index (props) {
             setLazyLoading(false);
         }, Math.random() * 500 + 250);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, id: "container-select", children: [selectedValues?.length > 0 && (jsxRuntime.jsxs(headerSelect, { children: [selectTemplate(selectedValues), selectedValues?.length > 1 && (jsxRuntime.jsx("div", { style: { zIndex: 999, position: 'absolute', right: 40 }, id: "remove-all-selected", children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: "#9C9C9C" }) }) }) }))] })), jsxRuntime.jsx(customSelect, { onClick: () => setTextFilter(''), children: jsxRuntime.jsx(multiselect.MultiSelect, { appendTo: document.body, id: "list-selected", panelStyle: { display: props.isModalOpen !== undefined ? (props.isModalOpen ? 'block' : 'none') : 'block' }, value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui', className: "custom-multiselect", dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: { border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }, virtualScrollerOptions: !props.activeLazyLoad
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(containerSelect, { style: { ...props.style }, id: "container-select", children: [selectedValues?.length > 0 && (jsxRuntime.jsxs(headerSelect, { children: [selectTemplate(selectedValues), selectedValues?.length > 1 && (jsxRuntime.jsx("div", { style: { zIndex: 999, position: 'absolute', right: 40 }, id: "remove-all-selected", children: jsxRuntime.jsx(Tooltip$2, { content: props.removeItemsToolTip ? props.removeItemsToolTip : 'Excluir todos', direction: "bottom", trigger: "hover", style: { height: 'auto' }, children: jsxRuntime.jsx(material.IconButton, { onClick: () => setSelectedValues([]), children: jsxRuntime.jsx(Trash, { fill: "#9C9C9C" }) }) }) }))] })), jsxRuntime.jsx(customSelect, { onClick: () => setTextFilter(''), children: jsxRuntime.jsx(multiselect.MultiSelect, { id: "list-selected", panelStyle: { display: props.isModalOpen !== undefined ? (props.isModalOpen ? 'block' : 'none') : 'block' }, value: selectedValues, options: listFilterSearch, onChange: (e) => setSelectedValues(e.value), placeholder: props.selectPlaceholder ? props.selectPlaceholder : 'Selecione aqui', className: "custom-multiselect", dropdownIcon: jsxRuntime.jsx(DropdownIcon, { fill: FRSTTheme['colors'].shadeBlack }), panelHeaderTemplate: handleTemplateHeader(), itemTemplate: itemTemplate, disabled: props.isDisabled, maxSelectedLabels: 0, selectedItemsLabel: " ", style: { border: selectedValues?.length > 0 ? 'none' : `1px solid ${FRSTTheme['colors'].borderPrimary}` }, virtualScrollerOptions: !props.activeLazyLoad
                             ? null
                             : {
                                 lazy: true,
