@@ -118,6 +118,7 @@ export default function FiltroGaleriaDesafios({
         )}
         <StylesFiltro.FiltroPrimeReact>
           <MultiSelect
+            appendTo={document ? document?.body : null}
             value={selectedListItems}
             options={listFilterSearch}
             onChange={(e) => setSelectedListItems(e.value)}
