@@ -227,12 +227,13 @@ export const useInputHook = ({
     return isEmpty
   }
   const handlePlaceholderInputText = (isPlaceHolderFocus: boolean = false) => {
-    
+    setTimeout(() => {
     if (document.activeElement?.id === 'input-comment-component') return
     // if divInputRef has any element hide the placeholder
     if (isPlaceHolderFocus) {
       divPlaceholder.current?.style.setProperty('display', 'none')
       divInputRef.current?.style.setProperty('display', 'block')
+      divInputRef.current?.style.setProperty('height', '19px')
       divInputRef.current?.focus()
       setPlaceholder(false)
     } else {
@@ -247,6 +248,7 @@ export const useInputHook = ({
         setPlaceholder(false)
       }
     }
+  },0);
   }
 
   const getAllMentions = () => {
