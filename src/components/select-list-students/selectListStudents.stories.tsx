@@ -16,23 +16,32 @@ primaryNotStarted.args = {
     listSelect:[
         {
             id:1,
-            city:"São Paulo"
+            city:"São Paulo",
+            select: false
         },
         {
             id:2,
-            city:"Rio de Janeiro"
+            city:"Rio de Janeiro",
+            select: false
+
         },
         {
             id:3,
-            city:"Belo Horizonte"
+            city:"Belo Horizonte",
+            select: false
+
         },
         {
             id:4,
-            city:"Porto Seguro"
+            city:"Porto Seguro",
+            select: false
+
         },
         {
             id:5,
-            city:"Goiânia"
+            city:"Goiânia",
+            select: false
+
         }
     ]
 }
