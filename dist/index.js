@@ -24,6 +24,7 @@ var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
 var Select$4 = require('react-select');
 var usehooksTs = require('usehooks-ts');
+var CloseIcon$1 = require('@mui/icons-material/Close');
 var reactColor = require('react-color');
 var dnd = require('@hello-pangea/dnd');
 var LinearProgress = require('@material-ui/core/LinearProgress');
@@ -98,6 +99,7 @@ var Step__default = /*#__PURE__*/_interopDefaultLegacy(Step);
 var CardActions__default = /*#__PURE__*/_interopDefaultLegacy(CardActions);
 var StepConnector__default = /*#__PURE__*/_interopDefaultLegacy(StepConnector);
 var Select__default$1 = /*#__PURE__*/_interopDefaultLegacy(Select$4);
+var CloseIcon__default = /*#__PURE__*/_interopDefaultLegacy(CloseIcon$1);
 var LinearProgress__default = /*#__PURE__*/_interopDefaultLegacy(LinearProgress);
 var Popover__default = /*#__PURE__*/_interopDefaultLegacy(Popover);
 var Rating__default = /*#__PURE__*/_interopDefaultLegacy(Rating$2);
@@ -6927,7 +6929,6 @@ function OnboardingProgressMenu(props) {
 const UserContainer = styled__default["default"].div `
     width: 100%;
     display: flex;
-    min-height: 208px;
     position: relative;
     flex-direction:column;
     align-items:center;
@@ -6935,16 +6936,37 @@ const UserContainer = styled__default["default"].div `
     background:${({ theme }) => theme.colors.shadeWhite};
     border-radius: 12px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    padding-top: 18px;
-    padding-left:16px;
-    padding-right: 16px;
-    padding-bottom: 22px;
+
+    ${(props) => props.variant ? styled.css `
+            padding-top: 12px;
+            padding-left:16px;
+            padding-right: 16px;
+            padding-bottom: 16px;
+            min-height: 231px;
+        ` : styled.css `
+            padding-top: 18px;
+            padding-left:16px;
+            padding-right: 16px;
+            padding-bottom: 22px;
+            min-height: 208px;
+        `}
 `;
 const Headers = styled__default["default"].div `
         display: flex;
         align-items: center;
         flex-direction: column;
 
+`;
+const UserInfo$2 = styled__default["default"].p `
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Work Sans';
+    ${(props) => props.variant ? styled.css `
+            margin-top: 12px;
+        ` : styled.css `
+            margin-top: 8px;
+        `}
 `;
 const InfoBottom = styled__default["default"].div `
     display: flex;
@@ -6962,10 +6984,18 @@ const InfoDescription = styled__default["default"].div `
     text-align:center;
     margin-bottom:3px;
     color:#757575;
+    ${(props) => props.variant ? styled.css `
+            font-family: 'PT Sans';
+            font-weight: 400;
+            line-height:  130%;
+        ` : styled.css `
+            font-family: 'Work Sans'
+        `}
 `;
 
-function CarUser({ style, userInfo, handleLinkProfile }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(UserContainer, { id: 'userContainer', style: { ...style }, children: [jsxRuntime.jsxs(Headers, { children: [jsxRuntime.jsx(Avatar, { src: userInfo.avatar, size: '74px', onClick: handleLinkProfile, isActiveClick: true }), jsxRuntime.jsx("p", { style: { fontWeight: 600, fontSize: "14px", textAlign: "center", fontFamily: "Work Sans", marginTop: "8px" }, children: userInfo.name })] }), jsxRuntime.jsxs(InfoDescription, { children: [jsxRuntime.jsx("p", { children: userInfo.profession }), jsxRuntime.jsx("p", { style: { marginTop: "3px" }, children: userInfo.education })] }), jsxRuntime.jsx(InfoBottom, { children: jsxRuntime.jsxs("p", { children: [userInfo.activeSice, " ", jsxRuntime.jsx("b", { children: userInfo.date })] }) })] }) }));
+function CarUser({ style, userInfo, handleLinkProfile, hasButton, labelButton, handleInvite, handleRemove }) {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(UserContainer, { id: "userContainer", style: { ...style }, variant: Boolean(hasButton), children: [jsxRuntime.jsxs(Headers, { children: [jsxRuntime.jsx(Avatar, { src: userInfo.avatar, size: hasButton ? '56px' : '74px', onClick: handleLinkProfile, isActiveClick: true }), jsxRuntime.jsx(UserInfo$2, { variant: Boolean(hasButton), children: userInfo.name }), hasButton &&
+                            jsxRuntime.jsx("div", { style: { position: 'absolute', top: '8px', right: '8px', cursor: 'pointer' }, onClick: handleRemove, children: jsxRuntime.jsx(CloseIcon__default["default"], { htmlColor: '#BDBDBD', fontSize: 'small' }) })] }), jsxRuntime.jsxs(InfoDescription, { variant: Boolean(hasButton), children: [jsxRuntime.jsx("p", { children: userInfo.profession }), jsxRuntime.jsx("p", { style: { marginTop: '3px' }, children: userInfo.education })] }), hasButton ? (jsxRuntime.jsx(Button$4, { label: labelButton, variant: 'primary', handleClick: handleInvite, style: { width: '160px', height: '36px', marginTop: '24px' } })) : (jsxRuntime.jsx(InfoBottom, { children: jsxRuntime.jsxs("p", { children: [userInfo.activeSice, " ", jsxRuntime.jsx("b", { children: userInfo.date })] }) }))] }) }));
 }
 
 const Container$g = styled__default["default"].div `
