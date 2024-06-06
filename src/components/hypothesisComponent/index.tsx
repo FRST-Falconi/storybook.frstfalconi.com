@@ -132,7 +132,7 @@ export const HypothesisComponent = ({
         )}
         {!loading && (
           <>
-            {!canVote && canViewVote && votes?.length > 0 && (
+            {!canVote && canViewVote && (
               <div style={{ position: 'relative', height: '100%' }}>
                 <Styles.SplitContainer>
                   <Styles.VoteButtonContainer
@@ -173,7 +173,7 @@ export const HypothesisComponent = ({
             {canVote && hasVoteGoal && votes?.length > 0 && (
               <Styles.SplitContainer
                 onClick={() =>
-                  hasVoteHypothesis 
+                  hasVoteHypothesis && isHover
                     ? handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
                     : null
                 }
