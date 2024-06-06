@@ -173,7 +173,7 @@ export const HypothesisComponent = ({
             {canVote && hasVoteGoal && votes?.length > 0 && (
               <Styles.SplitContainer
                 onClick={() =>
-                  hasVoteHypothesis && isHover
+                  hasVoteHypothesis 
                     ? handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
                     : null
                 }

@@ -3,7 +3,7 @@ import { HypothesisEnum } from './types'
 import React from 'react'
 
 export default {
-  title: 'FI/Hipotesis',
+  title: 'Hipotesis',
   component: HypothesisComponent
 }
 
