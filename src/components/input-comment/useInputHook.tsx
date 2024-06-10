@@ -66,6 +66,7 @@ export const useInputHook = ({
     mentionAnchorElement.style.color = DesignTokens.colors.primary1
     mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid)
     mentionAnchorElement.setAttribute('contenteditable', 'false')
+    mentionAnchorElement.setAttribute('draggable', 'false')
     mentionAnchorElement.setAttribute('href', `/profile/${user.user_uuid}`)
     ;(mentionAnchorElement as any).suppressContentEditableWarning = true
 
@@ -204,51 +205,49 @@ export const useInputHook = ({
     // return if divInputRef has child empty
     //if divInputRef is not focused
     let isEmpty = false
-    
 
     const isFocused = divInputRef.current === document.activeElement
     if (divInputRef.current && !isFocused) {
       if (divInputRef.current.childNodes?.length <= 0) isEmpty = true
-      let isAnyChildWithTextValue = false;
+      let isAnyChildWithTextValue = false
       divInputRef.current.childNodes.forEach((child) => {
-        if(isAnyChildWithTextValue) {
-          isEmpty = false;
-          return;
-        };
+        if (isAnyChildWithTextValue) {
+          isEmpty = false
+          return
+        }
         if (child.textContent.trim().length <= 0) {
           isEmpty = true
-        }else{
+        } else {
           // in case we have one item not empty we wont show the placeholder
           isAnyChildWithTextValue = true
         }
-        
       })
     }
     return isEmpty
   }
   const handlePlaceholderInputText = (isPlaceHolderFocus: boolean = false) => {
     setTimeout(() => {
-    if (document.activeElement?.id === 'input-comment-component') return
-    // if divInputRef has any element hide the placeholder
-    if (isPlaceHolderFocus) {
-      divPlaceholder.current?.style.setProperty('display', 'none')
-      divInputRef.current?.style.setProperty('display', 'block')
-      divInputRef.current?.style.setProperty('height', '19px')
-      divInputRef.current?.focus()
-      setPlaceholder(false)
-    } else {
-      if (areChildrenEmpty()) {
-        resizeDiv()
-        divPlaceholder.current?.style.setProperty('display', 'block')
-        divInputRef.current?.style.setProperty('display', 'none')
-        setPlaceholder(true)
-      } else {
+      if (document.activeElement?.id === 'input-comment-component') return
+      // if divInputRef has any element hide the placeholder
+      if (isPlaceHolderFocus) {
         divPlaceholder.current?.style.setProperty('display', 'none')
         divInputRef.current?.style.setProperty('display', 'block')
+        divInputRef.current?.style.setProperty('height', '19px')
+        divInputRef.current?.focus()
         setPlaceholder(false)
+      } else {
+        if (areChildrenEmpty()) {
+          resizeDiv()
+          divPlaceholder.current?.style.setProperty('display', 'block')
+          divInputRef.current?.style.setProperty('display', 'none')
+          setPlaceholder(true)
+        } else {
+          divPlaceholder.current?.style.setProperty('display', 'none')
+          divInputRef.current?.style.setProperty('display', 'block')
+          setPlaceholder(false)
+        }
       }
-    }
-  },0);
+    }, 0)
   }
 
   const getAllMentions = () => {

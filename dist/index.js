@@ -3848,6 +3848,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         mentionAnchorElement.style.color = DesignTokens.colors.primary1;
         mentionAnchorElement.setAttribute('data-mention-id', user.user_uuid);
         mentionAnchorElement.setAttribute('contenteditable', 'false');
+        mentionAnchorElement.setAttribute('draggable', 'false');
         mentionAnchorElement.setAttribute('href', `/profile/${user.user_uuid}`);
         mentionAnchorElement.suppressContentEditableWarning = true;
         return mentionAnchorElement;
@@ -4368,9 +4369,29 @@ function InputComment$1({ placeholder, onChange, limit, users, showCharacterCoun
         replyMentionedUser,
         initialText
     });
+    const handlePaste = (e) => {
+        const clipboardData = e.clipboardData || window.Clipboard;
+        if (!clipboardData)
+            return;
+        const text = clipboardData.getData('text/plain');
+        if (!text)
+            return;
+        const formattedText = removeFormatting(text);
+        const selection = window.getSelection();
+        if (!selection.rangeCount)
+            return;
+        const range = selection.getRangeAt(0);
+        range.deleteContents();
+        range.insertNode(document.createTextNode(formattedText));
+        range.collapse(false);
+        e.preventDefault();
+    };
+    const removeFormatting = (text) => {
+        return text?.replace(/<[^>]*>/g, '');
+    };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { minHeight: '48px', ...styles }, tabIndex: 0, onMouseDown: () => divPlaceholder.current.focus(), children: [jsxRuntime.jsxs(InputWrapper$2, { tabIndex: 1, isPlaceholder: isPlaceholder, isInputLimit: styleLimitExceeded, onMouseDown: () => divPlaceholder.current.focus(), children: [jsxRuntime.jsx(InputText$4, { id: "input-comment-component", tabIndex: 2, contentEditable: true, ref: divInputRef, onKeyUpCapture: (event) => {
                                 handleInput(event);
-                            }, "data-text": "enter", suppressContentEditableWarning: true, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && (jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
+                            }, "data-text": "enter", suppressContentEditableWarning: true, onPaste: handlePaste, children: jsxRuntime.jsx("p", { children: jsxRuntime.jsx("br", {}) }) }), jsxRuntime.jsx(InputPlaceholder, { style: { display: 'none' }, contentEditable: true, ref: divPlaceholder, children: placeholder }), showMention && users && users.length > 0 && (jsxRuntime.jsx(Mentions, { users: users, top: mentionTopPosition, onSelect: (user) => {
                                 setShowMention(false);
                                 handleMentionUser(user);
                             } }))] }), jsxRuntime.jsx(HelperContainer, { children: !isPlaceholder && showCharacterCounter && (jsxRuntime.jsxs(HelperText$2, { isInputLimit: styleLimitExceeded, children: [textLength, "/", limit] })) }), styleLimitExceeded && (jsxRuntime.jsxs(LimitCharsContainer, { children: [jsxRuntime.jsx(TagAlert, {}), jsxRuntime.jsx(LimitCharsExceededMessage, { children: limitMessageExceeded })] }))] }) }));
