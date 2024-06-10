@@ -49,6 +49,28 @@ export default function InputComment({
     replyMentionedUser,
     initialText
   })
+  const handlePaste = (e) => {
+    const clipboardData = e.clipboardData || window.Clipboard
+    if (!clipboardData) return
+
+    const text = clipboardData.getData('text/plain')
+    if (!text) return
+
+    const formattedText = removeFormatting(text)
+    const selection = window.getSelection()
+    if (!selection.rangeCount) return
+
+    const range = selection.getRangeAt(0)
+    range.deleteContents()
+    range.insertNode(document.createTextNode(formattedText))
+    range.collapse(false)
+
+    e.preventDefault()
+  }
+
+  const removeFormatting = (text) => {
+    return text?.replace(/<[^>]*>/g, '')
+  }
 
   return (
     <ThemeProvider theme={FRSTTheme}>
@@ -69,6 +91,7 @@ export default function InputComment({
             }}
             data-text="enter"
             suppressContentEditableWarning={true}
+            onPaste={handlePaste}
           >
             <p>
               <br />
