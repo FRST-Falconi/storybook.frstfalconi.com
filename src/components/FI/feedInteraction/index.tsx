@@ -110,10 +110,24 @@ export default function FeedInteraction(props: IFeedInteraction) {
                   {props.qtdLikes && (
                     <Styles.infoWithView onClick={() => props?.handleShowLikes?.()}>
                       {' '}
-                      <Icons.ThumbsUpCovered /> &nbsp;<a style={{ cursor: 'pointer' }}>{props.qtdLikes}</a>
+                      <Icons.ThumbsUpCovered /> &nbsp;{' '}
+                      <span
+                        onClick={() => props?.handleShowLikes?.()}
+                        style={{
+                          cursor: 'pointer',
+                          color: '#0645AD',
+                          fontFamily: 'PT Sans',
+                          fontSize: '16px',
+                          lineHeight: '17.6px',
+                          fontWeight: 400,
+                          textDecoration: 'underline'
+                        }}
+                      >
+                        {props.qtdLikes}
+                      </span>
                     </Styles.infoWithView>
                   )}
-                  {props.qtdLikes && stateTotalComments && <div>•</div>}
+                  {props?.qtdLikes && stateTotalComments && <div>•</div>}
                   {stateTotalComments && <Styles.infoWithView> {stateTotalComments} </Styles.infoWithView>}
                 </div>
                 {props.textTotalView && (
