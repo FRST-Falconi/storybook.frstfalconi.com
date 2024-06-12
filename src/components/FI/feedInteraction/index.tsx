@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import * as Styles from './feedInteractionStyles'
-import { Tooltip } from 'react-tooltip'
 // latestComment={stateLatestComment}
 // textLatestComment={props.textLatestComment}
 // userCommentPlaceholder={props.userCommentPlaceholder}
@@ -85,49 +84,20 @@ export default function FeedInteraction(props: IFeedInteraction) {
               <Styles.info style={{ left: 0 }}>
                 {' '}
                 <Icons.ThumbsUpCovered /> &nbsp;
-                {props?.tooltipLikesText ? (
-                  <>
-                    <span
-                      onClick={() => props?.handleShowLikes?.()}
-                      data-tooltip-id="my-tooltip-inline"
-                      data-tooltip-place="top"
-                      style={{
-                        cursor: 'pointer',
-                        color: '#0645AD',
-                        fontFamily: 'PT Sans',
-                        fontSize: '16px',
-                        lineHeight: '17.6px',
-                        fontWeight: 400,
-                        textDecoration: 'underline'
-                      }}
-                      data-tooltip-content={props?.tooltipLikesText}
-                    >
-                      {props?.qtdLikes}
-                    </span>
-                    <Tooltip
-                      id="my-tooltip-inline"
-                      style={{
-                        backgroundColor: '#222',
-                        color: '#fff'
-                      }}
-                    />
-                  </>
-                ) : (
-                  <span
-                    onClick={() => props?.handleShowLikes?.()}
-                    style={{
-                      cursor: 'pointer',
-                      color: '#0645AD',
-                      fontFamily: 'PT Sans',
-                      fontSize: '16px',
-                      lineHeight: '17.6px',
-                      fontWeight: 400,
-                      textDecoration: 'underline'
-                    }}
-                  >
-                    {props.qtdLikes}
-                  </span>
-                )}
+                <span
+                  onClick={() => props?.handleShowLikes?.()}
+                  style={{
+                    cursor: 'pointer',
+                    color: '#0645AD',
+                    fontFamily: 'PT Sans',
+                    fontSize: '16px',
+                    lineHeight: '17.6px',
+                    fontWeight: 400,
+                    textDecoration: 'underline'
+                  }}
+                >
+                  {props.qtdLikes}
+                </span>
               </Styles.info>
             ) : null}
             {stateTotalComments ? <Styles.info style={{ right: 0 }}>{stateTotalComments}</Styles.info> : null}
