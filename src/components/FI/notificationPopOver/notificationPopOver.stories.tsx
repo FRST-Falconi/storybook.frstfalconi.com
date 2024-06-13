@@ -32,7 +32,7 @@ normal.args = {
       isNewNotification: true,
       textNew: 'Nova',
       notificationDate: 'Hoje',
-
+      notificationHour: '14:39',
       onClickUserInfo: () => alert('perfil clicado - 1'),
       textVisitProfile: 'Visit profile',
       handleClick: () => alert('Notificação clicada!')
@@ -76,6 +76,7 @@ normal.args = {
         'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
       notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
       isNewNotification: true,
+      notificationHour: '14:39',
       textNew: 'Nova',
       notificationDate: 'Hoje',
 
@@ -111,7 +112,7 @@ normal.args = {
       isNewNotification: false,
       textNew: 'Nova',
       notificationDate: 'Hoje',
-
+      notificationHour: '14:39',
       onClickUserInfo: () => alert('perfil clicado - '),
       handleClick: () => alert('Notificação clicada!')
     }

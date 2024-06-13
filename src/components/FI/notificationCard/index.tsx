@@ -14,6 +14,7 @@ interface INotificationCard {
   isNewNotification: boolean
   notificationDate: string
   textVisitProfile?: string
+  notificationHour: string
 
   textNew: string
   style?: React.CSSProperties
@@ -85,11 +86,27 @@ export default function NotificationCard(props: INotificationCard) {
             <Styles.notificationDate style={{ color: FRSTTheme['colors'].primary1 }}>
               <span style={{ fontWeight: 700 }}>{props.textNew}</span>
               <Divider fill={FRSTTheme['colors'].primary1} />
-              <span dangerouslySetInnerHTML={{ __html: props.notificationDate }} />
+              {props.notificationHour ? (
+                <>
+                  <span>{props.notificationHour}</span>
+                  <Divider fill={props.isNewNotification ? FRSTTheme['colors'].primary1 : undefined} />
+                </>
+              ) : (
+                <></>
+              )}
+              {props.notificationDate}
             </Styles.notificationDate>
           ) : (
             <Styles.notificationDate>
-              <span dangerouslySetInnerHTML={{ __html: props.notificationDate }} />
+              {props.notificationDate}
+              {props.notificationHour ? (
+                <>
+                  <Divider />
+                  <span>{props.notificationHour}</span>
+                </>
+              ) : (
+                <></>
+              )}
             </Styles.notificationDate>
           )}
         </Styles.notificationInfo>
