@@ -85,10 +85,12 @@ export default function NotificationCard(props: INotificationCard) {
             <Styles.notificationDate style={{ color: FRSTTheme['colors'].primary1 }}>
               <span style={{ fontWeight: 700 }}>{props.textNew}</span>
               <Divider fill={FRSTTheme['colors'].primary1} />
-              {props.notificationDate}
+              <span dangerouslySetInnerHTML={{ __html: props.notificationDate }} />
             </Styles.notificationDate>
           ) : (
-            <Styles.notificationDate>{props.notificationDate}</Styles.notificationDate>
+            <Styles.notificationDate>
+              <span dangerouslySetInnerHTML={{ __html: props.notificationDate }} />
+            </Styles.notificationDate>
           )}
         </Styles.notificationInfo>
         <Styles.TrashIconContainer isNewNotification={props.isNewNotification} onClick={() => handleDelete()}>
