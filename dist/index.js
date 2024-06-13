@@ -11940,6 +11940,10 @@ const notificationDescription = styled__default["default"].div `
     font-size: 16px;
     font-weight: 400;
     color: ${({ theme }) => theme.colors.selectItens};
+     a {
+        color: ${({ theme }) => theme.colors.selectItens};
+        text-decoration: none;
+    }
 `;
 const notificationDate = styled__default["default"].div `
     display: flex;

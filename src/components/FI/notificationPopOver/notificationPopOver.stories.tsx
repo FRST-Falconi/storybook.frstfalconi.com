@@ -28,7 +28,7 @@ normal.args = {
     {
       notificationAvatar:
         'https://media.istockphoto.com/photos/rocking-astronaut-3d-render-picture-id621597534?k=20&m=621597534&s=612x612&w=0&h=feOiFpDr7yah5o8dY1yrhkUh-grNKJNCevZn_fV-qz4=',
-      notificationDescription: `Edson Corbari comentou no seu desafio “lataforma D2L”.`,
+      notificationDescription: `<a href=\"https://www.google.com.br\"><p>Olá, <b>Roberto Lima Up3</b>! <b>Sergio Henrique</b> atribuiu para você o desafio \"Testar todas faces para troca do novo modal\". <b>Sergio Henrique</b> pode contar com você?<br></p></a>`,
       isNewNotification: true,
       textNew: 'Nova',
       notificationDate: 'Hoje',
