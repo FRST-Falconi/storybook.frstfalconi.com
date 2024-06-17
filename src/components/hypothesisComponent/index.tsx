@@ -4,6 +4,8 @@ import { Vote } from './types'
 import { ExcludeVoteIcon, VoteIcon } from '@public/customIcons'
 import Avatar from '@components/avatar'
 import Loading from '@components/DS/loading'
+import Modal from '@components/DS/modal'
+import Button from '@components/buttons'
 
 export const HypothesisComponent = ({
   description,
@@ -26,7 +28,7 @@ export const HypothesisComponent = ({
   showAvatar,
   authorId,
   hasVoteGoal,
-  loading
+  loading,
 }: {
   description: string
   type: string
@@ -53,6 +55,7 @@ export const HypothesisComponent = ({
   const [isHover, seIsHover] = useState(false)
   const [hasVoteHypothesis, setHasVoteHypothesis] = useState(false)
   const [showVotesList, setShowVotesList] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
   const ContainerRef = useRef<HTMLDivElement>(null)
   const [heightContainer, seHeightContainer] = useState(0)
 
@@ -161,6 +164,7 @@ export const HypothesisComponent = ({
                               +{votes?.length - 2}
                             </p>
                           </Styles.ImageContent>
+
                         )}
                       </Styles.VoteContent>
                       {votes?.length} {votes?.length > 1 ? votesPluralText : votesSingularText}
@@ -231,7 +235,12 @@ export const HypothesisComponent = ({
               </Styles.SplitContainer>
             )}
             {canVote && !hasVoteGoal && (
-              <Styles.SplitContainer onClick={() => handleVote(id)}>
+              <Styles.SplitContainer
+                onClick={() => {
+                  handleVote(id)
+                  setOpenModal(true)
+                }}
+              >
                 <Styles.VoteButtonContainer
                   type={type}
                   modeDelete={isHover}

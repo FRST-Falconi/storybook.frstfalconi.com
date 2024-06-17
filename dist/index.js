@@ -3108,173 +3108,213 @@ const Toast = ({ type = 'success', message, onClose, showBySeconds = 5, styles }
 };
 
 const MainContainer = styled__default["default"].div `
-display: flex;
-align-items: center;
-justify-content: space-between;
-width:100%;
-color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #222222;
 `;
 const Container$m = styled__default["default"].div `
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-font-family: PT Sans;
-font-size:14px;
-border-radius:8px;
-padding: 0 0 0 16px; 
-min-height: 52px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: PT Sans;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 0 0 0 16px;
+  min-height: 52px;
 
-${({ type }) => {
+  ${({ type }) => {
     switch (type) {
         case 'prioritize':
-            return styled.css `background: #FDAE15;`;
+            return styled.css `
+          background: #fdae15;
+        `;
         case 'raised':
-            return styled.css `background: #F8D784;`;
+            return styled.css `
+          background: #f8d784;
+        `;
         case 'suggested':
-            return styled.css `background: #CDDAEF;`;
+            return styled.css `
+          background: #cddaef;
+        `;
         default:
             return '';
     }
 }}
 `;
 const Title$6 = styled__default["default"].span `
-font-weight:700;
-white-space: nowrap;
+  font-weight: 700;
+  white-space: nowrap;
 `;
 styled__default["default"].span `
-font-weight:700;
+  font-weight: 700;
 `;
 const Separator = styled__default["default"].div `
-font-weight:bold;
-margin: 0 8px;
+  font-weight: bold;
+  margin: 0 8px;
 `;
 const Description$4 = styled__default["default"].span `
-font-weight:400;
-padding: 8px 0 8px;
-
+  font-weight: 400;
+  padding: 8px 0 8px;
 `;
 const SplitContainer = styled__default["default"].div `
-display:flex;
-justify-content: flex-start;
-align-items:center;
-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
 `;
 styled__default["default"].div `
-display: flex;
-align-items: center;
-justify-content: flex-start;
-position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
 `;
 styled__default["default"].div `
-    position: absolute;
+  position: absolute;
 `;
 const VoteButtonContainer = styled__default["default"].span `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    background: #F9CD5E;
-    cursor: pointer;
-    ${({ height }) => height > 0 && styled.css `
-    height: ${height}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  background: #f9cd5e;
+  cursor: pointer;
+  ${({ height }) => height > 0 &&
+    styled.css `
+      height: ${height}px;
     `}
 
-    ${({ type }) => {
+  ${({ type }) => {
     switch (type) {
         case 'prioritize':
-            return styled.css `background: #DC9100;`;
+            return styled.css `
+          background: #dc9100;
+        `;
         case 'raised':
-            return styled.css `background: #F9CD5E;`;
+            return styled.css `
+          background: #f9cd5e;
+        `;
         case 'suggested':
-            return styled.css `background: #A5C3F2;`;
+            return styled.css `
+          background: #a5c3f2;
+        `;
         default:
             return '';
     }
 }}
-    ${({ modeDelete }) => modeDelete && styled.css `
-    background: inherit;
+    ${({ modeDelete }) => modeDelete &&
+    styled.css `
+      background: inherit;
     `}
     border-radius:0 8px 8px 0;
-    padding: 0 16px 0 16px;
-    min-height: 52px;
-    margin-left: 4px;
-
+  padding: 0 16px 0 16px;
+  min-height: 52px;
+  margin-left: 4px;
 `;
 const VoteCount = styled__default["default"].span `
-    display: flex;
-    align-items: center;
-    height: 100%;
-    gap: 4px;
-    white-space: nowrap;
-    width: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 4px;
+  white-space: nowrap;
+  width: auto;
 `;
 const VoteButton = styled__default["default"].p `
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    height:100%;
-    width: 100%;
-    font-family: PT Sans;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18.12px;
-    text-align: left;
-    color: #444444;
-    white-space: nowrap;
-    width: auto;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  font-family: PT Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18.12px;
+  text-align: left;
+  color: #444444;
+  white-space: nowrap;
+  width: auto;
 `;
 const VoteContent = styled__default["default"].div `
+  display: flex;
+  div {
+    flex-direction: row-reverse;
     display: flex;
-    div{
-        flex-direction: row-reverse;
-        display: flex;
-        :nth-child(1n){
-        margin-left: -8px;
+    :nth-child(1n) {
+      margin-left: -8px;
     }
-    }
+  }
 `;
 const ImageContent$1 = styled__default["default"].div `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width:32px;
-    height: 32px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: solid  2.5px #fff;
-    color: #FFFFFF;
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 2.5px #fff;
+  color: #ffffff;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 const VoteListContainer = styled__default["default"].div `
-position: absolute;
-top: calc(100% + 1px);
-right: 0;
-width: 225px; 
-max-height: 300px; 
-overflow-y: auto;
-padding: 5px 0px;
-background-color: #fff;
-border: 1px solid #ccc;
-border-radius: 8px;
-z-index: 1999;
-display: ${({ showVotes }) => showVotes ? 'block' : 'none'};
-    &::-webkit-scrollbar {
-      display: none;
-    }
-box-shadow: 0px 15px 20px 0px #22222226;
+  position: absolute;
+  top: calc(100% + 1px);
+  right: 0;
+  width: 225px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 5px 0px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 1999;
+  display: ${({ showVotes }) => (showVotes ? 'block' : 'none')};
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  box-shadow: 0px 15px 20px 0px #22222226;
 `;
 const VoteListItem = styled__default["default"].div `
-cursor: pointer;
-height: 36px;
-display: flex;
-align-items: center;
-gap: 10px;
-${({ lastVote }) => lastVote === false && "border-bottom: solid 1px #ccc;"}
+  cursor: pointer;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  ${({ lastVote }) => lastVote === false && 'border-bottom: solid 1px #ccc;'}
+`;
+styled__default["default"].div `
+  width: 100%;
+  h2{
+    margin-bottom: 0.4rem;
+
+  }
+  p{
+    font-weight: 400;
+    margin-bottom: 1rem;
+
+  }
+`;
+styled__default["default"].div `
+  width: 100%;
+  border: solid 0.2px #E0E0E0;
+  margin-bottom: 1rem;
+
+`;
+styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  button{
+    margin-left: 1rem;
+  }
+
 `;
 
 const container = styled__default["default"].div `
@@ -3350,10 +3390,11 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading }) => {
+const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading, }) => {
     const [isHover, seIsHover] = React.useState(false);
     const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(false);
     const [showVotesList, setShowVotesList] = React.useState(false);
+    const [openModal, setOpenModal] = React.useState(false);
     const ContainerRef = React.useRef(null);
     const [heightContainer, seHeightContainer] = React.useState(0);
     const toggleVotes = () => {
@@ -3406,7 +3447,10 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                         justifyContent: 'center'
                                     }, children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                     return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
-                                                }), votes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", votes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [votes?.length, " ", votes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: votes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { onClick: () => handleVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
+                                                }), votes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", votes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [votes?.length, " ", votes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: votes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { onClick: () => {
+                                handleVote(id);
+                                setOpenModal(true);
+                            }, children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
