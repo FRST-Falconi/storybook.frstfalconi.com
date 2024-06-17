@@ -52,12 +52,7 @@ export default function InteractionsModal({
         };
     }, []);
 
-    const [listUsersState, setListUsersState]  = useState(listUsers)
-    useEffect(() => {
-        if(newListUsers) {
-            setListUsersState((listUsersState) => [...listUsersState, ...newListUsers])
-        }
-    }, [newListUsers])
+   
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -85,7 +80,7 @@ export default function InteractionsModal({
                             onClick={trackClick ? () => trackClick() : () => {}}
                         >
                             <ContentScroll>
-                                { listUsersState && listUsersState.map((item: IUser) => {
+                                { newListUsers && newListUsers.map((item: IUser) => {
                                         return (<>
                                             <CardItemUser key={item?.id}>
                                                 {item?.onClickUserInfo ?

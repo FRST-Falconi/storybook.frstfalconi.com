@@ -16805,18 +16805,12 @@ function InteractionsModal({ textTitle, textSubtitle, listUsers, isOpen, handleC
             }
         };
     }, []);
-    const [listUsersState, setListUsersState] = React.useState(listUsers);
-    React.useEffect(() => {
-        if (newListUsers) {
-            setListUsersState((listUsersState) => [...listUsersState, ...newListUsers]);
-        }
-    }, [newListUsers]);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(material.Modal, { open: isOpen, onClose: () => handleClickClose(), children: jsxRuntime.jsxs(Container, { style: {
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
                     ...style
-                }, children: [jsxRuntime.jsxs(HeaderDiv, { children: [jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(CloseButton, { onClick: () => handleClickClose(), children: jsxRuntime.jsx(CloseIcon, { width: '11' }) }) }), jsxRuntime.jsx(Typography, { children: textTitle }), jsxRuntime.jsx(Typography, { children: textSubtitle })] }), jsxRuntime.jsx(ContentDiv, { ref: scrollContainerRef, onScroll: handleScroll, onClick: trackClick ? () => trackClick() : () => { }, children: jsxRuntime.jsx(ContentScroll, { children: listUsersState && listUsersState.map((item) => {
+                }, children: [jsxRuntime.jsxs(HeaderDiv, { children: [jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', justifyContent: 'flex-end' }, children: jsxRuntime.jsx(CloseButton, { onClick: () => handleClickClose(), children: jsxRuntime.jsx(CloseIcon, { width: '11' }) }) }), jsxRuntime.jsx(Typography, { children: textTitle }), jsxRuntime.jsx(Typography, { children: textSubtitle })] }), jsxRuntime.jsx(ContentDiv, { ref: scrollContainerRef, onScroll: handleScroll, onClick: trackClick ? () => trackClick() : () => { }, children: jsxRuntime.jsx(ContentScroll, { children: newListUsers && newListUsers.map((item) => {
                                 return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(CardItemUser, { children: item?.onClickUserInfo ?
                                             jsxRuntime.jsxs(Tooltip$2, { direction: "bottom", content: item.textVisitProfile ? item.textVisitProfile : 'Visitar perfil', trigger: 'hover', width: '101px', height: '32px', style: { top: '10px', textAlign: 'center' }, children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar, isActiveClick: true, onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {} }), jsxRuntime.jsxs(UserInfoContainer, { onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {}, style: { cursor: item?.onClickUserInfo ? 'pointer' : 'auto' }, children: [jsxRuntime.jsxs(NameUser$2, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] })
                                             : jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(Avatar, { size: '50px', src: item?.avatar }), jsxRuntime.jsxs(UserInfoContainer, { onClick: () => item?.onClickUserInfo ? item?.onClickUserInfo() : {}, style: { cursor: item?.onClickUserInfo ? 'pointer' : 'auto' }, children: [jsxRuntime.jsxs(NameUser$2, { children: [" ", item?.name, " "] }), jsxRuntime.jsxs(PositionUser, { children: [" ", item?.position, "  "] }), jsxRuntime.jsxs(OrgUser, { children: [" ", item?.organization, " "] })] })] }) }, item?.id) }));
