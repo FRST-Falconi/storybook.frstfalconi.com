@@ -2558,7 +2558,7 @@ const ButtonEndIcon = styled__default["default"].button `
   ${({ variant }) => variantStyles$1(variant)}
 `;
 
-function Button$4({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount }) {
+function Button$4({ variant, label, sizeIcon, disabled, startIcon, endIcon, handleClick, type, active, style, value, length, id, ref, handleMount, buttonProps }) {
     React.useEffect(() => {
         if (handleMount && id) {
             handleMount(id);
@@ -2568,17 +2568,17 @@ function Button$4({ variant, label, sizeIcon, disabled, startIcon, endIcon, hand
             (variant === 'link') ?
                 jsxRuntime.jsxs(LinkButtonStartIcon, { ref: ref, style: { ...style }, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [startIcon, label] })
                 :
-                    jsxRuntime.jsxs(ButtonStartIcon$1, { ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [startIcon, label] })
+                    jsxRuntime.jsxs(ButtonStartIcon$1, { ...buttonProps, ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [startIcon, label] })
             : endIcon ?
                 (variant === 'link') ?
                     jsxRuntime.jsxs(LinkButtonEndIcon, { ref: ref, style: { ...style }, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [label, endIcon] })
                     :
-                        jsxRuntime.jsxs(ButtonEndIcon, { ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [label, endIcon] })
+                        jsxRuntime.jsxs(ButtonEndIcon, { ...buttonProps, ref: ref, style: { ...style }, variant: variant, disabled: disabled, onClick: handleClick, sizeIcon: sizeIcon, id: id, children: [label, endIcon] })
                 :
                     (variant === 'link') ?
                         jsxRuntime.jsx(LinkButton$1, { ref: ref, style: { ...style }, disabled: disabled, onClick: handleClick, id: id, children: label })
                         :
-                            jsxRuntime.jsx(Button$5, { ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
+                            jsxRuntime.jsx(Button$5, { ...buttonProps, ref: ref, style: { ...style }, length: length, active: active, value: value, variant: variant, disabled: disabled, onClick: handleClick, id: id, children: label }) }));
 }
 
 var css_248z$k = ".BannerProblem-module_container__iitVU {\n  padding: 50px;\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  position: relative;\n  flex-direction: row;\n  flex-wrap: wrap;\n  background-color: white;\n  font-family: 'Work Sans';\n  font-style: normal;\n\n}\n\n@media (max-width:570px) {\n\n  .BannerProblem-module_container__iitVU {\n    padding: 10px !important;\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    position: relative;\n    flex-direction: row;\n    flex-wrap: wrap;\n    background-color: white;\n    font-family: 'Work Sans';\n    font-style: normal;\n  \n  }\n  }\n\n.BannerProblem-module_titleProblem__BeJIN{\n  font-weight: 700;\n  font-size: 18px;\n  word-wrap: break-word;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 4px;\n}\n\n.BannerProblem-module_created__OrSsa{\n  font-size: 12px;\n\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 14px;\n  /* identical to box height, or 117% */\n\n  display: flex;\n  align-items: center;\n  letter-spacing: -0.02em;\n\n  color: #757575;\n}\n\n.BannerProblem-module_description__olZ05{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 32px;\n  text-align: left;\n  display: flex;\n  margin-top: 8px;\n  width: 100%;\n  color: #FF4D0D;\n  margin-bottom: 0px;\n}\n\n@media(max-width: 880px){\n  .BannerProblem-module_description__olZ05{\n    word-wrap: break-word;\n  }\n}\n\n.BannerProblem-module_missaoTitle__300kZ{\n  font-style: normal;\n  font-weight: 600;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  \n  color: #0645AD;\n}\n\nh2{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 700;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n  width: 100%;\n  margin-top: 16;\n  margin-bottom: 0;\n}\n\nh3{\n  font-family: 'Work Sans';\n  font-style: normal;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 21px;\n  margin: 0;\n  word-wrap: break-word;\n}\n\n.BannerProblem-module_contentInput__YXpxk {\n  background-color: #F2F2F2; \n  border-width: 1px; \n  border-radius: 4px;\n  padding: 24px 16px 24px 16px;\n  border: 1px solid #BDBDBD;\n}\n\n.BannerProblem-module_contentInput__YXpxk input {\n  width: 100% !important;\n  margin: 4px;\n  padding: 16px;\n  border-radius: 8px;\n  border: 1px solid #BDBDBD;\n  background-color: white;\n}\n\n.BannerProblem-module_goal_invite__B0T5N svg {\n  max-width: none;\n  max-height: none !important;\n}\n";
