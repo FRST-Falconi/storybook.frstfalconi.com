@@ -2,7 +2,7 @@ import * as React from 'react'
 import * as Styles from './selectListStudentsStyle'
 
 export default function SelectListStudents(props) {
-  const [selectItens, setSelectItens] = React.useState(props.listSelect)
+  const [selectItens, setSelectItens] = React.useState([])
   const [itens, setItens] = React.useState(props.listSelect)
   const [isCheck, setIsCheck] = React.useState(false)
 
@@ -15,8 +15,15 @@ export default function SelectListStudents(props) {
       listItem.push(item)
     }
     setSelectItens(listItem)
+    if (props.onSelected){
+      props.onSelected(listItem)
+    }
+    // console.log('item selecionado ', selectItens)
   }
-  console.log('item selecionado ', selectItens)
+
+  // React.useEffect(() => {
+  // },[selectItens])
+
 
   function handleSelecAll(){
     let listItem = selectItens
@@ -47,13 +54,13 @@ export default function SelectListStudents(props) {
     <Styles.ContainerSelect>
       <form action="">
         <label>
-          <input id={'0'} type="checkbox" value={'selectAll'} onClick={handleSelecAll} />
+          <input id={'0'} type="checkbox" value={'selectAll'} onClick={() => console.log("select all")} />
           <span>Select All</span>
         </label>
-        {selectItens.map((item) => {
+        {props.listSelect.map((item) => {
           return (
             <label>
-              <input id={item.id} type="checkbox" value={item.city} onClick={() => handleSelectList(item)} checked={item.select}/>
+              <input id={item.id} type="checkbox" value={item.city} onClick={() => handleSelectList(item)}/>
               <span>{item.city}</span>
             </label>
           )

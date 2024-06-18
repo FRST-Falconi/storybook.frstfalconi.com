@@ -13,6 +13,7 @@ const Template = (args) => <SelectListStudents {...args} />
 
 export const primaryNotStarted = Template.bind({})
 primaryNotStarted.args = {
+    onSelected: (e) => console.log("itens selecionados callback",e),
     listSelect:[
         {
             id:1,
