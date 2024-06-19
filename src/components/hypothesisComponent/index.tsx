@@ -230,7 +230,7 @@ export const HypothesisComponent = ({
                 </Styles.VoteButtonContainer>
               </Styles.SplitContainer>
             )}
-            {!canVote && !canViewVote && (
+            {!canVote && hasVoteGoal && (
               <Styles.SplitContainer onClick={() => handleVote(id)}>
                 <Styles.VoteButtonContainer
                   type={type}
