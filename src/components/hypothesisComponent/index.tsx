@@ -106,7 +106,10 @@ export const HypothesisComponent = ({
     await deleteVote(voteId)
   }
 
-  const handleChangeVote = async (hyphoteseId: string, currentVote:any) => {
+  const handleChangeVote = async (hyphoteseId: string) => {
+    const currentVote = votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id
+    console.log("votes ",votes)
+    console.log("votes current",currentVote)
     await onChangeVote(hyphoteseId,currentVote)
   }
 
@@ -264,7 +267,7 @@ export const HypothesisComponent = ({
               </Styles.SplitContainer>
             ):
             canVote && !hasVoteHypothesis &&
-            <Styles.SplitContainer onClick={() => handleChangeVote(id, votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)}>
+            <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
                 <Styles.VoteButtonContainer
                   type={type}
                   modeDelete={isHover}
