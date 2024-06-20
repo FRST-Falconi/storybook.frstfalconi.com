@@ -3456,7 +3456,7 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                         paddingLeft: '4px',
                                         height: '100%'
                                     }, children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] }) }) })) :
-                            canVote &&
+                            canVote && !hasVoteHypothesis &&
                                 jsxRuntime.jsx(SplitContainer, { onClick: () => handleChangeVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
                                                 display: 'flex',
                                                 alignItems: 'center',
