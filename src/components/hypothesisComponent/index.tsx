@@ -51,7 +51,7 @@ export const HypothesisComponent = ({
   showAvatar?: boolean
   authorId?: string
   loading?: boolean
-  onChangeVote?: (hypothesiId: string) => any
+  onChangeVote?: (hypothesiId: string,currentVote:number) => any
   changeVoteText?:string
 }) => {
   const [isHover, seIsHover] = useState(false)
@@ -106,8 +106,8 @@ export const HypothesisComponent = ({
     await deleteVote(voteId)
   }
 
-  const handleChangeVote = async (hyphoteseId: string) => {
-    await onChangeVote(hyphoteseId)
+  const handleChangeVote = async (hyphoteseId: string, currentVote:any) => {
+    await onChangeVote(hyphoteseId,currentVote)
   }
 
   return (
@@ -264,7 +264,7 @@ export const HypothesisComponent = ({
               </Styles.SplitContainer>
             ):
             canVote && !hasVoteHypothesis &&
-            <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
+            <Styles.SplitContainer onClick={() => handleChangeVote(id, votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)}>
                 <Styles.VoteButtonContainer
                   type={type}
                   modeDelete={isHover}
