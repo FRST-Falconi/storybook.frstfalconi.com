@@ -51,7 +51,7 @@ export const HypothesisComponent = ({
   showAvatar?: boolean
   authorId?: string
   loading?: boolean
-  onChangeVote?: (hypothesiId: string,currentVote:number) => any
+  onChangeVote?: (hypothesiId: string) => any
   changeVoteText?:string
 }) => {
   const [isHover, seIsHover] = useState(false)
@@ -107,10 +107,7 @@ export const HypothesisComponent = ({
   }
 
   const handleChangeVote = async (hyphoteseId: string) => {
-    const currentVote = votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id
-    console.log("votes ",votes)
-    console.log("votes current",currentVote)
-    await onChangeVote(hyphoteseId,currentVote)
+    await onChangeVote(hyphoteseId)
   }
 
   return (
