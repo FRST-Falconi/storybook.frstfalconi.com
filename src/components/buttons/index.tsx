@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { ButtonHTMLAttributes, useEffect, useState } from 'react'
 import '../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../theme'
@@ -7,7 +7,7 @@ import * as Styles from './buttonStyle'
 type enumVariant = 'primary' | 'secondary' | 'link' | 'expandedPrimary' | 'expandedSecondary' 
 type enumType = 'group' | null
 
-interface buttonProps {
+interface ButtonProps {
     variant?: enumVariant;
     label?: string,
     disabled?: boolean,
@@ -23,6 +23,7 @@ interface buttonProps {
     id?: string,
     ref?: any,
     handleMount?: (e:any) => void
+    buttonProps?: ButtonHTMLAttributes<HTMLButtonElement>
 }
 
 export default function Button({
@@ -40,8 +41,9 @@ export default function Button({
     length,
     id,
     ref,
-    handleMount
-}: buttonProps) {
+    handleMount,
+    buttonProps
+}: ButtonProps) {
 
     useEffect(() => {
         if (handleMount && id) {
@@ -58,18 +60,18 @@ export default function Button({
                         {label}                        
                     </Styles.LinkButtonStartIcon>
                 :
-                    <Styles.ButtonStartIcon ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
+                    <Styles.ButtonStartIcon {...buttonProps} ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {startIcon}
                         {label}
                     </Styles.ButtonStartIcon>
             : endIcon ?
                 (variant === 'link') ?
-                    <Styles.LinkButtonEndIcon ref={ref} style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
+                    <Styles.LinkButtonEndIcon  ref={ref} style={{...style}} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {label} 
                         {endIcon}                       
                     </Styles.LinkButtonEndIcon>
                 :
-                    <Styles.ButtonEndIcon ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
+                    <Styles.ButtonEndIcon {...buttonProps} ref={ref} style={{...style}} variant={variant} disabled={disabled} onClick={handleClick} sizeIcon={sizeIcon} id={id}>
                         {label}
                         {endIcon}
                     </Styles.ButtonEndIcon>
@@ -79,7 +81,7 @@ export default function Button({
                         {label}                       
                     </Styles.LinkButton>
                 :
-                    <Styles.Button ref={ref} style={{...style}} length={length} active={active} value={value} variant={variant} disabled={disabled} onClick={handleClick} id={id}>
+                    <Styles.Button {...buttonProps} ref={ref} style={{...style}} length={length} active={active} value={value} variant={variant} disabled={disabled} onClick={handleClick} id={id}>
                         {label}
                     </Styles.Button>
                     

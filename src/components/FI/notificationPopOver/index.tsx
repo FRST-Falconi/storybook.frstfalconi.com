@@ -13,6 +13,7 @@ type notificationCard = {
   notificationDescription: string
   isNewNotification: boolean
   notificationDate: string
+  notificationHour?: string | null
   id: string
 
   textNew: string
@@ -103,6 +104,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                         notificationAvatar={item.notificationAvatar}
                         notificationDescription={item.notificationDescription}
                         notificationDate={item.notificationDate}
+                        notificationHour={item.notificationHour}
                         textNew={item.textNew}
                         isNewNotification={item.isNewNotification}
                         handleClick={item.handleClick}
@@ -179,6 +181,7 @@ export default function NotificationPopOver(props: INotificationPopOver) {
                         notificationAvatar={item.notificationAvatar}
                         notificationDescription={item.notificationDescription}
                         notificationDate={item.notificationDate}
+                        notificationHour={item.notificationHour}
                         textNew={item.textNew}
                         isNewNotification={item.isNewNotification}
                         handleClick={item.handleClick}
