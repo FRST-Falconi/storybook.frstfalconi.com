@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import * as Styles from './hypothesisComponent.style'
 import { Vote } from './types'
-import { ExcludeVoteIcon, VoteIcon } from '@public/customIcons'
+import { ExcludeVoteIcon, VoteCurrentIcon, VoteIcon } from '@public/customIcons'
 import Avatar from '@components/avatar'
 import Loading from '@components/DS/loading'
 
@@ -281,7 +281,7 @@ export const HypothesisComponent = ({
                       height: '100%'
                     }}
                   >
-                    <VoteIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                    <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
                     <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
                   </div>
                 </Styles.VoteButtonContainer>
