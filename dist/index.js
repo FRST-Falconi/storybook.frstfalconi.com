@@ -3017,6 +3017,10 @@ const ExcludeVoteIcon = ({ style, width = '16', height = '17', stroke = '#444444
     return (jsxRuntime.jsxs("svg", { style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00065 14.9381C11.6825 14.9381 14.6673 11.9533 14.6673 8.2714C14.6673 4.5895 11.6825 1.60474 8.00065 1.60474C4.31875 1.60474 1.33398 4.5895 1.33398 8.2714C1.33398 11.9533 4.31875 14.9381 8.00065 14.9381Z", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.6673 5.60474L5.33398 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M5.33398 5.60474L10.6673 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 };
 
+const VoteCurrentIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) => {
+    return (jsxRuntime.jsxs("svg", { width: "20", height: "21", viewBox: "0 0 20 21", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3.33398 5.05884V8.906H6.97035", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M16.6676 15.318V11.4708H13.0312", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M15.1461 8.26484C14.8387 7.34587 14.3163 6.52425 13.6276 5.87666C12.939 5.22906 12.1064 4.77659 11.2077 4.56147C10.3091 4.34634 9.37353 4.37557 8.48841 4.64643C7.6033 4.9173 6.79747 5.42096 6.14611 6.11043L3.33398 8.90603M16.6673 11.4708L13.8552 14.2664C13.2038 14.9559 12.398 15.4595 11.5129 15.7304C10.6278 16.0013 9.69223 16.0305 8.79355 15.8154C7.89487 15.6003 7.06235 15.1478 6.37366 14.5002C5.68497 13.8526 5.16257 13.031 4.8552 12.112", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+};
+
 const fadeInRight = styled.keyframes `
   0% {
     opacity: 0;
@@ -3108,173 +3112,213 @@ const Toast = ({ type = 'success', message, onClose, showBySeconds = 5, styles }
 };
 
 const MainContainer = styled__default["default"].div `
-display: flex;
-align-items: center;
-justify-content: space-between;
-width:100%;
-color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: #222222;
 `;
 const Container$m = styled__default["default"].div `
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
-font-family: PT Sans;
-font-size:14px;
-border-radius:8px;
-padding: 0 0 0 16px; 
-min-height: 52px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: PT Sans;
+  font-size: 14px;
+  border-radius: 8px;
+  padding: 0 0 0 16px;
+  min-height: 52px;
 
-${({ type }) => {
+  ${({ type }) => {
     switch (type) {
         case 'prioritize':
-            return styled.css `background: #FDAE15;`;
+            return styled.css `
+          background: #fdae15;
+        `;
         case 'raised':
-            return styled.css `background: #F8D784;`;
+            return styled.css `
+          background: #f8d784;
+        `;
         case 'suggested':
-            return styled.css `background: #CDDAEF;`;
+            return styled.css `
+          background: #cddaef;
+        `;
         default:
             return '';
     }
 }}
 `;
 const Title$6 = styled__default["default"].span `
-font-weight:700;
-white-space: nowrap;
+  font-weight: 700;
+  white-space: nowrap;
 `;
 styled__default["default"].span `
-font-weight:700;
+  font-weight: 700;
 `;
 const Separator = styled__default["default"].div `
-font-weight:bold;
-margin: 0 8px;
+  font-weight: bold;
+  margin: 0 8px;
 `;
 const Description$4 = styled__default["default"].span `
-font-weight:400;
-padding: 8px 0 8px;
-
+  font-weight: 400;
+  padding: 8px 0 8px;
 `;
 const SplitContainer = styled__default["default"].div `
-display:flex;
-justify-content: flex-start;
-align-items:center;
-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
 `;
 styled__default["default"].div `
-display: flex;
-align-items: center;
-justify-content: flex-start;
-position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
 `;
 styled__default["default"].div `
-    position: absolute;
+  position: absolute;
 `;
 const VoteButtonContainer = styled__default["default"].span `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 150px;
-    background: #F9CD5E;
-    cursor: pointer;
-    ${({ height }) => height > 0 && styled.css `
-    height: ${height}px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  background: #f9cd5e;
+  cursor: pointer;
+  ${({ height }) => height > 0 &&
+    styled.css `
+      height: ${height}px;
     `}
 
-    ${({ type }) => {
+  ${({ type }) => {
     switch (type) {
         case 'prioritize':
-            return styled.css `background: #DC9100;`;
+            return styled.css `
+          background: #dc9100;
+        `;
         case 'raised':
-            return styled.css `background: #F9CD5E;`;
+            return styled.css `
+          background: #f9cd5e;
+        `;
         case 'suggested':
-            return styled.css `background: #A5C3F2;`;
+            return styled.css `
+          background: #a5c3f2;
+        `;
         default:
             return '';
     }
 }}
-    ${({ modeDelete }) => modeDelete && styled.css `
-    background: inherit;
+    ${({ modeDelete }) => modeDelete &&
+    styled.css `
+      background: inherit;
     `}
     border-radius:0 8px 8px 0;
-    padding: 0 16px 0 16px;
-    min-height: 52px;
-    margin-left: 4px;
-
+  padding: 0 16px 0 16px;
+  min-height: 52px;
+  margin-left: 4px;
 `;
 const VoteCount = styled__default["default"].span `
-    display: flex;
-    align-items: center;
-    height: 100%;
-    gap: 4px;
-    white-space: nowrap;
-    width: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  gap: 4px;
+  white-space: nowrap;
+  width: auto;
 `;
 const VoteButton = styled__default["default"].p `
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    height:100%;
-    width: 100%;
-    font-family: PT Sans;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 18.12px;
-    text-align: left;
-    color: #444444;
-    white-space: nowrap;
-    width: auto;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  font-family: PT Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 18.12px;
+  text-align: left;
+  color: #444444;
+  white-space: nowrap;
+  width: auto;
 `;
 const VoteContent = styled__default["default"].div `
+  display: flex;
+  div {
+    flex-direction: row-reverse;
     display: flex;
-    div{
-        flex-direction: row-reverse;
-        display: flex;
-        :nth-child(1n){
-        margin-left: -8px;
+    :nth-child(1n) {
+      margin-left: -8px;
     }
-    }
+  }
 `;
 const ImageContent$1 = styled__default["default"].div `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width:32px;
-    height: 32px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: solid  2.5px #fff;
-    color: #FFFFFF;
-    img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 2.5px #fff;
+  color: #ffffff;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
 const VoteListContainer = styled__default["default"].div `
-position: absolute;
-top: calc(100% + 1px);
-right: 0;
-width: 225px; 
-max-height: 300px; 
-overflow-y: auto;
-padding: 5px 0px;
-background-color: #fff;
-border: 1px solid #ccc;
-border-radius: 8px;
-z-index: 1999;
-display: ${({ showVotes }) => showVotes ? 'block' : 'none'};
-    &::-webkit-scrollbar {
-      display: none;
-    }
-box-shadow: 0px 15px 20px 0px #22222226;
+  position: absolute;
+  top: calc(100% + 1px);
+  right: 0;
+  width: 225px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 5px 0px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 1999;
+  display: ${({ showVotes }) => (showVotes ? 'block' : 'none')};
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  box-shadow: 0px 15px 20px 0px #22222226;
 `;
 const VoteListItem = styled__default["default"].div `
-cursor: pointer;
-height: 36px;
-display: flex;
-align-items: center;
-gap: 10px;
-${({ lastVote }) => lastVote === false && "border-bottom: solid 1px #ccc;"}
+  cursor: pointer;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  ${({ lastVote }) => lastVote === false && 'border-bottom: solid 1px #ccc;'}
+`;
+styled__default["default"].div `
+  width: 100%;
+  h2{
+    margin-bottom: 0.4rem;
+
+  }
+  p{
+    font-weight: 400;
+    margin-bottom: 1rem;
+
+  }
+`;
+styled__default["default"].div `
+  width: 100%;
+  border: solid 0.2px #E0E0E0;
+  margin-bottom: 1rem;
+
+`;
+styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  button{
+    margin-left: 1rem;
+  }
+
 `;
 
 const container = styled__default["default"].div `
@@ -3350,7 +3394,7 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading }) => {
+const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, changeVoteText }) => {
     const [isHover, seIsHover] = React.useState(false);
     const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(false);
     const [showVotesList, setShowVotesList] = React.useState(false);
@@ -3393,6 +3437,9 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
     const handleDeleteVote = async (voteId) => {
         await deleteVote(voteId);
     };
+    const handleChangeVote = async (hyphoteseId) => {
+        await onChangeVote(hyphoteseId);
+    };
     return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$4, { children: description })] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && votes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                             return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
                                                         }), votes?.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
@@ -3406,13 +3453,21 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                         justifyContent: 'center'
                                     }, children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                     return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
-                                                }), votes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", votes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [votes?.length, " ", votes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: votes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { onClick: () => handleVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
+                                                }), votes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", votes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [votes?.length, " ", votes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: votes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal ? (jsxRuntime.jsx(SplitContainer, { onClick: () => handleVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         paddingLeft: '4px',
                                         height: '100%'
-                                    }, children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] }) }) }))] }))] }) }));
+                                    }, children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] }) }) })) :
+                            canVote && !hasVoteHypothesis &&
+                                jsxRuntime.jsx(SplitContainer, { onClick: () => handleChangeVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                paddingLeft: '4px',
+                                                height: '100%'
+                                            }, children: [jsxRuntime.jsx(VoteCurrentIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: changeVoteText })] }) }) })] }))] }) }));
 };
 const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
     const sortedVotes = [...hypothesisVotes].sort((a, b) => a.user.name.localeCompare(b.user.name));
