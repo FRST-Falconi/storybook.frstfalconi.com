@@ -27,6 +27,8 @@ Priorizada.args = {
   canViewListVotes: true,
   userLoggedId: '05b7bec61',
   handleViewProfile: (id) => alert(`cliquei no user de id: ${id}`),
+  onChangeVote: (e) => alert("trocar voto"),
+  changeVoteText: "Trocar Voto",
   votes: [
     {
       id: 1,
@@ -86,6 +88,8 @@ Levantada.args = {
     "1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with des",
   id: '2',
   hasVoteGoal: true,
+  onChangeVote: (e) => alert("trocar voto"),
+  changeVoteText: "Trocar Voto",
   votes: [
     {
       id: 1,
@@ -133,6 +137,8 @@ Sugerida.args = {
   handleViewProfile: (id) => alert(`cliquei no user de id: ${id}`),
   onVote: (id) => alert(`votei na hipotese de id: ${id}`),
   deleteVote: (id) => alert(`deletei o voto de id ${id}`),
+  onChangeVote: (e) => alert("trocar voto"),
+  changeVoteText: "Trocar Voto",
   votes: [
     {
       id: 1,

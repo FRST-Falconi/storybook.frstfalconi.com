@@ -3390,7 +3390,7 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading }) => {
+const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, changeVoteText }) => {
     const [isHover, seIsHover] = React.useState(false);
     const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(false);
     const [showVotesList, setShowVotesList] = React.useState(false);
@@ -3433,6 +3433,9 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
     const handleDeleteVote = async (voteId) => {
         await deleteVote(voteId);
     };
+    const handleChangeVote = async (hyphoteseId) => {
+        await onChangeVote(hyphoteseId);
+    };
     return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$4, { children: description })] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && votes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                             return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
                                                         }), votes?.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
@@ -3446,13 +3449,21 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                         justifyContent: 'center'
                                     }, children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                     return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
-                                                }), votes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", votes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [votes?.length, " ", votes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: votes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { onClick: () => handleVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
+                                                }), votes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", votes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [votes?.length, " ", votes?.length > 1 ? votesPluralText : votesSingularText] })] }))) : (jsxRuntime.jsx(ViewVotes, { hypothesisVotes: votes, votesPluralText: votesPluralText, votesSingularText: votesSingularText })) }) })), canVote && !hasVoteGoal ? (jsxRuntime.jsx(SplitContainer, { onClick: () => handleVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                         paddingLeft: '4px',
                                         height: '100%'
-                                    }, children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] }) }) }))] }))] }) }));
+                                    }, children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: voteText })] }) }) })) :
+                            canVote &&
+                                jsxRuntime.jsx(SplitContainer, { onClick: () => handleChangeVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                paddingLeft: '4px',
+                                                height: '100%'
+                                            }, children: [jsxRuntime.jsx(VoteIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: changeVoteText })] }) }) })] }))] }) }));
 };
 const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
     const sortedVotes = [...hypothesisVotes].sort((a, b) => a.user.name.localeCompare(b.user.name));
