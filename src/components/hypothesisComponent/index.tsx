@@ -236,7 +236,7 @@ export const HypothesisComponent = ({
                         votesPluralText={votesPluralText}
                         votesSingularText={votesSingularText}
                       />
-                      {canVote && !hasVoteHypothesis && !canViewVote && (
+                      {canVote && !hasVoteHypothesis  && (
                         <Styles.VoteButtonContainer
                           type={type}
                           modeDelete={isHover}
