@@ -28,7 +28,7 @@ export const HypothesisComponent = ({
   hasVoteGoal,
   loading,
   onChangeVote,
-  changeVoteText,
+  changeVoteText
 }: {
   description: string
   type: string
@@ -184,7 +184,7 @@ export const HypothesisComponent = ({
                 onClick={() =>
                   hasVoteHypothesis && isHover
                     ? handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
-                    : null
+                    : handleChangeVote(id)
                 }
               >
                 <Styles.VoteButtonContainer
@@ -205,8 +205,17 @@ export const HypothesisComponent = ({
                           justifyContent: 'center'
                         }}
                       >
-                        <ExcludeVoteIcon width="24" height="24" />
-                        <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
+                        {canVote && !hasVoteHypothesis ? (
+                          <>
+                            <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                            <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
+                          </>
+                        ) : (
+                          <>
+                            <ExcludeVoteIcon width="24" height="24" />
+                            <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
+                          </>
+                        )}
                       </div>
                     ) : (
                       <Styles.VoteCount>
@@ -236,43 +245,6 @@ export const HypothesisComponent = ({
                         votesPluralText={votesPluralText}
                         votesSingularText={votesSingularText}
                       />
-                      {canVote && !hasVoteHypothesis  && (
-                        <Styles.VoteButtonContainer
-                          type={type}
-                          modeDelete={isHover}
-                          height={heightContainer}
-                          onMouseEnter={() => seIsHover(true)}
-                          onMouseLeave={() => seIsHover(false)}
-                          style={{ cursor: hasVoteHypothesis ? 'pointer' : 'default' }}
-                        >
-                          <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
-                            <Styles.VoteButtonContainer
-                              type={type}
-                              modeDelete={isHover}
-                              height={heightContainer}
-                              onMouseEnter={() => seIsHover(true)}
-                              onMouseLeave={() => seIsHover(false)}
-                            >
-                              <div
-                                style={{
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  paddingLeft: '4px',
-                                  height: '100%'
-                                }}
-                              >
-                                <VoteCurrentIcon
-                                  width="24"
-                                  height="24"
-                                  style={{ marginLeft: '4px', marginRight: '4px' }}
-                                />
-                                <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
-                              </div>
-                            </Styles.VoteButtonContainer>
-                          </Styles.SplitContainer>
-                        </Styles.VoteButtonContainer>
-                      )}
                     </>
                   )}
                 </Styles.VoteButtonContainer>
