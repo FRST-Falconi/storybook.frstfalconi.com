@@ -193,9 +193,9 @@ export const HypothesisComponent = ({
                   height={heightContainer}
                   onMouseEnter={() => seIsHover(true)}
                   onMouseLeave={() => seIsHover(false)}
-                  style={{ cursor: hasVoteHypothesis ? 'pointer' : 'default' }}
+                  style={{ cursor: 'pointer' }}
                 >
-                  {hasVoteHypothesis ? (
+                  {
                     isHover ? (
                       <div
                         style={{
@@ -238,15 +238,7 @@ export const HypothesisComponent = ({
                         </p>
                       </Styles.VoteCount>
                     )
-                  ) : (
-                    <>
-                      <ViewVotes
-                        hypothesisVotes={votes}
-                        votesPluralText={votesPluralText}
-                        votesSingularText={votesSingularText}
-                      />
-                    </>
-                  )}
+                  }
                 </Styles.VoteButtonContainer>
               </Styles.SplitContainer>
             ) : (
