@@ -179,7 +179,7 @@ export const HypothesisComponent = ({
                 <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
               </div>
             )}
-            {canVote && hasVoteGoal && votes?.length > 0 && (
+            {canVote && hasVoteGoal && votes?.length > 0 ? (
               <Styles.SplitContainer
                 onClick={() =>
                   hasVoteHypothesis && isHover
@@ -241,6 +241,32 @@ export const HypothesisComponent = ({
                   }
                 </Styles.VoteButtonContainer>
               </Styles.SplitContainer>
+            ) : (
+              canVote &&
+              !hasVoteHypothesis && hasVoteGoal && (
+                <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
+                  <Styles.VoteButtonContainer
+                    type={type}
+                    modeDelete={isHover}
+                    height={heightContainer}
+                    onMouseEnter={() => seIsHover(true)}
+                    onMouseLeave={() => seIsHover(false)}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingLeft: '4px',
+                        height: '100%'
+                      }}
+                    >
+                      <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                      <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
+                    </div>
+                  </Styles.VoteButtonContainer>
+                </Styles.SplitContainer>
+              )
             )}
             {canVote && !hasVoteGoal ? (
               <Styles.SplitContainer onClick={() => handleVote(id)}>
