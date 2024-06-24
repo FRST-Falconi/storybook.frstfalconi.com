@@ -52,7 +52,7 @@ export const HypothesisComponent = ({
   authorId?: string
   loading?: boolean
   onChangeVote?: (hypothesiId: string) => any
-  changeVoteText?:string
+  changeVoteText?: string
 }) => {
   const [isHover, seIsHover] = useState(false)
   const [hasVoteHypothesis, setHasVoteHypothesis] = useState(false)
@@ -179,12 +179,12 @@ export const HypothesisComponent = ({
                 <VoteList hypothesisVotes={votes} showVotes={showVotesList} viewProfile={handleViewProfile} />
               </div>
             )}
-            {canVote && hasVoteGoal && votes?.length > 0 && (
+            {canVote && hasVoteGoal && votes?.length > 0 ? (
               <Styles.SplitContainer
                 onClick={() =>
                   hasVoteHypothesis && isHover
                     ? handleDeleteVote(votes?.find((vote) => vote?.user_uuid === userLoggedId)?.id)
-                    : null
+                    : handleChangeVote(id)
                 }
               >
                 <Styles.VoteButtonContainer
@@ -193,9 +193,9 @@ export const HypothesisComponent = ({
                   height={heightContainer}
                   onMouseEnter={() => seIsHover(true)}
                   onMouseLeave={() => seIsHover(false)}
-                  style={{ cursor: hasVoteHypothesis ? 'pointer' : 'default' }}
+                  style={{ cursor: 'pointer' }}
                 >
-                  {hasVoteHypothesis ? (
+                  {
                     isHover ? (
                       <div
                         style={{
@@ -205,8 +205,17 @@ export const HypothesisComponent = ({
                           justifyContent: 'center'
                         }}
                       >
-                        <ExcludeVoteIcon width="24" height="24" />
-                        <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
+                        {!hasVoteHypothesis ? (
+                          <>
+                            <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                            <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
+                          </>
+                        ) : (
+                          <>
+                            <ExcludeVoteIcon width="24" height="24" />
+                            <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
+                          </>
+                        )}
                       </div>
                     ) : (
                       <Styles.VoteCount>
@@ -229,15 +238,35 @@ export const HypothesisComponent = ({
                         </p>
                       </Styles.VoteCount>
                     )
-                  ) : (
-                    <ViewVotes
-                      hypothesisVotes={votes}
-                      votesPluralText={votesPluralText}
-                      votesSingularText={votesSingularText}
-                    />
-                  )}
+                  }
                 </Styles.VoteButtonContainer>
               </Styles.SplitContainer>
+            ) : (
+              canVote &&
+              !hasVoteHypothesis && hasVoteGoal && (
+                <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
+                  <Styles.VoteButtonContainer
+                    type={type}
+                    modeDelete={isHover}
+                    height={heightContainer}
+                    onMouseEnter={() => seIsHover(true)}
+                    onMouseLeave={() => seIsHover(false)}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingLeft: '4px',
+                        height: '100%'
+                      }}
+                    >
+                      <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                      <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
+                    </div>
+                  </Styles.VoteButtonContainer>
+                </Styles.SplitContainer>
+              )
             )}
             {canVote && !hasVoteGoal ? (
               <Styles.SplitContainer onClick={() => handleVote(id)}>
@@ -262,32 +291,34 @@ export const HypothesisComponent = ({
                   </div>
                 </Styles.VoteButtonContainer>
               </Styles.SplitContainer>
-            ):
-            canVote && !hasVoteHypothesis &&
-            <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
-                <Styles.VoteButtonContainer
-                  type={type}
-                  modeDelete={isHover}
-                  height={heightContainer}
-                  onMouseEnter={() => seIsHover(true)}
-                  onMouseLeave={() => seIsHover(false)}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      paddingLeft: '4px',
-                      height: '100%'
-                    }}
+            ) : (
+              canVote &&
+              !hasVoteHypothesis &&
+              !canViewVote && (
+                <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
+                  <Styles.VoteButtonContainer
+                    type={type}
+                    modeDelete={isHover}
+                    height={heightContainer}
+                    onMouseEnter={() => seIsHover(true)}
+                    onMouseLeave={() => seIsHover(false)}
                   >
-                    <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
-                    <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
-                  </div>
-                </Styles.VoteButtonContainer>
-              </Styles.SplitContainer>
-            }
-            
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        paddingLeft: '4px',
+                        height: '100%'
+                      }}
+                    >
+                      <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                      <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
+                    </div>
+                  </Styles.VoteButtonContainer>
+                </Styles.SplitContainer>
+              )
+            )}
           </>
         )}
       </Styles.Container>
