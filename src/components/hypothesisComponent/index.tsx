@@ -205,7 +205,7 @@ export const HypothesisComponent = ({
                           justifyContent: 'center'
                         }}
                       >
-                        {canVote ? (
+                        {hasVoteHypothesis ? (
                           <>
                             <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
                             <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
