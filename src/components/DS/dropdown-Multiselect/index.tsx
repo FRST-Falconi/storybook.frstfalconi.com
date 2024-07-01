@@ -73,6 +73,7 @@ export default function (props: IDropdownMultiselect) {
 
   useEffect(() => {
     if (props.selectedDefault) {
+      console.log("Setting default value to current select user!")
       setSelectedValues(props?.selectedDefault)
     }
   }, [props?.selectedDefault])
@@ -82,6 +83,7 @@ export default function (props: IDropdownMultiselect) {
   }, [props.listItems])
 
   useEffect(() => {
+    console.log("Calling callback function!")
     props.getSelectedItems(selectedValues)
   }, [selectedValues])
 
