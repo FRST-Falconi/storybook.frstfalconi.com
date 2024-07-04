@@ -73,15 +73,15 @@ export default function MenuMore({
                     }}
                     style={{
                       borderBottom:
-                        listOptions?.length - 1 == index ? '' : isDarkMode ? '1px solid #525252' : '1px solid #EBEBEB',
-                      color: itemOption?.color ? itemOption?.color : '#222',
+                        listOptions?.length - 1 == index ? '' : isDarkMode ? '1px solid #525252 !important' : '1px solid #EBEBEB !important',
+                      color: itemOption?.color ? itemOption?.color : '#222 !important',
                       pointerEvents: itemOption?.disabled ? 'none' : 'auto',
-                      cursor: itemOption?.disabled ? 'default' : 'pointer'
+                      cursor: itemOption?.disabled ? 'default !important' : 'pointer !important'
                     }}
                     disableRipple
                   >
                     {itemOption?.startIcon && <IconOption>{itemOption?.startIcon}</IconOption>}
-                    <TextOption style={!itemOption?.startIcon ? { marginLeft: '0px' } : {}}>
+                    <TextOption style={!itemOption?.startIcon ? { marginLeft: '0px !important' } : {}}>
                       {itemOption?.description}
                     </TextOption>
                   </MenuItemCustom>
