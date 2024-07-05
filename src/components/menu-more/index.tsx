@@ -5,7 +5,7 @@ import '../../shared/global.css'
 
 import { MoreDotsVertical } from './../../shared/icons'
 
-import { ButtonMore, MenuCustom, MenuItemCustom, TextOption, IconOption } from './menuMoreStyles'
+import { ButtonMore, MenuCustom, MenuItemCustom, TextOption, IconOption, ButtonMenuNotification } from './menuMoreStyles'
 import { IMenuMore } from './menuMore'
 import { Box } from '@mui/material'
 
@@ -45,7 +45,6 @@ export default function MenuMore({
           aria-haspopup="true"
           aria-expanded={open ? 'true' : undefined}
           onClick={handleClick}
-          isHover={isHover}
         >
           {iconButton ? iconButton : <MoreDotsVertical fill="#444" />}
         </ButtonMore>
@@ -62,9 +61,18 @@ export default function MenuMore({
             isDarkMode={isDarkMode}
           >
             {listOptions.map((itemOption, index) => {
+              console.log("options ",itemOption)
               return (
                 <Box key={index}>
-                  <MenuItemCustom
+                  <ButtonMenuNotification onClick={() => {
+                      itemOption?.onClick()
+                      closeAfterClick && handleClose()
+                    }}
+                    isColor={itemOption?.color}
+                    >
+                  {itemOption?.description}
+                  </ButtonMenuNotification>
+                  {/* <MenuItemCustom
                     isPaddingInMenu={isPaddingInMenu}
                     isDarkMode={isDarkMode}
                     onClick={() => {
@@ -84,7 +92,7 @@ export default function MenuMore({
                     <TextOption style={!itemOption?.startIcon ? { marginLeft: '0px !important' } : {}}>
                       {itemOption?.description}
                     </TextOption>
-                  </MenuItemCustom>
+                  </MenuItemCustom> */}
                 </Box>
               )
             })}

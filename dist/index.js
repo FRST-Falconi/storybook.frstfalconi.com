@@ -5188,32 +5188,29 @@ styled__default["default"].p `
   font-size: 16px;
 `;
 const ButtonMore$1 = styled__default["default"](Button__default["default"]) `
-    width: 30px !important;
-    min-width: 30px !important;
-    max-width: 30px !important;
-    height: 30px !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    display: flex !important;
-    justify-content: center !important;
-    border-radius: 12px !important;
-    background-color: transparent !important;
-    ${({ isHover }) => isHover && `&:hover {
-      background-color: #FFF9 !important;
-  }`};
+  width: 30px !important;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  height: 30px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  display: flex !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  background-color: transparent !important;
 `;
 const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
-margin-top: ${({ isArrowInMenu }) => isArrowInMenu ? '8px' : '15px'};
-margin-left: 30px;
-overflow: hidden;
-border-radius: 8px;
+  margin-top: ${({ isArrowInMenu }) => (isArrowInMenu ? '8px' : '15px')};
+  margin-left: 30px;
+  overflow: hidden;
+  border-radius: 8px;
 
   & .MuiPaper-root {
-  border-radius: 8px !important;
-  box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-  overflow: visible;
-  background: #00000000;
-   ${({ isArrowInMenu }) => isArrowInMenu &&
+    border-radius: 8px !important;
+    box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    overflow: visible;
+    background: #00000000;
+    ${({ isArrowInMenu }) => isArrowInMenu &&
     `&:before {
     content: "";
     position: absolute;
@@ -5235,65 +5232,83 @@ border-radius: 8px;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
 
-  }`} 
-}
+  }`}
+  }
   ul {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f !important;' : '#EBEBEB !important;'}!important;
-  border-radius: 8px!important;
-  overflow: hidden;
-  background:${({ isDarkMode }) => isDarkMode ? '#1f1f1f !important;' : '#FFF !important;'};
-  min-width: 160px;
-  width: auto;
-  &:hover {
-    background:${({ isDarkMode }) => isDarkMode ? '#525252 !important;' : '#FFF !important;'};
-    border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#525252 !important;' : '#EBEBEB !important;'} !important;
-  }
-  li {
-    ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px; !important;`}
-  }
-}
-`;
-const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
-  background-color: ${({ theme, isDarkMode }) => isDarkMode ? `#1f1f1f !important;` : theme.colors.shadeWhite} !important;
-  ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-right: 45px !important;`}
-  margin: 1px!important;
-  transition: none!important;
-  animation: none!important;
-    &:hover {
-    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#F7F9FC !important;`};
-  }
-    &:active {
-    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#FCF3EB !important;`};
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px solid ${({ isDarkMode }) => (isDarkMode ? '#1f1f1f !important;' : '#EBEBEB !important;')}!important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    background: ${({ isDarkMode }) => (isDarkMode ? '#1f1f1f !important;' : '#FFF !important;')};
+    min-width: 160px;
+    width: auto;
+    /* &:hover {
+    background:${({ isDarkMode }) => (isDarkMode ? '#525252 !important;' : '#FFF !important;')};
+    border: 1px solid ${({ isDarkMode }) => (isDarkMode ? '#525252 !important;' : '#EBEBEB !important;')} !important;
+  } */
+    li {
+      ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px; !important;`}
+    }
   }
 `;
 styled__default["default"](MenuItem__default["default"]) `
-color: white!important;
-background-color: #F5792A!important;
-
-display: flex;
-flex-direction: row;
+  background-color: ${({ theme, isDarkMode }) => isDarkMode ? `#1f1f1f !important;` : theme.colors.shadeWhite} !important;
+  ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-right: 45px !important;`}
+  margin: 1px!important;
+  transition: none !important;
+  animation: none !important;
   &:hover {
-  background-color: #FD9350!important;
-}
+    background-color: ${({ isDarkMode }) => (isDarkMode ? `#525252 !important;` : `#F7F9FC !important;`)};
+  }
+  &:active {
+    background-color: ${({ isDarkMode }) => (isDarkMode ? `#525252 !important;` : `#FCF3EB !important;`)};
+  }
 `;
-const TextOption$1 = styled__default["default"].div `
-margin-left: 10px;
-padding-top: 1px;
-font-family: 'PT Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 17.6px;
+styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+  background-color: #f5792a !important;
+
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    background-color: #fd9350 !important;
+  }
 `;
-const IconOption = styled__default["default"].div `
-width: 20px;
-height: 30px;
-display: flex;
-align-items: center;
-justify-content: center;
+styled__default["default"].div `
+  margin-left: 10px;
+  padding-top: 1px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17.6px;
+`;
+styled__default["default"].div `
+  width: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const ButtonMenuNotification = styled__default["default"].button `
+  width: 100%;
+  text-decoration: none;
+  color: ${({ isColor }) => (isColor ? isColor : `#FFFFF`)};
+  padding: 6px 16px;
+  border: none;
+  background: transparent;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  display: flex;
+  justify-content: start;
+  cursor: pointer;
+  :hover {
+    background-color: rgb(82, 82, 82);
+  }
 `;
 
 function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true, isArrowInMenu = true, isPaddingInMenu = true, isDarkMode = false }) {
@@ -5309,16 +5324,12 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
     const handleClose = () => {
         setAnchorEl(null);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, isHover: isHover, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
-                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, onClick: () => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
+                        console.log("options ", itemOption);
+                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(ButtonMenuNotification, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
-                                }, style: {
-                                    borderBottom: listOptions?.length - 1 == index ? '' : isDarkMode ? '1px solid #525252 !important' : '1px solid #EBEBEB !important',
-                                    color: itemOption?.color ? itemOption?.color : '#222 !important',
-                                    pointerEvents: itemOption?.disabled ? 'none' : 'auto',
-                                    cursor: itemOption?.disabled ? 'default !important' : 'pointer !important'
-                                }, disableRipple: true, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), jsxRuntime.jsx(TextOption$1, { style: !itemOption?.startIcon ? { marginLeft: '0px !important' } : {}, children: itemOption?.description })] }) }, index));
+                                }, isColor: itemOption?.color, children: itemOption?.description }) }, index));
                     }) }))] }) }));
 }
 
