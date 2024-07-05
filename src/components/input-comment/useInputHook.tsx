@@ -141,6 +141,7 @@ export const useInputHook = ({
     onContentUnformat(plainContent)
     addOrDeleteMentionedUser()
   }
+
   const handleInput = (event: React.KeyboardEvent) => {
     const selection = window.getSelection()
     let inputSearch = ''
@@ -162,12 +163,15 @@ export const useInputHook = ({
 
       if (hasSpaceBeForeKey || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
         if (atIndex !== -1) {
-          // Get the characters after the last "@"
           const afterAt = completeText.substring(atIndex)
-          if (afterAt.length > 1 || event.key === '@' || textBeforeCursor === '@') {
-            hasKeyPresent = true
+          if (afterAt.match(/@\s\s+/)) {
+            setShowMention(false)
+          } else {
+            if (afterAt.length > 1 || event.key === '@' || textBeforeCursor === '@') {
+              hasKeyPresent = true
+            }
+            inputSearch = afterAt.replace('@', '')
           }
-          inputSearch = afterAt.replace('@', '')
         } else {
           inputSearch = ''
           setShowMention(false)
