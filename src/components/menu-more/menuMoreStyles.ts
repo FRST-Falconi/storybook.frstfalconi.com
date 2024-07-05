@@ -122,20 +122,20 @@ export const IconOption = styled.div`
   justify-content: center;
 `
 export const ButtonMenuNotification = styled.button<{ isColor:string }>`
-  width: 100%;
-  text-decoration: none;
-  color: ${({ isColor }) => (isColor ? isColor: `#FFFFF`)};
-  padding: 6px 16px;
-  border: none;
-  background: transparent;
-  font-family: 'PT Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  display: flex;
-  justify-content: start;
-  cursor: pointer;
+  width: 100% !important;
+  text-decoration: none !important;
+  color: ${({ isColor }) => (isColor ? isColor: `#FFFFF`)} !important;
+  padding: 6px 16px !important;
+  border: none !important;
+  background: transparent !important;
+  font-family: 'PT Sans' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  display: flex !important;
+  justify-content: start !important;
+  cursor: pointer !important;
   :hover {
-    background-color: rgb(82, 82, 82);
+    background-color: rgb(82, 82, 82) !important;
   }
 `
