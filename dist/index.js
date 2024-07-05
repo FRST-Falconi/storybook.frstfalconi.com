@@ -3989,12 +3989,16 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
             textBeforeKey = completeText.substring(atIndex - 1, atIndex).trim();
             if (hasSpaceBeForeKey || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
                 if (atIndex !== -1) {
-                    // Get the characters after the last "@"
                     const afterAt = completeText.substring(atIndex);
-                    if (afterAt.length > 1 || event.key === '@' || textBeforeCursor === '@') {
-                        hasKeyPresent = true;
+                    if (afterAt.match(/@\s\s+/)) {
+                        setShowMention(false);
                     }
-                    inputSearch = afterAt.replace('@', '');
+                    else {
+                        if (afterAt.length > 1 || event.key === '@' || textBeforeCursor === '@') {
+                            hasKeyPresent = true;
+                        }
+                        inputSearch = afterAt.replace('@', '');
+                    }
                 }
                 else {
                     inputSearch = '';
