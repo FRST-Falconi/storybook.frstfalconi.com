@@ -191,13 +191,12 @@ export const useInputHook = ({
         setShowMention(false)
       }
     }
-    if (
-      (event.key === '@' && hasSpaceBeForeKey && hasKeyPresent) ||
-      (textBeforeCursor === '@' && textBeforeKey.length === 0)
-    ) {
-      setShowMention(true)
+    if ((hasSpaceBeForeKey && hasKeyPresent) || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
       setInputSearch(inputSearch)
       !!onChange && onChange(inputSearch)
+      if (event.key === '@' || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
+        setShowMention(true)
+      }
     }
 
     countChars()
