@@ -8932,7 +8932,7 @@ const Progress = styled__default["default"].span `
 const Tooltip$1 = styled__default["default"].div `
     position: relative;
     display: inline-block;
-    z-index: 999;
+    z-index: 99;
     
     &:after #tooltipinfo {
         content: "";
