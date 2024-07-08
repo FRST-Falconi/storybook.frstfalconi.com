@@ -4007,6 +4007,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                         hasKeyPresent = true;
                     }
                     inputSearch = afterAt.replace('@', '');
+                    setShowMention(false);
                 }
                 else {
                     inputSearch = '';
