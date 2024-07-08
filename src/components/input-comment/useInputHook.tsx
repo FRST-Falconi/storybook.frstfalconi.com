@@ -183,9 +183,9 @@ export const useInputHook = ({
             hasKeyPresent = true
           }
           inputSearch = afterAt.replace('@', '')
-          setShowMention(false)
         } else {
           inputSearch = ''
+          setShowMention(false)
         }
       }
     }
