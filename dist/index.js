@@ -4010,11 +4010,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 }
                 else {
                     inputSearch = '';
-                    setShowMention(false);
                 }
-            }
-            else {
-                setShowMention(false);
             }
         }
         if ((hasSpaceBeForeKey && hasKeyPresent) || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {

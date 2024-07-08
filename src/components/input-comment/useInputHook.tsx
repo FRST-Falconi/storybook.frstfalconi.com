@@ -185,10 +185,7 @@ export const useInputHook = ({
           inputSearch = afterAt.replace('@', '')
         } else {
           inputSearch = ''
-          setShowMention(false)
         }
-      } else {
-        setShowMention(false)
       }
     }
     if ((hasSpaceBeForeKey && hasKeyPresent) || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
