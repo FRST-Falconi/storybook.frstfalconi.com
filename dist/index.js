@@ -4016,15 +4016,13 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                     setShowMention(false);
                 }
             }
-            else {
-                setShowMention(false);
-            }
         }
-        if ((event.key === '@' && hasSpaceBeForeKey && hasKeyPresent) ||
-            (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
-            setShowMention(true);
+        if ((hasSpaceBeForeKey && hasKeyPresent) || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
             setInputSearch(inputSearch);
             !!onChange && onChange(inputSearch);
+            if (event.key === '@' || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
+                setShowMention(true);
+            }
         }
         countChars();
         createFormatAndTextContentToSaveComment();
@@ -8938,7 +8936,7 @@ const Progress = styled__default["default"].span `
 const Tooltip$1 = styled__default["default"].div `
     position: relative;
     display: inline-block;
-    z-index: 999;
+    z-index: 99;
     
     &:after #tooltipinfo {
         content: "";
@@ -20995,7 +20993,7 @@ const WrapperExpandButton = styled__default["default"].div `
   transform: ${({ isExpanded }) => (isExpanded ? 'rotate(180deg)' : 'rotate(0deg)')} ;
 `;
 
-function TableBody({ data, expandedRows, handleExpandClick, columns }) {
+function TableBody$1({ data, expandedRows, handleExpandClick, columns }) {
     return (jsxRuntime.jsx("tbody", { children: data.map((row, index) => (jsxRuntime.jsxs(React.Fragment, { children: [jsxRuntime.jsx(TableRow, { row: row, index: index, columns: columns, handleExpandClick: handleExpandClick, isExpanded: !!expandedRows?.[row?.id] }), jsxRuntime.jsx(ExpandableRow, { index: index, row: row, columns: columns, isExpanded: !!expandedRows?.[row?.id] })] }, row.id))) }));
 }
 function TableRow({ row, index, handleExpandClick, isExpanded, columns }) {
@@ -21016,7 +21014,136 @@ function Table({ columns, data, isLoading, lengthElSkeleton = 5 }) {
             [id]: !prev[id]
         }));
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerTable, { children: isLoading ? (jsxRuntime.jsxs(WrapperLoading, { children: [jsxRuntime.jsx(SkeletonHeader, { variant: "rectangular" }), Array.from({ length: lengthElSkeleton }).map((_, index) => (jsxRuntime.jsx(SkeletonRow, { variant: "rectangular", isAlter: index % 2 === 0 }, index)))] })) : (jsxRuntime.jsx(WrapperTable, { children: jsxRuntime.jsxs(TableHtml, { children: [jsxRuntime.jsx(TableHead, { columns: columns }), jsxRuntime.jsx(TableBody, { columns: columns, data: data, expandedRows: expandedRows, handleExpandClick: handleExpandClick })] }) })) }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerTable, { children: isLoading ? (jsxRuntime.jsxs(WrapperLoading, { children: [jsxRuntime.jsx(SkeletonHeader, { variant: "rectangular" }), Array.from({ length: lengthElSkeleton }).map((_, index) => (jsxRuntime.jsx(SkeletonRow, { variant: "rectangular", isAlter: index % 2 === 0 }, index)))] })) : (jsxRuntime.jsx(WrapperTable, { children: jsxRuntime.jsxs(TableHtml, { children: [jsxRuntime.jsx(TableHead, { columns: columns }), jsxRuntime.jsx(TableBody$1, { columns: columns, data: data, expandedRows: expandedRows, handleExpandClick: handleExpandClick })] }) })) }) }));
+}
+
+const WrapperCollaboratorAvatar = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+function CollaboratorAvatar({ src, onPressAvatar, uuid }) {
+    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: onPressAvatar && uuid ? () => onPressAvatar(uuid) : null, isActiveClick: !!(onPressAvatar && uuid) }) }));
+}
+
+const WrapperDateLimit = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-family: PT Sans;
+  font-size: 16px;
+  line-height: 17.6px;
+  text-align: center;
+  
+  ${({ status }) => {
+    if (status == 'completed')
+        return `font-weight: 700; color: #1BA853; `;
+    else if (status == 'not_completed')
+        return `font-weight: 700; color: #A50000;`;
+    else if (status == 'in_progress')
+        return `font-weight: 400; color: #222222;`;
+    else if (status == 'deprioritized')
+        return `font-weight: 400; color: #9C9C9C;`;
+    else
+        return `font-weight: 400; color: #222222;`;
+}}
+`;
+
+function DateLimit({ date, status }) {
+    return jsxRuntime.jsx(WrapperDateLimit, { status: status, children: date });
+}
+
+const ContainerTag = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const WrapperTag = styled__default["default"].div `
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 150px;
+  height: 26px;
+  padding: 4px 12px 4px 8px;
+  gap: 8px;
+  border-radius: 30px;
+  white-space: nowrap;
+  min-width: fit-content;
+  
+  ${({ status }) => {
+    if (status == 'completed')
+        return `background-color: #B9E7B8; `;
+    else if (status == 'not_completed')
+        return `background-color: #F2B0B0;`;
+    else if (status == 'in_progress')
+        return `background-color: #FAE28D;`;
+    else if (status == 'deprioritized')
+        return `background-color: #D8D8D8;`;
+    else
+        return `background-color: #FAE28D;`;
+}}
+`;
+const CicleTag = styled__default["default"].div `
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+    
+  ${({ status }) => {
+    if (status == 'completed')
+        return `background-color: #1BA853; `;
+    else if (status == 'not_completed')
+        return `background-color: #A50000;`;
+    else if (status == 'in_progress')
+        return `background-color: #FDAE15;`;
+    else if (status == 'deprioritized')
+        return `background-color: #222222;`;
+    else
+        return `background-color: #FDAE15;`;
+}}
+`;
+
+function TableBody({ status, label }) {
+    return (jsxRuntime.jsx(ContainerTag, { children: jsxRuntime.jsxs(WrapperTag, { status: status, children: [jsxRuntime.jsx(CicleTag, { status: status }), label] }) }));
+}
+
+function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressAvatar, labelStatus }) {
+    const [adaptedColumns, setAdaptedColumns] = React.useState([]);
+    const [adaptedData, setAdaptedData] = React.useState([]);
+    React.useEffect(() => {
+        const newColumns = columns.map((column, index) => {
+            let width = '20%';
+            let align = 'center';
+            if (index === 0) {
+                width = '15%';
+            }
+            if (index === 1) {
+                width = '45%';
+                align = 'left';
+            }
+            return { title: column, width: width, align: align };
+        });
+        setAdaptedColumns(newColumns);
+    }, [columns]);
+    React.useEffect(() => {
+        const newData = data.map((item) => ({
+            id: item.id,
+            value: [
+                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id }),
+                item.value[1],
+                jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),
+                jsxRuntime.jsx(TableBody, { status: item?.value?.[3], label: labelStatus?.[item?.value?.[3]] })
+            ],
+            showButtonExpanded: item.showButtonExpanded,
+            children: item.children
+        }));
+        setAdaptedData(newData);
+    }, [data]);
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton }) }));
 }
 
 exports.AccordionList = AccordionList$2;
@@ -21177,6 +21304,7 @@ exports.Steps = Steps;
 exports.StepsMission = MissionSteps;
 exports.StepsProgress = StepsProgress;
 exports.Table = Table;
+exports.TableActions = TableActions;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;
