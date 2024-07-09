@@ -4010,6 +4010,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                 }
                 else {
                     inputSearch = '';
+                    setShowMention(false);
                 }
             }
         }
