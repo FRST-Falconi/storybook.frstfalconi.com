@@ -3499,6 +3499,27 @@ function ButtonGroup({ children, active }) {
         })) }));
 }
 
+const HelperTextBox$1 = styled__default["default"].div `
+width: 100%;
+height: fit-content;
+padding: 1rem;
+border-radius: 8px;
+border: 1px;
+background: #FEF0D080;
+border: 1px solid #FDAE15;
+display: flex;
+font-weight: 400;
+font-size: 16px;
+align-items: center;
+svg{
+  margin-right: 0.5rem;
+}
+`;
+
+function HelperTextBox({ helperTextBox }) {
+    return (jsxRuntime.jsxs(HelperTextBox$1, { children: [jsxRuntime.jsx(LampHelpBoxInput, {}), helperTextBox] }));
+}
+
 const placeholderStyle = (color) => styled.css `
     ::-webkit-input-placeholder {
         color: ${({ theme }) => theme.colors[color]};
@@ -3676,22 +3697,6 @@ const HelperText$3 = styled__default["default"].span `
       color: ${({ theme }) => theme.colors.messageError1};
     `}
 `;
-const HelperTextBox = styled__default["default"].div `
-width: 100%;
-height: fit-content;
-padding: 1rem;
-border-radius: 8px;
-border: 1px;
-background: #FEF0D080;
-border: 1px solid #FDAE15;
-display: flex;
-font-weight: 400;
-font-size: 16px;
-align-items: center;
-svg{
-  margin-right: 0.5rem;
-}
-`;
 const InputIconButton = styled__default["default"].button `
   display: flex;
   justify-content: center;
@@ -3732,7 +3737,7 @@ function TextField(props) {
             setClick(false);
         }, 1000);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { ref: props.textRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsxs(HelperTextBox, { children: [jsxRuntime.jsx(LampHelpBoxInput, {}), props.helperTextBox] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { ref: props.textRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsx(HelperTextBox, { helperTextBox: props.helperTextBox })] }) }));
 }
 
 function Textarea(props) {
@@ -20945,6 +20950,7 @@ exports.HeaderChallenge = HeaderChallenge;
 exports.HeaderContent = HeaderContent;
 exports.HeaderImprovementIdea = HeaderImprovementIdea;
 exports.HeaderUser = HeaderUser;
+exports.HelperTextBox = HelperTextBox;
 exports.HomeFilledIcon = HomeFilledIcon;
 exports.HomeLineIcon = HomeLineIcon;
 exports.HypothesisComponent = HypothesisComponent;
