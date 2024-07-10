@@ -213,4 +213,7 @@ export { default as ScrollContainerV2 } from './src/components/DS/scroll-contain
 export { default as FiltroGaleriaDesafios } from './src/components/filtro-galeria-desafio'
 export { default as DropdownMultiselect } from './src/components/DS/dropdown-Multiselect'
 
-export { default as HelperTextBox} from './src/components/form-elements/helperTextBox/helperTextBox';
+export { default as HelperTextBox } from './src/components/form-elements/helperTextBox/helperTextBox'
+
+export { default as Table } from './src/components/form-elements/table'
+export { default as TableActions } from './src/components/form-elements/table-actions'

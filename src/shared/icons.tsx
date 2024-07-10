@@ -3831,21 +3831,40 @@ export function LampHelpBoxInput({ fill, width, height }: IconsProps) {
   )
 }
 
-
-export  function FaseFinalizada() {
+export function FaseFinalizada() {
   const faseFinalizada = 'https://cdn-images.frstfalconi.cloud/hall/bandeira-finalizado.svg'
   return (
-      <img
-        style={{
-          borderRadius: '50%',
-          height: '95px',
-          width: '97px',
-          border: '4px solid #F18624',
-          display: 'flex',
-          marginTop: '2px'
-        }}
-        src={faseFinalizada}
-        alt="Fase finalizada"
+    <img
+      style={{
+        borderRadius: '50%',
+        height: '95px',
+        width: '97px',
+        border: '4px solid #F18624',
+        display: 'flex',
+        marginTop: '2px'
+      }}
+      src={faseFinalizada}
+      alt="Fase finalizada"
+    />
+  )
+}
+
+export function ArrrowExpandDropdown({ fill, width, height }: IconsProps) {
+  return (
+    <svg
+      width={width ? width : '14'}
+      height={height ? height : '8'}
+      viewBox="0 0 14 8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M1.5 1.33301L6.83333 6.66634L12.1667 1.33301"
+        stroke="#757575"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
+    </svg>
   )
 }
