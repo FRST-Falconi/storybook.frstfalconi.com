@@ -12,6 +12,7 @@ const Template = (args) => <HypothesisComponent {...args} />
 export const Priorizada = Template.bind({})
 export const Levantada = Template.bind({})
 export const Sugerida = Template.bind({})
+export const EditHipotesis = Template.bind({})
 
 Priorizada.args = {
   title: 'HIPÓTESE',
@@ -171,4 +172,51 @@ Sugerida.args = {
   votesPluralText: 'votos',
   deleteVoteText: 'Excluir voto',
   voteText: 'Votar'
+}
+
+EditHipotesis.args = {
+  title: 'HIPÓTESE',
+  type: HypothesisEnum.RAISED,
+  description:
+    "1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with des",
+  id: '2',
+  hasVoteGoal: true,
+  hasEditHipotesis: true,
+  onDeleteHipotesis: () => alert('desafio deletado'),
+  onChangeVote: (e) => alert("trocar voto"),
+  changeVoteText: "Trocar Voto",
+  votes: [
+    {
+      id: 1,
+      user_uuid: '05b7bec61',
+      obj_code: '0fb8e72d1',
+      obj_type: 'hypothese',
+      user: {
+        name: 'Roberto',
+        uuid: '05b7bec61',
+        email: 'teste.teste@gmail.com',
+        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
+      }
+    },
+    {
+      id: 2,
+      user_uuid: '05b7bec62',
+      obj_code: '0fb8e72d2',
+      obj_type: 'hypothese',
+      user: {
+        name: 'Roberto',
+        uuid: '05b7bec62',
+        email: 'teste.teste@gmail.com',
+        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
+      }
+    }
+  ],
+  userLoggedId: '05b7bec61',
+  deleteVoteText: 'Excluir voto',
+  voteText: 'Votar',
+  canVote: true,
+  votesSingularText: 'voto',
+  votesPluralText: 'votos',
+  deleteVote: (id) => alert(`deletei o voto de id ${id}`),
+  onVote: (id) => alert(`votei na hipotese de id: ${id}`)
 }

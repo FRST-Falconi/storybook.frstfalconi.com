@@ -4,6 +4,8 @@ import { Vote } from './types'
 import { ExcludeVoteIcon, VoteCurrentIcon, VoteIcon } from '@public/customIcons'
 import Avatar from '@components/avatar'
 import Loading from '@components/DS/loading'
+import MenuMore from '@components/menu-more'
+import { FowardArrow } from '@shared/icons'
 
 export const HypothesisComponent = ({
   description,
@@ -23,6 +25,8 @@ export const HypothesisComponent = ({
   deleteVoteText,
   handleViewProfile,
   avatar,
+  hasEditHipotesis,
+  onDeleteHipotesis,
   showAvatar,
   authorId,
   hasVoteGoal,
@@ -43,11 +47,13 @@ export const HypothesisComponent = ({
   canViewListVotes?: boolean
   canViewVote?: boolean
   hasVoteGoal?: boolean
+  hasEditHipotesis?: boolean
   votesSingularText?: string
   votesPluralText?: string
   voteText?: string
   deleteVoteText?: string
   avatar?: string
+  onDeleteHipotesis?: () => void
   showAvatar?: boolean
   authorId?: string
   loading?: boolean
@@ -57,6 +63,9 @@ export const HypothesisComponent = ({
   const [isHover, seIsHover] = useState(false)
   const [hasVoteHypothesis, setHasVoteHypothesis] = useState(false)
   const [showVotesList, setShowVotesList] = useState(false)
+  const [isEditing, setIsEditing] = useState(false)
+  const [editDescription, setEditDescription] = useState(description)
+
   const ContainerRef = useRef<HTMLDivElement>(null)
   const [heightContainer, seHeightContainer] = useState(0)
 
@@ -110,6 +119,11 @@ export const HypothesisComponent = ({
     await onChangeVote(hyphoteseId)
   }
 
+  const handleSaveDescription = () => {
+    alert('blur ' + editDescription)
+    setIsEditing(false)
+  }
+
   return (
     <Styles.MainContainer>
       <Styles.Container type={type} id={id} ref={ContainerRef}>
@@ -124,7 +138,28 @@ export const HypothesisComponent = ({
           )}
           <Styles.Title>{title}</Styles.Title>
           <Styles.Separator>|</Styles.Separator>
-          <Styles.Description>{description}</Styles.Description>
+
+          {isEditing ? (
+            <input type="text" value={editDescription} onChange={(e) => setEditDescription(e.target.value)}  onBlur={handleSaveDescription}/>
+          ) : (
+            <Styles.Description>{editDescription}</Styles.Description>
+          )}
+
+          {hasEditHipotesis && (
+            <MenuMore
+              options={[
+                {
+                  description: 'Editar',
+                  onClick: (e) => setIsEditing(true)
+                },
+                {
+                  description: 'Excluir',
+                  onClick: () => onDeleteHipotesis(),
+                  color: '#C00F00'
+                }
+              ]}
+            />
+          )}
         </Styles.SplitContainer>
 
         {loading && (
@@ -195,55 +230,54 @@ export const HypothesisComponent = ({
                   onMouseLeave={() => seIsHover(false)}
                   style={{ cursor: 'pointer' }}
                 >
-                  {
-                    isHover ? (
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '4px',
-                          justifyContent: 'center'
-                        }}
-                      >
-                        {!hasVoteHypothesis ? (
-                          <>
-                            <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
-                            <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
-                          </>
-                        ) : (
-                          <>
-                            <ExcludeVoteIcon width="24" height="24" />
-                            <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
-                          </>
-                        )}
-                      </div>
-                    ) : (
-                      <Styles.VoteCount>
-                        <Styles.VoteContent>
-                          {votes?.slice(0, 2)?.map((vote, index) => {
-                            return (
-                              <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
-                                <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
-                              </Styles.ImageContent>
-                            )
-                          })}
-                          {votes.length > 2 && (
-                            <Styles.ImageContent style={{ background: '#444444' }}>
-                              <p>+{votes?.length - 2}</p>
+                  {isHover ? (
+                    <div
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '4px',
+                        justifyContent: 'center'
+                      }}
+                    >
+                      {!hasVoteHypothesis ? (
+                        <>
+                          <VoteCurrentIcon width="24" height="24" style={{ marginLeft: '4px', marginRight: '4px' }} />
+                          <Styles.VoteButton>{changeVoteText}</Styles.VoteButton>
+                        </>
+                      ) : (
+                        <>
+                          <ExcludeVoteIcon width="24" height="24" />
+                          <Styles.VoteButton>{deleteVoteText}</Styles.VoteButton>
+                        </>
+                      )}
+                    </div>
+                  ) : (
+                    <Styles.VoteCount>
+                      <Styles.VoteContent>
+                        {votes?.slice(0, 2)?.map((vote, index) => {
+                          return (
+                            <Styles.ImageContent key={vote?.id} style={{ zIndex: 14 - index }}>
+                              <img src={vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg'} />
                             </Styles.ImageContent>
-                          )}
-                        </Styles.VoteContent>
-                        <p>
-                          {votes?.length} {votes?.length > 1 ? votesPluralText : votesSingularText}
-                        </p>
-                      </Styles.VoteCount>
-                    )
-                  }
+                          )
+                        })}
+                        {votes.length > 2 && (
+                          <Styles.ImageContent style={{ background: '#444444' }}>
+                            <p>+{votes?.length - 2}</p>
+                          </Styles.ImageContent>
+                        )}
+                      </Styles.VoteContent>
+                      <p>
+                        {votes?.length} {votes?.length > 1 ? votesPluralText : votesSingularText}
+                      </p>
+                    </Styles.VoteCount>
+                  )}
                 </Styles.VoteButtonContainer>
               </Styles.SplitContainer>
             ) : (
               canVote &&
-              !hasVoteHypothesis && hasVoteGoal && (
+              !hasVoteHypothesis &&
+              hasVoteGoal && (
                 <Styles.SplitContainer onClick={() => handleChangeVote(id)}>
                   <Styles.VoteButtonContainer
                     type={type}
