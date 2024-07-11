@@ -377,7 +377,9 @@ export const HypothesisComponent = ({
                 setIsConfirmeDeleteHypothesis(false)
               }}
             >
-              <p style={{marginTop:'16px'}}>Tem certeza que deseja excluir essa hipótese cadastrada?</p>
+              <p style={{ marginTop: '16px', fontFamily: 'PT Sans', fontWeight: 400 }}>
+                Tem certeza que deseja excluir essa hipótese cadastrada?
+              </p>
             </ModalConfirme>
           </>
         )}
