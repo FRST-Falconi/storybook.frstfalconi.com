@@ -1,4 +1,4 @@
-import { ICollaboratorAvatar } from './CollaboratorAvatar'
+import { ICollaboratorAvatar } from './collaborator-Avatar'
 import { WrapperCollaboratorAvatar } from './collaboratorAvatarStyle'
 import Avatar from '@components/avatar'
 

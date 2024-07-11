@@ -12,6 +12,7 @@ const Template = (args) => <HypothesisComponent {...args} />
 export const Priorizada = Template.bind({})
 export const Levantada = Template.bind({})
 export const Sugerida = Template.bind({})
+export const EditHipotesis = Template.bind({})
 
 Priorizada.args = {
   title: 'HIPÓTESE',
@@ -171,4 +172,52 @@ Sugerida.args = {
   votesPluralText: 'votos',
   deleteVoteText: 'Excluir voto',
   voteText: 'Votar'
+}
+
+EditHipotesis.args = {
+  title: 'HIPÓTESE',
+  type: HypothesisEnum.RAISED,
+  description:
+    "O que temos que ter sempre em mente é que a consolidação das infraestruturas oferece uma interessante oportunidade para verificação das formas de ação. No entanto, não podemos esquecer que a lei de Moore assume importantes níveis de uptime da utilização dos serviços nas nuvens. Assim mesmo, o índice de utilização do sistema garante a integridade dos dados envolvidos dos métodos utilizados para localização e correção dos erros. Nunca é demais lembrar o impacto destas possíveis vulnerabilidades, uma vez que a complexidade computacional inviabiliza a implantação da autenticidade das informações.",
+  id: '2',
+  hasVoteGoal: true,
+  hasEditHipotesis: true,
+  onSaveEditHipotesis: () => alert('editado'),
+  onDeleteHipotesis: () => alert('desafio deletado'),
+  onChangeVote: (e) => alert("trocar voto"),
+  changeVoteText: "Trocar Voto",
+  votes: [
+    {
+      id: 1,
+      user_uuid: '05b7bec61',
+      obj_code: '0fb8e72d1',
+      obj_type: 'hypothese',
+      user: {
+        name: 'Roberto',
+        uuid: '05b7bec61',
+        email: 'teste.teste@gmail.com',
+        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
+      }
+    },
+    {
+      id: 2,
+      user_uuid: '05b7bec62',
+      obj_code: '0fb8e72d2',
+      obj_type: 'hypothese',
+      user: {
+        name: 'Roberto',
+        uuid: '05b7bec62',
+        email: 'teste.teste@gmail.com',
+        avatar: 'https://img.freepik.com/fotos-gratis/mulher-moderna-tomando-uma-selfie_23-2147893976.jpg?w=2000'
+      }
+    }
+  ],
+  userLoggedId: '05b7bec61',
+  deleteVoteText: 'Excluir voto',
+  voteText: 'Votar',
+  canVote: true,
+  votesSingularText: 'voto',
+  votesPluralText: 'votos',
+  deleteVote: (id) => alert(`deletei o voto de id ${id}`),
+  onVote: (id) => alert(`votei na hipotese de id: ${id}`)
 }
