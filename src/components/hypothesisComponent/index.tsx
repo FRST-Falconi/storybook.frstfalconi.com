@@ -5,7 +5,7 @@ import { ExcludeVoteIcon, VoteCurrentIcon, VoteIcon } from '@public/customIcons'
 import Avatar from '@components/avatar'
 import Loading from '@components/DS/loading'
 import MenuMore from '@components/menu-more'
-import { FowardArrow } from '@shared/icons'
+import { ModalConfirme } from '@components/ModalConfirme'
 
 export const HypothesisComponent = ({
   description,
@@ -32,7 +32,8 @@ export const HypothesisComponent = ({
   hasVoteGoal,
   loading,
   onChangeVote,
-  changeVoteText
+  changeVoteText,
+  onSaveEditHipotesis
 }: {
   description: string
   type: string
@@ -59,12 +60,14 @@ export const HypothesisComponent = ({
   loading?: boolean
   onChangeVote?: (hypothesiId: string) => any
   changeVoteText?: string
+  onSaveEditHipotesis?: (description: string) => void
 }) => {
   const [isHover, seIsHover] = useState(false)
   const [hasVoteHypothesis, setHasVoteHypothesis] = useState(false)
   const [showVotesList, setShowVotesList] = useState(false)
   const [isEditing, setIsEditing] = useState(false)
   const [editDescription, setEditDescription] = useState(description)
+  const [isConfirmeDeleteHypothesis, setIsConfirmeDeleteHypothesis] = useState(false)
 
   const ContainerRef = useRef<HTMLDivElement>(null)
   const [heightContainer, seHeightContainer] = useState(0)
@@ -120,14 +123,14 @@ export const HypothesisComponent = ({
   }
 
   const handleSaveDescription = () => {
-    alert('blur ' + editDescription)
+    onSaveEditHipotesis(editDescription)
     setIsEditing(false)
   }
 
   return (
     <Styles.MainContainer>
       <Styles.Container type={type} id={id} ref={ContainerRef}>
-        <Styles.SplitContainer>
+        <Styles.SplitContainerDescription>
           {showAvatar && (
             <Avatar
               src={avatar}
@@ -139,12 +142,22 @@ export const HypothesisComponent = ({
           <Styles.Title>{title}</Styles.Title>
           <Styles.Separator>|</Styles.Separator>
 
-          {isEditing ? (
-            <input type="text" value={editDescription} onChange={(e) => setEditDescription(e.target.value)}  onBlur={handleSaveDescription}/>
-          ) : (
-            <Styles.Description>{editDescription}</Styles.Description>
-          )}
-
+          <Styles.Description>
+            {isEditing ? (
+              <span style={{ display: 'flex', width: '100%' }}>
+                <div
+                  contentEditable
+                  style={{ width: '100%', background: 'white' }}
+                  onInput={(e) => setEditDescription(e.currentTarget.textContent)}
+                  onBlur={handleSaveDescription}
+                >
+                  {description}
+                </div>
+              </span>
+            ) : (
+              <span>{editDescription}</span>
+            )}
+          </Styles.Description>
           {hasEditHipotesis && (
             <MenuMore
               options={[
@@ -154,13 +167,13 @@ export const HypothesisComponent = ({
                 },
                 {
                   description: 'Excluir',
-                  onClick: () => onDeleteHipotesis(),
+                  onClick: () => setIsConfirmeDeleteHypothesis(true),
                   color: '#C00F00'
                 }
               ]}
             />
           )}
-        </Styles.SplitContainer>
+        </Styles.SplitContainerDescription>
 
         {loading && (
           <Styles.SplitContainer>
@@ -353,6 +366,19 @@ export const HypothesisComponent = ({
                 </Styles.SplitContainer>
               )
             )}
+            <ModalConfirme
+              title="Excluir hipótese"
+              open={isConfirmeDeleteHypothesis}
+              onClose={() => {
+                setIsConfirmeDeleteHypothesis(false)
+              }}
+              onConfirm={() => {
+                onDeleteHipotesis()
+                setIsConfirmeDeleteHypothesis(false)
+              }}
+            >
+              <p style={{marginTop:'16px'}}>Tem certeza que deseja excluir essa hipótese cadastrada?</p>
+            </ModalConfirme>
           </>
         )}
       </Styles.Container>

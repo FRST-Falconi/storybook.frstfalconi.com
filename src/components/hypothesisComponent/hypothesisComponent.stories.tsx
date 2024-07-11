@@ -178,10 +178,11 @@ EditHipotesis.args = {
   title: 'HIPÓTESE',
   type: HypothesisEnum.RAISED,
   description:
-    "1 is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with des",
+    "O que temos que ter sempre em mente é que a consolidação das infraestruturas oferece uma interessante oportunidade para verificação das formas de ação. No entanto, não podemos esquecer que a lei de Moore assume importantes níveis de uptime da utilização dos serviços nas nuvens. Assim mesmo, o índice de utilização do sistema garante a integridade dos dados envolvidos dos métodos utilizados para localização e correção dos erros. Nunca é demais lembrar o impacto destas possíveis vulnerabilidades, uma vez que a complexidade computacional inviabiliza a implantação da autenticidade das informações.",
   id: '2',
   hasVoteGoal: true,
   hasEditHipotesis: true,
+  onSaveEditHipotesis: () => alert('editado'),
   onDeleteHipotesis: () => alert('desafio deletado'),
   onChangeVote: (e) => alert("trocar voto"),
   changeVoteText: "Trocar Voto",
