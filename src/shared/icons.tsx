@@ -3875,8 +3875,8 @@ export function StarRatingRondedTips({ fill, width, height, fillOpacity, stroke,
   return (
     <>
       <svg
-        width={width ? width : '28'}
-        height={height ? height : '26'}
+        width={width ? width : '30'}
+        height={height ? height : '28'}
         viewBox="0 0 28 26"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -117,8 +117,8 @@ function StarRatingComponent({
           />
         ) : (
           <StarRatingRondedTips
-            width={sizeStars ? sizeStars : 34}
-            height={sizeStars ? sizeStars : 32}
+            width={sizeStars ? sizeStars : 30}
+            height={sizeStars ? sizeStars : 28}
             stroke={isEmpty && !active ? '#BDBDBD' : 'transparent'}
             strokeWidth={isEmpty && !active ? '1' : '0'}
             fill={getColorStarSecondary()}
