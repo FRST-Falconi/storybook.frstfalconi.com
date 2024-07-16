@@ -1,97 +1,131 @@
 import { useEffect, useState } from 'react'
-import { StarRating } from '@shared/icons'
+import { StarRating, StarRatingRondedTips } from '@shared/icons'
 import { WrapperStars, Raiting } from './ratingStyles'
 import { IRating } from './rating'
 
 /**
- * @componente 
+ * @componente
  */
-export default function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }: IRating) {
-  const [ tempRating, setTempRating ] = useState(rating+1)
-  const [ hoverRaiting, setHoverRaiting ] = useState(-1)
-
-  
+export default function Rating({
+  variant = 'primary',
+  rating,
+  isVisibleNumberRating,
+  qtdStars,
+  marginStars,
+  handleRating,
+  sizeStars,
+  orientation,
+  disabled
+}: IRating) {
+  const [tempRating, setTempRating] = useState(rating + 1)
+  const [hoverRaiting, setHoverRaiting] = useState(-1)
 
   const rederStars = () => {
-    var groupStars = [];
-    let temRating = tempRating;
+    var groupStars = []
+    let temRating = tempRating
 
     const handleClick = (e) => {
-      if(!disabled) handleRating(e)
+      if (!disabled) handleRating(e)
     }
 
     const getStatusActive = (id) => {
-      if(id < hoverRaiting) return true; 
-      else if(hoverRaiting != -1) return false
-      else if(id < rating) return true;
+      if (id < hoverRaiting) return true
+      else if (hoverRaiting != -1) return false
+      else if (id < rating) return true
     }
 
     for (var i = 0; i < qtdStars; i++) {
       groupStars.push(
-        <StarRatingComponent 
+        <StarRatingComponent
           key={i}
-          id={i+1}
-          active={getStatusActive(i)} 
-          setOnHover={setHoverRaiting} 
-          handleClick={handleClick} 
+          variant={variant}
+          isEmpty={rating <= 0}
+          id={i + 1}
+          active={getStatusActive(i)}
+          setOnHover={setHoverRaiting}
+          handleClick={handleClick}
           sizeStars={sizeStars}
           marginStars={marginStars}
           disabled={disabled}
-        />);
-      temRating--;
+        />
+      )
+      temRating--
     }
-    return groupStars;
+    return groupStars
   }
 
   return (
     <WrapperStars orientation={orientation}>
       {rederStars()}
-      {isVisibleNumberRating && <Raiting>{(rating).toFixed(1)}</Raiting>}
+      {isVisibleNumberRating && <Raiting>{rating.toFixed(1)}</Raiting>}
     </WrapperStars>
   )
 }
 
-function StarRatingComponent({id, active, handleClick, sizeStars, marginStars, setOnHover, disabled}) {
-  const [ actionArea, setActionArea ] = useState(false);
+function StarRatingComponent({
+  id,
+  variant,
+  isEmpty,
+  active,
+  handleClick,
+  sizeStars,
+  marginStars,
+  setOnHover,
+  disabled
+}) {
+  const [actionArea, setActionArea] = useState(false)
 
-  const getSizeStar = () => {
+  const getSizeStar = () => {}
 
+  const getColorStarPrimary = () => {
+    if (active) return '#FFC200'
+    else return '#757575'
   }
 
-  const getColorStar = () => {
-    if(active)
-      return '#FFC200'
-    else 
-      return '#757575'
+  const getColorStarSecondary = () => {
+    if (isEmpty && !active) return 'transparent'
+    if (active) return '#FDD836'
+    else return '#BDBDBD'
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     setTimeout(() => {
-    if(actionArea)
-      setOnHover(id)
-    else
-      setOnHover(-1)
-  }, 150)
-  }, [actionArea]);
+      if (actionArea) setOnHover(id)
+      else setOnHover(-1)
+    }, 150)
+  }, [actionArea])
 
-  return <>
-    <div 
-      onMouseOver={() => setActionArea(true && !disabled)}
-      onMouseOut={() => setActionArea(false && !disabled)}
-      onClick={() => handleClick(id)}
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: marginStars ? marginStars : '3.5px' 
-      }}
-    >
-      <StarRating 
-        width={sizeStars ? sizeStars : 30}
-        height={sizeStars ? sizeStars : 29}
-        fill={getColorStar()}
-        fillOpacity={disabled ? '0.6' : '1'}
-      />
-    </div>
-  </>
+  return (
+    <>
+      <div
+        onMouseOver={() => setActionArea(true && !disabled)}
+        onMouseOut={() => setActionArea(false && !disabled)}
+        onClick={() => handleClick(id)}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: marginStars ? marginStars : '3.5px'
+        }}
+      >
+        {variant == 'primary' ? (
+          <StarRating
+            width={sizeStars ? sizeStars : 30}
+            height={sizeStars ? sizeStars : 29}
+            fill={getColorStarPrimary()}
+            fillOpacity={disabled ? '0.6' : '1'}
+          />
+        ) : (
+          <StarRatingRondedTips
+            width={sizeStars ? sizeStars : 34}
+            height={sizeStars ? sizeStars : 32}
+            stroke={isEmpty && !active ? '#BDBDBD' : 'transparent'}
+            strokeWidth={isEmpty && !active ? '1' : '0'}
+            fill={getColorStarSecondary()}
+            fillOpacity={disabled ? '0.6' : '1'}
+          />
+        )}
+      </div>
+    </>
+  )
 }
