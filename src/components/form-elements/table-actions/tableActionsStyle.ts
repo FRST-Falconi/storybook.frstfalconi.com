@@ -62,5 +62,49 @@ export const ButtonActionInbox = styled.div`
   color: ${({ theme }) => theme.colors.shadeWhite};
 
   cursor: pointer;
+`
 
+export const WrapperEmptyState = styled.div<{ variant }>`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 8px;
+  min-height: fit-content;
+  background-color: ${({ variant, theme }) => variant == 'button' ? '#BEDCDC' : theme?.colors.shadeWhite};
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: min-height 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+`
+
+export const WrapperEmptyStateCaseButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 40px;
+  padding-left: 15%;              
+`
+
+export const WrapperButtonEmpty = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 15%;
+`
+
+export const ButtonEmpty = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+  width: 150px;
+  background-color: #E0AF00;
+  cursor: pointer;
+  border-radius: 12px;
+  white-space: nowrap;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 2px;
 `

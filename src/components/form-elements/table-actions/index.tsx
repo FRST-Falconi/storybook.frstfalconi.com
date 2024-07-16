@@ -5,7 +5,13 @@ import { ITableActions } from './tableActions'
 import { useEffect, useState } from 'react'
 import Table from '../table'
 import { CollaboratorAvatar, DateLimit, TagStatus } from './parts'
-import { ButtonActionInbox } from './tableActionsStyle'
+import {
+  ButtonActionInbox,
+  WrapperEmptyState,
+  WrapperEmptyStateCaseButton,
+  WrapperButtonEmpty,
+  ButtonEmpty
+} from './tableActionsStyle'
 import { BallonChatgRondedTips } from '@shared/icons'
 
 export default function TableActions({
@@ -16,7 +22,8 @@ export default function TableActions({
   onPressAvatar,
   labelStatus,
   labelTextVisitProfile,
-  labelTextMessage
+  labelTextMessage,
+  emptyStateCreateAction
 }: ITableActions) {
   const [adaptedColumns, setAdaptedColumns] = useState([])
   const [adaptedData, setAdaptedData] = useState([])
@@ -64,9 +71,36 @@ export default function TableActions({
     setAdaptedData(newData)
   }, [data])
 
+  const customStyleBorderTable =
+    emptyStateCreateAction?.mode == 'button' || emptyStateCreateAction?.mode == 'children'
+      ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
+      : {}
+
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <Table columns={adaptedColumns} data={adaptedData} isLoading={isLoading} lengthElSkeleton={lengthElSkeleton} />
+      <Table
+        columns={adaptedColumns}
+        data={adaptedData}
+        isLoading={isLoading}
+        lengthElSkeleton={lengthElSkeleton}
+        containerStyles={customStyleBorderTable}
+      />
+      {emptyStateCreateAction?.mode && emptyStateCreateAction?.mode != 'hidden' && (
+        <WrapperEmptyState variant={emptyStateCreateAction?.mode}>
+          {emptyStateCreateAction?.mode == 'button' && (
+            <WrapperEmptyStateCaseButton>
+              <div>{emptyStateCreateAction?.labelAction}</div>
+              <WrapperButtonEmpty>
+                <ButtonEmpty onClick={() => emptyStateCreateAction?.handleClickButtonCreate?.()}>
+                  {emptyStateCreateAction?.labelButtonCreate}
+                </ButtonEmpty>
+              </WrapperButtonEmpty>
+            </WrapperEmptyStateCaseButton>
+          )}
+
+          {emptyStateCreateAction?.mode == 'children' && <div>{emptyStateCreateAction?.children}</div>}
+        </WrapperEmptyState>
+      )}
     </ThemeProvider>
   )
 }
