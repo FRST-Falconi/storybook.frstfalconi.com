@@ -5,6 +5,14 @@ import { ITableActions } from './tableActions'
 import { useEffect, useState } from 'react'
 import Table from '../table'
 import { CollaboratorAvatar, DateLimit, TagStatus } from './parts'
+import {
+  ButtonActionInbox,
+  WrapperEmptyState,
+  WrapperEmptyStateCaseButton,
+  WrapperButtonEmpty,
+  ButtonEmpty
+} from './tableActionsStyle'
+import { BallonChatgRondedTips } from '@shared/icons'
 
 export default function TableActions({
   columns,
@@ -12,21 +20,21 @@ export default function TableActions({
   isLoading,
   lengthElSkeleton = 3,
   onPressAvatar,
-  labelStatus
+  labelStatus,
+  labelTextVisitProfile,
+  labelTextMessage,
+  emptyStateCreateAction
 }: ITableActions) {
   const [adaptedColumns, setAdaptedColumns] = useState([])
   const [adaptedData, setAdaptedData] = useState([])
 
   useEffect(() => {
     const newColumns = columns.map((column, index) => {
-      let width = '20%'
+      let width = '15%'
       let align = 'center'
 
-      if (index === 0) {
-        width = '15%'
-      }
       if (index === 1) {
-        width = '45%'
+        width = '40%'
         align = 'left'
       }
 
@@ -43,8 +51,16 @@ export default function TableActions({
           src={item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0]}
           onPressAvatar={onPressAvatar}
           uuid={item?.value?.[0]?.id}
+          labelTextVisitProfile={labelTextVisitProfile}
         />,
         item.value[1],
+        item?.actionButtonInbox ? (
+          <ButtonActionInbox onClick={() => item?.actionButtonInbox?.(item?.value?.[0]?.id)}>
+            <BallonChatgRondedTips /> {labelTextMessage ? labelTextMessage : 'Mensagem'}
+          </ButtonActionInbox>
+        ) : (
+          <></>
+        ),
         <DateLimit date={item?.value?.[2]} status={item?.value?.[3]} />,
         <TagStatus status={item?.value?.[3]} label={labelStatus?.[item?.value?.[3]]} />
       ],
@@ -55,9 +71,36 @@ export default function TableActions({
     setAdaptedData(newData)
   }, [data])
 
+  const customStyleBorderTable =
+    emptyStateCreateAction?.mode == 'button' || emptyStateCreateAction?.mode == 'children'
+      ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
+      : {}
+
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <Table columns={adaptedColumns} data={adaptedData} isLoading={isLoading} lengthElSkeleton={lengthElSkeleton} />
+      <Table
+        columns={adaptedColumns}
+        data={adaptedData}
+        isLoading={isLoading}
+        lengthElSkeleton={lengthElSkeleton}
+        containerStyles={customStyleBorderTable}
+      />
+      {emptyStateCreateAction?.mode && emptyStateCreateAction?.mode != 'hidden' && (
+        <WrapperEmptyState variant={emptyStateCreateAction?.mode}>
+          {emptyStateCreateAction?.mode == 'button' && (
+            <WrapperEmptyStateCaseButton>
+              <div>{emptyStateCreateAction?.labelAction}</div>
+              <WrapperButtonEmpty>
+                <ButtonEmpty onClick={() => emptyStateCreateAction?.handleClickButtonCreate?.()}>
+                  {emptyStateCreateAction?.labelButtonCreate}
+                </ButtonEmpty>
+              </WrapperButtonEmpty>
+            </WrapperEmptyStateCaseButton>
+          )}
+
+          {emptyStateCreateAction?.mode == 'children' && <div>{emptyStateCreateAction?.children}</div>}
+        </WrapperEmptyState>
+      )}
     </ThemeProvider>
   )
 }

@@ -7,7 +7,7 @@ import TableHead from './parts/TableHead'
 import { TableBody } from './parts'
 import { ITable } from './table'
 
-export default function Table({ columns, data, isLoading, lengthElSkeleton = 5 }: ITable) {
+export default function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles }: ITable) {
   const [expandedRows, setExpandedRows] = useState([])
 
   const handleExpandClick = (id) => {
@@ -19,7 +19,7 @@ export default function Table({ columns, data, isLoading, lengthElSkeleton = 5 }
 
   return (
     <ThemeProvider theme={FRSTTheme}>
-      <ContainerTable>
+      <ContainerTable style={containerStyles ? containerStyles : {}}>
         {isLoading ? (
           <WrapperLoading>
             <SkeletonHeader variant="rectangular" />
