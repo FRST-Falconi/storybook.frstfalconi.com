@@ -4,6 +4,7 @@ export interface IDataRow {
     id: number;
     value: string[] | any;
     showButtonExpanded?: boolean;
+    actionButtonInbox?: (id: string) => void
     children?: React.ReactNode;
 }
 
@@ -18,5 +19,7 @@ export interface ITableActions {
         not_completed?: string,
         in_progress?: string,
         deprioritized?: string
-    }
+    },
+    labelTextVisitProfile?: string,
+    labelTextMessage?: string
 }

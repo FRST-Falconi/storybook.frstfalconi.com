@@ -39,3 +39,28 @@ export const Label = styled.div<{ isChecked: boolean }>`
 
   padding-left: 8px;
 `
+
+export const ButtonActionInbox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 115px;
+  min-width: fit-content;
+  height: 100%;
+  min-height: 35px;
+  padding-left: 4px;
+  padding-right: 4px;
+  gap: 6px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.primary1};
+
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.42px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+
+  cursor: pointer;
+
+`
