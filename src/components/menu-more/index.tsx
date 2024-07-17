@@ -61,7 +61,6 @@ export default function MenuMore({
             isDarkMode={isDarkMode}
           >
             {listOptions.map((itemOption, index) => {
-              console.log("options ",itemOption)
               return (
                 <Box key={index}>
                   <ButtonMenuNotification onClick={() => {
@@ -69,6 +68,7 @@ export default function MenuMore({
                       closeAfterClick && handleClose()
                     }}
                     isColor={itemOption?.color}
+                    isDarkMode={isDarkMode}
                     >
                   {itemOption?.description}
                   </ButtonMenuNotification>

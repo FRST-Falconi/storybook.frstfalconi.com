@@ -32,6 +32,7 @@ export const HypothesisComponent = ({
   hasVoteGoal,
   loading,
   onChangeVote,
+  authorGoalId,
   changeVoteText,
   onSaveEditHipotesis
 }: {
@@ -57,6 +58,7 @@ export const HypothesisComponent = ({
   onDeleteHipotesis?: () => void
   showAvatar?: boolean
   authorId?: string
+  authorGoalId?: string
   loading?: boolean
   onChangeVote?: (hypothesiId: string) => any
   changeVoteText?: string
@@ -86,6 +88,13 @@ export const HypothesisComponent = ({
       setShowVotesList(false)
     }
   }
+
+  const  handleDoubleClick = (e) => {
+    if (authorId === userLoggedId || authorGoalId === userLoggedId) {
+      setIsEditing(true);
+    }
+  }
+
 
   useEffect(() => {
     setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId))
@@ -127,6 +136,9 @@ export const HypothesisComponent = ({
     setIsEditing(false)
   }
 
+  const validHasEditHipotesis = hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId);
+
+
   return (
     <Styles.MainContainer>
       <Styles.Container type={type} id={id} ref={ContainerRef}>
@@ -155,10 +167,10 @@ export const HypothesisComponent = ({
                 </div>
               </span>
             ) : (
-              <span>{editDescription}</span>
+              <span onDoubleClick={handleDoubleClick} >{editDescription}</span>
             )}
           </Styles.Description>
-          {hasEditHipotesis && (
+          {validHasEditHipotesis &&( 
             <MenuMore
               options={[
                 {
