@@ -212,7 +212,6 @@ EditHipotesis.args = {
       }
     }
   ],
-  userLoggedId: '05b7bec61',
   deleteVoteText: 'Excluir voto',
   voteText: 'Votar',
   canVote: true,

@@ -41,7 +41,9 @@ normal.args = {
         },
     ],
     style: {marginLeft: '200px'},
-    closeAfterClick:true
+    closeAfterClick:true,
+    isDarkMode: false,
+    isArrowInMenu : true,
 }
 
 export const twoItems = Template.bind({})

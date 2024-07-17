@@ -3,6 +3,13 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import styled from 'styled-components'
 
+
+interface IButtonMenuProps {
+  isColor?: string; 
+  isDarkMode?: boolean;
+}
+
+
 export const UserName = styled.p`
   color: white;
   padding-left: 5px;
@@ -121,7 +128,7 @@ export const IconOption = styled.div`
   align-items: center;
   justify-content: center;
 `
-export const ButtonMenuNotification = styled.button<{ isColor:string }>`
+export const ButtonMenuNotification = styled.button<IButtonMenuProps>`
   width: 100% !important;
   text-decoration: none !important;
   color: ${({ isColor }) => (isColor ? isColor: `#FFFFF`)} !important;
@@ -136,6 +143,6 @@ export const ButtonMenuNotification = styled.button<{ isColor:string }>`
   justify-content: start !important;
   cursor: pointer !important;
   :hover {
-    background-color: rgb(82, 82, 82) !important;
+    background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
   }
 `
