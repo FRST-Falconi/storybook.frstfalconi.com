@@ -48,7 +48,7 @@ export default function SearchField({
           {hasSearchIcon && (
             <ContainerIcon>
               {' '}
-              <SearchIcon />{' '}
+              <SearchIcon fill="#222222" />{' '}
             </ContainerIcon>
           )}
           <InputText

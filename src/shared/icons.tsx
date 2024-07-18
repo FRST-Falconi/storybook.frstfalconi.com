@@ -894,7 +894,7 @@ export function TrashIcon({ fill, stroke, customColor_1, width, height }: IconsP
   )
 }
 
-export function SearchIcon({ fill = '#222222', stroke, customColor_1, width, height }: IconsProps) {
+export function SearchIcon({ fill = 'black', stroke, customColor_1, width, height }: IconsProps) {
   return (
     <svg
       width={width ? width : '28'}
