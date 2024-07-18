@@ -894,7 +894,7 @@ export function TrashIcon({ fill, stroke, customColor_1, width, height }: IconsP
   )
 }
 
-export function SearchIcon({ fill, stroke, customColor_1, width, height }: IconsProps) {
+export function SearchIcon({ fill = '#222222', stroke, customColor_1, width, height }: IconsProps) {
   return (
     <svg
       width={width ? width : '28'}
@@ -907,7 +907,7 @@ export function SearchIcon({ fill, stroke, customColor_1, width, height }: Icons
         fillRule="evenodd"
         clipRule="evenodd"
         d="M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z"
-        fill={fill ?? 'black'}
+        fill={fill}
       />
     </svg>
   )
