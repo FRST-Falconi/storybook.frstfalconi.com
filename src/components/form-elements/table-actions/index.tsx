@@ -53,7 +53,7 @@ export default function TableActions({
           uuid={item?.value?.[0]?.id}
           labelTextVisitProfile={labelTextVisitProfile}
         />,
-        item.value[1],
+        <p style={{ color: '#222' }}>{item.value[1]}</p>,
         item?.actionButtonInbox ? (
           <ButtonActionInbox onClick={() => item?.actionButtonInbox?.(item?.value?.[0]?.id)}>
             <BallonChatgRondedTips /> {labelTextMessage ? labelTextMessage : 'Mensagem'}
