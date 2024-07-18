@@ -167,7 +167,9 @@ export const HypothesisComponent = ({
                 </div>
               </span>
             ) : (
-              <span onDoubleClick={handleDoubleClick} >{editDescription}</span>
+              <div style={{width: '100%'}} onDoubleClick={handleDoubleClick}>
+                  <span>{editDescription}</span>
+              </div>
             )}
           </Styles.Description>
           {validHasEditHipotesis &&( 
