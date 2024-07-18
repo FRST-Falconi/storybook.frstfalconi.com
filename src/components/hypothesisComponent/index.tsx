@@ -90,7 +90,10 @@ export const HypothesisComponent = ({
   }
 
   const  handleDoubleClick = (e) => {
-    if (authorId === userLoggedId || authorGoalId === userLoggedId) {
+
+    if (type === 'HypothesisEnum.PRIORITIZE' && authorGoalId === userLoggedId) {
+      setIsEditing(true);
+    } else if (authorId === userLoggedId || authorGoalId === userLoggedId) {
       setIsEditing(true);
     }
   }
@@ -136,7 +139,7 @@ export const HypothesisComponent = ({
     setIsEditing(false)
   }
 
-  const validHasEditHipotesis = hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId);
+  const validHasEditHipotesis = type === 'HypothesisEnum.PRIORITIZE' ? hasEditHipotesis && (authorGoalId === userLoggedId) : hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId) ;
 
 
   return (
