@@ -23,6 +23,7 @@ export const WrapperTag = styled.div<StatusProps>`
   border-radius: 30px;
   white-space: nowrap;
   min-width: fit-content;
+  color: #222;
   
   ${({ status }) => {
     if (status == 'completed') return `background-color: #B9E7B8; `
