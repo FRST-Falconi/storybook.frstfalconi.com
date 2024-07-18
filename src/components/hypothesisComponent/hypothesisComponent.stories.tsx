@@ -27,10 +27,11 @@ Priorizada.args = {
   voteText: 'Votar',
   canViewListVotes: true,
   userLoggedId: '05b7bec61',
-  // authorGoalId: '05b7bec61',
-  authorId: '05b7bec61',
+  authorGoalId: '05b7bec61',
+  // authorId: '05b7bec61',
   handleViewProfile: (id) => alert(`cliquei no user de id: ${id}`),
   onChangeVote: (e) => alert("trocar voto"),
+  onSaveEditHipotesis: () => alert('editado'),
   changeVoteText: "Trocar Voto",
   hasEditHipotesis: true,
   votes: [
