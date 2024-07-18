@@ -3633,7 +3633,10 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
         }
     };
     const handleDoubleClick = (e) => {
-        if (authorId === userLoggedId || authorGoalId === userLoggedId) {
+        if (type === 'HypothesisEnum.PRIORITIZE' && authorGoalId === userLoggedId) {
+            setIsEditing(true);
+        }
+        else if (authorId === userLoggedId || authorGoalId === userLoggedId) {
             setIsEditing(true);
         }
     };
@@ -3670,7 +3673,7 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
         onSaveEditHipotesis(editDescription);
         setIsEditing(false);
     };
-    const validHasEditHipotesis = hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId);
+    const validHasEditHipotesis = type === 'HypothesisEnum.PRIORITIZE' ? hasEditHipotesis && (authorGoalId === userLoggedId) : hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId);
     return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainerDescription, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$4, { children: isEditing ? (jsxRuntime.jsx("span", { style: { display: 'flex', width: '100%' }, children: jsxRuntime.jsx("div", { contentEditable: true, style: { width: '100%', background: 'white' }, onInput: (e) => setEditDescription(e.currentTarget.textContent), onBlur: handleSaveDescription, children: description }) })) : (jsxRuntime.jsx("div", { style: { width: '100%' }, onDoubleClick: handleDoubleClick, children: jsxRuntime.jsx("span", { children: editDescription }) })) }), validHasEditHipotesis && (jsxRuntime.jsx(MenuMore, { options: [
                                 {
                                     description: 'Editar',
