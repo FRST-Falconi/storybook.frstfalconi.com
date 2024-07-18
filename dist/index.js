@@ -3337,6 +3337,13 @@ styled__default["default"].div `
 
 `;
 
+var HypothesisEnum;
+(function (HypothesisEnum) {
+    HypothesisEnum["PRIORITIZE"] = "prioritize";
+    HypothesisEnum["RAISED"] = "raised";
+    HypothesisEnum["SUGGESTED"] = "suggested";
+})(HypothesisEnum || (HypothesisEnum = {}));
+
 const container = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -3612,7 +3619,7 @@ const ModalConfirme = ({ open, onClose, title, children, onConfirm }) => {
     return (jsxRuntime.jsx(material.Modal, { open: open, onClose: onClose, children: jsxRuntime.jsxs(ModalContainer, { children: [jsxRuntime.jsxs(ModalHeader$1, { children: [jsxRuntime.jsx(ModalTitle, { children: title }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: "X" })] }), jsxRuntime.jsx(HorizontalLine, {}), jsxRuntime.jsxs(ContainerContent, { children: [children, jsxRuntime.jsxs(ButtonContainer$1, { children: [jsxRuntime.jsx(Button$4, { variant: "link", style: { color: '#444444' }, handleClick: onClose, label: "N\u00E3o, cancelar" }), jsxRuntime.jsx(Button$4, { variant: "primary", label: "Sim, excluir", handleClick: onConfirm })] })] })] }) }));
 };
 
-const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, hasEditHipotesis, onDeleteHipotesis, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, authorGoalId, changeVoteText, onSaveEditHipotesis }) => {
+const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, hasEditHipotesis, onDeleteHipotesis, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, authorGoalId, changeVoteText, onSaveEditHipotesis, }) => {
     const [isHover, seIsHover] = React.useState(false);
     const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(false);
     const [showVotesList, setShowVotesList] = React.useState(false);
@@ -3630,14 +3637,6 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
             !viewVotesRef?.current?.contains(event?.target) &&
             !event.target.closest('.VoteListItem')) {
             setShowVotesList(false);
-        }
-    };
-    const handleDoubleClick = (e) => {
-        if (type === 'HypothesisEnum.PRIORITIZE' && authorGoalId === userLoggedId) {
-            setIsEditing(true);
-        }
-        else if (authorId === userLoggedId || authorGoalId === userLoggedId) {
-            setIsEditing(true);
         }
     };
     React.useEffect(() => {
@@ -3673,7 +3672,18 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
         onSaveEditHipotesis(editDescription);
         setIsEditing(false);
     };
-    const validHasEditHipotesis = type === 'HypothesisEnum.PRIORITIZE' ? hasEditHipotesis && (authorGoalId === userLoggedId) : hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId);
+    const validHasEditHipotesis = typeof HypothesisEnum.PRIORITIZE
+        ? hasEditHipotesis && authorGoalId === userLoggedId
+        : hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId);
+    const handleDoubleClick = (e) => {
+        setIsEditing(true);
+        if (typeof HypothesisEnum.PRIORITIZE && authorGoalId === userLoggedId) {
+            setIsEditing(true);
+        }
+        else {
+            setIsEditing(false);
+        }
+    };
     return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainerDescription, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$4, { children: isEditing ? (jsxRuntime.jsx("span", { style: { display: 'flex', width: '100%' }, children: jsxRuntime.jsx("div", { contentEditable: true, style: { width: '100%', background: 'white' }, onInput: (e) => setEditDescription(e.currentTarget.textContent), onBlur: handleSaveDescription, children: description }) })) : (jsxRuntime.jsx("div", { style: { width: '100%' }, onDoubleClick: handleDoubleClick, children: jsxRuntime.jsx("span", { children: editDescription }) })) }), validHasEditHipotesis && (jsxRuntime.jsx(MenuMore, { options: [
                                 {
                                     description: 'Editar',

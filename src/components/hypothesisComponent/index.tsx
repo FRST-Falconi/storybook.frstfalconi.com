@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import * as Styles from './hypothesisComponent.style'
-import { Vote } from './types'
+import { HypothesisEnum, Vote } from './types'
 import { ExcludeVoteIcon, VoteCurrentIcon, VoteIcon } from '@public/customIcons'
 import Avatar from '@components/avatar'
 import Loading from '@components/DS/loading'
@@ -34,7 +34,8 @@ export const HypothesisComponent = ({
   onChangeVote,
   authorGoalId,
   changeVoteText,
-  onSaveEditHipotesis
+  onSaveEditHipotesis,
+
 }: {
   description: string
   type: string
@@ -89,16 +90,6 @@ export const HypothesisComponent = ({
     }
   }
 
-  const  handleDoubleClick = (e) => {
-
-    if (type === 'HypothesisEnum.PRIORITIZE' && authorGoalId === userLoggedId) {
-      setIsEditing(true);
-    } else if (authorId === userLoggedId || authorGoalId === userLoggedId) {
-      setIsEditing(true);
-    }
-  }
-
-
   useEffect(() => {
     setHasVoteHypothesis(votes?.some((vote) => vote?.user_uuid === userLoggedId))
   }, [votes])
@@ -139,7 +130,18 @@ export const HypothesisComponent = ({
     setIsEditing(false)
   }
 
-  const validHasEditHipotesis = type === 'HypothesisEnum.PRIORITIZE' ? hasEditHipotesis && (authorGoalId === userLoggedId) : hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId) ;
+  const validHasEditHipotesis = typeof HypothesisEnum.PRIORITIZE
+    ? hasEditHipotesis && authorGoalId === userLoggedId
+    : hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId)
+
+  const handleDoubleClick = (e) => {
+    setIsEditing(true)
+    if (typeof HypothesisEnum.PRIORITIZE && authorGoalId === userLoggedId) {
+      setIsEditing(true)
+    } else{   
+        setIsEditing(false)
+    }
+  }
 
 
   return (
