@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import * as Styles from './hypothesisComponent.style'
 import { HypothesisEnum, Vote } from './types'
 import { ExcludeVoteIcon, VoteCurrentIcon, VoteIcon } from '@public/customIcons'
@@ -34,8 +34,7 @@ export const HypothesisComponent = ({
   onChangeVote,
   authorGoalId,
   changeVoteText,
-  onSaveEditHipotesis,
-
+  onSaveEditHipotesis
 }: {
   description: string
   type: string
@@ -130,19 +129,23 @@ export const HypothesisComponent = ({
     setIsEditing(false)
   }
 
-  const validHasEditHipotesis = typeof HypothesisEnum.PRIORITIZE
-    ? hasEditHipotesis && authorGoalId === userLoggedId
-    : hasEditHipotesis && (authorId === userLoggedId || authorGoalId === userLoggedId)
+  const validHasEditHipotesis = useMemo(() => {
+    if(!hasEditHipotesis) return false
+
+    if (authorGoalId === userLoggedId) return true
+
+    if (type !== HypothesisEnum.PRIORITIZE) {
+      return authorId === userLoggedId
+    }
+
+    return false
+  }, [type, hasEditHipotesis, authorGoalId, authorId, userLoggedId])
 
   const handleDoubleClick = (e) => {
-    setIsEditing(true)
-    if (typeof HypothesisEnum.PRIORITIZE && authorGoalId === userLoggedId) {
+    if (validHasEditHipotesis) {
       setIsEditing(true)
-    } else{   
-        setIsEditing(false)
     }
   }
-
 
   return (
     <Styles.MainContainer>
@@ -172,12 +175,12 @@ export const HypothesisComponent = ({
                 </div>
               </span>
             ) : (
-              <div style={{width: '100%'}} onDoubleClick={handleDoubleClick}>
-                  <span>{editDescription}</span>
+              <div style={{ width: '100%' }} onDoubleClick={handleDoubleClick}>
+                <span>{editDescription}</span>
               </div>
             )}
           </Styles.Description>
-          {validHasEditHipotesis &&( 
+          {validHasEditHipotesis && (
             <MenuMore
               options={[
                 {
