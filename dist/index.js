@@ -21409,6 +21409,7 @@ const WrapperEmptyState = styled__default["default"].div `
   min-height: fit-content;
   background-color: ${({ theme }) => theme?.colors.shadeWhite};
   overflow: hidden;
+  border: 1px solid #ebebeb;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: min-height 0.5s ease-in-out;
