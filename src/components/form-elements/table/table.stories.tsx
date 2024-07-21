@@ -23,7 +23,7 @@ Normal.args = {
   ],
   data: [
     {
-      id: 1,
+      id: 'uuid-boilerplate-table-01',
       value: [
         <div
           style={{
@@ -52,7 +52,7 @@ Normal.args = {
       children: <div style={{ height: '300px' }}>Children 01</div>
     },
     {
-      id: 2,
+      id: 'uuid-boilerplate-table-02',
       value: [
         <AdmButton variant="image" />,
         'Implementar gamificação na plataforma',
@@ -62,5 +62,7 @@ Normal.args = {
       showButtonExpanded: true,
       children: <div>Children 02</div>
     }
-  ]
+  ],
+  expandItemId: '',
+  hiddeExpandItemId: ''
 }
