@@ -2,7 +2,7 @@ import { IEmptyState } from './emptyState'
 import { WrapperEmptyState, ImageEmptyState, LabelEmptyState, ButtonCreateAction } from './emptyStateStyle'
 import imgEmptyState from './../../../../../../public/img/Nonotification.png'
 
-export default function EmptyState({ emptyState }: IEmptyState) {
+export default function EmptyState({ emptyState, customImage }: IEmptyState) {
   const imgEmpty = imgEmptyState
   return (
     <WrapperEmptyState
@@ -17,7 +17,7 @@ export default function EmptyState({ emptyState }: IEmptyState) {
         borderTopWidth: '0px'
       }}
     >
-      <ImageEmptyState src={imgEmpty} alt="Empty" />
+      <ImageEmptyState src={customImage ? customImage : imgEmpty} alt="Empty" />
       <LabelEmptyState>
         {emptyState?.labels &&
           emptyState?.labels?.map((label?: string) => {

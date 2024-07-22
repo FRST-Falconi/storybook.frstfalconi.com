@@ -223,7 +223,8 @@ MessageEmpty.args = {
     labels: ['Nenhuma ação foi adicionada até o momento.', 'Que tal adicionar uma agora?'],
     labelButtonCreate: 'Adicionar ação',
     handleClickButtonCreate: (e: any) => alert('Empty State criar ação')
-  }
+  },
+  customImageEmptyState: null
 }
 
 export const FotterAddAction = Template.bind({})

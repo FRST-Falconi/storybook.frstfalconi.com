@@ -21329,7 +21329,7 @@ const ButtonCreateAction = styled__default["default"].div `
   color:  ${({ theme }) => theme?.colors.shadeWhite}
 `;
 
-function EmptyState({ emptyState }) {
+function EmptyState({ emptyState, customImage }) {
     const imgEmpty = imgEmptyState;
     return (jsxRuntime.jsxs(WrapperEmptyState$1, { style: {
             height: '280px',
@@ -21340,7 +21340,7 @@ function EmptyState({ emptyState }) {
             gap: '20px',
             border: '1.5px solid #ebebeb',
             borderTopWidth: '0px'
-        }, children: [jsxRuntime.jsx(ImageEmptyState, { src: imgEmpty, alt: "Empty" }), jsxRuntime.jsx(LabelEmptyState, { children: emptyState?.labels &&
+        }, children: [jsxRuntime.jsx(ImageEmptyState, { src: customImage ? customImage : imgEmpty, alt: "Empty" }), jsxRuntime.jsx(LabelEmptyState, { children: emptyState?.labels &&
                     emptyState?.labels?.map((label) => {
                         return jsxRuntime.jsx("p", { children: label });
                     }) }), jsxRuntime.jsx(ButtonCreateAction, { onClick: () => emptyState?.handleClickButtonCreate?.(), children: emptyState?.labelButtonCreate })] }));
@@ -21455,7 +21455,7 @@ const ButtonEmpty = styled__default["default"].div `
   color:  ${({ theme }) => theme?.colors.primary1}
 `;
 
-function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressAvatar, labelStatus, labelTextVisitProfile, buttonBottomCreateAction, showButtonInbox, emptyState, expandItemId, hiddeExpandItemId }) {
+function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressAvatar, labelStatus, labelTextVisitProfile, buttonBottomCreateAction, showButtonInbox, emptyState, expandItemId, hiddeExpandItemId, customImageEmptyState }) {
     const [adaptedColumns, setAdaptedColumns] = React.useState([]);
     const [adaptedData, setAdaptedData] = React.useState([]);
     React.useEffect(() => {
@@ -21507,7 +21507,7 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
     const customStyleBorderTable = buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
         ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
         : {};
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState }), data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), ' ', buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), ' ', buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
 }
 
 exports.AccordionList = AccordionList$2;

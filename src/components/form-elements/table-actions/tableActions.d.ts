@@ -34,6 +34,7 @@ export interface ITableActions {
         labelButtonCreate?: string,
         handleClickButtonCreate?: (e?: any) => void,
     }
+    customImageEmptyState?: string,
     showButtonInbox?: boolean,
     expandItemId?: any,
     hiddeExpandItemId?: any

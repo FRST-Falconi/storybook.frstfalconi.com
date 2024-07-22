@@ -27,7 +27,8 @@ export default function TableActions({
   showButtonInbox,
   emptyState,
   expandItemId,
-  hiddeExpandItemId
+  hiddeExpandItemId,
+  customImageEmptyState
 }: ITableActions) {
   const [adaptedColumns, setAdaptedColumns] = useState([])
   const [adaptedData, setAdaptedData] = useState([])
@@ -112,7 +113,7 @@ export default function TableActions({
         expandItemId={expandItemId}
         hiddeExpandItemId={hiddeExpandItemId}
       />
-      {data?.length == 0 && <EmptyState emptyState={emptyState} />}
+      {data?.length == 0 && <EmptyState emptyState={emptyState} customImage={customImageEmptyState} />}
       {data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (
         <WrapperEmptyState>
           {buttonBottomCreateAction?.mode == 'button' && (

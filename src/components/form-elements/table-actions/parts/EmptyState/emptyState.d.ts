@@ -4,4 +4,5 @@ export interface IEmptyState {
     labelButtonCreate?: string,
     handleClickButtonCreate?: (e?: any) => void,
   }
+  customImage?: string
 }
