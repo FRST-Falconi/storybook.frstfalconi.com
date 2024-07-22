@@ -12,7 +12,9 @@ export default function EmptyState({ emptyState }: IEmptyState) {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '20px'
+        gap: '20px',
+        border: '1.5px solid #ebebeb',
+        borderTopWidth: '0px'
       }}
     >
       <ImageEmptyState src={imgEmpty} alt="Empty" />

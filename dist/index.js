@@ -21337,7 +21337,9 @@ function EmptyState({ emptyState }) {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '20px'
+            gap: '20px',
+            border: '1.5px solid #ebebeb',
+            borderTopWidth: '0px'
         }, children: [jsxRuntime.jsx(ImageEmptyState, { src: imgEmpty, alt: "Empty" }), jsxRuntime.jsx(LabelEmptyState, { children: emptyState?.labels &&
                     emptyState?.labels?.map((label) => {
                         return jsxRuntime.jsx("p", { children: label });
