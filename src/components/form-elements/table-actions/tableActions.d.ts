@@ -23,12 +23,19 @@ export interface ITableActions {
         deprioritized?: string
     },
     labelTextVisitProfile?: string,
-    labelTextMessage?: string,
-    emptyStateCreateAction?: {
+    buttonBottomCreateAction?: {
         mode: modeEmptyState,
         handleClickButtonCreate: (e?: any) => void,
         children: React.ReactNode,
-        labelButtonCreate: string,
-        labelAction: string
+        labelButtonAddAction: string,
     },
+    emptyState?: {
+        labels?: Array<string>,
+        labelButtonCreate?: string,
+        handleClickButtonCreate?: (e?: any) => void,
+    }
+    customImageEmptyState?: string,
+    showButtonInbox?: boolean,
+    expandItemId?: any,
+    hiddeExpandItemId?: any
 }

@@ -1,7 +1,7 @@
 import { IColumn } from "../TableHead/tableHead";
 
 export interface IDataRow {
-  id: number;
+  id: string | number;
   value: React.ReactNode[];
   showButtonExpanded?: boolean,
   expanded?: boolean;
@@ -13,5 +13,7 @@ export interface ITableBody {
   data: IDataRow[];
   expandedRows: Number[];
   handleExpandClick: (e: number) => void;
-  columns: IColumn[]
+  columns: IColumn[],
+  expandItemId?: any
+  hiddeExpandItemId?: any
 }

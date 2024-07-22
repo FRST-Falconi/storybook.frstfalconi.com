@@ -7,5 +7,7 @@ export interface ITable {
     data: IDataRow[];
     isLoading?: boolean;
     lengthElSkeleton?: number;
-    containerStyles?: React.CSSProperties
+    containerStyles?: React.CSSProperties,
+    expandItemId?: any,
+    hiddeExpandItemId?: any
 }

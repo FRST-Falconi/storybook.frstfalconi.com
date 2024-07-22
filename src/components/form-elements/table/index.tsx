@@ -2,13 +2,59 @@ import '../../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
 import { ContainerTable, WrapperTable, TableHtml, WrapperLoading, SkeletonHeader, SkeletonRow } from './tableStyle'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import TableHead from './parts/TableHead'
 import { TableBody } from './parts'
 import { ITable } from './table'
 
-export default function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles }: ITable) {
+export default function Table({
+  columns,
+  data,
+  isLoading,
+  lengthElSkeleton = 5,
+  containerStyles,
+  expandItemId,
+  hiddeExpandItemId
+}: ITable) {
   const [expandedRows, setExpandedRows] = useState([])
+  /*
+  useEffect(() => {
+    console.log('\nexpandedRows ', expandedRows)
+    console.log('expandItemId ', expandItemId)
+    console.log('hiddeExpandItemId ', hiddeExpandItemId)
+    if (expandItemId !== -1) {
+      setExpandedRows((prevExpandedRows) => ({
+        ...prevExpandedRows,
+        [expandItemId]: true
+      }));
+      // setExpandItemId(-1);  // Reset expandItemId after updating
+    }
+    if (hiddeExpandItemId !== -1) {
+      setExpandedRows((prevExpandedRows) => ({
+        ...prevExpandedRows,
+        [hiddeExpandItemId]: false
+      }));
+      // setExpandItemId(-1);  // Reset expandItemId after updating
+    }
+  }, [expandItemId, hiddeExpandItemId, expandedRows])*/
+
+  useEffect(() => {
+    if (expandItemId !== -1) {
+      setExpandedRows((prevExpandedRows) => ({
+        ...prevExpandedRows,
+        [expandItemId]: true
+      }))
+    }
+  }, [expandItemId])
+
+  useEffect(() => {
+    if (hiddeExpandItemId !== -1) {
+      setExpandedRows((prevExpandedRows) => ({
+        ...prevExpandedRows,
+        [hiddeExpandItemId]: false
+      }))
+    }
+  }, [hiddeExpandItemId])
 
   const handleExpandClick = (id) => {
     setExpandedRows((prev) => ({
@@ -36,6 +82,8 @@ export default function Table({ columns, data, isLoading, lengthElSkeleton = 5, 
                 data={data}
                 expandedRows={expandedRows}
                 handleExpandClick={handleExpandClick}
+                expandItemId={expandItemId}
+                hiddeExpandItemId={hiddeExpandItemId}
               />
             </TableHtml>
           </WrapperTable>

@@ -40,18 +40,21 @@ export const Label = styled.div<{ isChecked: boolean }>`
   padding-left: 8px;
 `
 
+export const WrapperCellButtonInbox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 export const ButtonActionInbox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 115px;
-  min-width: fit-content;
-  height: 100%;
-  min-height: 35px;
-  padding-left: 4px;
-  padding-right: 4px;
-  gap: 6px;
-  border-radius: 8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
   background-color: ${({ theme }) => theme.colors.primary1};
 
   font-family: Work Sans;
@@ -64,14 +67,16 @@ export const ButtonActionInbox = styled.div`
   cursor: pointer;
 `
 
-export const WrapperEmptyState = styled.div<{ variant }>`
+export const WrapperEmptyState = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
   padding: 8px;
   min-height: fit-content;
-  background-color: ${({ variant, theme }) => variant == 'button' ? '#BEDCDC' : theme?.colors.shadeWhite};
+  background-color: ${({ theme }) => theme?.colors.shadeWhite};
   overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-top-width: 0px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   transition: min-height 0.5s ease-in-out;
@@ -84,8 +89,8 @@ export const WrapperEmptyStateCaseButton = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding-right: 40px;
-  padding-left: 15%;              
+  padding-right: 40px; 
+  padding-left: 42px;          
 `
 
 export const WrapperButtonEmpty = styled.div`
@@ -100,11 +105,19 @@ export const ButtonEmpty = styled.div`
   align-items: center;
   height: 34px;
   width: 150px;
-  background-color: #E0AF00;
   cursor: pointer;
   border-radius: 12px;
   white-space: nowrap;
   padding-left: 2px;
   padding-right: 2px;
   margin: 2px;
+
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 17.6px;
+  text-align: left;
+  gap: 8px;
+
+  color:  ${({ theme }) => theme?.colors.primary1}
 `
