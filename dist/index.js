@@ -16562,7 +16562,7 @@ const Container$1 = styled__default["default"].div `
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 282px;
   height: 336px;
   background: rgba(17, 17, 17);
