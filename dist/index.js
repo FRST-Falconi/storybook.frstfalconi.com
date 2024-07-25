@@ -7004,7 +7004,7 @@ const CardContainer$1 = styled__default["default"].div `
   max-width: 100%;
   height: auto;
   background: ${({ theme }) => theme.colors.shadeWhite};
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px;
   border-color: ${({ theme }) => theme.colors.linkDisabled};
   border-radius: 12px;
   padding-right: 23px;
