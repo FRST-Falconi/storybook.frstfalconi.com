@@ -130,7 +130,7 @@ export const HypothesisComponent = ({
   }
 
   const validHasEditHipotesis = useMemo(() => {
-    if(!hasEditHipotesis) return false
+    if (!hasEditHipotesis) return false
 
     if (authorGoalId === userLoggedId) return true
 
@@ -182,17 +182,27 @@ export const HypothesisComponent = ({
           </Styles.Description>
           {validHasEditHipotesis && (
             <MenuMore
-              options={[
-                {
-                  description: 'Editar',
-                  onClick: (e) => setIsEditing(true)
-                },
-                {
-                  description: 'Excluir',
-                  onClick: () => setIsConfirmeDeleteHypothesis(true),
-                  color: '#C00F00'
-                }
-              ]}
+              options={
+                type === HypothesisEnum.PRIORITIZE
+                  ? [
+                      {
+                        description: 'Editar',
+                        onClick: (e) => setIsEditing(true)
+                      },
+
+                    ]
+                  : [
+                      {
+                        description: 'Editar',
+                        onClick: (e) => setIsEditing(true)
+                      },
+                      {
+                        description: 'Excluir',
+                        onClick: () => setIsConfirmeDeleteHypothesis(true),
+                        color: '#C00F00'
+                      }
+                    ]
+              }
             />
           )}
         </Styles.SplitContainerDescription>
