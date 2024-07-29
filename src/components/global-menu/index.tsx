@@ -447,7 +447,7 @@ export default function GlobalMenu({
                     }}
                   />
                 ))}
-                {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
+                {/* {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
                   <LanguagesDropdown
                     variant="LXP"
                     languages={[...languages]}
@@ -455,7 +455,7 @@ export default function GlobalMenu({
                     onSelect={(e) => onChangeLanguage(e)}
                     distanceBtnDrop={'57px'}
                   />
-                )}
+                )} */}
               </Styles.WrapperRightInfo>
             </Styles.MenuContainer>
             {SubMenu && SubMenu.length > 0 && (
@@ -786,7 +786,7 @@ export default function GlobalMenu({
                   </Styles.help>
                 )}
 
-                {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
+                {/* {!isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (
                   <LanguagesDropdown
                     variant="LXP"
                     languages={[...languages]}
@@ -794,7 +794,7 @@ export default function GlobalMenu({
                     onSelect={(e) => onChangeLanguage(e)}
                     distanceBtnDrop={'57px'}
                   />
-                )}
+                )} */}
               </Styles.WrapperRightInfo>
             </Styles.MenuContainer>
           </div>
@@ -850,7 +850,7 @@ export default function GlobalMenu({
                 showProfile={showProfile}
               />
             </Styles.WrapperRightInfo>
-            {languages && languages.length > 0 && (
+            {/* {languages && languages.length > 0 && (
               <LanguagesDropdown
                 variant="default"
                 languages={[...languages]}
@@ -858,7 +858,7 @@ export default function GlobalMenu({
                 onSelect={(e) => onChangeLanguage(e)}
                 distanceBtnDrop={'45px'}
               />
-            )}
+            )} */}
           </Styles.MenuContainer>
         </div>
       )}
