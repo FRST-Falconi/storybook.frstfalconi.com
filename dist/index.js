@@ -231,8 +231,8 @@ function Bullseye({ fill, stroke, customColor_1, width, height }) {
 function TrashIcon({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ?? '14', height: height ?? '20', viewBox: "0 0 14 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M3.66602 5.00002V3.33335C3.66602 2.89133 3.84161 2.4674 4.15417 2.15484C4.46673 1.84228 4.89066 1.66669 5.33268 1.66669H8.66602C9.10804 1.66669 9.53197 1.84228 9.84453 2.15484C10.1571 2.4674 10.3327 2.89133 10.3327 3.33335V5.00002M12.8327 5.00002V16.6667C12.8327 17.1087 12.6571 17.5326 12.3445 17.8452C12.032 18.1578 11.608 18.3334 11.166 18.3334H2.83268C2.39065 18.3334 1.96673 18.1578 1.65417 17.8452C1.34161 17.5326 1.16602 17.1087 1.16602 16.6667V5.00002H12.8327Z", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
 }
-function SearchIcon({ fill, stroke, customColor_1, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : '28', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z", fill: fill ?? 'black' }) }));
+function SearchIcon({ fill = 'black', stroke, customColor_1, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '28', height: height ? height : '20', viewBox: "0 0 20 20", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M1.2 8.6C1.2 4.51309 4.51309 1.2 8.6 1.2C12.6869 1.2 16 4.51309 16 8.6C16 10.6044 15.2031 12.4227 13.9088 13.7553C13.879 13.7758 13.8507 13.7993 13.8242 13.8258C13.7977 13.8522 13.7743 13.8805 13.7538 13.9102C12.4214 15.2037 10.6037 16 8.6 16C4.51309 16 1.2 12.6869 1.2 8.6ZM14.2413 15.0914C12.7312 16.4048 10.7585 17.2 8.6 17.2C3.85035 17.2 0 13.3496 0 8.6C0 3.85035 3.85035 0 8.6 0C13.3496 0 17.2 3.85035 17.2 8.6C17.2 10.7593 16.4042 12.7327 15.0899 14.243L19.0227 18.1758C19.257 18.4101 19.257 18.79 19.0227 19.0243C18.7884 19.2586 18.4085 19.2586 18.1742 19.0243L14.2413 15.0914Z", fill: fill }) }));
 }
 function ErrorInCicleIcon({ fill = '#FF0000', stroke, customColor_1, width = '48', height = '48' }) {
     return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: fill }), jsxRuntime.jsx("path", { d: "M36 12L12 36", stroke: "white", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 12L36 36", stroke: "white", strokeWidth: "4", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -279,8 +279,8 @@ function MoreHorizontal({ fill, width, height }) {
 function Video$1({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '30', height: height ? height : '30', viewBox: "0 0 30 30", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.2865 28.3334C22.6503 28.3334 28.6198 22.3639 28.6198 15.0001C28.6198 7.63628 22.6503 1.66675 15.2865 1.66675C7.92266 1.66675 1.95312 7.63628 1.95312 15.0001C1.95312 22.3639 7.92266 28.3334 15.2865 28.3334Z", stroke: fill ? fill : '#FF4D0D', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.9531 10L20.2865 15L11.9531 20V10Z", stroke: fill ? fill : '#FF4D0D', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function StarRating({ fill, width, height, fillOpacity }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : '30', height: height ? height : '29', viewBox: "0 0 30 29", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.1058 0.785773C14.4745 0.0494095 15.5255 0.0494113 15.8942 0.785775L19.7099 8.40633C19.8566 8.69918 20.1373 8.90167 20.4615 8.94838L28.9722 10.1747C29.7966 10.2935 30.123 11.309 29.5222 11.8858L23.3838 17.7797C23.1439 18.0101 23.0342 18.3448 23.0912 18.6725L24.5422 27.0121C24.684 27.8272 23.8312 28.4521 23.0967 28.0713L15.4603 24.1124C15.1717 23.9628 14.8283 23.9628 14.5397 24.1124L6.9033 28.0713C6.16884 28.4521 5.31605 27.8272 5.45785 27.0122L6.9088 18.6725C6.96581 18.3448 6.85614 18.0101 6.61619 17.7797L0.477778 11.8858C-0.122994 11.309 0.203398 10.2935 1.02776 10.1747L9.53853 8.94838C9.86269 8.90167 10.1434 8.69918 10.2901 8.40633L14.1058 0.785773Z", fill: fill ? fill : '#FFC200', fillOpacity: fillOpacity ? fillOpacity : '1' }) }));
+function StarRating({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '30', height: height ? height : '29', viewBox: "0 0 30 29", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M14.1058 0.785773C14.4745 0.0494095 15.5255 0.0494113 15.8942 0.785775L19.7099 8.40633C19.8566 8.69918 20.1373 8.90167 20.4615 8.94838L28.9722 10.1747C29.7966 10.2935 30.123 11.309 29.5222 11.8858L23.3838 17.7797C23.1439 18.0101 23.0342 18.3448 23.0912 18.6725L24.5422 27.0121C24.684 27.8272 23.8312 28.4521 23.0967 28.0713L15.4603 24.1124C15.1717 23.9628 14.8283 23.9628 14.5397 24.1124L6.9033 28.0713C6.16884 28.4521 5.31605 27.8272 5.45785 27.0122L6.9088 18.6725C6.96581 18.3448 6.85614 18.0101 6.61619 17.7797L0.477778 11.8858C-0.122994 11.309 0.203398 10.2935 1.02776 10.1747L9.53853 8.94838C9.86269 8.90167 10.1434 8.69918 10.2901 8.40633L14.1058 0.785773Z", fill: fill ? fill : '#FFC200', fillOpacity: fillOpacity ? fillOpacity : '1', stroke: stroke ? stroke : '0', strokeWidth: strokeWidth ? strokeWidth : 'transparent' }) }));
 }
 function WhatAppBordered({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("g", { clipPath: "url(#clip0_891_1728)", children: jsxRuntime.jsx("path", { d: "M12.0011 2C10.2643 1.99987 8.55742 2.45205 7.0485 3.31201C5.53959 4.17198 4.28067 5.41008 3.39568 6.90443C2.51069 8.39877 2.03015 10.0978 2.00137 11.8343C1.9726 13.5708 2.39658 15.2848 3.23157 16.8077L2.41423 19.6923C2.33799 19.9552 2.3337 20.2337 2.40182 20.4987C2.46995 20.7638 2.60798 21.0057 2.80151 21.1993C2.99505 21.3928 3.23698 21.5308 3.50207 21.5989C3.76715 21.6671 4.04566 21.6628 4.30852 21.5865L7.19323 20.7692C8.53008 21.5019 10.0168 21.9193 11.5396 21.9894C13.0625 22.0595 14.5812 21.7806 15.9798 21.1739C17.3783 20.5671 18.6196 19.6487 19.6088 18.4888C20.5981 17.3289 21.309 15.9581 21.6872 14.4814C22.0655 13.0046 22.1012 11.4609 21.7914 9.96827C21.4817 8.47563 20.8348 7.07356 19.9002 5.86922C18.9655 4.66488 17.7679 3.69016 16.3989 3.01955C15.0298 2.34895 13.5256 2.00021 12.0011 2ZM12.0011 20.4615C10.4821 20.4601 8.99125 20.0517 7.68363 19.2788C7.56296 19.2116 7.42752 19.1752 7.28939 19.1731C7.2179 19.1732 7.14675 19.1829 7.07784 19.2019L3.88543 20.1154L4.79892 16.9231C4.82702 16.8221 4.8347 16.7165 4.82149 16.6124C4.80828 16.5084 4.77446 16.4081 4.722 16.3173C3.76943 14.7117 3.37461 12.8361 3.59905 10.9828C3.82349 9.12943 4.65458 7.40232 5.96287 6.07048C7.27116 4.73865 8.98319 3.87685 10.8323 3.61934C12.6814 3.36183 14.5638 3.72306 16.1862 4.64676C17.8086 5.57046 19.08 7.00477 19.8023 8.72629C20.5246 10.4478 20.6573 12.3599 20.1797 14.1646C19.7021 15.9694 18.641 17.5656 17.1617 18.7045C15.6825 19.8434 13.868 20.4612 12.0011 20.4615ZM17.0493 13.4519L15.0781 12.3269C14.842 12.1911 14.5738 12.1212 14.3014 12.1245C14.029 12.1279 13.7626 12.2045 13.53 12.3462L12.3857 13.0288C11.802 12.6856 11.3155 12.1991 10.9722 11.6154L11.6549 10.4712C11.7966 10.2385 11.8731 9.9721 11.8765 9.69975C11.8799 9.4274 11.81 9.15915 11.6741 8.92308L10.5491 6.95192C10.424 6.73328 10.2435 6.5515 10.0257 6.42489C9.8079 6.29827 9.56059 6.23132 9.30868 6.23077C8.39226 6.23077 7.51323 6.59414 6.86432 7.24123C6.21541 7.88831 5.84958 8.7663 5.84703 9.68269C5.84703 11.9277 6.73823 14.0809 8.32485 15.6693C9.91147 17.2577 12.0637 18.1513 14.3088 18.1538H14.3185C15.2349 18.1513 16.1129 17.7855 16.76 17.1366C17.4071 16.4877 17.7705 15.6087 17.7705 14.6923C17.7699 14.4404 17.703 14.1931 17.5764 13.9753C17.4497 13.7576 17.268 13.577 17.0493 13.4519ZM14.3185 16.6154C13.4077 16.6166 12.5056 16.4382 11.6638 16.0902C10.8221 15.7423 10.0574 15.2317 9.41332 14.5877C8.76929 13.9437 8.25866 13.1789 7.9107 12.3372C7.56274 11.4955 7.38428 10.5935 7.38554 9.68269C7.38539 9.18343 7.58038 8.70388 7.9289 8.34639C8.27742 7.9889 8.75187 7.78177 9.25099 7.76923L10.3376 9.68269L9.43368 11.1827C9.37112 11.2897 9.33499 11.41 9.3283 11.5338C9.32161 11.6576 9.34456 11.7811 9.39522 11.8942C9.93114 13.1033 10.8977 14.0699 12.1068 14.6058C12.22 14.6564 12.3435 14.6794 12.4673 14.6727C12.591 14.666 12.7114 14.6299 12.8184 14.5673L14.3185 13.6635L16.232 14.75C16.2194 15.2491 16.0123 15.7235 15.6548 16.072C15.2973 16.4206 14.8177 16.6155 14.3185 16.6154Z", fill: "white" }) }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_891_1728", children: jsxRuntime.jsx("rect", { width: "24", height: "24", fill: "white" }) }) })] }));
@@ -556,6 +556,15 @@ function Tick({ fill, width, height }) {
 }
 function LampHelpBoxInput({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "16", height: "22", viewBox: "0 0 16 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.7282 15.2853H11.2704M3.0496 13.1938C2.07082 12.1947 1.40432 10.9219 1.13437 9.53624C0.864424 8.15062 1.00315 6.71443 1.53302 5.40926C2.06289 4.1041 2.9601 2.98857 4.1112 2.20374C5.26231 1.4189 6.61561 1 8 1C9.38439 1 10.7377 1.4189 11.8888 2.20374C13.0399 2.98857 13.9371 4.1041 14.467 5.40926C14.9968 6.71443 15.1356 8.15062 14.8656 9.53624C14.5957 10.9219 13.9292 12.1947 12.9504 13.1938L12.1832 13.9752C11.7446 14.4229 11.3967 14.9544 11.1594 15.5393C10.922 16.1241 10.7999 16.751 10.8 17.384V18.1427C10.8 18.9005 10.505 19.6273 9.9799 20.1631C9.4548 20.699 8.74261 21 8 21C7.25739 21 6.5452 20.699 6.0201 20.1631C5.495 19.6273 5.2 18.9005 5.2 18.1427V17.384C5.2 16.1054 4.7016 14.8782 3.8168 13.9752L3.0496 13.1938Z", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M4 7.5V7.5C4 5.567 5.567 4 7.5 4V4", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round" })] }));
+}
+function ArrrowExpandDropdown({ fill, width, height }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '14', height: height ? height : '8', viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.5 1.33301L6.83333 6.66634L12.1667 1.33301", stroke: "#757575", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+}
+function StarRatingRondedTips({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: width ? width : '30', height: height ? height : '28', viewBox: "0 0 28 26", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M12.2311 1.35268C12.9815 -0.0696177 15.0185 -0.0696146 15.7689 1.35268L18.4315 6.39921C18.7209 6.9477 19.2483 7.33091 19.8594 7.43664L25.4817 8.40944C27.0663 8.68361 27.6957 10.6209 26.5749 11.7741L22.5982 15.8658C22.166 16.3105 21.9645 16.9306 22.0528 17.5444L22.865 23.1922C23.0939 24.7839 21.4459 25.9812 20.0028 25.2716L14.8825 22.7539C14.326 22.4803 13.674 22.4803 13.1175 22.7539L7.99715 25.2716C6.55406 25.9812 4.90612 24.7839 5.13503 23.1922L5.94723 17.5444C6.0355 16.9306 5.83403 16.3105 5.40181 15.8658L1.42506 11.7741C0.30427 10.6209 0.933729 8.68361 2.5183 8.40944L8.14062 7.43664C8.75169 7.33091 9.27914 6.94769 9.56853 6.3992L12.2311 1.35268Z", fill: fill ? fill : '#FFC200', fillOpacity: fillOpacity ? fillOpacity : '1', stroke: stroke ? stroke : '0', strokeWidth: strokeWidth ? strokeWidth : 'transparent' }) }) }));
+}
+function BallonChatgRondedTips({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '16', height: height ? height : '17', viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.33268 8.8382C1.33268 7.27478 1.33268 5.71768 1.33268 4.15426C1.33268 3.21114 1.91268 2.44525 2.79935 2.22371C2.97268 2.17941 3.15268 2.16675 3.32602 2.16675C6.43935 2.16675 9.55935 2.16675 12.6727 2.16675C13.586 2.16675 14.286 2.66679 14.566 3.51496C14.606 3.64156 14.6327 3.76815 14.666 3.90107V10.9713C14.6127 11.1612 14.5793 11.3637 14.4927 11.541C14.1393 12.3068 13.5327 12.6866 12.7127 12.6993C12.486 12.6993 12.2593 12.6993 12.026 12.6993C12.026 12.7563 12.0193 12.8069 12.0193 12.8512C12.0193 13.3576 12.0193 13.8576 12.0127 14.364C12.0127 14.6868 11.7927 14.8893 11.5193 14.8197C11.4393 14.8007 11.3593 14.7501 11.2927 14.6995C10.4927 14.0665 9.69268 13.4335 8.89268 12.7942C8.81268 12.7309 8.72602 12.6993 8.61935 12.6993C6.85935 12.6993 5.10602 12.6993 3.34602 12.6993C2.90602 12.6993 2.49935 12.6043 2.14602 12.3322C1.61935 11.9334 1.34602 11.3954 1.34602 10.7181C1.34602 10.0915 1.34602 9.47117 1.34602 8.84453L1.33268 8.8382ZM11.4527 8.52805C11.946 8.52805 12.3393 8.11662 12.3393 7.61658C12.3393 7.11653 11.9393 6.70511 11.4527 6.70511C10.966 6.70511 10.566 7.11653 10.566 7.61658C10.566 8.11662 10.966 8.52805 11.4527 8.52805ZM8.09268 8.52805C8.58602 8.52805 8.97935 8.11662 8.97935 7.61658C8.97935 7.11653 8.57935 6.70511 8.09268 6.70511C7.60602 6.70511 7.20602 7.11653 7.20602 7.61658C7.20602 8.11662 7.60602 8.52805 8.09268 8.52805ZM4.53268 8.52805C5.02602 8.52805 5.41935 8.11662 5.41935 7.61658C5.41935 7.11653 5.01935 6.70511 4.53268 6.70511C4.04602 6.70511 3.64602 7.11653 3.64602 7.61658C3.64602 8.11662 4.04602 8.52805 4.53268 8.52805Z", fill: fill ? fill : 'white' }) }));
 }
 
 function styleInject(css, ref) {
@@ -3064,7 +3073,7 @@ const Icon = styled__default["default"].span `
   margin-right: 10px;
   margin-top:4px
 `;
-const CloseButton$1 = styled__default["default"].button `
+const CloseButton$2 = styled__default["default"].button `
   background: none;
   border: none;
   cursor: pointer;
@@ -3108,7 +3117,7 @@ const Toast = ({ type = 'success', message, onClose, showBySeconds = 5, styles }
         default:
             iconComponent = jsxRuntime.jsx(CircledAlert, { width: '22', height: '22' });
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { visible: isToastOpen, style: { ...styles }, children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon, { width: '14', height: '14' }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { visible: isToastOpen, style: { ...styles }, children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$2, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon, { width: '14', height: '14' }) })] }) }));
 };
 
 const MainContainer = styled__default["default"].div `
@@ -3162,12 +3171,19 @@ const Separator = styled__default["default"].div `
 const Description$4 = styled__default["default"].span `
   font-weight: 400;
   padding: 8px 0 8px;
+  width: 100%;
 `;
 const SplitContainer = styled__default["default"].div `
   display: flex;
   justify-content: flex-start;
   align-items: center;
+`;
+const SplitContainerDescription = styled__default["default"].div `
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   height: 100%;
+  width: 100%
 `;
 styled__default["default"].div `
   display: flex;
@@ -3321,6 +3337,13 @@ styled__default["default"].div `
 
 `;
 
+var HypothesisEnum;
+(function (HypothesisEnum) {
+    HypothesisEnum["PRIORITIZE"] = "prioritize";
+    HypothesisEnum["RAISED"] = "raised";
+    HypothesisEnum["SUGGESTED"] = "suggested";
+})(HypothesisEnum || (HypothesisEnum = {}));
+
 const container = styled__default["default"].div `
     display: flex;
     justify-content: center;
@@ -3394,10 +3417,215 @@ function Loading(props) {
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(container, { textPosition: PositionTextLoad, style: { ...props.style }, children: [jsxRuntime.jsx(loader, { children: jsxRuntime.jsx(Load, { width: Size, height: Size, fill: Color !== '' && Color }) }), jsxRuntime.jsx(loadText, { style: { color: props.loadTextColor ? props.loadTextColor : 'white' }, children: LoadText })] }) }));
 }
 
-const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, changeVoteText }) => {
+styled__default["default"].p `
+  color: white;
+  padding-left: 5px;
+  font-size: 16px;
+`;
+const ButtonMore$2 = styled__default["default"](Button__default["default"]) `
+  width: 30px !important;
+  min-width: 30px !important;
+  max-width: 30px !important;
+  height: 30px !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  display: flex !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  background-color: transparent !important;
+`;
+const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
+  margin-top: ${({ isArrowInMenu }) => (isArrowInMenu ? '8px' : '15px')};
+  margin-left: 30px;
+  overflow: hidden;
+  border-radius: 8px;
+
+  & .MuiPaper-root {
+    border-radius: 8px !important;
+    box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
+    overflow: visible;
+    background: #00000000;
+    ${({ isArrowInMenu }) => isArrowInMenu &&
+    `&:before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: 8.5px;
+    border-top: 6px solid transparent;
+    border-bottom: 10px solid #EBEBEB;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
+  
+    &:after {
+    content: "";
+    position: absolute;
+    top: -14px;
+    right: 8.5px;
+    border-top: 6px solid transparent;
+    border-bottom: 10px solid #FFF;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+
+  }`}
+  }
+  ul {
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: 1px solid ${({ isDarkMode }) => (isDarkMode ? '#1f1f1f !important;' : '#EBEBEB !important;')}!important;
+    border-radius: 8px !important;
+    overflow: hidden;
+    background: ${({ isDarkMode }) => (isDarkMode ? '#1f1f1f !important;' : '#FFF !important;')};
+    min-width: 160px;
+    width: auto;
+    /* &:hover {
+    background:${({ isDarkMode }) => (isDarkMode ? '#525252 !important;' : '#FFF !important;')};
+    border: 1px solid ${({ isDarkMode }) => (isDarkMode ? '#525252 !important;' : '#EBEBEB !important;')} !important;
+  } */
+    li {
+      ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px; !important;`}
+    }
+  }
+`;
+styled__default["default"](MenuItem__default["default"]) `
+  background-color: ${({ theme, isDarkMode }) => isDarkMode ? `#1f1f1f !important;` : theme.colors.shadeWhite} !important;
+  ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-right: 45px !important;`}
+  margin: 1px!important;
+  transition: none !important;
+  animation: none !important;
+  &:hover {
+    background-color: ${({ isDarkMode }) => (isDarkMode ? `#525252 !important;` : `#F7F9FC !important;`)};
+  }
+  &:active {
+    background-color: ${({ isDarkMode }) => (isDarkMode ? `#525252 !important;` : `#FCF3EB !important;`)};
+  }
+`;
+styled__default["default"](MenuItem__default["default"]) `
+  color: white !important;
+  background-color: #f5792a !important;
+
+  display: flex;
+  flex-direction: row;
+  &:hover {
+    background-color: #fd9350 !important;
+  }
+`;
+styled__default["default"].div `
+  margin-left: 10px;
+  padding-top: 1px;
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17.6px;
+`;
+styled__default["default"].div `
+  width: 20px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const ButtonMenuNotification = styled__default["default"].button `
+  width: 100% !important;
+  text-decoration: none !important;
+  color: ${({ isColor }) => (isColor ? isColor : `#FFFFF`)} !important;
+  padding: 6px 16px !important;
+  border: none !important;
+  background: transparent !important;
+  font-family: 'PT Sans' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 16px !important;
+  display: flex !important;
+  justify-content: start !important;
+  cursor: pointer !important;
+  :hover {
+    background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
+  }
+`;
+
+function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true, isArrowInMenu = true, isPaddingInMenu = true, isDarkMode = false }) {
+    const [listOptions, setListOptions] = React.useState(options);
+    React.useEffect(() => {
+        setListOptions(options);
+    }, [options]);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$2, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
+                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(ButtonMenuNotification, { onClick: () => {
+                                    itemOption?.onClick();
+                                    closeAfterClick && handleClose();
+                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, children: itemOption?.description }) }, index));
+                    }) }))] }) }));
+}
+
+const ModalContainer = styled__default["default"].div `
+    position: absolute;
+    max-width: 602px;
+    min-height: 306px;
+    border-radius: 16px;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    background-image: url('https://cdn-images.frstfalconi.cloud/fundo_laranja.png');
+    background-repeat: no-repeat;
+    background-position: top -554px right -126px;
+`;
+const ModalHeader$1 = styled__default["default"].div `
+    display: flex;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+`;
+const ModalTitle = styled__default["default"].p `
+    font-weight: 700;
+    font-family: 'Work Sans';
+    font-size: 20px;
+    /* margin-top: 18px; */
+    line-height: 26px;
+    color: #222222;
+`;
+const CloseButton$1 = styled__default["default"].div `
+
+`;
+const HorizontalLine = styled__default["default"].hr `
+    border: 1px solid #E0E0E0;
+`;
+const ContainerContent = styled__default["default"].div `
+    padding-left: 32px;
+    padding-right: 32px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    justify-content: space-between;
+`;
+const ButtonContainer$1 = styled__default["default"].div `
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+`;
+
+const ModalConfirme = ({ open, onClose, title, children, onConfirm }) => {
+    return (jsxRuntime.jsx(material.Modal, { open: open, onClose: onClose, children: jsxRuntime.jsxs(ModalContainer, { children: [jsxRuntime.jsxs(ModalHeader$1, { children: [jsxRuntime.jsx(ModalTitle, { children: title }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: "X" })] }), jsxRuntime.jsx(HorizontalLine, {}), jsxRuntime.jsxs(ContainerContent, { children: [children, jsxRuntime.jsxs(ButtonContainer$1, { children: [jsxRuntime.jsx(Button$4, { variant: "link", style: { color: '#444444' }, handleClick: onClose, label: "N\u00E3o, cancelar" }), jsxRuntime.jsx(Button$4, { variant: "primary", label: "Sim, excluir", handleClick: onConfirm })] })] })] }) }));
+};
+
+const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, hasEditHipotesis, onDeleteHipotesis, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, authorGoalId, changeVoteText, onSaveEditHipotesis }) => {
     const [isHover, seIsHover] = React.useState(false);
     const [hasVoteHypothesis, setHasVoteHypothesis] = React.useState(false);
     const [showVotesList, setShowVotesList] = React.useState(false);
+    const [isEditing, setIsEditing] = React.useState(false);
+    const [editDescription, setEditDescription] = React.useState(description);
+    const [isConfirmeDeleteHypothesis, setIsConfirmeDeleteHypothesis] = React.useState(false);
     const ContainerRef = React.useRef(null);
     const [heightContainer, seHeightContainer] = React.useState(0);
     const toggleVotes = () => {
@@ -3440,7 +3668,36 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
     const handleChangeVote = async (hyphoteseId) => {
         await onChangeVote(hyphoteseId);
     };
-    return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainer, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$4, { children: description })] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && votes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
+    const handleSaveDescription = () => {
+        onSaveEditHipotesis(editDescription);
+        setIsEditing(false);
+    };
+    const validHasEditHipotesis = React.useMemo(() => {
+        if (!hasEditHipotesis)
+            return false;
+        if (authorGoalId === userLoggedId)
+            return true;
+        if (type !== HypothesisEnum.PRIORITIZE) {
+            return authorId === userLoggedId;
+        }
+        return false;
+    }, [type, hasEditHipotesis, authorGoalId, authorId, userLoggedId]);
+    const handleDoubleClick = (e) => {
+        if (validHasEditHipotesis) {
+            setIsEditing(true);
+        }
+    };
+    return (jsxRuntime.jsx(MainContainer, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainerDescription, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$4, { children: isEditing ? (jsxRuntime.jsx("span", { style: { display: 'flex', width: '100%' }, children: jsxRuntime.jsx("div", { contentEditable: true, style: { width: '100%', background: 'white' }, onInput: (e) => setEditDescription(e.currentTarget.textContent), onBlur: handleSaveDescription, children: description }) })) : (jsxRuntime.jsx("div", { style: { width: '100%' }, onDoubleClick: handleDoubleClick, children: jsxRuntime.jsx("span", { children: editDescription }) })) }), validHasEditHipotesis && (jsxRuntime.jsx(MenuMore, { options: [
+                                {
+                                    description: 'Editar',
+                                    onClick: (e) => setIsEditing(true)
+                                },
+                                {
+                                    description: 'Excluir',
+                                    onClick: () => setIsConfirmeDeleteHypothesis(true),
+                                    color: '#C00F00'
+                                }
+                            ] }))] }), loading && (jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, style: { cursor: 'default' }, children: jsxRuntime.jsx(Loading, {}) }) })), !loading && (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [!canVote && canViewVote && votes?.length > 0 && (jsxRuntime.jsxs("div", { style: { position: 'relative', height: '100%' }, children: [jsxRuntime.jsx(SplitContainer, { children: jsxRuntime.jsx(VoteButtonContainer, { ref: viewVotesRef, height: heightContainer, style: { cursor: canViewListVotes ? 'pointer' : 'default' }, type: type, onClick: canViewListVotes ? toggleVotes : null, children: jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                             return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
                                                         }), votes?.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { style: {
                                                                     fontSize: votes?.length > 9 ? 10 : votes?.length > 99 ? 8 : 14
@@ -3454,7 +3711,8 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                     }, children: !hasVoteHypothesis ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(VoteCurrentIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: changeVoteText })] })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(ExcludeVoteIcon, { width: "24", height: "24" }), jsxRuntime.jsx(VoteButton, { children: deleteVoteText })] })) })) : (jsxRuntime.jsxs(VoteCount, { children: [jsxRuntime.jsxs(VoteContent, { children: [votes?.slice(0, 2)?.map((vote, index) => {
                                                     return (jsxRuntime.jsx(ImageContent$1, { style: { zIndex: 14 - index }, children: jsxRuntime.jsx("img", { src: vote?.user?.avatar || 'https://cdn-images.frstfalconi.cloud/path582.svg' }) }, vote?.id));
                                                 }), votes.length > 2 && (jsxRuntime.jsx(ImageContent$1, { style: { background: '#444444' }, children: jsxRuntime.jsxs("p", { children: ["+", votes?.length - 2] }) }))] }), jsxRuntime.jsxs("p", { children: [votes?.length, " ", votes?.length > 1 ? votesPluralText : votesSingularText] })] })) }) })) : (canVote &&
-                            !hasVoteHypothesis && hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { onClick: () => handleChangeVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
+                            !hasVoteHypothesis &&
+                            hasVoteGoal && (jsxRuntime.jsx(SplitContainer, { onClick: () => handleChangeVote(id), children: jsxRuntime.jsx(VoteButtonContainer, { type: type, modeDelete: isHover, height: heightContainer, onMouseEnter: () => seIsHover(true), onMouseLeave: () => seIsHover(false), children: jsxRuntime.jsxs("div", { style: {
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
@@ -3474,7 +3732,12 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
                                         justifyContent: 'center',
                                         paddingLeft: '4px',
                                         height: '100%'
-                                    }, children: [jsxRuntime.jsx(VoteCurrentIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: changeVoteText })] }) }) })))] }))] }) }));
+                                    }, children: [jsxRuntime.jsx(VoteCurrentIcon, { width: "24", height: "24", style: { marginLeft: '4px', marginRight: '4px' } }), jsxRuntime.jsx(VoteButton, { children: changeVoteText })] }) }) }))), jsxRuntime.jsx(ModalConfirme, { title: "Excluir hip\u00F3tese", open: isConfirmeDeleteHypothesis, onClose: () => {
+                                setIsConfirmeDeleteHypothesis(false);
+                            }, onConfirm: () => {
+                                onDeleteHipotesis();
+                                setIsConfirmeDeleteHypothesis(false);
+                            }, children: jsxRuntime.jsx("p", { style: { marginTop: '16px', fontFamily: 'PT Sans', fontWeight: 400 }, children: "Tem certeza que deseja excluir essa hip\u00F3tese cadastrada?" }) })] }))] }) }));
 };
 const VoteList = ({ hypothesisVotes, showVotes, viewProfile }) => {
     const sortedVotes = [...hypothesisVotes].sort((a, b) => a.user.name.localeCompare(b.user.name));
@@ -3497,6 +3760,27 @@ function ButtonGroup({ children, active }) {
             active: child.props.value === active,
             length: children.length
         })) }));
+}
+
+const HelperTextBox$1 = styled__default["default"].div `
+width: 100%;
+height: fit-content;
+padding: 1rem;
+border-radius: 8px;
+border: 1px;
+background: #FEF0D080;
+border: 1px solid #FDAE15;
+display: flex;
+font-weight: 400;
+font-size: 16px;
+align-items: center;
+svg{
+  margin-right: 0.5rem;
+}
+`;
+
+function HelperTextBox({ helperTextBox }) {
+    return (jsxRuntime.jsxs(HelperTextBox$1, { children: [jsxRuntime.jsx(LampHelpBoxInput, {}), helperTextBox] }));
 }
 
 const placeholderStyle = (color) => styled.css `
@@ -3676,22 +3960,6 @@ const HelperText$3 = styled__default["default"].span `
       color: ${({ theme }) => theme.colors.messageError1};
     `}
 `;
-const HelperTextBox = styled__default["default"].div `
-width: 100%;
-height: fit-content;
-padding: 1rem;
-border-radius: 8px;
-border: 1px;
-background: #FEF0D080;
-border: 1px solid #FDAE15;
-display: flex;
-font-weight: 400;
-font-size: 16px;
-align-items: center;
-svg{
-  margin-right: 0.5rem;
-}
-`;
 const InputIconButton = styled__default["default"].button `
   display: flex;
   justify-content: center;
@@ -3732,7 +4000,7 @@ function TextField(props) {
             setClick(false);
         }, 1000);
     };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { ref: props.textRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsxs(HelperTextBox, { children: [jsxRuntime.jsx(LampHelpBoxInput, {}), props.helperTextBox] })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme, focused: focus, disabled: props.disabled, hovered: hover, error: props.error, multiline: props.multiline, width: props.width, height: props.height }, children: jsxRuntime.jsxs("div", { style: props.style, className: props.className, children: [jsxRuntime.jsx(Label$2, { htmlFor: props.id, isClicked: click, children: props.label }), jsxRuntime.jsxs(TextFieldContainer, { onMouseEnter: () => setHover(true), onMouseLeave: () => setHover(false), onClick: () => showBorderAfterClick(), isClicked: click, isHelpTextBox: props.isHelperTextBox, children: [props.startIcon && !props.multiline && (jsxRuntime.jsx(StartIcon, { children: props.startIcon })), jsxRuntime.jsx(TextField$1, { ref: props.textRef, onFocus: () => setFocus(true), onBlur: () => setFocus(false), id: props.id, placeholder: props.placeholder || `${t('globals.typeHere')}...`, as: props.multiline ? 'textarea' : 'input', type: inputType, value: props.value, disabled: props.disabled, onChange: props.onChange, name: props.name, required: props.required, defaultValue: props.defaultValue, maxLength: props.maxLength }), props.endIcon && !props.multiline && (!!props.endIcon && jsxRuntime.jsx(InputIconButton, { onClick: props.handleClickEndIcon, children: endIconState }))] }), props.helperText && jsxRuntime.jsx(HelperText$3, { children: props.helperText }), props.helperTextBox && jsxRuntime.jsx(HelperTextBox, { helperTextBox: props.helperTextBox })] }) }));
 }
 
 function Textarea(props) {
@@ -3969,6 +4237,7 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         onContentUnformat(plainContent);
         addOrDeleteMentionedUser();
     };
+    const [spaceCount, setSpaceCount] = React.useState(0);
     const handleInput = (event) => {
         const selection = window.getSelection();
         let inputSearch = '';
@@ -3976,6 +4245,17 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
         let hasKeyPresent = false;
         let textBeforeCursor = '';
         let textBeforeKey = '';
+        if (event.key === ' ') {
+            setSpaceCount((prevCount) => prevCount + 1);
+            if (spaceCount === 1) {
+                setShowMention(false);
+                setSpaceCount(0);
+                return;
+            }
+        }
+        else {
+            setSpaceCount(0);
+        }
         if (selection && selection.rangeCount > 0) {
             const range = selection.getRangeAt(0);
             if (range.startContainer.textContent === null)
@@ -4001,14 +4281,13 @@ const useInputHook = ({ limit, placeholder, onSendMentions, onContentFormat, onC
                     setShowMention(false);
                 }
             }
-            else {
-                setShowMention(false);
-            }
         }
         if ((hasSpaceBeForeKey && hasKeyPresent) || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
-            setShowMention(true);
             setInputSearch(inputSearch);
             !!onChange && onChange(inputSearch);
+            if (event.key === '@' || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
+                setShowMention(true);
+            }
         }
         countChars();
         createFormatAndTextContentToSaveComment();
@@ -4531,7 +4810,7 @@ const Date$2 = styled__default["default"].div `
     margin-right: 11px;
     color: ${({ theme }) => theme.colors.neutralsGrey2};
 `;
-const ButtonMore$2 = styled__default["default"].div `
+const ButtonMore$1 = styled__default["default"].div `
     display: flex;
     cursor: pointer;
     height: 14px;
@@ -4889,7 +5168,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                             ((isPrivateAuthor || isPrivateMe) &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position$2, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
                                     jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }), hasDropdown && (isAuthor || isMe) &&
-                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore$2, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
+                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isMe && !isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(!isPrivateAuthor) &&
                                                                     jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isAuthor && !isMe &&
@@ -5180,146 +5459,6 @@ function MiniButton({ variant, label, disabled, onClick, styles, active, tooltip
     const [isTooltipActive, setIsTooltipActive] = React.useState(false);
     const generateButtonComponent = () => (jsxRuntime.jsx(Button$3, { onClick: (e) => !disabled && onClick(e), disabled: disabled, variant: variant, style: { ...styles }, active: !!active, isTooltipActive: isTooltipActive, children: label }));
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme }, children: tooltipText ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: tooltipText, trigger: "hover", width: tooltipText.length > 18 ? "220px" : "100px", height: "auto", style: { top: '50px', textAlign: 'center' }, setIsActive: setIsTooltipActive, children: generateButtonComponent() })) : (jsxRuntime.jsx(jsxRuntime.Fragment, { children: generateButtonComponent() })) }));
-}
-
-styled__default["default"].p `
-  color: white;
-  padding-left: 5px;
-  font-size: 16px;
-`;
-const ButtonMore$1 = styled__default["default"](Button__default["default"]) `
-    width: 30px !important;
-    min-width: 30px !important;
-    max-width: 30px !important;
-    height: 30px !important;
-    margin: 0px !important;
-    padding: 0px !important;
-    display: flex !important;
-    justify-content: center !important;
-    border-radius: 12px !important;
-    background-color: transparent !important;
-    ${({ isHover }) => isHover && `&:hover {
-      background-color: #FFF9 !important;
-  }`};
-`;
-const MenuCustom$2 = styled__default["default"](Menu__default["default"]) `
-margin-top: ${({ isArrowInMenu }) => isArrowInMenu ? '8px' : '15px'};
-margin-left: 30px;
-overflow: hidden;
-border-radius: 8px;
-
-  & .MuiPaper-root {
-  border-radius: 8px !important;
-  box-shadow: 0px 15px 20px -20px rgba(34, 34, 34, 0.15), 0px 3px 10px 0px rgba(0, 0, 0, 0.15);
-  overflow: visible;
-  background: #00000000;
-   ${({ isArrowInMenu }) => isArrowInMenu &&
-    `&:before {
-    content: "";
-    position: absolute;
-    top: -15px;
-    right: 8.5px;
-    border-top: 6px solid transparent;
-    border-bottom: 10px solid #EBEBEB;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-  }
-  
-    &:after {
-    content: "";
-    position: absolute;
-    top: -14px;
-    right: 8.5px;
-    border-top: 6px solid transparent;
-    border-bottom: 10px solid #FFF;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-
-  }`} 
-}
-  ul {
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15), 0px 15px 20px -20px rgba(34, 34, 34, 0.15);
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#EBEBEB'}!important;
-  border-radius: 8px!important;
-  overflow: hidden;
-  background:${({ isDarkMode }) => isDarkMode ? '#1f1f1f' : '#FFF'};
-  min-width: 160px;
-  width: auto;
-  &:hover {
-    background:${({ isDarkMode }) => isDarkMode ? '#525252' : '#FFF'};
-    border: 1px solid ${({ isDarkMode }) => isDarkMode ? '#525252' : '#EBEBEB'} !important;
-  }
-  li {
-    ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-left: 25px;`}
-  }
-}
-`;
-const MenuItemCustom$2 = styled__default["default"](MenuItem__default["default"]) `
-  background-color: ${({ theme, isDarkMode }) => isDarkMode ? `#1f1f1f` : theme.colors.shadeWhite} !important;
-  ${({ isPaddingInMenu }) => isPaddingInMenu && `padding-right: 45px!important;`}
-  margin: 1px!important;
-  transition: none!important;
-  animation: none!important;
-    &:hover {
-    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#F7F9FC!important;`};
-  }
-    &:active {
-    background-color: ${({ isDarkMode }) => isDarkMode ? `#525252 !important;` : `#FCF3EB!important;`};
-  }
-`;
-styled__default["default"](MenuItem__default["default"]) `
-color: white!important;
-background-color: #F5792A!important;
-
-display: flex;
-flex-direction: row;
-  &:hover {
-  background-color: #FD9350!important;
-}
-`;
-const TextOption$1 = styled__default["default"].div `
-margin-left: 10px;
-padding-top: 1px;
-font-family: 'PT Sans';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 17.6px;
-`;
-const IconOption = styled__default["default"].div `
-width: 20px;
-height: 30px;
-display: flex;
-align-items: center;
-justify-content: center;
-`;
-
-function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true, isArrowInMenu = true, isPaddingInMenu = true, isDarkMode = false }) {
-    const [listOptions, setListOptions] = React.useState(options);
-    React.useEffect(() => {
-        setListOptions(options);
-    }, [options]);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$1, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, isHover: isHover, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
-                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(MenuItemCustom$2, { isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, onClick: () => {
-                                    itemOption?.onClick();
-                                    closeAfterClick && handleClose();
-                                }, style: {
-                                    borderBottom: listOptions?.length - 1 == index ? '' : isDarkMode ? '1px solid #525252' : '1px solid #EBEBEB',
-                                    color: itemOption?.color ? itemOption?.color : '#222',
-                                    pointerEvents: itemOption?.disabled ? 'none' : 'auto',
-                                    cursor: itemOption?.disabled ? 'default' : 'pointer'
-                                }, disableRipple: true, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), jsxRuntime.jsx(TextOption$1, { style: !itemOption?.startIcon ? { marginLeft: '0px' } : {}, children: itemOption?.description })] }) }, index));
-                    }) }))] }) }));
 }
 
 function buildStringWithLinkHTML(value) {
@@ -6429,7 +6568,7 @@ const ContainerSelected = styled__default["default"].div `
 const TableContainer = styled__default["default"].div `
     width: 100%;
 `;
-const Table = styled__default["default"].table `
+const Table$1 = styled__default["default"].table `
     border-collapse: collapse;
     width:100%;
     background:${({ theme }) => theme.colors.neutralsGrey8};
@@ -6448,7 +6587,7 @@ const TableHeader = styled__default["default"].th `
     font-family: PT Sans;
     font-weight: 700;
 `;
-const TableRow = styled__default["default"].tr `
+const TableRow$1 = styled__default["default"].tr `
     height: 54px;
     border-top: 1px solid rgba(189, 189, 189, 1);
     border-bottom:  1px solid rgba(189, 189, 189, 1);
@@ -6642,7 +6781,7 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, textHe
         return internalItems.filter((i) => i.checked).length;
     }, [internalItems]);
     const maxAdmToShow = 3;
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(ContainerSelected, { children: [' ', jsxRuntime.jsxs("div", { id: 'selected-groups', children: [selected, " ", selectedItems] }), selectedItems > 1 && (jsxRuntime.jsxs("span", { id: 'deleted-all-groups-selected', onClick: handleDeleteAllSelected, style: { cursor: 'pointer' }, children: [jsxRuntime.jsx(Trash, { fill: "rgba(165, 0, 0, 1)" }), deleted] }))] }), jsxRuntime.jsx(TableContainer, { id: 'container-table-groups', children: jsxRuntime.jsxs(Table, { children: [jsxRuntime.jsxs("thead", { children: [jsxRuntime.jsxs(TableHeader, { style: { textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }, children: [jsxRuntime.jsx(Tooltip$2, { style: {
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs(ContainerSelected, { children: [' ', jsxRuntime.jsxs("div", { id: 'selected-groups', children: [selected, " ", selectedItems] }), selectedItems > 1 && (jsxRuntime.jsxs("span", { id: 'deleted-all-groups-selected', onClick: handleDeleteAllSelected, style: { cursor: 'pointer' }, children: [jsxRuntime.jsx(Trash, { fill: "rgba(165, 0, 0, 1)" }), deleted] }))] }), jsxRuntime.jsx(TableContainer, { id: 'container-table-groups', children: jsxRuntime.jsxs(Table$1, { children: [jsxRuntime.jsxs("thead", { children: [jsxRuntime.jsxs(TableHeader, { style: { textAlign: 'start', paddingLeft: '18px', display: 'flex', alignItems: 'center' }, children: [jsxRuntime.jsx(Tooltip$2, { style: {
                                                 width: '116px',
                                                 height: '31px',
                                                 top: '8px',
@@ -6650,7 +6789,7 @@ function GroupsTable({ textHeader, textHeader2, textHeader3, textHeader4, textHe
                                                 display: 'flex',
                                                 justifyContent: 'center',
                                                 boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                            }, direction: 'bottom', content: textTooltipAllSelected, delay: 500, children: jsxRuntime.jsx(Checkbox, { isChecked: isAllChecked, label: "", handleCheck: handleToggleSelectAll, color: "rgba(67, 159, 159, 1)" }) }), jsxRuntime.jsx("span", { children: textHeader })] }), jsxRuntime.jsx(TableHeader, { children: textHeader2 }), jsxRuntime.jsx(TableHeader, { children: textHeaderVisit }), jsxRuntime.jsx(TableHeader, { style: { paddingRight: '40px', paddingLeft: '44px', width: '220px' }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', alignItems: 'center', gap: '40px' }, children: [jsxRuntime.jsx("div", { children: textHeader3 }), jsxRuntime.jsx("div", { children: textHeader4 })] }) })] }), jsxRuntime.jsx("tbody", { children: internalItems.map((i, index) => (jsxRuntime.jsxs(TableRow, { isRoot: i.isRoot, children: [jsxRuntime.jsx(TableChecked, { children: !i.isRoot ?
+                                            }, direction: 'bottom', content: textTooltipAllSelected, delay: 500, children: jsxRuntime.jsx(Checkbox, { isChecked: isAllChecked, label: "", handleCheck: handleToggleSelectAll, color: "rgba(67, 159, 159, 1)" }) }), jsxRuntime.jsx("span", { children: textHeader })] }), jsxRuntime.jsx(TableHeader, { children: textHeader2 }), jsxRuntime.jsx(TableHeader, { children: textHeaderVisit }), jsxRuntime.jsx(TableHeader, { style: { paddingRight: '40px', paddingLeft: '44px', width: '220px' }, children: jsxRuntime.jsxs("div", { style: { display: 'flex', alignItems: 'center', gap: '40px' }, children: [jsxRuntime.jsx("div", { children: textHeader3 }), jsxRuntime.jsx("div", { children: textHeader4 })] }) })] }), jsxRuntime.jsx("tbody", { children: internalItems.map((i, index) => (jsxRuntime.jsxs(TableRow$1, { isRoot: i.isRoot, children: [jsxRuntime.jsx(TableChecked, { children: !i.isRoot ?
                                             jsxRuntime.jsx(Checkbox, { label: i.group, handleCheck: () => handleToggleSelectRow(index), isChecked: i.checked })
                                             :
                                                 jsxRuntime.jsxs("p", { id: 'group-root', style: { fontFamily: 'PT Sans', fontWeight: 400, fontSize: '16px', paddingLeft: '32px', lineHeight: '21px', fontStyle: 'normal' }, children: [i.textRoot, " (", i.group, ")"] }) }), jsxRuntime.jsx(TableAdm, { id: 'container-adm', children: jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Tooltip$2, { content: textTooltipAdd, delay: 500, direction: 'bottom', style: {
@@ -6861,98 +7000,98 @@ function CardPeople({ labels, userInfo, isChecked, onChecked, hiddenCheckbox, st
 }
 
 const CardContainer$1 = styled__default["default"].div `
-    box-sizing: border-box;
-    max-width: 100%;
-    height: auto;
-    background:${({ theme }) => theme.colors.shadeWhite};
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    border-color: ${({ theme }) => theme.colors.linkDisabled};
-    border-radius: 16px;
-    padding-right: 23px;
-    padding-top: 27px;
-    padding-left: 23px;
-    padding-bottom: 27px;
-    position:relative;
+  box-sizing: border-box;
+  max-width: 100%;
+  height: auto;
+  background: ${({ theme }) => theme.colors.shadeWhite};
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 0px 8px 0px;
+  border-color: ${({ theme }) => theme.colors.linkDisabled};
+  border-radius: 12px;
+  padding-right: 23px;
+  padding-top: 27px;
+  padding-left: 23px;
+  padding-bottom: 27px;
+  position: relative;
 `;
 const TextLevel = styled__default["default"].p `
-    ${({ theme }) => theme.fonts.textMessageComponentsBold};
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
-    display: block;
+  ${({ theme }) => theme.fonts.textMessageComponentsBold};
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
+  display: block;
 `;
 const Challenge = styled__default["default"].p `
-    ${({ theme }) => theme.fonts.textMessageRegular};
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
+  ${({ theme }) => theme.fonts.textMessageRegular};
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
 `;
 const ImageTextGroup = styled__default["default"].div `
-    display: flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content: center;
-    gap: 11.83px;
-    padding-bottom:20.35px; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 11.83px;
+  padding-bottom: 20.35px;
 `;
 const ScroollableContent = styled__default["default"].div `
-    display: block;
-    width: 100%;
-    overflow-y:auto;
-    max-height: 520px;
-    padding-right: 17px;
-    position:relative;
-    &::-webkit-scrollbar{
-        width:7px;
-        background-color: #e2e8f0;
-    };
-    &::-webkit-scrollbar-thumb{
-        background-color: #64748b;
-    };  
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  max-height: 520px;
+  padding-right: 17px;
+  position: relative;
+  &::-webkit-scrollbar {
+    width: 7px;
+    background-color: #e2e8f0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #64748b;
+  }
 `;
 const StepBox = styled__default["default"].div `
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
 `;
 const StepBoxTextBlock = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    width: fit-content;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 `;
 const StepBoxIconBlock = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
-    width: 66px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 66px;
+  align-items: center;
 `;
 const StepBar = styled__default["default"].div `
-    width: 2px;
-    flex:1;
-    border-radius: 2px;
-    background-color: ${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey};
+  width: 2px;
+  flex: 1;
+  border-radius: 2px;
+  background-color: ${({ isComplete, theme }) => (isComplete ? theme.colors.primary1 : theme.colors.incompleteGrey)};
 `;
 const StepBoxTitle = styled__default["default"].a `
-    ${({ theme }) => theme.fonts.MessageComponentsBodyBold};
-    color:${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : ' #344054'};
-    ${({ isComplete }) => !isComplete && 'font-weight: 500;'}
-    margin-top:7px;
-    cursor: pointer;
-    text-decoration: none;
+  ${({ theme }) => theme.fonts.MessageComponentsBodyBold};
+  color: ${({ isComplete, theme }) => (isComplete ? theme.colors.primary1 : ' #344054')};
+  ${({ isComplete }) => !isComplete && 'font-weight: 500;'}
+  margin-top:7px;
+  cursor: pointer;
+  text-decoration: none;
 `;
 const StepBoxDescription = styled__default["default"].p `
-    ${({ theme }) => theme.fonts.textMessageComponentsRegular};
-    color:#6a7585;
-    margin-bottom: 18px;
+  ${({ theme }) => theme.fonts.textMessageComponentsRegular};
+  color: #6a7585;
+  margin-bottom: 18px;
 `;
 const CheckCircle = styled__default["default"].div `
-    box-sizing: border-box !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    background-color: ${({ isComplete, theme }) => isComplete ? theme.colors.primary1 : theme.colors.primary1};
-    border: 4px solid ${({ isChecked, theme }) => isChecked ? theme.colors.shadeWhite : theme.colors.shadeWhite};
+  box-sizing: border-box !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: ${({ isComplete, theme }) => (isComplete ? theme.colors.primary1 : theme.colors.primary1)};
+  border: 4px solid ${({ isChecked, theme }) => (isChecked ? theme.colors.shadeWhite : theme.colors.shadeWhite)};
 `;
 
 function OnboardingProgressMenu(props) {
@@ -7075,96 +7214,97 @@ function CarUser({ style, userInfo, handleLinkProfile, hasButton, labelButton, h
 }
 
 const Container$g = styled__default["default"].div `
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 `;
 const LabelField = styled__default["default"].label `
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
 
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 
-    color: ${({ theme }) => theme.colors.shadeBlack};
+  color: ${({ theme }) => theme.colors.shadeBlack};
 
-    color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
-    
-    color: ${({ isOnFocus }) => isOnFocus && '#663366'}    
+  color: ${({ theme, isHover }) => isHover && theme.colors.linkOnfocus};
+
+  color: ${({ isOnFocus }) => isOnFocus && '#663366'};
 `;
 const ContainerIcon$2 = styled__default["default"].div `
-    min-height: 20px;
-    min-width: 20px;
-    padding-left: 15px;
-    padding-right: 8px;
-    padding-top: 3px;
+  min-height: 20px;
+  min-width: 20px;
+  padding-left: 15px;
+  padding-right: 8px;
+  padding-top: 3px;
 `;
 const InputSearchWrapper$1 = styled__default["default"].div `
-    height: 48px;
-    background-color: #EBEDED;
+  height: 48px;
+  background-color: ${({ theme, inputSearchNewStyle }) => (inputSearchNewStyle ? theme.colors.shadeWhite : '#ebeded')};
 
-    border-radius: 8px;
-    
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  border-radius: 8px;
 
-    border: 1px solid ${({ isHover, theme }) => isHover ? theme.colors.linkOnfocus : '#E0E0E0'};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 
-    ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}    
+  border: 1px solid
+    ${({ isHover, theme, inputSearchNewStyle }) => isHover ? theme.colors.linkOnfocus : inputSearchNewStyle ? theme.colors.neutralsGrey7 : '#E0E0E0'};
+
+  ${({ isOnFocus }) => isOnFocus && 'outline: 1.5px solid #AE9BAE; border: 1px solid #663366;'}
 `;
 const InputText$3 = styled__default["default"].input `
-    display: flex;
-    align-items: center;
-    height: 48px;
-    width: 100%;
-    border: none;
-    background: transparent;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  border: none;
+  background: transparent;
 
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+  &::placeholder {
     font-family: 'PT Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
-    color: ${({ theme }) => theme.colors.neutralsGrey1};
-
-    &::placeholder {
-        font-family: 'PT Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-        backgorund-color: #FFF;
-        color: ${({ theme }) => theme.colors.neutralsGrey3};
-    }
+    backgorund-color: #fff;
+    color: ${({ theme, inputSearchNewStyle }) => inputSearchNewStyle ? theme.colors.neutralsGrey1 : theme.colors.neutralsGrey3};
+  }
 `;
 const ButtonAction$1 = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 48px;
-    background-color: ${({ theme }) => theme.colors.primary1};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  background-color: ${({ theme }) => theme.colors.primary1};
 
-    font-family: 'Work Sans';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    color: ${({ theme }) => theme.colors.shadeWhite};
-    border-radius: 8px;
-    
-    padding: 14px;
-    margin-right: -1px;
-    margin-left: 10px;
-    z-index: 2;
-    white-space: nowrap;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+  border-radius: 8px;
+
+  padding: 14px;
+  margin-right: -1px;
+  margin-left: 10px;
+  z-index: 2;
+  white-space: nowrap;
 `;
 
-function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton, isButton, id }) {
+function SearchField({ label, hasSearchIcon, placeholder, value, onChange, textButton, className, handleClickButton, isButton, id, style, inputSearchNewStyle }) {
     const [actionAreaInput, setActionAreaInput] = React.useState(false);
     const [inputOnFocus, setInputOnFocus] = React.useState(false);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$g, { id: 'container-search-field', className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label && (jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [' ', label, ' '] })), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [hasSearchIcon && (jsxRuntime.jsxs(ContainerIcon$2, { children: [' ', jsxRuntime.jsx(SearchIcon, {}), ' '] })), jsxRuntime.jsx(InputText$3, { placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$g, { style: style, id: "container-search-field", className: className, onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: [label && (jsxRuntime.jsxs(LabelField, { isHover: actionAreaInput, isOnFocus: inputOnFocus, children: [' ', label, ' '] })), jsxRuntime.jsxs(InputSearchWrapper$1, { isHover: actionAreaInput, isOnFocus: inputOnFocus, inputSearchNewStyle: inputSearchNewStyle, children: [hasSearchIcon && (jsxRuntime.jsxs(ContainerIcon$2, { children: [' ', jsxRuntime.jsx(SearchIcon, { fill: "#222222" }), ' '] })), jsxRuntime.jsx(InputText$3, { inputSearchNewStyle: inputSearchNewStyle, placeholder: placeholder, onChange: onChange, value: value, onKeyDown: (event) => {
                                 if (event.key === 'Enter') {
                                     handleClickButton(event);
                                 }
@@ -7496,7 +7636,7 @@ const Raiting = styled__default["default"].p `
 /**
  * @componente
  */
-function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
+function Rating({ variant = 'primary', rating, isVisibleNumberRating, qtdStars, marginStars, handleRating, sizeStars, orientation, disabled }) {
     React.useState(rating + 1);
     const [hoverRaiting, setHoverRaiting] = React.useState(-1);
     const rederStars = () => {
@@ -7514,19 +7654,27 @@ function Rating({ rating, isVisibleNumberRating, qtdStars, marginStars, handleRa
                 return true;
         };
         for (var i = 0; i < qtdStars; i++) {
-            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled }, i));
+            groupStars.push(jsxRuntime.jsx(StarRatingComponent, { variant: variant, isEmpty: rating <= 0, id: i + 1, active: getStatusActive(i), setOnHover: setHoverRaiting, handleClick: handleClick, sizeStars: sizeStars, marginStars: marginStars, disabled: disabled }, i));
         }
         return groupStars;
     };
-    return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [rederStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: (rating).toFixed(1) })] }));
+    return (jsxRuntime.jsxs(WrapperStars, { orientation: orientation, children: [rederStars(), isVisibleNumberRating && jsxRuntime.jsx(Raiting, { children: rating.toFixed(1) })] }));
 }
-function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
+function StarRatingComponent({ id, variant, isEmpty, active, handleClick, sizeStars, marginStars, setOnHover, disabled }) {
     const [actionArea, setActionArea] = React.useState(false);
-    const getColorStar = () => {
+    const getColorStarPrimary = () => {
         if (active)
             return '#FFC200';
         else
             return '#757575';
+    };
+    const getColorStarSecondary = () => {
+        if (isEmpty && !active)
+            return 'transparent';
+        if (active)
+            return '#FDD836';
+        else
+            return '#BDBDBD';
     };
     React.useEffect(() => {
         setTimeout(() => {
@@ -7536,12 +7684,12 @@ function StarRatingComponent({ id, active, handleClick, sizeStars, marginStars, 
                 setOnHover(-1);
         }, 150);
     }, [actionArea]);
-    return jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { onMouseOver: () => setActionArea(!disabled), onMouseOut: () => setActionArea(false ), onClick: () => handleClick(id), style: {
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("div", { onMouseOver: () => setActionArea(!disabled), onMouseOut: () => setActionArea(false ), onClick: () => handleClick(id), style: {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
                 padding: marginStars ? marginStars : '3.5px'
-            }, children: jsxRuntime.jsx(StarRating, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 29, fill: getColorStar(), fillOpacity: disabled ? '0.6' : '1' }) }) });
+            }, children: variant == 'primary' ? (jsxRuntime.jsx(StarRating, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 29, fill: getColorStarPrimary(), fillOpacity: disabled ? '0.6' : '1' })) : (jsxRuntime.jsx(StarRatingRondedTips, { width: sizeStars ? sizeStars : 30, height: sizeStars ? sizeStars : 28, stroke: isEmpty && !active ? '#BDBDBD' : 'transparent', strokeWidth: isEmpty && !active ? '1' : '0', fill: getColorStarSecondary(), fillOpacity: disabled ? '0.6' : '1' })) }) }));
 }
 
 function Video({ videoId, privateHash, width, height, autoplay, quality, timeStart, showSpeedControl, controls, loop, keyboard, style }) {
@@ -8911,7 +9059,7 @@ const Progress = styled__default["default"].span `
 const Tooltip$1 = styled__default["default"].div `
     position: relative;
     display: inline-block;
-    z-index: 999;
+    z-index: 99;
     
     &:after #tooltipinfo {
         content: "";
@@ -12072,13 +12220,13 @@ const emptyStateInfo = styled__default["default"].div `
   color: ${({ theme }) => theme.colors.neutralsGrey3};
 `;
 
-var imgNotification = "data:image/png;base64,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";
+var imgEmptyState = "data:image/png;base64,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";
 
 function NotificationPopOver(props) {
     props.notificationList
         ? props.notificationList.filter((notification) => notification.isNewNotification)
         : [];
-    const emptyStateImage = imgNotification;
+    const emptyStateImage = imgEmptyState;
     const notificationsLength = props?.notificationList?.length;
     const markAllAsReadOption = {
         description: props.textMarkAllAsRead,
@@ -16302,7 +16450,7 @@ const Container$1 = styled__default["default"].div `
   align-items: center;
   flex-direction: column;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 282px;
   height: 336px;
   background: rgba(17, 17, 17);
@@ -19313,7 +19461,7 @@ const Label = styled__default["default"].div `
     transition: width 0.5s ease-in-out;
 `;
 
-function ExpandButton({ label, disabled, onClick, styles, startIcon }) {
+function ExpandButton$1({ label, disabled, onClick, styles, startIcon }) {
     const [actionArea, setActionArea] = React.useState(false);
     const [timeoutId, setTimeoutId] = React.useState(null);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: { ...FRSTTheme }, children: jsxRuntime.jsxs(Button, { onClick: (e) => !disabled && onClick(e), disabled: disabled, style: { ...styles }, onMouseOut: () => {
@@ -20738,6 +20886,518 @@ function index (props) {
                             } }) }), selectedValues && selectValuesModal()] }) }));
 }
 
+const ContainerTable = styled__default["default"].div `
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid ${({ theme }) => theme.colors.neutralsGrey7};
+  border-radius: 20px;
+  overflow: hidden;
+`;
+const WrapperTable = styled__default["default"].div `
+  display: block;
+  min-width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+`;
+const TableHtml = styled__default["default"].table `
+  width: 100%; 
+  border-collapse: collapse;
+`;
+const WrapperLoading = styled__default["default"].div `
+  width: 100%;
+`;
+const SkeletonHeader = styled__default["default"](material.Skeleton) `
+  width: 100% !important;
+  height: 44px !important;
+  margin: 0 !important;
+  background: linear-gradient(90deg, ${({ theme }) => theme.colors.neutralsGrey5}, ${({ theme }) => theme.colors.neutralsGrey6});
+`;
+const skeletonAnimation = styled.keyframes `
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: calc(200% + 100%) 0;
+  }
+`;
+const SkeletonRow = styled__default["default"](material.Skeleton) `
+  width: 100% !important;
+  height: 44px !important;
+  background: linear-gradient(90deg, ${({ theme }) => theme.colors.neutralsGrey8}, ${({ theme }) => theme.colors.neutralsGrey6}, ${({ theme }) => theme.colors.neutralsGrey8});
+  
+  background-size: 200% 100%;
+  animation: ${skeletonAnimation} ease-in-out ${({ isAlter }) => isAlter ? '4s' : '3s'} infinite !important;
+`;
+
+const THeadColumn = styled__default["default"].thead `
+  width: 100%;
+`;
+const TRowColumn = styled__default["default"].tr `
+  background-color: #BEDCDC;
+`;
+const THColumnTitleItem = styled__default["default"].th `
+  display: table-cell;
+  padding: 10px;
+  width: ${({ width }) => width};
+  text-align: ${({ align }) => align};
+  white-space: nowrap;
+  
+  font-family: 'PT Sans';
+  font-size: 16px;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.borderSecondary4};
+`;
+
+function TableHead({ columns }) {
+    return (jsxRuntime.jsx(THeadColumn, { children: jsxRuntime.jsxs(TRowColumn, { children: [columns.map((column, index) => (jsxRuntime.jsx(THColumnTitleItem, { style: {
+                        width: column.width,
+                        textAlign: column.align
+                    }, children: column.title }, index))), jsxRuntime.jsx("th", {})] }) }));
+}
+
+const WrapperDataRow = styled__default["default"].tr `
+  min-height: 54px;
+  min-width: fit-content;
+  background-color: ${({ index }) => index % 2 === 0 ? '#FFFFFF' : '#F3F3F3'};
+`;
+const TableDataRowItem = styled__default["default"].td `
+  padding: 10px;
+  
+  font-family: 'PT Sans';
+  font-size: 16px;
+  font-weight: 400;
+`;
+const TableDataChildrenItem = styled__default["default"].tr `
+  padding: 10px;
+  font-family: 'PT Sans';
+  font-size: 16px;
+  font-weight: 400;
+  background-color: ${({ index }) => (index % 2 === 0 ? '#FFFFFF' : '#F3F3F3')};
+`;
+const TableDataChildrenControlExpand = styled__default["default"].div `
+  max-height: ${({ isExpanded }) => (isExpanded ? '1000px' : '0px')};
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+`;
+styled__default["default"].div `
+  display: flex;
+  width: ${({ width }) => width};
+  justify-content: ${({ align }) => align};
+  align-items: center;
+  padding: 10px;
+  
+  font-family: 'PT Sans';
+  font-size: 16px;
+  font-weight: 400;
+`;
+const WrapperExpandButton = styled__default["default"].div `
+  display: flex;
+  cursor: pointer;
+  min-width: 40px;
+  min-height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isExpanded }) => (isExpanded ? 'rotate(180deg)' : 'rotate(0deg)')} ;
+`;
+
+function TableBody$1({ data, expandedRows, handleExpandClick, columns }) {
+    return (jsxRuntime.jsx("tbody", { children: data.map((row, index) => (jsxRuntime.jsxs(React.Fragment, { children: [jsxRuntime.jsx(TableRow, { row: row, index: index, columns: columns, handleExpandClick: handleExpandClick, isExpanded: !!expandedRows?.[row?.id] }), jsxRuntime.jsx(ExpandableRow, { index: index, row: row, columns: columns, isExpanded: !!expandedRows?.[row?.id] })] }, row.id))) }));
+}
+function TableRow({ row, index, handleExpandClick, isExpanded, columns }) {
+    return (jsxRuntime.jsxs(WrapperDataRow, { index: index, children: [row.value.map((cell, index) => (jsxRuntime.jsx(TableDataRowItem, { children: cell }, index))), row.showButtonExpanded ? (jsxRuntime.jsx("td", { children: jsxRuntime.jsx(ExpandButton, { isExpanded: isExpanded, onClick: () => handleExpandClick(row.id) }) })) : (jsxRuntime.jsx("td", {}))] }));
+}
+function ExpandableRow({ index, row, columns, isExpanded }) {
+    return (jsxRuntime.jsx(TableDataChildrenItem, { index: index, children: jsxRuntime.jsx("td", { colSpan: columns.length + 1, children: jsxRuntime.jsx(TableDataChildrenControlExpand, { index: index, isExpanded: isExpanded, children: row.children }) }) }));
+}
+function ExpandButton({ isExpanded, onClick }) {
+    return (jsxRuntime.jsx(WrapperExpandButton, { onClick: onClick, isExpanded: isExpanded, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) }));
+}
+
+function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles, expandItemId, hiddeExpandItemId }) {
+    const [expandedRows, setExpandedRows] = React.useState([]);
+    /*
+    useEffect(() => {
+      console.log('\nexpandedRows ', expandedRows)
+      console.log('expandItemId ', expandItemId)
+      console.log('hiddeExpandItemId ', hiddeExpandItemId)
+      if (expandItemId !== -1) {
+        setExpandedRows((prevExpandedRows) => ({
+          ...prevExpandedRows,
+          [expandItemId]: true
+        }));
+        // setExpandItemId(-1);  // Reset expandItemId after updating
+      }
+      if (hiddeExpandItemId !== -1) {
+        setExpandedRows((prevExpandedRows) => ({
+          ...prevExpandedRows,
+          [hiddeExpandItemId]: false
+        }));
+        // setExpandItemId(-1);  // Reset expandItemId after updating
+      }
+    }, [expandItemId, hiddeExpandItemId, expandedRows])*/
+    React.useEffect(() => {
+        if (expandItemId !== -1) {
+            setExpandedRows((prevExpandedRows) => ({
+                ...prevExpandedRows,
+                [expandItemId]: true
+            }));
+        }
+    }, [expandItemId]);
+    React.useEffect(() => {
+        if (hiddeExpandItemId !== -1) {
+            setExpandedRows((prevExpandedRows) => ({
+                ...prevExpandedRows,
+                [hiddeExpandItemId]: false
+            }));
+        }
+    }, [hiddeExpandItemId]);
+    const handleExpandClick = (id) => {
+        setExpandedRows((prev) => ({
+            ...prev,
+            [id]: !prev[id]
+        }));
+    };
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(ContainerTable, { style: containerStyles ? containerStyles : {}, children: isLoading ? (jsxRuntime.jsxs(WrapperLoading, { children: [jsxRuntime.jsx(SkeletonHeader, { variant: "rectangular" }), Array.from({ length: lengthElSkeleton }).map((_, index) => (jsxRuntime.jsx(SkeletonRow, { variant: "rectangular", isAlter: index % 2 === 0 }, index)))] })) : (jsxRuntime.jsx(WrapperTable, { children: jsxRuntime.jsxs(TableHtml, { children: [jsxRuntime.jsx(TableHead, { columns: columns }), jsxRuntime.jsx(TableBody$1, { columns: columns, data: data, expandedRows: expandedRows, handleExpandClick: handleExpandClick, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId })] }) })) }) }));
+}
+
+const WrapperCollaboratorAvatar = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid }) {
+    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: onPressAvatar && uuid ? () => onPressAvatar(uuid) : null, isActiveClick: !!(onPressAvatar && uuid) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
+}
+
+const WrapperDateLimit = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-family: PT Sans;
+  font-size: 16px;
+  line-height: 17.6px;
+  text-align: center;
+  
+  ${({ status }) => {
+    if (status == 'completed')
+        return `font-weight: 700; color: #1BA853; `;
+    else if (status == 'not_completed')
+        return `font-weight: 700; color: #A50000;`;
+    else if (status == 'in_progress')
+        return `font-weight: 400; color: #222222;`;
+    else if (status == 'deprioritized')
+        return `font-weight: 400; color: #9C9C9C;`;
+    else
+        return `font-weight: 400; color: #222222;`;
+}}
+`;
+
+function DateLimit({ date, status }) {
+    return jsxRuntime.jsx(WrapperDateLimit, { status: status, children: date });
+}
+
+const ContainerTag = styled__default["default"].div `
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const WrapperTag = styled__default["default"].div `
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 150px;
+  height: 26px;
+  padding: 4px 12px 4px 8px;
+  gap: 8px;
+  border-radius: 30px;
+  white-space: nowrap;
+  min-width: fit-content;
+  color: #222;
+  
+  ${({ status }) => {
+    if (status == 'not_started')
+        return `background-color: #FAE28D;`;
+    else if (status == 'completed')
+        return `background-color: #B9E7B8; `;
+    else if (status == 'not_completed')
+        return `background-color: #F2B0B0;`;
+    else if (status == 'in_progress')
+        return `background-color: #B9D5FF;`;
+    else if (status == 'deprioritized')
+        return `background-color: #D8D8D8;`;
+    else
+        return `background-color: #FAE28D;`;
+}}
+`;
+const CicleTag = styled__default["default"].div `
+  width: 12px;
+  height: 12px;
+  border-radius: 100px;
+    
+  ${({ status }) => {
+    if (status == 'not_started')
+        return `background-color: #FDAE15;`;
+    else if (status == 'completed')
+        return `background-color: #1BA853; `;
+    else if (status == 'not_completed')
+        return `background-color: #A50000;`;
+    else if (status == 'in_progress')
+        return `background-color: #3881FA;`;
+    else if (status == 'deprioritized')
+        return `background-color: #222222;`;
+    else
+        return `background-color: #FDAE15;`;
+}}
+`;
+
+function TableBody({ status, label }) {
+    return (jsxRuntime.jsx(ContainerTag, { children: jsxRuntime.jsxs(WrapperTag, { status: status, children: [jsxRuntime.jsx(CicleTag, { status: status }), label] }) }));
+}
+
+const WrapperEmptyState$1 = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 8px;
+  min-height: fit-content;
+  background-color: ${({ theme }) => theme?.colors.shadeWhite};
+  overflow: hidden;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: min-height 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+`;
+const ImageEmptyState = styled__default["default"].img `
+  width: 150px;
+`;
+const LabelEmptyState = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.7px;
+  text-align: center;
+  color: #444;
+`;
+const ButtonCreateAction = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  height: 34px;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 8px;
+  white-space: nowrap;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 2px;
+
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 17.6px;
+  text-align: left;
+  gap: 8px;
+
+  background-color: ${({ theme }) => theme.colors.primary1};
+  color:  ${({ theme }) => theme?.colors.shadeWhite}
+`;
+
+function EmptyState({ emptyState, customImage }) {
+    const imgEmpty = imgEmptyState;
+    return (jsxRuntime.jsxs(WrapperEmptyState$1, { style: {
+            height: '280px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '20px',
+            border: '1.5px solid #ebebeb',
+            borderTopWidth: '0px'
+        }, children: [jsxRuntime.jsx(ImageEmptyState, { src: customImage ? customImage : imgEmpty, alt: "Empty" }), jsxRuntime.jsx(LabelEmptyState, { children: emptyState?.labels &&
+                    emptyState?.labels?.map((label) => {
+                        return jsxRuntime.jsx("p", { children: label });
+                    }) }), jsxRuntime.jsx(ButtonCreateAction, { onClick: () => emptyState?.handleClickButtonCreate?.(), children: emptyState?.labelButtonCreate })] }));
+}
+
+styled__default["default"].div `
+  min-height: 16px;
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  width: fit-content;
+  align-items: center;
+`;
+styled__default["default"].button `
+  min-height: 16px;
+  min-width: 16px;
+  padding: 0.3rem;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-width: 0px;
+  cursor:pointer;
+  /* :focus {
+    background-color: ${({ theme }) => theme.colors.selectItens};
+  } */
+`;
+styled__default["default"].div `
+  font-family: 'PT Sans';
+  font-style: normal;
+  font-weight: ${({ isChecked }) => (isChecked ? 700 : 400)};
+  font-size: 16px;
+  line-height: 21px;
+
+  padding-left: 8px;
+`;
+const WrapperCellButtonInbox = styled__default["default"].div `
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const ButtonActionInbox = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: ${({ theme }) => theme.colors.primary1};
+
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.42px;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.shadeWhite};
+
+  cursor: pointer;
+`;
+const WrapperEmptyState = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 8px;
+  min-height: fit-content;
+  background-color: ${({ theme }) => theme?.colors.shadeWhite};
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-top-width: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: min-height 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out;
+`;
+const WrapperEmptyStateCaseButton = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-right: 40px; 
+  padding-left: 42px;          
+`;
+const WrapperButtonEmpty = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  width: 15%;
+`;
+const ButtonEmpty = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+  width: 150px;
+  cursor: pointer;
+  border-radius: 12px;
+  white-space: nowrap;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 2px;
+
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 17.6px;
+  text-align: left;
+  gap: 8px;
+
+  color:  ${({ theme }) => theme?.colors.primary1}
+`;
+
+function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressAvatar, labelStatus, labelTextVisitProfile, buttonBottomCreateAction, showButtonInbox, emptyState, expandItemId, hiddeExpandItemId, customImageEmptyState }) {
+    const [adaptedColumns, setAdaptedColumns] = React.useState([]);
+    const [adaptedData, setAdaptedData] = React.useState([]);
+    React.useEffect(() => {
+        const newColumns = columns.map((column, index) => {
+            if (showButtonInbox) {
+                let width = '15%';
+                let align = 'center';
+                if (index === 1) {
+                    width = '45%';
+                    align = 'left';
+                }
+                if (index === columns.length - 1) {
+                    width = '5%';
+                    align = 'center';
+                }
+                return { title: column, width: width, align: align };
+            }
+            else {
+                let width = '20%';
+                let align = 'center';
+                if (index === 1) {
+                    width = '40%';
+                    align = 'left';
+                }
+                if (index === columns.length - 1) {
+                    width = '0%';
+                    align = 'center';
+                }
+                return { title: column, width: width, align: align };
+            }
+        });
+        setAdaptedColumns(newColumns);
+    }, [columns]);
+    React.useEffect(() => {
+        const newData = data.map((item) => ({
+            id: item.id,
+            value: [
+                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile }),
+                jsxRuntime.jsx("p", { style: { color: '#222' }, children: item.value[1] }),
+                jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),
+                jsxRuntime.jsx(TableBody, { status: item?.value?.[3], label: labelStatus?.[item?.value?.[3]] }),
+                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { onClick: () => item?.actionButtonInbox?.(item?.value?.[0]?.id), children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
+            ],
+            showButtonExpanded: item.showButtonExpanded,
+            children: item.children
+        }));
+        setAdaptedData(newData);
+    }, [data]);
+    const customStyleBorderTable = buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
+        ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
+        : {};
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), ' ', buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
+}
+
 exports.AccordionList = AccordionList$2;
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
@@ -20796,7 +21456,7 @@ exports.EmojiPicker = EmojiPicker;
 exports.EmptyAvatar = EmptyAvatar;
 exports.ExclusiveClassCard = ExclusiveClassCard;
 exports.ExitArrow = ExitArrow;
-exports.ExpandButton = ExpandButton;
+exports.ExpandButton = ExpandButton$1;
 exports.EyeOff = EyeOff;
 exports.Favorite = Favorite;
 exports.FeedInteraction = FeedInteraction;
@@ -20811,6 +21471,7 @@ exports.HeaderChallenge = HeaderChallenge;
 exports.HeaderContent = HeaderContent;
 exports.HeaderImprovementIdea = HeaderImprovementIdea;
 exports.HeaderUser = HeaderUser;
+exports.HelperTextBox = HelperTextBox;
 exports.HomeFilledIcon = HomeFilledIcon;
 exports.HomeLineIcon = HomeLineIcon;
 exports.HypothesisComponent = HypothesisComponent;
@@ -20895,6 +21556,8 @@ exports.StepperItem = StepperItem;
 exports.Steps = Steps;
 exports.StepsMission = MissionSteps;
 exports.StepsProgress = StepsProgress;
+exports.Table = Table;
+exports.TableActions = TableActions;
 exports.Tag = Tag;
 exports.TextArea = Textarea;
 exports.TextField = TextField;

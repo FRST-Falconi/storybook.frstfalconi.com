@@ -10,7 +10,7 @@ interface ParticipantCardI {
 export const Tooltip = styled.div<{position}>`
     position: relative;
     display: inline-block;
-    z-index: 999;
+    z-index: 99;
     
     &:after #tooltipinfo {
         content: "";

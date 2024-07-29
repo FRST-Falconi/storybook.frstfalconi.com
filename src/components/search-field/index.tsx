@@ -16,7 +16,9 @@ export default function SearchField({
   className,
   handleClickButton,
   isButton,
-  id
+  id,
+  style,
+  inputSearchNewStyle
 }: ISearchField) {
   const [actionAreaInput, setActionAreaInput] = useState(false)
   const [inputOnFocus, setInputOnFocus] = useState(false)
@@ -24,7 +26,8 @@ export default function SearchField({
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Container
-        id='container-search-field'
+        style={style}
+        id="container-search-field"
         className={className}
         onMouseOver={() => setActionAreaInput(true)}
         onMouseOut={() => setActionAreaInput(false)}
@@ -37,14 +40,19 @@ export default function SearchField({
             {label}{' '}
           </LabelField>
         )}
-        <InputSearchWrapper isHover={actionAreaInput} isOnFocus={inputOnFocus}>
+        <InputSearchWrapper
+          isHover={actionAreaInput}
+          isOnFocus={inputOnFocus}
+          inputSearchNewStyle={inputSearchNewStyle}
+        >
           {hasSearchIcon && (
             <ContainerIcon>
               {' '}
-              <SearchIcon />{' '}
+              <SearchIcon fill="#222222" />{' '}
             </ContainerIcon>
           )}
           <InputText
+            inputSearchNewStyle={inputSearchNewStyle}
             placeholder={placeholder}
             onChange={onChange}
             value={value}

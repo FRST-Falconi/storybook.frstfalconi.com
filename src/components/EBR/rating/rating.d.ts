@@ -2,41 +2,46 @@
 /// Interface do Componente
 
 declare type enumOrientation = 'horizontal' | 'vertical';
+declare type enumVariant = 'primary' | 'secondary';
 
 export interface IRating {
   /**
+ * @prop {enumVariant} nota: Valor da classificação aplicada
+ */
+  variant?: enumVariant;
+  /**
    * @prop {number} nota: Valor da classificação aplicada
    */
-    rating: number;
+  rating: number;
   /**
    * @prop {boolean} isVisibleNumberRating: Exibição do valor rating
    */
-    isVisibleNumberRating: boolean;
+  isVisibleNumberRating: boolean;
   /**
    * @prop {number} nota: Quantidade de estrelas
    */
-   qtdStars: number;
+  qtdStars: number;
   /**
    * @prop {any} handleRating: Função de manipulação da classificação
-   */  
-    handleRating: any;
+   */
+  handleRating: any;
   /**
    * @prop {number} sizeStars: Tamanho das estrelas
-   */  
-   sizeStars: number;
+   */
+  sizeStars: number;
 
   /**
    * @prop {string} marginStars: Margin das estrelas
-   */  
-      marginStars: string;
+   */
+  marginStars: string;
 
   /**
    * @prop {enumOrientation} orientation: Disposição das estrelas: horizontal ou vertical
-   */  
-   orientation: enumOrientation;
+   */
+  orientation: enumOrientation;
 
   /**
    * @prop {boolean} disabled: Boolean para desabilitar edição
-   */  
-   disabled: boolean;
+   */
+  disabled: boolean;
 }

@@ -55,13 +55,22 @@ export const Separator = styled.div`
 export const Description = styled.span`
   font-weight: 400;
   padding: 8px 0 8px;
+  width: 100%;
 `
 export const SplitContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100%;
 `
+
+export const SplitContainerDescription = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  width: 100%
+`
+
 export const VoteAvatarsContainer = styled.div`
   display: flex;
   align-items: center;

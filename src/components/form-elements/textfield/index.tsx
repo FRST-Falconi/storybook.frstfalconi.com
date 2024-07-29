@@ -1,4 +1,4 @@
-import { LampHelpBoxInput } from '@shared/icons'
+import HelperTextBox from "../helperTextBox/helperTextBox"
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ThemeProvider } from 'styled-components'
@@ -105,7 +105,7 @@ export default function TextField(props: TextFieldProps) {
                     props.helperText && <Styles.HelperText>{props.helperText}</Styles.HelperText>
                 }
                 {
-                    props.helperTextBox && <Styles.HelperTextBox><LampHelpBoxInput/>{props.helperTextBox}</Styles.HelperTextBox>
+                    props.helperTextBox && <HelperTextBox helperTextBox={props.helperTextBox} />
                 }
             </div>
         </ThemeProvider>

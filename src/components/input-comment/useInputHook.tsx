@@ -141,6 +141,9 @@ export const useInputHook = ({
     onContentUnformat(plainContent)
     addOrDeleteMentionedUser()
   }
+
+  const [spaceCount, setSpaceCount] = useState(0)
+
   const handleInput = (event: React.KeyboardEvent) => {
     const selection = window.getSelection()
     let inputSearch = ''
@@ -148,6 +151,18 @@ export const useInputHook = ({
     let hasKeyPresent = false
     let textBeforeCursor = ''
     let textBeforeKey = ''
+
+    if (event.key === ' ') {
+      setSpaceCount((prevCount) => prevCount + 1)
+      if (spaceCount === 1) {
+        setShowMention(false)
+        setSpaceCount(0)
+        return
+      }
+    } else {
+      setSpaceCount(0)
+    }
+
     if (selection && selection.rangeCount > 0) {
       const range = selection.getRangeAt(0)
 
@@ -172,14 +187,14 @@ export const useInputHook = ({
           inputSearch = ''
           setShowMention(false)
         }
-      } else {
-        setShowMention(false)
       }
     }
     if ((hasSpaceBeForeKey && hasKeyPresent) || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
-      setShowMention(true)
       setInputSearch(inputSearch)
       !!onChange && onChange(inputSearch)
+      if (event.key === '@' || (textBeforeCursor === '@' && textBeforeKey.length === 0)) {
+        setShowMention(true)
+      }
     }
 
     countChars()
