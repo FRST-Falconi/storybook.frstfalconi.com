@@ -8425,7 +8425,7 @@ function ObjectiveStep({ description, number }) {
     return (jsxRuntime.jsxs(WrapperCard$6, { children: [jsxRuntime.jsx(WrapperTopic, { children: number }), jsxRuntime.jsx(WrapperDescription, { children: description })] }));
 }
 
-const Wrapper$7 = styled__default["default"].div `
+const Wrapper$6 = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     max-width:  ${({ mobileVersion }) => mobileVersion ? '343px' : '400px'};
@@ -8515,7 +8515,7 @@ const WrapperButtons$1 = styled__default["default"].div `
 
 function SpecialistContact({ title, avatar, name, email, telephone, mobileVersion, handleActionConversation, textButtonConversation, handleActionSendEmail, textButtonSendEmail }) {
     const src = 'https://i.gyazo.com/499dda909b1ebfe0375d1efa2d5d00a8.png';
-    return (jsxRuntime.jsxs(Wrapper$7, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons$1, { children: [jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
+    return (jsxRuntime.jsxs(Wrapper$6, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(Title$5, { mobileVersion: mobileVersion, children: title }), jsxRuntime.jsxs(WrapperSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsx(AvatarImg, { src: avatar ? avatar : src }), jsxRuntime.jsxs(TextSpecialist, { mobileVersion: mobileVersion, children: [jsxRuntime.jsxs(Name$1, { mobileVersion: mobileVersion, children: [" ", name, " "] }), jsxRuntime.jsxs(Email, { mobileVersion: mobileVersion, children: [" ", email, " "] }), jsxRuntime.jsxs(Phone, { mobileVersion: mobileVersion, children: [" ", telephone, " "] })] })] }), jsxRuntime.jsxs(WrapperButtons$1, { children: [jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonConversation ? textButtonConversation : 'Iniciar conversa', handleClick: () => handleActionConversation(), startIcon: !mobileVersion && jsxRuntime.jsx(WhatAppBordered, {}), sizeIcon: '22px' }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: textButtonSendEmail ? textButtonSendEmail : 'Enviar e-mail', handleClick: () => handleActionSendEmail(), startIcon: !mobileVersion && jsxRuntime.jsx(MailBordered, {}), sizeIcon: '22px' })] })] }));
 }
 
 styled__default["default"].img `
@@ -8624,7 +8624,7 @@ function TotalizerCard({ objectStatistics, loading, hasShadow, styles }) {
                                                 }, children: renderObjectStatistics(false) }) }) }));
 }
 
-const Wrapper$6 = styled__default["default"].div `
+const Wrapper$5 = styled__default["default"].div `
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -8691,7 +8691,7 @@ function TrailList({ title, trails, style }) {
     React.useEffect(() => {
         setTrailsList(trails);
     }, [trails]);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$6, { style: { ...style }, children: [jsxRuntime.jsx(Title$4, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$5, { style: { ...style }, children: [jsxRuntime.jsx(Title$4, { children: title }), jsxRuntime.jsx(WrapperList, { children: (trailsList && trailsList.length > 0 && trailsList.length <= 2) ?
                         jsxRuntime.jsx("div", { style: {
                                 display: 'flex',
                                 flexDirection: 'column'
@@ -10111,7 +10111,7 @@ const Container$a = styled__default["default"].div `
     gap: 7.75px;
   }
 `;
-const Image$2 = styled__default["default"].img `
+const Image$1 = styled__default["default"].img `
   height: 189px;
   width: 100%;
   border-radius: 6.56px;
@@ -10367,7 +10367,7 @@ function ContentThumbnails({ label, contentList, variant, src, disabled, icon, o
                                         }, children: jsxRuntime.jsx(TrashIcon, { fill: '#C00F00' }) })] })) }, index));
                     }) })) }) }));
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Container$a, { className: (variant = 'individualCourse'), children: jsxRuntime.jsxs("div", { className: "frame", children: [jsxRuntime.jsx(Image$2, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }) }), jsxRuntime.jsx("div", { children: up ? jsxRuntime.jsx(Exibir, {}) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: variant === 'individualCourse' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(Container$a, { className: (variant = 'individualCourse'), children: jsxRuntime.jsxs("div", { className: "frame", children: [jsxRuntime.jsx(Image$1, { src: src || defaultImg }), jsxRuntime.jsxs(Content$1, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }) }), jsxRuntime.jsx("div", { children: up ? jsxRuntime.jsx(Exibir, {}) : null })] })) : variant === 'trilha' ? (jsxRuntime.jsxs("div", { children: [jsxRuntime.jsxs(ContainerTrilha, { className: (variant = 'trilha'), children: [jsxRuntime.jsxs(ContainerChoice, { children: [jsxRuntime.jsx(TypographyChoice, { children: "Escolha o curso que deseja editar" }), jsxRuntime.jsx(SelectChoice, { placeholder: title, value: title, onChange: onChange, children: jsxRuntime.jsx(OptionChoice, { value: title, children: title }) })] }), jsxRuntime.jsx(ImageChoice, { src: src || defaultImg }), jsxRuntime.jsxs(ContentChoice, { children: [jsxRuntime.jsx(Typography$3, { children: title }), jsxRuntime.jsx(Select$1, { onClick: change, children: up ? jsxRuntime.jsx(VectorUp$1, {}) : jsxRuntime.jsx(VectorDown$1, {}) })] })] }), up ? (jsxRuntime.jsx("div", { style: { backgroundColor: '#D1D5DB', width: 270 }, children: jsxRuntime.jsx(Exibir, {}) })) : null] })) : null }));
 }
 
 const LandscapeContainer = styled__default["default"].label `
@@ -10946,7 +10946,7 @@ const TextContainer = styled__default["default"].div `
   flex-direction: column;
   position: relative;
 `;
-const Image$1 = styled__default["default"].div `
+const Image = styled__default["default"].div `
   border-radius: 8px;
   background-repeat: no-repeat;
   background-size: cover;
@@ -10993,7 +10993,7 @@ const skillTag = styled__default["default"].div `
 `;
 
 function SearchResults({ src, title, description, textSkills, skills, style, onClick }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image$1, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Container$8, { onClick: onClick, style: { ...style }, children: [jsxRuntime.jsx(Image, { style: { backgroundImage: `url(${src})` } }), jsxRuntime.jsxs(TextContainer, { children: [jsxRuntime.jsxs(Title, { children: [" ", title, " "] }), jsxRuntime.jsxs(Description, { children: [" ", description, " "] }), skills ?
                             jsxRuntime.jsxs(skillSets, { children: [textSkills, ":", skills.map(item => {
                                         return (jsxRuntime.jsx(skillTag, { children: item }));
                                     })] })
@@ -11554,7 +11554,7 @@ function FieldSearch({ variant, placeholder, onChange, listResults, hasOptionSee
                     jsxRuntime.jsx(Container$7, { onMouseOver: () => setActionAreaInput(true), onMouseOut: () => setActionAreaInput(false), onFocus: () => setInputOnFocus(true), onBlur: () => setInputOnFocus(false), children: jsxRuntime.jsxs(InputSearchWrapper, { isHover: actionAreaInput, isOnFocus: inputOnFocus, style: { ...style }, children: [jsxRuntime.jsxs(ContainerIcon$1, { children: [" ", jsxRuntime.jsx(SearchIcon, { fill: '#fff' }), " "] }), jsxRuntime.jsx(InputText$2, { placeholder: placeholder, onChange: onChange, value: value })] }) }) }) }));
 }
 
-const Wrapper$5 = styled__default["default"].button `
+const Wrapper$4 = styled__default["default"].button `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11626,119 +11626,7 @@ styled__default["default"].button `
 `;
 
 function ItemGlobalMenu({ variant, type, label, handleOnClick, wrapText, pressed, style, icon, customMenu }) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$5, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 10 : 0 }, children: icon }), jsxRuntime.jsx("span", { style: { marginTop: customMenu ? -8 : 0 }, children: label })] }) }));
-}
-
-styled__default["default"].button `
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: 0;
-    border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
-    border-top: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid transparent;
-
-    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : theme.colors.primary1};
-
-    font-family: 'PT Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-
-    color: #FFFFFF;
-
-
-    &:hover {
-        background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey3 : '#F5792A'};
-        border-bottom: ${({ typeItem }) => typeItem == 'menu' ? '4px' : '2px'} solid 
-        ${({ variant, typeItem, theme }) => variant == 'LXP' && typeItem == 'menu' ? theme.colors.primary1 : theme.colors.shadeWhite};
-    }
-
-    &:focus {
-        font-weight: 700;
-    }
-`;
-const Wrapper$4 = styled__default["default"].div `
-    width: 50px;
-    object-fit: contain;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    background: transparent;
-    border: 0;
-`;
-const Image = styled__default["default"].img `
-    width: 50px;
-    user-select: none;
-    cursor: pointer;
-    object-fit: contain;
-`;
-const WrapperDrop = styled__default["default"].div `
-    user-select: none;
-    width: 50px;
-
-    position: absolute;
-    margin-top: 45px;
-    z-index: 10000;
-
-    border: 0;
-    display: ${({ isVisible }) => isVisible ? 'flex' : 'none'};
-    flex-direction: column;
-    background-color: ${({ variant, theme }) => variant == 'LXP' ? theme.colors.neutralsGrey1 : '#F5792A'};
-`;
-
-function LanguagesDropdown({ variant, languages, selected, onSelect, style, distanceBtnDrop }) {
-    const imgES = 'https://i.gyazo.com/1cfa904ea1d492ace9dc67c2a37a10e4.png';
-    const imgBR = 'https://i.gyazo.com/ee7e65d12345200b8c3dd12670f85881.png';
-    const imgEN = 'https://i.gyazo.com/06a0ea969c48c12589d5d5565cf834df.png';
-    const imgPT = 'https://i.gyazo.com/cb567fc306928d02d31bc876df58be40.png';
-    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
-    const [activeArea, setActiveArea] = React.useState(false);
-    const [activeImgFlag, setActiveImgFlag] = React.useState(imgBR);
-    React.useEffect(() => {
-        switch (selected) {
-            case 'pt-BR': return setActiveImgFlag(imgBR);
-            case 'en-US': return setActiveImgFlag(imgEN);
-            case 'es': return setActiveImgFlag(imgES);
-            case 'pt-PT': return setActiveImgFlag(imgPT);
-        }
-    }, [selected]);
-    React.useEffect(() => {
-        const checksAnyClickOnScreen = () => {
-            if (isOpenDrop) {
-                document.body.removeEventListener("click", checksAnyClickOnScreen, false);
-                setIsOpenDrop(false);
-            }
-        };
-        if (isOpenDrop) {
-            (document.body.addEventListener("click", checksAnyClickOnScreen, false));
-        }
-    }, [isOpenDrop]);
-    const handleChangeSelect = (value) => {
-        onSelect(value);
-        switch (value) {
-            case 'pt-BR': return setActiveImgFlag(imgBR);
-            case 'en-US': return setActiveImgFlag(imgEN);
-            case 'es': return setActiveImgFlag(imgES);
-            case 'pt-PT': return setActiveImgFlag(imgPT);
-        }
-        setIsOpenDrop(false);
-        setActiveArea(false);
-    };
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$4, { onClick: () => setIsOpenDrop(!isOpenDrop), onBlur: () => setIsOpenDrop(activeArea), variant: variant, style: { ...style }, children: [jsxRuntime.jsx(Image, { src: activeImgFlag, style: { padding: '10px' } }), jsxRuntime.jsx(WrapperDrop, { variant: variant, isVisible: isOpenDrop, onMouseOver: () => setActiveArea(true), onMouseOut: () => setActiveArea(false), style: { marginTop: distanceBtnDrop ? distanceBtnDrop : '45px' }, children: isOpenDrop && languages && languages.length > 0 && languages?.map((item, index) => {
-                        return (jsxRuntime.jsx("div", { children: item == 'pt-BR' ?
-                                jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-BR'), src: imgBR, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                : item == 'en-US' ?
-                                    jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('en-US'), src: imgEN, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                    : item == 'pt-PT' ?
-                                        jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('pt-PT'), src: imgPT, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index)
-                                        : item == 'es' &&
-                                            jsxRuntime.jsx(Image, { onClick: () => handleChangeSelect('es'), src: imgES, style: { padding: '9px', paddingTop: '6px', paddingBottom: '6px' } }, index) }, index));
-                    }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(Wrapper$4, { variant: variant, pressed: pressed, typeItem: type, wrapText: wrapText, style: { ...style }, onClick: handleOnClick, children: [jsxRuntime.jsx("span", { style: { marginRight: customMenu ? 10 : 0 }, children: icon }), jsxRuntime.jsx("span", { style: { marginTop: customMenu ? -8 : 0 }, children: label })] }) }));
 }
 
 const Container$6 = styled__default["default"].div `
@@ -12362,7 +12250,7 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                                 paddingLeft: '10px',
                                                 height: '100%',
                                                 flexDirection: 'inherit'
-                                            } }, item.id ? item.id : index))), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }), SubMenu && SubMenu.length > 0 && (jsxRuntime.jsx(SubMenuContainer, { variant: variant, marginTop: marginTopSubMenu, style: {
+                                            } }, item.id ? item.id : index)))] })] }), SubMenu && SubMenu.length > 0 && (jsxRuntime.jsx(SubMenuContainer, { variant: variant, marginTop: marginTopSubMenu, style: {
                                 paddingRight: windowSize[0] > 1400 ? '124px' : '35px',
                                 paddingLeft: windowSize[0] > 1400 ? '124px' : '35px',
                                 ...style
@@ -12410,11 +12298,11 @@ function GlobalMenu({ variant, menu, customMenu, user, search, notification, lan
                                         }, children: [jsxRuntime.jsxs("span", { style: { display: 'inline-flex', justifyContent: 'flex-start', alignItems: 'center' }, children: [jsxRuntime.jsx(IconNotification, { fill: FRSTTheme['colors'].shadeWhite }), ' ', hasNewNotification ? (jsxRuntime.jsxs("div", { style: { marginLeft: '-12px' }, children: [' ', jsxRuntime.jsx(HasNotificationIcon, {}), ' '] })) : null] }), windowSize[0] > 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: false, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll })) : null] })), jsxRuntime.jsx(DropdownProfileMenu, { variant: "LXP", user: user, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, hiddenProfileMenu: hiddenProfileMenu, showProfile: showProfile, style: {
                                             marginLeft: isMobileVersion ? '0px' : '5px',
                                             marginRight: isMobileVersion ? '0px' : '5px'
-                                        } }), showHelp && (jsxRuntime.jsxs(help, { onClick: onClickHelp, children: [jsxRuntime.jsx(helpText, { children: "Ajuda" }), jsxRuntime.jsx(HelpIcon, {})] })), !isMobileVersion && !isTabletVersion && languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "LXP", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '57px' }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
+                                        } }), showHelp && (jsxRuntime.jsxs(help, { onClick: onClickHelp, children: [jsxRuntime.jsx(helpText, { children: "Ajuda" }), jsxRuntime.jsx(HelpIcon, {})] }))] })] }) }), openNotificationMobile && windowSize[0] <= 700 ? (jsxRuntime.jsx(NotificationPopOver, { handleClickMarkRead: notification.handleClickMarkRead, isOpen: openNotificationMobile, anchor: anchorNotification, textEmptyState: notification.textEmptyState, notificationList: updatedNotificationList, textMarkAllAsRead: notification.textMarkAllAsRead, textNotification: notification.textNotification, isMobile: true, setOnAreaPopOver: (e) => setOnAreaPopOver(e), textBack: notification.textBack, handleClickBack: () => handleCloseNotification(), textDeleteAll: notification.textDeleteAll, handleClickDeleteAll: notification.handleClickDeleteAll })) : null] })) : (jsxRuntime.jsx("div", { style: { width: '100%', display: 'flex', flexDirection: 'column', ...style }, children: jsxRuntime.jsxs(MenuContainer, { variant: variant, style: { ...style, display: 'none' }, children: [jsxRuntime.jsx(WrapperLogo, { onClick: () => onClickLogo(), children: jsxRuntime.jsx(FRSTLogo, { height: "28" }) }), jsxRuntime.jsx(WrapperMenu, { children: menu &&
                             menu.length > 0 &&
                             menu.map((item, index) => {
                                 return (jsxRuntime.jsx(ItemGlobalMenu, { label: item.label, variant: "default", type: "menu", handleOnClick: () => item.onClick('tes'), style: { paddingRight: '10px', paddingLeft: '10px' } }, item.id ? item.id : index));
-                            }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: "default", user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, hiddenProfileMenu: hiddenProfileMenu, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, showProfile: showProfile }) }), languages && languages.length > 0 && (jsxRuntime.jsx(LanguagesDropdown, { variant: "default", languages: [...languages], selected: languageSelected, onSelect: (e) => onChangeLanguage(e), distanceBtnDrop: '45px' }))] }) })) }));
+                            }) }), jsxRuntime.jsx(WrapperRightInfo, { children: jsxRuntime.jsx(DropdownProfileMenu, { variant: "default", user: user, menuItems: user && user.menuItems, isMobileVersion: isMobileVersion, hiddenProfileMenu: hiddenProfileMenu, profileMenuText: profileMenuText, handleProfileMenuClick: onClickProfileMenuText, showProfile: showProfile }) })] }) })) }));
 }
 function MenuMobile({ items, isVisible, setVisible, variant, languageSelected, onClickExit, onClickSite, onClickLinkedin, onClickInstagram, onClickYoutube, onClickSpotify, onClickPodCast, customMenu }) {
     const [optionsSubMenu, setOptionsSubmenu] = React.useState({});
