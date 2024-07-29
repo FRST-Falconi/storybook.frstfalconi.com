@@ -11448,7 +11448,7 @@ const itemFrstSocials = styled__default["default"].button `
   cursor: pointer;
 `;
 const help = styled__default["default"].div `
-  width: 80px; 
+  width: 75px; 
   color: #fff;
   display: flex;
   justify-content: space-between; 
