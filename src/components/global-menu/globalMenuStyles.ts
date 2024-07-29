@@ -211,7 +211,7 @@ export const itemFrstSocials = styled.button`
 `
 
 export const help = styled.div`
-  width: 80px; 
+  width: 75px; 
   color: #fff;
   display: flex;
   justify-content: space-between; 
