@@ -48,7 +48,9 @@ export {
   CheckIconSimple,
   IconContent,
   EditIcon,
-  Tick
+  Tick,
+  PlayResourceInfoIcon,
+  DocumentResourceInfoIcon
 } from './src/shared/icons'
 
 // Base
