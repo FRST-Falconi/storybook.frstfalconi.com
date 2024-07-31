@@ -8,4 +8,6 @@ export  interface IHypothesisAndImpedimentComponent {
     id?: string
     avatar: string
     index: number
+    userLoggedId: string
+    authorGoalId: string
 }

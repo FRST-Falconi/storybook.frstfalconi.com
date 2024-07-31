@@ -9,8 +9,15 @@ export const HypothesisAndImpediment = ({
     type,
     avatar,
     id,
-    index
+    index,
+    authorGoalId,
+    userLoggedId
+
 }: IHypothesisAndImpedimentComponent) => {
+
+
+    const isOwnerGoal = authorGoalId === userLoggedId;
+
 
     const title = useMemo(() => {
         if (type === 'prioritize' && variant === 'hypothesis') return 'HIPÓTESE PRIORIZADA'
@@ -19,11 +26,15 @@ export const HypothesisAndImpediment = ({
         return `IMPEDIMENTO ${index}`
     }, [type, variant, index])
 
+    const avatarBorder = isOwnerGoal
+    ? `2px solid ${Styles.borderAvatar[variant][type]}`
+    : 'none';
+
     return (
         <Styles.MainContainer>
             <Styles.ContainerHypotheis type={type} variant={variant}>
                 <Styles.SplitContainerDescription>
-                    <Avatar src={avatar} size="24px" style={{ marginRight: '14px', cursor: 'pointer' }} />
+                    <Avatar src={avatar} size={isOwnerGoal ? "28px" : '24px'} border={avatarBorder} style={{ marginRight: '14px', cursor: 'pointer'}} />
                     <Styles.Title>{title}</Styles.Title>
                     <Styles.Separator type={type} variant={variant} />
                 </Styles.SplitContainerDescription>

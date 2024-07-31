@@ -26,6 +26,19 @@ const separatorColors = {
     }
 }
 
+export const borderAvatar ={
+    hypothesis: {
+        prioritize: '#C48000',
+        raised: '#EE9F08',
+        suggested: '#EE9F08',
+    },
+    impediment: {
+        prioritize: '#AD46FF',
+        raised: '#AD46FF',    
+        suggested: '#AD46FF',
+    }
+}
+
 export const MainContainer = styled.div`
     display: flex;
     align-items: center;

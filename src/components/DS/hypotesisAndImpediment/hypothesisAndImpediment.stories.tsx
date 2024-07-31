@@ -18,22 +18,28 @@ HipotesePriorizada.args ={
     type : 'prioritize',
     variant: 'hypothesis',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-    index: 1
+    index: 1,
+    authorGoalId: '1234',
+    userLoggedId: '1234'
 }
 
 HipoteseLevantada.args ={
     type : 'raised',
     variant: 'hypothesis',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-    index: 2
+    index: 2,
+    authorGoalId: '1234',
+    userLoggedId: '1234'
 }
 
 HipoteseSugerida.args ={
     type : 'suggested',
     variant: 'hypothesis',
     title: 'HIPÓTESE 2',
-    avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-    index: 3
+    avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+    index: 3,
+    authorGoalId: '1234',
+    userLoggedId: '1235'
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -46,21 +52,27 @@ ImpedimentPriorizada.args ={
     type : 'prioritize',
     variant: 'impediment',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-    index: 1
+    index: 1,
+    authorGoalId: '1234',
+    userLoggedId: '1234'
 }
 
 ImpedimentLevantada.args ={
     type : 'raised',
     variant: 'impediment',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-    index: 2
+    index: 2,
+    authorGoalId: '1234',
+    userLoggedId: '1234'
 }
 
 ImpedimentSugerida.args ={
     type : 'suggested',
     variant: 'impediment',
-    avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-    index: 3
+    avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
+    index: 3,
+    authorGoalId: '1234',
+    userLoggedId: '1235'
 }
 
 
