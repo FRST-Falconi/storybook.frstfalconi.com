@@ -70,6 +70,10 @@ export default function MenuMore({
                     isColor={itemOption?.color}
                     isDarkMode={isDarkMode}
                     >
+                  {
+                    !isDarkMode &&
+                    <TextOption>{itemOption?.startIcon}</TextOption>
+                  }
                   {itemOption?.description}
                   </ButtonMenuNotification>
                   {/* <MenuItemCustom

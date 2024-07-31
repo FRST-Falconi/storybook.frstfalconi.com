@@ -20,7 +20,8 @@ HipotesePriorizada.args ={
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
     index: 1,
     authorGoalId: '1234',
-    userLoggedId: '1234'
+    userLoggedId: '1234',
+    description: 'Falta de processos para serem seguidos.'
 }
 
 HipoteseLevantada.args ={
@@ -29,7 +30,8 @@ HipoteseLevantada.args ={
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
     index: 2,
     authorGoalId: '1234',
-    userLoggedId: '1234'
+    userLoggedId: '1234',
+    description: 'Desenhar novos processos para área'
 }
 
 HipoteseSugerida.args ={
@@ -39,7 +41,8 @@ HipoteseSugerida.args ={
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
     index: 3,
     authorGoalId: '1234',
-    userLoggedId: '1235'
+    userLoggedId: '1235',
+    description: 'Desenhar novos processos para área'
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -54,7 +57,8 @@ ImpedimentPriorizada.args ={
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
     index: 1,
     authorGoalId: '1234',
-    userLoggedId: '1234'
+    userLoggedId: '1234',
+    description: 'Desenhar novos processos para área'
 }
 
 ImpedimentLevantada.args ={
@@ -63,7 +67,8 @@ ImpedimentLevantada.args ={
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
     index: 2,
     authorGoalId: '1234',
-    userLoggedId: '1234'
+    userLoggedId: '1234',
+    description: 'Desenhar novos processos para área'
 }
 
 ImpedimentSugerida.args ={
@@ -72,7 +77,8 @@ ImpedimentSugerida.args ={
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
     index: 3,
     authorGoalId: '1234',
-    userLoggedId: '1235'
+    userLoggedId: '1235',
+    description: 'Desenhar novos processos para área'
 }
 
 

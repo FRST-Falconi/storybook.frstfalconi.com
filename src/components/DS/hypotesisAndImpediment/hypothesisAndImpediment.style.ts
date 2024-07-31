@@ -55,7 +55,10 @@ export const ContainerHypotheis = styled.div<{ type: string, variant: string }>`
     font-family: PT Sans;
     font-size: 14px;
     border-radius: 8px;
-    padding: 0 0 0 16px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     min-height: 52px;
 
     ${({ type, variant }) => {
@@ -90,4 +93,9 @@ export const Separator = styled.div<{ type: string, variant: string }>`
 export const Title = styled.span`
     font-weight: 700;
     white-space: nowrap;
+`
+export const Description = styled.span`
+    font-weight: 400;
+    padding: 8px 0 8px;
+    width: 100%;
 `
