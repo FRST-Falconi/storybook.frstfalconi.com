@@ -557,14 +557,20 @@ function Tick({ fill, width, height }) {
 function LampHelpBoxInput({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "16", height: "22", viewBox: "0 0 16 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.7282 15.2853H11.2704M3.0496 13.1938C2.07082 12.1947 1.40432 10.9219 1.13437 9.53624C0.864424 8.15062 1.00315 6.71443 1.53302 5.40926C2.06289 4.1041 2.9601 2.98857 4.1112 2.20374C5.26231 1.4189 6.61561 1 8 1C9.38439 1 10.7377 1.4189 11.8888 2.20374C13.0399 2.98857 13.9371 4.1041 14.467 5.40926C14.9968 6.71443 15.1356 8.15062 14.8656 9.53624C14.5957 10.9219 13.9292 12.1947 12.9504 13.1938L12.1832 13.9752C11.7446 14.4229 11.3967 14.9544 11.1594 15.5393C10.922 16.1241 10.7999 16.751 10.8 17.384V18.1427C10.8 18.9005 10.505 19.6273 9.9799 20.1631C9.4548 20.699 8.74261 21 8 21C7.25739 21 6.5452 20.699 6.0201 20.1631C5.495 19.6273 5.2 18.9005 5.2 18.1427V17.384C5.2 16.1054 4.7016 14.8782 3.8168 13.9752L3.0496 13.1938Z", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M4 7.5V7.5C4 5.567 5.567 4 7.5 4V4", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round" })] }));
 }
-function ArrrowExpandDropdown({ fill, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : '14', height: height ? height : '8', viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.5 1.33301L6.83333 6.66634L12.1667 1.33301", stroke: "#757575", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+function ArrrowExpandDropdown({ fill, width, height, stroke, strokeWidth }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '14', height: height ? height : '8', viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.5 1.33301L6.83333 6.66634L12.1667 1.33301", stroke: stroke ?? "#757575", strokeWidth: strokeWidth ?? "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
 }
 function StarRatingRondedTips({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: width ? width : '30', height: height ? height : '28', viewBox: "0 0 28 26", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M12.2311 1.35268C12.9815 -0.0696177 15.0185 -0.0696146 15.7689 1.35268L18.4315 6.39921C18.7209 6.9477 19.2483 7.33091 19.8594 7.43664L25.4817 8.40944C27.0663 8.68361 27.6957 10.6209 26.5749 11.7741L22.5982 15.8658C22.166 16.3105 21.9645 16.9306 22.0528 17.5444L22.865 23.1922C23.0939 24.7839 21.4459 25.9812 20.0028 25.2716L14.8825 22.7539C14.326 22.4803 13.674 22.4803 13.1175 22.7539L7.99715 25.2716C6.55406 25.9812 4.90612 24.7839 5.13503 23.1922L5.94723 17.5444C6.0355 16.9306 5.83403 16.3105 5.40181 15.8658L1.42506 11.7741C0.30427 10.6209 0.933729 8.68361 2.5183 8.40944L8.14062 7.43664C8.75169 7.33091 9.27914 6.94769 9.56853 6.3992L12.2311 1.35268Z", fill: fill ? fill : '#FFC200', fillOpacity: fillOpacity ? fillOpacity : '1', stroke: stroke ? stroke : '0', strokeWidth: strokeWidth ? strokeWidth : 'transparent' }) }) }));
 }
 function BallonChatgRondedTips({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '16', height: height ? height : '17', viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.33268 8.8382C1.33268 7.27478 1.33268 5.71768 1.33268 4.15426C1.33268 3.21114 1.91268 2.44525 2.79935 2.22371C2.97268 2.17941 3.15268 2.16675 3.32602 2.16675C6.43935 2.16675 9.55935 2.16675 12.6727 2.16675C13.586 2.16675 14.286 2.66679 14.566 3.51496C14.606 3.64156 14.6327 3.76815 14.666 3.90107V10.9713C14.6127 11.1612 14.5793 11.3637 14.4927 11.541C14.1393 12.3068 13.5327 12.6866 12.7127 12.6993C12.486 12.6993 12.2593 12.6993 12.026 12.6993C12.026 12.7563 12.0193 12.8069 12.0193 12.8512C12.0193 13.3576 12.0193 13.8576 12.0127 14.364C12.0127 14.6868 11.7927 14.8893 11.5193 14.8197C11.4393 14.8007 11.3593 14.7501 11.2927 14.6995C10.4927 14.0665 9.69268 13.4335 8.89268 12.7942C8.81268 12.7309 8.72602 12.6993 8.61935 12.6993C6.85935 12.6993 5.10602 12.6993 3.34602 12.6993C2.90602 12.6993 2.49935 12.6043 2.14602 12.3322C1.61935 11.9334 1.34602 11.3954 1.34602 10.7181C1.34602 10.0915 1.34602 9.47117 1.34602 8.84453L1.33268 8.8382ZM11.4527 8.52805C11.946 8.52805 12.3393 8.11662 12.3393 7.61658C12.3393 7.11653 11.9393 6.70511 11.4527 6.70511C10.966 6.70511 10.566 7.11653 10.566 7.61658C10.566 8.11662 10.966 8.52805 11.4527 8.52805ZM8.09268 8.52805C8.58602 8.52805 8.97935 8.11662 8.97935 7.61658C8.97935 7.11653 8.57935 6.70511 8.09268 6.70511C7.60602 6.70511 7.20602 7.11653 7.20602 7.61658C7.20602 8.11662 7.60602 8.52805 8.09268 8.52805ZM4.53268 8.52805C5.02602 8.52805 5.41935 8.11662 5.41935 7.61658C5.41935 7.11653 5.01935 6.70511 4.53268 6.70511C4.04602 6.70511 3.64602 7.11653 3.64602 7.61658C3.64602 8.11662 4.04602 8.52805 4.53268 8.52805Z", fill: fill ? fill : 'white' }) }));
+}
+function PlayResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z", stroke: "#222222", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M6.5 5.75L10.25 8L6.5 10.25V5.75Z", fill: "#222222", stroke: "#222222", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+}
+function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V5.00016L9.66602 1.3335Z", stroke: "#222222", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M9.33398 1.3335V5.3335H13.334", stroke: "#222222", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
 
 function styleInject(css, ref) {
@@ -4824,7 +4830,7 @@ const ButtonMore$1 = styled__default["default"].div `
     align-items: center;
     z-index: 10;
 `;
-const Dropdown = styled__default["default"].div `
+const Dropdown$1 = styled__default["default"].div `
     width: auto;
     height: auto;
 `;
@@ -5175,7 +5181,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                             ((isPrivateAuthor || isPrivateMe) &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position$2, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
                                     jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }), hasDropdown && (isAuthor || isMe) &&
-                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
+                                    jsxRuntime.jsxs(Dropdown$1, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isMe && !isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(!isPrivateAuthor) &&
                                                                     jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isAuthor && !isMe &&
@@ -5849,7 +5855,7 @@ const WrapperHorizontal$1 = styled__default["default"].div `
   width: 100%;
   height: auto;
 `;
-const WrapperContent$4 = styled__default["default"].div `
+const WrapperContent$5 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -5977,7 +5983,7 @@ function ScrollContainer$1({ children, type, isVisibleControlsButtons, positionA
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal$1, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$4, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal$1, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$5, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
                             display: 'flex',
                             flexDirection: 'row',
                             marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'
@@ -7393,7 +7399,7 @@ const TextTotalTab = styled__default["default"].div `
 const TextTitleTab = styled__default["default"].div `
     white-space: nowrap;
 `;
-const WrapperContent$3 = styled__default["default"].div `
+const WrapperContent$4 = styled__default["default"].div `
 
     background-color: transparent;
     padding-top: 30px;
@@ -7443,7 +7449,7 @@ function AccordionTabs({ titleAccordion, typeAccordion, typeButtonTab, titleTabs
         return TabComponent;
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [titleAccordion && jsxRuntime.jsxs(TitleAccordion, { children: [" ", titleAccordion, " "] }), typeAccordion == 'horizontal' ? (jsxRuntime.jsxs(WrapperHeaderTabs, { children: [jsxRuntime.jsx(ContainerTitleTabs, { id: "scrollTabsAccordion", children: titleTabs.map(renderTitles) }), hasCleanButton &&
-                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$3, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
+                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$4, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
 }
 
 function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
@@ -12063,7 +12069,7 @@ styled__default["default"].div `
     padding: 10px;
     z-index: 1000;
 `;
-const pulseAnimation = styled.keyframes `
+const pulseAnimation$1 = styled.keyframes `
   0% {
     transform: scale(1);
   }
@@ -12092,7 +12098,7 @@ const TrashIconContainer = styled__default["default"].div `
     }
     &:active {
         background-color:${({ isNewNotification }) => isNewNotification ? '#686868' : '#595959'};
-        animation: ${pulseAnimation} 0.3s ease-in-out;
+        animation: ${pulseAnimation$1} 0.3s ease-in-out;
     }
 `;
 
@@ -15708,7 +15714,7 @@ const ContainerBanner = styled__default["default"].div `
         }
     }
 `;
-const WrapperContent$2 = styled__default["default"].div `
+const WrapperContent$3 = styled__default["default"].div `
     flex: 1;
     display: flex;
     justify-content: center;
@@ -15833,8 +15839,8 @@ const ItemFrstSocials = styled__default["default"].button `
 `;
 
 function BannerSRG(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent$2, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
-                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$4, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent$3, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
+                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$3, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$4, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$3, { children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
 }
 
 const achievementHeader = styled__default["default"].div `
@@ -19483,7 +19489,7 @@ function ExpandButton$1({ label, disabled, onClick, styles, startIcon }) {
             }, children: [jsxRuntime.jsx("div", { style: { width: '20px' }, children: startIcon }), jsxRuntime.jsx(Label, { active: actionArea, children: label })] }) }));
 }
 
-const WrapperContent$1 = styled__default["default"].div `
+const WrapperContent$2 = styled__default["default"].div `
     width: 100%;
     min-height: 300px;
     display: flex;
@@ -19698,7 +19704,7 @@ function ContentModalInviteMultiple({ labels, onClickInvite, statusSend }) {
             }
         }
     }, [inputMultiplePerson]);
-    return (jsxRuntime.jsxs(WrapperContent$1, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
+    return (jsxRuntime.jsxs(WrapperContent$2, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
                             return (jsxRuntime.jsxs(WrapperInputPerson, { children: [jsxRuntime.jsx(CustomTextField, { label: labels?.name, placeholder: labels?.placeholderName, onChange: (e) => onChangeInput({ e, type: 'name', id: inputPerson.id }), type: 'text', value: inputPerson?.name, required: true, error: inputPerson?.errorName }), jsxRuntime.jsx(CustomTextField, { label: labels?.lastName, placeholder: labels.placeholderLastName, onChange: (e) => onChangeInput({ e, type: 'lastName', id: inputPerson?.id }), type: 'text', value: inputPerson?.lastName, required: true, error: inputPerson?.errorLastName }), jsxRuntime.jsx(CustomTextField, { label: labels?.email, placeholder: labels.placeholderEmail, onChange: (e) => onChangeInput({ e, type: 'email', id: inputPerson?.id }), type: 'text', value: inputPerson?.email, required: true, error: inputPerson?.errorEmail })] }, index));
                         }) }), inputMultiplePerson?.length > 1 &&
                         jsxRuntime.jsxs(ButtonRemove, { onClick: () => handleRemoveInput(), children: [jsxRuntime.jsx(TrashIconNew, { fill: '#444' }), labels?.delete] }), jsxRuntime.jsxs(ButtonAddNewPerson, { onClick: () => handleAddNewInput(), children: [jsxRuntime.jsx("div", { style: { width: '24px', display: 'flex', alignItems: 'center' }, children: jsxRuntime.jsx(IconPlusCicle, {}) }), jsxRuntime.jsx(LabelButtonAddPerson, { children: labels?.buttonAddMore })] })] }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '14px' }, children: [jsxRuntime.jsx(StatusSendInvite, { statusSendLocal: statusSendLocal, labels: labels, setStatusSendLocal: setStatusSendLocal }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: labels?.invite, handleClick: () => sendListInput(), disabled: isDisabledSendInvite })] })] }));
@@ -20025,7 +20031,7 @@ const WrapperHorizontal = styled__default["default"].div `
   width: 100%;
   height: auto;
 `;
-const WrapperContent = styled__default["default"].div `
+const WrapperContent$1 = styled__default["default"].div `
 
   display: flex;
   flex-direction: row;
@@ -20241,7 +20247,7 @@ const useScroll = (stepMove, handleClick) => {
 
 function ScrollContainer({ children, isVisibleControlsButtons, stepMove, horizontalMarginInternScroll, verticalMarginInternScroll, marginsArrowButtonHorizontal, marginsArrowButtonVertical, positionArrowButton, className, styles, sizeArrowButton, hiddenHorizontalScrollBar, handleClick }) {
     const { scrollToLeft, scrollToRight, onClickLongPress, isVisibleLeft, isVisibleRight, scrollRef } = useScroll(stepMove, handleClick);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { position: positionArrowButton, style: { ...styles }, children: [jsxRuntime.jsx(WrapperContent, { ref: scrollRef, paddingInternHorizontal: horizontalMarginInternScroll, paddingInternVertical: verticalMarginInternScroll, hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: jsxRuntime.jsx("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { position: positionArrowButton, style: { ...styles }, children: [jsxRuntime.jsx(WrapperContent$1, { ref: scrollRef, paddingInternHorizontal: horizontalMarginInternScroll, paddingInternVertical: verticalMarginInternScroll, hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: jsxRuntime.jsx("div", { style: {
                                 width: 'fit-content',
                                 display: 'flex',
                                 flexDirection: 'row',
@@ -20999,7 +21005,7 @@ styled__default["default"].div `
   font-size: 16px;
   font-weight: 400;
 `;
-const WrapperExpandButton = styled__default["default"].div `
+const WrapperExpandButton$1 = styled__default["default"].div `
   display: flex;
   cursor: pointer;
   min-width: 40px;
@@ -21021,7 +21027,7 @@ function ExpandableRow({ index, row, columns, isExpanded }) {
     return (jsxRuntime.jsx(TableDataChildrenItem, { index: index, children: jsxRuntime.jsx("td", { colSpan: columns.length + 1, children: jsxRuntime.jsx(TableDataChildrenControlExpand, { index: index, isExpanded: isExpanded, children: row.children }) }) }));
 }
 function ExpandButton({ isExpanded, onClick }) {
-    return (jsxRuntime.jsx(WrapperExpandButton, { onClick: onClick, isExpanded: isExpanded, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) }));
+    return (jsxRuntime.jsx(WrapperExpandButton$1, { onClick: onClick, isExpanded: isExpanded, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) }));
 }
 
 function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles, expandItemId, hiddeExpandItemId }) {
@@ -21405,6 +21411,193 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), ' ', buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
 }
 
+const pulseAnimation = styled.keyframes `
+  0% {
+    transform: scale(1);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.1);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+`;
+const Dropdown = styled__default["default"].div `
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+`;
+const WrapperDropdownButton = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  user-select: none;
+
+  ${props => props.isPulsing && styled.css `
+    animation: ${pulseAnimation} 0.7s ease-in-out;
+  `}
+`;
+const OrnamentInfo = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  background-color: #2d7781;
+  margin-right: -8px;
+  z-index: 2;
+`;
+const OrnamentInfoIntern = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E78123;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 3;
+`;
+const DropdownButton = styled__default["default"].div `
+  height: 28px;
+  white-space: nowrap;
+  padding: 4px 12px 4px 16px;
+  border-radius: 0px 16px 16px 0px;
+  background-color: #318894;
+
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.7px;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+`;
+const WrapperExpandButton = styled__default["default"].div `
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isExpanded }) => (isExpanded ? 'rotate(180deg)' : 'rotate(0deg)')} ;
+`;
+const WrapperContent = styled__default["default"].div `
+  position: absolute;
+
+  width: 266px;
+  border-radius: 8px;
+  height: fit-content;
+  background-color: #FFF;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 4px;
+
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 15px 0px #00000040;
+
+
+  max-height: ${props => props.isOpen ? '1000px' : '0'};
+  opacity: ${props => props.isOpen ? 1 : 0};
+  overflow: hidden;
+  transition: max-height 0.8s ease, opacity 0.2s ease;
+`;
+const ItemContent = styled__default["default"].div `
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+
+  background-color: #FFF;
+  transition: background-color 0.3s ease;
+  padding: 2px 8px 0px 8px;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+const ItemContentLabel = styled__default["default"].div `
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding: 10px 4px 10px 4px;
+  gap: 10px;
+
+  font-family: PT Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.12px;
+  text-align: left;
+
+  user-select: none;
+  cursor: pointer;
+
+  border-bottom: 1px solid ${({ isLastItem }) => isLastItem ? `transparent` : `#E0E0E0`};
+
+`;
+
+var TargetIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARWSURBVHgBbVRbbFRVFF3n3Dszd559DG2ZAk2RibFaIoLQiBqsJj4aX5AIahTxwxIwITE1Ev3wEXwF9aP6Zwzpl9FSDNpCAFFIEyXRxFKkhT6D0WmxnUI7zPO+DvucW1o+OMlk5p7Zd++111p7s/S+VUJg/sz/YIw+ugFt+TpoK9aBR6rVvZufgZs6C+vSGQi7BD2xGiwQpeffwZmATKQzzsDnMwnBwIJlCN67Hf71rwAUfKvjTA+jePJThLa0w+z7DlqsGvbFY3DtInTXXcAHfUkSoac/g1bToEoI14UgVM7lCwq2VnU7WDiO4plvYLR8DOELQ1/7Enx6AEXNj2Lf99A5BRJYaPEkItu+BovVSqiwBn5C6Y8OQjNEj+58SUpaVgs9+TB4rMa78Rnqm5ctg58o0ikGXA8hvLldXYrCHArdb8Ia71WcMMbBjDIJF8LMQWRSkBCYJPqmY2zcidzUMHRZ3HhwDzi165p55Lvfgj3WS6L44W98lgJ3EeqEUsy98g8Kx9+Db/UWKrZIlRSodOpzmINHqGUjCmPti4ojs/8g7PHT4IEIQi0fQb/j8UX5HQfWuS4EN70BLXEXcXsF5oVjnvozYwg0tMAc6IauJ5shiFQ4NkpEqizsu3urSiZRWEM/U6EuCKuA4CN7KVkjHBIqf3A3nImzpGQQ0dajRFctfA1PEH1UTfLhTo9QS5fAuIbg/TtVZXuwB/nDe+BODSL82Lvku0aI7BRKJ/cj/OQnRL5GQQWIuZSKl+7gLFipkNjpUfp2wEJxIrVcBZT6D0n6Edr8JRhx7MxNINezF8aj74BVrgSrqFcdOekxT/FwpVSZKYSecp6qC8fKqzvJs7j2PwqHXgfMLD3HlIU41yGk2ATEMxUjlckmEiEvX67QONlpiGKGrBJTaloT/ch0PCedRjxmEWx6TaGCU4Iz+69nrfIVnjjZNLibHlEItZo7aWarwKiaff5HFRC4ZxtCzSREdCn9V4nQpjYEm9tUvPX3D6oDboThq1vvJUwPg5cGemgGS6RWAIE1z6uRy/W2w071qd/+plcRaT1CSp6A/75WapETZ6Mo9H6l0PnXbKV3aVpcB+b4b9QHcSL9JasGNuxQSjIzg3zXLph/dgCyfaaR+sRtcQ7W+cPIEgVyxrWqVWT83R7ikV8grpJL0vuSgkerEd3eSROxlMi/jFxnq9oocsaZUQGtok5NgzSzyE0rZFr8NoRfOABOdEjOsweeIRdMQu4G5a380bdJwRwNfQLRHZ0waIVxOcPFWTiT58inQyoZ94dIGKLh5W9pbSWIcxfFEx8QkEnPJTMfLi5YX/1GhJ76ggSIeyRTZYcWqjObUtbg1IGvronUingDmb9Ks/0+zIvHyULegqWESbG4qskcsWUIPtQGn5xj8tktD42hOXoKxV/3w81Meq8yeAklhzcnvPEnL6+HvvIB6HUbaAKW0AVT5nb++4uSnYYrx811F2rcSHgdtSfnbUs0vh0AAAAASUVORK5CYII=";
+
+const ResourceInfoDrop = ({ label, isOpen, onOpen, onClose, options, enablePulse, intervalPulse }) => {
+    const wrapperRef = React.useRef(null);
+    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
+    const [isPulsing, setIsPulsing] = React.useState(false);
+    React.useEffect(() => {
+        setIsOpenDrop(isOpen);
+        const intervalId = setInterval(() => {
+            setIsPulsing(true);
+            setTimeout(() => setIsPulsing(false), 1500);
+        }, intervalPulse ?? 120000);
+        return () => clearInterval(intervalId);
+    }, [isOpen]);
+    const [enableTrackChange, setEnableTrackChange] = React.useState(false);
+    React.useEffect(() => {
+        if (enableTrackChange) {
+            if (isOpenDrop) {
+                onOpen?.();
+            }
+            else {
+                onClose?.();
+            }
+        }
+        else {
+            setTimeout(() => {
+                setEnableTrackChange(true);
+            }, 2000);
+        }
+    }, [isOpenDrop]);
+    const toggleDropdown = () => {
+        setIsOpenDrop(!isOpenDrop);
+    };
+    React.useEffect(() => {
+        function handleClickOutside(event) {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target) && isOpenDrop)
+                setIsOpenDrop(false);
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [wrapperRef, isOpenDrop]);
+    return (jsxRuntime.jsxs(Dropdown, { ref: wrapperRef, onClick: toggleDropdown, children: [jsxRuntime.jsxs(WrapperDropdownButton, { isPulsing: enablePulse && isPulsing, children: [jsxRuntime.jsx(OrnamentInfo, { children: jsxRuntime.jsx(OrnamentInfoIntern, { children: jsxRuntime.jsx("img", { src: TargetIcon, alt: '' }) }) }), jsxRuntime.jsxs(DropdownButton, { children: [label, jsxRuntime.jsx(WrapperExpandButton, { isExpanded: isOpenDrop, children: jsxRuntime.jsx(ArrrowExpandDropdown, { stroke: "#fff", strokeWidth: "1.3" }) })] })] }), jsxRuntime.jsx(WrapperContent, { isOpen: isOpenDrop, children: options?.map((item, index) => {
+                    return (jsxRuntime.jsx(ItemContent, { onClick: () => item?.onClick?.(item?.id), children: jsxRuntime.jsxs(ItemContentLabel, { isLastItem: options?.length - 1 == index, children: [item.startWithIcon, " ", item.label, " ", item.endWithIcon] }) }, item.id));
+                }) })] }));
+};
+
 exports.AccordionList = AccordionList$2;
 exports.AccordionTrackList = AccordionTrackList;
 exports.AddIcon = AddIcon;
@@ -21456,6 +21649,7 @@ exports.CounterLike = CounterLike;
 exports.CriarIdeia = CriarIdeia;
 exports.DateRangePicker = StepLearningCycle;
 exports.Diamond = Diamond;
+exports.DocumentResourceInfoIcon = DocumentResourceInfoIcon;
 exports.DoubleCheck = DoubleCheck;
 exports.DropdownMultiselect = index;
 exports.EditIcon = EditIcon;
@@ -21529,6 +21723,7 @@ exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
+exports.PlayResourceInfoIcon = PlayResourceInfoIcon;
 exports.PodCastIcon = PodCastIcon;
 exports.PopOver = PopOver;
 exports.PopOverLXP = PopOverLXP;
@@ -21536,6 +21731,7 @@ exports.PostFeed = PostFeed;
 exports.ProgressBar = ProgressBar$1;
 exports.QuantidadeDesafios = QuantidadeDesafios;
 exports.Rating = Rating;
+exports.ResourceInfoDrop = ResourceInfoDrop;
 exports.ScrollContainer = ScrollContainer$1;
 exports.ScrollContainerV2 = ScrollContainer;
 exports.SearchBox = SearchBox;
