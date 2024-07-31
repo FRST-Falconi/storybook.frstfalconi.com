@@ -65,7 +65,8 @@ export const SplitContainerDescription = styled.div`
 export const Separator = styled.div<{ type: string, variant: string }>`
     height: 24px; 
     width: 1px;
-    margin: 0 8px;
+    margin-left: 14px;
+    margin-right: 14px;
     ${({ type, variant }) => {
         const border = separatorColors[variant][type];
         return css`

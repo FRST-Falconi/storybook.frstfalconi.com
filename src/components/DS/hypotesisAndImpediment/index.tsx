@@ -11,6 +11,7 @@ export const HypothesisAndImpediment = ({
     id,
     index
 }: IHypothesisAndImpedimentComponent) => {
+
     const title = useMemo(() => {
         if (type === 'prioritize' && variant === 'hypothesis') return 'HIPÓTESE PRIORIZADA'
         if (type === 'prioritize' && variant === 'impediment') return 'IMPEDIMENTO PRIORIZADO'
@@ -22,7 +23,7 @@ export const HypothesisAndImpediment = ({
         <Styles.MainContainer>
             <Styles.ContainerHypotheis type={type} variant={variant}>
                 <Styles.SplitContainerDescription>
-                    <Avatar src={avatar} size="24px" style={{ marginRight: '16px', cursor: 'pointer' }} />
+                    <Avatar src={avatar} size="24px" style={{ marginRight: '14px', cursor: 'pointer' }} />
                     <Styles.Title>{title}</Styles.Title>
                     <Styles.Separator type={type} variant={variant} />
                 </Styles.SplitContainerDescription>
