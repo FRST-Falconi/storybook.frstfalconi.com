@@ -1,14 +1,27 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled, { keyframes, css } from 'styled-components'
 
 interface ModalProps {
   open: boolean
 }
 
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.1);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+`;
 
 export const Dropdown = styled.div`
   cursor: pointer;
-  
   width: fit-content;
   height: fit-content;
 `
@@ -18,11 +31,10 @@ export const WrapperDropdownButton = styled.div<{isPulsing}>`
   flex-direction: row;
   align-items: center;
   user-select: none;
-    transition: filter 1s ease-in-out, transform 0.8s ease-in-out;
-    transform: ${props => 
-    props.isPulsing 
-      ? 'scale(1.05)' 
-      : 'scale(1)'};
+
+  ${props => props.isPulsing && css`
+    animation: ${pulseAnimation} 0.7s ease-in-out;
+  `}
 `
 
 export const OrnamentInfo = styled.div`

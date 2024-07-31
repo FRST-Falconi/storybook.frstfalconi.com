@@ -219,3 +219,5 @@ export { default as HelperTextBox } from './src/components/form-elements/helperT
 
 export { default as Table } from './src/components/form-elements/table'
 export { default as TableActions } from './src/components/form-elements/table-actions'
+
+export { default as ResourceInfoDrop } from './src/components/DS/resourceInfoDrop'

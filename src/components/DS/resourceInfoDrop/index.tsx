@@ -19,7 +19,8 @@ const ResourceInfoDrop = ({
     onOpen,
     onClose,
     options,
-    enablePulse
+    enablePulse,
+    intervalPulse
 }: IResourceInfoDrop) => {
     const wrapperRef = useRef(null)
     const [isOpenDrop, setIsOpenDrop] = useState(false);
@@ -30,7 +31,8 @@ const ResourceInfoDrop = ({
         const intervalId = setInterval(() => {
             setIsPulsing(true);
             setTimeout(() => setIsPulsing(false), 1500);
-        }, 5000); 
+        }, intervalPulse ?? 120000);
+        return () => clearInterval(intervalId)
     },[isOpen])
     
     const [enableTrackChange, setEnableTrackChange] = useState(false);

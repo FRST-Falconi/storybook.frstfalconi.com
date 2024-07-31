@@ -14,4 +14,5 @@ export interface IResourceInfoDrop {
     onClose?: () => void;
     options?: Array<IOption>;
     enablePulse?: boolean;
+    intervalPulse?: number;
 }

@@ -20,6 +20,7 @@ normal.args = {
   onOpen: () => console.log(`open`),
   onClose: () => console.log(`close`),
   enablePulse: true,
+  intervalPulse: 10000,
   options: [
     {
       id: "id-1",
