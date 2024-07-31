@@ -5,6 +5,7 @@ interface AvatarI {
   src?: any
   disabled?: boolean
   isActiveClick?: boolean
+  border?: string
 }
 
 export const AvatarImg = styled.img<AvatarI>`
@@ -14,6 +15,7 @@ export const AvatarImg = styled.img<AvatarI>`
   object-fit: cover;
   background-image: url('https://cdn-images.frstfalconi.cloud/path582.svg');
   background-size: cover;
+  border: ${(props) => props.border || 'none'};
 
   ${({ disabled }) =>
     disabled === true &&
@@ -26,4 +28,5 @@ export const AvatarWrapper = styled.div<AvatarI>`
   width: ${(props) => props.size || '120px'};
   height: ${(props) => props.size || '120px'};
   cursor: ${({isActiveClick}) => isActiveClick ? 'pointer' : 'auto'} ;
+  box-sizing: border-box;
 `

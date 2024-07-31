@@ -9,4 +9,5 @@ export interface IAvatar {
   isActiveClick?: boolean
   id?: string
   style?: any;
+  border?: string;
 }
