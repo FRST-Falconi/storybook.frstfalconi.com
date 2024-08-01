@@ -17,26 +17,6 @@ export default function Table({
   hiddeExpandItemId
 }: ITable) {
   const [expandedRows, setExpandedRows] = useState([])
-  /*
-  useEffect(() => {
-    console.log('\nexpandedRows ', expandedRows)
-    console.log('expandItemId ', expandItemId)
-    console.log('hiddeExpandItemId ', hiddeExpandItemId)
-    if (expandItemId !== -1) {
-      setExpandedRows((prevExpandedRows) => ({
-        ...prevExpandedRows,
-        [expandItemId]: true
-      }));
-      // setExpandItemId(-1);  // Reset expandItemId after updating
-    }
-    if (hiddeExpandItemId !== -1) {
-      setExpandedRows((prevExpandedRows) => ({
-        ...prevExpandedRows,
-        [hiddeExpandItemId]: false
-      }));
-      // setExpandItemId(-1);  // Reset expandItemId after updating
-    }
-  }, [expandItemId, hiddeExpandItemId, expandedRows])*/
 
   useEffect(() => {
     if (expandItemId !== -1) {
