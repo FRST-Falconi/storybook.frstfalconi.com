@@ -10,4 +10,5 @@ export  interface IHypothesisAndImpedimentComponent {
     index: number
     userLoggedId: string
     authorGoalId: string
+    authorName: string
 }

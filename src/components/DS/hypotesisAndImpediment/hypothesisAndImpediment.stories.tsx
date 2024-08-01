@@ -21,7 +21,8 @@ HipotesePriorizada.args ={
     index: 1,
     authorGoalId: '1234',
     userLoggedId: '1234',
-    description: 'Falta de processos para serem seguidos.'
+    description: 'Falta de processos para serem seguidos.',
+    authorName: 'Christiane Eckersley'
 }
 
 HipoteseLevantada.args ={
@@ -31,7 +32,8 @@ HipoteseLevantada.args ={
     index: 2,
     authorGoalId: '1234',
     userLoggedId: '1234',
-    description: 'Desenhar novos processos para área'
+    description: 'Desenhar novos processos para área',
+    authorName: 'Christiane Eckersley'
 }
 
 HipoteseSugerida.args ={
@@ -42,7 +44,8 @@ HipoteseSugerida.args ={
     index: 3,
     authorGoalId: '1234',
     userLoggedId: '1235',
-    description: 'Desenhar novos processos para área'
+    description: 'Desenhar novos processos para área',
+    authorName: 'Mikel Molero'
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -58,7 +61,8 @@ ImpedimentPriorizada.args ={
     index: 1,
     authorGoalId: '1234',
     userLoggedId: '1234',
-    description: 'Desenhar novos processos para área'
+    description: 'Desenhar novos processos para área',
+    authorName: 'Christiane Eckersley'
 }
 
 ImpedimentLevantada.args ={
@@ -68,7 +72,8 @@ ImpedimentLevantada.args ={
     index: 2,
     authorGoalId: '1234',
     userLoggedId: '1234',
-    description: 'Desenhar novos processos para área'
+    description: 'Desenhar novos processos para área',
+    authorName: 'Christiane Eckersley'
 }
 
 ImpedimentSugerida.args ={
@@ -78,7 +83,8 @@ ImpedimentSugerida.args ={
     index: 3,
     authorGoalId: '1234',
     userLoggedId: '1235',
-    description: 'Desenhar novos processos para área'
+    description: 'Desenhar novos processos para área',
+    authorName: 'Mikel Molero'
 }
 
 

@@ -4,6 +4,7 @@ import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
 import MenuMore from '@components/menu-more'
 import { EditIcon, StarOutlined, TrashDelete } from '@shared/icons'
+import Tooltip from '../tooltip'
 
 export const HypothesisAndImpediment = ({
     description,
@@ -12,8 +13,9 @@ export const HypothesisAndImpediment = ({
     avatar,
     id,
     index,
-    authorGoalId,
-    userLoggedId
+    authorGoalId, // id do dono do desafio
+    userLoggedId,
+    authorName  // nome autor da hipotese ou do impedimento
 
 }: IHypothesisAndImpedimentComponent) => {
 
@@ -36,32 +38,52 @@ export const HypothesisAndImpediment = ({
         <Styles.MainContainer>
             <Styles.ContainerHypotheis type={type} variant={variant}>
                 <Styles.SplitContainerDescription>
-                    <Avatar src={avatar} size={isOwnerGoal ? "28px" : '24px'} border={avatarBorder} style={{ marginRight: '14px', cursor: 'pointer'}} />
+                    <Tooltip        
+                        content={authorName}
+                        direction={'bottom'}
+                        style={{
+                                fontFamily: 'PT Sans',
+                                fontWeight: 400,
+                                fontSize: '14px',
+                                color: 'rgba(117, 117, 117, 1)',
+                                width: 'fit-content',
+                                height: '31px',
+                                top: '8px',
+                                left: '4px',
+                                whiteSpace: 'nowrap',
+                                boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                }}>
+                                    <Avatar
+                                            src={avatar}
+                                            size={isOwnerGoal ? '28px' : '24px'}
+                                            border={avatarBorder}
+                                            style={{ marginRight: '14px', cursor: 'pointer' }}
+                                        />
+                    </Tooltip>
                     <Styles.Title>{title}</Styles.Title>
                     <Styles.Separator type={type} variant={variant} />
                     <Styles.Description>{description}</Styles.Description>
-                    <MenuMore options={
-                        [
-                            {
-                                startIcon: <StarOutlined fill='#222222' width='24px' />,
+                        <MenuMore
+                            options={[
+                                {
+                                startIcon: <StarOutlined fill="#222222" width="24px" />,
                                 description: 'Priorizar',
-                                onClick: () => alert('editou')
-                            },
-                            {
-                                startIcon: <EditIcon fill='#222222' width='24px' />,
+                                onClick: () => alert('Priorizou')
+                                },
+                                {
+                                startIcon: <EditIcon fill="#222222" width="24px" />,
                                 description: 'Editar',
                                 onClick: () => alert('editou')
-                            },
-                            {
-                                startIcon: <TrashDelete fill='#C00F00' width='24px'/>,
+                                },
+                                {
+                                startIcon: <TrashDelete fill="#C00F00" width="24px" />,
                                 description: 'Excluir',
                                 onClick: () => alert('deletou'),
                                 color: '#C00F00'
-                            }
-                        ]
-                        
-                    }
-                    />
+                                }
+                            ]}
+                            isPaddingInMenu={false}
+                            />
                 </Styles.SplitContainerDescription>
             </Styles.ContainerHypotheis>
         </Styles.MainContainer>

@@ -141,6 +141,7 @@ export const ButtonMenuNotification = styled.button<IButtonMenuProps>`
   font-size: 16px !important;
   display: flex !important;
   justify-content: start !important;
+  gap: 8px;
   cursor: pointer !important;
   :hover {
     background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
