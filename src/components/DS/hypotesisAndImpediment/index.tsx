@@ -5,6 +5,7 @@ import Avatar from '@components/avatar'
 import MenuMore from '@components/menu-more'
 import { EditIcon, StarOutlined, TrashDelete } from '@shared/icons'
 import Tooltip from '../tooltip'
+import UpDownButtons from './UpDownButtons'
 
 export const HypothesisAndImpediment = ({
     description,
@@ -38,6 +39,7 @@ export const HypothesisAndImpediment = ({
         <Styles.MainContainer>
             <Styles.ContainerHypotheis type={type} variant={variant}>
                 <Styles.SplitContainerDescription>
+                <UpDownButtons type={type} variant={variant} onDownClick={() => alert('baixo')} onUpClick={() => alert('cima')}/>
                     <Tooltip        
                         content={authorName}
                         direction={'bottom'}
@@ -57,7 +59,7 @@ export const HypothesisAndImpediment = ({
                                             src={avatar}
                                             size={isOwnerGoal ? '28px' : '24px'}
                                             border={avatarBorder}
-                                            style={{ marginRight: '14px', cursor: 'pointer' }}
+                                            style={{ marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }}
                                         />
                     </Tooltip>
                     <Styles.Title>{title}</Styles.Title>
@@ -68,7 +70,7 @@ export const HypothesisAndImpediment = ({
                                 {
                                 startIcon: <StarOutlined fill="#222222" width="24px" />,
                                 description: 'Priorizar',
-                                onClick: () => alert('Priorizou')
+                                onClick: () => alert('Priorizou'),
                                 },
                                 {
                                 startIcon: <EditIcon fill="#222222" width="24px" />,

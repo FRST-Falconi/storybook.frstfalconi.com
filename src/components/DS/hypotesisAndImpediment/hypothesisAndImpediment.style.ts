@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { VariantColorStyle } from './hypothesisAndImpediment';
 
 const backgroundColors = {
     hypothesis: {
@@ -47,7 +48,7 @@ export const MainContainer = styled.div`
     color: #222222;
 `
 
-export const ContainerHypotheis = styled.div<{ type: string, variant: string }>`
+export const ContainerHypotheis = styled.div<VariantColorStyle>`
     width: 100%;
     display: flex;
     align-items: center;
@@ -55,10 +56,10 @@ export const ContainerHypotheis = styled.div<{ type: string, variant: string }>`
     font-family: PT Sans;
     font-size: 14px;
     border-radius: 8px;
-    padding-left: 16px;
+    /* padding-left: 16px; */
     padding-right: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
     min-height: 52px;
 
     ${({ type, variant }) => {

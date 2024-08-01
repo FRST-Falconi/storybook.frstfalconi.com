@@ -12,3 +12,5 @@ export  interface IHypothesisAndImpedimentComponent {
     authorGoalId: string
     authorName: string
 }
+
+export interface VariantColorStyle { type: string, variant: string }
