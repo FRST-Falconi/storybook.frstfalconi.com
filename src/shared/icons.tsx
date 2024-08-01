@@ -3851,7 +3851,7 @@ export function FaseFinalizada() {
   )
 }
 
-export function ArrrowExpandDropdown({ fill, width, height }: IconsProps) {
+export function ArrrowExpandDropdown({ fill, width, height, stroke, strokeWidth }: IconsProps) {
   return (
     <svg
       width={width ? width : '14'}
@@ -3862,8 +3862,8 @@ export function ArrrowExpandDropdown({ fill, width, height }: IconsProps) {
     >
       <path
         d="M1.5 1.33301L6.83333 6.66634L12.1667 1.33301"
-        stroke="#757575"
-        strokeWidth="2"
+        stroke={stroke ?? "#757575"}
+        strokeWidth={strokeWidth ?? "2"}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -3906,6 +3906,25 @@ export function BallonChatgRondedTips({ fill, width, height, fillOpacity, stroke
         d="M1.33268 8.8382C1.33268 7.27478 1.33268 5.71768 1.33268 4.15426C1.33268 3.21114 1.91268 2.44525 2.79935 2.22371C2.97268 2.17941 3.15268 2.16675 3.32602 2.16675C6.43935 2.16675 9.55935 2.16675 12.6727 2.16675C13.586 2.16675 14.286 2.66679 14.566 3.51496C14.606 3.64156 14.6327 3.76815 14.666 3.90107V10.9713C14.6127 11.1612 14.5793 11.3637 14.4927 11.541C14.1393 12.3068 13.5327 12.6866 12.7127 12.6993C12.486 12.6993 12.2593 12.6993 12.026 12.6993C12.026 12.7563 12.0193 12.8069 12.0193 12.8512C12.0193 13.3576 12.0193 13.8576 12.0127 14.364C12.0127 14.6868 11.7927 14.8893 11.5193 14.8197C11.4393 14.8007 11.3593 14.7501 11.2927 14.6995C10.4927 14.0665 9.69268 13.4335 8.89268 12.7942C8.81268 12.7309 8.72602 12.6993 8.61935 12.6993C6.85935 12.6993 5.10602 12.6993 3.34602 12.6993C2.90602 12.6993 2.49935 12.6043 2.14602 12.3322C1.61935 11.9334 1.34602 11.3954 1.34602 10.7181C1.34602 10.0915 1.34602 9.47117 1.34602 8.84453L1.33268 8.8382ZM11.4527 8.52805C11.946 8.52805 12.3393 8.11662 12.3393 7.61658C12.3393 7.11653 11.9393 6.70511 11.4527 6.70511C10.966 6.70511 10.566 7.11653 10.566 7.61658C10.566 8.11662 10.966 8.52805 11.4527 8.52805ZM8.09268 8.52805C8.58602 8.52805 8.97935 8.11662 8.97935 7.61658C8.97935 7.11653 8.57935 6.70511 8.09268 6.70511C7.60602 6.70511 7.20602 7.11653 7.20602 7.61658C7.20602 8.11662 7.60602 8.52805 8.09268 8.52805ZM4.53268 8.52805C5.02602 8.52805 5.41935 8.11662 5.41935 7.61658C5.41935 7.11653 5.01935 6.70511 4.53268 6.70511C4.04602 6.70511 3.64602 7.11653 3.64602 7.61658C3.64602 8.11662 4.04602 8.52805 4.53268 8.52805Z"
         fill={fill ? fill : 'white'}
       />
+    </svg>
+  )
+}
+
+
+export function PlayResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }: IconsProps) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M6.5 5.75L10.25 8L6.5 10.25V5.75Z" fill="#222222" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  )
+}
+
+export function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }: IconsProps) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V5.00016L9.66602 1.3335Z" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.33398 1.3335V5.3335H13.334" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
   )
 }
