@@ -16,28 +16,44 @@ import { FRSTTheme } from '../../../theme'
 import { Box } from '@mui/material'
 import { useEffect, useState } from 'react'
 import Avatar from '@components/avatar'
-import { AddIcon, ArrowShowMoreLess } from '@shared/icons'
+import { AddIcon, ArrrowExpandDropdown } from '@shared/icons'
 import Tooltip from '../tooltip'
 import AddImpedimentoModal from './addImpedimentoModal'
 import React from 'react'
+import Dropdown from './dropDown'
 
 export default function ImpedimentosTab({
     maxTabs,
     tabsList,
-    onSaveNewImpedimento
+    onSaveNewImpedimento,
+    onSelectedTab
 }: ImpedimentosTabProps) {
     const [selectedTab, setSelectedTab] = useState<TabInfo>(null);
+    const [allTabs, setAllTabs] = useState<Array<TabInfo>>([]);
+    const [onShowTabs, setOnShowTabs] = useState<Array<TabInfo>>([]);
+    const [onHideTabs, setOnHideTabs] = useState<Array<TabInfo>>([]);
     const [addImpedimentoAnchor, setAddImpedimentoAnchor] = useState<HTMLDivElement | null>(null);
+    const [impedimentoSelectAnchor, setImpedimentoSelectAnchor] = useState<HTMLDivElement | null>(null);
+    
     const openAddImpedimento = Boolean(addImpedimentoAnchor)
+    const openImpedimentoSelect = Boolean(impedimentoSelectAnchor)
 
     useEffect(() => {
-        if(tabsList.length > 0 && !selectedTab) {
-            setSelectedTab(tabsList[0])
-        }
+        setAllTabs(tabsList)
     }, [tabsList]);
+
+    useEffect(() => {
+        if(allTabs.length > 0) {
+            setSelectedTab(allTabs[0])
+            setOnShowTabs(allTabs.slice(0, maxTabs))
+            setOnHideTabs(allTabs.slice(maxTabs, allTabs.length))
+            onSelectedTab(allTabs[0])
+        }
+    }, [allTabs]);
 
     const handleClickTab = (tab: TabInfo) => {
         setSelectedTab(tab)
+        onSelectedTab(tab)
     }
 
     const handleClickAddImpedimento = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -48,53 +64,79 @@ export default function ImpedimentosTab({
         onSaveNewImpedimento(impedimento)
     }
 
+    const handleClickSelectImpedimento = (impedimento: TabInfo) => {
+        //novo Array sem o impedimento selecionado
+        let newArray = allTabs.filter( value => value.id !== impedimento.id)
+        //coloca o novo impedimento na primeira posição
+        newArray.unshift(impedimento)
+        //atualiza o array de impedimentos
+        setAllTabs(newArray)
+    }
+
     const renderTabs = (tabInfo: TabInfo, index: number) => {
         return(
-            <Tab selected={tabInfo.id === selectedTab?.id} onClick={() => handleClickTab(tabInfo)}>
-                <p>Impedimento {index + 1}</p>
+            <Tab key={index}
+                selected={tabInfo.id === selectedTab?.id} 
+                onClick={() => handleClickTab(tabInfo)}
+            >
+                <p>{tabInfo.title}</p>
             </Tab>
         )
     }
 
     return (
         <ThemeProvider theme={FRSTTheme}>
-            {tabsList.length > 0 ?
+            {allTabs.length > 0 ?
                 <ContainerImpedimentos>
                     <TabWrapper>
                         <Box display={'flex'} alignItems={'center'}>
-                            {tabsList.map((item, index) => renderTabs(item, index) )}
+                            {onShowTabs.map((item, index) => renderTabs(item, index) )}
                             <Tooltip
                                 content='Sugerir impedimento'
                                 direction='bottom'
                                 delay={200}
                                 style={{textAlign: 'center'}}
                             >
-                                <WrapperAddButton activeButton={openAddImpedimento} onClick={handleClickAddImpedimento}>
+                                <WrapperAddButton 
+                                    activeButton={openAddImpedimento}
+                                    onClick={handleClickAddImpedimento}
+                                >
                                     <AddIcon />
                                 </WrapperAddButton>
                             </Tooltip>
                         </Box>
                         <Box display={'flex'} alignItems={'center'}>
-                            <Tooltip
-                                content='Ver todos os impedimentos'
-                                direction='bottom'
-                                delay={200}
-                                style={{textAlign: 'center'}}
-                            >
-                                <WrapperImpedimentoSelect activeSelect={false}>
-                                    <p>Mais 4</p>
-                                    <WrapperSelectIcon>
-                                        
-                                    </WrapperSelectIcon>
-                                </WrapperImpedimentoSelect>
-                            </Tooltip>
+                            {onHideTabs.length > 0 ?
+                                <Tooltip
+                                    content='Ver todos os impedimentos'
+                                    direction='bottom'
+                                    delay={200}
+                                    style={{textAlign: 'center'}}
+                                >
+                                    <WrapperImpedimentoSelect 
+                                        activeSelect={openImpedimentoSelect}
+                                        onClick={(e) => setImpedimentoSelectAnchor(e.currentTarget)}
+                                    >
+                                        <p>Mais {onHideTabs.length}</p>
+                                        <WrapperSelectIcon isOpenSelect={openImpedimentoSelect}>
+                                            <ArrrowExpandDropdown />
+                                        </WrapperSelectIcon>
+                                    </WrapperImpedimentoSelect>
+                                </Tooltip>
+                                :
+                                <></>
+                            }
                         </Box>
-                    </TabWrapper>
+                    </TabWrapper> 
                     {selectedTab?.id ?
                         <TabInfoWrapper>
-                            <Box border={'2px solid #AD46FF'} borderRadius={'50%'}>
+                            {selectedTab.isGoalOwner ?
+                                <Box border={'2px solid #AD46FF'} borderRadius={'50%'}>
+                                    <Avatar src={selectedTab.avatar} size='24px' />
+                                </Box>
+                                :
                                 <Avatar src={selectedTab.avatar} size='24px' />
-                            </Box>
+                            }
                             <p>{selectedTab.description}</p>
                         </TabInfoWrapper>
                         :
@@ -105,6 +147,14 @@ export default function ImpedimentosTab({
                         anchor={addImpedimentoAnchor}
                         onClose={() => setAddImpedimentoAnchor(null)}
                         onSaveBtn={handleSaveNewImpedimento}
+                    />
+                    <Dropdown
+                        isOpen={openImpedimentoSelect}
+                        anchor={impedimentoSelectAnchor}
+                        onClose={() => setImpedimentoSelectAnchor(null)}
+                        impedimentoList={onHideTabs}
+                        maxTabs={maxTabs}
+                        onClickImpedimento={handleClickSelectImpedimento}
                     />
                 </ContainerImpedimentos>
                 :

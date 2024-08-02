@@ -35,6 +35,18 @@ export const Tab = styled('div')<{selected: boolean}>`
         text-overflow: ellipsis;
         overflow: hidden
     }
+
+    :hover {
+        background-color: ${({theme}) => theme.colors.neutralsGrey8};
+
+        ${(props) => props.selected &&
+            css`
+                background-color: #D2ACE4;
+            `
+        }
+
+    }
+
 `
 
 export const TabInfoWrapper = styled('div')`
@@ -45,6 +57,7 @@ export const TabInfoWrapper = styled('div')`
     padding: 12px 16px;
     border-radius: 0px 0px 8px 8px;
     background-color: #E5CBF1;
+    height: 56px;
 
     p {
         font-family: 'PT Sans';
@@ -69,12 +82,6 @@ export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
     ${(props) => props.activeButton &&
         css`
             background-color: ${({theme}) => theme.colors.neutralsGrey6};
-
-            svg {
-                path {
-                    stroke: ${({theme}) => theme.colors.neutralsGrey1};
-                }
-            }
         `
     }
 
@@ -91,7 +98,15 @@ export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
         height: 16px;
 
         path {
-            stroke: ${({theme}) => theme.colors.neutralsGrey4}
+            ${(props) => props.activeButton ?
+                css`
+                    stroke: ${({theme}) => theme.colors.neutralsGrey1};
+                `
+                :
+                css`
+                    stroke: ${({theme}) => theme.colors.neutralsGrey4};
+                `
+            }
         }
     }
 
@@ -104,6 +119,13 @@ export const WrapperImpedimentoSelect = styled('div')<{activeSelect: boolean}>`
     padding: 8px;
     border-radius: 6px;
     background-color: ${({theme}) => theme.colors.shadeWhite};
+    cursor: default;
+
+    ${(props) => props.activeSelect &&
+        css`
+            background-color: ${({theme}) => theme.colors.neutralsGrey6};
+        `
+    }
 
     p {
         font-family: 'PT Sans';
@@ -119,6 +141,19 @@ export const WrapperImpedimentoSelect = styled('div')<{activeSelect: boolean}>`
 
 `
 
-export const WrapperSelectIcon = styled('div')`
-    
+export const WrapperSelectIcon = styled('div')<{isOpenSelect: boolean}>`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    transform: ${({ isOpenSelect }) => (isOpenSelect ? 'rotate(180deg)' : 'rotate(0deg)')} ;
+
+    svg {
+        width: 16px;
+        height: 16px;
+
+        path {
+            stroke: ${({theme}) => theme.colors.neutralsGrey2};
+        }
+    }
 `
