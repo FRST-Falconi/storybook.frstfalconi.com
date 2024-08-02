@@ -1,7 +1,7 @@
 import '../../../shared/global.css'
 import { ThemeProvider } from 'styled-components'
 import { FRSTTheme } from '../../../theme'
-import { ITableActions } from './tableActions'
+import { IColumnRow, ITableActions } from './tableActions'
 import { useEffect, useState } from 'react'
 import Table from '../table'
 import { CollaboratorAvatar, DateLimit, EmptyState, TagStatus } from './parts'
@@ -34,36 +34,45 @@ export default function TableActions({
   const [adaptedData, setAdaptedData] = useState([])
 
   useEffect(() => {
-    const newColumns = columns.map((column, index) => {
-      if (showButtonInbox) {
-        let width = '15%'
-        let align = 'center'
-
-        if (index === 1) {
-          width = '45%'
-          align = 'left'
+    const newColumns = columns.map((column: IColumnRow | string, index: number) => {
+      if(typeof column !== 'string' && column?.alignHeader) {
+        return { 
+          title: column?.title, 
+          width: column?.width, 
+          align: column?.alignHeader 
         }
-        if (index === columns.length - 1) {
-          width = '5%'
-          align = 'center'
-        }
-
-        return { title: column, width: width, align: align }
       } else {
-        let width = '20%'
-        let align = 'center'
-
-        if (index === 1) {
-          width = '40%'
-          align = 'left'
+        if (showButtonInbox) {
+          let width = '15%'
+          let align = 'center'
+  
+          if (index === 1) {
+            width = '45%'
+            align = 'left'
+          }
+          if (index === columns.length - 1) {
+            width = '5%'
+            align = 'center'
+          }
+  
+          return { title: column, width: width, align: align }
+        } else {
+          let width = '20%'
+          let align = 'center'
+  
+          if (index === 1) {
+            width = '40%'
+            align = 'left'
+          }
+          if (index === columns.length - 1) {
+            width = '0%'
+            align = 'center'
+          }
+          return { title: column, width: width, align: align }
         }
-        if (index === columns.length - 1) {
-          width = '0%'
-          align = 'center'
-        }
-        return { title: column, width: width, align: align }
       }
-    })
+      })
+    
     setAdaptedColumns(newColumns)
   }, [columns])
 
@@ -76,13 +85,18 @@ export default function TableActions({
           onPressAvatar={onPressAvatar}
           uuid={item?.value?.[0]?.id}
           labelTextVisitProfile={labelTextVisitProfile}
+          align={typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent}
         />,
-        <p style={{ color: '#222' }}>{item.value[1]}</p>,
+        // @ts-ignore
+        <p style={{ color: '#222', textAlign: columns?.[1]?.alignContent }}>{item.value[1]}</p>,
         <DateLimit date={item?.value?.[2]} status={item?.value?.[3]} />,
         <TagStatus status={item?.value?.[3]} label={labelStatus?.[item?.value?.[3]]} />,
         item?.actionButtonInbox ? (
           <WrapperCellButtonInbox>
-            <ButtonActionInbox onClick={() => item?.actionButtonInbox?.(item?.value?.[0]?.id)}>
+            <ButtonActionInbox
+              enable={item?.enableButtonInbox}
+              onClick={() => item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {}}
+            >
               <BallonChatgRondedTips />
             </ButtonActionInbox>
           </WrapperCellButtonInbox>
@@ -113,15 +127,15 @@ export default function TableActions({
         expandItemId={expandItemId}
         hiddeExpandItemId={hiddeExpandItemId}
       />
-      {data?.length == 0 && <EmptyState emptyState={emptyState} customImage={customImageEmptyState} />}
-      {data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (
+      {!isLoading && data?.length == 0 && <EmptyState emptyState={emptyState} customImage={customImageEmptyState} />}
+      {!isLoading && data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (
         <WrapperEmptyState>
           {buttonBottomCreateAction?.mode == 'button' && (
             <WrapperEmptyStateCaseButton>
               <WrapperButtonEmpty>
                 <ButtonEmpty onClick={() => buttonBottomCreateAction?.handleClickButtonCreate?.()}>
                   {/** @ts-ignore */}
-                  <AddIcon fill={FRSTTheme?.colors?.primary1} width={'14'} height={'14'} />{' '}
+                  <AddIcon fill={FRSTTheme?.colors?.primary1} width={'14'} height={'14'} />
                   {buttonBottomCreateAction?.labelButtonAddAction}
                 </ButtonEmpty>
               </WrapperButtonEmpty>

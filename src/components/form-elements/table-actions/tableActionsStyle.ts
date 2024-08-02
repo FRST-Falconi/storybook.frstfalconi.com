@@ -48,14 +48,14 @@ export const WrapperCellButtonInbox = styled.div`
   align-items: center;
 `
 
-export const ButtonActionInbox = styled.div`
+export const ButtonActionInbox = styled.div<({enable})>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 35px;
   height: 35px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.primary1};
+  background-color: ${({ theme, enable }) => enable ? theme.colors.primary1 : theme.colors.neutralsGrey5};
 
   font-family: Work Sans;
   font-size: 14px;
@@ -64,7 +64,7 @@ export const ButtonActionInbox = styled.div`
   text-align: center;
   color: ${({ theme }) => theme.colors.shadeWhite};
 
-  cursor: pointer;
+  cursor: ${({ enable }) => enable ? "pointer" : "auto"} ;
 `
 
 export const WrapperEmptyState = styled.div`

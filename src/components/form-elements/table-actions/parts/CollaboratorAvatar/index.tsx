@@ -3,9 +3,9 @@ import { ICollaboratorAvatar } from './collaborator-Avatar'
 import { WrapperCollaboratorAvatar } from './collaboratorAvatarStyle'
 import Avatar from '@components/avatar'
 
-export default function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid }: ICollaboratorAvatar) {
+export default function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid, align }: ICollaboratorAvatar) {
   return (
-    <WrapperCollaboratorAvatar>
+    <WrapperCollaboratorAvatar align={align}>
       {onPressAvatar && uuid ? (
         <Tooltip
           direction="bottom"
