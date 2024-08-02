@@ -16,7 +16,9 @@ export const HypothesisAndImpediment = ({
     index,
     authorGoalId, // id do dono do desafio
     userLoggedId,
-    authorName  // nome autor da hipotese ou do impedimento
+    authorName,  // nome autor da hipotese ou do impedimento
+    handleViewProfile,
+    authorId   // id do autor do impedimento ou da hipotese
 
 }: IHypothesisAndImpedimentComponent) => {
 
@@ -60,6 +62,7 @@ export const HypothesisAndImpediment = ({
                                             size={isOwnerGoal ? '28px' : '24px'}
                                             border={avatarBorder}
                                             style={{ marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }}
+                                            onClick={() => handleViewProfile(authorId)}
                                         />
                     </Tooltip>
                     <Styles.Title>{title}</Styles.Title>

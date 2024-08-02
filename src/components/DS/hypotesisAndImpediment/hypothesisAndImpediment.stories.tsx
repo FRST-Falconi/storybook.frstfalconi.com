@@ -22,7 +22,9 @@ HipotesePriorizada.args ={
     authorGoalId: '1234',
     userLoggedId: '1234',
     description: 'Falta de processos para serem seguidos.',
-    authorName: 'Christiane Eckersley'
+    authorName: 'Christiane Eckersley',
+    authorId: '1234',
+    handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
 }
 
 HipoteseLevantada.args ={
@@ -33,7 +35,9 @@ HipoteseLevantada.args ={
     authorGoalId: '1234',
     userLoggedId: '1234',
     description: 'Desenhar novos processos para área',
-    authorName: 'Christiane Eckersley'
+    authorName: 'Christiane Eckersley',
+    authorId:'1234',
+    handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`)
 }
 
 HipoteseSugerida.args ={
@@ -45,7 +49,9 @@ HipoteseSugerida.args ={
     authorGoalId: '1234',
     userLoggedId: '1235',
     description: 'Desenhar novos processos para área',
-    authorName: 'Mikel Molero'
+    authorName: 'Mikel Molero',
+    authorId:'12345',
+    handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`)
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -62,7 +68,9 @@ ImpedimentPriorizada.args ={
     authorGoalId: '1234',
     userLoggedId: '1234',
     description: 'Desenhar novos processos para área',
-    authorName: 'Christiane Eckersley'
+    authorName: 'Christiane Eckersley',
+    authorId: '1234',
+    handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
 }
 
 ImpedimentLevantada.args ={
@@ -73,7 +81,9 @@ ImpedimentLevantada.args ={
     authorGoalId: '1234',
     userLoggedId: '1234',
     description: 'Desenhar novos processos para área',
-    authorName: 'Christiane Eckersley'
+    authorName: 'Christiane Eckersley',
+    authorId:'1234',
+    handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`)
 }
 
 ImpedimentSugerida.args ={
@@ -84,7 +94,9 @@ ImpedimentSugerida.args ={
     authorGoalId: '1234',
     userLoggedId: '1235',
     description: 'Desenhar novos processos para área',
-    authorName: 'Mikel Molero'
+    authorName: 'Mikel Molero',
+    authorId:'12345',
+    handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`)
 }
 
 

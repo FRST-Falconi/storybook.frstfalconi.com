@@ -11,6 +11,8 @@ export  interface IHypothesisAndImpedimentComponent {
     userLoggedId: string
     authorGoalId: string
     authorName: string
+    authorId: string
+    handleViewProfile: (userId: string) => void
 }
 
 export interface VariantColorStyle { type: string, variant: string }
