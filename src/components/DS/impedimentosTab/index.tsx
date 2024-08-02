@@ -67,7 +67,7 @@ export default function ImpedimentosTab({
     const handleClickSelectImpedimento = (impedimento: TabInfo) => {
         //novo Array sem o impedimento selecionado
         let newArray = allTabs.filter( value => value.id !== impedimento.id)
-        //coloca o novo impedimento na primeira posição
+        //coloca o impedimento selecionado na primeira posição
         newArray.unshift(impedimento)
         //atualiza o array de impedimentos
         setAllTabs(newArray)
