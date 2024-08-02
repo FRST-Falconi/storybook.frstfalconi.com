@@ -5,6 +5,7 @@ export interface IColumn {
   title: string;
   width: string;
   align?: TextAlign;
+  alignContent?: TextAlign;
 }
 
 export interface ITableHead {

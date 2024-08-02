@@ -4,4 +4,5 @@ export interface ICollaboratorAvatar {
   onPressAvatar?: (e: string) => void;
   uuid?: string;
   labelTextVisitProfile?: string;
+  align?: string;
 }

@@ -21032,26 +21032,6 @@ function ExpandButton({ isExpanded, onClick }) {
 
 function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles, expandItemId, hiddeExpandItemId }) {
     const [expandedRows, setExpandedRows] = React.useState([]);
-    /*
-    useEffect(() => {
-      console.log('\nexpandedRows ', expandedRows)
-      console.log('expandItemId ', expandItemId)
-      console.log('hiddeExpandItemId ', hiddeExpandItemId)
-      if (expandItemId !== -1) {
-        setExpandedRows((prevExpandedRows) => ({
-          ...prevExpandedRows,
-          [expandItemId]: true
-        }));
-        // setExpandItemId(-1);  // Reset expandItemId after updating
-      }
-      if (hiddeExpandItemId !== -1) {
-        setExpandedRows((prevExpandedRows) => ({
-          ...prevExpandedRows,
-          [hiddeExpandItemId]: false
-        }));
-        // setExpandItemId(-1);  // Reset expandItemId after updating
-      }
-    }, [expandItemId, hiddeExpandItemId, expandedRows])*/
     React.useEffect(() => {
         if (expandItemId !== -1) {
             setExpandedRows((prevExpandedRows) => ({
@@ -21080,12 +21060,14 @@ function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles
 const WrapperCollaboratorAvatar = styled__default["default"].div `
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: ${({ align }) => align && align != 'center' ?
+    (align == 'left' ? 'flex-start' : 'flex-end') :
+    'center'};
   align-items: center;
 `;
 
-function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid }) {
-    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: onPressAvatar && uuid ? () => onPressAvatar(uuid) : null, isActiveClick: !!(onPressAvatar && uuid) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
+function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid, align }) {
+    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: onPressAvatar && uuid ? () => onPressAvatar(uuid) : null, isActiveClick: !!(onPressAvatar && uuid) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
 }
 
 const WrapperDateLimit = styled__default["default"].div `
@@ -21293,7 +21275,7 @@ const ButtonActionInbox = styled__default["default"].div `
   width: 35px;
   height: 35px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.primary1};
+  background-color: ${({ theme, enable }) => enable ? theme.colors.primary1 : theme.colors.neutralsGrey5};
 
   font-family: Work Sans;
   font-size: 14px;
@@ -21302,7 +21284,7 @@ const ButtonActionInbox = styled__default["default"].div `
   text-align: center;
   color: ${({ theme }) => theme.colors.shadeWhite};
 
-  cursor: pointer;
+  cursor: ${({ enable }) => enable ? "pointer" : "auto"} ;
 `;
 const WrapperEmptyState = styled__default["default"].div `
   display: flex;
@@ -21361,31 +21343,40 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
     const [adaptedData, setAdaptedData] = React.useState([]);
     React.useEffect(() => {
         const newColumns = columns.map((column, index) => {
-            if (showButtonInbox) {
-                let width = '15%';
-                let align = 'center';
-                if (index === 1) {
-                    width = '45%';
-                    align = 'left';
-                }
-                if (index === columns.length - 1) {
-                    width = '5%';
-                    align = 'center';
-                }
-                return { title: column, width: width, align: align };
+            if (typeof column !== 'string' && column?.alignHeader) {
+                return {
+                    title: column?.title,
+                    width: column?.width,
+                    align: column?.alignHeader
+                };
             }
             else {
-                let width = '20%';
-                let align = 'center';
-                if (index === 1) {
-                    width = '40%';
-                    align = 'left';
+                if (showButtonInbox) {
+                    let width = '15%';
+                    let align = 'center';
+                    if (index === 1) {
+                        width = '45%';
+                        align = 'left';
+                    }
+                    if (index === columns.length - 1) {
+                        width = '5%';
+                        align = 'center';
+                    }
+                    return { title: column, width: width, align: align };
                 }
-                if (index === columns.length - 1) {
-                    width = '0%';
-                    align = 'center';
+                else {
+                    let width = '20%';
+                    let align = 'center';
+                    if (index === 1) {
+                        width = '40%';
+                        align = 'left';
+                    }
+                    if (index === columns.length - 1) {
+                        width = '0%';
+                        align = 'center';
+                    }
+                    return { title: column, width: width, align: align };
                 }
-                return { title: column, width: width, align: align };
             }
         });
         setAdaptedColumns(newColumns);
@@ -21394,11 +21385,12 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
         const newData = data.map((item) => ({
             id: item.id,
             value: [
-                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile }),
-                jsxRuntime.jsx("p", { style: { color: '#222' }, children: item.value[1] }),
+                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile, align: typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent }),
+                // @ts-ignore
+                jsxRuntime.jsx("p", { style: { color: '#222', textAlign: columns?.[1]?.alignContent }, children: item.value[1] }),
                 jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),
                 jsxRuntime.jsx(TableBody, { status: item?.value?.[3], label: labelStatus?.[item?.value?.[3]] }),
-                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { onClick: () => item?.actionButtonInbox?.(item?.value?.[0]?.id), children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
+                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { enable: item?.enableButtonInbox, onClick: () => item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {}, children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
             ],
             showButtonExpanded: item.showButtonExpanded,
             children: item.children
@@ -21408,7 +21400,7 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
     const customStyleBorderTable = buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
         ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
         : {};
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), ' ', buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), !isLoading && data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), !isLoading && data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
 }
 
 const pulseAnimation = styled.keyframes `
