@@ -34,12 +34,43 @@ export default function TableActions({
   const [adaptedData, setAdaptedData] = useState([])
 
   useEffect(() => {
-    const newColumns = columns.map((column: IColumnRow) => {
+    const newColumns = columns.map((column: IColumnRow | string, index: number) => {
+      if(typeof column !== 'string' && column?.alignHeader) {
         return { 
           title: column?.title, 
           width: column?.width, 
           align: column?.alignHeader 
         }
+      } else {
+        if (showButtonInbox) {
+          let width = '15%'
+          let align = 'center'
+  
+          if (index === 1) {
+            width = '45%'
+            align = 'left'
+          }
+          if (index === columns.length - 1) {
+            width = '5%'
+            align = 'center'
+          }
+  
+          return { title: column, width: width, align: align }
+        } else {
+          let width = '20%'
+          let align = 'center'
+  
+          if (index === 1) {
+            width = '40%'
+            align = 'left'
+          }
+          if (index === columns.length - 1) {
+            width = '0%'
+            align = 'center'
+          }
+          return { title: column, width: width, align: align }
+        }
+      }
       })
     
     setAdaptedColumns(newColumns)
@@ -54,7 +85,7 @@ export default function TableActions({
           onPressAvatar={onPressAvatar}
           uuid={item?.value?.[0]?.id}
           labelTextVisitProfile={labelTextVisitProfile}
-          align={columns?.[0]?.alignContent}
+          align={typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent}
         />,
         // @ts-ignore
         <p style={{ color: '#222', textAlign: columns?.[1]?.alignContent }}>{item.value[1]}</p>,

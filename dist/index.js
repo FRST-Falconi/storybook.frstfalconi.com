@@ -21342,12 +21342,42 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
     const [adaptedColumns, setAdaptedColumns] = React.useState([]);
     const [adaptedData, setAdaptedData] = React.useState([]);
     React.useEffect(() => {
-        const newColumns = columns.map((column) => {
-            return {
-                title: column?.title,
-                width: column?.width,
-                align: column?.alignHeader
-            };
+        const newColumns = columns.map((column, index) => {
+            if (typeof column !== 'string' && column?.alignHeader) {
+                return {
+                    title: column?.title,
+                    width: column?.width,
+                    align: column?.alignHeader
+                };
+            }
+            else {
+                if (showButtonInbox) {
+                    let width = '15%';
+                    let align = 'center';
+                    if (index === 1) {
+                        width = '45%';
+                        align = 'left';
+                    }
+                    if (index === columns.length - 1) {
+                        width = '5%';
+                        align = 'center';
+                    }
+                    return { title: column, width: width, align: align };
+                }
+                else {
+                    let width = '20%';
+                    let align = 'center';
+                    if (index === 1) {
+                        width = '40%';
+                        align = 'left';
+                    }
+                    if (index === columns.length - 1) {
+                        width = '0%';
+                        align = 'center';
+                    }
+                    return { title: column, width: width, align: align };
+                }
+            }
         });
         setAdaptedColumns(newColumns);
     }, [columns]);
@@ -21355,7 +21385,7 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
         const newData = data.map((item) => ({
             id: item.id,
             value: [
-                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile, align: columns?.[0]?.alignContent }),
+                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile, align: typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent }),
                 // @ts-ignore
                 jsxRuntime.jsx("p", { style: { color: '#222', textAlign: columns?.[1]?.alignContent }, children: item.value[1] }),
                 jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),

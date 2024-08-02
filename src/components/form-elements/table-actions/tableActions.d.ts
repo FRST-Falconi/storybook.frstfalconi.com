@@ -19,7 +19,7 @@ export interface IColumnRow {
 }
 
 export interface ITableActions {
-    columns: IColumnRow[];
+    columns: IColumnRow[] | string[];
     data: IDataRow[];
     isLoading?: boolean;
     lengthElSkeleton?: number;
