@@ -6,6 +6,7 @@ import MenuMore from '@components/menu-more'
 import { EditIcon, StarOutlined, TrashDelete } from '@shared/icons'
 import Tooltip from '../tooltip'
 import UpDownButtons from './UpDownButtons'
+import { Voting } from './Voting'
 
 export const HypothesisAndImpediment = ({
     description,
@@ -18,7 +19,11 @@ export const HypothesisAndImpediment = ({
     userLoggedId,
     authorName,  // nome autor da hipotese ou do impedimento
     handleViewProfile,
-    authorId   // id do autor do impedimento ou da hipotese
+    authorId,  // id do autor do impedimento ou da hipotese
+    hasVoting,
+    voteText,
+    onDeleteVote,
+    votersList
 
 }: IHypothesisAndImpedimentComponent) => {
 
@@ -67,7 +72,12 @@ export const HypothesisAndImpediment = ({
                     </Tooltip>
                     <Styles.Title>{title}</Styles.Title>
                     <Styles.Separator type={type} variant={variant} />
+
                     <Styles.Description>{description}</Styles.Description>
+                    {
+                        hasVoting &&
+                            <Voting voteText={voteText} type={type} onDeleteVote={onDeleteVote} votersList={votersList}/>
+                    }
                         <MenuMore
                             options={[
                                 {

@@ -98,5 +98,6 @@ export const Title = styled.span`
 export const Description = styled.span`
     font-weight: 400;
     padding: 8px 0 8px;
-    width: 100%;
+    display: flex;
+    flex-grow: 1;
 `
