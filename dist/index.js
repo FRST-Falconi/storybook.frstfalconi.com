@@ -3526,7 +3526,7 @@ styled__default["default"].div `
   font-size: 16px;
   line-height: 17.6px;
 `;
-styled__default["default"].div `
+const IconOption = styled__default["default"].div `
   width: 20px;
   height: 30px;
   display: flex;
@@ -3546,6 +3546,8 @@ const ButtonMenuNotification = styled__default["default"].button `
   font-size: 16px !important;
   display: flex !important;
   justify-content: start !important;
+  align-items: center !important;
+  gap: 8px !important;
   cursor: pointer !important;
   :hover {
     background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
@@ -3566,10 +3568,10 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
         setAnchorEl(null);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$2, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
-                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(ButtonMenuNotification, { onClick: () => {
+                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(ButtonMenuNotification, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
-                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, children: itemOption?.description }) }, index));
+                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
                     }) }))] }) }));
 }
 
