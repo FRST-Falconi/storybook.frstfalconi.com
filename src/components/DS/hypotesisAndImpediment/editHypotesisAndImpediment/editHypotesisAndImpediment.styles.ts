@@ -20,9 +20,16 @@ export const ContainerButton = styled.div`
     display: flex;
     gap: 8px;
     padding-left: 16px;
+
 `
 
-export const Button = styled.div `
+export const Button = styled.button`
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    &:disabled {
+        cursor: not-allowed;
+    }
+
 `
 

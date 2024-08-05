@@ -3,7 +3,7 @@ import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment'
 import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
 import MenuMore from '@components/menu-more'
-import { EditIcon, StarOutlined, TrashDelete } from '@shared/icons'
+import { EditIcon, StarPrioritize, TrashDelete } from '@shared/icons'
 import Tooltip from '../tooltip'
 import UpDownButtons from './UpDownButtons'
 import { Voting } from './Voting'
@@ -65,6 +65,7 @@ export const HypothesisAndImpediment = ({
                         editDescription={editDescription}
                         onSave={handleSaveDescription}
                         onCancel={handleCancel}
+                        originalDescription={description}
                     />
                 ) :
                 <Styles.ContainerHypotheis type={type} variant={variant}>
@@ -104,7 +105,7 @@ export const HypothesisAndImpediment = ({
                         <MenuMore
                             options={[
                                 {
-                                startIcon: <StarOutlined fill="#222222" width="24px" />,
+                                startIcon: <StarPrioritize/>,
                                 description: 'Priorizar',
                                 onClick: () => alert('Priorizou'),
                                 },
