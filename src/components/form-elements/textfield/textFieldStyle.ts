@@ -17,11 +17,11 @@ const placeholderStyle = (color: string) => css`
         color: ${({ theme }) => theme.colors[color]};
     }
 
-    :-ms-input-placeholder
+    :-ms-input-placeholder {
         color: ${({ theme }) => theme.colors[color]};
     }
 
-    :-moz-placeholder
+    :-moz-placeholder {
         color: ${({ theme }) => theme.colors[color]};
     }
 `

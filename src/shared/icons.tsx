@@ -21,8 +21,8 @@ export function Lupa({ fill, width, height }: IconsProps) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M3.2 10.6C3.2 6.51309 6.51309 3.2 10.6 3.2C14.6869 3.2 18 6.51309 18 10.6C18 12.6044 17.2031 14.4227 15.9088 15.7553C15.879 15.7758 15.8507 15.7993 15.8242 15.8258C15.7977 15.8522 15.7743 15.8805 15.7538 15.9102C14.4214 17.2037 12.6037 18 10.6 18C6.51309 18 3.2 14.6869 3.2 10.6ZM16.2413 17.0914C14.7312 18.4048 12.7585 19.2 10.6 19.2C5.85035 19.2 2 15.3496 2 10.6C2 5.85035 5.85035 2 10.6 2C15.3496 2 19.2 5.85035 19.2 10.6C19.2 12.7593 18.4042 14.7327 17.0899 16.243L21.0227 20.1758C21.257 20.4101 21.257 20.79 21.0227 21.0243C20.7884 21.2586 20.4085 21.2586 20.1742 21.0243L16.2413 17.0914Z"
         fill={fill ?? '#000000'}
       />
@@ -2943,7 +2943,7 @@ export function PlayIcon({ width, height, customColor_1, customColor_2 }: IconsP
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3000,7 +3000,7 @@ export function PauseIcon({ customColor_1, customColor_2, width, height }: Icons
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3023,7 +3023,7 @@ export function PauseIcon({ customColor_1, customColor_2, width, height }: Icons
           filterUnits="userSpaceOnUse"
           color-interpolation-filters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -3360,8 +3360,8 @@ export function IconGaps({ fill, width, height }: IconsProps) {
         strokeLinejoin="round"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M9.89679 7.24994C9.56487 8.51694 9.66333 9.40694 10.1927 9.91894C10.7215 10.4314 11.6229 10.7664 12.8968 10.9239C12.6075 12.5589 12.9602 13.3254 13.9539 13.2244C14.9477 13.1234 15.545 12.7169 15.7455 12.0044C17.2985 12.4344 18.1405 12.0744 18.2709 10.9244C18.4663 9.19944 17.5223 7.82394 17.1351 7.82394C16.7484 7.82394 15.7455 7.77744 15.7455 7.24994C15.7455 6.72244 14.5741 6.42494 13.517 6.42494C12.4598 6.42494 13.0957 5.72244 11.6442 5.99994C10.6763 6.18494 10.0937 6.60144 9.89679 7.24994V7.24994Z"
         stroke="#0645AD"
         strokeWidth="1.2"
@@ -3479,15 +3479,15 @@ export function ErrorAlert({ fill, width, height }: IconsProps) {
       <path
         d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
         stroke="#C00F00"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
         d="M8.99683 5.57147L8.99683 9.68576"
         stroke="#C00F00"
-        stroke-width="1.2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <ellipse cx="8.99821" cy="12.4283" rx="0.685714" ry="0.685145" fill="#C00F00" />
     </svg>
@@ -3594,7 +3594,7 @@ export function VotarIcon({ fill, stroke, customColor_1, width, height }: IconsP
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M12 16.5V7.5" stroke="#444444" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M12 16.5V7.5" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -3793,8 +3793,8 @@ export function WarnCard() {
 export function CardFinished() {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="7.4" stroke="white" stroke-width="1.2" />
-      <path d="M12 5L6.5 10.5L4 8" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+      <rect x="0.6" y="0.6" width="14.8" height="14.8" rx="7.4" stroke="white" strokeWidth="1.2" />
+      <path d="M12 5L6.5 10.5L4 8" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -3809,8 +3809,8 @@ export function Tick({ fill, width, height }: IconsProps) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M11.0964 0.390037L3.93638 7.30004L2.03638 5.27004C1.68638 4.94004 1.13638 4.92004 0.736381 5.20004C0.346381 5.49004 0.236381 6.00004 0.476381 6.41004L2.72638 10.07C2.94638 10.41 3.32638 10.62 3.75638 10.62C4.16638 10.62 4.55638 10.41 4.77638 10.07C5.13638 9.60004 12.0064 1.41004 12.0064 1.41004C12.9064 0.490037 11.8164 -0.319963 11.0964 0.380037V0.390037Z"
         fill={fill ? fill : 'white'}
       />
@@ -3824,11 +3824,11 @@ export function LampHelpBoxInput({ fill, width, height }: IconsProps) {
       <path
         d="M4.7282 15.2853H11.2704M3.0496 13.1938C2.07082 12.1947 1.40432 10.9219 1.13437 9.53624C0.864424 8.15062 1.00315 6.71443 1.53302 5.40926C2.06289 4.1041 2.9601 2.98857 4.1112 2.20374C5.26231 1.4189 6.61561 1 8 1C9.38439 1 10.7377 1.4189 11.8888 2.20374C13.0399 2.98857 13.9371 4.1041 14.467 5.40926C14.9968 6.71443 15.1356 8.15062 14.8656 9.53624C14.5957 10.9219 13.9292 12.1947 12.9504 13.1938L12.1832 13.9752C11.7446 14.4229 11.3967 14.9544 11.1594 15.5393C10.922 16.1241 10.7999 16.751 10.8 17.384V18.1427C10.8 18.9005 10.505 19.6273 9.9799 20.1631C9.4548 20.699 8.74261 21 8 21C7.25739 21 6.5452 20.699 6.0201 20.1631C5.495 19.6273 5.2 18.9005 5.2 18.1427V17.384C5.2 16.1054 4.7016 14.8782 3.8168 13.9752L3.0496 13.1938Z"
         stroke="#444444"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <path d="M4 7.5V7.5C4 5.567 5.567 4 7.5 4V4" stroke="#444444" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M4 7.5V7.5C4 5.567 5.567 4 7.5 4V4" stroke="#444444" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   )
 }
@@ -3914,8 +3914,8 @@ export function BallonChatgRondedTips({ fill, width, height, fillOpacity, stroke
 export function PlayResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }: IconsProps) {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M6.5 5.75L10.25 8L6.5 10.25V5.75Z" fill="#222222" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z" stroke="#222222" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M6.5 5.75L10.25 8L6.5 10.25V5.75Z" fill="#222222" stroke="#222222" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   )
 }
@@ -3923,8 +3923,16 @@ export function PlayResourceInfoIcon({ fill, width, height, fillOpacity, stroke,
 export function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }: IconsProps) {
   return (
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V5.00016L9.66602 1.3335Z" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M9.33398 1.3335V5.3335H13.334" stroke="#222222" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M9.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V5.00016L9.66602 1.3335Z" stroke="#222222" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M9.33398 1.3335V5.3335H13.334" stroke="#222222" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+export function StarPrioritize () {
+  return (
+    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8.76629 1.56915C9.29428 0.584872 10.7057 0.584872 11.2337 1.56915L12.7175 4.33521C13.0927 5.03459 13.7667 5.52431 14.5478 5.665L17.637 6.2214C18.7362 6.41939 19.1724 7.76174 18.3995 8.56805L16.2273 10.834C15.6781 11.4069 15.4206 12.1993 15.5282 12.9856L15.9536 16.0955C16.105 17.2022 14.9631 18.0318 13.9574 17.5459L11.1312 16.1802C10.4166 15.8349 9.58342 15.8349 8.86882 16.1802L6.04256 17.5459C5.03686 18.0318 3.89499 17.2022 4.04638 16.0955L4.47182 12.9856C4.57939 12.1993 4.32193 11.4069 3.77271 10.834L1.60055 8.56805C0.827603 7.76174 1.26376 6.41939 2.36302 6.2214L5.45222 5.665C6.23329 5.52431 6.90734 5.03459 7.28251 4.33521L8.76629 1.56915Z" stroke="#222222" strokeWidth="1.2"/>
     </svg>
   )
 }
