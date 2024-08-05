@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment'
 import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
@@ -7,6 +7,7 @@ import { EditIcon, StarOutlined, TrashDelete } from '@shared/icons'
 import Tooltip from '../tooltip'
 import UpDownButtons from './UpDownButtons'
 import { Voting } from './Voting'
+import { EditHypotesisAndImpediment } from './editHypotesisAndImpediment'
 
 export const HypothesisAndImpediment = ({
     description,
@@ -23,11 +24,13 @@ export const HypothesisAndImpediment = ({
     hasVoting,
     voteText,
     onDeleteVote,
-    votersList
-
+    votersList,
+    onDeleteHipotesisOrImpediment,
+    onSaveEditHipotesisOrImpediment
 }: IHypothesisAndImpedimentComponent) => {
 
-
+    const [editDescription, setEditDescription] = useState(description)
+    const [isEditing, setIsEditing] = useState(false)
     const isOwnerGoal = authorGoalId === userLoggedId;
 
 
@@ -42,9 +45,29 @@ export const HypothesisAndImpediment = ({
     ? `2px solid ${Styles.borderAvatar[variant][type]}`
     : 'none';
 
+
+    const handleSaveDescription = () => {
+        onSaveEditHipotesisOrImpediment(editDescription)
+        setIsEditing(false)
+    }
+
+    const handleCancel = () => {
+        setIsEditing(false)
+    }
+
     return (
+        <>
         <Styles.MainContainer>
-            <Styles.ContainerHypotheis type={type} variant={variant}>
+            {
+                isEditing ? (
+                    <EditHypotesisAndImpediment
+                        setEditDescription={setEditDescription}
+                        editDescription={editDescription}
+                        onSave={handleSaveDescription}
+                        onCancel={handleCancel}
+                    />
+                ) :
+                <Styles.ContainerHypotheis type={type} variant={variant}>
                 <Styles.SplitContainerDescription>
                 <UpDownButtons type={type} variant={variant} onDownClick={() => alert('baixo')} onUpClick={() => alert('cima')}/>
                     <Tooltip        
@@ -73,7 +96,7 @@ export const HypothesisAndImpediment = ({
                     <Styles.Title>{title}</Styles.Title>
                     <Styles.Separator type={type} variant={variant} />
 
-                    <Styles.Description>{description}</Styles.Description>
+                    <Styles.Description>{editDescription}</Styles.Description>
                     {
                         hasVoting &&
                             <Voting voteText={voteText} type={type} onDeleteVote={onDeleteVote} votersList={votersList}/>
@@ -88,12 +111,12 @@ export const HypothesisAndImpediment = ({
                                 {
                                 startIcon: <EditIcon fill="#222222" width="24px" />,
                                 description: 'Editar',
-                                onClick: () => alert('editou')
+                                onClick: (e) => setIsEditing(true)
                                 },
                                 {
                                 startIcon: <TrashDelete fill="#C00F00" width="24px" />,
                                 description: 'Excluir',
-                                onClick: () => alert('deletou'),
+                                onClick: () => onDeleteHipotesisOrImpediment(id),
                                 color: '#C00F00'
                                 }
                             ]}
@@ -101,6 +124,8 @@ export const HypothesisAndImpediment = ({
                             />
                 </Styles.SplitContainerDescription>
             </Styles.ContainerHypotheis>
+            }
         </Styles.MainContainer>
+        </>
     )
 }

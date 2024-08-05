@@ -15,6 +15,7 @@ export const HipoteseLevantada = Template.bind({})
 export const HipoteseSugerida = Template.bind({})
 
 HipotesePriorizada.args = {
+    id: '1',
     type: 'prioritize',
     variant: 'hypothesis',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
@@ -26,10 +27,13 @@ HipotesePriorizada.args = {
     authorId: '1234',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     hasVoting: true,
-    voteText: 'Votar'
+    voteText: 'Votar',
+    onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
+    onSaveEditHipotesisOrImpediment:  () => alert('editado')
 }
 
 HipoteseLevantada.args = {
+    id: '2',
     type: 'raised',
     variant: 'hypothesis',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
@@ -41,10 +45,13 @@ HipoteseLevantada.args = {
     authorId: '1234',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     hasVoting: true,
-    voteText: 'Votar'
+    voteText: 'Votar',
+    onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
+    onSaveEditHipotesisOrImpediment:  () => alert('editado')
 }
 
 HipoteseSugerida.args = {
+    id: '3',
     type: 'suggested',
     variant: 'hypothesis',
     title: 'HIPÓTESE 2',
@@ -57,7 +64,9 @@ HipoteseSugerida.args = {
     authorId: '12345',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     hasVoting: true,
-    voteText: 'Votar'
+    voteText: 'Votar',
+    onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
+    onSaveEditHipotesisOrImpediment:  () => alert('editado')
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -67,6 +76,7 @@ export const ImpedimentLevantada = Template.bind({})
 export const ImpedimentSugerida = Template.bind({})
 
 ImpedimentPriorizada.args = {
+    id: '1',
     type: 'prioritize',
     variant: 'impediment',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
@@ -77,10 +87,13 @@ ImpedimentPriorizada.args = {
     authorName: 'Christiane Eckersley',
     authorId: '1234',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
-    hasVoting: false
+    hasVoting: false,
+    onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
+    onSaveEditHipotesisOrImpediment:  () => alert('editado')
 }
 
 ImpedimentLevantada.args = {
+    id: '2',
     type: 'raised',
     variant: 'impediment',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
@@ -91,10 +104,13 @@ ImpedimentLevantada.args = {
     authorName: 'Christiane Eckersley',
     authorId: '1234',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
-    hasVoting: false
+    hasVoting: false,
+    onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
+    onSaveEditHipotesisOrImpediment:  () => alert('editado')
 }
 
 ImpedimentSugerida.args = {
+    id: '3',
     type: 'suggested',
     variant: 'impediment',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
@@ -105,13 +121,16 @@ ImpedimentSugerida.args = {
     authorName: 'Mikel Molero',
     authorId: '12345',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
-    hasVoting: false
+    hasVoting: false,
+    onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
+    onSaveEditHipotesisOrImpediment:  () => alert('editado')
 }
 
 
 export const Vote = Template.bind({})
 
 Vote.args = {
+    id: '1',
     type: 'prioritize',
     variant: 'hypothesis',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
@@ -122,6 +141,8 @@ Vote.args = {
     authorName: 'Christiane Eckersley',
     authorId: '1234',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
+    onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
+    onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasVoting: true,
     voteText: 'Votar',
     votersList: [

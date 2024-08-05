@@ -17,6 +17,8 @@ export  interface IHypothesisAndImpedimentComponent {
     voteText?: string
     onDeleteVote?: () => void
     votersList?: Voter[]
+    onDeleteHipotesisOrImpediment?: (id: string) => void
+    onSaveEditHipotesisOrImpediment?: (description: string) => void
 }
 
 export interface VariantColorStyle { type: string, variant?: string }
