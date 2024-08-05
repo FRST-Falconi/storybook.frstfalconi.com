@@ -433,10 +433,10 @@ function StatusProblemaEdit({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "48", height: "48", viewBox: "0 0 48 48", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("circle", { cx: "24", cy: "24", r: "24", fill: "#FEF0D0" }), jsxRuntime.jsx("path", { d: "M24 17.0669H18.5556C18.143 17.0669 17.7473 17.2417 17.4556 17.5529C17.1639 17.8641 17 18.2861 17 18.7262V30.341C17 30.781 17.1639 31.2031 17.4556 31.5142C17.7473 31.8254 18.143 32.0002 18.5556 32.0002H29.4444C29.857 32.0002 30.2527 31.8254 30.5444 31.5142C30.8361 31.2031 31 30.781 31 30.341V24.5336", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M30.1791 16.5163C30.489 16.1857 30.9093 16 31.3476 16C31.7858 16 32.2061 16.1857 32.516 16.5163C32.8259 16.8468 33 17.2951 33 17.7626C33 18.2301 32.8259 18.6784 32.516 19.0089L25.1159 26.9024L22 27.7333L22.779 24.4098L30.1791 16.5163Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function PlayIcon({ width, height, customColor_1, customColor_2 }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_22)", children: [jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }), jsxRuntime.jsx("path", { d: "M22.3411 17.3317C22.934 16.9358 22.934 16.0643 22.3411 15.6684L14.5553 10.47C13.8908 10.0264 13 10.5027 13 11.3017V21.6984C13 22.4974 13.8908 22.9737 14.5553 22.5301L22.3411 17.3317Z", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsxs("filter", { id: "filter0_d_1_22", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feOffset", { dy: "3" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_22", result: "shape" })] }) })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_22)", children: [jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }), jsxRuntime.jsx("path", { d: "M22.3411 17.3317C22.934 16.9358 22.934 16.0643 22.3411 15.6684L14.5553 10.47C13.8908 10.0264 13 10.5027 13 11.3017V21.6984C13 22.4974 13.8908 22.9737 14.5553 22.5301L22.3411 17.3317Z", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsxs("filter", { id: "filter0_d_1_22", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feOffset", { dy: "3" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_22" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_22", result: "shape" })] }) })] }));
 }
 function PauseIcon({ customColor_1, customColor_2, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_159)", children: [jsxRuntime.jsx("g", { filter: "url(#filter1_d_1_159)", children: jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }) }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 22 8)", fill: customColor_2 ? customColor_2 : 'white' }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 14 8)", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("filter", { id: "filter0_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "5" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "1.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter1_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "25" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "9" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.2 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] })] })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { filter: "url(#filter0_d_1_159)", children: [jsxRuntime.jsx("g", { filter: "url(#filter1_d_1_159)", children: jsxRuntime.jsx("circle", { cx: "16", cy: "16", r: "16", fill: customColor_1 ? customColor_1 : '#EE4C15' }) }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 22 8)", fill: customColor_2 ? customColor_2 : 'white' }), jsxRuntime.jsx("rect", { width: "3", height: "17", rx: "1.5", transform: "matrix(-1 0 0 1 14 8)", fill: customColor_2 ? customColor_2 : 'white' })] }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("filter", { id: "filter0_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "5" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "1.5" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter1_d_1_159", x: "0", y: "0", width: width ? width : '32', height: height ? height : '32', filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feOffset", { dy: "25" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "9" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.2 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_159" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_159", result: "shape" })] })] })] }));
 }
 function Back15({ width, height, fill }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3 2V8H9", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.524 19.8037C18.2613 18.7786 19.6037 17.1995 20.336 15.32C21.0683 13.4405 21.1479 11.3694 20.5622 9.43922C19.9764 7.509 18.7592 5.83152 17.1059 4.67595C15.4525 3.52038 13.4589 2.95373 11.445 3.06692C9.43099 3.18012 7.51344 3.96659 6 5.30015L3 8.00014", stroke: fill ? fill : '#222222', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M5.01 17.9H6.4V13.95L6.55 13.27L6.07 13.86L5.18 14.47L4.63 13.72L6.91 11.88H7.64V17.9H9V19H5.01V17.9ZM11.8738 17.99C12.3138 17.99 12.6505 17.8833 12.8838 17.67C13.1172 17.4567 13.2338 17.1633 13.2338 16.79C13.2338 16.39 13.0972 16.0967 12.8238 15.91C12.5505 15.7233 12.1605 15.63 11.6538 15.63L10.8638 15.66V12H14.3038V13.22H11.9838V14.57L12.3938 14.53C12.7205 14.5433 13.0138 14.6033 13.2738 14.71C13.5405 14.8167 13.7672 14.9667 13.9538 15.16C14.1405 15.3467 14.2838 15.5767 14.3838 15.85C14.4838 16.1167 14.5338 16.4167 14.5338 16.75C14.5338 17.1433 14.4672 17.49 14.3338 17.79C14.2005 18.09 14.0138 18.34 13.7738 18.54C13.5405 18.74 13.2638 18.89 12.9438 18.99C12.6238 19.09 12.2738 19.14 11.8938 19.14C11.5938 19.14 11.3072 19.1133 11.0338 19.06C10.7672 19.0133 10.5405 18.9467 10.3538 18.86L10.7038 17.78C10.8572 17.8467 11.0238 17.9 11.2038 17.94C11.3905 17.9733 11.6138 17.99 11.8738 17.99Z", fill: fill ? fill : '#222222' })] }));
@@ -466,7 +466,7 @@ function IconUp({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: "18", height: "10", viewBox: "0 0 18 10", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.45361 9L9.37114 1L17.2887 9", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
 }
 function IconGaps({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66127 22C9.1639 20.402 8.41378 19.211 7.41041 18.4265C5.9056 17.25 3.51466 17.9815 2.63157 16.7675C1.74848 15.5535 3.25024 13.3215 3.77705 12.0045C4.30437 10.6875 1.75711 10.222 2.05452 9.848C2.25245 9.5985 3.54004 8.8795 5.91626 7.69C6.59127 3.8965 9.08473 2 13.3977 2C19.8666 2 22.3311 7.403 22.3311 10.84C22.3311 14.2765 19.3468 17.9785 15.0958 18.777C14.7157 19.322 15.2638 20.397 16.7402 22.0005", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M9.89679 7.24994C9.56487 8.51694 9.66333 9.40694 10.1927 9.91894C10.7215 10.4314 11.6229 10.7664 12.8968 10.9239C12.6075 12.5589 12.9602 13.3254 13.9539 13.2244C14.9477 13.1234 15.545 12.7169 15.7455 12.0044C17.2985 12.4344 18.1405 12.0744 18.2709 10.9244C18.4663 9.19944 17.5223 7.82394 17.1351 7.82394C16.7484 7.82394 15.7455 7.77744 15.7455 7.24994C15.7455 6.72244 14.5741 6.42494 13.517 6.42494C12.4598 6.42494 13.0957 5.72244 11.6442 5.99994C10.6763 6.18494 10.0937 6.60144 9.89679 7.24994V7.24994Z", stroke: "#0645AD", strokeWidth: "1.2", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.4795 12.75C14.9634 13.0655 14.2554 13.59 13.9569 14C13.2114 15.025 12.6069 15.6485 12.475 16.304", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66127 22C9.1639 20.402 8.41378 19.211 7.41041 18.4265C5.9056 17.25 3.51466 17.9815 2.63157 16.7675C1.74848 15.5535 3.25024 13.3215 3.77705 12.0045C4.30437 10.6875 1.75711 10.222 2.05452 9.848C2.25245 9.5985 3.54004 8.8795 5.91626 7.69C6.59127 3.8965 9.08473 2 13.3977 2C19.8666 2 22.3311 7.403 22.3311 10.84C22.3311 14.2765 19.3468 17.9785 15.0958 18.777C14.7157 19.322 15.2638 20.397 16.7402 22.0005", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M9.89679 7.24994C9.56487 8.51694 9.66333 9.40694 10.1927 9.91894C10.7215 10.4314 11.6229 10.7664 12.8968 10.9239C12.6075 12.5589 12.9602 13.3254 13.9539 13.2244C14.9477 13.1234 15.545 12.7169 15.7455 12.0044C17.2985 12.4344 18.1405 12.0744 18.2709 10.9244C18.4663 9.19944 17.5223 7.82394 17.1351 7.82394C16.7484 7.82394 15.7455 7.77744 15.7455 7.24994C15.7455 6.72244 14.5741 6.42494 13.517 6.42494C12.4598 6.42494 13.0957 5.72244 11.6442 5.99994C10.6763 6.18494 10.0937 6.60144 9.89679 7.24994V7.24994Z", stroke: "#0645AD", strokeWidth: "1.2", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.4795 12.75C14.9634 13.0655 14.2554 13.59 13.9569 14C13.2114 15.025 12.6069 15.6485 12.475 16.304", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round" })] }));
 }
 function IconModules({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "25", height: "24", viewBox: "0 0 25 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M21.6079 4.5C21.6079 5.54426 20.7522 6.4 19.6853 6.4C18.6184 6.4 17.7627 5.54426 17.7627 4.5C17.7627 3.45574 18.6184 2.6 19.6853 2.6C20.7522 2.6 21.6079 3.45574 21.6079 4.5Z", stroke: "#0645AD", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 12.5C21.6079 13.5443 20.7522 14.4 19.6853 14.4C18.6184 14.4 17.7627 13.5443 17.7627 12.5C17.7627 11.4557 18.6184 10.6 19.6853 10.6C20.7522 10.6 21.6079 11.4557 21.6079 12.5Z", stroke: "#0645AD", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M21.6079 19.5C21.6079 20.5443 20.7522 21.4 19.6853 21.4C18.6184 21.4 17.7627 20.5443 17.7627 19.5C17.7627 18.4557 18.6184 17.6 19.6853 17.6C20.7522 17.6 21.6079 18.4557 21.6079 19.5Z", stroke: "#0645AD", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M14.1356 12L17.1627 12", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round" }), jsxRuntime.jsx("path", { d: "M14.1356 16H15.8654L18.1718 18", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M14.1356 8H15.8654L18.1718 6", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M3.03613 15L5.05421 15", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.1085 10L10.0995 10", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M3.0361 10H5.99596C6.39957 10 7.07227 9.25 7.07227 8.49999C7.07227 7 7.07227 8.8377 7.07227 7", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.1084 15H8.14858C7.74496 15 7.07227 15.5 7.07227 16C7.07227 17 7.07227 15.7749 7.07227 17", stroke: "#0645AD", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10.9344 4.41895L10.977 4.47036L11.0298 4.51117C11.1053 4.56956 11.5175 5.03708 11.5175 6V18C11.5175 18.1873 11.4114 18.8808 10.9187 19.5999C10.708 19.8492 10.4509 20.0482 10.1646 20.1854C9.87158 20.3259 9.55413 20.3987 9.23347 20.4H8.51448C6.96145 20.3982 5.46746 19.7556 4.36173 18.605C3.2553 17.4537 2.62893 15.8878 2.6271 14.2497V9.75031C2.62893 8.11221 3.2553 6.5463 4.36173 5.39496C5.46737 4.24444 6.96122 3.60189 8.51413 3.6H9.23343C9.5541 3.60126 9.87157 3.67412 10.1646 3.8146C10.458 3.95526 10.7209 4.16085 10.9344 4.41895Z", stroke: "#0645AD", strokeWidth: "1.2" })] }));
@@ -478,7 +478,7 @@ function IconContent({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M15.2884 10.4968L10.1 13.038V7.10845L15.2884 10.4968Z", stroke: "white", strokeWidth: "1.2", strokeLinejoin: "round" }), jsxRuntime.jsx("rect", { x: "1.6", y: "2.6", width: "20.8", height: "14.8", rx: "1.4", stroke: "white", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M6 21.5H18", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function ErrorAlert({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: "18", height: "18", viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: "#C00F00", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M8.99683 5.57147L8.99683 9.68576", stroke: "#C00F00", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("ellipse", { cx: "8.99821", cy: "12.4283", rx: "0.685714", ry: "0.685145", fill: "#C00F00" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "18", height: "18", viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: "#C00F00", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8.99683 5.57147L8.99683 9.68576", stroke: "#C00F00", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("ellipse", { cx: "8.99821", cy: "12.4283", rx: "0.685714", ry: "0.685145", fill: "#C00F00" })] }));
 }
 function IconLikeLine({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '16', viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_8980_33733)", children: [jsxRuntime.jsx("path", { d: "M9.33337 3.33334V6.00001H13.1067C13.3 5.99782 13.4914 6.03768 13.6678 6.11682C13.8441 6.19596 14.0011 6.3125 14.1279 6.45835C14.2548 6.60421 14.3484 6.77589 14.4023 6.96151C14.4562 7.14713 14.469 7.34225 14.44 7.53334L13.52 13.5333C13.4718 13.8513 13.3103 14.1411 13.0653 14.3493C12.8203 14.5576 12.5083 14.6703 12.1867 14.6667H4.66671H2.66671C2.31309 14.6667 1.97395 14.5262 1.7239 14.2762C1.47385 14.0261 1.33337 13.687 1.33337 13.3333V8.66668C1.33337 8.31306 1.47385 7.97392 1.7239 7.72387C1.97395 7.47382 2.31309 7.33334 2.66671 7.33334H4.66671L7.33337 1.33334C7.86381 1.33334 8.37252 1.54406 8.74759 1.91913C9.12266 2.2942 9.33337 2.80291 9.33337 3.33334Z", stroke: fill ? fill : '#444444', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4.66675 7.33334L4.66675 14.6667", stroke: fill ? fill : '#444444', strokeWidth: "1.2" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_8980_33733", children: jsxRuntime.jsx("rect", { width: width ? width : '16', height: height ? height : '16', fill: stroke ? stroke : 'white' }) }) })] }));
@@ -490,7 +490,7 @@ function TrashIconNew({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ?? '19', height: height ?? '19', viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M0.833252 4.33325H2.61103H16.8333", stroke: fill ? fill : '#0645AD', strokeWidth: "1.3", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.3786 4.5V15.4C15.3786 15.8243 15.1816 16.2313 14.8309 16.5314C14.4802 16.8314 14.0045 17 13.5085 17H4.15785C3.66186 17 3.18619 16.8314 2.83547 16.5314C2.48475 16.2313 2.28772 15.8243 2.28772 15.4V4.5M5.09291 4.2V2.6C5.09291 2.17565 5.28995 1.76869 5.64066 1.46863C5.99138 1.16857 6.46706 1 6.96304 1H10.7033C11.1993 1 11.675 1.16857 12.0257 1.46863C12.3764 1.76869 12.5734 2.17565 12.5734 2.6V4.2", stroke: fill ? fill : '#0645AD', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function VotarIcon({ fill, stroke, customColor_1, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M16 12L12 8L8 12", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16V8", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.5 12L12 7.5L7.5 12", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16.5V7.5", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M16 12L12 8L8 12", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16V8", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.5 12L12 7.5L7.5 12", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16.5V7.5", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function VotarIconPressed({ fill, stroke, customColor_1, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: "22", height: "22", viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11 21C16.5228 21 21 16.5228 21 11C21 5.47715 16.5228 1 11 1C5.47715 1 1 5.47715 1 11C1 16.5228 5.47715 21 11 21Z", fill: "#9C9C9C", stroke: "#9C9C9C", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.5 11L11 6.5L6.5 11", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11 15.5V6.5", stroke: "white", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -549,22 +549,28 @@ function WarnCard() {
     return (jsxRuntime.jsx("svg", { width: "45", height: "33", viewBox: "0 0 32 33", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M16 0.5C7.184 0.5 0 7.684 0 16.5C0 25.316 7.184 32.5 16 32.5C24.816 32.5 32 25.316 32 16.5C32 7.684 24.816 0.5 16 0.5ZM16 24.5C15.12 24.5 14.4 23.78 14.4 22.9C14.4 22.02 15.12 21.3 16 21.3C16.88 21.3 17.6 22.02 17.6 22.9C17.6 23.78 16.88 24.5 16 24.5ZM17.6 16.5C17.6 17.38 16.88 18.1 16 18.1C15.12 18.1 14.4 17.38 14.4 16.5V10.1C14.4 9.22 15.12 8.5 16 8.5C16.88 8.5 17.6 9.22 17.6 10.1V16.5Z", fill: "white" }) }));
 }
 function CardFinished() {
-    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "7.4", stroke: "white", "stroke-width": "1.2" }), jsxRuntime.jsx("path", { d: "M12 5L6.5 10.5L4 8", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { x: "0.6", y: "0.6", width: "14.8", height: "14.8", rx: "7.4", stroke: "white", strokeWidth: "1.2" }), jsxRuntime.jsx("path", { d: "M12 5L6.5 10.5L4 8", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function Tick({ fill, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : '12', height: height ? height : '10.5', viewBox: "0 0 13 11", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M11.0964 0.390037L3.93638 7.30004L2.03638 5.27004C1.68638 4.94004 1.13638 4.92004 0.736381 5.20004C0.346381 5.49004 0.236381 6.00004 0.476381 6.41004L2.72638 10.07C2.94638 10.41 3.32638 10.62 3.75638 10.62C4.16638 10.62 4.55638 10.41 4.77638 10.07C5.13638 9.60004 12.0064 1.41004 12.0064 1.41004C12.9064 0.490037 11.8164 -0.319963 11.0964 0.380037V0.390037Z", fill: fill ? fill : 'white' }) }));
+    return (jsxRuntime.jsx("svg", { width: width ? width : '12', height: height ? height : '10.5', viewBox: "0 0 13 11", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M11.0964 0.390037L3.93638 7.30004L2.03638 5.27004C1.68638 4.94004 1.13638 4.92004 0.736381 5.20004C0.346381 5.49004 0.236381 6.00004 0.476381 6.41004L2.72638 10.07C2.94638 10.41 3.32638 10.62 3.75638 10.62C4.16638 10.62 4.55638 10.41 4.77638 10.07C5.13638 9.60004 12.0064 1.41004 12.0064 1.41004C12.9064 0.490037 11.8164 -0.319963 11.0964 0.380037V0.390037Z", fill: fill ? fill : 'white' }) }));
 }
 function LampHelpBoxInput({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: "16", height: "22", viewBox: "0 0 16 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.7282 15.2853H11.2704M3.0496 13.1938C2.07082 12.1947 1.40432 10.9219 1.13437 9.53624C0.864424 8.15062 1.00315 6.71443 1.53302 5.40926C2.06289 4.1041 2.9601 2.98857 4.1112 2.20374C5.26231 1.4189 6.61561 1 8 1C9.38439 1 10.7377 1.4189 11.8888 2.20374C13.0399 2.98857 13.9371 4.1041 14.467 5.40926C14.9968 6.71443 15.1356 8.15062 14.8656 9.53624C14.5957 10.9219 13.9292 12.1947 12.9504 13.1938L12.1832 13.9752C11.7446 14.4229 11.3967 14.9544 11.1594 15.5393C10.922 16.1241 10.7999 16.751 10.8 17.384V18.1427C10.8 18.9005 10.505 19.6273 9.9799 20.1631C9.4548 20.699 8.74261 21 8 21C7.25739 21 6.5452 20.699 6.0201 20.1631C5.495 19.6273 5.2 18.9005 5.2 18.1427V17.384C5.2 16.1054 4.7016 14.8782 3.8168 13.9752L3.0496 13.1938Z", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M4 7.5V7.5C4 5.567 5.567 4 7.5 4V4", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "22", viewBox: "0 0 16 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.7282 15.2853H11.2704M3.0496 13.1938C2.07082 12.1947 1.40432 10.9219 1.13437 9.53624C0.864424 8.15062 1.00315 6.71443 1.53302 5.40926C2.06289 4.1041 2.9601 2.98857 4.1112 2.20374C5.26231 1.4189 6.61561 1 8 1C9.38439 1 10.7377 1.4189 11.8888 2.20374C13.0399 2.98857 13.9371 4.1041 14.467 5.40926C14.9968 6.71443 15.1356 8.15062 14.8656 9.53624C14.5957 10.9219 13.9292 12.1947 12.9504 13.1938L12.1832 13.9752C11.7446 14.4229 11.3967 14.9544 11.1594 15.5393C10.922 16.1241 10.7999 16.751 10.8 17.384V18.1427C10.8 18.9005 10.505 19.6273 9.9799 20.1631C9.4548 20.699 8.74261 21 8 21C7.25739 21 6.5452 20.699 6.0201 20.1631C5.495 19.6273 5.2 18.9005 5.2 18.1427V17.384C5.2 16.1054 4.7016 14.8782 3.8168 13.9752L3.0496 13.1938Z", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4 7.5V7.5C4 5.567 5.567 4 7.5 4V4", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round" })] }));
 }
-function ArrrowExpandDropdown({ fill, width, height }) {
-    return (jsxRuntime.jsx("svg", { width: width ? width : '14', height: height ? height : '8', viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.5 1.33301L6.83333 6.66634L12.1667 1.33301", stroke: "#757575", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
+function ArrrowExpandDropdown({ fill, width, height, stroke, strokeWidth }) {
+    return (jsxRuntime.jsx("svg", { width: width ? width : '14', height: height ? height : '8', viewBox: "0 0 14 8", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.5 1.33301L6.83333 6.66634L12.1667 1.33301", stroke: stroke ?? "#757575", strokeWidth: strokeWidth ?? "2", strokeLinecap: "round", strokeLinejoin: "round" }) }));
 }
 function StarRatingRondedTips({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
     return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx("svg", { width: width ? width : '30', height: height ? height : '28', viewBox: "0 0 28 26", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M12.2311 1.35268C12.9815 -0.0696177 15.0185 -0.0696146 15.7689 1.35268L18.4315 6.39921C18.7209 6.9477 19.2483 7.33091 19.8594 7.43664L25.4817 8.40944C27.0663 8.68361 27.6957 10.6209 26.5749 11.7741L22.5982 15.8658C22.166 16.3105 21.9645 16.9306 22.0528 17.5444L22.865 23.1922C23.0939 24.7839 21.4459 25.9812 20.0028 25.2716L14.8825 22.7539C14.326 22.4803 13.674 22.4803 13.1175 22.7539L7.99715 25.2716C6.55406 25.9812 4.90612 24.7839 5.13503 23.1922L5.94723 17.5444C6.0355 16.9306 5.83403 16.3105 5.40181 15.8658L1.42506 11.7741C0.30427 10.6209 0.933729 8.68361 2.5183 8.40944L8.14062 7.43664C8.75169 7.33091 9.27914 6.94769 9.56853 6.3992L12.2311 1.35268Z", fill: fill ? fill : '#FFC200', fillOpacity: fillOpacity ? fillOpacity : '1', stroke: stroke ? stroke : '0', strokeWidth: strokeWidth ? strokeWidth : 'transparent' }) }) }));
 }
 function BallonChatgRondedTips({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '16', height: height ? height : '17', viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M1.33268 8.8382C1.33268 7.27478 1.33268 5.71768 1.33268 4.15426C1.33268 3.21114 1.91268 2.44525 2.79935 2.22371C2.97268 2.17941 3.15268 2.16675 3.32602 2.16675C6.43935 2.16675 9.55935 2.16675 12.6727 2.16675C13.586 2.16675 14.286 2.66679 14.566 3.51496C14.606 3.64156 14.6327 3.76815 14.666 3.90107V10.9713C14.6127 11.1612 14.5793 11.3637 14.4927 11.541C14.1393 12.3068 13.5327 12.6866 12.7127 12.6993C12.486 12.6993 12.2593 12.6993 12.026 12.6993C12.026 12.7563 12.0193 12.8069 12.0193 12.8512C12.0193 13.3576 12.0193 13.8576 12.0127 14.364C12.0127 14.6868 11.7927 14.8893 11.5193 14.8197C11.4393 14.8007 11.3593 14.7501 11.2927 14.6995C10.4927 14.0665 9.69268 13.4335 8.89268 12.7942C8.81268 12.7309 8.72602 12.6993 8.61935 12.6993C6.85935 12.6993 5.10602 12.6993 3.34602 12.6993C2.90602 12.6993 2.49935 12.6043 2.14602 12.3322C1.61935 11.9334 1.34602 11.3954 1.34602 10.7181C1.34602 10.0915 1.34602 9.47117 1.34602 8.84453L1.33268 8.8382ZM11.4527 8.52805C11.946 8.52805 12.3393 8.11662 12.3393 7.61658C12.3393 7.11653 11.9393 6.70511 11.4527 6.70511C10.966 6.70511 10.566 7.11653 10.566 7.61658C10.566 8.11662 10.966 8.52805 11.4527 8.52805ZM8.09268 8.52805C8.58602 8.52805 8.97935 8.11662 8.97935 7.61658C8.97935 7.11653 8.57935 6.70511 8.09268 6.70511C7.60602 6.70511 7.20602 7.11653 7.20602 7.61658C7.20602 8.11662 7.60602 8.52805 8.09268 8.52805ZM4.53268 8.52805C5.02602 8.52805 5.41935 8.11662 5.41935 7.61658C5.41935 7.11653 5.01935 6.70511 4.53268 6.70511C4.04602 6.70511 3.64602 7.11653 3.64602 7.61658C3.64602 8.11662 4.04602 8.52805 4.53268 8.52805Z", fill: fill ? fill : 'white' }) }));
+}
+function PlayResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8 14C11.3137 14 14 11.3137 14 8C14 4.68629 11.3137 2 8 2C4.68629 2 2 4.68629 2 8C2 11.3137 4.68629 14 8 14Z", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M6.5 5.75L10.25 8L6.5 10.25V5.75Z", fill: "#222222", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V5.00016L9.66602 1.3335Z", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M9.33398 1.3335V5.3335H13.334", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 
 function styleInject(css, ref) {
@@ -1370,7 +1376,7 @@ const DataSubTitle = styled__default["default"].text `
 `;
 
 const Stats = ({ definicao = null, hipoteses = null, testes = null, resultados = null, proximosPassos = null }) => {
-    return (jsxRuntime.jsxs("svg", { width: "100%", height: "100%", viewBox: "0 0 719 151", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M153.191 43.0903C153.21 43.0563 153.228 43.0223 153.245 42.9882C153.277 42.9361 153.307 42.8833 153.337 42.83C158.489 33.6471 165.889 25.883 174.877 20.288C185.402 13.7372 197.632 10.4542 210.022 10.8544C222.412 11.2545 234.406 15.3197 244.485 22.536C251.825 27.7905 257.91 34.5438 262.363 42.3057C262.461 42.5913 262.584 42.8726 262.733 43.1468C264.894 47.1282 267.046 52.5576 269.401 59.0696C270.335 61.6514 271.318 64.4553 272.34 67.3699L272.341 67.3712C273.806 71.5492 275.351 75.9548 276.944 80.2594C282.399 94.9999 289.259 111.007 299.243 122.165C299.487 122.438 299.753 122.68 300.035 122.892C302.858 125.93 305.945 128.736 309.269 131.274C320.431 139.796 333.8 144.942 347.795 146.104C361.79 147.265 375.824 144.393 388.238 137.827C399.069 132.098 408.271 123.767 415.035 113.617C416.676 111.155 415.753 107.874 413.179 106.417C410.604 104.96 407.354 105.881 405.683 108.323C399.948 116.7 392.25 123.585 383.229 128.357C372.625 133.966 360.636 136.419 348.681 135.427C336.726 134.435 325.305 130.039 315.771 122.759C312.889 120.559 310.217 118.124 307.777 115.485C307.644 115.291 307.498 115.104 307.337 114.924C298.858 105.448 292.576 91.2105 287.129 76.4904C285.534 72.1796 284.081 68.0329 282.664 63.9902L282.663 63.9866L282.66 63.9775C281.639 61.064 280.637 58.2044 279.614 55.3762C278.118 51.2379 276.61 47.2654 275.047 43.6966C274.972 43.3245 274.852 42.9538 274.684 42.5907C269.357 31.0977 261.134 21.1465 250.785 13.7369C238.965 5.27468 224.901 0.50754 210.371 0.0383122C195.842 -0.430916 181.5 3.41884 169.159 11.1008C158.697 17.6128 150.071 26.6308 144.035 37.2944C143.894 37.4878 143.764 37.6928 143.647 37.9089C141.055 42.6827 138.662 48.8382 136.295 55.4174C135.26 58.2959 134.247 61.2052 133.214 64.1708L133.213 64.174L133.212 64.1748L133.212 64.1753C131.799 68.2328 130.349 72.3957 128.756 76.7291C123.288 91.5999 116.988 105.968 108.517 115.436C108.354 115.619 108.205 115.809 108.071 116.006C105.633 118.641 102.963 121.074 100.085 123.272C90.5502 130.552 79.1296 134.948 67.1746 135.94C55.2196 136.932 43.2307 134.478 32.6265 128.87C23.6051 124.098 15.9073 117.213 10.1725 108.836C8.5013 106.394 5.25138 105.473 2.67667 106.93C0.101948 108.387 -0.820185 111.668 0.820474 114.13C7.58463 124.279 16.7862 132.611 27.6175 138.34C40.0311 144.906 54.0658 147.778 68.0607 146.616C82.0555 145.455 95.4248 140.309 106.586 131.787C109.912 129.247 113.001 126.44 115.825 123.4C116.105 123.19 116.368 122.949 116.61 122.678C126.601 111.512 133.479 95.3513 138.949 80.477C140.535 76.1623 142.077 71.7397 143.539 67.5447L143.541 67.5401L143.543 67.5344L143.543 67.5337C144.577 64.5665 145.572 61.7135 146.515 59.0933C148.877 52.5264 151.033 47.0665 153.191 43.0903Z", fill: "url(#paint0_linear_576_26707)" }), jsxRuntime.jsx("g", { filter: "url(#filter0_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "61.562", cy: "74.564", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 60, y: 79, fill: '#222', "font-size": "12", children: definicao?.count }), jsxRuntime.jsx(DataSubTitle, { x: 60, y: 101, fill: '#222', "font-size": "10", children: definicao?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter1_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "353.562", cy: "74.564", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 353, y: 79, fill: '#222', "font-size": "12", children: testes?.count }), jsxRuntime.jsx(DataSubTitle, { x: 353, y: 101, fill: '#222', "font-size": "10", children: testes?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter2_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "645.562", cy: "74.564", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 645, y: 79, fill: '#222', "font-size": "12", children: proximosPassos?.count }), jsxRuntime.jsx(DataSubTitle, { x: 645, y: 101, fill: '#222', "font-size": "10", children: proximosPassos?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter3_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "207.562", cy: "73.565", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 208, y: 79, fill: '#222', "font-size": "12", children: hipoteses?.count }), jsxRuntime.jsx(DataSubTitle, { x: 208, y: 101, fill: '#222', "font-size": "10", children: hipoteses?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter4_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "499.562", cy: "73.565", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 500, y: 79, fill: '#222', "font-size": "12", children: resultados?.count }), jsxRuntime.jsx(DataSubTitle, { x: 500, y: 101, fill: '#222', "font-size": "10", children: resultados?.percentage }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M294.675 42.9438C292.1 41.4867 291.178 38.2055 292.819 35.7437C298.339 27.4598 305.497 20.3675 313.87 14.9146C323.742 8.48533 335.016 4.52345 346.74 3.36288C358.464 2.20231 370.295 3.87705 381.236 8.24596C389.713 11.6306 397.463 16.5554 404.104 22.7486L410.79 16.9156L415.748 42.1779L391.391 33.84L395.981 29.8356C390.492 24.8959 384.159 20.949 377.263 18.1954C367.917 14.4633 357.81 13.0327 347.795 14.0241C337.78 15.0155 328.15 18.3999 319.716 23.8921C312.783 28.4076 306.825 34.2391 302.17 41.0381C300.499 43.4793 297.249 44.4008 294.675 42.9438Z", fill: "url(#paint1_linear_576_26707)" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M2.67667 42.9438C0.101951 41.4867 -0.820191 38.2055 0.82048 35.7437C6.34132 27.4598 13.4987 20.3675 21.8719 14.9146C31.7443 8.48533 43.0176 4.52346 54.7416 3.36288C66.4656 2.20231 78.2969 3.87705 89.2382 8.24597C97.7138 11.6303 105.463 16.5545 112.105 22.7469L118.789 16.9156L123.746 42.1779L99.3894 33.84L103.981 29.8339C98.493 24.895 92.1606 20.9487 85.2654 18.1954C75.9188 14.4634 65.8121 13.0327 55.797 14.0241C45.7818 15.0155 36.1517 18.3999 27.7183 23.8921C20.7846 28.4076 14.8268 34.2391 10.1724 41.0381C8.50128 43.4793 5.25138 44.4008 2.67667 42.9438Z", fill: "url(#paint2_linear_576_26707)" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M586.675 42.9438C584.1 41.4867 583.178 38.2055 584.819 35.7437C590.339 27.4598 597.497 20.3675 605.87 14.9146C615.742 8.48533 627.016 4.52345 638.74 3.36288C650.464 2.20231 662.295 3.87705 673.236 8.24596C681.713 11.6306 689.463 16.5554 696.104 22.7486L702.79 16.9156L707.748 42.1779L683.391 33.84L687.981 29.8356C682.492 24.8959 676.159 20.949 669.263 18.1954C659.917 14.4633 649.81 13.0327 639.795 14.0241C629.78 15.0155 620.15 18.3999 611.716 23.8921C604.783 28.4076 598.825 34.2391 594.17 41.0381C592.499 43.4793 589.249 44.4008 586.675 42.9438Z", fill: "url(#paint3_linear_576_26707)" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M440.675 110.705C438.1 112.162 437.178 115.443 438.819 117.905C444.339 126.189 451.497 133.281 459.87 138.734C469.742 145.163 481.016 149.125 492.74 150.286C504.464 151.446 516.295 149.771 527.236 145.402C535.713 142.018 543.463 137.093 550.104 130.9L556.79 136.733L561.748 111.471L537.391 119.808L541.981 123.813C536.492 128.753 530.159 132.699 523.263 135.453C513.917 139.185 503.81 140.616 493.795 139.624C483.78 138.633 474.15 135.249 465.716 129.756C458.783 125.241 452.825 119.409 448.17 112.61C446.499 110.169 443.249 109.248 440.675 110.705Z", fill: "url(#paint4_linear_576_26707)" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M148.675 110.705C146.1 112.162 145.178 115.443 146.819 117.905C152.339 126.189 159.497 133.281 167.87 138.734C177.742 145.163 189.016 149.125 200.74 150.286C212.464 151.446 224.295 149.771 235.236 145.402C243.712 142.018 251.462 137.093 258.104 130.9L264.789 136.733L269.747 111.471L245.39 119.808L249.981 123.813C244.492 128.753 238.159 132.699 231.263 135.453C221.917 139.185 211.81 140.616 201.795 139.624C191.78 138.633 182.15 135.249 173.716 129.756C166.783 125.241 160.825 119.409 156.17 112.61C154.499 110.169 151.249 109.248 148.675 110.705Z", fill: "url(#paint5_linear_576_26707)" }), jsxRuntime.jsx("path", { "fill-rule": "evenodd", "clip-rule": "evenodd", d: "M445.193 43.09C445.211 43.0561 445.229 43.0221 445.247 42.9879C445.278 42.9358 445.309 42.8831 445.339 42.8298C450.491 33.6469 457.89 25.8827 466.879 20.2878C477.403 13.7369 489.634 10.454 502.024 10.8541C514.414 11.2542 526.407 15.3195 536.487 22.5358C543.826 27.7902 549.911 34.5434 554.365 42.3052C554.463 42.591 554.585 42.8724 554.734 43.1467C556.896 47.1281 559.048 52.5576 561.403 59.0696C562.337 61.6513 563.32 64.4552 564.342 67.3699L564.343 67.3711C565.808 71.5492 567.353 75.9547 568.946 80.2594C574.401 94.9998 581.261 111.007 591.245 122.165C591.489 122.438 591.755 122.68 592.036 122.892C594.86 125.93 597.947 128.736 601.271 131.274C612.432 139.796 625.802 144.942 639.796 146.103C653.791 147.265 667.826 144.393 680.24 137.827C691.071 132.098 700.272 123.767 707.037 113.617C708.677 111.155 707.755 107.874 705.18 106.417C702.606 104.96 699.356 105.881 697.685 108.323C691.95 116.7 684.252 123.585 675.231 128.357C664.626 133.965 652.637 136.419 640.682 135.427C628.727 134.435 617.307 130.039 607.772 122.759C604.891 120.559 602.219 118.124 599.779 115.485C599.646 115.291 599.499 115.103 599.339 114.924C590.86 105.448 584.578 91.2105 579.131 76.4903C577.536 72.1795 576.083 68.0328 574.666 63.9901L574.665 63.9865L574.662 63.9774C573.641 61.0639 572.639 58.2043 571.616 55.3761C570.12 51.2379 568.612 47.2654 567.049 43.6967C566.974 43.3244 566.854 42.9537 566.686 42.5905C561.359 31.0975 553.136 21.1463 542.787 13.7367C530.967 5.27444 516.903 0.507296 502.373 0.0380681C487.844 -0.43116 473.502 3.4186 461.16 11.1005C450.698 17.6126 442.073 26.6306 436.037 37.2942C435.896 37.4876 435.766 37.6926 435.648 37.9087C433.057 42.6825 430.664 48.838 428.297 55.4171C427.262 58.2958 426.248 61.2053 425.215 64.1709L425.214 64.1738L425.214 64.1746L425.214 64.175C423.801 68.2326 422.351 72.3955 420.757 76.7289C415.289 91.5997 408.99 105.968 400.519 115.436C400.358 115.616 400.211 115.804 400.078 115.998C397.638 118.636 394.966 121.071 392.085 123.271C382.55 130.551 371.13 134.947 359.175 135.939C347.22 136.932 335.231 134.478 324.626 128.869C315.605 124.098 307.907 117.213 302.172 108.835C300.501 106.394 297.251 105.472 294.677 106.93C292.102 108.387 291.18 111.668 292.82 114.13C299.585 124.279 308.786 132.611 319.618 138.34C332.031 144.905 346.066 147.778 360.061 146.616C374.056 145.455 387.425 140.308 398.586 131.786C401.911 129.248 404.997 126.442 407.821 123.404C408.103 123.193 408.368 122.951 408.612 122.678C418.603 111.512 425.481 95.3511 430.95 80.4768C432.537 76.1621 434.079 71.7395 435.541 67.5445L435.543 67.5399L435.545 67.5342L435.545 67.5334C436.579 64.5663 437.574 61.7133 438.516 59.0931C440.879 52.5262 443.034 47.0663 445.193 43.09Z", fill: "url(#paint6_linear_576_26707)" }), jsxRuntime.jsx("path", { d: "M714.28 93.5678L711.947 119.206L690.91 104.366L714.28 93.5678Z", fill: "#FF9934" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("filter", { id: "filter0_d_576_26707", x: "7.00391", y: "24.0059", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter1_d_576_26707", x: "299.004", y: "24.0059", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter2_d_576_26707", x: "591.004", y: "24.0059", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter3_d_576_26707", x: "153.004", y: "23.0068", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter4_d_576_26707", x: "445.004", y: "23.0068", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint0_linear_576_26707", x1: "285.498", y1: "0", x2: "2.83459", y2: "100.645", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.220452", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.56498", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.942956", "stop-color": "#F26818" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint1_linear_576_26707", x1: "391.884", y1: "92.1548", x2: "205.788", y2: "92.1548", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#F46E1D" }), jsxRuntime.jsx("stop", { offset: "0.575197", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.865824", "stop-color": "#FF9934" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint2_linear_576_26707", x1: "130.628", y1: "92.1548", x2: "-120.195", y2: "92.1548", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { offset: "0.176509", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.462825", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "1", "stop-color": "#FF9934" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint3_linear_576_26707", x1: "708.157", y1: "92.1553", x2: "475.891", y2: "98.5772", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { offset: "0.123715", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.597062", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.919352", "stop-color": "#FF9934" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint4_linear_576_26707", x1: "340.461", y1: "137.388", x2: "571.057", y2: "137.388", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FE933C" }), jsxRuntime.jsx("stop", { offset: "0.555386", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.958184", "stop-color": "#F26818" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint5_linear_576_26707", x1: "69.4981", y1: "137.388", x2: "257.211", y2: "137.388", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FE933C" }), jsxRuntime.jsx("stop", { offset: "0.514298", "stop-color": "#FE933C" }), jsxRuntime.jsx("stop", { offset: "1", "stop-color": "#F26818" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint6_linear_576_26707", x1: "439.612", y1: "-0.000423512", x2: "531.394", y2: "-32.7864", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.45849", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.973031", "stop-color": "#FF9934" })] })] })] }));
+    return (jsxRuntime.jsxs("svg", { width: "100%", height: "100%", viewBox: "0 0 719 151", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M153.191 43.0903C153.21 43.0563 153.228 43.0223 153.245 42.9882C153.277 42.9361 153.307 42.8833 153.337 42.83C158.489 33.6471 165.889 25.883 174.877 20.288C185.402 13.7372 197.632 10.4542 210.022 10.8544C222.412 11.2545 234.406 15.3197 244.485 22.536C251.825 27.7905 257.91 34.5438 262.363 42.3057C262.461 42.5913 262.584 42.8726 262.733 43.1468C264.894 47.1282 267.046 52.5576 269.401 59.0696C270.335 61.6514 271.318 64.4553 272.34 67.3699L272.341 67.3712C273.806 71.5492 275.351 75.9548 276.944 80.2594C282.399 94.9999 289.259 111.007 299.243 122.165C299.487 122.438 299.753 122.68 300.035 122.892C302.858 125.93 305.945 128.736 309.269 131.274C320.431 139.796 333.8 144.942 347.795 146.104C361.79 147.265 375.824 144.393 388.238 137.827C399.069 132.098 408.271 123.767 415.035 113.617C416.676 111.155 415.753 107.874 413.179 106.417C410.604 104.96 407.354 105.881 405.683 108.323C399.948 116.7 392.25 123.585 383.229 128.357C372.625 133.966 360.636 136.419 348.681 135.427C336.726 134.435 325.305 130.039 315.771 122.759C312.889 120.559 310.217 118.124 307.777 115.485C307.644 115.291 307.498 115.104 307.337 114.924C298.858 105.448 292.576 91.2105 287.129 76.4904C285.534 72.1796 284.081 68.0329 282.664 63.9902L282.663 63.9866L282.66 63.9775C281.639 61.064 280.637 58.2044 279.614 55.3762C278.118 51.2379 276.61 47.2654 275.047 43.6966C274.972 43.3245 274.852 42.9538 274.684 42.5907C269.357 31.0977 261.134 21.1465 250.785 13.7369C238.965 5.27468 224.901 0.50754 210.371 0.0383122C195.842 -0.430916 181.5 3.41884 169.159 11.1008C158.697 17.6128 150.071 26.6308 144.035 37.2944C143.894 37.4878 143.764 37.6928 143.647 37.9089C141.055 42.6827 138.662 48.8382 136.295 55.4174C135.26 58.2959 134.247 61.2052 133.214 64.1708L133.213 64.174L133.212 64.1748L133.212 64.1753C131.799 68.2328 130.349 72.3957 128.756 76.7291C123.288 91.5999 116.988 105.968 108.517 115.436C108.354 115.619 108.205 115.809 108.071 116.006C105.633 118.641 102.963 121.074 100.085 123.272C90.5502 130.552 79.1296 134.948 67.1746 135.94C55.2196 136.932 43.2307 134.478 32.6265 128.87C23.6051 124.098 15.9073 117.213 10.1725 108.836C8.5013 106.394 5.25138 105.473 2.67667 106.93C0.101948 108.387 -0.820185 111.668 0.820474 114.13C7.58463 124.279 16.7862 132.611 27.6175 138.34C40.0311 144.906 54.0658 147.778 68.0607 146.616C82.0555 145.455 95.4248 140.309 106.586 131.787C109.912 129.247 113.001 126.44 115.825 123.4C116.105 123.19 116.368 122.949 116.61 122.678C126.601 111.512 133.479 95.3513 138.949 80.477C140.535 76.1623 142.077 71.7397 143.539 67.5447L143.541 67.5401L143.543 67.5344L143.543 67.5337C144.577 64.5665 145.572 61.7135 146.515 59.0933C148.877 52.5264 151.033 47.0665 153.191 43.0903Z", fill: "url(#paint0_linear_576_26707)" }), jsxRuntime.jsx("g", { filter: "url(#filter0_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "61.562", cy: "74.564", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 60, y: 79, fill: '#222', "font-size": "12", children: definicao?.count }), jsxRuntime.jsx(DataSubTitle, { x: 60, y: 101, fill: '#222', "font-size": "10", children: definicao?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter1_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "353.562", cy: "74.564", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 353, y: 79, fill: '#222', "font-size": "12", children: testes?.count }), jsxRuntime.jsx(DataSubTitle, { x: 353, y: 101, fill: '#222', "font-size": "10", children: testes?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter2_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "645.562", cy: "74.564", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 645, y: 79, fill: '#222', "font-size": "12", children: proximosPassos?.count }), jsxRuntime.jsx(DataSubTitle, { x: 645, y: 101, fill: '#222', "font-size": "10", children: proximosPassos?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter3_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "207.562", cy: "73.565", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 208, y: 79, fill: '#222', "font-size": "12", children: hipoteses?.count }), jsxRuntime.jsx(DataSubTitle, { x: 208, y: 101, fill: '#222', "font-size": "10", children: hipoteses?.percentage }), jsxRuntime.jsx("g", { filter: "url(#filter4_d_576_26707)", children: jsxRuntime.jsx("circle", { cx: "499.562", cy: "73.565", r: "50.5581", fill: "white" }) }), jsxRuntime.jsx(DataTitle, { x: 500, y: 79, fill: '#222', "font-size": "12", children: resultados?.count }), jsxRuntime.jsx(DataSubTitle, { x: 500, y: 101, fill: '#222', "font-size": "10", children: resultados?.percentage }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M294.675 42.9438C292.1 41.4867 291.178 38.2055 292.819 35.7437C298.339 27.4598 305.497 20.3675 313.87 14.9146C323.742 8.48533 335.016 4.52345 346.74 3.36288C358.464 2.20231 370.295 3.87705 381.236 8.24596C389.713 11.6306 397.463 16.5554 404.104 22.7486L410.79 16.9156L415.748 42.1779L391.391 33.84L395.981 29.8356C390.492 24.8959 384.159 20.949 377.263 18.1954C367.917 14.4633 357.81 13.0327 347.795 14.0241C337.78 15.0155 328.15 18.3999 319.716 23.8921C312.783 28.4076 306.825 34.2391 302.17 41.0381C300.499 43.4793 297.249 44.4008 294.675 42.9438Z", fill: "url(#paint1_linear_576_26707)" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M2.67667 42.9438C0.101951 41.4867 -0.820191 38.2055 0.82048 35.7437C6.34132 27.4598 13.4987 20.3675 21.8719 14.9146C31.7443 8.48533 43.0176 4.52346 54.7416 3.36288C66.4656 2.20231 78.2969 3.87705 89.2382 8.24597C97.7138 11.6303 105.463 16.5545 112.105 22.7469L118.789 16.9156L123.746 42.1779L99.3894 33.84L103.981 29.8339C98.493 24.895 92.1606 20.9487 85.2654 18.1954C75.9188 14.4634 65.8121 13.0327 55.797 14.0241C45.7818 15.0155 36.1517 18.3999 27.7183 23.8921C20.7846 28.4076 14.8268 34.2391 10.1724 41.0381C8.50128 43.4793 5.25138 44.4008 2.67667 42.9438Z", fill: "url(#paint2_linear_576_26707)" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M586.675 42.9438C584.1 41.4867 583.178 38.2055 584.819 35.7437C590.339 27.4598 597.497 20.3675 605.87 14.9146C615.742 8.48533 627.016 4.52345 638.74 3.36288C650.464 2.20231 662.295 3.87705 673.236 8.24596C681.713 11.6306 689.463 16.5554 696.104 22.7486L702.79 16.9156L707.748 42.1779L683.391 33.84L687.981 29.8356C682.492 24.8959 676.159 20.949 669.263 18.1954C659.917 14.4633 649.81 13.0327 639.795 14.0241C629.78 15.0155 620.15 18.3999 611.716 23.8921C604.783 28.4076 598.825 34.2391 594.17 41.0381C592.499 43.4793 589.249 44.4008 586.675 42.9438Z", fill: "url(#paint3_linear_576_26707)" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M440.675 110.705C438.1 112.162 437.178 115.443 438.819 117.905C444.339 126.189 451.497 133.281 459.87 138.734C469.742 145.163 481.016 149.125 492.74 150.286C504.464 151.446 516.295 149.771 527.236 145.402C535.713 142.018 543.463 137.093 550.104 130.9L556.79 136.733L561.748 111.471L537.391 119.808L541.981 123.813C536.492 128.753 530.159 132.699 523.263 135.453C513.917 139.185 503.81 140.616 493.795 139.624C483.78 138.633 474.15 135.249 465.716 129.756C458.783 125.241 452.825 119.409 448.17 112.61C446.499 110.169 443.249 109.248 440.675 110.705Z", fill: "url(#paint4_linear_576_26707)" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M148.675 110.705C146.1 112.162 145.178 115.443 146.819 117.905C152.339 126.189 159.497 133.281 167.87 138.734C177.742 145.163 189.016 149.125 200.74 150.286C212.464 151.446 224.295 149.771 235.236 145.402C243.712 142.018 251.462 137.093 258.104 130.9L264.789 136.733L269.747 111.471L245.39 119.808L249.981 123.813C244.492 128.753 238.159 132.699 231.263 135.453C221.917 139.185 211.81 140.616 201.795 139.624C191.78 138.633 182.15 135.249 173.716 129.756C166.783 125.241 160.825 119.409 156.17 112.61C154.499 110.169 151.249 109.248 148.675 110.705Z", fill: "url(#paint5_linear_576_26707)" }), jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M445.193 43.09C445.211 43.0561 445.229 43.0221 445.247 42.9879C445.278 42.9358 445.309 42.8831 445.339 42.8298C450.491 33.6469 457.89 25.8827 466.879 20.2878C477.403 13.7369 489.634 10.454 502.024 10.8541C514.414 11.2542 526.407 15.3195 536.487 22.5358C543.826 27.7902 549.911 34.5434 554.365 42.3052C554.463 42.591 554.585 42.8724 554.734 43.1467C556.896 47.1281 559.048 52.5576 561.403 59.0696C562.337 61.6513 563.32 64.4552 564.342 67.3699L564.343 67.3711C565.808 71.5492 567.353 75.9547 568.946 80.2594C574.401 94.9998 581.261 111.007 591.245 122.165C591.489 122.438 591.755 122.68 592.036 122.892C594.86 125.93 597.947 128.736 601.271 131.274C612.432 139.796 625.802 144.942 639.796 146.103C653.791 147.265 667.826 144.393 680.24 137.827C691.071 132.098 700.272 123.767 707.037 113.617C708.677 111.155 707.755 107.874 705.18 106.417C702.606 104.96 699.356 105.881 697.685 108.323C691.95 116.7 684.252 123.585 675.231 128.357C664.626 133.965 652.637 136.419 640.682 135.427C628.727 134.435 617.307 130.039 607.772 122.759C604.891 120.559 602.219 118.124 599.779 115.485C599.646 115.291 599.499 115.103 599.339 114.924C590.86 105.448 584.578 91.2105 579.131 76.4903C577.536 72.1795 576.083 68.0328 574.666 63.9901L574.665 63.9865L574.662 63.9774C573.641 61.0639 572.639 58.2043 571.616 55.3761C570.12 51.2379 568.612 47.2654 567.049 43.6967C566.974 43.3244 566.854 42.9537 566.686 42.5905C561.359 31.0975 553.136 21.1463 542.787 13.7367C530.967 5.27444 516.903 0.507296 502.373 0.0380681C487.844 -0.43116 473.502 3.4186 461.16 11.1005C450.698 17.6126 442.073 26.6306 436.037 37.2942C435.896 37.4876 435.766 37.6926 435.648 37.9087C433.057 42.6825 430.664 48.838 428.297 55.4171C427.262 58.2958 426.248 61.2053 425.215 64.1709L425.214 64.1738L425.214 64.1746L425.214 64.175C423.801 68.2326 422.351 72.3955 420.757 76.7289C415.289 91.5997 408.99 105.968 400.519 115.436C400.358 115.616 400.211 115.804 400.078 115.998C397.638 118.636 394.966 121.071 392.085 123.271C382.55 130.551 371.13 134.947 359.175 135.939C347.22 136.932 335.231 134.478 324.626 128.869C315.605 124.098 307.907 117.213 302.172 108.835C300.501 106.394 297.251 105.472 294.677 106.93C292.102 108.387 291.18 111.668 292.82 114.13C299.585 124.279 308.786 132.611 319.618 138.34C332.031 144.905 346.066 147.778 360.061 146.616C374.056 145.455 387.425 140.308 398.586 131.786C401.911 129.248 404.997 126.442 407.821 123.404C408.103 123.193 408.368 122.951 408.612 122.678C418.603 111.512 425.481 95.3511 430.95 80.4768C432.537 76.1621 434.079 71.7395 435.541 67.5445L435.543 67.5399L435.545 67.5342L435.545 67.5334C436.579 64.5663 437.574 61.7133 438.516 59.0931C440.879 52.5262 443.034 47.0663 445.193 43.09Z", fill: "url(#paint6_linear_576_26707)" }), jsxRuntime.jsx("path", { d: "M714.28 93.5678L711.947 119.206L690.91 104.366L714.28 93.5678Z", fill: "#FF9934" }), jsxRuntime.jsxs("defs", { children: [jsxRuntime.jsxs("filter", { id: "filter0_d_576_26707", x: "7.00391", y: "24.0059", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter1_d_576_26707", x: "299.004", y: "24.0059", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter2_d_576_26707", x: "591.004", y: "24.0059", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter3_d_576_26707", x: "153.004", y: "23.0068", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("filter", { id: "filter4_d_576_26707", x: "445.004", y: "23.0068", width: "109.117", height: "109.116", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feOffset", { dy: "4" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2" }), jsxRuntime.jsx("feComposite", { in2: "hardAlpha", operator: "out" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" }), jsxRuntime.jsx("feBlend", { mode: "normal", in2: "BackgroundImageFix", result: "effect1_dropShadow_576_26707" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_576_26707", result: "shape" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint0_linear_576_26707", x1: "285.498", y1: "0", x2: "2.83459", y2: "100.645", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.220452", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.56498", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.942956", "stop-color": "#F26818" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint1_linear_576_26707", x1: "391.884", y1: "92.1548", x2: "205.788", y2: "92.1548", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#F46E1D" }), jsxRuntime.jsx("stop", { offset: "0.575197", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.865824", "stop-color": "#FF9934" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint2_linear_576_26707", x1: "130.628", y1: "92.1548", x2: "-120.195", y2: "92.1548", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { offset: "0.176509", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.462825", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "1", "stop-color": "#FF9934" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint3_linear_576_26707", x1: "708.157", y1: "92.1553", x2: "475.891", y2: "98.5772", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { offset: "0.123715", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.597062", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.919352", "stop-color": "#FF9934" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint4_linear_576_26707", x1: "340.461", y1: "137.388", x2: "571.057", y2: "137.388", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FE933C" }), jsxRuntime.jsx("stop", { offset: "0.555386", "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.958184", "stop-color": "#F26818" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint5_linear_576_26707", x1: "69.4981", y1: "137.388", x2: "257.211", y2: "137.388", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FE933C" }), jsxRuntime.jsx("stop", { offset: "0.514298", "stop-color": "#FE933C" }), jsxRuntime.jsx("stop", { offset: "1", "stop-color": "#F26818" })] }), jsxRuntime.jsxs("linearGradient", { id: "paint6_linear_576_26707", x1: "439.612", y1: "-0.000423512", x2: "531.394", y2: "-32.7864", gradientUnits: "userSpaceOnUse", children: [jsxRuntime.jsx("stop", { "stop-color": "#FF9934" }), jsxRuntime.jsx("stop", { offset: "0.45849", "stop-color": "#F26818" }), jsxRuntime.jsx("stop", { offset: "0.973031", "stop-color": "#FF9934" })] })] })] }));
 };
 
 function QuantidadeDesafios({ definicao, hipoteses, testes, resultados, proximosPassos, languagem }) {
@@ -3007,11 +3013,11 @@ const SmallTrash = ({ width = '16', height = '16', fill = '#BDBDBD' }) => {
 };
 
 const TagAlert = ({ width = 18, height = 18, color = "#C00F00" }) => {
-    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: color, "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M8.99683 5.57153L8.99683 9.68582", stroke: color, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("ellipse", { cx: "8.99821", cy: "12.4283", rx: "0.685714", ry: "0.685145", fill: color })] }));
+    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 18 18", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z", stroke: color, strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8.99683 5.57153L8.99683 9.68582", stroke: color, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("ellipse", { cx: "8.99821", cy: "12.4283", rx: "0.685714", ry: "0.685145", fill: color })] }));
 };
 
 const CircledCheck = ({ width = '22', height = '22', fill = '#1BA853' }) => {
-    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: width, height: height, rx: "11", fill: fill }), jsxRuntime.jsx("path", { d: "M16.3327 7L8.99935 14.3333L5.66602 11", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 22 22", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: width, height: height, rx: "11", fill: fill }), jsxRuntime.jsx("path", { d: "M16.3327 7L8.99935 14.3333L5.66602 11", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 };
 
 const CircledAlert = ({ fill = '#F18624', width = '22', height = '22' }) => {
@@ -3023,11 +3029,11 @@ const VoteIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) =>
 };
 
 const ExcludeVoteIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) => {
-    return (jsxRuntime.jsxs("svg", { style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00065 14.9381C11.6825 14.9381 14.6673 11.9533 14.6673 8.2714C14.6673 4.5895 11.6825 1.60474 8.00065 1.60474C4.31875 1.60474 1.33398 4.5895 1.33398 8.2714C1.33398 11.9533 4.31875 14.9381 8.00065 14.9381Z", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.6673 5.60474L5.33398 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M5.33398 5.60474L10.6673 10.9381", stroke: stroke, "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+    return (jsxRuntime.jsxs("svg", { style: style, width: width, height: height, viewBox: "0 0 16 17", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.00065 14.9381C11.6825 14.9381 14.6673 11.9533 14.6673 8.2714C14.6673 4.5895 11.6825 1.60474 8.00065 1.60474C4.31875 1.60474 1.33398 4.5895 1.33398 8.2714C1.33398 11.9533 4.31875 14.9381 8.00065 14.9381Z", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M10.6673 5.60474L5.33398 10.9381", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M5.33398 5.60474L10.6673 10.9381", stroke: stroke, strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 };
 
 const VoteCurrentIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) => {
-    return (jsxRuntime.jsxs("svg", { width: "20", height: "21", viewBox: "0 0 20 21", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3.33398 5.05884V8.906H6.97035", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M16.6676 15.318V11.4708H13.0312", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M15.1461 8.26484C14.8387 7.34587 14.3163 6.52425 13.6276 5.87666C12.939 5.22906 12.1064 4.77659 11.2077 4.56147C10.3091 4.34634 9.37353 4.37557 8.48841 4.64643C7.6033 4.9173 6.79747 5.42096 6.14611 6.11043L3.33398 8.90603M16.6673 11.4708L13.8552 14.2664C13.2038 14.9559 12.398 15.4595 11.5129 15.7304C10.6278 16.0013 9.69223 16.0305 8.79355 15.8154C7.89487 15.6003 7.06235 15.1478 6.37366 14.5002C5.68497 13.8526 5.16257 13.031 4.8552 12.112", stroke: "#444444", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "20", height: "21", viewBox: "0 0 20 21", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3.33398 5.05884V8.906H6.97035", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16.6676 15.318V11.4708H13.0312", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M15.1461 8.26484C14.8387 7.34587 14.3163 6.52425 13.6276 5.87666C12.939 5.22906 12.1064 4.77659 11.2077 4.56147C10.3091 4.34634 9.37353 4.37557 8.48841 4.64643C7.6033 4.9173 6.79747 5.42096 6.14611 6.11043L3.33398 8.90603M16.6673 11.4708L13.8552 14.2664C13.2038 14.9559 12.398 15.4595 11.5129 15.7304C10.6278 16.0013 9.69223 16.0305 8.79355 15.8154C7.89487 15.6003 7.06235 15.1478 6.37366 14.5002C5.68497 13.8526 5.16257 13.031 4.8552 12.112", stroke: "#444444", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 };
 
 const fadeInRight = styled.keyframes `
@@ -3520,7 +3526,7 @@ styled__default["default"].div `
   font-size: 16px;
   line-height: 17.6px;
 `;
-styled__default["default"].div `
+const IconOption = styled__default["default"].div `
   width: 20px;
   height: 30px;
   display: flex;
@@ -3540,6 +3546,8 @@ const ButtonMenuNotification = styled__default["default"].button `
   font-size: 16px !important;
   display: flex !important;
   justify-content: start !important;
+  align-items: center !important;
+  gap: 8px !important;
   cursor: pointer !important;
   :hover {
     background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
@@ -3560,10 +3568,10 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
         setAnchorEl(null);
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...style }, children: [jsxRuntime.jsx(ButtonMore$2, { id: "basic-button", disableRipple: isHover ? false : true, "aria-controls": "basic-menu", "aria-haspopup": "true", "aria-expanded": open ? 'true' : undefined, onClick: handleClick, children: iconButton ? iconButton : jsxRuntime.jsx(MoreDotsVertical, { fill: "#444" }) }), listOptions && listOptions?.length > 0 && (jsxRuntime.jsx(MenuCustom$2, { id: "basic-menu", anchorOrigin: { vertical: 'bottom', horizontal: 'left' }, transformOrigin: { vertical: 'top', horizontal: 'right' }, anchorEl: anchorEl, open: open, onClose: handleClose, isArrowInMenu: isArrowInMenu, isPaddingInMenu: isPaddingInMenu, isDarkMode: isDarkMode, children: listOptions.map((itemOption, index) => {
-                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsx(ButtonMenuNotification, { onClick: () => {
+                        return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(ButtonMenuNotification, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
-                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, children: itemOption?.description }) }, index));
+                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
                     }) }))] }) }));
 }
 
@@ -3799,11 +3807,11 @@ const placeholderStyle = (color) => styled.css `
         color: ${({ theme }) => theme.colors[color]};
     }
 
-    :-ms-input-placeholder
+    :-ms-input-placeholder {
         color: ${({ theme }) => theme.colors[color]};
     }
 
-    :-moz-placeholder
+    :-moz-placeholder {
         color: ${({ theme }) => theme.colors[color]};
     }
 `;
@@ -4824,7 +4832,7 @@ const ButtonMore$1 = styled__default["default"].div `
     align-items: center;
     z-index: 10;
 `;
-const Dropdown = styled__default["default"].div `
+const Dropdown$1 = styled__default["default"].div `
     width: auto;
     height: auto;
 `;
@@ -5175,7 +5183,7 @@ function CommentaryBox({ name, className, styles, position, value, date, actionL
                                             ((isPrivateAuthor || isPrivateMe) &&
                                                 jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(DividerDot, { children: jsxRuntime.jsx(Dot, { fill: '#757575' }) }), jsxRuntime.jsx(EyeOffIcon, { children: jsxRuntime.jsx(EyeOff, { fill: '#757575' }) }), jsxRuntime.jsx(CommentPrivate, { children: textPrivateComment })] })) : null] }), jsxRuntime.jsxs(Position$2, { children: [" ", position, " "] })] }), jsxRuntime.jsxs(OptionsWrapper, { children: [size[0] > WIDTH_MOBILE &&
                                     jsxRuntime.jsxs(Date$2, { children: [" ", date, " ", wasEdited && `(${textEdited})`, " "] }), hasDropdown && (isAuthor || isMe) &&
-                                    jsxRuntime.jsxs(Dropdown, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
+                                    jsxRuntime.jsxs(Dropdown$1, { children: [jsxRuntime.jsx(ButtonMore$1, { onClick: () => setIsOpenDrop(!isOpenDrop), onMouseOver: () => setActionArea(true), onMouseOut: () => setActionArea(false), children: jsxRuntime.jsx(MoreDotsHorizontal, { fill: getColorIconMore() }) }), jsxRuntime.jsxs(DropdownWrapper, { isVisible: isOpenDrop, isMe: isMe, children: [isMe && isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", (!isPrivateAuthor && !isPrivateMe) ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isMe && !isAuthor &&
                                                         jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [(!isPrivateAuthor) &&
                                                                     jsxRuntime.jsxs(ItemDrop, { onClick: actionMakePrivate, children: [" ", !isPrivateMe ? textMakePrivate : textMakePublic, "  "] }), jsxRuntime.jsxs(ItemDrop, { onClick: () => editingComment(), children: [" ", textEditComment, " "] }), jsxRuntime.jsxs(ItemDrop, { isLastItem: true, onClick: actionDeleteComment, children: [" ", textDeleteComment, " "] })] }), isAuthor && !isMe &&
@@ -5849,7 +5857,7 @@ const WrapperHorizontal$1 = styled__default["default"].div `
   width: 100%;
   height: auto;
 `;
-const WrapperContent$4 = styled__default["default"].div `
+const WrapperContent$5 = styled__default["default"].div `
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -5977,7 +5985,7 @@ function ScrollContainer$1({ children, type, isVisibleControlsButtons, positionA
         updateSize();
         return () => window.removeEventListener('resize', updateSize);
     }, []);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal$1, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$4, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs("div", { style: { ...styles, position: 'relative' }, className: className, children: [jsxRuntime.jsxs(WrapperHorizontal$1, { children: [isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: true, onClick: scrollToLeft, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonLeft, actionArea: actionAreaButtonLeft, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonLeft, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollLeft, marginTopArrrowButton: marginTopArrrowButton })), jsxRuntime.jsx(WrapperContent$5, { id: iDScroll, paddingIntern: horizontalMarginInternScroll ? horizontalMarginInternScroll : '150px', hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: children }), isVisibleControlsButtons && positionArrowButton != 'bottom' && (jsxRuntime.jsx(ButtonArrow, { colorBackground: colorBackground, isLeftButton: false, onClick: scrollToRight, widthProtectClick: widthProtectClick, onActionArea: setActionAreaButtonRight, actionArea: actionAreaButtonRight, sizeButton: sizeArrowButton, isVisible: isVisibleArrowButtonRight, margin: marginsArrowButton ? (marginsArrowButton + 50) * -1 + 'px' : '-138px', ArrowScroll: ArrowScrollRight, marginTopArrrowButton: marginTopArrrowButton }))] }), jsxRuntime.jsx("div", { style: { display: 'flex', justifyContent: 'center', width: '100%' }, children: isVisibleControlsButtons && positionArrowButton == 'bottom' && (jsxRuntime.jsxs("div", { style: {
                             display: 'flex',
                             flexDirection: 'row',
                             marginTop: marginTopArrrowButton ? marginTopArrrowButton : '5px'
@@ -7393,7 +7401,7 @@ const TextTotalTab = styled__default["default"].div `
 const TextTitleTab = styled__default["default"].div `
     white-space: nowrap;
 `;
-const WrapperContent$3 = styled__default["default"].div `
+const WrapperContent$4 = styled__default["default"].div `
 
     background-color: transparent;
     padding-top: 30px;
@@ -7443,7 +7451,7 @@ function AccordionTabs({ titleAccordion, typeAccordion, typeButtonTab, titleTabs
         return TabComponent;
     };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [titleAccordion && jsxRuntime.jsxs(TitleAccordion, { children: [" ", titleAccordion, " "] }), typeAccordion == 'horizontal' ? (jsxRuntime.jsxs(WrapperHeaderTabs, { children: [jsxRuntime.jsx(ContainerTitleTabs, { id: "scrollTabsAccordion", children: titleTabs.map(renderTitles) }), hasCleanButton &&
-                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$3, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
+                                jsxRuntime.jsxs(ContainerCleanAction, { onClick: () => handleActionClean('limpar'), children: [jsxRuntime.jsx(TrashIcon, { width: '14px', height: '17px' }), jsxRuntime.jsxs(TextClean, { children: [" ", textCleanButton, " "] })] })] })) : null] }), jsxRuntime.jsx(WrapperContent$4, { status: activeTabID != '-1', children: jsxRuntime.jsxs("div", { style: { width: '100%', ...style }, children: [getCurrentTabOpened() && jsxRuntime.jsxs(TitleCurrentTabOpened, { children: [" ", getCurrentTabOpened(), " "] }), children] }) })] }));
 }
 
 function FilterAccordionCheckbox({ generalTitle, object, onSelected }) {
@@ -12063,7 +12071,7 @@ styled__default["default"].div `
     padding: 10px;
     z-index: 1000;
 `;
-const pulseAnimation = styled.keyframes `
+const pulseAnimation$1 = styled.keyframes `
   0% {
     transform: scale(1);
   }
@@ -12092,7 +12100,7 @@ const TrashIconContainer = styled__default["default"].div `
     }
     &:active {
         background-color:${({ isNewNotification }) => isNewNotification ? '#686868' : '#595959'};
-        animation: ${pulseAnimation} 0.3s ease-in-out;
+        animation: ${pulseAnimation$1} 0.3s ease-in-out;
     }
 `;
 
@@ -15708,7 +15716,7 @@ const ContainerBanner = styled__default["default"].div `
         }
     }
 `;
-const WrapperContent$2 = styled__default["default"].div `
+const WrapperContent$3 = styled__default["default"].div `
     flex: 1;
     display: flex;
     justify-content: center;
@@ -15833,8 +15841,8 @@ const ItemFrstSocials = styled__default["default"].button `
 `;
 
 function BannerSRG(props) {
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent$2, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
-                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$4, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$2, { children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ContainerTotal, { isExtendedVersion: props?.isExtendedVersion, bannerLarge: props?.bannerSRG?.large, bannerNormal: props?.bannerSRG?.normal, bannerResponsive: props?.bannerSRG?.responsive, style: { ...props.style }, children: [jsxRuntime.jsxs(ContainerBanner, { children: [jsxRuntime.jsxs(WrapperContent$3, { style: { maxHeight: '240px', height: '240px', display: 'flex', alignItems: 'flex-start', marginTop: '-100px' }, children: [props && props.social &&
+                                    jsxRuntime.jsxs(FrstSocials, { children: [props.social.onClickSite && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSite(), children: [" ", jsxRuntime.jsx(SiteIcon, {}), " "] }), props.social.onClickLinkedin && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickLinkedin(), children: [" ", jsxRuntime.jsx(LinkedinIcon, {}), " "] }), props.social.onClickInstagram && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickInstagram(), children: [" ", jsxRuntime.jsx(InstagramIcon, {}), " "] }), props.social.onClickYoutube && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickYoutube(), children: [" ", jsxRuntime.jsx(YoutubeIcon, {}), " "] }), props.social.onClickSpotify && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickSpotify(), children: [" ", jsxRuntime.jsx(SpotifyIcon, {}), " "] }), props.social.onClickPodCast && jsxRuntime.jsxs(ItemFrstSocials, { onClick: () => props.social.onClickPodCast(), children: [" ", jsxRuntime.jsx(PodCastIcon, {}), " "] })] }), jsxRuntime.jsx(LateralMenu, { variant: 'primary', channel: '', name: props.lateralMenu.name, hiddenButtonHeader: true, avatar: props.lateralMenu.avatar, button: props.lateralMenu.button, listOptions: props.lateralMenu.listOptions })] }), jsxRuntime.jsx(WrapperContent$3, { children: jsxRuntime.jsx("img", { src: props.logoSRG }) }), jsxRuntime.jsxs(WrapperContentMain, { children: [jsxRuntime.jsx(TitleSRG, { children: props?.labels?.textTitle ? props?.labels?.textTitle : 'Space Race Game' }), jsxRuntime.jsx(DescriptionSRG, { children: props?.labels?.textDescription }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) })] }), jsxRuntime.jsxs(WrapperContentHelper, { children: [jsxRuntime.jsxs(SpeechBubble, { children: [jsxRuntime.jsx(HelperText$1, { children: props.labels.textHelperDescription }), jsxRuntime.jsx(Button$4, { variant: 'link', label: props?.acessHere?.label ? props.acessHere.label : 'Acesse aqui', handleClick: () => props.acessHere.action(), style: { color: '#21bffc' } })] }), jsxRuntime.jsx("img", { src: props.avatarSRG })] }), jsxRuntime.jsx(WrapperContent$3, { children: jsxRuntime.jsx(Button$4, { variant: 'primary', label: props?.newProject?.label ? props.newProject?.label : 'Criar novo projeto', handleClick: () => props.newProject.action(), startIcon: jsxRuntime.jsx(AddIcon, { fill: '#FFFFFF' }) }) })] }), jsxRuntime.jsx(VersionExtended, { isExtendedVersion: props.isExtendedVersion, heightExtended: props.heightExtended })] }) }));
 }
 
 const achievementHeader = styled__default["default"].div `
@@ -17307,7 +17315,7 @@ function ThumbListContent(props) {
     const MAX_CHARACTERS = 150;
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: props.isLoading ? (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [jsxRuntime.jsx(loadingImageThumb, {}), jsxRuntime.jsxs(loadingThumbContent, { children: [props.title && jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" }), jsxRuntime.jsx(loadingContent, { children: "a" })] })] })) : (jsxRuntime.jsxs(containerThumbContent, { style: { ...props.style }, children: [props.imageSrc ? (tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { children: jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsx(ProgressAndImg, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) }) }) })) : (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx(imageThumbContent, { style: { backgroundImage: `url(${props.imageSrc})` }, onClick: props.onClickThumb, children: jsxRuntime.jsxs(IconPlayVideo, { children: [' ', jsxRuntime.jsx(IconPlay, {}), ' '] }) }), jsxRuntime.jsxs(InfCanal, { id: 'DadosCanal', href: props.urlCanal, children: [jsxRuntime.jsx(ImgCanal, { src: props.imageSrcCanal }), jsxRuntime.jsx(NameCanal, { children: props.nameCanal })] })] }))) : tagVisualized > 0 ? (jsxRuntime.jsx(shadedThumb, { onClick: props.onClickThumb, children: jsxRuntime.jsxs(iconsThumbAndProgress, { children: [props.typeThumbContent === 'video' ? jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx(IconAndProgress, { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, props.typeThumbContent === 'textual' ? jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) : null, jsxRuntime.jsx(ProgressIcon, { children: jsxRuntime.jsx(ProgressBar$1, { label: "", value: props.valueProgress }) })] }) })) : (jsxRuntime.jsxs(iconsThumb, { onClick: props.onClickThumb, children: [props.typeThumbContent === 'video' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbVideo, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'podcast' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbPodcast, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'question' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null, props.typeThumbContent === 'textual' ? (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(ThumbTexto, { width: "74", height: "74" }) })) : null] })), jsxRuntime.jsxs(infoThumbContent, { onClick: props.onClickThumb, tagVisualized: props.tagValue, isSelected: props?.isSelected, children: [props.tagValue !== 'notVisualized' ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [props.tagValue === 'vizualized' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressVisualized }) })) : null, props.tagValue === 'inProgress' ? (jsxRuntime.jsx(tagThumbContentContainer, { children: jsxRuntime.jsx(tagThumbContent, { tagVisualized: props.tagValue, children: props.textProgressInProgress }) })) : null] })) : null, props.title ? jsxRuntime.jsx("span", { children: props.title }) : null, jsxRuntime.jsx(descriptionThumbContent, { showText: showMore, isSelected: props?.isSelected, children: props.description.length > MAX_CHARACTERS ? (jsxRuntime.jsx(jsxRuntime.Fragment, { children: showMore ? props.description : `${props.description.slice(0, MAX_CHARACTERS)}...` })) : (props.description) })] }), jsxRuntime.jsx(viewMoreContent$1, { children: jsxRuntime.jsx(Button$4, { variant: "link", label: showMore ? props.textViewLessButton : props.textViewMoreButton, handleClick: () => setShowMore(!showMore), style: { fontSize: 12, color: props?.isSelected ? '#E5E7EB' : '#444444' } }) })] })) }));
     function IconPlay() {
-        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "33", height: "33", viewBox: "0 0 33 33", fill: "none", children: [jsxRuntime.jsx("g", { filter: "url(#filter0_d_1_13248)", children: jsxRuntime.jsx("path", { d: "M22.7851 17.6767C23.3898 17.273 23.3898 16.3841 22.7851 15.9803L14.8446 10.6786C14.1668 10.2261 13.2583 10.7119 13.2583 11.5269V22.1302C13.2583 22.9451 14.1668 23.4309 14.8446 22.9784L22.7851 17.6767Z", fill: "white" }) }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsxs("filter", { id: "filter0_d_1_13248", x: "0", y: "0", width: "32.6364", height: "32.6364", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { "flood-opacity": "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20.3983", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_13248" }), jsxRuntime.jsx("feOffset", { dy: "3.05975" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2.54979" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_13248" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_13248", result: "shape" })] }) })] }) }));
+        return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsxs("svg", { xmlns: "http://www.w3.org/2000/svg", width: "33", height: "33", viewBox: "0 0 33 33", fill: "none", children: [jsxRuntime.jsx("g", { filter: "url(#filter0_d_1_13248)", children: jsxRuntime.jsx("path", { d: "M22.7851 17.6767C23.3898 17.273 23.3898 16.3841 22.7851 15.9803L14.8446 10.6786C14.1668 10.2261 13.2583 10.7119 13.2583 11.5269V22.1302C13.2583 22.9451 14.1668 23.4309 14.8446 22.9784L22.7851 17.6767Z", fill: "white" }) }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsxs("filter", { id: "filter0_d_1_13248", x: "0", y: "0", width: "32.6364", height: "32.6364", filterUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB", children: [jsxRuntime.jsx("feFlood", { floodOpacity: "0", result: "BackgroundImageFix" }), jsxRuntime.jsx("feColorMatrix", { in: "SourceAlpha", type: "matrix", values: "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0", result: "hardAlpha" }), jsxRuntime.jsx("feMorphology", { radius: "20.3983", operator: "erode", in: "SourceAlpha", result: "effect1_dropShadow_1_13248" }), jsxRuntime.jsx("feOffset", { dy: "3.05975" }), jsxRuntime.jsx("feGaussianBlur", { stdDeviation: "2.54979" }), jsxRuntime.jsx("feColorMatrix", { type: "matrix", values: "0 0 0 0 1 0 0 0 0 0.301961 0 0 0 0 0.0509804 0 0 0 0.4 0" }), jsxRuntime.jsx("feBlend", { mode: "multiply", in2: "BackgroundImageFix", result: "effect1_dropShadow_1_13248" }), jsxRuntime.jsx("feBlend", { mode: "normal", in: "SourceGraphic", in2: "effect1_dropShadow_1_13248", result: "shape" })] }) })] }) }));
     }
 }
 
@@ -17726,7 +17734,7 @@ function LetterEnvelopLineIcon() {
     return (jsxRuntime.jsx("div", { style: { height: '12px', borderRadius: '2px', overflow: 'hidden', marginRight: '8px', marginLeft: '8px' }, children: jsxRuntime.jsx("svg", { xmlns: "http://www.w3.org/2000/svg", width: "16", height: "12", viewBox: "1 1 16.4 12", children: jsxRuntime.jsx("path", { strokeWidth: "1", fill: '#0645ad', d: "m3.2,0C1.43,0,0,1.43,0,3.2h2.4c0-.44.36-.8.8-.8V0Zm12,2.4c.44,0,.8.36.8.8h2.4c0-1.77-1.43-3.2-3.2-3.2v2.4Zm.8,8.8c0,.44-.36.8-.8.8v2.4c1.77,0,3.2-1.43,3.2-3.2h-2.4Zm-12.8.8c-.44,0-.8-.36-.8-.8H0c0,1.77,1.43,3.2,3.2,3.2v-2.4Zm-.8-.8V3.2H0v8h2.4Zm12.8.8H3.2v2.4h12v-2.4Zm.8-8.8v8h2.4V3.2h-2.4Zm-12.8-.8h12V0H3.2v2.4Zm4.48,4.44c.91.66,2.14.66,3.05,0l-.7-.97c-.49.35-1.15.35-1.64,0l-.7.97Zm3.05,0l6.43-4.65-.7-.97-6.43,4.65.7.97ZM1.25,2.19l6.43,4.65.7-.97L1.95,1.21l-.7.97Zm9.12,4.17l-.35-.49.35.49Zm-2.35,0l-.35.49.35-.49Z" }) }) }));
 }
 function CheckInCicle() {
-    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "16", height: "16", rx: "8", fill: "#1BA853" }), jsxRuntime.jsx("path", { d: "M11.8806 5.09106L6.54729 10.4244L4.12305 8.00016", stroke: "white", "stroke-width": "1.2", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "16", height: "16", rx: "8", fill: "#1BA853" }), jsxRuntime.jsx("path", { d: "M11.8806 5.09106L6.54729 10.4244L4.12305 8.00016", stroke: "white", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 
 const activeStatus = 'Cadastrado';
@@ -19483,7 +19491,7 @@ function ExpandButton$1({ label, disabled, onClick, styles, startIcon }) {
             }, children: [jsxRuntime.jsx("div", { style: { width: '20px' }, children: startIcon }), jsxRuntime.jsx(Label, { active: actionArea, children: label })] }) }));
 }
 
-const WrapperContent$1 = styled__default["default"].div `
+const WrapperContent$2 = styled__default["default"].div `
     width: 100%;
     min-height: 300px;
     display: flex;
@@ -19698,7 +19706,7 @@ function ContentModalInviteMultiple({ labels, onClickInvite, statusSend }) {
             }
         }
     }, [inputMultiplePerson]);
-    return (jsxRuntime.jsxs(WrapperContent$1, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
+    return (jsxRuntime.jsxs(WrapperContent$2, { children: [jsxRuntime.jsxs("div", { children: [jsxRuntime.jsx(TitleModal, { children: labels?.title }), jsxRuntime.jsx(DesriptionModal, { children: labels?.description }), jsxRuntime.jsx(WrapperInputs, { children: inputMultiplePerson?.map((inputPerson, index) => {
                             return (jsxRuntime.jsxs(WrapperInputPerson, { children: [jsxRuntime.jsx(CustomTextField, { label: labels?.name, placeholder: labels?.placeholderName, onChange: (e) => onChangeInput({ e, type: 'name', id: inputPerson.id }), type: 'text', value: inputPerson?.name, required: true, error: inputPerson?.errorName }), jsxRuntime.jsx(CustomTextField, { label: labels?.lastName, placeholder: labels.placeholderLastName, onChange: (e) => onChangeInput({ e, type: 'lastName', id: inputPerson?.id }), type: 'text', value: inputPerson?.lastName, required: true, error: inputPerson?.errorLastName }), jsxRuntime.jsx(CustomTextField, { label: labels?.email, placeholder: labels.placeholderEmail, onChange: (e) => onChangeInput({ e, type: 'email', id: inputPerson?.id }), type: 'text', value: inputPerson?.email, required: true, error: inputPerson?.errorEmail })] }, index));
                         }) }), inputMultiplePerson?.length > 1 &&
                         jsxRuntime.jsxs(ButtonRemove, { onClick: () => handleRemoveInput(), children: [jsxRuntime.jsx(TrashIconNew, { fill: '#444' }), labels?.delete] }), jsxRuntime.jsxs(ButtonAddNewPerson, { onClick: () => handleAddNewInput(), children: [jsxRuntime.jsx("div", { style: { width: '24px', display: 'flex', alignItems: 'center' }, children: jsxRuntime.jsx(IconPlusCicle, {}) }), jsxRuntime.jsx(LabelButtonAddPerson, { children: labels?.buttonAddMore })] })] }), jsxRuntime.jsxs("div", { style: { width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginTop: '14px' }, children: [jsxRuntime.jsx(StatusSendInvite, { statusSendLocal: statusSendLocal, labels: labels, setStatusSendLocal: setStatusSendLocal }), jsxRuntime.jsx(Button$4, { variant: 'primary', label: labels?.invite, handleClick: () => sendListInput(), disabled: isDisabledSendInvite })] })] }));
@@ -20025,7 +20033,7 @@ const WrapperHorizontal = styled__default["default"].div `
   width: 100%;
   height: auto;
 `;
-const WrapperContent = styled__default["default"].div `
+const WrapperContent$1 = styled__default["default"].div `
 
   display: flex;
   flex-direction: row;
@@ -20241,7 +20249,7 @@ const useScroll = (stepMove, handleClick) => {
 
 function ScrollContainer({ children, isVisibleControlsButtons, stepMove, horizontalMarginInternScroll, verticalMarginInternScroll, marginsArrowButtonHorizontal, marginsArrowButtonVertical, positionArrowButton, className, styles, sizeArrowButton, hiddenHorizontalScrollBar, handleClick }) {
     const { scrollToLeft, scrollToRight, onClickLongPress, isVisibleLeft, isVisibleRight, scrollRef } = useScroll(stepMove, handleClick);
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { position: positionArrowButton, style: { ...styles }, children: [jsxRuntime.jsx(WrapperContent, { ref: scrollRef, paddingInternHorizontal: horizontalMarginInternScroll, paddingInternVertical: verticalMarginInternScroll, hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: jsxRuntime.jsx("div", { style: {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx("div", { style: { position: 'relative' }, className: className, children: jsxRuntime.jsxs(WrapperHorizontal, { position: positionArrowButton, style: { ...styles }, children: [jsxRuntime.jsx(WrapperContent$1, { ref: scrollRef, paddingInternHorizontal: horizontalMarginInternScroll, paddingInternVertical: verticalMarginInternScroll, hiddenHorizontalScrollBar: hiddenHorizontalScrollBar, children: jsxRuntime.jsx("div", { style: {
                                 width: 'fit-content',
                                 display: 'flex',
                                 flexDirection: 'row',
@@ -20999,7 +21007,7 @@ styled__default["default"].div `
   font-size: 16px;
   font-weight: 400;
 `;
-const WrapperExpandButton = styled__default["default"].div `
+const WrapperExpandButton$1 = styled__default["default"].div `
   display: flex;
   cursor: pointer;
   min-width: 40px;
@@ -21021,31 +21029,11 @@ function ExpandableRow({ index, row, columns, isExpanded }) {
     return (jsxRuntime.jsx(TableDataChildrenItem, { index: index, children: jsxRuntime.jsx("td", { colSpan: columns.length + 1, children: jsxRuntime.jsx(TableDataChildrenControlExpand, { index: index, isExpanded: isExpanded, children: row.children }) }) }));
 }
 function ExpandButton({ isExpanded, onClick }) {
-    return (jsxRuntime.jsx(WrapperExpandButton, { onClick: onClick, isExpanded: isExpanded, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) }));
+    return (jsxRuntime.jsx(WrapperExpandButton$1, { onClick: onClick, isExpanded: isExpanded, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) }));
 }
 
 function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles, expandItemId, hiddeExpandItemId }) {
     const [expandedRows, setExpandedRows] = React.useState([]);
-    /*
-    useEffect(() => {
-      console.log('\nexpandedRows ', expandedRows)
-      console.log('expandItemId ', expandItemId)
-      console.log('hiddeExpandItemId ', hiddeExpandItemId)
-      if (expandItemId !== -1) {
-        setExpandedRows((prevExpandedRows) => ({
-          ...prevExpandedRows,
-          [expandItemId]: true
-        }));
-        // setExpandItemId(-1);  // Reset expandItemId after updating
-      }
-      if (hiddeExpandItemId !== -1) {
-        setExpandedRows((prevExpandedRows) => ({
-          ...prevExpandedRows,
-          [hiddeExpandItemId]: false
-        }));
-        // setExpandItemId(-1);  // Reset expandItemId after updating
-      }
-    }, [expandItemId, hiddeExpandItemId, expandedRows])*/
     React.useEffect(() => {
         if (expandItemId !== -1) {
             setExpandedRows((prevExpandedRows) => ({
@@ -21074,12 +21062,14 @@ function Table({ columns, data, isLoading, lengthElSkeleton = 5, containerStyles
 const WrapperCollaboratorAvatar = styled__default["default"].div `
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: ${({ align }) => align && align != 'center' ?
+    (align == 'left' ? 'flex-start' : 'flex-end') :
+    'center'};
   align-items: center;
 `;
 
-function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid }) {
-    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: onPressAvatar && uuid ? () => onPressAvatar(uuid) : null, isActiveClick: !!(onPressAvatar && uuid) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
+function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid, align }) {
+    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: onPressAvatar && uuid ? () => onPressAvatar(uuid) : null, isActiveClick: !!(onPressAvatar && uuid) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
 }
 
 const WrapperDateLimit = styled__default["default"].div `
@@ -21287,7 +21277,7 @@ const ButtonActionInbox = styled__default["default"].div `
   width: 35px;
   height: 35px;
   border-radius: 20px;
-  background-color: ${({ theme }) => theme.colors.primary1};
+  background-color: ${({ theme, enable }) => enable ? theme.colors.primary1 : theme.colors.neutralsGrey5};
 
   font-family: Work Sans;
   font-size: 14px;
@@ -21296,7 +21286,7 @@ const ButtonActionInbox = styled__default["default"].div `
   text-align: center;
   color: ${({ theme }) => theme.colors.shadeWhite};
 
-  cursor: pointer;
+  cursor: ${({ enable }) => enable ? "pointer" : "auto"} ;
 `;
 const WrapperEmptyState = styled__default["default"].div `
   display: flex;
@@ -21355,31 +21345,40 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
     const [adaptedData, setAdaptedData] = React.useState([]);
     React.useEffect(() => {
         const newColumns = columns.map((column, index) => {
-            if (showButtonInbox) {
-                let width = '15%';
-                let align = 'center';
-                if (index === 1) {
-                    width = '45%';
-                    align = 'left';
-                }
-                if (index === columns.length - 1) {
-                    width = '5%';
-                    align = 'center';
-                }
-                return { title: column, width: width, align: align };
+            if (typeof column !== 'string' && column?.alignHeader) {
+                return {
+                    title: column?.title,
+                    width: column?.width,
+                    align: column?.alignHeader
+                };
             }
             else {
-                let width = '20%';
-                let align = 'center';
-                if (index === 1) {
-                    width = '40%';
-                    align = 'left';
+                if (showButtonInbox) {
+                    let width = '15%';
+                    let align = 'center';
+                    if (index === 1) {
+                        width = '45%';
+                        align = 'left';
+                    }
+                    if (index === columns.length - 1) {
+                        width = '5%';
+                        align = 'center';
+                    }
+                    return { title: column, width: width, align: align };
                 }
-                if (index === columns.length - 1) {
-                    width = '0%';
-                    align = 'center';
+                else {
+                    let width = '20%';
+                    let align = 'center';
+                    if (index === 1) {
+                        width = '40%';
+                        align = 'left';
+                    }
+                    if (index === columns.length - 1) {
+                        width = '0%';
+                        align = 'center';
+                    }
+                    return { title: column, width: width, align: align };
                 }
-                return { title: column, width: width, align: align };
             }
         });
         setAdaptedColumns(newColumns);
@@ -21388,11 +21387,12 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
         const newData = data.map((item) => ({
             id: item.id,
             value: [
-                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile }),
-                jsxRuntime.jsx("p", { style: { color: '#222' }, children: item.value[1] }),
+                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile, align: typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent }),
+                // @ts-ignore
+                jsxRuntime.jsx("p", { style: { color: '#222', textAlign: columns?.[1]?.alignContent }, children: item.value[1] }),
                 jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),
                 jsxRuntime.jsx(TableBody, { status: item?.value?.[3], label: labelStatus?.[item?.value?.[3]] }),
-                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { onClick: () => item?.actionButtonInbox?.(item?.value?.[0]?.id), children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
+                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { enable: item?.enableButtonInbox, onClick: () => item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {}, children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
             ],
             showButtonExpanded: item.showButtonExpanded,
             children: item.children
@@ -21402,8 +21402,195 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
     const customStyleBorderTable = buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
         ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
         : {};
-    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), ' ', buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
+    return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), !isLoading && data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), !isLoading && data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
 }
+
+const pulseAnimation = styled.keyframes `
+  0% {
+    transform: scale(1);
+    animation-timing-function: ease-in;
+  }
+  50% {
+    transform: scale(1.1);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(1);
+    animation-timing-function: ease-out;
+  }
+`;
+const Dropdown = styled__default["default"].div `
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+`;
+const WrapperDropdownButton = styled__default["default"].div `
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  user-select: none;
+
+  ${props => props.isPulsing && styled.css `
+    animation: ${pulseAnimation} 0.7s ease-in-out;
+  `}
+`;
+const OrnamentInfo = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  background-color: #2d7781;
+  margin-right: -8px;
+  z-index: 2;
+`;
+const OrnamentInfoIntern = styled__default["default"].div `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E78123;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  z-index: 3;
+`;
+const DropdownButton = styled__default["default"].div `
+  height: 28px;
+  white-space: nowrap;
+  padding: 4px 12px 4px 16px;
+  border-radius: 0px 16px 16px 0px;
+  background-color: #318894;
+
+  font-family: PT Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.7px;
+  text-align: left;
+  color: #fff;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+`;
+const WrapperExpandButton = styled__default["default"].div `
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isExpanded }) => (isExpanded ? 'rotate(180deg)' : 'rotate(0deg)')} ;
+`;
+const WrapperContent = styled__default["default"].div `
+  position: absolute;
+
+  width: 266px;
+  border-radius: 8px;
+  height: fit-content;
+  background-color: #FFF;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 4px;
+
+  background-color: #FFFFFF;
+  box-shadow: 0px 5px 15px 0px #00000040;
+
+
+  max-height: ${props => props.isOpen ? '1000px' : '0'};
+  opacity: ${props => props.isOpen ? 1 : 0};
+  overflow: hidden;
+  transition: max-height 0.8s ease, opacity 0.2s ease;
+`;
+const ItemContent = styled__default["default"].div `
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+
+  background-color: #FFF;
+  transition: background-color 0.3s ease;
+  padding: 2px 8px 0px 8px;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+const ItemContentLabel = styled__default["default"].div `
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 40px;
+  padding: 10px 4px 10px 4px;
+  gap: 10px;
+
+  font-family: PT Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.12px;
+  text-align: left;
+
+  user-select: none;
+  cursor: pointer;
+
+  border-bottom: 1px solid ${({ isLastItem }) => isLastItem ? `transparent` : `#E0E0E0`};
+
+`;
+
+var TargetIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARWSURBVHgBbVRbbFRVFF3n3Dszd559DG2ZAk2RibFaIoLQiBqsJj4aX5AIahTxwxIwITE1Ev3wEXwF9aP6Zwzpl9FSDNpCAFFIEyXRxFKkhT6D0WmxnUI7zPO+DvucW1o+OMlk5p7Zd++111p7s/S+VUJg/sz/YIw+ugFt+TpoK9aBR6rVvZufgZs6C+vSGQi7BD2xGiwQpeffwZmATKQzzsDnMwnBwIJlCN67Hf71rwAUfKvjTA+jePJThLa0w+z7DlqsGvbFY3DtInTXXcAHfUkSoac/g1bToEoI14UgVM7lCwq2VnU7WDiO4plvYLR8DOELQ1/7Enx6AEXNj2Lf99A5BRJYaPEkItu+BovVSqiwBn5C6Y8OQjNEj+58SUpaVgs9+TB4rMa78Rnqm5ctg58o0ikGXA8hvLldXYrCHArdb8Ia71WcMMbBjDIJF8LMQWRSkBCYJPqmY2zcidzUMHRZ3HhwDzi165p55Lvfgj3WS6L44W98lgJ3EeqEUsy98g8Kx9+Db/UWKrZIlRSodOpzmINHqGUjCmPti4ojs/8g7PHT4IEIQi0fQb/j8UX5HQfWuS4EN70BLXEXcXsF5oVjnvozYwg0tMAc6IauJ5shiFQ4NkpEqizsu3urSiZRWEM/U6EuCKuA4CN7KVkjHBIqf3A3nImzpGQQ0dajRFctfA1PEH1UTfLhTo9QS5fAuIbg/TtVZXuwB/nDe+BODSL82Lvku0aI7BRKJ/cj/OQnRL5GQQWIuZSKl+7gLFipkNjpUfp2wEJxIrVcBZT6D0n6Edr8JRhx7MxNINezF8aj74BVrgSrqFcdOekxT/FwpVSZKYSecp6qC8fKqzvJs7j2PwqHXgfMLD3HlIU41yGk2ATEMxUjlckmEiEvX67QONlpiGKGrBJTaloT/ch0PCedRjxmEWx6TaGCU4Iz+69nrfIVnjjZNLibHlEItZo7aWarwKiaff5HFRC4ZxtCzSREdCn9V4nQpjYEm9tUvPX3D6oDboThq1vvJUwPg5cGemgGS6RWAIE1z6uRy/W2w071qd/+plcRaT1CSp6A/75WapETZ6Mo9H6l0PnXbKV3aVpcB+b4b9QHcSL9JasGNuxQSjIzg3zXLph/dgCyfaaR+sRtcQ7W+cPIEgVyxrWqVWT83R7ikV8grpJL0vuSgkerEd3eSROxlMi/jFxnq9oocsaZUQGtok5NgzSzyE0rZFr8NoRfOABOdEjOsweeIRdMQu4G5a380bdJwRwNfQLRHZ0waIVxOcPFWTiT58inQyoZ94dIGKLh5W9pbSWIcxfFEx8QkEnPJTMfLi5YX/1GhJ76ggSIeyRTZYcWqjObUtbg1IGvronUingDmb9Ks/0+zIvHyULegqWESbG4qskcsWUIPtQGn5xj8tktD42hOXoKxV/3w81Meq8yeAklhzcnvPEnL6+HvvIB6HUbaAKW0AVT5nb++4uSnYYrx811F2rcSHgdtSfnbUs0vh0AAAAASUVORK5CYII=";
+
+const ResourceInfoDrop = ({ label, isOpen, onOpen, onClose, options, enablePulse, intervalPulse }) => {
+    const wrapperRef = React.useRef(null);
+    const [isOpenDrop, setIsOpenDrop] = React.useState(false);
+    const [isPulsing, setIsPulsing] = React.useState(false);
+    React.useEffect(() => {
+        setIsOpenDrop(isOpen);
+        const intervalId = setInterval(() => {
+            setIsPulsing(true);
+            setTimeout(() => setIsPulsing(false), 1500);
+        }, intervalPulse ?? 120000);
+        return () => clearInterval(intervalId);
+    }, [isOpen]);
+    const [enableTrackChange, setEnableTrackChange] = React.useState(false);
+    React.useEffect(() => {
+        if (enableTrackChange) {
+            if (isOpenDrop) {
+                onOpen?.();
+            }
+            else {
+                onClose?.();
+            }
+        }
+        else {
+            setTimeout(() => {
+                setEnableTrackChange(true);
+            }, 2000);
+        }
+    }, [isOpenDrop]);
+    const toggleDropdown = () => {
+        setIsOpenDrop(!isOpenDrop);
+    };
+    React.useEffect(() => {
+        function handleClickOutside(event) {
+            if (wrapperRef.current && !wrapperRef.current.contains(event.target) && isOpenDrop)
+                setIsOpenDrop(false);
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [wrapperRef, isOpenDrop]);
+    return (jsxRuntime.jsxs(Dropdown, { ref: wrapperRef, onClick: toggleDropdown, children: [jsxRuntime.jsxs(WrapperDropdownButton, { isPulsing: enablePulse && isPulsing, children: [jsxRuntime.jsx(OrnamentInfo, { children: jsxRuntime.jsx(OrnamentInfoIntern, { children: jsxRuntime.jsx("img", { src: TargetIcon, alt: '' }) }) }), jsxRuntime.jsxs(DropdownButton, { children: [label, jsxRuntime.jsx(WrapperExpandButton, { isExpanded: isOpenDrop, children: jsxRuntime.jsx(ArrrowExpandDropdown, { stroke: "#fff", strokeWidth: "1.3" }) })] })] }), jsxRuntime.jsx(WrapperContent, { isOpen: isOpenDrop, children: options?.map((item, index) => {
+                    return (jsxRuntime.jsx(ItemContent, { onClick: () => item?.onClick?.(item?.id), children: jsxRuntime.jsxs(ItemContentLabel, { isLastItem: options?.length - 1 == index, children: [item.startWithIcon, " ", item.label, " ", item.endWithIcon] }) }, item.id));
+                }) })] }));
+};
 
 exports.AccordionList = AccordionList$2;
 exports.AccordionTrackList = AccordionTrackList;
@@ -21456,6 +21643,7 @@ exports.CounterLike = CounterLike;
 exports.CriarIdeia = CriarIdeia;
 exports.DateRangePicker = StepLearningCycle;
 exports.Diamond = Diamond;
+exports.DocumentResourceInfoIcon = DocumentResourceInfoIcon;
 exports.DoubleCheck = DoubleCheck;
 exports.DropdownMultiselect = index;
 exports.EditIcon = EditIcon;
@@ -21529,6 +21717,7 @@ exports.PencilFilledIcon = PencilFilledIcon;
 exports.PencilLineIcon = PencilLineIcon;
 exports.PlayFilledIcon = PlayFilledIcon;
 exports.PlayLineIcon = PlayLineIcon;
+exports.PlayResourceInfoIcon = PlayResourceInfoIcon;
 exports.PodCastIcon = PodCastIcon;
 exports.PopOver = PopOver;
 exports.PopOverLXP = PopOverLXP;
@@ -21536,6 +21725,7 @@ exports.PostFeed = PostFeed;
 exports.ProgressBar = ProgressBar$1;
 exports.QuantidadeDesafios = QuantidadeDesafios;
 exports.Rating = Rating;
+exports.ResourceInfoDrop = ResourceInfoDrop;
 exports.ScrollContainer = ScrollContainer$1;
 exports.ScrollContainerV2 = ScrollContainer;
 exports.SearchBox = SearchBox;

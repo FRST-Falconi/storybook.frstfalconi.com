@@ -11,9 +11,9 @@ export const CircledCheck = ({
       <path
         d="M16.3327 7L8.99935 14.3333L5.66602 11"
         stroke="white"
-        stroke-width="1.2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )

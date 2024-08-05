@@ -6,12 +6,20 @@ export interface IDataRow {
     id: number;
     value: string[] | any;
     showButtonExpanded?: boolean;
+    enableButtonInbox?: boolean;
     actionButtonInbox?: (id: string) => void
     children?: React.ReactNode;
 }
 
+export interface IColumnRow {
+    title: string, 
+    width: string,  
+    alignHeader: string, 
+    alignContent: string 
+}
+
 export interface ITableActions {
-    columns: string[];
+    columns: IColumnRow[] | string[];
     data: IDataRow[];
     isLoading?: boolean;
     lengthElSkeleton?: number;
