@@ -157,3 +157,25 @@ export const WrapperSelectIcon = styled('div')<{isOpenSelect: boolean}>`
         }
     }
 `
+
+export const WrapperMenuMore = styled('div')`
+    margin-left: auto;
+    margin-right: 0;
+`
+
+export const EditWrapper = styled('div')`
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+`
+
+export const EditButtons = styled('div')<{buttonColor: string}>`
+    width: 32px;
+    height: 32px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: ${(props) => props.buttonColor};
+`

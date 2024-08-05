@@ -69,8 +69,9 @@ export default function MenuMore({
                     }}
                     isColor={itemOption?.color}
                     isDarkMode={isDarkMode}
-                    >
-                  {itemOption?.description}
+                  >
+                    {itemOption?.startIcon && <IconOption>{itemOption?.startIcon}</IconOption>}
+                    {itemOption?.description}
                   </ButtonMenuNotification>
                   {/* <MenuItemCustom
                     isPaddingInMenu={isPaddingInMenu}
