@@ -1,23 +1,28 @@
-import { Button } from "@mui/material"
-import { useState } from "react"
+import { useState } from 'react'
+import { CheckIcon, CloseIcon } from '@public/customIcons'
+import * as Styles from './editHypotesisAndImpediment.styles'
 
-
-export const EditHypotesisAndImpediment = ({setEditDescription, editDescription, onSave, onCancel}) => {
-
-
+export const EditHypotesisAndImpediment = ({ setEditDescription, editDescription, onSave, onCancel }) => {
+    
 
     const handleSave = () => {
         onSave(editDescription)
     }
-    
+
     return (
-        <div>
-            <input
+        <Styles.ContainerInput>
+            <Styles.TextArea
                 value={editDescription}
                 onChange={(e) => setEditDescription(e.target.value)}
             />
-            <Button onClick={handleSave}>Salvar</Button>
-            <Button onClick={onCancel}>Cancelar</Button>
-        </div>
+            <Styles.ContainerButton>
+                <Styles.Button onClick={handleSave}>
+                    <CheckIcon />
+                </Styles.Button>
+                <Styles.Button onClick={onCancel}>
+                    <CloseIcon />
+                </Styles.Button>
+            </Styles.ContainerButton>
+        </Styles.ContainerInput>
     )
 }
