@@ -92,6 +92,7 @@ export { default as CardPeople } from './src/components/DS/cardPeople'
 export { default as Loading } from './src/components/DS/loading'
 export { default as OnboardingProgressMenu } from './src/components/DS/onboarding-progress-menu'
 export { default as CardUser } from './src/components/DS/cardUser'
+export { default as ImpedimentosTab} from './src/components/DS/impedimentosTab'
 
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
