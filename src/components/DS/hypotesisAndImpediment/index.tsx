@@ -28,7 +28,10 @@ export const HypothesisAndImpediment = ({
     onDeleteHipotesisOrImpediment,
     onSaveEditHipotesisOrImpediment,
     hasEditHipotesisOrImpediment,
-    onVote
+    onVote,
+    onPrioritize,
+    onDown,
+    onUp
 }: IHypothesisAndImpedimentComponent) => {
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
@@ -82,8 +85,8 @@ export const HypothesisAndImpediment = ({
                             <UpDownButtons
                             type={type}
                             variant={variant}
-                            onDownClick={() => alert('baixo')}
-                            onUpClick={() => alert('cima')}
+                            onDownClick={() => onDown(id, index)}
+                            onUpClick={() => onUp(id, index)}
                         />
                         }
                         <Styles.SplitContainerDescription>
@@ -126,7 +129,8 @@ export const HypothesisAndImpediment = ({
                                         {
                                             startIcon: <StarPrioritize />,
                                             description: 'Priorizar',
-                                            onClick: () => alert('Priorizou')
+                                            onClick: () => onPrioritize(id),
+                                            disabled: type === 'prioritize'
                                         },
                                         {
                                             startIcon: <EditIcon fill="#222222" width="24px" />,

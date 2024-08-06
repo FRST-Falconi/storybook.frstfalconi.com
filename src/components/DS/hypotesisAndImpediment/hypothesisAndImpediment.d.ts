@@ -20,6 +20,9 @@ export  interface IHypothesisAndImpedimentComponent {
     onDeleteHipotesisOrImpediment?: (id: string) => void
     onSaveEditHipotesisOrImpediment?: (description: string) => void
     onVote?: (id: string) => void
+    onPrioritize?: (id: string) => void
+    onUp?: (id: string, index: number) => void
+    onDown?: (id: string, index: number) => void
     hasEditHipotesisOrImpediment: boolean
 }
 
