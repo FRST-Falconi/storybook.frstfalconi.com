@@ -100,4 +100,5 @@ export const Description = styled.span`
     padding: 8px 0 8px;
     display: flex;
     flex-grow: 1;
+    flex-wrap: wrap;
 `

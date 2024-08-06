@@ -22,14 +22,16 @@ HipotesePriorizada.args = {
     index: 1,
     authorGoalId: '1234',
     userLoggedId: '1234',
-    description: 'Falta de processos para serem seguidos.',
+    description: 'é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, ',
     authorName: 'Christiane Eckersley',
     authorId: '1234',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     hasVoting: true,
     voteText: 'Votar',
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
-    onSaveEditHipotesisOrImpediment:  () => alert('editado')
+    onSaveEditHipotesisOrImpediment:  () => alert('editado'),
+    hasEditHipotesisOrImpediment: true,
+
 }
 
 HipoteseLevantada.args = {
@@ -47,7 +49,8 @@ HipoteseLevantada.args = {
     hasVoting: true,
     voteText: 'Votar',
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
-    onSaveEditHipotesisOrImpediment:  () => alert('editado')
+    onSaveEditHipotesisOrImpediment:  () => alert('editado'),
+    hasEditHipotesisOrImpediment: true
 }
 
 HipoteseSugerida.args = {
@@ -58,7 +61,7 @@ HipoteseSugerida.args = {
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
     index: 3,
     authorGoalId: '1234',
-    userLoggedId: '1235',
+    userLoggedId: '12345',
     description: 'Desenhar novos processos para área',
     authorName: 'Mikel Molero',
     authorId: '12345',
@@ -66,7 +69,8 @@ HipoteseSugerida.args = {
     hasVoting: true,
     voteText: 'Votar',
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
-    onSaveEditHipotesisOrImpediment:  () => alert('editado')
+    onSaveEditHipotesisOrImpediment:  () => alert('editado'),
+    hasEditHipotesisOrImpediment: true
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -89,7 +93,8 @@ ImpedimentPriorizada.args = {
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     hasVoting: false,
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
-    onSaveEditHipotesisOrImpediment:  () => alert('editado')
+    onSaveEditHipotesisOrImpediment:  () => alert('editado'),
+    hasEditHipotesisOrImpediment: true
 }
 
 ImpedimentLevantada.args = {
@@ -106,7 +111,8 @@ ImpedimentLevantada.args = {
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     hasVoting: false,
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
-    onSaveEditHipotesisOrImpediment:  () => alert('editado')
+    onSaveEditHipotesisOrImpediment:  () => alert('editado'),
+    hasEditHipotesisOrImpediment: true
 }
 
 ImpedimentSugerida.args = {
@@ -116,14 +122,15 @@ ImpedimentSugerida.args = {
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
     index: 3,
     authorGoalId: '1234',
-    userLoggedId: '1235',
+    userLoggedId: '12345',
     description: 'Desenhar novos processos para área',
     authorName: 'Mikel Molero',
     authorId: '12345',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     hasVoting: false,
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
-    onSaveEditHipotesisOrImpediment:  () => alert('editado')
+    onSaveEditHipotesisOrImpediment:  () => alert('editado'),
+    hasEditHipotesisOrImpediment: true
 }
 
 
@@ -143,28 +150,46 @@ Vote.args = {
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
+    onDeleteVote: () => alert('voto deletado'),
+    onVote: (id) => alert(`voto de hipotese com id: ${id}`),
     hasVoting: true,
     voteText: 'Votar',
+    hasEditHipotesisOrImpediment: true,
     votersList: [
         {
-            id: '123',
+            useId: '123',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-            name: 'Name'
+            name: 'Alice Johnson'
         },
         {
-            id: '123',
+            useId: '123',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-            name: 'Name'
+            name: 'Frank Miller'
         },
         {
-            id: '123',
+            useId: '123',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-            name: 'Name'
+            name: 'David Wilson'
         },
         {
-            id: '123',
+            useId: '123',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
-            name: 'Name'
+            name: 'Eva Davis'
+        },
+        {
+            useId: '123',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+            name: 'Frank Miller'
+        },
+        {
+            useId: '123',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+            name: 'David Wilson'
+        },
+        {
+            useId: '123',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+            name: 'Eva Davis'
         }
     ]
 }

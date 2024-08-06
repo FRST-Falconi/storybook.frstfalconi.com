@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react'
 import Avatar from '@components/avatar'
 import { Box, Popper } from '@mui/material'
 
-export const Voting = ({ type, voteText, onDeleteVote, votersList }: VotingProps) => {
+export const Voting = ({ type, voteText, onDeleteVote, votersList, onVote}: VotingProps) => {
     const [isVotted, setIsVotted] = useState(false)
     const [isVotingListHover, setIsVotingListHover] = useState(false)
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -17,7 +17,9 @@ export const Voting = ({ type, voteText, onDeleteVote, votersList }: VotingProps
     }
 
     const handleHoverVoteList = () => {
+        setAnchorEl(null)
         setIsVotingListHover(true)
+
     }
 
     const handleLeaveVoteList = () => {
@@ -40,13 +42,25 @@ export const Voting = ({ type, voteText, onDeleteVote, votersList }: VotingProps
                 <Styles.ContainerVoting type={type}>
                     {!isVotingListHover && (
                         <Styles.VotingList onClick={handleClickVotingList}>
-                            {votersToDisplay?.map(i => <Avatar src={i.avatar} size="24px" border="1px solid #fff"></Avatar>)}
+                            {votersToDisplay?.map(i => <Avatar src={i.avatar} size="24px" border="1px solid #fff"/>)}
                         </Styles.VotingList>
                     )}
 
-                    <Popper id={id} open={open} anchorEl={anchorEl}>
-                        {/* estilizar e adicionar a lista de votantes */}
-                    </Popper>   
+                    <Popper id={id} open={open} anchorEl={anchorEl} sx={{ paddingTop: 1.5, paddingRight: 6.5 }}>
+                        <Styles.ContainerListUsers>
+                            <Styles.ContainerScroll>
+                                {votersList?.map((voter, index) => (
+                                    <Styles.VoterItem key={index}>
+                                        <Avatar
+                                            src={voter.avatar}
+                                            size="24px"
+                                        />
+                                        <Styles.VoterName>{voter.name}</Styles.VoterName>
+                                    </Styles.VoterItem>
+                                ))}
+                            </Styles.ContainerScroll>
+                        </Styles.ContainerListUsers>
+                    </Popper>
 
                     <Styles.VotesCount onMouseEnter={handleHoverVoteList} onMouseLeave={handleLeaveVoteList}>
                         {isVotingListHover ? (
@@ -56,14 +70,14 @@ export const Voting = ({ type, voteText, onDeleteVote, votersList }: VotingProps
                             </div>
                         ) : (
                             <span>
-                                {votersList?.length || 1} {votersList?.length > 1 ? `votos` : 'voto'}
+                                {votersList?.length} {votersList?.length > 1 ? 'votos' : 'voto'}
                             </span>
                         )}
                     </Styles.VotesCount>
                 </Styles.ContainerVoting>
             ) : (
                 <Styles.ContainerVoting type={type} onClick={() => setIsVotted(true)}>
-                    <Styles.ContainerTitleVoting>
+                    <Styles.ContainerTitleVoting  onClick={onVote}>
                         <NewVoteIcon />
                         <Styles.TitleVoting>{voteText}</Styles.TitleVoting>
                     </Styles.ContainerTitleVoting>

@@ -19,6 +19,8 @@ export  interface IHypothesisAndImpedimentComponent {
     votersList?: Voter[]
     onDeleteHipotesisOrImpediment?: (id: string) => void
     onSaveEditHipotesisOrImpediment?: (description: string) => void
+    onVote?: (id: string) => void
+    hasEditHipotesisOrImpediment: boolean
 }
 
 export interface VariantColorStyle { type: string, variant?: string }
@@ -26,11 +28,12 @@ export interface VariantColorStyle { type: string, variant?: string }
 export type Voter = {
     avatar: string
     name: string
-    id: string
+    userId: string
 }
 
 export interface VotingProps extends VariantColorStyle {
     voteText: string
     onDeleteVote: () => void
+    onVote: () => void
     votersList: Voter[]
 }
