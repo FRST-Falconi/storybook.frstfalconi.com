@@ -128,6 +128,7 @@ export const IconOption = styled.div`
   align-items: center;
   justify-content: center;
 `
+
 export const ButtonMenuNotification = styled.button<IButtonMenuProps>`
   width: 100% !important;
   text-decoration: none !important;
@@ -143,7 +144,8 @@ export const ButtonMenuNotification = styled.button<IButtonMenuProps>`
   justify-content: start !important;
   align-items: center !important;
   gap: 8px !important;
-  cursor: pointer !important;
+  cursor: ${({ disabled }) => disabled ? 'default !important' : 'pointer !important'};
+
   :hover {
     background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
   }

@@ -69,6 +69,7 @@ export default function MenuMore({
                     }}
                     isColor={itemOption?.color}
                     isDarkMode={isDarkMode}
+                    disabled={itemOption.disabled}
                   >
                     {itemOption?.startIcon && <IconOption>{itemOption?.startIcon}</IconOption>}
                     {itemOption?.description}
