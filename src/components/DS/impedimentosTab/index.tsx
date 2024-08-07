@@ -33,9 +33,6 @@ export default function ImpedimentosTab({
     showOptions,
     onSaveNewImpedimento,
     onSelectedTab,
-    handleDelete,
-    handleEdit,
-    handlePriorize
 }: ImpedimentosTabProps) {
     const [selectedTab, setSelectedTab] = useState<TabInfo>(null);
     const [allTabs, setAllTabs] = useState<Array<TabInfo>>([]);
@@ -156,22 +153,23 @@ export default function ImpedimentosTab({
                                     <WrapperMenuMore>
                                         <MenuMore
                                             options={[
-                                                {
+                                                ...(selectedTab?.handlePriorize ? [{
                                                     description: 'Priorizar',
-                                                    onClick: () => handlePriorize(selectedTab),
-                                                    startIcon: <StarPrioritize />
-                                                },
-                                                {
+                                                    onClick: () => selectedTab?.handlePriorize(selectedTab),
+                                                    disabled: !!selectedTab?.disabledPriorize,
+                                                    startIcon: <StarPrioritize stroke={!!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" }/>
+                                                }] : []),
+                                                ...(selectedTab?.handleEdit ? [{
                                                     description: 'Editar',
                                                     onClick: () => setIsEdit(true),
                                                     startIcon: <EditIcon fill='#222222' />
-                                                },
-                                                {
+                                                }] : []),
+                                                ...(selectedTab?.handleDelete ? [{
                                                     description: 'Excluir',
-                                                    onClick: () => handleDelete(selectedTab),
+                                                    onClick: () => selectedTab?.handleDelete(selectedTab),
                                                     startIcon: <TrashIconNew fill='#C00F00' />,
                                                     color: '#C00F00'
-                                                }
+                                                }] : []),
                                             ]}
                                             closeAfterClick
                                         />
@@ -194,7 +192,7 @@ export default function ImpedimentosTab({
                                             onClick={() => {
                                                 if (editDescription === '') return
                                                 let editTab = {...selectedTab, description: editDescription}
-                                                handleEdit(editTab)
+                                                selectedTab?.handleEdit(editTab)
                                                 setIsEdit(false)
                                                 setEditDescription('')
                                             }}

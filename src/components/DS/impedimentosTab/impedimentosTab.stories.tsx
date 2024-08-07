@@ -21,34 +21,50 @@ withOptions.args = {
             avatar: `https://xsgames.co/randomusers/avatar.php?g=male`,
             description: 'Primeiro impedimento',
             title: 'Impedimento 1',
-            isGoalOwner: true
+            isGoalOwner: true,
+            disabledPriorize: true,
+            handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
+            handleDelete: (impedimento) => console.log("Delete: ", impedimento),
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
         },
         {
             id: '2',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
             description: 'Segundo impedimento',
-            title: 'Impedimento 2'
+            title: 'Impedimento 2',
+            handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
+            handleDelete: (impedimento) => console.log("Delete: ", impedimento),
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
         },
         {
             id: '3',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             description: 'Terceiro impedimento',
             title: 'Impedimento 3',
-            isGoalOwner: false
+            isGoalOwner: false,
+            handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
+            handleDelete: (impedimento) => console.log("Delete: ", impedimento),
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
         },
         {
             id: '4',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             description: 'Quarto impedimento',
             title: 'Impedimento 4',
-            isGoalOwner: true
+            isGoalOwner: true,
+            handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
+            handleDelete: (impedimento) => console.log("Delete: ", impedimento),
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
         },
         {
             id: '5',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             description: 'Quinto impedimento',
             title: 'Impedimento 5',
-            isGoalOwner: true
+            isGoalOwner: true,
+            handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
+            handleDelete: (impedimento) => console.log("Delete: ", impedimento),
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
         },
         {
             id: '6',
@@ -67,7 +83,10 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             description: 'Oitavo impedimento',
             title: 'Impedimento 8',
-            isGoalOwner: true
+            isGoalOwner: true,
+            handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
+            handleDelete: (impedimento) => console.log("Delete: ", impedimento),
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
         },
         {
             id: '9',
@@ -84,9 +103,6 @@ withOptions.args = {
     ],
     onSaveNewImpedimento: (text) => console.log("Salvando impedimento: ", text),
     onSelectedTab: (impedimento) => console.log("Impedimento selecionado: ", impedimento),
-    handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
-    handleDelete: (impedimento) => console.log("Delete: ", impedimento),
-    handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
 }
 
 export const withoutOptions = Template.bind({})
