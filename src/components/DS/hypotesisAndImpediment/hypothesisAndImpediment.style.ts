@@ -4,12 +4,12 @@ import { VariantColorStyle } from './hypothesisAndImpediment';
 const backgroundColors = {
     hypothesis: {
         prioritize: '#FAB637',
-        raised: '#f8d784',
+        owner: '#f8d784',
         suggested: '#FBEECF',
     },
     impediment: {
         prioritize: '#D2ADE3',
-        raised: '#E5CBF1',
+        owner: '#E5CBF1',
         suggested: '#EFE1F6',
     }
 };
@@ -17,12 +17,12 @@ const backgroundColors = {
 const separatorColors = {
     hypothesis: {
         prioritize: '#CF8E11',
-        raised: '#C8A561',
+        owner: '#C8A561',
         suggested: '#E1CCA5',
     },
     impediment: {
         prioritize: '#AA83C3',
-        raised: '#BF9AD6',
+        owner: '#BF9AD6',
         suggested: '#DAB4EC',
     }
 }
@@ -30,12 +30,12 @@ const separatorColors = {
 export const borderAvatar ={
     hypothesis: {
         prioritize: '#C48000',
-        raised: '#EE9F08',
+        owner: '#EE9F08',
         suggested: '#EE9F08',
     },
     impediment: {
         prioritize: '#AD46FF',
-        raised: '#AD46FF',    
+        owner: '#AD46FF',    
         suggested: '#AD46FF',
     }
 }

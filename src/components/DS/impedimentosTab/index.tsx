@@ -31,6 +31,7 @@ export default function ImpedimentosTab({
     maxTabs,
     tabsList,
     showOptions,
+    showAddButton,
     onSaveNewImpedimento,
     onSelectedTab,
 }: ImpedimentosTabProps) {
@@ -101,19 +102,23 @@ export default function ImpedimentosTab({
                     <TabWrapper>
                         <Box display={'flex'} alignItems={'center'}>
                             {onShowTabs.map((item, index) => renderTabs(item, index) )}
-                            <Tooltip
-                                content='Sugerir impedimento'
-                                direction='bottom'
-                                delay={200}
-                                style={{textAlign: 'center'}}
-                            >
-                                <WrapperAddButton 
-                                    activeButton={openAddImpedimento}
-                                    onClick={handleClickAddImpedimento}
+                            {showAddButton ?
+                                <Tooltip
+                                    content='Sugerir impedimento'
+                                    direction='bottom'
+                                    delay={200}
+                                    style={{textAlign: 'center'}}
                                 >
-                                    <AddIcon />
-                                </WrapperAddButton>
-                            </Tooltip>
+                                    <WrapperAddButton 
+                                        activeButton={openAddImpedimento}
+                                        onClick={handleClickAddImpedimento}
+                                    >
+                                        <AddIcon />
+                                    </WrapperAddButton>
+                                </Tooltip>
+                                :
+                                <></>
+                            }
                         </Box>
                         <Box display={'flex'} alignItems={'center'}>
                             {onHideTabs.length > 0 ?

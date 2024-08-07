@@ -4,7 +4,7 @@ import { VariantColorStyle } from '../hypothesisAndImpediment';
 
 const backgroundColors = {
     prioritize: '#EE9F08',
-    raised: '#F1C24A',
+    owner: '#F1C24A',
     suggested: '#F9DF9F',
 };
 

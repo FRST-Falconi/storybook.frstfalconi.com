@@ -1,4 +1,4 @@
-export type HypothesisAndImpedimentType = 'prioritize' | 'raised' | 'suggested'
+export type HypothesisAndImpedimentType = 'prioritize' | 'owner' | 'suggested'
 
 
 export  interface IHypothesisAndImpedimentComponent {

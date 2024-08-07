@@ -15,6 +15,7 @@ export const withOptions = Template.bind({})
 withOptions.args = {
     maxTabs: 5,
     showOptions: true,
+    showAddButton: true,
     tabsList: [
         {
             id: '1',
@@ -109,6 +110,7 @@ export const withoutOptions = Template.bind({})
 withoutOptions.args = {
     maxTabs: 5,
     showOptions: false,
+    showAddButton: false,
     tabsList: [
         {
             id: '1',
