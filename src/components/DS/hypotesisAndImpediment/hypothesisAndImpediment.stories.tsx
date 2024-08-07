@@ -35,7 +35,8 @@ HipotesePriorizada.args = {
     hasEditHipotesisOrImpediment: true,
     hasUpdownButtons: true,
     onClickAction: () => alert('ver ações'),
-    onAddActions: (id) => alert(`add ações do id: ${id}`)
+    onAddActions: (id) => alert(`add ações do id: ${id}`),
+    hasAddActions: true
 }
 
 
@@ -57,7 +58,8 @@ HipoteseLevantada.args = {
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasEditHipotesisOrImpediment: true,
     hasUpdownButtons: true,
-    onAddActions: (id) => alert(`add ações ${id}`)
+    onAddActions: (id) => alert(`add ações ${id}`),
+    hasAddActions: true
 }
 
 HipoteseSugerida.args = {
@@ -78,8 +80,8 @@ HipoteseSugerida.args = {
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasEditHipotesisOrImpediment: true,
-    hasUpdownButtons: false
-
+    hasUpdownButtons: false,
+    hasAddActions: true
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -104,7 +106,8 @@ ImpedimentPriorizada.args = {
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasEditHipotesisOrImpediment: true,
-    hasUpdownButtons: true
+    hasUpdownButtons: true,
+    hasAddActions: false
 }
 
 ImpedimentLevantada.args = {
@@ -123,8 +126,8 @@ ImpedimentLevantada.args = {
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasEditHipotesisOrImpediment: true,
-    hasUpdownButtons: true
-
+    hasUpdownButtons: true,
+    hasAddActions: false
 }
 
 ImpedimentSugerida.args = {
@@ -143,7 +146,8 @@ ImpedimentSugerida.args = {
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasEditHipotesisOrImpediment: true,
-    hasUpdownButtons: false
+    hasUpdownButtons: false,
+    hasAddActions: false
 }
 
 
@@ -169,6 +173,7 @@ Vote.args = {
     voteText: 'Votar',
     hasEditHipotesisOrImpediment: true,
     hasUpdownButtons: true,
+    hasAddActions: false,
     votersList: [
         {
             useId: '123',

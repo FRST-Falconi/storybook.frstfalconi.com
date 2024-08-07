@@ -34,7 +34,8 @@ export const HypothesisAndImpediment = ({
     onUp,
     hasUpdownButtons,
     onClickAction,
-    onAddActions
+    onAddActions,
+    hasAddActions
 }: IHypothesisAndImpedimentComponent) => {
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
@@ -145,7 +146,7 @@ export const HypothesisAndImpediment = ({
                                             description: 'Editar',
                                             onClick: (e) => setIsEditing(true)
                                         },
-                                        variant === 'hypothesis' && isOwnerGoal &&
+                                        hasAddActions  && isOwnerGoal &&
                                         ({
                                             startIcon: <AddIcon fill="#222222" width="24px" height='24px' />,
                                             description: 'Adicionar ações',

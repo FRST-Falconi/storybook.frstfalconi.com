@@ -27,6 +27,7 @@ export  interface IHypothesisAndImpedimentComponent {
     hasUpdownButtons: boolean
     onClickAction?: () => void
     onAddActions?: (id: string) => void
+    hasAddActions?: boolean
 }
 
 export interface VariantColorStyle { type: string, variant?: string }
