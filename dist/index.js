@@ -576,8 +576,8 @@ function PlayResourceInfoIcon({ fill, width, height, fillOpacity, stroke, stroke
 function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
     return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V5.00016L9.66602 1.3335Z", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M9.33398 1.3335V5.3335H13.334", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
-function StarPrioritize() {
-    return (jsxRuntime.jsx("svg", { width: "20", height: "19", viewBox: "0 0 20 19", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.76629 1.56915C9.29428 0.584872 10.7057 0.584872 11.2337 1.56915L12.7175 4.33521C13.0927 5.03459 13.7667 5.52431 14.5478 5.665L17.637 6.2214C18.7362 6.41939 19.1724 7.76174 18.3995 8.56805L16.2273 10.834C15.6781 11.4069 15.4206 12.1993 15.5282 12.9856L15.9536 16.0955C16.105 17.2022 14.9631 18.0318 13.9574 17.5459L11.1312 16.1802C10.4166 15.8349 9.58342 15.8349 8.86882 16.1802L6.04256 17.5459C5.03686 18.0318 3.89499 17.2022 4.04638 16.0955L4.47182 12.9856C4.57939 12.1993 4.32193 11.4069 3.77271 10.834L1.60055 8.56805C0.827603 7.76174 1.26376 6.41939 2.36302 6.2214L5.45222 5.665C6.23329 5.52431 6.90734 5.03459 7.28251 4.33521L8.76629 1.56915Z", stroke: "#222222", strokeWidth: "1.2" }) }));
+function StarPrioritize({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
+    return (jsxRuntime.jsx("svg", { width: "20", height: "19", viewBox: "0 0 20 19", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.76629 1.56915C9.29428 0.584872 10.7057 0.584872 11.2337 1.56915L12.7175 4.33521C13.0927 5.03459 13.7667 5.52431 14.5478 5.665L17.637 6.2214C18.7362 6.41939 19.1724 7.76174 18.3995 8.56805L16.2273 10.834C15.6781 11.4069 15.4206 12.1993 15.5282 12.9856L15.9536 16.0955C16.105 17.2022 14.9631 18.0318 13.9574 17.5459L11.1312 16.1802C10.4166 15.8349 9.58342 15.8349 8.86882 16.1802L6.04256 17.5459C5.03686 18.0318 3.89499 17.2022 4.04638 16.0955L4.47182 12.9856C4.57939 12.1993 4.32193 11.4069 3.77271 10.834L1.60055 8.56805C0.827603 7.76174 1.26376 6.41939 2.36302 6.2214L5.45222 5.665C6.23329 5.52431 6.90734 5.03459 7.28251 4.33521L8.76629 1.56915Z", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2" }) }));
 }
 
 function styleInject(css, ref) {
@@ -7491,7 +7491,7 @@ function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimen
         }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
 }
 
-function ImpedimentosTab({ maxTabs, tabsList, showOptions, onSaveNewImpedimento, onSelectedTab, handleDelete, handleEdit, handlePriorize }) {
+function ImpedimentosTab({ maxTabs, tabsList, showOptions, onSaveNewImpedimento, onSelectedTab, }) {
     const [selectedTab, setSelectedTab] = React.useState(null);
     const [allTabs, setAllTabs] = React.useState([]);
     const [onShowTabs, setOnShowTabs] = React.useState([]);
@@ -7546,22 +7546,23 @@ function ImpedimentosTab({ maxTabs, tabsList, showOptions, onSaveNewImpedimento,
                                             :
                                                 jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px' }), jsxRuntime.jsx("p", { children: selectedTab.description }), showOptions ?
                                             jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
-                                                        {
-                                                            description: 'Priorizar',
-                                                            onClick: () => handlePriorize(selectedTab),
-                                                            startIcon: jsxRuntime.jsx(StarPrioritize, {})
-                                                        },
-                                                        {
-                                                            description: 'Editar',
-                                                            onClick: () => setIsEdit(true),
-                                                            startIcon: jsxRuntime.jsx(EditIcon, { fill: '#222222' })
-                                                        },
-                                                        {
-                                                            description: 'Excluir',
-                                                            onClick: () => handleDelete(selectedTab),
-                                                            startIcon: jsxRuntime.jsx(TrashIconNew, { fill: '#C00F00' }),
-                                                            color: '#C00F00'
-                                                        }
+                                                        ...(selectedTab?.handlePriorize ? [{
+                                                                description: 'Priorizar',
+                                                                onClick: () => selectedTab?.handlePriorize(selectedTab),
+                                                                disabled: !!selectedTab?.disabledPriorize,
+                                                                startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" })
+                                                            }] : []),
+                                                        ...(selectedTab?.handleEdit ? [{
+                                                                description: 'Editar',
+                                                                onClick: () => setIsEdit(true),
+                                                                startIcon: jsxRuntime.jsx(EditIcon, { fill: '#222222' })
+                                                            }] : []),
+                                                        ...(selectedTab?.handleDelete ? [{
+                                                                description: 'Excluir',
+                                                                onClick: () => selectedTab?.handleDelete(selectedTab),
+                                                                startIcon: jsxRuntime.jsx(TrashIconNew, { fill: '#C00F00' }),
+                                                                color: '#C00F00'
+                                                            }] : []),
                                                     ], closeAfterClick: true }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), isEdit ?
@@ -7569,7 +7570,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showOptions, onSaveNewImpedimento,
                                                             if (editDescription === '')
                                                                 return;
                                                             let editTab = { ...selectedTab, description: editDescription };
-                                                            handleEdit(editTab);
+                                                            selectedTab?.handleEdit(editTab);
                                                             setIsEdit(false);
                                                             setEditDescription('');
                                                         }, style: { cursor: editDescription === '' ? 'not-allowed' : 'pointer' }, children: jsxRuntime.jsx(CheckIconSimple, { fill: editDescription === '' ? '#9C9C9C' : '#1BA853' }) }), jsxRuntime.jsx(EditButtons, { buttonColor: '#FFE0E0', onClick: () => {
