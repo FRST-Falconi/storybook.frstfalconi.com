@@ -4,12 +4,12 @@ import { VariantColorStyle } from '../hypothesisAndImpediment';
 const backgroundColors = {
     hypothesis: {
         prioritize: '#EE9F08',
-        raised: '#F9CD5E',
+        owner: '#F9CD5E',
         suggested: '#FFE298',
     },
     impediment: {
         prioritize: '#C198D3',
-        raised: '#D9BAE8',
+        owner: '#D9BAE8',
         suggested: '#E6CEF1',
     }
 };

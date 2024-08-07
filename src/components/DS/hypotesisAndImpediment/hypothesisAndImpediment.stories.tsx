@@ -36,7 +36,7 @@ HipotesePriorizada.args = {
 
 HipoteseLevantada.args = {
     id: '2',
-    type: 'raised',
+    type: 'owner',
     variant: 'hypothesis',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
     index: 2,
@@ -99,7 +99,7 @@ ImpedimentPriorizada.args = {
 
 ImpedimentLevantada.args = {
     id: '2',
-    type: 'raised',
+    type: 'owner',
     variant: 'impediment',
     avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
     index: 2,
