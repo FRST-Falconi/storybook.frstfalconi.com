@@ -134,7 +134,7 @@ export const HypothesisAndImpediment = ({
                                 <MenuMore
                                     options={
                                         [
-                                            isOwnerGoal &&
+                                            hasUpdownButtons &&  isOwnerGoal &&
                                         ({
                                             startIcon: <StarPrioritize width='24px' height='24px' stroke={type === 'prioritize' ? "#b7b7b7" : "#222222"}/>,
                                             description: 'Priorizar',
