@@ -70,7 +70,7 @@ export default function MenuMore({
                     }}
                     isColor={itemOption?.color}
                     isDarkMode={isDarkMode}
-                    disabled={itemOption.disabled}
+                    disabled={itemOption?.disabled}
                     isContainerOptions={isContainerOptions}
                   >
                     {itemOption?.startIcon && <IconOption>{itemOption?.startIcon}</IconOption>}

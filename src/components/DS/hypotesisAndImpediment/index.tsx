@@ -159,9 +159,10 @@ export const HypothesisAndImpediment = ({
                                             onClick: () => onDeleteHipotesisOrImpediment(id),
                                             color: '#C00F00'
                                         }
-                                    ]
-                            }
-                            isContainerOptions={true}
+                                        ]
+                                    }
+                                    isContainerOptions={true}
+                                    closeAfterClick
                                 />
                             )}
                         </Styles.SplitContainerDescription>
