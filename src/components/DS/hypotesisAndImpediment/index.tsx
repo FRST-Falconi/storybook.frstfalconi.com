@@ -3,7 +3,7 @@ import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment'
 import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
 import MenuMore from '@components/menu-more'
-import { EditIcon, StarPrioritize, TrashDelete } from '@shared/icons'
+import { AddIcon, EditIcon, StarPrioritize, TrashDelete } from '@shared/icons'
 import Tooltip from '../tooltip'
 import UpDownButtons from './UpDownButtons'
 import { Voting } from './Voting'
@@ -31,7 +31,10 @@ export const HypothesisAndImpediment = ({
     onVote,
     onPrioritize,
     onDown,
-    onUp
+    onUp,
+    hasUpdownButtons,
+    onClickAction,
+    onAddActions
 }: IHypothesisAndImpedimentComponent) => {
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
@@ -67,6 +70,11 @@ export const HypothesisAndImpediment = ({
         return false
     }, [type, hasEditHipotesisOrImpediment, authorGoalId, authorId, userLoggedId])
 
+    const handleClickAction = (event) => {
+        event.stopPropagation();
+        onClickAction()
+    };
+
     return (
         <>
             <Styles.MainContainer>
@@ -81,13 +89,13 @@ export const HypothesisAndImpediment = ({
                 ) : (
                     <Styles.ContainerHypotheis type={type} variant={variant}>
                         {
-                            isOwnerGoal &&
-                            <UpDownButtons
-                            type={type}
-                            variant={variant}
-                            onDownClick={() => onDown(id, index)}
-                            onUpClick={() => onUp(id, index)}
-                        />
+                            hasUpdownButtons && isOwnerGoal &&
+                                <UpDownButtons
+                                type={type}
+                                variant={variant}
+                                onDownClick={() => onDown(id, index)}
+                                onUpClick={() => onUp(id, index)}
+                                />
                         }
                         <Styles.SplitContainerDescription>
                             <Tooltip
@@ -117,51 +125,42 @@ export const HypothesisAndImpediment = ({
                             <Styles.Title>{title}</Styles.Title>
                             <Styles.Separator type={type} variant={variant} />
 
-                            <Styles.Description>{editDescription}</Styles.Description>
+                            <Styles.Description onClick={handleClickAction}>{editDescription}</Styles.Description>
                             {hasVoting && (
                                 <Voting voteText={voteText} type={type} onDeleteVote={onDeleteVote} votersList={votersList} onVote={() => onVote(id)} />
                             )}
                             {validHasEditHipotesisOrImpediment && (
                                 <MenuMore
                                     options={
-                                        isOwnerGoal ?
                                         [
-                                        {
-                                            startIcon: <StarPrioritize />,
+                                            isOwnerGoal &&
+                                        ({
+                                            startIcon: <StarPrioritize width='24px' height='24px' stroke={type === 'prioritize' ? "#b7b7b7" : "#222222"}/>,
                                             description: 'Priorizar',
                                             onClick: () => onPrioritize(id),
                                             disabled: type === 'prioritize'
-                                        },
+                                        }),
                                         {
-                                            startIcon: <EditIcon fill="#222222" width="24px" />,
+                                            startIcon: <EditIcon fill="#222222" width="24px" height='24px'/>,
                                             description: 'Editar',
                                             onClick: (e) => setIsEditing(true)
                                         },
+                                        variant === 'hypothesis' && isOwnerGoal &&
+                                        ({
+                                            startIcon: <AddIcon fill="#222222" width="24px" height='24px' />,
+                                            description: 'Adicionar ações',
+                                            onClick: () => onAddActions(id),
+                                            color: '#222222' 
+                                        }),
                                         {
-                                            startIcon: <TrashDelete fill="#C00F00" width="24px" />,
+                                            startIcon: <TrashDelete fill="#C00F00" />,
                                             description: 'Excluir',
                                             onClick: () => onDeleteHipotesisOrImpediment(id),
                                             color: '#C00F00'
                                         }
                                     ]
-                                :
-
-                                [
-                                    {
-                                        startIcon: <EditIcon fill="#222222" width="24px" />,
-                                        description: 'Editar',
-                                        onClick: (e) => setIsEditing(true)
-                                    },
-                                    {
-                                        startIcon: <TrashDelete fill="#C00F00" width="24px" />,
-                                        description: 'Excluir',
-                                        onClick: () => onDeleteHipotesisOrImpediment(id),
-                                        color: '#C00F00'
-                                    }
-                                ]
-                                
-                                }
-
+                            }
+                            isContainerOptions={true}
                                 />
                             )}
                         </Styles.SplitContainerDescription>

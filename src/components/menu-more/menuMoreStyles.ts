@@ -7,6 +7,7 @@ import styled from 'styled-components'
 interface IButtonMenuProps {
   isColor?: string; 
   isDarkMode?: boolean;
+  isContainerOptions?: boolean;
 }
 
 
@@ -118,12 +119,12 @@ export const TextOption = styled.div`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 17.6px;
+  /* line-height: 17.6px; */
 `
 
 export const IconOption = styled.div`
-  width: 20px;
-  height: 30px;
+  /* width: 20px;
+  height: 30px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,7 +134,7 @@ export const ButtonMenuNotification = styled.button<IButtonMenuProps>`
   width: 100% !important;
   text-decoration: none !important;
   color: ${({ isColor }) => (isColor ? isColor: `#FFFFF`)} !important;
-  padding: 6px 16px !important;
+  padding: ${({ isContainerOptions }) => isContainerOptions ? '4px 10px 4px 8px' : ' 6px 16px !important'};
   border: none !important;
   background: transparent !important;
   font-family: 'PT Sans' !important;
@@ -145,7 +146,6 @@ export const ButtonMenuNotification = styled.button<IButtonMenuProps>`
   align-items: center !important;
   gap: 8px !important;
   cursor: ${({ disabled }) => disabled ? 'default !important' : 'pointer !important'};
-
   :hover {
     background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
   }

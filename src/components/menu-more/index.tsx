@@ -17,7 +17,8 @@ export default function MenuMore({
   isHover = true,
   isArrowInMenu = true,
   isPaddingInMenu = true,
-  isDarkMode = false
+  isDarkMode = false,
+  isContainerOptions
 }: IMenuMore) {
   const [listOptions, setListOptions] = useState(options)
 
@@ -70,6 +71,7 @@ export default function MenuMore({
                     isColor={itemOption?.color}
                     isDarkMode={isDarkMode}
                     disabled={itemOption.disabled}
+                    isContainerOptions={isContainerOptions}
                   >
                     {itemOption?.startIcon && <IconOption>{itemOption?.startIcon}</IconOption>}
                     {itemOption?.description}

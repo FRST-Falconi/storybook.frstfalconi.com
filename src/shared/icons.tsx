@@ -392,8 +392,8 @@ export function Trash({ fill, width, height }: IconsProps) {
 export function TrashDelete({ fill, width, height }: IconsProps) {
   return (
     <svg
-      width={width ?? '24'}
-      height={height ?? '24'}
+      width={width ? width:'24'}
+      height={height ? height:'24'}
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -988,14 +988,14 @@ export function AddIcon({ fill, width, height }: IconsProps) {
       <path
         d="M8.16992 1V15"
         stroke={fill ? fill : '#0645AD'}
-        strokeWidth="2"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M1.16992 8H15.1699"
         stroke={fill ? fill : '#0645AD'}
-        strokeWidth="2"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -3930,9 +3930,9 @@ export function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, str
   )
 }
 
-export function StarPrioritize ({ fill, width, height, fillOpacity, stroke, strokeWidth }: IconsProps) {
+export function StarPrioritize ({ fill, width ,height, fillOpacity, stroke, strokeWidth }: IconsProps) {
   return (
-    <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width ? width : '20'} height={height ? height : '19'} viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M8.76629 1.56915C9.29428 0.584872 10.7057 0.584872 11.2337 1.56915L12.7175 4.33521C13.0927 5.03459 13.7667 5.52431 14.5478 5.665L17.637 6.2214C18.7362 6.41939 19.1724 7.76174 18.3995 8.56805L16.2273 10.834C15.6781 11.4069 15.4206 12.1993 15.5282 12.9856L15.9536 16.0955C16.105 17.2022 14.9631 18.0318 13.9574 17.5459L11.1312 16.1802C10.4166 15.8349 9.58342 15.8349 8.86882 16.1802L6.04256 17.5459C5.03686 18.0318 3.89499 17.2022 4.04638 16.0955L4.47182 12.9856C4.57939 12.1993 4.32193 11.4069 3.77271 10.834L1.60055 8.56805C0.827603 7.76174 1.26376 6.41939 2.36302 6.2214L5.45222 5.665C6.23329 5.52431 6.90734 5.03459 7.28251 4.33521L8.76629 1.56915Z" stroke={stroke ? stroke : "#222222" } strokeWidth="1.2"/>
     </svg>
   )

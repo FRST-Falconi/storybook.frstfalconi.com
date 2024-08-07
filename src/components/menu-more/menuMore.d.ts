@@ -19,4 +19,5 @@ export interface IMenuMore {
     isArrowInMenu?: boolean;
     isPaddingInMenu?: boolean;
     isDarkMode?: boolean;
+    isContainerOptions?: boolean;
 }
