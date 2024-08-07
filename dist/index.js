@@ -7491,7 +7491,7 @@ function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimen
         }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
 }
 
-function ImpedimentosTab({ maxTabs, tabsList, showOptions, onSaveNewImpedimento, onSelectedTab, }) {
+function ImpedimentosTab({ maxTabs, tabsList, showOptions, showAddButton, onSaveNewImpedimento, onSelectedTab, }) {
     const [selectedTab, setSelectedTab] = React.useState(null);
     const [allTabs, setAllTabs] = React.useState([]);
     const [onShowTabs, setOnShowTabs] = React.useState([]);
@@ -7537,7 +7537,10 @@ function ImpedimentosTab({ maxTabs, tabsList, showOptions, onSaveNewImpedimento,
         return (jsxRuntime.jsx(Tab, { selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
     };
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: allTabs.length > 0 ?
-            jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), jsxRuntime.jsx(Tooltip$2, { content: 'Sugerir impedimento', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsx(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: jsxRuntime.jsx(AddIcon, {}) }) })] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: onHideTabs.length > 0 ?
+            jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), showAddButton ?
+                                        jsxRuntime.jsx(Tooltip$2, { content: 'Sugerir impedimento', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsx(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: jsxRuntime.jsx(AddIcon, {}) }) })
+                                        :
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: onHideTabs.length > 0 ?
                                     jsxRuntime.jsx(Tooltip$2, { content: 'Ver todos os impedimentos', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })
                                     :
                                         jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }), selectedTab?.id ?
@@ -7588,36 +7591,36 @@ function ImpedimentosTab({ maxTabs, tabsList, showOptions, onSaveNewImpedimento,
 const backgroundColors$2 = {
     hypothesis: {
         prioritize: '#FAB637',
-        raised: '#f8d784',
+        owner: '#f8d784',
         suggested: '#FBEECF',
     },
     impediment: {
         prioritize: '#D2ADE3',
-        raised: '#E5CBF1',
+        owner: '#E5CBF1',
         suggested: '#EFE1F6',
     }
 };
 const separatorColors = {
     hypothesis: {
         prioritize: '#CF8E11',
-        raised: '#C8A561',
+        owner: '#C8A561',
         suggested: '#E1CCA5',
     },
     impediment: {
         prioritize: '#AA83C3',
-        raised: '#BF9AD6',
+        owner: '#BF9AD6',
         suggested: '#DAB4EC',
     }
 };
 const borderAvatar = {
     hypothesis: {
         prioritize: '#C48000',
-        raised: '#EE9F08',
+        owner: '#EE9F08',
         suggested: '#EE9F08',
     },
     impediment: {
         prioritize: '#AD46FF',
-        raised: '#AD46FF',
+        owner: '#AD46FF',
         suggested: '#AD46FF',
     }
 };
@@ -7683,12 +7686,12 @@ const Description$4 = styled__default["default"].span `
 const backgroundColors$1 = {
     hypothesis: {
         prioritize: '#EE9F08',
-        raised: '#F9CD5E',
+        owner: '#F9CD5E',
         suggested: '#FFE298',
     },
     impediment: {
         prioritize: '#C198D3',
-        raised: '#D9BAE8',
+        owner: '#D9BAE8',
         suggested: '#E6CEF1',
     }
 };
@@ -7721,7 +7724,7 @@ const UpDownButtons = ({ onUpClick, onDownClick, type, variant }) => (jsxRuntime
 
 const backgroundColors = {
     prioritize: '#EE9F08',
-    raised: '#F1C24A',
+    owner: '#F1C24A',
     suggested: '#F9DF9F',
 };
 const ContainerVoting = styled__default["default"].div `
