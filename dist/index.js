@@ -3592,7 +3592,7 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
                         return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(ButtonMenuNotification, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
-                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, disabled: itemOption.disabled, isContainerOptions: isContainerOptions, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
+                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, disabled: itemOption?.disabled, isContainerOptions: isContainerOptions, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
                     }) }))] }) }));
 }
 
@@ -7970,7 +7970,7 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
                                         onClick: () => onDeleteHipotesisOrImpediment(id),
                                         color: '#C00F00'
                                     }
-                                ], isContainerOptions: true }))] })] })) }) }));
+                                ], isContainerOptions: true, closeAfterClick: true }))] })] })) }) }));
 };
 
 const Container$g = styled__default["default"].div `
