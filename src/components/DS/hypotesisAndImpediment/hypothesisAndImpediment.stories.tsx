@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HypothesisAndImpediment } from './index';
+
 
 export default {
     title: 'DS/HypothesisAndImpediment',
@@ -13,6 +14,7 @@ export const HipotesePriorizada = Template.bind({})
 export const HipoteseLevantada = Template.bind({})
 
 export const HipoteseSugerida = Template.bind({})
+
 
 HipotesePriorizada.args = {
     id: '1',
@@ -31,8 +33,12 @@ HipotesePriorizada.args = {
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasEditHipotesisOrImpediment: true,
-
+    hasUpdownButtons: true,
+    onClickAction: () => alert('ver ações'),
+    onAddActions: (id) => alert(`add ações do id: ${id}`),
+    hasAddActions: true
 }
+
 
 HipoteseLevantada.args = {
     id: '2',
@@ -50,7 +56,10 @@ HipoteseLevantada.args = {
     voteText: 'Votar',
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
-    hasEditHipotesisOrImpediment: true
+    hasEditHipotesisOrImpediment: true,
+    hasUpdownButtons: true,
+    onAddActions: (id) => alert(`add ações ${id}`),
+    hasAddActions: true
 }
 
 HipoteseSugerida.args = {
@@ -70,7 +79,9 @@ HipoteseSugerida.args = {
     voteText: 'Votar',
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
-    hasEditHipotesisOrImpediment: true
+    hasEditHipotesisOrImpediment: true,
+    hasUpdownButtons: false,
+    hasAddActions: true
 }
 
 export const ImpedimentPriorizada = Template.bind({})
@@ -94,7 +105,9 @@ ImpedimentPriorizada.args = {
     hasVoting: false,
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
-    hasEditHipotesisOrImpediment: true
+    hasEditHipotesisOrImpediment: true,
+    hasUpdownButtons: true,
+    hasAddActions: false
 }
 
 ImpedimentLevantada.args = {
@@ -112,7 +125,9 @@ ImpedimentLevantada.args = {
     hasVoting: false,
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
-    hasEditHipotesisOrImpediment: true
+    hasEditHipotesisOrImpediment: true,
+    hasUpdownButtons: true,
+    hasAddActions: false
 }
 
 ImpedimentSugerida.args = {
@@ -130,7 +145,9 @@ ImpedimentSugerida.args = {
     hasVoting: false,
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado o impedimento de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
-    hasEditHipotesisOrImpediment: true
+    hasEditHipotesisOrImpediment: true,
+    hasUpdownButtons: false,
+    hasAddActions: false
 }
 
 
@@ -155,6 +172,8 @@ Vote.args = {
     hasVoting: true,
     voteText: 'Votar',
     hasEditHipotesisOrImpediment: true,
+    hasUpdownButtons: true,
+    hasAddActions: false,
     votersList: [
         {
             useId: '123',

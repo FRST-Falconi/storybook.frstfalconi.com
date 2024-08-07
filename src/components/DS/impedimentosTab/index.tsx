@@ -177,6 +177,7 @@ export default function ImpedimentosTab({
                                                 }] : []),
                                             ]}
                                             closeAfterClick
+                                            isContainerOptions={true}
                                         />
                                     </WrapperMenuMore>
                                     :

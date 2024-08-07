@@ -176,7 +176,7 @@ function Trash({ fill, width, height }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '14', height: height ? height : '16', viewBox: `0 0 ${width ? width : '14'} ${height ? height : '16'}`, fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { fillRule: "evenodd", clipRule: "evenodd", d: "M5.43064 2.09763C5.49315 2.03512 5.57794 2 5.66634 2H8.33301C8.42141 2 8.5062 2.03512 8.56871 2.09763C8.63122 2.16014 8.66634 2.24493 8.66634 2.33333V2.66667H5.33301V2.33333C5.33301 2.24493 5.36813 2.16014 5.43064 2.09763ZM10.6663 2.33333V2.66667H11.6663C11.6674 2.66667 11.6685 2.66667 11.6695 2.66667H13C13.5523 2.66667 14 3.11439 14 3.66667C14 4.21896 13.5523 4.66667 13 4.66667H12.6663V13C12.6663 13.6188 12.4205 14.2123 11.9829 14.6499C11.5453 15.0875 10.9518 15.3333 10.333 15.3333H3.66634C3.0475 15.3333 2.45401 15.0875 2.01643 14.6499C1.57884 14.2123 1.33301 13.6188 1.33301 13V4.66667H1C0.447715 4.66667 0 4.21896 0 3.66667C0 3.11439 0.447715 2.66667 1 2.66667H2.32981C2.33087 2.66667 2.33194 2.66667 2.33301 2.66667H3.33301V2.33333C3.33301 1.71449 3.57884 1.121 4.01643 0.683417C4.45401 0.245833 5.0475 0 5.66634 0H8.33301C8.95185 0 9.54534 0.245833 9.98292 0.683417C10.4205 1.121 10.6663 1.71449 10.6663 2.33333ZM3.33301 4.66667V13C3.33301 13.0884 3.36813 13.1732 3.43064 13.2357C3.49315 13.2982 3.57794 13.3333 3.66634 13.3333H10.333C10.4214 13.3333 10.5062 13.2982 10.5687 13.2357C10.6312 13.1732 10.6663 13.0884 10.6663 13V4.66667L3.33301 4.66667Z", fill: fill ? fill : '#0645AD' }) }));
 }
 function TrashDelete({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ?? '24', height: height ?? '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.36035 7.33398H6.13813H20.3604", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.9054 7.5V18.4C18.9054 18.8243 18.7083 19.2313 18.3576 19.5314C18.0069 19.8314 17.5312 20 17.0352 20H7.68458C7.18859 20 6.71292 19.8314 6.3622 19.5314C6.01148 19.2313 5.81445 18.8243 5.81445 18.4V7.5M8.61965 7.2V5.6C8.61965 5.17565 8.81668 4.76869 9.1674 4.46863C9.51811 4.16857 9.99379 4 10.4898 4H14.23C14.726 4 15.2017 4.16857 15.5524 4.46863C15.9031 4.76869 16.1002 5.17565 16.1002 5.6V7.2", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '24', height: height ? height : '24', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M4.36035 7.33398H6.13813H20.3604", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.9054 7.5V18.4C18.9054 18.8243 18.7083 19.2313 18.3576 19.5314C18.0069 19.8314 17.5312 20 17.0352 20H7.68458C7.18859 20 6.71292 19.8314 6.3622 19.5314C6.01148 19.2313 5.81445 18.8243 5.81445 18.4V7.5M8.61965 7.2V5.6C8.61965 5.17565 8.81668 4.76869 9.1674 4.46863C9.51811 4.16857 9.99379 4 10.4898 4H14.23C14.726 4 15.2017 4.16857 15.5524 4.46863C15.9031 4.76869 16.1002 5.17565 16.1002 5.6V7.2", stroke: fill ?? '#923534', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function AlertCicle({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '16', height: height ? height : '16', viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z", stroke: fill ?? '#FF0000', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 8V12", stroke: fill ?? '#FF0000', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12 16H12.01", stroke: fill ?? '#FF0000', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -245,7 +245,7 @@ function CloseIcon$1({ fill, width = '12', height = '12' }) {
     return (jsxRuntime.jsxs("svg", { width: width, height: height, viewBox: "0 0 12 12", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M11.3334 0.666687L0.666748 11.3334", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M0.666748 0.666687L11.3334 11.3334", stroke: fill ? fill : '#222222', strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function AddIcon({ fill, width, height }) {
-    return (jsxRuntime.jsxs("svg", { width: width ? width : '17', height: height ? height : '16', viewBox: "0 0 17 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.16992 1V15", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16992 8H15.1699", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+    return (jsxRuntime.jsxs("svg", { width: width ? width : '17', height: height ? height : '16', viewBox: "0 0 17 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M8.16992 1V15", stroke: fill ? fill : '#0645AD', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M1.16992 8H15.1699", stroke: fill ? fill : '#0645AD', strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function OpenedEye({ fill, width, height }) {
     return (jsxRuntime.jsxs("svg", { width: width ? width : '32', height: height ? height : '32', viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M5.33337 16C5.33337 16 9.21216 8 16 8C22.7879 8 26.6667 16 26.6667 16C26.6667 16 22.7879 24 16 24C9.21216 24 5.33337 16 5.33337 16Z", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M16 18.6663C17.4728 18.6663 18.6667 17.4724 18.6667 15.9997C18.6667 14.5269 17.4728 13.333 16 13.333C14.5273 13.333 13.3334 14.5269 13.3334 15.9997C13.3334 17.4724 14.5273 18.6663 16 18.6663Z", stroke: fill ? fill : '#0645AD', strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
@@ -577,7 +577,7 @@ function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, stroke, st
     return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M9.66602 1.3335H3.99935C3.64573 1.3335 3.30659 1.47397 3.05654 1.72402C2.80649 1.97407 2.66602 2.31321 2.66602 2.66683V13.3335C2.66602 13.6871 2.80649 14.0263 3.05654 14.2763C3.30659 14.5264 3.64573 14.6668 3.99935 14.6668H11.9993C12.353 14.6668 12.6921 14.5264 12.9422 14.2763C13.1922 14.0263 13.3327 13.6871 13.3327 13.3335V5.00016L9.66602 1.3335Z", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M9.33398 1.3335V5.3335H13.334", stroke: "#222222", strokeLinecap: "round", strokeLinejoin: "round" })] }));
 }
 function StarPrioritize({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
-    return (jsxRuntime.jsx("svg", { width: "20", height: "19", viewBox: "0 0 20 19", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.76629 1.56915C9.29428 0.584872 10.7057 0.584872 11.2337 1.56915L12.7175 4.33521C13.0927 5.03459 13.7667 5.52431 14.5478 5.665L17.637 6.2214C18.7362 6.41939 19.1724 7.76174 18.3995 8.56805L16.2273 10.834C15.6781 11.4069 15.4206 12.1993 15.5282 12.9856L15.9536 16.0955C16.105 17.2022 14.9631 18.0318 13.9574 17.5459L11.1312 16.1802C10.4166 15.8349 9.58342 15.8349 8.86882 16.1802L6.04256 17.5459C5.03686 18.0318 3.89499 17.2022 4.04638 16.0955L4.47182 12.9856C4.57939 12.1993 4.32193 11.4069 3.77271 10.834L1.60055 8.56805C0.827603 7.76174 1.26376 6.41939 2.36302 6.2214L5.45222 5.665C6.23329 5.52431 6.90734 5.03459 7.28251 4.33521L8.76629 1.56915Z", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2" }) }));
+    return (jsxRuntime.jsx("svg", { width: width ? width : '20', height: height ? height : '19', viewBox: "0 0 20 19", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.76629 1.56915C9.29428 0.584872 10.7057 0.584872 11.2337 1.56915L12.7175 4.33521C13.0927 5.03459 13.7667 5.52431 14.5478 5.665L17.637 6.2214C18.7362 6.41939 19.1724 7.76174 18.3995 8.56805L16.2273 10.834C15.6781 11.4069 15.4206 12.1993 15.5282 12.9856L15.9536 16.0955C16.105 17.2022 14.9631 18.0318 13.9574 17.5459L11.1312 16.1802C10.4166 15.8349 9.58342 15.8349 8.86882 16.1802L6.04256 17.5459C5.03686 18.0318 3.89499 17.2022 4.04638 16.0955L4.47182 12.9856C4.57939 12.1993 4.32193 11.4069 3.77271 10.834L1.60055 8.56805C0.827603 7.76174 1.26376 6.41939 2.36302 6.2214L5.45222 5.665C6.23329 5.52431 6.90734 5.03459 7.28251 4.33521L8.76629 1.56915Z", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2" }) }));
 }
 
 function styleInject(css, ref) {
@@ -3545,11 +3545,11 @@ styled__default["default"].div `
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 17.6px;
+  /* line-height: 17.6px; */
 `;
 const IconOption = styled__default["default"].div `
-  width: 20px;
-  height: 30px;
+  /* width: 20px;
+  height: 30px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3558,7 +3558,7 @@ const ButtonMenuNotification = styled__default["default"].button `
   width: 100% !important;
   text-decoration: none !important;
   color: ${({ isColor }) => (isColor ? isColor : `#FFFFF`)} !important;
-  padding: 6px 16px !important;
+  padding: ${({ isContainerOptions }) => isContainerOptions ? '4px 10px 4px 8px' : ' 6px 16px !important'};
   border: none !important;
   background: transparent !important;
   font-family: 'PT Sans' !important;
@@ -3570,13 +3570,12 @@ const ButtonMenuNotification = styled__default["default"].button `
   align-items: center !important;
   gap: 8px !important;
   cursor: ${({ disabled }) => disabled ? 'default !important' : 'pointer !important'};
-
   :hover {
     background-color: ${({ isDarkMode }) => (isDarkMode ? ` rgb(82, 82, 82) !important` : `#F7F9FC !important;`)};
   }
 `;
 
-function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true, isArrowInMenu = true, isPaddingInMenu = true, isDarkMode = false }) {
+function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true, isArrowInMenu = true, isPaddingInMenu = true, isDarkMode = false, isContainerOptions }) {
     const [listOptions, setListOptions] = React.useState(options);
     React.useEffect(() => {
         setListOptions(options);
@@ -3593,7 +3592,7 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
                         return (jsxRuntime.jsx(material.Box, { children: jsxRuntime.jsxs(ButtonMenuNotification, { onClick: () => {
                                     itemOption?.onClick();
                                     closeAfterClick && handleClose();
-                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, disabled: itemOption.disabled, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
+                                }, isColor: itemOption?.color, isDarkMode: isDarkMode, disabled: itemOption.disabled, isContainerOptions: isContainerOptions, children: [itemOption?.startIcon && jsxRuntime.jsx(IconOption, { children: itemOption?.startIcon }), itemOption?.description] }) }, index));
                     }) }))] }) }));
 }
 
@@ -7566,7 +7565,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showOptions, showAddButton, onSave
                                                                 startIcon: jsxRuntime.jsx(TrashIconNew, { fill: '#C00F00' }),
                                                                 color: '#C00F00'
                                                             }] : []),
-                                                    ], closeAfterClick: true }) })
+                                                    ], closeAfterClick: true, isContainerOptions: true }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), isEdit ?
                                     jsxRuntime.jsxs(EditWrapper, { children: [jsxRuntime.jsx(TextField, { placeholder: selectedTab.description, value: editDescription, onChange: (e) => setEditDescription(e.target.value), style: { width: '100%' } }), jsxRuntime.jsxs(material.Box, { display: 'flex', gap: '8px', children: [jsxRuntime.jsx(EditButtons, { buttonColor: editDescription === '' ? '#EBEBEB' : '#D1F6D1', onClick: () => {
@@ -7898,7 +7897,7 @@ const EditHypotesisAndImpediment = ({ setEditDescription, editDescription, onSav
 const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index, authorGoalId, // id do dono do desafio
 userLoggedId, authorName, // nome autor da hipotese ou do impedimento
 handleViewProfile, authorId, // id do autor do impedimento ou da hipotese
-hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp }) => {
+hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp, hasUpdownButtons, onClickAction, onAddActions, hasAddActions }) => {
     const [editDescription, setEditDescription] = React.useState(description);
     const [isEditing, setIsEditing] = React.useState(false);
     const isOwnerGoal = authorGoalId === userLoggedId;
@@ -7929,7 +7928,11 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
         }
         return false;
     }, [type, hasEditHipotesisOrImpediment, authorGoalId, authorId, userLoggedId]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(MainContainer, { children: isEditing ? (jsxRuntime.jsx(EditHypotesisAndImpediment, { setEditDescription: setEditDescription, editDescription: editDescription, onSave: handleSaveDescription, onCancel: handleCancel, originalDescription: description })) : (jsxRuntime.jsxs(ContainerHypotheis, { type: type, variant: variant, children: [isOwnerGoal &&
+    const handleClickAction = (event) => {
+        event.stopPropagation();
+        onClickAction();
+    };
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(MainContainer, { children: isEditing ? (jsxRuntime.jsx(EditHypotesisAndImpediment, { setEditDescription: setEditDescription, editDescription: editDescription, onSave: handleSaveDescription, onCancel: handleCancel, originalDescription: description })) : (jsxRuntime.jsxs(ContainerHypotheis, { type: type, variant: variant, children: [hasUpdownButtons && isOwnerGoal &&
                         jsxRuntime.jsx(UpDownButtons, { type: type, variant: variant, onDownClick: () => onDown(id, index), onUpClick: () => onUp(id, index) }), jsxRuntime.jsxs(SplitContainerDescription, { children: [jsxRuntime.jsx(Tooltip$2, { content: authorName, direction: 'bottom', style: {
                                     fontFamily: 'PT Sans',
                                     fontWeight: 400,
@@ -7941,40 +7944,33 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
                                     left: '4px',
                                     whiteSpace: 'nowrap',
                                     boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { children: editDescription }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id) })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: isOwnerGoal ?
-                                    [
-                                        {
-                                            startIcon: jsxRuntime.jsx(StarPrioritize, {}),
+                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, children: editDescription }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id) })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
+                                    hasUpdownButtons && isOwnerGoal &&
+                                        ({
+                                            startIcon: jsxRuntime.jsx(StarPrioritize, { width: '24px', height: '24px', stroke: type === 'prioritize' ? "#b7b7b7" : "#222222" }),
                                             description: 'Priorizar',
                                             onClick: () => onPrioritize(id),
                                             disabled: type === 'prioritize'
-                                        },
-                                        {
-                                            startIcon: jsxRuntime.jsx(EditIcon, { fill: "#222222", width: "24px" }),
-                                            description: 'Editar',
-                                            onClick: (e) => setIsEditing(true)
-                                        },
-                                        {
-                                            startIcon: jsxRuntime.jsx(TrashDelete, { fill: "#C00F00", width: "24px" }),
-                                            description: 'Excluir',
-                                            onClick: () => onDeleteHipotesisOrImpediment(id),
-                                            color: '#C00F00'
-                                        }
-                                    ]
-                                    :
-                                        [
-                                            {
-                                                startIcon: jsxRuntime.jsx(EditIcon, { fill: "#222222", width: "24px" }),
-                                                description: 'Editar',
-                                                onClick: (e) => setIsEditing(true)
-                                            },
-                                            {
-                                                startIcon: jsxRuntime.jsx(TrashDelete, { fill: "#C00F00", width: "24px" }),
-                                                description: 'Excluir',
-                                                onClick: () => onDeleteHipotesisOrImpediment(id),
-                                                color: '#C00F00'
-                                            }
-                                        ] }))] })] })) }) }));
+                                        }),
+                                    {
+                                        startIcon: jsxRuntime.jsx(EditIcon, { fill: "#222222", width: "24px", height: '24px' }),
+                                        description: 'Editar',
+                                        onClick: (e) => setIsEditing(true)
+                                    },
+                                    hasAddActions && isOwnerGoal &&
+                                        ({
+                                            startIcon: jsxRuntime.jsx(AddIcon, { fill: "#222222", width: "24px", height: '24px' }),
+                                            description: 'Adicionar ações',
+                                            onClick: () => onAddActions(id),
+                                            color: '#222222'
+                                        }),
+                                    {
+                                        startIcon: jsxRuntime.jsx(TrashDelete, { fill: "#C00F00" }),
+                                        description: 'Excluir',
+                                        onClick: () => onDeleteHipotesisOrImpediment(id),
+                                        color: '#C00F00'
+                                    }
+                                ], isContainerOptions: true }))] })] })) }) }));
 };
 
 const Container$g = styled__default["default"].div `

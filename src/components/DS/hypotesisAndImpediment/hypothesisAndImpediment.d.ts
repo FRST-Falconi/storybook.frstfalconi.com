@@ -24,6 +24,10 @@ export  interface IHypothesisAndImpedimentComponent {
     onUp?: (id: string, index: number) => void
     onDown?: (id: string, index: number) => void
     hasEditHipotesisOrImpediment: boolean
+    hasUpdownButtons: boolean
+    onClickAction?: () => void
+    onAddActions?: (id: string) => void
+    hasAddActions?: boolean
 }
 
 export interface VariantColorStyle { type: string, variant?: string }
