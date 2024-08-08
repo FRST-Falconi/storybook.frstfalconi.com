@@ -7901,6 +7901,9 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
     const [editDescription, setEditDescription] = React.useState(description);
     const [isEditing, setIsEditing] = React.useState(false);
     const isOwnerGoal = authorGoalId === userLoggedId;
+    React.useEffect(() => {
+        setEditDescription(description);
+    }, [description]);
     const title = React.useMemo(() => {
         if (type === 'prioritize' && variant === 'hypothesis')
             return 'HIPÓTESE PRIORIZADA';
