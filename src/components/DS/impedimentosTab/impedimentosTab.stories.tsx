@@ -14,7 +14,6 @@ const Template = (args) => <ImpedimentosTab {...args} />
 export const withOptions = Template.bind({})
 withOptions.args = {
     maxTabs: 5,
-    showOptions: true,
     showAddButton: true,
     tabsList: [
         {
@@ -24,6 +23,7 @@ withOptions.args = {
             title: 'Impedimento 1',
             isGoalOwner: true,
             disabledPriorize: true,
+            showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
             handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
@@ -33,6 +33,7 @@ withOptions.args = {
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
             description: 'Segundo impedimento',
             title: 'Impedimento 2',
+            showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
             handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
@@ -43,6 +44,7 @@ withOptions.args = {
             description: 'Terceiro impedimento',
             title: 'Impedimento 3',
             isGoalOwner: false,
+            showOptions: false,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
             handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
@@ -53,6 +55,7 @@ withOptions.args = {
             description: 'Quarto impedimento',
             title: 'Impedimento 4',
             isGoalOwner: true,
+            showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
             handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
@@ -63,6 +66,7 @@ withOptions.args = {
             description: 'Quinto impedimento',
             title: 'Impedimento 5',
             isGoalOwner: true,
+            showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
             handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
@@ -85,6 +89,7 @@ withOptions.args = {
             description: 'Oitavo impedimento',
             title: 'Impedimento 8',
             isGoalOwner: true,
+            showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
             handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)

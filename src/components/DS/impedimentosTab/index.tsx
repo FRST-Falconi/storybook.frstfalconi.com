@@ -30,7 +30,6 @@ import TextField from '@components/form-elements/textfield'
 export default function ImpedimentosTab({
     maxTabs,
     tabsList,
-    showOptions,
     showAddButton,
     onSaveNewImpedimento,
     onSelectedTab,
@@ -154,7 +153,7 @@ export default function ImpedimentosTab({
                                     <Avatar src={selectedTab.avatar} size='24px' />
                                 }
                                 <p>{selectedTab.description}</p>
-                                {showOptions ?
+                                {selectedTab?.showOptions ?
                                     <WrapperMenuMore>
                                         <MenuMore
                                             options={[
