@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment'
 import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
@@ -40,6 +40,11 @@ export const HypothesisAndImpediment = ({
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
     const isOwnerGoal = authorGoalId === userLoggedId
+
+
+    useEffect(() => {
+        setEditDescription(description)
+    }, [description])
 
     const title = useMemo(() => {
         if (type === 'prioritize' && variant === 'hypothesis') return 'HIPÓTESE PRIORIZADA'
