@@ -7490,7 +7490,7 @@ function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimen
         }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
 }
 
-function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, }) {
+function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab }) {
     const [selectedTab, setSelectedTab] = React.useState(null);
     const [allTabs, setAllTabs] = React.useState([]);
     const [onShowTabs, setOnShowTabs] = React.useState([]);
@@ -7504,6 +7504,14 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     React.useEffect(() => {
         setAllTabs(tabsList);
     }, [tabsList]);
+    React.useEffect(() => {
+        if (idSelectedTab) {
+            if (allTabs?.length > 0) {
+                let tab = allTabs?.find(value => value.id == idSelectedTab);
+                handleClickTab(tab);
+            }
+        }
+    }, [idSelectedTab]);
     React.useEffect(() => {
         if (allTabs.length > 0) {
             setSelectedTab(allTabs[0]);

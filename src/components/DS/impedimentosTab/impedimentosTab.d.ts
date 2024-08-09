@@ -4,6 +4,7 @@ export interface ImpedimentosTabProps {
     showAddButton?: boolean
     onSaveNewImpedimento: (impedimento: string) => void
     onSelectedTab: (selectedTab: TabInfo) => void
+    idSelectedTab?: string
 }
 
 export interface TabInfo {
