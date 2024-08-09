@@ -95,7 +95,7 @@ export const HypothesisAndImpediment = ({
                 ) : (
                     <Styles.ContainerHypotheis type={type} variant={variant}>
                         {
-                            hasUpdownButtons && isOwnerGoal &&
+                            hasUpdownButtons &&
                                 <UpDownButtons
                                 type={type}
                                 variant={variant}
@@ -139,7 +139,7 @@ export const HypothesisAndImpediment = ({
                                 <MenuMore
                                     options={
                                         [
-                                            hasUpdownButtons &&  isOwnerGoal &&
+                                            hasUpdownButtons &&  userLoggedId === authorGoalId &&
                                         ({
                                             startIcon: <StarPrioritize width='24px' height='24px' stroke={type === 'prioritize' ? "#9C9C9C" : "#222222"}/>,
                                             description: 'Priorizar',
