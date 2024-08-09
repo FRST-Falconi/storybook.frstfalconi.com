@@ -7900,7 +7900,7 @@ handleViewProfile, authorId, // id do autor do impedimento ou da hipotese
 hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp, hasUpdownButtons, onClickAction, onAddActions, hasAddActions }) => {
     const [editDescription, setEditDescription] = React.useState(description);
     const [isEditing, setIsEditing] = React.useState(false);
-    const isOwnerGoal = authorGoalId === userLoggedId;
+    const isOwnerGoal = authorGoalId === authorId;
     React.useEffect(() => {
         setEditDescription(description);
     }, [description]);
@@ -7950,10 +7950,11 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
                                 }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, children: editDescription }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id) })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
                                     hasUpdownButtons && isOwnerGoal &&
                                         ({
-                                            startIcon: jsxRuntime.jsx(StarPrioritize, { width: '24px', height: '24px', stroke: type === 'prioritize' ? "#b7b7b7" : "#222222" }),
+                                            startIcon: jsxRuntime.jsx(StarPrioritize, { width: '24px', height: '24px', stroke: type === 'prioritize' ? "#9C9C9C" : "#222222" }),
                                             description: 'Priorizar',
                                             onClick: () => onPrioritize(id),
-                                            disabled: type === 'prioritize'
+                                            disabled: type === 'prioritize',
+                                            color: type === 'prioritize' ? '#9C9C9C' : '#222222'
                                         }),
                                     {
                                         startIcon: jsxRuntime.jsx(EditIcon, { fill: "#222222", width: "24px", height: '24px' }),
