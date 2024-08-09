@@ -7935,7 +7935,7 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
         event.stopPropagation();
         onClickAction();
     };
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(MainContainer, { children: isEditing ? (jsxRuntime.jsx(EditHypotesisAndImpediment, { setEditDescription: setEditDescription, editDescription: editDescription, onSave: handleSaveDescription, onCancel: handleCancel, originalDescription: description })) : (jsxRuntime.jsxs(ContainerHypotheis, { type: type, variant: variant, children: [hasUpdownButtons && isOwnerGoal &&
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(MainContainer, { children: isEditing ? (jsxRuntime.jsx(EditHypotesisAndImpediment, { setEditDescription: setEditDescription, editDescription: editDescription, onSave: handleSaveDescription, onCancel: handleCancel, originalDescription: description })) : (jsxRuntime.jsxs(ContainerHypotheis, { type: type, variant: variant, children: [hasUpdownButtons &&
                         jsxRuntime.jsx(UpDownButtons, { type: type, variant: variant, onDownClick: () => onDown(id, index), onUpClick: () => onUp(id, index) }), jsxRuntime.jsxs(SplitContainerDescription, { children: [jsxRuntime.jsx(Tooltip$2, { content: authorName, direction: 'bottom', style: {
                                     fontFamily: 'PT Sans',
                                     fontWeight: 400,
@@ -7948,7 +7948,7 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
                                     whiteSpace: 'nowrap',
                                     boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
                                 }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, children: editDescription }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id) })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
-                                    hasUpdownButtons && isOwnerGoal &&
+                                    hasUpdownButtons && userLoggedId === authorGoalId &&
                                         ({
                                             startIcon: jsxRuntime.jsx(StarPrioritize, { width: '24px', height: '24px', stroke: type === 'prioritize' ? "#9C9C9C" : "#222222" }),
                                             description: 'Priorizar',
