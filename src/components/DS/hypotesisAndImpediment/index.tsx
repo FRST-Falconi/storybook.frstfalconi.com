@@ -39,7 +39,7 @@ export const HypothesisAndImpediment = ({
 }: IHypothesisAndImpedimentComponent) => {
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
-    const isOwnerGoal = authorGoalId === userLoggedId
+    const isOwnerGoal = authorGoalId === authorId
 
 
     useEffect(() => {
@@ -141,10 +141,11 @@ export const HypothesisAndImpediment = ({
                                         [
                                             hasUpdownButtons &&  isOwnerGoal &&
                                         ({
-                                            startIcon: <StarPrioritize width='24px' height='24px' stroke={type === 'prioritize' ? "#b7b7b7" : "#222222"}/>,
+                                            startIcon: <StarPrioritize width='24px' height='24px' stroke={type === 'prioritize' ? "#9C9C9C" : "#222222"}/>,
                                             description: 'Priorizar',
                                             onClick: () => onPrioritize(id),
-                                            disabled: type === 'prioritize'
+                                            disabled: type === 'prioritize',
+                                            color: type === 'prioritize' ? '#9C9C9C' : '#222222'
                                         }),
                                         {
                                             startIcon: <EditIcon fill="#222222" width="24px" height='24px'/>,
