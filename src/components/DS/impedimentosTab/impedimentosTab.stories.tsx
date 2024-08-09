@@ -15,6 +15,7 @@ export const withOptions = Template.bind({})
 withOptions.args = {
     maxTabs: 5,
     showAddButton: true,
+    idSelectedTab: '2',
     tabsList: [
         {
             id: '1',
