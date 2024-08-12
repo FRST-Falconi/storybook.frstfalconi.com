@@ -22,8 +22,11 @@ export const HypothesisAndImpediment = ({
     handleViewProfile,
     authorId, // id do autor do impedimento ou da hipotese
     hasVoting,
+    voteHasAlreadyBeenRegistered,
+    isVotedByUserLogged,
     voteText,
     onDeleteVote,
+    onChangeVote,
     votersList,
     onDeleteHipotesisOrImpediment,
     onSaveEditHipotesisOrImpediment,
@@ -133,7 +136,16 @@ export const HypothesisAndImpediment = ({
 
                             <Styles.Description onClick={handleClickAction}>{editDescription}</Styles.Description>
                             {hasVoting && (
-                                <Voting voteText={voteText} type={type} onDeleteVote={onDeleteVote} votersList={votersList} onVote={() => onVote(id)} />
+                                <Voting 
+                                    voteText={voteText} 
+                                    type={type} 
+                                    onDeleteVote={onDeleteVote} 
+                                    votersList={votersList} 
+                                    onVote={() => onVote(id)}
+                                    onChangeVote={() => onChangeVote(id)}
+                                    isVotedByUserLogged={isVotedByUserLogged}
+                                    voteHasAlreadyBeenRegistered={voteHasAlreadyBeenRegistered}
+                                />
                             )}
                             {validHasEditHipotesisOrImpediment && (
                                 <MenuMore

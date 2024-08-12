@@ -1,25 +1,26 @@
-import { ExcludeVoteIcon, NewVoteIcon } from '@public/customIcons'
+import { ExcludeVoteIcon, NewVoteIcon, SwitchVoteIcon } from '@public/customIcons'
 import { VariantColorStyle, VotingProps } from '../hypothesisAndImpediment'
 import * as Styles from './voting.styles'
 import { useMemo, useState } from 'react'
 import Avatar from '@components/avatar'
 import { Box, Popper } from '@mui/material'
 
-export const Voting = ({ type, voteText, onDeleteVote, votersList, onVote}: VotingProps) => {
-    const [isVotted, setIsVotted] = useState(false)
+export const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote, voteHasAlreadyBeenRegistered, isVotedByUserLogged}: VotingProps) => {
     const [isVotingListHover, setIsVotingListHover] = useState(false)
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
 
     const handleDeleteVote = () => {
-        setIsVotted(false)
         onDeleteVote()
+    }
+
+    const handleChangeVote = () => {
+        onChangeVote()
     }
 
     const handleHoverVoteList = () => {
         setAnchorEl(null)
         setIsVotingListHover(true)
-
     }
 
     const handleLeaveVoteList = () => {
@@ -38,9 +39,9 @@ export const Voting = ({ type, voteText, onDeleteVote, votersList, onVote}: Voti
 
     return (
         <>
-            {isVotted ? (
+            {(isVotedByUserLogged || voteHasAlreadyBeenRegistered) ? (
                 <Styles.ContainerVoting type={type}>
-                    {!isVotingListHover && (
+                    {(isVotedByUserLogged || voteHasAlreadyBeenRegistered) && (
                         <Styles.VotingList onClick={handleClickVotingList}>
                             {votersToDisplay?.map(i => <Avatar src={i.avatar} size="24px" border="1px solid #fff"/>)}
                         </Styles.VotingList>
@@ -64,10 +65,18 @@ export const Voting = ({ type, voteText, onDeleteVote, votersList, onVote}: Voti
 
                     <Styles.VotesCount onMouseEnter={handleHoverVoteList} onMouseLeave={handleLeaveVoteList}>
                         {isVotingListHover ? (
-                            <div onClick={handleDeleteVote}>
-                                <ExcludeVoteIcon />
-                                Excluir voto
-                            </div>
+                            <> { isVotedByUserLogged ?
+                                    <div onClick={handleDeleteVote}>
+                                        <ExcludeVoteIcon />
+                                        Excluir voto
+                                    </div> 
+                                    :
+                                    <div onClick={handleChangeVote}>
+                                        <SwitchVoteIcon />
+                                        Trocar voto
+                                    </div> 
+                                }
+                            </>
                         ) : (
                             <span>
                                 {votersList?.length} {votersList?.length > 1 ? 'votos' : 'voto'}
@@ -76,7 +85,7 @@ export const Voting = ({ type, voteText, onDeleteVote, votersList, onVote}: Voti
                     </Styles.VotesCount>
                 </Styles.ContainerVoting>
             ) : (
-                <Styles.ContainerVoting type={type} onClick={() => setIsVotted(true)}>
+                <Styles.ContainerVoting type={type}>
                     <Styles.ContainerTitleVoting  onClick={onVote}>
                         <NewVoteIcon />
                         <Styles.TitleVoting>{voteText}</Styles.TitleVoting>
