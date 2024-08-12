@@ -28,8 +28,28 @@ HipotesePriorizada.args = {
     authorName: 'Christiane Eckersley',
     authorId: '1234',
     handleViewProfile: (authorId) => alert(`cliquei no user de id: ${authorId}`),
+    
     hasVoting: true,
+    isVotedByUserLogged: true,
+    voteHasAlreadyBeenRegistered: true,
     voteText: 'Votar',
+    votersList: [
+        {
+            useId: '123',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+            name: 'Alice Johnson'
+        },
+        {
+            useId: '123',
+            avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
+            name: 'Frank Miller'
+        },
+    ],
+
+    onDeleteVote: () => alert('voto deletado'),
+    onChangeVote: (id) => alert(`trocar voto: ${id}`),
+    onVote: (id) => alert(`voto de hipotese com id: ${id}`),
+
     onDeleteHipotesisOrImpediment: (id) => alert(`deletado a hipotese de id: ${id}`),
     onSaveEditHipotesisOrImpediment:  () => alert('editado'),
     hasEditHipotesisOrImpediment: true,

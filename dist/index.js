@@ -3057,6 +3057,10 @@ function CloseIcon() {
     return (jsxRuntime.jsxs("svg", { width: "32", height: "32", viewBox: "0 0 32 32", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("rect", { width: "32", height: "32", rx: "16", fill: "#FFE0E0" }), jsxRuntime.jsx("path", { d: "M21.3332 10.6666L10.6665 21.3333", stroke: "#C00F00", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" }), jsxRuntime.jsx("path", { d: "M10.6665 10.6666L21.3332 21.3333", stroke: "#C00F00", "stroke-width": "1.5", "stroke-linecap": "round", "stroke-linejoin": "round" })] }));
 }
 
+const SwitchVoteIcon = ({ style, width = '16', height = '17', stroke = '#444444' }) => {
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3.3335 4.36444V7.05746H5.87895", stroke: stroke, strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M12.6665 11.5459V8.85284H10.1211", stroke: stroke, strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11.602 6.60864C11.3868 5.96536 11.0211 5.39023 10.5391 4.93691C10.057 4.4836 9.47421 4.16687 8.84513 4.01628C8.21606 3.86569 7.56118 3.88616 6.9416 4.07576C6.32202 4.26536 5.75793 4.61792 5.30198 5.10055L3.3335 7.05748M12.6668 8.85282L10.6983 10.8097C10.2424 11.2924 9.67831 11.6449 9.05873 11.8345C8.43915 12.0241 7.78427 12.0446 7.15519 11.894C6.52612 11.7434 5.94335 11.4267 5.46127 10.9734C4.97919 10.5201 4.61351 9.94493 4.39834 9.30166", stroke: stroke, strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+};
+
 const fadeInRight = styled.keyframes `
   0% {
     opacity: 0;
@@ -7833,13 +7837,14 @@ const VoterName = styled__default["default"].span `
     color: #333;
 `;
 
-const Voting = ({ type, voteText, onDeleteVote, votersList, onVote }) => {
-    const [isVotted, setIsVotted] = React.useState(false);
+const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote, voteHasAlreadyBeenRegistered, isVotedByUserLogged }) => {
     const [isVotingListHover, setIsVotingListHover] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleDeleteVote = () => {
-        setIsVotted(false);
         onDeleteVote();
+    };
+    const handleChangeVote = () => {
+        onChangeVote();
     };
     const handleHoverVoteList = () => {
         setAnchorEl(null);
@@ -7856,7 +7861,10 @@ const Voting = ({ type, voteText, onDeleteVote, votersList, onVote }) => {
     const votersToDisplay = React.useMemo(() => {
         return votersList?.slice(0, 2);
     }, [votersList]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: isVotted ? (jsxRuntime.jsxs(ContainerVoting, { type: type, children: [!isVotingListHover && (jsxRuntime.jsx(VotingList, { onClick: handleClickVotingList, children: votersToDisplay?.map(i => jsxRuntime.jsx(Avatar, { src: i.avatar, size: "24px", border: "1px solid #fff" })) })), jsxRuntime.jsx(material.Popper, { id: id, open: open, anchorEl: anchorEl, sx: { paddingTop: 1.5, paddingRight: 6.5 }, children: jsxRuntime.jsx(ContainerListUsers, { children: jsxRuntime.jsx(ContainerScroll, { children: votersList?.map((voter, index) => (jsxRuntime.jsxs(VoterItem, { children: [jsxRuntime.jsx(Avatar, { src: voter.avatar, size: "24px" }), jsxRuntime.jsx(VoterName, { children: voter.name })] }, index))) }) }) }), jsxRuntime.jsx(VotesCount, { onMouseEnter: handleHoverVoteList, onMouseLeave: handleLeaveVoteList, children: isVotingListHover ? (jsxRuntime.jsxs("div", { onClick: handleDeleteVote, children: [jsxRuntime.jsx(ExcludeVoteIcon, {}), "Excluir voto"] })) : (jsxRuntime.jsxs("span", { children: [votersList?.length, " ", votersList?.length > 1 ? 'votos' : 'voto'] })) })] })) : (jsxRuntime.jsx(ContainerVoting, { type: type, onClick: () => setIsVotted(true), children: jsxRuntime.jsxs(ContainerTitleVoting, { onClick: onVote, children: [jsxRuntime.jsx(NewVoteIcon, {}), jsxRuntime.jsx(TitleVoting, { children: voteText })] }) })) }));
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: (isVotedByUserLogged || voteHasAlreadyBeenRegistered) ? (jsxRuntime.jsxs(ContainerVoting, { type: type, children: [(isVotedByUserLogged || voteHasAlreadyBeenRegistered) && (jsxRuntime.jsx(VotingList, { onClick: handleClickVotingList, children: votersToDisplay?.map(i => jsxRuntime.jsx(Avatar, { src: i.avatar, size: "24px", border: "1px solid #fff" })) })), jsxRuntime.jsx(material.Popper, { id: id, open: open, anchorEl: anchorEl, sx: { paddingTop: 1.5, paddingRight: 6.5 }, children: jsxRuntime.jsx(ContainerListUsers, { children: jsxRuntime.jsx(ContainerScroll, { children: votersList?.map((voter, index) => (jsxRuntime.jsxs(VoterItem, { children: [jsxRuntime.jsx(Avatar, { src: voter.avatar, size: "24px" }), jsxRuntime.jsx(VoterName, { children: voter.name })] }, index))) }) }) }), jsxRuntime.jsx(VotesCount, { onMouseEnter: handleHoverVoteList, onMouseLeave: handleLeaveVoteList, children: isVotingListHover ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [" ", isVotedByUserLogged ?
+                                jsxRuntime.jsxs("div", { onClick: handleDeleteVote, children: [jsxRuntime.jsx(ExcludeVoteIcon, {}), "Excluir voto"] })
+                                :
+                                    jsxRuntime.jsxs("div", { onClick: handleChangeVote, children: [jsxRuntime.jsx(SwitchVoteIcon, {}), "Trocar voto"] })] })) : (jsxRuntime.jsxs("span", { children: [votersList?.length, " ", votersList?.length > 1 ? 'votos' : 'voto'] })) })] })) : (jsxRuntime.jsx(ContainerVoting, { type: type, children: jsxRuntime.jsxs(ContainerTitleVoting, { onClick: onVote, children: [jsxRuntime.jsx(NewVoteIcon, {}), jsxRuntime.jsx(TitleVoting, { children: voteText })] }) })) }));
 };
 
 const ContainerInput = styled__default["default"].div `
@@ -7905,7 +7913,7 @@ const EditHypotesisAndImpediment = ({ setEditDescription, editDescription, onSav
 const HypothesisAndImpediment = ({ description, variant, type, avatar, id, index, authorGoalId, // id do dono do desafio
 userLoggedId, authorName, // nome autor da hipotese ou do impedimento
 handleViewProfile, authorId, // id do autor do impedimento ou da hipotese
-hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp, hasUpdownButtons, onClickAction, onAddActions, hasAddActions }) => {
+hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDeleteVote, onChangeVote, votersList, onDeleteHipotesisOrImpediment, onSaveEditHipotesisOrImpediment, hasEditHipotesisOrImpediment, onVote, onPrioritize, onDown, onUp, hasUpdownButtons, onClickAction, onAddActions, hasAddActions }) => {
     const [editDescription, setEditDescription] = React.useState(description);
     const [isEditing, setIsEditing] = React.useState(false);
     const isOwnerGoal = authorGoalId === authorId;
@@ -7955,7 +7963,7 @@ hasVoting, voteText, onDeleteVote, votersList, onDeleteHipotesisOrImpediment, on
                                     left: '4px',
                                     whiteSpace: 'nowrap',
                                     boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, children: editDescription }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id) })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
+                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, children: editDescription }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
                                     hasUpdownButtons && userLoggedId === authorGoalId &&
                                         ({
                                             startIcon: jsxRuntime.jsx(StarPrioritize, { width: '24px', height: '24px', stroke: type === 'prioritize' ? "#9C9C9C" : "#222222" }),
