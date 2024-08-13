@@ -112,3 +112,23 @@ export const VoterName = styled.span`
     font-size: 14px;
     color: #333;
 `;
+
+export const IconContainer = styled.div`
+    position: relative;
+    display: flex;
+    font-family: PT Sans;
+    justify-content: end;
+    align-items: center;
+    align-content:center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #444444;
+    border: 1.5px solid #F2F2F2;
+    color:  #F2F2F2;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16.82px;
+    padding-right: 6px;
+`;

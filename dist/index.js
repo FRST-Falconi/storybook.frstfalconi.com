@@ -7836,8 +7836,27 @@ const VoterName = styled__default["default"].span `
     font-size: 14px;
     color: #333;
 `;
+const IconContainer = styled__default["default"].div `
+    position: relative;
+    display: flex;
+    font-family: PT Sans;
+    justify-content: end;
+    align-items: center;
+    align-content:center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #444444;
+    border: 1.5px solid #F2F2F2;
+    color:  #F2F2F2;
+    box-sizing: border-box;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 16.82px;
+    padding-right: 6px;
+`;
 
-const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote, voteHasAlreadyBeenRegistered, isVotedByUserLogged }) => {
+const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote, voteHasAlreadyBeenRegistered, isVotedByUserLogged, popperStyle }) => {
     const [isVotingListHover, setIsVotingListHover] = React.useState(false);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const handleDeleteVote = () => {
@@ -7861,7 +7880,7 @@ const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote
     const votersToDisplay = React.useMemo(() => {
         return votersList?.slice(0, 2);
     }, [votersList]);
-    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: (isVotedByUserLogged || voteHasAlreadyBeenRegistered) ? (jsxRuntime.jsxs(ContainerVoting, { type: type, children: [(isVotedByUserLogged || voteHasAlreadyBeenRegistered) && (jsxRuntime.jsx(VotingList, { onClick: handleClickVotingList, children: votersToDisplay?.map(i => jsxRuntime.jsx(Avatar, { src: i.avatar, size: "24px", border: "1px solid #fff" })) })), jsxRuntime.jsx(material.Popper, { id: id, open: open, anchorEl: anchorEl, sx: { paddingTop: 1.5, paddingRight: 6.5 }, children: jsxRuntime.jsx(ContainerListUsers, { children: jsxRuntime.jsx(ContainerScroll, { children: votersList?.map((voter, index) => (jsxRuntime.jsxs(VoterItem, { children: [jsxRuntime.jsx(Avatar, { src: voter.avatar, size: "24px" }), jsxRuntime.jsx(VoterName, { children: voter.name })] }, index))) }) }) }), jsxRuntime.jsx(VotesCount, { onMouseEnter: handleHoverVoteList, onMouseLeave: handleLeaveVoteList, children: isVotingListHover ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [" ", isVotedByUserLogged ?
+    return (jsxRuntime.jsx(jsxRuntime.Fragment, { children: (isVotedByUserLogged || voteHasAlreadyBeenRegistered) ? (jsxRuntime.jsxs(ContainerVoting, { type: type, children: [(isVotedByUserLogged || voteHasAlreadyBeenRegistered) && (jsxRuntime.jsx(VotingList, { onClick: handleClickVotingList, children: jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [votersToDisplay?.map((i, index) => (jsxRuntime.jsx("div", { children: jsxRuntime.jsx(Avatar, { src: i.avatar, size: "24px", border: "1px solid #fff", style: { cursor: 'pointer', zIndex: index === 1 ? 4 : 6 } }) }, index))), votersList?.length > 2 && (jsxRuntime.jsx("div", { style: { position: 'relative', display: 'inline-block' }, children: jsxRuntime.jsx(IconContainer, { children: "+" }) }))] }) })), jsxRuntime.jsx(material.Popper, { id: id, open: open, anchorEl: anchorEl, sx: { paddingTop: 1.5, paddingRight: 6.5, ...popperStyle }, children: jsxRuntime.jsx(ContainerListUsers, { children: jsxRuntime.jsx(ContainerScroll, { children: votersList?.map((voter, index) => (jsxRuntime.jsxs(VoterItem, { children: [jsxRuntime.jsx(Avatar, { src: voter.avatar, size: "24px" }), jsxRuntime.jsx(VoterName, { children: voter.name })] }, index))) }) }) }), jsxRuntime.jsx(VotesCount, { onMouseEnter: handleHoverVoteList, onMouseLeave: handleLeaveVoteList, children: isVotingListHover ? (jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [" ", isVotedByUserLogged ?
                                 jsxRuntime.jsxs("div", { onClick: handleDeleteVote, children: [jsxRuntime.jsx(ExcludeVoteIcon, {}), "Excluir voto"] })
                                 :
                                     jsxRuntime.jsxs("div", { onClick: handleChangeVote, children: [jsxRuntime.jsx(SwitchVoteIcon, {}), "Trocar voto"] })] })) : (jsxRuntime.jsxs("span", { children: [votersList?.length, " ", votersList?.length > 1 ? 'votos' : 'voto'] })) })] })) : (jsxRuntime.jsx(ContainerVoting, { type: type, children: jsxRuntime.jsxs(ContainerTitleVoting, { onClick: onVote, children: [jsxRuntime.jsx(NewVoteIcon, {}), jsxRuntime.jsx(TitleVoting, { children: voteText })] }) })) }));

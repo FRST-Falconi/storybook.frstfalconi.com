@@ -5,7 +5,7 @@ import { useMemo, useState } from 'react'
 import Avatar from '@components/avatar'
 import { Box, Popper } from '@mui/material'
 
-export const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote, voteHasAlreadyBeenRegistered, isVotedByUserLogged}: VotingProps) => {
+export const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList, onVote, voteHasAlreadyBeenRegistered, isVotedByUserLogged, popperStyle}: VotingProps) => {
     const [isVotingListHover, setIsVotingListHover] = useState(false)
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -43,11 +43,24 @@ export const Voting = ({ type, voteText, onDeleteVote, onChangeVote, votersList,
                 <Styles.ContainerVoting type={type}>
                     {(isVotedByUserLogged || voteHasAlreadyBeenRegistered) && (
                         <Styles.VotingList onClick={handleClickVotingList}>
-                            {votersToDisplay?.map(i => <Avatar src={i.avatar} size="24px" border="1px solid #fff"/>)}
+                            <>
+                            {votersToDisplay?.map((i, index) => (
+                            <div key={index}>
+                                <Avatar src={i.avatar} size="24px" border="1px solid #fff" style={{ cursor: 'pointer',  zIndex: index === 1 ? 4 : 6}} />
+                            </div>
+                        ))}
+                            {votersList?.length > 2 && (
+                            <div style={{ position: 'relative', display: 'inline-block' }}>
+                                <Styles.IconContainer>
+                                        +
+                                </Styles.IconContainer>
+                            </div>
+                        )}
+                            </>
                         </Styles.VotingList>
                     )}
 
-                    <Popper id={id} open={open} anchorEl={anchorEl} sx={{ paddingTop: 1.5, paddingRight: 6.5 }}>
+                    <Popper id={id} open={open} anchorEl={anchorEl} sx={{ paddingTop: 1.5, paddingRight: 6.5, ...popperStyle }}>
                         <Styles.ContainerListUsers>
                             <Styles.ContainerScroll>
                                 {votersList?.map((voter, index) => (
