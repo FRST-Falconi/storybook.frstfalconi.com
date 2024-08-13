@@ -31,6 +31,7 @@ export  interface IHypothesisAndImpedimentComponent {
     onClickAction?: () => void
     onAddActions?: (id: string) => void
     hasAddActions?: boolean
+    popperStyle?: React.CSSProperties;
 }
 
 export interface VariantColorStyle { type: string, variant?: string }
