@@ -38,7 +38,8 @@ export const HypothesisAndImpediment = ({
     hasUpdownButtons,
     onClickAction,
     onAddActions,
-    hasAddActions
+    hasAddActions,
+    popperStyle
 }: IHypothesisAndImpedimentComponent) => {
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
@@ -145,6 +146,7 @@ export const HypothesisAndImpediment = ({
                                     onChangeVote={() => onChangeVote(id)}
                                     isVotedByUserLogged={isVotedByUserLogged}
                                     voteHasAlreadyBeenRegistered={voteHasAlreadyBeenRegistered}
+                                    popperStyle={popperStyle}
                                 />
                             )}
                             {validHasEditHipotesisOrImpediment && (
