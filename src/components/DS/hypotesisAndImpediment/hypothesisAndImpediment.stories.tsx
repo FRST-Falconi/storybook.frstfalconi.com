@@ -194,6 +194,7 @@ Vote.args = {
     hasEditHipotesisOrImpediment: true,
     hasUpdownButtons: true,
     hasAddActions: false,
+    popperStyle: {width:'299px'},
     votersList: [
         {
             useId: '123',

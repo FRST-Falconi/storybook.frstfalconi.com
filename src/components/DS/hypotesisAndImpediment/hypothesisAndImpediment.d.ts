@@ -49,4 +49,5 @@ export interface VotingProps extends VariantColorStyle {
     votersList: Voter[]
     voteHasAlreadyBeenRegistered: boolean
     isVotedByUserLogged: boolean
+    popperStyle?: React.CSSProperties;
 }
