@@ -65,8 +65,8 @@ export default function ImpedimentosTab({
         if(allTabs.length > 0) {
             setSelectedTab(currentTab ? currentTab : allTabs[0])
             setOnShowTabs(allTabs.slice(0, maxTabs))
-            setOnHideTabs(allTabs.slice(maxTabs, allTabs.length))
-            onSelectedTab(currentTab ? currentTab : allTabs[0])
+            setOnHideTabs(allTabs.slice(maxTabs, allTabs.length)) 
+            onSelectedTab(currentTab ? currentTab : allTabs[0]) 
         }
     }, [allTabs]);
 
