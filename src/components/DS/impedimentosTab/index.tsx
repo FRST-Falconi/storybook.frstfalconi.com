@@ -33,7 +33,8 @@ export default function ImpedimentosTab({
     showAddButton,
     onSaveNewImpedimento,
     onSelectedTab,
-    idSelectedTab
+    idSelectedTab,
+    currentTab
 }: ImpedimentosTabProps) {
     const [selectedTab, setSelectedTab] = useState<TabInfo>(null);
     const [allTabs, setAllTabs] = useState<Array<TabInfo>>([]);
@@ -62,10 +63,10 @@ export default function ImpedimentosTab({
 
     useEffect(() => {
         if(allTabs.length > 0) {
-            setSelectedTab(allTabs[0])
+            setSelectedTab(currentTab)
             setOnShowTabs(allTabs.slice(0, maxTabs))
             setOnHideTabs(allTabs.slice(maxTabs, allTabs.length))
-            onSelectedTab(allTabs[0])
+            onSelectedTab(currentTab)
         }
     }, [allTabs]);
 
