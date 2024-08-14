@@ -8,8 +8,8 @@ export const WrapperEmptyState = styled.div`
   min-height: fit-content;
   background-color: ${({ theme }) => theme?.colors.shadeWhite};
   overflow: hidden;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   transition: min-height 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
 `

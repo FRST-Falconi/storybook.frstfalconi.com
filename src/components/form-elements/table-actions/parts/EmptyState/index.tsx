@@ -24,9 +24,9 @@ export default function EmptyState({ emptyState, customImage }: IEmptyState) {
             return <p>{label}</p>
           })}
       </LabelEmptyState>
-      <ButtonCreateAction onClick={() => emptyState?.handleClickButtonCreate?.()}>
+      {emptyState?.handleClickButtonCreate && <ButtonCreateAction onClick={() => emptyState?.handleClickButtonCreate?.()}>
         {emptyState?.labelButtonCreate}
-      </ButtonCreateAction>
+      </ButtonCreateAction> }
     </WrapperEmptyState>
   )
 }

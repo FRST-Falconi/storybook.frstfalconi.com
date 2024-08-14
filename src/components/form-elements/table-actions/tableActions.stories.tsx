@@ -422,6 +422,38 @@ MessageEmpty.args = {
   customImageEmptyState: null
 }
 
+export const MessageEmptyWithoutButton = Template.bind({})
+MessageEmptyWithoutButton.args = {
+  isLoading: false,
+  lengthElSkeleton: 5,
+  columns: [
+    { title: 'Colaborador', width: '15%',  alignHeader: 'center', alignContent: 'center' },
+    { title: 'Ação', width: '45%', alignHeader: 'left', alignContent: 'left' },
+    { title: 'Data Limite', width: '15%', alignHeader: 'center', alignContent: 'left' }, 
+    { title: 'Status', width: '15%', alignHeader: 'center', alignContent: 'left' },
+    { title: 'Mensagem',  width: '10%', alignHeader: 'center', alignContent: 'center' }, 
+  ],
+  data: [],
+  onPressAvatar: (e: string) => alert(e),
+  labelStatus: {
+    completed: 'Concluído',
+    not_completed: 'Não concluído',
+    in_progress: 'Em andamento',
+    deprioritized: 'Despriorizado'
+  },
+  buttonBottomCreateAction: {
+    mode: 'hidden', // 'button' | 'children'
+    labelButtonAddAction: 'Adicionar ação'
+  },
+  labelTextVisitProfile: 'Label Ver Perfil',
+  labelTextMessage: 'Mensagem',
+  showButtonInbox: true,
+  emptyState: {
+    labels: ['Nenhuma ação foi adicionada até o momento.'],
+  },
+  customImageEmptyState: null
+}
+
 export const FotterAddAction = Template.bind({})
 FotterAddAction.args = {
   isLoading: false,

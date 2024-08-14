@@ -21952,8 +21952,8 @@ const WrapperEmptyState$1 = styled__default["default"].div `
   min-height: fit-content;
   background-color: ${({ theme }) => theme?.colors.shadeWhite};
   overflow: hidden;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   transition: min-height 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
 `;
@@ -22012,7 +22012,7 @@ function EmptyState({ emptyState, customImage }) {
         }, children: [jsxRuntime.jsx(ImageEmptyState, { src: customImage ? customImage : imgEmpty, alt: "Empty" }), jsxRuntime.jsx(LabelEmptyState, { children: emptyState?.labels &&
                     emptyState?.labels?.map((label) => {
                         return jsxRuntime.jsx("p", { children: label });
-                    }) }), jsxRuntime.jsx(ButtonCreateAction, { onClick: () => emptyState?.handleClickButtonCreate?.(), children: emptyState?.labelButtonCreate })] }));
+                    }) }), emptyState?.handleClickButtonCreate && jsxRuntime.jsx(ButtonCreateAction, { onClick: () => emptyState?.handleClickButtonCreate?.(), children: emptyState?.labelButtonCreate })] }));
 }
 
 styled__default["default"].div `
@@ -22082,8 +22082,8 @@ const WrapperEmptyState = styled__default["default"].div `
   overflow: hidden;
   border: 1px solid #ebebeb;
   border-top-width: 0px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   transition: min-height 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
 `;
@@ -22184,8 +22184,8 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
         setAdaptedData(newData);
     }, [data]);
     const customStyleBorderTable = buttonBottomCreateAction?.mode == 'button' || buttonBottomCreateAction?.mode == 'children' || data?.length == 0
-        ? { borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
-        : {};
+        ? { borderRadius: '8px', borderBottomLeftRadius: '0px', borderBottomRightRadius: '0px' }
+        : { borderRadius: '8px' };
     return (jsxRuntime.jsxs(styled.ThemeProvider, { theme: FRSTTheme, children: [jsxRuntime.jsx(Table, { columns: adaptedColumns, data: adaptedData, isLoading: isLoading, lengthElSkeleton: lengthElSkeleton, containerStyles: customStyleBorderTable, expandItemId: expandItemId, hiddeExpandItemId: hiddeExpandItemId }), !isLoading && data?.length == 0 && jsxRuntime.jsx(EmptyState, { emptyState: emptyState, customImage: customImageEmptyState }), !isLoading && data?.length !== 0 && buttonBottomCreateAction?.mode && buttonBottomCreateAction?.mode != 'hidden' && (jsxRuntime.jsxs(WrapperEmptyState, { children: [buttonBottomCreateAction?.mode == 'button' && (jsxRuntime.jsx(WrapperEmptyStateCaseButton, { children: jsxRuntime.jsx(WrapperButtonEmpty, { children: jsxRuntime.jsxs(ButtonEmpty, { onClick: () => buttonBottomCreateAction?.handleClickButtonCreate?.(), children: [jsxRuntime.jsx(AddIcon, { fill: FRSTTheme?.colors?.primary1, width: '14', height: '14' }), buttonBottomCreateAction?.labelButtonAddAction] }) }) })), buttonBottomCreateAction?.mode == 'children' && jsxRuntime.jsx("div", { children: buttonBottomCreateAction?.children })] }))] }));
 }
 
