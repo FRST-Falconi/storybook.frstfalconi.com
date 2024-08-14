@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
-export const TooltipWrapper = styled.div`
+interface ITooltipWrapper {
+  width?: string
+}
+
+export const TooltipWrapper = styled.div<ITooltipWrapper>`
   display: inline-flex;
   position: relative;
+  ${({ width }) => width && `width: ${width};`}
 `;
 
 export const TooltipTip = styled.div<{

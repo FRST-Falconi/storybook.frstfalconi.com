@@ -79,7 +79,8 @@ HipoteseLevantada.args = {
     hasEditHipotesisOrImpediment: true,
     hasUpdownButtons: true,
     onAddActions: (id) => alert(`add ações ${id}`),
-    hasAddActions: true
+    hasAddActions: true,
+    onClickAction: () => alert('ver ações'),
 }
 
 HipoteseSugerida.args = {

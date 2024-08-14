@@ -1912,6 +1912,7 @@ function RatingCurtidas(props) {
 const TooltipWrapper = styled__default["default"].div `
   display: inline-flex;
   position: relative;
+  ${({ width }) => width && `width: ${width};`}
 `;
 const TooltipTip = styled__default["default"].div `
   background: #FFF;
@@ -2051,7 +2052,7 @@ const TooltipGhost = styled__default["default"].div `
 }}
 `;
 
-function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, height, onShow, onHide, setIsActive }) {
+function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 400, style, className, width, height, onShow, onHide, setIsActive, wrapperWidth }) {
     let shpwTimeout;
     let hideTimeout;
     const [active, setActive] = React.useState(false);
@@ -2085,7 +2086,7 @@ function Tooltip$2({ content, direction, children, trigger = 'hover', delay = 40
                 onHide({ active: false });
         }, 1000);
     };
-    return (jsxRuntime.jsxs(TooltipWrapper, { onMouseEnter: trigger === 'hover' ? showTip : undefined, onMouseLeave: hideTip, onClick: trigger === 'click' ? showTip : undefined, children: [children, active && (jsxRuntime.jsx(TooltipGhost, { direction: direction || 'top', className: className, width: width || '100px', height: height ? height : renderHeight || '100px', ref: ref, children: jsxRuntime.jsx(TooltipTip, { direction: direction || 'top', style: style, width: width || '100px', height: height ? height : renderHeight || '100px', children: content }) }))] }));
+    return (jsxRuntime.jsxs(TooltipWrapper, { onMouseEnter: trigger === 'hover' ? showTip : undefined, onMouseLeave: hideTip, onClick: trigger === 'click' ? showTip : undefined, width: wrapperWidth, children: [children, active && (jsxRuntime.jsx(TooltipGhost, { direction: direction || 'top', className: className, width: width || '100px', height: height ? height : renderHeight || '100px', ref: ref, children: jsxRuntime.jsx(TooltipTip, { direction: direction || 'top', style: style, width: width || '100px', height: height ? height : renderHeight || '100px', children: content }) }))] }));
 }
 
 const ProgressBar$2 = styled__default["default"](material.Box) `
@@ -7982,7 +7983,19 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                     left: '4px',
                                     whiteSpace: 'nowrap',
                                     boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, children: editDescription }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
+                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, children: jsxRuntime.jsx(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: '#757575',
+                                        width: '171px',
+                                        height: '52px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'wrap',
+                                        boxShadow: ' 0px 25px 18px -20px #22222233;',
+                                        display: variant === 'impediment' ? 'none' : 'block'
+                                    }, children: jsxRuntime.jsx("div", { style: { width: '100%' }, children: editDescription }) }) }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
                                     hasUpdownButtons && userLoggedId === authorGoalId &&
                                         ({
                                             startIcon: jsxRuntime.jsx(StarPrioritize, { width: '24px', height: '24px', stroke: type === 'prioritize' ? "#9C9C9C" : "#222222" }),

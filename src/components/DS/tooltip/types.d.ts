@@ -10,6 +10,7 @@ export type TooltipProps = {
   onShow?: (event: any) => void
   onHide?: (event: any) => void
   setIsActive?:(active: boolean)=>void
+  wrapperWidth?: string 
   direction?:
     | "top"
     | "right"
