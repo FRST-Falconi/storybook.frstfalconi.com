@@ -5,6 +5,7 @@ export interface ImpedimentosTabProps {
     onSaveNewImpedimento: (impedimento: string) => void
     onSelectedTab: (selectedTab: TabInfo) => void
     idSelectedTab?: string
+    currentTab?: any
 }
 
 export interface TabInfo {
