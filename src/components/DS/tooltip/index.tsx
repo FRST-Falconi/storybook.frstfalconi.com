@@ -14,7 +14,8 @@ function Tooltip({
   height,
   onShow,
   onHide,
-  setIsActive
+  setIsActive,
+  wrapperWidth
 }: TooltipProps ): JSX.Element {
   let shpwTimeout: any
   let hideTimeout: any
@@ -55,6 +56,7 @@ function Tooltip({
       onMouseEnter={trigger === 'hover' ? showTip : undefined}
       onMouseLeave={hideTip}
       onClick={trigger === 'click' ? showTip : undefined}
+      width={wrapperWidth}
     >
       {children}
       {active && (
