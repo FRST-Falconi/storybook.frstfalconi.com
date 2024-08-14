@@ -7519,10 +7519,10 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     }, [idSelectedTab]);
     React.useEffect(() => {
         if (allTabs.length > 0) {
-            setSelectedTab(currentTab);
+            setSelectedTab(currentTab ? currentTab : allTabs[0]);
             setOnShowTabs(allTabs.slice(0, maxTabs));
             setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
-            onSelectedTab(currentTab);
+            onSelectedTab(currentTab ? currentTab : allTabs[0]);
         }
     }, [allTabs]);
     const handleClickTab = (tab) => {
