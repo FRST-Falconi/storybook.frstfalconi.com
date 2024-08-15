@@ -62,13 +62,14 @@ export default function ImpedimentosTab({
     }, [idSelectedTab])
 
     useEffect(() => {
-        if(allTabs.length > 0) {
-            setSelectedTab(currentTab ? currentTab : allTabs[0])
-            setOnShowTabs(allTabs.slice(0, maxTabs))
-            setOnHideTabs(allTabs.slice(maxTabs, allTabs.length)) 
-            onSelectedTab(currentTab ? currentTab : allTabs[0]) 
+        if (allTabs.length > 0) {
+            const tabToSelect = allTabs.find(tab => tab.id === currentTab);
+            setSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
+            setOnShowTabs(allTabs.slice(0, maxTabs));
+            setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
+            onSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
         }
-    }, [allTabs]);
+    }, [allTabs, currentTab, maxTabs, onSelectedTab]);
 
     const handleClickTab = (tab: TabInfo) => {
         setIsEdit(false)
