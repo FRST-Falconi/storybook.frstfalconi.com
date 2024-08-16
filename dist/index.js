@@ -7504,6 +7504,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const [impedimentoSelectAnchor, setImpedimentoSelectAnchor] = React.useState(null);
     const [isEdit, setIsEdit] = React.useState(false);
     const [editDescription, setEditDescription] = React.useState('');
+    const [displayDescription, setDisplayDescription] = React.useState('');
     const openAddImpedimento = Boolean(addImpedimentoAnchor);
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor);
     React.useEffect(() => {
@@ -7529,6 +7530,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const handleClickTab = (tab) => {
         setIsEdit(false);
         setEditDescription('');
+        setDisplayDescription(tab.description);
         setSelectedTab(tab);
         onSelectedTab(tab);
     };
@@ -7549,6 +7551,20 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const renderTabs = (tabInfo, index) => {
         return (jsxRuntime.jsx(Tab, { selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
     };
+    const startEditing = () => {
+        setEditDescription(displayDescription);
+    };
+    React.useEffect(() => {
+        if (isEdit) {
+            startEditing();
+        }
+    }, [isEdit]);
+    React.useEffect(() => {
+        if (selectedTab) {
+            setDisplayDescription(selectedTab.description || '');
+            setEditDescription(selectedTab.description || '');
+        }
+    }, [selectedTab]);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: allTabs.length > 0 ?
             jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), showAddButton ?
                                         jsxRuntime.jsx(Tooltip$2, { content: 'Sugerir impedimento', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsx(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: jsxRuntime.jsx(AddIcon, {}) }) })
@@ -7560,7 +7576,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                         jsxRuntime.jsxs(material.Box, { display: 'flex', flexDirection: 'column', gap: '8px', children: [jsxRuntime.jsxs(TabInfoWrapper, { children: [selectedTab.isGoalOwner ?
                                             jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px' }) })
                                             :
-                                                jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px' }), jsxRuntime.jsx("p", { children: selectedTab.description }), selectedTab?.showOptions ?
+                                                jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px' }), jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
                                             jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
                                                         ...(selectedTab?.handlePriorize ? [{
                                                                 description: 'Priorizar',
@@ -7582,15 +7598,15 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                                     ], closeAfterClick: true, isContainerOptions: true }) })
                                             :
                                                 jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), isEdit ?
-                                    jsxRuntime.jsxs(EditWrapper, { children: [jsxRuntime.jsx(TextField, { placeholder: selectedTab.description, value: editDescription, onChange: (e) => setEditDescription(e.target.value), style: { width: '100%' } }), jsxRuntime.jsxs(material.Box, { display: 'flex', gap: '8px', children: [jsxRuntime.jsx(EditButtons, { buttonColor: editDescription === '' ? '#EBEBEB' : '#D1F6D1', onClick: () => {
-                                                            if (editDescription === '')
+                                    jsxRuntime.jsxs(EditWrapper, { children: [jsxRuntime.jsx(TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), style: { width: '100%' } }), jsxRuntime.jsxs(material.Box, { display: 'flex', gap: '8px', children: [jsxRuntime.jsx(EditButtons, { buttonColor: editDescription === displayDescription ? '#EBEBEB' : '#D1F6D1', onClick: () => {
+                                                            if (editDescription == '')
                                                                 return;
+                                                            setDisplayDescription(editDescription);
                                                             let editTab = { ...selectedTab, description: editDescription };
                                                             selectedTab?.handleEdit(editTab);
                                                             setIsEdit(false);
-                                                            setEditDescription('');
-                                                        }, style: { cursor: editDescription === '' ? 'not-allowed' : 'pointer' }, children: jsxRuntime.jsx(CheckIconSimple, { fill: editDescription === '' ? '#9C9C9C' : '#1BA853' }) }), jsxRuntime.jsx(EditButtons, { buttonColor: '#FFE0E0', onClick: () => {
-                                                            setEditDescription('');
+                                                        }, style: { cursor: editDescription === displayDescription ? 'not-allowed' : 'pointer' }, children: jsxRuntime.jsx(CheckIconSimple, { fill: editDescription === displayDescription ? '#9C9C9C' : '#1BA853' }) }), jsxRuntime.jsx(EditButtons, { buttonColor: '#FFE0E0', onClick: () => {
+                                                            setEditDescription(displayDescription);
                                                             setIsEdit(false);
                                                         }, style: { cursor: 'pointer' }, children: jsxRuntime.jsx(CloseIcon$1, { fill: '#C00F00' }) })] })] })
                                     :
