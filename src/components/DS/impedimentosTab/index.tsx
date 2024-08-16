@@ -44,6 +44,8 @@ export default function ImpedimentosTab({
     const [impedimentoSelectAnchor, setImpedimentoSelectAnchor] = useState<HTMLDivElement | null>(null);
     const [isEdit, setIsEdit] = useState(false);
     const [editDescription, setEditDescription] = useState('');
+    const [displayDescription, setDisplayDescription] = useState('');
+
     
     const openAddImpedimento = Boolean(addImpedimentoAnchor)
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor)
@@ -73,7 +75,8 @@ export default function ImpedimentosTab({
 
     const handleClickTab = (tab: TabInfo) => {
         setIsEdit(false)
-        setEditDescription('')
+        setEditDescription('');
+        setDisplayDescription(tab.description);
         setSelectedTab(tab)
         onSelectedTab(tab)
     }
@@ -105,6 +108,24 @@ export default function ImpedimentosTab({
             </Tab>
         )
     }
+
+
+    const startEditing = () => {
+        setEditDescription(displayDescription);
+    };
+
+    useEffect(() => {
+        if (isEdit) {
+            startEditing();
+        }
+    }, [isEdit]);
+
+    useEffect(() => {
+        if (selectedTab) {
+            setDisplayDescription(selectedTab.description || '');
+            setEditDescription(selectedTab.description || '');
+        }
+    }, [selectedTab]);
 
     return (
         <ThemeProvider theme={FRSTTheme}>
@@ -164,7 +185,7 @@ export default function ImpedimentosTab({
                                     :
                                     <Avatar src={selectedTab.avatar} size='24px' />
                                 }
-                                <p>{selectedTab.description}</p>
+                                <p>{displayDescription}</p>
                                 {selectedTab?.showOptions ?
                                     <WrapperMenuMore>
                                         <MenuMore
@@ -198,29 +219,29 @@ export default function ImpedimentosTab({
                             {isEdit ?
                                 <EditWrapper>
                                     <TextField
-                                        placeholder={selectedTab.description}
+                                        placeholder={editDescription}
                                         value={editDescription}
                                         onChange={(e) => setEditDescription(e.target.value)}
                                         style={{width: '100%'}}
                                     />
                                     <Box display={'flex'} gap={'8px'}>
                                         <EditButtons 
-                                            buttonColor={editDescription === '' ? '#EBEBEB' : '#D1F6D1'}
+                                            buttonColor={editDescription === displayDescription ? '#EBEBEB' : '#D1F6D1'}
                                             onClick={() => {
-                                                if (editDescription === '') return
-                                                let editTab = {...selectedTab, description: editDescription}
-                                                selectedTab?.handleEdit(editTab)
-                                                setIsEdit(false)
-                                                setEditDescription('')
+                                                if (editDescription == '') return;
+                                                setDisplayDescription(editDescription);
+                                                let editTab = {...selectedTab, description: editDescription}; 
+                                                selectedTab?.handleEdit(editTab);
+                                                setIsEdit(false);
                                             }}
-                                            style={{cursor: editDescription === '' ? 'not-allowed' : 'pointer' }}
+                                            style={{cursor: editDescription === displayDescription ? 'not-allowed' : 'pointer' }}
                                         >
-                                            <CheckIconSimple fill={editDescription === '' ? '#9C9C9C' : '#1BA853'} />
+                                            <CheckIconSimple fill={editDescription === displayDescription ? '#9C9C9C' : '#1BA853'} />
                                         </EditButtons>
                                         <EditButtons 
                                             buttonColor='#FFE0E0'
                                             onClick={() => {
-                                                setEditDescription('')
+                                                setEditDescription(displayDescription);
                                                 setIsEdit(false)
                                             }}
                                             style={{cursor: 'pointer'}}
