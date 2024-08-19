@@ -65,7 +65,7 @@ export default function ImpedimentosTab({
 
     useEffect(() => {
         if (allTabs.length > 0) {
-            const tabToSelect = allTabs.find(tab => tab.id === currentTab);
+            const tabToSelect = allTabs.find(tab => tab.id === currentTab.id);
             setSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
             setOnShowTabs(allTabs.slice(0, maxTabs));
             setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
