@@ -65,12 +65,13 @@ export default function ImpedimentosTab({
 
     useEffect(() => {
         if (allTabs.length > 0) {
-            setSelectedTab(allTabs[0]);
+            const tabToSelect = allTabs.find(tab => tab.id === currentTab);
+            setSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
             setOnShowTabs(allTabs.slice(0, maxTabs));
             setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
-            onSelectedTab(allTabs[0]);
+            onSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
         }
-    }, [allTabs, maxTabs, onSelectedTab]);
+    }, [allTabs, currentTab, maxTabs, onSelectedTab]);
 
     const handleClickTab = (tab: TabInfo) => {
         setIsEdit(false)
@@ -95,6 +96,7 @@ export default function ImpedimentosTab({
         newArray.unshift(impedimento)
         //atualiza o array de impedimentos
         setAllTabs(newArray)
+        handleClickTab(impedimento)
     }
 
     const renderTabs = (tabInfo: TabInfo, index: number) => {
