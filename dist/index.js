@@ -7520,13 +7520,12 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     }, [idSelectedTab]);
     React.useEffect(() => {
         if (allTabs.length > 0) {
-            const tabToSelect = allTabs.find(tab => tab.id === currentTab.id);
-            setSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
+            setSelectedTab(allTabs[0]);
             setOnShowTabs(allTabs.slice(0, maxTabs));
             setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
-            onSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
+            onSelectedTab(allTabs[0]);
         }
-    }, [allTabs, currentTab, maxTabs, onSelectedTab]);
+    }, [allTabs, maxTabs, onSelectedTab]);
     const handleClickTab = (tab) => {
         setIsEdit(false);
         setEditDescription('');
