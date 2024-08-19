@@ -51,7 +51,9 @@ export default function ImpedimentosTab({
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor)
 
     useEffect(() => {
-        setAllTabs(tabsList)
+        if(tabsList.length > allTabs.length) {
+            setAllTabs(tabsList)
+        }
     }, [tabsList]);
 
     useEffect(() => {
