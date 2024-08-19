@@ -7508,7 +7508,9 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const openAddImpedimento = Boolean(addImpedimentoAnchor);
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor);
     React.useEffect(() => {
-        setAllTabs(tabsList);
+        if (tabsList.length > allTabs.length) {
+            setAllTabs(tabsList);
+        }
     }, [tabsList]);
     React.useEffect(() => {
         if (idSelectedTab) {
@@ -7547,6 +7549,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
         newArray.unshift(impedimento);
         //atualiza o array de impedimentos
         setAllTabs(newArray);
+        handleClickTab(impedimento);
     };
     const renderTabs = (tabInfo, index) => {
         return (jsxRuntime.jsx(Tab, { selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));

@@ -51,7 +51,9 @@ export default function ImpedimentosTab({
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor)
 
     useEffect(() => {
-        setAllTabs(tabsList)
+        if(tabsList.length > allTabs.length) {
+            setAllTabs(tabsList)
+        }
     }, [tabsList]);
 
     useEffect(() => {
@@ -96,6 +98,7 @@ export default function ImpedimentosTab({
         newArray.unshift(impedimento)
         //atualiza o array de impedimentos
         setAllTabs(newArray)
+        handleClickTab(impedimento)
     }
 
     const renderTabs = (tabInfo: TabInfo, index: number) => {
