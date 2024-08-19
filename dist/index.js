@@ -23,6 +23,8 @@ var CardActions = require('@mui/material/CardActions');
 var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
 var Select$4 = require('react-select');
+var reactToastify = require('react-toastify');
+require('react-toastify/dist/ReactToastify.css');
 var usehooksTs = require('usehooks-ts');
 var CloseIcon$2 = require('@mui/icons-material/Close');
 var ArrowDropUpOutlinedIcon = require('@mui/icons-material/ArrowDropUpOutlined');
@@ -3150,6 +3152,69 @@ const Toast = ({ type = 'success', message, onClose, showBySeconds = 5, styles }
             iconComponent = jsxRuntime.jsx(CircledAlert, { width: '22', height: '22' });
     }
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { visible: isToastOpen, style: { ...styles }, children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$2, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon$1, { width: '14', height: '14' }) })] }) }));
+};
+
+const StyledContainer = styled__default["default"](reactToastify.ToastContainer) `
+  .Toastify__toast {
+    border-radius: 8px !important;
+    min-height: 54px !important;
+  }
+  .Toastify__toast-body {
+    color: #000 !important;
+    font-family: Pt Sans;
+    font-weight: 400;
+    line-height: 18.12px;
+    font-size: 14px;
+  }
+`;
+
+const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles }) => {
+    let iconComponent;
+    switch (type) {
+        case 'error':
+            iconComponent = jsxRuntime.jsx(ErrorInCicleIcon, { fill: "#C00F00", width: "22", height: "22" });
+            break;
+        case 'success':
+            iconComponent = jsxRuntime.jsx(CircledCheck, { width: "22", height: "22" });
+            break;
+        case 'warning':
+            iconComponent = jsxRuntime.jsx(CircledAlert, { width: "22", height: "22" });
+            break;
+        default:
+            iconComponent = undefined;
+    }
+    const toastOptions = {
+        position: 'top-right',
+        autoClose: showBySeconds * 1000,
+        closeButton: (jsxRuntime.jsx("span", { style: { display: 'flex', marginTop: 'auto', marginBottom: 'auto', marginRight: '20px' }, children: jsxRuntime.jsx(CloseIcon$1, { width: "14", height: "14" }) })),
+        icon: iconComponent,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        style: styles
+    };
+    switch (type) {
+        case 'info':
+            reactToastify.toast.info(message, toastOptions);
+            break;
+        case 'success':
+            reactToastify.toast.success(message, toastOptions);
+            break;
+        case 'error':
+            reactToastify.toast.error(message, toastOptions);
+            break;
+        case 'warning':
+            reactToastify.toast.warn(message, toastOptions);
+            break;
+        default:
+            reactToastify.toast(message, toastOptions);
+            break;
+    }
+};
+const ToastV2 = () => {
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(StyledContainer, {}) }));
 };
 
 const MainContainer$1 = styled__default["default"].div `
@@ -22580,6 +22645,7 @@ exports.Thumbnails = Thumbnails;
 exports.ThumbnailsDraggable = ThumbnailsDraggable;
 exports.Tick = Tick;
 exports.Toast = Toast;
+exports.ToastV2 = ToastV2;
 exports.Tooltip = Tooltip$2;
 exports.TotalizerCard = TotalizerCard$1;
 exports.TrailList = TrailList;
@@ -22589,3 +22655,4 @@ exports.UserCard = CalendarCard$1;
 exports.Video = Video;
 exports.Votar = Votar;
 exports.YoutubeIcon = YoutubeIcon;
+exports.showToastV2 = showToastV2;
