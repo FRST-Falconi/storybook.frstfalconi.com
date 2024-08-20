@@ -19,7 +19,7 @@ import { FRSTTheme } from '../../../theme'
 import { Box } from '@mui/material'
 import { useEffect, useState } from 'react'
 import Avatar from '@components/avatar'
-import { AddIcon, ArrrowExpandDropdown, CheckIconSimple, CloseIcon, EditIcon, StarPrioritize, TrashIconNew } from '@shared/icons'
+import { AddIcon, ArrrowExpandDropdown, CheckIconSimple, CloseIcon, EditHipoteses, EditIcon, StarPrioritize, TrashHipoteses, TrashIconNew } from '@shared/icons'
 import Tooltip from '../tooltip'
 import AddImpedimentoModal from './addImpedimentoModal'
 import React from 'react'
@@ -202,12 +202,12 @@ export default function ImpedimentosTab({
                                                 ...(selectedTab?.handleEdit ? [{
                                                     description: 'Editar',
                                                     onClick: () => setIsEdit(true),
-                                                    startIcon: <EditIcon fill='#222222' />
+                                                    startIcon: <EditHipoteses />
                                                 }] : []),
                                                 ...(selectedTab?.handleDelete ? [{
                                                     description: 'Excluir',
                                                     onClick: () => selectedTab?.handleDelete(selectedTab),
-                                                    startIcon: <TrashIconNew fill='#C00F00' />,
+                                                    startIcon: <TrashHipoteses />,
                                                     color: '#C00F00'
                                                 }] : []),
                                             ]}
