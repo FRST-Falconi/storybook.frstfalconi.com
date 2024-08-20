@@ -3,7 +3,7 @@ import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment'
 import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
 import MenuMore from '@components/menu-more'
-import { AddIcon, EditIcon, StarPrioritize, TrashDelete } from '@shared/icons'
+import { AddAction, AddIcon, EditHipoteses, EditIcon, StarPrioritize, TrashDelete, TrashHipoteses } from '@shared/icons'
 import Tooltip from '../tooltip'
 import UpDownButtons from './UpDownButtons'
 import { Voting } from './Voting'
@@ -44,7 +44,34 @@ export const HypothesisAndImpediment = ({
     const [editDescription, setEditDescription] = useState(description)
     const [isEditing, setIsEditing] = useState(false)
     const isOwnerGoal = authorGoalId === authorId
-
+    const options = [
+        hasUpdownButtons && userLoggedId === authorGoalId &&
+        ({
+            startIcon: <StarPrioritize stroke={type === 'prioritize' ? "#9C9C9C" : "#222222"} />,
+            description: 'Priorizar',
+            onClick: () => onPrioritize(id),
+            disabled: type === 'prioritize',
+            color: type === 'prioritize' ? '#9C9C9C' : '#222222'
+        }),
+        {
+            startIcon: <EditHipoteses />,
+            description: 'Editar',
+            onClick: (e) => setIsEditing(true)
+        },
+        hasAddActions && isOwnerGoal &&
+        ({
+            startIcon: <AddAction />,
+            description: 'Adicionar ações',
+            onClick: () => onAddActions(id),
+            color: '#222222'
+        }),
+        {
+            startIcon: <TrashHipoteses />,
+            description: 'Excluir',
+            onClick: () => onDeleteHipotesisOrImpediment(id),
+            color: '#C00F00'
+        }
+    ]
 
     useEffect(() => {
         setEditDescription(description)
@@ -176,36 +203,7 @@ export const HypothesisAndImpediment = ({
                             )}
                             {validHasEditHipotesisOrImpediment && (
                                 <MenuMore
-                                    options={
-                                        [
-                                            hasUpdownButtons && userLoggedId === authorGoalId &&
-                                            ({
-                                                startIcon: <StarPrioritize width='24px' height='24px' stroke={type === 'prioritize' ? "#9C9C9C" : "#222222"} />,
-                                                description: 'Priorizar',
-                                                onClick: () => onPrioritize(id),
-                                                disabled: type === 'prioritize',
-                                                color: type === 'prioritize' ? '#9C9C9C' : '#222222'
-                                            }),
-                                            {
-                                                startIcon: <EditIcon fill="#222222" width="24px" height='24px' />,
-                                                description: 'Editar',
-                                                onClick: (e) => setIsEditing(true)
-                                            },
-                                            hasAddActions && isOwnerGoal &&
-                                            ({
-                                                startIcon: <AddIcon fill="#222222" width="24px" height='24px' />,
-                                                description: 'Adicionar ações',
-                                                onClick: () => onAddActions(id),
-                                                color: '#222222'
-                                            }),
-                                            {
-                                                startIcon: <TrashDelete fill="#C00F00" />,
-                                                description: 'Excluir',
-                                                onClick: () => onDeleteHipotesisOrImpediment(id),
-                                                color: '#C00F00'
-                                            }
-                                        ]
-                                    }
+                                    options={options.filter(item => item)}
                                     isContainerOptions={true}
                                     closeAfterClick
                                 />

@@ -3937,3 +3937,31 @@ export function StarPrioritize ({ fill, width ,height, fillOpacity, stroke, stro
     </svg>
   )
 }
+
+export function EditHipoteses ({width, height, fill, stroke}: IconsProps) {
+  return (
+    <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 5.06665H6.55556C6.143 5.06665 5.74733 5.24146 5.45561 5.55264C5.16389 5.86381 5 6.28585 5 6.72591V18.3407C5 18.7808 5.16389 19.2028 5.45561 19.514C5.74733 19.8252 6.143 20 6.55556 20H17.4444C17.857 20 18.2527 19.8252 18.5444 19.514C18.8361 19.2028 19 18.7808 19 18.3407V12.5333" stroke={stroke ? stroke : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M18.1791 4.51625C18.489 4.1857 18.9093 4 19.3476 4C19.7858 4 20.2061 4.1857 20.516 4.51625C20.8259 4.8468 21 5.29513 21 5.76259C21 6.23006 20.8259 6.67839 20.516 7.00894L13.1159 14.9024L10 15.7333L10.779 12.4098L18.1791 4.51625Z" stroke={stroke ? stroke : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
+
+export function TrashHipoteses ({width, height, stroke}: IconsProps) {
+  return (
+    <svg width={width ? width : "24"} height={height ? height : "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M3.83325 7.33337H5.61103H19.8333" stroke={stroke ? stroke : "#C00F00"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M18.3788 7.5V18.4C18.3788 18.8243 18.1817 19.2313 17.831 19.5314C17.4803 19.8314 17.0046 20 16.5086 20H7.15797C6.66198 20 6.18631 19.8314 5.83559 19.5314C5.48487 19.2313 5.28784 18.8243 5.28784 18.4V7.5M8.09304 7.2V5.6C8.09304 5.17565 8.29007 4.76869 8.64079 4.46863C8.9915 4.16857 9.46718 4 9.96317 4H13.7034C14.1994 4 14.6751 4.16857 15.0258 4.46863C15.3765 4.76869 15.5736 5.17565 15.5736 5.6V7.2" stroke={stroke ? stroke : "#C00F00"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+
+  )
+}
+
+export function AddAction ({width, height, stroke}: IconsProps) {
+  return (
+    <svg width={width ? width : "24"} height={height ? height : "25"} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.1543 4.82617V20.8262" stroke={stroke ? stroke : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M4.1543 12.8262H20.1543" stroke={stroke ? stroke : "#222222"} strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  )
+}
