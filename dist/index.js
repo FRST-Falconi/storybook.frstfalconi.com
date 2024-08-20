@@ -7623,12 +7623,12 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                                         ...(selectedTab?.handleEdit ? [{
                                                                 description: 'Editar',
                                                                 onClick: () => setIsEdit(true),
-                                                                startIcon: jsxRuntime.jsx(EditIcon, { fill: '#222222' })
+                                                                startIcon: jsxRuntime.jsx(EditHipoteses, {})
                                                             }] : []),
                                                         ...(selectedTab?.handleDelete ? [{
                                                                 description: 'Excluir',
                                                                 onClick: () => selectedTab?.handleDelete(selectedTab),
-                                                                startIcon: jsxRuntime.jsx(TrashIconNew, { fill: '#C00F00' }),
+                                                                startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
                                                                 color: '#C00F00'
                                                             }] : []),
                                                     ], closeAfterClick: true, isContainerOptions: true }) })
