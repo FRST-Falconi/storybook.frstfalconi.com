@@ -1,6 +1,5 @@
 import React from 'react'
 import { toast, ToastOptions, ToastPosition } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import * as Styled from './toast-v2.styles'
 import { ThemeProvider } from 'styled-components'
 import { ToastProps } from './toast-v2.types'
