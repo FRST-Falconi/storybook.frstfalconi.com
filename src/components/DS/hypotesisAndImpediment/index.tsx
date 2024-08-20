@@ -71,7 +71,7 @@ export const HypothesisAndImpediment = ({
             onClick: () => onDeleteHipotesisOrImpediment(id),
             color: '#C00F00'
         }
-    ]
+    ].filter(item => item)
 
     useEffect(() => {
         setEditDescription(description)
@@ -203,7 +203,7 @@ export const HypothesisAndImpediment = ({
                             )}
                             {validHasEditHipotesisOrImpediment && (
                                 <MenuMore
-                                    options={options.filter(item => item)}
+                                    options={options}
                                     isContainerOptions={true}
                                     closeAfterClick
                                 />
