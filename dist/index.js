@@ -24,7 +24,6 @@ var StepConnector = require('@mui/material/StepConnector');
 var styles = require('@mui/material/styles');
 var Select$4 = require('react-select');
 var reactToastify = require('react-toastify');
-require('react-toastify/dist/ReactToastify.css');
 var usehooksTs = require('usehooks-ts');
 var CloseIcon$2 = require('@mui/icons-material/Close');
 var ArrowDropUpOutlinedIcon = require('@mui/icons-material/ArrowDropUpOutlined');
