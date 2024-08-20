@@ -158,7 +158,6 @@ export default function GroupsTable({
 						</TableHeader>
 
 						<TableHeader>{textHeader2}</TableHeader>
-						<TableHeader >{textHeaderVisit}</TableHeader>
 						<TableHeader style={{ paddingRight: '40px', paddingLeft: '44px', width: '220px' }}>
 							<div style={{ display: 'flex', alignItems: 'center', gap: '40px' }}>
 								<div>{textHeader3}</div>
@@ -267,95 +266,6 @@ export default function GroupsTable({
 									</div>
 								</TableAdm>
 
-
-								<TableVisit id='container-visit'>
-
-									<TableVisitContent>
-										<div>
-											<Tooltip
-												content={textTooltipAdd}
-												delay={500}
-												direction={'bottom'}
-												style={{
-													fontFamily: 'PT Sans',
-													fontWeight: 400,
-													fontSize: '14px',
-													color: 'rgba(117, 117, 117, 1)',
-													width: '73px',
-													height: '31px',
-													top: '8px',
-													left: '4px',
-													display: 'flex',
-													justifyContent: 'center',
-													boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-												}}
-											>
-												<AdmButton variant={'add'} onClick={() => visitMoreClick(i.id)} />
-											</Tooltip>
-
-											{i.visitors?.length > maxAdmToShow && (
-												<Tooltip
-													content={textTooltipCount}
-													delay={500}
-													direction={'bottom'}
-													style={{
-														fontFamily: 'PT Sans',
-														fontWeight: 400,
-														fontSize: '14px',
-														color: 'rgba(117, 117, 117, 1)',
-														width: '73px',
-														height: '31px',
-														top: '8px',
-														left: '4px',
-														boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-													}}
-												>
-													{i.visitors.length < 9 ?
-														<AdmButton
-															onClick={() => onShowMoreVisitorsClick(i.id)}
-															variant={'count'}
-															count={i.visitors.length - maxAdmToShow}
-														/>
-														:
-														<AdmButton
-															onClick={() => onShowMoreVisitorsClick(i.id)}
-															variant={'countMore'}
-															count={9}
-														/>
-													}
-
-												</Tooltip>
-
-
-											)}
-
-											{i.visitors
-												?.filter((a, aIndex) => aIndex < maxAdmToShow)
-												.map((visit) => {
-													return <Tooltip
-														content={visit.name}
-														direction={'bottom'}
-														delay={500}
-														style={{
-															fontFamily: 'PT Sans',
-															fontWeight: 400,
-															fontSize: '14px',
-															color: 'rgba(117, 117, 117, 1)',
-															width: 'fit-content',
-															height: '31px',
-															top: '8px',
-															left: '4px',
-															whiteSpace: 'nowrap',
-															boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-														}}
-													>
-														<AdmButton key={visit.id} image={visit.avatar} variant={'image'} />
-													</Tooltip>
-												})}
-										</div>
-									</TableVisitContent>
-
-								</TableVisit>
 
 								<td>
 									<div style={{ display: 'flex', width: 'fit-content', alignItems: 'center', gap: '60px', paddingLeft: '54px' }}>
