@@ -65,6 +65,7 @@ export { default as CalendarCard } from './src/components/calendar'
 export { default as BannerProblem } from './src/components/cardLT/BannerProblem'
 export { default as MessageBox } from './src/components/cardLT/MessageBox'
 export { Toast } from './src/components/DS/toast'
+export { ToastV2, showToastV2 } from './src/components/DS/toast-v2'
 export { HypothesisComponent } from './src/components/hypothesisComponent'
 
 // Buttons
@@ -92,8 +93,8 @@ export { default as CardPeople } from './src/components/DS/cardPeople'
 export { default as Loading } from './src/components/DS/loading'
 export { default as OnboardingProgressMenu } from './src/components/DS/onboarding-progress-menu'
 export { default as CardUser } from './src/components/DS/cardUser'
-export { default as ImpedimentosTab} from './src/components/DS/impedimentosTab'
-export {HypothesisAndImpediment} from './src/components/DS/hypotesisAndImpediment'
+export { default as ImpedimentosTab } from './src/components/DS/impedimentosTab'
+export { HypothesisAndImpediment } from './src/components/DS/hypotesisAndImpediment'
 
 export { default as SearchField } from './src/components/search-field'
 export { default as FilterAccordionCheckbox } from './src/components/filter-accordion-checkbox'
