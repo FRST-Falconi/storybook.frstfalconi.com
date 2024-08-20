@@ -1,4 +1,3 @@
-import 'react-toastify/dist/ReactToastify.css'
 import React from 'react'
 import { toast, ToastOptions, ToastPosition } from 'react-toastify'
 import * as Styled from './toast-v2.styles'

@@ -1,3 +1,5 @@
+import 'react-toastify/dist/ReactToastify.css'
+
 import React from 'react'
 import styled from 'styled-components'
 import { ToastContainer } from 'react-toastify'
