@@ -36,11 +36,6 @@ module.exports = {
       '@public': path.resolve(__dirname, '../public'),
       '@components': path.resolve(__dirname, '../src/components')
     }
-    config.module.rules.push({
-      test: /\.css$/,
-      include: path.resolve(__dirname, '../node_modules'),
-      use: ['style-loader', 'css-loader']
-    })
     return config
   }
 }
