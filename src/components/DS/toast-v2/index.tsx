@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { toast, ToastOptions, ToastPosition } from 'react-toastify'
 import * as Styled from './toast-v2.styles'
 import { ThemeProvider } from 'styled-components'
@@ -59,10 +59,6 @@ export const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styl
 }
 
 export const ToastV2 = () => {
-  useEffect(() => {
-    import('react-toastify/dist/ReactToastify.css')
-  }, [])
-
   return (
     <ThemeProvider theme={FRSTTheme}>
       <Styled.StyledContainer />
