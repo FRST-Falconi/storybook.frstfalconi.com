@@ -3213,6 +3213,9 @@ const showToastV2 = ({ type = 'success', message, showBySeconds = 5, styles }) =
     }
 };
 const ToastV2 = () => {
+    React.useEffect(() => {
+        Promise.resolve().then(function () { return /*#__PURE__*/_interopNamespace(require('react-toastify/dist/ReactToastify.css')); });
+    }, []);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsx(StyledContainer, {}) }));
 };
 
