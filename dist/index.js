@@ -580,6 +580,15 @@ function DocumentResourceInfoIcon({ fill, width, height, fillOpacity, stroke, st
 function StarPrioritize({ fill, width, height, fillOpacity, stroke, strokeWidth }) {
     return (jsxRuntime.jsx("svg", { width: width ? width : '20', height: height ? height : '19', viewBox: "0 0 20 19", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: jsxRuntime.jsx("path", { d: "M8.76629 1.56915C9.29428 0.584872 10.7057 0.584872 11.2337 1.56915L12.7175 4.33521C13.0927 5.03459 13.7667 5.52431 14.5478 5.665L17.637 6.2214C18.7362 6.41939 19.1724 7.76174 18.3995 8.56805L16.2273 10.834C15.6781 11.4069 15.4206 12.1993 15.5282 12.9856L15.9536 16.0955C16.105 17.2022 14.9631 18.0318 13.9574 17.5459L11.1312 16.1802C10.4166 15.8349 9.58342 15.8349 8.86882 16.1802L6.04256 17.5459C5.03686 18.0318 3.89499 17.2022 4.04638 16.0955L4.47182 12.9856C4.57939 12.1993 4.32193 11.4069 3.77271 10.834L1.60055 8.56805C0.827603 7.76174 1.26376 6.41939 2.36302 6.2214L5.45222 5.665C6.23329 5.52431 6.90734 5.03459 7.28251 4.33521L8.76629 1.56915Z", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2" }) }));
 }
+function EditHipoteses({ width, height, fill, stroke }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12 5.06665H6.55556C6.143 5.06665 5.74733 5.24146 5.45561 5.55264C5.16389 5.86381 5 6.28585 5 6.72591V18.3407C5 18.7808 5.16389 19.2028 5.45561 19.514C5.74733 19.8252 6.143 20 6.55556 20H17.4444C17.857 20 18.2527 19.8252 18.5444 19.514C18.8361 19.2028 19 18.7808 19 18.3407V12.5333", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.1791 4.51625C18.489 4.1857 18.9093 4 19.3476 4C19.7858 4 20.2061 4.1857 20.516 4.51625C20.8259 4.8468 21 5.29513 21 5.76259C21 6.23006 20.8259 6.67839 20.516 7.00894L13.1159 14.9024L10 15.7333L10.779 12.4098L18.1791 4.51625Z", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function TrashHipoteses({ width, height, stroke }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "24", viewBox: "0 0 24 24", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M3.83325 7.33337H5.61103H19.8333", stroke: stroke ? stroke : "#C00F00", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M18.3788 7.5V18.4C18.3788 18.8243 18.1817 19.2313 17.831 19.5314C17.4803 19.8314 17.0046 20 16.5086 20H7.15797C6.66198 20 6.18631 19.8314 5.83559 19.5314C5.48487 19.2313 5.28784 18.8243 5.28784 18.4V7.5M8.09304 7.2V5.6C8.09304 5.17565 8.29007 4.76869 8.64079 4.46863C8.9915 4.16857 9.46718 4 9.96317 4H13.7034C14.1994 4 14.6751 4.16857 15.0258 4.46863C15.3765 4.76869 15.5736 5.17565 15.5736 5.6V7.2", stroke: stroke ? stroke : "#C00F00", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
+function AddAction({ width, height, stroke }) {
+    return (jsxRuntime.jsxs("svg", { width: width ? width : "24", height: height ? height : "25", viewBox: "0 0 24 25", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsx("path", { d: "M12.1543 4.82617V20.8262", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M4.1543 12.8262H20.1543", stroke: stroke ? stroke : "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }));
+}
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -3048,7 +3057,7 @@ const VoteCurrentIcon = ({ style, width = '16', height = '17', stroke = '#444444
 };
 
 function NewVoteIcon() {
-    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { "clip-path": "url(#clip0_80_23523)", children: [jsxRuntime.jsx("path", { d: "M7.99967 14.6668C11.6816 14.6668 14.6663 11.6821 14.6663 8.00016C14.6663 4.31826 11.6816 1.3335 7.99967 1.3335C4.31778 1.3335 1.33301 4.31826 1.33301 8.00016C1.33301 11.6821 4.31778 14.6668 7.99967 14.6668Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11 8L8 5L5 8", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8 11V5", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_80_23523", children: jsxRuntime.jsx("rect", { width: "16", height: "16", fill: "white" }) }) })] }));
+    return (jsxRuntime.jsxs("svg", { width: "16", height: "16", viewBox: "0 0 16 16", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: [jsxRuntime.jsxs("g", { clipPath: "url(#clip0_80_23523)", children: [jsxRuntime.jsx("path", { d: "M7.99967 14.6668C11.6816 14.6668 14.6663 11.6821 14.6663 8.00016C14.6663 4.31826 11.6816 1.3335 7.99967 1.3335C4.31778 1.3335 1.33301 4.31826 1.33301 8.00016C1.33301 11.6821 4.31778 14.6668 7.99967 14.6668Z", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M11 8L8 5L5 8", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" }), jsxRuntime.jsx("path", { d: "M8 11V5", stroke: "#222222", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round" })] }), jsxRuntime.jsx("defs", { children: jsxRuntime.jsx("clipPath", { id: "clip0_80_23523", children: jsxRuntime.jsx("rect", { width: "16", height: "16", fill: "white" }) }) })] }));
 }
 
 function CheckIcon({ stroke = "#1BA853", fill = '#D1F6D1' }) {
@@ -7614,12 +7623,12 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                                         ...(selectedTab?.handleEdit ? [{
                                                                 description: 'Editar',
                                                                 onClick: () => setIsEdit(true),
-                                                                startIcon: jsxRuntime.jsx(EditIcon, { fill: '#222222' })
+                                                                startIcon: jsxRuntime.jsx(EditHipoteses, {})
                                                             }] : []),
                                                         ...(selectedTab?.handleDelete ? [{
                                                                 description: 'Excluir',
                                                                 onClick: () => selectedTab?.handleDelete(selectedTab),
-                                                                startIcon: jsxRuntime.jsx(TrashIconNew, { fill: '#C00F00' }),
+                                                                startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
                                                                 color: '#C00F00'
                                                             }] : []),
                                                     ], closeAfterClick: true, isContainerOptions: true }) })
@@ -7981,6 +7990,34 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
     const [editDescription, setEditDescription] = React.useState(description);
     const [isEditing, setIsEditing] = React.useState(false);
     const isOwnerGoal = authorGoalId === authorId;
+    const options = [
+        hasUpdownButtons && userLoggedId === authorGoalId &&
+            ({
+                startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: type === 'prioritize' ? "#9C9C9C" : "#222222" }),
+                description: 'Priorizar',
+                onClick: () => onPrioritize(id),
+                disabled: type === 'prioritize',
+                color: type === 'prioritize' ? '#9C9C9C' : '#222222'
+            }),
+        {
+            startIcon: jsxRuntime.jsx(EditHipoteses, {}),
+            description: 'Editar',
+            onClick: (e) => setIsEditing(true)
+        },
+        hasAddActions && isOwnerGoal &&
+            ({
+                startIcon: jsxRuntime.jsx(AddAction, {}),
+                description: 'Adicionar ações',
+                onClick: () => onAddActions(id),
+                color: '#222222'
+            }),
+        {
+            startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
+            description: 'Excluir',
+            onClick: () => onDeleteHipotesisOrImpediment(id),
+            color: '#C00F00'
+        }
+    ].filter(item => item);
     React.useEffect(() => {
         setEditDescription(description);
     }, [description]);
@@ -8039,34 +8076,7 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                         whiteSpace: 'wrap',
                                         boxShadow: ' 0px 25px 18px -20px #22222233;',
                                         display: variant === 'impediment' ? 'none' : 'block'
-                                    }, children: jsxRuntime.jsx("div", { style: { width: '100%' }, children: editDescription }) }) }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: [
-                                    hasUpdownButtons && userLoggedId === authorGoalId &&
-                                        ({
-                                            startIcon: jsxRuntime.jsx(StarPrioritize, { width: '24px', height: '24px', stroke: type === 'prioritize' ? "#9C9C9C" : "#222222" }),
-                                            description: 'Priorizar',
-                                            onClick: () => onPrioritize(id),
-                                            disabled: type === 'prioritize',
-                                            color: type === 'prioritize' ? '#9C9C9C' : '#222222'
-                                        }),
-                                    {
-                                        startIcon: jsxRuntime.jsx(EditIcon, { fill: "#222222", width: "24px", height: '24px' }),
-                                        description: 'Editar',
-                                        onClick: (e) => setIsEditing(true)
-                                    },
-                                    hasAddActions && isOwnerGoal &&
-                                        ({
-                                            startIcon: jsxRuntime.jsx(AddIcon, { fill: "#222222", width: "24px", height: '24px' }),
-                                            description: 'Adicionar ações',
-                                            onClick: () => onAddActions(id),
-                                            color: '#222222'
-                                        }),
-                                    {
-                                        startIcon: jsxRuntime.jsx(TrashDelete, { fill: "#C00F00" }),
-                                        description: 'Excluir',
-                                        onClick: () => onDeleteHipotesisOrImpediment(id),
-                                        color: '#C00F00'
-                                    }
-                                ], isContainerOptions: true, closeAfterClick: true }))] })] })) }) }));
+                                    }, children: jsxRuntime.jsx("div", { style: { width: '100%' }, children: editDescription }) }) }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] })) }) }));
 };
 
 const Container$g = styled__default["default"].div `
