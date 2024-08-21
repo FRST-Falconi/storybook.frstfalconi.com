@@ -3115,7 +3115,7 @@ const Icon = styled__default["default"].span `
   margin-right: 10px;
   margin-top:4px
 `;
-const CloseButton$2 = styled__default["default"].button `
+const CloseButton$3 = styled__default["default"].button `
   background: none;
   border: none;
   cursor: pointer;
@@ -3159,7 +3159,7 @@ const Toast = ({ type = 'success', message, onClose, showBySeconds = 5, styles }
         default:
             iconComponent = jsxRuntime.jsx(CircledAlert, { width: '22', height: '22' });
     }
-    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { visible: isToastOpen, style: { ...styles }, children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$2, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon$1, { width: '14', height: '14' }) })] }) }));
+    return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: jsxRuntime.jsxs(ToastWrapper, { visible: isToastOpen, style: { ...styles }, children: [jsxRuntime.jsx(Icon, { children: iconComponent }), jsxRuntime.jsx(Text$3, { children: message }), jsxRuntime.jsx(CloseButton$3, { onClick: onClose, children: jsxRuntime.jsx(CloseIcon$1, { width: '14', height: '14' }) })] }) }));
 };
 
 const StyledContainer = styled__default["default"](reactToastify.ToastContainer) `
@@ -3674,7 +3674,7 @@ function MenuMore({ iconButton, options, style, closeAfterClick, isHover = true,
                     }) }))] }) }));
 }
 
-const ModalContainer = styled__default["default"].div `
+const ModalContainer$1 = styled__default["default"].div `
     position: absolute;
     max-width: 602px;
     min-height: 306px;
@@ -3687,14 +3687,14 @@ const ModalContainer = styled__default["default"].div `
     background-repeat: no-repeat;
     background-position: top -554px right -126px;
 `;
-const ModalHeader$1 = styled__default["default"].div `
+const ModalHeader$2 = styled__default["default"].div `
     display: flex;
     justify-content: space-between;
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 16px;
 `;
-const ModalTitle = styled__default["default"].p `
+const ModalTitle$1 = styled__default["default"].p `
     font-weight: 700;
     font-family: 'Work Sans';
     font-size: 20px;
@@ -3702,13 +3702,13 @@ const ModalTitle = styled__default["default"].p `
     line-height: 26px;
     color: #222222;
 `;
-const CloseButton$1 = styled__default["default"].div `
+const CloseButton$2 = styled__default["default"].div `
 
 `;
-const HorizontalLine = styled__default["default"].hr `
+const HorizontalLine$1 = styled__default["default"].hr `
     border: 1px solid #E0E0E0;
 `;
-const ContainerContent = styled__default["default"].div `
+const ContainerContent$1 = styled__default["default"].div `
     padding-left: 32px;
     padding-right: 32px;
     display: flex;
@@ -3716,14 +3716,14 @@ const ContainerContent = styled__default["default"].div `
     min-height: 200px;
     justify-content: space-between;
 `;
-const ButtonContainer$1 = styled__default["default"].div `
+const ButtonContainer$2 = styled__default["default"].div `
     display: flex;
     gap: 10px;
     justify-content: flex-end;
 `;
 
 const ModalConfirme = ({ open, onClose, title, children, onConfirm }) => {
-    return (jsxRuntime.jsx(material.Modal, { open: open, onClose: onClose, children: jsxRuntime.jsxs(ModalContainer, { children: [jsxRuntime.jsxs(ModalHeader$1, { children: [jsxRuntime.jsx(ModalTitle, { children: title }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: "X" })] }), jsxRuntime.jsx(HorizontalLine, {}), jsxRuntime.jsxs(ContainerContent, { children: [children, jsxRuntime.jsxs(ButtonContainer$1, { children: [jsxRuntime.jsx(Button$5, { variant: "link", style: { color: '#444444' }, handleClick: onClose, label: "N\u00E3o, cancelar" }), jsxRuntime.jsx(Button$5, { variant: "primary", label: "Sim, excluir", handleClick: onConfirm })] })] })] }) }));
+    return (jsxRuntime.jsx(material.Modal, { open: open, onClose: onClose, children: jsxRuntime.jsxs(ModalContainer$1, { children: [jsxRuntime.jsxs(ModalHeader$2, { children: [jsxRuntime.jsx(ModalTitle$1, { children: title }), jsxRuntime.jsx(CloseButton$2, { onClick: onClose, children: "X" })] }), jsxRuntime.jsx(HorizontalLine$1, {}), jsxRuntime.jsxs(ContainerContent$1, { children: [children, jsxRuntime.jsxs(ButtonContainer$2, { children: [jsxRuntime.jsx(Button$5, { variant: "link", style: { color: '#444444' }, handleClick: onClose, label: "N\u00E3o, cancelar" }), jsxRuntime.jsx(Button$5, { variant: "primary", label: "Sim, excluir", handleClick: onConfirm })] })] })] }) }));
 };
 
 const HypothesisComponent = ({ description, type, id, title, votes = [], onVote, canVote = false, canViewVote = false, userLoggedId, deleteVote, canViewListVotes, votesSingularText, votesPluralText, voteText, deleteVoteText, handleViewProfile, avatar, hasEditHipotesis, onDeleteHipotesis, showAvatar, authorId, hasVoteGoal, loading, onChangeVote, authorGoalId, changeVoteText, onSaveEditHipotesis }) => {
@@ -6606,7 +6606,7 @@ const SlideDownAnimation = styled.keyframes `
   0% { transform: translateY(-100%) }
   100% { transform: translateY(0) }
 `;
-const ModalHeader = styled__default["default"].div `
+const ModalHeader$1 = styled__default["default"].div `
   position: relative;
   height: 20px;
 `;
@@ -6656,7 +6656,7 @@ function Modal({ children, width, headerContent, style, onClose, onOpen, handleC
             onClose(e);
     };
     return (jsxRuntime.jsx(ModalWrapper, { open: active, ref: ModalWrapperRef, children: jsxRuntime.jsxs(ModalContent, { style: style, width: width, mobileFullPage: mobileFullPage, ref: ModalContentRef, animation: AnimationType, children: [showHeader === true ||
-                    (showCloseButton === true && (jsxRuntime.jsx(ModalHeader, { children: showCloseButton === true && (jsxRuntime.jsxs(ModalCloseButton, { onClick: (e) => handleClose(e), children: [headerContent && headerContent, jsxRuntime.jsx("span", { onClick: (e) => (handleCloseOnIcon ? handleCloseOnIcon() : handleClose(e)), children: jsxRuntime.jsx(CloseIcon$1, {}) })] })) }))), children && children] }) }));
+                    (showCloseButton === true && (jsxRuntime.jsx(ModalHeader$1, { children: showCloseButton === true && (jsxRuntime.jsxs(ModalCloseButton, { onClick: (e) => handleClose(e), children: [headerContent && headerContent, jsxRuntime.jsx("span", { onClick: (e) => (handleCloseOnIcon ? handleCloseOnIcon() : handleClose(e)), children: jsxRuntime.jsx(CloseIcon$1, {}) })] })) }))), children && children] }) }));
 }
 
 const ContainerSelected = styled__default["default"].div `
@@ -8077,6 +8077,63 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                         boxShadow: ' 0px 25px 18px -20px #22222233;',
                                         display: variant === 'impediment' ? 'none' : 'block'
                                     }, children: jsxRuntime.jsx("div", { style: { width: '100%' }, children: editDescription }) }) }), hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] })) }) }));
+};
+
+const ModalContainer = styled__default["default"].div `
+    position: absolute;
+    width: 630px;
+    min-height: 473px;
+    border-radius: 16px;
+    top: 50%;
+    left: 50%;
+    background-color: white;
+    transform: translate(-50%, -50%);
+    background-repeat: no-repeat;
+    background-position: top -554px right -126px;
+    padding-bottom: 24px;
+`;
+const ModalHeader = styled__default["default"].div `
+    display: flex;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 24px;
+    padding-top: 24px;
+`;
+const ModalTitle = styled__default["default"].p `
+    font-weight: 700;
+    font-family: 'Work Sans';
+    font-size: 20px;
+    /* margin-top: 18px; */
+    line-height: 26px;
+    color: #222222;
+    margin-top: 40px;
+    margin-bottom: 16px;
+`;
+const CloseButton$1 = styled__default["default"].div `
+    width: 16px;
+    height: 16px;
+    color: #757575;
+    cursor: pointer;
+`;
+const HorizontalLine = styled__default["default"].hr `
+    border: 1px solid #E0E0E0;
+`;
+const ContainerContent = styled__default["default"].div `
+    padding-left: 32px;
+    padding-right: 32px;
+    display: flex;
+    flex-direction: column;
+    min-height: 328px;
+    justify-content: space-between;
+`;
+const ButtonContainer$1 = styled__default["default"].div `
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+`;
+
+const ConfirmationModal = ({ open, onClose, title, children, onConfirm, labelButton }) => {
+    return (jsxRuntime.jsx(material.Modal, { open: open, onClose: onClose, children: jsxRuntime.jsxs(ModalContainer, { children: [jsxRuntime.jsxs(ModalHeader, { children: [jsxRuntime.jsx(ModalTitle, { children: title }), jsxRuntime.jsx(CloseButton$1, { onClick: onClose, children: "X" })] }), jsxRuntime.jsx(HorizontalLine, {}), jsxRuntime.jsxs(ContainerContent, { children: [children, jsxRuntime.jsx(ButtonContainer$1, { children: jsxRuntime.jsx(Button$5, { variant: "primary", label: labelButton, handleClick: onConfirm }) })] })] }) }));
 };
 
 const Container$g = styled__default["default"].div `
@@ -22485,6 +22542,7 @@ exports.ColorPicker = Colorpicker;
 exports.CommentPost = CommentPost;
 exports.CommentaryBox = CommentaryBox;
 exports.CommentaryBoxV2 = CommentaryBoxV2;
+exports.ConfirmationModal = ConfirmationModal;
 exports.ConquistaCarrossel = ConquistaCarrossel;
 exports.Content = Content$3;
 exports.ContentCycle = ContentCycle;
