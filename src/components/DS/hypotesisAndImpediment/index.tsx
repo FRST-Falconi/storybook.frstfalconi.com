@@ -92,6 +92,7 @@ export const HypothesisAndImpediment = ({
     }
 
     const handleCancel = () => {
+        setEditDescription(description)
         setIsEditing(false)
     }
 
