@@ -8036,6 +8036,7 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
         setIsEditing(false);
     };
     const handleCancel = () => {
+        setEditDescription(description);
         setIsEditing(false);
     };
     const validHasEditHipotesisOrImpediment = React.useMemo(() => {
