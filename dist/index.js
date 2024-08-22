@@ -7437,13 +7437,13 @@ const WrapperMenuMore = styled__default["default"]('div') `
     margin-left: auto;
     margin-right: 0;
 `;
-const EditWrapper = styled__default["default"]('div') `
+styled__default["default"]('div') `
     width: 100%;
     display: flex;
     align-items: center;
     gap: 16px;
 `;
-const EditButtons = styled__default["default"]('div') `
+styled__default["default"]('div') `
     width: 32px;
     height: 32px;
     border-radius: 100px;
@@ -7528,7 +7528,7 @@ function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimen
         }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
 }
 
-function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab }) {
+function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab, handleClickAvatar }) {
     const [selectedTab, setSelectedTab] = React.useState(null);
     const [allTabs, setAllTabs] = React.useState([]);
     const [onShowTabs, setOnShowTabs] = React.useState([]);
@@ -7609,44 +7609,58 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                     jsxRuntime.jsx(Tooltip$2, { content: 'Ver todos os impedimentos', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })
                                     :
                                         jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }), selectedTab?.id ?
-                        jsxRuntime.jsxs(material.Box, { display: 'flex', flexDirection: 'column', gap: '8px', children: [jsxRuntime.jsxs(TabInfoWrapper, { children: [selectedTab.isGoalOwner ?
-                                            jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px' }) })
+                        jsxRuntime.jsx(material.Box, { display: 'flex', flexDirection: 'column', gap: '8px', onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: jsxRuntime.jsxs(TabInfoWrapper, { children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: 'bottom', delay: 200, style: { width: 'fit-content', height: 'fit-content' }, children: selectedTab.isGoalOwner ?
+                                            jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true }) })
                                             :
-                                                jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px' }), jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
-                                            jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
-                                                        ...(selectedTab?.handlePriorize ? [{
-                                                                description: 'Priorizar',
-                                                                onClick: () => selectedTab?.handlePriorize(selectedTab),
-                                                                disabled: !!selectedTab?.disabledPriorize,
-                                                                startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" })
-                                                            }] : []),
-                                                        ...(selectedTab?.handleEdit ? [{
-                                                                description: 'Editar',
-                                                                onClick: () => setIsEdit(true),
-                                                                startIcon: jsxRuntime.jsx(EditHipoteses, {})
-                                                            }] : []),
-                                                        ...(selectedTab?.handleDelete ? [{
-                                                                description: 'Excluir',
-                                                                onClick: () => selectedTab?.handleDelete(selectedTab),
-                                                                startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
-                                                                color: '#C00F00'
-                                                            }] : []),
-                                                    ], closeAfterClick: true, isContainerOptions: true }) })
-                                            :
-                                                jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), isEdit ?
-                                    jsxRuntime.jsxs(EditWrapper, { children: [jsxRuntime.jsx(TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), style: { width: '100%' } }), jsxRuntime.jsxs(material.Box, { display: 'flex', gap: '8px', children: [jsxRuntime.jsx(EditButtons, { buttonColor: editDescription === displayDescription ? '#EBEBEB' : '#D1F6D1', onClick: () => {
-                                                            if (editDescription == '')
-                                                                return;
-                                                            setDisplayDescription(editDescription);
-                                                            let editTab = { ...selectedTab, description: editDescription };
-                                                            selectedTab?.handleEdit(editTab);
-                                                            setIsEdit(false);
-                                                        }, style: { cursor: editDescription === displayDescription ? 'not-allowed' : 'pointer' }, children: jsxRuntime.jsx(CheckIconSimple, { fill: editDescription === displayDescription ? '#9C9C9C' : '#1BA853' }) }), jsxRuntime.jsx(EditButtons, { buttonColor: '#FFE0E0', onClick: () => {
-                                                            setEditDescription(displayDescription);
-                                                            setIsEdit(false);
-                                                        }, style: { cursor: 'pointer' }, children: jsxRuntime.jsx(CloseIcon$1, { fill: '#C00F00' }) })] })] })
-                                    :
-                                        jsxRuntime.jsx(jsxRuntime.Fragment, {})] })
+                                                jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true, onClick: handleClickAvatar }) }), isEdit ?
+                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), fullWidth: true, variant: 'standard', InputProps: {
+                                                    autoFocus: true,
+                                                    disableUnderline: true,
+                                                    style: {
+                                                        fontFamily: 'PT Sans',
+                                                        fontSize: '14px',
+                                                        lineHeight: 1.3
+                                                    }
+                                                }, onKeyDown: (event) => {
+                                                    if (event.key === 'Enter') {
+                                                        if (editDescription == '')
+                                                            return;
+                                                        setDisplayDescription(editDescription);
+                                                        let editTab = { ...selectedTab, description: editDescription };
+                                                        selectedTab?.handleEdit(editTab);
+                                                        setIsEdit(false);
+                                                    }
+                                                    if (event.key === 'Escape') {
+                                                        setEditDescription(displayDescription);
+                                                        setIsEdit(false);
+                                                    }
+                                                }, onBlur: () => {
+                                                    setEditDescription(displayDescription);
+                                                    setIsEdit(false);
+                                                } }) })
+                                        :
+                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
+                                                        jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
+                                                                    ...(selectedTab?.handlePriorize ? [{
+                                                                            description: 'Priorizar',
+                                                                            onClick: () => selectedTab?.handlePriorize(selectedTab),
+                                                                            disabled: !!selectedTab?.disabledPriorize,
+                                                                            startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" })
+                                                                        }] : []),
+                                                                    ...(selectedTab?.handleEdit ? [{
+                                                                            description: 'Editar',
+                                                                            onClick: () => setIsEdit(true),
+                                                                            startIcon: jsxRuntime.jsx(EditHipoteses, {})
+                                                                        }] : []),
+                                                                    ...(selectedTab?.handleDelete ? [{
+                                                                            description: 'Excluir',
+                                                                            onClick: () => selectedTab?.handleDelete(selectedTab),
+                                                                            startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
+                                                                            color: '#C00F00'
+                                                                        }] : []),
+                                                                ], closeAfterClick: true, isContainerOptions: true }) })
+                                                        :
+                                                            jsxRuntime.jsx(jsxRuntime.Fragment, {})] })] }) })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}), jsxRuntime.jsx(AddImpedimentoModal, { isOpen: openAddImpedimento, anchor: addImpedimentoAnchor, onClose: () => setAddImpedimentoAnchor(null), onSaveBtn: handleSaveNewImpedimento }), jsxRuntime.jsx(Dropdown$1, { isOpen: openImpedimentoSelect, anchor: impedimentoSelectAnchor, onClose: () => setImpedimentoSelectAnchor(null), impedimentoList: onHideTabs, maxTabs: maxTabs, onClickImpedimento: handleClickSelectImpedimento })] })
             :
