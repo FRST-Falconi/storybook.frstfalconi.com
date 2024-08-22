@@ -6,11 +6,13 @@ export interface ImpedimentosTabProps {
     onSelectedTab: (selectedTab: TabInfo) => void
     idSelectedTab?: string
     currentTab?: any
+    handleClickAvatar?: () => void
 }
 
 export interface TabInfo {
     id: string
     avatar: string
+    user_name: string
     description: string
     title: string
     isGoalOwner?: boolean
