@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { IHypothesisAndImpedimentComponent } from './hypothesisAndImpediment'
 import * as Styles from './hypothesisAndImpediment.style'
 import Avatar from '@components/avatar'
@@ -87,8 +87,10 @@ export const HypothesisAndImpediment = ({
     const avatarBorder = isOwnerGoal ? `2px solid ${Styles.borderAvatar[variant][type]}` : 'none'
 
     const handleSaveDescription = () => {
-        onSaveEditHipotesisOrImpediment(editDescription)
-        setIsEditing(false)
+        if(isEditing) {
+            onSaveEditHipotesisOrImpediment(editDescription)
+            setIsEditing(false)
+        }
     }
 
     const handleCancel = () => {
@@ -109,14 +111,41 @@ export const HypothesisAndImpediment = ({
     }, [type, hasEditHipotesisOrImpediment, authorGoalId, authorId, userLoggedId])
 
     const handleClickAction = (event) => {
-        event.stopPropagation();
-        onClickAction()
+        if(!isEditing) { 
+            event.stopPropagation();
+            onClickAction()
+        }
     };
+
+    const inputRef = useRef(null);
+    
+    const handleBlur = () => {
+        setEditDescription(description)
+        setIsEditing(false)
+    };
+
+    const handleChange = (event) => {
+        setEditDescription(event.target.value);
+    };
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleSaveDescription()
+        }
+    };
+
+    useEffect(() => {
+        if (isEditing && inputRef.current) {
+            setTimeout(() => {
+                inputRef.current.focus();
+            }, 200)
+        }
+    }, [isEditing]);
 
     return (
         <>
             <Styles.MainContainer>
-                {isEditing ? (
+                {/*isEditing ? (
                     <EditHypotesisAndImpediment
                         setEditDescription={setEditDescription}
                         editDescription={editDescription}
@@ -124,7 +153,7 @@ export const HypothesisAndImpediment = ({
                         onCancel={handleCancel}
                         originalDescription={description}
                     />
-                ) : (
+                ) : (*/}
                     <Styles.ContainerHypotheis type={type} variant={variant}>
                         {
                             hasUpdownButtons &&
@@ -162,8 +191,9 @@ export const HypothesisAndImpediment = ({
                             </Tooltip>
                             <Styles.Title>{title}</Styles.Title>
                             <Styles.Separator type={type} variant={variant} />
-                            
-                            <Styles.Description onClick={handleClickAction}>
+
+                                    
+                            <Styles.Description onClick={handleClickAction} style={{height: isEditing ? '20px': 'fit-content'}}>
                                 <Tooltip
                                     content={'Clique na hipótese para ver as ações vinculadas'}
                                     direction={'bottom'}
@@ -182,14 +212,35 @@ export const HypothesisAndImpediment = ({
                                         display: variant === 'impediment' ? 'none' : 'block'
                                     }}
                                 >
-                                    <div style={{ width: '100%' }}>
+                                    <div
+                                        style={{ 
+                                            width: isEditing ? '100%' : '0', 
+                                            overflow: 'hidden', 
+                                            border: 'none', 
+                                            outline: 'none',
+                                            background: 'transparent',
+                                            marginTop: '-8px'
+                                        }}
+                                    >
+                                        <input
+                                            ref={inputRef}
+                                            type="text"
+                                            value={editDescription}
+                                            onBlur={handleSaveDescription}
+                                            onChange={handleChange}
+                                            onKeyDown={handleKeyDown}
+                                            autoFocus
+                                            style={{ width: '100%', border: 'none', outline: 'none', background: 'transparent' }}
+                                        />
+                                    </div>
+                                    <div style={{ width: !isEditing ? '100%' : '0',overflow: 'hidden',  }}>
                                         {editDescription}
                                     </div>
                                 </Tooltip>
 
                             </Styles.Description>
 
-                            {hasVoting && (
+                            {!isEditing && hasVoting && (
                                 <Voting
                                     voteText={voteText}
                                     type={type}
@@ -202,7 +253,7 @@ export const HypothesisAndImpediment = ({
                                     popperStyle={popperStyle}
                                 />
                             )}
-                            {validHasEditHipotesisOrImpediment && (
+                            {!isEditing && validHasEditHipotesisOrImpediment && (
                                 <MenuMore
                                     options={options}
                                     isContainerOptions={true}
@@ -211,7 +262,7 @@ export const HypothesisAndImpediment = ({
                             )}
                         </Styles.SplitContainerDescription>
                     </Styles.ContainerHypotheis>
-                )}
+                {/*)*/}
             </Styles.MainContainer>
         </>
     )
