@@ -6,7 +6,6 @@ export interface ImpedimentosTabProps {
     onSelectedTab: (selectedTab: TabInfo) => void
     idSelectedTab?: string
     currentTab?: any
-    handleClickAvatar?: () => void
 }
 
 export interface TabInfo {
@@ -22,4 +21,5 @@ export interface TabInfo {
     handlePriorize?: (impedimento: TabInfo) => void
     handleDelete?: (impedimento: TabInfo) => void
     handleEdit?: (updatedImpedimento: TabInfo) => void
+    handleClickAvatar?: () => void
 }

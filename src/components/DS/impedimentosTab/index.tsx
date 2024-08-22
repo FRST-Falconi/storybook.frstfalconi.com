@@ -31,8 +31,7 @@ export default function ImpedimentosTab({
     onSaveNewImpedimento,
     onSelectedTab,
     idSelectedTab,
-    currentTab,
-    handleClickAvatar
+    currentTab
 }: ImpedimentosTabProps) {
     const [selectedTab, setSelectedTab] = useState<TabInfo>(null);
     const [allTabs, setAllTabs] = useState<Array<TabInfo>>([]);
@@ -186,11 +185,11 @@ export default function ImpedimentosTab({
                                     style={{width: 'fit-content', height: 'fit-content'}}
                                 >
                                     {selectedTab.isGoalOwner ?
-                                        <Box border={'2px solid #AD46FF'} borderRadius={'50%'} onClick={handleClickAvatar}>
+                                        <Box border={'2px solid #AD46FF'} borderRadius={'50%'} onClick={selectedTab?.handleClickAvatar}>
                                             <Avatar src={selectedTab.avatar} size='24px' isActiveClick={true}/>
                                         </Box>
                                         :
-                                        <Avatar src={selectedTab.avatar} size='24px' isActiveClick={true} onClick={handleClickAvatar}/>
+                                        <Avatar src={selectedTab.avatar} size='24px' isActiveClick={true} onClick={selectedTab?.handleClickAvatar}/>
                                     }
                                 </Tooltip>
                                 {isEdit ?

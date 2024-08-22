@@ -28,7 +28,8 @@ withOptions.args = {
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
-            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento),
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '2',
@@ -39,7 +40,8 @@ withOptions.args = {
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
-            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento),
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '3',
@@ -51,7 +53,8 @@ withOptions.args = {
             showOptions: false,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
-            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento),
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '4',
@@ -63,7 +66,8 @@ withOptions.args = {
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
-            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento),
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '5',
@@ -75,21 +79,24 @@ withOptions.args = {
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
-            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento),
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '6',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
             user_name: 'Fulano',
             description: 'Sexto impedimento',
-            title: 'Impedimento 6'
+            title: 'Impedimento 6',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '7',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             user_name: 'Fulano',
             description: 'Sétimo impedimento',
-            title: 'Impedimento 7'
+            title: 'Impedimento 7',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '8',
@@ -101,21 +108,24 @@ withOptions.args = {
             showOptions: true,
             handlePriorize: (impedimento) => console.log("Priorizar: ", impedimento),
             handleDelete: (impedimento) => console.log("Delete: ", impedimento),
-            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento)
+            handleEdit: (updatedImpedimento) => console.log("Edit: ", updatedImpedimento),
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '9',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             user_name: 'Fulano',
             description: 'Nono impedimento',
-            title: 'Impedimento 9'
+            title: 'Impedimento 9',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '10',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             user_name: 'Fulano',
             description: 'Décimo impedimento',
-            title: 'Impedimento 10'
+            title: 'Impedimento 10',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
     ],
     onSaveNewImpedimento: (text) => console.log("Salvando impedimento: ", text),
@@ -135,14 +145,16 @@ withoutOptions.args = {
             user_name: 'Fulano',
             description: 'Primeiro impedimento',
             title: 'Impedimento 1',
-            isGoalOwner: true
+            isGoalOwner: true,
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '2',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
             user_name: 'Fulano',
             description: 'Segundo impedimento',
-            title: 'Impedimento 2'
+            title: 'Impedimento 2',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '3',
@@ -150,7 +162,8 @@ withoutOptions.args = {
             user_name: 'Fulano',
             description: 'Terceiro impedimento',
             title: 'Impedimento 3',
-            isGoalOwner: false
+            isGoalOwner: false,
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '4',
@@ -158,7 +171,8 @@ withoutOptions.args = {
             user_name: 'Fulano',
             description: 'Quarto impedimento',
             title: 'Impedimento 4',
-            isGoalOwner: true
+            isGoalOwner: true,
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '5',
@@ -166,21 +180,24 @@ withoutOptions.args = {
             user_name: 'Fulano',
             description: 'Quinto impedimento',
             title: 'Impedimento 5',
-            isGoalOwner: true
+            isGoalOwner: true,
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '6',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
             user_name: 'Fulano',
             description: 'Sexto impedimento',
-            title: 'Impedimento 6'
+            title: 'Impedimento 6',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '7',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             user_name: 'Fulano',
             description: 'Sétimo impedimento',
-            title: 'Impedimento 7'
+            title: 'Impedimento 7',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '8',
@@ -188,24 +205,26 @@ withoutOptions.args = {
             user_name: 'Fulano',
             description: 'Oitavo impedimento',
             title: 'Impedimento 8',
-            isGoalOwner: true
+            isGoalOwner: true,
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '9',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=female',
             user_name: 'Fulano',
             description: 'Nono impedimento',
-            title: 'Impedimento 9'
+            title: 'Impedimento 9',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
         {
             id: '10',
             avatar: 'https://xsgames.co/randomusers/avatar.php?g=male',
             user_name: 'Fulano',
             description: 'Décimo impedimento',
-            title: 'Impedimento 10'
+            title: 'Impedimento 10',
+            handleClickAvatar: () => console.log("Go to profile!")
         },
     ],
     onSaveNewImpedimento: (text) => console.log("Salvando impedimento: ", text),
     onSelectedTab: (impedimento) => console.log("Impedimento selecionado: ", impedimento),
-    handleClickAvatar: () => console.log("Go to profile!")
 }
