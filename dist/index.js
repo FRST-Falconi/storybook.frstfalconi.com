@@ -8061,8 +8061,9 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                     if (clickTimeoutRef.current) {
                                         clearTimeout(clickTimeoutRef.current);
                                     }
-                                    setIsEditing(true);
-                                }, style: { height: isEditing ? '20px' : 'fit-content' }, children: jsxRuntime.jsxs(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
+                                    if (hasEditHipotesisOrImpediment)
+                                        setIsEditing(true);
+                                }, style: { height: '36px' }, children: jsxRuntime.jsxs(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
                                         fontFamily: 'PT Sans',
                                         fontWeight: 400,
                                         fontSize: '14px',
@@ -8076,12 +8077,9 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                         display: variant === 'impediment' ? 'none' : 'block'
                                     }, children: [jsxRuntime.jsx("div", { style: {
                                                 width: isEditing ? '100%' : '0',
-                                                height: isEditing ? '100%' : '0',
+                                                height: isEditing ? '20px' : '0',
                                                 overflow: 'hidden',
-                                                border: 'none',
-                                                outline: 'none',
                                                 background: 'transparent',
-                                                marginTop: '-8px'
                                             }, children: jsxRuntime.jsx("input", { ref: inputRef, type: "text", value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, autoFocus: true, style: { width: '100%', border: 'none', outline: 'none', background: 'transparent' } }) }), jsxRuntime.jsx("div", { style: { width: !isEditing ? '100%' : '0', overflow: 'hidden', }, children: editDescription })] }) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }) }));
 };
 
