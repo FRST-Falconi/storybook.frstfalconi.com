@@ -206,7 +206,8 @@ export default function ImpedimentosTab({
                                                 style:{
                                                     fontFamily: 'PT Sans',
                                                     fontSize: '14px',
-                                                    lineHeight: 1.3
+                                                    lineHeight: 1.3,
+                                                    background: 'transparent'
                                                 }
                                             }}
                                             onKeyDown={(event) => {
