@@ -7520,7 +7520,7 @@ function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimen
         }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
 }
 
-function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab, handleClickAvatar }) {
+function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab }) {
     const [selectedTab, setSelectedTab] = React.useState(null);
     const [allTabs, setAllTabs] = React.useState([]);
     const [onShowTabs, setOnShowTabs] = React.useState([]);
@@ -7602,9 +7602,9 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                     :
                                         jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }), selectedTab?.id ?
                         jsxRuntime.jsx(material.Box, { display: 'flex', flexDirection: 'column', gap: '8px', onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: jsxRuntime.jsxs(TabInfoWrapper, { children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: 'bottom', delay: 200, style: { width: 'fit-content', height: 'fit-content' }, children: selectedTab.isGoalOwner ?
-                                            jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true }) })
+                                            jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: selectedTab?.handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true }) })
                                             :
-                                                jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true, onClick: handleClickAvatar }) }), isEdit ?
+                                                jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true, onClick: selectedTab?.handleClickAvatar }) }), isEdit ?
                                         jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), fullWidth: true, variant: 'standard', InputProps: {
                                                     autoFocus: true,
                                                     disableUnderline: true,
