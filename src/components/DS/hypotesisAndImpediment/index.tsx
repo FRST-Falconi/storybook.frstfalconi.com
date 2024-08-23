@@ -58,7 +58,7 @@ export const HypothesisAndImpediment = ({
             description: 'Editar',
             onClick: (e) => setIsEditing(true)
         },
-        hasAddActions && isOwnerGoal &&
+        hasAddActions &&
         ({
             startIcon: <AddAction />,
             description: 'Adicionar ações',
