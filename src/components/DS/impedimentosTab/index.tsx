@@ -109,6 +109,18 @@ export default function ImpedimentosTab({
         )
     }
 
+    const handleUpdate = () => {
+        if (editDescription == '') return;
+        setDisplayDescription(editDescription);
+        let editTab = {...selectedTab, description: editDescription}; 
+        selectedTab?.handleEdit(editTab);
+        setIsEdit(false);
+    }
+
+    const handleCancelUpdate = () => {
+        setEditDescription(displayDescription);
+        setIsEdit(false)
+    }
 
     const startEditing = () => {
         setEditDescription(displayDescription);
@@ -211,21 +223,13 @@ export default function ImpedimentosTab({
                                             }}
                                             onKeyDown={(event) => {
                                                 if(event.key === 'Enter') {
-                                                    if (editDescription == '') return;
-                                                    setDisplayDescription(editDescription);
-                                                    let editTab = {...selectedTab, description: editDescription}; 
-                                                    selectedTab?.handleEdit(editTab);
-                                                    setIsEdit(false);
+                                                    handleUpdate()
                                                 }
                                                 if(event.key === 'Escape') {
-                                                    setEditDescription(displayDescription);
-                                                    setIsEdit(false)
+                                                    handleCancelUpdate()
                                                 }
                                             }}
-                                            onBlur={() => {
-                                                setEditDescription(displayDescription);
-                                                setIsEdit(false)
-                                            }}
+                                            onBlur={handleUpdate}
                                         />
                                     </>
                                     :
