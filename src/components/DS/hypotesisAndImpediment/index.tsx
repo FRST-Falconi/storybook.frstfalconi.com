@@ -109,12 +109,19 @@ export const HypothesisAndImpediment = ({
 
         return false
     }, [type, hasEditHipotesisOrImpediment, authorGoalId, authorId, userLoggedId])
+    const clickTimeoutRef = useRef(null);
 
     const handleClickAction = (event) => {
-        if(!isEditing) { 
-            event.stopPropagation();
-            onClickAction()
+        if (clickTimeoutRef.current) {
+            clearTimeout(clickTimeoutRef.current); 
         }
+    
+        clickTimeoutRef.current = setTimeout(() => {
+            if(!isEditing) { 
+                event.stopPropagation();
+                onClickAction()
+            }
+        }, 300);
     };
 
     const inputRef = useRef(null);
@@ -131,6 +138,8 @@ export const HypothesisAndImpediment = ({
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
             handleSaveDescription()
+        } else if (event.key === 'Escape') {
+            handleCancel();
         }
     };
 
@@ -193,7 +202,16 @@ export const HypothesisAndImpediment = ({
                             <Styles.Separator type={type} variant={variant} />
 
                                     
-                            <Styles.Description onClick={handleClickAction} style={{height: isEditing ? '20px': 'fit-content'}}>
+                            <Styles.Description 
+                                onClick={handleClickAction}       
+                                onDoubleClick={() => {
+                                    if (clickTimeoutRef.current) {
+                                        clearTimeout(clickTimeoutRef.current);
+                                    }
+                                    setIsEditing(true)
+                                }}
+                                style={{height: isEditing ? '20px': 'fit-content'}}
+                            >
                                 <Tooltip
                                     content={'Clique na hipótese para ver as ações vinculadas'}
                                     direction={'bottom'}
