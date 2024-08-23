@@ -208,9 +208,9 @@ export const HypothesisAndImpediment = ({
                                     if (clickTimeoutRef.current) {
                                         clearTimeout(clickTimeoutRef.current);
                                     }
-                                    setIsEditing(true)
+                                    if(hasEditHipotesisOrImpediment) setIsEditing(true)
                                 }}
-                                style={{height: isEditing ? '20px': 'fit-content'}}
+                                style={{height: '36px'}}
                             >
                                 <Tooltip
                                     content={'Clique na hipótese para ver as ações vinculadas'}
@@ -233,11 +233,9 @@ export const HypothesisAndImpediment = ({
                                     <div
                                         style={{ 
                                             width: isEditing ? '100%' : '0', 
+                                            height: isEditing ? '20px' : '0', 
                                             overflow: 'hidden', 
-                                            border: 'none', 
-                                            outline: 'none',
                                             background: 'transparent',
-                                            marginTop: '-8px'
                                         }}
                                     >
                                         <input
