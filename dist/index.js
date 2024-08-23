@@ -7579,6 +7579,18 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const renderTabs = (tabInfo, index) => {
         return (jsxRuntime.jsx(Tab, { selected: tabInfo.id === selectedTab?.id, onClick: () => handleClickTab(tabInfo), children: jsxRuntime.jsx("p", { children: tabInfo.title }) }, index));
     };
+    const handleUpdate = () => {
+        if (editDescription == '')
+            return;
+        setDisplayDescription(editDescription);
+        let editTab = { ...selectedTab, description: editDescription };
+        selectedTab?.handleEdit(editTab);
+        setIsEdit(false);
+    };
+    const handleCancelUpdate = () => {
+        setEditDescription(displayDescription);
+        setIsEdit(false);
+    };
     const startEditing = () => {
         setEditDescription(displayDescription);
     };
@@ -7615,21 +7627,12 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                                     }
                                                 }, onKeyDown: (event) => {
                                                     if (event.key === 'Enter') {
-                                                        if (editDescription == '')
-                                                            return;
-                                                        setDisplayDescription(editDescription);
-                                                        let editTab = { ...selectedTab, description: editDescription };
-                                                        selectedTab?.handleEdit(editTab);
-                                                        setIsEdit(false);
+                                                        handleUpdate();
                                                     }
                                                     if (event.key === 'Escape') {
-                                                        setEditDescription(displayDescription);
-                                                        setIsEdit(false);
+                                                        handleCancelUpdate();
                                                     }
-                                                }, onBlur: () => {
-                                                    setEditDescription(displayDescription);
-                                                    setIsEdit(false);
-                                                } }) })
+                                                }, onBlur: handleUpdate }) })
                                         :
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
                                                         jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
