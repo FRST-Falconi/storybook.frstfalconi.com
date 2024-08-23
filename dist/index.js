@@ -7967,7 +7967,7 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
             description: 'Editar',
             onClick: (e) => setIsEditing(true)
         },
-        hasAddActions && isOwnerGoal &&
+        hasAddActions &&
             ({
                 startIcon: jsxRuntime.jsx(AddAction, {}),
                 description: 'Adicionar ações',
