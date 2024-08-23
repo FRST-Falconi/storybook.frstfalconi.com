@@ -8076,6 +8076,7 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                         display: variant === 'impediment' ? 'none' : 'block'
                                     }, children: [jsxRuntime.jsx("div", { style: {
                                                 width: isEditing ? '100%' : '0',
+                                                height: isEditing ? '100%' : '0',
                                                 overflow: 'hidden',
                                                 border: 'none',
                                                 outline: 'none',
