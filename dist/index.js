@@ -7612,7 +7612,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                                         fontFamily: 'PT Sans',
                                                         fontSize: '14px',
                                                         lineHeight: 1.3,
-                                                        background: 'transparent'
+                                                        background: 'transparent !important'
                                                     }
                                                 }, onKeyDown: (event) => {
                                                     if (event.key === 'Enter') {
