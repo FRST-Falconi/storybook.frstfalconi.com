@@ -21938,7 +21938,10 @@ function TableBody$1({ data, expandedRows, handleExpandClick, columns }) {
     return (jsxRuntime.jsx("tbody", { children: data.map((row, index) => (jsxRuntime.jsxs(React.Fragment, { children: [jsxRuntime.jsx(TableRow, { row: row, index: index, columns: columns, handleExpandClick: handleExpandClick, isExpanded: !!expandedRows?.[row?.id] }), jsxRuntime.jsx(ExpandableRow, { index: index, row: row, columns: columns, isExpanded: !!expandedRows?.[row?.id] })] }, row.id))) }));
 }
 function TableRow({ row, index, handleExpandClick, isExpanded, columns }) {
-    return (jsxRuntime.jsxs(WrapperDataRow, { index: index, children: [row.value.map((cell, index) => (jsxRuntime.jsx(TableDataRowItem, { children: cell }, index))), row.showButtonExpanded ? (jsxRuntime.jsx("td", { children: jsxRuntime.jsx(ExpandButton, { isExpanded: isExpanded, onClick: () => handleExpandClick(row.id) }) })) : (jsxRuntime.jsx("td", {}))] }));
+    return (jsxRuntime.jsxs(WrapperDataRow, { index: index, onClick: () => row.showButtonExpanded && handleExpandClick(row.id), style: { cursor: row.showButtonExpanded ? 'pointer' : 'auto' }, children: [row.value.map((cell, index) => (jsxRuntime.jsx(TableDataRowItem, { children: cell }, index))), row.showButtonExpanded ? (jsxRuntime.jsx("td", { children: jsxRuntime.jsx(ExpandButton, { isExpanded: isExpanded, onClick: (event) => {
+                        handleExpandClick(row.id);
+                        event.stopPropagation();
+                    } }) })) : (jsxRuntime.jsx("td", {}))] }));
 }
 function ExpandableRow({ index, row, columns, isExpanded }) {
     return (jsxRuntime.jsx(TableDataChildrenItem, { index: index, children: jsxRuntime.jsx("td", { colSpan: columns.length + 1, children: jsxRuntime.jsx(TableDataChildrenControlExpand, { index: index, isExpanded: isExpanded, children: row.children }) }) }));
@@ -21984,7 +21987,10 @@ const WrapperCollaboratorAvatar = styled__default["default"].div `
 `;
 
 function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid, align }) {
-    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: onPressAvatar && uuid ? () => onPressAvatar(uuid) : null, isActiveClick: !!(onPressAvatar && uuid) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
+    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx("div", { onClick: (event) => {
+                    event.stopPropagation();
+                    onPressAvatar?.(uuid);
+                }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', isActiveClick: !!(onPressAvatar && uuid) }) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
 }
 
 const WrapperDateLimit = styled__default["default"].div `
