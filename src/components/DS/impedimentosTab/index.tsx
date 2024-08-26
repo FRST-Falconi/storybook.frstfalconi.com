@@ -243,6 +243,7 @@ export default function ImpedimentosTab({
                                                             description: 'Priorizar',
                                                             onClick: () => selectedTab?.handlePriorize(selectedTab),
                                                             disabled: !!selectedTab?.disabledPriorize,
+                                                            color: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222",
                                                             startIcon: <StarPrioritize stroke={!!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" }/>
                                                         }] : []),
                                                         ...(selectedTab?.handleEdit ? [{
