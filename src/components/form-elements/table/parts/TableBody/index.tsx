@@ -30,13 +30,20 @@ export default function TableBody({ data, expandedRows, handleExpandClick, colum
 
 function TableRow({ row, index, handleExpandClick, isExpanded, columns }) {
   return (
-    <WrapperDataRow index={index}>
+    <WrapperDataRow 
+      index={index} 
+      onClick={() => row.showButtonExpanded && handleExpandClick(row.id)}
+      style={{cursor: row.showButtonExpanded  ? 'pointer' : 'auto'}}
+    >
       {row.value.map((cell, index) => (
         <TableDataRowItem key={index}>{cell}</TableDataRowItem>
       ))}
       {row.showButtonExpanded ? (
         <td>
-          <ExpandButton isExpanded={isExpanded} onClick={() => handleExpandClick(row.id)} />
+          <ExpandButton isExpanded={isExpanded} onClick={(event) => {
+            handleExpandClick(row.id)
+            event.stopPropagation(); 
+          }} />
         </td>
       ) : (
         <td />

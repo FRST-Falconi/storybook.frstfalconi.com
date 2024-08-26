@@ -42,7 +42,7 @@ Normal.args = {
         '12/04/24',
         'not_completed'
       ],
-      showButtonExpanded: true,
+      showButtonExpanded: false,
       children: <div style={{ height: '150px' }}>Children 02</div>
     },
     {

@@ -59,7 +59,7 @@ Normal.args = {
         '12/04/24',
         <div>Não concluido</div>
       ],
-      showButtonExpanded: true,
+      showButtonExpanded: false,
       children: <div>Children 02</div>
     }
   ],

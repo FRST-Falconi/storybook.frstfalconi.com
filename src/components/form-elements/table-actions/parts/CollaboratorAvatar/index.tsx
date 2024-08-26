@@ -15,12 +15,16 @@ export default function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitP
           height="32px"
           style={{ top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }}
         >
+          <div onClick={(event) => {
+            event.stopPropagation()
+            onPressAvatar?.(uuid) 
+          }}>
           <Avatar
             size="32px"
             src={src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg'}
-            onClick={onPressAvatar && uuid ? () => onPressAvatar(uuid) : null}
             isActiveClick={!!(onPressAvatar && uuid)}
           />
+          </div>
         </Tooltip>
       ) : (
         <Avatar
