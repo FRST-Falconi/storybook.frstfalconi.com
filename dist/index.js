@@ -7640,6 +7640,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                                                             description: 'Priorizar',
                                                                             onClick: () => selectedTab?.handlePriorize(selectedTab),
                                                                             disabled: !!selectedTab?.disabledPriorize,
+                                                                            color: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222",
                                                                             startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" })
                                                                         }] : []),
                                                                     ...(selectedTab?.handleEdit ? [{
