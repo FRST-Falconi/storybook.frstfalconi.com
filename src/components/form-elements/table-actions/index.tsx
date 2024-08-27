@@ -86,6 +86,8 @@ export default function TableActions({
           uuid={item?.value?.[0]?.id}
           labelTextVisitProfile={labelTextVisitProfile}
           align={typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent}
+          isResponsible={item?.value?.[0]?.isResponsible}
+          userName={item?.value?.[0]?.name}
         />,
         // @ts-ignore
         <p style={{ color: '#222', textAlign: columns?.[1]?.alignContent }}>{item.value[1]}</p>,

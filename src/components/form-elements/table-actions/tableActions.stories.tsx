@@ -26,7 +26,7 @@ Normal.args = {
     {
       id: '1',
       value: [
-        { src: 'https://www.lremanagementllc.com/wp-content/uploads/2019/06/default-avatar.png', id: 'id-avatar-1' },
+        { src: 'https://www.lremanagementllc.com/wp-content/uploads/2019/06/default-avatar.png', id: 'id-avatar-1', isResponsible: true, name: "Nome" },
         'Fazer teste de usabilidade com 5 usuários',
         '08/07/24',
         'completed'
