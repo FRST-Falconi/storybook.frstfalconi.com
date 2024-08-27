@@ -8067,7 +8067,7 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                     }
                                     if (hasEditHipotesisOrImpediment)
                                         setIsEditing(true);
-                                }, style: { height: '36px' }, children: jsxRuntime.jsxs(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
+                                }, style: { minHeight: '36px', height: isEditing ? "16px" : "fit-content" }, children: jsxRuntime.jsxs(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
                                         fontFamily: 'PT Sans',
                                         fontWeight: 400,
                                         fontSize: '14px',
@@ -8084,7 +8084,7 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                                 height: isEditing ? '20px' : '0',
                                                 overflow: 'hidden',
                                                 background: 'transparent',
-                                            }, children: jsxRuntime.jsx("input", { ref: inputRef, type: "text", value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, autoFocus: true, style: { width: '100%', border: 'none', outline: 'none', background: 'transparent' } }) }), jsxRuntime.jsx("div", { style: { width: !isEditing ? '100%' : '0', overflow: 'hidden', }, children: editDescription })] }) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }) }));
+                                            }, children: jsxRuntime.jsx("input", { ref: inputRef, type: "text", value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, autoFocus: true, style: { width: '100%', height: '16px', border: 'none', outline: 'none', background: 'transparent' } }) }), jsxRuntime.jsx("div", { style: { width: !isEditing ? '100%' : '0', overflow: 'hidden', }, children: editDescription })] }) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }) }));
 };
 
 const ModalContainer = styled__default["default"].div `
