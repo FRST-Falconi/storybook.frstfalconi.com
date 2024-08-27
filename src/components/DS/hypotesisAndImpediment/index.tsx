@@ -210,7 +210,7 @@ export const HypothesisAndImpediment = ({
                                     }
                                     if(hasEditHipotesisOrImpediment) setIsEditing(true)
                                 }}
-                                style={{height: '36px'}}
+                                style={{minHeight: '36px', height: isEditing ? "16px": "fit-content"}}
                             >
                                 <Tooltip
                                     content={'Clique na hipótese para ver as ações vinculadas'}
@@ -246,7 +246,7 @@ export const HypothesisAndImpediment = ({
                                             onChange={handleChange}
                                             onKeyDown={handleKeyDown}
                                             autoFocus
-                                            style={{ width: '100%', border: 'none', outline: 'none', background: 'transparent' }}
+                                            style={{ width: '100%', height: '16px', border: 'none', outline: 'none', background: 'transparent' }}
                                         />
                                     </div>
                                     <div style={{ width: !isEditing ? '100%' : '0',overflow: 'hidden',  }}>
