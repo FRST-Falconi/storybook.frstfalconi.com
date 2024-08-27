@@ -7534,7 +7534,6 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor);
     React.useEffect(() => {
         if (tabsList.length !== allTabs.length) {
-            console.log("Tabs list: ", tabsList);
             setAllTabs(tabsList);
         }
     }, [tabsList]);
@@ -7549,7 +7548,6 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     React.useEffect(() => {
         if (allTabs.length > 0) {
             const tabToSelect = allTabs.find(tab => tab.id === currentTab);
-            console.log("Selected tab: ", tabToSelect);
             setSelectedTab(tabToSelect ? tabToSelect : allTabs[0]);
             setOnShowTabs(allTabs.slice(0, maxTabs));
             setOnHideTabs(allTabs.slice(maxTabs, allTabs.length));
