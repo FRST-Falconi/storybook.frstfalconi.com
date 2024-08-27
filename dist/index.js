@@ -21987,11 +21987,18 @@ const WrapperCollaboratorAvatar = styled__default["default"].div `
   align-items: center;
 `;
 
-function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid, align }) {
-    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil', trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx("div", { onClick: (event) => {
+function CollaboratorAvatar({ src, onPressAvatar, labelTextVisitProfile, uuid, align, isResponsible, userName }) {
+    return (jsxRuntime.jsx(WrapperCollaboratorAvatar, { align: align, children: onPressAvatar && uuid ? (jsxRuntime.jsx(Tooltip$2, { direction: "bottom", content: userName ? userName : (labelTextVisitProfile ? labelTextVisitProfile : 'Visitar perfil'), trigger: "hover", width: "fit-content", height: "32px", style: { top: '10px', textAlign: 'center', whiteSpace: 'nowrap' }, children: jsxRuntime.jsx("div", { onClick: (event) => {
                     event.stopPropagation();
                     onPressAvatar?.(uuid);
-                }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', isActiveClick: !!(onPressAvatar && uuid) }) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
+                }, children: jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', isActiveClick: !!(onPressAvatar && uuid), style: {
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        overflow: "hidden",
+                        borderRadius: "50%",
+                        border: isResponsible ? "2px solid #31AAAA" : "2px solid transparent",
+                    } }) }) })) : (jsxRuntime.jsx(Avatar, { size: "32px", src: src ? src : 'https://cdn-images.frstfalconi.cloud/path582.svg', onClick: null, isActiveClick: !!(onPressAvatar && uuid) })) }));
 }
 
 const WrapperDateLimit = styled__default["default"].div `
@@ -22309,7 +22316,7 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
         const newData = data.map((item) => ({
             id: item.id,
             value: [
-                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile, align: typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent }),
+                jsxRuntime.jsx(CollaboratorAvatar, { src: item?.value?.[0]?.id ? item?.value?.[0]?.src : item?.value?.[0], onPressAvatar: onPressAvatar, uuid: item?.value?.[0]?.id, labelTextVisitProfile: labelTextVisitProfile, align: typeof columns?.[0] !== 'string' && columns?.[0]?.alignContent, isResponsible: item?.value?.[0]?.isResponsible, userName: item?.value?.[0]?.name }),
                 // @ts-ignore
                 jsxRuntime.jsx("p", { style: { color: '#222', textAlign: columns?.[1]?.alignContent }, children: item.value[1] }),
                 jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),
