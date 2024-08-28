@@ -57,7 +57,7 @@ export const TabInfoWrapper = styled('div')`
     padding: 12px 16px;
     border-radius: 0px 0px 8px 8px;
     background-color: #E5CBF1;
-    height: 56px;
+    min-height: 56px;
 
     p {
         font-family: 'PT Sans';
@@ -65,9 +65,6 @@ export const TabInfoWrapper = styled('div')`
         line-height: 1.3;
         color: ${({theme}) => theme.colors.neutralsGrey1};
         font-weight: 400;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden
     }
 
 `
