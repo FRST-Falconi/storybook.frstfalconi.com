@@ -11,10 +11,10 @@ interface UpDownButtonsProps extends VariantColorStyle {
 
 const UpDownButtons: React.FC<UpDownButtonsProps> = ({ onUpClick, onDownClick, type, variant }) => (
     <Styles.ContainerArrowButton type={type} variant={variant}>
-        <Styles.ArrowButton onClick={onUpClick}>
+        <Styles.ArrowButton onClick={onUpClick} style={{alignItems: 'flex-end'}}>
             <ArrowDropUpOutlinedIcon />
         </Styles.ArrowButton>
-        <Styles.ArrowButton onClick={onDownClick}>
+        <Styles.ArrowButton onClick={onDownClick} style={{alignItems: 'flex-start'}}>
             <ArrowDropDownOutlinedIcon />
         </Styles.ArrowButton>
     </Styles.ContainerArrowButton>

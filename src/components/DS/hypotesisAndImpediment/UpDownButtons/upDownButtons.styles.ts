@@ -24,6 +24,7 @@ export const ContainerArrowButton = styled.div<VariantColorStyle>`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-radius: 8px 0 0 8px;
 `
 
@@ -33,6 +34,8 @@ export const ArrowButton = styled.button`
     width: 100%;
     color: #444444;
     cursor: pointer;
+    display: flex;
+    height: 100%;
     svg: {
     }
     :hover {

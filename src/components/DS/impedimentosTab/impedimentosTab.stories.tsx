@@ -21,7 +21,7 @@ withOptions.args = {
             id: '1',
             avatar: `https://xsgames.co/randomusers/avatar.php?g=male`,
             user_name: 'Fulano teste de nome muito grande kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk',
-            description: 'Primeiro impedimento',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus, nunc viverra accumsan ornare, sapien felis sodales felis, at blandit sem quam nec purus. Aliquam eget auctor nisi, at aliquet eros. Morbi quam eros, laoreet eu elit eu, euismod maximus ex. Duis ut libero at mauris luctus euismod. Sed eu sem dolor. Vivamus in turpis lobortis lacus fermentum maximus. Cras at neque at sapien sollicitudin volutpat. Phasellus sagittis, felis vel consectetur pulvinar, libero enim dictum tortor, elementum gravida mauris tortor in libero. Aliquam egestas auctor ex, at vehicula justo cursus nec. Integer id quam neque. Praesent quis venenatis ex. Curabitur sed ante eu enim cursus pretium. Maecenas dapibus aliquet leo, vitae dictum est maximus sit amet. Fusce sollicitudin velit eu eros mollis pellentesque. Quisque vel augue dictum, convallis elit feugiat, pretium mi. Donec ac euismod quam, vel ornare dui.',
             title: 'Impedimento 1',
             isGoalOwner: true,
             disabledPriorize: true,

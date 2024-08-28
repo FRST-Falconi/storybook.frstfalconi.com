@@ -51,15 +51,11 @@ export const MainContainer = styled.div`
 export const ContainerHypotheis = styled.div<VariantColorStyle>`
     width: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     font-family: PT Sans;
     font-size: 14px;
     border-radius: 8px;
-    /* padding-left: 16px; */
-    padding-right: 16px;
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
     min-height: 52px;
 
     ${({ type, variant }) => {
@@ -74,6 +70,8 @@ export const SplitContainerDescription = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding: 16px 16px 16px 0px;
+    gap: 16px;
     height: 100%;
     width: 100%;
 `
@@ -95,10 +93,18 @@ export const Title = styled.span`
     font-weight: 700;
     white-space: nowrap;
 `
-export const Description = styled.span`
+export const Description = styled.span<{ type: string, variant: string }>`
     font-weight: 400;
-    padding: 8px 0 8px;
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
+    align-items: center;
+    padding: 0px 16px 0px 16px;
+
+    ${({ type, variant }) => {
+        const border = separatorColors[variant][type];
+        return css`
+            border-left: 1px solid ${border};
+        `;
+    }}
 `

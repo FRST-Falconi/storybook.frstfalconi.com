@@ -211,9 +211,9 @@ export default function ImpedimentosTab({
                                             value={editDescription}
                                             onChange={(e) => setEditDescription(e.target.value)}
                                             fullWidth
+                                            multiline
                                             variant='standard'
                                             InputProps={{
-                                                autoFocus: true,
                                                 disableUnderline: true,
                                                 style:{
                                                     fontFamily: 'PT Sans',
@@ -221,6 +221,7 @@ export default function ImpedimentosTab({
                                                     lineHeight: 1.3
                                                 }
                                             }}
+                                            inputRef={(input) => input && input.focus()}
                                             onKeyDown={(event) => {
                                                 if(event.key === 'Enter') {
                                                     handleUpdate()
@@ -230,6 +231,11 @@ export default function ImpedimentosTab({
                                                 }
                                             }}
                                             onBlur={handleUpdate}
+                                            onFocus={(e) =>
+                                                e.currentTarget.setSelectionRange(
+                                                e.currentTarget.value.length,
+                                                e.currentTarget.value.length
+                                            )}
                                         />
                                     </>
                                     :

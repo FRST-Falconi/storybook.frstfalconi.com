@@ -8,6 +8,7 @@ import Tooltip from '../tooltip'
 import UpDownButtons from './UpDownButtons'
 import { Voting } from './Voting'
 import { EditHypotesisAndImpediment } from './editHypotesisAndImpediment'
+import { TextField } from '@mui/material'
 
 export const HypothesisAndImpediment = ({
     description,
@@ -194,15 +195,16 @@ export const HypothesisAndImpediment = ({
                                     src={avatar}
                                     size={isOwnerGoal ? '28px' : '24px'}
                                     border={avatarBorder}
-                                    style={{ marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }}
+                                    style={{ cursor: 'pointer', marginLeft: '16px' }}
                                     onClick={() => handleViewProfile(authorId)}
                                 />
                             </Tooltip>
                             <Styles.Title>{title}</Styles.Title>
-                            <Styles.Separator type={type} variant={variant} />
 
                                     
-                            <Styles.Description 
+                            <Styles.Description
+                                type={type}
+                                variant={variant}
                                 onClick={handleClickAction}       
                                 onDoubleClick={() => {
                                     if (clickTimeoutRef.current) {
@@ -210,49 +212,56 @@ export const HypothesisAndImpediment = ({
                                     }
                                     if(hasEditHipotesisOrImpediment) setIsEditing(true)
                                 }}
-                                style={{minHeight: '36px', height: isEditing ? "16px": "fit-content"}}
+                                style={{minHeight: '36px', height: isEditing ? "auto": "fit-content"}}
                             >
-                                <Tooltip
-                                    content={'Clique na hipótese para ver as ações vinculadas'}
-                                    direction={'bottom'}
-                                    wrapperWidth='100%'
-                                    style={{
-                                        fontFamily: 'PT Sans',
-                                        fontWeight: 400,
-                                        fontSize: '14px',
-                                        color: '#757575',
-                                        width: '171px',
-                                        height: '52px',
-                                        top: '8px',
-                                        left: '4px',
-                                        whiteSpace: 'wrap',
-                                        boxShadow: ' 0px 25px 18px -20px #22222233;',
-                                        display: variant === 'impediment' ? 'none' : 'block'
-                                    }}
-                                >
-                                    <div
-                                        style={{ 
-                                            width: isEditing ? '100%' : '0', 
-                                            height: isEditing ? '20px' : '0', 
-                                            overflow: 'hidden', 
-                                            background: 'transparent',
+                                {isEditing ?
+                                    <TextField
+                                        inputRef={inputRef}
+                                        value={editDescription}
+                                        onBlur={handleSaveDescription}
+                                        onChange={handleChange}
+                                        onKeyDown={handleKeyDown}
+                                        multiline
+                                        fullWidth
+                                        variant='standard'
+                                        InputProps={{
+                                            disableUnderline: true,
+                                            style:{
+                                                fontFamily: 'PT Sans',
+                                                fontSize: '14px',
+                                                lineHeight: 1.3
+                                            },
+                                        }}
+                                        onFocus={(e) =>
+                                            e.currentTarget.setSelectionRange(
+                                            e.currentTarget.value.length,
+                                            e.currentTarget.value.length
+                                        )}
+                                    />
+                                    :
+                                    <Tooltip
+                                        content={'Clique na hipótese para ver as ações vinculadas'}
+                                        direction={'bottom'}
+                                        wrapperWidth='100%'
+                                        style={{
+                                            fontFamily: 'PT Sans',
+                                            fontWeight: 400,
+                                            fontSize: '14px',
+                                            color: '#757575',
+                                            width: '171px',
+                                            height: '52px',
+                                            top: '8px',
+                                            left: '4px',
+                                            whiteSpace: 'wrap',
+                                            boxShadow: ' 0px 25px 18px -20px #22222233;',
+                                            display: variant === 'impediment' || isEditing ? 'none' : 'block'
                                         }}
                                     >
-                                        <input
-                                            ref={inputRef}
-                                            type="text"
-                                            value={editDescription}
-                                            onBlur={handleSaveDescription}
-                                            onChange={handleChange}
-                                            onKeyDown={handleKeyDown}
-                                            autoFocus
-                                            style={{ width: '100%', height: '16px', border: 'none', outline: 'none', background: 'transparent' }}
-                                        />
-                                    </div>
-                                    <div style={{ width: !isEditing ? '100%' : '0',overflow: 'hidden',  }}>
-                                        {editDescription}
-                                    </div>
-                                </Tooltip>
+                                        <div style={{ width: '100%' ,overflow: 'hidden' }}>
+                                            {editDescription}
+                                        </div>
+                                    </Tooltip>
+                                }
 
                             </Styles.Description>
 
