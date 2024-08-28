@@ -3261,7 +3261,7 @@ const Title$7 = styled__default["default"].span `
 styled__default["default"].span `
   font-weight: 700;
 `;
-const Separator$1 = styled__default["default"].div `
+const Separator = styled__default["default"].div `
   font-weight: bold;
   margin: 0 8px;
 `;
@@ -3786,7 +3786,7 @@ const HypothesisComponent = ({ description, type, id, title, votes = [], onVote,
             setIsEditing(true);
         }
     };
-    return (jsxRuntime.jsx(MainContainer$1, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainerDescription$1, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$7, { children: title }), jsxRuntime.jsx(Separator$1, { children: "|" }), jsxRuntime.jsx(Description$5, { children: isEditing ? (jsxRuntime.jsx("span", { style: { display: 'flex', width: '100%' }, children: jsxRuntime.jsx("div", { contentEditable: true, style: { width: '100%', background: 'white' }, onInput: (e) => setEditDescription(e.currentTarget.textContent), onBlur: handleSaveDescription, children: description }) })) : (jsxRuntime.jsx("div", { style: { width: '100%' }, onDoubleClick: handleDoubleClick, children: jsxRuntime.jsx("span", { children: editDescription }) })) }), validHasEditHipotesis && (jsxRuntime.jsx(MenuMore, { options: type === HypothesisEnum.PRIORITIZE
+    return (jsxRuntime.jsx(MainContainer$1, { children: jsxRuntime.jsxs(Container$m, { type: type, id: id, ref: ContainerRef, children: [jsxRuntime.jsxs(SplitContainerDescription$1, { children: [showAvatar && (jsxRuntime.jsx(Avatar, { src: avatar, size: "24px", style: { marginRight: '8px', cursor: authorId ? 'pointer' : 'default' }, onClick: () => handleViewProfile(authorId) })), jsxRuntime.jsx(Title$7, { children: title }), jsxRuntime.jsx(Separator, { children: "|" }), jsxRuntime.jsx(Description$5, { children: isEditing ? (jsxRuntime.jsx("span", { style: { display: 'flex', width: '100%' }, children: jsxRuntime.jsx("div", { contentEditable: true, style: { width: '100%', background: 'white' }, onInput: (e) => setEditDescription(e.currentTarget.textContent), onBlur: handleSaveDescription, children: description }) })) : (jsxRuntime.jsx("div", { style: { width: '100%' }, onDoubleClick: handleDoubleClick, children: jsxRuntime.jsx("span", { children: editDescription }) })) }), validHasEditHipotesis && (jsxRuntime.jsx(MenuMore, { options: type === HypothesisEnum.PRIORITIZE
                                 ? [
                                     {
                                         description: 'Editar',
@@ -7331,7 +7331,7 @@ const TabInfoWrapper = styled__default["default"]('div') `
     padding: 12px 16px;
     border-radius: 0px 0px 8px 8px;
     background-color: #E5CBF1;
-    height: 56px;
+    min-height: 56px;
 
     p {
         font-family: 'PT Sans';
@@ -7339,9 +7339,6 @@ const TabInfoWrapper = styled__default["default"]('div') `
         line-height: 1.3;
         color: ${({ theme }) => theme.colors.neutralsGrey1};
         font-weight: 400;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden
     }
 
 `;
@@ -7617,22 +7614,21 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
                                             jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: selectedTab?.handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true }) })
                                             :
                                                 jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true, onClick: selectedTab?.handleClickAvatar }) }), isEdit ?
-                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), fullWidth: true, variant: 'standard', InputProps: {
-                                                    autoFocus: true,
+                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), fullWidth: true, multiline: true, variant: 'standard', InputProps: {
                                                     disableUnderline: true,
                                                     style: {
                                                         fontFamily: 'PT Sans',
                                                         fontSize: '14px',
                                                         lineHeight: 1.3
                                                     }
-                                                }, onKeyDown: (event) => {
+                                                }, inputRef: (input) => input && input.focus(), onKeyDown: (event) => {
                                                     if (event.key === 'Enter') {
                                                         handleUpdate();
                                                     }
                                                     if (event.key === 'Escape') {
                                                         handleCancelUpdate();
                                                     }
-                                                }, onBlur: handleUpdate }) })
+                                                }, onBlur: handleUpdate, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) }) })
                                         :
                                             jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
                                                         jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
@@ -7709,15 +7705,11 @@ const MainContainer = styled__default["default"].div `
 const ContainerHypotheis = styled__default["default"].div `
     width: 100%;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: space-between;
     font-family: PT Sans;
     font-size: 14px;
     border-radius: 8px;
-    /* padding-left: 16px; */
-    padding-right: 16px;
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
     min-height: 52px;
 
     ${({ type, variant }) => {
@@ -7731,10 +7723,12 @@ const SplitContainerDescription = styled__default["default"].div `
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    padding: 16px 16px 16px 0px;
+    gap: 16px;
     height: 100%;
     width: 100%;
 `;
-const Separator = styled__default["default"].div `
+styled__default["default"].div `
     height: 24px; 
     width: 1px;
     margin-left: 14px;
@@ -7752,10 +7746,18 @@ const Title$6 = styled__default["default"].span `
 `;
 const Description$4 = styled__default["default"].span `
     font-weight: 400;
-    padding: 8px 0 8px;
     display: flex;
     flex-grow: 1;
     flex-wrap: wrap;
+    align-items: center;
+    padding: 0px 16px 0px 16px;
+
+    ${({ type, variant }) => {
+    const border = separatorColors[variant][type];
+    return styled.css `
+            border-left: 1px solid ${border};
+        `;
+}}
 `;
 
 const backgroundColors$1 = {
@@ -7780,6 +7782,7 @@ const ContainerArrowButton = styled__default["default"].div `
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     border-radius: 8px 0 0 8px;
 `;
 const ArrowButton$1 = styled__default["default"].button `
@@ -7788,6 +7791,8 @@ const ArrowButton$1 = styled__default["default"].button `
     width: 100%;
     color: #444444;
     cursor: pointer;
+    display: flex;
+    height: 100%;
     svg: {
     }
     :hover {
@@ -7795,7 +7800,7 @@ const ArrowButton$1 = styled__default["default"].button `
     }
 `;
 
-const UpDownButtons = ({ onUpClick, onDownClick, type, variant }) => (jsxRuntime.jsxs(ContainerArrowButton, { type: type, variant: variant, children: [jsxRuntime.jsx(ArrowButton$1, { onClick: onUpClick, children: jsxRuntime.jsx(ArrowDropUpOutlinedIcon__default["default"], {}) }), jsxRuntime.jsx(ArrowButton$1, { onClick: onDownClick, children: jsxRuntime.jsx(ArrowDropDownOutlinedIcon__default["default"], {}) })] }));
+const UpDownButtons = ({ onUpClick, onDownClick, type, variant }) => (jsxRuntime.jsxs(ContainerArrowButton, { type: type, variant: variant, children: [jsxRuntime.jsx(ArrowButton$1, { onClick: onUpClick, style: { alignItems: 'flex-end' }, children: jsxRuntime.jsx(ArrowDropUpOutlinedIcon__default["default"], {}) }), jsxRuntime.jsx(ArrowButton$1, { onClick: onDownClick, style: { alignItems: 'flex-start' }, children: jsxRuntime.jsx(ArrowDropDownOutlinedIcon__default["default"], {}) })] }));
 
 const backgroundColors = {
     prioritize: '#EE9F08',
@@ -7806,8 +7811,8 @@ const ContainerVoting = styled__default["default"].div `
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 68px;
-    width: max-content;
+    /* min-width: 68px; */
+    width: fit-content;
     height: 36px;
     padding: 4px;
     cursor: pointer;
@@ -8061,30 +8066,35 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                     left: '4px',
                                     whiteSpace: 'nowrap',
                                     boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { marginRight: '14px', cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Separator, { type: type, variant: variant }), jsxRuntime.jsx(Description$4, { onClick: handleClickAction, onDoubleClick: () => {
+                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Description$4, { type: type, variant: variant, onClick: handleClickAction, onDoubleClick: () => {
                                     if (clickTimeoutRef.current) {
                                         clearTimeout(clickTimeoutRef.current);
                                     }
                                     if (hasEditHipotesisOrImpediment)
                                         setIsEditing(true);
-                                }, style: { minHeight: '36px', height: isEditing ? "16px" : "fit-content" }, children: jsxRuntime.jsxs(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
-                                        fontFamily: 'PT Sans',
-                                        fontWeight: 400,
-                                        fontSize: '14px',
-                                        color: '#757575',
-                                        width: '171px',
-                                        height: '52px',
-                                        top: '8px',
-                                        left: '4px',
-                                        whiteSpace: 'wrap',
-                                        boxShadow: ' 0px 25px 18px -20px #22222233;',
-                                        display: variant === 'impediment' ? 'none' : 'block'
-                                    }, children: [jsxRuntime.jsx("div", { style: {
-                                                width: isEditing ? '100%' : '0',
-                                                height: isEditing ? '20px' : '0',
-                                                overflow: 'hidden',
-                                                background: 'transparent',
-                                            }, children: jsxRuntime.jsx("input", { ref: inputRef, type: "text", value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, autoFocus: true, style: { width: '100%', height: '16px', border: 'none', outline: 'none', background: 'transparent' } }) }), jsxRuntime.jsx("div", { style: { width: !isEditing ? '100%' : '0', overflow: 'hidden', }, children: editDescription })] }) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }) }));
+                                }, style: { minHeight: '36px', height: isEditing ? "auto" : "fit-content" }, children: isEditing ?
+                                    jsxRuntime.jsx(material.TextField, { inputRef: inputRef, value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, multiline: true, fullWidth: true, variant: 'standard', InputProps: {
+                                            disableUnderline: true,
+                                            style: {
+                                                fontFamily: 'PT Sans',
+                                                fontSize: '14px',
+                                                lineHeight: 1.3
+                                            },
+                                        }, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) })
+                                    :
+                                        jsxRuntime.jsx(Tooltip$2, { content: 'Clique na hipótese para ver as ações vinculadas', direction: 'bottom', wrapperWidth: '100%', style: {
+                                                fontFamily: 'PT Sans',
+                                                fontWeight: 400,
+                                                fontSize: '14px',
+                                                color: '#757575',
+                                                width: '171px',
+                                                height: '52px',
+                                                top: '8px',
+                                                left: '4px',
+                                                whiteSpace: 'wrap',
+                                                boxShadow: ' 0px 25px 18px -20px #22222233;',
+                                                display: variant === 'impediment' || isEditing ? 'none' : 'block'
+                                            }, children: jsxRuntime.jsx("div", { style: { width: '100%', overflow: 'hidden' }, children: editDescription }) }) }), !isEditing && hasVoting && (jsxRuntime.jsx(Voting, { voteText: voteText, type: type, onDeleteVote: onDeleteVote, votersList: votersList, onVote: () => onVote(id), onChangeVote: () => onChangeVote(id), isVotedByUserLogged: isVotedByUserLogged, voteHasAlreadyBeenRegistered: voteHasAlreadyBeenRegistered, popperStyle: popperStyle })), !isEditing && validHasEditHipotesisOrImpediment && (jsxRuntime.jsx(MenuMore, { options: options, isContainerOptions: true, closeAfterClick: true }))] })] }) }) }));
 };
 
 const ModalContainer = styled__default["default"].div `
