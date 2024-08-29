@@ -70,23 +70,33 @@ export const TabInfoWrapper = styled('div')`
 `
 
 export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
-    padding: 4px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    margin-left: 16px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    cursor: pointer;
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 16px;
+        line-height: 1.1;
+        font-weight: 700;
+        color: #8E0EC8;
+    }
 
     ${(props) => props.activeButton &&
         css`
-            background-color: ${({theme}) => theme.colors.neutralsGrey6};
+            color: #7C0EAF;
         `
     }
 
     :hover {
         background-color: ${({theme}) => theme.colors.neutralsGrey8};
+        color: #7C0EAF;
 
         svg path {
-            stroke: ${({theme}) => theme.colors.neutralsGrey1};
+            stroke: #7C0EAF;
         }
     }
 
@@ -97,11 +107,11 @@ export const WrapperAddButton = styled('div')<{activeButton: boolean}>`
         path {
             ${(props) => props.activeButton ?
                 css`
-                    stroke: ${({theme}) => theme.colors.neutralsGrey1};
+                    stroke: #7C0EAF;
                 `
                 :
                 css`
-                    stroke: ${({theme}) => theme.colors.neutralsGrey4};
+                    stroke: #8E0EC8;
                 `
             }
         }
@@ -118,18 +128,19 @@ export const WrapperImpedimentoSelect = styled('div')<{activeSelect: boolean}>`
     background-color: ${({theme}) => theme.colors.shadeWhite};
     cursor: default;
 
-    ${(props) => props.activeSelect &&
-        css`
-            background-color: ${({theme}) => theme.colors.neutralsGrey6};
-        `
-    }
-
     p {
         font-family: 'PT Sans';
         font-size: 16px;
         line-height: 1.1;
-        font-weight: 700;
-        color: ${({theme}) => theme.colors.neutralsGrey2};
+        font-weight: 400;
+        color: ${({theme}) => theme.colors.neutralsGrey1};
+
+        ${(props) => props.activeSelect &&
+            css`
+                font-weight: 700;
+                color: ${({theme}) => theme.colors.neutralsGrey2};
+            `
+        }
     }
 
     :hover {

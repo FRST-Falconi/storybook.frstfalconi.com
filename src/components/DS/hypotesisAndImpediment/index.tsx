@@ -193,7 +193,7 @@ export const HypothesisAndImpediment = ({
                             >
                                 <Avatar
                                     src={avatar}
-                                    size={isOwnerGoal ? '28px' : '24px'}
+                                    size={isOwnerGoal ? '24px' : '24px'}
                                     border={avatarBorder}
                                     style={{ cursor: 'pointer', marginLeft: '16px' }}
                                     onClick={() => handleViewProfile(authorId)}
@@ -212,7 +212,7 @@ export const HypothesisAndImpediment = ({
                                     }
                                     if(hasEditHipotesisOrImpediment) setIsEditing(true)
                                 }}
-                                style={{minHeight: '36px', height: isEditing ? "auto": "fit-content"}}
+                                style={{height: isEditing ? "auto": "fit-content"}}
                             >
                                 {isEditing ?
                                     <TextField

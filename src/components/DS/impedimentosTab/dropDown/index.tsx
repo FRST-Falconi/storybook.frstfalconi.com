@@ -27,7 +27,7 @@ export default function Dropdown({
             impedimentoList.map((item, index) => {
                 return (
                     <DropdownRow onClick={() => onClickImpedimento(item)} key={index}>
-                        <p>{item.title}</p>
+                        <p>{item.title}: {item.description}</p>
                     </DropdownRow>
                 )
             })
