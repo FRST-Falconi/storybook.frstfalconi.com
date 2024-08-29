@@ -31,7 +31,8 @@ export default function ImpedimentosTab({
     onSaveNewImpedimento,
     onSelectedTab,
     idSelectedTab,
-    currentTab
+    currentTab,
+    addButtonText
 }: ImpedimentosTabProps) {
     const [selectedTab, setSelectedTab] = useState<TabInfo>(null);
     const [allTabs, setAllTabs] = useState<Array<TabInfo>>([]);
@@ -146,25 +147,6 @@ export default function ImpedimentosTab({
                     <TabWrapper>
                         <Box display={'flex'} alignItems={'center'}>
                             {onShowTabs.map((item, index) => renderTabs(item, index) )}
-                            {showAddButton ?
-                                <Tooltip
-                                    content='Sugerir impedimento'
-                                    direction='bottom'
-                                    delay={200}
-                                    style={{textAlign: 'center'}}
-                                >
-                                    <WrapperAddButton 
-                                        activeButton={openAddImpedimento}
-                                        onClick={handleClickAddImpedimento}
-                                    >
-                                        <AddIcon />
-                                    </WrapperAddButton>
-                                </Tooltip>
-                                :
-                                <></>
-                            }
-                        </Box>
-                        <Box display={'flex'} alignItems={'center'}>
                             {onHideTabs.length > 0 ?
                                 <Tooltip
                                     content='Ver todos os impedimentos'
@@ -186,95 +168,124 @@ export default function ImpedimentosTab({
                                 <></>
                             }
                         </Box>
-                    </TabWrapper> 
-                    {selectedTab?.id ?
-                        <Box display={'flex'} flexDirection={'column'} gap={'8px'} onDoubleClick={() => selectedTab?.showOptions && setIsEdit(true)} >
-                            <TabInfoWrapper>
+                        <Box display={'flex'} alignItems={'center'}>
+                            {showAddButton ?
                                 <Tooltip
-                                    content={selectedTab?.user_name}
+                                    content='Sugerir impedimento'
                                     direction='bottom'
                                     delay={200}
-                                    style={{width: 'fit-content', height: 'fit-content'}}
+                                    style={{textAlign: 'center'}}
                                 >
-                                    {selectedTab.isGoalOwner ?
-                                        <Box border={'2px solid #AD46FF'} borderRadius={'50%'} onClick={selectedTab?.handleClickAvatar}>
-                                            <Avatar src={selectedTab.avatar} size='24px' isActiveClick={true}/>
-                                        </Box>
-                                        :
-                                        <Avatar src={selectedTab.avatar} size='24px' isActiveClick={true} onClick={selectedTab?.handleClickAvatar}/>
-                                    }
+                                    <WrapperAddButton 
+                                        activeButton={openAddImpedimento}
+                                        onClick={handleClickAddImpedimento}
+                                    >
+                                        <AddIcon />
+                                        <p>{addButtonText}</p>
+                                    </WrapperAddButton>
                                 </Tooltip>
-                                {isEdit ?
-                                    <>
-                                        <TextField
-                                            placeholder={editDescription}
-                                            value={editDescription}
-                                            onChange={(e) => setEditDescription(e.target.value)}
-                                            fullWidth
-                                            multiline
-                                            variant='standard'
-                                            InputProps={{
-                                                disableUnderline: true,
-                                                style:{
-                                                    fontFamily: 'PT Sans',
-                                                    fontSize: '14px',
-                                                    lineHeight: 1.3
-                                                }
-                                            }}
-                                            inputRef={(input) => input && input.focus()}
-                                            onKeyDown={(event) => {
-                                                if(event.key === 'Enter') {
-                                                    handleUpdate()
-                                                }
-                                                if(event.key === 'Escape') {
-                                                    handleCancelUpdate()
-                                                }
-                                            }}
-                                            onBlur={handleUpdate}
-                                            onFocus={(e) =>
-                                                e.currentTarget.setSelectionRange(
-                                                e.currentTarget.value.length,
-                                                e.currentTarget.value.length
-                                            )}
-                                        />
-                                    </>
-                                    :
-                                    <>
-                                        <p>{displayDescription}</p>
-                                        {selectedTab?.showOptions ?
-                                            <WrapperMenuMore>
-                                                <MenuMore
-                                                    options={[
-                                                        ...(selectedTab?.handlePriorize ? [{
-                                                            description: 'Priorizar',
-                                                            onClick: () => selectedTab?.handlePriorize(selectedTab),
-                                                            disabled: !!selectedTab?.disabledPriorize,
-                                                            color: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222",
-                                                            startIcon: <StarPrioritize stroke={!!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" }/>
-                                                        }] : []),
-                                                        ...(selectedTab?.handleEdit ? [{
-                                                            description: 'Editar',
-                                                            onClick: () => setIsEdit(true),
-                                                            startIcon: <EditHipoteses />
-                                                        }] : []),
-                                                        ...(selectedTab?.handleDelete ? [{
-                                                            description: 'Excluir',
-                                                            onClick: () => selectedTab?.handleDelete(selectedTab),
-                                                            startIcon: <TrashHipoteses />,
-                                                            color: '#C00F00'
-                                                        }] : []),
-                                                    ]}
-                                                    closeAfterClick
-                                                    isContainerOptions={true}
-                                                />
-                                            </WrapperMenuMore>
-                                            :
-                                            <></>
-                                        }
-                                    </>
-                                }
-                            </TabInfoWrapper>
+                                :
+                                <></>
+                            }
                         </Box>
+                    </TabWrapper> 
+                    {selectedTab?.id ?
+                        <TabInfoWrapper onDoubleClick={() => selectedTab?.showOptions && setIsEdit(true)}>
+                            <Tooltip
+                                content={selectedTab?.user_name}
+                                direction='bottom'
+                                delay={200}
+                                style={{
+                                    fontFamily: 'PT Sans',
+                                    fontWeight: 400,
+                                    fontSize: '14px',
+                                    color: 'rgba(117, 117, 117, 1)',
+                                    width: 'fit-content',
+                                    height: '31px',
+                                    top: '8px',
+                                    left: '4px',
+                                    whiteSpace: 'nowrap',
+                                    boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                }}
+                            >
+                                {selectedTab.isGoalOwner ?
+                                    <Box border={'2px solid #AD46FF'} borderRadius={'50%'} onClick={selectedTab?.handleClickAvatar}>
+                                        <Avatar src={selectedTab.avatar} size='24px' isActiveClick={true}/>
+                                    </Box>
+                                    :
+                                    <Avatar src={selectedTab.avatar} size='24px' isActiveClick={true} onClick={selectedTab?.handleClickAvatar}/>
+                                }
+                            </Tooltip>
+                            {isEdit ?
+                                <>
+                                    <TextField
+                                        placeholder={editDescription}
+                                        value={editDescription}
+                                        onChange={(e) => setEditDescription(e.target.value)}
+                                        fullWidth
+                                        multiline
+                                        variant='standard'
+                                        InputProps={{
+                                            disableUnderline: true,
+                                            style:{
+                                                fontFamily: 'PT Sans',
+                                                fontSize: '14px',
+                                                lineHeight: 1.3
+                                            }
+                                        }}
+                                        inputRef={(input) => input && input.focus()}
+                                        onKeyDown={(event) => {
+                                            if(event.key === 'Enter') {
+                                                handleUpdate()
+                                            }
+                                            if(event.key === 'Escape') {
+                                                handleCancelUpdate()
+                                            }
+                                        }}
+                                        onBlur={handleUpdate}
+                                        onFocus={(e) =>
+                                            e.currentTarget.setSelectionRange(
+                                            e.currentTarget.value.length,
+                                            e.currentTarget.value.length
+                                        )}
+                                    />
+                                </>
+                                :
+                                <>
+                                    <p>{displayDescription}</p>
+                                    {selectedTab?.showOptions ?
+                                        <WrapperMenuMore>
+                                            <MenuMore
+                                                options={[
+                                                    ...(selectedTab?.handlePriorize ? [{
+                                                        description: 'Priorizar',
+                                                        onClick: () => selectedTab?.handlePriorize(selectedTab),
+                                                        disabled: !!selectedTab?.disabledPriorize,
+                                                        color: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222",
+                                                        startIcon: <StarPrioritize stroke={!!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" }/>
+                                                    }] : []),
+                                                    ...(selectedTab?.handleEdit ? [{
+                                                        description: 'Editar',
+                                                        onClick: () => setIsEdit(true),
+                                                        startIcon: <EditHipoteses />
+                                                    }] : []),
+                                                    ...(selectedTab?.handleDelete ? [{
+                                                        description: 'Excluir',
+                                                        onClick: () => selectedTab?.handleDelete(selectedTab),
+                                                        startIcon: <TrashHipoteses />,
+                                                        color: '#C00F00'
+                                                    }] : []),
+                                                ]}
+                                                closeAfterClick
+                                                isContainerOptions={true}
+                                            />
+                                        </WrapperMenuMore>
+                                        :
+                                        <></>
+                                    }
+                                </>
+                            }
+                        </TabInfoWrapper>
                         :
                         <></>
                     }

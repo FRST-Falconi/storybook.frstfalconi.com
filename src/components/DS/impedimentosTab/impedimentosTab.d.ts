@@ -2,6 +2,7 @@ export interface ImpedimentosTabProps {
     maxTabs: number
     tabsList: Array<TabInfo>
     showAddButton?: boolean
+    addButtonText?: string
     onSaveNewImpedimento: (impedimento: string) => void
     onSelectedTab: (selectedTab: TabInfo) => void
     idSelectedTab?: string
