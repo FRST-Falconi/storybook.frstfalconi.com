@@ -7546,9 +7546,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const openAddImpedimento = Boolean(addImpedimentoAnchor);
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor);
     React.useEffect(() => {
-        if (tabsList.length !== allTabs.length) {
-            setAllTabs(tabsList);
-        }
+        setAllTabs(tabsList);
     }, [tabsList]);
     React.useEffect(() => {
         if (idSelectedTab) {
