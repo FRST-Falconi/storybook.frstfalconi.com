@@ -21832,7 +21832,7 @@ const ContainerTable = styled__default["default"].div `
   width: 100%;
   height: 100%;
   border: 1px solid ${({ theme }) => theme.colors.neutralsGrey7};
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
 `;
 const WrapperTable = styled__default["default"].div `
@@ -21874,6 +21874,7 @@ const SkeletonRow = styled__default["default"](material.Skeleton) `
 
 const THeadColumn = styled__default["default"].thead `
   width: 100%;
+  height: 56px;
 `;
 const TRowColumn = styled__default["default"].tr `
   background-color: #BEDCDC;
