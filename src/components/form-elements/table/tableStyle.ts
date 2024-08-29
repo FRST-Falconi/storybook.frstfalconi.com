@@ -6,7 +6,7 @@ export const ContainerTable = styled.div`
   width: 100%;
   height: 100%;
   border: 1px solid ${({ theme }) => theme.colors.neutralsGrey7};
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
 `;
 

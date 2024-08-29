@@ -7,6 +7,7 @@ interface ItemHeaderColumnProps {
 
 export const THeadColumn = styled.thead`
   width: 100%;
+  height: 56px;
 `;
 
 export const TRowColumn = styled.tr`
