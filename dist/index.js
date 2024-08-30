@@ -7343,22 +7343,32 @@ const TabInfoWrapper = styled__default["default"]('div') `
 
 `;
 const WrapperAddButton = styled__default["default"]('div') `
-    padding: 4px;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    margin-left: 16px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    cursor: pointer;
+
+    p {
+        font-family: 'PT Sans';
+        font-size: 16px;
+        line-height: 1.1;
+        font-weight: 700;
+        color: #8E0EC8;
+    }
 
     ${(props) => props.activeButton &&
     styled.css `
-            background-color: ${({ theme }) => theme.colors.neutralsGrey6};
+            color: #7C0EAF;
         `}
 
     :hover {
         background-color: ${({ theme }) => theme.colors.neutralsGrey8};
+        color: #7C0EAF;
 
         svg path {
-            stroke: ${({ theme }) => theme.colors.neutralsGrey1};
+            stroke: #7C0EAF;
         }
     }
 
@@ -7369,11 +7379,11 @@ const WrapperAddButton = styled__default["default"]('div') `
         path {
             ${(props) => props.activeButton ?
     styled.css `
-                    stroke: ${({ theme }) => theme.colors.neutralsGrey1};
+                    stroke: #7C0EAF;
                 `
     :
         styled.css `
-                    stroke: ${({ theme }) => theme.colors.neutralsGrey4};
+                    stroke: #8E0EC8;
                 `}
         }
     }
@@ -7388,17 +7398,18 @@ const WrapperImpedimentoSelect = styled__default["default"]('div') `
     background-color: ${({ theme }) => theme.colors.shadeWhite};
     cursor: default;
 
-    ${(props) => props.activeSelect &&
-    styled.css `
-            background-color: ${({ theme }) => theme.colors.neutralsGrey6};
-        `}
-
     p {
         font-family: 'PT Sans';
         font-size: 16px;
         line-height: 1.1;
-        font-weight: 700;
-        color: ${({ theme }) => theme.colors.neutralsGrey2};
+        font-weight: 400;
+        color: ${({ theme }) => theme.colors.neutralsGrey1};
+
+        ${(props) => props.activeSelect &&
+    styled.css `
+                font-weight: 700;
+                color: ${({ theme }) => theme.colors.neutralsGrey2};
+            `}
     }
 
     :hover {
@@ -7479,6 +7490,7 @@ const ContainerDropdown = styled__default["default"]('div') `
     border-radius: 8px;
     box-shadow: 0px 5px 15px 0px #00000040;
     background-color: #FFFFFF;
+    width: 300px;
 `;
 const DropdownRow = styled__default["default"]('div') `
     padding: 10px 4px;
@@ -7490,6 +7502,10 @@ const DropdownRow = styled__default["default"]('div') `
         font-size: 16px;
         line-height: 1.1;
         font-weight: 400;
+        color: ${({ theme }) => theme.colors.neutralsGrey1};
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden
     }
 
     :first-child {
@@ -7505,7 +7521,7 @@ const DropdownRow = styled__default["default"]('div') `
 function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimento }) {
     const render = () => {
         return (impedimentoList.map((item, index) => {
-            return (jsxRuntime.jsx(DropdownRow, { onClick: () => onClickImpedimento(item), children: jsxRuntime.jsx("p", { children: item.title }) }, index));
+            return (jsxRuntime.jsx(DropdownRow, { onClick: () => onClickImpedimento(item), children: jsxRuntime.jsxs("p", { children: [item.title, ": ", item.description] }) }, index));
         }));
     };
     return (jsxRuntime.jsx(material.Popover, { open: isOpen, onClose: onClose, anchorEl: anchor, anchorOrigin: {
@@ -7517,7 +7533,7 @@ function Dropdown$1({ isOpen, anchor, onClose, impedimentoList, onClickImpedimen
         }, children: jsxRuntime.jsx(ContainerDropdown, { children: render() }) }));
 }
 
-function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab }) {
+function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpedimento, onSelectedTab, idSelectedTab, currentTab, addButtonText }) {
     const [selectedTab, setSelectedTab] = React.useState(null);
     const [allTabs, setAllTabs] = React.useState([]);
     const [onShowTabs, setOnShowTabs] = React.useState([]);
@@ -7530,9 +7546,7 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
     const openAddImpedimento = Boolean(addImpedimentoAnchor);
     const openImpedimentoSelect = Boolean(impedimentoSelectAnchor);
     React.useEffect(() => {
-        if (tabsList.length !== allTabs.length) {
-            setAllTabs(tabsList);
-        }
+        setAllTabs(tabsList);
     }, [tabsList]);
     React.useEffect(() => {
         if (idSelectedTab) {
@@ -7603,56 +7617,67 @@ function ImpedimentosTab({ maxTabs, tabsList, showAddButton, onSaveNewImpediment
         }
     }, [selectedTab]);
     return (jsxRuntime.jsx(styled.ThemeProvider, { theme: FRSTTheme, children: allTabs.length > 0 ?
-            jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), showAddButton ?
-                                        jsxRuntime.jsx(Tooltip$2, { content: 'Sugerir impedimento', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsx(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: jsxRuntime.jsx(AddIcon, {}) }) })
+            jsxRuntime.jsxs(ContainerImpedimentos, { children: [jsxRuntime.jsxs(TabWrapper, { children: [jsxRuntime.jsxs(material.Box, { display: 'flex', alignItems: 'center', children: [onShowTabs.map((item, index) => renderTabs(item, index)), onHideTabs.length > 0 ?
+                                        jsxRuntime.jsx(Tooltip$2, { content: 'Ver todos os impedimentos', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })
                                         :
-                                            jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: onHideTabs.length > 0 ?
-                                    jsxRuntime.jsx(Tooltip$2, { content: 'Ver todos os impedimentos', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperImpedimentoSelect, { activeSelect: openImpedimentoSelect, onClick: (e) => setImpedimentoSelectAnchor(e.currentTarget), children: [jsxRuntime.jsxs("p", { children: ["Mais ", onHideTabs.length] }), jsxRuntime.jsx(WrapperSelectIcon, { isOpenSelect: openImpedimentoSelect, children: jsxRuntime.jsx(ArrrowExpandDropdown, {}) })] }) })
+                                            jsxRuntime.jsx(jsxRuntime.Fragment, {})] }), jsxRuntime.jsx(material.Box, { display: 'flex', alignItems: 'center', children: showAddButton ?
+                                    jsxRuntime.jsx(Tooltip$2, { content: 'Sugerir impedimento', direction: 'bottom', delay: 200, style: { textAlign: 'center' }, children: jsxRuntime.jsxs(WrapperAddButton, { activeButton: openAddImpedimento, onClick: handleClickAddImpedimento, children: [jsxRuntime.jsx(AddIcon, {}), jsxRuntime.jsx("p", { children: addButtonText })] }) })
                                     :
                                         jsxRuntime.jsx(jsxRuntime.Fragment, {}) })] }), selectedTab?.id ?
-                        jsxRuntime.jsx(material.Box, { display: 'flex', flexDirection: 'column', gap: '8px', onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: jsxRuntime.jsxs(TabInfoWrapper, { children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: 'bottom', delay: 200, style: { width: 'fit-content', height: 'fit-content' }, children: selectedTab.isGoalOwner ?
-                                            jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: selectedTab?.handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true }) })
-                                            :
-                                                jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true, onClick: selectedTab?.handleClickAvatar }) }), isEdit ?
-                                        jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), fullWidth: true, multiline: true, variant: 'standard', InputProps: {
-                                                    disableUnderline: true,
-                                                    style: {
-                                                        fontFamily: 'PT Sans',
-                                                        fontSize: '14px',
-                                                        lineHeight: 1.3
-                                                    }
-                                                }, inputRef: (input) => input && input.focus(), onKeyDown: (event) => {
-                                                    if (event.key === 'Enter') {
-                                                        handleUpdate();
-                                                    }
-                                                    if (event.key === 'Escape') {
-                                                        handleCancelUpdate();
-                                                    }
-                                                }, onBlur: handleUpdate, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) }) })
+                        jsxRuntime.jsxs(TabInfoWrapper, { onDoubleClick: () => selectedTab?.showOptions && setIsEdit(true), children: [jsxRuntime.jsx(Tooltip$2, { content: selectedTab?.user_name, direction: 'bottom', delay: 200, style: {
+                                        fontFamily: 'PT Sans',
+                                        fontWeight: 400,
+                                        fontSize: '14px',
+                                        color: 'rgba(117, 117, 117, 1)',
+                                        width: 'fit-content',
+                                        height: '31px',
+                                        top: '8px',
+                                        left: '4px',
+                                        whiteSpace: 'nowrap',
+                                        boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
+                                    }, children: selectedTab.isGoalOwner ?
+                                        jsxRuntime.jsx(material.Box, { border: '2px solid #AD46FF', borderRadius: '50%', onClick: selectedTab?.handleClickAvatar, children: jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true }) })
                                         :
-                                            jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
-                                                        jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
-                                                                    ...(selectedTab?.handlePriorize ? [{
-                                                                            description: 'Priorizar',
-                                                                            onClick: () => selectedTab?.handlePriorize(selectedTab),
-                                                                            disabled: !!selectedTab?.disabledPriorize,
-                                                                            color: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222",
-                                                                            startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" })
-                                                                        }] : []),
-                                                                    ...(selectedTab?.handleEdit ? [{
-                                                                            description: 'Editar',
-                                                                            onClick: () => setIsEdit(true),
-                                                                            startIcon: jsxRuntime.jsx(EditHipoteses, {})
-                                                                        }] : []),
-                                                                    ...(selectedTab?.handleDelete ? [{
-                                                                            description: 'Excluir',
-                                                                            onClick: () => selectedTab?.handleDelete(selectedTab),
-                                                                            startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
-                                                                            color: '#C00F00'
-                                                                        }] : []),
-                                                                ], closeAfterClick: true, isContainerOptions: true }) })
-                                                        :
-                                                            jsxRuntime.jsx(jsxRuntime.Fragment, {})] })] }) })
+                                            jsxRuntime.jsx(Avatar, { src: selectedTab.avatar, size: '24px', isActiveClick: true, onClick: selectedTab?.handleClickAvatar }) }), isEdit ?
+                                    jsxRuntime.jsx(jsxRuntime.Fragment, { children: jsxRuntime.jsx(material.TextField, { placeholder: editDescription, value: editDescription, onChange: (e) => setEditDescription(e.target.value), fullWidth: true, multiline: true, variant: 'standard', InputProps: {
+                                                disableUnderline: true,
+                                                style: {
+                                                    fontFamily: 'PT Sans',
+                                                    fontSize: '14px',
+                                                    lineHeight: 1.3
+                                                }
+                                            }, inputRef: (input) => input && input.focus(), onKeyDown: (event) => {
+                                                if (event.key === 'Enter') {
+                                                    handleUpdate();
+                                                }
+                                                if (event.key === 'Escape') {
+                                                    handleCancelUpdate();
+                                                }
+                                            }, onBlur: handleUpdate, onFocus: (e) => e.currentTarget.setSelectionRange(e.currentTarget.value.length, e.currentTarget.value.length) }) })
+                                    :
+                                        jsxRuntime.jsxs(jsxRuntime.Fragment, { children: [jsxRuntime.jsx("p", { children: displayDescription }), selectedTab?.showOptions ?
+                                                    jsxRuntime.jsx(WrapperMenuMore, { children: jsxRuntime.jsx(MenuMore, { options: [
+                                                                ...(selectedTab?.handlePriorize ? [{
+                                                                        description: 'Priorizar',
+                                                                        onClick: () => selectedTab?.handlePriorize(selectedTab),
+                                                                        disabled: !!selectedTab?.disabledPriorize,
+                                                                        color: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222",
+                                                                        startIcon: jsxRuntime.jsx(StarPrioritize, { stroke: !!selectedTab?.disabledPriorize ? "#b7b7b7" : "#222222" })
+                                                                    }] : []),
+                                                                ...(selectedTab?.handleEdit ? [{
+                                                                        description: 'Editar',
+                                                                        onClick: () => setIsEdit(true),
+                                                                        startIcon: jsxRuntime.jsx(EditHipoteses, {})
+                                                                    }] : []),
+                                                                ...(selectedTab?.handleDelete ? [{
+                                                                        description: 'Excluir',
+                                                                        onClick: () => selectedTab?.handleDelete(selectedTab),
+                                                                        startIcon: jsxRuntime.jsx(TrashHipoteses, {}),
+                                                                        color: '#C00F00'
+                                                                    }] : []),
+                                                            ], closeAfterClick: true, isContainerOptions: true }) })
+                                                    :
+                                                        jsxRuntime.jsx(jsxRuntime.Fragment, {})] })] })
                         :
                             jsxRuntime.jsx(jsxRuntime.Fragment, {}), jsxRuntime.jsx(AddImpedimentoModal, { isOpen: openAddImpedimento, anchor: addImpedimentoAnchor, onClose: () => setAddImpedimentoAnchor(null), onSaveBtn: handleSaveNewImpedimento }), jsxRuntime.jsx(Dropdown$1, { isOpen: openImpedimentoSelect, anchor: impedimentoSelectAnchor, onClose: () => setImpedimentoSelectAnchor(null), impedimentoList: onHideTabs, maxTabs: maxTabs, onClickImpedimento: handleClickSelectImpedimento })] })
             :
@@ -7700,17 +7725,17 @@ const MainContainer = styled__default["default"].div `
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    min-height: 56px;
     color: #222222;
+    box-sizing: border-box;
 `;
 const ContainerHypotheis = styled__default["default"].div `
     width: 100%;
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
     font-family: PT Sans;
     font-size: 14px;
     border-radius: 8px;
-    min-height: 52px;
 
     ${({ type, variant }) => {
     const backgroundColor = backgroundColors$2[variant][type];
@@ -7723,7 +7748,7 @@ const SplitContainerDescription = styled__default["default"].div `
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 16px 16px 16px 0px;
+    padding: 10px 16px 10px 0px;
     gap: 16px;
     height: 100%;
     width: 100%;
@@ -7750,7 +7775,7 @@ const Description$4 = styled__default["default"].span `
     flex-grow: 1;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0px 16px 0px 16px;
+    padding: 6px 16px 6px 16px;
 
     ${({ type, variant }) => {
     const border = separatorColors[variant][type];
@@ -8066,13 +8091,13 @@ hasVoting, voteHasAlreadyBeenRegistered, isVotedByUserLogged, voteText, onDelete
                                     left: '4px',
                                     whiteSpace: 'nowrap',
                                     boxShadow: ' 0px 0px 18px 0px rgba(34, 34, 34, 0.2)'
-                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '28px' : '24px', border: avatarBorder, style: { cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Description$4, { type: type, variant: variant, onClick: handleClickAction, onDoubleClick: () => {
+                                }, children: jsxRuntime.jsx(Avatar, { src: avatar, size: isOwnerGoal ? '24px' : '24px', border: avatarBorder, style: { cursor: 'pointer', marginLeft: '16px' }, onClick: () => handleViewProfile(authorId) }) }), jsxRuntime.jsx(Title$6, { children: title }), jsxRuntime.jsx(Description$4, { type: type, variant: variant, onClick: handleClickAction, onDoubleClick: () => {
                                     if (clickTimeoutRef.current) {
                                         clearTimeout(clickTimeoutRef.current);
                                     }
                                     if (hasEditHipotesisOrImpediment)
                                         setIsEditing(true);
-                                }, style: { minHeight: '36px', height: isEditing ? "auto" : "fit-content" }, children: isEditing ?
+                                }, style: { height: isEditing ? "auto" : "fit-content" }, children: isEditing ?
                                     jsxRuntime.jsx(material.TextField, { inputRef: inputRef, value: editDescription, onBlur: handleSaveDescription, onChange: handleChange, onKeyDown: handleKeyDown, multiline: true, fullWidth: true, variant: 'standard', InputProps: {
                                             disableUnderline: true,
                                             style: {
@@ -21885,6 +21910,7 @@ const THColumnTitleItem = styled__default["default"].th `
   width: ${({ width }) => width};
   text-align: ${({ align }) => align};
   white-space: nowrap;
+  min-height: 56px;
   
   font-family: 'PT Sans';
   font-size: 16px;
@@ -22248,9 +22274,7 @@ const WrapperEmptyStateCaseButton = styled__default["default"].div `
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding-right: 40px; 
-  padding-left: 42px;          
+  width: 100%;     
 `;
 const WrapperButtonEmpty = styled__default["default"].div `
   display: flex;

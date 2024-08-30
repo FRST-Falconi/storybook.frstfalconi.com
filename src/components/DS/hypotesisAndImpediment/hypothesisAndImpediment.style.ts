@@ -45,18 +45,18 @@ export const MainContainer = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    min-height: 56px;
     color: #222222;
+    box-sizing: border-box;
 `
 
 export const ContainerHypotheis = styled.div<VariantColorStyle>`
     width: 100%;
     display: flex;
-    /* align-items: center; */
     justify-content: space-between;
     font-family: PT Sans;
     font-size: 14px;
     border-radius: 8px;
-    min-height: 52px;
 
     ${({ type, variant }) => {
         const backgroundColor = backgroundColors[variant][type];
@@ -70,7 +70,7 @@ export const SplitContainerDescription = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 16px 16px 16px 0px;
+    padding: 10px 16px 10px 0px;
     gap: 16px;
     height: 100%;
     width: 100%;
@@ -99,7 +99,7 @@ export const Description = styled.span<{ type: string, variant: string }>`
     flex-grow: 1;
     flex-wrap: wrap;
     align-items: center;
-    padding: 0px 16px 0px 16px;
+    padding: 6px 16px 6px 16px;
 
     ${({ type, variant }) => {
         const border = separatorColors[variant][type];

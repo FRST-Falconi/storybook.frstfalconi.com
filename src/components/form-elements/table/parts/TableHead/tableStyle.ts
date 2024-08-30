@@ -20,6 +20,7 @@ export const THColumnTitleItem = styled.th<ItemHeaderColumnProps>`
   width: ${({ width }) => width};
   text-align: ${({ align }) => align};
   white-space: nowrap;
+  min-height: 56px;
   
   font-family: 'PT Sans';
   font-size: 16px;
