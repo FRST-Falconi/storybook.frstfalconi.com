@@ -21857,7 +21857,7 @@ const ContainerTable = styled__default["default"].div `
   width: 100%;
   height: 100%;
   border: 1px solid ${({ theme }) => theme.colors.neutralsGrey7};
-  border-radius: 20px;
+  border-radius: 8px;
   overflow: hidden;
 `;
 const WrapperTable = styled__default["default"].div `
@@ -21899,6 +21899,7 @@ const SkeletonRow = styled__default["default"](material.Skeleton) `
 
 const THeadColumn = styled__default["default"].thead `
   width: 100%;
+  height: 56px;
 `;
 const TRowColumn = styled__default["default"].tr `
   background-color: #BEDCDC;
@@ -22273,9 +22274,7 @@ const WrapperEmptyStateCaseButton = styled__default["default"].div `
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  padding-right: 40px; 
-  padding-left: 42px;          
+  width: 100%;     
 `;
 const WrapperButtonEmpty = styled__default["default"].div `
   display: flex;
