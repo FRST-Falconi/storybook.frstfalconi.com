@@ -81,6 +81,7 @@ Default.args = {
       company_name: 'Frst Falconi',
       avatar: 'https://i.pinimg.com/474x/2b/27/2f/2b272f528c3e14054436edd0d8bd2a26.jpg'
     },
+    thread_open: true,
     id: 1,
     text: '<p>Marcando <a data-mention-id="0ceac4cb-7bc4-4ac0-a661-35cc7dfe4985" contenteditable="false" href="/profile/0ceac4cb-7bc4-4ac0-a661-35cc7dfe4985" style="font-weight: bold; color: rgb(242, 104, 24);">Alexandre Correa Da Silva</a>&nbsp;</p> <p>Marcando <a data-mention-id="00000000002031093219" contenteditable="false" href="/profile/0ceac4cb-7bc4-4ac0-a661-35cc7dfe4981" style="font-weight: bold; color: rgb(242, 104, 24);">Julia Silva</a>&nbsp;</p><p><a data-mention-id="b481bd69-81b0-4921-a13f-41d02399cb65" contenteditable="false" href="/profile/b481bd69-81b0-4921-a13f-41d02399cb65" style="font-weight: bold; color: rgb(242, 104, 24);">Nandah05 Teste05</a>&nbsp;Teste edit - 02</p>',
     howLongAgo: '18 horas atrás'
@@ -124,6 +125,5 @@ Default.args = {
   likeButtonText: 'Curtir',
   toViewText: 'Visualizar',
   answersText: 'Respostas',
-  idCommentResponse:"testeIdResposta"
-
+  idCommentResponse: 'testeIdResposta'
 }

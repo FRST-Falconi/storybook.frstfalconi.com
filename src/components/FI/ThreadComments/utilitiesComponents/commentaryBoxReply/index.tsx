@@ -36,9 +36,10 @@ export const CommentaryBoxReply = ({
   mainCommentUser,
   answersText,
   toViewText,
-  answerText
+  answerText,
+  threadOpenByDefault
 }: ICommentComentaryBoxReply) => {
-  const [showAnswers, setShowAnswers] = useState(false)
+  const [showAnswers, setShowAnswers] = useState(threadOpenByDefault)
   const [showReplyInput, setShowReplyInput] = useState(false)
 
   const handleLoadMoreReplies = () => {
