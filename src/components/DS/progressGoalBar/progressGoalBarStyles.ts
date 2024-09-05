@@ -8,7 +8,7 @@ interface ProgressBarColorProps {
 
 export const WrapperProgressGoalBar=styled.div`
     display: flex;
-    align-items: center;
+    flex-direction: column;
 `
 
 
@@ -56,12 +56,12 @@ export const CurrentIndicator = styled.div<{position: number}>`
     z-index: 2;
 `;
 
-export const EndIndicator = styled.div<{position: number}>`
+export const EndIndicator = styled.div<{position: number, isGoalReached: boolean}>`
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: #757575;
-    border: 3px solid #9C9C9C;
+    background: ${({ isGoalReached }) => isGoalReached ? '#F18624' : '#757575'};
+    border: ${({ isGoalReached }) => isGoalReached ? '3px solid #FFA24C' : '3px solid #9C9C9C'};
     color: #FFF;
     display: flex;
     align-items: center;
@@ -70,7 +70,7 @@ export const EndIndicator = styled.div<{position: number}>`
     font-weight: bold;
     position: relative;
     /* left: calc(346px - 50px); */
-    left: calc(${({ position }) => position}% - 50px);
+    left: calc(${({ position }) => position}% - 52px);
     z-index: 2;
 `;
 
@@ -85,3 +85,12 @@ export const ProgressBarColor= styled.div<ProgressBarColorProps>`
     top: 0;
     z-index: 1;
 `;
+
+export const TextUP = styled.div`
+    font-size: 14px;
+    font-family: 'Work Sans';
+    font-style: italic;
+    font-weight: 500;
+    color: #444444;
+    margin-bottom: 24px;
+`
