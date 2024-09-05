@@ -28,8 +28,8 @@ export const StartIndicator = styled.div<{position: number}>`
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: #FF6F61;
-    border: 3px solid #FFF;
+    background: #8D8E96;
+    border: 3px solid #BFBFC4       ;
     color: #FFF;
     display: flex;
     align-items: center;
@@ -46,12 +46,13 @@ export const StartIndicator = styled.div<{position: number}>`
 export const CurrentIndicator = styled.div<{position: number}>`
     width: 26px;
     height: 26px;
+    display: flex;
     border-radius: 50%;
-    background: #FF6F61;
-    border: 3px solid #FFF;
+    background: #EB903D;
+    border: 3px solid #F0B37D;
     position: absolute;
     top: -5px;
-    left: calc(${({ position }) => position}% - 10px);
+    left: calc(${({ position }) => position}% - 16px);
     z-index: 2;
 `;
 
@@ -59,8 +60,8 @@ export const EndIndicator = styled.div<{position: number}>`
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: #8D8E96;
-    border: 3px solid #FFF;
+    background: #757575;
+    border: 3px solid #9C9C9C;
     color: #FFF;
     display: flex;
     align-items: center;
@@ -76,7 +77,7 @@ export const EndIndicator = styled.div<{position: number}>`
 
 export const ProgressBarColor= styled.div<ProgressBarColorProps>`
     height: 100%;
-    background-color: #007BFF; 
+    background: linear-gradient(90deg, rgba(161,162,171,1) 4%, rgba(251,141,40,1) 80%);
     border-radius: 50px;
     width: ${({ width }) => width}%;
     position: absolute;
