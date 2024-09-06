@@ -182,7 +182,7 @@ export const ThreadComments = ({
                   toViewText={toViewText}
                   answersText={answersText}
                   answerText={answerText}
-                  threadOpenByDefault={!!replyComment?.thread_open}
+                  threadOpenByDefault={!!threadOpenByDefault}
                 />
               </div>
             ))}
