@@ -1,25 +1,16 @@
 import { ExclamationIcon, GoalIcon, LocalizationIcon } from '@shared/icons'
 import * as Styles from './progressGoalBarStyles'
+import { useProgressGoalBar } from './useProgressGoalBar'
 
 export const ProgressGoalBar = () => {
-    // dados mockados que supostamente virao do backend
-    const inicio: number = 0
-    const meta: number = 100
-    const atual: number = 100
-
-    const isGoalReached = atual === meta
-
-    // Cálculo do progresso
-    // const progressPercentage = Math.round(((atual - inicio) / (meta - inicio)) * 100)
-
-    // Definindo a mensagem de progresso
-    const progressMessage = isGoalReached ? (
-        'Este resultado atingiu a meta definida! 🎉'
-    ) : (
-        <div>
-            Este <strong>resultado evoluiu</strong> e <strong>não atingiu</strong> a meta definida
-        </div>
-    )
+    const {
+        progressMessage,
+        progressPercentage,
+        isGoalReached,
+        currentIndicatorPosition,
+        startIndicatorPosition,
+        endIndicatorPosition
+    } = useProgressGoalBar()
 
     return (
         <Styles.WrapperProgressGoalBar>
@@ -28,21 +19,24 @@ export const ProgressGoalBar = () => {
 
             {/* Barra de progresso */}
             <Styles.ProgressGoalBarContainer>
-                <Styles.StartIndicator position={inicio}>
+                <Styles.StartIndicator position={startIndicatorPosition}>
                     <LocalizationIcon />
                 </Styles.StartIndicator>
+
                 {/* posicao relativa */}
-                {atual !== meta && (
-                    <Styles.CurrentIndicator position={atual}>
+                {!isGoalReached && (
+                    <Styles.CurrentIndicator position={currentIndicatorPosition}>
                         <ExclamationIcon />
                     </Styles.CurrentIndicator>
                 )}
+
                 {/* altura 100% largura percentual*/}
-                <Styles.EndIndicator position={meta} isGoalReached={isGoalReached}>
+                <Styles.EndIndicator position={endIndicatorPosition} isGoalReached={isGoalReached}>
                     <GoalIcon />
                 </Styles.EndIndicator>
+
                 {/*  posicao relativa */}
-                <Styles.ProgressBarColor width={atual}></Styles.ProgressBarColor>
+                <Styles.ProgressBarColor width={progressPercentage}></Styles.ProgressBarColor>
             </Styles.ProgressGoalBarContainer>
         </Styles.WrapperProgressGoalBar>
     )

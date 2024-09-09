@@ -52,7 +52,7 @@ export const CurrentIndicator = styled.div<{position: number}>`
     border: 3px solid #F0B37D;
     position: absolute;
     top: -5px;
-    left: calc(${({ position }) => position}% - 16px);
+    left: calc(${({ position }) => position}% ${({ position }) => position && '- 16px'});
     z-index: 2;
 `;
 
