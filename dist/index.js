@@ -22364,7 +22364,10 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
                 jsxRuntime.jsx("p", { style: { color: '#222', textAlign: columns?.[1]?.alignContent }, children: item.value[1] }),
                 jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),
                 jsxRuntime.jsx(TableBody, { status: item?.value?.[3], label: labelStatus?.[item?.value?.[3]] }),
-                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { enable: item?.enableButtonInbox, onClick: () => item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {}, children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
+                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { enable: item?.enableButtonInbox, onClick: (e) => {
+                            e?.stopPropagation();
+                            return item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {};
+                        }, children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
             ],
             showButtonExpanded: item.showButtonExpanded,
             children: item.children

@@ -97,7 +97,10 @@ export default function TableActions({
           <WrapperCellButtonInbox>
             <ButtonActionInbox
               enable={item?.enableButtonInbox}
-              onClick={() => item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {}}
+              onClick={(e) => {
+                e?.stopPropagation()
+                return item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {}
+              }}
             >
               <BallonChatgRondedTips />
             </ButtonActionInbox>
