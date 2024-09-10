@@ -1,81 +1,103 @@
-import { useMemo } from "react";
+import { useMemo } from 'react'
 
-export const useProgressGoalBar = () => {
-    // dados mockados que supostamente virao do backend
-    const inicio: number = 20
-    const meta: number = 60
-    const atual: number = 120
-    const isGoalReached = atual === meta
+function calculatePercentageRelativeToRange(start: number, middle: number, end: number): number {
+    return ((middle - start) / (end - start)) * 100
+}
+
+export const useProgressGoalBar = ({ start, current, goal }) => {
+    const startValue = start < goal ? start : goal
+    const endValue = start > goal ? start : goal
+    const currentValue = current
+
+    const isGoalReached = currentValue === goal
+    const isGoalExceeded = start < goal && currentValue > goal || start > goal && currentValue < goal
+    const isNOGoalWarning = currentValue === startValue || currentValue < startValue
+
     // Cálculo do progresso
-    const progressPercentage = Math.min(((atual - inicio) / (meta - inicio)) * 100, 100); // Garantindo que não passe de 100%
+    const progressPercentage = useMemo(() => {
+        let percentage: number
+
+        if (start < goal) {
+            percentage = ((currentValue - start) / (goal - start)) * 100
+        } else {
+            percentage = ((start - currentValue) / (start - goal)) * 100
+        }
+
+        return Math.min(Math.max(Math.abs(percentage), 0), 100)
+    }, [currentValue, start, goal])
 
     // Definindo a mensagem de progresso
     const progressMessage = useMemo(() => {
-        if (atual > meta) {
-            // Superou a meta, independentemente de ser para aumentar ou diminuir
+        if (currentValue === goal) {
+            // Atingiu a meta, independentemente de ser para aumentar ou diminuir
+            return 'Este resultado atingiu a meta definida! 🎉'
+        } else if (isGoalExceeded) {
+            // Superou a endValue, independentemente de ser para aumentar ou diminuir
             return (
                 <div>
                     Este resultado <strong>superou a meta</strong> definida! 🎉
                 </div>
-            );
-        } else if (isGoalReached) {
-            // Atingiu a meta, independentemente de ser para aumentar ou diminuir
-            return 'Este resultado atingiu a meta definida! 🎉';
-        } else if (atual < inicio) {
+            )
+        } else if (currentValue < startValue) {
             // Caso o valor esteja abaixo do início, significa que regrediu
             return (
                 <div>
-                    Este resultado <strong>não atingiu</strong> a meta definida e <strong>regrediu</strong> em relação ao valor inicial.
+                    Este resultado <strong>não atingiu</strong> a meta definida e <strong>regrediu</strong> em relação
+                    ao valor inicial.
                 </div>
-            );
-        } else if (atual === inicio) {
+            )
+        } else if (currentValue === startValue) {
             // Não houve progresso em relação ao valor inicial
             return (
                 <div>
                     Este desafio <strong>não obteve resultados</strong> e <strong>não atingiu</strong> a meta definida.
                 </div>
-            );
+            )
         } else {
             // Evoluiu, mas ainda não atingiu a meta
             return (
                 <div>
                     Este <strong>resultado evoluiu</strong>, mas <strong>não atingiu</strong> a meta definida.
                 </div>
-            );
+            )
         }
-    }, [atual, inicio, meta, isGoalReached]);
-
-
-
-    function calculatePercentageRelativeToRange(start: number, middle: number, end: number): number {
-        if (start === end) {
-            throw new Error('The start and end values must be different.');
-        }
-        if (middle < start || middle > end) {
-            throw new Error('The middle value must be within the range defined by start and end.');
-        }
-
-        return ((middle - start) / (end - start)) * 100;
-    }
+    }, [currentValue, startValue, endValue, goal])
 
     const startIndicatorPosition = useMemo(() => {
-        if (atual < inicio) return calculatePercentageRelativeToRange(atual, inicio, meta)
+        if (goal > start && currentValue < startValue)
+            return calculatePercentageRelativeToRange(currentValue, start, endValue)
+        if (goal < start && currentValue > startValue)
+            return calculatePercentageRelativeToRange(start, currentValue, goal)
         return 0
-    }, [inicio, atual])
+    }, [startValue, currentValue, endValue])
 
     const currentIndicatorPosition = useMemo(() => {
-        if (atual < inicio) return 0
-        if (atual > meta) return 100
-        return calculatePercentageRelativeToRange(inicio, atual, meta)
-    }, [inicio, atual])
+        if (goal > start && currentValue < startValue) return 0
+        if (goal > start && currentValue > endValue) return 100
+        if (goal < start && currentValue < startValue) return 100
+        if (goal < start && currentValue > endValue) return 0
+        return calculatePercentageRelativeToRange(start, currentValue, goal)
+    }, [startValue, currentValue, endValue])
 
     const endIndicatorPosition = useMemo(() => {
-        if (atual > meta) return calculatePercentageRelativeToRange(inicio,  meta, atual)
+        if (goal > start && currentValue > endValue)
+            return calculatePercentageRelativeToRange(startValue, endValue, currentValue)
+        if (goal < start && currentValue < endValue)
+            return calculatePercentageRelativeToRange(start, goal, currentValue)
         return 100
-    }, [inicio, atual])
+    }, [endValue, currentValue])
 
     return {
-        calculatePercentageRelativeToRange, progressMessage, progressPercentage, atual, meta,
-        isGoalReached, startIndicatorPosition, currentIndicatorPosition, endIndicatorPosition
+        calculatePercentageRelativeToRange,
+        progressMessage,
+        progressPercentage,
+        currentValue,
+        endValue,
+        isGoalReached,
+        startIndicatorPosition,
+        currentIndicatorPosition,
+        endIndicatorPosition,
+        isGoalExceeded,
+        isNOGoalWarning
     }
 }

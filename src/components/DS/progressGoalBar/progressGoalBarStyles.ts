@@ -39,29 +39,50 @@ export const StartIndicator = styled.div<{position: number}>`
     position: relative;
     left: -13px;
     left: ${({ position }) => position}%;
-
     z-index: 2;
 `;
 
-export const CurrentIndicator = styled.div<{position: number}>`
+export const CurrentIndicator = styled.div<{position: number, status: 'normal' | 'exceeded' | 'warning'}>`
     width: 26px;
     height: 26px;
     display: flex;
     border-radius: 50%;
-    background: #EB903D;
-    border: 3px solid #F0B37D;
+    align-items: center;
+    justify-content: center;
+    background: ${({ status }) => {
+        switch (status) {
+            case 'exceeded':
+                return '#FDB437'; // Cor para quando a meta é excedida
+            case 'warning':
+                return '#C03535'; // Cor não saiu do lugar ou diminuiu o atual
+            case 'normal':
+            default:
+                return '#EB903D'; // Cor padrão
+        }
+    }};
+    border: ${({ status }) => {
+        switch (status) {
+            case 'exceeded':
+                return '3px solid #FED182'; // Borda para quando a meta é excedida
+            case 'warning':
+                return '3px solid #E25454'; // Cor não saiu do lugar ou diminuiu o atual
+            case 'normal':
+            default:
+                return '3px solid #F0B37D'; // Borda padrão
+        }
+    }};
     position: absolute;
     top: -5px;
     left: calc(${({ position }) => position}% ${({ position }) => position && '- 16px'});
     z-index: 2;
 `;
 
-export const EndIndicator = styled.div<{position: number, isGoalReached: boolean}>`
+export const EndIndicator = styled.div<{position: number, isGoalReached: boolean, isGoalExceeded: boolean}>`
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    background: ${({ isGoalReached }) => isGoalReached ? '#F18624' : '#757575'};
-    border: ${({ isGoalReached }) => isGoalReached ? '3px solid #FFA24C' : '3px solid #9C9C9C'};
+    background: ${({ isGoalReached, isGoalExceeded }) => isGoalReached || isGoalExceeded ? '#F18624' : '#757575'};
+    border: ${({ isGoalReached, isGoalExceeded }) => isGoalReached || isGoalExceeded ? '3px solid #FFA24C' : '3px solid #9C9C9C'};
     color: #FFF;
     display: flex;
     align-items: center;
@@ -94,3 +115,14 @@ export const TextUP = styled.div`
     color: #444444;
     margin-bottom: 24px;
 `
+
+export const IndicatorText = styled.div<{position: number}>`
+    position: absolute;
+    top: 100%; /* Ajuste conforme necessário */
+    left: ${props => props.position}%; /* Posiciona o texto com base na posição do indicador */
+    transform: translateX(-50%); /* Centraliza o texto horizontalmente */
+    margin-top: 8px; /* Espaço entre o indicador e o texto */
+    font-size: 12px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    white-space: nowrap; /* Impede quebra de linha */
+`;
