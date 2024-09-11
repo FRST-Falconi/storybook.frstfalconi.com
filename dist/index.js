@@ -12983,51 +12983,52 @@ function DropdownProfileMenu({ variant, user, menuItems, profileMenuText, isMobi
 }
 
 const notificationContainer$1 = styled__default["default"].div `
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 375px;
-    height: auto;
-    padding: 16px;
-    gap: 16px;
-    cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 375px;
+  height: auto;
+  padding: 16px;
+  gap: 16px;
+  cursor: pointer;
 `;
 const notificationInfo = styled__default["default"].div `
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 `;
 const notificationDescription = styled__default["default"].div `
-    font-family: 'PT Sans';
-    font-size: 16px;
-    font-weight: 400;
+  font-family: 'PT Sans';
+  font-size: 16px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.selectItens};
+  a {
     color: ${({ theme }) => theme.colors.selectItens};
-     a {
-        color: ${({ theme }) => theme.colors.selectItens};
-        text-decoration: none;
-    }
+    text-decoration: none;
+    pointer-events: none;
+  }
 `;
 const notificationDate = styled__default["default"].div `
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
 
-    font-family: 'PT Sans';
-    font-size: 14px;
-    font-weight: 400;
-    color: ${({ theme }) => theme.colors.neutralsGrey5};
+  font-family: 'PT Sans';
+  font-size: 14px;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.neutralsGrey5};
 `;
 styled__default["default"].div `
-    display: none;
-    position: absolute;
-    border: 1px solid black;
-    background-color: #fff;
-    padding: 10px;
-    z-index: 1000;
+  display: none;
+  position: absolute;
+  border: 1px solid black;
+  background-color: #fff;
+  padding: 10px;
+  z-index: 1000;
 `;
 const pulseAnimation$1 = styled.keyframes `
   0% {
@@ -13041,25 +13042,25 @@ const pulseAnimation$1 = styled.keyframes `
   }
 `;
 const TrashIconContainer = styled__default["default"].div `
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    padding: 5px;
-    margin-left: auto;
-    margin-top: auto;
-    border-radius: 50%;
-    &:hover {
-        background-color:${({ isNewNotification }) => isNewNotification ? '#585858' : '#494949'};
-        & > svg {
-            path {
-        fill: #F7F9FC!important;
-        }
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: auto;
+  margin-top: auto;
+  border-radius: 50%;
+  &:hover {
+    background-color: ${({ isNewNotification }) => (isNewNotification ? '#585858' : '#494949')};
+    & > svg {
+      path {
+        fill: #f7f9fc !important;
+      }
     }
-    }
-    &:active {
-        background-color:${({ isNewNotification }) => isNewNotification ? '#686868' : '#595959'};
-        animation: ${pulseAnimation$1} 0.3s ease-in-out;
-    }
+  }
+  &:active {
+    background-color: ${({ isNewNotification }) => (isNewNotification ? '#686868' : '#595959')};
+    animation: ${pulseAnimation$1} 0.3s ease-in-out;
+  }
 `;
 
 const Divider = ({ fill = '#757575' }) => {
@@ -22363,7 +22364,10 @@ function TableActions({ columns, data, isLoading, lengthElSkeleton = 3, onPressA
                 jsxRuntime.jsx("p", { style: { color: '#222', textAlign: columns?.[1]?.alignContent }, children: item.value[1] }),
                 jsxRuntime.jsx(DateLimit, { date: item?.value?.[2], status: item?.value?.[3] }),
                 jsxRuntime.jsx(TableBody, { status: item?.value?.[3], label: labelStatus?.[item?.value?.[3]] }),
-                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { enable: item?.enableButtonInbox, onClick: () => item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {}, children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
+                item?.actionButtonInbox ? (jsxRuntime.jsx(WrapperCellButtonInbox, { children: jsxRuntime.jsx(ButtonActionInbox, { enable: item?.enableButtonInbox, onClick: (e) => {
+                            e?.stopPropagation();
+                            return item?.enableButtonInbox ? item?.actionButtonInbox?.(item?.value?.[0]?.id) : {};
+                        }, children: jsxRuntime.jsx(BallonChatgRondedTips, {}) }) })) : (jsxRuntime.jsx(jsxRuntime.Fragment, {}))
             ],
             showButtonExpanded: item.showButtonExpanded,
             children: item.children
